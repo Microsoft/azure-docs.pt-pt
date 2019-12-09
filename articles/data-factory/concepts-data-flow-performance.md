@@ -1,17 +1,18 @@
 ---
-title: Mapeando o guia de desempenho e ajuste do fluxo de dados no Azure Data Factory
+title: Guia de desempenho e ajuste do fluxo de dados de mapeamento
 description: Saiba mais sobre os principais fatores que afetam o desempenho do mapeamento de fluxos de dados em Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671579"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928538"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -72,7 +73,7 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 
 Para evitar o processamento de linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para o BD SQL do Azure e coletores do Azure SQL DW. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho fornecido.
 
-![Coletar](media/data-flow/sink4.png "Sink")
+![sink](media/data-flow/sink4.png "Sink")
 
 ### <a name="partitioning-on-sink"></a>Particionamento no coletor
 

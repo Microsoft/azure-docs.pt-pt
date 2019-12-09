@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305284"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926753"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM Linux com o agente InfluxData Telegraf
 
@@ -29,7 +29,7 @@ Usando Azure Monitor, você pode coletar métricas personalizadas por meio de su
 
 Para este tutorial, implantamos uma VM do Linux que executa o sistema operacional Ubuntu 16, 4 LTS. O agente Telegraf tem suporte para a maioria dos sistemas operacionais Linux. Os pacotes Debian e RPM estão disponíveis juntamente com os binários do Linux não empacotados no [portal de download do InfluxData](https://portal.influxdata.com/downloads). Consulte este [Guia de instalação do Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) para obter instruções e opções adicionais de instalação. 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Criar uma nova VM do Linux: 
 

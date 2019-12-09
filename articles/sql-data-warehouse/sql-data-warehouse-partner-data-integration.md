@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d71c4ee7c5d982708c8a3b0a79b453d7196ad02d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890098"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923617"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar sua solução de data warehouse, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de integração de dados oficiais que dão suporte ao Azure SQL Data Warehouse.
@@ -37,7 +37,7 @@ Para criar sua solução de data warehouse, escolha entre uma ampla variedade de
 | ![SnapLogic][6] |**SnapLogic**<br>A plataforma SnapLogic permite que os clientes transfiram dados rapidamente para dentro e fora do SQL Data Warehouse do Microsoft Azure. Ele oferece a capacidade de integrar centenas de aplicativos, serviços e cenários de IoT em uma solução.|[Página do produto][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][16] |**StreamSets**<br>O StreamSets fornece uma plataforma de integração de dados para o DataOps. Ele operationalizes o ciclo de vida completo de design-implantação e operação de integração de dados no Azure SQL Data Warehouse. Você não pode apenas ingerir e integrar dados de e para o depósito rapidamente, por meio de métodos de distribuição de dados de transmissão, lote ou dados alterados, mas também garantir operações contínuas com pipelines de dados inteligentes que fornecem visibilidade de fluxo de dados de ponta a ponta e resiliência.|[Página do produto][streamsets_website]|
 | ![Talend][12] |**Nuvem Talend**<br>O Talend Cloud é uma plataforma de integração de dados empresariais para conectar, acessar e transformar quaisquer dados na nuvem ou localmente. É uma oferta de iPaaS (plataforma como serviço) de integração que fornece ampla conectividade, qualidade de dados interna e suporte nativo para as últimas tecnologias de Big Data e nuvem. |[Página do produto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Timextender][13] |**Timextender**<br>O Hub de descoberta do timextender ajuda as empresas a criar um estado de dados moderno, fornecendo uma plataforma de gerenciamento de dados integrada que acelera o tempo de insights de dados em até 10 vezes. Indo além de extração, transformação e carregamento (ETL) ou extração, carregamento e transformação (ELT), fornecendo automação e recursos para acesso a dados, modelagem de dados e conformidade em uma única plataforma. O Hub de descoberta fornece uma malha de dados coesa para análise de escala de nuvem, permitindo que você se conecte e integre vários silos de dados, catálogo, modelo, movimentação e dados de documentos para análise e ia. | [Página do produto][timextender_website] |
+| ![Timextender][13] |**Timextender**<br>O Hub de descoberta do timextender ajuda as empresas a criar um estado de dados moderno, fornecendo uma plataforma de gerenciamento de dados integrada que acelera o tempo de insights de dados em até 10 vezes. Indo além de extração, transformação e carregamento (ETL) ou extração, carregamento e transformação (ELT), fornecendo automação e recursos para acesso a dados, modelagem de dados e conformidade em uma única plataforma. O Hub de descoberta fornece uma malha de dados coesa para análise de escala de nuvem, permitindo que você se conecte e integre vários silos de dados, catálogo, modelo, movimentação e dados de documentos para análise e ia. | [Página do produto][timextender_website]<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta][14] |**Trifator Wrangler**<br> Trifator ajuda indivíduos e organizações a explorar e unir diversos dados para análise. Trifator Wrangler foi projetado para lidar com cargas de trabalho de Wrangling de dados que precisam dar suporte a dados em escala e um grande número de usuários finais.|[Página do produto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][15] |**WhereScape vermelho**<br> WhereScape RED é um IDE que fornece às equipes ferramentas de automação para simplificar fluxos de trabalho ETL. O IDE fornece uma prática recomendada, código nativo otimizado para destinos de dados populares. Use WhereScape RED para reduzir o tempo para desenvolver, implantar e operar sua infraestrutura de dados.|[Página do produto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 

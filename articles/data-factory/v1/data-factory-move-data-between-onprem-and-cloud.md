@@ -4,21 +4,20 @@ description: Configure um gateway de dados para mover dados entre o local e a nu
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682482"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931911"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com Gerenciamento de Dados gateway
 > [!NOTE]
@@ -148,7 +147,7 @@ Nesta etapa, você usa o portal do Azure para criar uma instância de Azure Data
    * Use a seção **testar conexão** para uma fonte de dados local usando o gateway.
    * Clique em **Exibir logs** para ver o log do gerenciamento de dados gateway em uma janela Visualizador de eventos.
    * Clique em **enviar logs** para carregar um arquivo zip com logs dos últimos sete dias para a Microsoft para facilitar a solução de problemas.
-10. Na guia **diagnóstico** , na seção **testar conexão** , selecione **SqlServer** para o tipo de armazenamento de dados, insira o nome do servidor de banco de dados, o nome do banco de dado, especifique o tipo de autenticação, insira o nome de usuário e a senha e clique em **Teste** para testar se o gateway pode se conectar ao banco de dados.
+10. Na guia **diagnóstico** , na seção **testar conexão** , selecione **SqlServer** para o tipo de armazenamento de dados, insira o nome do servidor de banco de dados, o nome do banco de dado, especifique o tipo de autenticação, insira o nome de usuário e a senha e clique em **testar** para testar se o gateway pode se conectar ao banco de dados.
 11. Alterne para o navegador da Web e, na **portal do Azure**, clique em **OK** na página **Configurar** e, em seguida, na página **novo gateway de dados** .
 12. Você deve ver **adftutorialgateway** em **gateways de dados** no modo de exibição de árvore à esquerda.  Se você clicar nele, deverá ver o JSON associado.
 
@@ -409,7 +408,7 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 8. adicional Clique em **pipelines**, clique em **ADFTutorialOnPremDF**e faça drill-through de tabelas de entrada (**consumidas**) ou conjuntos de dados de saída (**produzidos**).
 9. Use ferramentas como [o Microsoft Gerenciador de armazenamento](https://storageexplorer.com/) para verificar se um blob/arquivo é criado para cada hora.
 
-   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador do Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte o artigo [Gerenciamento de dados gateway](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o gateway de gerenciamento de dados.

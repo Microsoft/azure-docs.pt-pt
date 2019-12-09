@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do MySQL usando Azure Data Factor
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4a7b42b51f49ab0c11aa8af3af6495c60907d230
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666100"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928099"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -51,7 +50,7 @@ Para Gerenciamento de Dados gateway para se conectar ao banco de dados MySQL, vo
 Você pode criar um pipeline com uma atividade de cópia que move dados de um armazenamento de dados Cassandra local usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados. 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -63,26 +62,26 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para um repositório de dados MySQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do MySQL.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome do banco de dados MySQL. |Sim |
 | schema |Nome do esquema no banco de dados. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| Usu |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
+| userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
 | palavra-passe |Especifique a senha da conta de usuário que você especificou. |Sim |
 | gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, BLOB do Azure, tabela do Azure, etc.).
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties para o conjunto de um do tipo **RelationalTable** (que inclui o conjunto de uma série MySQL) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do banco de dados MySQL à qual o serviço vinculado se refere. |Não (se a **consulta** de **RelationalSource** for especificada) |
 
@@ -93,7 +92,7 @@ Enquanto que as propriedades disponíveis na seção **typeproperties** da ativi
 
 Quando a origem na atividade de cópia é do tipo **RelationalSource** (que inclui o MySQL), as seguintes propriedades estão disponíveis na seção typeproperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: selecione * em MyTable. |Não (se **TableName** de **DataSet** for especificado) |
 
@@ -301,45 +300,45 @@ Ao mover dados para o MySQL, os seguintes mapeamentos são usados de tipos MySQL
 
 | Tipo de banco de dados MySQL | Tipo de .NET Framework |
 | --- | --- |
-| bigint não assinado |Vírgula |
+| bigint não assinado |Decimal |
 | bigint |Int64 |
-| parte |Vírgula |
-| blob |Byte [] |
+| bit |Decimal |
+| blob |Byte[] |
 | booleano |Booleano |
-| º |String |
-| date |Horário |
-| datetime |Horário |
-| decimal |Vírgula |
-| precisão dupla |Clique |
-| double |Clique |
-| enumera |String |
+| char |String |
+| date |DateTime |
+| datetime |DateTime |
+| decimal |Decimal |
+| precisão dupla |Double |
+| double |Double |
+| Enum |String |
 | float |Único |
 | int não assinado |Int64 |
 | int |Int32 |
 | inteiro não assinado |Int64 |
 | número inteiro |Int32 |
-| varbinary longo |Byte [] |
+| varbinary longo |Byte[] |
 | varchar longo |String |
-| longblob |Byte [] |
-| LONGTEXT |String |
-| mediumblob |Byte [] |
+| longblob |Byte[] |
+| longtext |String |
+| mediumblob |Byte[] |
 | MEDIUMINT não assinado |Int64 |
 | mediumint |Int32 |
 | mediumtext |String |
-| numeric |Vírgula |
-| foto |Clique |
+| numeric |Decimal |
+| real |Double |
 | set |String |
 | smallint não assinado |Int32 |
 | smallint |Int16 |
 | texto |String |
-| hora |Período |
-| carimbo de data/hora |Horário |
-| tinyblob |Byte [] |
+| hora |TimeSpan |
+| carimbo de data/hora |DateTime |
+| tinyblob |Byte[] |
 | tinyint não assinado |Int16 |
 | tinyint |Int16 |
 | tinytext |String |
 | varchar |String |
-| ano |inteiro |
+| ano |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas do coletor
 Para saber mais sobre como mapear colunas no conjunto de informações de origem para colunas no conjunto de informações do coletor, confira [mapeando colunas Azure data Factory do conjunto de](data-factory-map-columns.md)informações

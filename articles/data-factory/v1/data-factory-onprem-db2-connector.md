@@ -4,21 +4,20 @@ description: Saiba como mover dados de um banco de dado DB2 local usando Azure D
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666592"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931794"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando Azure Data Factory atividade de cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -79,34 +78,34 @@ As seções a seguir fornecem detalhes sobre as propriedades JSON que são usada
 ## <a name="db2-linked-service-properties"></a>Propriedades do serviço vinculado do DB2
 A tabela a seguir lista as propriedades JSON que são específicas para um serviço vinculado do DB2.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
 | **servidor** |O nome do servidor DB2. |Sim |
-| **banco** |O nome do banco de dados DB2. |Sim |
-| **esquema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
+| **database** |O nome do banco de dados DB2. |Sim |
+| **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
 | **authenticationType** |O tipo de autenticação usado para se conectar ao banco de dados DB2. Os valores possíveis são: Anonymous, Basic e Windows. |Sim |
-| **usu** |O nome da conta de usuário se você usar a autenticação básica ou do Windows. |Não |
-| **la** |A senha da conta de usuário. |Não |
+| **username** |O nome da conta de usuário se você usar a autenticação básica ou do Windows. |Não |
+| **password** |A senha da conta de usuário. |Não |
 | **gatewayName** |O nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados DB2 local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista das seções e propriedades que estão disponíveis para definir conjuntos de os, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções, como **estrutura**, **disponibilidade**e a **política** de um conjunto de dados JSON, são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure e assim por diante).
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** para um conjunto de um DataSet do tipo **RelationalTable**, que inclui o conjunto de um DB2, tem a seguinte propriedade:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela na instância do banco de dados DB2 à qual o serviço vinculado se refere. Essa propriedade diferencia maiúsculas de minúsculas. |Não (se a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 Para obter uma lista das seções e propriedades que estão disponíveis para definir atividades de cópia, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . As propriedades da atividade de cópia, como **nome**, **Descrição**, tabela de **entradas** , tabela de **saídas** e **política**, estão disponíveis para todos os tipos de atividades. As propriedades que estão disponíveis na seção **typeproperties** da atividade variam para cada tipo de atividade. Para a atividade de cópia, as propriedades variam de acordo com os tipos de fontes de dados e coletores.
 
 Para a atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui DB2), as seguintes propriedades estão disponíveis na seção **typeproperties** :
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| **consultá** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
+| **query** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
 
 > [!NOTE]
 > Os nomes de esquema e tabela diferenciam maiúsculas de minúsculas. Na instrução de consulta, coloque os nomes de propriedade usando "" (aspas duplas).
@@ -312,42 +311,42 @@ Os seguintes mapeamentos são usados quando a atividade de cópia converte os da
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Único |
-| Clique |Clique |
-| Barra |Clique |
-| Vírgula |Vírgula |
-| DecimalFloat |Vírgula |
-| numeric |Vírgula |
+| Double |Double |
+| Flutuante |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Numérico |Decimal |
 | Date |DateTime |
-| Hora |Período |
+| Tempo |TimeSpan |
 | Carimbo de data/hora |DateTime |
-| XML |Byte [] |
-| º |String |
+| Xml |Byte[] |
+| char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
-| binário |Byte [] |
-| VarBinary |Byte [] |
-| LongVarBinary |Byte [] |
-| Gráfico |String |
+| Binary |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
+| Graphic |String |
 | VarGraphic |String |
 | LongVarGraphic |String |
-| CLOB |String |
-| Blobs |Byte [] |
+| Clob |String |
+| Blob |Byte[] |
 | DbClob |String |
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Único |
-| Clique |Clique |
-| Barra |Clique |
-| Vírgula |Vírgula |
-| DecimalFloat |Vírgula |
-| numeric |Vírgula |
+| Double |Double |
+| Flutuante |Double |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Numérico |Decimal |
 | Date |DateTime |
-| Hora |Período |
+| Tempo |TimeSpan |
 | Carimbo de data/hora |DateTime |
-| XML |Byte [] |
-| º |String |
+| Xml |Byte[] |
+| char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas do coletor
 Para saber como mapear colunas no conjunto de informações de origem para colunas no conjunto de informações do coletor, consulte [mapeando colunas do conjunto de informações no Azure data Factory](data-factory-map-columns.md).

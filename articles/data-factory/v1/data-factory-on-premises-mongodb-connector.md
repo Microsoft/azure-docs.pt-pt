@@ -1,26 +1,23 @@
 ---
-title: Mover dados do MongoDB usando o Data Factory
+title: Mover dados do MongoDB
 description: Saiba mais sobre como mover dados do banco de dados MongoDB usando Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
+ms.author: jingwang
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: jingwang
-robots: noindex
-ms.openlocfilehash: 6f982928e706b442229cc249c17c3f7aabe1f60a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666644"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928115"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](data-factory-on-premises-mongodb-connector.md)
 > * [Versão 2 (versão atual)](../connector-mongodb.md)
@@ -49,7 +46,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de um ar
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -61,10 +58,10 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para a origem do MongoDB:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **OnPremisesMongoDb** |Sim |
 | servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
@@ -72,17 +69,17 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | authenticationType |Básico ou anônimo. |Sim |
 | o nome de utilizador |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
 | palavra-passe |A palavra-passe do utilizador. |Sim (se a autenticação básica for usada). |
-| AuthName |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
-| NomeDoBancoDeDados |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
+| authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Opcional (se a autenticação básica for usada). padrão: usa a conta de administrador e o banco de dados especificado usando a propriedade databaseName. |
+| databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
 | gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
 | encryptedCredential |Credencial criptografada pelo Gateway. |Opcional |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, BLOB do Azure, tabela do Azure, etc.).
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties para o conjunto de um do tipo **mongodbcollection** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
@@ -93,7 +90,7 @@ As propriedades disponíveis na seção **typeproperties** da atividade, por out
 
 Quando a origem for do tipo **MongoDB** , as seguintes propriedades estarão disponíveis na seção typeproperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL-92. Por exemplo: selecione * em MyTable. |Não (se **CollectionName** de **DataSet** for especificado) |
 
@@ -282,7 +279,7 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 ```
 
 
-## <a name="schema-by-data-factory"></a>Esquema por Data Factory
+## <a name="schema-by-data-factory"></a>Esquema pelo Data Factory
 Azure Data Factory Service infere o esquema de uma coleção do MongoDB usando os últimos 100 documentos na coleção. Se esses 100 documentos não contiverem esquema completo, algumas colunas poderão ser ignoradas durante a operação de cópia.
 
 ## <a name="type-mapping-for-mongodb"></a>Mapeamento de tipo para MongoDB
@@ -295,15 +292,15 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos são usados de tipos do 
 
 | Tipo do MongoDB | Tipo de .NET Framework |
 | --- | --- |
-| binário |Byte [] |
+| Binary |Byte[] |
 | Booleano |Booleano |
 | Date |DateTime |
-| NumberDouble |Clique |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
 | String |String |
-| PERSONALIZADO |GUID |
+| UUID |GUID |
 | Object |Renormalizado para colunas achatadas com "_" como separador aninhado |
 
 > [!NOTE]
@@ -324,10 +321,10 @@ Você pode usar o [Assistente de cópia](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "Exemplotable" abaixo é uma tabela do MongoDB que tem uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| _id | Nome do cliente | Faturas | Nível de Serviço | As |
+| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123", item: "torradeira", Price: "456", Discount: "0.2"}, {invoice_id: "124", item: "forno", Price: "1235", Discount: "0,2"}] |Silver |[5, 6] |
-| 2222 |XYZ |[{invoice_id: "135", item: "geladeira", preço: "12543", desconto: "0,0"}] |Gold |[1, 2] |
+| 1111 |ABC |[{invoice_id: "123", item: "torradeira", Price: "456", Discount: "0.2"}, {invoice_id: "124", item: "forno", Price: "1235", Discount: "0,2"}] |Silver |[5,6] |
+| 2222 |XYZ |[{invoice_id: "135", item: "geladeira", preço: "12543", desconto: "0,0"}] |Gold |[1,2] |
 
 O driver geraria várias tabelas virtuais para representar essa única tabela. A primeira tabela virtual é a tabela base chamada "ExampleTable", mostrada abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e expandidos nas tabelas virtuais.
 
@@ -346,9 +343,9 @@ Tabela "ExampleTable_Invoices":
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0,2 |
-| 1111 |1 |124 |forno |1235 |0,2 |
-| 2222 |0 |135 |geladeira |12543 |0,0 |
+| 1111 |0 |123 |torradeira |456 |0.2 |
+| 1111 |1 |124 |forno |1235 |0.2 |
+| 2222 |0 |135 |geladeira |12543 |0.0 |
 
 Tabela "ExampleTable_Ratings":
 
@@ -368,5 +365,5 @@ Ao copiar dados de armazenamentos de dados relacionais, tenha em mente a capacid
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
 Consulte [Guia de ajuste do desempenho de atividade de cópia &](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (atividade de cópia) no Azure data Factory e várias maneiras de otimizá-lo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Confira o artigo [mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo para criar um pipeline de dados que move dados de um armazenamento de dados local para um armazenamento de dados do Azure.

@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035921"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929996"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: criar e usar um par de chaves SSH pública-privada para VMs do Linux no Azure
 
@@ -38,10 +38,10 @@ Para obter outras maneiras de gerar e usar chaves SSH em um computador Windows, 
 
 Use o comando `ssh-keygen` para gerar arquivos de chave pública e privada SSH. Por padrão, esses arquivos são criados no diretório ~/.ssh Você pode especificar um local diferente e uma senha (*frase secreta*) opcional para acessar o arquivo de chave privada. Se um par de chaves SSH com o mesmo nome existir no local especificado, esses arquivos serão substituídos.
 
-O comando a seguir cria um par de chaves SSH usando a criptografia RSA e um comprimento de bit de 2048:
+O comando a seguir cria um par de chaves SSH usando a criptografia RSA e um comprimento de bit de 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Se você usar o [CLI do Azure](/cli/azure) para criar sua VM com o comando [AZ VM Create](/cli/azure/vm#az-vm-create) , você poderá, opcionalmente, gerar arquivos de chave pública e privada SSH usando a opção `--generate-ssh-keys`. Os arquivos de chave são armazenados no diretório ~/.ssh, a menos que especificado de outra forma com a opção `--ssh-dest-key-path`. A opção `--generate-ssh-keys` não substituirá os arquivos de chave existentes, em vez disso, retornando um erro. No comando a seguir, substitua *VMname* e *RGname* pelos seus próprios valores:

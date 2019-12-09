@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e5603405ad5594b06674aaf6cbb2c4d23b754c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b872cc30ae66e83274f189138dad6d609e3f536
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682777"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927057"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com Azure Data Factory assistente de cópia
 > [!NOTE]
@@ -54,7 +53,7 @@ O assistente de cópia mapeia automaticamente as colunas no esquema de origem pa
 
 ![Mapeamento de esquema](./media/data-factory-copy-wizard/schema-mapping.png)
 
-## <a name="filtering-data"></a>Filtrando dados
+## <a name="filtering-data"></a>Filtrar dados
 O assistente permite que você filtre os dados de origem para selecionar apenas os dados que precisam ser copiados para o armazenamento de dados de destino/coletor. A filtragem reduz o volume dos dados a serem copiados para o armazenamento de dados do coletor e, portanto, melhora a taxa de transferência da operação de cópia. Ele fornece uma maneira flexível de filtrar dados em um banco de dado relacional usando arquivos de linguagem de consulta SQL (ou) em uma pasta de blob do Azure usando [funções e variáveis do data Factory](data-factory-functions-variables.md).   
 
 ### <a name="filtering-of-data-in-a-database"></a>Filtragem de dados em um banco de dado

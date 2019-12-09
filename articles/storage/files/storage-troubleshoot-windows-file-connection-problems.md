@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560138"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927858"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de arquivos do Azure no Windows
 
@@ -97,8 +97,7 @@ Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
 Sincronização de Arquivos do Azure pode transformar seu Windows Server local em um cache rápido do seu compartilhamento de arquivos do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Sincronização de Arquivos do Azure funciona na porta 443 e, portanto, pode ser usado como uma solução alternativa para acessar os arquivos do Azure de clientes que têm a porta 445 bloqueada. [Saiba como configurar o sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Solução 2 – usar VPN
-Ao configurar uma VPN para sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à Internet. Siga as [instruções para configurar a VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) para acessar os arquivos do Azure do Windows.
+Ao configurar uma VPN para sua conta de armazenamento específica, o tráfego passará por um túnel seguro em oposição à Internet. Siga as [instruções para configurar a VPN](storage-files-configure-p2s-vpn-windows.md) para acessar os arquivos do Azure do Windows.
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução 3-desbloquear a porta 445 com a ajuda do seu ISP/administrador de ti
 Trabalhe com seu departamento de ti ou ISP para abrir a porta 445 de saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -267,13 +266,13 @@ Quando um arquivo é copiado pela rede, o arquivo é descriptografado no computa
 Esse problema pode ocorrer se você estiver usando o Encrypting File System (EFS). Os arquivos criptografados pelo BitLocker podem ser copiados para os arquivos do Azure. No entanto, os arquivos do Azure não dão suporte ao EFS do NTFS.
 
 ### <a name="workaround"></a>Solução
-Para copiar um arquivo pela rede, primeiro você deve descriptografá-lo. Use um dos seguintes métodos:
+Para copiar um arquivo pela rede, primeiro você deve descriptografá-lo. Utilize um dos métodos seguintes:
 
 - Use o comando **Copy/d** . Ele permite que os arquivos criptografados sejam salvos como arquivos descriptografados no destino.
 - Defina a seguinte chave do registro:
   - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor = DWORD
-  - Nome = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Valor = 1
 
 Lembre-se de que a configuração da chave do registro afeta todas as operações de cópia feitas aos compartilhamentos de rede.

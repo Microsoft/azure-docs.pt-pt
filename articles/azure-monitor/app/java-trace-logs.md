@@ -1,5 +1,5 @@
 ---
-title: Explore os logs de rastreamento do Java no Aplicativo Azure insights | Microsoft Docs
+title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784600"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927232"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou v 2.0) para rastreamento, você pode fazer com que seus logs de rastreamento sejam enviados automaticamente para Application Insights onde você pode explorar e Pesquisar neles.
@@ -77,7 +77,7 @@ Em seguida, atualize as dependências do projeto para que os binários sejam bai
     </dependencies>
 ```
 
-*Log4J v 2.0*
+*Log4J v2.0*
 
 ```XML
 
@@ -90,7 +90,7 @@ Em seguida, atualize as dependências do projeto para que os binários sejam bai
     </dependencies>
 ```
 
-*Log4J v 1.2*
+*Log4J v1.2*
 
 ```XML
 
@@ -115,13 +115,13 @@ Em seguida, atualize as dependências do projeto para que os binários sejam bai
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.0.+'
 ```
 
-**Log4J v 2.0**
+**Log4J v2.0**
 
 ```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '2.0.+'
 ```
 
-**Log4J v 1.2**
+**Log4J v1.2**
 
 ```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
@@ -132,9 +132,9 @@ Siga as diretrizes para instalar manualmente Application Insights SDK do Java, b
 
 | Digita | Transferir | Biblioteca |
 | --- | --- | --- |
-| Logback |[Jar do appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-Logging-logback |
-| Log4J v 2.0 |[Jar do appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-Logging-log4j2 |
-| Log4J v 1.2 |[Jar do appender do Log4J v 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-log-log4j1_2 |
+| Logback |[Jar do appender Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Jar do appender Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Jar do appender do Log4J v 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
 ### <a name="add-the-appender-to-your-logging-framework"></a>Adicionar o acrescentador à sua estrutura de log
@@ -153,7 +153,7 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante para o
     </root>
 ```
 
-*Log4J v 2.0*
+*Log4J v2.0*
 
 ```XML
 
@@ -169,7 +169,7 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante para o
     </Configuration>
 ```
 
-*Log4J v 1.2*
+*Log4J v1.2*
 
 ```XML
 

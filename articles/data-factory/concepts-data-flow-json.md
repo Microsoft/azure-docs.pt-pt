@@ -1,18 +1,19 @@
 ---
-title: Usando JSON no fluxo de dados de mapeamento no Azure Data Factory
+title: JSON no fluxo de dados de mapeamento
 description: O fluxo de dados de mapeamento de Azure Data Factory tem recursos internos para lidar com documentos JSON com hierarquias
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387351"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928334"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapeando manipulação de JSON de fluxo de dados
 
@@ -86,7 +87,7 @@ Se essa expressão foi inserida para uma coluna chamada "complexColumn", ela ser
 
 O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** .  
 
-![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
+![Configurações de JSON](media/data-flow/json-settings.png "Definições de JSON")
 
 ### <a name="default"></a>Predefinição
 
@@ -161,7 +162,7 @@ Selecione **aspas simples** se as barras invertidas forem usadas para escapar ca
 
 Uma função de ordem superior é uma função que usa uma ou mais funções como um argumento. Veja abaixo uma lista de funções de ordem superior com suporte no mapeamento de fluxos de dados que habilitam operações de matriz.
 
-### <a name="filter"></a>Sem
+### <a name="filter"></a>filter
 Filtra elementos da matriz que não atendem ao predicado fornecido. O filtro espera uma referência a um elemento na função de predicado como #item.
 
 #### <a name="examples"></a>Exemplos
@@ -189,7 +190,7 @@ reduce(['1', '2', '3', '4'], '0', #acc + #item, #result) => '01234'
 reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) => 25
 ```
 
-### <a name="sort"></a>Organizar
+### <a name="sort"></a>ordenar
 Classifica a matriz usando a função de predicado fornecida. Sort espera uma referência a dois elementos consecutivos na função Expression como #item1 e #item2.
 
 #### <a name="examples"></a>Exemplos
@@ -201,7 +202,7 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-### <a name="contains"></a>terá
+### <a name="contains"></a>Contém
 Retornará true se qualquer elemento na matriz fornecida for avaliado como true no predicado fornecido. Contains espera uma referência a um elemento na função de predicado como #item.
 
 #### <a name="examples"></a>Exemplos

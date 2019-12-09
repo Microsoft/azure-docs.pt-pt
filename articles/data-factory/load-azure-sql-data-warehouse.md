@@ -1,22 +1,22 @@
 ---
-title: Carregar dados no Azure SQL Data Warehouse usando Azure Data Factory
+title: Carregar dados para o Azure SQL Data Warehouse
 description: Usar Azure Data Factory para copiar dados para o Azure SQL Data Warehouse
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672754"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931516"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregar dados no Azure SQL Data Warehouse usando Azure Data Factory
 
@@ -64,7 +64,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
    
    ![Home page da fábrica de dados](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
-   Selecione o bloco **criar & monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
+   Selecione o mosaico **Criar e Monitorizar** para iniciar a Aplicação de Integração de Dados num separador à parte.
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>Carregar dados para o Azure SQL Data Warehouse
 
@@ -85,7 +85,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
     ![Selecionar BD SQL do Azure](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e selecione **concluir**.
+    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **Testar ligação** para validar as definições e, em seguida, selecione **Concluir**.
    
     ![Configurar BD SQL do Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -107,7 +107,7 @@ Este artigo mostra como usar a ferramenta de Copiar Dados de Data Factory para _
 
     ![Selecione Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **testar conexão** para validar as configurações e selecione **concluir**.
+    c. Na página **novo serviço vinculado** , selecione o nome do servidor e o nome do BD na lista suspensa e especifique o nome de usuário e a senha. Clique em **Testar ligação** para validar as definições e, em seguida, selecione **Concluir**.
    
     ![Configurar o SQL DW do Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

@@ -9,17 +9,16 @@ editor: ''
 ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5a254979e345ae07bef5c8e79006bd0aaa0bf7df
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0255787ac90e63aff02ea65912ffa37c8ecc09fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682803"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929738"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: copiar dados do armazenamento de BLOBs para o banco de dado SQL usando Data Factory
 > [!div class="op_single_selector"]
@@ -36,7 +35,7 @@ ms.locfileid: "73682803"
 
 Neste tutorial, você cria um data factory com um pipeline para copiar dados do armazenamento de BLOBs para o banco de dados SQL.
 
-A Atividade de Cópia executa o movimento de dados no Azure Data Factory. Utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e escalável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.  
+A Atividade de Cópia executa o movimento dos dados no Azure Data Factory. Utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e escalável. Veja o artigo [Atividades de Movimentos de Dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia.  
 
 > [!NOTE]
 > Para obter uma visão geral detalhada do serviço de Data Factory, consulte o artigo [introdução ao Azure data Factory](data-factory-introduction.md) .
@@ -63,7 +62,7 @@ Você precisa do nome da conta e da chave de conta da sua conta de armazenamento
 5. Clique no botão **copiar** (imagem) ao lado da caixa de texto **nome da conta de armazenamento** e salve/Cole em algum lugar (por exemplo: em um arquivo de texto).
 6. Repita a etapa anterior para copiar ou anotar a **key1**.
 
-    ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Chave de acesso ao armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Feche todas as folhas clicando em **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Coletar nomes de usuário, banco de dados e SQL Server

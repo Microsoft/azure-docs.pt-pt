@@ -4,21 +4,20 @@ description: Saiba mais sobre o conector do Teradata para o serviço de Data Fac
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 645dcde949c8f5a6b48a5c02892d4cb2c6c5be0e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666098"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929042"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -47,7 +46,7 @@ Para Gerenciamento de Dados gateway para se conectar ao banco de dados Teradata,
 Você pode criar um pipeline com uma atividade de cópia que move dados de um armazenamento de dados Cassandra local usando diferentes ferramentas/APIs.
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados.
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -59,10 +58,10 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para um armazenamento de dados Teradata:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do Teradata.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **OnPremisesTeradata** |Sim |
 | servidor |Nome do servidor Teradata. |Sim |
@@ -71,7 +70,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | palavra-passe |Especifique a senha para a conta de usuário especificada para o nome do usuário. |Não |
 | gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados Teradata local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, BLOB do Azure, tabela do Azure, etc.).
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. No momento, não há nenhuma propriedade de tipo com suporte para o conjunto de texto Teradata.
@@ -83,7 +82,7 @@ Enquanto que as propriedades disponíveis na seção typeproperties da atividade
 
 Quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as seguintes propriedades estão disponíveis na seção **typeproperties** :
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: selecione * em MyTable. |Sim |
 
@@ -285,45 +284,45 @@ Ao mover dados para o Teradata, os seguintes mapeamentos são usados do tipo Ter
 
 | Tipo de banco de dados Teradata | Tipo de .NET Framework |
 | --- | --- |
-| º |String |
-| CLOB |String |
-| Gráfico |String |
+| char |String |
+| Clob |String |
+| Graphic |String |
 | VarChar |String |
 | VarGraphic |String |
-| Blobs |Byte [] |
-| Minuciosa |Byte [] |
-| VarByte |Byte [] |
+| Blob |Byte[] |
+| bytes |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| Vírgula |Vírgula |
-| Clique |Clique |
+| Decimal |Decimal |
+| Double |Double |
 | Número inteiro |Int32 |
-| Número |Clique |
+| Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |
-| Hora |Período |
-| Hora com fuso horário |String |
+| Tempo |TimeSpan |
+| Time With Time Zone |String |
 | Carimbo de data/hora |DateTime |
-| Carimbo de data/hora com fuso horário |DateTimeOffset |
-| Dia do intervalo |Período |
-| Intervalo de dia para hora |Período |
-| Intervalo dia a minuto |Período |
-| Intervalo dia a segundo |Período |
-| Hora do intervalo |Período |
-| Intervalo de horas a minuto |Período |
-| Intervalo de horas para segundo |Período |
-| Intervalo de minutos |Período |
-| Intervalo de minutos a segundo |Período |
-| Intervalo segundo |Período |
-| Ano de intervalo |String |
-| Intervalo de ano para mês |String |
-| Mês do intervalo |String |
+| Timestamp With Time Zone |DateTimeOffset |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
 | Período (Data) |String |
 | Período (hora) |String |
-| Período (hora com fuso horário) |String |
+| Period(Time With Time Zone) |String |
 | Período (carimbo de data/hora) |String |
-| Período (carimbo de data/hora com fuso horário) |String |
-| XML |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas do coletor
 Para saber mais sobre como mapear colunas no conjunto de informações de origem para colunas no conjunto de informações do coletor, confira [mapeando colunas Azure data Factory do conjunto de](data-factory-map-columns.md)informações

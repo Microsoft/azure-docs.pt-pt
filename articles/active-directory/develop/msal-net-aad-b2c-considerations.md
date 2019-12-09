@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C (biblioteca de autenticação da Microsoft para .NET)
+title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Azure AD B2C com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175610"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921932"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
 
@@ -129,7 +125,7 @@ Para obter mais detalhes sobre o fluxo do ROPC, consulte esta [documentação](v
 Esse fluxo **não é recomendado** porque seu aplicativo solicita a senha de um usuário não é seguro. Para obter mais informações sobre esse problema, consulte [Este artigo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
 Ao usar o nome de usuário/senha, você está dando várias coisas:
-- Principais princípios da identidade moderna: a senha é inpeixe e reproduzida. Porque temos esse conceito de um segredo de compartilhamento que pode ser interceptado. Isso é incompatível com sem senha.
+- principais princípios da identidade moderna: a senha é inpeixe e reproduzida. Porque temos esse conceito de um segredo de compartilhamento que pode ser interceptado. Isso é incompatível com sem senha.
 - Os usuários que precisam fazer a MFA não poderão entrar (como não há nenhuma interação).
 - Os usuários não poderão fazer logon único.
 
@@ -170,7 +166,7 @@ O MSAL.Net dá suporte a um [cache de token](/dotnet/api/microsoft.identity.clie
 
 Ambas as declarações estão ausentes em muitos dos cenários de Azure AD B2C. 
 
-O impacto do cliente é que, ao tentar exibir o campo username, você está obtendo "faltando na resposta do token" como o valor? Nesse caso, isso ocorre porque Azure AD B2C não retorna um valor em token para o preferred_username devido a limitações com as contas sociais e os IdPs (provedores de identidade externa). O Azure AD retorna um valor para preferred_username porque ele sabe quem é o usuário, mas por Azure AD B2C, porque o usuário pode entrar com uma conta local, Facebook, Google, GitHub etc. não há um valor consistente para Azure AD B2C usar para o preferred_username. Para desbloquear o MSAL de distribuir a compatibilidade de cache com a ADAL, decidimos usar "ausente da resposta de token" em nosso lado ao lidar com as contas de Azure AD B2C quando o token não retorna nada para preferred_username. MSAL deve retornar um valor para preferred_username para manter a compatibilidade de cache entre bibliotecas.
+O impacto do cliente é que, ao tentar exibir o campo username, você está obtendo "faltando na resposta do token" como o valor? Nesse caso, isso ocorre porque Azure AD B2C não retorna um valor no token para o preferred_username devido a limitações com as contas sociais e os IdPs (provedores de identidade externa). O Azure AD retorna um valor para preferred_username porque ele sabe quem é o usuário, mas por Azure AD B2C, porque o usuário pode entrar com uma conta local, Facebook, Google, GitHub etc. não há um valor consistente para Azure AD B2C usar para preferred_username. Para desbloquear o MSAL de distribuir a compatibilidade de cache com a ADAL, decidimos usar "ausente da resposta de token" em nosso lado ao lidar com as contas de Azure AD B2C quando o token não retorna nada para preferred_username. MSAL deve retornar um valor para preferred_username para manter a compatibilidade de cache entre bibliotecas.
 
 ### <a name="workarounds"></a>Soluções alternativas
 
@@ -189,4 +185,4 @@ Mais detalhes sobre como adquirir tokens interativamente com o MSAL.NET para apl
 
 | Exemplo | Plataforma | Descrição|
 |------ | -------- | -----------|
-|[Active-Directory-B2C-xamarin-nativo](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL.NET para autenticar usuários por meio de Azure AD B2C e acessar uma API Web com os tokens resultantes.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL.NET para autenticar usuários por meio de Azure AD B2C e acessar uma API Web com os tokens resultantes.|

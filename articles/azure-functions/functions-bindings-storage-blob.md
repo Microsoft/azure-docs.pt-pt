@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231044"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925411"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento de BLOBs do Azure para Azure Functions
 
@@ -27,15 +27,15 @@ Este artigo explica como trabalhar com associações de armazenamento de BLOBs d
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-As associações de armazenamento de BLOBs são fornecidas no pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) .
+As associações de armazenamento de BLOBs são fornecidas no pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-As associações de armazenamento de BLOBs são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) .
+As associações de armazenamento de BLOBs são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -47,11 +47,11 @@ O [gatilho de grade de eventos](functions-bindings-event-grid.md) tem suporte in
 
 Use a grade de eventos em vez do gatilho do armazenamento de BLOBs para os seguintes cenários:
 
-* Contas do Blob Storage
+* Contas de armazenamento de Blobs
 * Alta escala
 * Minimizando a latência
 
-### <a name="blob-storage-accounts"></a>Contas do Blob Storage
+### <a name="blob-storage-accounts"></a>Contas de armazenamento de Blobs
 
 [As contas de armazenamento de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts) têm suporte para associações de entrada e saída de BLOB, mas não para gatilhos de BLOB. Os gatilhos do armazenamento de BLOBs exigem uma conta de armazenamento de uso geral.
 
@@ -89,7 +89,7 @@ Para obter mais informações sobre o atributo `BlobTrigger`, consulte [gatilho-
 
 O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e um código que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)de `samples-workitems`.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -136,7 +136,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 
 O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e [código JavaScript](functions-reference-node.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no contêiner de `samples-workitems`.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -170,7 +170,7 @@ module.exports = function(context) {
 
 O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e [código Python](functions-reference-python.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)de `samples-workitems`.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -207,7 +207,7 @@ def main(myblob: func.InputStream):
 
 O exemplo a seguir mostra uma associação de gatilho de BLOB em um arquivo *Function. JSON* e [código Java](functions-reference-java.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no contêiner de `myblob`.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -294,10 +294,10 @@ Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use os segui
 
 A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
-* A propriedade `Connection` do atributo de `BlobTrigger`.
-* O atributo `StorageAccount` aplicado ao mesmo parâmetro que o atributo `BlobTrigger`.
-* O atributo `StorageAccount` aplicado à função.
-* O atributo `StorageAccount` aplicado à classe.
+* O `BlobTrigger` do atributo `Connection` propriedade.
+* O `StorageAccount` atributo aplicado para o mesmo parâmetro como o `BlobTrigger` atributo.
+* O `StorageAccount` atributo aplicado à função.
+* O `StorageAccount` aplicado à classe de atributo.
 * A conta de armazenamento padrão para o aplicativo de funções (configuração de aplicativo "AzureWebJobsStorage").
 
 # <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
@@ -320,15 +320,15 @@ O atributo `@BlobTrigger` é usado para fornecer acesso ao blob que disparou a f
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `BlobTrigger`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `BlobTrigger` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `blobTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
-|**direção** | n/d | Deve ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. As exceções são indicadas na seção [uso](#trigger---usage) . |
-|**nomes** | n/d | O nome da variável que representa o blob no código de função. |
-|**Multi-Path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) a ser monitorado.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). |
-|**conexão** | **Conexão** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**tipo** | n/d | Tem de ser definido como `blobTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. As exceções são indicadas na seção [uso](#trigger---usage) . |
+|**name** | n/d | O nome da variável que representa o blob no código de função. |
+|**path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) a ser monitorado.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). |
+|**ligação** | **ligação** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -529,7 +529,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -578,7 +578,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -628,7 +628,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Este é o código Python:
 
@@ -733,7 +733,7 @@ public static void Run(
 }
 ```
 
-Você pode usar o atributo `StorageAccount` para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Trigger-Attributes](#trigger---attributes).
+Você pode usar o atributo `StorageAccount` para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attributes).
 
 # <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
@@ -755,15 +755,15 @@ O atributo `@BlobInput` fornece acesso ao blob que disparou a função. Se você
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `Blob`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `Blob` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `blob`. |
-|**direção** | n/d | Deve ser definido como `in`. As exceções são indicadas na seção [uso](#input---usage) . |
-|**nomes** | n/d | O nome da variável que representa o blob no código de função.|
-|**Multi-Path** |**BlobPath** | O caminho para o blob. |
-|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento somente blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**tipo** | n/d | Tem de ser definido como `blob`. |
+|**direção** | n/d | Tem de ser definido como `in`. As exceções são indicadas na seção [uso](#input---usage) . |
+|**name** | n/d | O nome da variável que representa o blob no código de função.|
+|**path** |**BlobPath** | O caminho para o blob. |
+|**ligação** |**ligação**| O nome de uma configuração de aplicativo que contém a [cadeia de conexão de armazenamento](../storage/common/storage-configure-connection-string.md) a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento somente blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/d | **Acesso** | Indica se você estará lendo ou gravando. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -885,7 +885,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -934,7 +934,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -984,7 +984,7 @@ No arquivo *Function. JSON* , a propriedade de metadados `queueTrigger` é usada
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Este é o código Python:
 
@@ -1118,19 +1118,19 @@ O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se voc�
 
 Para obter um exemplo completo, consulte [exemplo de saída](#output---example).
 
-Você pode usar o atributo `StorageAccount` para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Trigger-Attributes](#trigger---attributes).
+Você pode usar o atributo `StorageAccount` para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `Blob`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `Blob` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `blob`. |
+|**tipo** | n/d | Tem de ser definido como `blob`. |
 |**direção** | n/d | Deve ser definido como `out` para uma associação de saída. As exceções são indicadas na seção [uso](#output---usage) . |
-|**nomes** | n/d | O nome da variável que representa o blob no código de função.  Defina como `$return` para referenciar o valor de retorno da função.|
-|**Multi-Path** |**BlobPath** | O caminho para o contêiner de BLOB. |
-|**conexão** |**Conexão**| O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento somente blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**name** | n/d | O nome da variável que representa o blob no código de função.  Defina como `$return` para referenciar o valor de retorno da função.|
+|**path** |**BlobPath** | O caminho para o contêiner de BLOB. |
+|**ligação** |**ligação**| O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser para uma conta de armazenamento de uso geral, não para uma [conta de armazenamento somente blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/d | **Acesso** | Indica se você estará lendo ou gravando. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1174,7 +1174,7 @@ O atributo `@BlobOutput` fornece acesso ao blob que disparou a função. Se voc�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+* [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

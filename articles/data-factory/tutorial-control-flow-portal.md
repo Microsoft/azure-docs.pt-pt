@@ -1,24 +1,25 @@
 ---
-title: 'Ramificação no pipeline Azure Data Factory '
+title: Ramificação e encadeamento de atividades em um pipeline usando portal do Azure
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: aada9d02c624785750c3064b7ca31a863d4080c1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683827"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926787"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
+
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
 Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
@@ -271,7 +272,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 23. Arraste o botão **vermelho** junto à atividade Copy para a segunda atividade Web **SendFailureEmailActivity**. Pode mover as atividades de forma a que o aspeto do pipeline seja parecido com a imagem abaixo: 
 
     ![Pipeline completo com todas as atividades](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Para validar o pipeline, clique no botão **Validar**, na barra de ferramentas. Clique no botão **para fechar a janela >>Saída da Validação do Pipeline**.
+24. Para validar o pipeline, clique no botão **Validar**, na barra de ferramentas. Clique no botão **>>** para fechar a janela **Saída da Validação do Pipeline**.
 
     ![Validar o pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Para publicar entidades (conjuntos de dados, pipelines, etc.) no serviço Data Factory, selecione **Publicar Tudo**. Aguarde até ver a mensagem **Publicação com êxito**.

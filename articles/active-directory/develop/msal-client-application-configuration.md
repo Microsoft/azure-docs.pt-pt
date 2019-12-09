@@ -1,29 +1,25 @@
 ---
-title: Configuração de aplicativo cliente (biblioteca de autenticação da Microsoft)
+title: Configuração de aplicativo cliente (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre as opções de configuração para clientes públicos e aplicativos cliente confidenciais na MSAL (biblioteca de autenticação da Microsoft).
+description: Saiba mais sobre as opções de configuração para clientes públicos e aplicativos cliente confidenciais usando a MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9a18f1ab5b86cbdb74a61a9520e89ecf920478
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f3fd70757fe5ce8761fd3444f3f0dd31e2bfcc3b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803182"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917068"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -36,7 +32,7 @@ No seu código, você inicializa um novo aplicativo cliente público ou confiden
     - [Segredo do cliente](#client-secret) (para aplicativos cliente confidenciais).
 - [Opções de log](#logging), incluindo nível de log, controle de dados pessoais e o nome do componente usando a biblioteca.
 
-## <a name="authority"></a>Autoridades
+## <a name="authority"></a>Autoridade
 
 A autoridade é uma URL que indica um diretório do qual MSAL pode solicitar tokens. As autoridades comuns são:
 
@@ -104,7 +100,7 @@ Atualmente, a única maneira de obter um aplicativo para conectar usuários com 
 
 A ID do cliente é a ID exclusiva do aplicativo (cliente) atribuída ao seu aplicativo pelo Azure AD quando o aplicativo foi registrado.
 
-## <a name="redirect-uri"></a>URI de redirecionamento
+## <a name="redirect-uri"></a>URI de Redirecionamento
 
 O URI de redirecionamento é o URI para o qual o provedor de identidade enviará os tokens de segurança.
 
@@ -113,7 +109,7 @@ O URI de redirecionamento é o URI para o qual o provedor de identidade enviará
 Se você for um desenvolvedor de aplicativo cliente público que está usando o MSAL:
 - Você desejaria usar `.WithDefaultRedirectUri()` em aplicativos da área de trabalho ou UWP (MSAL.NET 4.1 +). Esse método definirá a propriedade URI de redirecionamento do aplicativo cliente público para o URI de redirecionamento recomendado padrão para aplicativos cliente públicos. 
 
-  Plataforma  | URI de redirecionamento  
+  Plataforma  | URI de Redirecionamento  
   ---------  | --------------
   Aplicativo de desktop (FW .NET) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
   UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Isso habilita o SSO com o navegador definindo o valor como o resultado de WebAuthenticationBroker. GetCurrentApplicationCallbackUri () que você precisa registrar
@@ -127,7 +123,7 @@ Se você for um desenvolvedor de aplicativo cliente público que está usando o 
 
 Você pode substituir o URI de redirecionamento usando a propriedade `RedirectUri` (por exemplo, se você usar agentes). Aqui estão alguns exemplos de URIs de redirecionamento para esse cenário:
 
-- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.Client.Sample";
+- `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
 - `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Para obter detalhes adicionais do iOS, consulte [migrar aplicativos Ios que usam Microsoft Authenticator de Adal.net para MSAL.net](msal-net-migration-ios-broker.md) e [aproveitando o agente no Ios](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).

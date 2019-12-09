@@ -4,20 +4,19 @@ description: Saiba como mover dados de uma fonte HTTP local ou na nuvem usando A
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4133393b7b21394ea397598a5e1651ee370f92f0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682518"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924185"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma origem HTTP usando Azure Data Factory
 
@@ -47,11 +46,11 @@ Você pode criar um pipeline que tenha uma atividade de cópia para mover dados 
 
 - Você também pode usar as seguintes ferramentas para criar um pipeline: o **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Para obter instruções detalhadas sobre como criar um pipeline com uma atividade de cópia, consulte o tutorial de atividade de [cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para exemplos de JSON que copiam dados de uma origem HTTP para o armazenamento de BLOBs do Azure, consulte [exemplos de JSON](#json-examples).
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 A tabela a seguir descreve os elementos JSON que são específicos para o serviço vinculado de HTTP:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo | A propriedade **Type** deve ser definida como **http**. | Sim |
 | url | A URL base para o servidor Web. | Sim |
@@ -66,9 +65,9 @@ Para obter detalhes sobre como configurar as credenciais para uma fonte de dados
 
 Defina **authenticationType** como **Basic**, **Digest**ou **Windows**. Além das propriedades do conector HTTP genérico descritas nas seções anteriores, defina as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| Usu | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
+| userName | O nome de usuário a ser usado para acessar o ponto de extremidade HTTP. | Sim |
 | palavra-passe | A senha do usuário (**username**). | Sim |
 
 **Exemplo: usando a autenticação básica, Digest ou Windows**
@@ -94,7 +93,7 @@ Defina **authenticationType** como **Basic**, **Digest**ou **Windows**. Além da
 
 Para usar a autenticação básica, defina **authenticationType** como **ClientCertificate**. Além das propriedades do conector HTTP genérico descritas nas seções anteriores, defina as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo PFX. | Especifique **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplica-se somente quando você copia dados de uma origem HTTP local. | Especifique **embeddedCertData** ou **certThumbprint** |
@@ -150,7 +149,7 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Algumas seções de um arquivo JSON de conjunto de dados, como a estrutura, a disponibilidade e a política, são semelhantes para todos os tipos de conjunto de dados (Azure SQL Database, armazenamento de BLOBs do Azure, armazenamento de tabelas do Azure).
 
@@ -158,15 +157,15 @@ Para obter uma lista completa das seções e propriedades que estão disponívei
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de texto. A seção **typeproperties** fornece informações sobre o local dos dados no armazenamento de dados. A seção **typeproperties** para um DataSet do tipo **http** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | O **tipo** do conjunto de conjuntos deve ser definido como **http**. | Sim |
 | relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não é especificado, somente a URL especificada na definição de serviço vinculado é usada. <br><br> Para construir uma URL dinâmica, você pode usar [funções data Factory e variáveis do sistema](data-factory-functions-variables.md). Exemplo: **RelativeURL**: **$ $Text. Format ('/My/Report? month = {0: YYYY}-{0: mm} & fmt = csv ', SliceStart)** . | Não |
 | requestMethod | O método HTTP. Os valores permitidos são **Get** e **post**. | Não <br />(o padrão é **Get**) |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | O corpo da solicitação HTTP. | Não |
-| ao | Se você quiser *recuperar os dados de um ponto de extremidade http como estão* sem analisá-los, ignore a configuração de **formato** . <br><br> Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não |
-| çã | Especifique o tipo e o nível de compactação para os dados. Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**. Níveis com suporte: **ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| format | Se você quiser *recuperar os dados de um ponto de extremidade http como estão* sem analisá-los, ignore a configuração de **formato** . <br><br> Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**. Níveis com suporte: **ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 **Exemplo: usando o método GET (padrão)**
 
@@ -211,7 +210,7 @@ A seção **typeproperties** é diferente para cada tipo de conjunto de texto. A
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
 Propriedades como nome, descrição, tabelas de entrada e saída e política estão disponíveis para todos os tipos de atividades.
 
@@ -221,7 +220,7 @@ As propriedades que estão disponíveis na seção **typeproperties** da ativida
 
 Atualmente, quando a origem na atividade de cópia é do tipo **httpname** , há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. | Não<br />(valor padrão: **00:01:40**) |
 

@@ -1,18 +1,19 @@
 ---
-title: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeando a transformação da janela fluxo de dados
 description: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: 222f97afd4346b9e4980e41303aeb683f431cd68
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fa34def67d91332a00bf0ee92b365957a47f9616
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387080"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931487"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Transformação de janela de Azure Data Factory
 
@@ -28,7 +29,7 @@ Defina o particionamento de dados da coluna para a transformação da janela. O 
 ![Opções de janela](media/data-flow/windows4.png "Windows 4")
 
 ## <a name="sort"></a>Ordenar
-Outra parte da cláusula over é definir o ```Order By```. Isso definirá a ordenação de classificação de dados. Você também pode criar uma expressão para um valor de cálculo neste campo de coluna para classificação.
+Outra parte da cláusula over é definir a ```Order By```. Isso definirá a ordenação de classificação de dados. Você também pode criar uma expressão para um valor de cálculo neste campo de coluna para classificação.
 
 ![Opções de janela](media/data-flow/windows5.png "Windows 5")
 
@@ -42,7 +43,7 @@ O controle deslizante de janela tem dois valores a serem definidos: os valores a
 ## <a name="window-columns"></a>Colunas da janela
 Por fim, use o construtor de expressões para definir as agregações que você deseja usar com as janelas de dados, como classificação, contagem, mín., máx., classificação DENSa, LEAD, retardo, etc.
 
-![Opções de janela](media/data-flow/windows7.png "Windows 7")
+![Opções de janela](media/data-flow/windows7.png "windows 7")
 
 A lista completa de agregações e funções analíticas disponíveis para uso na linguagem de expressão do fluxo de dados do ADF por meio do construtor de expressões estão listadas aqui: https://aka.ms/dataflowexpressions.
 

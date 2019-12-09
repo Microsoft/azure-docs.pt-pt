@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891784"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922297"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -38,9 +38,23 @@ Transferir| [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=61
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>Status da versão
+12/6/2019: versão para download. Não disponível por meio da atualização automática.
+### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+- Atualizamos a sincronização de hash de senha para Azure AD Domain Services para considerar adequadamente o preenchimento em hashes Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do AAD para o Azure AD Domain Services.
+- Adicionamos suporte para sessões confiáveis entre o agente de autenticação e o barramento de serviço.
+- Esta versão impõe o TLS 1,2 para a comunicação entre o agente de autenticação e os serviços de nuvem.
+- Adicionamos um cache DNS para conexões WebSocket entre o agente de autenticação e os serviços de nuvem.
+- Adicionamos a capacidade de direcionar o agente específico da nuvem para testar a conectividade do agente.
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- A versão 1.4.18.0 teve um bug em que o cmdlet do PowerShell para DSSO estava usando as credenciais de logon do Windows em vez das credenciais de administrador fornecidas durante a execução do PS. Como resultado, não era possível habilitar DSSO em várias florestas por meio da interface de usuário do AADConnect. 
+- Foi feita uma correção para habilitar o DSSO simultaneamente em toda a floresta por meio da interface de usuário do AADConnect
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>Status da versão
-11/08/2019: liberado para download. Não disponível para atualização automática
+11/08/2019: liberado para download. Não disponível por meio da atualização automática.
 
 >[!IMPORTANT]
 >Devido a uma alteração de esquema interna nesta versão do Azure AD Connect, se você gerenciar as definições de configuração da relação de confiança do ADFS usando o PowerShell do MSOnline, deverá atualizar seu módulo do MSOnline PowerShell para a versão 1.1.183.57 ou superior

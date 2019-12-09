@@ -4,36 +4,35 @@ description: Saiba como copiar dados do Cassandra para armazenamentos de dados d
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 41547787a3b7add1baa05a41d6785d1cd926165d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681099"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929594"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Versão atual](connector-cassandra.md)
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de Cassandra. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de Cassandra. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector do Cassandra tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 
-Você pode copiar dados do Cassandra Database para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como fontes/coletores pela atividade de cópia, consulte a tabela [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats) .
+Você pode copiar dados do Cassandra Database para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, esse conector do Cassandra dá suporte a:
 
@@ -55,19 +54,19 @@ O Integration Runtime fornece um driver Cassandra interno, portanto, você não 
 
 As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir Data Factory entidades específicas ao conector do Cassandra.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 As propriedades a seguir têm suporte para o serviço vinculado do Cassandra:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo |A propriedade Type deve ser definida como: **Cassandra** |Sim |
-| hospedeira |Um ou mais endereços IP ou nomes de host de servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar a todos os servidores simultaneamente. |Sim |
+| anfitrião |Um ou mais endereços IP ou nomes de host de servidores Cassandra.<br/>Especifique uma lista separada por vírgulas de endereços IP ou nomes de host para se conectar a todos os servidores simultaneamente. |Sim |
 | porta |A porta TCP que o servidor Cassandra usa para escutar conexões de cliente. |Não (o padrão é 9042) |
 | authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Cassandra.<br/>Os valores permitidos são: **básico**e **anônimo**. |Sim |
 | o nome de utilizador |Especifique o nome de usuário para a conta de usuário. |Sim, se authenticationType estiver definido como básico. |
-| palavra-passe |Especifique a senha para a conta de usuário. Marque este campo como uma SecureString para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). |Sim, se authenticationType estiver definido como básico. |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usará o Azure Integration Runtime padrão. |Não |
+| palavra-passe |Especifique a senha para a conta de usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim, se authenticationType estiver definido como básico. |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
 >Atualmente, a conexão com o Cassandra usando SSL não tem suporte.
@@ -96,13 +95,13 @@ As propriedades a seguir têm suporte para o serviço vinculado do Cassandra:
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de Cassandra.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista das propriedades com suporte pelo conjunto de Cassandra.
 
-Para copiar dados do Cassandra, defina a propriedade Type do conjunto de dado como **CassandraTable**. As propriedades a seguir têm suporte:
+Para copiar dados do Cassandra, defina a propriedade Type do conjunto de dado como **CassandraTable**. São suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do conjunto de conjuntos deve ser definida como: **CassandraTable** | Sim |
 | keyspace |Nome do keyspace ou esquema no banco de dados Cassandra. |Não (se "Query" para "CassandraSource" for especificado) |
@@ -131,13 +130,13 @@ Para copiar dados do Cassandra, defina a propriedade Type do conjunto de dado co
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir atividades, consulte o artigo [pipelines](concepts-pipelines-activities.md) . Esta seção fornece uma lista das propriedades com suporte pela origem do Cassandra.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista das propriedades com suporte pela origem do Cassandra.
 
 ### <a name="cassandra-as-source"></a>Cassandra como fonte
 
-Para copiar dados do Cassandra, defina o tipo de origem na atividade de cópia como **CassandraSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
+Para copiar dados do Cassandra, defina o tipo de origem na atividade de cópia como **CassandraSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type da fonte da atividade de cópia deve ser definida como: **CassandraSource** | Sim |
 | consulta |Use a consulta personalizada para ler os dados. Consulta SQL-92 ou consulta CQL. Consulte [referência de CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao usar a consulta SQL, especifique o **nome do keyspace. nome da tabela** para representar a tabela que você deseja consultar. |Não (se "TableName" e "keyspace" no DataSet forem especificados). |
@@ -177,25 +176,25 @@ Para copiar dados do Cassandra, defina o tipo de origem na atividade de cópia c
 
 ## <a name="data-type-mapping-for-cassandra"></a>Mapeamento de tipo de dados para Cassandra
 
-Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de dados do Cassandra para Azure Data Factory tipos de dados provisórios. Consulte [mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e o esquema de origem para o coletor.
+Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de dados do Cassandra para Azure Data Factory tipos de dados provisórios. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de dados Cassandra | Tipo de dados provisório do data Factory |
+| Tipo de dados Cassandra | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | LOCALIZADOS |String |
 | BIGINT |Int64 |
-| BLOB |Byte [] |
+| BLOB |Byte[] |
 | BOOLEAN |Booleano |
-| VÍRGULA |Vírgula |
-| Clique |Clique |
-| BARRA |Único |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
+| FLOAT |Único |
 | INET |String |
 | INT |Int32 |
-| TEXTO |String |
-| ESTAMPA |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | Timeuuid |GUID |
-| PERSONALIZADO |GUID |
+| UUID |GUID |
 | VARCHAR |String |
-| VARINT |Vírgula |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Para tipos de coleção (mapa, conjunto, lista, etc.), consulte [trabalhar com tipos de coleção Cassandra usando a seção da tabela virtual](#work-with-collections-using-virtual-table) .
@@ -236,7 +235,7 @@ A tabela base contém os mesmos dados que a tabela de banco de dado original, ex
 
 As tabelas a seguir mostram as tabelas virtuais que renormalizam os dados da lista, do mapa e das colunas de cadeia de caracteres. As colunas com nomes que terminam com "_index" ou "_key" indicam a posição dos dados na lista ou no mapa original. As colunas com nomes que terminam com "_value" contêm os dados expandidos da coleção.
 
-**Tabela "ExampleTable_vt_List":**
+**Table "ExampleTable_vt_List":**
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
@@ -248,7 +247,7 @@ As tabelas a seguir mostram as tabelas virtuais que renormalizam os dados da lis
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabela "ExampleTable_vt_Map":**
+**Table "ExampleTable_vt_Map":**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
@@ -256,7 +255,7 @@ As tabelas a seguir mostram as tabelas virtuais que renormalizam os dados da lis
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-**Tabela "ExampleTable_vt_StringSet":**
+**Table "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |
@@ -271,4 +270,4 @@ As tabelas a seguir mostram as tabelas virtuais que renormalizam os dados da lis
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

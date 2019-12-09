@@ -3,19 +3,19 @@ title: Experiências de gestão entre inquilinos
 description: O gerenciamento de recursos delegado do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464029"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928012"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
 Como um provedor de serviços, você pode usar o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md) para gerenciar recursos do Azure para vários clientes de dentro de seu próprio locatário no [portal do Azure](https://portal.azure.com). A maioria das tarefas e serviços pode ser executado em recursos delegados do Azure entre locatários gerenciados. Este artigo descreve alguns dos cenários aprimorados em que o gerenciamento de recursos delegado do Azure pode ser eficaz.
 
 > [!NOTE]
-> O gerenciamento de recursos delegado do Azure também pode ser usado em uma empresa que tem vários locatários próprios para simplificar a administração entre locatários.
+> O gerenciamento de recursos delegado do Azure também pode ser usado [em uma empresa que tem vários locatários do Azure ad próprios](enterprise.md) para simplificar a administração entre locatários.
 
 ## <a name="understanding-customer-tenants"></a>Noções básicas sobre locatários do cliente
 
@@ -52,11 +52,11 @@ A maioria das tarefas e serviços pode ser executado em recursos delegados entre
 
 - Usar contas de automação para acessar e trabalhar com recursos de cliente delegados
 
-[Backup do Azure](https://docs.microsoft.com/azure/backup/):
+[Azure Backup](https://docs.microsoft.com/azure/backup/):
 
 - Fazer backup e restaurar dados do cliente em locatários do cliente
 
-[AKs (serviço kubernetes do Azure)](https://docs.microsoft.com//azure/aks/):
+[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
 
 - Gerenciar ambientes kubernetes hospedados e implantar e gerenciar aplicativos em contêineres dentro de locatários do cliente
 
@@ -116,7 +116,7 @@ A maioria das tarefas e serviços pode ser executado em recursos delegados entre
 - Acessar VMs com o console serial em locatários do cliente
 - Observe que você não pode usar Azure Active Directory para fazer logon remoto em uma VM e não pode integrar uma VM com uma Key Vault para senhas, segredos ou chaves de criptografia para criptografia de disco
 
-[Rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/):
+[Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/):
 
 - Implantar e gerenciar redes virtuais e vNICs (placas de interface de rede virtual) em locatários do cliente
 
@@ -132,7 +132,7 @@ Com todos os cenários, esteja ciente das seguintes limitações atuais:
 - No momento, não é possível carregar uma assinatura (ou grupo de recursos em uma assinatura) para o gerenciamento de recursos delegado do Azure se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft. managedservices** , você não poderá criar um espaço de trabalho do databricks para essa assinatura no momento.
 - Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegado do Azure que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) que protegem recursos gerenciados pelo sistema, como aquelas criadas por aplicativos gerenciados do Azure ou plantas do Azure (atribuições de negação atribuída pelo sistema), impedem que os usuários no locatário de gerenciamento atuem nesses recursos; no entanto, no momento, os usuários no locatário do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuída pelo usuário).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Integre seus clientes ao gerenciamento de recursos delegado do Azure, seja [usando modelos de Azure Resource Manager](../how-to/onboard-customer.md) ou [publicando uma oferta privada ou pública de serviços gerenciados para o Azure Marketplace](../how-to/publish-managed-services-offers.md).
 - [Exiba e gerencie clientes](../how-to/view-manage-customers.md) acessando **meus clientes** na portal do Azure.

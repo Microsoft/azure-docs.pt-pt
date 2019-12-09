@@ -3,21 +3,20 @@ title: Notas de lançamento do Gateway de Gestão de Dados
 description: Notas de versão do Tory gateway Gerenciamento de Dados
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682576"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924263"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
 > [!NOTE]
@@ -40,7 +39,7 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 ## <a name="earlier-versions"></a>Versões anteriores
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Aprimoramentos
-- Você pode adicionar entradas DNS ao barramento de serviço da lista de permissões em vez de colocar em lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a respectiva entrada DNS em portal do Azure (Data Factory-> ' criar e implantar '-> ' gateways '-> "perurls" (em JSON)
+- Pode adicionar entradas DNS para o barramento de serviço de lista de permissões em vez de listas de permissões de todos os endereços IP do Azure da sua firewall (se necessário). Você pode encontrar a respectiva entrada DNS em portal do Azure (Data Factory-> ' criar e implantar '-> ' gateways '-> "perurls" (em JSON)
 - O conector HDFS agora dá suporte ao certificado público autoassinado, permitindo que você ignore a validação SSL.
 - Corrigido: problema com o gateway offline durante a atualização (devido à distorção do relógio)
 
@@ -129,7 +128,7 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
     *  Você pode copiar dados de um armazenamento usando a [ferramenta de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [cópia em etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre esse recurso em geral.
 *  Você pode usar Gerenciamento de Dados gateway para entrada de dados diretamente de um banco de SQL Server local no Azure Machine Learning.
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 
     * Melhore o desempenho na exibição de esquema/visualização em relação a SQL Server na ferramenta de cópia sem código.
 
@@ -145,7 +144,7 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Caso a atualização automática falhe, o instalador do gateway tentará atualizar automaticamente três vezes no máximo.
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 
     * Melhore o desempenho para carregar grandes tabelas do servidor local no cenário de cópia sem código.
 
@@ -153,7 +152,7 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 
 *  Correções de erros
 
@@ -165,34 +164,34 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 *  Capacidade de definir a hora da agenda de atualização
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Melhorar a experiência de solução de problemas
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Suporte à fonte/coletor do HDFS local
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -209,7 +208,7 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Nome da tabela de suporte para fonte de dados ODBC para Azure Data Factory
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -230,13 +229,13 @@ Não mantemos mais as notas de versão aqui. Obtenha as notas de versão mais re
 
 *  Suporte a cinco bancos de dados relacionais para Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Suporte à compactação (gzip e deflate)
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Adicionar suporte à fonte de dados Oracle para Azure Data Factory
-*  Melhorias de desempenho
+*  Melhorias no desempenho
 *  Correções de erros
 
 ### <a name="1454921"></a>1.4.5492.1

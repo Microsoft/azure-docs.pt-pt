@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d11dc70a78fcec62032c2a6af168bd306c9d416
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227872"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931108"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
-Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Como os arquivos do Azure são totalmente gerenciados, implantá-los em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de arquivos do Azure para uso em produção em sua organização.
+[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Como os arquivos do Azure são totalmente gerenciados, implantá-los em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de arquivos do Azure para uso em produção em sua organização.
 
 ## <a name="management-concepts"></a>Conceitos de gerenciamento
 
@@ -53,7 +53,7 @@ A tabela a seguir ilustra como os usuários e aplicativos podem acessar o compar
 | Onde você está executando sua carga de trabalho? | **No Azure**: os arquivos do Azure oferecem acesso direto aos seus dados. | **No local com rede lenta**: os clientes Windows, Linux e MacOS podem montar um compartilhamento de arquivos local do Windows como um cache rápido do seu compartilhamento de arquivos do Azure. |
 | De que nível de ACLs você precisa? | Nível de compartilhamento e arquivo. | Compartilhamento, arquivo e nível de usuário. |
 
-## <a name="data-security"></a>Segurança de dados
+## <a name="data-security"></a>Segurança dos dados
 
 Os arquivos do Azure têm várias opções internas para garantir a segurança dos dados:
 
@@ -129,7 +129,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |10.240      | 10.240  | Até 30.720  | 675 | 450   |
 |33.792      | 33.792  | Até 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Até 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100,000 | Até 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100.000 | Até 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows, *F16s_v2 padrão*, conectada ao compartilhamento de arquivos Premium em SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
@@ -209,20 +209,21 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Sudeste da Austrália|LRS |
 |Canadá Central  |LRS     |
 |Leste do Canadá     |LRS     |
-|Índia Central  |LRS     |
+|Centro da Índia  |LRS     |
 |EUA Central *   |LRS     |
-|Ásia Oriental      |LRS     |
+|Este Asiático      |LRS     |
 |Leste dos EUA *        |LRS     |
 |Leste dos EUA 2 *      |LRS     |
 |França Central |LRS, ZRS|
 |Sul de França   |LRS     |
+|E.U.A. Centro-Norte |LRS     |
 |Europa do Norte   |LRS     |
 |Sul da Índia    |LRS     |
 |Sudeste Asiático |LRS, ZRS|
-|EUA Centro-Oeste|LRS     |
+|E.U.A. Centro-Oeste|LRS     |
 |Europa Ocidental *    |LRS, ZRS|
 |Oeste dos EUA *        |LRS     |
-|EUA Oeste 2      |LRS, ZRS|
+|E.U.A. Oeste 2      |LRS, ZRS|
 
 \* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
 

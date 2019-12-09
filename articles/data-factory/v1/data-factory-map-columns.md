@@ -4,20 +4,19 @@ description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 80ba7dc48da7cb5c43aae209c4e76c54948b8f88
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666791"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923875"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas do conjunto de origem para colunas do conjunto de fonte de destino
 > [!NOTE]

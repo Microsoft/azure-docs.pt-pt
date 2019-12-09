@@ -9,22 +9,21 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9421a4bbc5f05e8473d25aa63f31e9a8e23e3c98
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b4b13f8b21cfdedde93145a8e437bc2301bee460
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555201"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927096"
 ---
 # <a name="azure-data-factory-whitepapers"></a>White papers do Azure Data Factory 
 
 Os White papers permitem que você explore Azure Data Factory em um nível mais profundo. Este artigo fornece uma lista de White papers disponíveis para Azure Data Factory.
 
-| **Artigos** | **Descrição** |
+| **Documento técnico** | **Descrição** |
 | --- | --- |
 |[Azure Data Factory — integração de dados na nuvem](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-data-integration-in-the-cloud/Azure_Data_Factory_Data_Integration_in_the_Cloud.pdf) | Este documento descreve como Azure Data Factory pode permitir que você crie um data warehouse moderno, habilite a análise avançada para gerar aplicativos SaaS inteligentes e obter seus pacotes do SQL Server Integration Services para o Azure.|
 |[Migração de dados de data warehouse relacionais locais para o Azure usando Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/) | Este documento aborda a complexidade de migrar dezenas de TB de dados de data warehouse relacionais locais existentes (por exemplo, Netezza, Oracle, Teradata, SQL Server) para o Azure (por exemplo, armazenamento de BLOBs ou Azure Data Lake Storage) usando Azure Data Factory. Os desafios e as práticas recomendadas são ilustrados em relação à resiliência, desempenho, escalabilidade, gerenciamento e segurança para a jornada de ingestão de Big Data para o Azure por Azure Data Factory. |

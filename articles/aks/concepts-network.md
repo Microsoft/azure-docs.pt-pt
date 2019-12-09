@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950368"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913885"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -92,12 +92,12 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
     * Você deve gerenciar e manter manualmente as rotas definidas pelo usuário (UDRs).
     * Máximo de 400 nós por cluster.
 * **CNI do Azure**
-    * Os pods obtêm conectividade total de rede virtual e podem ser acessados diretamente de fora do cluster.
+    * Os pods obtêm conectividade total de rede virtual e podem ser diretamente acessados por meio de seu endereço IP privado de redes conectadas.
     * Requer mais espaço de endereço IP.
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Funcionalidade                                                                                   | Kubenet   | Azure CNI |
+| Capacidade                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Suportadas |
 | Conectividade de pod de Pod                                                                         | Suportadas | Suportadas |
@@ -138,7 +138,7 @@ Você também pode configurar o controlador de entrada para preservar o IP de or
 
 Um grupo de segurança de rede filtra o tráfego para VMs, como os nós AKS. À medida que você cria serviços, como um balanceador de carga, a plataforma do Azure configura automaticamente quaisquer regras de grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster AKS. Defina todas as portas e encaminhamento necessários como parte de seus manifestos do serviço kubernetes e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Você também pode usar as políticas de rede, conforme discutido na próxima seção, para aplicar automaticamente as regras de filtro de tráfego a pods.
 
-## <a name="network-policies"></a>Políticas de rede
+## <a name="network-policies"></a>Diretivas de rede
 
 Por padrão, todos os pods em um cluster AKS podem enviar e receber tráfego sem limitações. Para aumentar a segurança, talvez você queira definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente são expostos apenas aos serviços necessários de front-end, ou os componentes de banco de dados só são acessíveis para as camadas de aplicativo que se conectam a eles.
 

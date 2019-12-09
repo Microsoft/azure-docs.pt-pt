@@ -1,5 +1,5 @@
 ---
-title: Modelo de dados de telemetria do insights Aplicativo Azure-telemetria de métrica | Microsoft Docs
+title: Modelo de dados para telemetria de métrica-Aplicativo Azure insights
 description: Modelo de dados Application Insights para telemetria de métrica
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f697d7543a8551993640ef8c6d6c98fee35c0d68
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678135"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922229"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: modelo de dados de Application Insights
 

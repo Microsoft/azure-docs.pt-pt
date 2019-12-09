@@ -1,5 +1,5 @@
 ---
-title: Live Metrics Stream com métricas personalizadas e diagnósticos no Aplicativo Azure insights | Microsoft Docs
+title: Diagnosticar com informações de Aplicativo Azure de Live Metrics Stream
 description: Monitore seu aplicativo Web em tempo real com métricas personalizadas e diagnostique problemas com um feed ao vivo de falhas, rastreamentos e eventos.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575621"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927216"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar o diagnóstico de & com latência de 1 segundo
 
@@ -22,7 +22,7 @@ Investigue o coração de pulsação de seu aplicativo Web em produção em temp
 Com Live Metrics Stream, você pode:
 
 * Valide uma correção enquanto ela é liberada observando o desempenho e as contagens de falhas.
-* Assista ao efeito de cargas de teste e diagnostique problemas ao vivo. 
+* Assista ao efeito de cargas de teste e diagnostique problemas ao vivo.
 * Concentre-se em sessões de teste específicas ou filtre problemas conhecidos, selecionando e filtrando as métricas que você deseja inspecionar.
 * Obter rastreamentos de exceção conforme eles acontecem.
 * Experimente filtros para localizar os KPIs mais relevantes.
@@ -45,7 +45,7 @@ Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, A
 
 4. [Proteja o canal de controle](#secure-the-control-channel) se você puder usar dados confidenciais, como nomes de clientes em seus filtros.
 
-### <a name="no-data-check-your-server-firewall"></a>Não existem dados? Verifique o Firewall do servidor
+### <a name="no-data-check-your-server-firewall"></a>Não tem dados? Verifique o Firewall do servidor
 
 Verifique se as [portas de saída para Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores.
 
@@ -151,7 +151,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
-### <a name="azure-function-apps"></a>Aplicativos de funções do Azure
+### <a name="azure-function-apps"></a>Aplicações de Funções do Azure
 
 Para os aplicativos de funções do Azure (v2), a proteção do canal com uma chave de API pode ser realizada com uma variável de ambiente.
 
@@ -183,12 +183,12 @@ No entanto, se você reconhecer e confiar em todos os servidores conectados, pod
 
 ## <a name="supported-features-table"></a>Tabela de recursos com suporte
 
-| Idioma                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
+| Linguagem                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET                             | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +)  |
 | .NET Core (Target =. NET Framework)| Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +)  |
 | .NET Core (Target =. NET Core)     | Com suporte (V 2.4.1 +) | Suportado*          | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | **Não Suportado**    |
-| Azure Functions v2               | Suportado           | Suportado           | Suportado           | Suportado           | **Não Suportado**    |
+| Azure Functions v2               | Suportadas           | Suportadas           | Suportadas           | Suportadas           | **Não Suportado**    |
 | Java                             | Com suporte (V 2.0.0 +) | Com suporte (V 2.0.0 +) | **Não Suportado**   | **Não Suportado**   | **Não Suportado**    |
 | Node.js                          | Com suporte (V 1.3.0 +) | Com suporte (V 1.3.0 +) | **Não Suportado**   | Com suporte (V 1.3.0 +) | **Não Suportado**    |
 
@@ -204,7 +204,7 @@ Por padrão, as métricas ao vivo são desabilitadas no SDK do node. js. Para ha
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Não existem dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Verifique se [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos no firewall.
+Não tem dados? Se seu aplicativo estiver em uma rede protegida: Live Metrics Stream usa endereços IP diferentes dos outros Application Insights telemetria. Verifique se [esses endereços IP](../../azure-monitor/app/ip-addresses.md) estão abertos no firewall.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Monitorando o uso com Application Insights](../../azure-monitor/app/usage-overview.md)

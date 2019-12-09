@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231119"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928600"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de aplicativos móveis para Azure Functions 
 
 > [!NOTE]
-> As associações de aplicativos móveis do Azure só estão disponíveis para Azure Functions 1. x. Eles não têm suporte no Azure Functions 2. x.
+> As associações de aplicativos móveis do Azure só estão disponíveis para Azure Functions 1. x. Eles não têm suporte no Azure Functions 2. x e superior.
 
 Este artigo explica como trabalhar com associações de [aplicativos móveis do Azure](../app-service-mobile/app-service-mobile-value-prop.md) no Azure functions. O Azure Functions dá suporte a associações de entrada e saída para aplicativos móveis.
 
@@ -37,14 +37,14 @@ A associação de entrada dos aplicativos móveis carrega um registro de um pont
 
 Veja o exemplo de idioma específico:
 
-* [C#script (. CSX)](#input---c-script-example)
+* [Script do c# (.csx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Exemplo de C# script de entrada
 
 O exemplo a seguir mostra uma associação de entrada de aplicativos móveis em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função é disparada por uma mensagem da fila que tem um identificador de registro. A função lê o registro especificado e modifica sua propriedade `Text`.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -68,7 +68,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 ]
 }
 ```
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -89,7 +89,7 @@ public static void Run(string myQueueItem, JObject record)
 
 O exemplo a seguir mostra uma associação de entrada de aplicativos móveis em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função é disparada por uma mensagem da fila que tem um identificador de registro. A função lê o registro especificado e modifica sua propriedade `Text`.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -113,7 +113,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 ]
 }
 ```
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -132,16 +132,16 @@ Para obter informações sobre as propriedades de atributo que você pode config
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `MobileTable`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `MobileTable` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo**|| Deve ser definido como "mobiletable"|
 | **direção**||Deve ser definido como "in"|
-| **nomes**|| Nome do parâmetro de entrada na assinatura de função.|
+| **name**|| Nome do parâmetro de entrada na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
-| **sessão**| **Id** | O identificador do registro a ser recuperado. Pode ser estático ou baseado no gatilho que invoca a função. Por exemplo, se você usar um gatilho de fila para sua função, `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
-|**conexão**|**Conexão**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
+| **id**| **Id** | O identificador do registro a ser recuperado. Pode ser estático ou baseado no gatilho que invoca a função. Por exemplo, se você usar um gatilho de fila para sua função, `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
+|**ligação**|**ligação**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|O nome de uma configuração de aplicativo que tem a chave de API do aplicativo móvel. Forneça a chave de API se você [implementar uma chave de API em seu aplicativo móvel node. js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave de API em seu aplicativo móvel .net](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo em seu aplicativo de funções que contém a chave de API e, em seguida, adicione a propriedade `apiKey` em sua associação de entrada com o nome da configuração do aplicativo. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -166,7 +166,7 @@ Use a associação de saída dos aplicativos móveis para gravar um novo registr
 Veja o exemplo de idioma específico:
 
 * [C#](#output---c-example)
-* [C#script (. CSX)](#output---c-script-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo do c#
@@ -188,7 +188,7 @@ public static object Run(
 
 O exemplo a seguir mostra uma associação de saída dos aplicativos móveis em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação. A função é disparada por uma mensagem da fila e cria um novo registro com valor embutido em código para a propriedade `Text`.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -212,7 +212,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -229,7 +229,7 @@ public static void Run(string myQueueItem, out object record)
 
 O exemplo a seguir mostra uma associação de saída dos aplicativos móveis em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função é disparada por uma mensagem da fila e cria um novo registro com valor embutido em código para a propriedade `Text`.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -254,7 +254,7 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -273,7 +273,7 @@ module.exports = function (context, myQueueItem) {
 
 Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [mobiletable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) .
 
-Para obter informações sobre as propriedades de atributo que podem ser configuradas, consulte [saída-configuração](#output---configuration). Aqui está um exemplo de atributo `MobileTable` em uma assinatura de método:
+Para obter informações sobre as propriedades de atributo que podem ser configuradas, consulte [saída-configuração](#output---configuration). Aqui está um `MobileTable` exemplo de atributo numa assinatura do método:
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -286,19 +286,19 @@ public static object Run(
 }
 ```
 
-Para obter um exemplo completo, consulte [saída C# -exemplo](#output---c-example).
+Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-example).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `MobileTable`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `MobileTable` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo**|| Deve ser definido como "mobiletable"|
 | **direção**||Deve ser definido como "out"|
-| **nomes**|| Nome do parâmetro de saída na assinatura de função.|
+| **name**|| Nome do parâmetro de saída na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
-|**conexão**|**MobileAppUriSetting**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
+|**ligação**|**MobileAppUriSetting**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias em seu aplicativo móvel. Crie uma configuração de aplicativo em seu aplicativo de funções que contenha a URL do aplicativo móvel e, em seguida, especifique o nome da configuração do aplicativo na propriedade `connection` em sua associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|O nome de uma configuração de aplicativo que tem a chave de API do aplicativo móvel. Forneça a chave de API se você [implementar uma chave de API no back-end do aplicativo móvel do node. js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)ou [implementar uma chave de API no back-end do aplicativo móvel do .net](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo em seu aplicativo de funções que contém a chave de API e, em seguida, adicione a propriedade `apiKey` em sua associação de entrada com o nome da configuração do aplicativo. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -319,4 +319,4 @@ Nas funções do node. js, use `context.bindings.<name>` para acessar o registro
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

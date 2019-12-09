@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803738"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919346"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -292,16 +292,16 @@ Se a autenticação herdada for amplamente usada em seu ambiente, você deverá 
 
 ### <a name="consent-grants"></a>Concessões de consentimento
 
-Em um ataque de concessão de consentimento ilícito, o invasor cria um aplicativo registrado no Azure AD que solicita acesso a dados, como informações de contato, email ou documentos. Os usuários podem estar concedendo consentimento a aplicativos mal-intencionados por meio de ataques de phishing ou indiretamente não tendo cuidado ao serem acessados em sites mal-intencionados.
+Em um ataque de concessão de consentimento ilícito, o invasor cria um aplicativo registrado no Azure AD que solicita acesso a dados, como informações de contato, email ou documentos. Os usuários podem estar concedendo consentimento a aplicativos mal-intencionados por meio de ataques de phishing durante a aterrissagem em sites mal-intencionados.
 
-Abaixo estão as permissões que você pode querer analisar para os serviços de nuvem da Microsoft:
+Veja abaixo uma lista de aplicativos com permissões que você pode querer analisar para os serviços de nuvem da Microsoft:
 
 - Aplicativos com \*de aplicativo ou delegados. Permissões ReadWrite
 - Aplicativos com permissões delegadas podem ler, enviar ou gerenciar email em nome do usuário
 - Aplicativos que recebem o usando as seguintes permissões:
 
 | Recurso | Permissão |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | Estendi. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
 | | Mail. Read |
@@ -309,11 +309,19 @@ Abaixo estão as permissões que você pode querer analisar para os serviços de
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-Para evitar esse cenário, você deve se referir a [detectar e corrigir concessões de consentimento ilícitos no Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) para identificar e consertar quaisquer aplicativos com concessões ilícitos ou aplicativos que tenham mais concessões do que o necessário. Agendar revisões regulares de permissões de aplicativo e removê-las quando não for necessário; ou remova todo o autoatendimento e estabeleça procedimentos de governança.
+- Os aplicativos receberam a representação completa do usuário do usuário conectado. Por exemplo:
+
+|Recurso | Permissão |
+| :- | :- |
+| Azure AD Graph | Directory. AccessAsUser. All |
+| Microsoft Graph | Directory. AccessAsUser. All |
+| API REST do Azure | user_impersonation |
+
+Para evitar esse cenário, você deve se referir a [detectar e corrigir concessões de consentimento ilícitos no Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) para identificar e consertar quaisquer aplicativos com concessões ilícitos ou aplicativos que tenham mais concessões do que o necessário. Em seguida, [remova o autoatendimento completamente](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) e [estabeleça procedimentos de governança](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Por fim, agende revisões regulares de permissões de aplicativo e remova-as quando elas não forem necessárias.
 
 #### <a name="consent-grants-recommended-reading"></a>O consentimento concede a leitura recomendada
 
-- [Azure Active Directory (AD) API do Graph escopos de permissão](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Configurações de usuário e grupo
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177418"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931344"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -52,7 +52,7 @@ O TAP (ponto de acesso ao terminal) da rede virtual do Azure permite transmitir 
 - [Plataforma RSA nettestemunha®](https://www.rsa.com/azure)
 - [Vectra cognito](https://vectra.ai/microsoftazure)
 
-A imagem a seguir mostra como o toque da rede virtual funciona. Você pode adicionar uma configuração de toque em um [adaptador de rede](virtual-network-network-interface.md) que está anexado a uma máquina virtual implantada em sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorada ou uma rede [virtual emparelhada](virtual-network-peering-overview.md) . A solução do coletor para o toque da rede virtual pode ser implantada por trás de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#concepts) para alta disponibilidade. Para avaliar as opções de implantação para a solução individual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
+A imagem a seguir mostra como o toque da rede virtual funciona. Você pode adicionar uma configuração de toque em um [adaptador de rede](virtual-network-network-interface.md) que está anexado a uma máquina virtual implantada em sua rede virtual. O destino é um endereço IP de rede virtual na mesma rede virtual que a interface de rede monitorada ou uma rede [virtual emparelhada](virtual-network-peering-overview.md) . A solução do coletor para o toque da rede virtual pode ser implantada por trás de um balanceador de carga interno do Azure para alta disponibilidade. Para avaliar as opções de implantação para a solução individual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
 
 ![Como o toque da rede virtual funciona](./media/virtual-network-tap/architecture.png)
 

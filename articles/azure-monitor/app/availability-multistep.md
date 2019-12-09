@@ -1,5 +1,5 @@
 ---
-title: Monitore seu aplicativo Web com testes na Web de várias etapas e informações de Aplicativo Azure | Microsoft Docs
+title: Monitor com testes na Web de várias etapas-insights de Aplicativo Azure
 description: Configurar testes na Web de várias etapas para monitorar seus aplicativos Web com o Aplicativo Azure insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817383"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928958"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web de vários passos
 
@@ -27,7 +27,7 @@ Você pode monitorar uma sequência registrada de URLs e interações com um sit
 * Visual Studio 2017 Enterprise ou superior.
 * Ferramentas de teste de carga e desempenho na Web do Visual Studio.
 
-Para localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador do Visual Studio**  > **componentes individuais**  > **depuração e teste**  > **ferramentas de teste de carga e desempenho da Web**.
+Para localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador do Visual Studio** > **componentes individuais** > **depuração e teste** > **ferramentas de teste de carga e desempenho da Web**.
 
 ![Captura de tela da interface do usuário do instalador do Visual Studio com componentes individuais selecionados com uma caixa de seleção ao lado do item para ferramentas de teste de carga e desempenho na Web](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -43,7 +43,7 @@ Para obter orientação sobre como criar testes na Web do Visual Studio, consult
 
 ## <a name="upload-the-web-test"></a>Carregar o teste na Web
 
-1. No portal de Application Insights no painel disponibilidade, selecione **criar teste**  > **tipo de teste**  > **teste na Web de várias etapas**.
+1. No portal de Application Insights no painel disponibilidade, selecione **criar teste** > **tipo de teste** > **teste na Web de várias etapas**.
 
 2. Defina os locais de teste, a frequência e os parâmetros de alerta.
 
@@ -68,7 +68,7 @@ Para obter orientação sobre como criar testes na Web do Visual Studio, consult
 |----|----|----|
 |**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta**  = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta** = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="configuration"></a>Configuração
 
@@ -113,9 +113,9 @@ Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos d
 | URI do público | O URI do público-alvo do token SAML.  Esse é o URI para o serviço de controle de acesso (ACS) – incluindo o nome do host e o namespace do ACS. |
 | Senha do certificado | A senha para o certificado de cliente que concederá acesso à chave privada inserida. |
 | Certificado do cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
-| Identificador de nome | O identificador de nome para o token |
-| Não após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
-| Não antes de | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
+| Identificador de Nome | O identificador de nome para o token |
+| Não Após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
+| Não Antes | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
 | Nome do parâmetro de contexto de destino | O parâmetro de contexto que receberá a declaração gerada. |
 
 

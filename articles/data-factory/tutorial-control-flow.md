@@ -1,22 +1,22 @@
 ---
-title: 'Ramificação no pipeline Azure Data Factory '
+title: Ramificação no pipeline Azure Data Factory
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a7e5f56fe71c174c78f1363e403ae41a2ec90a6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683670"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926603"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -24,7 +24,7 @@ Neste tutorial, você cria um pipeline de Data Factory que apresenta alguns recu
 
 Este gráfico fornece uma visão geral do cenário:
 
-![Descrição geral](media/tutorial-control-flow/overview.png)
+![Visão geral](media/tutorial-control-flow/overview.png)
 
 Este tutorial mostra como realizar as seguintes tarefas:
 
@@ -46,7 +46,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Conta de armazenamento do Azure. Você usa o armazenamento de BLOBs como um armazenamento de dados de origem. Se você não tiver uma conta de armazenamento do Azure, consulte [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 * Gerenciador de Armazenamento do Azure. Para instalar essa ferramenta, consulte [Gerenciador de armazenamento do Azure](https://storageexplorer.com/).
-* Banco de dados SQL do Azure. Você usa o banco de dados como um armazenamento de dado de coletor. Se você não tiver um banco de dados SQL do Azure, consulte [criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md).
+* Base de Dados SQL do Azure. Você usa o banco de dados como um armazenamento de dado de coletor. Se você não tiver um banco de dados SQL do Azure, consulte [criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md).
 * Visual Studio. Este artigo usa o Visual Studio 2019.
 * SDK do .NET do Azure. Baixe e instale o [SDK do .net do Azure](https://azure.microsoft.com/downloads/).
 
@@ -63,7 +63,7 @@ Crie um aplicativo conforme descrito em [criar um aplicativo Azure Active Direct
    Tamika|Walsh
    ```
 
-1. Abra Gerenciador de Armazenamento do Azure. Expanda sua conta de armazenamento. Clique com o botão direito do mouse em **contêineres de blob** e selecione **criar contêiner de blob**.
+1. Abra Gerenciador de Armazenamento do Azure. Expanda sua conta de armazenamento. Clique com o botão direito do rato em **Contentores de Blobs** e selecione **Criar Contentor de Blobs**.
 1. Nomeie o novo contêiner *adfv2branch* e selecione **carregar** para adicionar o arquivo *Input. txt* ao contêiner.
 
 ## Criar projeto do Visual Studio<a name="create-visual-studio-project"></a>
@@ -77,7 +77,7 @@ Criar um C# aplicativo de console .net:
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 1. No **console do Gerenciador de pacotes**, execute os seguintes comandos para instalar pacotes. Consulte [pacote do NuGet Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter detalhes.
 
    ```powershell
@@ -171,7 +171,7 @@ Criar um C# aplicativo de console .net:
    }
    ```
 
-1. Adicione a seguinte linha ao método `Main` que cria uma data factory:
+1. Adicione a seguinte linha ao método de `Main` que cria uma data factory:
 
    ```csharp
    Factory df = CreateOrUpdateDataFactory(client);
@@ -195,7 +195,7 @@ Criar um C# aplicativo de console .net:
    }
    ```
 
-1. Adicione a seguinte linha ao método `Main` que cria um serviço vinculado do armazenamento do Azure:
+1. Adicione a seguinte linha ao método de `Main` que cria um serviço vinculado do armazenamento do Azure:
 
    ```csharp
    client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
@@ -270,7 +270,7 @@ Observe o uso de parâmetros para o *FolderPath*. `sourceBlobContainer` é o nom
 
 Em seu C# projeto, crie uma classe chamada `EmailRequest`. Essa classe define quais propriedades o pipeline envia na solicitação de corpo ao enviar um email. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
 
-* Mensagem. Corpo do email. Para uma cópia bem-sucedida, essa propriedade contém a quantidade de dados gravados. Para uma cópia com falha, essa propriedade contém detalhes do erro.
+* mensagem. Corpo do email. Para uma cópia bem-sucedida, essa propriedade contém a quantidade de dados gravados. Para uma cópia com falha, essa propriedade contém detalhes do erro.
 * Nome do data Factory. Nome do data factory.
 * Nome do pipeline. Nome do pipeline.
 * Distância. Parâmetro que passa. Esta propriedade especifica o recetor do e-mail.
@@ -306,7 +306,7 @@ Para acionar o envio de uma mensagem de e-mail, utilize [Logic Apps](../logic-ap
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de e-mail de êxito
 
-No [portal do Azure](https://portal.azure.com), crie um fluxo de trabalho de aplicativos lógicos chamado *CopySuccessEmail*. Defina o gatilho do fluxo de trabalho como `When an HTTP request is received`. Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
+No [portal do Azure](https://portal.azure.com), crie um fluxo de trabalho de aplicativos lógicos chamado *CopySuccessEmail*. Defina o gatilho de fluxo de trabalho como `When an HTTP request is received`. Para o acionador do pedido, preencha o `Request Body JSON Schema` com o seguinte JSON:
 
 ```json
 {
@@ -332,7 +332,7 @@ O fluxo de trabalho é semelhante ao exemplo a seguir:
 
 ![Fluxo de trabalho de e-mail de êxito](media/tutorial-control-flow/success-email-workflow-trigger.png)
 
-Esse conteúdo JSON se alinha com a classe `EmailRequest` criada na seção anterior.
+Esse conteúdo JSON se alinha com a classe `EmailRequest` que você criou na seção anterior.
 
 Adicione uma ação de `Office 365 Outlook – Send an email`. Para a ação **enviar um email** , personalize como você deseja formatar o email, usando as propriedades passadas no esquema JSON do **corpo** da solicitação. Segue-se um exemplo:
 
@@ -360,7 +360,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-Volte para seu projeto no Visual Studio. Agora, adicionaremos o código que cria um pipeline com uma atividade de cópia e a propriedade `DependsOn`. Neste tutorial, o pipeline contém uma atividade, uma atividade de cópia, que usa o conjunto de conjuntos de blob como uma origem e outro conjunto de um banco de uma como coletor. Se a atividade de cópia for bem-sucedida ou falhar, ela chamará diferentes tarefas de email.
+Volte para seu projeto no Visual Studio. Agora, adicionaremos o código que cria um pipeline com uma atividade de cópia e `DependsOn` propriedade. Neste tutorial, o pipeline contém uma atividade, uma atividade de cópia, que usa o conjunto de conjuntos de blob como uma origem e outro conjunto de um banco de uma como coletor. Se a atividade de cópia for bem-sucedida ou falhar, ela chamará diferentes tarefas de email.
 
 Neste pipeline, utiliza as seguintes funcionalidades:
 
@@ -443,7 +443,7 @@ Neste pipeline, utiliza as seguintes funcionalidades:
             }
     ```
 
-1. Adicione a seguinte linha ao método `Main` que cria o pipeline:
+1. Adicione a seguinte linha ao método de `Main` que cria o pipeline:
 
    ```csharp
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
@@ -468,7 +468,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 
 ### <a name="web-activity"></a>Atividade da Web
 
-A atividade da Web permite uma chamada para qualquer ponto de extremidade REST. Para obter mais informações sobre a atividade, consulte [atividade da Web no Azure data Factory](control-flow-web-activity.md). Esse pipeline usa uma atividade da Web para chamar o fluxo de trabalho de email dos aplicativos lógicos. Você cria duas atividades da Web: uma que chama o fluxo de trabalho `CopySuccessEmail` e outra que chama o `CopyFailWorkFlow`.
+A atividade da Web permite uma chamada para qualquer ponto de extremidade REST. Para obter mais informações sobre a atividade, consulte [atividade da Web no Azure data Factory](control-flow-web-activity.md). Esse pipeline usa uma atividade da Web para chamar o fluxo de trabalho de email dos aplicativos lógicos. Você cria duas atividades da Web: uma que chama o fluxo de trabalho de `CopySuccessEmail` e outra que chama o `CopyFailWorkFlow`.
 
 ```csharp
         new WebActivity
@@ -490,8 +490,8 @@ A atividade da Web permite uma chamada para qualquer ponto de extremidade REST. 
 
 Na propriedade `Url`, Cole os pontos de extremidade da **URL http post** dos fluxos de trabalho dos seus aplicativos lógicos. Na propriedade `Body`, passe uma instância da classe `EmailRequest`. O pedido de e-mail contém as seguintes propriedades:
 
-* Mensagem. Passa o valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de `dataWritten`. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
-* Nome do Data Factory. Passa o valor de `@{pipeline().DataFactory}` essa variável do sistema permite que você acesse o nome correspondente do data factory. Para obter uma lista de variáveis do sistema, consulte [variáveis do sistema](control-flow-system-variables.md).
+* mensagem. Passa o valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de `dataWritten`. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
+* Nome do Data Factory. Passa o valor de `@{pipeline().DataFactory}` essa variável de sistema permite que você acesse o nome de data factory correspondente. Para obter uma lista de variáveis do sistema, consulte [variáveis do sistema](control-flow-system-variables.md).
 * Nome do pipeline. Passa o valor de `@{pipeline().Pipeline}`. Essa variável de sistema permite que você acesse o nome do pipeline correspondente.
 * Distância. Passa o valor de `"@pipeline().parameters.receiver"`. Acessa os parâmetros de pipeline.
 
@@ -517,7 +517,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="main-class"></a>Classe principal
 
-O método final `Main` deve ser semelhante a este.
+O método final `Main` deve ser assim.
 
 ```csharp
 // Authenticate and create a data factory management client

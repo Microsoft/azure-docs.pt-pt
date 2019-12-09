@@ -4,21 +4,20 @@ description: Configure um gateway de dados para mover dados entre o local e a nu
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 41d8a5d3569d0b38ff569f9ccfa28a4b2af1d959
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682716"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932009"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -38,7 +37,7 @@ Você pode escalar horizontalmente um gateway de gerenciamento de dados associan
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 ### <a name="capabilities-of-data-management-gateway"></a>Recursos do gateway de gerenciamento de dados
 O gateway de gerenciamento de dados fornece os seguintes recursos:
 
@@ -263,7 +262,7 @@ Você verá a hora de atualização agendada nos seguintes locais:
 
 A guia início do Gerenciamento de Dados gateway Configuration Manager exibe a agenda de atualização e a última vez em que o gateway foi instalado/atualizado.
 
-![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
+![Atualizações agendadas](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Você pode instalar a atualização imediatamente ou aguardar até que o gateway seja atualizado automaticamente no horário agendado. Por exemplo, a imagem a seguir mostra a mensagem de notificação mostrada no Configuration Manager do gateway junto com o botão atualizar, no qual você pode clicar para instalá-lo imediatamente.
 
@@ -342,7 +341,7 @@ A página diagnóstico permite que você execute as seguintes ações:
 A página de ajuda exibe as seguintes informações:
 
 * Breve descrição do gateway
-* Número de versão
+* Número da versão
 * Links para a ajuda online, política de privacidade e contrato de licença.
 
 ## <a name="monitor-gateway-in-the-portal"></a>Monitorar o gateway no portal
@@ -383,7 +382,7 @@ Estado  | Comentários/cenários
 :------- | :------------------
 Online | Nó conectado ao serviço de Data Factory.
 Offline | O nó está offline.
-Upgrade | O nó está sendo atualizado automaticamente.
+Atualizar | O nó está sendo atualizado automaticamente.
 Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais.
 Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria.<br/><br/> Um nó pode ficar inativo quando não puder se conectar a outros nós.
 
@@ -479,7 +478,7 @@ Se você estiver procurando uma abordagem baseada em API para criptografar as cr
 
 Há mais uma abordagem para definir credenciais usando o editor de Data Factory. Se você criar um SQL Server serviço vinculado usando o editor e inserir as credenciais em texto sem formatação, as credenciais serão criptografadas usando um certificado que o serviço de Data Factory possui. Ele não usa o certificado que o gateway está configurado para usar. Embora essa abordagem possa ser um pouco mais rápida em alguns casos, ela é menos segura. Portanto, recomendamos que você siga essa abordagem apenas para fins de desenvolvimento/teste.
 
-## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlets Powershell
 Esta seção descreve como criar e registrar um gateway usando cmdlets Azure PowerShell.
 
 1. Inicie o **Azure PowerShell** no modo de administrador.

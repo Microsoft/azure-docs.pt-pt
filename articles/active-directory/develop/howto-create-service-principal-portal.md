@@ -3,26 +3,22 @@ title: Criar identidade para o aplicativo do Azure no portal
 titleSuffix: Microsoft identity platform
 description: Descreve como criar um novo aplicativo Azure Active Directory e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c883dc1f9743e4318db5fe21b0e52ea92d60dc5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473860"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917867"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 
@@ -47,9 +43,9 @@ Você criou seu aplicativo do Azure AD e a entidade de serviço.
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, veja [RBAC: funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
-Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de escopo. Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
+Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
 
 1. Na portal do Azure, selecione o nível de escopo ao qual você deseja atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, procure e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page.
 
@@ -62,12 +58,12 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
    Se você não vir a assinatura que está procurando, selecione **filtro de assinaturas globais**. Verifique se a assinatura desejada está selecionada para o Portal.
 
 1. Selecione **Controlo de acesso (IAM)** .
-1. Selecione **Adicionar atribuição de função**.
+1. Selecione **adicionar atribuição de função**.
 1. Selecione a função que você deseja atribuir ao aplicativo. Por exemplo, para permitir que o aplicativo execute ações como **reinicializar**, **Iniciar** e **parar** instâncias, selecione a função **colaborador** .  Leia mais sobre as [funções disponíveis](../../role-based-access-control/built-in-roles.md) por padrão, os aplicativos do Azure ad não são exibidos nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecione-o.
 
    ![Selecione a função a ser atribuída ao aplicativo](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Selecione **salvar** para concluir a atribuição da função. Você vê seu aplicativo na lista de usuários atribuídos a uma função para esse escopo.
+1. Selecione **guardar** para concluir a atribuir a função. Você vê seu aplicativo na lista de usuários atribuídos a uma função para esse escopo.
 
 Sua entidade de serviço está configurada. Você pode começar a usá-lo para executar seus scripts ou aplicativos. A próxima seção mostra como obter valores que são necessários ao entrar de forma programática.
 

@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305313"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912472"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente chamados de [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso de nuvem, como um Azure Machine Learning computação, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para implantação de modelo, conforme descrito em ["onde e como implantar seus modelos"](how-to-deploy-and-where.md).
+Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente chamados de [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso da cloud, tal como uma Computação do Azure Machine Learning, o Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para implantação de modelo, conforme descrito em ["onde e como implantar seus modelos"](how-to-deploy-and-where.md).
 
 Você pode criar e gerenciar um destino de computação usando a extensão Azure Machine Learning SDK, Azure Machine Learning Studio, CLI do Azure ou Azure Machine Learning VS Code. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao seu espaço de trabalho do Azure Machine Learning.
  
@@ -54,7 +54,7 @@ Saiba mais sobre como [Enviar experimentos](#submit) no final deste artigo.
 
 ## <a name="whats-an-estimator"></a>O que é um estimador?
 
-Para facilitar o treinamento de modelo usando estruturas populares, o SDK do Python Azure Machine Learning fornece uma abstração alternativa de nível superior, a classe do estimador. Essa classe permite que você construa facilmente configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como scikit-learn).
+Para facilitar o treinamento de modelo usando estruturas populares, o SDK do Python Azure Machine Learning fornece uma abstração alternativa de nível superior, a classe do estimador. É recomendável usar um estimador para treinamento, pois a classe contém métodos que permitem que você construa e personalize facilmente as configurações de execução. Você pode criar e usar um [estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como scikit-learn). Se você precisar disponibilizar seus arquivos de dados para seu destino de computação, consulte [treinar com conjuntos de Azure Machine Learning](how-to-train-with-datasets.md).
 
 Para as tarefas PyTorch, TensorFlow e Chainer, Azure Machine Learning também fornece os respectivos estimadores [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)e [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) para simplificar o uso dessas estruturas.
 
@@ -76,9 +76,9 @@ Embora os pipelines ML possam treinar modelos, eles também podem preparar dados
 Use as seções abaixo para configurar esses destinos de computação:
 
 * [Computador local](#local)
-* [Computação Azure Machine Learning](#amlcompute)
+* [Computação do Azure Machine Learning](#amlcompute)
 * [Máquinas virtuais remotas](#vm)
-* [Azure HDInsight](#hdinsight)
+* [O Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Computador local
@@ -91,7 +91,7 @@ Use as seções abaixo para configurar esses destinos de computação:
 
 Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
-### <a id="amlcompute"></a>Computação Azure Machine Learning
+### <a id="amlcompute"></a>Computação do Azure Machine Learning
 
 Azure Machine Learning computação é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de vários nós ou um único nó. A computação é criada dentro de sua região de espaço de trabalho como um recurso que pode ser compartilhado com outros usuários em seu espaço de trabalho. A computação é dimensionada automaticamente quando um trabalho é enviado e pode ser colocada em uma rede virtual do Azure. A computação é executada em um ambiente em contêiner e empacota suas dependências de modelo em um [contêiner do Docker](https://www.docker.com/why-docker).
 
@@ -186,7 +186,7 @@ Use o Máquina Virtual de Ciência de Dados do Azure (DSVM) como a VM do Azure e
 
 Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
-### <a id="hdinsight"></a>Azure HDInsight 
+### <a id="hdinsight"></a>O Azure HDInsight 
 
 O Azure HDInsight é uma plataforma popular para análise de Big Data. A plataforma fornece Apache Spark, que pode ser usada para treinar seu modelo.
 
@@ -346,8 +346,8 @@ Siga as etapas descritas anteriormente para exibir a lista de destinos de comput
     > [!NOTE]
     > A Microsoft recomenda que você use chaves SSH, que são mais seguras do que senhas. As senhas são vulneráveis a ataques de força bruta. As chaves SSH dependem de assinaturas criptográficas. Para obter informações sobre como criar chaves SSH para uso com máquinas virtuais do Azure, consulte os seguintes documentos:
     >
-    > * [Criar e usar chaves SSH no Linux ou macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Criar e usar chaves SSH no Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Criar e utilizar chaves SSH no Linux ou macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Criar e utilizar chaves SSH no Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Selecione __anexar__. 
 1. Exiba o status da operação de anexação selecionando o destino de computação na lista.
@@ -504,8 +504,8 @@ Quando você inicia uma execução de treinamento onde o diretório de origem é
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
 Consulte estes blocos de anotações para obter exemplos de treinamento com vários destinos de computação:
-* [como usar-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [TUTORIAIS/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [procedimentos-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

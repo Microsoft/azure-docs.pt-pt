@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546351"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927867"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -39,7 +39,7 @@ O agente do Azure File Sync é um pacote transferível que permite a sincroniza�
 - **StorageSync. sys**: o sincronização de arquivos do Azure filtro do sistema de arquivos, que é responsável por enfileirar arquivos para arquivos do Azure (quando a disposição em camadas da nuvem está habilitada).
 - **Cmdlets de gerenciamento do PowerShell**: cmdlets do PowerShell que você usa para interagir com o provedor de recursos do Azure Microsoft. StorageSync. Você pode encontrá-los nos seguintes locais (padrão):
     - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Vários pontos de extremidade de servidor podem existir no mesmo volume se seus namespaces não se sobrepõem (por exemplo, `F:\sync1` e `F:\sync2`). Você pode configurar políticas de camadas de nuvem individualmente para cada ponto de extremidade do servidor. 
@@ -122,14 +122,14 @@ Para exibir os resultados em CSV:
 
 ### <a name="file-system-features"></a>Recursos do sistema de arquivos
 
-| Funcionalidade | Status de suporte | Notas |
+| Funcionalidade | Estado do suporte | Notas |
 |---------|----------------|-------|
-| ACLs (listas de controle de acesso) | Com suporte total | As ACLs do Windows são preservadas por Sincronização de Arquivos do Azure e são impostas pelo Windows Server em pontos de extremidade do servidor. As ACLs do Windows ainda não têm suporte dos arquivos do Azure se os arquivos forem acessados diretamente na nuvem. |
-| Ligações fixas | Ignorada | |
-| Links simbólicos | Ignorada | |
+| Listas de controlo de acesso (ACL) | Com suporte total | As ACLs do Windows são preservadas por Sincronização de Arquivos do Azure e são impostas pelo Windows Server em pontos de extremidade do servidor. As ACLs do Windows ainda não têm suporte dos arquivos do Azure se os arquivos forem acessados diretamente na nuvem. |
+| Ligações fixas | Ignorado | |
+| Links simbólicos | Ignorado | |
 | Pontos de montagem | Com suporte parcial | Os pontos de montagem podem ser a raiz de um ponto de extremidade do servidor, mas serão ignorados se estiverem contidos no namespace de um ponto de extremidade do servidor. |
-| Junções | Ignorada | Por exemplo, Sistema de Arquivos Distribuído pastas Dfsroots e Dfrsrprivate. |
-| Pontos de reanálise | Ignorada | |
+| Junções | Ignorado | Por exemplo, Sistema de Arquivos Distribuído pastas Dfsroots e Dfrsrprivate. |
+| Pontos de reanálise | Ignorado | |
 | Compactação NTFS | Com suporte total | |
 | Arquivos esparsos | Com suporte total | Sincronização de arquivos esparsos (não são bloqueados), mas eles são sincronizados com a nuvem como um arquivo completo. Se o conteúdo do arquivo for alterado na nuvem (ou em outro servidor), o arquivo não será mais esparso quando a alteração for baixada. |
 | Fluxos de dados alternativos (ADS) | Preservado, mas não sincronizado | Por exemplo, as marcas de classificação criadas pela infraestrutura de classificação de arquivos não são sincronizadas. As marcas de classificação existentes nos arquivos em cada um dos pontos de extremidade do servidor são deixadas inalteradas. |
@@ -141,32 +141,32 @@ Para exibir os resultados em CSV:
 
 | Arquivo/pasta | Nota |
 |-|-|
-| Desktop. ini | Arquivo específico para o sistema |
-| ethumbs. DB $ | Arquivo temporário para miniaturas |
+| Desktop.ini | Arquivo específico para o sistema |
+| ethumbs.db$ | Arquivo temporário para miniaturas |
 | ~$\*.\* | Arquivo temporário do Office |
-| \*. tmp | Arquivo temporário |
-| \*. laccdb | Acessar arquivo de bloqueio do BD|
+| \*.tmp | Arquivo temporário |
+| \*.laccdb | Acessar arquivo de bloqueio do BD|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Arquivo de sincronização interno|
 | \\informações de volume do sistema | Pasta específica ao volume |
-| $RECYCLE. COMPARTIMENTO| Pasta |
+| $RECYCLE.BIN| Pasta |
 | \\SyncShareState | Pasta para sincronização |
 
-### <a name="failover-clustering"></a>Clustering de failover
+### <a name="failover-clustering"></a>Clustering de Ativação Pós-falha
 O Windows Server failover clustering tem suporte pelo Sincronização de Arquivos do Azure para a opção de implantação "servidor de arquivos para uso geral". O clustering de failover não tem suporte em "Servidor de Arquivos de Escalabilidade Horizontal para dados de aplicativos" (SOFS) ou em volumes compartilhados clusterizados (CSVs).
 
 > [!Note]  
 > O agente de Sincronização de Arquivos do Azure deve ser instalado em cada nó em um cluster de failover para que a sincronização funcione corretamente.
 
-### <a name="data-deduplication"></a>Eliminação de duplicação de dados
+### <a name="data-deduplication"></a>Eliminação de Dados Duplicados
 **Windows server 2016 e Windows server 2019**   
-A eliminação de duplicação de dados tem suporte em volumes com camadas de nuvem habilitadas no Windows Server 2016. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
+A eliminação de duplicação de dados tem suporte em volumes com camadas de nuvem habilitadas no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação de dados em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento. 
 
 Quando a eliminação de duplicação de dados está habilitada em um volume com disposição em camadas de nuvem habilitada, os arquivos otimizados para eliminação de duplicatas no local do ponto de extremidade do servidor serão em camadas semelhantes a um arquivo normal com base nas configurações de política de camadas de nuvem. Depois que os arquivos otimizados para eliminação de duplicação estiverem em camadas, o trabalho de coleta de lixo de eliminação de duplicatas de dados será executado automaticamente para recuperar espaço em disco removendo partes desnecessárias que não são mais referenciadas por outros arquivos no volume.
 
 Observe que a economia de volume se aplica somente ao servidor; seus dados no compartilhamento de arquivos do Azure não serão eliminação de duplicação.
 
 > [!Note]  
-> A eliminação de duplicação de dados e a camada de nuvem não têm suporte no mesmo volume no servidor 2019 devido a um bug que será corrigido em uma atualização futura.
+> Para dar suporte à eliminação de duplicação de dados em volumes com camadas de nuvem habilitadas no Windows Server 2019, o Windows Update [KB4520062](https://support.microsoft.com/help/4520062) deve ser instalado e sincronização de arquivos do Azure versão do agente 9.0.0.0 ou mais recente é necessária.
 
 **Windows Server 2012 R2**  
 Sincronização de Arquivos do Azure não dá suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume no Windows Server 2012 R2. Se a eliminação de duplicação de dados estiver habilitada em um volume, a camada de nuvem deverá ser desabilitada. 
@@ -186,7 +186,7 @@ Sincronização de Arquivos do Azure não dá suporte à eliminação de duplica
     
     Observação: as definições de configuração do Sincronização de Arquivos do Azure no servidor são mantidas quando o agente é desinstalado e reinstalado.
 
-### <a name="distributed-file-system-dfs"></a>Sistema de Arquivos Distribuído (DFS)
+### <a name="distributed-file-system-dfs"></a>DFS (sistema de arquivos distribuído)
 O Sincronização de Arquivos do Azure dá suporte à interoperabilidade com namespaces DFS (DFS-N) e Replicação do DFS (DFS-R).
 
 **Namespaces DFS (DFS-n)** : há suporte total para sincronização de arquivos do Azure em servidores DFS-n. Você pode instalar o agente de Sincronização de Arquivos do Azure em um ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o Endpoint da nuvem. Para obter mais informações, consulte [visão geral dos namespaces do DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
@@ -204,10 +204,10 @@ Para Sincronização de Arquivos do Azure e o DFS-R para trabalhar lado a lado:
 
 Para obter mais informações, consulte [replicação do DFS visão geral](https://technet.microsoft.com/library/jj127250).
 
-### <a name="sysprep"></a>Submeti
+### <a name="sysprep"></a>Sysprep
 O uso do Sysprep em um servidor que tem o agente de Sincronização de Arquivos do Azure instalado não tem suporte e pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer após a implantação da imagem do servidor e a conclusão da mini-instalação do Sysprep.
 
-### <a name="windows-search"></a>Pesquisa do Windows
+### <a name="windows-search"></a>Windows Search
 Se a disposição em camadas da nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estiverem em camadas serão ignorados e não indexados pelo Windows Search. Arquivos não em camadas são indexados corretamente.
 
 ### <a name="antivirus-solutions"></a>Soluções antivírus

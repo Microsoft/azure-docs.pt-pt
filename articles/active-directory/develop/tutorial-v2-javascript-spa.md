@@ -1,6 +1,5 @@
 ---
-title: Instalação guiada do aplicativo de página única (SPA) do JavaScript do Azure AD v 2.0
-titleSuffix: Microsoft identity platform
+title: Guia de aplicativo de página única do JavaScript da plataforma de identidade da Microsoft | Azure
 description: Como os aplicativos JavaScript SPA podem chamar uma API que exige tokens de acesso por Azure Active Directory ponto de extremidade v 2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802523"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919397"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API de Microsoft Graph de um aplicativo de página única do JavaScript (SPA)
 
@@ -49,7 +48,7 @@ Este guia usa a biblioteca a seguir:
 
 |Biblioteca|Descrição|
 |---|---|
-|[MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Visualização da biblioteca de autenticação da Microsoft para JavaScript|
+|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Visualização da biblioteca de autenticação da Microsoft para JavaScript|
 
 > [!NOTE]
 > O *MSAL. js* tem como alvo o ponto de extremidade da plataforma Microsoft Identity, que permite contas pessoais e contas corporativas e de estudante para entrar e adquirir tokens. O ponto de extremidade da plataforma de identidade da Microsoft tem [algumas limitações](azure-ad-endpoint-comparison.md#limitations).
@@ -82,7 +81,7 @@ Este guia usa a biblioteca a seguir:
 >
 > ### <a name="option-2-visual-studio"></a>Opção 2: Visual Studio
 > Se você estiver usando o Visual Studio e estiver criando um novo projeto, siga estas etapas:
-> 1. No Visual Studio, selecione **arquivo**  > **novo** **projeto**de  > .
+> 1. No Visual Studio, selecione **arquivo** > **novo** **projeto**de > .
 > 1. Em **Visual C#\Web**,selecione **Aplicação Web ASP.NET (.NET Framework)** .
 > 1. Insira um nome para seu aplicativo e, em seguida, selecione **OK**.
 > 1. Em **novo aplicativo Web ASP.net**, selecione **vazio**.
@@ -331,7 +330,7 @@ Adicione o código a seguir ao arquivo de `index.html` dentro das marcas de `<sc
 
 1. Se sua conta fornece acesso a mais de um locatário, selecione a conta no canto superior direito e, em seguida, defina a sessão do portal para o locatário do Azure AD que você deseja usar.
 1. Acesse a página da plataforma de identidade da Microsoft para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
-1. Quando a página **registrar um aplicativo** for exibida, insira um nome para seu aplicativo.
+1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Na seção **URI de redirecionamento** , selecione a plataforma **Web** na lista suspensa e defina o valor para a URL do aplicativo que se baseia em seu servidor Web.
 
@@ -381,7 +380,7 @@ Adicione o código a seguir ao arquivo de `index.html` dentro das marcas de `<sc
 
     Onde:
     - *\<Enter_the_Application_Id_here >* é a **ID do aplicativo (cliente)** para o aplicativo que você registrou.
-    - *\<Enter_the_Tenant_info_here >* está definido como uma das seguintes opções:
+    - *\<Enter_the_Tenant_info_here >* é definido como uma das seguintes opções:
        - Se seu aplicativo der suporte a *contas nesse diretório organizacional*, substitua esse valor pela **ID do locatário** ou pelo **nome do locatário** (por exemplo, *contoso.Microsoft.com*).
        - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional*, substitua esse valor pelas **organizações**.
        - Se seu aplicativo oferecer suporte a *contas em qualquer diretório organizacional e contas pessoais da Microsoft*, substitua esse valor por **comum**. Para restringir o suporte *somente a contas pessoais da Microsoft*, substitua esse valor por **consumidores**.

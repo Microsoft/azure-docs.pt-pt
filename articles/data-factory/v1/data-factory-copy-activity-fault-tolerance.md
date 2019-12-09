@@ -4,20 +4,19 @@ description: Saiba como adicionar tolerância a falhas em Azure Data Factory ati
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 84f5cdff72abe210ac1e39234b455e506d52ba5e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8ffaee75154fd5fe025bdb683c89f16799d6e86b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682961"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926157"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar tolerância a falhas na atividade de cópia ignorando linhas incompatíveis
 
@@ -70,12 +69,12 @@ O exemplo a seguir fornece uma definição de JSON para configurar ignorando as 
 }
 ```
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | **enableSkipIncompatibleRow** | Habilitar a ignorando linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>False (padrão) | Não |
 | **redirectIncompatibleRowSettings** | Um grupo de propriedades que pode ser especificado quando você deseja registrar em log as linhas incompatíveis. | &nbsp; | Não |
 | **linkedServiceName** | O serviço vinculado do armazenamento do Azure para armazenar o log que contém as linhas ignoradas. | O nome de um serviço vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) , que se refere à instância de armazenamento que você deseja usar para armazenar o arquivo de log. | Não |
-| **Multi-Path** | O caminho do arquivo de log que contém as linhas ignoradas. | Especifique o caminho de armazenamento de BLOBs que você deseja usar para registrar os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não |
+| **path** | O caminho do arquivo de log que contém as linhas ignoradas. | Especifique o caminho de armazenamento de BLOBs que você deseja usar para registrar os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não |
 
 ## <a name="monitoring"></a>Monitorização
 Depois que a execução da atividade de cópia for concluída, você poderá ver o número de linhas ignoradas na seção monitoramento:

@@ -10,21 +10,21 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615192"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912456"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar espaços de trabalho de Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você criará, exibirá e excluirá [**espaços de trabalho Azure Machine Learning**](concept-workspace.md) no portal do Azure para [Azure Machine Learning](overview-what-is-azure-ml.md).  O portal é a maneira mais fácil de começar com espaços de trabalho, mas conforme suas necessidades mudam ou requisitos para aumentar a automação, você também pode criar e excluir espaços de trabalho [usando a CLI](reference-azure-machine-learning-cli.md), [com código Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [por meio da extensão vs Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
-Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
+Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para sua assinatura do Azure. 
 
@@ -42,9 +42,9 @@ Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se 
 
    Campo|Descrição 
    ---|---
-   Nome do espaço de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
+   Nome da área de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
    Localização | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
    Edição do espaço de trabalho | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre as [ofertas Basic e Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
@@ -73,15 +73,15 @@ Para criar um espaço de trabalho, você precisa de uma assinatura do Azure. Se 
 
 Você pode atualizar seu espaço de trabalho de edição básica para Enterprise Edition para aproveitar os recursos avançados, como experiências de código baixo e recursos de segurança aprimorados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Selecione o espaço de trabalho que você deseja atualizar.
 
-1. Selecione **Atualizar** na parte superior ou na mensagem de atualização.
+1. Selecione **saiba mais** na parte superior direita da página.
 
-    ![Atualizar um espaço de trabalho](media/how-to-manage-workspace/upgrade.png)
+   [![atualizar um espaço de trabalho](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Selecione **confirmar atualização**.
+1. Selecione **Atualizar** na janela exibida.
 
 
 > [!IMPORTANT]
@@ -95,15 +95,15 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
    ![Procurar Azure Machine Learning espaço de trabalho](media/how-to-manage-workspace/find-workspaces.png)
 
-1. Veja a lista de espaços de trabalho encontrados. Você pode filtrar com base na assinatura, nos grupos de recursos e nos locais.  
+1. Consultar a lista de áreas de trabalho foi encontrado. Pode filtrar com base na subscrição, grupos de recursos e localizações.  
 
 1. Selecione um espaço de trabalho para exibir suas propriedades.
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
-Use o botão excluir na parte superior do espaço de trabalho que você deseja excluir.
+Utilize o botão de eliminação na parte superior da área de trabalho que pretende eliminar.
 
-  ![Botão excluir](media/how-to-manage-workspace/delete-workspace.png)
+  ![Botão de eliminar](media/how-to-manage-workspace/delete-workspace.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -115,4 +115,4 @@ Use o botão excluir na parte superior do espaço de trabalho que você deseja e
 Siga o tutorial de tamanho completo para aprender a usar um espaço de trabalho para criar, treinar e implantar modelos com o Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Tutorial: treinar modelos](tutorial-train-models-with-aml.md)
+> [Tutorial: Modelos de formação](tutorial-train-models-with-aml.md)

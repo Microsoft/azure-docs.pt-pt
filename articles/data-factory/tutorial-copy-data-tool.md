@@ -1,24 +1,26 @@
 ---
-title: Copiar dados usando a ferramenta de Copiar Dados do Azure
+title: Copiar dados do armazenamento de BLOBs do Azure para o SQL usando a ferramenta Copiar Dados
 description: Crie uma fábrica de dados do Azure e, em seguida, utilize a ferramenta Copiar Dados para copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683600"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926583"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](tutorial-copy-data-tool.md)
@@ -71,7 +73,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Permita o acesso dos serviços do Azure ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem a Base de Dados SQL em execução. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar essa configuração, vá para Azure SQL Server > Visão geral > definir Firewall do servidor > defina a opção **permitir acesso aos serviços do Azure** como **ativado**.
+2. Permita que os serviços do Azure acedam ao SQL Server. Verifique se a definição **Permitir acesso aos serviços do Azure** está ativada para o servidor que tem a Base de Dados SQL em execução. Esta definição permite que o Data Factory escreva dados na instância da sua base de dados. Para verificar e ativar essa configuração, vá para Azure SQL Server > Visão geral > definir Firewall do servidor > defina a opção **permitir acesso aos serviços do Azure** como **ativado**.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -155,7 +157,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 1. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
 1. Tenha em atenção que o separador **Monitorização** à esquerda é selecionado automaticamente. A coluna **Ações** inclui ligações para ver os detalhes de execução da atividade e voltar a executar o pipeline. Selecione **Atualizar** para atualizar a lista.
 
-1. Para ver as execuções da atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos) na coluna **Ações**. Para voltar à exibição de execuções de pipeline, selecione o link **execuções de pipeline** na parte superior. Para atualizar a vista, selecione **Atualizar**.
+1. Para ver as execuções da atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Para voltar à exibição de execuções de pipeline, selecione o link **execuções de pipeline** na parte superior. Para atualizar a vista, selecione **Atualizar**.
 
     ![Monitorização de execuções de atividade](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

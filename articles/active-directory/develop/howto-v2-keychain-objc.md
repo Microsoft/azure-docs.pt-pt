@@ -3,27 +3,23 @@ title: Configurar keychain
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o conjunto de chaves para que seu aplicativo possa armazenar em cache tokens no conjunto de chaves.
 services: active-directory
-documentationcenter: ''
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8b4599549e15d6ebe4d0bd04f96c89df86b0c0cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803800"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917510"
 ---
 # <a name="configure-keychain"></a>Configurar keychain
 
@@ -37,13 +33,13 @@ Este artigo aborda como configurar os direitos do aplicativo para que o MSAL pos
 
 O MSAL no iOS usa o grupo de acesso `com.microsoft.adalcache` por padrão. Esse é o grupo de acesso compartilhado usado pelos SDKs do MSAL e da ADAL (biblioteca de autenticação do Azure AD) e garante a melhor experiência de SSO (logon único) entre vários aplicativos do mesmo editor.
 
-No iOS, adicione o grupo de conjunto de chaves `com.microsoft.adalcache` para o direito do seu aplicativo no XCode em **configurações do projeto** > **recursos** >  compartilhamento de conjunto de**chaves**
+No iOS, adicione o grupo de conjunto de chaves `com.microsoft.adalcache` ao direito do seu aplicativo no XCode em **configurações do projeto** > **recursos** > compartilhamento de conjunto de **chaves**
 
 ### <a name="macos"></a>macOS
 
-O MSAL no macOS usa o grupo de acesso `com.microsoft.identity.universalstorage` por padrão.
+O MSAL no macOS usa `com.microsoft.identity.universalstorage` grupo de acesso por padrão.
 
-Devido a limitações do conjunto de chaves do macOS, a `access group` do MSAL não é traduzida diretamente para o atributo de grupo de acesso do chaveiro (consulte [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) no MacOS 10,14 e versões anteriores. No entanto, ele se comporta da mesma forma de uma perspectiva de SSO, garantindo que vários aplicativos distribuídos pelo mesmo desenvolvedor da Apple possam ter SSO silencioso.
+Devido a limitações do conjunto de chaves do macOS, o `access group` da MSAL não é convertido diretamente no atributo do grupo de acesso do chaveiro (consulte [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) no MacOS 10,14 e versões anteriores. No entanto, ele se comporta da mesma forma de uma perspectiva de SSO, garantindo que vários aplicativos distribuídos pelo mesmo desenvolvedor da Apple possam ter SSO silencioso.
 
 No macOS 10,15 em diante (macOS Catalina), o MSAL usa o atributo de grupo de acesso de conjunto de chaves para obter o SSO silencioso, da mesma forma que o iOS.
 
@@ -51,7 +47,7 @@ No macOS 10,15 em diante (macOS Catalina), o MSAL usa o atributo de grupo de ace
 
 Se você quiser usar um grupo de acesso de conjunto de chaves diferente, poderá passar seu grupo personalizado ao criar `MSALPublicClientApplicationConfig` antes de criar `MSALPublicClientApplication`, desta forma:
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -67,9 +63,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Swift
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -85,25 +79,27 @@ do {
 }       
 ```
 
-
+---
 
 ## <a name="disable-keychain-sharing"></a>Desabilitar compartilhamento de conjunto de chaves
 
 Se você não quiser compartilhar o estado de SSO entre vários aplicativos ou usar qualquer grupo de acesso de conjunto de chaves, desabilite o compartilhamento de conjunto de chaves, passando a ID do pacote de aplicativos como seu grupo de chaves:
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Identificador-erro 34018 (falha ao definir item no conjunto de chaves)
 

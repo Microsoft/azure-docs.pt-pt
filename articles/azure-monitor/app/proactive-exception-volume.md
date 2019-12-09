@@ -1,18 +1,18 @@
 ---
-title: Detecção inteligente-aumento anormal no volume de exceção, no Aplicativo Azure insights | Microsoft Docs
-description: Monitore exceções de aplicativos com Aplicativo Azure insights para padrões incomuns no volume de exceção.
+title: Aumento anormal no volume de exceção – insights de Aplicativo Azure
+description: Monitore as exceções de aplicativo com detecção inteligente no Aplicativo Azure insights de padrões incomuns no volume de exceção.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: fa7669b78caabb95b08200e83ed18ea982ce9ac9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 02c4fca42f3d5d7494dc8fd6fe0e33161904ddbe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820594"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928230"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (versão prévia)
 
@@ -27,7 +27,7 @@ Os algoritmos de aprendizado de máquina estão sendo usados para detectar o aum
 ## <a name="does-my-app-definitely-have-a-problem"></a>Meu aplicativo definitivamente tem um problema?
 Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. Embora um número excessivo de exceções geralmente indique um problema de aplicativo, essas exceções podem ser benignas e manipuladas corretamente pelo seu aplicativo.
 
-## <a name="how-do-i-fix-it"></a>Como fazer corrigi-lo?
+## <a name="how-do-i-fix-it"></a>Como posso corrigi-lo?
 As notificações incluem informações de diagnóstico para dar suporte ao processo de diagnóstico:
 1. **Triagem.** A notificação mostra quantos usuários ou quantas solicitações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
 2. **Com.** O problema está afetando todo o tráfego ou apenas alguma operação? Essas informações podem ser obtidas na notificação.

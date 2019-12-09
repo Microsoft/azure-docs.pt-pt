@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
-ms.openlocfilehash: 1acc484b8843fc1fe1acae5759a24f923396e003
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+manager: anandsub
+ms.openlocfilehash: be2e389a0f103983a566a3f74d201e5589d84586
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893948"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926729"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformar dados executando uma atividade do Python no Azure Databricks
 

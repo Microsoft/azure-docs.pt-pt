@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805761"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927640"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -196,25 +196,25 @@ Se desejar criar um banco de dados de hiperescala em uma região que não esteja
 
 Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões não listadas:
 
-1. Navegue até a [folha de ajuda e suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. No menu portal do Azure, selecione **ajuda + suporte**ou procure e selecione **ajuda + suporte** em qualquer página.
 
-2. Clique em [ **nova solicitação de suporte**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. Em [ajuda e suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), selecione [**nova solicitação de suporte**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Folha de ajuda e suporte do Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
 
-3. Para **tipo de problema**, selecione **limites de serviço e assinatura (cotas)**
+4. Escolha a assinatura que você usaria para criar os bancos de dados.
 
-4. Escolha a assinatura que você usaria para criar os bancos de dados
+5. Para **tipo de cota**, selecione **banco de dados SQL**.
 
-5. Para **tipo de cota**, selecione **banco de dados SQL**
+    ![Folha de ajuda e suporte do Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Clique em **Avançar: soluções**
+6. Clique em **Avançar: soluções**.
 
-1. Clique em **fornecer detalhes**
+7. Clique em **fornecer detalhes**.
 
     ![Detalhes do problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Escolher **tipo de cota do banco de dados SQL**: **outra solicitação de cota**
+8. Escolha o **tipo de cota do banco de dados SQL**: **outra solicitação de cota**.
 
 9. Preencha o seguinte modelo:
 
@@ -227,11 +227,11 @@ Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões 
     > Número de TB estimado 
     >
 
-10. Escolher **Gravidade C**
+10. Escolha **severidade C**.
 
 11. Escolha o método de contato apropriado e preencha os detalhes.
 
-12. Clique em **salvar** e **continuar**
+12. Clique em **salvar** e **continuar**.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Essas são as limitações atuais da camada de serviço de hiperescala a partir do GA.  Estamos trabalhando ativamente para remover o máximo possível de limitações.
@@ -240,7 +240,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | :---- | :--------- |
 | O painel gerenciar backups de um servidor lógico não mostra que os bancos de dados de hiperescala serão filtrados do SQL Server  | O hiperscale tem um método separado para gerenciar backups e, como tal, a retenção de longo prazo e as configurações de retenção de backup point-in-time não se aplicam/são invalidadas. De acordo, os bancos de dados de hiperescala não aparecem no painel gerenciar backup. |
 | Restauro para um ponto anterior no tempo | Depois que um banco de dados é migrado para a camada de serviço de hiperescala, não há suporte para a restauração para um ponto no tempo antes da migração.|
-| Restauração de BD não hiperescala para Hypserscale e vice-versa | Você não pode restaurar um banco de dados de hiperescala em um banco de dados não hiperescala, nem pode restaurar um banco de dados que não seja de hiperescala em um banco de dados de hiperescala.|
+| Restauração de BD não hiperescala para hiperescala e vice-versa | Você não pode restaurar um banco de dados de hiperescala em um banco de dados não hiperescala, nem pode restaurar um banco de dados que não seja de hiperescala em um banco de dados de hiperescala.|
 | Se um banco de dados tiver um ou mais arquivos com mais de 1 TB, a migração falhará | Em alguns casos, pode ser possível contornar esse problema reduzindo os arquivos grandes para menos de 1 TB. Se estiver migrando um banco de dados que está sendo usado durante o processo de migração, verifique se nenhum arquivo tem mais de 1 TB. Use a consulta a seguir para determinar o tamanho dos arquivos de banco de dados. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instância Gerida | No momento, não há suporte para Instância Gerenciada do Banco de Dados SQL do Azure com bancos de dados de hiperescala. |
 | Conjuntos Elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
@@ -251,7 +251,8 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
 |Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
-| Reduzir banco de dados | Atualmente, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE com bancos de dados de hiperescala do SQL do Azure. |
+| Reduzir banco de dados | No momento, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE para bancos de dados de hiperescala. |
+| Verificação de integridade do banco de dados | No momento, não há suporte para DBCC CHECKDB em bancos de dados de hiperescala. Confira [integridade de dados no banco](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) de dados SQL do Azure para obter detalhes sobre o gerenciamento de integridade de dados no Azure SQL Database. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

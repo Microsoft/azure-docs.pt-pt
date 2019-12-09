@@ -3,21 +3,20 @@ title: Copiar dados do Amazon redshift
 description: Saiba mais sobre como copiar dados do Amazon redshift para armazenamentos de dados de coletor com suporte usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 8cb604996f6cde5c55098fd3fdc51d0d061dbcd1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 262afd00428c61d828837fd4692fd4fe110448c8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891223"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931797"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]

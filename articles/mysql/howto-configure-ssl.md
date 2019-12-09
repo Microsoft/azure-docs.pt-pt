@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 590e2e7e735af55f8c7ad96f87f947115f8783fc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 3a1c7f6542ebdf1617982fbb50a239b66a6675ba
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770565"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926719"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar a conectividade SSL em seu aplicativo para se conectar com segurança ao banco de dados do Azure para MySQL
 O banco de dados do Azure para MySQL dá suporte à conexão do servidor de banco de dados do Azure para MySQL para aplicativos cliente usando o protocolo SSL (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -50,7 +50,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Etapa 3: impondo conexões SSL no Azure 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 Usando o portal do Azure, visite seu banco de dados do Azure para servidor MySQL e clique em **segurança de conexão**. Use o botão de alternância para habilitar ou desabilitar a configuração **impor conexão SSL** e, em seguida, clique em **salvar**. A Microsoft recomenda sempre habilitar a configuração **impor conexão SSL** para aumentar a segurança.
-![Enable-SSL](./media/howto-configure-ssl/enable-ssl.png)
+![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 Você pode habilitar ou desabilitar o parâmetro de **imposição de SSL** usando valores habilitados ou desabilitados, respectivamente em CLI do Azure.
@@ -67,6 +67,8 @@ Confirme se a conexão está criptografada examinando a saída, que deve mostrar
 
 ## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma conexão segura com o banco de dados do Azure para MySQL sobre SSL do seu aplicativo, consulte os exemplos de código a seguir:
+
+Consulte a lista de [drivers compatíveis](concepts-compatibility.md) com suporte pelo banco de dados do Azure para o serviço mysql.
 
 ### <a name="php"></a>PHP
 ```php

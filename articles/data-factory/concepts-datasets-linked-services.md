@@ -1,5 +1,5 @@
 ---
-title: Conjuntos de valores no Azure Data Factory
+title: Conjuntos de dados
 description: Saiba mais sobre conjuntos de os Data Factory. DataSets representam dados de entrada/saída.
 services: data-factory
 documentationcenter: ''
@@ -10,13 +10,14 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 74c35d5de74fbf8ecc04cfec336bfeb4a8e669fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681519"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928484"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de valores no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -27,7 +28,7 @@ Este artigo descreve o que são conjuntos de valores, como eles são definidos n
 
 Se você for novo no Data Factory, consulte [introdução ao Azure data Factory](introduction.md) para obter uma visão geral.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntos executam uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Agora, um **DataSet** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs a partir dos quais a atividade deve ler os dados.
 
 Antes de criar um conjunto de dados, você deve criar um [**serviço vinculado**](concepts-linked-services.md) para vincular seu armazenamento de data ao data Factory. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Imagine dessa forma; o DataSet representa a estrutura dos dados dentro dos armazenamentos de dados vinculados e o serviço vinculado define a conexão com a fonte de dados. Por exemplo, um serviço vinculado do armazenamento do Azure vincula uma conta de armazenamento ao data factory. Um conjunto de dados de blob do Azure representa o contêiner de BLOB e a pasta dentro dessa conta de armazenamento do Azure que contém os blobs de entrada a serem processados.
@@ -66,11 +67,11 @@ Um conjunto de Data Factory é definido no seguinte formato JSON:
 ```
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 nome | Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
 tipo | Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto](#dataset-type)de informações. | Sim |
-estruturá | Esquema do conjunto de um. Para obter detalhes, consulte [esquema de conjunto](#dataset-structure-or-schema)de informações. | Não |
+structure | Esquema do conjunto de um. Para obter detalhes, consulte [esquema de conjunto](#dataset-structure-or-schema)de informações. | Não |
 typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: BLOB do Azure, tabela SQL do Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [tipo de conjunto](#dataset-type)de informações. | Sim |
 
 ### <a name="data-flow-compatible-dataset"></a>DataSet compatível com fluxo de dados
@@ -111,7 +112,7 @@ Quando você importa o esquema de um conjunto de dados de fluxo, seleciona o bot
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 nome | Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
 tipo | Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto](#dataset-type)de informações. | Sim |
@@ -177,12 +178,12 @@ A seção de **estrutura** ou os conjuntos de dados da seção de **esquema** (c
 
 Cada coluna na estrutura contém as seguintes propriedades:
 
-Propriedade | Descrição | Necessário
+Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 nome | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Data Factory dá suporte aos seguintes tipos de dados provisórios como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, GUID, DateTime, DateTimeOffset e TimeSpan** | Não
-UICulture | . Cultura baseada em rede a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-ao | Cadeia de caracteres de formato a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não
+culture | . Cultura baseada em rede a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
+format | Cadeia de caracteres de formato a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não
 
 ### <a name="example"></a>Exemplo
 No exemplo a seguir, suponha que os dados de blob de origem estejam no formato CSV e contenham três colunas: userid, Name e LastLoginDate. Eles são do tipo Int64, String e DateTime com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
@@ -198,7 +199,7 @@ Defina a estrutura do conjunto de dados de BLOB da seguinte maneira com definiç
 ]
 ```
 
-### <a name="guidance"></a>Orientação
+### <a name="guidance"></a>Orientações
 
 As diretrizes a seguir ajudam você a entender quando incluir informações de estrutura e o que incluir na seção de **estrutura** . Saiba mais sobre como o data factory mapeia os dados de origem para o coletor e quando especificar informações de estrutura do [esquema e do mapeamento de tipo](copy-activity-schema-and-type-mapping.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Aplicativo móvel que chama APIs da Web (mover para produção)-plataforma de identidade da Microsoft
+title: Mover aplicativos móveis chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (mover para produção)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67788dd9257a0a4685313dce44c6a3dfb5e514df
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 3e267b2f398480da6949a4c85133342aad5c2ba7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413601"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919907"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Aplicativo móvel que chama APIs da Web – mover para produção
 
@@ -44,7 +44,7 @@ Para diagnosticar problemas em seu aplicativo, ele ajuda a coletar dados. Para o
 - Os usuários podem pedir ajuda quando encontrarem problemas. Uma prática recomendada é capturar e armazenar logs temporariamente e fornecer um local onde os usuários possam carregá-los. O MSAL fornece extensões de log para capturar informações detalhadas sobre a autenticação.
 - Se estiver disponível, habilite a telemetria por meio do MSAL para coletar dados sobre como os usuários estão entrando em seu aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534256"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930788"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usar Java para arquivos & ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
@@ -32,17 +32,9 @@ Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos
 
 ## <a name="set-up-your-project"></a>Configurar seu projeto
 
-Para começar, abra o arquivo *pom. xml* em seu editor de texto. Adicione o elemento de dependência a seguir ao grupo de dependências.
+Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e localize a versão mais recente da biblioteca do Java. Em seguida, abra o arquivo *pom. xml* em seu editor de texto. Adicione um elemento Dependency que faz referência a essa versão.
 
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
-
-Em seguida, adicione essas instruções Imports ao seu arquivo de código.
+Em seguida, adicione essas instruções Imports ao arquivo de código.
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;

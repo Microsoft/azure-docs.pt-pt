@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de desktop que chama APIs da Web (configuração de código) – plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (configuração de código do aplicativo)
+title: Configurar o aplicativo de área de trabalho que chama APIs da Web-plataforma Microsoft Identity | Azure
+description: Saiba como configurar o código de um aplicativo de desktop que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175432"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920264"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicativo de desktop que chama as APIs da Web-configuração de código
 

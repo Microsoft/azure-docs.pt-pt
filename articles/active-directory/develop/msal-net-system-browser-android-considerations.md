@@ -1,29 +1,25 @@
 ---
-title: Considerações do navegador do sistema do Xamarin Android (biblioteca de autenticação da Microsoft para .NET)
+title: Considerações do navegador do sistema do Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre considerações específicas ao usar navegadores do sistema no Xamarin Android ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
+description: Saiba mais sobre considerações específicas ao usar navegadores do sistema no Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150354"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915470"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerações do navegador do sistema do Xamarin Android com MSAL.NET
 
@@ -33,14 +29,14 @@ A partir do MSAL.NET 2.4.0-Preview, o MSAL.NET dá suporte a navegadores diferen
 
 Recomendamos que você use navegadores que dão suporte a guias personalizadas, como estas:
 
-| Navegadores com suporte a guias personalizadas | Nome do pacote |
+| Navegadores com suporte a guias personalizadas | Nome do Pacote |
 |------| ------- |
-|Chrome | com. Android. Chrome|
-|Microsoft Edge | com. Microsoft. emmx|
-|Janelas | org. mozilla. Firefox|
-|Ecosia | com. ecosia. Android|
-|Produtor kiwis | com. kiwibrowser. browser|
-|Corajoso | com. corajoso. browser|
+|Chrome | com.android.chrome|
+|Microsoft Edge | com.microsoft.emmx|
+|Firefox | org.mozilla.firefox|
+|Ecosia | com.ecosia.android|
+|Produtor kiwis | com.kiwibrowser.browser|
+|Corajoso | com.brave.browser|
 
 Além de navegadores com suporte a guias personalizados, com base em nossos testes, alguns navegadores que não dão suporte a guias personalizadas também funcionarão para autenticação: Opera, Opera Mini, inbrowser e Maxthon. Para obter mais informações, leia [tabela para resultados de teste](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
 
@@ -60,11 +56,11 @@ A tabela a seguir lista os dispositivos e navegadores que foram testados.
 | ------------- |:-------------:|:-----:|
 | Huawei/um + | &ast; Chrome | Passá|
 | Huawei/um + | &ast; de borda | Passá|
-| Huawei/um + | &ast; Firefox | Passá|
+| Huawei/um + | Firefox&ast; | Passá|
 | Huawei/um + | &ast; corajoso | Passá|
 | Um + | &ast; Ecosia | Passá|
-| Um + | &ast; produtor kiwis | Passá|
-| Huawei/um + | Vela | Passá|
+| Um + | Kiwi&ast; | Passá|
+| Huawei/um + | Opera | Passá|
 | Huawei | OperaMini | Passá|
 | Huawei/um + | Navegador | Passá|
 | Um + | Maxthon | Passá|

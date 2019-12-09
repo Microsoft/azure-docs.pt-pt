@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory o modo de depuração do fluxo de dados de mapeamento
+title: Mapeando o modo de depuração do fluxo de dados
 description: Iniciar uma sessão de depuração interativa ao criar fluxos de dados
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: c65ed14abb86b3b434e46fbe857487b06e217aad
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387378"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928369"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
-
-
 
 ## <a name="overview"></a>Visão geral
 
@@ -48,11 +47,11 @@ Se você tiver parâmetros em seu fluxo de dados ou em qualquer um de seus DataS
 
 ![Parâmetros de configurações de depuração](media/data-flow/debug-settings2.png "Parâmetros de configurações de depuração")
 
-## <a name="data-preview"></a>Visualização de dados
+## <a name="data-preview"></a>Pré-visualização dos dados
 
 Com a depuração ativada, a guia Visualização de dados se acenderá no painel inferior. Sem o modo de depuração ativado, o fluxo de dados mostrará apenas os metadados atuais dentro e fora de cada uma de suas transformações na guia inspecionar. A visualização de dados somente consultará o número de linhas que você definiu como seu limite nas configurações de depuração. Clique em **Atualizar** para buscar a visualização de dados.
 
-![Visualização de dados](media/data-flow/datapreview.png "Visualização de dados")
+![Visualização de dados](media/data-flow/datapreview.png "Pré-visualização dos dados")
 
 > [!NOTE]
 > As fontes de arquivo limitam apenas as linhas que você vê, não as linhas que estão sendo lidas. Para conjuntos de grandes volumes de arquivos, é recomendável que você faça uma pequena parte desse arquivo e use-o para seu teste. Você pode selecionar um arquivo temporário nas configurações de depuração para cada fonte que seja um tipo de conjunto de um arquivo.

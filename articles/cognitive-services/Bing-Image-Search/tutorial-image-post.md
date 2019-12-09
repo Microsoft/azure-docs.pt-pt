@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327017"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930676"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair os detalhes da imagem através da API de Pesquisa de Imagens do Bing e C#
 
@@ -42,7 +42,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 ## <a name="construct-an-image-details-search-request"></a>Criar um pedido de pesquisa de detalhes da imagem
 
-Segue-se o ponto final `/details`, que aceita pedidos POST com dados da imagem no corpo do pedido.
+Segue-se o ponto final `/details`, que aceita pedidos POST com dados da imagem no corpo do pedido. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -77,7 +77,7 @@ client.Headers["ContentType"] = "multipart/form-data";
 
 ## <a name="upload-the-image-and-display-the-results"></a>Carregar a imagem e apresentar os resultados
 
-O método `WebClient` da classe `UpLoadFile()` que formata os dados para o pedido `POST`, incluindo formatar o `RequestStream` e chamar o `HttpWebRequest`.
+O método `UpLoadFile()` da classe `WebClient` que formata os dados para o pedido `POST`, incluindo formatar o `RequestStream` e chamar o `HttpWebRequest`.
 
 Chame o `WebClient.UpLoadFile()` com o ponto final `/details` e o ficheiro de imagem a carregar. Utilize a resposta JSON para inicializar uma instância da estrutura `SearchResult` e armazene a resposta.
 
@@ -111,6 +111,6 @@ Se existirem pessoas ou locais identificáveis na imagem, este pedido devolverá
 > [!div class="nextstepaction"]
 > [Apresentar opções de pesquisa e imagens numa aplicação Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

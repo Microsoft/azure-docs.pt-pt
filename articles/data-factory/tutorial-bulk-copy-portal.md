@@ -1,25 +1,25 @@
 ---
-title: 'Copiar dados em massa usando Azure Data Factory '
+title: Copiar dados em massa usando portal do Azure
 description: Saiba como utilizar o Azure Data Factory e a Atividade de Cópia para copiar dados de um arquivo de dados de origem para um arquivo de dados de destino em massa.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: aaa03e04167cc579cb19885a66db369a3e11176a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e0e6ffc45d55dc76abdbdf839958479b2ac5d40b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546911"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926687"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa através do Azure Data Factory
+
 Este tutorial demonstra como **copiar várias tabelas da Base de Dados SQL do Azure para o Azure SQL Data Warehouse**. Também pode aplicar o mesmo padrão noutros cenários de cópia. Por exemplo, copiar tabelas do SQL Server/Oracle para a Base de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiar caminhos diferentes do Blob para tabelas de Base de Dados SQL do Azure.
 
 > [!NOTE]
@@ -224,7 +224,7 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
 
     b. Alterne para a guia **configurações** , clique na caixa de entrada de **itens**e, em seguida, clique no link **adicionar conteúdo dinâmico** abaixo. 
 
-    c. Na página **adicionar conteúdo dinâmico** , recolha as seções **variáveis** e **funções** do sistema, clique na **tabela de tabelas** em **parâmetros**, o que preencherá automaticamente a caixa de texto da expressão superior como `@pipeline().parameter.tableList`. Em seguida, clique em **concluir**. 
+    c. Na página **adicionar conteúdo dinâmico** , recolha as seções **variáveis** e **funções** do sistema, clique na **tabela de tabelas** em **parâmetros**, o que preencherá automaticamente a caixa de texto da expressão superior como `@pipeline().parameter.tableList`. Em seguida, clique em **Concluir**. 
 
     ![Construtor de parâmetro do Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     

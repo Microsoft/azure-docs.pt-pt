@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120487"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913723"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -60,8 +60,8 @@ Para definir diferentes camadas de armazenamento, como Premium e Standard, você
 
 Em AKS, dois StorageClasses iniciais são criados:
 
-- *padrão* – usa o armazenamento standard do Azure para criar um disco gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o Pod que o usava é excluído.
-- *gerenciado-Premium* -usa o armazenamento Premium do Azure para criar um disco gerenciado. A política de recuperação novamente indica que o disco do Azure subjacente é excluído quando o Pod que o usava é excluído.
+- *padrão* – usa o armazenamento standard do Azure para criar um disco gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
+- *gerenciado-Premium* -usa o armazenamento Premium do Azure para criar um disco gerenciado. A política de recuperação novamente indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
 
 Se nenhum StorageClass for especificado para um volume persistente, o StorageClass padrão será usado. Tome cuidado ao solicitar volumes persistentes para que eles usem o armazenamento apropriado de que você precisa. Você pode criar um StorageClass para necessidades adicionais usando `kubectl`. O exemplo a seguir usa Managed Disks Premium e especifica que o disco subjacente do Azure deve ser *mantido* quando o pod é excluído:
 

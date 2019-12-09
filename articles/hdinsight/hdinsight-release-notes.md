@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d9ca8d0df3eb0186add5c40765c87a4409a5660
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185605"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926430"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -31,7 +31,7 @@ Esta versão se aplica tanto ao HDInsight 3,6 quanto ao 4,0.
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte o [artigo controle de versão do HDInsight](hdinsight-component-versioning.md).
 
 
-## <a name="new-features"></a>Novos recursos
+## <a name="new-features"></a>Novas funcionalidades
 
 ### <a name="hdinsight-identity-broker-hib-preview"></a>Agente de identidade do HDInsight (HIB) (visualização)
 
@@ -51,11 +51,11 @@ O suporte a AutoEscala para a carga de trabalho do HBase e do LLAP também é vi
 
 ### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do HDInsight para o Apache HBase 
 
-As Escritas Aceleradas utilizam os discos geridos Premium SSD do Azure para melhorar o desempenho do Registo de Escrita Antecipada (WAL) do Apache HBase. Para obter mais informações, consulte [gravações aceleradas do Azure HDInsight para Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+As Escritas Aceleradas utilizam os discos geridos Premium SSD do Azure para melhorar o desempenho do Registo de Escrita Antecipada (WAL) do Apache HBase. Para mais informações, veja [Escritas Aceleradas do Azure HDInsight para o Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
 ### <a name="custom-ambari-db"></a>Ambari DB Personalizado
 
-O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o SQL DB correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+O HDInsight agora oferece uma nova capacidade para permitir que os clientes usem seu próprio BD SQL para Ambari. Agora, os clientes podem escolher o BD SQL correto para Ambari e atualizá-lo facilmente com base em seu próprio requisito de crescimento de negócios. A implantação é feita com um modelo de Azure Resource Manager. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
 ### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>As máquinas virtuais da série F agora estão disponíveis com o HDInsight
 
@@ -90,4 +90,4 @@ As VMs da série a podem causar problemas de cluster ESP devido à capacidade re
 O HDInsight continua a tornar as melhorias de desempenho e confiabilidade do cluster. 
 
 ## <a name="component-version-change"></a>Alteração de versão do componente
-Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para o HDInsight 4,0 Ad HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Não há nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).

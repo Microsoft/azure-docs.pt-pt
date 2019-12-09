@@ -1,18 +1,20 @@
 ---
-title: Solucionar problemas Azure Data Factory fluxos de dados
+title: Solucionar problemas de fluxos de dados
 description: Saiba como solucionar problemas de fluxo de dados no Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721342"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930178"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solucionar problemas Azure Data Factory fluxos de dados
 
@@ -84,6 +86,14 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 
 - **Resolução**: na transformação de origem que está usando um conjunto de um DataSet JSON, expanda "configurações de JSON" e ative "documento único".
 
+### <a name="error-message-duplicate-columns-found-in-join"></a>Mensagem de erro: colunas duplicadas encontradas em Join
+
+- **Sintomas**: a transformação de junção resultou em colunas da esquerda e do lado direito que incluem nomes de coluna duplicados
+
+- **Causa**: os fluxos que estão sendo ingressados têm nomes de coluna comuns
+
+- **Resolução**: Adicione um SELECT transforamtion seguindo a junção e selecione "remover colunas duplicadas" para a entrada e saída.
+
 
 ## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas
 
@@ -95,7 +105,7 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 
 Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-*  [Blogue do Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

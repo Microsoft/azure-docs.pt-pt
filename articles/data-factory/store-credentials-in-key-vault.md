@@ -3,20 +3,19 @@ title: Armazenar credenciais no Azure Key Vault
 description: Saiba como armazenar credenciais para armazenamentos de dados usados em um cofre de chaves do Azure que Azure Data Factory pode recuperar automaticamente no tempo de execução.
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32c4b9b8e6268aa648e3414b337e8b2b908589e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684004"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928725"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial em Azure Key Vault
 
@@ -41,10 +40,10 @@ Para fazer referência a uma credencial armazenada no Azure Key Vault, você pre
 
 As propriedades a seguir têm suporte para Azure Key Vault serviço vinculado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **AzureKeyVault**. | Sim |
-| BaseUrl | Especifique a URL do Azure Key Vault. | Sim |
+| baseUrl | Especifique a URL do Azure Key Vault. | Sim |
 
 **Usando a interface do usuário de criação:**
 
@@ -74,12 +73,12 @@ Selecione os Azure Key Vault provisionados onde suas credenciais são armazenada
 
 As propriedades a seguir têm suporte quando você configura um campo no serviço vinculado que faz referência a um segredo do cofre de chaves:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do campo deve ser definida como: **AzureKeyVaultSecret**. | Sim |
 | secretName | O nome do segredo no Azure Key Vault. | Sim |
 | secretVersion | A versão do segredo no Azure Key Vault.<br/>Se não for especificado, ele sempre usará a versão mais recente do segredo.<br/>Se especificado, ele se enparará com a versão fornecida.| Não |
-| armazenadas | Refere-se a um Azure Key Vault serviço vinculado que você usa para armazenar a credencial. | Sim |
+| store | Refere-se a um Azure Key Vault serviço vinculado que você usa para armazenar a credencial. | Sim |
 
 **Usando a interface do usuário de criação:**
 
@@ -116,4 +115,4 @@ Selecione **Azure Key Vault** para campos secretos ao criar a conexão com o arm
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter uma lista de armazenamentos de dados com suporte como fontes e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

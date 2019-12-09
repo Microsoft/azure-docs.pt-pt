@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771041"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931070"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -23,7 +23,7 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Principais | Número de versão do agente | Data da versão | Estado |
+| Marco | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
 | V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Com suporte-comprovante |
 | V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportadas |
@@ -50,7 +50,7 @@ As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincroniza
 ### <a name="improvements-and-issues-that-are-fixed"></a>Melhorias e problemas corrigidos
 
 - Suporte à restauração de autoatendimento
-    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, consulte  
+    - Os usuários agora podem restaurar seus arquivos usando o recurso de versão anterior. Antes da versão V9, o recurso de versão anterior não tinha suporte em volumes que tinham camadas de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, no qual um ponto de extremidade com camada de nuvem habilitada existe. Para saber mais, consulte .  
 [Restauração de autoatendimento por meio de versões anteriores e VSS (serviço de cópias de sombra de volume)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Suporte para tamanhos maiores de compartilhamento de arquivos 
@@ -73,11 +73,12 @@ As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincroniza
 - Remover aprimoramento do ponto de extremidade do servidor quando a disposição em camadas da nuvem estiver habilitada 
     - Como antes, remover um ponto de extremidade do servidor não resulta na remoção de arquivos no compartilhamento de arquivos do Azure. No entanto, o comportamento de pontos de nova análise no servidor local foi alterado. Pontos de nova análise (ponteiros para arquivos que não são locais no servidor) agora são excluídos durante a remoção de um ponto de extremidade do servidor. Os arquivos totalmente armazenados em cache permanecerão no servidor. Essa melhoria foi feita para evitar [arquivos em camadas órfãos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) ao remover um ponto de extremidade do servidor. Se o ponto de extremidade do servidor for recriado, os pontos de nova análise para os arquivos em camadas serão recriados no servidor.  
  
-- Melhorias de desempenho e confiabilidade 
+- Aprimoramentos de confiabilidade e desempenho 
     - Falhas de recuperação reduzidas. O tamanho de recall agora é ajustado automaticamente com base na largura de banda da rede. 
     - Melhor desempenho de download ao adicionar um novo servidor a um grupo de sincronização. 
     - Arquivos reduzidos não sincronizando devido a conflitos de restrição. 
-
+    - Os arquivos falham na camada ou são rechamados inesperadamente em determinados cenários se o caminho do ponto de extremidade do servidor for um ponto de montagem de volume.
+    
 ### <a name="evaluation-tool"></a>Ferramenta de avaliação
 Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando a ferramenta de avaliação de Sincronização de Arquivos do Azure. Essa ferramenta é um cmdlet Azure PowerShell que verifica possíveis problemas com o sistema de arquivos e o conjunto de pontos, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Para obter instruções de instalação e uso, consulte a seção [ferramenta de avaliação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) no guia de planejamento. 
 
@@ -414,7 +415,7 @@ As notas de versão a seguir são para a versão 5.0.2.0 do agente de Sincroniza
 
 - Suporte para a nuvem do Azure governamental
   - Adicionamos suporte de visualização para a nuvem do Azure governamental. Isso requer uma assinatura de lista branca e um download de agente especial da Microsoft. Para obter acesso à versão prévia, envie-nos um email diretamente em [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
-- Suporte para eliminação de duplicação de dados
+- Suporte Para a Eliminação de Dados Duplicados
     - A eliminação de duplicação de dados agora tem suporte total com camadas de nuvem habilitadas no Windows Server 2016 e no Windows Server 2019. Habilitar a eliminação de duplicação em um volume com camada de nuvem habilitada permite que você armazene em cache mais arquivos localmente sem provisionar mais armazenamento.
 - Suporte para transferência de dados offline (por exemplo, via Data Box)
     - Migre facilmente grandes quantidades de dados para Sincronização de Arquivos do Azure por meio de qualquer meio que você escolher. Você pode escolher Azure Data Box, AzCopy e até mesmo serviços de migração de terceiros. Não há necessidade de usar grandes quantidades de largura de banda para colocar seus dados no Azure, no caso de Data Box – simplesmente envie-os para lá! Para saber mais, confira [transferência de dados documentos offline](https://aka.ms/AFS/OfflineDataTransfer).

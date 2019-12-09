@@ -9,13 +9,14 @@ ms.author: jingwang
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
+ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: 9a647f0597fa9a0d521eedf1942ee8f61b804fd3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: db4173cdaf18d827c6a3c047777f7d5e67d79b84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891512"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931126"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar dados do Amazon Marketplace Web Service usando o Azure Data Factory
 

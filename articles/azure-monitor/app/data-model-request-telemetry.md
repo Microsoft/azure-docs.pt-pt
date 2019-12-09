@@ -1,5 +1,5 @@
 ---
-title: Modelo de dados de telemetria do Aplicativo Azure insights – telemetria de solicitação | Microsoft Docs
+title: Modelo de dados para telemetria de solicitação-Aplicativo Azure insights
 description: Modelo de dados Application Insights para telemetria de solicitação
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,18 +8,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b253a95a39f118efe82e36ac7261a4d6c62a99d6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677335"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928841"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitação: modelo de dados de Application Insights
 
 Um item de telemetria de solicitação (em [Application insights](../../azure-monitor/app/app-insights-overview.md)) representa a sequência lógica de execução disparada por uma solicitação externa para seu aplicativo. Cada execução de solicitação é identificada por `ID` exclusivos e `url` que contém todos os parâmetros de execução. Você pode agrupar solicitações por `name` lógico e definir o `source` dessa solicitação. A execução de código pode resultar em `success` ou `fail` e tem um determinado `duration`. As execuções de êxito e de falha podem ser agrupadas ainda mais por `resultCode`. Hora de início da telemetria de solicitação definida no nível do envelope.
 
-A telemetria de solicitação dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements` personalizados.
+A telemetria de solicitação dá suporte ao modelo de extensibilidade padrão usando `properties` e `measurements`personalizados.
 
 ## <a name="name"></a>Nome
 
@@ -59,7 +59,7 @@ Comprimento máximo: 1024 caracteres
 
 ## <a name="success"></a>Êxito
 
-Indicação de chamada bem-sucedida ou malsucedida. Esse campo é obrigatório. Quando não definido explicitamente para `false`-uma solicitação é considerada com êxito. Defina esse valor como `false` se a operação foi interrompida por exceção ou retornou o código de resultado do erro.
+Indicação de chamada bem-sucedida ou malsucedida. Este campo é obrigatório. Quando não definido explicitamente para `false`-uma solicitação é considerada com êxito. Defina esse valor como `false` se a operação foi interrompida por exceção ou retornou o código de resultado do erro.
 
 Para os aplicativos Web, Application Insights definir uma solicitação como bem-sucedida quando o código de resposta for menor que `400` ou igual a `401`. No entanto, há casos em que esse mapeamento padrão não corresponde à semântica do aplicativo. O código de resposta `404` pode indicar "nenhum registro", que pode fazer parte do fluxo regular. Ele também pode indicar um link desfeito. Para os links desfeitos, você pode até mesmo implementar uma lógica mais avançada. Você pode marcar links desfeitos como falhas somente quando esses links estiverem localizados no mesmo site analisando referenciador de URL. Ou marcá-las como falhas quando acessadas por meio do aplicativo móvel da empresa. Da mesma forma `301` e `302` indica falha quando acessado do cliente que não dá suporte a redirecionamento.
 

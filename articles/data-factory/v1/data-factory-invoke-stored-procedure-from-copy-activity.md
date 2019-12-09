@@ -4,21 +4,20 @@ description: Saiba como invocar um procedimento armazenado no banco de dados SQL
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0c5bb7ab4e8932c9568293620352435c7259d810
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d05c2b03a0c498144f37c9b6205053120a596b09
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682496"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924086"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Invocar procedimento armazenado da atividade de cópia no Azure Data Factory
 > [!NOTE]
@@ -68,7 +67,7 @@ Defina a seção **sqlsink** no JSON da atividade de cópia da seguinte maneira.
 }
 ```
 
-## <a name="stored-procedure-definition"></a>Definição de procedimento armazenado 
+## <a name="stored-procedure-definition"></a>Definição do procedimento armazenado 
 No banco de dados, defina o procedimento armazenado com o mesmo nome que **SqlWriterStoredProcedureName**. O procedimento armazenado manipula dados de entrada do armazenamento de dados de origem e insere dados em uma tabela no banco de dado de destino. O nome do primeiro parâmetro do procedimento armazenado deve corresponder ao TableName definido no DataSet JSON (marketing).
 
 ```sql

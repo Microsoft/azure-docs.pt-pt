@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do SAP Business Warehouse usando 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47bc2db8730ebdedd180646d2fb86b642bbc631d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666045"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929212"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -47,7 +46,7 @@ Para habilitar a conectividade com a instância do SAP BW, instale os seguintes 
 Você pode criar um pipeline com uma atividade de cópia que move dados de um armazenamento de dados Cassandra local usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de cópia**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente para copiar dados. 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia. 
+- Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo de Azure Resource Manager**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -59,20 +58,20 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para um armazenamento de dados de SAP BW:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do SAP Business Warehouse (BW).
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 servidor | Nome do servidor no qual reside a instância de SAP BW. | string | Sim
-Número | Número de sistema do sistema de SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
+systemNumber | Número de sistema do sistema de SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
 o nome de utilizador | Nome do usuário que tem acesso ao servidor SAP | string | Sim
 palavra-passe | A palavra-passe do utilizador. | string | Sim
 gatewayName | Nome do gateway que o serviço de Data Factory deve usar para se conectar à instância de SAP BW local. | string | Sim
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | string | Não
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, BLOB do Azure, tabela do Azure, etc.).
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. Não há propriedades específicas do tipo com suporte para o conjunto de SAP BW do tipo **RelationalTable**. 
@@ -85,7 +84,7 @@ Enquanto que as propriedades disponíveis na seção **typeproperties** da ativi
 
 Quando a origem na atividade de cópia é do tipo **RelationalSource** (que inclui SAP BW), as seguintes propriedades estão disponíveis na seção typeproperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta | Especifica a consulta MDX para ler dados da instância de SAP BW. | Consulta MDX. | Sim |
 
@@ -291,24 +290,24 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são usados de tipos de SAP B
 
 Tipo de dados no dicionário ABAP | Tipo de dados .NET
 -------------------------------- | --------------
-ACCP |  inteiro
+ACCP |  Int
 º | String
 CLNT | String
-CURR | Vírgula
+CURR | Decimal
 CUKY | String
-DEZ | Vírgula
-FLTP | Clique
-INT1 | Minuciosa
+DEC | Decimal
+FLTP | Double
+INT1 | bytes
 INT2 | Int16
-INT4 | inteiro
+INT4 | Int
 Lima | String
 LCHR | String
-LRAW | Byte []
+LRAW | Byte[]
 PREC | Int16
-QUAN | Vírgula
-RECEBEM | Byte []
-RAWSTRING | Byte []
-Strings | String
+QUAN | Decimal
+RAW | Byte[]
+RAWSTRING | Byte[]
+STRING | String
 UNIDADE | String
 DATS | String
 NUMC | String

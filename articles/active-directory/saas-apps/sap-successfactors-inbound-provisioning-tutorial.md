@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 85f3c8b9bc4167350b8a56f118128b89df142611
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896925"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914769"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
-O objetivo deste tutorial é mostrar as etapas que você precisa executar para importar dados de trabalho do SuccessFactors Employee central para o Active Directory e Azure Active Directory, com write-back opcional de endereço de email para SuccessFactors.
+O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../manage-apps/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.
+
+>[!NOTE]
+>Use este tutorial se os usuários que você deseja provisionar do SuccessFactors precisarem de uma conta do AD local e, opcionalmente, uma conta do Azure AD. Se os usuários de SuccessFactors precisarem apenas de uma conta do Azure AD (usuários somente em nuvem), consulte o tutorial em [Configurar o SAP SuccessFactors para o provisionamento de usuário do Azure ad](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) . 
+
 
 ## <a name="overview"></a>Visão geral
 
@@ -69,7 +73,7 @@ Esta seção descreve a arquitetura da solução de provisionamento de usuário 
 4. O agente de provisionamento do Azure AD Connect usa uma conta de serviço para adicionar/atualizar dados da conta do AD.
 5. O mecanismo de sincronização Azure AD Connect executa a sincronização Delta para efetuar pull de atualizações no AD.
 6. As atualizações de Active Directory são sincronizadas com Azure Active Directory.
-7. Se o conector de write-back SuccessFactors estiver configurado, ele gravará o atributo de email e o nome de usuário em SuccessFactors, com base no atributo correspondente usado.
+7. Se o [aplicativo SuccessFactors write-back](sap-successfactors-writeback-tutorial.md) estiver configurado, ele gravará o atributo de email novamente em SuccessFactors, com base no atributo correspondente usado.
 
 ## <a name="planning-your-deployment"></a>Planejando a implantação
 
@@ -109,6 +113,10 @@ Trabalhe com sua equipe de administração do SuccessFactors ou com o parceiro d
 * Role para baixo na mesma caixa e selecione **API central do funcionário**. Adicione permissões conforme mostrado abaixo para ler usando a API do ODATA e editar usando a API do ODATA. Selecione a opção Editar se você planeja usar a mesma conta para o SuccessFactors cenário de write-back. 
   > [!div class="mx-imgBorder"]
   > ![permissões de gravação de leitura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+  >[!NOTE]
+  >Para obter a lista completa de atributos recuperados por este aplicativo de provisionamento, consulte a [referência de atributo SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md)
+
 * Clique em **concluído**. Clique em **Guardar Alterações**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Criar um grupo de permissões para o usuário da API
@@ -294,6 +302,10 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
 1. Na seção **mapeamentos de atributo** , você pode definir como os atributos de SuccessFactors individuais são mapeados para atributos de Active Directory.
 
+  >[!NOTE]
+  >Para obter a lista completa do atributo SuccessFactors com suporte pelo aplicativo, consulte a [referência de atributo SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md)
+
+
 1. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual oferece suporte a essas propriedades:
 
       * **Tipo de mapeamento**
@@ -347,20 +359,9 @@ Depois que as configurações do aplicativo de provisionamento do SuccessFactors
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Saiba mais sobre os atributos SuccessFactors com suporte para o provisionamento de entrada](../manage-apps/sap-successfactors-attribute-reference.md)
+* [Saiba como configurar o Write-back de email para SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [Saiba como examinar os logs e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o SuccessFactors e o Azure Active Directory](successfactors-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
 * [Saiba como exportar e importar as configurações de provisionamento](../manage-apps/export-import-provisioning-configuration.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

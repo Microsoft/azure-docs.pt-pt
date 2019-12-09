@@ -1,23 +1,22 @@
 ---
-title: Considerações de segurança no Azure Data Factory
+title: Considerações de segurança
 description: Descreve a infraestrutura básica de segurança que os serviços de movimentação de dados em Azure Data Factory usados para ajudar a proteger seus dados.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/15/2018
-ms.author: abnarain
-ms.openlocfilehash: 15178fd0b5253b34f21030665a5835646c13b75d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e809c88d8a0a0efeb12e9f2a472a497349fdfa1b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675852"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927518"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -44,7 +43,7 @@ O Data Factory foi certificado para:
 | **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
 | **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
-| **[BAA DA HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
 Se você estiver interessado em conformidade com o Azure e como o Azure protege sua própria infraestrutura, visite a [central de confiabilidade da Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Para obter a lista mais recente de todas as ofertas de conformidade do Azure, verifique https://aka.ms/AzureCompliance.
 
@@ -79,13 +78,13 @@ Se o armazenamento de dados de nuvem oferecer suporte a HTTPS ou TLS, todas as t
 ### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos
 Alguns armazenamentos de dados dão suporte à criptografia de dados em repouso. Recomendamos que você habilite o mecanismo de criptografia de dados para esses armazenamentos de dados. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+#### <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
 O Transparent Data Encryption (TDE) no Azure SQL Data Warehouse ajuda a proteger contra a ameaça de atividades mal-intencionadas, executando criptografia e descriptografia em tempo real de seus dados em repouso. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [proteger um banco de dados no SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 O banco de dados SQL do Azure também dá suporte à TDE (Transparent Data Encryption), que ajuda a proteger contra a ameaça de atividades mal-intencionadas, executando criptografia e descriptografia em tempo real dos dados, sem a necessidade de alterações no aplicativo. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Transparent Data Encryption para o banco de dados SQL e data warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Arquivo do Azure Data Lake
 Azure Data Lake Store também fornece criptografia para os dados armazenados na conta. Quando habilitado, o Data Lake Store criptografa automaticamente os dados antes de persistir e descriptografar antes da recuperação, tornando-o transparente para o cliente que acessa os dados. Para obter mais informações, consulte [segurança em Azure data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Armazenamento de BLOBs do Azure e armazenamento de tabelas do Azure
@@ -127,7 +126,7 @@ Por padrão, o PowerShell usa a porta 8060 no computador com o tempo de execuç�
  
 
 
-### <a name="encryption-in-transit"></a>Criptografia em trânsito
+### <a name="encryption-in-transit"></a>Encriptação em trânsito
 Todas as transferências de dados são por meio de canal seguro HTTPS e TLS sobre TCP para evitar ataques man-in-the-Middle durante a comunicação com os serviços do Azure.
 
 Você também pode usar [VPN IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md) para proteger ainda mais o canal de comunicação entre sua rede local e o Azure.
@@ -138,9 +137,9 @@ A tabela a seguir resume a rede e as recomendações de configuração de tempo 
 
 | Origem      | Destino                              | Configuração da rede                    | Configuração do runtime de integração                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPSec (ponto a site ou site a site) | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
-| Local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (emparelhamento privado)           | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
-| Local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (emparelhamento da Microsoft)            | O Integration Runtime de hospedagem interna pode ser instalado localmente ou em uma máquina virtual do Azure. |
+| No local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | VPN IPSec (ponto a site ou site a site) | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
+| No local | Máquinas virtuais e serviços de nuvem implantados em redes virtuais | ExpressRoute (emparelhamento privado)           | O tempo de execução de integração auto-hospedado deve ser instalado em uma máquina virtual do Azure na rede virtual.  |
+| No local | Serviços baseados no Azure que têm um ponto de extremidade público | ExpressRoute (emparelhamento da Microsoft)            | O Integration Runtime de hospedagem interna pode ser instalado localmente ou em uma máquina virtual do Azure. |
 
 As imagens a seguir mostram o uso do tempo de execução de integração auto-hospedado para mover dados entre um banco de dados local e os serviços do Azure usando o ExpressRoute e a VPN IPSec (com a rede virtual do Azure):
 
@@ -148,7 +147,7 @@ As imagens a seguir mostram o uso do tempo de execução de integração auto-ho
 
 ![Usar o ExpressRoute com gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
 
-**VPN IPSec**
+**IPSec VPN**
 
 ![VPN IPSec com gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
@@ -168,7 +167,7 @@ A tabela a seguir fornece os requisitos de porta de entrada para o Firewall do W
 
 | Portas de entrada | Descrição                              |
 | ------------- | ---------------------------------------- |
-| 8060 (TCP)    | Exigido pelo cmdlet de criptografia do PowerShell, conforme descrito em [criptografar credenciais para armazenamentos de dados locais no Azure data Factory](encrypt-credentials-self-hosted-integration-runtime.md)e pelo aplicativo Gerenciador de credenciais para definir com segurança as credenciais para armazenamentos de dados locais no local de hospedagem interna Integration Runtime. |
+| 8060 (TCP)    | Exigido pelo cmdlet de criptografia do PowerShell, conforme descrito em [criptografar credenciais para armazenamentos de dados locais no Azure data Factory](encrypt-credentials-self-hosted-integration-runtime.md)e pelo aplicativo Gerenciador de credenciais para definir com segurança as credenciais para armazenamentos de dados locais no tempo de execução de integração auto-hospedado. |
 
 ![Requisitos de porta do gateway](media/data-movement-security-considerations/gateway-port-requirements.png) 
 

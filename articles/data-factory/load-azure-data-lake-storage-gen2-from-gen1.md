@@ -10,13 +10,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: c221506f390559aa5d81076b80e45be62a4329dc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892945"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926312"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados de Azure Data Lake Storage Gen1 para Gen2 com Azure Data Factory
 

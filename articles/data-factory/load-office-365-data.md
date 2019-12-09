@@ -4,19 +4,19 @@ description: Usar Azure Data Factory para copiar dados do Office 365
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672625"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931427"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando Azure Data Factory
 
@@ -43,7 +43,7 @@ Este artigo mostra como usar o Data Factory _carregar dados do Office 365 para o
    
    ![Home page da fábrica de dados](./media/load-office-365-data/data-factory-home-page.png)
 
-5. Selecione o bloco **criar & monitor** para iniciar o aplicativo de integração de dados em uma guia separada.
+5. Selecione o mosaico **Criar e Monitorizar** para iniciar a Aplicação de Integração de Dados num separador à parte.
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
@@ -128,7 +128,7 @@ Para ver as execuções de atividade associadas à execução do pipeline, selec
 
 ![Monitorar atividade](./media/load-office-365-data/activity-status.png) 
 
-Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em qual conta de destino os dados estão sendo carregados e qual identidade de usuário está fazendo a solicitação de acesso a dados), você verá a atividade de cópia status como **em andamento**, e somente quando você clicar no link "detalhes" em ações, verá o status como **RequesetingConsent**.  Um membro do grupo Aprovador de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que a extração de dados possa continuar.
+Se esta for a primeira vez que você está solicitando dados para esse contexto (uma combinação de qual tabela de dados está sendo acessada, em que conta de destino os dados estão sendo carregados e qual identidade do usuário está fazendo a solicitação de acesso a dados), você verá o status da **atividade de cópia**como **em andamento**e somente quando clicar no link "detalhes" em ações, você verá o  Um membro do grupo Aprovador de acesso a dados precisa aprovar a solicitação no Privileged Access Management antes que a extração de dados possa continuar.
 
 _Status como solicitando consentimento:_ detalhes de execução de atividade de
 ![-solicitar consentimento](./media/load-office-365-data/activity-details-request-consent.png) 

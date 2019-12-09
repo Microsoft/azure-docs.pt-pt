@@ -4,10 +4,8 @@ description: Saiba como migrar seu aplicativo Android da ADAL (biblioteca de aut
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -16,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667893"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917256"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração do ADAL para MSAL para Android
 
@@ -68,7 +66,7 @@ Você não precisa alterar seu registro de aplicativo existente para usar o MSAL
 
 Em seu registro de aplicativo no portal, você verá uma guia **permissões de API** . Isso fornece uma lista das APIs e permissões (escopos) às quais seu aplicativo está atualmente configurado para solicitar acesso. Ele também mostra uma lista dos nomes de escopo associados a cada permissão de API.
 
-### <a name="user-consent"></a>Consentimento do usuário
+### <a name="user-consent"></a>Consentimento do utilizador
 
 Com a ADAL e o ponto de extremidade do AAD v1, o consentimento do usuário para os recursos de sua propriedade foi concedido no primeiro uso. Com o MSAL e a plataforma de identidade da Microsoft, o consentimento pode ser solicitado de forma incremental. O consentimento incremental é útil para permissões que um usuário pode considerar alto privilégio ou, caso contrário, pergunta se não foi fornecida uma explicação clara de por que a permissão é necessária. No ADAL, essas permissões podem ter resultado no usuário abandonar a entrada em seu aplicativo.
 

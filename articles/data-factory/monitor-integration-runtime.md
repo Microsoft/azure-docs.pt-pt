@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
-manager: craigg
-ms.openlocfilehash: 874483540b8c92bbb8a6e37101191f5c867b76f1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: a65bb119994e8bb56eecc730774535d7c0a4d8b6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684646"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928433"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **Integration Runtime** é a infraestrutura de computação usada pelo Azure data Factory para fornecer vários recursos de integração de dados em diferentes ambientes de rede. Há três tipos de tempos de execução de integração oferecidos pelo Data Factory:
@@ -56,7 +55,7 @@ A tabela a seguir fornece os possíveis status de um tempo de execução de inte
 | Estado | Comentários/cenários | 
 | ------ | ------------------ |
 | Online | O tempo de execução de integração do Azure está online e pronto para ser usado. | 
-| Está | O tempo de execução de integração do Azure está offline devido a um erro interno. |
+| Offline | O tempo de execução de integração do Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime de integração autoalojado
 Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
@@ -95,8 +94,8 @@ A tabela a seguir fornece possíveis status de um nó de tempo de execução de 
 | Estado | Descrição |
 | ------ | ------------------ | 
 | Online | O nó está conectado ao serviço de Data Factory. |
-| Está | O nó está offline. |
-| Upgrade | O nó está sendo atualizado automaticamente. |
+| Offline | O nó está offline. |
+| Atualizar | O nó está sendo atualizado automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8050, problema de conectividade do barramento de serviço ou um problema de sincronização de credencial. |
 | Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria. |
 
@@ -109,7 +108,7 @@ A tabela a seguir fornece possíveis status de um tempo de execução de integra
 | ------ | ----------- | 
 | Precisa de registro | Nenhum nó está registrado nesse tempo de execução de integração auto-hospedado ainda. |
 | Online | Todos os nós estão online. |
-| Está | Nenhum nó está online. |
+| Offline | Nenhum nó está online. |
 | Limitado | Nem todos os nós neste Integration Runtime de hospedagem interna estão em um estado íntegro. Esse status é um aviso de que alguns nós podem estar inativos. Esse status pode ser devido a um problema de sincronização de credencial no nó Dispatcher/de trabalho. |
 
 Use o cmdlet **Get-AzDataFactoryV2IntegrationRuntimeMetric** para buscar o conteúdo JSON que contém as propriedades detalhadas do tempo de execução de integração auto-hospedado e seus valores de instantâneo durante o tempo de execução do cmdlet.
@@ -165,7 +164,7 @@ O tempo de execução de integração do Azure-SSIS é um cluster totalmente ger
 | LastOperation | O resultado da última operação de iniciar/parar no tempo de execução de integração do Azure-SSIS com erros acionáveis, caso tenha falhado. |
 | Estado | O status geral (inicial/iniciando/iniciado/parando/parado) do tempo de execução de integração do Azure-SSIS. |
 | Localização | O local do tempo de execução de integração do Azure-SSIS. |
-| Nós | O tamanho de cada nó do tempo de execução de integração do Azure-SSIS. |
+| NodeSize | O tamanho de cada nó do tempo de execução de integração do Azure-SSIS. |
 | NodeCount | O número de nós no tempo de execução de integração do Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no tempo de execução de integração do Azure-SSIS. |
 | CatalogServerEndpoint | O ponto de extremidade do seu servidor de banco de dados SQL/Instância Gerenciada do Azure existente para hospedar o SSISDB. |
@@ -186,7 +185,7 @@ O tempo de execução de integração do Azure-SSIS é um cluster totalmente ger
 
 | Estado | Descrição |
 | ------ | ----------- | 
-| A iniciar | Este nó está sendo preparado. |
+| A Iniciar | Este nó está sendo preparado. |
 | Disponível | Este nó está pronto para implantar/executar pacotes do SSIS. |
 | Reciclagem | Este nó está sendo reparado/reiniciando. |
 | Indisponível | Este nó não está pronto para implantar/executar pacotes do SSIS e tem erros/problemas acionáveis que você pode resolver. |
@@ -195,10 +194,10 @@ O tempo de execução de integração do Azure-SSIS é um cluster totalmente ger
 
 | Status geral | Descrição | 
 | -------------- | ----------- | 
-| This | Os nós do seu tempo de execução de integração do Azure-SSIS não foram alocados/preparados. | 
-| A iniciar | Os nós do seu tempo de execução de integração do Azure-SSIS estão sendo alocados/preparados e a cobrança foi iniciada. |
-| Iniciais | Os nós do seu tempo de execução de integração do Azure-SSIS foram alocados/preparados e estão prontos para você implantar/executar pacotes do SSIS. |
-| A parar  | Os nós do tempo de execução de integração do Azure-SSIS estão sendo liberados. |
+| Initial (Inicial) | Os nós do seu tempo de execução de integração do Azure-SSIS não foram alocados/preparados. | 
+| A Iniciar | Os nós do seu tempo de execução de integração do Azure-SSIS estão sendo alocados/preparados e a cobrança foi iniciada. |
+| Started | Os nós do seu tempo de execução de integração do Azure-SSIS foram alocados/preparados e estão prontos para você implantar/executar pacotes do SSIS. |
+| A Parar  | Os nós do tempo de execução de integração do Azure-SSIS estão sendo liberados. |
 | Parada | Os nós de seu tempo de execução de integração do Azure-SSIS foram liberados e a cobrança foi interrompida. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorar o tempo de execução de integração do Azure-SSIS no portal do Azure

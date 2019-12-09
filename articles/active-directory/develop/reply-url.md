@@ -1,5 +1,5 @@
 ---
-title: Redirecionar restrições e limitações de URL de resposta/URI-plataforma de identidade da Microsoft
+title: URI de redirecionamento & restrições de URL de resposta-plataforma de identidade da Microsoft | Azure
 description: URLs de resposta/redirecionamento de restrições de URls & limitações
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389602"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920332"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
@@ -28,15 +28,15 @@ A tabela a seguir mostra o número máximo de URIs de redirecionamento que você
 
 | Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | o campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
-| Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | o campo `signInAudience` no manifesto do aplicativo está definido como *AzureADandPersonalMicrosoftAccount* |
+| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
+| Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Comprimento máximo do URI
 
 Você pode usar um máximo de 256 caracteres para cada URI de redirecionamento que você adicionar a um registro de aplicativo.
 
 ## <a name="supported-schemes"></a>Esquemas com suporte
-O modelo de aplicativo do Azure AD atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização. Ou seja, o campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para os aplicativos que entram em contas pessoais da Microsoft e em contas corporativas e de estudante (ou seja, `signInAudience` definido como *AzureADandPersonalMicrosoftAccount*), somente o esquema HTTPS é permitido.
+O modelo de aplicativo do Azure AD atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização. Esse é `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para os aplicativos que entram em contas pessoais da Microsoft e em contas corporativas e de estudante (`signInAudience` definido como *AzureADandPersonalMicrosoftAccount*), somente o esquema HTTPS é permitido.
 
 > [!NOTE]
 > A nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs com esquema http na interface do usuário. A adição de URIs HTTP para aplicativos que entram em contas corporativas ou de estudante tem suporte apenas por meio do editor de manifesto de aplicativo. No futuro, novos aplicativos não poderão usar esquemas HTTP no URI de redirecionamento. No entanto, aplicativos mais antigos que contêm esquemas HTTP em URIs de redirecionamento continuarão a funcionar. Os desenvolvedores devem usar esquemas HTTPS nos URIs de redirecionamento.

@@ -2,27 +2,23 @@
 title: Aplicativos nativos no Azure Active Directory
 description: Descreve o que são aplicativos nativos e as noções básicas sobre o fluxo de protocolo, o registro e a expiração do token para esse tipo de aplicativo.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e7313acd26874f29a587d1c854a5286ed06d3cad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373878"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915128"
 ---
 # <a name="native-apps"></a>Aplicativos nativos
 

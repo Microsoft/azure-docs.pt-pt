@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 9ee1dd74384725b3fffbfea7144c3a536b50c531
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174554"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931546"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicar eventos para Azure Active Directory pontos de extremidade protegidos
 
@@ -22,7 +22,7 @@ Este artigo usa a portal do Azure para demonstração, no entanto, o recurso tam
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-and-azure-ad-application"></a>Criar e aplicativo do Azure AD
+## <a name="create-an-azure-ad-application"></a>Criar um aplicativo do Azure AD
 
 Comece criando um aplicativo do Azure AD para seu ponto de extremidade protegido. Veja https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure sua API protegida para ser chamada por um aplicativo daemon.

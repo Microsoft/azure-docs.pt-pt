@@ -1,19 +1,18 @@
 ---
-title: 'ExpressRoute: vincular uma VNet a um circuito: clássico'
+title: 'Azure ExpressRoute: vincular uma VNet a um circuito: clássico'
 description: Este documento fornece uma visão geral de como vincular redes virtuais (VNets) a circuitos de ExpressRoute usando o modelo de implantação clássico e o PowerShell.
 services: expressroute
-documentationcenter: na
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: e02073e777c62be00b5c25c2242294e54795a0d4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 53c200b01dfa6bce09cfc058dc24ab8e38d253a6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031616"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930039"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -46,40 +45,7 @@ Você pode vincular até 10 redes virtuais a um circuito do ExpressRoute. Todas 
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Ao utilizar o exemplo seguinte, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Se precisar de mais informações sobre o Azure PowerShell, veja [introdução aos cmdlets do Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o seu computador para utilizar os módulos do Azure PowerShell.
-
-### <a name="sign-in"></a>Iniciar sessão
-
-Para entrar em sua conta do Azure, use os exemplos a seguir:
-
-1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Verifique as subscrições da conta.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Ligar uma rede virtual na mesma subscrição a um circuito
 Você pode vincular uma rede virtual a um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e está pronto para vinculação antes de executar o cmdlet.
@@ -124,7 +90,7 @@ O proprietário do circuito autoriza os administradores de outras assinaturas a 
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 ```
 
-  Exibir
+  Devolvem:
 
   ```powershell
   Description         : Dev-Test Links
@@ -141,7 +107,7 @@ O proprietário do circuito pode rever todas as autorizações emitidos num dete
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 ```
-  Exibir
+  Devolvem:
 
   ```powershell
   Description         : EngineeringTeam
@@ -171,7 +137,7 @@ O proprietário do circuito pode modificar autorizações usando o seguinte cmdl
 Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 ```
 
-  Exibir
+  Devolvem:
 
   ```powershell
   Description         : Dev-Test Links
@@ -199,7 +165,7 @@ O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
 Get-AzureAuthorizedDedicatedCircuit
 ```
 
-  Exibir
+  Devolvem:
 
   ```powershell
   Bandwidth                        : 200
@@ -221,7 +187,7 @@ O utilizador de circuito pode executar o cmdlet seguinte para resgatar uma autor
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 ```
 
-  Exibir
+  Devolvem:
 
   ```powershell
   State VnetName

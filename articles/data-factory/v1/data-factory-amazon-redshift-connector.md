@@ -4,21 +4,20 @@ description: Saiba como mover dados do Amazon redshift usando Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 707061f523e5e991c851abfe7960a9aa66fb2066
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683262"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924871"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -56,47 +55,47 @@ Quando você usa o assistente de cópia, as definições de JSON para essas Data
 
 As seções a seguir descrevem as propriedades JSON que são usadas para definir as entidades de Data Factory para o Amazon redshift.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 A tabela a seguir fornece descrições para os elementos JSON que são específicos de um serviço vinculado do Amazon redshift.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |Essa propriedade deve ser definida como **AmazonRedshift**. |Sim |
 | **servidor** |O endereço IP ou nome do host do servidor Amazon redshift. |Sim |
 | **Porto** |O número da porta TCP que o servidor Amazon redshift usa para escutar conexões de cliente. |Não (o padrão é 5439) |
-| **banco** |O nome do banco de dados do Amazon redshift. |Sim |
-| **usu** |O nome do usuário que tem acesso ao banco de dados. |Sim |
-| **la** |A senha da conta de usuário. |Sim |
+| **database** |O nome do banco de dados do Amazon redshift. |Sim |
+| **username** |O nome do usuário que tem acesso ao banco de dados. |Sim |
+| **password** |A senha da conta de usuário. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista das seções e propriedades que estão disponíveis para definir conjuntos de os, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções **estrutura**, **disponibilidade**e **política** são semelhantes para todos os tipos de conjunto de dados. Exemplos de tipos de conjuntos de conjunto de um SQL Azure, armazenamento de BLOBs do Azure e armazenamento de tabelas do Azure.
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório. **A seção typeproperties** de um conjunto de um DataSet do tipo **RelationalTable**, que inclui o conjunto de conRedshift do Amazon, tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tableName** |O nome da tabela no banco de dados do Amazon redshift ao qual o serviço vinculado se refere. |Não (se a propriedade de **consulta** de uma atividade de cópia do tipo **RelationalSource** for especificada) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
 Para obter uma lista de seções e propriedades que estão disponíveis para definir atividades, consulte o artigo [criando pipelines](data-factory-create-pipelines.md) . O **nome**, a **Descrição**, a tabela de **entradas** , a tabela de **saídas** e as propriedades de **política** estão disponíveis para todos os tipos de atividades. As propriedades que estão disponíveis na seção **typeproperties** variam para cada tipo de atividade. Para a atividade de cópia, as propriedades variam de acordo com os tipos de fontes de dados e coletores.
 
 Para a atividade de cópia, quando a fonte é do tipo **AmazonRedshiftSource**, as seguintes propriedades estão disponíveis na seção **typeproperties** :
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **consultá** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
+| **query** | Use a consulta personalizada para ler os dados. |Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
 | **redshiftUnloadSettings** | Contém o grupo de propriedades ao usar o comando **Unload** redshift. | Não |
 | **s3LinkedServiceName** | O Amazon S3 para usar como um armazenamento provisório. O serviço vinculado é especificado usando um nome de Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 | **bucketName** | Indica o Bucket do Amazon S3 a ser usado para armazenar os dados provisórios. Se essa propriedade não for fornecida, a atividade de cópia gerará automaticamente um Bucket. | Necessário ao usar a propriedade **redshiftUnloadSettings** |
 
 Como alternativa, você pode usar o tipo **RelationalSource** , que inclui o Amazon redshift, com a seguinte propriedade na seção **typeproperties** . Observe que esse tipo de fonte não dá suporte ao comando **Unload** redshift.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **consultá** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
+| **query** |Use a consulta personalizada para ler os dados. | Não (se a propriedade **TableName** de um conjunto de um DataSet for especificada) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Usar UNLOAD para copiar dados do Amazon redshift
 
@@ -331,17 +330,17 @@ Os seguintes mapeamentos são usados quando a atividade de cópia converte os da
 | Tipo de redshift do Amazon | Tipo .NET |
 | --- | --- |
 | SMALLINT |Int16 |
-| VALORES |Int32 |
+| INTEGER |Int32 |
 | BIGINT |Int64 |
-| VÍRGULA |Vírgula |
+| DECIMAL |Decimal |
 | REAL |Único |
-| PRECISÃO DUPLA |Clique |
+| DOUBLE PRECISION |Double |
 | BOOLEAN |String |
 | º |String |
 | VARCHAR |String |
 | DATA |DateTime |
-| ESTAMPA |DateTime |
-| TEXTO |String |
+| TIMESTAMP |DateTime |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas do coletor
 Para saber como mapear colunas no conjunto de informações de origem para colunas no conjunto de informações do coletor, consulte [mapeando colunas do conjunto de informações no Azure data Factory](data-factory-map-columns.md).

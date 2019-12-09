@@ -12,13 +12,13 @@ ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 0f0ceb9d7ee428571c2d472dd9ed9442f404a090
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673803"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928859"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar Azure-SSIS Integration Runtime em uma agenda
 Este artigo descreve como agendar o início e a interrupção de Azure-SSIS Integration Runtime (IR) usando Azure Data Factory (ADF). Azure-SSIS IR é o recurso de computação do ADF dedicado para executar pacotes do SQL Server Integration Services (SSIS). A execução de Azure-SSIS IR tem um custo associado a ele. Portanto, normalmente você desejará executar o IR somente quando precisar executar pacotes do SSIS no Azure e parar o IR quando não precisar mais dele. Você pode usar a interface do usuário do ADF/app ou Azure PowerShell para [Iniciar ou parar manualmente o ir](manage-azure-ssis-integration-runtime.md)).
@@ -88,7 +88,7 @@ Se você criar um terceiro gatilho agendado para execução diária à meia-noit
    
 2. Na caixa de ferramentas **atividades** , expanda o menu **geral** e arraste & soltar uma atividade **da Web** na superfície do designer de pipeline. Na guia **geral** da janela Propriedades da atividade, altere o nome da atividade para **startMyIR**. Alterne para a guia **configurações** e execute as ações a seguir.
 
-    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`e `{integrationRuntimeName}` pelos valores reais para seu ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` Alternativamente, você também pode copiar & colar a ID de recurso do seu ir de seu página de monitoramento no aplicativo/interface do usuário do ADF para substituir a seguinte parte da URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. Para **URL**, insira a URL a seguir para a API REST que inicia Azure-SSIS ir, substituindo `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`e `{integrationRuntimeName}` pelos valores reais para o ir: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` Alternativamente, você também pode copiar & colar a ID de recurso do seu ir de sua página de monitoramento no aplicativo/interface do usuário do ADF para substituir a seguinte parte da URL acima: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID de recurso de IR do SSIS do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -105,7 +105,7 @@ Se você criar um terceiro gatilho agendado para execução diária à meia-noit
     
     2. Para o **corpo**, insira `{"message":"Stop my IR"}`. 
 
-4. Crie um terceiro pipeline, arraste & descartar uma atividade **executar pacote do SSIS** da caixa de ferramentas **atividades** para a superfície do designer de pipeline e configure-a seguindo as instruções em [invocar um pacote do SSIS usando executar pacote SSIS atividade no ADF](how-to-invoke-ssis-package-ssis-activity.md) artigo.  Como alternativa, você pode usar uma atividade de **procedimento armazenado** em vez disso e configurá-la seguindo as instruções em [invocar um pacote do SSIS usando a atividade de procedimento armazenado no ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) .  Em seguida, encadeamento a atividade executar pacote SSIS/procedimento armazenado entre duas atividades da Web que iniciam/interrompem o IR, semelhante às atividades da Web nos pipelines do primeiro/segundo.
+4. Crie um terceiro pipeline, arraste & descartar uma atividade **Executar Pacote SSIS** da caixa de ferramentas **atividades** para a superfície do designer de pipeline e configure-a seguindo as instruções em [invocar um pacote SSIS usando a atividade executar pacote SSIS no ADF](how-to-invoke-ssis-package-ssis-activity.md) .  Como alternativa, você pode usar uma atividade de **procedimento armazenado** em vez disso e configurá-la seguindo as instruções em [invocar um pacote do SSIS usando a atividade de procedimento armazenado no ADF](how-to-invoke-ssis-package-stored-procedure-activity.md) .  Em seguida, encadeamento a atividade executar pacote SSIS/procedimento armazenado entre duas atividades da Web que iniciam/interrompem o IR, semelhante às atividades da Web nos pipelines do primeiro/segundo.
 
    ![IR do SSIS de atividade da Web por demanda do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 

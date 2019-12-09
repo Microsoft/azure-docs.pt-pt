@@ -1,29 +1,25 @@
 ---
-title: Problemas conhecidos no Internet Explorer e no Microsoft Edge (MSAL para JavaScript)
+title: Problemas de MSAL. js no Internet Explorer & Microsoft Edge | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os problemas conhecidos ao usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com os navegadores do Internet Explorer e do Microsoft Edge.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b4e24a02bcce372f020833a82b685748432c39
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934828"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916388"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos no Internet Explorer e nos navegadores do Microsoft Edge com MSAL. js
 
@@ -60,7 +56,7 @@ Use as soluções alternativas abaixo.
 #### <a name="other-workarounds"></a>Outras soluções alternativas
 Certifique-se de testar se o problema está ocorrendo apenas na versão específica do navegador Microsoft Edge e funciona nos outros navegadores antes de adotar essas soluções alternativas.  
 1. Como uma primeira etapa para contornar esses problemas, certifique-se de que o domínio do aplicativo, e quaisquer outros sites envolvidos nos redirecionamentos do fluxo de autenticação sejam adicionados como sites confiáveis nas configurações de segurança do navegador, para que eles pertençam à mesma zona de segurança.
-Para fazer isso, siga estas etapas:
+Para tal, siga estes passos:
     - Abra o **Internet Explorer** e clique nas **configurações** (ícone de engrenagem) no canto superior direito
     - Selecionar **Opções da Internet**
     - Selecione a guia **segurança**

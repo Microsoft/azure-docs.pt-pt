@@ -1,29 +1,25 @@
 ---
-title: Logon único (biblioteca de autenticação da Microsoft para JavaScript)
+title: Logon único (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre como criar experiências de logon único usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js).
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da39b8435acdd11108a945c6bac5147dc8b6ad50
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 921c02e682c722a4e96f98fb0fc54d7fcbb82220
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150571"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916269"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Início de sessão único com MSAL.js
 
@@ -92,7 +88,7 @@ Você pode encontrar as etapas para configurar declarações opcionais no manife
 
 **Usando a dica de logon**
 
-Se você não tiver a declaração de SID configurada ou precisar ignorar o prompt de seleção de conta nas chamadas de autenticação interativas, poderá fazer isso fornecendo um `login_hint` nos parâmetros de solicitação e, opcionalmente, um `domain_hint` como `extraQueryParameters` nos métodos interativos do MSAL. js (@no __t_3_, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Por exemplo:
+Se você não tiver a declaração de SID configurada ou precisar ignorar o prompt de seleção de conta nas chamadas de autenticação interativas, poderá fazer isso fornecendo um `login_hint` nos parâmetros de solicitação e, opcionalmente, um `domain_hint` como `extraQueryParameters` nos métodos interativos do MSAL. js (`loginPopup`, `loginRedirect`, `acquireTokenPopup` e `acquireTokenRedirect`). Por exemplo:
 
 ```javascript
 var request = {
@@ -108,7 +104,7 @@ Você pode obter os valores para login_hint e domain_hint lendo as declarações
 
 * **loginHint** deve ser definido como a declaração de `preferred_username` no token de ID.
 
-* o **domain_hint** só precisa ser passado ao usar a autoridade/Common. A dica de domínio é determinada pela ID de locatário (TID).  Se a declaração de `tid` no token de ID for `9188040d-6c67-4c5b-b112-36a304b66dad` os consumidores. Caso contrário, é organizações.
+* **domain_hint** só precisa ser passada ao usar a autoridade/Common. A dica de domínio é determinada pela ID de locatário (TID).  Se a declaração de `tid` no token de ID for `9188040d-6c67-4c5b-b112-36a304b66dad` os consumidores. Caso contrário, é organizações.
 
 Leia [aqui](v2-oauth2-implicit-grant-flow.md) para obter mais informações sobre os valores de dica de logon e dica de domínio.
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 4/10/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e28104e1c795e093fda6457d9f86265312f540be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 19503fd0e469258bb8305f151cc53b9ec3136558
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184822"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935910"
 ---
 > [!IMPORTANT]
-> A pré-visualização do Runtime de funções do Azure 2 suporta apenas a versão 1.x do runtime das funções do Azure. Esta funcionalidade de pré-visualização não está a ser atualizada para suportar a versão 2.x do tempo de execução e não existem atualizações futuras estão planeados. Se precisar hospedar o runtime das funções do Azure fora do Azure, considere [usando as funções do Azure no Kubernetes com o KEDA](../articles/azure-functions/functions-kubernetes-keda.md)
+> O Azure Functions Runtime visualização 2 dá suporte apenas à versão 1. x do tempo de execução Azure Functions. Este recurso de visualização não está sendo atualizado para dar suporte à versão 2. x e superior do tempo de execução e nenhuma atualização futura está planejada. Se você precisar hospedar o tempo de execução de Azure Functions fora do Azure, considere [usar Azure Functions no kubernetes com Keda](../articles/azure-functions/functions-kubernetes-keda.md)

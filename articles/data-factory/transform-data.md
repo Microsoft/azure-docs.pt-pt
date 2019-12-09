@@ -4,18 +4,18 @@ description: Saiba como transformar dados ou processar dados em Azure Data Facto
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: shwang
-ms.openlocfilehash: dbca107fc35a297c2a0b44b85a1cbb48865c3ab0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.custom: seo-lt-2019
+ms.date: 07/31/2018
+ms.openlocfilehash: 1f920f2672c19455a8e8ac979e8d6d1eb14d4c35
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893744"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924304"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados em Azure Data Factory
 

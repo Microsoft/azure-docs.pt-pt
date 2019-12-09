@@ -2,28 +2,24 @@
 title: Como obter o AppSource Certified para Azure Active Directory | Microsoft Docs
 description: Detalhes sobre como fazer com que seu aplicativo AppSource certificado para Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.reviewer: andret
+ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139c7c2e6736eeb3e78ac0aab913378ac84160e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 789b7d29673bca8a7703349ee46f4595fd24c2ea
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374085"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917816"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource Certified para Azure Active Directory
 
@@ -40,8 +36,8 @@ Se você quiser saber mais sobre como integrar seu aplicativo com o Azure AD usa
 Um *aplicativo multilocatário* é um aplicativo que aceita entradas de usuários de qualquer empresa ou organização que tenha o Azure ad sem a necessidade de uma instância, configuração ou implantação separada. O AppSource recomenda que os aplicativos implementem multilocação para habilitar a experiência de avaliação gratuita de *clique único* .
 
 Para habilitar a multilocação em seu aplicativo, siga estas etapas:
-1. Defina a propriedade `Multi-Tenanted` como `Yes` nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[um único locatário](#single-tenant-applications)* .
-1. Atualize seu código para enviar solicitações para o ponto de extremidade `common`. Para fazer isso, atualize o ponto de extremidade de `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
+1. Defina `Multi-Tenanted` Propriedade como `Yes` nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[um único locatário](#single-tenant-applications)* .
+1. Atualize seu código para enviar solicitações para o ponto de extremidade de `common`. Para fazer isso, atualize o ponto de extremidade de `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
 1. Para algumas plataformas, como o ASP .NET, você também precisa atualizar seu código para aceitar vários emissores.
 
 Para obter mais informações sobre multilocação, consulte [como entrar em qualquer usuário do Azure Active Directory (AD do Azure) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md).
@@ -120,7 +116,7 @@ Para obter mais informações sobre a experiência de avaliação do AppSource, 
 
 Para a integração do Azure AD, usamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte.
 
-É altamente recomendável que você faça suas perguntas em Stack Overflow primeiro e procure problemas existentes para ver se alguém fez sua pergunta antes. Verifique se suas perguntas ou comentários estão marcados com [`[azure-active-directory]` e `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+É altamente recomendável que você faça suas perguntas em Stack Overflow primeiro e procure problemas existentes para ver se alguém fez sua pergunta antes. Certifique-se de que suas perguntas ou comentários estão marcados com [`[azure-active-directory]` e `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use a seção de comentários a seguir para fornecer comentários e nos ajudar a refinar e formatar nosso conteúdo.
 

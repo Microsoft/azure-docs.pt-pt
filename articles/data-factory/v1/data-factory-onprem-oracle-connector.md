@@ -4,21 +4,20 @@ description: Saiba como copiar dados de ou para um Oracle Database local usando 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 822713d67790906c972ad77a748ef8d52b871bc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682426"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928158"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando Azure Data Factory
 
@@ -83,7 +82,7 @@ Você pode criar um pipeline que tenha uma atividade de cópia. O pipeline move 
 
 A maneira mais fácil de criar um pipeline é usar o assistente de cópia. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida sobre como criar um pipeline usando o assistente de copiar dados.
 
-Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Consulte o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline com uma atividade de cópia.
 
 Se você usar as ferramentas ou APIs, conclua as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -96,11 +95,11 @@ Quando você usa o assistente, as definições de JSON para essas Data Factory e
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que você usa para definir Data Factory entidades.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
 A tabela a seguir descreve os elementos JSON que são específicos para o serviço vinculado do Oracle:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade **Type** deve ser definida como **OnPremisesOracle**. |Sim |
 | Driver | Especifique qual driver usar para copiar dados de ou para um Oracle Database. Os valores permitidos são **Microsoft** e **odp** (padrão). Consulte [versão com suporte e instalação](#supported-versions-and-installation) para obter detalhes do driver. | Não |
@@ -143,7 +142,7 @@ Para saber mais sobre os formatos permitidos, consulte [provedor de dados Oracle
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Para obter uma lista completa das seções e propriedades que estão disponíveis para definir conjuntos de os, consulte [criando conjuntos](data-factory-create-datasets.md)de os.
 
@@ -151,11 +150,11 @@ As seções de um arquivo JSON de conjunto de dados, como estrutura, disponibili
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção **typeproperties** do conjunto de um do tipo **oracletable** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |O nome da tabela no banco de dados Oracle ao qual o serviço vinculado se refere. |Não (se **oracleReaderQuery** ou **oraclename** for especificado) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
 Para obter uma lista completa de seções e propriedades que estão disponíveis para definir atividades, consulte [criando pipelines](data-factory-create-pipelines.md).
 
@@ -170,7 +169,7 @@ As propriedades que estão disponíveis na seção **typeproperties** da ativida
 
 Na atividade de cópia, quando a origem é o tipo **Oracle** , as seguintes propriedades estão disponíveis na seção **typeproperties** :
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Use a consulta personalizada para ler os dados. |Uma cadeia de caracteres de consulta SQL. Por exemplo, "selecionar \* de **MyTable**". <br/><br/>Se não for especificado, essa instrução SQL será executada: "selecionar \* de **MyTable**" |Não<br />(se **TableName** de **DataSet** for especificado) |
 
@@ -178,9 +177,9 @@ Na atividade de cópia, quando a origem é o tipo **Oracle** , as seguintes prop
 
 O **OracleSink** dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |**período**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
+| writeBatchTimeout |O tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |**timespan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta para a atividade de cópia ser executada para que os dados de uma fatia específica sejam limpos. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifica o nome da coluna para a atividade de cópia preencher com um identificador de fatia gerado automaticamente. O valor de **sliceIdentifierColumnName** é usado para limpar os dados de uma fatia específica quando executado novamente. |O nome da coluna de uma coluna que tem o tipo de dados **binary (32)** . |Não |
@@ -551,7 +550,7 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 ```
 
 
-## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
 
 ### <a name="problem-1-net-framework-data-provider"></a>Problema 1: .NET Framework Provedor de Dados
 
@@ -559,7 +558,7 @@ O pipeline contém uma atividade de cópia configurada para usar os conjuntos de
 
     Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
-**Possíveis causas**
+**Causas possíveis**
 
 * O Provedor de Dados .NET Framework para Oracle não foi instalado.
 * O .NET Framework Provedor de Dados para Oracle foi instalado para .NET Framework 2,0 e não foi encontrado nas pastas .NET Framework 4,0.
@@ -597,27 +596,27 @@ Quando você move dados do Oracle, os seguintes mapeamentos são usados do tipo 
 
 | Tipo de dados Oracle | Tipo de dados .NET Framework |
 | --- | --- |
-| BArquivo |Byte [] |
-| BLOB |Byte []<br/>(com suporte apenas no Oracle 10g e versões posteriores quando você usa um driver da Microsoft) |
+| BArquivo |Byte[] |
+| BLOB |Byte[]<br/>(com suporte apenas no Oracle 10g e versões posteriores quando você usa um driver da Microsoft) |
 | º |String |
 | CLOB |String |
 | DATA |DateTime |
-| BARRA |Decimal, Cadeia de caracteres (se precisão > 28) |
-| VALORES |Decimal, Cadeia de caracteres (se precisão > 28) |
+| FLOAT |Decimal, String (se precisão > 28) |
+| INTEGER |Decimal, String (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
-| INTERVALO DIA A SEGUNDO |Período |
-| Longas |String |
-| LONG RAW |Byte [] |
+| INTERVALO DIA A SEGUNDO |TimeSpan |
+| LONG |String |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| AUTOMÁTICA |Decimal, Cadeia de caracteres (se precisão > 28) |
+| NUMBER |Decimal, String (se precisão > 28) |
 | NVARCHAR2 |String |
-| RECEBEM |Byte [] |
+| RAW |Byte[] |
 | ROWID |String |
-| ESTAMPA |DateTime |
-| CARIMBO DE DATA/HORA COM FUSO HORÁRIO LOCAL |DateTime |
-| CARIMBO DE DATA/HORA COM FUSO HORÁRIO |DateTime |
-| INTEIRO SEM SINAL |Número |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

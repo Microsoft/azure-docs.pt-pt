@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 009da6c16d446f2b0d4d3f402c1c1ec63dde34d8
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 7b5f7c25cd1627475d8e37a539956f01ae6151ab
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018724"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914026"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e usar manualmente um volume com o compartilhamento de arquivos do Azure no serviço de kubernetes do Azure (AKS)
 
@@ -44,7 +44,7 @@ az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv)
 
 # Create the file share
 az storage share create -n $AKS_PERS_SHARE_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING
@@ -63,7 +63,7 @@ Anote o nome da conta de armazenamento e a chave mostrados no final da saída do
 
 O kubernetes precisa de credenciais para acessar o compartilhamento de arquivos criado na etapa anterior. Essas credenciais são armazenadas em um [segredo kubernetes][kubernetes-secret], que é referenciado quando você cria um pod kubernetes.
 
-Use o `kubectl create secret` comando para criar o segredo. O exemplo a seguir cria um compartilhado chamado *Azure-Secret* e popula o *azurestorageaccountname* e o *azurestorageaccountkey* da etapa anterior. Para usar uma conta de armazenamento do Azure existente, forneça o nome da conta e a chave.
+Use o comando `kubectl create secret` para criar o segredo. O exemplo a seguir cria um compartilhado chamado *Azure-Secret* e popula o *azurestorageaccountname* e o *azurestorageaccountkey* da etapa anterior. Para usar uma conta de armazenamento do Azure existente, forneça o nome da conta e a chave.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
@@ -100,13 +100,13 @@ spec:
       readOnly: false
 ```
 
-Use o `kubectl` comando para criar o pod.
+Use o comando `kubectl` para criar o pod.
 
 ```console
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Agora você tem um pod em execução com um compartilhamento de arquivos do Azure montado em */mnt/Azure*. Você pode usar `kubectl describe pod mypod` o para verificar se o compartilhamento foi montado com êxito. A seguinte saída de exemplo condensada mostra o volume montado no contêiner:
+Agora você tem um pod em execução com um compartilhamento de arquivos do Azure montado em */mnt/Azure*. Você pode usar `kubectl describe pod mypod` para verificar se o compartilhamento foi montado com êxito. A seguinte saída de exemplo condensada mostra o volume montado no contêiner:
 
 ```
 Containers:
@@ -205,7 +205,7 @@ spec:
       storage: 5Gi
 ```
 
-Use os `kubectl` comandos para criar o *PersistentVolume* e o *PersistentVolumeClaim*.
+Use os comandos `kubectl` para criar o *PersistentVolume* e o *PersistentVolumeClaim*.
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml
@@ -231,7 +231,7 @@ Atualize a especificação do contêiner para fazer referência ao seu *Persiste
       claimName: azurefile
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
 

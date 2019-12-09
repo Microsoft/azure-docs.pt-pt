@@ -6,18 +6,17 @@ documentationcenter: ''
 ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/15/2018
-author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 4a01a21259c4957b6f497bf213a3ef53f940bab7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+author: nabhishek
+manager: shwang
+ms.date: 03/15/2018
+ms.openlocfilehash: 20858069b745beeaf64951c4ef23c2eb85251985
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893965"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929119"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Transformar dados executando uma atividade jar no Azure Databricks
 

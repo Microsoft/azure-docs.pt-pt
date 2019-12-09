@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24776bb9ec9443df421dcbcf35dcc83ec2bc9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036511"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929716"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Etapas detalhadas: criar e gerenciar chaves SSH para autenticação em uma VM do Linux no Azure 
 Com um par de chaves SSH (Secure Shell), você pode criar uma máquina virtual Linux no Azure que usa como padrão as chaves SSH para autenticação, eliminando a necessidade de senhas para entrar. As VMs criadas com o portal do Azure, CLI do Azure, modelos do Resource Manager ou outras ferramentas podem incluir sua chave pública SSH como parte da implantação, que configura a autenticação de chave SSH para conexões SSH. 
@@ -30,8 +30,8 @@ Para obter outras maneiras de gerar e usar chaves SSH em um computador Windows, 
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
-### <a name="private-key-passphrase"></a>Frase secreta da chave privada
-A chave privada SSH deve ter uma senha muito segura para protegê-la. Essa frase secreta é apenas para acessar o arquivo de chave SSH privada e *não é* a senha da conta de usuário. Quando você adiciona uma frase secreta à chave SSH, ela criptografa a chave privada usando o AES de 128 bits, para que a chave privada seja inútil sem a frase secreta para descriptografá-la. Se um invasor roubasse sua chave privada e essa chave não tiver uma frase secreta, ele poderá usar essa chave privada para entrar em qualquer servidor que tenha a chave pública correspondente. Se uma chave privada for protegida por uma frase secreta, ela não poderá ser usada por esse invasor, fornecendo uma camada adicional de segurança para sua infraestrutura no Azure.
+### <a name="private-key-passphrase"></a>Frase de acesso de chave privada
+A chave privada SSH deve ter uma senha muito segura para protegê-la. Essa frase secreta é apenas para acessar o arquivo de chave SSH privada e *não é* a senha da conta de usuário. Quando adiciona uma frase de acesso à chave SSH, esta encripta a chave privada para que a chave privada com AES de 128 bits não seja utilizável sem a frase de acesso para a desencriptar. Se um invasor roubasse sua chave privada e essa chave não tiver uma frase secreta, ele poderá usar essa chave privada para entrar em qualquer servidor que tenha a chave pública correspondente. Se uma chave privada for protegida por uma frase secreta, ela não poderá ser usada por esse invasor, fornecendo uma camada adicional de segurança para sua infraestrutura no Azure.
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
@@ -52,7 +52,7 @@ Por predefinição, as chaves SSH são mantidas no diretório `~/.ssh`.  Se não
 O comando a seguir `ssh-keygen` gera arquivos de chave pública e privada RSA do SSH de 2048 bits por padrão no diretório `~/.ssh`. Se um par de chaves SSH existir no local atual, esses arquivos serão substituídos.
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 ### <a name="detailed-example"></a>Exemplo detalhado
@@ -60,6 +60,7 @@ O exemplo a seguir mostra opções de comando adicionais para criar um par de ch
 
 ```bash
 ssh-keygen \
+    -m PEM \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
@@ -71,20 +72,22 @@ ssh-keygen \
 
 `ssh-keygen` = o programa utilizado para criar as chaves
 
+`-m PEM` = Formatar a chave como PEM
+
 `-t rsa` = tipo de chave para criar, nesse caso, no formato RSA
 
 `-b 4096` = o número de bits na chave, neste caso, 4096
 
 `-C "azureuser@myserver"` = um comentário acrescentado ao final do ficheiro da chave pública para o identificar facilmente. Normalmente, um endereço de email é usado como comentário, mas use o que for melhor para sua infraestrutura.
 
-`-f ~/.ssh/mykeys/myprivatekey` = o nome do arquivo de chave privada, se você optar por não usar o nome padrão. Um arquivo de chave pública correspondente anexado com `.pub` é gerado no mesmo diretório. O diretório deve existir.
+`-f ~/.ssh/mykeys/myprivatekey` = o nome do arquivo de chave privada, se você optar por não usar o nome padrão. Um arquivo de chave pública correspondente anexado com `.pub` é gerado no mesmo diretório. O diretório tem de existir.
 
 `-N mypassphrase` = uma senha adicional usada para acessar o arquivo de chave privada. 
 
 ### <a name="example-of-ssh-keygen"></a>Exemplo de ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
+ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -92,19 +95,19 @@ Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-The keys randomart image is:
-+--[ RSA 2048]----+
-|        o o. .   |
-|      E. = .o    |
-|      ..o...     |
-|     . o....     |
-|      o S =      |
-|     . + O       |
-|      + = =      |
-|       o +       |
-|        .        |
-+-----------------+
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[RSA 4096]----+
+|        .oE=*B*+ |
+|          o+o.*++|
+|           .oo++*|
+|       .    .B+.O|
+|        S   o=BO.|
+|         . .o++o |
+|        . ... .  |
+|         ..  .   |
+|           ..    |
++----[SHA256]-----+
 ```
 
 #### <a name="saved-key-files"></a>Arquivos de chave salvos

@@ -1,5 +1,5 @@
 ---
-title: Informações do Aplicativo Azure-Azure Functions recursos com suporte | Microsoft Docs
+title: Insights de Aplicativo Azure-Azure Functions recursos com suporte
 description: Application Insights recursos com suporte para Azure Functions
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 31f962ca96ca5c47d18f9250e567abb8f4024e6f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5688bd92e63016e195726488bd9ff9ed039c5795
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677561"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928411"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights para Azure Functions recursos com suporte
 
@@ -26,18 +26,18 @@ O Azure Functions oferece [integração interna](../../azure-functions/functions
 | **SDK do .NET Application Insights**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Coleção automática de**        |                 |                   |               
-| Solicitações &bull;                     | Sim             | Sim               | 
-| Exceções &bull;                   | Sim             | Sim               | 
-| Contadores de desempenho &bull;         | Sim             | Sim               |
-| Dependências &bull;                   |                   |                   |               
-| &nbsp; &nbsp; &nbsp; &mdash; HTTP      |                 | Sim               | 
-| &nbsp; &nbsp; &nbsp; &mdash; ServiceBus|                 | Sim               | 
-| &nbsp; &nbsp; &nbsp; &mdash; EventHub  |                 | Sim               | 
-| &nbsp; &nbsp; &nbsp; &mdash; SQL       |                 | Sim               | 
+| Solicitações de &bull;                     | Sim             | Sim               | 
+| &bull; exceções                   | Sim             | Sim               | 
+| Contadores de desempenho de &bull;         | Sim             | Sim               |
+| Dependências de &bull;                   |                   |                   |               
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
 | | | | 
 | **Recursos com suporte**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp; &nbsp; &nbsp; &mdash; canal de controle seguro|                 | Sim               | 
+| &nbsp;&nbsp;&nbsp;&mdash; canal de controle seguro|                 | Sim               | 
 | Amostragem de &bull;                     | Sim             | Sim               | 
 | Pulsações de &bull;                   |                 | Sim               | 
 | | | | 
@@ -46,7 +46,7 @@ O Azure Functions oferece [integração interna](../../azure-functions/functions
 | &bull; EventHub                       |                   | Sim               | 
 | | | | 
 | **Configurável**                      |                   |                   |           
-| &bull;Fully configurável.<br/>Consulte [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+| &bull;totalmente configurável.<br/>Consulte [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
 
 
 ## <a name="performance-counters"></a>Contadores de Desempenho

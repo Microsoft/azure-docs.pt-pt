@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 10/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e99a1b6482c8b1383040e6bd1447c16c236c9f1a
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 04b5b8621cdd74addaa481a24efee22746c96240
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659878"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925634"
 ---
-A tabela seguinte mostra como adicionar suporte para essa ligação em cada ambiente de desenvolvimento.
+A tabela a seguir informa como adicionar suporte para essa associação em cada ambiente de desenvolvimento.
 
-| Ambiente de programação               | Para adicionar suporte no <br>Funções 2.x  |
+| Ambiente de programação               | Para adicionar suporte |
 |----------------------|----------------|
-|Desenvolvimento local - biblioteca de classes do c#       | [Instalar o pacote](../articles/azure-functions/functions-bindings-register.md#vs) |
-|Desenvolvimento local - C# script, JavaScript,F# |[Registre-se a extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
-|Desenvolvimento de portais| [Registre-se a extensão](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
+|Desenvolvimento local – C# biblioteca de classes       | [Instalar o pacote](../articles/azure-functions/functions-bindings-register.md#vs) |
+|Desenvolvimento local- C# script, JavaScript,F# |[Registrar a extensão](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
+|Desenvolvimento de portal| [Registrar a extensão](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
 
-Para saber como atualizar o enlace extensões no portal sem ter de voltar a publicar o projeto de aplicação de função existente, veja [atualizar suas extensões](../articles/azure-functions/install-update-binding-extensions-manual.md).
+Para saber como atualizar as extensões de associação existentes no portal sem precisar republicar seu projeto de aplicativo de funções, consulte [atualizar suas extensões](../articles/azure-functions/install-update-binding-extensions-manual.md).

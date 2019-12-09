@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 6e301cf8e24ba740b56c63d7f95b50617ba25383
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 27c83bffe40fd80f87542ee4486ef90e684bd5a6
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792701"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931856"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure usando um ISE (ambiente do serviço de integração)
 
@@ -86,7 +86,7 @@ Esta tabela descreve as portas em sua rede virtual do Azure que o ISE usa e onde
 > As portas de origem são efêmeras, portanto, certifique-se de defini-las como `*` para todas as regras.
 > Para a comunicação interna dentro de suas sub-redes, seu ISE exige que você abra todas as portas dentro dessas sub-redes.
 
-| Finalidade | Direção | Portas de destino | Marca de serviço de origem | Etiqueta do serviço de destino | Notas |
+| Finalidade | Direção | Portas de destino | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
 | Comunicação de aplicativos lógicos do Azure | Saída | 80, 443 | VirtualNetwork | Internet | A porta depende do serviço externo com o qual o serviço de aplicativos lógicos se comunica |
 | Azure Active Directory | Saída | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
@@ -132,14 +132,14 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para seu ambiente |
-   | **Grupo de recursos** | Sim | <*Azure-Resource-Group-name*> | O grupo de recursos do Azure em que você deseja criar seu ambiente |
-   | **Nome do ambiente do serviço de integração** | Sim | <*nome do ambiente*> | O nome do ISE, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`) e pontos (`.`). |
-   | **Localização** | Sim | <*Azure-datacenter-região*> | A região do datacenter do Azure onde implantar seu ambiente |
+   | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure em que você deseja criar seu ambiente |
+   | **Nome do ambiente do serviço de integração** | Sim | <*environment-name*> | O nome do ISE, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`) e pontos (`.`). |
+   | **Localização** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde implantar seu ambiente |
    | **SKU** | Sim | **Premium** ou **desenvolvedor (sem SLA)** | A SKU do ISE a ser criada e usada. Para diferenças entre essas SKUs, consulte [SKUs do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Importante**: essa opção está disponível somente na criação do ISE e não pode ser alterada posteriormente. |
    | **Capacidade adicional** | Premium: <br>Sim <p><p>Programador: <br>Não aplicável | Premium: <br>0 a 10 <p><p>Programador: <br>Não aplicável | O número de unidades de processamento adicionais a serem usadas para este recurso do ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade do ISE](#add-capacity). |
    | **Ponto de extremidade de acesso** | Sim | **Interno** ou **externo** | O tipo de pontos de extremidade de acesso a serem usados para o ISE, que determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. O tipo de ponto de extremidade também afeta o acesso a entradas e saídas no histórico de execuções do aplicativo lógico. Para obter mais informações, consulte [Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Importante**: essa opção está disponível somente na criação do ISE e não pode ser alterada posteriormente. |
-   | **Rede virtual** | Sim | <*Azure-Virtual-Network-name*> | A rede virtual do Azure onde você deseja injetar seu ambiente para que os aplicativos lógicos nesse ambiente possam acessar sua rede virtual. Se você não tiver uma rede, [primeiro crie uma rede virtual do Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: você *só* pode executar essa injeção ao criar o ISE. |
-   | **Sub-redes** | Sim | <de *sub-rede – lista de recursos*> | Um ISE requer quatro sub-redes *vazias* para criar e implantar recursos em seu ambiente. Para criar cada sub-rede, [siga as etapas descritas nesta tabela](#create-subnet). |
+   | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure onde você deseja injetar seu ambiente para que os aplicativos lógicos nesse ambiente possam acessar sua rede virtual. Se você não tiver uma rede, [primeiro crie uma rede virtual do Azure](../virtual-network/quick-create-portal.md). <p>**Importante**: você *só* pode executar essa injeção ao criar o ISE. |
+   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro sub-redes *vazias* para criar e implantar recursos em seu ambiente. Para criar cada sub-rede, [siga as etapas descritas nesta tabela](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
@@ -187,7 +187,7 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
 
       ![Adicionar detalhes da sub-rede](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
-   1. Quando terminar, escolha **OK**.
+   1. Quando tiver terminado, selecione **OK**.
 
    1. Repita essas etapas para mais três sub-redes.
 
@@ -200,13 +200,13 @@ Na caixa de pesquisa, digite "ambiente do serviço de integração" como seu fil
 
    ![Após a validação bem-sucedida, escolha "criar"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   O Azure inicia a implantação do seu ambiente, mas esse processo *pode* levar até duas horas antes de concluir. Para verificar o status da implantação, na barra de ferramentas do Azure, escolha o ícone notificações, que abre o painel notificações.
+   O Azure inicia a implantação de seu ambiente, que geralmente leva dentro de duas horas para ser concluído. Ocasionalmente, a implantação pode levar até quatro horas. Para verificar o status da implantação, na barra de ferramentas do Azure, escolha o ícone notificações, que abre o painel notificações.
 
    ![Verificar status da implantação](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
    Se a implantação for concluída com êxito, o Azure mostrará esta notificação:
 
-   ![Implantação bem-sucedida](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Implementação com êxito](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    Caso contrário, siga as instruções de portal do Azure para solucionar problemas de implantação.
 

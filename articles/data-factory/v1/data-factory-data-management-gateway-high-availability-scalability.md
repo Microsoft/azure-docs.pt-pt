@@ -4,21 +4,20 @@ description: Este artigo explica como você pode escalar horizontalmente um gate
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682700"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932016"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados-alta disponibilidade e escalabilidade (visualização)
 > [!NOTE]
@@ -32,7 +31,7 @@ Este artigo ajuda você a configurar a solução de alta disponibilidade e escal
 > 
 > **Esse recurso de visualização tem suporte oficialmente no gerenciamento de dados gateway versão 2.12. xxxx. x e superior**. Verifique se você está usando a versão 2.12. xxxx. x ou superior. Baixe a versão mais recente do gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Você pode associar gateways de gerenciamento de dados que estão instalados em vários computadores locais com um único gateway lógico do Portal. Esses computadores são chamados de **nós**. Você pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (computadores locais com o gateway instalado) para um gateway lógico são:  
 
 - Melhore o desempenho da movimentação de dados entre armazenamentos de dados locais e na nuvem.  
@@ -134,7 +133,7 @@ Esta seção pressupõe que você tenha passado pelos dois artigos a seguir ou e
 Você pode atualizar um gateway existente para usar o recurso de alta disponibilidade e escalabilidade. Esse recurso funciona apenas com nós que têm o gateway de gerenciamento de dados da versão > = 2.12. xxxx. Você pode ver a versão do gateway de gerenciamento de dados instalada em um computador na guia **ajuda** do Configuration Manager do gateway de gerenciamento de dados. 
 
 1. Atualize o gateway no computador local para a versão mais recente seguindo baixando e executando um pacote de instalação MSI do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte a seção [instalação](data-factory-data-management-gateway.md#installation) para obter detalhes.  
-2. Navegue até a portal do Azure. Inicie a **página de data Factory** para seu data Factory. Clique no bloco serviços vinculados para iniciar a **página serviços vinculados**. Selecione o gateway para iniciar a **página do gateway**. Clique e habilite o **recurso de visualização** conforme mostrado na imagem a seguir: 
+2. Navegue para o portal do Azure. Inicie a **página de data Factory** para seu data Factory. Clique no bloco serviços vinculados para iniciar a **página serviços vinculados**. Selecione o gateway para iniciar a **página do gateway**. Clique e habilite o **recurso de visualização** conforme mostrado na imagem a seguir: 
 
     ![Gerenciamento de Dados gateway – habilitar recurso de visualização](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. Depois que o recurso de visualização estiver habilitado no portal, feche todas as páginas. Reabra a **página gateway** para ver a nova interface do usuário de visualização (IU).
@@ -151,7 +150,7 @@ Você pode atualizar um gateway existente para usar o recurso de alta disponibil
 
     Siga as instruções da seção anterior para configurar o nó. 
 
-### <a name="installation-best-practices"></a>Práticas recomendadas de instalação
+### <a name="installation-best-practices"></a>Melhores práticas de instalação
 
 - Configure o plano de energia no computador host para o gateway para que o computador não faça hibernação. Se o computador host hibernar, o gateway não responderá às solicitações de dados.
 - Faça backup do certificado associado ao gateway.
@@ -182,7 +181,7 @@ No portal do Azure, você pode exibir o instantâneo quase em tempo real da util
 
 ![Gateway de Gerenciamento de Dados-monitoramento de vários nós](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Você pode habilitar **as configurações avançadas** na página **Gateway** para ver as métricas avançadas como **rede**(entrada/saída), **função & status da credencial**, o que é útil na depuração de problemas de gateway e **trabalhos simultâneos** (em execução/limite ) que pode ser modificado/alterado de acordo durante o ajuste de desempenho. A tabela a seguir fornece descrições das colunas na lista **nós de gateway** :  
+Você pode habilitar **as configurações avançadas** na página **Gateway** para ver as métricas avançadas como **rede**(entrada/saída), **função & status da credencial**, o que é útil na depuração de problemas de gateway e **trabalhos simultâneos** (em execução/limite) que podem ser modificados/alterados de acordo durante o ajuste do desempenho. A tabela a seguir fornece descrições das colunas na lista **nós de gateway** :  
 
 Propriedade de monitoramento | Descrição
 :------------------ | :---------- 
@@ -204,8 +203,8 @@ A tabela a seguir fornece os possíveis status de um **nó de gateway**:
 Estado  | Comentários/cenários
 :------- | :------------------
 Online | Nó conectado ao serviço de Data Factory.
-Está | O nó está offline.
-Upgrade | O nó está sendo atualizado automaticamente.
+Offline | O nó está offline.
+Atualizar | O nó está sendo atualizado automaticamente.
 Limitado | Devido a um problema de conectividade. Pode ser devido ao problema de porta HTTP 8050, problema de conectividade do barramento de serviço ou problema de sincronização de credenciais. 
 Inativo | O nó está em uma configuração diferente da configuração de outros nós de maioria.<br/><br/> Um nó pode ficar inativo quando não puder se conectar a outros nós. 
 
@@ -216,7 +215,7 @@ Estado | Comentários
 :----- | :-------
 Precisa de registro | Nenhum nó ainda está registrado para este gateway lógico
 Online | Os nós de gateway estão online
-Está | Nenhum nó no status online.
+Offline | Nenhum nó no status online.
 Limitado | Nem todos os nós neste gateway estão em estado íntegro. Esse status é um aviso de que algum nó pode estar inoperante! <br/><br/>Pode ser devido a um problema de sincronização de credenciais no nó Dispatcher/de trabalho. 
 
 ### <a name="pipeline-activities-monitoring"></a>Monitoramento de atividades/pipeline

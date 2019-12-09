@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024776"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914080"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -62,7 +62,7 @@ As funções a seguir podem configurar e usar a expiração para grupos do Offic
 
 Função | Permissões
 -------- | --------
-Administrador global ou administrador de usuários | Pode criar, ler, atualizar ou excluir as configurações de política de expiração dos grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
+Administrador global, administrador de grupo ou administrador de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração dos grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
 Utilizador | Pode renovar um grupo do Office 365 que ele possui<br>Pode restaurar um grupo do Office 365 que ele possui<br>Pode ler as configurações da política de expiração
 
 Para obter mais informações sobre permissões para restaurar um grupo excluído, consulte [restaurar um grupo do Office 365 excluído no Azure Active Directory](groups-restore-deleted.md).
@@ -181,7 +181,7 @@ Os cmdlets a seguir podem ser usados para configurar a política mais detalhadam
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Redefinir-AzureADMSLifeCycleGroup
+- Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
 ## <a name="next-steps"></a>Passos seguintes

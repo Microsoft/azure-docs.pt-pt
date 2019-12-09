@@ -1,5 +1,5 @@
 ---
-title: Configurar uma transformação de coletor no recurso de fluxo de dados de mapeamento
+title: Configurar uma transformação de coletor no fluxo de dados de mapeamento
 description: Saiba como configurar uma transformação de coletor no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217931"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930278"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
@@ -34,7 +34,7 @@ Você pode definir o esquema de particionamento na guia **otimizar** . Se deseja
 
 ![Opções na guia otimizar](media/data-flow/opt001.png "opções de coletor")
 
-## <a name="field-mapping"></a>Mapeamento de campo
+## <a name="field-mapping"></a>Mapeamento de campos
 Na guia **mapeamento** da transformação do coletor, você pode mapear as colunas de entrada à esquerda para os destinos à direita. Quando você coleta fluxos de dados em arquivos, Data Factory sempre irá gravar novos arquivos em uma pasta. Quando você mapear para um conjunto de dados do, você escolherá opções de operação de tabela de banco de dados para inserir, atualizar, Upsert ou excluir.
 
 ![A guia mapeamento](media/data-flow/sink2.png "Coletores")

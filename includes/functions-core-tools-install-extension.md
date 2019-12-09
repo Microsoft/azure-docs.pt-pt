@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ffd9e54c0f39b4256dbc83a336328797a8b53c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a050ce62f745591608249b41ba56992d8fd35204
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608318"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935931"
 ---
-## <a name="register-extensions"></a>Registe-se as extensões
+## <a name="register-extensions"></a>Registrar extensões
 
-Com exceção dos acionadores HTTP e timer, enlaces de funções na versão de runtime 2.x são implementados como pacotes de extensão. Na versão 2.x do runtime das funções do Azure, precisa registrar explicitamente as extensões para os tipos de ligação utilizadas nas suas funções. As exceções a isso são associações HTTP e os acionadores de temporizadores, que não necessitam de extensões.
+Com exceção dos gatilhos HTTP e Timer, as associações de funções no tempo de execução versão 2. x e superiores são implementadas como pacotes de extensão. Na versão 2. x e além do tempo de execução de Azure Functions, você precisa registrar explicitamente as extensões para os tipos de associação usados em suas funções. As exceções a isso são as associações HTTP e os gatilhos de temporizador que não exigem extensões.
 
-Pode optar por instalar extensões de vinculação individualmente ou pode adicionar uma referência de pacote de extensão para o arquivo do projeto Host. JSON. Os pacotes de extensão remove a possibilidade de existirem problemas de compatibilidade do pacote ao usar vários tipos de ligação. É a abordagem recomendada para registar as extensões de vinculação. Os pacotes de extensão também remove a necessidade de instalar o .NET Core 2.x SDK. 
+Você pode optar por instalar as extensões de associação individualmente ou pode adicionar uma referência de pacote de extensão ao arquivo de projeto host. JSON. Os pacotes de extensão eliminam a possibilidade de haver problemas de compatibilidade de pacote ao usar vários tipos de associação. É a abordagem recomendada para registrar extensões de associação. Os pacotes de extensão também eliminam a necessidade de instalar o SDK do .NET Core 2. x. 
 
-### <a name="extension-bundles"></a>pacotes de extensão
+### <a name="extension-bundles"></a>Pacotes de extensão
 
 [!INCLUDE [Register extensions](functions-extension-bundles.md)]
 
-Para obter mais informações, consulte [extensões de vinculação de registrar as funções de Azure](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Deve adicionar os pacotes de extensão para o Host. JSON antes de adicionar enlaces para o ficheiro Functions.
+Para saber mais, consulte [registrar Azure Functions extensões de associação](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Você deve adicionar pacotes de extensão ao host. JSON antes de adicionar associações ao arquivo functions. JSON.
 
-### <a name="register-individual-extensions"></a>Registre-se de extensões individuais
+### <a name="register-individual-extensions"></a>Registrar extensões individuais
 
-Se precisar de instalar as extensões que não estão num pacote, é possível registrar manualmente os pacotes de extensão individuais para enlaces específicos. 
+Se precisar instalar extensões que não estejam em um pacote, você poderá registrar manualmente pacotes de extensão individuais para associações específicas. 
 
 > [!NOTE]
-> Registar manualmente as extensões com `func extensions install`, tem de ter o .NET Core SDK instalado 2.x.
+> Para registrar manualmente as extensões usando `func extensions install`, você deve ter o SDK do .NET Core 2. x instalado.
 
-Depois de atualizar seus *Function* arquivo para incluir todas as ligações que precisa de sua função, execute o seguinte comando na pasta de projeto.
+Depois de atualizar seu arquivo *Function. JSON* para incluir todas as associações de que sua função precisa, execute o seguinte comando na pasta do projeto.
 
 ```bash
 func extensions install
 ```
 
-O comando lê a *Function* arquivo para ver os pacotes que precisa, instala-os e recria o projeto de extensões. Ele adiciona todos os enlaces novo na versão atual, mas não atualiza "BIND" existente. Utilize o `--force` opção para atualizar "BIND" existente para a versão mais recente ao instalar novas etiquetas.
+O comando lê o arquivo *Function. JSON* para ver quais pacotes são necessários, instala-os e recria o projeto de extensões. Ele adiciona novas associações na versão atual, mas não atualiza as associações existentes. Use a opção `--force` para atualizar as ligações existentes para a versão mais recente ao instalar novas.

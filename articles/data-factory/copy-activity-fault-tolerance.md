@@ -4,20 +4,19 @@ description: Saiba mais sobre como adicionar tolerância a falhas à atividade d
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: a60cafd529db1c6726a15db2c442af8d097411cc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678164"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930019"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -71,12 +70,12 @@ O exemplo a seguir fornece uma definição de JSON para configurar ignorando as 
 }
 ```
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Especifica se as linhas incompatíveis devem ser ignoradas durante a cópia ou não. | Verdadeiro<br/>False (padrão) | Não
 redirectIncompatibleRowSettings | Um grupo de propriedades que pode ser especificado quando você deseja registrar em log as linhas incompatíveis. | &nbsp; | Não
 linkedServiceName | O serviço vinculado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o log que contém as linhas ignoradas. | O nome de um serviço vinculado de tipo `AzureStorage` ou `AzureDataLakeStore`, que se refere à instância que você deseja usar para armazenar o arquivo de log. | Não
-Multi-Path | O caminho do arquivo de log que contém as linhas ignoradas. | Especifique o caminho que você deseja usar para registrar em log os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
+Caminho | O caminho do arquivo de log que contém as linhas ignoradas. | Especifique o caminho que você deseja usar para registrar em log os dados incompatíveis. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
 
 ## <a name="monitor-skipped-rows"></a>Monitorar linhas ignoradas
 Depois que a execução da atividade de cópia for concluída, você poderá ver o número de linhas ignoradas na saída da atividade de cópia:
@@ -108,7 +107,7 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade de cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Desempenho da atividade de cópia](copy-activity-performance.md)
 
 

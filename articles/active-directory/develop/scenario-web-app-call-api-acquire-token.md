@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web que chama APIs da Web (adquirir um token para o aplicativo)-plataforma de identidade da Microsoft
+title: Obter um token em aplicativos Web que chamam APIs da Web-plataforma Microsoft Identity | Azure
 description: Saiba como criar um aplicativo Web que chama APIs da Web (adquirindo um token para o aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a259fbcf3fde84edccafbcd2fd6594ddb623edfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175323"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919468"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Aplicativo Web que chama APIs da Web – adquirir um token para o aplicativo
 
@@ -29,7 +29,7 @@ Agora que você criou o objeto de aplicativo cliente, você o usará para adquir
 - Obter um token para a API Web usando o cache de token. Para obter esse token, você chama `AcquireTokenSilent`.
 - Chamar a API protegida com o token de acesso.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Os métodos do controlador são protegidos por um atributo `[Authorize]` que força os usuários que estão sendo autenticados a usar o aplicativo Web. Aqui está o código que chama Microsoft Graph.
 
@@ -82,7 +82,7 @@ Essas etapas avançadas são processadas no capítulo 3 do tutorial [3-webapp-mu
 As coisas são semelhantes em ASP.NET:
 
 - Uma ação de controlador protegida por um atributo [autorizar] extrai a ID de locatário e a ID de usuário do membro de `ClaimsPrincipal` do controlador. (ASP.NET usa `HttpContext.User`.)
-- A partir daí, ele cria um MSAL.NET `IConfidentialClientApplication`.
+- A partir daí, ele cria um `IConfidentialClientApplication`MSAL.NET.
 - Por fim, ele chama o método `AcquireTokenSilent` do aplicativo cliente confidencial.
 
 O código é semelhante ao código mostrado para ASP.NET Core.

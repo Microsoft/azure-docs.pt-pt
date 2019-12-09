@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: 7608719c4e0c2b9e23f1982efda9789d25f50224
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c6d3510dfdd02bf2eb07d656c706c44d895c582d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665954"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927905"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados executando scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -46,7 +45,7 @@ Você cria um serviço vinculado **Azure data Lake Analytics** para vincular um 
 
 A tabela a seguir fornece descrições para as propriedades genéricas usadas na definição de JSON. Você pode escolher entre a entidade de serviço e a autenticação de credenciais de usuário.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **tipo** |A propriedade Type deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | **accountName** |Nome da conta de Azure Data Lake Analytics. |Sim |
@@ -55,18 +54,18 @@ A tabela a seguir fornece descrições para as propriedades genéricas usadas na
 | **resourceGroupName** |Nome do grupo de recursos do Azure |Não (se não for especificado, o grupo de recursos do data factory será usado). |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticação de entidade de serviço (recomendada)
-Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (AD do Azure) e conceda a ela acesso ao Data Lake Store. Para obter etapas detalhadas, consulte [autenticação de serviço a serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote os seguintes valores, que você usa para definir o serviço vinculado:
+Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure Active Directory (AD do Azure) e conceda a ela acesso ao Data Lake Store. Para obter passos detalhados, consulte [autenticação serviço a serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 * ID da aplicação
-* Chave do aplicativo 
+* Chave da aplicação 
 * ID do inquilino
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | Sim |
-| **servicePrincipalKey** | Especifique a chave do aplicativo. | Sim |
-| **vários** | Especifique as informações do locatário (nome de domínio ou ID do locatário) em que seu aplicativo reside. Você pode recuperá-lo passando o mouse no canto superior direito do portal do Azure. | Sim |
+| **servicePrincipalId** | Especifique o ID de cliente. da aplicação | Sim |
+| **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
+| **tenant** | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -90,7 +89,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Como alternativa, você pode usar a autenticação de credenciais de usuário para Data Lake Analytics especificando as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | **nesse** | Clique no botão **autorizar** no Editor de data Factory e insira sua credencial que atribui a URL de autorização gerada automaticamente a essa propriedade. | Sim |
 | **sessionId** | ID da sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusiva e pode ser usada apenas uma vez. Essa configuração é gerada automaticamente quando você usa o editor de Data Factory. | Sim |
@@ -116,7 +115,7 @@ Como alternativa, você pode usar a autenticação de credenciais de usuário pa
 #### <a name="token-expiration"></a>Expiração do token
 O código de autorização gerado usando o botão **autorizar** expira depois de algum tempo. Consulte a tabela a seguir para obter os tempos de expiração para diferentes tipos de contas de usuário. Você poderá ver a seguinte mensagem de erro quando o **token de autenticação expirar**: erro de operação de credencial: INVALID_GRANT-AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID de rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de correlação: fac30a0c-6be6-4e02-8D69-a776d2ffefd7 timestamp: 2015-12-15 21:09:31Z
 
-| Tipo de usuário | Expira após |
+| Tipo de utilizador | Expira após |
 |:--- |:--- |
 | Contas de usuário não gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
 | Contas de usuários gerenciadas pelo Azure Active Directory (AAD) |14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base no serviço vinculado baseado em OAuth for executada pelo menos uma vez a cada 14 dias. |
@@ -206,7 +205,7 @@ O trecho JSON a seguir define um pipeline com uma atividade Data Lake Analytics 
 
 A tabela a seguir descreve os nomes e as descrições das propriedades que são específicas para essa atividade. 
 
-| Propriedade            | Descrição                              | Necessário                                 |
+| Propriedade            | Descrição                              | Obrigatório                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
 | tipo                | A propriedade Type deve ser definida como **DataLakeAnalyticsU-SQL**. | Sim                                      |
 | linkedServiceName   | Referência ao Azure Data Lake Analytics registrado como um serviço vinculado no Data Factory | Sim                                      |
@@ -217,7 +216,7 @@ A tabela a seguir descreve os nomes e as descrições das propriedades que são 
 | prioridade            | Determina quais trabalhos de todos os que estão na fila devem ser selecionados para serem executados primeiro. Quanto menor o número, maior a prioridade. | Não                                       |
 | parâmetros          | Parâmetros para o script U-SQL          | Não                                       |
 | runtimeVersion      | Versão de tempo de execução do mecanismo U-SQL a ser usado | Não                                       |
-| CompilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores:</p> <ul><li>**Semântica:** Execute verificações semânticas e verificações de integridade necessárias.</li><li>**Completo:** Execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** Execute a compilação completa, com a configuração TargetType para SingleBox.</li></ul><p>Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. </p> | Não                                       |
+| compilationMode     | <p>Modo de compilação do U-SQL. Deve ser um destes valores:</p> <ul><li>**Semântica:** Execute verificações semânticas e verificações de integridade necessárias.</li><li>**Completo:** Execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** Execute a compilação completa, com a configuração TargetType para SingleBox.</li></ul><p>Se você não especificar um valor para essa propriedade, o servidor determinará o modo de compilação ideal. </p> | Não                                       |
 
 Consulte [definição de script SearchLogProcessing. txt](#sample-u-sql-script) para a definição de script. 
 

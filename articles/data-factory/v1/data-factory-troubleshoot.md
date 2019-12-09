@@ -6,20 +6,19 @@ documentationcenter: ''
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 robots: noindex
-ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135122"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931590"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
@@ -29,8 +28,8 @@ Este artigo fornece dicas de solução de problemas ao usar o Azure Data Factory
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: A assinatura não está registrada para usar o namespace ' Microsoft. datafactory '
+## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Aparece o erro: a subscrição não está registada para utilizar o espaço de nomes 'Microsoft.DataFactory'
 Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi registado no seu computador. Faça o seguinte:
 
 1. Inicie o Azure PowerShell.
@@ -45,14 +44,14 @@ Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi r
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Persisti Erro não autorizado ao executar um cmdlet Data Factory
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: erro não autorizado ao executar um cmdlet Data Factory
 Provavelmente não está a utilizar a conta ou a subscrição do Azure adequada com o Azure PowerShell. Utilize os seguintes cmdlets para selecionar a conta e a subscrição do Azure adequadas que devem ser utilizadas com o Azure PowerShell.
 
 1. Connect-AzAccount-use a ID de usuário e a senha corretas
 2. Get-AzSubscription-exibe todas as assinaturas da conta.
-3. Select-AzSubscription &lt;nome&gt; da assinatura-selecione a assinatura correta. Use o mesmo que você usa para criar um data factory no portal do Azure.
+3. Select-AzSubscription &lt;nome da assinatura&gt;-selecione a assinatura correta. Use o mesmo que você usa para criar um data factory no portal do Azure.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Persisti Falha ao iniciar a instalação do Gerenciamento de Dados gateway Express de portal do Azure
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: falha ao iniciar a instalação do Gerenciamento de Dados gateway Express de portal do Azure
 A configuração rápida para o Data Management Gateway necessita do Internet Explorer ou de um browser compatível com o Microsoft ClickOnce. Se não for possível iniciar a Configuração Rápida, faça o seguinte:
 
 * Use o Internet Explorer ou um navegador da Web compatível com o Microsoft ClickOnce.
@@ -62,10 +61,10 @@ A configuração rápida para o Data Management Gateway necessita do Internet Ex
     Faça o mesmo para o Firefox (instalar suplemento). Clique no botão Abrir Menu na barra de ferramentas (três linhas horizontais no canto superior direito), clique em Suplementos, pesquise com a palavra-chave "ClickOnce", escolha uma das extensões de ClickOnce e instale-a.
 * Use o link **instalação manual** mostrado na mesma folha no Portal. Use essa abordagem para baixar o arquivo de instalação e executá-lo manualmente. Depois que a instalação for bem-sucedida, você verá a caixa de diálogo configuração do Gerenciamento de Dados gateway. Copie a **chave** no ecrã do portal e utilize-a no gestor de configuração para registar manualmente o gateway no serviço.  
 
-### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Persisti Falha ao conectar-se ao SQL Server local
+### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: falha ao conectar-se ao SQL Server local
 Inicie o **Gerenciamento de dados Gateway Configuration Manager** no computador do gateway e use a guia **solução de problemas** para testar a conexão com SQL Server do computador do gateway. Consulte [solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter dicas sobre como solucionar problemas relacionados à conexão/gateway.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Persisti Os setores de entrada estão num estado de espera permanente
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: as fatias de entrada estão no estado de espera para sempre
 As fatias podem estar em estado de **espera** devido a vários motivos. Um dos motivos comuns é que a propriedade **external** não está definida como **true**. Qualquer conjunto de os que for produzido fora do escopo de Azure Data Factory deve ser marcado com a propriedade **external** . Essa propriedade indica que os dados são externos e não são apoiados por nenhum pipeline dentro do data factory. Os setores de dados são marcados como **Pronto** assim que os dados estiverem disponíveis no respetivo arquivo.
 
 Veja o seguinte exemplo para saber como utilizar a propriedade **external**. Opcionalmente, você pode especificar **externalData*** ao definir external como true.
@@ -100,10 +99,10 @@ Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter m
 
 Para resolver o erro, adicione a propriedade **external** e a secção opcional **externalData** à definição JSON da tabela de entrada e recrie a tabela.
 
-### <a name="problem-hybrid-copy-operation-fails"></a>Persisti Falha na operação de cópia híbrida
-Consulte solucionar problemas de [Gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver as etapas para solucionar problemas com a cópia de/para um armazenamento de dados local usando o gateway de gerenciamento de dados.
+### <a name="problem-hybrid-copy-operation-fails"></a>Problema: falha na operação de cópia híbrida
+Consulte [solucionar](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) problemas de gateway para ver as etapas para solucionar problemas com a cópia de/para um armazenamento de dados local usando o gateway de gerenciamento de dados.
 
-### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Persisti Falha no provisionamento do HDInsight sob demanda
+### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: falha de provisionamento sob demanda do HDInsight
 Ao usar um serviço vinculado do tipo HDInsightOnDemand, você precisa especificar um linkedServiceName que aponte para um armazenamento de BLOBs do Azure. O serviço do Data Factory utiliza este armazenamento para armazenar registos e ficheiros de suporte para o cluster do HDInsight a pedido.  Por vezes, o aprovisionamento de um cluster de HDInsight a pedido pode falhar com o erro seguinte:
 
 ```
@@ -114,14 +113,14 @@ Normalmente, este erro indica que a localização da conta de armazenamento espe
 
 Além disso, existe um segundo additionalLinkedServiceNames de propriedade JSON onde é possível especificar contas de armazenamento adicionais no HDInsight a pedido. Essas contas de armazenamento vinculadas adicionais devem estar no mesmo local que o cluster HDInsight ou falha com o mesmo erro.
 
-### <a name="problem-custom-net-activity-fails"></a>Persisti Falhas de atividades .NET personalizadas
+### <a name="problem-custom-net-activity-fails"></a>Problema: falha na atividade personalizada do .NET
 Consulte [depurar um pipeline com atividade personalizada](data-factory-use-custom-activities.md#troubleshoot-failures) para obter etapas detalhadas.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usar portal do Azure para solucionar problemas
 ### <a name="using-portal-blades"></a>Usando as folhas do portal
 Consulte [monitorar pipeline](data-factory-monitor-manage-pipelines.md) para obter as etapas.
 
-### <a name="using-monitor-and-manage-app"></a>Com a Aplicação Monitorizar e Gerir
+### <a name="using-monitor-and-manage-app"></a>Utilizar a Aplicação Monitorizar e Gerir
 Consulte [monitorar e gerenciar pipelines data Factory usando o aplicativo monitorar e gerenciar](data-factory-monitor-manage-app.md) para obter detalhes.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Usar Azure PowerShell para solucionar problemas

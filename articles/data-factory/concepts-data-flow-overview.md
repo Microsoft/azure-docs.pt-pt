@@ -1,18 +1,19 @@
 ---
-title: Mapeando fluxos de dados em Azure Data Factory
+title: Fluxos de dados de mapeamento
 description: Uma visão geral do mapeamento de fluxos de dados no Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/7/2019
-ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681564"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928295"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -32,13 +33,13 @@ Isso levará você para a tela de fluxo de dados, na qual você pode criar a ló
 
 A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Tela](media/data-flow/canvas1.png "Tela")
 
 ### <a name="graph"></a>Graph
 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Tela](media/data-flow/canvas2.png "Tela")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
 
@@ -122,15 +123,15 @@ Crie uma expressão que forneça um intervalo fixo para valores em suas colunas 
 
 Se você tiver uma boa compreensão da cardinalidade de seus dados, o particionamento de chave poderá ser uma boa estratégia. O particionamento de chave criará partições para cada valor exclusivo em sua coluna. Você não pode definir o número de partições porque o número será baseado em valores exclusivos nos dados.
 
-#### <a name="inspect"></a>Quanto
+#### <a name="inspect"></a>Inspecionar
 
 A guia **inspecionar** fornece uma exibição dos metadados do fluxo de dados que você está transformando. Você pode ver as contagens de colunas, as colunas alteradas, as colunas adicionadas, os tipos de dados, a ordenação de colunas e as referências de coluna. **Inspecionar** é uma exibição somente leitura de seus metadados. Você não precisa ter o modo de depuração habilitado para ver os metadados no painel **inspecionar** .
 
-![Quanto](media/data-flow/inspect1.png "Quanto")
+![Quanto](media/data-flow/inspect1.png "Inspecionar")
 
 Ao alterar a forma de seus dados por meio de transformações, você verá o fluxo de alterações de metadados no painel **inspecionar** . Se não houver um esquema definido em sua transformação de origem, os metadados não estarão visíveis no painel **inspecionar** . A falta de metadados é comum em cenários de descompasso de esquema.
 
-#### <a name="data-preview"></a>Visualização de dados
+#### <a name="data-preview"></a>Pré-visualização dos dados
 
 Se o modo de depuração estiver ativado, a guia **visualização de dados** fornecerá um instantâneo interativo dos dados em cada transformação. Para obter mais informações, consulte [visualização de dados em modo de depuração](concepts-data-flow-debug-mode.md#data-preview).
 

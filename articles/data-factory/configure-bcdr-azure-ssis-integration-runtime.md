@@ -2,23 +2,22 @@
 title: Configurar Azure-SSIS Integration Runtime para failover do banco de dados SQL
 description: Este artigo descreve como configurar o Azure-SSIS Integration Runtime com a replicação geográfica do banco de dados SQL do Azure e o failover para o banco de dados SSISDB
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 6e709a25c6c33a1fc80a110435035b1473d92681
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/14/2018
+ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681395"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928502"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Azure-SSIS Integration Runtime com failover e replicação geográfica do banco de dados SQL do Azure
 
@@ -70,7 +69,7 @@ Quando ocorre o failover, você precisa fazer o seguinte:
 
 3. Reinicie o IR.
 
-As seções a seguir descrevem essas etapas mais detalhadamente.
+As seções a seguir descrevem essas etapas em mais detalhes.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

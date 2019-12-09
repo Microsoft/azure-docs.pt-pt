@@ -4,20 +4,19 @@ description: Saiba mais sobre como a atividade de cópia no Azure Data Factory m
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ed0823930b819661baf384d51478547cb2e0eccf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678145"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921986"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 
@@ -88,18 +87,18 @@ Você pode especificar as colunas a serem mapeadas na atividade de cópia-> `tra
 
 As propriedades a seguir têm suporte em `translator` -> objeto `mappings`-> com `source` e `sink`:
 
-| Propriedade | Descrição                                                  | Necessário |
+| Propriedade | Descrição                                                  | Obrigatório |
 | -------- | ------------------------------------------------------------ | -------- |
 | nome     | Nome da coluna de origem ou do coletor.                           | Sim      |
-| numera  | Índice de coluna. Comece com 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
-| Multi-Path     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para dados hierárquicos, por exemplo, MongoDB/REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz. | Não       |
+| ordinal  | Índice de coluna. Comece com 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
+| Caminho     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para dados hierárquicos, por exemplo, MongoDB/REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz. | Não       |
 | tipo     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. | Não       |
-| UICulture  | Cultura da coluna de origem ou do coletor. <br>Aplicar quando o tipo for `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não       |
-| ao   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não       |
+| culture  | Cultura da coluna de origem ou do coletor. <br>Aplicar quando o tipo for `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não       |
+| format   | Cadeia de caracteres de formato a ser usada quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não       |
 
 As propriedades a seguir têm suporte em `translator` -> `mappings` além de objeto com `source` e `sink`:
 
-| Propriedade            | Descrição                                                  | Necessário |
+| Propriedade            | Descrição                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | collectionReference | Com suporte apenas quando dados hierárquicos, por exemplo, MongoDB/REST, é origem.<br>Se você quiser iterar e extrair dados dos objetos **dentro de um campo de matriz** com o mesmo padrão e convertê-los em por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. | Não       |
 
@@ -201,10 +200,10 @@ Se você estiver usando a sintaxe de `"columnMappings": "UserId: MyUserId, Group
 
 Você pode especificar a atividade de cópia-> `translator` -> `schemaMapping` para mapear entre dados em formato hierárquico e dados em formato de tabela, por exemplo, copiar do MongoDB/REST para o arquivo de texto e copiar do Oracle para a API do Azure Cosmos DB para MongoDB. As propriedades a seguir têm suporte na seção de `translator` da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim |
-| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>Chave de -  **:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz.  | Sim |
+| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Key:** origem representa. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Value:** representa sink. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela propriedade `collectionReference`, o caminho JSON é iniciado a partir do elemento da matriz.  | Sim |
 | collectionReference | Se você quiser iterar e extrair dados dos objetos **dentro de um campo de matriz** com o mesmo padrão e convertê-los em por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. Há suporte para essa propriedade somente quando os dados hierárquicos são de origem. | Não |
 
 **Exemplo: copiar do MongoDB para a Oracle:**
@@ -285,12 +284,12 @@ Você pode encontrar o mapeamento entre o tipo nativo para o tipo provisório na
 
 O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode especificar os valores abaixo ao configurar informações de tipo na configuração de [estrutura do DataSet](concepts-datasets-linked-services.md#dataset-structure-or-schema) :
 
-* Byte []
+* Byte[]
 * Booleano
-* Horário
-* DateTimeOffset
-* Vírgula
-* Clique
+* DateTime
+* Datetimeoffset
+* Decimal
+* Double
 * GUID
 * Int16
 * Int32
@@ -302,4 +301,4 @@ O Data Factory dá suporte aos seguintes tipos de dados provisórios: você pode
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
-- [Visão geral da atividade de cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)

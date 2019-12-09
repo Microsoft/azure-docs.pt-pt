@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842783"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918015"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -42,6 +42,10 @@ Este artigo mostra como listar um aplicativo na Galeria de aplicativos Azure Act
 - Para SSO de senha, certifique-se de que seu aplicativo dá suporte à autenticação de formulário para que o cofre de senha possa ser feito para que o logon único funcione conforme o esperado.
 - Você precisa de uma conta permanente para testar com pelo menos dois usuários registrados.
 
+**Como obter o Azure AD para desenvolvedores?**
+
+Você pode obter uma conta de teste gratuita com todos os recursos premium do Azure AD-90 dias gratuitos e pode ser estendido desde que os desenvolvedores trabalhem com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 
 Depois de testar se a integração do aplicativo funciona com o Azure AD, envie sua solicitação de acesso no [portal de rede do aplicativo](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se você tiver uma conta do Office 365, use-a para entrar neste portal. Caso contrário, use o conta Microsoft, como o Outlook ou hotmail, para entrar.
@@ -59,6 +63,26 @@ Se a página a seguir aparecer depois que você entrar, forneça uma justificati
 Nossa equipe revisa os detalhes e fornece acesso adequado. Depois que a solicitação for aprovada, você poderá entrar no portal e enviar a solicitação selecionando o bloco de **solicitação de envio (ISV)** no Home Page.
 
 ![Bloco de solicitação de envio (ISV) no home page](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>Problemas ao fazer logon no portal
+
+Se você estiver vendo esse erro durante o logon, aqui estão os detalhes sobre o problema e isso é como você pode corrigi-lo.
+
+* Se sua entrada foi bloqueada, conforme mostrado abaixo:
+
+  ![problemas de resolução de aplicativo na Galeria](./media/howto-app-gallery-listing/blocked.png)
+
+**O que está acontecendo:**
+
+O usuário convidado é federado a um locatário inicial que também é um Azure AD. O usuário convidado tem um risco alto. A Microsoft não permite que usuários de alto risco acessem seus recursos. Todos os usuários de alto risco (funcionários ou convidados/fornecedores) devem corrigir/fechar seu risco para acessar os recursos da Microsoft. Para usuários convidados, esse risco de usuário é proveniente do locatário inicial e a política vem do locatário de recursos (a Microsoft, neste caso).
+ 
+**Soluções seguras:**
+
+* Os usuários convidados registrados do MFA recorrem seus próprios riscos de usuário. Isso pode ser feito pelo usuário convidado que executa uma alteração ou redefinição de senha protegida (https://aka.ms/sspr) em seu locatário inicial (isso precisa de MFA e SSPR no locatário inicial). A alteração ou redefinição de senha protegida deve ser iniciada no Azure AD e não no local.
+
+* Os usuários convidados têm seus administradores para corrigir seus riscos. Nesse caso, o administrador executará uma redefinição de senha (geração de senha temporária). Isso não precisa de proteção de identidade. O administrador do usuário convidado pode ir para https://aka.ms/RiskyUsers e clicar em ' Redefinir senha '.
+
+* Os usuários convidados têm seus administradores perto/descartam seus riscos. Novamente, isso não precisa de proteção de identidade. O administrador pode ir para https://aka.ms/RiskyUsers e clicar em ' ignorar risco do usuário '. No entanto, o administrador deve fazer a auditoria detalhada para garantir que essa foi uma avaliação de risco positiva de falsos, antes de fechar o risco do usuário. Caso contrário, eles estão colocando os recursos da Microsoft em risco, suprimindo uma avaliação de risco sem investigação.
 
 > [!NOTE]
 > Se você tiver problemas com o Access, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -79,6 +103,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, primeiro você 
   ![Listando um aplicativo SAML 2,0 ou WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
 
   * Se você quiser adicionar seu aplicativo para listar na Galeria usando o **saml 2,0** ou o **WS-enalimentado**, selecione **SAML 2.0/WS-alimentado** , conforme mostrado.
+
   * Se você tiver problemas com o Access, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implementar o SSO usando o SSO de senha

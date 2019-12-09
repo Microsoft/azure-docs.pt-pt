@@ -1,18 +1,19 @@
 ---
-title: Transformação de junção no fluxo de dados de mapeamento de Azure Data Factory
+title: Transformação de junção no fluxo de dados de mapeamento
 description: Combinar dados de duas fontes de dados usando a transformação de junção no fluxo de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
-ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122921"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930348"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
 
@@ -38,7 +39,7 @@ A junção externa direita retorna todas as linhas do fluxo à direita e os regi
 
 A junção externa completa gera todas as colunas e linhas de ambos os lados com valores nulos para colunas que não são correspondentes.
 
-### <a name="cross-join"></a>Junção cruzada
+### <a name="cross-join"></a>Associação Cruzada
 
 A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não seja de igualdade, especifique uma expressão personalizada como condição de junção cruzada. O fluxo de saída será todas as linhas que atendem à condição de junção. Para criar um produto cartesiano que produza todas as combinações de linhas, especifique `true()` como sua condição de junção.
 

@@ -5,18 +5,17 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 898290f70777ca442bb8885d83064231c5486a7c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 1a9a88f975ca10a63741818dcb88874a8f1bf436
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926392"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar Azure Integration Runtime
 A Integration Runtime (IR) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer recursos de integração de dados em diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
@@ -67,6 +66,6 @@ Depois que um Azure IR for criado, você poderá referenciá-lo em sua definiç�
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos sobre como criar outros tipos de tempos de execução de integração:
 
-- [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
+- [Criar um integration runtime autoalojado](create-self-hosted-integration-runtime.md)
 - [Criar tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: a1de59ebb5ef0d7f5522a388aa9a2f5818495a9f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 208b5462efeb579e30550824bd7ba931db1825b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786338"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925621"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces do Serviço SignalR para as Funções do Azure
 
@@ -18,7 +18,7 @@ Este artigo explica como autenticar e enviar mensagens em tempo real para client
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes – funções 2. x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 As associações de serviço Signalr são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) , versão 1. *. O código-fonte do pacote está no repositório GitHub [Azure-Functions-signalrservice-Extension](https://github.com/Azure/azure-functions-signalrservice-extension) .
 
@@ -106,7 +106,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -236,7 +236,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req, connectionInfo) {
@@ -377,7 +377,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -507,7 +507,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -642,7 +642,7 @@ Function. JSON de exemplo:
 }
 ```
 
-Este é o código JavaScript:
+Eis o código JavaScript:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -705,7 +705,7 @@ public SignalRMessage sendMessage(
 
 ---
 
-### <a name="group-management"></a>Gerenciamento de grupo
+### <a name="group-management"></a>Gestão de grupos
 
 O serviço signalr permite que os usuários sejam adicionados a grupos. As mensagens podem ser enviadas a um grupo. Você pode usar a associação de saída `SignalR` para gerenciar a associação de grupo de um usuário.
 
@@ -859,7 +859,7 @@ O exemplo a seguir adiciona um usuário a um grupo.
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -887,7 +887,7 @@ O exemplo a seguir remove um usuário de um grupo.
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -1007,26 +1007,26 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `SignalRConnectionInfo`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `SignalRConnectionInfo` atributo.
 
-|Propriedade function. JSON | Propriedade de atributo |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Deve ser definido como `signalRConnectionInfo`.|
-|**direção**|| Deve ser definido como `in`.|
-|**nomes**|| Nome da variável usada no código de função para objeto de informações de conexão. |
+|**tipo**|| Tem de ser definido como `signalRConnectionInfo`.|
+|**direção**|| Tem de ser definido como `in`.|
+|**name**|| Nome da variável usada no código de função para objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do Hub do Signalr para o qual as informações de conexão são geradas.|
-|**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definido no token de chave de acesso. |
+|**userId**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definido no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do serviço Signalr (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `SignalR`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `SignalR` atributo.
 
-|Propriedade function. JSON | Propriedade de atributo |Descrição|
+|propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Deve ser definido como `signalR`.|
-|**direção**|| Deve ser definido como `out`.|
-|**nomes**|| Nome da variável usada no código de função para objeto de informações de conexão. |
+|**tipo**|| Tem de ser definido como `signalR`.|
+|**direção**|| Tem de ser definido como `out`.|
+|**name**|| Nome da variável usada no código de função para objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do Hub do Signalr para o qual as informações de conexão são geradas.|
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do serviço Signalr (o padrão é "AzureSignalRConnectionString") |
 
@@ -1035,7 +1035,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)

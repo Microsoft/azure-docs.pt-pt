@@ -1,29 +1,28 @@
 ---
-title: 'Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory '
+title: Solucionar problemas de gerenciamento de Integration Runtime do SSIS
 description: Este artigo fornece orientação para a solução de problemas de gerenciamento do SSIS Integration Runtime (SSIS IR)
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684018"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931945"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
 
 Este artigo fornece orientação para a solução de problemas de gerenciamento no SSIS (Azure-SQL Server Integration Services) Integration Runtime (IR), também conhecido como IR do SSIS.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Se você tiver algum problema ao provisionar ou desprovisionar o SSIS IR, verá uma mensagem de erro no portal do Microsoft Azure Data Factory ou um erro retornado de um cmdlet do PowerShell. O erro sempre aparece no formato de um código de erro com uma mensagem de erro detalhada.
 
@@ -105,7 +104,7 @@ Este erro significa que a execução do script de configuração personalizada (
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Este erro indica que foi excedido o tempo limite de execução do script de configuração personalizada. Verifique se o script pode ser executado silenciosamente e nenhuma entrada interativa necessária e se o contêiner de BLOB contém apenas os arquivos de instalação personalizados necessários. É recomendável testar o script no computador local primeiro. Também deve verificar os registos de execução da configuração personalizada no contentor de blobs. O período máximo da configuração personalizada é de 45 minutos antes de exceder o limite de tempo. O período máximo inclui o tempo para transferir todos os ficheiros do contentor e instalá-los no SSIS IR. Se precisar de um período mais extenso, crie um pedido de suporte.
+Este erro indica que foi excedido o tempo limite de execução do script de configuração personalizada. Garanta que o script pode ser executado silenciosamente, e que não são necessárias entradas interativa, e verifique se o contentor de blobs contem apenas os ficheiros de configuração personalizada necessários. Recomenda-se testar o script no computador local primeiro. Também deve verificar os registos de execução da configuração personalizada no contentor de blobs. O período máximo da configuração personalizada é de 45 minutos antes de exceder o limite de tempo. O período máximo inclui o tempo para transferir todos os ficheiros do contentor e instalá-los no SSIS IR. Se precisar de um período mais extenso, crie um pedido de suporte.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

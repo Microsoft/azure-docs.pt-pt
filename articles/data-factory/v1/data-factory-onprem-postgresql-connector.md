@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do banco de dado PostgreSQL usand
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6d8c63551bd6bcc7a7e00dffa6c2b6d9e0e644db
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666077"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929074"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -56,7 +55,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de um ar
   - API .NET
   - API REST
 
-    Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+    Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -68,10 +67,10 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas para um armazenamento de dados PostgreSQL:
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do PostgreSQL.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
@@ -82,12 +81,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | palavra-passe |Especifique a senha para a conta de usuário especificada para o nome do usuário. |Não |
 | gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados PostgreSQL local. |Sim |
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções & propriedades disponíveis para definir os conjuntos de valores, consulte o artigo [criando conjuntos](data-factory-create-datasets.md) de itens. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
 
 A seção typeproperties é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties para o conjunto de um do tipo **RelationalTable** (que inclui o conjunto de texto PostgreSQL) tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. O TableName diferencia maiúsculas de minúsculas. |Não (se a **consulta** de **RelationalSource** for especificada) |
 
@@ -98,7 +97,7 @@ Enquanto que as propriedades disponíveis na seção typeproperties da atividade
 
 Quando a fonte é do tipo **RelationalSource** (que inclui PostgreSQL), as seguintes propriedades estão disponíveis na seção typeproperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **TableName** de **DataSet** for especificado) |
 
@@ -305,42 +304,42 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos são usados do tipo P
 
 | Tipo de banco de dados PostgreSQL | Aliases de PostgresSQL | Tipo de .NET Framework |
 | --- | --- | --- |
-| abstime | |Horário |
-| bigint |Int8 |Int64 |
+| abstime | |DateTime |
+| bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte [], Cadeia de caracteres |
 | variação de bit [(n)] |varbit |Byte [], Cadeia de caracteres |
 | boolean |booleano |Booleano |
-| Quadro | |Byte [], Cadeia de caracteres |
+| quadro | |Byte [], Cadeia de caracteres |
 | bytea | |Byte [], Cadeia de caracteres |
 | caractere [(n)] |Char [(n)] |String |
 | variação de caractere [(n)] |varchar [(n)] |String |
 | CID | |String |
 | CIDR | |String |
-| Multiplica | |Byte [], Cadeia de caracteres |
-| date | |Horário |
+| círculo | |Byte [], Cadeia de caracteres |
+| date | |DateTime |
 | daterange | |String |
-| precisão dupla |float8 |Clique |
+| precisão dupla |float8 |Double |
 | inet | |Byte [], Cadeia de caracteres |
 | intarry | |String |
 | int4range | |String |
 | int8range | |String |
-| número inteiro |int, INT4 |Int32 |
+| número inteiro |int, int4 |Int32 |
 | Interval [campos] [(p)] | |Timespan |
-| JSON | |String |
-| jsonb | |Byte [] |
-| descritos | |Byte [], Cadeia de caracteres |
+| json | |String |
+| jsonb | |Byte[] |
+| linha | |Byte [], Cadeia de caracteres |
 | lseg | |Byte [], Cadeia de caracteres |
 | macaddr | |Byte [], Cadeia de caracteres |
-| gastar | |Vírgula |
-| numeric [(p, s)] |Decimal [(p, s)] |Vírgula |
+| money | |Decimal |
+| numeric [(p, s)] |Decimal [(p, s)] |Decimal |
 | numrange | |String |
-| OIDs | |Int32 |
-| Multi-Path | |Byte [], Cadeia de caracteres |
+| oid | |Int32 |
+| Caminho | |Byte [], Cadeia de caracteres |
 | pg_lsn | |Int64 |
-| Empresas | |Byte [], Cadeia de caracteres |
+| registo | |Byte [], Cadeia de caracteres |
 | Polygon | |Byte [], Cadeia de caracteres |
-| foto |float4 |Único |
+| real |float4 |Único |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | série |serial4 |Int32 |

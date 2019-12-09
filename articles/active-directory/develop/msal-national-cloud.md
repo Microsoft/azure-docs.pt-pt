@@ -1,28 +1,25 @@
 ---
-title: Usar a MSAL (biblioteca de autenticação da Microsoft) em nuvens nacionais – plataforma de identidade da Microsoft
+title: Usar o MSAL em um aplicativo de nuvem nacional | Azure
+titleSuffix: Microsoft identity platform
 description: A MSAL (biblioteca de autenticação da Microsoft) permite que os desenvolvedores de aplicativos adquiram tokens para chamar APIs da Web protegidas. Essas APIs da Web podem ser Microsoft Graph, outras APIs da Microsoft, APIs Web de parceiros ou sua própria API Web. O MSAL dá suporte a várias arquiteturas e plataformas de aplicativos.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481862"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916039"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -74,13 +71,13 @@ Para habilitar seu aplicativo MSAL. js para nuvens soberanas:
 
 ### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.us/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.us/).
     
    Para localizar portal do Azure pontos de extremidade para outras nuvens nacionais, consulte [pontos de extremidade de registro de aplicativo](authentication-national-cloud.md#app-registration-endpoints).
 
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
 1. Vá para a página de [registros de aplicativo](https://aka.ms/ra/ff) na plataforma de identidade da Microsoft para desenvolvedores.
-1. Quando a página **registrar um aplicativo** for exibida, insira um nome para seu aplicativo.
+1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
 1. Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional**.
 1. Na seção **URI de redirecionamento** , selecione a plataforma **da Web** e defina o valor como a URL do aplicativo com base no servidor Web. Consulte as próximas seções para obter instruções sobre como definir e obter a URL de redirecionamento no Visual Studio e no nó.
 1. Selecione **Registar**.
@@ -224,7 +221,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 

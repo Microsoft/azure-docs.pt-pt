@@ -4,21 +4,20 @@ description: Saiba como usar a atividade obter metadados em um pipeline de Data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546935"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928572"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -41,13 +40,13 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 ### <a name="supported-connectors"></a>Conectores com suporte
 
-**Armazenamento de arquivos**
+**Armazenamento de ficheiros**
 
-| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | tamanho<br>Grupo | criação<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>pasta |contentMD5<br>Grupo | estruturá<br/>Grupo | columnCount<br>Grupo | existe<br>(arquivo/pasta) |
+| Conector/metadados | itemName<br>(arquivo/pasta) | itemType<br>(arquivo/pasta) | size<br>Grupo | criação<br>(arquivo/pasta) | lastModified<br>(arquivo/pasta) |childItems<br>pasta |contentMD5<br>Grupo | structure<br/>Grupo | columnCount<br>Grupo | exists<br>(arquivo/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
-| [Armazenamento em nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Armazenamento em nuvem do Google](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Ficheiros do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -62,7 +61,7 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 
 **Banco de dados relacional**
 
-| Conector/metadados | estruturá | columnCount | existe |
+| Conector/metadados | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Base de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Instância Gerida da Base de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
@@ -77,14 +76,14 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 |:--- |:--- |
 | itemName | Nome do arquivo ou da pasta. |
 | itemType | Tipo de arquivo ou pasta. O valor retornado é `File` ou `Folder`. |
-| tamanho | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
+| size | Tamanho do arquivo, em bytes. Aplicável somente a arquivos. |
 | criação | Data e hora de criação do arquivo ou da pasta. |
 | lastModified | Data e hora da última modificação do arquivo ou da pasta. |
 | childItems | Lista de subpastas e arquivos na pasta especificada. Aplicável somente a pastas. Valor retornado é uma lista do nome e do tipo de cada item filho. |
 | contentMD5 | MD5 do arquivo. Aplicável somente a arquivos. |
-| estruturá | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
+| structure | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
 | columnCount | Número de colunas no arquivo ou na tabela relacional. |
-| existe| Se existe um arquivo, uma pasta ou uma tabela. Observe que, se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
+| exists| Se existe um arquivo, uma pasta ou uma tabela. Observe que, se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
 
 >[!TIP]
 >Quando desejar validar a existência de um arquivo, pasta ou tabela, especifique `exists` na lista campo de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
@@ -110,7 +109,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 }
 ```
 
-**DataSet**
+**Dataset**
 
 ```json
 {

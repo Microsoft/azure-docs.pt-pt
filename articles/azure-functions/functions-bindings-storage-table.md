@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 77f95cf02b5216f1946283143b828f915b351abc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230982"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925314"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure para Azure Functions
 
@@ -20,15 +20,15 @@ Este artigo explica como trabalhar com associações de armazenamento de tabelas
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-As associações de armazenamento de tabela são fornecidas no pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) .
+As associações de armazenamento de tabela são fornecidas no pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-As associações de armazenamento de tabela são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) .
+As associações de armazenamento de tabela são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -105,7 +105,7 @@ public class TableStorage
 
 ### <a name="input---c-example---cloudtable"></a>Entrada- C# exemplo-cloudtable
 
-Não há suporte para `IQueryable` no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é usar um parâmetro de método `CloudTable` para ler a tabela usando o SDK do armazenamento do Azure. Aqui está um exemplo de uma função 2. x que consulta uma tabela de log de Azure Functions:
+Não há suporte para `IQueryable` no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é usar um parâmetro de método `CloudTable` para ler a tabela usando o SDK do armazenamento do Azure. Veja um exemplo de uma função que consulta uma tabela de log de Azure Functions:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -185,7 +185,7 @@ O arquivo *Function. JSON* especifica um `partitionKey` e um `rowKey`. O valor d
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -208,7 +208,7 @@ public class Person
 
 O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo *Function. JSON* e [ C# ](functions-reference-csharp.md) código de script que usa a associação. A função lê entidades para uma chave de partição que é especificada em uma mensagem da fila.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -232,7 +232,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 O C# código de script adiciona uma referência ao SDK do armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`:
 
@@ -258,7 +258,7 @@ public class Person : TableEntity
 
 ### <a name="input---c-script-example---cloudtable"></a>Entrada- C# exemplo de script-cloudtable
 
-Não há suporte para `IQueryable` no [tempo de execução do Functions v2](functions-versions.md). Uma alternativa é usar um parâmetro de método `CloudTable` para ler a tabela usando o SDK do armazenamento do Azure. Aqui está um exemplo de uma função 2. x que consulta uma tabela de log de Azure Functions:
+Não há suporte para `IQueryable` no tempo de execução do Functions para [as versões 2. x e superior)](functions-versions.md). Uma alternativa é usar um parâmetro de método `CloudTable` para ler a tabela usando o SDK do armazenamento do Azure. Veja um exemplo de uma função que consulta uma tabela de log de Azure Functions:
 
 ```json
 {
@@ -349,7 +349,7 @@ O arquivo *Function. JSON* especifica um `partitionKey` e um `rowKey`. O valor d
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Aqui está o F# código:
 
@@ -396,7 +396,7 @@ O arquivo *Function. JSON* especifica um `partitionKey` e um `rowKey`. O valor d
 }
 ```
 
-A seção de [configuração](#input---configuration) explica essas propriedades.
+O [configuração](#input---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -479,10 +479,10 @@ Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use os segui
 
 A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
-* A propriedade `Connection` do atributo de `Table`.
-* O atributo `StorageAccount` aplicado ao mesmo parâmetro que o atributo `Table`.
-* O atributo `StorageAccount` aplicado à função.
-* O atributo `StorageAccount` aplicado à classe.
+* O `Table` do atributo `Connection` propriedade.
+* O `StorageAccount` atributo aplicado para o mesmo parâmetro como o `Table` atributo.
+* O `StorageAccount` atributo aplicado à função.
+* O `StorageAccount` aplicado à classe de atributo.
 * A conta de armazenamento padrão para o aplicativo de funções (configuração de aplicativo "AzureWebJobsStorage").
 
 ## <a name="input---java-annotations"></a>Entrada – anotações de Java
@@ -491,19 +491,19 @@ Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azur
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `Table`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `Table` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `table`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure.|
-|**direção** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure. |
-|**nomes** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
+|**tipo** | n/d | Tem de ser definido como `table`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure.|
+|**direção** | n/d | Tem de ser definido como `in`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure. |
+|**name** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
 |**tableName** | **TableName** | O nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de tabela a ser lida. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de tabela a ser lida. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
-|**ter** |**Ter** | Opcional. O número máximo de entidades a serem lidas em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
-|**sem** |**Sem** | Opcional. Uma expressão de filtro OData para entrada de tabela em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
-|**conexão** |**Conexão** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.|
+|**take** |**Ter** | Opcional. O número máximo de entidades a serem lidas em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
+|**filter** |**Sem** | Opcional. Uma expressão de filtro OData para entrada de tabela em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
+|**ligação** |**ligação** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -538,7 +538,7 @@ Use uma associação de saída de armazenamento de tabela do Azure para gravar e
 Veja o exemplo de idioma específico:
 
 * [C#](#output---c-example)
-* [C#script (. CSX)](#output---c-script-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
@@ -570,7 +570,7 @@ public class TableStorage
 
 O exemplo a seguir mostra uma associação de saída de tabela em um arquivo *Function. JSON* e [ C# ](functions-reference-csharp.md) código de script que usa a associação. A função grava várias entidades de tabela.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -592,7 +592,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Aqui está o código de script do c#:
 
@@ -625,7 +625,7 @@ public class Person
 
 O exemplo a seguir mostra uma associação de saída de tabela em um arquivo *Function. JSON* e [ F# ](functions-reference-fsharp.md) código de script que usa a associação. A função grava várias entidades de tabela.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -647,7 +647,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Aqui está o F# código:
 
@@ -672,7 +672,7 @@ let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
 
 O exemplo a seguir mostra uma associação de saída de tabela em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava várias entidades de tabela.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -694,7 +694,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#output---configuration) explica essas propriedades.
+O [configuração](#output---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -745,23 +745,23 @@ public static MyPoco TableOutput(
 }
 ```
 
-Para obter um exemplo completo, consulte [saída C# -exemplo](#output---c-example).
+Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-example).
 
 Você pode usar o atributo `StorageAccount` para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, consulte [Input-Attributes](#input---attributes).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `Table`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `Table` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Deve ser definido como `table`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure.|
-|**direção** | n/d | Deve ser definido como `out`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure. |
-|**nomes** | n/d | O nome da variável usada no código de função que representa a tabela ou entidade. Defina como `$return` para referenciar o valor de retorno da função.| 
+|**tipo** | n/d | Tem de ser definido como `table`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure.|
+|**direção** | n/d | Tem de ser definido como `out`. Essa propriedade é definida automaticamente quando você cria a associação no portal do Azure. |
+|**name** | n/d | O nome da variável usada no código de função que representa a tabela ou entidade. Defina como `$return` para referenciar o valor de retorno da função.| 
 |**tableName** |**TableName** | O nome da tabela.| 
 |**partitionKey** |**PartitionKey** | A chave de partição da entidade de tabela a ser gravada. Consulte a [seção uso](#output---usage) para obter orientação sobre como usar essa propriedade.| 
 |**rowKey** |**RowKey** | A chave de linha da entidade de tabela a ser gravada. Consulte a [seção uso](#output---usage) para obter orientação sobre como usar essa propriedade.| 
-|**conexão** |**Conexão** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.|
+|**ligação** |**ligação** | O nome de uma configuração de aplicativo que contém a cadeia de conexão de armazenamento a ser usada para essa associação. Se o nome da configuração do aplicativo começar com "AzureWebJobs", você poderá especificar apenas o restante do nome aqui. Por exemplo, se você definir `connection` como "mystorage", o tempo de execução do Functions procurará uma configuração de aplicativo chamada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o tempo de execução do Functions usará a cadeia de conexão de armazenamento padrão na configuração do aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -787,11 +787,11 @@ A associação de saída de armazenamento de tabela dá suporte aos seguintes ce
 
 | Vínculo | Referência |
 |---|---|
-| Tabela | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Tabelas | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | BLOB, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila | [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

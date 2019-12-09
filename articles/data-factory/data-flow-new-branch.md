@@ -1,24 +1,23 @@
 ---
-title: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
+title: Mapeando nova transformação de Branch de fluxo de dados
 description: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387224"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930306"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 
-
-
-![Opções de ramificação](media/data-flow/menu.png "AdicionarMenu")
+![Opções de ramificação](media/data-flow/menu.png "menu")
 
 A ramificação pegará o fluxo de dados atual em seu fluxo de dados e o replicará para outro fluxo. Use a nova ramificação para executar vários conjuntos de operações e transformações no mesmo fluxo de dados.
 

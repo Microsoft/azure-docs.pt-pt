@@ -4,19 +4,17 @@ description: Entenda como os logs de auditoria do banco de dados SQL são estrut
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b7a3c295d2edd60c70f47ea155a5d747a3bfb03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873765"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928627"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato do log de auditoria do banco de dados SQL
 
@@ -32,16 +30,16 @@ Por exemplo, para o banco de dados `Database1` em `Server1` o seguinte caminho v
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Réplicas somente leitura](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) Os logs de auditoria são armazenados no mesmo contêiner. A hierarquia de diretórios dentro do contêiner está no formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. O nome de arquivo do blob compartilha o mesmo formato. Os logs de auditoria de réplicas somente leitura são armazenados no mesmo contêiner.
+[Réplicas somente leitura](sql-database-read-scale-out.md) Os logs de auditoria são armazenados no mesmo contêiner. A hierarquia de diretórios dentro do contêiner está no formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. O nome de arquivo do blob compartilha o mesmo formato. Os logs de auditoria de réplicas somente leitura são armazenados no mesmo contêiner.
 
 
 ### <a name="event-hub"></a>Hub de Eventos
 
-Os eventos de auditoria são gravados no namespace e no Hub de eventos que foi definido durante a configuração de auditoria e são capturados no corpo de eventos do [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar [Ferramentas do Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas semelhantes que processam esse formato.
+Os eventos de auditoria são gravados no namespace e no Hub de eventos que foi definido durante a configuração de auditoria e são capturados no corpo de eventos do [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os logs de auditoria, você pode usar [Ferramentas do Avro](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processam esse formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Os eventos de auditoria são gravados no espaço de trabalho Log Analytics definido durante a configuração de auditoria, na tabela `AzureDiagnostics` com a categoria `SQLSecurityAuditEvents`. Para obter mais informações úteis sobre Log Analytics idioma e comandos de pesquisa, consulte [log Analytics referência de pesquisa](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
+Os eventos de auditoria são gravados no espaço de trabalho Log Analytics definido durante a configuração de auditoria, na tabela `AzureDiagnostics` com a categoria `SQLSecurityAuditEvents`. Para obter mais informações úteis sobre Log Analytics idioma e comandos de pesquisa, consulte [log Analytics referência de pesquisa](../log-analytics/log-analytics-log-search.md).
 
 ## <a id="subheading-1"></a>Campos do log de auditoria
 

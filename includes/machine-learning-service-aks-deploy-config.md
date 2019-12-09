@@ -1,32 +1,32 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 0463dbd67f27f6664ab246ad56af9c6fb95c52ee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2124b5241015ca74ff6507767396b1a27bd1191d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682110"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935848"
 ---
 As entradas no documento `deploymentconfig.json` são mapeadas para os parâmetros de [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). A tabela a seguir descreve o mapeamento entre as entidades no documento JSON e os parâmetros para o método:
 
 | Entidade JSON | Parâmetro do método | Descrição |
 | ----- | ----- | ----- |
-| `computeType` | ND | O destino de computação. Para AKS, o valor deve ser `aks`. |
-| `autoScaler` | ND | Contém elementos de configuração para dimensionamento automático. Consulte a tabela de dimensionamento de escalabilidade. |
+| `computeType` | N/D | O destino de computação. Para AKS, o valor deve ser `aks`. |
+| `autoScaler` | N/D | Contém elementos de configuração para dimensionamento automático. Consulte a tabela de dimensionamento de escalabilidade. |
 | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Se é para habilitar o dimensionamento automático para o serviço Web. Se `numReplicas` = `0`, `True`; caso contrário, `False`. |
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | O número mínimo de contêineres a ser usado ao dimensionar automaticamente este serviço Web. Padrão, `1`. |
 | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | O número máximo de contêineres a serem usados ao dimensionar automaticamente este serviço Web. Padrão, `10`. |
 | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Com que frequência o dimensionador de autoescala tenta dimensionar esse serviço Web. Padrão, `1`. |
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | A utilização de destino (em porcentagem de 100) que o dimensionador deve tentar manter para esse serviço Web. Padrão, `70`. |
-| `dataCollection` | ND | Contém elementos de configuração para a coleta de dados. |
+| `dataCollection` | N/D | Contém elementos de configuração para a coleta de dados. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Se a coleta de dados do modelo deve ser habilitada para o serviço Web. Padrão, `False`. |
 | `authEnabled` | `auth_enabled` | Se deseja ou não habilitar a autenticação de chave para o serviço Web. Os `tokenAuthEnabled` e `authEnabled` não podem ser `True`. Padrão, `True`. |
 | `tokenAuthEnabled` | `token_auth_enabled` | Se deseja ou não habilitar a autenticação de token para o serviço Web. Os `tokenAuthEnabled` e `authEnabled` não podem ser `True`. Padrão, `False`. |
-| `containerResourceRequirements` | ND | Contêiner para as entidades de CPU e memória. |
+| `containerResourceRequirements` | N/D | Contêiner para as entidades de CPU e memória. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | O número de núcleos de CPU a serem alocados para este serviço Web. Padrões, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | A quantidade de memória (em GB) a ser alocada para este serviço Web. Padrão, `0.5` |
 | `appInsightsEnabled` | `enable_app_insights` | Se é para habilitar o log de Application Insights para o serviço Web. Padrão, `False`. |
@@ -34,11 +34,11 @@ As entradas no documento `deploymentconfig.json` são mapeadas para os parâmetr
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | O máximo de solicitações simultâneas por nó para este serviço Web. Padrão, `1`. |
 | `maxQueueWaitMs` | `max_request_wait_time` | O tempo máximo que uma solicitação permanecerá na fila três (em milissegundos) antes de um erro 503 ser retornado. Padrão, `500`. |
 | `numReplicas` | `num_replicas` | O número de contêineres a serem alocados para este serviço Web. Não existem valores predefinidos. Se esse parâmetro não for definido, o dimensionador será habilitado por padrão. |
-| `keys` | ND | Contém elementos de configuração para chaves. |
+| `keys` | N/D | Contém elementos de configuração para chaves. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Uma chave de autenticação primária a ser usada para este serviço Web |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | Uma chave de autenticação secundária a ser usada para este serviço Web |
 | `gpuCores` | `gpu_cores` | O número de núcleos de GPU a serem alocados para este WebService. O padrão é 1. Dá suporte apenas a valores de números inteiros. |
-| `livenessProbeRequirements` | ND | Contém elementos de configuração para requisitos de investigação de vida. |
+| `livenessProbeRequirements` | N/D | Contém elementos de configuração para requisitos de investigação de vida. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | Com que frequência (em segundos) executar a investigação de tempo de vida. O padrão é 10 segundos. O valor mínimo é 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Número de segundos depois que o contêiner é iniciado antes que as investigações de tempo sejam iniciadas. O padrão é 310 |
 | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Número de segundos após o qual a investigação de vida atinge o tempo limite. O padrão é 2 segundos. O valor mínimo é 1 |

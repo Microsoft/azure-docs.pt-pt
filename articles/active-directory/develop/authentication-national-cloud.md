@@ -1,5 +1,5 @@
 ---
-title: Autenticação usando Azure Active Directory em nuvens nacionais
+title: Autenticação do Azure AD & nuvens nacionais | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os pontos de extremidade de autenticação e registro de aplicativo para nuvens nacionais.
 services: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,CelesteDG
+ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5501b9ceff8659233d1021ad03549eea524ddd78
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 14b97677f5aa9624ba70696114ac34fcd9f46182
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843925"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918037"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 

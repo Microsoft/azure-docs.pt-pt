@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083449"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931382"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o emparelhamento para um circuito de ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -42,40 +42,7 @@ Essas instruções se aplicam somente a circuitos criados com provedores de serv
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Baixe os cmdlets mais recentes do PowerShell
 
-Instale as versões mais recentes de módulos do PowerShell de gestão de serviço do Azure (SM) e o módulo do ExpressRoute. Ao utilizar o exemplo seguinte, tenha em atenção que o número de versão (neste exemplo, 5.1.1) será alterado à medida que as versões mais recentes dos cmdlets são lançadas.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Para obter mais informações, consulte [introdução aos cmdlets Azure PowerShell](/powershell/azure/overview) para obter diretrizes passo a passo sobre como configurar seu computador para usar os módulos Azure PowerShell.
-
-### <a name="sign-in"></a>Iniciar sessão
-
-Para entrar em sua conta do Azure, use os exemplos a seguir:
-
-1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Verifique as subscrições da conta.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Peering privado do Azure
 
@@ -94,7 +61,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Exibir
+   Devolvem:
 
    ```powershell
    Bandwidth                        : 200
@@ -147,7 +114,7 @@ Você pode exibir os detalhes de configuração usando o seguinte cmdlet:
 Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 ```
 
-Exibir
+Devolvem:
 
 ```
 AdvertisedPublicPrefixes       : 
@@ -201,7 +168,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Exibir
+   Devolvem:
 
    ```powershell
    Bandwidth                        : 200
@@ -254,7 +221,7 @@ Para exibir os detalhes de configuração, use o seguinte cmdlet:
 Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
 
-Exibir
+Devolvem:
 
 ```powershell
 AdvertisedPublicPrefixes       : 
@@ -305,7 +272,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    ```
 
-   Exibir
+   Devolvem:
    
    ```powershell
    Bandwidth                        : 200
@@ -350,7 +317,7 @@ Você pode exibir os detalhes de configuração usando o seguinte cmdlet:
 ```powershell
 Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 ```
-Exibir
+Devolvem:
 
 ```powershell
 AdvertisedPublicPrefixes       : 123.0.0.0/30

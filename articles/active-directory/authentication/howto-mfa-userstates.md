@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f6fd2a01cdb325d543bc624d0c13bce1d84a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 55bba2ff51460a10feabd881458b8d4a15cde924
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848243"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914611"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -52,7 +52,10 @@ As contas de usuário na autenticação multifator do Azure têm os três Estado
 
 O estado de um usuário reflete se um administrador o registrou no Azure MFA e se ele concluiu o processo de registro.
 
-Todos os usuários iniciam *desabilitados*. Quando você registra os usuários no Azure MFA, seu estado muda para *habilitado*. Quando os usuários habilitados entram e concluem o processo de registro, seu estado muda para *imposto*.  
+Todos os usuários iniciam *desabilitados*. Quando você registra os usuários no Azure MFA, seu estado muda para *habilitado*. Quando os usuários habilitados entram e concluem o processo de registro, seu estado muda para *imposto*.
+
+> [!NOTE]
+> Se a MFA for reabilitada em um objeto de usuário que já tem detalhes de registro, como telefone ou email, os administradores precisarão fazer com que o usuário registre novamente o MFA por meio do portal do Azure ou do PowerShell. Se o usuário não se registrar novamente, seu estado de MFA não fará a transição de *habilitado* para *imposto* na interface do usuário de gerenciamento do MFA.
 
 ### <a name="view-the-status-for-a-user"></a>Exibir o status de um usuário
 
@@ -179,6 +182,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > Alteramos recentemente o comportamento e o script do PowerShell acima de acordo. Anteriormente, o script economizou os métodos de MFA, desabilitou a MFA e restaurei os métodos. Isso não é mais necessário agora que o comportamento padrão para desabilitar não limpa os métodos.
+>
+> Se a MFA for reabilitada em um objeto de usuário que já tem detalhes de registro, como telefone ou email, os administradores precisarão fazer com que o usuário registre novamente o MFA por meio do portal do Azure ou do PowerShell. Se o usuário não se registrar novamente, seu estado de MFA não fará a transição de *habilitado* para *imposto* na interface do usuário de gerenciamento do MFA.
 
 ## <a name="next-steps"></a>Passos seguintes
 

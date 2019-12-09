@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468424"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931501"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -69,7 +69,7 @@ Alguns dos valores embutidos em código no modelo:
 | Propriedade | Valor |
 |----------|-------|
 | Localização | Oeste dos E.U.A. |
-| Nome da VNet | &lt;ClusterNamePrevix >-vnet1 |
+| Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |
 | Prefixo de sub-rede | 10.1.0.0/24 |
@@ -78,15 +78,15 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do gateway | vnet1gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN do gateway | RouteBased |
-| SKU do gateway | Básica |
+| SKU do gateway | Basic |
 | IP do gateway | vnet1gwip |
 
 **VNet 2**
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | EUA Leste |
-| Nome da VNet | &lt;ClusterNamePrevix >-vnet2 |
+| Localização | Este dos E.U.A. |
+| Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |
 | Prefixo de sub-rede | 10.2.0.0/24 |
@@ -95,7 +95,7 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do gateway | vnet2gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN do gateway | RouteBased |
-| SKU do gateway | Básica |
+| SKU do gateway | Basic |
 | IP do gateway | vnet1gwip |
 
 ## <a name="setup-dns"></a>Configurar DNS
@@ -281,7 +281,7 @@ As etapas a seguir descrevem como chamar o script de ação de script do portal 
 
 **Para habilitar a replicação do HBase no portal do Azure**
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HBase de origem.
 3. No menu do cluster, selecione **ações de script**.
 4. Na parte superior da página, selecione **Enviar novo**.
@@ -296,6 +296,8 @@ As etapas a seguir descrevem como chamar o script de ação de script do portal 
     
       > [!NOTE]
       > Use hostname em vez de FQDN para o nome DNS do cluster de origem e de destino.
+      >
+      > Este tutorial pressupõe o hn1 como ativo cabeçalho. Verifique o cluster para identificar o nó principal ativo.
 
 6. Selecione **Criar**. O script pode levar algum tempo para ser executado, especialmente quando você usa o argumento **-CopyData** .
 
@@ -315,8 +317,8 @@ Argumentos opcionais:
 |-Su,--src-ambari-usuário | Especifica o nome de usuário administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du,--DST-ambari-User | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
 |-t,--tabela-lista | Especifica as tabelas a serem replicadas. Por exemplo:--Table-List = "Table1; Table2; Table3". Se você não especificar tabelas, todas as tabelas HBase existentes serão replicadas.|
-|-m,--máquina | Especifica o nó de cabeçalho onde a ação de script é executada. O valor é **hn0** ou **hn1** e deve ser escolhido com base no nó de cabeçalho ativo. Use esta opção quando estiver executando o script $0 como uma ação de script no portal do HDInsight ou Azure PowerShell.|
-|-CP,-CopyData | Habilita a migração de dados existentes nas tabelas em que a replicação está habilitada. |
+|-m,--máquina | Especifica o nó de cabeçalho onde a ação de script é executada. O valor deve ser escolhido com base em qual é o nó principal ativo. Use esta opção quando estiver executando o script $0 como uma ação de script no portal do HDInsight ou Azure PowerShell.|
+|-cp, -copydata | Habilita a migração de dados existentes nas tabelas em que a replicação está habilitada. |
 |-rpm,-replicate-Phoenix-meta | Habilita a replicação em tabelas do sistema Phoenix. <br><br>*Use essa opção com cuidado.* Recomendamos que você recrie tabelas Phoenix em clusters de réplicas antes de usar esse script. |
 |-h,--ajuda | Exibe informações de uso. |
 
@@ -363,7 +365,7 @@ A seção `print_usage()` do [script](https://github.com/Azure/hbase-utils/blob/
 - **Copiar tabelas específicas (Test1, test2 e test3) para todas as linhas editadas até agora (carimbo de data/hora atual)** :
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  or
+  Or
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 

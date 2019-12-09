@@ -1,5 +1,6 @@
 ---
-title: Usar a plataforma de identidade da Microsoft para conectar usuários em dispositivos sem navegador | Azure
+title: Conectar usuários sem um navegador | Azure
+titleSuffix: Microsoft identity platform
 description: Crie fluxos de autenticação incorporados e sem navegador usando a concessão de autorização do dispositivo.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207608"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919244"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2,0
 
@@ -62,8 +63,8 @@ scope=user.read%20openid%20profile
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
-| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `tenant` | Obrigatório | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
+| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
 | `scope` | Recomendado | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) aos quais você deseja que o usuário concorde.  |
 
 ### <a name="device-authorization-response"></a>Resposta de autorização do dispositivo
@@ -72,12 +73,12 @@ Uma resposta bem-sucedida será um objeto JSON que contém as informações nece
 
 | Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
-|`device_code`     | Cadeia | Uma cadeia de caracteres longa usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente usa esse parâmetro para solicitar o token de acesso do servidor de autorização. |
-|`user_code`       | Cadeia | Uma cadeia de caracteres curta mostrada para o usuário que é usado para identificar a sessão em um dispositivo secundário.|
+|`device_code`     | String | Uma cadeia de caracteres longa usada para verificar a sessão entre o cliente e o servidor de autorização. O cliente usa esse parâmetro para solicitar o token de acesso do servidor de autorização. |
+|`user_code`       | String | Uma cadeia de caracteres curta mostrada para o usuário que é usado para identificar a sessão em um dispositivo secundário.|
 |`verification_uri`| URI | O URI ao qual o usuário deve ir com o `user_code` para entrar. |
 |`expires_in`      | int | O número de segundos antes da `device_code` e `user_code` expirar. |
 |`interval`        | int | O número de segundos que o cliente deve aguardar entre solicitações de sondagem. |
-| `message`        | Cadeia | Uma cadeia de caracteres legível por humanos com instruções para o usuário. Isso pode ser localizado com a inclusão de um **parâmetro de consulta** na solicitação do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
+| `message`        | String | Uma cadeia de caracteres legível por humanos com instruções para o usuário. Isso pode ser localizado com a inclusão de um **parâmetro de consulta** na solicitação do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
 
 > [!NOTE]
 > O campo de resposta `verification_uri_complete` não está incluído ou tem suporte no momento.  Mencionamos isso porque, se você ler o [padrão](https://tools.ietf.org/html/rfc8628) , verá que `verification_uri_complete` está listado como uma parte opcional do padrão de fluxo de código do dispositivo.
@@ -99,12 +100,12 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parâmetro | Necessário | Descrição|
+| Parâmetro | Obrigatório | Descrição|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessário | O mesmo alias de locatário ou locatário usado na solicitação inicial. | 
-| `grant_type` | Necessário | Deve ser `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Necessário | Deve corresponder ao `client_id` usado na solicitação inicial. |
-| `device_code`| Necessário | O `device_code` retornado na solicitação de autorização do dispositivo.  |
+| `tenant`  | Obrigatório | O mesmo alias de locatário ou locatário usado na solicitação inicial. | 
+| `grant_type` | Obrigatório | Deve ser `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obrigatório | Deve corresponder ao `client_id` usado na solicitação inicial. |
+| `device_code`| Obrigatório | O `device_code` retornado na solicitação de autorização do dispositivo.  |
 
 ### <a name="expected-errors"></a>Erros esperados
 
@@ -134,7 +135,7 @@ Uma resposta de token bem-sucedida terá A seguinte aparência:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia| Sempre "portador". |
+| `token_type` | String| Sempre "portador". |
 | `scope` | Cadeias de caracteres separadas por espaço | Se um token de acesso for retornado, isso listará os escopos para os quais o token de acesso é válido. |
 | `expires_in`| int | Número de segundos antes que o token de acesso incluído seja válido para. |
 | `access_token`| Cadeia de caracteres opaca | Emitido para os [escopos](v2-permissions-and-consent.md) que foram solicitados.  |

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786848"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926455"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -26,7 +26,7 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 > - [Transferir dados com o AzCopy e o armazenamento de arquivos](storage-use-azcopy-files.md)
 > - [Transferir dados com os buckets AzCopy e Amazon S3](storage-use-azcopy-s3.md)
 
-## <a name="configure-proxy-settings"></a>Definir configurações de proxy
+## <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
 Para definir as configurações de proxy para AzCopy, defina a variável de ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
@@ -99,7 +99,7 @@ O AzCopy cria arquivos de log e de plano para cada trabalho. Você pode usar os 
 
 Os logs conterão o status de falha (`UPLOADFAILED`, `COPYFAILED`e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
-Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE$\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
+Por padrão, os arquivos de log e de plano estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux, mas você pode alterar esse local, se desejar.
 
 > [!IMPORTANT]
 > Ao enviar uma solicitação para Suporte da Microsoft (ou solucionar o problema que envolve terceiros), compartilhe a versão redação do comando que você deseja executar. Isso garante que a SAS não seja compartilhada acidentalmente com ninguém. Você pode encontrar a versão redação no início do arquivo de log.
@@ -151,7 +151,7 @@ Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabal
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
 
-Por padrão, os arquivos de plano e de log estão localizados no diretório `%USERPROFILE$\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux. Você pode alterar esse local.
+Por padrão, os arquivos de plano e de log estão localizados no diretório `%USERPROFILE%\.azcopy` no Windows ou no diretório `$HOME$\.azcopy` no Mac e no Linux. Você pode alterar esse local.
 
 ### <a name="change-the-location-of-plan-files"></a>Alterar o local dos arquivos de plano
 

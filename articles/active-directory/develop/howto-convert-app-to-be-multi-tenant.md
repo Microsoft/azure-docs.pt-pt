@@ -1,30 +1,26 @@
 ---
-title: Como criar um aplicativo que pode entrar em qualquer usuário do Azure AD
+title: Compilar aplicativos que se conectam a usuários do Azure AD
 titleSuffix: Microsoft identity platform
 description: Mostra como criar um aplicativo multilocatário que pode conectar um usuário de qualquer locatário Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803931"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917782"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como entrar em qualquer Azure Active Directory usuário usando o padrão de aplicativo multilocatário
 
@@ -46,7 +42,7 @@ Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registro para ser multilocatário
 
-Por padrão, os registros de aplicativo/API Web no Azure AD são locatário único. Você pode tornar seu registro multilocatário localizando a opção de **tipos de conta com suporte** no painel de **autenticação** do registro do aplicativo na [portal do Azure][AZURE-portal] e definindo-a para **contas em qualquer organização de diretório**.
+Por padrão, os registros de aplicativo/API Web no Azure AD são locatário único. Você pode tornar seu registro multilocatário localizando a opção de **tipos de conta com suporte** no painel de **autenticação** do registro do aplicativo no [portal do Azure][AZURE-portal] e definindo-o como **contas em qualquer diretório organizacional**.
 
 Antes que um aplicativo possa ser tornado multilocatário, o Azure AD exige que o URI da ID do aplicativo seja globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD.
 
@@ -179,7 +175,7 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 
 Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Isso permite que você ofereça uma experiência personalizada em seu aplicativo, como mostrar informações contextuais para os usuários, como sua imagem de perfil ou seu próximo compromisso de calendário. Para saber mais sobre como fazer chamadas à API para os serviços do Azure AD e do Office 365, como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="related-content"></a>Related content (Conteúdos relacionados)
 
 * [Exemplos de aplicativos multilocatários][AAD-Samples-MT]
 * [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]

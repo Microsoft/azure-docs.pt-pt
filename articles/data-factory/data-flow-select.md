@@ -1,17 +1,18 @@
 ---
-title: Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
+title: Mapeando fluxo de dados selecionar transformação
 description: Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387203"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930234"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mapeando fluxo de dados selecionar transformação
 
@@ -41,7 +42,7 @@ Select também pode ser usado como uma forma de selecionar colunas de seu fluxo 
 > [!NOTE]
 > Para limpar as regras de mapeamento, pressione o botão **Redefinir** .
 
-## <a name="mapping"></a>Correlação
+## <a name="mapping"></a>Mapear
 Por padrão, a transformação selecionar mapeará automaticamente todas as colunas, que passarão por todas as colunas de entrada para o mesmo nome na saída. O nome do fluxo de saída definido em selecionar configurações definirá um novo nome de alias para o fluxo. Se você mantiver a seleção definir para mapa automático, poderá alias de todo o fluxo com todas as colunas iguais.
 
 ![Selecionar regras de transformação](media/data-flow/rule2.png "Mapeamento baseado em regras")

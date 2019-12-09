@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8820818528835df6379c894eb06c154f4120f507
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b1717b9b336d31c86db1ec38eb97c7e8814b76d7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227308"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926004"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de grade de eventos para Azure Functions
 
@@ -24,7 +24,7 @@ Se preferir, você pode usar um gatilho HTTP para manipular eventos de grade de 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 O gatilho de grade de eventos é fornecido no pacote NuGet [Microsoft. Azure. webjobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) , versão 2. x. O código-fonte do pacote está no repositório GitHub [Azure-Functions-eventgrid-Extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
 
@@ -41,16 +41,16 @@ O gatilho de grade de eventos é fornecido no pacote NuGet [Microsoft. Azure. we
 Consulte o exemplo específico de linguagem para um gatilho de grade de eventos:
 
 * C#
-* [C#script (. CSX)](#c-script-example)
+* [Script do c# (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
 Para um exemplo de gatilho HTTP, consulte [como usar o gatilho http](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo.
 
-### <a name="c-2x"></a>C#(2. x)
+### <a name="c-2x-and-higher"></a>C#(2. x e superior)
 
-O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 2. x que se associa a `EventGridEvent`:
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que é associada a `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -103,7 +103,7 @@ namespace Company.Function
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -118,9 +118,9 @@ Aqui estão os dados de associação no arquivo *Function. JSON* :
 }
 ```
 
-#### <a name="c-script-version-2x"></a>C#script (versão 2. x)
+#### <a name="c-script-version-2x-and-higher"></a>C#script (versão 2. x e superior)
 
-Aqui está o código de script C# do Functions 2. x que se associa a `EventGridEvent`:
+Aqui está um exemplo que é associado a `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -155,7 +155,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -186,7 +186,7 @@ module.exports = function (context, eventGridEvent) {
 
 O exemplo a seguir mostra uma associação de gatilho em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação.
 
-Aqui estão os dados de associação no arquivo *Function. JSON* :
+Eis a vinculação de dados a *Function* ficheiro:
 
 ```json
 {
@@ -317,7 +317,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|
 | **tipo** | Obrigatório-deve ser definido como `eventGridTrigger`. |
 | **direção** | Obrigatório-deve ser definido como `in`. |
-| **nomes** | Obrigatório – o nome da variável usada no código de função para o parâmetro que recebe os dados do evento. |
+| **name** | Obrigatório – o nome da variável usada no código de função para o parâmetro que recebe os dados do evento. |
 
 ## <a name="usage"></a>Utilização
 
@@ -326,7 +326,7 @@ Para C# funções F# e no Azure Functions 1. x, você pode usar os seguintes tip
 * `JObject`
 * `string`
 
-Para C# funções F# e no Azure Functions 2. x, você também tem a opção de usar o seguinte tipo de parâmetro para o gatilho de grade de eventos:
+Para C# funções F# e no Azure Functions 2. x e superior, você também tem a opção de usar o seguinte tipo de parâmetro para o gatilho de grade de eventos:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-define propriedades para os campos comuns a todos os tipos de evento.
 
@@ -395,7 +395,7 @@ Para criar uma assinatura usando [o CLI do Azure](https://docs.microsoft.com/cli
 
 O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL específico da versão:
 
-#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
+#### <a name="version-2x-and-higher-runtime"></a>Tempo de execução da versão 2. x (e superior)
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
@@ -407,7 +407,7 @@ A chave do sistema é uma chave de autorização que deve ser incluída na URL d
 
 Aqui está um exemplo que assina uma conta de armazenamento de BLOBs (com um espaço reservado para a chave do sistema):
 
-#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
+#### <a name="version-2x-and-higher-runtime"></a>Tempo de execução da versão 2. x (e superior)
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -435,7 +435,7 @@ Para obter mais informações sobre como criar uma assinatura, consulte [o guia 
 
 Você pode obter a chave do sistema usando a seguinte API (HTTP GET):
 
-#### <a name="version-2x-runtime"></a>Tempo de execução da versão 2. x
+#### <a name="version-2x-and-higher-runtime"></a>Tempo de execução da versão 2. x (e superior)
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
@@ -522,7 +522,7 @@ Use uma ferramenta como [postmaster](https://www.getpostman.com/) ou [ondulaçã
 * Definir um cabeçalho de `aeg-event-type: Notification`.
 * Cole os dados de RequestBin no corpo da solicitação.
 * Poste para a URL da sua função de gatilho de grade de eventos.
-  * Para 2. x, use o seguinte padrão:
+  * Para 2. x e superior, use o seguinte padrão:
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
@@ -591,7 +591,7 @@ A URL ngrok não obtém tratamento especial por grade de eventos, portanto, sua 
 
 Crie uma assinatura de grade de eventos do tipo que você deseja testar e dê a ela seu ponto de extremidade ngrok.
 
-Use este padrão de ponto de extremidade para o Functions 2. x:
+Use este padrão de ponto de extremidade para o Functions 2. x e superior:
 
 ```
 https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
@@ -770,7 +770,7 @@ module.exports = function (context, req) {
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a grade de eventos](../event-grid/overview.md)

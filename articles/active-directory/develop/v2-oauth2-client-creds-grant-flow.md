@@ -1,5 +1,5 @@
 ---
-title: Use a plataforma de identidade da Microsoft para acessar recursos seguros sem interação com o usuário | Azure
+title: Fluxo de credenciais do cliente OAuth 2,0 na plataforma Microsoft Identity | Azure
 description: Crie aplicativos Web usando a implementação da plataforma de identidade da Microsoft do protocolo de autenticação OAuth 2,0.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1499e931a81e31494d7ff442c8295ba03f1cf33
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207637"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919295"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -31,7 +31,7 @@ ms.locfileid: "74207637"
 
 Você pode usar a [concessão de credenciais de cliente OAuth 2,0](https://tools.ietf.org/html/rfc6749#section-4.4) especificada na RFC 6749, às vezes chamada de *OAuth de duas pernas*, para acessar recursos hospedados na Web usando a identidade de um aplicativo. Esse tipo de concessão é comumente usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativos são geralmente chamados de *daemons* ou *contas de serviço*.
 
-Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo.  Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
+Este artigo descreve como programar diretamente em relação ao protocolo em seu aplicativo. Quando possível, recomendamos que você use as MSAL (bibliotecas de autenticação da Microsoft) com suporte em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Veja também os [aplicativos de exemplo que usam MSAL](sample-v2-code.md).
 
 O fluxo de concessão de credenciais de cliente do OAuth 2,0 permite que um serviço Web (cliente confidencial) Use suas próprias credenciais, em vez de representar um usuário, para autenticar ao chamar outro serviço Web. Nesse cenário, o cliente é normalmente um serviço Web de camada intermediária, um serviço de daemon ou um site da Web. Para um nível mais alto de garantia, a plataforma de identidade da Microsoft também permite que o serviço de chamada use um certificado (em vez de um segredo compartilhado) como uma credencial.
 
@@ -55,7 +55,7 @@ Um aplicativo normalmente recebe autorização direta para acessar um recurso de
 
 Esses dois métodos são os mais comuns no Azure AD e são recomendados para clientes e recursos que executam o fluxo de credenciais do cliente. Um recurso também pode optar por autorizar seus clientes de outras maneiras. Cada servidor de recursos pode escolher o método que faz mais sentido para seu aplicativo.
 
-### <a name="access-control-lists"></a>Lista de controlo de acesso
+### <a name="access-control-lists"></a>Listas de controlo de acesso
 
 Um provedor de recursos pode impor uma verificação de autorização com base em uma lista de IDs de aplicativo (cliente) que ele conhece e concede um nível específico de acesso ao. Quando o recurso recebe um token do ponto de extremidade da plataforma Microsoft Identity, ele pode decodificar o token e extrair a ID do aplicativo do cliente do `appid` e `iss` declarações. Em seguida, ele compara o aplicativo com uma ACL (lista de controle de acesso) que ele mantém. A granularidade e o método da ACL podem variar substancialmente entre os recursos.
 
@@ -115,9 +115,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O locatário do diretório do qual você deseja solicitar permissão. Isso pode estar no formato de nome amigável ou GUID. Se você não souber a qual locatário o usuário pertence e quiser permitir que eles entrem com qualquer locatário, use `common`. |
-| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Necessário | O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL e pode ter segmentos de caminho adicionais. |
+| `tenant` | Obrigatório | O locatário do diretório do qual você deseja solicitar permissão. Isso pode estar no formato de nome amigável ou GUID. Se você não souber a qual locatário o usuário pertence e quiser permitir que eles entrem com qualquer locatário, use `common`. |
+| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Obrigatório | O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, exceto que ele deve ser codificado por URL e pode ter segmentos de caminho adicionais. |
 | `state` | Recomendado | Um valor que é incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
 
 Neste ponto, o Azure AD impõe que apenas um administrador de locatários possa entrar para concluir a solicitação. O administrador será solicitado a aprovar todas as permissões diretas do aplicativo que você solicitou para seu aplicativo no portal de registro de aplicativo.
@@ -178,11 +178,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
-| `client_id` | Necessário | A ID do aplicativo que é atribuída ao seu aplicativo. Você pode encontrar essas informações no portal em que você registrou seu aplicativo. |
-| `scope` | Necessário | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, o ponto de extremidade deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Necessário | O segredo do cliente que você gerou para seu aplicativo no portal de registro de aplicativo. O segredo do cliente deve ser codificado por URL antes de ser enviado. |
-| `grant_type` | Necessário | Deve ser definido como `client_credentials`. |
+| `tenant` | Obrigatório | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
+| `client_id` | Obrigatório | A ID do aplicativo que é atribuída ao seu aplicativo. Você pode encontrar essas informações no portal em que você registrou seu aplicativo. |
+| `scope` | Obrigatório | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, o ponto de extremidade deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal de registro de aplicativo. O segredo do cliente deve ser codificado por URL antes de ser enviado. |
+| `grant_type` | Obrigatório | Tem de ser definido como `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitação de token de acesso com um certificado
 
@@ -200,12 +200,12 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
-| `client_id` | Necessário |A ID do aplicativo (cliente) atribuída ao seu aplicativo. |
-| `scope` | Necessário | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, ele deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Necessário | O valor deve ser definido como `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Necessário | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia sobre [as credenciais do certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e o formato da asserção.|
-| `grant_type` | Necessário | Deve ser definido como `client_credentials`. |
+| `tenant` | Obrigatório | O locatário de diretório no qual o aplicativo planeja operar, no formato GUID ou nome de domínio. |
+| `client_id` | Obrigatório |A ID do aplicativo (cliente) atribuída ao seu aplicativo. |
+| `scope` | Obrigatório | O valor passado para o parâmetro `scope` nessa solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso desejado, afixado com o sufixo `.default`. Para o exemplo de Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, ele deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo de `/.default`, consulte a [documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Obrigatório | O valor deve ser definido como `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa para criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia sobre [as credenciais do certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e o formato da asserção.|
+| `grant_type` | Obrigatório | Tem de ser definido como `client_credentials`. |
 
 Observe que os parâmetros são quase iguais aos do caso da solicitação por segredo compartilhado, exceto pelo fato de que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
@@ -275,7 +275,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph
 
 Leia a [documentação visão geral das credenciais do cliente](https://aka.ms/msal-net-client-credentials) na biblioteca de autenticação da Microsoft
 
-| Sample | Plataforma |Descrição |
+| Exemplo | Plataforma |Descrição |
 |--------|----------|------------|
-|[Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console do .NET Core 2,1 | Um aplicativo .NET Core simples que exibe os usuários de um locatário consultando o Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. O exemplo também ilustra a variação usando certificados para autenticação. |
-|[Active-Directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Um aplicativo Web que sincroniza dados do Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. |
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console do .NET Core 2,1 | Um aplicativo .NET Core simples que exibe os usuários de um locatário consultando o Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. O exemplo também ilustra a variação usando certificados para autenticação. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Um aplicativo Web que sincroniza dados do Microsoft Graph usando a identidade do aplicativo, em vez de em nome de um usuário. |

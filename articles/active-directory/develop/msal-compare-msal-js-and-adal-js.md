@@ -3,27 +3,23 @@ title: Diferenças entre MSAL. js e ADAL. js
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL. js) e como escolher qual delas usar.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803168"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916915"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre MSAL JS e ADAL JS
 
@@ -49,11 +45,11 @@ No entanto, você ainda precisará usar o ADAL. js se seu aplicativo precisar co
 
 * O método para adquirir e renovar tokens silenciosamente sem avisar os usuários é denominado `acquireToken` no ADAL. js. No MSAL. js, esse método é denominado `acquireTokenSilent` para ser mais descritivo dessa funcionalidade.
 
-### <a name="authority-value-common"></a>Valor de autoridade `common`
+### <a name="authority-value-common"></a>`common` de valor de autoridade
 
-Em v 1.0, o uso da autoridade `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta do Azure AD (para qualquer organização).
+Na v 1.0, o uso da autoridade de `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta do Azure AD (para qualquer organização).
 
-Na v 2.0, usar a autoridade `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta da organização do Azure AD ou uma conta pessoal da Microsoft (MSA). Para restringir a entrada somente às contas do Azure AD (mesmo comportamento do ADAL. js), você precisa usar `https://login.microsoftonline.com/organizations`. Para obter detalhes, consulte a opção de configuração `authority` em [inicializar usando MSAL. js](msal-js-initializing-client-applications.md).
+Na v 2.0, usar a autoridade de `https://login.microsoftonline.com/common` permitirá que os usuários entrem com qualquer conta da organização do Azure AD ou uma MSA (conta pessoal da Microsoft). Para restringir a entrada somente às contas do Azure AD (mesmo comportamento do ADAL. js), você precisa usar `https://login.microsoftonline.com/organizations`. Para obter detalhes, consulte a opção de configuração `authority` em [inicializar usando MSAL. js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Escopos para adquirir tokens
 * Escopo em vez do parâmetro de recurso em solicitações de autenticação para adquirir tokens
@@ -64,9 +60,9 @@ Na v 2.0, usar a autoridade `https://login.microsoftonline.com/common` permitir�
 
     v 2.0: scope = https\://graph.microsoft.com/User.Read
 
-    Você pode solicitar escopos para qualquer API de recurso usando o URI da API neste formato: appidURI/Scope, por exemplo: https: \//mylocatário. onmicrosoft. com/myapi/API. Read
+    Você pode solicitar escopos para qualquer API de recurso usando o URI da API neste formato: appidURI/Scope, por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https: \//Graph. Microsoft. com/user. Read e pode ser usado de forma intercambiável.
+    Somente para o MS API do Graph, um valor de escopo `user.read` é mapeado para https:\//graph.microsoft.com/User.Read e pode ser usado de forma intercambiável.
 
     ```javascript
     var request = {
@@ -90,7 +86,7 @@ Na v 2.0, usar a autoridade `https://login.microsoftonline.com/common` permitir�
 
 * Escopos para APIs V 1.0
 
-    Ao obter tokens para APIs V 1.0 usando MSAL. js, você pode solicitar todos os escopos estáticos registrados na API acrescentando `.default` ao URI de ID de aplicativo da API como escopo. Por exemplo:
+    Ao obter tokens para APIs V 1.0 usando MSAL. js, você pode solicitar todos os escopos estáticos registrados na API acrescentando `.default` ao URI de ID do aplicativo da API como escopo. Por exemplo:
 
     ```javascript
     var request = {

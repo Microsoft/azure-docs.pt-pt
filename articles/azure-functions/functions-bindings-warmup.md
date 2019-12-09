@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 6884c8f1bf7a462b5d93f5c9ea23a2f64021fd9e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328498"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925190"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -22,7 +22,7 @@ Este artigo explica como trabalhar com o gatilho aquecimento no Azure Functions.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) , versão **3.0.5 ou superior** , é necessário. O código-fonte do pacote está no repositório GitHub [Azure-webjobs-SDK-Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) . 
 
@@ -80,7 +80,7 @@ O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* 
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -94,7 +94,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
 Aqui está C# o código de script que se associa a `HttpRequest`:
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* 
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -125,7 +125,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
 Eis o código JavaScript:
 
@@ -142,7 +142,7 @@ O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* 
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -156,7 +156,7 @@ Este é o arquivo *Function. JSON* :
 }
 ```
 
-A seção de [configuração](#trigger---configuration) explica essas propriedades.
+O [configuração](#trigger---configuration) seção explica essas propriedades.
 
 Este é o código Python:
 
@@ -175,7 +175,7 @@ O exemplo a seguir mostra um gatilho aquecimento em um arquivo *Function. JSON* 
 
 Sua função deve ser nomeada ```warmup``` (não diferencia maiúsculas de minúsculas) e pode haver apenas uma função aquecimento por aplicativo.
 
-Este é o arquivo *Function. JSON* :
+Aqui está o *Function* ficheiro:
 
 ```json
 {
@@ -241,13 +241,13 @@ O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o atributo `WarmupTrigger`.
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `WarmupTrigger` atributo.
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo** | n/d| Obrigatório-deve ser definido como `warmupTrigger`. |
 | **direção** | n/d| Obrigatório-deve ser definido como `in`. |
-| **nomes** | n/d| Required – o nome da variável usada no código de função.|
+| **name** | n/d| Required – o nome da variável usada no código de função.|
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
@@ -260,6 +260,6 @@ Nenhuma informação adicional é fornecida a uma função disparada por aquecim
 * O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
 * Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+[Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

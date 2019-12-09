@@ -1,17 +1,18 @@
 ---
-title: Construtor de expressão de fluxo de dados de mapeamento de Azure Data Factory
+title: Construtor de expressões de fluxo de dados de mapeamento
 description: O construtor de expressões para mapear Azure Data Factory fluxos de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672256"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928344"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
@@ -50,6 +51,16 @@ Clique no botão atualizar para atualizar os resultados da expressão em um exem
 Adicione comentários às suas expressões usando a sintaxe de linha única e de comentário de várias linhas:
 
 ![Comentários](media/data-flow/comments.png "Comentários")
+
+## <a name="string-interpolation"></a>Interpolação de cadeia de caracteres
+
+Use aspas duplas para incluir texto de cadeia de caracteres literal junto com expressões. Você pode incluir funções, colunas e parâmetros de expressão. Isso é muito útil para evitar o uso extensivo da concatenação de cadeia de caracteres ao incluir parâmetros em cadeias de consulta.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>Expressões regulares
 

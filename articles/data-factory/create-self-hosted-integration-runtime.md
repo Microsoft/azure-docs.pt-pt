@@ -1,22 +1,22 @@
 ---
-title: Criar um tempo de execução de integração auto-hospedado no Azure Data Factory
+title: Criar um integration runtime autoalojado
 description: Saiba como criar um tempo de execução de integração auto-hospedado no Azure Data Factory, que permite que as fábricas de dados acessem armazenamentos de dados em uma rede privada.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 06/18/2019
+ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672301"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928513"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução de integração auto-hospedado
 
@@ -170,7 +170,7 @@ Aqui está um resumo de alto nível das etapas de fluxo de dados para copiar com
     - [Pacotes C++ redistribuíveis do Visual 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pacote (x64)
     - Java Runtime (JRE) versão 8 de um provedor de JRE, como [adotar o OpenJDK](https://adoptopenjdk.net/). Verifique se a variável de ambiente `JAVA_HOME` está definida.
 
-## <a name="installation-best-practices"></a>Práticas recomendadas de instalação
+## <a name="installation-best-practices"></a>Melhores práticas de instalação
 
 Você pode instalar o tempo de execução de integração auto-hospedado baixando um pacote de instalação MSI do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte o artigo [mover dados entre o local e a nuvem](tutorial-hybrid-copy-powershell.md) para obter instruções passo a passo.
 
@@ -355,7 +355,7 @@ O serviço de host do Integration Runtime é reiniciado automaticamente depois q
 Depois de registrar o tempo de execução de integração auto-hospedado, se você quiser exibir ou atualizar as configurações de proxy, use Microsoft Integration Runtime Configuration Manager.
 
 1. Abra **Microsoft Integration Runtime Configuration Manager**.
-1. Selecione a guia **configurações** .
+1. Selecione o separador **Settings** (Definições).
 1. Em **proxy http**, selecione o link **alterar** para abrir a caixa de diálogo **Definir proxy http** .
 1. Selecione **Seguinte**. Em seguida, você verá um aviso que solicita sua permissão para salvar a configuração de proxy e reiniciar o serviço de host do Integration Runtime.
 

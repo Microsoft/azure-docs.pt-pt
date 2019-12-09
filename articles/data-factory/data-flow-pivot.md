@@ -1,17 +1,18 @@
 ---
-title: Transformação dinâmica do fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeando a transformação dinâmica do fluxo de dados
 description: Dados dinâmicos de linhas para colunas usando Azure Data Factory mapeamento dinâmico do fluxo de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8f23b5e61e1aee83172a12466fac8d5b5003fea8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387798"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930293"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformação dinâmica do Azure data factory
 

@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados de um servidor FTP usando Azure D
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5a6485e93e8f617883a7dfef511709ec857b411
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682604"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927164"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -45,7 +44,7 @@ Você pode criar um pipeline com uma atividade de cópia que move dados de uma o
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de data Factory Copy**. Consulte [tutorial: criar um pipeline usando o assistente de cópia](data-factory-copy-data-wizard-tutorial.md) para obter uma explicação rápida.
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **API .net**e **API REST**. Confira o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
+Você também pode usar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **PowerShell**, **Azure Resource Manager template**, **API .net**e **API REST**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se você usar as ferramentas ou APIs, execute as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -60,13 +59,13 @@ Quando você usa o assistente, as definições de JSON para essas entidades de D
 
 As seções a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir Data Factory entidades específicas ao FTP.
 
-## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 A tabela a seguir descreve os elementos JSON específicos para um serviço vinculado de FTP.
 
-| Propriedade | Descrição | Necessário | Predefinição |
+| Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
 | tipo |Defina isso como FtpServer. |Sim |&nbsp; |
-| hospedeira |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
+| anfitrião |Especifique o nome ou endereço IP do servidor FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básico, anônimo |
 | o nome de utilizador |Especifique o usuário que tem acesso ao servidor FTP. |Não |&nbsp; |
 | palavra-passe |Especifique a senha para o usuário (username). |Não |&nbsp; |
@@ -148,19 +147,19 @@ A tabela a seguir descreve os elementos JSON específicos para um serviço vincu
 }
 ```
 
-## <a name="dataset-properties"></a>Propriedades de DataSet
+## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte [criando conjuntos](data-factory-create-datasets.md)de os. As seções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de texto. Ele fornece informações específicas para o tipo de conjunto de dados. A seção **typeproperties** para um conjunto de um DataSet do tipo **FileShare** tem as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Subcaminho da pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Consulte amostra de serviço vinculado e definições de conjunto de exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base nas horas de início e de término da fatia. |Sim |
 | fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt) |Não |
 | fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no **FolderPath**, em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **FileFilter** é aplicável a um conjunto de dados de FileShare de entrada. Essa propriedade não tem suporte com o Sistema de Arquivos Distribuído do Hadoop (HDFS). |Não |
 | partitionedBy |Usado para especificar um **FolderPath** e um **nome de arquivo** dinâmico para dados de série temporal. Por exemplo, você pode especificar um **FolderPath** que é parametrizado para cada hora dos dados. |Não |
-| ao | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Defina a propriedade **Type** em Format para um desses valores. Para obter mais informações, consulte as seções [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), formato [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Se você quiser copiar arquivos como estão entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| çã | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são **gzip**, **deflate**, **bzip2**e **ZipDeflate**, e os níveis com suporte são **ideais** e **mais rápidos**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte as seções [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), formato [Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Se você quiser copiar arquivos como estão entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas definições de conjunto de dados de entrada e saída. |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são **gzip**, **deflate**, **bzip2**e **ZipDeflate**, e os níveis com suporte são **ideais** e **mais rápidos**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useBinaryTransfer |Especifique se deseja usar o modo de transferência binária. Os valores são verdadeiros para o modo binário (esse é o valor padrão) e false para ASCII. Essa propriedade só pode ser usada quando o tipo de serviço vinculado associado for do tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -204,9 +203,9 @@ As propriedades disponíveis na seção **typeproperties** da atividade, por out
 
 Na atividade de cópia, quando a origem é do tipo **FileSystemName**, a seguinte propriedade está disponível na seção **typeproperties** :
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou apenas da pasta especificada. |True, false (padrão) |Não |
+| recursive |Indica se os dados são lidos recursivamente a partir das subpastas ou apenas da pasta especificada. |True, false (padrão) |Não |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo de JSON: copiar dados do servidor FTP para o blob do Azure
 Este exemplo mostra como copiar dados de um servidor FTP para o armazenamento de BLOBs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos coletores declarados nos [armazenamentos de dados e formatos com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats), usando a atividade de cópia no data Factory.

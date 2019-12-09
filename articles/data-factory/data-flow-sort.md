@@ -1,18 +1,19 @@
 ---
-title: Transformação de classificação de fluxo de dados de mapeamento de Azure Data Factory
+title: Mapeamento de transformação classificação de fluxo de dados
 description: Transformação de classificação de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/08/2018
-ms.openlocfilehash: 029ce3c509d3f4d241012d3786e60f0c6e95fdc2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387183"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930214"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory transformações de classificação de fluxo de dados
 

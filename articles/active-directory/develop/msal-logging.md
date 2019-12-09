@@ -1,29 +1,25 @@
 ---
-title: Log nos aplicativos MSAL (biblioteca de autenticação da Microsoft)
+title: Registrando em log em aplicativos MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registro em log nos aplicativos da MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5960389389e4b75794a7334c0bff12ce3ac0f170
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452477"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916150"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -219,7 +215,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | :| |
+| `MSALLogLevelWarning` | Avisos |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreio da API |
 
@@ -296,7 +292,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | :| |
+| `MSALLogLevelWarning` | Avisos |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreio da API |
 
