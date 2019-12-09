@@ -4,19 +4,19 @@ description: Crie uma fábrica de dados do Azure e utilize a ferramenta Copiar D
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.author: yexu
-ms.openlocfilehash: 64f2c989d6ccb4b3ade96065836e1b1f2439e6f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684546"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922463"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: usar a ferramenta de Copiar Dados para copiar dados
 

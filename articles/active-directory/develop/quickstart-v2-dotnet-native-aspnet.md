@@ -2,27 +2,22 @@
 title: Chamar um ASP.NET Web API protegido pelo Azure AD-identidade da Microsoft
 description: Neste guia de início rápido, saiba como chamar uma API Web ASP.NET protegida por Azure Active Directory de um aplicativo de área de trabalho do Windows (WPF). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API da Web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6f1d9e402bff9d333957d51982dd917822d2c24d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920655"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Início rápido: chamar um ASP.NET Web API protegido pelo Azure AD
 
@@ -115,7 +110,7 @@ Nesta etapa, você configura o projeto *TodoListClient* registrando um novo apli
    - Clique no botão **Adicionar uma permissão** e, em seguida,
    - Selecione a guia **minhas APIs** .
    - Na lista de APIs, selecione o `AppModelv2-NativeClient-DotNet-TodoListService API`ou o nome que você inseriu para a API da Web.
-   - Verifique a permissão **access_as_user** se ela ainda não estiver marcada. Use a caixa de pesquisa, se necessário.
+   - Verifique a permissão de **access_as_user** se ela ainda não estiver marcada. Use a caixa de pesquisa, se necessário.
    - Selecione o botão **adicionar permissões**
 
 ### <a name="configure-your-todolistclient-project"></a>Configurar seu projeto do *TodoListClient*
@@ -128,7 +123,7 @@ Nesta etapa, você configura o projeto *TodoListClient* registrando um novo apli
 1. Pressione `<F5>` para executar o projeto. Seu *TodoListClient* deve ser aberto.
 1. Selecione **entrar** no canto superior direito e entre com o mesmo usuário que você usou para registrar seu aplicativo ou um usuário no mesmo diretório.
 1. Neste ponto, se você estiver entrando pela primeira vez, talvez seja solicitado a concordar com a API Web do *TodoListService* .
-1. A entrada também solicita o token de acesso para o escopo *access_as_user* para acessar a API Web *TodoListService* e manipular a lista de *tarefas pendentes* .
+1. A entrada também solicita o token de acesso para o escopo de *access_as_user* para acessar a API Web *TodoListService* e manipular a lista de *tarefas pendentes* .
 
 ## <a name="pre-authorize-your-client-application"></a>Pré-autorizar o aplicativo cliente
 
@@ -155,7 +150,7 @@ Para restringir quem pode entrar em seu aplicativo, use uma das opções:
 
 Você pode restringir o acesso de entrada para seu aplicativo somente a contas de usuário que estejam em um único locatário do Azure AD, incluindo *contas de convidado* desse locatário. Esse cenário é comum para *aplicativos de linha de negócios*:
 
-1. Abra o arquivo **App_Start\Startup.auth** e altere o valor do ponto de extremidade de metadados que é passado para o `OpenIdConnectSecurityTokenProvider` para `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (você também pode usar o nome do locatário, como `contoso.onmicrosoft.com`).
+1. Abra o arquivo **App_Start \startup.auth** e altere o valor do ponto de extremidade de metadados que é passado para o `OpenIdConnectSecurityTokenProvider` para `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (você também pode usar o nome do locatário, como `contoso.onmicrosoft.com`).
 2. No mesmo arquivo, defina a propriedade `ValidIssuer` no `TokenValidationParameters` como `"https://sts.windows.net/{Tenant ID}/"` e o argumento `ValidateIssuer` como `true`.
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Opção 2: usar um método personalizado para validar os emissores

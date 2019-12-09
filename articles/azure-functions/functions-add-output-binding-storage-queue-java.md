@@ -3,12 +3,12 @@ title: Conectar sua função Java ao armazenamento do Azure
 description: Saiba como conectar uma função Java disparada por HTTP ao armazenamento do Azure usando uma associação de saída de armazenamento de fila.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231214"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926904"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conectar sua função Java ao armazenamento do Azure
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Como você habilitou pacotes de extensão no host. JSON, a [extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com as outras extensões de associação da Microsoft.
+> Como você habilitou pacotes de extensão no host. JSON, a [extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) foi baixada e instalada para você durante a inicialização, juntamente com as outras extensões de associação da Microsoft.
 
 Como antes, dispare a função na linha de comando usando a rotação em uma nova janela de terminal:
 
@@ -152,7 +152,7 @@ Você pode [examinar a mensagem da fila de armazenamento](#query-the-storage-que
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você atualizou sua função disparada por HTTP para gravar dados em uma fila de armazenamento. Para saber mais sobre como desenvolver Azure Functions com Java, confira o [Guia do desenvolvedor do java Azure Functions](functions-reference-java.md) e os [gatilhos e as associações do Azure Functions](functions-triggers-bindings.md). Para obter exemplos de projetos de função completos em Java, consulte os [exemplos de funções Java](/samples/browse/?products=azure-functions&languages=Java). 
 

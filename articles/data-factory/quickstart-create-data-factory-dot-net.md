@@ -4,7 +4,7 @@ description: Crie uma fábrica de dados do Azure para copiar dados de uma locali
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 3282106651f9ec101251d7d35369040df9572b06
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122855"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928793"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início rápido: criar um data factory e um pipeline usando o SDK do .NET
 
@@ -61,7 +61,7 @@ Em seguida, crie C# um aplicativo de console .net no Visual Studio:
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 2. No painel de **console do Gerenciador de pacotes** , execute os seguintes comandos para instalar pacotes. Para obter mais informações, consulte o [pacote NuGet Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
@@ -151,7 +151,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-Adicione o código seguinte ao método **Main**, que cria um **serviço ligado do Armazenamento do Microsoft Azure**.
+Adicione o código seguinte ao método **Main** que cria um **serviço ligado do Armazenamento do Azure**.
 
 Os serviços ligados são criados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste guia de início rápido, você só precisa criar um serviço vinculado do armazenamento do Azure para a fonte de cópia e o repositório de coletor; Ele é denominado "AzureStorageLinkedService" no exemplo.
 

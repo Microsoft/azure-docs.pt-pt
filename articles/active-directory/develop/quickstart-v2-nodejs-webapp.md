@@ -2,27 +2,22 @@
 title: Guia de início rápido do aplicativo Web OIDC node. js da plataforma Microsoft Identity | Azure
 description: Saiba como implementar a autenticação em um aplicativo Web node. js usando o OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac3344fe16d24ae116a5fde289421998f11f18
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a73193a4e43ad4c91e23534898d003a310dff5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178047"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920604"
 ---
 # <a name="quickstart-add-sign-in-using-oidc-to-a-nodejs-web-app"></a>Início rápido: Adicionar entrada usando OIDC a um aplicativo Web node. js
 
@@ -106,7 +101,7 @@ O repositório de sessão padrão neste exemplo é `express-session`. O reposit�
 
 * Atualize `exports.databaseUri`, se você quiser usar o repositório de sessão do mongoDB e um URI de banco de dados diferente.
 
-* Atualizar `exports.mongoDBSessionMaxAge`. Aqui você pode especificar por quanto tempo deseja manter uma sessão no mongoDB. A unidade é a segunda (s).
+* Atualização `exports.mongoDBSessionMaxAge`. Aqui você pode especificar por quanto tempo deseja manter uma sessão no mongoDB. A unidade é a segunda (s).
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 
@@ -126,7 +121,7 @@ $ npm install -g bunyan
 $ node app.js | bunyan
 ```
 
-### <a name="youre-done"></a>Você terminou!
+### <a name="youre-done"></a>Terminou!
 
 Você terá um servidor em execução com êxito no `http://localhost:3000`.
 
