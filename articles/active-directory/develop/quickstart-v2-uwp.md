@@ -2,27 +2,22 @@
 title: Guia de início rápido do Windows UWP da plataforma de identidade da Microsoft | Azure
 description: Saiba como um aplicativo Plataforma Universal do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad7afc2a4936737cf1cb3fd08bc69289b9cfc90a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379793"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920434"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
@@ -87,7 +82,7 @@ Este guia de início rápido contém um exemplo de código que demonstra como um
 > > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
-> Em que:
+> Onde:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 >
 > > [!TIP]
@@ -129,11 +124,11 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Em que: ||
+> |Onde: ||
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
-### <a name="requesting-tokens"></a>Solicitar tokens
+### <a name="requesting-tokens"></a>Pedir tokens
 
 O MSAL tem dois métodos para adquirir tokens em um aplicativo UWP: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
@@ -151,7 +146,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Em que:||
+> |Onde:||
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser pedidos (como o `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para as API Web personalizadas). |
 
@@ -166,7 +161,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: ||
+> |Onde: ||
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser pedidos (como o `{ "user.read" }` para o Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` para as API Web personalizadas) |
 > | `firstAccount` | Especifica a primeira conta de usuário no cache (o MSAL dá suporte a vários usuários em um único aplicativo) |
