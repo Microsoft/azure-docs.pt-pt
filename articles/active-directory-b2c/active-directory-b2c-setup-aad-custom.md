@@ -1,5 +1,6 @@
 ---
-title: Configurar a entrada com uma conta de Azure Active Directory no Azure Active Directory B2C usando políticas personalizadas
+title: Configurar a entrada com uma conta do Azure AD usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta de Azure Active Directory no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a221d55d942e6140c12f2ebfb64428b8ec7be74b
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2babd21ab477fae8c0d139932e08b8d99b9170ae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643578"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947789"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta de Azure Active Directory usando políticas personalizadas no Azure Active Directory B2C
 
@@ -31,7 +32,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Azure Active
 
 Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário organizacional do Azure AD (por exemplo, contoso.com). Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.
