@@ -141,4 +141,4 @@
     - name: Preparar Recomendador SVD
       href: train-svd-recommender.md
 - name: Erros e resolução de problemas do módulo
-  href: machine-learning-module-error-codes.md
+  href: designer-error-codes.md
