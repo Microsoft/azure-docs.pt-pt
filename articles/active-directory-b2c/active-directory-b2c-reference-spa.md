@@ -1,6 +1,7 @@
 ---
-title: Logon de página única usando o fluxo implícito-Azure Active Directory B2C
-description: Saiba como adicionar entrada de página única usando o fluxo implícito do OAuth 2,0 com Azure Active Directory B2C.
+title: Logon de página única usando o fluxo implícito
+titleSuffix: Azure AD B2C
+description: Saiba como adicionar entrada de página única usando o fluxo implícito do OAuth 2,0 com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c8ac3b2ada99634f8f35c211f2dd7695f9174ce9
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9a7d6a0a4e341158b37de73a74390d87a135d65f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667981"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947986"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Entrada de página única usando o fluxo implícito do OAuth 2,0 no Azure Active Directory B2C
 
@@ -37,7 +38,7 @@ O fluxo de entrada implícito é semelhante à figura a seguir. Cada etapa é de
 
 Quando seu aplicativo Web precisa autenticar o usuário e executar um fluxo de usuário, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. O usuário executa a ação dependendo do fluxo do usuário.
 
-Nessa solicitação, o cliente indica as permissões que ele precisa adquirir do usuário no parâmetro `scope` e o fluxo do usuário a ser executado. Para ter uma ideia de como a solicitação funciona, tente colar a solicitação em um navegador e executá-la. Substitua `{tenant}` pelo nome do seu locatário Azure AD B2C. Substitua `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` pela ID do aplicativo que você registrou anteriormente em seu locatário. Substitua `{policy}` pelo nome de uma política que você criou em seu locatário, por exemplo `b2c_1_sign_in`.
+Nessa solicitação, o cliente indica as permissões que ele precisa adquirir do usuário no parâmetro `scope` e o fluxo do usuário a ser executado. Para ter uma ideia de como a solicitação funciona, tente colar a solicitação em um navegador e executá-la. Substitua `{tenant}` com o nome do seu inquilino do Azure AD B2C. Substitua `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` pela ID do aplicativo que você registrou anteriormente em seu locatário. Substitua `{policy}` pelo nome de uma política que você criou em seu locatário, por exemplo `b2c_1_sign_in`.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -60,7 +61,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode | Não | Especifica o método a ser usado para enviar o token resultante de volta para seu aplicativo.  Para fluxos implícitos, use `fragment`. |
 | scope | Sim | Uma lista de escopos separados por espaços. Um único valor de escopo indica ao Azure AD as permissões que estão sendo solicitadas. O escopo de `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O escopo de `offline_access` é opcional para aplicativos Web. Ele indica que seu aplicativo precisa de um token de atualização para acesso de longa duração aos recursos. |
 | state | Não | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo que você queira usar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para evitar ataques de solicitação entre sites forjado. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página em que eles estavam. |
-| momentos | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
+| nonce | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | aviso | Não | O tipo de interação do usuário que é necessário. Atualmente, o único valor válido é `login`. Esse parâmetro força o usuário a inserir suas credenciais nessa solicitação. O logon único não entra em vigor. |
 
 Neste ponto, o usuário será solicitado a concluir o fluxo de trabalho da política. O usuário pode precisar inserir seu nome de usuário e senha, entrar com uma identidade social, inscrever-se no diretório ou qualquer outro número de etapas. As ações do usuário dependem de como o fluxo do usuário é definido.
@@ -173,7 +174,7 @@ regras| Obrigatório| O fluxo do usuário a ser executado. Especifique o nome de
 | scope |Obrigatório |Uma lista de escopos separados por espaços.  Para obter tokens, inclua todos os escopos necessários para o recurso pretendido. |
 | response_mode |Recomendado |Especifica o método usado para enviar o token resultante de volta para seu aplicativo. Para o fluxo implícito, use `fragment`. Dois outros modos podem ser especificados, `query` e `form_post`, mas não funcionam no fluxo implícito. |
 | state |Recomendado |Um valor incluído na solicitação que é retornado na resposta do token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que você queira usar.  Normalmente, um valor exclusivo gerado aleatoriamente é usado, para evitar ataques de solicitação entre sites forjado.  O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação tenha ocorrido. Por exemplo, a página ou a exibição em que o usuário estava. |
-| momentos |Obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que está incluído no token de ID resultante como uma declaração.  O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que identifica a origem da solicitação. |
+| nonce |Obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que está incluído no token de ID resultante como uma declaração.  O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que identifica a origem da solicitação. |
 | aviso |Obrigatório |Para atualizar e obter tokens em um iframe oculto, use `prompt=none` para garantir que o iframe não fique preso na página de entrada e retorne imediatamente. |
 | login_hint |Obrigatório |Para atualizar e obter tokens em um iframe oculto, inclua o nome de usuário dessa dica para distinguir entre várias sessões que o usuário pode ter em um determinado momento. Você pode extrair o nome de usuário de uma entrada anterior usando a declaração de `preferred_username` (o escopo de `profile` é necessário para receber a declaração de `preferred_username`). |
 | domain_hint |Obrigatório |Pode ser `consumers` ou `organizations`.  Para atualizar e obter tokens em um iframe oculto, inclua o valor `domain_hint` na solicitação.  Extraia a declaração de `tid` do token de ID de uma entrada anterior para determinar qual valor usar (o escopo de `profile` é necessário para receber a declaração de `tid`). Se o valor de declaração de `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |

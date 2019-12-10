@@ -1,6 +1,7 @@
 ---
-title: Configurar a inscrição e a entrada com o OpenID Connect-Azure Active Directory B2C | Microsoft Docs
-description: Configure a inscrição e a entrada com o OpenID Connect usando Azure Active Directory B2C.
+title: Configurar a inscrição e a entrada com o OpenID Connect
+titleSuffix: Azure AD B2C
+description: Configure a inscrição e a entrada com qualquer IdP (provedor de identidade do OpenID Connect) no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 471163fc8fe8c5bad550d0615683ef2b97b818dc
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672907"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950476"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com o OpenID Connect usando o Azure Active Directory B2C
 
@@ -39,25 +40,25 @@ Para permitir que os usuários entrem, o provedor de identidade exige que os des
 > [!NOTE]
 > O segredo do cliente é opcional. No entanto, você deve inserir um segredo do cliente se desejar usar o [fluxo do código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que usa o segredo para trocar o código do token.
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Âmbito
 
-Escopo define as informações e as permissões que você pretende coletar do seu provedor de identidade personalizado. As solicitações do OpenID Connect devem conter o valor de escopo `openid` para receber o token de ID do provedor de identidade. Sem o token de ID, os usuários não conseguem entrar no Azure AD B2C usando o provedor de identidade personalizado. Outros escopos podem ser anexados separados por espaço. Consulte a documentação do provedor de identidade personalizado para ver quais outros escopos podem estar disponíveis.
+Escopo define as informações e as permissões que você pretende coletar do seu provedor de identidade personalizado. As solicitações do OpenID Connect devem conter o `openid` valor de escopo para receber o token de ID do provedor de identidade. Sem o token de ID, os usuários não conseguem entrar no Azure AD B2C usando o provedor de identidade personalizado. Outros escopos podem ser anexados separados por espaço. Consulte a documentação do provedor de identidade personalizado para ver quais outros escopos podem estar disponíveis.
 
 ## <a name="response-type"></a>Tipo de resposta
 
-O tipo de resposta descreve que tipo de informação é enviada de volta na chamada inicial para o `authorization_endpoint` do provedor de identidade personalizado. Os seguintes tipos de resposta podem ser usados:
+O tipo de resposta descreve que tipo de informação é retornada na chamada inicial para o `authorization_endpoint` do provedor de identidade personalizado. Os seguintes tipos de resposta podem ser usados:
 
-* `code`: De acordo com o [fluxo do código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), um código será retornado para Azure ad B2C. Azure AD B2C prossegue para chamar o `token_endpoint` para trocar o código do token.
-* `id_token`: Um token de ID é retornado de volta para Azure AD B2C do provedor de identidade personalizado.
+* `code`: de acordo com o [fluxo do código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), um código será retornado para Azure ad B2C. Azure AD B2C prossegue para chamar o `token_endpoint` para trocar o código do token.
+* `id_token`: um token de ID é retornado de volta para Azure AD B2C do provedor de identidade personalizado.
 
 ## <a name="response-mode"></a>Modo de resposta
 
 O modo de resposta define o método que deve ser usado para enviar os dados de volta do provedor de identidade personalizado para Azure AD B2C. Os seguintes modos de resposta podem ser usados:
 
-* `form_post`: Esse modo de resposta é recomendado para obter a melhor segurança. A resposta é transmitida por meio do método HTTP `POST`, com o código ou token que está sendo codificado no corpo usando o formato `application/x-www-form-urlencoded`.
-* `query`: O código ou token é retornado como um parâmetro de consulta.
+* `form_post`: esse modo de resposta é recomendado para obter a melhor segurança. A resposta é transmitida por meio do método HTTP `POST`, com o código ou token que está sendo codificado no corpo usando o formato `application/x-www-form-urlencoded`.
+* `query`: o código ou token é retornado como um parâmetro de consulta.
 
-## <a name="domain-hint"></a>Sugestão de domínio
+## <a name="domain-hint"></a>Dica de domínio
 
 A dica de domínio pode ser usada para pular diretamente para a página de entrada do provedor de identidade especificado, em vez de fazer com que o usuário faça uma seleção entre a lista de provedores de identidade disponíveis. Para permitir esse tipo de comportamento, insira um valor para a dica de domínio. Para saltar para o provedor de identidade personalizado, acrescente o parâmetro `domain_hint=<domain hint value>` ao final da solicitação ao chamar Azure AD B2C para entrar.
 
@@ -66,7 +67,7 @@ A dica de domínio pode ser usada para pular diretamente para a página de entra
 Depois que o provedor de identidade personalizado envia um token de ID de volta para Azure AD B2C, Azure AD B2C precisa ser capaz de mapear as declarações do token recebido para as declarações que Azure AD B2C reconhece e usa. Para cada um dos seguintes mapeamentos, consulte a documentação do provedor de identidade personalizado para entender as declarações retornadas de volta nos tokens do provedor de identidade:
 
 * **ID de usuário**: Insira a declaração que fornece o *identificador exclusivo* para o usuário conectado.
-* **Nome para exibição**: Insira a declaração que fornece o *nome de exibição* ou o *nome completo* do usuário.
+* **Nome de exibição**: Insira a declaração que fornece o *nome de exibição* ou o *nome completo* do usuário.
 * **Nome fornecido**: Insira a declaração que fornece o *nome* do usuário.
 * **Sobrenome**: Insira a declaração que fornece o *último nome* do usuário.
 * **Email**: Insira a declaração que fornece o *endereço de email* do usuário.

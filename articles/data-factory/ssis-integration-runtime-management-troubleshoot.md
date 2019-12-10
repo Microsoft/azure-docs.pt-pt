@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931945"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941865"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
 
@@ -156,3 +156,38 @@ Quando parar o SSIS IR, todos os recursos relacionados com a Rede Virtual serã
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 Este erro ocorre quando o IR está em execução e significa que o IR passou a estar em mau estado de funcionamento. Este erro é sempre causado por uma alteração no servidor DNS ou na configuração NSG que impede que o SSIS IR se ligue a um serviço necessário. Como a configuração do servidor DNS e do NSG é controlada pelo cliente, o cliente deve corrigir os problemas de bloqueio no seu lado. Para obter mais informações, veja [Configuração da Rede Virtual do SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Se os problemas persistirem, contacte a equipa de suporte do Azure Data Factory.
+
+## <a name="static-public-ip-addresses-configuration"></a>Configuração de endereços IP públicos estáticos
+
+Ao unir o Azure-SSIS IR à rede virtual do Azure, você também poderá trazer seus próprios endereços IP públicos estáticos para o IR para que o IR possa acessar fontes de dados que limitam o acesso a endereços IP específicos. Para obter mais informações, veja [Associar um Azure-SSIS Integration Runtime a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Além dos problemas de rede virtual acima, você também pode atender a um problema relacionado a endereços IP públicos estáticos. Verifique os erros a seguir para obter ajuda.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+Esse erro pode ocorrer por vários motivos quando você inicia o Azure-SSIS IR:
+
+| Mensagem de erro | Solução|
+|:--- |:--- |
+| O endereço IP público estático fornecido já está sendo usado, forneça dois não utilizados para seu Azure-SSIS Integration Runtime. | Você deve selecionar dois endereços IP públicos estáticos não utilizados ou remover as referências atuais para o endereço IP público especificado e, em seguida, reiniciar o Azure-SSIS IR. |
+| O endereço IP público estático fornecido não tem nenhum nome DNS, forneça dois deles com o nome DNS para seu Azure-SSIS Integration Runtime. | Você pode configurar o nome DNS do endereço IP público em portal do Azure, como mostra a imagem abaixo. As etapas específicas são as seguintes: (1) abrir portal do Azure e ir para a página de recursos desse endereço IP público; (2) Selecione a seção **configuração** e configure o nome DNS e clique no botão **salvar** ; (3) reinicie o Azure-SSIS IR. |
+| A VNet fornecida e os endereços IP públicos estáticos para seu Azure-SSIS Integration Runtime devem estar no mesmo local. | De acordo com os requisitos da rede do Azure, o endereço IP público estático e a rede virtual devem estar no mesmo local e assinatura. Forneça dois endereços IP públicos estáticos válidos e reinicie o Azure-SSIS IR. |
+| O endereço IP público estático fornecido é um básico, forneça dois padrões para seu Azure-SSIS Integration Runtime. | Consulte [SKUs do endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para obter ajuda. |
+
+![Runtime de integração Azure-SSIS](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+Se Azure-SSIS IR o provisionamento falhar, todos os recursos que foram criados serão excluídos. No entanto, se houver um bloqueio de exclusão de recurso na assinatura ou no grupo de recursos (que contém o endereço IP público estático), os recursos de rede não serão excluídos conforme o esperado. Para corrigir o erro, remova o bloqueio de exclusão e reinicie o IR.
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+Quando você parar Azure-SSIS IR, todos os recursos de rede criados no grupo de recursos que contém seu endereço IP público serão excluídos. Mas a exclusão poderá falhar se houver um bloqueio de exclusão de recurso na assinatura ou no grupo de recursos (que contém o endereço IP público estático). Remova o bloqueio de exclusão e reinicie o IR.
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR é automaticamente atualizado regularmente. Novos nós IR são criados durante a atualização e os nós antigos serão excluídos. Além disso, os recursos de rede criados (por exemplo, o balanceador de carga e o grupo de segurança de rede) para os nós antigos são excluídos e os novos recursos de rede são criados em sua assinatura. Esse erro significa que a exclusão de recursos de rede para os nós antigos falhou devido a um bloqueio de exclusão na assinatura ou no grupo de recursos (que contém o endereço IP público estático). Remova o bloqueio de exclusão para que possamos limpar os nós antigos e liberar o endereço IP público estático para os nós antigos. Caso contrário, o endereço IP público estático não poderá ser liberado e não será possível atualizar ainda mais seu IR.
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+Quando você quiser colocar seus próprios endereços IP públicos estáticos, dois endereços IP públicos devem ser fornecidos. Um deles será usado para criar os nós de IR imediatamente e outro será usado durante a atualização do IR. Esse erro pode ocorrer quando o outro endereço IP público é inutilizável durante a atualização. Consulte [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para obter as possíveis causas.

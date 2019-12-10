@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121275"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951552"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks com os Hubs de Eventos
 
@@ -56,13 +56,13 @@ Pode satisfazer estes requisitos, efetuando os passos no artigo, [Criar um espa�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
+1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
@@ -101,7 +101,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
    * Introduza um nome para o cluster.
-   * Para este artigo, crie um cluster com o tempo de execução **6,0* .
+   * Para este artigo, crie um cluster com o tempo de execução **6,0** .
    * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
    Selecione o tamanho de nó de operador e de trabalho do cluster adequado para seus critérios técnicos e [orçamento](https://azure.microsoft.com/pricing/details/databricks/).
@@ -138,14 +138,10 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
    ![Caixa de diálogo Adicionar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Adicionar nova instalação de biblioteca")
 
-2. Na página nova biblioteca, para **origem** , selecione **Maven**. Para **coordenar**, clique em **Pesquisar pacotes** para o pacote que você deseja adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
+2. Na página nova biblioteca, para **origem** , selecione **Maven**. Insira individualmente as seguintes coordenadas para o conector de hubs de eventos do Spark e a API do Twitter em **coordenadas**.
 
-   * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Conector de Hubs de Eventos do Spark – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * API do Twitter – `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Fornecer coordenadas do Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Fornecer coordenadas do Maven")
-
-     ![Fornecer coordenadas do Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Pesquisar coordenadas do Maven")
 
 3. Selecione **Instalar**.
 

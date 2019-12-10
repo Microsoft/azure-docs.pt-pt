@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c29bba81132df15fcea9ff0df7be6a8cea94c9a0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27bf62cb328273db1f7bdd44117853b00feca9ae
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851133"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941581"
 ---
 # <a name="deploy-azure-farmbeats"></a>Implantar FarmBeats do Azure
 
@@ -33,7 +33,7 @@ Uma implantação rápida do Azure FarmBeats deve levar menos de uma hora. Os cu
 
 A implantação do Azure FarmBeats cria os seguintes recursos em sua assinatura:
 
-| S. n.º  | Nome do recurso  | Componente FarmBeats  |
+| Série. n.º  | Nome do recurso  | Componente FarmBeats  |
 |---------|---------|---------|
 |1  |       Azure Cosmos DB   |  Datahub       |
 |2  |    Estatísticas das Aplicações      |     Datahub/acelerador     |
@@ -49,7 +49,6 @@ A implantação do Azure FarmBeats cria os seguintes recursos em sua assinatura:
 |12|      Serviço de Aplicações do Azure      |  Datahub/acelerador       |
 |13 |    Plano do serviço de aplicações        |     Datahub/acelerador      |
 |14 |Conta do Azure Maps     |Accelerator    |
-|15 |       Azure Time Series Insights      |  Datahub     |
 
 O Azure FarmBeats está disponível para download no Azure Marketplace, que você pode acessar diretamente do portal do Azure.  
 
@@ -83,7 +82,7 @@ Antes de iniciar a implantação, verifique se os seguintes pré-requisitos est�
 
 Uma conta com o Sentinel ajuda você a baixar as imagens de satélite do Sentinela de seu site oficial para seu dispositivo. Para criar uma conta gratuita, faça o seguinte:
 
-1. Vá para a [página de registro da conta do Sentinel](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. Vá para a [página de registro da conta do Sentinel](https://scihub.copernicus.eu/dhus/#/self-registration).
 1. No formulário de registro, forneça seu nome, sobrenome, nome de usuário, senha e endereço de email.
 
 Um email de verificação será enviado para o endereço de email registrado para confirmação. Selecione o link para confirmar seu endereço de email. Seu processo de registro foi concluído.
@@ -211,7 +210,7 @@ Nesse cenário, que é descrito anteriormente na "opção 1," o instalador cria 
     > O token expira após 60 minutos. Se ele expirar, você poderá reiniciar redigitando o comando de implantação.
 
 1. No prompt, insira a senha da conta do Sentinel.
-   
+
    O instalador valida e inicia a implantação, o que pode levar cerca de 20 minutos.
 
    Depois que a implantação for concluída com êxito, você receberá os seguintes links de saída:
@@ -282,12 +281,8 @@ Se você encontrar problemas, examine [solucionar problemas](troubleshoot-projec
 Depois que a instalação do Datahub for concluída, você receberá a URL para acessar as APIs do FarmBeats do Azure por meio da interface do Swagger no formato https://\<yourdatahub-site-Name >. azurewebsites. net/Swagger.
 
 1. Para entrar por meio do Swagger, copie e cole a URL em seu navegador.
-1. Entre com suas credenciais do portal do Azure.
-1. Adicional Experimente este "teste de sanidade": 
-
-     - Entre com êxito no portal do Swagger usando o link Datahub, que você recebeu como uma saída para uma implantação bem-sucedida.
-     - Obter API de tipos estendidos – selecione "Experimente o/execute"
-     - Você deve receber o código de resposta do servidor 200 e não uma exceção, como "403 usuário não autorizado".
+2. Entre com suas credenciais do portal do Azure.
+3. Você pode ver o Swagger e executar todas as operações REST nas APIs do Azure FarmBeats. Isso indica uma implantação bem-sucedida do Azure FarmBeats.
 
 ### <a name="accelerator"></a>Accelerator
 

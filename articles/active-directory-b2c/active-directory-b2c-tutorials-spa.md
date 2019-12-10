@@ -1,6 +1,7 @@
 ---
-title: Tutorial – habilitar a autenticação em um aplicativo de página única-Azure Active Directory B2C
-description: Neste tutorial, saiba como usar Azure Active Directory B2C para fornecer logon de usuário para um aplicativo de página única (JavaScript).
+title: 'Tutorial: habilitar a autenticação em um aplicativo de página única'
+titleSuffix: Azure AD B2C
+description: Neste tutorial, saiba como usar o Azure Active Directory B2C para fornecer logon de usuário para um aplicativo de página única (SPA) baseado em JavaScript.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8ece6401484d8f32483d4673384fcce6d7afac4a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 2f18a7ddeb5256c660c6458fc8d2d29f83e04429
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420353"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950172"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo de página única usando Azure Active Directory B2C (Azure AD B2C)
 
@@ -52,7 +53,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Selecione **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
@@ -62,7 +63,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
 1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** , selecione a guia **aplicativos de propriedade** e, em seguida, selecione o aplicativo *webapp1* .

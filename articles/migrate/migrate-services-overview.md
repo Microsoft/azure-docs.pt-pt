@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5843e6a5669cd90cdc0572e7a104c4fdf70ac2b3
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 54aea9fac946713ee6c1709e952e3962bb7288e9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669138"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951773"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -34,7 +34,7 @@ As migrações para Azure ajudam a migrar sua empresa do local para o Azure. As 
 Atualmente, há duas versões do serviço migrações para Azure:
 
 - **Versão atual**: Use esta versão para criar projetos de migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: se você usou a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Não é mais possível criar projetos de migrações para Azure usando a versão anterior e recomendamos que você não execute novas descobertas. Para acessar projetos existentes, na portal do Azure > **todos os serviços**, procure **migrações para Azure**. No painel migrações para Azure, há uma notificação e um link para acessar projetos antigos de migrações para Azure.
+- **Versão anterior**: se você usou a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Não é mais possível criar projetos de migrações para Azure usando a versão anterior e recomendamos que você não execute novas descobertas. Para acessar projetos existentes, na portal do Azure, pesquise e selecione **migrações para Azure**. No painel **migrações para Azure** , há uma notificação e um link para acessar projetos antigos de migrações para Azure.
 
 
 
@@ -42,7 +42,7 @@ Atualmente, há duas versões do serviço migrações para Azure:
 
 Além das ferramentas nativas do Azure, as migrações para Azure integram-se com várias ofertas de ISV. 
 
-**FICHEIRO** | **Funcionalidade**
+**ISV** | **Funcionalidade**
 --- | ---
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrar servidores
 [Cloudamize](https://www.cloudamize.com/platform) | Avaliar servidores

@@ -1,5 +1,6 @@
 ---
-title: Tipos de aplicativos que podem ser usados no Azure Active Directory B2C
+title: Tipos de aplicativo com suporte pelo Azure AD B2C
+titleSuffix: Azure AD B2C
 description: Saiba mais sobre os tipos de aplicativos que você pode usar com Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5643f1df6cefa9ca6c60453939be533b2c00eaf4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 753943116edab443509b7d5747e749910e366806
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533087"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948799"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser usados no Active Directory B2C
 
@@ -112,7 +113,7 @@ Nesse fluxo, o aplicativo executa [políticas](active-directory-b2c-reference-po
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-### <a name="unsupported-application-types"></a>Tipos de aplicativos sem suporte
+### <a name="unsupported-application-types"></a>Tipos de aplicações não suportadas
 
 #### <a name="daemonsserver-side-applications"></a>Daemons/aplicativos do lado do servidor
 

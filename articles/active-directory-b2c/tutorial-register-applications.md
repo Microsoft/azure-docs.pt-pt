@@ -1,5 +1,6 @@
 ---
-title: Tutorial-registrar um aplicativo-Azure Active Directory B2C
+title: 'Tutorial: registrar um aplicativo'
+titleSuffix: Azure AD B2C
 description: Saiba como registrar um aplicativo Web no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642422"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950787"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: registrar um aplicativo no Azure Active Directory B2C
 
@@ -42,7 +43,7 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-1. Insira um nome para o aplicativo. Por exemplo, *webapp1*.
+1. Introduza um nome para a aplicação. Por exemplo, *webapp1*.
 1. Para **incluir aplicativo Web/API Web** e **permitir fluxo implícito**, selecione **Sim**.
 1. Para **URL de resposta**, insira um ponto de extremidade onde Azure ad B2C deve retornar quaisquer tokens que seu aplicativo solicitar. Por exemplo, você pode defini-lo para escutar localmente em `https://localhost:44316`. Se você ainda não souber o número da porta, poderá inserir um valor de espaço reservado e alterá-lo mais tarde.
 
@@ -57,7 +58,7 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
 1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.

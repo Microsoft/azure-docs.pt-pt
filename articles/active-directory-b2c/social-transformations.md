@@ -1,6 +1,7 @@
 ---
-title: Exemplos de transformação de declarações de conta social para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação de declarações de conta social para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
+title: Exemplos de transformação de declarações de conta social para políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Exemplos de transformação de declarações de conta social para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +11,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cd4839e2c8ad6605a29f3c8b824375185384f78c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9df00eea79b5dedc3211de02b17fe8f396d7b8a5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258155"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951076"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformações de declarações de contas sociais
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory B2C (Azure ad B2C), as identidades de conta social são `userIdentities` armazenadas em um atributo de um tipo de Declaração **alternativeSecurityIdCollection** . Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade, como Facebook.com) e o `issuerUserId`, que é um identificador de usuário exclusivo para o emissor.
+No Azure Active Directory B2C (Azure AD B2C), as identidades de conta social são armazenadas em um atributo `userIdentities` de um tipo de Declaração **alternativeSecurityIdCollection** . Cada item no **alternativeSecurityIdCollection** especifica o emissor (nome do provedor de identidade, como Facebook.com) e o `issuerUserId`, que é um identificador de usuário exclusivo para o emissor.
 
 ```JSON
 "userIdentities": [{
@@ -42,11 +43,11 @@ Cria uma representação JSON da propriedade alternativeSecurityId do usuário q
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | key | Cadeia de caracteres | O ClaimType que especifica o identificador de usuário exclusivo usado pelo provedor de identidade social. |
-| InputClaim | identityProvider | Cadeia de caracteres | O ClaimType que especifica o nome do provedor de identidade da conta social, como facebook.com. |
-| OutputClaim | alternativeSecurityId | Cadeia de caracteres | O ClaimType que é produzido após a chamada de ClaimsTransformation. Contém informações sobre a identidade de um usuário de conta social. O **emissor** é o valor da `identityProvider` declaração. O **issuerUserId** é o valor da `key` declaração no formato base64. |
+| inputClaim | key | string | O ClaimType que especifica o identificador de usuário exclusivo usado pelo provedor de identidade social. |
+| inputClaim | identityProvider | string | O ClaimType que especifica o nome do provedor de identidade da conta social, como facebook.com. |
+| OutputClaim | alternativeSecurityId | string | O ClaimType que é produzido após a chamada de ClaimsTransformation. Contém informações sobre a identidade de um usuário de conta social. O **emissor** é o valor da declaração de `identityProvider`. O **issuerUserId** é o valor da declaração de `key` no formato base64. |
 
-Use essa transformação de declarações para gerar `alternativeSecurityId` um ClaimType. Ele é usado por todos os perfis técnicos do provedor de identidade social `Facebook-OAUTH`, como. A transformação declarações a seguir recebe a ID da conta social do usuário e o nome do provedor de identidade. A saída desse perfil técnico é um formato de cadeia de caracteres JSON que pode ser usado nos serviços de diretório do Azure AD.
+Use essa transformação de declarações para gerar um `alternativeSecurityId` ClaimType. Ele é usado por todos os perfis técnicos do provedor de identidade social, como `Facebook-OAUTH`. A transformação declarações a seguir recebe a ID da conta social do usuário e o nome do provedor de identidade. A saída desse perfil técnico é um formato de cadeia de caracteres JSON que pode ser usado nos serviços de diretório do Azure AD.
 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -64,24 +65,24 @@ Use essa transformação de declarações para gerar `alternativeSecurityId` um 
 
 - Declarações de entrada:
     - **chave**: 12334
-    - **identityProvider**: Facebook.com
+    - **identityprovider**: Facebook.com
 - Declarações de saída:
-    - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
+    - **alternativeSecurityId**: {"emissor": "Facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 
 ## <a name="additemtoalternativesecurityidcollection"></a>AddItemToAlternativeSecurityIdCollection
 
-Adiciona um `AlternativeSecurityId` a uma `alternativeSecurityIdCollection` declaração.
+Adiciona um `AlternativeSecurityId` a uma declaração de `alternativeSecurityIdCollection`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | Cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
-| InputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são usados pela transformação de declarações, se disponíveis na política. Se fornecido, a transformação declarações adiciona o `item` no final da coleção. |
-| OutputClaim | coleção | alternativeSecurityIdCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. A nova coleção que contém os itens de entrada `collection` e. `item` |
+| inputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
+| inputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são usados pela transformação de declarações, se disponíveis na política. Se fornecido, a transformação declarações adiciona o `item` no final da coleção. |
+| OutputClaim | coleção | alternativeSecurityIdCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. A nova coleção que contém os itens de entrada `collection` e `item`. |
 
 O exemplo a seguir vincula uma nova identidade social a uma conta existente. Para vincular uma nova identidade social:
 1. Nos perfis técnicos **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId** , gere a Declaração **alternativeSecurityIds** do usuário.
 1. Peça ao usuário para entrar com um dos provedores de identidade que não estão associados a esse usuário.
-1. Usando a transformação de declarações **CreateAlternativeSecurityId** , crie um novo tipo de Declaração **alternativeSecurityId** com um nome de`AlternativeSecurityId2`
+1. Usando a transformação de declarações **CreateAlternativeSecurityId** , crie um novo tipo de Declaração **alternativeSecurityId** com um nome de `AlternativeSecurityId2`
 1. Chame a transformação declarações **AddItemToAlternativeSecurityIdCollection** para adicionar a Declaração **AlternativeSecurityId2** à Declaração **AlternativeSecurityIds** existente.
 1. Persistir a Declaração **alternativeSecurityIds** para a conta de usuário
 
@@ -100,10 +101,10 @@ O exemplo a seguir vincula uma nova identidade social a uma conta existente. Par
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **item**: { "issuer": "facebook.com", "issuerUserId": "MTIzNDU ="}
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **Item**: {"emissor": "Facebook.com", "issuerUserId": "MTIzNDU ="}
+    - **coleção**: [{"emissor": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]
 - Declarações de saída:
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **coleção**: [{"emissor": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
 
 ## <a name="getidentityprovidersfromalternativesecurityidcollectiontransformation"></a>GetIdentityProvidersFromAlternativeSecurityIdCollectionTransformation
 
@@ -111,7 +112,7 @@ Retorna a lista de emissores da Declaração **alternativeSecurityIdCollection**
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | O ClaimType a ser usado para obter a lista de provedores de identidade (emissor). |
+| inputClaim | alternativeSecurityIdCollection | alternativeSecurityIdCollection | O ClaimType a ser usado para obter a lista de provedores de identidade (emissor). |
 | OutputClaim | identityProvidersCollection | stringCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. Lista de provedores de identidade associados à declaração de entrada alternativeSecurityIdCollection |
 
 A transformação declarações a seguir lê a Declaração **alternativeSecurityIds** do usuário e extrai a lista de nomes de provedores de identidade associados a essa conta. Use **identityProvidersCollection** de saída para mostrar ao usuário a lista de provedores de identidade associados à conta. Ou, na página de seleção do provedor de identidade, filtre a lista de provedores de identidade com base na declaração de **identityProvidersCollection** de saída. Portanto, o usuário pode optar por vincular uma nova identidade social que ainda não está associada à conta.
@@ -128,7 +129,7 @@ A transformação declarações a seguir lê a Declaração **alternativeSecurit
 ```
 
 - Declarações de entrada:
-    - **alternativeSecurityIdCollection**: [ { "issuer": "google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **alternativeSecurityIdCollection**: [{"emissor": "Google.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
 - Declarações de saída:
     - **identityProvidersCollection**: [ "facebook.com", "google.com" ]
 
@@ -138,8 +139,8 @@ Remove um **AlternativeSecurityId** de uma declaração **alternativeSecurityIdC
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | identityProvider | Cadeia de caracteres | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
-| InputClaim | coleção | alternativeSecurityIdCollection | O ClaimTypes que são usados pela transformação de declarações. A transformação declarações remove a identidadeprovider da coleção. |
+| inputClaim | identityProvider | string | O ClaimType que contém o nome do provedor de identidade a ser removido da coleção. |
+| inputClaim | coleção | alternativeSecurityIdCollection | O ClaimTypes que são usados pela transformação de declarações. A transformação declarações remove a identidadeprovider da coleção. |
 | OutputClaim | coleção | alternativeSecurityIdCollection | O ClaimTypes que é produzido depois desse ClaimsTransformation foi invocado. A nova coleção, após o identityprovider ser removido da coleção. |
 
 O exemplo a seguir desvincula uma das identidades sociais com uma conta existente. Para desvincular uma identidade social:
@@ -165,6 +166,6 @@ O exemplo a seguir desvincula uma das identidades sociais com uma conta existent
 
 - Declarações de entrada:
     - **identityProvider**: facebook.com
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" }, { "issuer": "facebook.com", "issuerUserId": "MTIzNDU=" } ]
+    - **coleção**: [{"emissor": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}, {"emissor": "Facebook.com", "issuerUserId": "MTIzNDU ="}]
 - Declarações de saída:
-    - **collection**: [ { "issuer": "live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw" } ]
+    - **coleção**: [{"emissor": "Live.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}]

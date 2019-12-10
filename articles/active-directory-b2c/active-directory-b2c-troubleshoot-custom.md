@@ -1,5 +1,6 @@
 ---
-title: Solucionar problemas de políticas personalizadas com Application Insights-Azure Active Directory B2C
+title: Solucionar problemas de políticas personalizadas com Application Insights
+titleSuffix: Azure AD B2C
 description: Como configurar Application Insights para rastrear a execução de suas políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf26791ca6489c12e4f9538d56ae0f0f66cc8c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602027"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950090"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Coletar logs de Azure Active Directory B2C com Application Insights
 
@@ -30,7 +31,7 @@ Os logs de atividade detalhados descritos aqui devem ser habilitados **somente**
 
 Se você ainda não tiver uma, crie uma instância do Application Insights em sua assinatura.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém sua assinatura do Azure (não o diretório Azure ad B2C).
 1. Selecione **criar um recurso** no menu de navegação à esquerda.
 1. Procure e selecione **Application insights**e, em seguida, selecione **criar**.

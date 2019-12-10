@@ -1,5 +1,6 @@
 ---
-title: Tutorial-adicionar provedores de identidade aos seus aplicativos-Azure Active Directory B2C
+title: 'Tutorial: adicionar provedores de identidade a seus aplicativos'
+titleSuffix: Azure AD B2C
 description: Saiba como adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,14 +11,14 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063237"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950957"
 ---
-# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C
+# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C
 
 Em seus aplicativos, talvez você queira permitir que os usuários entrem com diferentes provedores de identidade. Um *provedor de identidade* cria, mantém e gerencia informações de identidade ao fornecer serviços de autenticação aos aplicativos. Você pode adicionar provedores de identidade que têm suporte do Azure Active Directory B2C (Azure AD B2C) para seus [fluxos de usuário](active-directory-b2c-reference-policies.md) usando o portal do Azure.
 
@@ -36,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [Crie um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se inscrevam e entrem no seu aplicativo.
 
-## <a name="create-applications"></a>Criar aplicativos
+## <a name="create-applications"></a>Criar aplicações
 
 Os aplicativos de provedor de identidade fornecem o identificador e a chave para habilitar a comunicação com seu locatário de Azure AD B2C. Nesta seção do tutorial, você cria um aplicativo do Azure AD e um aplicativo do Facebook do qual você obtém identificadores e chaves para adicionar os provedores de identidade ao seu locatário. Se estiver adicionando apenas um dos provedores de identidade, você só precisará criar o aplicativo para esse provedor.
 
@@ -50,7 +51,7 @@ Para habilitar a entrada para usuários do Azure AD, você precisa registrar um 
 1. Selecione **novo registro**.
 1. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 1. Aceite a seleção de **contas neste diretório organizacional somente** para este aplicativo.
-1. Para o **URI de redirecionamento**, aceite o valor de **Web** e insira a URL a seguir em todas as `your-B2C-tenant-name` letras minúsculas, substituindo pelo nome do seu locatário de Azure ad B2C.
+1. Para o **URI de redirecionamento**, aceite o valor de **Web** e insira a URL a seguir em todas as letras minúsculas, substituindo `your-B2C-tenant-name` pelo nome do seu locatário Azure ad B2C.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -68,7 +69,7 @@ Para habilitar a entrada para usuários do Azure AD, você precisa registrar um 
 
 ### <a name="create-a-facebook-application"></a>Criar um aplicativo do Facebook
 
-Para usar uma conta do Facebook como um provedor de identidade no Azure AD B2C, você precisa criar um aplicativo no Facebook. Se você ainda não tiver uma conta do Facebook, poderá obtê-la [https://www.facebook.com/](https://www.facebook.com/)em.
+Para usar uma conta do Facebook como um provedor de identidade no Azure AD B2C, você precisa criar um aplicativo no Facebook. Se você ainda não tiver uma conta do Facebook, poderá obtê-la em [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Entre no [Facebook para desenvolvedores](https://developers.facebook.com/) com suas credenciais de conta do Facebook.
 1. Se ainda não tiver feito isso, você precisará se registrar como um desenvolvedor do Facebook. Para fazer isso **, selecione introdução** no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
@@ -78,8 +79,8 @@ Para usar uma conta do Facebook como um provedor de identidade no Azure AD B2C, 
 1. Selecione **configurações** > **básico**.
 1. Escolha uma **categoria**, por exemplo `Business and Pages`. Esse valor é exigido pelo Facebook, mas não é usado pelo Azure AD B2C.
 1. Na parte inferior da página, selecione **Adicionar plataforma**e, em seguida, selecione **site**.
-1. Em **URL do site**, `https://your-tenant-name.b2clogin.com/` digite `your-tenant-name` substituindo pelo nome do seu locatário.
-1. Insira uma URL para a **URL da política de privacidade**, `http://www.contoso.com/`por exemplo. A URL da política de privacidade é uma página que você mantém para fornecer informações de privacidade para seu aplicativo.
+1. Em **URL do site**, insira `https://your-tenant-name.b2clogin.com/` substituindo `your-tenant-name` pelo nome do seu locatário.
+1. Insira uma URL para a **URL da política de privacidade**, por exemplo `http://www.contoso.com/`. A URL da política de privacidade é uma página que você mantém para fornecer informações de privacidade para seu aplicativo.
 1. Selecione **salvar alterações**.
 1. Na parte superior da página, registre o valor da **ID do aplicativo**.
 1. Ao lado de **segredo do aplicativo**, selecione **Mostrar** e Registre seu valor. Você usa a ID do aplicativo e o segredo do aplicativo para configurar o Facebook como um provedor de identidade em seu locatário. O **segredo do aplicativo** é uma credencial de segurança importante que você deve armazenar com segurança.
@@ -98,7 +99,7 @@ Depois de criar o aplicativo para o provedor de identidade que você deseja adic
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **novo provedor do OpenID Connect**.
 1. Insira um **nome**. Por exemplo, digite *contoso Azure ad*.
-1. Para a **URL de metadados**, insira a seguinte `your-AD-tenant-domain` URL substituindo pelo nome de domínio do seu locatário do Azure AD:
+1. Para **URL de metadados**, insira a URL a seguir substituindo `your-AD-tenant-domain` pelo nome de domínio do seu locatário do Azure AD:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -130,20 +131,20 @@ Depois de criar o aplicativo para o provedor de identidade que você deseja adic
 
 ## <a name="update-the-user-flow"></a>Atualizar o fluxo do usuário
 
-No tutorial que você concluiu como parte dos pré-requisitos, você criou um fluxo de usuário para inscrição e entrada chamado *B2C_1_signupsignin1*. Nesta seção, você adicionará os provedores de identidade ao fluxo de usuário do *B2C_1_signupsignin1* .
+No tutorial que você concluiu como parte dos pré-requisitos, você criou um fluxo de usuário para inscrição e entrada chamado *B2C_1_signupsignin1*. Nesta seção, você adiciona os provedores de identidade ao fluxo de usuário do *B2C_1_signupsignin1* .
 
-1. Selecione **fluxos de usuário (políticas)** e, em seguida, selecione o fluxo de usuário *B2C_1_signupsignin1* .
+1. Selecione **fluxos de usuário (políticas)** e, em seguida, selecione o fluxo de usuário do *B2C_1_signupsignin1* .
 2. Selecione **provedores de identidade**, selecione os provedores de identidade do **Azure AD do Facebook e do contoso** que você adicionou.
 3. Selecione **Guardar**.
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 1. Na página Visão geral do fluxo de usuário que você criou, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. A **URL de resposta** deve `https://jwt.ms`mostrar.
+1. Para **aplicativo**, selecione o aplicativo Web chamado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione **executar fluxo de usuário**e entre com um provedor de identidade que você adicionou anteriormente.
 1. Repita as etapas 1 a 3 para os outros provedores de identidade que você adicionou.
 
-Se a operação de entrada for bem-sucedida, você será redirecionado para `https://jwt.ms` o qual exibirá o token decodificado, semelhante a:
+Se a operação de entrada for bem-sucedida, você será redirecionado para `https://jwt.ms` que exibe o token decodificado, semelhante a:
 
 ```json
 {

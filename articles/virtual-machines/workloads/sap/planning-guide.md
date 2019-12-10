@@ -1,5 +1,5 @@
 ---
-title: Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver | Microsoft Docs
+title: 'SAP no Azure: guia de planejamento e implementação'
 description: Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 863070eb025d8ac58f6a0946d49732dc6b2842b8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224716"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951756"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -370,7 +370,7 @@ O ponto de entrada para a carga de trabalho do SAP na documentação do Azure é
 
 As seguintes notas SAP estão relacionadas ao tópico do SAP no Azure:
 
-| Número da nota | Cargo |
+| Número da nota | Título |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: produtos e dimensionamento com suporte |
 | [2015553] |SAP em Microsoft Azure: pré-requisitos de suporte |
@@ -551,7 +551,7 @@ Mais informações sobre o armazenamento do Azure podem ser encontradas aqui:
 * <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
-#### <a name="azure-standard-storage"></a>Armazenamento standard do Azure
+#### <a name="azure-standard-storage"></a>Armazenamento Standard do Azure
 O armazenamento standard do Azure era o tipo de armazenamento disponível quando o Azure IaaS foi lançado. Havia cotas de IOPS impostas por um único disco. A latência realizada não estava na mesma classe que os dispositivos SAN/NAS normalmente implantados para sistemas SAP de alto nível hospedados localmente. No entanto, o armazenamento standard do Azure provou suficiente para vários sistemas SAP de centenas, enquanto implantado no Azure.
 
 Os discos armazenados nas contas de armazenamento standard do Azure são cobrados com base nos dados reais armazenados, no volume de transações de armazenamento, transferências de dados de saída e opção de redundância escolhida. Muitos discos podem ser criados com o tamanho máximo de 1 TB, mas desde que eles permaneçam vazios, não há nenhum encargo. Se, em seguida, você preencher um VHD com 100 GB, será cobrado pelo armazenamento de 100 GB e não pelo tamanho nominal com o qual o VHD foi criado.
@@ -1631,10 +1631,10 @@ Na tabela abaixo, estão listadas portas de comunicação SAP típicas. Basicame
 
 | Serviço | Nome de porta | Exemplo `<nn`> = 01 | Intervalo padrão (mín.-máx.) | Comentário |
 | --- | --- | --- | --- | --- |
-| Despacha |sapdp`<nn>` consulte * |3201 |3200 - 3299 |Dispatcher SAP, usado pela SAP GUI para Windows e Java |
+| Dispatcher |sapdp`<nn>` consulte * |3201 |3200 - 3299 |Dispatcher SAP, usado pela SAP GUI para Windows e Java |
 | Servidor de mensagens |sapms`<sid`> consulte * * |3600 |sapms >`<anySID`grátis |Sid = SAP-System-ID |
-| Gateway |sapgw`<nn`> consulte * |3301 |informações |SAP gateway, usado para comunicação comunicação CPIC e RFC |
-| Roteador SAP |sapdp99 |3299 |informações |Somente nomes de serviço CI (instância central) podem ser reatribuídos em/etc/Services para um valor arbitrário após a instalação. |
+| Gateway |sapgw`<nn`> consulte * |3301 |gratuito |SAP gateway, usado para comunicação comunicação CPIC e RFC |
+| Roteador SAP |sapdp99 |3299 |gratuito |Somente nomes de serviço CI (instância central) podem ser reatribuídos em/etc/Services para um valor arbitrário após a instalação. |
 
 *) nn = número da instância do SAP
 
@@ -1780,7 +1780,7 @@ As instâncias SAP localizadas no Azure precisam acessar compartilhamentos de ar
 
 Para alimentar alguma parte das informações de infraestrutura do Azure de sistemas SAP críticos para as instâncias do agente de host do SAP, instaladas em VMs, uma extensão do Azure (VM) para SAP precisa ser instalada para as VMs implantadas. Como as demandas pela SAP eram específicas para aplicativos SAP, a Microsoft decidiu não implementar genericamente a funcionalidade necessária no Azure, mas deixar que os clientes implantem a extensão de VM necessária e as configurações em suas máquinas virtuais em execução no Azure. No entanto, a implantação e o gerenciamento do ciclo de vida da extensão de VM do Azure para SAP serão geralmente automatizados pelo Azure.
 
-#### <a name="solution-design"></a>Conceção da solução
+#### <a name="solution-design"></a>Design de solução
 
 A solução desenvolvida para habilitar o agente de host do SAP obter as informações necessárias é baseada na arquitetura do agente de VM do Azure e da estrutura de extensão. A ideia do agente de VM do Azure e da estrutura de extensão é permitir a instalação de aplicativos de software disponíveis na Galeria de extensões de VM do Azure em uma VM. A ideia principal por trás desse conceito é permitir (em casos como a extensão do Azure para SAP), a implantação de funcionalidade especial em uma VM e a configuração desses softwares no momento da implantação.
 

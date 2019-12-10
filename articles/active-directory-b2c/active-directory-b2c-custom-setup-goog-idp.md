@@ -1,5 +1,6 @@
 ---
-title: Configurar a entrada com uma conta do Google no Azure Active Directory B2C usando políticas personalizadas | Microsoft Docs
+title: Configurar a entrada com uma conta do Google usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do Google no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc7e7b334791194cd4f8ebbd2038e9c1877eb297
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 695e54f5fa92c177576aa56ef7c9d758f00d0129
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240224"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948493"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
@@ -28,7 +29,7 @@ Este artigo mostra como habilitar a entrada para usuários com uma conta do Goog
 - Conclua as etapas em [introdução às políticas personalizadas no Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Se você ainda não tiver uma conta do Google, crie uma em [criar sua conta do Google](https://accounts.google.com/SignUp).
 
-## <a name="register-the-application"></a>Registrar o aplicativo
+## <a name="register-the-application"></a>Registar a aplicação
 
 Para habilitar a entrada para usuários de uma conta do Google, você precisa criar um projeto de aplicativo do Google.
 
@@ -110,7 +111,7 @@ Você pode definir uma conta do Google como um provedor de declarações adicion
     </ClaimsProvider>
     ```
 
-4. Defina **client_id** como a ID do aplicativo do registro do aplicativo.
+4. Defina **client_id** para a ID do aplicativo do registro do aplicativo.
 5. Guarde o ficheiro.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
@@ -169,7 +170,7 @@ Atualize o arquivo RP (terceira parte confiável) que inicia o percurso do usuá
 
 1. Faça uma cópia do *SignUpOrSignIn. xml* em seu diretório de trabalho e renomeie-o. Por exemplo, renomeie-o como *SignUpSignInGoogle. xml*.
 2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInGoogle`.
-3. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_google`
+3. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_google`
 4. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignGoogle).
 5. Salve as alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.
 6. Verifique se Azure AD B2C aplicativo que você criou está selecionado no campo **Selecionar aplicativo** e, em seguida, teste-o clicando em **executar agora**.

@@ -1,6 +1,7 @@
 ---
-title: Disponibilidade de região & residência de dados em Azure Active Directory B2C
-description: Um tópico sobre os tipos de locatários Azure Active Directory B2C.
+title: Disponibilidade de região e residência de dados
+titleSuffix: Azure AD B2C
+description: Disponibilidade de região, residência de dados e informações sobre Azure Active Directory B2C locatários de visualização.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 1b09eb85df6748fed042731ac90ebbf20c65b702
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273573"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950515"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidade de região e residência dos dados
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: a disponibilidade de região & residência de dados
 
 A disponibilidade de região e a residência de dados são dois conceitos muito diferentes que se aplicam de forma diferente a Azure AD B2C do restante do Azure. Este artigo explica as diferenças entre esses dois conceitos e compara como eles se aplicam ao Azure versus Azure AD B2C.
 
@@ -27,7 +28,7 @@ O Azure AD B2C **geralmente está disponível em todo o mundo** com a opção de
 
 [Residência de dados](#data-residency) refere-se a onde os dados do usuário são armazenados.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 Azure AD B2C está disponível em todo o mundo por meio da nuvem pública do Azure.
 
@@ -57,7 +58,7 @@ Os seguintes países/regiões estão no processo de serem adicionados à lista. 
 
 > Argentina, Austrália, Brasil, Chile, Colômbia, Equador, Iraque, Nova Zelândia, Paraguai, Peru, Uruguai e Venezuela.
 
-## <a name="preview-tenant"></a>Pré-visualizar inquilino
+## <a name="preview-tenant"></a>Visualizar locatário
 
 Se você tiver criado um locatário B2C durante o período de visualização do Azure AD B2C, é provável que o **tipo de locatário** informe o **locatário de visualização**.
 

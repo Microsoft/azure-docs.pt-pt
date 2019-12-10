@@ -1,5 +1,6 @@
 ---
-title: Configurar a inscrição e a entrada com uma conta da Amazon-Azure Active Directory B2C
+title: Configurar a inscrição e a entrada com uma conta da Amazon
+titleSuffix: Azure AD B2C
 description: Forneça inscrição e entrada para clientes com contas da Amazon em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bddbd9b588d8ffc2ace3a937fa2c72876eb5e4e9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e43c880fb2e38a235c38e19854da9e2b6e2a10c0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065217"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947727"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Amazon usando Azure Active Directory B2C
 
@@ -28,7 +29,7 @@ Para usar uma conta da Amazon como um [provedor de identidade](active-directory-
 1. Selecione **registrar novo aplicativo**.
 1. Insira um **nome**, uma **Descrição**e uma **URL de aviso de privacidade**e, em seguida, clique em **salvar**. O aviso de privacidade é uma página que você gerencia que fornece informações de privacidade aos usuários.
 1. Na seção **configurações da Web** , copie os valores da **ID do cliente**. Selecione **Mostrar segredo** para obter o segredo do cliente e, em seguida, copie-o. Você precisa de ambos para configurar uma conta do Amazon como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
-1. Na seção **configurações da Web** , selecione **Editar**e, em seguida `https://your-tenant-name.b2clogin.com` , insira em origens de `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **JavaScript permitidas** e em **URLs de retorno permitidas**. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+1. Na seção **configurações da Web** , selecione **Editar**e, em seguida, insira `https://your-tenant-name.b2clogin.com` em **origens JavaScript permitidas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de retorno permitidas**. Substitua `your-tenant-name` pelo nome do seu locatário. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
 1. Clique em **Guardar**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurar uma conta do Amazon como um provedor de identidade

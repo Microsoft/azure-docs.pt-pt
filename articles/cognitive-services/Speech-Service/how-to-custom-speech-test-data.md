@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816397"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951841"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -62,6 +62,9 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 | Formato de arquivo morto | .zip |
 | Tamanho máximo do arquivo morto | 2 GB |
 
+> [!TIP]
+> Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Se você precisar de mais dados para treinamento e teste, divida-os em vários arquivos. zip e carregue-os separadamente. Posteriormente, você pode optar por treinar e testar a partir de *vários* conjuntos de valores.
+
 Se o seu áudio não atender a essas propriedades ou se você quiser verificar se ele faz isso, sugerimos baixar o [Sox](http://sox.sourceforge.net) para verificar ou converter o áudio. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando:
 
 | Atividade | Descrição | Comando Sox |
@@ -71,7 +74,7 @@ Se o seu áudio não atender a essas propriedades ou se você quiser verificar s
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Áudio + dados de transcrição com rótulo humano para teste/treinamento
 
-Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.  
+Para medir a precisão da precisão de fala para texto da Microsoft ao processar seus arquivos de áudio, você deve fornecer transcrições com rótulo humano (palavra por palavra) para comparação. Embora a transcrição com rótulo humano sempre seja demorada, é necessário avaliar a precisão e treinar o modelo para seus casos de uso. Tenha em mente que os aprimoramentos no reconhecimento serão tão bons quanto os dados fornecidos. Por esse motivo, é importante que apenas transcrições de alta qualidade sejam carregadas.
 
 | Propriedade | Valor |
 |----------|-------|
@@ -82,6 +85,9 @@ Para medir a precisão da precisão de fala para texto da Microsoft ao processar
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo morto | .zip |
 | Tamanho máximo do zip | 2 GB |
+
+> [!TIP]
+> Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Se você precisar de mais dados para treinamento e teste, divida-os em vários arquivos. zip e carregue-os separadamente. Posteriormente, você pode optar por treinar e testar a partir de *vários* conjuntos de valores.
 
 Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 

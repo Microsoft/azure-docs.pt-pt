@@ -1,5 +1,6 @@
 ---
-title: Adicionar o ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Adicionar o ADFS como um provedor de identidade SAML usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configurar o ADFS 2016 usando o protocolo SAML e políticas personalizadas no Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80accdc4a14a2246ed91a92f6472490479327e2a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 202c3bfb8e9818437ff35454a1eafce008cdb00c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827195"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948679"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
@@ -166,7 +167,7 @@ Abra um navegador e navegue até a URL. Verifique se você digitou a URL correta
 4. Na página **selecionar fonte de dados** , selecione **importar dados sobre a publicação de terceira parte confiável online ou em uma rede local**, forneça a URL de metadados do Azure ad B2C e clique em **Avançar**.
 5. Na página **especificar nome para exibição** , insira um **nome de exibição**, em **observações**, insira uma descrição para essa relação de confiança de terceira parte confiável e clique em **Avançar**.
 6. Na página **escolher política de controle de acesso** , selecione uma política e clique em **Avançar**.
-7. Na página **pronto para adicionar confiança** , examine as configurações e clique em **Avançar** para salvar as informações de confiança de terceira parte confiável.
+7. No **pronto para adicionar confiança** página, reveja as definições e, em seguida, clique **seguinte** para guardar a sua entidade confiadora confiar informações.
 8. Na página **concluir** , clique em **fechar**. essa ação exibe automaticamente a caixa de diálogo **Editar regras de declaração** .
 9. Selecione **Adicionar regra**.
 10. Em **modelo de regra de declaração**, selecione **Enviar atributos LDAP como declarações**.
@@ -176,13 +177,13 @@ Abra um navegador e navegue até a URL. Verifique se você digitou a URL correta
     | -------------- | ------------------- |
     | Nome da entidade de usuário | userPrincipalName |
     | Apelido | family_name |
-    | Nome fornecido | given_name |
-    | Endereço de email | email |
-    | Nome de exibição | name |
+    | Primeiro nome | given_name |
+    | Endereço-de-e-mail | e-mail |
+    | Nome de exibição | nome |
 
     Observe que esses nomes não serão exibidos na lista suspensa tipo de declaração de saída. Você precisa digitá-los manualmente no. (A lista suspensa é realmente editável).
 
-12.  Com base em seu tipo de certificado, talvez seja necessário definir o algoritmo de HASH. Na janela Propriedades da terceira parte confiável (demonstração do B2C), selecione a guia **avançado** , altere o **algoritmo de hash seguro** para `SHA-256`e clique em **OK**.
+12.  Com base em seu tipo de certificado, talvez seja necessário definir o algoritmo de HASH. Na janela Propriedades da terceira parte confiável (demonstração do B2C), selecione a guia **avançado** e altere o **algoritmo de hash seguro** para `SHA-256`e clique em **OK**.
 13. Em Gerenciador do Servidor, selecione **ferramentas**e, em seguida, selecione **Gerenciamento do ADFS**.
 14. Selecione a terceira parte confiável que você criou, selecione **Atualizar de metadados de Federação**e clique em **Atualizar**.
 

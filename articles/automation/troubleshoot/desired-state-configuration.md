@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849365"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951467"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
 
@@ -89,6 +89,68 @@ Esse erro normalmente é causado por um firewall, o computador está atrás de u
 #### <a name="resolution"></a>Resolução
 
 Verifique se seu computador tem acesso aos pontos de extremidade apropriados para o Azure DSC de Automação e tente novamente. Para obter uma lista de portas e endereços necessários, consulte [planejamento de rede](../automation-dsc-overview.md#network-planning)
+
+### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a>Cenário de <a/><a name="unauthorized">: relatórios de status retornam o código de resposta "não autorizado"
+
+#### <a name="issue"></a>Problema
+
+Ao registrar um nó com a configuração de estado (DSC), você recebe uma das seguintes mensagens de erro:
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### <a name="cause"></a>Causa
+
+Esse problema é causado por um certificado insatisfatório ou expirado.  Para obter mais informações, consulte [expiração e registro de certificado](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+
+### <a name="resolution"></a>Resolução
+
+Siga as etapas listadas abaixo para registrar novamente o nó de DSC com falha.
+
+Primeiro, cancele o registro do nó usando as etapas a seguir.
+
+1. Na portal do Azure, em **Home** -> **Automation accounts**-> {sua conta de automação} – **DSC (configuração de estado** de >)
+2. Clique em "nós" e clique no nó com problemas.
+3. Clique em "cancelar registro" para cancelar o registro do nó.
+
+Em segundo lugar, desinstale a extensão de DSC do nó.
+
+1. Na portal do Azure, em **Home** -> **máquina virtual** -> {falha no nó}- **extensões** de >
+2. Clique em "Microsoft. PowerShell. DSC".
+3. Clique em "Desinstalar" para desinstalar a extensão de DSC do PowerShell.
+
+Terceiro, remova todos os certificados inválidos ou expirados do nó.
+
+No nó com falha em um prompt do PowerShell com privilégios elevados, execute o seguinte:
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+Por fim, registre novamente o nó com falha usando as etapas a seguir.
+
+1. Na portal do Azure, em **Home** -> **Automation accounts** -> {sua conta de automação} – **DSC (configuração de estado** de >)
+2. Clique em "nós".
+3. Clique no botão "Adicionar".
+4. Selecione o nó com falha.
+5. Clique em "conectar" e selecione as opções desejadas.
 
 ### <a name="failed-not-found"></a>Cenário: o nó está em status de falha com um erro "não encontrado"
 
@@ -187,6 +249,49 @@ Esse erro normalmente ocorre quando o nó recebe um nome de configuração de n�
 
 * Certifique-se de que você está atribuindo o nó com um nome de configuração de nó que corresponda exatamente ao nome no serviço.
 * Você pode optar por não incluir o nome da configuração do nó, o que fará com que a integração do nó, mas não a atribuição de uma configuração de nó
+
+### <a name="cross-subscription"></a>Cenário: registrar um nó com o PowerShell retorna o erro "um ou mais erros ocorridos"
+
+#### <a name="issue"></a>Problema
+
+Ao registrar um nó usando `Register-AzAutomationDSCNode` ou `Register-AzureRMAutomationDSCNode`, você receberá o seguinte erro.
+
+```error
+One or more errors occurred.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro ocorre quando você tenta registrar um nó que reside em uma assinatura separada do que a conta de automação.
+
+#### <a name="resolution"></a>Resolução
+
+Trate o nó de assinatura cruzada como se ele estivesse em uma nuvem separada ou no local.
+
+Siga as etapas abaixo para registrar o nó.
+
+* Windows- [máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Linux- [computadores Linux físicos/virtuais locais ou em uma nuvem diferente do Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+
+### <a name="agent-has-a-problem"></a>Cenário: mensagem de erro-"falha no provisionamento"
+
+#### <a name="issue"></a>Problema
+
+Ao registrar um nó, você verá o erro:
+
+```error
+Provisioning has failed
+```
+
+#### <a name="cause"></a>Causa
+
+Essa mensagem ocorre quando há um problema de conectividade entre o nó e o Azure.
+
+#### <a name="resolution"></a>Resolução
+
+Determine se o nó está em uma rede virtual privada ou se há outros problemas para se conectar ao Azure.
+
+Para obter mais informações, consulte [solucionar erros ao realizar soluções de integração](onboarding.md).
 
 ### <a name="failure-linux-temp-noexec"></a>Cenário: aplicando uma configuração no Linux, uma falha ocorre com um erro geral
 

@@ -1,6 +1,7 @@
 ---
-title: Predicados e PredicateValidations-Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação de declarações de conta social para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
+title: Predicados e PredicateValidations
+titleSuffix: Azure AD B2C
+description: Impedir que dados malformados sejam adicionados ao seu locatário de Azure AD B2C usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: a09478bd2e32a1ab484b85fec33ae03878ebb10c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099709"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951025"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -50,7 +51,7 @@ O elemento **Predicate** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Userhelptext | 1:1 | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização da linguagem](localization.md) |
+| UserHelpText | 1:1 | Uma mensagem de erro para os usuários se a verificação falhar. Essa cadeia de caracteres pode ser localizada usando a [personalização da linguagem](localization.md) |
 | Parâmetros | 1:1 | Os parâmetros para o tipo de método da validação da cadeia de caracteres. |
 
 O elemento **Parameters** contém os seguintes elementos:
@@ -168,7 +169,7 @@ O elemento de **Predicate** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Userhelptext | 1:1 |  Uma descrição do predicado que pode ser útil para os usuários saber qual valor eles devem digitar. |
+| UserHelpText | 1:1 |  Uma descrição do predicado que pode ser útil para os usuários saber qual valor eles devem digitar. |
 | PredicateReferences | 1: n | Uma lista de referências de predicado. |
 
 O elemento **PredicateReferences** contém os seguintes atributos:

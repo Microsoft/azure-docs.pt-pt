@@ -1,5 +1,6 @@
 ---
-title: Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Configurar a complexidade de senha usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Como configurar requisitos de complexidade de senha usando uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6454d380b0f34e940951e3de44d1dee0ff6b597f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e8718a04f9d63897b2d2472dd0cdffb196c41435
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065536"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949795"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -44,7 +45,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Active Direc
     </ClaimsSchema>
     ```
 
-4. Os [predicados](predicates.md) têm tipos `IsLengthRange` de `MatchesRegex`método de ou. O `MatchesRegex` tipo é usado para corresponder a uma expressão regular. O `IsLengthRange` tipo usa um comprimento de cadeia de caracteres mínimo e máximo. Adicione um elemento **predicados** ao elemento **BuildingBlocks** se ele não existir com os seguintes elementos de **predicado** :
+4. Os [predicados](predicates.md) têm tipos de método de `IsLengthRange` ou `MatchesRegex`. O tipo de `MatchesRegex` é usado para corresponder a uma expressão regular. O tipo de `IsLengthRange` usa um comprimento de cadeia de caracteres mínimo e máximo. Adicione um elemento **predicados** ao elemento **BuildingBlocks** se ele não existir com os seguintes elementos de **predicado** :
 
     ```XML
     <Predicates>
@@ -107,9 +108,9 @@ Conclua as etapas em introdução [às políticas personalizadas no Active Direc
 
 ## <a name="test-your-policy"></a>Testar sua política
 
-Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure ad B2C retornado `https://jwt.ms` para poder revisar as declarações nele.
+Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token de Azure AD B2C retornado a `https://jwt.ms` para poder revisar as declarações nele.
 
-### <a name="upload-the-files"></a>Carregar os arquivos
+### <a name="upload-the-files"></a>Carregar os ficheiros
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
@@ -122,7 +123,7 @@ Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure 
 ### <a name="run-the-policy"></a>Executar a política
 
 1. Abra a política que você alterou. Por exemplo, *B2C_1A_signup_signin_password_complexity*.
-2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve `https://jwt.ms`ser mostrada.
+2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Clique em **Executar agora**.
 4. Selecione **inscrever-se agora**, insira um endereço de email e insira uma nova senha. As diretrizes são apresentadas em restrições de senha. Termine de inserir as informações do usuário e, em seguida, clique em **criar**. Você deve ver o conteúdo do token que foi retornado.
 

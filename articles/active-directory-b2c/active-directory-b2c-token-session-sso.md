@@ -1,6 +1,7 @@
 ---
-title: Sessão e o única início de sessão em configuração - Azure Active Directory B2C | Documentos da Microsoft
-description: Sessão e a configuração de início de sessão única no Azure Active Directory B2C.
+title: Configuração de sessão e logon único
+titleSuffix: Azure AD B2C
+description: Configuração de sessão e logon único (SSO) no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,45 +11,45 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736dd1f0490c2c9c7c4f526df96dd5ace6a1f819
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508121"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950073"
 ---
-# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sessão e a configuração de início de sessão única no Azure Active Directory B2C
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuração de sessão e logon único no Azure Active Directory B2C
 
-Esta funcionalidade dá-lhe um controlo detalhado, por um [base de fluxo de por utilizador](active-directory-b2c-reference-policies.md), de:
+Esse recurso oferece um controle refinado, de acordo com o [fluxo por usuário](active-directory-b2c-reference-policies.md), de:
 
-- Durações das sessões do aplicativo web geridos pelo Azure AD B2C.
-- Single sign-on (SSO) do comportamento em várias aplicações e fluxos de utilizador no seu inquilino do Azure AD B2C.
+- Tempos de vida das sessões de aplicativo Web gerenciadas pelo Azure AD B2C.
+- Comportamento de SSO (logon único) em vários aplicativos e fluxos de usuário em seu locatário Azure AD B2C.
 
 ## <a name="session-behavior"></a>Comportamento da sessão
 
-O Azure AD B2C suporta o [protocolo de autenticação OpenID Connect](active-directory-b2c-reference-oidc.md) para ativar a sessão seguro às aplicações web. Pode utilizar as seguintes propriedades para gerir sessões do aplicativo web:
+O Azure AD B2C dá suporte ao [protocolo de Autenticação OpenID Connect](active-directory-b2c-reference-oidc.md) para habilitar a entrada segura em aplicativos Web. Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos Web:
 
-- **Aplicação Web duração da sessão (minutos)** - a vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do usuário após a autenticação com êxito.
-    - Predefinição = 1440 minutos.
-    - Mínimo (inclusive) = 15 minutos.
-    - Máximo (inclusive) = 1440 minutos.
-- **Tempo limite de sessão de aplicação Web** – se este parâmetro estiver definido como **absoluto**, o utilizador é forçado a autenticar novamente após o período de tempo especificado pelo **aplicação Web duração da sessão (minutos)** decorrida. Se este parâmetro estiver definido como **Rolling** (a predefinição), o usuário permanece com sessão iniciada, desde que o utilizador está continuamente ativo na sua aplicação web.
+- **Tempo de vida da sessão do aplicativo Web (minutos)** – o tempo de vida do cookie de sessão B2C do Azure ad armazenado no navegador do usuário após a autenticação bem-sucedida.
+    - Padrão = 1440 minutos.
+    - Mínimo (inclusivo) = 15 minutos.
+    - Máximo (inclusivo) = 1440 minutos.
+- **Tempo limite da sessão do aplicativo Web** -se essa opção for definida como **absoluta**, o usuário será forçado a autenticar novamente depois que o período especificado pelo tempo de **vida da sessão do aplicativo Web (minutos)** tiver decorrido. Se essa opção for definida como **sem interrupção** (a configuração padrão), o usuário permanecerá conectado, desde que o usuário esteja continuamente ativo em seu aplicativo Web.
 
-Os seguintes casos de utilização estão ativados com estas propriedades:
+Os seguintes casos de uso são habilitados usando estas propriedades:
 
-- Cumprir os requisitos de segurança e conformidade da sua indústria ao definir a sessão de aplicativo da web apropriados tempos de vida.
-- Forçar autenticação após um período de tempo durante a interação do usuário com uma parte de alta segurança da sua aplicação web. 
+- Atenda aos requisitos de segurança e conformidade do seu setor definindo os tempos de vida de sessão do aplicativo Web apropriados.
+- Forçar a autenticação após um período de tempo definido durante a interação de um usuário com uma parte de segurança alta do seu aplicativo Web.
 
-Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe.
+Essas configurações não estão disponíveis para fluxos de usuário de redefinição de senha.
 
-## <a name="single-sign-on-sso-configuration"></a>Configuração de início de sessão único (SSO)
+## <a name="single-sign-on-sso-configuration"></a>Configuração de SSO (logon único)
 
-Se tiver várias aplicações e fluxos de utilizador no seu inquilino do B2C, pode gerir interações de utilizador por elas com o **configuração do início de sessão única** propriedade. Pode definir a propriedade a uma das seguintes definições:
+Se você tiver vários aplicativos e fluxos de usuário em seu locatário B2C, poderá gerenciar interações de usuário entre eles usando a propriedade de **configuração de logon único** . Você pode definir a propriedade para uma das seguintes configurações:
 
-- **Inquilino** -esta é a predefinição. Com esta definição permite que vários aplicativos e de utilizador fluxos no seu inquilino de B2C para partilhar a mesma sessão do utilizador. Por exemplo, uma vez que um utilizador inicia sessão numa aplicação, o utilizador pode iniciar diretamente em outro farmácia Contoso um, após a aceder ao mesmo.
-- **Aplicação** -esta definição permite-lhe manter uma sessão de utilizador exclusivamente para um aplicativo, independentemente de outras aplicações. Por exemplo, se pretender que o utilizador iniciar sessão na Contoso farmácia (com as mesmas credenciais), mesmo que o usuário já está conectado a compras de Contoso, outra aplicação no mesmo B2C inquilino. 
-- **Política** -esta definição permite-lhe manter uma sessão de utilizador exclusivamente para um fluxo de utilizador, independente das aplicações que utilizam ele. Por exemplo, se o utilizador já iniciou sessão e concluir uma etapa de authentication (MFA) do fator de transmissões, o utilizador pode ser dado acesso a partes de uma maior segurança de vários aplicativos, desde que a sessão associada ao fluxo de utilizador não expire.
-- **Desativado** -esta definição força o usuário a executar o fluxo de utilizador completo em cada execução da política.
+- **Locatário** -essa configuração é o padrão. O uso dessa configuração permite que vários aplicativos e fluxos de usuário em seu locatário B2C compartilhem a mesma sessão de usuário. Por exemplo, quando um usuário entra em um aplicativo, o usuário também pode entrar diretamente em outro, contoso farmácia, ao acessá-lo.
+- **Aplicativo** – essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independentemente de outros aplicativos. Por exemplo, se você quiser que o usuário entre no contoso farmácia (com as mesmas credenciais), mesmo que o usuário já tenha entrado no contoso shopping, outro aplicativo no mesmo locatário B2C.
+- **Política** – essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um fluxo de usuário, independentemente dos aplicativos que o utilizam. Por exemplo, se o usuário já tiver entrado e concluído uma etapa de autenticação multifator (MFA), o usuário poderá receber acesso a partes de segurança mais alta de vários aplicativos, desde que a sessão vinculada ao fluxo do usuário não expire.
+- **Desabilitado** – essa configuração força o usuário a executar todo o fluxo do usuário em cada execução da política.
 
-Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe. 
+Essas configurações não estão disponíveis para fluxos de usuário de redefinição de senha.
 

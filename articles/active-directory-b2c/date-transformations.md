@@ -1,6 +1,6 @@
 ---
-title: Exemplos de transformação de declarações de data para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação data Claims para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
+title: Exemplos de transformação de declarações de data para políticas personalizadas
+description: Exemplos de transformação data Claims para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936792"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949121"
 ---
 # <a name="date-claims-transformations"></a>Transformações de declarações de data
 
@@ -29,8 +29,8 @@ Verifica se uma declaração de data e hora (tipo de dados de cadeia de caracter
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | Cadeia de caracteres | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
-| InputClaim | rightOperand | Cadeia de caracteres | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
+| inputClaim | leftOperand | string | O tipo da primeira declaração, que deve ser posterior à segunda declaração. |
+| inputClaim | rightOperand | string | O tipo da segunda declaração, que deve ser anterior à primeira declaração. |
 | InputParameter | AssertIfEqualTo | boolean | Especifica se essa asserção deve ser aprovada se o operando esquerdo for igual ao operando à direita. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica se esta asserção deve ser aprovada se o operando direito estiver ausente. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre os dois horários de data para considerar o tempo igual (por exemplo, para levar em conta a distorção do relógio). |
@@ -39,7 +39,7 @@ A transformação declarações **AssertDateTimeIsGreaterThan** é sempre execut
 
 ![Execução de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-O exemplo a seguir compara `currentDateTime` a declaração com `approvedDateTime` a declaração. Um erro será gerado se `currentDateTime` for posterior a `approvedDateTime`. A transformação trata os valores como iguais se eles estiverem dentro de 5 minutos (30000 milissegundos) de diferença.
+O exemplo a seguir compara a declaração de `currentDateTime` com a declaração de `approvedDateTime`. Um erro será gerado se `currentDateTime` for posterior a `approvedDateTime`. A transformação trata os valores como iguais se eles estiverem dentro de 5 minutos (30000 milissegundos) de diferença.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -55,7 +55,7 @@ O exemplo a seguir compara `currentDateTime` a declaração com `approvedDateTim
 </ClaimsTransformation>
 ```
 
-O `login-NonInteractive` perfil técnico de validação chama `AssertApprovedDateTimeLaterThanCurrentDateTime` a transformação declarações.
+O perfil técnico de validação de `login-NonInteractive` chama a transformação declarações de `AssertApprovedDateTimeLaterThanCurrentDateTime`.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -81,9 +81,9 @@ O perfil técnico autodeclarado chama o logon de validação **–** perfil téc
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000 Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
-- Disso Erro gerado
+    - **leftOperand**: 2018-10-01T15:00:00.0000000 z
+    - **rightOperand**: 2018-10-01T14:00:00.0000000 z
+- Resultado: erro gerado
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
@@ -91,10 +91,10 @@ Converte um ClaimType de **Data** em um ClaimType de **DateTime** . A transforma
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | date | O ClaimType a ser convertido. |
+| inputClaim | inputClaim | date | O ClaimType a ser convertido. |
 | OutputClaim | outputClaim | DateTime | O ClaimType que é produzido após esse ClaimsTransformation foi invocado. |
 
-O exemplo a seguir demonstra a conversão da Declaração `dateOfBirth` (tipo de dados de data) em `dateOfBirthWithTime` outra declaração (tipo de dados DateTime).
+O exemplo a seguir demonstra a conversão do `dateOfBirth` de declaração (tipo de dados de data) em outro `dateOfBirthWithTime` de declaração (tipo de dados dateTime).
 
 ```XML
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
@@ -137,13 +137,13 @@ Obtenha a data e a hora UTC atuais e adicione o valor a um ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Determine se um dateTime é posterior, anterior ou igual a outro. O resultado é um novo booliano de declaração booliano com um `true` valor `false`de ou.
+Determine se um dateTime é posterior, anterior ou igual a outro. O resultado é um novo booliano de declaração booliano com um valor de `true` ou `false`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | DateTime | O primeiro dateTime a ser comparado se ele for anterior ou posterior ao segundo dateTime. O valor nulo gera uma exceção. |
-| InputClaim | secondDateTime | DateTime | O segundo dateTime para comparar se ele é anterior ou posterior ao primeiro dateTime. O valor nulo é tratado como o datetTime atual. |
-| InputParameter | operator | Cadeia de caracteres | Um dos seguintes valores: mesmo, posteriores ou anteriores a. |
+| inputClaim | firstDateTime | DateTime | O primeiro dateTime a ser comparado se ele for anterior ou posterior ao segundo dateTime. O valor nulo gera uma exceção. |
+| inputClaim | secondDateTime | DateTime | O segundo dateTime para comparar se ele é anterior ou posterior ao primeiro dateTime. O valor nulo é tratado como o datetTime atual. |
+| InputParameter | operator | string | Um dos seguintes valores: mesmo, posteriores ou anteriores a. |
 | InputParameter | timeSpanInSeconds | int | Adicione o TimeSpan ao primeiro DateTime. |
 | OutputClaim | Resultado | boolean | O ClaimType que é produzido após esse ClaimsTransformation foi invocado. |
 
@@ -169,8 +169,8 @@ Para executar a transformação declaração, primeiro você precisa obter o dat
 ### <a name="example"></a>Exemplo
 
 - Declarações de entrada:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2018-01-01T00:00:00.100000 z
+    - **secondDateTime**: 2018-04-01T00:00:00.100000 z
 - Parâmetros de entrada:
     - **operador**: posterior a
     - **timeSpanInSeconds**: 7776000 (90 dias)

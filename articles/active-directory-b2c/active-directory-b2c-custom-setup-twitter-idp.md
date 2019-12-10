@@ -1,5 +1,6 @@
 ---
-title: Configurar a entrada com uma conta do Twitter usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Configurar a entrada com uma conta do Twitter usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do Twitter usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ad6ac4c30572f1b475cba2f699f5842ae3c7528
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 460f16775bf8b02bbb345b609e1419311f81bd22
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827004"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948424"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Twitter usando políticas personalizadas no Azure Active Directory B2C
 
@@ -35,8 +36,8 @@ Para usar o Twitter como um provedor de identidade no Azure AD B2C, você precis
 1. Entre no site de [desenvolvedores do Twitter](https://developer.twitter.com/en/apps) com suas credenciais de conta do Twitter.
 2. Selecione **criar um aplicativo**.
 3. Insira um **nome de aplicativo** e uma **Descrição de aplicativo**.
-4. Na **URL do site**, `https://your-tenant.b2clogin.com`digite. Substitua `your-tenant` pelo nome do seu locatário. Por exemplo, https://contosob2c.b2clogin.com.
-5. Para a **URL de retorno**de `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`chamada, digite. Substitua `your-tenant` pelo nome do seu nome do locatário e `your-policy-Id` pelo identificador da política. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
+4. Na **URL do site**, insira `https://your-tenant.b2clogin.com`. Substitua `your-tenant` pelo nome do seu locatário. Por exemplo, https://contosob2c.b2clogin.com.
+5. Para a **URL de retorno de chamada**, insira `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Substitua `your-tenant` pelo nome do seu nome do locatário e `your-policy-Id` pelo identificador da política. Por exemplo, `b2c_1A_signup_signin_twitter`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
 6. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **criar**.
 7. Na página **detalhes do aplicativo** , selecione **Editar > Editar detalhes**, marque a caixa **Habilitar entrada com o Twitter**e, em seguida, selecione **salvar**.
 8. Selecione **chaves e tokens** e registre a **chave de API do consumidor** e os valores de **chave secreta da API do consumidor** a serem usados posteriormente.
@@ -53,7 +54,7 @@ Você precisa armazenar a chave secreta que você registrou anteriormente em seu
 6. Para **Opções**, escolha `Manual`.
 7. Insira um **nome** para a chave de política. Por exemplo, `TwitterSecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
-9. Para **uso de chave**, `Encryption`selecione.
+9. Para **uso de chave**, selecione `Encryption`.
 10. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações

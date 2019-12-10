@@ -1,6 +1,7 @@
 ---
-title: Sobre resolvedores de declaração em Azure Active Directory B2C políticas personalizadas | Microsoft Docs
-description: Saiba mais sobre como os resolvedores de declarações são usados em uma política personalizada no Azure Active Directory B2C.
+title: Solicitar resolvedores em políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Saiba como usar resolvedores de declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064404"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949879"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em Azure Active Directory B2C políticas personalizadas
 
@@ -23,7 +24,7 @@ Os resolvedores de declaração em [políticas personalizadas](active-directory-
 
 Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma **declaração**de cadeia de caracteres, sob o elemento [ClaimsSchema](claimsschema.md) e, em seguida, define o **DefaultValue** para o resolvedor de declaração no elemento de declaração de entrada ou saída. Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
 
-No exemplo a seguir, um tipo de Declaração `correlationId` chamado é definido com um tipo `string`de **dados** de.
+No exemplo a seguir, um tipo de declaração chamado `correlationId` é definido com um **tipo de dados** de `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -33,7 +34,7 @@ No exemplo a seguir, um tipo de Declaração `correlationId` chamado é definido
 </ClaimType>
 ```
 
-No perfil técnico, mapeie o resolvedor de declaração para o tipo de declaração. Azure ad B2C popula o valor do resolvedor `{Context:CorrelationId}` de declaração para a Declaração `correlationId` e envia a declaração para o perfil técnico.
+No perfil técnico, mapeie o resolvedor de declaração para o tipo de declaração. Azure AD B2C popula o valor do resolvedor de declaração `{Context:CorrelationId}` na `correlationId` de declaração e envia a declaração para o perfil técnico.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
@@ -47,7 +48,7 @@ As seções a seguir listam os resolvedores de declaração disponíveis.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Culture: LanguageName} | O código ISO de duas letras para o idioma. | pt-PT |
+| {Culture: LanguageName} | O código ISO de duas letras para o idioma. | en |
 | {Culture: LCID}   | O LCID do código de idioma. | 1033 |
 | {Culture:RegionName} | O código ISO de duas letras para a região. | EUA |
 | {Culture: RFC5646} | O código do idioma RFC5646. | en-US |
@@ -65,15 +66,15 @@ As seções a seguir listam os resolvedores de declaração disponíveis.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |O `acr_values` parâmetro de cadeia de caracteres de consulta. | N/A |
-| {OIDC:ClientId} |O `client_id` parâmetro de cadeia de caracteres de consulta. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC: DomainHint} |O `domain_hint` parâmetro de cadeia de caracteres de consulta. | facebook.com |
-| {OIDC:LoginHint} |  O `login_hint` parâmetro de cadeia de caracteres de consulta. | someone@contoso.com |
+| {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres de consulta `acr_values`. | N/A |
+| {OIDC:ClientId} |O parâmetro de cadeia de caracteres de consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC: DomainHint} |O parâmetro de cadeia de caracteres de consulta `domain_hint`. | facebook.com |
+| {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres de consulta `login_hint`. | someone@contoso.com |
 | {OIDC: MaxAge} | O `max_age`. | N/A |
-| {OIDC: nonce} |O `Nonce` parâmetro de cadeia de caracteres de consulta. | defaultnonce |
-| {OIDC: prompt} | O `prompt` parâmetro de cadeia de caracteres de consulta. | início de sessão |
-| {OIDC: Resource} |O `resource` parâmetro de cadeia de caracteres de consulta. | N/A |
-| {OIDC: escopo} |O `scope` parâmetro de cadeia de caracteres de consulta. | OpenID |
+| {OIDC: nonce} |O parâmetro de cadeia de caracteres de consulta `Nonce`. | defaultnonce |
+| {OIDC: prompt} | O parâmetro de cadeia de caracteres de consulta `prompt`. | início de sessão |
+| {OIDC: Resource} |O parâmetro de cadeia de caracteres de consulta `resource`. | N/A |
+| {OIDC: escopo} |O parâmetro de cadeia de caracteres de consulta `scope`. | OpenID |
 
 ### <a name="context"></a>Contexto
 
@@ -88,7 +89,7 @@ As seções a seguir listam os resolvedores de declaração disponíveis.
 
 ### <a name="non-protocol-parameters"></a>Parâmetros que não são de protocolo
 
-Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro de cadeia de caracteres de consulta com `app_session`um `loyalty_number`nome de, ou qualquer cadeia de caracteres de consulta personalizada.
+Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro de cadeia de caracteres de consulta com um nome de `app_session`, `loyalty_number`ou qualquer cadeia de caracteres de consulta personalizada.
 
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
@@ -138,7 +139,7 @@ Usando resolvedores de declaração, você pode pré-popular o nome de entrada o
 
 Azure AD B2C permite passar parâmetros de cadeia de caracteres de consulta para seus pontos de extremidade de definição de conteúdo HTML para que você possa renderizar dinamicamente o conteúdo da página. Por exemplo, você pode alterar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro personalizado que você passa de seu aplicativo Web ou móvel. Para obter mais informações, consulte [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Você também pode localizar sua página HTML com base em um parâmetro de idioma ou pode alterar o conteúdo com base na ID do cliente.
 
-O exemplo a seguir passa a cadeia de caracteres de consulta um parâmetro chamado **campaignid** com `hawaii`um valor de, `en-US`um código de **idioma** e o **aplicativo** que representa a ID do cliente:
+O exemplo a seguir passa a cadeia de caracteres de consulta um parâmetro chamado **campaignid** com um valor de `hawaii`, um código de **idioma** `en-US`e o **aplicativo** que representa a ID do cliente:
 
 ```XML
 <UserJourneyBehaviors>

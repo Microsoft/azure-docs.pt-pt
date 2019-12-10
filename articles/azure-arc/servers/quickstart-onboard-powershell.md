@@ -10,12 +10,12 @@ keywords: automação do Azure, DSC, PowerShell, configuração de estado deseja
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: b5299f49663fbf2e828f76d9c240a86fdccb2ff2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872694"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951450"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Início rápido: conectar computadores ao Azure usando o Azure ARC para servidores-PowerShell
 
@@ -72,8 +72,11 @@ Na saída, copie a **senha** e a **ApplicationId** (da etapa anterior) e armazen
 
 No script de integração do agente de instalação:
 
-* A propriedade **ApplicationId** é usada para o parâmetro `--service-principal-id` usado no agente de instalação
-* A propriedade **password** é usada para o parâmetro `--service-principal-secret` no agente de instalação.
+* A propriedade **ApplicationId** é usada para o parâmetro `--service-principal-id` usado para conectar o agente
+* A propriedade **password** é usada para o parâmetro `--service-principal-secret` usado para conectar o agente.
+
+> [!NOTE]
+> Certifique-se de usar a propriedade **ApplicationId** de entidade de serviço, não a propriedade **ID** . A **ID** não funcionará.
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>Instalar manualmente o agente e conectar-se ao Azure
 
@@ -90,7 +93,6 @@ Para servidores **Linux** , o agente é distribuído por meio do [repositório d
 > [!NOTE]
 > Durante a visualização pública, apenas um pacote foi liberado, o que é adequado para o Ubuntu 16, 4 ou 18, 4.
 
-<!-- What about this aks? -->
 A opção mais simples é registrar o repositório de pacotes e, em seguida, instalar o pacote usando o Gerenciador de pacotes da distribuição.
 O script bash localizado em [https://aka.ms/azcmagent](https://aka.ms/azcmagent) executa as seguintes ações:
 

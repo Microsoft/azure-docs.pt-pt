@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802318"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951144"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral de alertas no Microsoft Azure 
 
@@ -60,11 +60,11 @@ Veja a seguir os principais atributos de uma regra de alerta:
 
 ## <a name="what-you-can-alert-on"></a>Sobre o que você pode alertar
 
-Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources-reference.md). Eles incluem, mas não se limitam a:
-- Valores de métrica
-- Consultas de pesquisa de log
-- Eventos do log de atividades
-- Integridade da plataforma subjacente do Azure
+Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources-reference.md). Estes incluem, mas não estão limitados a:
+- Valores de métricas
+- Consultas de pesquisa de registos
+- Eventos de registo de atividades
+- Estado de funcionamento da plataforma subjacente do Azure
 - Testes de disponibilidade do site
 
 Anteriormente, Azure Monitor métricas, Application Insights, Log Analytics e integridade do serviço tinham recursos de alerta separados. Ao longo do tempo, o Azure melhorou e combinou a interface do usuário e os diferentes métodos de alerta. Essa consolidação ainda está em andamento. Como resultado, ainda existem alguns recursos de alerta ainda não incluídos no novo sistema de alertas.  
@@ -82,8 +82,8 @@ Há suporte para os seguintes Estados de alerta.
 | Estado | Descrição |
 |:---|:---|
 | Novo | O problema acabou de ser detectado e ainda não foi revisado. |
-| Confirmada | Um administrador analisou o alerta e começou a trabalhar nele. |
-| Legenda | O problema foi resolvido. Depois que um alerta for fechado, você poderá reabri-lo alterando-o para outro Estado. |
+| Reconhecido | Um administrador analisou o alerta e começou a trabalhar nele. |
+| Fechado | O problema foi resolvido. Depois que um alerta for fechado, você poderá reabri-lo alterando-o para outro Estado. |
 
 O *estado do alerta* é diferente e independente da condição do *Monitor*. O estado do alerta é definido pelo usuário. A condição do monitor é definida pelo sistema. Quando um alerta é *disparado, a condição*do monitor do alerta é definida como disparada. Quando a condição subjacente que fez com que o alerta fosse limpo, a condição do monitor é definida como *resolvida*. O estado do alerta não é alterado até que o usuário o altere. Saiba [como alterar o estado de seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
 
@@ -118,10 +118,10 @@ Selecione os seguintes valores na parte superior da página alertas para abrir o
 |:---|:---|
 | Total de alertas | O número total de alertas que correspondem aos critérios selecionados. Selecione este valor para abrir a exibição todos os alertas sem filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criados a partir dos alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a lista de grupos inteligentes na exibição todos os alertas.
-| Total de regras de alerta | O número total de regras de alerta na assinatura e no grupo de recursos selecionados. Selecione este valor para abrir o modo de exibição de regras filtrado na assinatura e no grupo de recursos selecionados.
+| Total de regras de alertas | O número total de regras de alerta na assinatura e no grupo de recursos selecionados. Selecione este valor para abrir o modo de exibição de regras filtrado na assinatura e no grupo de recursos selecionados.
 
 
-## <a name="manage-alert-rules"></a>Gerenciar regras de alerta
+## <a name="manage-alert-rules"></a>Gerir regras de alertas
 Para mostrar a página **regras** , selecione **gerenciar regras de alerta**. A página de regras é um único local para gerenciar todas as regras de alerta em suas assinaturas do Azure. Ele lista todas as regras de alerta e pode ser classificado com base nos recursos de destino, grupos de recursos, nome da regra ou status. Você também pode editar, habilitar ou desabilitar regras de alerta nesta página.  
 
  ![Captura de tela da página regras](./media/alerts-overview/alerts-preview-rules.png)
@@ -156,9 +156,9 @@ Você pode filtrar a exibição selecionando os seguintes valores nos menus susp
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente os alertas com destinos do tipo selecionado são incluídos na exibição. Esta coluna só estará disponível depois que um grupo de recursos tiver sido especificado. |
 | Recurso | Selecione um recurso. Somente os alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
 | Gravidade | Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
-| Condição do monitor | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
+| Monitorizar condição | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
 | Estado do alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
-| Monitorar serviço | Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas criados por regras que usam o serviço como um destino são incluídos. |
+| Monitorizar serviço | Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas criados por regras que usam o serviço como um destino são incluídos. |
 | Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione **colunas** na parte superior da página para selecionar quais colunas mostrar. 
@@ -178,7 +178,7 @@ A página detalhes do alerta inclui as seguintes seções:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
 
-O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou o [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para `ContosoVM1` de máquina virtual, esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1`.
+O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha as funções RBAC internas de [monitorar o colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou o [leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Essas funções têm suporte em qualquer escopo de Azure Resource Manager, do nível de assinatura para atribuições granulares em um nível de recurso. Por exemplo, se um usuário só tiver acesso de colaborador de monitoramento para `ContosoVM1`de máquina virtual, esse usuário poderá consumir e gerenciar somente alertas gerados no `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Gerencie suas instâncias de alerta programaticamente
 
@@ -211,6 +211,7 @@ Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)
 - [Gerenciando suas instâncias de alerta no Azure](https://aka.ms/managing-alert-instances)
 - [Gerenciando grupos inteligentes](https://aka.ms/managing-smart-groups)
+- [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

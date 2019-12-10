@@ -1,6 +1,7 @@
 ---
-title: Configurar a entrada para um provedor de identidade multilocatário do Azure AD usando políticas personalizadas no Azure Active Directory B2C
-description: Adicione um provedor de identidade multilocatário do Azure AD usando políticas personalizadas-Azure Active Directory B2C.
+title: Configurar a entrada para o Azure AD de vários locatários por políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Adicione um provedor de identidade multilocatário do Azure AD usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5e4645d0fbdcd8cd44bb5972cdc28ab7eaa2a681
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: abac9152ff71c8fbf4ed53bfd663d29616382cf9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642604"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947793"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -31,7 +32,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Azure Active
 
 Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário organizacional do Azure AD (por exemplo, contoso.com). Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.

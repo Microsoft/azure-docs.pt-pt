@@ -1,6 +1,7 @@
 ---
-title: Exemplos de transformação de declarações de cadeia de caracteres para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C | Microsoft Docs
-description: Exemplos de transformação de declarações de cadeia de caracteres para o esquema de estrutura de experiência de identidade de Azure Active Directory B2C.
+title: Exemplos de transformação de declarações de cadeia de caracteres para políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Exemplos de transformação de declarações de cadeia de caracteres para o esquema IEF (Identity Experience Framework) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936816"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950821"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeia de caracteres
 
@@ -239,7 +240,7 @@ Cria uma cadeia de caracteres aleatória usando o gerador de números aleatório
 | InputParameter | stringFormat | string | Adicional Formate o valor aleatório. |
 | InputParameter | base64 | boolean | Adicional Converta o valor aleatório em base64. Se o formato da cadeia de caracteres for aplicado, o valor após o formato da cadeia de caracteres será codificado em base64. |
 | InputParameter | maximumNumber | int | Adicional Somente para `INTEGER` randomGeneratorType. Especifique o número máximo. |
-| InputParameter | Semente  | int | Adicional Somente para `INTEGER` randomGeneratorType. Especifique a semente para o valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
+| InputParameter | semente  | int | Adicional Somente para `INTEGER` randomGeneratorType. Especifique a semente para o valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
 | OutputClaim | outputClaim | string | O ClaimTypes que será produzido depois que essa transformação de declarações for invocada. O valor aleatório. |
 
 O exemplo a seguir gera uma ID exclusiva global. Essa transformação de declarações é usada para criar o UPN aleatório (nome do princípio do usuário).
@@ -476,7 +477,7 @@ Obtém a parte do domínio de um endereço de email.
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | emailAddress | string | O ClaimType que contém o endereço de email. |
-| OutputClaim | controlador | string | O ClaimType que é produzido depois que essa transformação de declarações foi invocada-o domínio. |
+| OutputClaim | domínio | string | O ClaimType que é produzido depois que essa transformação de declarações foi invocada-o domínio. |
 
 Use essa transformação de declarações para analisar o nome de domínio após o símbolo @ do usuário. Isso pode ser útil para remover informações de identificação pessoal (PII) dos dados de auditoria. A transformação de declarações a seguir demonstra como analisar o nome de domínio de uma declaração de **email** .
 

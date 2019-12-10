@@ -1,5 +1,6 @@
 ---
-title: Notas do desenvolvedor para políticas personalizadas – Azure Active Directory B2C | Microsoft Docs
+title: Notas do desenvolvedor para políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Observações para os desenvolvedores sobre como configurar e manter Azure AD B2C com políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f8d1ac217647ee292338da875671ef8bd3f79db
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: edbd31434715c380badf15118b0779885aed700f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227201"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949760"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Active Directory B2C
 
@@ -44,7 +45,7 @@ Os desenvolvedores que consomem o conjunto de recursos de política personalizad
 - Execute testes de cenário método.
 - Siga as práticas recomendadas de desenvolvimento e preparo de software com um mínimo de um ambiente de desenvolvimento e teste e um ambiente de produção.
 - Mantenha-se informado sobre novos desenvolvimentos dos provedores de identidade e dos serviços com os quais você se integra. Por exemplo, mantenha o controle das alterações nos segredos e das alterações agendadas e não agendadas para o serviço.
-- Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre como integrar com o [Application insights, consulte Azure Active Directory B2C: Coletando](active-directory-b2c-custom-guide-eventlogger-appins.md)logs.
+- Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção. Para obter mais informações sobre como integrar com Application Insights, consulte [Azure Active Directory B2C: coletando logs](active-directory-b2c-custom-guide-eventlogger-appins.md).
 - Mantenha os endereços de email de contato atuais na assinatura do Azure e Continue respondendo aos emails da equipe de site ativo da Microsoft.
 - Tome uma ação oportuna quando for aconselhável fazer isso pela equipe de site do Microsoft Live.
 
@@ -60,7 +61,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="identity-providers-tokens-protocols"></a>Provedores de identidade, tokens, protocolos
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Por exemplo, Google +.  |
 | IDP-OAUTH2 |  |  | X | Por exemplo, Facebook.  |
@@ -77,7 +78,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="component-support"></a>Suporte a componentes
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Multi-Factor Authentication do Azure |  |  | X |  |
 | Azure Active Directory como diretório local |  |  | X |  |
@@ -88,7 +89,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Página de erro, API. Error |  |  | X |  |
 | Página de seleção de IDP, API. idpselections |  |  | X |  |
@@ -104,7 +105,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="app-ief-integration"></a>Integração do App-IEF
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parâmetro de cadeia de caracteres de consulta domain_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
 | Parâmetro de cadeia de caracteres de consulta login_hint |  |  | X | Disponível como declaração, pode ser passado para IDP. |
@@ -112,9 +113,9 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 | Inserir JSON em userjornada como id_token_hint |  | X |  | Abordagem de avanço para passar JSON. |
 | Passar o TOKEN IDP para o aplicativo |  | X |  | Por exemplo, do Facebook para o aplicativo. |
 
-### <a name="session-management"></a>Gerenciamento de sessão
+### <a name="session-management"></a>Gerenciamento de sessões
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provedor de sessão de SSO |  |  | X |  |
 | Provedor de sessão de logon externo |  |  | X |  |
@@ -123,7 +124,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="security"></a>Segurança
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chaves de política – gerar, manual, carregar |  |  | X |  |
 | Chaves de política-RSA/certificado, segredos |  |  | X |  |
@@ -131,7 +132,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 
 ### <a name="developer-interface"></a>Interface do desenvolvedor
 
-| Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
+| Funcionalidade | Desenvolvimento | Pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) | Notas |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Portal do Azure-IEF UX |  |  | X |  |
 | Application Insights logs do userjornada |  | X |  | Usado para solução de problemas durante o desenvolvimento.  |

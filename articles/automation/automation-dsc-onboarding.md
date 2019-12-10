@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850334"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951416"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Máquinas de integração para gerenciamento pela configuração de estado da automação do Azure
 
@@ -305,6 +305,15 @@ Você pode obter as informações necessárias para o protocolo de registro de c
 
 Para maior segurança, as chaves de acesso primária e secundária de uma conta de automação podem ser geradas novamente a qualquer momento (na página **gerenciar chaves** ) para evitar registros de nó futuros usando as chaves anteriores.
 
+## <a name="certificate-expiration-and-re-registration"></a>Expiração e novo registro do certificado
+
+Depois de registrar um computador como um nó DSC na configuração de estado da automação do Azure, há várias razões pelas quais você pode precisar registrar novamente esse nó no futuro:
+
+- Para versões do Windows Server anteriores ao Windows Server 2019, cada nó negocia automaticamente um certificado exclusivo para autenticação que expira após um ano. Atualmente, o protocolo de registro DSC do PowerShell não pode renovar automaticamente os certificados quando eles estão se aproximando da expiração, portanto, você precisa registrar novamente os nós após a hora de um ano. Antes de registrar novamente, verifique se cada nó está executando o Windows Management Framework 5,0 RTM. Se o certificado de autenticação de um nó expirar e o nó não for registrado novamente, o nó não poderá se comunicar com a automação do Azure e será marcado como ' sem resposta '. o novo registro realizado em 90 dias ou menos do tempo de expiração do certificado, ou a qualquer momento após o tempo de expiração do certificado, resultará em uma nova geração e uso de um certificado.  Uma resolução para esse problema está incluída no Windows Server 2019 e posterior.
+- Para alterar os [valores de Configuration Manager locais do DSC do PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) que foram definidos durante o registro inicial do nó, como ConfigurationMode. Atualmente, esses valores do agente DSC só podem ser alterados por meio de um novo registro. A única exceção é a configuração de nó atribuída ao nó--isso pode ser alterado no Azure DSC de Automação diretamente.
+
+o novo registro pode ser executado da mesma maneira que você registrou o nó inicialmente, usando qualquer um dos métodos de integração descritos neste documento. Não é necessário cancelar o registro de um nó da configuração de estado da automação do Azure antes de registrá-lo novamente.
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Solucionando problemas de integração de máquina virtual do Azure
 
 A configuração de estado da automação do Azure permite que você integre VMs do Windows do Azure com facilidade para gerenciamento de configuração. Nos bastidores, a extensão de configuração de estado desejado da VM do Azure é usada para registrar a VM com a configuração de estado da automação do Azure. Como a extensão de configuração de estado desejado da VM do Azure é executada de forma assíncrona, acompanhar seu progresso e solucionar problemas de sua execução pode ser importante.
@@ -314,14 +323,7 @@ A configuração de estado da automação do Azure permite que você integre VMs
 
 Para solucionar problemas ou exibir o status da extensão de configuração de estado desejado da VM do Azure, na portal do Azure navegue até a VM que está sendo integrada e clique em **extensões** em **configurações**. Em seguida, clique em **DSC** ou **DSCForLinux** dependendo do seu sistema operacional. Para obter mais detalhes, você pode clicar em **Exibir status detalhado**.
 
-## <a name="certificate-expiration-and-reregistration"></a>Expiração e reregistro do certificado
-
-Depois de registrar um computador como um nó DSC na configuração de estado da automação do Azure, há várias razões pelas quais talvez seja necessário registrar novamente esse nó no futuro:
-
-- Para versões do Windows Server anteriores ao Windows Server 2019, cada nó negocia automaticamente um certificado exclusivo para autenticação que expira após um ano. Atualmente, o protocolo de registro DSC do PowerShell não pode renovar automaticamente os certificados quando eles estão se aproximando da expiração, portanto, você precisa registrar novamente os nós após o horário de um ano. Antes de registrar novamente, verifique se cada nó está executando o Windows Management Framework 5,0 RTM. Se o certificado de autenticação de um nó expirar e o nó não for registrado novamente, o nó não poderá se comunicar com a automação do Azure e será marcado como ' sem resposta '. O novo registro realizado em 90 dias ou menos do tempo de expiração do certificado, ou a qualquer momento após o tempo de expiração do certificado, resultará em uma nova geração e uso do certificado.  Uma resolução para esse problema está incluída no Windows Server 2019 e posterior.
-- Para alterar os [valores de Configuration Manager locais do DSC do PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) que foram definidos durante o registro inicial do nó, como ConfigurationMode. Atualmente, esses valores do agente DSC só podem ser alterados por meio de um novo registro. A única exceção é a configuração de nó atribuída ao nó--isso pode ser alterado no Azure DSC de Automação diretamente.
-
-O novo registro pode ser executado da mesma maneira que você registrou o nó inicialmente, usando qualquer um dos métodos de integração descritos neste documento. Você não precisa cancelar o registro de um nó da configuração de estado da automação do Azure antes de registrá-lo novamente.
+Para obter mais informações sobre solução de problemas, consulte [Solucionando problemas com a configuração de estado desejado (DSC) da automação do Azure](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

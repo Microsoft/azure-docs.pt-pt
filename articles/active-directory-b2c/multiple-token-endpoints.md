@@ -1,5 +1,6 @@
 ---
-title: Migrar APIs Web baseadas em OWIN para b2clogin.com-Azure Active Directory B2C
+title: Migrar APIs Web baseadas em OWIN para b2clogin.com
+titleSuffix: Azure AD B2C
 description: Saiba como habilitar uma API Web .NET para dar suporte a tokens emitidos por vários emissores de token enquanto você migra seus aplicativos para o b2clogin.com.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533760"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950991"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
 
@@ -26,7 +27,7 @@ Ao adicionar suporte em sua API para aceitar tokens emitidos por b2clogin.com e 
 As seções a seguir apresentam um exemplo de como habilitar vários emissores em uma API Web que usa os componentes do [Microsoft OWIN][katana] middleware (Katana). Embora os exemplos de código sejam específicos para o middleware Microsoft OWIN, a técnica geral deve ser aplicável a outras bibliotecas OWIN.
 
 > [!NOTE]
-> Este artigo destina-se a Azure ad B2C clientes com APIs e aplicativos atualmente implantados que fazem referência `login.microsoftonline.com` e que desejam migrar para o ponto de extremidade recomendado. `b2clogin.com` Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
+> Este artigo destina-se a Azure AD B2C clientes com APIs e aplicativos atualmente implantados que fazem referência a `login.microsoftonline.com` e que desejam migrar para o ponto de extremidade recomendado do `b2clogin.com`. Se você estiver configurando um novo aplicativo, use [b2clogin.com](b2clogin.md) como indicado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,16 +43,16 @@ Comece selecionando um dos fluxos de usuário existentes:
 
 1. Navegue até seu locatário do Azure AD B2C no [portal do Azure](https://portal.azure.com)
 1. Em **políticas**, selecione **fluxos de usuário (políticas)**
-1. Selecione uma política existente, por exemplo, *B2C_1_signupsignin1*, em seguida, selecione **executar fluxo de usuário**
+1. Selecione uma política existente, por exemplo *B2C_1_signupsignin1*, em seguida, selecione **executar fluxo de usuário**
 1. No cabeçalho **executar fluxo de usuário** próximo à parte superior da página, selecione o hiperlink para navegar até o ponto de extremidade de descoberta do OpenID Connect para esse fluxo de usuário.
 
     ![Hiperlink de URI conhecido na página executar agora do portal do Azure](media/multi-token-endpoints/portal-01-policy-link.png)
 
-1. Na página que é aberta no navegador, registre o `issuer` valor, por exemplo:
+1. Na página que é aberta no navegador, registre o valor `issuer`, por exemplo:
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-1. Use a lista suspensa **selecionar domínio** para selecionar o outro domínio e, em seguida, execute as duas etapas anteriores novamente e registre `issuer` seu valor.
+1. Use a lista suspensa **selecionar domínio** para selecionar o outro domínio e, em seguida, execute as duas etapas anteriores novamente e Registre seu valor de `issuer`.
 
 Agora você deve ter dois URIs registrados que são semelhantes a:
 
@@ -69,7 +70,7 @@ Se você tiver políticas personalizadas em vez de fluxos de usuário, poderá u
 1. Selecione uma das políticas de terceira parte confiável, por exemplo, *B2C_1A_signup_signin*
 1. Use a lista suspensa **selecionar domínio** para selecionar um domínio, por exemplo, *yourtenant.b2clogin.com*
 1. Selecione o hiperlink exibido em **ponto de extremidade de descoberta do OpenID Connect**
-1. Registrar o `issuer` valor
+1. Registrar o valor de `issuer`
 1. Execute as etapas 4-6 para o outro domínio, por exemplo, *login.microsoftonline.com*
 
 ## <a name="get-the-sample-code"></a>Obter o código de exemplo
@@ -88,10 +89,10 @@ Nesta seção, você atualiza o código para especificar que ambos os pontos de 
 
 1. Abra a solução **B2C-WebAPI-dotnet. sln** no Visual Studio
 1. No projeto **TaskService** , abra o arquivo *TaskService\\App_Start\\**Startup.auth.cs**.* em seu editor
-1. Adicione a seguinte `using` diretiva à parte superior do arquivo:
+1. Adicione a seguinte diretiva `using` à parte superior do arquivo:
 
     `using System.Collections.Generic;`
-1. Adicione a [`ValidIssuers`][validissuers] propriedade [`TokenValidationParameters`][tokenvalidationparameters] à definição e especifique os URIs que você registrou na seção anterior:
+1. Adicione a propriedade [`ValidIssuers`][validissuers] à definição de [`TokenValidationParameters`][tokenvalidationparameters] e especifique os dois URIs que você registrou na seção anterior:
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -106,7 +107,7 @@ Nesta seção, você atualiza o código para especificar que ambos os pontos de 
     };
     ```
 
-`TokenValidationParameters`é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup.auth.cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
+o `TokenValidationParameters` é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup.auth.cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -124,7 +125,7 @@ Agora, com os dois URIs compatíveis com sua API Web, você precisa atualizar se
 
 Por exemplo, você pode configurar o aplicativo Web de exemplo para usar o novo ponto de extremidade `ida:AadInstance` modificando o valor no arquivo *TaskWebApp\\**Web. config**.* do projeto **TaskWebApp** .
 
-Altere o `ida:AadInstance` valor no *Web. config* de TaskWebApp para que ele faça referência `{your-b2c-tenant-name}.b2clogin.com` em vez `login.microsoftonline.com`de.
+Altere o valor de `ida:AadInstance` no *Web. config* de TaskWebApp para que ele referencie `{your-b2c-tenant-name}.b2clogin.com` em vez de `login.microsoftonline.com`.
 
 Antes:
 
@@ -142,7 +143,7 @@ Depois (substitua `{your-b2c-tenant}` pelo nome do seu locatário B2C):
 
 Quando as cadeias de caracteres de ponto de extremidade são construídas durante a execução do aplicativo Web, os pontos de extremidades baseados em b2clogin.com são usados ao solicitar tokens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo apresentou um método de configuração de uma API Web que implementa o Katana (Microsoft OWIN middleware) para aceitar tokens de vários pontos de extremidade do emissor. Como você pode observar, há várias outras cadeias de caracteres nos arquivos *Web. config* dos projetos TaskService e TaskWebApp que precisariam ser alterados se você quiser compilar e executar esses projetos em seu próprio locatário. Você é bem-vindo a modificar os projetos adequadamente se quiser vê-los em ação. no entanto, um passo a passo completo de fazer isso está fora do escopo deste artigo.
 

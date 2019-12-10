@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 74de621f88d9af65f8894319729f902bf11e57ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873017"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951314"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -206,6 +206,10 @@ Se você concluiu com êxito a etapa de autenticação em um navegador da Web, v
 - Verifique se o nome de entrada especificado no prompt do SSH está correto. Uma grafia no nome de entrada pode causar uma incompatibilidade entre o nome de entrada especificado no prompt do SSH e a conta com a qual você entrou no Azure AD. Por exemplo, você digitou *azuresuer\@contoso.onmicrosoft.com* em vez de *azureuser\@contoso.onmicrosoft.com*.
 - Se você tiver várias contas de usuário, certifique-se de não fornecer uma conta de usuário diferente na janela do navegador ao entrar no Azure AD.
 - O Linux é um sistema operacional que diferencia maiúsculas de minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com' e 'azureuser@contoso.onmicrosoft.com', o que pode causar uma incompatibilidade. Certifique-se de especificar o UPN com a diferenciação de maiúsculas e minúsculas correta no prompt do SSH.
+
+### <a name="other-limitations"></a>Outras limitações
+
+Atualmente, os usuários que herdam direitos de acesso por grupos aninhados ou atribuições de função não têm suporte. O usuário ou grupo deve ser atribuído diretamente às [atribuições de função necessárias](#configure-role-assignments-for-the-vm). Por exemplo, o uso de grupos de gerenciamento ou atribuições de função de grupo aninhado não concederá as permissões corretas para permitir que o usuário entre.
 
 ## <a name="preview-feedback"></a>Visualizar comentários
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900343"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941649"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -39,7 +39,7 @@ Siga estes passos.
 > Você deve ser um administrador para executar as etapas a seguir.
 
 1. Baixe esse [script](https://aka.ms/farmbeatspartnerscript)e extraia-o na unidade local. Dois arquivos estão dentro do arquivo zip.
-2. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal. 
+2. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra o Azure Cloud Shell. Essa opção está disponível na barra de ferramentas no canto superior direito do Portal.
 
     ![Barra de ferramentas portal do Azure](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ Siga estes passos.
 
     ![Configuração do PowerShell](./media/for-tutorials/power-shell-new-1.png)
 
-4. Carregue os dois arquivos que você baixou da etapa 1 em sua instância de Cloud Shell. 
+4. Carregue os dois arquivos que você baixou da etapa 1 em sua instância de Cloud Shell.
 
     ![Botão carregar na barra de ferramentas](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ Siga estes passos.
 
    >[!NOTE]
    > Por padrão, os arquivos são carregados para o diretório base/home/username.
-6. Execute o script usando este comando: 
+6. Execute o script usando este comando:
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ Siga estes passos.
 
  Agora que você tem as credenciais necessárias, você pode definir o dispositivo e os sensores. Para fazer isso, crie os metadados usando APIs FarmBeats.
 
- FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor. 
+ FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor.
 
-- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó. 
-- **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm. 
+- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó.
+- **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
 - /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
 - **sensor**de /: o sensor corresponde a um sensor físico que registra valores. Um sensor normalmente é conectado a um dispositivo com uma ID de dispositivo.  
 
@@ -87,7 +87,7 @@ Siga estes passos.
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado.  |
 |  HardwareID          | ID exclusiva para o dispositivo, como o endereço MAC.
-|  reportingInterval        |   Intervalo de relatórios em segundos.
+|  ReportingInterval        |   Intervalo de relatórios em segundos.
 |  Localização            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó que está conectado a um gateway. Um nó tem parentDeviceId como o gateway.  |
 |    Nome            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
@@ -98,7 +98,7 @@ Siga estes passos.
 |          Fabricante            |       O fabricante do sensor.     |
 |     ProductCode| Código do produto ou nome do modelo ou número. Por exemplo, RS-CO2-N01. |
 |       Nome > SensorMeasures       | Nome da medida do sensor. Somente letras minúsculas têm suporte. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Esse nome deve ser consistente com os dados de telemetria.  |
-|          sensorMeasures > DataType       |Tipo de dados Telemétrico. Atualmente, há suporte para Double.|
+|          SensorMeasures > DataType       |Tipo de dados Telemétrico. Atualmente, há suporte para Double.|
 |    Tipo de > SensorMeasures    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API do/ExtendedType.|
 |        Unidade de > SensorMeasures              | Unidade de dados de telemetria do sensor. As unidades definidas pelo sistema são nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour para adicionar mais, consulte a API/ExtendedType.|
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i.  |
@@ -107,7 +107,7 @@ Siga estes passos.
 |   Propriedades       |  Propriedades adicionais do fabricante.  |
 |    **Sensores**      |          |
 | HardwareID          |   ID exclusiva do sensor definido pelo fabricante. |
-|  sensorModelId     |    ID do modelo de sensor associado.   |
+|  SensorModelId     |    ID do modelo de sensor associado.   |
 | Localização          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ter o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado.     |
@@ -269,7 +269,7 @@ Sensores
   }
 }
 ```
-A solicitação de exemplo a seguir cria um dispositivo. Esta solicitação tem um JSON de entrada como carga com o corpo da solicitação. 
+A solicitação de exemplo a seguir cria um dispositivo. Esta solicitação tem um JSON de entrada como carga com o corpo da solicitação.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ Você deve enviar a telemetria para os hubs de eventos do Azure para processamen
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Enviar uma mensagem de telemetria como o cliente
 
-Depois de ter uma conexão estabelecida como um cliente de hubs de eventos, você pode enviar mensagens para o Hub de eventos como JSON. 
+Depois de ter uma conexão estabelecida como um cliente de hubs de eventos, você pode enviar mensagens para o Hub de eventos como JSON.
 
 Aqui está o código Python de exemplo que envia a telemetria como um cliente para um hub de eventos especificado:
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte: 
+Converta o formato de dados do sensor histórico em um formato canônico que o FarmBeats do Azure entenda. O formato de mensagem canônica é o seguinte:
 
 ```json
 {

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: f2a153b1eef974c8c73df49a6eed53ef5dbf2353
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 12/06/2019
+ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076219"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951858"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar o Apache Sqoop com Hadoop no HDInsight
 
@@ -33,7 +33,7 @@ Para versões do Sqoop com suporte em clusters HDInsight, consulte [novidades na
 
 O cluster HDInsight vem com alguns dados de exemplo. Você usa os dois exemplos a seguir:
 
-* Um arquivo de log do Apache Log4J, que está `/example/data/sample.log`localizado em. Os seguintes logs são extraídos do arquivo:
+* Um arquivo de log do Apache Log4J, localizado em `/example/data/sample.log`. Os seguintes logs são extraídos do arquivo:
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -42,18 +42,18 @@ O cluster HDInsight vem com alguns dados de exemplo. Você usa os dois exemplos 
 ...
 ```
 
-* Uma tabela do hive `hivesampletable`denominada, que faz referência ao arquivo `/hive/warehouse/hivesampletable`de dados localizado em. A tabela contém alguns dados de dispositivo móvel.
+* Uma tabela do hive chamada `hivesampletable`, que faz referência ao arquivo de dados localizado em `/hive/warehouse/hivesampletable`. A tabela contém alguns dados de dispositivo móvel.
   
-  | Campo | Tipo de dados |
+  | Campo | Data type |
   | --- | --- |
-  | ClientID |Cadeia de caracteres |
-  | querytime |Cadeia de caracteres |
-  | Anunciar |Cadeia de caracteres |
-  | deviceplatform |Cadeia de caracteres |
-  | devicemake |Cadeia de caracteres |
-  | devicemodel |Cadeia de caracteres |
-  | state |Cadeia de caracteres |
-  | país |Cadeia de caracteres |
+  | ClientID |string |
+  | querytime |string |
+  | anunciar |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | país |string |
   | querydwelltime |double |
   | SessionID |bigint |
   | sessionpagevieworder |bigint |
@@ -61,7 +61,8 @@ O cluster HDInsight vem com alguns dados de exemplo. Você usa os dois exemplos 
 Neste artigo, você usará esses dois conjuntos de valores para testar a importação e exportação do Sqoop.
 
 ## <a name="create-cluster-and-sql-database"></a>Configurar ambiente de teste
-O cluster, o banco de dados SQL e outros objetos são criados por meio do portal do Azure usando um modelo de Azure Resource Manager. O modelo pode ser encontrado nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Resource Manager chama um pacote bacpac para implantar os esquemas de tabela em um banco de dados SQL.  O pacote bacpac está localizado em um contêiner de blob público https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac,. Se você quiser usar um contêiner privado para os arquivos bacpac, use os seguintes valores no modelo:
+
+O cluster, o banco de dados SQL e outros objetos são criados por meio do portal do Azure usando um modelo de Azure Resource Manager. O modelo pode ser encontrado nos [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). O modelo do Resource Manager chama um pacote bacpac para implantar os esquemas de tabela em um banco de dados SQL.  O pacote bacpac está localizado em um contêiner de blob público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner privado para os arquivos bacpac, use os seguintes valores no modelo:
 
 ```json
 "storageKeyType": "Primary",
@@ -77,24 +78,24 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
 
 2. Introduza as seguintes propriedades:
 
-    |Campo |Value |
+    |Campo |Valor |
     |---|---|
-    |Subscription |Selecione sua assinatura do Azure na lista suspensa.|
-    |Resource group |Selecione o grupo de recursos na lista suspensa ou crie um novo|
-    |Location |Selecione uma região na lista suspensa.|
-    |Nome do Cluster |Introduza um nome para o cluster do Hadoop. Use somente letra minúscula.|
-    |Nome de Utilizador de Início de Sessão do Cluster |Mantenha o valor `admin`preenchido previamente.|
+    |Subscrição |Selecione sua assinatura do Azure na lista suspensa.|
+    |Grupo de recursos |Selecione o grupo de recursos na lista suspensa ou crie um novo|
+    |Localização |Selecione uma região na lista suspensa.|
+    |Nome do cluster |Introduza um nome para o cluster do Hadoop. Use somente letra minúscula.|
+    |Nome de Utilizador de Início de Sessão do Cluster |Mantenha o valor previamente preenchido `admin`.|
     |Palavra-passe de Início de Sessão do Cluster |Insira uma senha.|
-    |Nome de usuário SSH |Mantenha o valor `sshuser`preenchido previamente.|
+    |Nome de usuário SSH |Mantenha o valor previamente preenchido `sshuser`.|
     |Senha ssh |Insira uma senha.|
-    |Logon de administrador do SQL |Mantenha o valor `sqluser`preenchido previamente.|
+    |Logon de administrador do SQL |Mantenha o valor previamente preenchido `sqluser`.|
     |Senha de administrador do SQL |Insira uma senha.|
-    |Local _artifacts | Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac em um local diferente.|
+    |_artifacts local | Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac em um local diferente.|
     |Token SAS do local _artifacts |Deixe em branco.|
     |Nome do arquivo Bacpac |Use o valor padrão, a menos que você queira usar seu próprio arquivo bacpac.|
-    |Location |Utilize o valor predefinido.|
+    |Localização |Utilize o valor predefinido.|
 
-    O nome do SQL Server do Azure `<ClusterName>dbserver`será. O nome do banco de `<ClusterName>db`dados será. O nome da conta de armazenamento padrão `e6qhezrh2pdqu`será.
+    O nome do SQL Server do Azure será `<ClusterName>dbserver`. O nome do banco de dados será `<ClusterName>db`. O nome da conta de armazenamento padrão será `e6qhezrh2pdqu`.
 
 3. Selecione **concordo com os termos e condições declarados acima**.
 
@@ -108,16 +109,17 @@ O HDInsight pode executar trabalhos do Sqoop usando uma variedade de métodos. U
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, UNIX, Mac OS X ou Windows |
 | [.NET SDK para Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (por enquanto) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
+| [O Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
 ## <a name="limitations"></a>Limitações
 
 * Exportação em massa-com o HDInsight baseado em Linux, o conector do Sqoop usado para exportar dados para o Microsoft SQL Server ou o Azure SQL Database não oferece suporte a inserções em massa no momento.
-* Envio em lote com o HDInsight baseado em Linux, ao usar `-batch` a opção ao executar inserções, o Sqoop executa várias inserções em vez de realizar o envio em lote das operações de inserção.
+* Envio em lote com o HDInsight baseado em Linux, ao usar a opção de `-batch` ao executar inserções, o Sqoop executa várias inserções em vez de fazer o lote das operações de inserção.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Agora você aprendeu a usar o Sqoop. Para saber mais, consulte:
 
 * [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)
-* [Usar o Apache Pig com o HDInsight](../hdinsight-use-pig.md)
-* [Carregar dados no HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para carregar dados no HDInsight/armazenamento de BLOBs do Azure.
+* [Carregar dados no hdinsight](../hdinsight-upload-data.md): Encontre outros métodos para carregar dados no hdinsight/armazenamento de BLOBs do Azure.
+* [Utilizar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e a Base de Dados SQL](./apache-hadoop-use-sqoop-mac-linux.md)

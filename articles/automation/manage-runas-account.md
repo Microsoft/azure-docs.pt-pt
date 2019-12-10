@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849535"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951382"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da automação do Azure
 
@@ -67,7 +67,7 @@ Para configurar ou renovar contas Executar como clássicas, você deve ter a fun
 Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure. Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+2. Em portal do Azure, procure e selecione **contas de automação**.
 3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
 4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.
 5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.
@@ -86,7 +86,7 @@ A lista a seguir fornece os requisitos para criar uma conta Executar como no Pow
 
 Para obter os valores de *SubscriptionId*, *resourcegroup*e *AutomationAccountName*, que são parâmetros necessários para o script, conclua as seguintes etapas:
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+1. Em portal do Azure, procure e selecione **contas de automação**.
 1. Na página da conta de Automatização, selecione a sua conta de Automatização e, em **Definições da Conta** selecione **Propriedades**.
 1. Observe os valores de **ID da assinatura**, **nome**e **grupo de recursos** na página **Propriedades** .
 

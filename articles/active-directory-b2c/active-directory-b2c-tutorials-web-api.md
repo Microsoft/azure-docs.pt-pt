@@ -1,5 +1,6 @@
 ---
-title: Tutorial-conceder acesso a uma API Web do ASP.NET-Azure Active Directory B2C
+title: 'Tutorial: conceder acesso a uma API Web do ASP.NET'
+titleSuffix: Azure AD B2C
 description: Tutorial sobre como usar Active Directory B2C para proteger uma API Web ASP.NET e chamá-la de um aplicativo Web ASP.NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cd2eff7e3fafc1a6f3418a1f86629cfb1584e89
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f9f773beb679b4f31e2b735fd0d74fc1b5dae2dd
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641757"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950169"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: conceder acesso a uma API Web do ASP.NET usando Azure Active Directory B2C
 
@@ -43,11 +44,11 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
-5. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
+5. Introduza um nome para a aplicação. Por exemplo, *webapi1*.
 6. Para **incluir aplicativo Web/API Web**, selecione **Sim**.
 7. Para **URL de resposta**, insira um ponto de extremidade onde Azure ad B2C deve retornar quaisquer tokens que seu aplicativo solicitar. Neste tutorial, o exemplo é executado localmente e escuta em `https://localhost:44332`.
 8. Para **URI da ID do aplicativo**, insira o identificador usado para sua API Web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
@@ -56,7 +57,7 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
 1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.
@@ -144,7 +145,7 @@ Tem de executar os dois projetos, **TaskWebApp** e **TaskService**.
 1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** .
 1. Selecione **vários projetos de inicialização**.
 1. Altere a **Ação** em ambos os projetos para **Iniciar**.
-1. Clique em **OK** para salvar a configuração.
+1. Clique em **OK** para guardar a configuração.
 1. Prima **F5** para executar as duas aplicações. Cada aplicativo é aberto em sua própria janela do navegador.
     * `https://localhost:44316/` é o aplicativo Web.
     * `https://localhost:44332/` é a API Web.

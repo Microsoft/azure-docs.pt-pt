@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383396"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951824"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -21,7 +21,7 @@ Este artigo fornece uma visão geral das cotas padrão oferecidas a diferentes r
 
 Depois de criar uma conta do Azure Cosmos em sua assinatura, você pode gerenciar os dados em sua conta [Criando bancos de dados, contêineres e itens](databases-containers-items.md). Você pode provisionar a taxa de transferência em um nível de contêiner ou em um nível de banco de dados em termos de [unidades de solicitação (ru/s ou RUs)](request-units.md). A tabela a seguir lista os limites de armazenamento e taxa de transferência por contêiner/banco de dados.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | RUs máxima por contêiner ([modo de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
 | RUs máxima por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) |
@@ -50,7 +50,7 @@ A taxa de transferência atual e mínima de um contêiner ou de um banco de dado
 
 Em resumo, aqui estão os limites mínimos de RU provisionados. 
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | RUs mínima por contêiner ([modo de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | RUs mínima por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
@@ -62,7 +62,7 @@ O Cosmos DB dá suporte ao ajuste elástico de taxa de transferência (RUs) por 
 
 Você pode [provisionar e gerenciar sua conta do Azure Cosmos](how-to-manage-database-account.md) usando os modelos portal do Azure, Azure PowerShell, CLI do Azure e Azure Resource Manager. A tabela a seguir lista os limites por assinatura, conta e número de operações.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Máximo de contas de banco de dados por assinatura | 50 por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
 | Número máximo de failovers regionais | 1/hora por padrão. Você pode aumentá-lo ao [arquivar um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)|
@@ -74,7 +74,7 @@ Cosmos DB automaticamente faz backups de seus dados em intervalos regulares. Par
 
 ## <a name="per-account-limits"></a>Limites por conta
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Número máximo de bancos de dados | Ilimitado |
 | Número máximo de contêineres por banco de dados (ou conta) | Ilimitado |
@@ -84,7 +84,7 @@ Cosmos DB automaticamente faz backups de seus dados em intervalos regulares. Par
 
 Dependendo de qual API você usa, um contêiner Cosmos do Azure pode representar uma coleção, uma tabela ou um grafo. Os contêineres dão suporte a configurações para [restrições de chave exclusiva](unique-keys.md), [procedimentos armazenados, gatilhos e UDFs](stored-procedures-triggers-udfs.md)e [política de indexação](how-to-manage-indexing-policy.md). A tabela a seguir lista os limites específicos para as configurações dentro de um contêiner. 
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Comprimento máximo do banco de dados ou nome do contêiner | 255 |
 | Máximo de procedimentos armazenados por contêiner | 100 <sup>*</sup>|
@@ -99,7 +99,7 @@ Dependendo de qual API você usa, um contêiner Cosmos do Azure pode representar
 
 Dependendo de qual API você usa, um item Cosmos do Azure pode representar um documento em uma coleção, uma linha em uma tabela ou um nó ou borda em um grafo. A tabela a seguir mostra os limites por item em Cosmos DB. 
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Tamanho máximo de um item | 2 MB (comprimento UTF-8 da representação JSON) |
 | Comprimento máximo do valor de chave de partição | 2048 bytes |
@@ -115,19 +115,20 @@ Não há restrições sobre as cargas de item, como o número de propriedades e 
 
 ## <a name="per-request-limits"></a>Limites por solicitação
 
-O Cosmos DB dá suporte a [operações CRUD e de consulta](https://docs.microsoft.com/rest/api/cosmos-db/) em recursos como contêineres, itens e bancos de dados.  
+O Azure Cosmos DB dá suporte a [operações CRUD e de consulta](https://docs.microsoft.com/rest/api/cosmos-db/) em recursos como contêineres, itens e bancos de dados. Ele também dá suporte a [solicitações em lote transacionais](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) em vários itens com a mesma chave de partição em um contêiner.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Tempo máximo de execução para uma única operação (como uma execução de procedimento armazenado ou uma única recuperação de página de consulta)| 5 s |
-| Tamanho máximo da solicitação (procedimento armazenado, CRUD)| 2 MB |
+| Tamanho máximo da solicitação (por exemplo, procedimento armazenado, CRUD)| 2 MB |
 | Tamanho máximo da resposta (por exemplo, consulta paginada) | 4 MB |
+| Número máximo de operações em um lote transacional | 100 |
 
 Quando uma operação como consulta atinge o tempo limite de execução ou o limite de tamanho de resposta, ela retorna uma página de resultados e um token de continuação para o cliente para retomar a execução. Não há nenhum limite prático na duração de uma única consulta pode ser executada em páginas/continuações.
 
 Cosmos DB usa HMAC para autorização. Você pode usar uma chave mestra ou [tokens de recurso](secure-access-to-data.md) para controle de acesso refinado a recursos como contêineres, chaves de partição ou itens. A tabela a seguir lista os limites para tokens de autorização no Cosmos DB.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Tempo máximo de expiração do token mestre | 15 min  |
 | Tempo de expiração do token de recurso mínimo | 10 min  |
@@ -144,7 +145,7 @@ Confira o artigo [AutoPilot](provision-throughput-autopilot.md#autopilot-limits)
 
 Cosmos DB dá suporte à consulta de itens usando [SQL](how-to-sql-query.md). A tabela a seguir descreve as restrições nas instruções de consulta, por exemplo, em termos de número de cláusulas ou comprimento de consulta.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Comprimento máximo da consulta SQL| 256 KB <sup>*</sup>|
 | Máximo de junções por consulta| 5 <sup>*</sup>|
@@ -162,7 +163,7 @@ O Cosmos DB dá suporte ao protocolo de transmissão do MongoDB para aplicativos
 
 A tabela a seguir lista os limites específicos para o suporte a recursos do MongoDB. Outros limites de serviço mencionados para a API do SQL (núcleo) também se aplicam à API do MongoDB.
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Tamanho máximo de memória de consulta do MongoDB | 40 MB |
 | Tempo máximo de execução para operações do MongoDB| 30s |
@@ -171,7 +172,7 @@ A tabela a seguir lista os limites específicos para o suporte a recursos do Mon
 
 A tabela a seguir lista os limites para o [Azure Cosmos DB de teste para avaliação gratuita](https://azure.microsoft.com/try/cosmosdb/) .
 
-| Resource | Limite predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Duração da avaliação | 30 dias (pode ser renovado várias vezes) |
 | Máximo de contêineres por assinatura (SQL, Gremlin, API de Tabela) | 1 |
@@ -182,7 +183,7 @@ A tabela a seguir lista os limites para o [Azure Cosmos DB de teste para avalia�
 
 Tente Cosmos DB dá suporte à distribuição global somente nas regiões EUA Central, Europa Setentrional e sudeste asiático. Tíquetes de suporte do Azure não podem ser criados para contas try Azure Cosmos DB. No entanto, o suporte é fornecido para assinantes com planos de suporte existentes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os conceitos principais do Cosmos DB a [distribuição global](distribute-data-globally.md) e o [particionamento](partitioning-overview.md) e a [taxa de transferência provisionada](request-units.md).
 

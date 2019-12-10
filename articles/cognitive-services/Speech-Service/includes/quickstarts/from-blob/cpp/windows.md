@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 313332689b0f2df9698f868297c72be7d8bde5bb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 54c6f920b581a0bbd00910a3b3ddeebecdbb595f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828869"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954908"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,13 +65,18 @@ Vá em frente e coloque suas declarações antes de `recognizeSpeech`.
 
 ## <a name="create-and-configure-an-http-client"></a>Criar e configurar um cliente http
 A primeira coisa que precisaremos é de um cliente http que tenha uma URL base correta e um conjunto de autenticação.
-Insira este código em `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
+Inserir este código em `recognizeSpeech`
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Gerar uma solicitação de transcrição
-Em seguida, geraremos a solicitação de transcrição. Adicione este código a `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
+Em seguida, geraremos a solicitação de transcrição. Adicione este código a `recognizeSpeech`
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Enviar a solicitação e verificar seu status
 Agora, lançamos a solicitação para o serviço de fala e verificamos o código de resposta inicial. Esse código de resposta simplesmente indicará se o serviço recebeu a solicitação. O serviço retornará uma URL nos cabeçalhos de resposta que é o local onde ele armazenará o status de transcrição.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a conclusão da transcrição
@@ -80,16 +85,20 @@ Como o serviço processa a transcrição de forma assíncrona, precisamos Pesqui
 Podemos verificar o status recuperando o conteúdo na URL que recebemos quando o postou a solicitação. Quando obtemos o conteúdo de volta, desserializamos-o em uma de nossas classes auxiliares para facilitar a interação com o.
 
 Aqui está o código de sondagem com o status exibição para tudo, exceto uma conclusão bem-sucedida, faremos isso em seguida.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=222-245,285-299)]
 
 ## <a name="display-the-transcription-results"></a>Exibir os resultados da transcrição
 Depois que o serviço tiver concluído com êxito a transcrição, os resultados serão armazenados em outra URL que pode ser obtida da resposta de status.
 
 Vamos baixar o conteúdo dessa URL, desserializar o JSON e fazer um loop pelos resultados imprimindo o texto de exibição à medida que vamos.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## <a name="check-your-code"></a>Verifique seu código
-Neste ponto, seu código deve ter esta aparência: (adicionamos alguns comentários a esta versão) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
+Neste ponto, seu código deve ter a seguinte aparência: (adicionamos alguns comentários a esta versão)
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar seu aplicativo
 

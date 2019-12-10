@@ -1,5 +1,6 @@
 ---
-title: Personalizar a interface do usuário no Azure Active Directory B2C
+title: Personalizar a interface de utilizador
+titleSuffix: Azure AD B2C
 description: Saiba como personalizar a interface do usuário para seus aplicativos que usam Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258175"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949411"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ A identidade visual e a personalização da interface do usuário que o Azure Ac
 
 Há várias maneiras de personalizar a interface do usuário de seu aplicativo, cada um apropriado para cenários diferentes.
 
-### <a name="user-flows"></a>Fluxos de utilizador
+### <a name="user-flows"></a>Fluxos do utilizador
 
 Se você usar [fluxos de usuário](active-directory-b2c-reference-policies.md), poderá alterar a aparência de suas páginas de fluxo de usuário usando modelos de *layout de página*internos ou usando seu próprio HTML e CSS. Os dois métodos são discutidos posteriormente neste artigo.
 
@@ -57,7 +58,7 @@ Em **Personalizar** no menu à esquerda, selecione **layouts de página** e, em 
 
 Em seguida, selecione um modelo na lista. Aqui estão exemplos das páginas de entrada para cada modelo:
 
-| Azul Oceano | Cinzento Escuro | Clássica |
+| Azul-marinho | Cinza-acinzentado | Clássico |
 |:-:|:-:|:-:|
 |![Exemplo do modelo azul do oceano renderizado na página de entrada de inscrição](media/customize-ui-overview/template-ocean-blue.png)|![Exemplo do modelo cinza-acinzentado renderizado na página de entrada de inscrição](media/customize-ui-overview/template-slate-gray.png)|![Exemplo do modelo clássico renderizado na página de entrada de inscrição](media/customize-ui-overview/template-classic.png)|
 
@@ -90,7 +91,7 @@ O ponto importante é que você hospeda o conteúdo em um ponto de extremidade H
 
 Comece a usar seu próprio HTML e CSS em suas páginas de experiência do usuário seguindo estas diretrizes.
 
-- Crie conteúdo HTML bem formado com um elemento vazio `<div id="api"></div>` localizado `<body>`em algum lugar no. Esse elemento marca onde o conteúdo do Azure AD B2C é inserido. O exemplo a seguir mostra uma página mínima:
+- Crie conteúdo HTML bem formado com um elemento de `<div id="api"></div>` vazio localizado em algum lugar na `<body>`. Esse elemento marca onde o conteúdo do Azure AD B2C é inserido. O exemplo a seguir mostra uma página mínima:
 
     ```html
     <!DOCTYPE html>
@@ -136,7 +137,7 @@ Comece a usar seu próprio HTML e CSS em suas páginas de experiência do usuár
 
 ### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmentos de HTML do Azure AD B2C
 
-A tabela a seguir lista os fragmentos HTML que Azure ad B2C mescla `<div id="api"></div>` no elemento localizado em seu conteúdo.
+A tabela a seguir lista os fragmentos HTML que Azure AD B2C mescla no elemento `<div id="api"></div>` localizado em seu conteúdo.
 
 | Página inserida | Descrição do HTML |
 | ------------- | ------------------- |
@@ -144,14 +145,14 @@ A tabela a seguir lista os fragmentos HTML que Azure ad B2C mescla `<div id="api
 | Inscrição na conta local | Contém um formulário para a inscrição de conta local com base em um endereço de email ou um nome de usuário. O formulário pode conter diferentes controles de entrada, como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
 | Inscrição em conta social | Pode aparecer ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou o Google. Ele é usado quando informações adicionais devem ser coletadas do cliente usando um formulário de inscrição. |
 | Inscrição ou entrada unificada | O lida com a inscrição e a entrada de clientes que podem usar provedores de identidade social, como Facebook, Google ou contas locais. |
-| Multi-Factor Authentication | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
+| Autenticação multifator | Os clientes podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
 
 ## <a name="localize-content"></a>Conteúdo de localização
 
-Você localiza o conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário Azure ad B2C. Habilitar esse recurso permite que Azure ad B2C encaminhe o parâmetro `ui-locales` OpenID Connect para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Você localiza o conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário Azure ad B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui-locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
 
-O conteúdo pode ser extraído de locais diferentes com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará o correto se usar o valor `{Culture:RFC5646}`de curinga.
+O conteúdo pode ser extraído de locais diferentes com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará o correto se usar o valor de curinga `{Culture:RFC5646}`.
 
 Por exemplo, o URI da página personalizada pode ser semelhante a:
 

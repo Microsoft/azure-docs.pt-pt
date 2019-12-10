@@ -1,6 +1,7 @@
 ---
-title: Exemplos de API relatórios de utilização e as definições no Azure Active Directory B2C | Documentos da Microsoft
-description: Guia e exemplos sobre como obter relatórios no inquilino do Azure AD B2C, os utilizadores, as autenticações e autenticações multi-factor Authentication.
+title: Exemplos e definições da API de relatório de uso
+titleSuffix: Azure AD B2C
+description: Guia e exemplos sobre como obter relatórios sobre usuários Azure AD B2C locatários, autenticações e autenticações multifator.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,38 +11,38 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508719"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949343"
 ---
-# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Aceder a relatórios de utilização no Azure AD B2C através da API de geração de relatórios
+# <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acessando relatórios de uso em Azure AD B2C por meio da API de relatórios
 
-O Azure Active Directory B2C (Azure AD B2C) fornece autenticação com base em sessão do utilizador e o Azure multi-factor Authentication. Autenticação é fornecida para os utilizadores finais da sua família de aplicativo entre fornecedores de identidade. Quando sabe o número de utilizadores registado no inquilino, os fornecedores que são utilizadas para registar e o número de autenticações por tipo, pode responder a perguntas como:
-* O número de utilizadores de cada tipo de fornecedor de identidade (por exemplo, uma conta Microsoft ou LinkedIn) tê registado nos últimos 10 dias?
-* Quantos autenticações com multi-factor Authentication foram concluídas com êxito no último mês?
-* Autenticações de início de sessão no-com base em quantos foram concluídas deste mês? Por dia? Por aplicação?
-* Como posso estimar o custo mensal esperado da minha atividade de inquilino do Azure AD B2C?
+O Azure Active Directory B2C (Azure AD B2C) fornece autenticação com base na entrada do usuário e na autenticação multifator do Azure. A autenticação é fornecida para usuários finais da família de aplicativos em provedores de identidade. Quando você sabe o número de usuários registrados no locatário, os provedores que eles usaram para se registrar e o número de autenticações por tipo, você pode responder a perguntas como:
+* Quantos usuários de cada tipo de provedor de identidade (por exemplo, uma conta da Microsoft ou do LinkedIn) se registraram nos últimos 10 dias?
+* Quantas autenticações que usam a autenticação multifator foram concluídas com êxito no último mês?
+* Quantas autenticações baseadas em entrada foram concluídas neste mês? Por dia? Por aplicativo?
+* Como posso estimar o custo mensal esperado de minha atividade de locatário do Azure AD B2C?
 
-Este artigo se concentra em relatórios vinculados a atividade de faturação, o que é baseada no número de utilizadores, autenticações de início de sessão no-com base em cobrar e autenticações multi-factor Authentication.
+Este artigo se concentra em relatórios vinculados à atividade de cobrança, que se baseia no número de usuários, autenticações faturáveis baseadas em entrada e autenticações multifator.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, terá de executar os passos descritos [pré-requisitos para aceder a APIs de relatórios do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Criar uma aplicação, obter um segredo para ele e conceder acesso direitos para relatórios do seu inquilino do Azure AD B2C. *Script de bash* e *script de Python* também são fornecidos exemplos aqui. 
+Antes de começar, você precisa concluir as etapas em [pré-requisitos para acessar as APIs de relatório do Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Crie um aplicativo, obtenha um segredo para ele e conceda a ele direitos de acesso a seus relatórios de Azure AD B2C locatário. *Scripts bash* e exemplos de *script Python* também são fornecidos aqui.
 
 ## <a name="powershell-script"></a>Script do PowerShell
-Este script demonstra a criação de relatórios de utilização de quatro, utilizando o `TimeStamp` parâmetro e o `ApplicationId` filtro.
+Esse script demonstra a criação de quatro relatórios de uso usando o parâmetro `TimeStamp` e o filtro `ApplicationId`.
 
 ```powershell
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
@@ -96,33 +97,33 @@ if ($oauth.access_token -ne $null) {
 ```
 
 
-## <a name="usage-report-definitions"></a>Definições de relatórios de utilização
-* **tenantUserCount**: O número de utilizadores no inquilino por tipo de fornecedor de identidade, por dia nos últimos 30 dias. (Opcionalmente, um `TimeStamp` filtro fornece contagens de utilizadores a partir de uma data especificada para a data atual). O relatório fornece:
-  * **TotalUserCount**: O número de todos os objetos de utilizador.
-  * **OtherUserCount**: O número de utilizadores do Azure Active Directory (não os utilizadores do Azure AD B2C).
-  * **LocalUserCount**: O número de contas de utilizador do Azure AD B2C criado com as credenciais locais para o inquilino do Azure AD B2C.
+## <a name="usage-report-definitions"></a>Definições de relatório de uso
+* **tenantUserCount**: o número de usuários no locatário por tipo de provedor de identidade, por dia nos últimos 30 dias. (Opcionalmente, um filtro de `TimeStamp` fornece contagens de usuário de uma data especificada para a data atual). O relatório fornece:
+  * **TotalUserCount**: o número de todos os objetos de usuário.
+  * **OtherUserCount**: o número de usuários Azure Active Directory (não Azure ad B2C usuários).
+  * **LocalUserCount**: o número de contas de usuário Azure ad B2C criadas com credenciais locais para o locatário Azure ad B2C.
 
-* **AlternateIdUserCount**: O número de utilizadores do Azure AD B2C registado com fornecedores de identidade externo (por exemplo, Facebook, uma conta Microsoft ou outro inquilino do Azure Active Directory, também conhecido como um `OrgId`).
+* **AlternateIdUserCount**: o número de Azure ad B2C usuários registrados com provedores de identidade externos (por exemplo, Facebook, um conta Microsoft ou outro locatário Azure Active Directory, também conhecido como um `OrgId`).
 
-* **b2cAuthenticationCountSummary**: Resumo do número diário de autenticações cobrar nos últimos 30 dias, por dia e o tipo de fluxo de autenticação.
+* **b2cAuthenticationCountSummary**: Resumo do número diário de autenticações faturáveis nos últimos 30 dias, por dia e tipo de fluxo de autenticação.
 
-* **b2cAuthenticationCount**: O número de autenticações num período de tempo. A predefinição é 30 últimos dias.  (Opcional: O início e fim `TimeStamp` parâmetros definem um período de tempo específico.) A saída inclui `StartTimeStamp` (data mais antiga da atividade para este inquilino) e `EndTimeStamp` (atualização mais recente).
+* **b2cAuthenticationCount**: o número de autenticações em um período de tempo. O padrão é os últimos 30 dias.  (Opcional: os parâmetros de `TimeStamp` inicial e final definem um período de tempo específico.) A saída inclui `StartTimeStamp` (primeira data de atividade para esse locatário) e `EndTimeStamp` (atualização mais recente).
 
-* **b2cMfaRequestCountSummary**: Resumo do número diário de autenticações multifatores, por dia e o tipo (SMS ou voz).
+* **b2cMfaRequestCountSummary**: Resumo do número diário de autenticações multifator, por dia e tipo (SMS ou voz).
 
 
 ## <a name="limitations"></a>Limitações
-Dados de contagem de utilizador são atualizados a cada 24 para 48 horas. Autenticações são atualizadas várias vezes ao dia. Ao utilizar o `ApplicationId` filtro, uma resposta de relatório vazio pode ser devido a uma das seguintes condições:
-  * O ID da aplicação não existe no inquilino. Certifique-se de que está correto.
-  * O ID de aplicação existe, mas não foram encontrados dados no período de criação de relatórios. Reveja os parâmetros de data/hora.
+Os dados de contagem de usuários são atualizados a cada 24 a 48 horas. As autenticações são atualizadas várias vezes por dia. Ao usar o filtro de `ApplicationId`, uma resposta de relatório vazia pode ser devido a uma das seguintes condições:
+  * A ID do aplicativo não existe no locatário. Verifique se está correto.
+  * A ID do aplicativo existe, mas nenhum dado foi encontrado no período de relatório. Examine os parâmetros de data/hora.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-### <a name="monthly-bill-estimates-for-azure-ad"></a>As estimativas de fatura mensal do Azure AD
-Quando combinado com [a mais recente do Azure AD B2C estão disponíveis preços](https://azure.microsoft.com/pricing/details/active-directory-b2c/), pode fazer uma estimativa diárias, semanal e mensal de consumo do Azure.  Uma estimativa é especialmente útil quando planear de alterações de comportamento de inquilino que podem afetar o custo geral. Pode rever os custos reais no seu [subscrição do Azure associada](active-directory-b2c-how-to-enable-billing.md).
+## <a name="next-steps"></a>Passos seguintes
+### <a name="monthly-bill-estimates-for-azure-ad"></a>Estimativas de cobrança mensal para o Azure AD
+Quando combinado com [os preços de Azure ad B2C mais atuais disponíveis](https://azure.microsoft.com/pricing/details/active-directory-b2c/), você pode estimar o consumo diário, semanal e mensal do Azure.  Uma estimativa é especialmente útil quando você planeja alterações no comportamento do locatário que podem afetar o custo geral. Você pode examinar os custos reais em sua [assinatura do Azure vinculada](active-directory-b2c-how-to-enable-billing.md).
 
 ### <a name="options-for-other-output-formats"></a>Opções para outros formatos de saída
-O código seguinte mostra exemplos de enviar a saída para JSON, uma lista de valores de nome e XML:
+O código a seguir mostra exemplos de envio de saída para JSON, uma lista de valores de nome e XML:
 ```powershell
 # to output to JSON use following line in the PowerShell sample
 $myReport.Content | Out-File -FilePath name-your-file.json -Force

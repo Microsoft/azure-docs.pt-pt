@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241626"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951790"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizado de máquina no HDInsight
 
@@ -21,7 +21,7 @@ O HDInsight permite o aprendizado de máquina com o Big Data, fornecendo a capac
 
 ## <a name="sparkml-and-mllib"></a>SparkML e MLlib
 
-O [HDInsight Spark](spark/apache-spark-overview.md) é uma oferta do [Apache Spark](https://spark.apache.org/)hospedada pelo Azure, uma estrutura de processamento de dados paralela, unificada e de código aberto que dá suporte ao processamento na memória para impulsionar Big data Analytics. O mecanismo de processamento do Spark foi criado para velocidade, facilidade de uso e análise sofisticada. Os recursos de computação distribuída na memória do Spark fazem dele uma boa escolha para os algoritmos iterativos usados em cálculos de grafo e de aprendizado de máquina. Há duas bibliotecas de aprendizado de máquina escalonáveis que trazem recursos de modelagem de algoritmos para esse ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base em RDDs. O SparkML é um pacote mais recente que fornece uma API de nível superior criada com base em dataframes para construir pipelines ML. O SparkML ainda não dá suporte a todos os recursos do MLlib, mas substitui o MLlib como a biblioteca de aprendizado de máquina padrão do Spark.
+O [HDInsight Spark](spark/apache-spark-overview.md) é uma oferta do [Apache Spark](https://spark.apache.org/)hospedada pelo Azure, uma estrutura de processamento de dados paralela, unificada e de código aberto que dá suporte ao processamento na memória para impulsionar Big data Analytics. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. Há duas bibliotecas de aprendizado de máquina escalonáveis que trazem recursos de modelagem de algoritmos para esse ambiente distribuído: MLlib e SparkML. MLlib contém a API original criada com base em RDDs. O SparkML é um pacote mais recente que fornece uma API de nível superior criada com base em dataframes para construir pipelines ML. O SparkML ainda não dá suporte a todos os recursos do MLlib, mas substitui o MLlib como a biblioteca de aprendizado de máquina padrão do Spark.
 
 A biblioteca do Microsoft Machine Learning para Apache Spark é [MMLSpark](https://github.com/Azure/mmlspark). Essa biblioteca foi projetada para tornar os cientistas de dados mais produtivos no Spark, aumentar a taxa de experimentação e aproveitar as técnicas de aprendizado de máquina de ponta, incluindo aprendizado profundo, em conjuntos de dados muito grandes. O MMLSpark fornece uma camada sobre as APIs de baixo nível do SparkML ao criar modelos de ML escalonáveis, como a indexação de cadeias de caracteres, a coerção de dados em um layout esperado pelos algoritmos de aprendizado de máquina e a montagem de vetores de recursos. A biblioteca MMLSpark simplifica essas e outras tarefas comuns para a criação de modelos no PySpark.
 
@@ -31,13 +31,13 @@ O [R](https://www.r-project.org/) é atualmente a linguagem de programação est
 
 ![Treinamento para previsão com o R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R.  Você também tem a opção de executar scripts do R em todos os nós do cluster usando a redução de mapa do Hadoop do scaler ou contextos de computação do Spark.
+O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts do R.  Você também pode executar scripts do R em todos os nós do cluster usando a redução de mapa do Hadoop do scaler ou contextos de computação do Spark.
 
-Com os serviços do ML no HDInsight com Spark, você pode paralelizar o treinamento em todos os nós de um cluster usando um contexto de computação do Spark. Você pode executar scripts do R diretamente no nó de borda, usando todos os núcleos disponíveis em paralelo, conforme necessário. Como alternativa, você pode executar o código do nó de borda para disparar o processamento que é distribuído em todos os nós no cluster. Os serviços de ML no HDInsight com Spark também permitem a paralelização de funções de pacotes de R de software livre, se desejado.
+Com os serviços do ML no HDInsight com Spark, você pode paralelizar o treinamento em todos os nós de um cluster usando um contexto de computação do Spark. Você pode executar scripts do R diretamente no nó de borda, usando todos os núcleos disponíveis em paralelo, conforme necessário. Como alternativa, você pode executar o código do nó de borda para disparar o processamento que é distribuído em todos os nós no cluster. Os serviços de ML no HDInsight com Spark também habilitam funções de paralelização de pacotes de R de software livre, se desejado.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning e Apache Hive
 
-O Azure Machine Learning fornece ferramentas para modelar análises preditivas, bem como um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. Azure Machine Learning é uma solução completa de análise preditiva na nuvem que você pode usar para criar, testar, colocar em operação e gerenciar modelos de previsão. Selecione em uma biblioteca de algoritmos grande, use um estúdio baseado na Web para criar modelos e implante facilmente seu modelo como um serviço Web.
+Azure Machine Learning fornece ferramentas para modelar análises preditivas e um serviço totalmente gerenciado que você pode usar para implantar seus modelos de previsão como serviços Web prontos para consumo. Azure Machine Learning é uma solução completa de análise preditiva na nuvem que você pode usar para criar, testar, colocar em operação e gerenciar modelos de previsão. Selecione em uma biblioteca de algoritmos grande, use um estúdio baseado na Web para criar modelos e implante facilmente seu modelo como um serviço Web.
 
 ![Visão geral do Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 

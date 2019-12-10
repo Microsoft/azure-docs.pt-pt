@@ -1,6 +1,7 @@
 ---
-title: Definir um perfil de técnico de transformação de afirmações numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
-description: Defina um perfil de técnico de transformação de afirmações numa política personalizada no Azure Active Directory B2C.
+title: Definir um perfil técnico de transformação de declarações
+titleSuffix: Azure AD B2C
+description: Defina um perfil técnico de transformação de declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,24 +11,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fd2f77200741c54d1ed10f0a0eec1da76462b0a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf06fe7d4e529eb04b156a2d61011198a6fe0978
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511621"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949428"
 ---
-# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de transformação de afirmações em políticas personalizadas do Azure Active Directory B2C
+# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de transformação de declarações em uma política personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil de técnicas de transformação de afirmações permite que chame transformações para manipular os valores de afirmações, validar afirmações ou definir os valores predefinidos para um conjunto de afirmações de saída de afirmações de saída.
+Um perfil técnico de transformação de declarações permite que você chame transformações de declarações de saída para manipular valores de declarações, validar declarações ou definir valores padrão para um conjunto de declarações de saída.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
-O **Name** atributo da **protocolo** elemento tem de ser definido como `Proprietary`. O **manipulador** atributo tem de conter o nome completamente qualificado da assemblagem de manipulador de protocolo que é utilizado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-O exemplo seguinte mostra um perfil de técnicas de transformação de afirmações:
+O exemplo a seguir mostra um perfil técnico de transformação de declarações:
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
@@ -36,9 +37,9 @@ O exemplo seguinte mostra um perfil de técnicas de transformação de afirmaç�
   ...
 ```
 
-## <a name="output-claims"></a>Afirmações de saída
+## <a name="output-claims"></a>Declarações de saída
 
-O **OutputClaims** elemento é obrigatório. Deve fornecer pelo menos uma afirmação devolvida pelo perfil técnico de saída. O exemplo seguinte mostra como definir os valores predefinidos nas afirmações de saída:
+O elemento **OutputClaims** é obrigatório. Você deve fornecer pelo menos uma declaração de saída retornada pelo perfil técnico. O exemplo a seguir mostra como definir valores padrão nas declarações de saída:
 
 ```xml
 <OutputClaims>
@@ -47,9 +48,9 @@ O **OutputClaims** elemento é obrigatório. Deve fornecer pelo menos uma afirma
 </OutputClaims>
 ```
 
-## <a name="output-claims-transformations"></a>Transformações de afirmações de saída
+## <a name="output-claims-transformations"></a>Transformações de declarações de saída
 
-O **OutputClaimsTransformations** elemento pode conter uma coleção de **OutputClaimsTransformation** elementos que são utilizados para modificar afirmações ou gerar novas etiquetas. As seguintes chamadas de perfil técnico da **RemoveAlternativeSecurityIdByIdentityProvider** transformação de afirmações. Este afirmações remove transformação um social identificar da coleção de **AlternativeSecurityIds**. São as afirmações de saída deste perfil técnico **identityProvider2**, que é definida como `facebook.com`, e **AlternativeSecurityIds**, que contém a lista de identidades sociais associado a este utilizador após a remoção de identidade facebook.com.
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar declarações ou gerar novos. O seguinte perfil técnico chama a transformação declarações de **RemoveAlternativeSecurityIdByIdentityProvider** . Essa transformação de declarações remove uma identidade social da coleção de **AlternativeSecurityIds**. As declarações de saída deste perfil técnico são **identityProvider2**, que é definida como `facebook.com`e **AlternativeSecurityIds**, que contém a lista de identidades sociais associadas a esse usuário após a remoção da identidade Facebook.com.
 
 ```XML
 <ClaimsTransformations>
@@ -81,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-O perfil técnico de transformação de afirmações permite-lhe executar uma transformação de declarações do passo de orquestração de qualquer percurso de utilizador. No exemplo a seguir, o passo de orquestração chama um dos perfis técnicos de desassociar, tal como **desassociar-Facebook-OAUTH**. Este perfil técnico chama as declarações perfil técnico de transformação **RemoveAlternativeSecurityIdByIdentityProvider**, que gera uma nova **AlternativeSecurityIds2** afirmação que contém a lista de redes sociais as identidades dos utilizadores, ao remover a identidade do Facebook das coleções.
+O perfil técnico de transformação de declarações permite que você execute uma transformação de declarações de qualquer etapa de orquestração de jornada do usuário. No exemplo a seguir, a etapa de orquestração chama um dos perfis técnicos desvinculados, como **unlink-Facebook-OAuth**. Este perfil técnico chama o perfil técnico de transformação de declarações **RemoveAlternativeSecurityIdByIdentityProvider**, que gera uma nova declaração **AlternativeSecurityIds2** que contém a lista de identidades sociais do usuário, ao mesmo tempo em que remove a identidade do Facebook das coleções.
 
 ```XML
 <UserJourney Id="AccountUnLink">
@@ -99,9 +100,9 @@ O perfil técnico de transformação de afirmações permite-lhe executar uma tr
 </UserJourney>
 ```
 
-## <a name="use-a-validation-technical-profile"></a>Utilizar um perfil de técnicas de validação
+## <a name="use-a-validation-technical-profile"></a>Usar um perfil técnico de validação
 
-Um perfil de técnicas de transformação de afirmações pode ser utilizado para validar as informações. No exemplo a seguir, o [auto-avaliar relativamente perfil técnico](self-asserted-technical-profile.md) com o nome **LocalAccountSignUpWithLogonEmail** pede ao utilizador para introduzir o e-mail de duas vezes, em seguida, chama o [técnica de validação perfil](validation-technical-profile.md) com o nome **validar E-Mail** para validar os e-mails. O **E-Mail validar** perfil técnico chama a transformação de declarações **AssertEmailAreEqual** para comparar duas afirmações **e-mail** e **emailRepeat** e lançar uma exceção se não forem iguais, de acordo com a comparação especificada.
+Um perfil técnico de transformação de declarações pode ser usado para validar informações. No exemplo a seguir, o [perfil técnico autodeclarado](self-asserted-technical-profile.md) chamado **LocalAccountSignUpWithLogonEmail** solicita que o usuário insira o email duas vezes e, em seguida, chama o [perfil técnico de validação](validation-technical-profile.md) chamado **Validate-email** para validar os emails. O perfil técnico de **validação de email** chama o **AssertEmailAreEqual** de transformação de declarações para comparar os dois **emails** de declarações e **emailRepeat**e lança uma exceção se elas não forem iguais de acordo com a comparação especificada.
 
 ```XML
 <ClaimsTransformations>
@@ -117,7 +118,7 @@ Um perfil de técnicas de transformação de afirmações pode ser utilizado par
 </ClaimsTransformations>
 ```
 
-As chamadas de perfil técnico de transformação de afirmações a **AssertEmailAreEqual** afirmações de transformação, que declara que as mensagens de correio eletrónico fornecidas pelo usuário são os mesmas.
+O perfil técnico de transformação de declarações chama a transformação declarações **AssertEmailAreEqual** , que declara que os emails fornecidos pelo usuário são os mesmos.
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
@@ -136,7 +137,7 @@ As chamadas de perfil técnico de transformação de afirmações a **AssertEmai
 </TechnicalProfile>
 ```
 
-A autodeclarativas perfil técnico pode chamar o perfil técnico de validação e mostrar a mensagem de erro, conforme especificado na **UserMessageIfClaimsTransformationStringsAreNotEqual** metadados.
+Um perfil técnico autodeclarado pode chamar o perfil técnico de validação e mostrar a mensagem de erro conforme especificado nos metadados do **UserMessageIfClaimsTransformationStringsAreNotEqual** .
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">

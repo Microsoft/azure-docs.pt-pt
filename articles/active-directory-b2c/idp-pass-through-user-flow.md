@@ -1,5 +1,6 @@
 ---
-title: Passe um token de acesso por meio de um fluxo de usuário para o seu aplicativo-Azure Active Directory B2C
+title: Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo
+titleSuffix: Azure AD B2C
 description: Saiba como passar um token de acesso para provedores de identidade OAuth 2,0 como uma declaração em um fluxo de usuário no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064290"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948816"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passe um token de acesso por meio de um fluxo de usuário para seu aplicativo no Azure Active Directory B2C
 
@@ -43,15 +44,15 @@ Atualmente, Azure AD B2C só dá suporte à passagem do token de acesso dos prov
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
-Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure ad B2C retornado `https://jwt.ms` para examinar as declarações nele.
+Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token de Azure AD B2C retornado a `https://jwt.ms` para revisar as declarações nele.
 
 1. Na página Visão geral do fluxo de usuário, selecione **executar fluxo de usuário**.
-2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token no exemplo abaixo, a **URL de resposta** deve ser `https://jwt.ms`mostrada.
-3. Clique em **executar fluxo de usuário**e entre com suas credenciais de conta. Você deve ver o token de acesso do provedor de identidade na Declaração **idp_access_token** .
+2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token no exemplo abaixo, a **URL de resposta** deve mostrar `https://jwt.ms`.
+3. Clique em **executar fluxo de usuário**e entre com suas credenciais de conta. Você deve ver o token de acesso do provedor de identidade na declaração de **idp_access_token** .
 
     Você verá algo semelhante ao exemplo a seguir:
 
-    ![Token decodificado em jwt.ms com bloco idp_access_token realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
+    ![Token decodificado em jwt.ms com idp_access_token bloco realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>Passos seguintes
 

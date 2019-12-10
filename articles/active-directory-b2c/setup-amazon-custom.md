@@ -1,5 +1,6 @@
 ---
-title: Configurar a entrada com uma conta da Amazon usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Configurar a entrada com uma conta da Amazon usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do Amazon no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 89f753eb0a4327bc68be9ff85006e86b57bcb548
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 39a0e9442f3e41ceeb67b4d528eb193b159d8777
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827248"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950855"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Amazon usando políticas personalizadas no Azure Active Directory B2C
 
@@ -26,7 +27,7 @@ Este artigo mostra como habilitar a entrada para usuários de uma conta do Amazo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua as etapas em introdução [às políticas personalizadas](active-directory-b2c-get-started-custom.md).
-- Se você ainda não tiver uma conta do Amazon, crie uma [https://www.amazon.com/](https://www.amazon.com/)em.
+- Se você ainda não tiver uma conta do Amazon, crie uma em [https://www.amazon.com/](https://www.amazon.com/).
 
 ## <a name="register-the-application"></a>Registar a aplicação
 
@@ -37,7 +38,7 @@ Para habilitar a entrada para usuários de uma conta do Amazon, você precisa cr
 3. Selecione **registrar novo aplicativo**.
 4. Insira um **nome**, uma **Descrição**e uma **URL de aviso de privacidade**e, em seguida, clique em **salvar**. O aviso de privacidade é uma página que você gerencia que fornece informações de privacidade aos usuários.
 5. Na seção **configurações da Web** , copie os valores da **ID do cliente**. Selecione **Mostrar segredo** para obter o segredo do cliente e, em seguida, copie-o. Você precisa de ambos para configurar uma conta do Amazon como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
-6. Na seção **configurações da Web** , selecione **Editar**e, em seguida `https://your-tenant-name.b2clogin.com` , insira em origens de `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **JavaScript permitidas** e em **URLs de retorno permitidas**. Substitua `your-tenant-name` pelo nome do seu locatário. Utilize só letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
+6. Na seção **configurações da Web** , selecione **Editar**e, em seguida, insira `https://your-tenant-name.b2clogin.com` em **origens JavaScript permitidas** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de retorno permitidas**. Substitua `your-tenant-name` pelo nome do seu locatário. Utilize só letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
 7. Clique em **Guardar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
@@ -52,7 +53,7 @@ Você precisa armazenar o segredo do cliente que você registrou anteriormente e
 6. Para **Opções**, escolha `Manual`.
 7. Insira um **nome** para a chave de política. Por exemplo, `AmazonSecret`. O prefixo `B2C_1A_` é adicionado automaticamente ao nome da sua chave.
 8. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
-9. Para **uso de chave**, `Signature`selecione.
+9. Para **uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
@@ -105,7 +106,7 @@ Você pode definir uma conta da Amazon como um provedor de declarações adicion
     </ClaimsProvider>
     ```
 
-4. Defina **client_id** como a ID do aplicativo do registro do aplicativo.
+4. Defina **client_id** para a ID do aplicativo do registro do aplicativo.
 5. Guarde o ficheiro.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação

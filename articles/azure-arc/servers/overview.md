@@ -10,12 +10,12 @@ keywords: automação do Azure, DSC, PowerShell, configuração de estado deseja
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122834"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951433"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>O que é o arco do Azure para servidores
 
@@ -58,9 +58,9 @@ Esses nomes DNS são fornecidos além das informações de intervalo de IP de ma
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 |---------|---------|
-|management.azure.com|Azure Resource Manager|
+|management.azure.com|Gestor de Recursos do Azure|
 |login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
+|dc.services.visualstudio.com|Estatísticas das Aplicações|
 |agentserviceapi.azure-automation.net|Configuração de Convidado|
 |*-agentservice-prod-1.azure-automation.net|Configuração de Convidado|
 |*. his.hybridcompute.azure-automation.net|Serviço de identidade híbrida|
@@ -109,7 +109,41 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 Você também pode registrar os provedores de recursos usando o portal seguindo as etapas em [portal do Azure](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
-## <a name="supported-scenarios"></a>Cenários com suporte
+## <a name="machine-changes-after-installing-the-agent"></a>O computador é alterado após a instalação do agente
+
+Se você tiver uma solução de controle de alterações implantada em seu ambiente, poderá usar a lista abaixo para controlar, identificar e permitir as alterações feitas pelo pacote de instalação do **agente de máquina conectado do Azure (AzCMAgent)** .
+
+Depois de instalar o agente, você verá as seguintes alterações feitas nos servidores.
+
+### <a name="windows"></a>Windows
+
+Serviços instalados:
+
+* `Himds`-o serviço do **agente de máquina conectado do Azure** .
+* `Dscservice` ou `gcd`-o serviço de **configuração de convidado** .
+
+Arquivos adicionados ao servidor:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*`-local dos arquivos do **agente do computador conectado do Azure** .
+* `%ProgramData%\GuestConfig\*.*` - logs de **configuração de convidado** .
+
+Locais da chave do registro:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent`-chaves do registro para o **agente do computador conectado do Azure**.
+
+### <a name="linux"></a>Linux
+
+Serviços instalados:
+
+* `Himdsd`-o serviço do **agente de máquina conectado do Azure** .
+* `dscd` ou `gcd`-o serviço de **configuração de convidado** .
+
+Arquivos adicionados ao servidor:
+
+* `/var/opt/azcmagent/**`-local dos arquivos do **agente do computador conectado do Azure** .
+* `/var/lib/GuestConfig/**` - logs de **configuração de convidado** .
+
+## <a name="supported-scenarios"></a>Cenários Suportados
 
 Depois de registrar um nó, você pode começar a gerenciar seus nós usando outros serviços do Azure.
 
@@ -138,7 +172,7 @@ Para obter mais informações, consulte Introdução [ao log Analytics no Azure 
 
 <!-- MMA agent version 10.20.18011 and later -->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Há dois métodos para conectar computadores usando o Azure ARC para servidores.
 

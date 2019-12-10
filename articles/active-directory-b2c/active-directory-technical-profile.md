@@ -1,5 +1,6 @@
 ---
-title: Definir um perfil técnico de Azure Active Directory em uma política personalizada no Azure Active Directory B2C | Microsoft Docs
+title: Definir um perfil técnico do Azure AD em uma política personalizada
+titleSuffix: Azure AD B2C
 description: Defina um perfil técnico Azure Active Directory em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064629"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949563"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de Azure Active Directory em uma política personalizada de Azure Active Directory B2C
 
@@ -23,9 +24,9 @@ ms.locfileid: "71064629"
 
 O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o gerenciamento de usuários do Azure Active Directory. Este artigo descreve as especificidades de um perfil técnico para interagir com um provedor de declarações que dá suporte a esse protocolo padronizado.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`do manipulador de protocolo.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Todos os perfis técnicos do Azure AD incluem o perfil técnico do **AAD-comum** . Os seguintes perfis técnicos não especificam o protocolo porque o protocolo está configurado no perfil técnico **comum do AAD** :
 
@@ -61,13 +62,13 @@ Os seguintes perfis técnicos incluem **InputClaims** para contas sociais e loca
 
 - Os perfis técnicos da conta social **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserWriteUsingAlternativeSecurityId** incluem a Declaração **AlternativeSecurityId** . Essa declaração contém o identificador de usuário da conta social.
 - A conta local perfis técnicos **AAD-UserReadUsingEmailAddress** e **AAD-UserWriteUsingLogonEmail** inclui a declaração de **email** . Essa declaração contém o nome de entrada da conta local.
-- Os perfis técnicos unificados (locais e sociais) **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**e **AAD-UserWritePhoneNumberUsingObjectId** incluem o Declaração **ObjectID** . O identificador exclusivo de uma conta.
+- Os perfis técnicos unificados (locais e sociais) **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**e **AAD-UserWritePhoneNumberUsingObjectId** incluem a Declaração **ObjectID** . O identificador exclusivo de uma conta.
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos **InputClaimsTransformation** que são usados para modificar as declarações de entrada ou gerar novas.
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido em Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que você defina o `DefaultValue` atributo.
+O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido em Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que você defina o atributo `DefaultValue`.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
 
@@ -75,7 +76,7 @@ Por exemplo, o perfil técnico do **AAD-UserWriteUsingLogonEmail** cria uma cont
 
 - **ObjectID**, que é o identificador da nova conta
 - **newuser**, que indica se o usuário é novo
-- **authenticationname**, que define a autenticação como`localAccountAuthentication`
+- **authenticationname**, que define a autenticação para `localAccountAuthentication`
 - **userPrincipalName**, que é o nome principal do usuário da nova conta
 - **signInNames. EmailAddress**, que é o nome de entrada da conta, semelhante à declaração de entrada de **email**
 
@@ -252,14 +253,14 @@ O seguinte perfil técnico exclui uma conta de usuário social usando o **altern
 ```
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou. `DeleteClaimsPrincipal` |
+| Operação | Sim | A operação a ser executada. Valores possíveis: `Read`, `Write`, `DeleteClaims`ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Não | Gerar um erro se o objeto de usuário não existir no diretório. Valores possíveis: `true` ou `false`. |
 | UserMessageIfClaimsPrincipalDoesNotExist | Não | Se um erro for gerado (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique a mensagem a ser mostrada ao usuário se o objeto do usuário não existir. O valor pode ser [localizado](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Não | Gerar um erro se o objeto de usuário já existir. Valores possíveis: `true` ou `false`.|
 | UserMessageIfClaimsPrincipalAlreadyExists | Não | Se um erro for gerado (consulte a descrição do atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique a mensagem a ser mostrada ao usuário se o objeto do usuário já existir. O valor pode ser [localizado](localization.md).|
-| ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor ObjectId de um aplicativo. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| ApplicationObjectId | Não | O identificador de objeto de aplicativo para atributos de extensão. Valor: ObjectId de um aplicativo. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
 | ClientId | Não | O identificador do cliente para acessar o locatário como terceiros. Para obter mais informações, consulte [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
 
 

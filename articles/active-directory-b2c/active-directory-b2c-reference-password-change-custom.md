@@ -1,5 +1,6 @@
 ---
-title: Configurar a alteração de senha usando políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+title: Configurar a alteração de senha usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como permitir que os usuários alterem sua senha usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fd1f623eecdd855dbfb8e27795f813db4d099f53
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065543"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950583"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração de senha usando políticas personalizadas no Azure Active Directory B2C
 
@@ -29,7 +30,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Active Direc
 
 ## <a name="add-the-elements"></a>Adicionar os elementos
 
-1. Abra o arquivo *TrustframeworkExtensions. xml* e adicione o seguinte elemento **ClaimType** com um identificador de `oldPassword` para o elemento [ClaimsSchema](claimsschema.md) :
+1. Abra o arquivo *TrustframeworkExtensions. xml* e adicione o seguinte elemento **ClaimType** com um identificador de `oldPassword` ao elemento [ClaimsSchema](claimsschema.md) :
 
     ```XML
     <BuildingBlocks>
@@ -160,9 +161,9 @@ Você pode encontrar a política de exemplo [aqui](https://github.com/Azure-Samp
 
 ## <a name="test-your-policy"></a>Testar sua política
 
-Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure ad B2C retornado `https://jwt.ms` para poder revisar as declarações nele.
+Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token de Azure AD B2C retornado a `https://jwt.ms` para poder revisar as declarações nele.
 
-### <a name="upload-the-files"></a>Carregar os arquivos
+### <a name="upload-the-files"></a>Carregar os ficheiros
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
@@ -176,9 +177,9 @@ Ao testar seus aplicativos no Azure ad B2C, pode ser útil ter o token de Azure 
 ### <a name="run-the-policy"></a>Executar a política
 
 1. Abra a política que você alterou. Por exemplo, *B2C_1A_profile_edit_password_change*.
-2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve `https://jwt.ms`ser mostrada.
+2. Para **aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Clique em **Executar agora**. Entre com o acouunt que você criou anteriormente. Agora você deve ter a oportunidade de alterar a senha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como você pode [Configurar a complexidade de senha usando políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-reference-password-complexity-custom.md).

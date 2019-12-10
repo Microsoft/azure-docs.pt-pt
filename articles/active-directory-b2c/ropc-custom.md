@@ -1,6 +1,7 @@
 ---
-title: Configurar o fluxo de credenciais de senha do proprietário do recurso no Azure Active Directory B2C | Microsoft Docs
-description: Saiba como configurar o fluxo de credenciais de senha do proprietário do recurso no Azure Active Directory B2C.
+title: Configurar o fluxo de credenciais de senha do proprietário do recurso com políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Saiba como configurar o fluxo de credenciais de senha do proprietário do recurso (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678131"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951069"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha do proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
@@ -133,7 +134,7 @@ Conclua as etapas em introdução [às políticas personalizadas no Azure Active
     </TechnicalProfile>
     ```
 
-    Substitua o **DefaultValue** de **client_id** pela ID do aplicativo do ProxyIdentityExperienceFramework que você criou no tutorial de pré-requisito. Em seguida, substitua **DefaultValue** de **resource_id** pela ID do aplicativo IdentityExperienceFramework que você também criou no tutorial de pré-requisito.
+    Substitua o **DefaultValue** de **client_id** pela ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial de pré-requisito. Em seguida, substitua **DefaultValue** de **resource_id** pela ID do aplicativo IdentityExperienceFramework que você também criou no tutorial de pré-requisito.
 
 5. Adicione os seguintes elementos **claimprovider** com seus perfis técnicos ao elemento **ClaimsProviders** :
 
@@ -260,19 +261,19 @@ Use seu aplicativo de desenvolvimento de API favorito para gerar uma chamada à 
 - Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` pelo nome completo da política de credenciais de senha do proprietário do recurso.
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
-| username | `user-account` |
-| password | `password1` |
-| grant_type | password |
-| scope | OpenID `application-id` offline_access |
+| o nome de utilizador | `user-account` |
+| palavra-passe | `password1` |
+| grant_type | palavra-passe |
+| scope | `application-id` de OpenID offline_access |
 | client_id | `application-id` |
-| response_type | id_token do token |
+| response_type | id_token de token |
 
-- Substituir `user-account` pelo nome de uma conta de usuário em seu locatário.
+- Substitua `user-account` pelo nome de uma conta de usuário em seu locatário.
 - Substitua `password1` pela senha da conta de usuário.
-- Substitua `application-id` pela ID do aplicativo do registro *ROPC_Auth_app* .
-- *Offline_access* será opcional se você quiser receber um token de atualização.
+- Substitua `application-id` pela ID do aplicativo do registro de *ROPC_Auth_app* .
+- *Offline_access* é opcional se você deseja receber um token de atualização.
 
 A solicitação POST real é semelhante ao exemplo a seguir:
 
@@ -305,7 +306,7 @@ Construa uma chamada POST como a mostrada aqui. Use as informações na tabela a
 - Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` pelo nome completo da política de credenciais de senha do proprietário do recurso.
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -313,7 +314,7 @@ Construa uma chamada POST como a mostrada aqui. Use as informações na tabela a
 | resource | `application-id` |
 | refresh_token | `refresh-token` |
 
-- Substitua `application-id` pela ID do aplicativo do registro *ROPC_Auth_app* .
+- Substitua `application-id` pela ID do aplicativo do registro de *ROPC_Auth_app* .
 - Substitua `refresh-token` pelo **refresh_token** que foi enviado de volta na resposta anterior.
 
 Uma resposta bem-sucedida é semelhante ao exemplo a seguir:

@@ -1,6 +1,7 @@
 ---
-title: Definir um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C | Microsoft Docs
-description: Defina um perfil técnico Azure Active Directory em uma política personalizada no Azure Active Directory B2C.
+title: Definir um perfil técnico de validação em uma política personalizada
+titleSuffix: Azure AD B2C
+description: Valide as declarações usando um perfil técnico de validação em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167575"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950804"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de validação em uma política personalizada de Azure Active Directory B2C
 
@@ -40,7 +41,7 @@ Um perfil técnico de validação pode ser executado condicionalmente com base n
 Um perfil técnico autodeclarado pode definir um perfil técnico de validação a ser usado para validar algumas ou todas as suas declarações de saída. Todas as declarações de entrada do perfil técnico referenciado devem aparecer nas declarações de saída do perfil técnico de validação de referência.
 
 > [!NOTE]
-> Somente perfis técnicos autodeclarados podem usar perfis técnicos de validação. Se você precisar validar as declarações de saída de perfis técnicos não autodeclarados, considere o uso de uma etapa de orquestração adicional no percurso do usuário para acomodar o perfil técnico responsável pela validação.    
+> Somente perfis técnicos autodeclarados podem usar perfis técnicos de validação. Se você precisar validar as declarações de saída de perfis técnicos não autodeclarados, considere o uso de uma etapa de orquestração adicional no percurso do usuário para acomodar o perfil técnico responsável pela validação.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -52,7 +53,7 @@ O elemento **ValidationTechnicalProfiles** contém os seguintes elementos:
 
 O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido na política ou diretiva pai. |
 |ContinueOnError|Não| Indicando se a validação de quaisquer perfis técnicos de validação subsequentes deve continuar se esse perfil técnico de validação gerar um erro. Valores possíveis: `true` ou `false` (padrão, o processamento de mais perfis de validação será interrompido e um erro retornará). |
@@ -66,7 +67,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte elemento:
 
 O elemento de **pré-condição** contém o seguinte atributo:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta a ser executada para a pré-condição. Qualquer um `ClaimsExist` é especificado para garantir que as ações sejam executadas se as declarações especificadas existirem no conjunto de declarações atual do usuário ou `ClaimEquals` for especificado que as ações devem ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
 | `ExecuteActionsIf` | Sim | Indica se as ações na pré-condição devem ser executadas se o teste for verdadeiro ou falso. |

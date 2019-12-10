@@ -3,12 +3,12 @@ title: Como direcionar Azure Functions versões de tempo de execução
 description: O Azure Functions dá suporte a várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de um aplicativo de funções hospedado no Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230312"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942278"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar Azure Functions versões de tempo de execução
 
@@ -29,9 +29,9 @@ A tabela a seguir mostra os valores de `FUNCTIONS_EXTENSION_VERSION` para cada v
 
 | Versão principal | valor `FUNCTIONS_EXTENSION_VERSION` |
 | ------------- | ----------------------------------- |
-| 3. x (visualização) | `~3` |
+| Win  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 Uma alteração na versão de tempo de execução faz com que um aplicativo de funções seja reiniciado.
 
@@ -42,7 +42,7 @@ Você pode alterar a versão de tempo de execução usada pelo seu aplicativo de
 > [!IMPORTANT]
 > Embora a versão de tempo de execução seja determinada pela configuração de `FUNCTIONS_EXTENSION_VERSION`, você deve fazer essa alteração na portal do Azure e não alterando a configuração diretamente. Isso ocorre porque o portal valida as alterações e faz outras alterações relacionadas, conforme necessário.
 
-### <a name="from-the-azure-portal"></a>Da portal do Azure
+### <a name="from-the-azure-portal"></a>No portal do Azure
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 

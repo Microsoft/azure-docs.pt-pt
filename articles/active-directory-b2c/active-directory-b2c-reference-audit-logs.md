@@ -1,6 +1,7 @@
 ---
-title: Exemplos de logs de auditoria e definições no Azure Active Directory B2C
-description: Guia e exemplos sobre como acessar os logs de auditoria do Azure AD B2C.
+title: Acessar e examinar os logs de auditoria
+titleSuffix: Azure AD B2C
+description: Como acessar Azure AD B2C logs de auditoria programaticamente e no portal do Azure.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643610"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948237"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando Azure AD B2C logs de auditoria
 
@@ -35,7 +36,7 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 |---------|---------|
 |Autorização |Atividades relacionadas à autorização de um usuário para acessar os recursos do B2C (por exemplo, um administrador acessando uma lista de políticas do B2C).         |
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador entra usando o portal do Azure. |
-|Aplicação | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
+|Candidatura | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
 |Chave |Operações CRUD em chaves armazenadas em um contêiner de chave B2C. |
 |Recurso |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
 |Autenticação |Validação de credenciais de usuário e emissão de tokens.|
@@ -53,12 +54,12 @@ O painel detalhes da atividade contém as seguintes informações relevantes:
 |Section|Campo|Descrição|
 |-------|-----|-----------|
 | Atividade | Nome | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
-| Iniciado por (ator) | objectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
+| Iniciado por (ator) | ObjectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
 | Iniciado por (ator) | SPNs | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
-| Destino (s) | objectId | A **ID de objeto** do usuário que está entrando. |
-| Detalhes Adicionais | tenantId | A **ID do locatário** do locatário do Azure ad B2C. |
-| Detalhes Adicionais | policyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
-| Detalhes Adicionais | applicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
+| Destino(s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
+| Detalhes Adicionais | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
+| Detalhes Adicionais | `PolicyId` | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
+| Detalhes Adicionais | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Exibir logs de auditoria no portal do Azure
 

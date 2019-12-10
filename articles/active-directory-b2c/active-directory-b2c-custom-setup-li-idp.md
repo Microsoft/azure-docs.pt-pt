@@ -1,5 +1,6 @@
 ---
-title: Configurar a entrada com uma conta do LinkedIn usando políticas personalizadas-Azure Active Directory B2C
+title: Configurar a entrada com uma conta do LinkedIn usando políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Configure a entrada com uma conta do LinkedIn no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d7beae75e13ef797c9e80a9a012e9f48b69d407
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 442c50df5da42da6d63c926845efd4a6bc3fcb12
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827184"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948390"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do LinkedIn usando políticas personalizadas no Azure Active Directory B2C
 
@@ -33,10 +34,10 @@ Este artigo mostra como habilitar a entrada para usuários de uma conta do Linke
 
 Para usar o LinkedIn como um provedor de identidade no Azure AD B2C, você precisa criar um aplicativo do LinkedIn.
 
-### <a name="create-app"></a>Criar aplicativo
+### <a name="create-app"></a>Criar aplicação
 
 1. Entre no site de [Gerenciamento de aplicativos do LinkedIn](https://www.linkedin.com/secure/developer?newapp=) com suas credenciais de conta do LinkedIn.
-1. Selecione **criar aplicativo**.
+1. Selecione **Criar aplicação**.
 1. Insira um **nome de aplicativo**.
 1. Insira um nome de **empresa** correspondente a um nome de página do LinkedIn. Crie uma página do LinkedIn se você ainda não tiver uma.
 1. Adicional Insira uma **URL de política de privacidade**. Ele deve ser uma URL válida, mas não precisa ser um ponto de extremidade acessível.
@@ -44,7 +45,7 @@ Para usar o LinkedIn como um provedor de identidade no Azure AD B2C, você preci
 1. Carregue uma imagem de **logotipo do aplicativo** . A imagem do logotipo deve ser quadrada e suas dimensões devem ter pelo menos 100x100 pixels.
 1. Deixe as configurações padrão na seção **produtos** .
 1. Examine as informações apresentadas em **termos legais**. Se você concordar com os termos, marque a caixa.
-1. Selecione **criar aplicativo**.
+1. Selecione **Criar aplicação**.
 
 ### <a name="configure-auth"></a>Configurar a autenticação
 
@@ -67,7 +68,7 @@ Você precisa armazenar o segredo do cliente que você registrou anteriormente e
 6. Para **Opções**, escolha `Manual`.
 7. Insira um **nome** para a chave de política. Por exemplo, `LinkedInSecret`. O prefixo *B2C_1A_* é adicionado automaticamente ao nome da sua chave.
 8. Em **segredo**, insira o segredo do cliente que você registrou anteriormente.
-9. Para **uso de chave**, `Signature`selecione.
+9. Para **uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
@@ -245,7 +246,7 @@ No elemento de **metadados** existente do **TechnicalProfile**, atualize os segu
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-Para:
+A:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -271,7 +272,7 @@ No **OutputClaims** existente do **TechnicalProfile**, atualize os seguintes ele
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-Para:
+A:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
@@ -335,7 +336,7 @@ Como parte da migração do LinkedIn de v 1.0 para v 2.0, uma chamada adicional 
 
 1. Conclua as etapas acima para permitir que Azure AD B2C federar com o LinkedIn para permitir que o usuário entre. Como parte da Federação, Azure AD B2C recebe o token de acesso para o LinkedIn.
 2. Salve o token de acesso do LinkedIn em uma declaração. [Consulte as instruções aqui](idp-pass-through-custom.md).
-3. Adicione o provedor de declarações a seguir que faz a solicitação para `/emailAddress` a API do LinkedIn. Para autorizar essa solicitação, você precisa do token de acesso do LinkedIn.
+3. Adicione o provedor de declarações a seguir que faz a solicitação para a API de `/emailAddress` do LinkedIn. Para autorizar essa solicitação, você precisa do token de acesso do LinkedIn.
 
     ```XML
     <ClaimsProvider>
@@ -363,7 +364,7 @@ Como parte da migração do LinkedIn de v 1.0 para v 2.0, uma chamada adicional 
     </ClaimsProvider>
     ```
 
-4. Adicione a seguinte etapa de orquestração em seu percurso do usuário, para que o provedor de declarações da API seja disparado quando um usuário entrar usando o LinkedIn. Certifique-se de atualizar `Order` o número adequadamente. Adicione essa etapa imediatamente após a etapa de orquestração que dispara o perfil técnico do LinkedIn.
+4. Adicione a seguinte etapa de orquestração em seu percurso do usuário, para que o provedor de declarações da API seja disparado quando um usuário entrar usando o LinkedIn. Certifique-se de atualizar o número de `Order` corretamente. Adicione essa etapa imediatamente após a etapa de orquestração que dispara o perfil técnico do LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->

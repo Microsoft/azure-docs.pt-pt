@@ -1,6 +1,7 @@
 ---
-title: Sobre perfis técnicos em Azure Active Directory B2C políticas personalizadas | Microsoft Docs
-description: Saiba mais sobre como os perfis técnicos são usados em uma política personalizada no Azure Active Directory B2C.
+title: Visão geral de perfis técnicos em políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Saiba como os perfis técnicos são usados em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063329"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951042"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em Azure Active Directory B2C políticas personalizadas
 
@@ -56,11 +57,11 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 4. **ValidationTechnicalProfiles** -para um [perfil técnico autodeclarado](self-asserted-technical-profile.md), você pode chamar um [perfil técnico de validação](validation-technical-profile.md)de entrada. O perfil técnico de validação valida os dados analisados pelo usuário e retorna uma mensagem de erro ou Ok, com ou sem declarações de saída. Por exemplo, antes que Azure AD B2C crie uma nova conta, ela verifica se o usuário já existe nos serviços de diretório. Você pode chamar um perfil técnico da API REST para adicionar sua própria lógica de negócios.<p>O escopo das declarações de saída de um perfil técnico de validação é limitado ao perfil técnico que invoca o perfil técnico de validação e outros perfis técnicos de validação no mesmo perfil técnico. Se você quiser usar as declarações de saída na próxima etapa de orquestração, será necessário adicionar as declarações de saída ao perfil técnico que invoca o perfil técnico de validação.
 5. **OutputClaims** -as declarações são retornadas de volta para o recipiente de declarações. Você pode usar essas declarações na próxima etapa de orquestrações ou as transformações de declarações de saída.
 6. **OutputClaimsTransformations** -as declarações de entrada de cada [transformação de declarações](claimstransformations.md) de saída são coletadas no recipiente de declarações. As declarações de saída do perfil técnico das etapas anteriores podem ser declarações de entrada de uma transformação de declarações de saída. Após a execução, as declarações de saída são colocadas de volta no recipiente de declarações. As declarações de saída de uma transformação de declarações de saída também podem ser declarações de entrada de uma transformação de declarações de saída subsequente.
-7.  - Gerenciamento de sessão SSO (logon único) o gerenciamento de sessão[SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um usuário após o usuário já ter sido autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes da conta local precisam ser inseridos novamente.
+7. O **Gerenciamento de sessão de logon único (SSO)**  - [Gerenciamento de sessão de SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um usuário após o usuário já ter sido autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes da conta local precisam ser inseridos novamente.
 
 Um perfil técnico pode herdar de outro perfil técnico para alterar as configurações ou adicionar uma nova funcionalidade.  O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico base do qual um perfil técnico é derivado.
 
-Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NOERROR** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Esse perfil técnico define o item de metadados RaiseErrorIfClaimsPrincipalDoesNotExist `true`como e gerará um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** substitui esse comportamento e desabilita a mensagem de erro se o usuário não existia.
+Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NOERROR** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Este perfil técnico define o item de metadados **RaiseErrorIfClaimsPrincipalDoesNotExist** como `true`e gerará um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** substitui esse comportamento e desabilita a mensagem de erro se o usuário não existia.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -71,7 +72,7 @@ Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NOERROR*
 </TechnicalProfile>
 ```
 
-O **AAD-UserReadUsingAlternativeSecurityId** inclui `AAD-Common` o perfil técnico.
+O **AAD-UserReadUsingAlternativeSecurityId** inclui o `AAD-Common` perfil técnico.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -105,7 +106,7 @@ O **AAD-UserReadUsingAlternativeSecurityId-NOERROR** e o **AAD-UserReadUsingAlte
 </TechnicalProfile>
 ```
 
-Um perfil técnico pode incluir ou herdar outro perfil técnico, que pode incluir outro. Não há limite para o número de níveis. Dependendo dos requisitos de negócios, o percurso do usuário pode chamar **AAD-UserReadUsingAlternativeSecurityId** que gera um erro se uma conta social do usuário não existir ou **AAD-UserReadUsingAlternativeSecurityId-NOERROR** , que não gerar um erro.
+Um perfil técnico pode incluir ou herdar outro perfil técnico, que pode incluir outro. Não há limite para o número de níveis. Dependendo dos requisitos de negócios, o percurso do usuário poderá chamar o **AAD-UserReadUsingAlternativeSecurityId** , que gerará um erro se uma conta social do usuário não existir, ou **AAD-UserReadUsingAlternativeSecurityId-NOERROR** , o que não gerará um erro.
 
 
 

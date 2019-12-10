@@ -1,5 +1,6 @@
 ---
-title: Início rápido-configurar a entrada para um aplicativo de desktop usando Azure Active Directory B2C
+title: 'Início rápido: configurar a entrada para um aplicativo de área de trabalho'
+titleSuffix: Azure AD B2C
 description: Neste guia de início rápido, execute um aplicativo de área de trabalho WPF de exemplo que usa Azure Active Directory B2C para fornecer entrada de conta.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ed92605c7fb74186ddde6ff193a1365146494594
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420220"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950652"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar o início de sessão para uma aplicação de ambiente de trabalho através do Azure Active Directory B2C
 

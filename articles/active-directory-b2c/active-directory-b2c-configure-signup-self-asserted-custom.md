@@ -1,5 +1,6 @@
 ---
-title: Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas-Azure Active Directory B2C | Microsoft Docs
+title: Adicionar declarações e personalizar a entrada do usuário em políticas personalizadas
+titleSuffix: Azure AD B2C
 description: Saiba como personalizar a entrada do usuário e adicionar declarações à jornada de inscrição ou entrada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066216"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948909"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -113,7 +114,7 @@ Os seguintes elementos são usados para definir a declaração:
 
 ### <a name="add-the-claim-to-the-user-journey"></a>Adicionar a declaração à jornada do usuário
 
-1. Adicione a declaração como um `<OutputClaim ClaimTypeReferenceId="city"/>` para o `LocalAccountSignUpWithLogonEmail` perfil técnico encontrado no arquivo de política TrustFrameworkBase. Este perfil técnico usa o SelfAssertedAttributeProvider.
+1. Adicione a declaração como um `<OutputClaim ClaimTypeReferenceId="city"/>` ao perfil técnico `LocalAccountSignUpWithLogonEmail` encontrado no arquivo de política TrustFrameworkBase. Este perfil técnico usa o SelfAssertedAttributeProvider.
 
     ```xml
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -186,7 +187,7 @@ Os seguintes elementos são usados para definir a declaração:
     </TechnicalProfile>
     ```
 
-3. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` declaração aos perfis técnicos que lêem do diretório quando um usuário faz logon.
+3. Adicione a declaração de `<OutputClaim ClaimTypeReferenceId="city" />` aos perfis técnicos que lêem do diretório quando um usuário faz logon.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
@@ -236,7 +237,7 @@ Os seguintes elementos são usados para definir a declaração:
     </TechnicalProfile>
     ```
 
-4. Adicione a `<OutputClaim ClaimTypeReferenceId="city" />` declaração ao arquivo SignUporSignIn. xml para que essa declaração seja enviada ao aplicativo no token após um percurso de usuário bem-sucedido.
+4. Adicione a declaração de `<OutputClaim ClaimTypeReferenceId="city" />` ao arquivo SignUporSignIn. xml para que essa declaração seja enviada ao aplicativo no token após um percurso de usuário bem-sucedido.
 
     ```xml
     <RelyingParty>
@@ -272,7 +273,7 @@ A tela de inscrição deve ser semelhante a esta:
 
 ![Captura de tela da opção de inscrição modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-O token enviado de volta para seu aplicativo inclui `city` a declaração.
+O token enviado de volta para seu aplicativo inclui a declaração de `city`.
 
 ```json
 {
@@ -294,16 +295,16 @@ O token enviado de volta para seu aplicativo inclui `city` a declaração.
 }
 ```
 
-## <a name="optional-remove-email-verification"></a>Opcional: Remover verificação de email
+## <a name="optional-remove-email-verification"></a>Opcional: remover a verificação de email
 
-Para ignorar a verificação de email, você pode optar `PartnerClaimType="Verified.Email"`por remover. Nesse caso, o endereço de email é necessário, mas não verificado, a menos que "required" = true seja removido.  Considere cuidadosamente se essa opção é adequada para seus casos de uso.
+Para ignorar a verificação de email, você pode optar por remover `PartnerClaimType="Verified.Email"`. Nesse caso, o endereço de email é necessário, mas não verificado, a menos que "required" = true seja removido.  Considere cuidadosamente se essa opção é adequada para seus casos de uso.
 
-O email verificado é habilitado por padrão no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política TrustFrameworkBase:
+O email verificado é habilitado por padrão na `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política TrustFrameworkBase:
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [usar atributos personalizados em uma política de edição de perfil personalizado](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

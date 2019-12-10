@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54f0584eae948d6e577b0439a5a0d976ff61d4b1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850657"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951501"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/Parar VMs fora do horário comercial solução na automação do Azure
 
@@ -428,7 +428,7 @@ Para excluir a solução, execute as seguintes etapas:
 
 A conta de automação e o espaço de trabalho Log Analytics não são excluídos como parte desse processo. Se não quiser manter o espaço de trabalho Log Analytics, você precisará excluí-lo manualmente. Isso pode ser feito no portal do Azure:
 
-1. Na tela inicial do portal do Azure, selecione **espaços de trabalho do log Analytics**.
+1. Em portal do Azure, procure e selecione **espaços de trabalho do log Analytics**.
 1. Na página **log Analytics espaços de trabalho** , selecione o espaço de trabalho.
 1. Selecione **excluir** no menu da página Configurações do espaço de trabalho.
 

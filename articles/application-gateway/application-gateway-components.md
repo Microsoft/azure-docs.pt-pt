@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348935"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942227"
 ---
 # <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
@@ -32,7 +32,7 @@ A SKU v1 pode ser configurada para dar suporte ao endereço IP interno estático
 
 O nome DNS associado a um gateway de aplicativo não é alterado durante o ciclo de vida do gateway. Como resultado, você deve usar um alias CNAME e apontar para o endereço DNS do gateway de aplicativo.
 
-## <a name="listeners"></a>Serviços de escuta
+## <a name="listeners"></a>Ouvintes
 
 Um ouvinte é uma entidade lógica que verifica as solicitações de conexão de entrada. Um ouvinte aceitará uma solicitação se o protocolo, a porta, o nome do host e o endereço IP associados à solicitação corresponderem aos mesmos elementos associados à configuração do ouvinte.
 
@@ -57,7 +57,7 @@ O gateway de aplicativo dá suporte a quatro protocolos: HTTP, HTTPS, HTTP/2 e W
 
 Use um ouvinte HTTPS para terminação SSL. Um ouvinte HTTPS descarrega o trabalho de criptografia e descriptografia para o gateway de aplicativo, para que os servidores Web não sejam sobrecarregados pela sobrecarga.
 
-### <a name="custom-error-pages"></a>Páginas de erros personalizados
+### <a name="custom-error-pages"></a>Páginas de erros personalizadas
 
 O gateway de aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada. O gateway de aplicativo exibe uma página de erro personalizada quando uma solicitação não pode alcançar o back-end.
 
@@ -75,7 +75,7 @@ Há dois tipos de ouvintes:
 
 Depois de criar um ouvinte, você o associa a uma regra de roteamento de solicitação. Essa regra determina como a solicitação recebida no ouvinte deve ser roteada para o back-end.
 
-O gateway de aplicativo processa os ouvintes na ordem mostrada. Se o ouvinte básico corresponder a uma solicitação de entrada, ele será processado primeiro. Para rotear o tráfego para o back-end correto, configure um ouvinte multissite antes de um ouvinte básico.
+O gateway de aplicativo processa os ouvintes na [ordem mostrada](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Regras de roteamento de solicitação
 
@@ -121,7 +121,7 @@ Esse componente também é usado para:
 
 - Associar uma investigação personalizada para monitorar a integridade do back-end, definir o intervalo de tempo limite da solicitação, substituir o nome do host e o caminho na solicitação e fornecer uma facilidade de clique para especificar as configurações para o back-end do serviço de aplicativo.
 
-## <a name="backend-pools"></a>Conjuntos de back-end
+## <a name="backend-pools"></a>Conjuntos de back end
 
 Um pool de back-end roteia a solicitação para servidores de back-end, que atendem à solicitação. Os pools de back-end podem conter:
 
@@ -140,7 +140,7 @@ Um gateway de aplicativo também pode se comunicar com servidores locais quando 
 
 Você pode criar pools de back-end diferentes para diferentes tipos de solicitações. Por exemplo, crie um pool de back-end para solicitações gerais e, em seguida, outro pool de back-end para solicitações para os microserviços para seu aplicativo.
 
-## <a name="health-probes"></a>Sondas de estado de funcionamento
+## <a name="health-probes"></a>Sondas do estado de funcionamento
 
 Por padrão, um gateway de aplicativo monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente aqueles não íntegros. Em seguida, ele monitora instâncias não íntegras e as adiciona novamente ao pool de back-end íntegro quando elas se tornam disponíveis e respondem a investigações de integridade.
 

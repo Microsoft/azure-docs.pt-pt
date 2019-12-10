@@ -1,5 +1,6 @@
 ---
-title: Início rápido-configurar a entrada para um aplicativo ASP.NET usando Azure Active Directory B2C
+title: 'Início rápido: configurar a entrada para um aplicativo Web ASP.NET'
+titleSuffix: Azure AD B2C
 description: Neste guia de início rápido, execute um aplicativo Web ASP.NET de exemplo que usa Azure Active Directory B2C para fornecer entrada de conta.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 114e82147b03fb500197a2129b7960101f85a455
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c1ab78a5858994591fbec2e2954702c72a1a345a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420189"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950635"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início rápido: configurar a entrada para um aplicativo ASP.NET usando Azure Active Directory B2C
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: dc842ba0e7ca0f34b7dacb98322c4dc0cd056483
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931993"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941948"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com Azure Data Factory
 
@@ -36,9 +36,11 @@ O modelo contém cinco atividades:
 - **Copiar** copia um arquivo da origem para o repositório de destino.
 - **Excluir** exclui o mesmo arquivo do repositório de origem.
 
-O modelo define dois parâmetros:
-- *FolderPath_SourceStore* é o caminho da pasta do seu repositório de origem para o qual você deseja mover arquivos. 
-- *FolderPath_DestinationStore* é o caminho da pasta do armazenamento de destino para o qual você deseja mover os arquivos. 
+O modelo define quatro parâmetros:
+- *SourceStore_Location* é o caminho da pasta do seu repositório de origem para o qual você deseja mover arquivos. 
+- *SourceStore_Directory* é o caminho da subpasta do seu repositório de origem para o qual você deseja mover arquivos.
+- *DestinationStore_Location* é o caminho da pasta do armazenamento de destino para o qual você deseja mover os arquivos. 
+- *DestinationStore_Directory* é o caminho da subpasta do armazenamento de destino para o qual você deseja mover os arquivos.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
@@ -50,9 +52,7 @@ O modelo define dois parâmetros:
 
     ![Criar uma nova conexão com o destino](media/solution-template-move-files/move-files2.png)
 
-3. Selecione **Utilizar este modelo**.
-
-    ![Utilizar este modelo](media/solution-template-move-files/move-files3.png)
+3. Selecione **usar esta** guia de modelo.
     
 4. Você verá o pipeline, como no exemplo a seguir:
 

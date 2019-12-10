@@ -2,18 +2,18 @@
 title: 'Arquitetura: Apache Hadoop local para o Azure HDInsight'
 description: Aprenda as práticas recomendadas de arquitetura para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499257"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951535"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-práticas recomendadas de arquitetura
 
@@ -25,23 +25,23 @@ Muitas implantações Apache Hadoop locais consistem em um único cluster grande
 
 Os clusters do Azure HDInsight são projetados para um tipo específico de uso de computação. Como o armazenamento pode ser compartilhado entre vários clusters, é possível criar vários clusters de computação com otimização de carga de trabalho para atender às necessidades de diferentes trabalhos. Cada tipo de cluster tem a configuração ideal para essa carga de trabalho específica. A tabela a seguir lista os tipos de cluster com suporte no HDInsight e as cargas de trabalho correspondentes.
 
-|**Carga de trabalho**|**Tipo de cluster HDInsight**|
+|Carga de trabalho|Tipo de cluster HDInsight|
 |---|---|
 |Processamento em lotes (ETL/ELT)|Hadoop, Spark|
-|Armazenamento de dados|Hadoop, Spark, consulta interativa|
+|Data warehousing|Hadoop, Spark, consulta interativa|
 |IoT/streaming|Kafka, Storm, Spark|
 |Processamento transacional NoSQL|HBase|
 |Consultas interativas e mais rápidas com cache na memória|Interactive Query|
-|Ciência de dados|Serviços de ML, Spark|
+|Ciência de Dados|Serviços de ML, Spark|
 
 A tabela a seguir mostra os diferentes métodos que podem ser usados para criar um cluster HDInsight.
 
-|**Ferramenta**|**Baseado em navegador**|**Linha de comando**|**API REST**|**SDK**|
+|Ferramenta|Baseado em navegador|Linha de Comandos|API REST|SDK|
 |---|---|---|---|---|
 |[Portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[CLI do Azure (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
-|[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
+|[O Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
 |[SDK do .NET](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
 |[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
@@ -74,9 +74,7 @@ Os clusters de computação são criados próximos aos recursos da conta de arma
 
 ## <a name="use-external-metadata-stores"></a>Utilizar arquivos de metadados externos
 
-
 Há dois metarepositórios principais que funcionam com clusters HDInsight: [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). O metastore do Hive é o repositório de esquema central que pode ser usado por mecanismos de processamento de dados, incluindo Hadoop, Spark, LLAP, presto e Apache Pig. O metastore do Oozie armazena detalhes sobre o agendamento e o status em andamento e trabalhos do Hadoop concluídos.
-
 
 O HDInsight usa o banco de dados SQL do Azure para metastores do hive e do Oozie. Há duas maneiras de configurar um metastore em clusters HDInsight:
 
@@ -105,7 +103,7 @@ Algumas práticas recomendadas do HDInsight metastore do Hive são as seguintes:
 - Faça backup do metastore personalizado periodicamente.
 - Mantenha o metastore e o cluster HDInsight na mesma região.
 - Monitore o metastore para obter desempenho e disponibilidade usando as ferramentas de monitoramento do banco de dados SQL do Azure, como portal do Azure ou Azure Monitor logs.
-- Execute o comando **analisar tabela** conforme necessário para gerar estatísticas para tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Execute o comando `ANALYZE TABLE` conforme necessário para gerar estatísticas para tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Práticas recomendadas para cargas de trabalho diferentes
 

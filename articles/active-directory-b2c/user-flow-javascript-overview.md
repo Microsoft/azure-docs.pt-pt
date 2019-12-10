@@ -1,5 +1,6 @@
 ---
-title: JavaScript e versões de layout de página-Azure Active Directory B2C | Microsoft Docs
+title: JavaScript e versões de layout de página
+titleSuffix: Azure AD B2C
 description: Saiba como habilitar o JavaScript e usar versões de layout de página no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227114"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950838"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript e versões de layout de página no Azure Active Directory B2C
 
@@ -33,7 +34,7 @@ Nas **Propriedades**de fluxo do usuário, você pode habilitar o JavaScript, que
 
 ### <a name="select-a-page-layout-version"></a>Selecionar uma versão de layout de página
 
-Se você habilitar ou não o JavaScript nas propriedades do fluxo de usuário, poderá especificar uma versão de layout de página para suas páginas de fluxo de usuário. Abra o fluxo de usuário e selecione layouts de **página**. Em **nome do layout**, selecione uma página fluxo de usuário e escolha a **versão de layout da página**.
+Se você habilitar ou não o JavaScript nas propriedades do fluxo de usuário, poderá especificar uma versão de layout de página para suas páginas de fluxo de usuário. Abra o fluxo de usuário e selecione **layouts de página**. Em **nome do layout**, selecione uma página fluxo de usuário e escolha a **versão de layout da página**.
 
 Para obter informações sobre as diferentes versões de layout de página, consulte o [log de alterações de versão](page-layout.md#version-change-log).
 
@@ -45,7 +46,7 @@ Para habilitar o JavaScript em políticas personalizadas, adicione o elemento **
 
 Se você habilitar ou não o JavaScript em suas políticas personalizadas, poderá especificar uma versão de layout de página para suas páginas. Para obter mais informações sobre como especificar um layout de página, consulte [selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas](page-layout.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre as diferentes versões de layout de página, consulte a seção **log de alterações de versão** de [selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas](page-layout.md#version-change-log).
 

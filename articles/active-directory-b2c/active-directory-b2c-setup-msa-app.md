@@ -1,5 +1,6 @@
 ---
-title: Configurar a inscrição e a entrada com uma conta da Microsoft-Azure Active Directory B2C
+title: Configurar a inscrição e a entrada com uma conta da Microsoft
+titleSuffix: Azure AD B2C
 description: Forneça inscrição e entrada para clientes com contas da Microsoft em seus aplicativos usando o Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc79211f55edb471eb95fc55fe8519d228ca192e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642081"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949326"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com um conta Microsoft usando Azure Active Directory B2C
 
@@ -23,7 +24,7 @@ ms.locfileid: "73642081"
 
 Para usar um conta Microsoft como um [provedor de identidade](active-directory-b2c-reference-oidc.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo no locatário do Azure AD. O locatário do Azure AD não é o mesmo que seu Azure AD B2C locatário. Se você ainda não tiver uma conta Microsoft, poderá obter uma em [https://www.live.com/](https://www.live.com/).
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.

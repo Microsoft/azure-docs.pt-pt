@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: rkarlin
-ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0479eba13fd747ea1bcab2672fce1df2156802e8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762707"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947591"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -70,7 +70,7 @@ A tabela a seguir exibe funções e ações permitidas no Azure Sentinel. Um X i
 >
 ## <a name="building-custom-rbac-roles"></a>Criando funções personalizadas de RBAC
 
-Além de, ou em vez de, usando funções RBAC internas, você pode criar funções RBAC personalizadas para o Azure Sentinel. As funções personalizadas do RBAC para o Azure Sentinel são criadas da mesma maneira que você cria outras funções [personalizadas do Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) , com base em permissões específicas para recursos do Azure Sentinel.
+Além de, ou em vez de, usando funções RBAC internas, você pode criar funções RBAC personalizadas para o Azure Sentinel. As funções personalizadas de RBAC para o Azure Sentinel são criadas da mesma maneira que você cria outras funções [personalizadas do Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) , com base em [permissões específicas para o Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos de log Analytics do Azure](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 ## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>RBAC avançado nos dados que você armazena no Azure Sentinel
   

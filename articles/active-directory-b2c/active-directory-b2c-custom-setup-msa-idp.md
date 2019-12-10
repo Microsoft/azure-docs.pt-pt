@@ -1,6 +1,7 @@
 ---
-title: Adicionar a MSA (conta da Microsoft) como um provedor de identidade usando políticas personalizadas no Azure Active Directory B2C
-description: Exemplo usando a Microsoft como provedor de identidade usando o protocolo OpenID Connect (OIDC).
+title: Configurar a entrada com uma conta da conta da Microsoft usando políticas personalizadas
+titleSuffix: Azure AD B2C
+description: Como usar políticas personalizadas para habilitar a MSA (conta da Microsoft) como um provedor de identidade usando o protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 393e6f0b87cbd6a548825276da3f59863e2833eb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643651"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948373"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com um conta Microsoft usando políticas personalizadas no Azure Active Directory B2C
 
@@ -32,7 +33,7 @@ Este artigo mostra como habilitar a entrada para usuários de um conta Microsoft
 
 Para habilitar a entrada para usuários com um conta Microsoft, você precisa registrar um aplicativo no locatário do Azure AD. O locatário do Azure AD não é o mesmo que seu Azure AD B2C locatário.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário do Azure AD.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
 1. Selecione **novo registro**.
@@ -50,7 +51,7 @@ Para habilitar a entrada para usuários com um conta Microsoft, você precisa re
 
 Agora que você criou o aplicativo em seu locatário do Azure AD, você precisa armazenar o segredo do cliente do aplicativo em seu locatário Azure AD B2C.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Na página Visão geral, selecione **Identity Experience Framework**.
@@ -178,7 +179,7 @@ Atualize o arquivo RP (terceira parte confiável) que inicia o percurso do usuá
 1. Atualize o valor de **PublicPolicyUri** com o URI para a política. Por exemplo,`http://contoso.com/B2C_1A_signup_signin_msa`
 1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID da jornada do usuário que você criou anteriormente (SignUpSignInMSA).
 1. Salve as alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.
-1. Verifique se Azure AD B2C aplicativo que você criou na seção anterior (ou concluindo os pré-requisitos, por exemplo, *webapp1* ou *testapp1*) está selecionado no campo **Selecionar aplicativo** e, em seguida, teste-o clicando em **executar agora** .
+1. Verifique se Azure AD B2C aplicativo que você criou na seção anterior (ou concluindo os pré-requisitos, por exemplo, *webapp1* ou *testapp1*) está selecionado no campo **Selecionar aplicativo** e, em seguida, teste-o clicando em **executar agora**.
 1. Selecione o botão **conta da Microsoft** e entre.
 
     Se a operação de entrada for bem-sucedida, você será redirecionado para `jwt.ms` que exibe o token decodificado, semelhante a:

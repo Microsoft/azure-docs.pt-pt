@@ -1,5 +1,6 @@
 ---
-title: Definir um perfil técnico RESTful em uma política personalizada no Azure Active Directory B2C | Microsoft Docs
+title: Definir um perfil técnico RESTful em uma política personalizada
+titleSuffix: Azure AD B2C
 description: Defina um perfil técnico RESTful em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: aa14854807727506f5d697d7871c97e219c096a3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063746"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950889"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico RESTful em uma política personalizada de Azure Active Directory B2C
 
@@ -33,9 +34,9 @@ Sua política pode enviar declarações de entrada para sua API REST. A API REST
 - **Perfil técnico de validação** -um perfil técnico de validação chama o serviço RESTful. O perfil técnico de validação valida os dados fornecidos pelo usuário antes de o percurso do usuário continuar. Com o perfil técnico de validação, uma mensagem de erro é exibida em uma página autodeclarada e retornada em declarações de saída.
 - **Troca de declarações** – uma chamada é feita ao serviço RESTful por meio de uma etapa de orquestração. Nesse cenário, não há nenhuma interface de usuário para processar a mensagem de erro. Se a API REST retornar um erro, o usuário será Redirecionado de volta para o aplicativo de terceira parte confiável com a mensagem de erro.
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure ad B2C `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`:.
+O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **Handler** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo que é usado pelo Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 O exemplo a seguir mostra um perfil técnico RESTful:
 
@@ -62,7 +63,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pela API REST. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido na API REST. Você também pode incluir declarações que não são retornadas pelo provedor de identidade da API REST, desde que você `DefaultValue` defina o atributo.
+O elemento **OutputClaims** contém uma lista de declarações retornadas pela API REST. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido na API REST. Você também pode incluir declarações que não são retornadas pelo provedor de identidade da API REST, desde que você defina o atributo `DefaultValue`.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
 
@@ -83,12 +84,12 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
-| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`ou `ClientCertificate`. O `None` valor indica que a API REST não é anônima. O `Basic` valor indica que a API REST é protegida com autenticação básica http. Somente os usuários verificados, incluindo Azure AD B2C, podem acessar sua API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, como Azure AD B2C podem acessar seu serviço. |
-| SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão) `Header`, `Form`, ou `QueryString`. O `Body` valor é a declaração de entrada que é enviada no corpo da solicitação no formato JSON. O `Form` valor é a declaração de entrada que é enviada no corpo da solicitação em um formato de valor de chave separado "&" e comercial. O `Header` valor é a declaração de entrada que é enviada no cabeçalho da solicitação. O `QueryString` valor é a declaração de entrada que é enviada na cadeia de caracteres de consulta de solicitação. |
-| ClaimsFormat | Não | Especifica o formato para as declarações de saída. Valores possíveis: `Body` (padrão) `Header`, `Form`, ou `QueryString`. O `Body` valor é a declaração de saída que é enviada no corpo da solicitação no formato JSON. O `Form` valor é a declaração de saída que é enviada no corpo da solicitação em um formato de valor de chave separado "&" e comercial. O `Header` valor é a declaração de saída que é enviada no cabeçalho da solicitação. O `QueryString` valor é a declaração de saída enviada na cadeia de caracteres de consulta de solicitação. |
+| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com autenticação básica HTTP. Somente os usuários verificados, incluindo Azure AD B2C, podem acessar sua API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, como Azure AD B2C podem acessar seu serviço. |
+| SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header`ou `QueryString`. O valor de `Body` é a declaração de entrada que é enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada que é enviada no corpo da solicitação em um formato de valor de chave separado de e comercial ' & '. O valor de `Header` é a declaração de entrada que é enviada no cabeçalho da solicitação. O valor de `QueryString` é a declaração de entrada que é enviada na cadeia de caracteres de consulta de solicitação. |
+| ClaimsFormat | Não | Especifica o formato para as declarações de saída. Valores possíveis: `Body` (padrão), `Form`, `Header`ou `QueryString`. O valor de `Body` é a declaração de saída que é enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de saída que é enviada no corpo da solicitação em um formato de valor de chave separado de e comercial ' & '. O valor de `Header` é a declaração de saída que é enviada no cabeçalho da solicitação. O valor de `QueryString` é a declaração de saída enviada na cadeia de caracteres de consulta de solicitação. |
 | DebugMode | Não | Executa o perfil técnico no modo de depuração. No modo de depuração, a API REST pode retornar mais informações. Consulte a seção retornando mensagem de erro. |
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
@@ -109,7 +110,7 @@ Se o tipo de autenticação for definido como `None`, o elemento **Cryptographic
 
 Se o tipo de autenticação for definido como `Basic`, o elemento **CryptographicKeys** conterá os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sim | O nome de usuário que é usado para autenticar. |
 | BasicAuthenticationPassword | Sim | A senha que é usada para autenticar. |
@@ -134,7 +135,7 @@ O exemplo a seguir mostra um perfil técnico com autenticação básica:
 
 Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticação. |
 
@@ -157,15 +158,15 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 Sua API REST pode precisar retornar uma mensagem de erro, como ' o usuário não foi encontrado no sistema de CRM '. Em caso de erro, a API REST deve retornar uma mensagem de erro HTTP 409 (código de status de resposta de conflito) com os seguintes atributos:
 
-| Atributo | Requerido | Descrição |
+| Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| version | Sim | 1.0.0 |
+| versão | Sim | 1.0.0 |
 | status | Sim | 409 |
-| code | Não | Um código de erro do provedor de ponto de extremidade RESTful, que `DebugMode` é exibido quando o está habilitado. |
-| requestId | Não | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que `DebugMode` é exibido quando o está habilitado. |
+| code | Não | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
+| requestId | Não | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
 | userMessage | Sim | Uma mensagem de erro que é mostrada para o usuário. |
-| developerMessage | Não | A descrição detalhada do problema e como corrigi-lo, que é exibido quando `DebugMode` o está habilitado. |
-| moreInfo | Não | Um URI que aponta para informações adicionais, que são exibidas quando `DebugMode` o está habilitado. |
+| developerMessage | Não | A descrição detalhada do problema e como corrigi-lo, que é exibido quando `DebugMode` está habilitado. |
+| moreInfo | Não | Um URI que aponta para informações adicionais, que são exibidas quando `DebugMode` está habilitado. |
 
 O exemplo a seguir mostra uma API REST que retorna uma mensagem de erro formatada em JSON:
 
@@ -200,7 +201,7 @@ public class ResponseContent
 - [Integre as trocas de declarações da API REST no percurso do usuário Azure AD B2C como validação da entrada do usuário](active-directory-b2c-custom-rest-api-netfw.md)
 - [Proteger seus serviços RESTful usando a autenticação básica HTTP](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Proteger seu serviço RESTful usando certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Mostrou Integre as trocas de declarações da API REST no percurso do usuário Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
+- [Walkthrough: integrar as trocas de declarações da API REST em sua jornada do usuário Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

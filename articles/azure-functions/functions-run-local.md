@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784719"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941836"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com Azure Functions Core Tools
 
@@ -29,37 +29,47 @@ Desenvolver funções em seu computador local e publicá-las no Azure usando fer
 > * [Executar a função localmente](#start)
 > * [Publicar o projeto no Azure](#publish)
 
-## <a name="core-tools-versions"></a>Versões de ferramentas principais
+## <a name="core-tools-versions"></a>Versões do Core Tools
 
-Há duas versões do Azure Functions Core Tools. A versão usada depende do seu ambiente de desenvolvimento local, [da escolha do idioma](supported-languages.md)e do nível de suporte necessário:
+Há três versões do Azure Functions Core Tools. A versão usada depende do seu ambiente de desenvolvimento local, [da escolha do idioma](supported-languages.md)e do nível de suporte necessário:
 
-+ Versão 1. x: dá suporte à versão 1. x do tempo de execução. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada a partir de um [pacote NPM](https://docs.npmjs.com/getting-started/what-is-npm). Com essa versão, você pode criar funções em linguagens experimentais que não são oficialmente suportadas. Para obter mais informações, consulte [idiomas com suporte no Azure Functions](supported-languages.md)
++ **Versão 1. x**: dá suporte à versão 1. x do tempo de execução de Azure functions. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada a partir de um [pacote NPM](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [Versão 2. x](#v2): dá suporte à [versão 2. x do tempo de execução](functions-versions.md). Esta versão dá suporte para [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux). Usa gerenciadores de pacotes específicos da plataforma ou NPM para instalação.
++ A [**versão 2. x/3. x**](#v2): oferece suporte à [versão 2. x ou 3. x do tempo de execução de Azure Functions](functions-versions.md). Essas versões dão suporte ao [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux) e usam gerenciadores de pacotes específicos da plataforma ou NPM para instalação.
 
-Salvo indicação em contrário, os exemplos neste artigo são para a versão 2. x.
+Salvo indicação em contrário, os exemplos neste artigo são para a versão 3. x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
 [Azure Functions Core Tools] inclui uma versão do mesmo tempo de execução que alimenta Azure Functions tempo de execução que você pode executar em seu computador de desenvolvimento local. Ele também fornece comandos para criar funções, conectar-se ao Azure e implantar projetos de funções.
 
-### <a name="v2"></a>Versão 2. x
+### <a name="v2"></a>Versão 2. x e 3. x
 
-A versão 2. x das ferramentas usa o Azure Functions Runtime 2. x criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core 2. x dá suporte, incluindo [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux). 
+A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core dá suporte, incluindo [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux). 
 
 > [!IMPORTANT]
-> Você pode ignorar o requisito de instalação do SDK do .NET Core 2. x usando [extensão].
+> Você pode ignorar o requisito de instalação do SDK do .NET Core usando [extensão].
 
 #### <a name="windows-npm"></a>Windows
 
 As etapas a seguir usam o NPM para instalar as ferramentas principais no Windows. Você também pode usar [Chocolatey](https://chocolatey.org/). Para obter mais informações, consulte o [Leiame das ferramentas principais](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Instale o [Node.js], que inclui NPM. Para a versão 2. x das ferramentas, somente o Node. js 8,5 e versões posteriores têm suporte.
+1. Instale o [Node.js], que inclui NPM.
+    - Para a versão 2. x das ferramentas, somente o Node. js 8,5 e versões posteriores têm suporte.
+    - Para a versão 3. x das ferramentas, há suporte apenas para o nó 10 e versões posteriores.
 
 1. Instale o pacote de ferramentas principais:
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### <a name="v3x"></a>v3.x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    Pode levar alguns minutos para que o NPM Baixe e instale o pacote de ferramentas principais.
@@ -74,13 +84,21 @@ As etapas a seguir usam o homebrew para instalar as ferramentas principais no ma
 
 1. Instale o pacote de ferramentas principais:
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. Se você não planeja usar pacotes de [extensão], instale o [SDK do .NET Core 2. x para MacOS](https://www.microsoft.com/net/download/macos).
+    ##### <a name="v3x"></a>v3.x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a>Linux (Ubuntu/Debian) com APT
 
@@ -114,7 +132,7 @@ As etapas a seguir usam a [apt](https://wiki.debian.org/Apt) para instalar as fe
     | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
-    | Ubuntu 18,10    | `cosmic`    |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17, 4    | `zesty`     |
     | Ubuntu 16.04/Linux menta 18    | `xenial`  |
@@ -133,7 +151,7 @@ As etapas a seguir usam a [apt](https://wiki.debian.org/Apt) para instalar as fe
 
 1. Se você não planeja usar pacotes de [extensão], instale o [SDK do .NET Core 2. x para Linux](https://www.microsoft.com/net/download/linux).
 
-## <a name="create-a-local-functions-project"></a>Criar um projeto de funções locais
+## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
 Um diretório de projeto do Functions contém os arquivos [host. JSON](functions-host-json.md) e [local. Settings. JSON](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Esse diretório é o equivalente a um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do functions, consulte o [Guia do Azure Functions Developers](functions-reference.md#folder-structure).
 
@@ -199,7 +217,7 @@ Por padrão, essas configurações não são migradas automaticamente quando o p
 Os valores das configurações do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte a seção variáveis de ambiente nestes tópicos de referência específicos a um idioma:
 
 * [C#pré-compilado](functions-dotnet-class-library.md#environment-variables)
-* [C#script (. CSX)](functions-reference-csharp.md#environment-variables)
+* [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -526,5 +544,5 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 [Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [extensão]: functions-bindings-register.md#extension-bundles
