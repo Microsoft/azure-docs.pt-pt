@@ -1,15 +1,15 @@
 ---
 title: Usar Visual Studio Code para se conectar ao serviço Blockchain do Azure
 description: Conectar-se a uma rede do Azure Blockchain Service Consortium usando a extensão do kit de desenvolvimento do Blockchain do Azure para Ethereum no Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455977"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977089"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Início rápido: usar Visual Studio Code para se conectar a uma rede do Azure Blockchain Service Consortium
 
@@ -59,12 +59,12 @@ Você pode se conectar a membros do Consortium usando a extensão de VS Code do 
 Se você não tiver acesso a um membro do Azure Blockchain Service Consortium, conclua o guia de [início rápido de pré-requisito: criar um membro do Blockchain usando o portal do Azure](create-member.md) ou [início rápido: criar um membro do Azure Blockchain Service Blockchain usando o CLI do Azure](create-member-cli.md).
 
 1. No painel VS Code Explorer, expanda a extensão **Blockchain do Azure** .
-1. Selecione **conectar ao consórcio**.
+1. Selecione **conectar à rede**.
 
-   ![Conectar ao consórcio](./media/connect-vscode/connect-consortium.png)
+   ![Conectar à rede](./media/connect-vscode/connect-consortium.png)
 
     Se a autenticação do Azure for solicitada, siga os prompts para autenticar usando um navegador.
-1. Escolha **conectar ao Azure Blockchain Service Consortium** no menu suspenso da paleta de comandos.
+1. Escolha **serviço Blockchain do Azure** na lista suspensa de paleta de comandos.
 1. Escolha a assinatura e o grupo de recursos associados ao seu membro do Azure Blockchain Service Consortium.
 1. Escolha seu Consórcio na lista.
 
@@ -72,7 +72,7 @@ Os membros do consórcio e do blockchain são listados na barra lateral do VS Co
 
 ![Consórcio exibido no Explorer](./media/connect-vscode/consortium-node.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você usou o kit de desenvolvimento do Azure Blockchain para Ethereum VS Code extensão para anexar a um consórcio no serviço Blockchain do Azure. Experimente o próximo tutorial para usar o kit de desenvolvimento do Azure Blockchain para Ethereum para criar, compilar, implantar e executar uma função de contrato inteligente por meio de uma transação.
 

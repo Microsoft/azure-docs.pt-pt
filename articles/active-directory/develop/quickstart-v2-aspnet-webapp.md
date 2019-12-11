@@ -1,6 +1,6 @@
 ---
-title: Guia de início rápido do servidor Web ASP.NET da plataforma Microsoft Identity | Azure
-description: Saiba como implementar o Início de sessão com a Microsoft numa aplicação Web ASP.NET com o OpenID Connect.
+title: Adicionar entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET | Azure
+description: Saiba como implementar a entrada da Microsoft em um aplicativo Web ASP.NET usando o OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46902d72c888713be62524ed4b609e2299a85c2b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ab2b3c1872de25c2d78198a0e23c0067ef0c9ea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920723"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968090"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início rápido: adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
 

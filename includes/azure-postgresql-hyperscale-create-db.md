@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "74000449"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973424"
 ---
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Criar um banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -46,7 +46,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
    ![](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png) IP do cliente adicionado
 
    > [!NOTE]
-   > O servidor PostgreSQL do Azure comunica através da porta 5432. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
+   > O servidor PostgreSQL do Azure comunica através da porta 5432. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Nesse caso, você não pode se conectar ao seu cluster de hiperescala (Citus), a menos que o departamento de ti Abra a porta 5432.
    >
 
 9. Clique em **revisar + criar** e em **criar** para provisionar o servidor. O aprovisionamento demora alguns minutos.
@@ -57,10 +57,10 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
 
 Quando você cria o banco de dados do Azure para o servidor PostgreSQL, um banco de dados padrão chamado **citus** é criado. Para se conectar ao servidor de banco de dados, você precisa de uma cadeia de conexão e da senha de administrador.
 
-1. Obtenha a cadeia de conexão. Na página grupo de servidores, clique no item de menu **cadeias de conexão** . (Está em **configurações**.) Localize a cadeia de caracteres marcada  **C++ (libpq)** . Ele estará no formato:
+1. Obtenha a cadeia de conexão. Na página grupo de servidores, clique no item de menu **cadeias de conexão** . (Está em **configurações**.) Localize a cadeia de caracteres marcada como **psql**. Ele estará no formato:
 
    ```
-   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
+   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
    Copie a cadeia de caracteres. Será necessário substituir "{Your\_password}" pela senha administrativa que você escolheu anteriormente. O sistema não armazena sua senha de texto não criptografado e, portanto, não pode exibi-la para você na cadeia de conexão.
@@ -69,7 +69,7 @@ Quando você cria o banco de dados do Azure para o servidor PostgreSQL, um banco
 
 3. No prompt, conecte-se ao banco de dados do Azure para o servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/current/app-psql.html) . Passe sua cadeia de conexão entre aspas, certificando-se de que ela contém sua senha:
    ```bash
-   psql "{connection_string}"
+   psql "host=..."
    ```
 
    Por exemplo, o comando a seguir se conecta ao nó de coordenador do grupo de servidores **mydemoserver**:

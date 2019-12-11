@@ -1,6 +1,6 @@
 ---
 title: Registrar dispositivos X. 509 no serviço de provisionamento de dispositivos do Azure usando o Java
-description: Este início rápido utiliza inscrições em grupo e individuais. Neste início rápido, vai inscrever dispositivos X.509 no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com Java.
+description: Este início rápido utiliza inscrições em grupo e individuais. Neste guia de início rápido, você registrará dispositivos X. 509 no DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure usando o Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 983e410c6f6298c6b251fdc2a4aff5c677d26906
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 4be7dc3e93b61f036a4167347a45725eff185f04
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423047"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969716"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 

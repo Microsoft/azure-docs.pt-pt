@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido do aplicativo Web Microsoft Identity ASP.NET Core | Azure
+title: Adicionar entrada com a Microsoft a ASP.NET Core aplicativos Web-plataforma Microsoft Identity | Azure
 description: Saiba como implementar a entrada da Microsoft em um aplicativo Web ASP.NET Core usando o OpenID Connect
 services: active-directory
 author: jmprieur
@@ -13,12 +13,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832fb890a91c9e87c26d8facdcba49ef9d810117
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b86c8f79902c0234e35e4d195e4680b6e9b3f3c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920740"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963550"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET Core
 

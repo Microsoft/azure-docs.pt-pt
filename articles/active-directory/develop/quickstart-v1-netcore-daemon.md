@@ -1,6 +1,6 @@
 ---
-title: Adquirir token e chamar Microsoft Graph API com a identidade do aplicativo de console (v 1.0) | Microsoft Docs
-description: Saiba como criar um aplicativo de daemon do .NET que se integre ao Azure AD chama APIs protegidas do Azure AD usando o OAuth 2,0
+title: Obter token & chamar Microsoft Graph APIs de aplicativos de console (v 1.0) | Azure
+description: Criar um aplicativo de daemon do .NET que se integre ao Azure AD & chama APIs protegidas do Azure AD usando o OAuth 2,0
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 384aa90fd4edb8f52224bdf2885208fde5789398
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920893"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965930"
 ---
 # <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>Início rápido: adquirir o token e chamar Microsoft Graph API com a identidade do aplicativo de console (v 1.0) 
 

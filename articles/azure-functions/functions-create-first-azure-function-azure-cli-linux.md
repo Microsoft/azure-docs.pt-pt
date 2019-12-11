@@ -4,16 +4,16 @@ description: Saiba como criar sua primeira função hospedada no Linux no Azure 
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 57c1b4a0ef5e8f030360bca6d69f66e8752f3da1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230815"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964145"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Início rápido: criar sua primeira função hospedada no Linux usando ferramentas de linha de comando
 
-As Funções do Azure permitem-lhe executar o seu código num ambiente Linux [sem servidor](https://azure.com/serverless), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. A hospedagem do Linux requer [o tempo de execução do Functions 2. x](functions-versions.md). As funções sem servidor são executadas no [plano de consumo](functions-scale.md#consumption-plan).
+As Funções do Azure permitem-lhe executar o seu código num ambiente Linux [sem servidor](https://azure.com/serverless), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. A hospedagem do Linux requer [as funções 2. x e tempo de execução posterior](functions-versions.md). As funções sem servidor são executadas no [plano de consumo](functions-scale.md#consumption-plan).
 
 Este artigo de início rápido explica como utilizar a CLI do Azure para criar a sua primeira aplicação de funções em execução no Linux. O código de função é criado localmente e, em seguida, implementado no Azure através das [Azure Functions Core Tools](functions-run-local.md).
 

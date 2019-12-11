@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158492"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975402"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Início rápido: biblioteca de cliente Azure Key Vault para .NET (SDK v3)
 
@@ -20,7 +20,7 @@ Introdução à biblioteca de cliente do Azure Key Vault para .NET. Siga as etap
 > [!NOTE]
 > Este guia de início rápido usa a versão v 3.0.4 da biblioteca de cliente Microsoft. Azure. keyvault. Para usar a versão mais atualizada da biblioteca de cliente do Key Vault, consulte [Azure Key Vault Client library for .net (SDK v4)](quick-create-net.md). 
 
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Use a biblioteca de cliente do Key Vault para .NET para:
+O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Use a biblioteca de cliente do Key Vault para .NET para:
 
 - Aumente a segurança e o controle sobre chaves e senhas.
 - Crie e importe chaves de criptografia em minutos.
@@ -190,7 +190,7 @@ Seu segredo agora está salvo como `keyvaultSecret.Value;`.
 Quando não for mais necessário, você poderá usar o CLI do Azure ou Azure PowerShell para remover o cofre de chaves e o grupo de recursos correspondente.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

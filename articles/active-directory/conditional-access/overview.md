@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0463ffad87d00421c2fcb5c8357406d5f692144
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075342"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966287"
 ---
 # <a name="what-is-conditional-access"></a>O que é o Acesso Condicional?
 
@@ -26,7 +26,7 @@ O acesso condicional é a ferramenta usada por Azure Active Directory para reuni
 
 ![Sinal condicional conceitual mais decisão de obter a imposição](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-As políticas de acesso condicional em suas mais simples são instruções if-then, se um usuário quiser acessar um recurso, ele deverá concluir uma ação. Exemplo: Um gerente de folha de pagamento deseja acessar o aplicativo de folha de pagamento e é necessário para executar a autenticação multifator para acessá-lo.
+As políticas de acesso condicional em suas mais simples são instruções if-then, se um usuário quiser acessar um recurso, ele deverá concluir uma ação. Exemplo: um gerente de folha de pagamento deseja acessar o aplicativo de folha de pagamento e é necessário para executar a autenticação multifator para acessá-lo.
 
 Os administradores enfrentam dois objetivos principais:
 
@@ -50,7 +50,7 @@ Os sinais comuns que o acesso condicional pode levar em conta ao fazer uma decis
    - Os administradores podem especificar intervalos de IP de países inteiros para bloquear ou permitir o tráfego.
 - Dispositivo
    - Os usuários com dispositivos de plataformas específicas ou marcados com um estado específico podem ser usados ao impor políticas de acesso condicional.
-- Aplicação
+- Candidatura
    - Os usuários que tentarem acessar aplicativos específicos podem disparar diferentes políticas de acesso condicional. 
 - Detecção de risco calculado e em tempo real
    - A integração de sinais com Azure AD Identity Protection permite que as políticas de acesso condicional identifiquem o comportamento de entrada arriscado. As políticas podem forçar os usuários a executar alterações de senha ou autenticação multifator para reduzir seu nível de risco ou ser impedido de acesso até que um administrador execute a ação manual.
@@ -80,6 +80,13 @@ Muitas organizações têm problemas comuns de acesso que as políticas de acess
 - Bloqueando ou concedendo acesso de locais específicos
 - Bloqueando comportamentos de entrada arriscados
 - Exigindo dispositivos gerenciados pela organização para aplicativos específicos
+
+## <a name="customer-case-studies"></a>Casos práticos de clientes
+
+Descubra como outras organizações usam o acesso condicional do Azure AD para definir e implementar decisões de controle de acesso automatizadas. As seguintes histórias em destaque demonstram como essas necessidades do cliente são atendidas.
+
+* [O Wipro impulsiona a produtividade móvel com as ferramentas de segurança de nuvem da Microsoft para melhorar os compromissos com o cliente.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) As políticas de acesso condicional no Azure AD permitiram que a empresa compartilhe documentos, recursos e aplicativos com entidades externas confiáveis---que possam usar suas próprias credenciais---ao mesmo tempo em que mantém o controle sobre seus próprios dados corporativos.
+* [Entrega ARAMEX limitada-a logística global e a empresa de transporte criam um escritório conectado à nuvem com a solução de gerenciamento de identidade e acesso](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Garantir o acesso seguro era especialmente difícil com os funcionários remotos do ARAMEX. A empresa agora está aplicando o acesso condicional para permitir que esses funcionários remotos acessem seus aplicativos SaaS de fora da rede. A regra de acesso condicional decidirá se deseja impor a autenticação multifator, concedendo apenas às pessoas certas o acesso certo.
 
 ## <a name="license-requirements"></a>Requisitos de licença
 

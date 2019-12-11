@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido do aplicativo Web do Python da plataforma Microsoft Identity | Azure
+title: Adicionar entrada com a Microsoft a um aplicativo Web Python da plataforma de identidade da Microsoft | Azure
 description: Saiba como implementar a entrada da Microsoft em um aplicativo Web Python usando o OAuth2
 services: active-directory
 author: abhidnya13
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 0d6b96683a04fa5d2814246b3c22aa52956a8bbb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920519"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965981"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Python
 

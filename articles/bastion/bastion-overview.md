@@ -5,18 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4cee16a4b6d4f87c8f09ad742d9a504cfc5fc394
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 785d9da57171e60f5762a1449c24f9c767be3bc9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498325"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972805"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 
-O serviço de bastiões do Azure é um novo serviço de PaaS totalmente gerenciado por plataforma que você provisiona dentro de sua rede virtual. Ele fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre SSL. Ao ligar-se através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
+O serviço de bastiões do Azure é um novo serviço de PaaS totalmente gerenciado por plataforma que você provisiona dentro de sua rede virtual. Ele fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre SSL. Ao ligar através do Azure Bastion, as suas máquinas virtuais não precisam de um endereço IP público.
 
  A bastiões fornece conectividade segura de RDP e SSH para todas as VMs na rede virtual em que ela é provisionada. Usar a bastiões do Azure protege suas máquinas virtuais contra a exposição de portas RDP/SSH para o mundo exterior enquanto ainda fornece acesso seguro usando RDP/SSH. Com a bastiões do Azure, você se conecta à máquina virtual diretamente do portal do Azure. Você não precisa de um cliente adicional, agente ou parte do software.
 
