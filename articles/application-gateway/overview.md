@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422309"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996583"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -50,7 +50,7 @@ Um gateway de aplicativo ou implantações WAF em Standard_v2 ou WAF_v2 SKU pode
 
 O VIP do gateway de aplicativo no Standard_v2 ou WAF_v2 SKU dá suporte exclusivamente ao tipo de VIP estático. Isso garante que o VIP associado ao gateway de aplicativo não seja alterado mesmo durante o tempo de vida do gateway de aplicativo.
 
-## <a name="web-application-firewall"></a>Firewall de aplicação Web
+## <a name="web-application-firewall"></a>Firewall de aplicações Web
 
 O WAF (firewall do aplicativo Web) é um serviço que fornece proteção centralizada de seus aplicativos Web contra explorações e vulnerabilidades comuns. O WAF é baseado em regras dos [conjuntos de regras principais do OWASP (projeto de segurança de aplicativo Web aberto)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,1 (somente WAF_v2), 3,0 e 2.2.9. 
 
@@ -111,7 +111,7 @@ Para obter mais informações, consulte [suporte a WebSocket](https://docs.micro
 
 ## <a name="connection-draining"></a>Drenagem de ligação
 
-A drenagem de ligação ajuda a conseguir uma remoção correta de membros do conjunto de back-end durante as atualizações de serviço planeadas. Esta definição é ativada através da definição de http de back-end e pode ser aplicada a todos os membros de um conjunto de back-end durante a criação da regra. Uma vez habilitado, o gateway de aplicativo garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam nenhuma nova solicitação, permitindo que as solicitações existentes sejam concluídas dentro de um limite de tempo configurado. Isso se aplica a ambas as instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API e instâncias de back-end que são relatadas como não íntegras, conforme determinado pelas investigações de integridade.
+A drenagem de ligação ajuda a conseguir uma remoção correta de membros do conjunto de back-end durante as atualizações de serviço planeadas. Esta definição é ativada através da definição de http de back-end e pode ser aplicada a todos os membros de um conjunto de back-end durante a criação da regra. Uma vez habilitado, o gateway de aplicativo garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam nenhuma nova solicitação, permitindo que as solicitações existentes sejam concluídas em um limite de tempo configurado. Isso se aplica a ambas as instâncias de back-end que são explicitamente removidas do pool de back-end por uma alteração de configuração do usuário e instâncias de back-end que são relatadas como não íntegras conforme determinado pelas investigações de integridade. A única exceção a isso são solicitações associadas para cancelamento de registro de instâncias, que foram desregistradas explicitamente, devido à afinidade de sessão gerenciada por gateway e que continuarão a ser proxy para as instâncias de cancelamento de registro.
 
 Para obter mais informações, consulte a seção descarga de conexão da [visão geral de configuração do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 
@@ -145,8 +145,8 @@ A tabela a seguir mostra uma taxa de transferência de desempenho médio para ca
 
 | Tamanho médio da resposta da página de back-end | Pequeno | Médio | Grande |
 | --- | --- | --- | --- |
-| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: dbce24ced0ed057eac829d5c4b7223a10fa96b3e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888483"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977765"
 ---
 # <a name="dynamic-packaging-in-media-services"></a>Empacotamento dinâmico nos serviços de mídia
 
@@ -269,6 +269,9 @@ Para controlar o número de faixas, formatos, taxas de bits e janelas de tempo d
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
 Você pode usar a *criptografia dinâmica* para criptografar dinamicamente seu conteúdo em tempo real ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple Fairplay. Os serviços de mídia também fornecem um serviço para a entrega de chaves AES e licenças DRM para clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
+
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="more-information"></a>Mais informações
 

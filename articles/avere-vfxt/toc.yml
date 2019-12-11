@@ -38,6 +38,8 @@
       href: avere-vfxt-demo-links.md
     - name: Perguntas Frequentes de Avere vFXT for Azure
       href: avere-vfxt-faq.md
+    - name: Documentação de orientação da recuperação após desastre
+      href: disaster-recovery.md
     - name: Documentação adicional
       items:
         - name: Documentação complementar

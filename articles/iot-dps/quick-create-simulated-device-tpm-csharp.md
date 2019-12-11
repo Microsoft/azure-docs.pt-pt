@@ -1,6 +1,6 @@
 ---
 title: Início rápido-provisionar um dispositivo TPM simulado para o Hub IoT do Azure usandoC#
-description: Início rápido – criar e provisionar um dispositivo TPM C# simulado usando o SDK do dispositivo para o serviço de provisionamento de dispositivos no Hub IOT do Azure. Este início rápido utiliza inscrições individuais.
+description: Início rápido – criar e provisionar um dispositivo TPM C# simulado usando o SDK do dispositivo para o serviço de provisionamento de dispositivos do Hub IOT do Azure (DPS). Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 51249a8ac2f0fd0ed00d63ab60a2ab88b56e4304
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276458"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977000"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Início rápido: criar e provisionar um dispositivo TPM C# simulado usando o SDK do dispositivo para o serviço de provisionamento de dispositivos no Hub IOT
 

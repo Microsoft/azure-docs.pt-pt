@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre provisionamento em nuvem Azure AD Connect
+title: FAQ do aprovisionamento na cloud do Azure AD Connect
 description: Este documento descreve as perguntas frequentes sobre o provisionamento de nuvem.
 services: active-directory
 author: billmath
@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793557"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997093"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
@@ -42,7 +42,7 @@ Sim. O provisionamento de nuvem pode ser usado para sincronização de várias f
 
 **P: como o agente é atualizado?**
 
-Os agentes são atualizados automaticamente pela Microsoft. Isso reduz a carga de ti para testar e validar novas versões de agente. 
+Os agentes são atualizados automaticamente pela Microsoft. Para a equipe de ti, isso reduz a carga de ter que testar e validar novas versões de agente. 
 
 **P: posso desabilitar a atualização automática?**
 

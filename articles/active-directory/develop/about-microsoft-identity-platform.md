@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca1b6cc6288b75dc7194ead916f2ecb468b053d2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845914"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996991"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
@@ -26,13 +26,13 @@ A plataforma de identidade da Microsoft é uma evolução da plataforma de progr
 
 Até agora, a maioria dos desenvolvedores trabalhou com a plataforma Azure AD v 1.0 para autenticar contas corporativas e de estudante (provisionadas pelo Azure AD) solicitando tokens do ponto de extremidade v 1.0 do Azure AD, usando a ADAL (biblioteca de autenticação do Azure AD), portal do Azure para registro e configuração do aplicativo e Azure AD API do Graph para configuração de aplicativo programática.
 
-Com a plataforma de identidade da Microsoft (v 2.0), expanda seu alcance para esses tipos de usuários:
+Com a plataforma de identidade unificada da Microsoft (v 2.0), você pode escrever código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, a MSAL (biblioteca de autenticação da Microsoft) de software livre totalmente compatível é recomendada para uso em pontos de extremidade da plataforma de identidade. O MSAL é simples de usar, fornece excelentes experiências de SSO (logon único) para seus usuários, ajuda a alcançar alta confiabilidade e desempenho e é desenvolvido usando o SDL (ciclo de vida de desenvolvimento seguro da Microsoft). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, o que permite atrasar a solicitação de consentimento para mais escopos invasivos até que o uso do aplicativo garanta isso no tempo de execução.  O MSAL também dá suporte a Azure Active Directory B2C, de modo que seus clientes usem suas identidades de conta social, corporativa ou local preferenciais para obter acesso de logon único aos seus aplicativos e APIs.
+
+Com a plataforma de identidade da Microsoft, expanda seu alcance para esses tipos de usuários:
 
 - Contas corporativas e de estudante (contas do Azure AD provisionadas)
 - Contas pessoais (como Outlook.com ou Hotmail.com)
-- Seus clientes que trazem seu próprio email ou identidade social (como LinkedIn, Facebook, Google) por meio da oferta de Azure AD B2C
-
-Com a plataforma de identidade unificada da Microsoft, você pode escrever código uma vez e autenticar qualquer identidade da Microsoft em seu aplicativo. Para várias plataformas, há uma biblioteca de código aberto totalmente compatível chamada MSAL (biblioteca de autenticação da Microsoft). O MSAL é simples de usar, fornece excelentes experiências de SSO (logon único) para seus usuários, ajuda a alcançar alta confiabilidade e desempenho e é desenvolvido usando o SDL (ciclo de vida de desenvolvimento seguro da Microsoft). Ao chamar APIs, você pode configurar seu aplicativo para aproveitar o consentimento incremental, o que permite atrasar a solicitação de consentimento para mais escopos invasivos até que o uso do aplicativo garanta isso no tempo de execução.
+- Seus clientes que trazem seu próprio email ou identidade social (como LinkedIn, Facebook, Google) via MSAL e Azure AD B2C
 
 Você pode usar o portal do Azure para registrar e configurar seu aplicativo e usar a API Microsoft Graph para configuração de aplicativo programática.
 

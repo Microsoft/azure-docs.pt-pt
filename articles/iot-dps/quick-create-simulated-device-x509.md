@@ -1,6 +1,6 @@
 ---
 title: Provisionar o dispositivo X. 509 simulado no Hub IoT do Azure usando C
-description: Este início rápido utiliza inscrições individuais. Neste início rápido, vai criar e aprovisionar um dispositivo X.509 simulado com o SDK de dispositivo C para o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure.
+description: Este início rápido utiliza inscrições individuais. Neste guia de início rápido, você cria e provisiona um dispositivo X. 509 simulado usando o SDK do dispositivo C para o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 5d0b634de9d296bc56d18b2e7a4a92e6340b07c3
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8ea962d1d7df9b3d4932a698703e42b27495298c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423145"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976898"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Aprovisionar um dispositivo X.509 simulado com o SDK C do Azure IoT
 

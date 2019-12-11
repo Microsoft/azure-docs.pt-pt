@@ -1,6 +1,6 @@
 ---
 title: Registrar o dispositivo X. 509 no serviço de provisionamento de dispositivos do Azure usandoC#
-description: Este início rápido utiliza inscrições em grupo. Neste guia de início rápido, registre os dispositivos X. 509 no serviço de provisionamento de dispositivos do Hub C#IOT do Azure usando.
+description: Este início rápido utiliza inscrições em grupo. Neste guia de início rápido, registre os dispositivos X. 509 no DPS (serviço de provisionamento de dispositivos) do Hub C#IOT do Azure usando o.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1986f51b834f177a7c8d70392cc532cbfadb7170
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423337"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974738"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 
@@ -163,7 +163,7 @@ Esta seção mostra como criar um aplicativo de console do .NET Core que adicion
    Console.ReadLine();
    ```
 
-1. Compile a solução.
+1. Compilar a solução.
 
 ## <a name="run-the-enrollment-group-sample"></a>Executar o exemplo do grupo de inscrição
   

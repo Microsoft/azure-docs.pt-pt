@@ -1,5 +1,5 @@
 ---
-title: Banco de dados do Azure para PostgreSQL – início rápido do Citus (hiperescala)
+title: Criar tabelas distribuídas-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Início rápido para criar e consultar tabelas distribuídas no banco de dados do Azure para PostgreSQL Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500079"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973425"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Início rápido: criar um banco de dados do Azure para PostgreSQL-Citus (hiperescala) no portal do Azure
 
