@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 11/17/2019
-ms.openlocfilehash: 97faa445a286574aa5fc05d084d21c0740bc8a8b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173858"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995937"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: ingestão e consulta de dados de monitoramento no Azure Data Explorer 
 
@@ -315,10 +315,10 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
         | mv-expand events = Records
         | where isnotempty(events.metricName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             MetricName = tostring(events.metricName),
-            Count = toint(events.count),
+            Count = toint(events['count']),
             Total = todouble(events.total),
             Minimum = todouble(events.minimum),
             Maximum = todouble(events.maximum),
@@ -435,7 +435,7 @@ Selecione um recurso do qual exportar métricas. Vários tipos de recursos dão 
 
     ![Definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. O painel **configurações de diagnóstico** é aberto. Execute as seguintes etapas:
+1. O painel **configurações de diagnóstico** é aberto. Siga os passos seguintes:
    1. Dê aos seus dados de log de diagnóstico o nome *ADXExportedData*.
    1. Em **log**, marque as caixas de seleção **SucceededIngestion** e **FailedIngestion** .
    1. Em **métrica**, marque a caixa de seleção **desempenho da consulta** .
@@ -505,7 +505,7 @@ Agora você precisa criar as conexões de dados para suas métricas de diagnóst
 
 1. Use as seguintes configurações na janela **conexão de dados** :
 
-    Fonte de dados:
+    Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -532,7 +532,7 @@ Agora você precisa criar as conexões de dados para suas métricas de diagnóst
 
 1. Use as seguintes configurações na janela **conexão de dados** :
 
-    Fonte de dados:
+    Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -595,7 +595,7 @@ Resultados da consulta:
 
 |   |   |
 | --- | --- |
-|   |  count_ | any_Database | any_Table | any_IngestionSourcePath
+|   |  contagem_ | any_Database | any_Table | any_IngestionSourcePath
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 

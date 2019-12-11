@@ -1,57 +1,57 @@
 ---
-title: Configurar a ferramenta de importação/exportação do Azure | Documentos da Microsoft
-description: Saiba como configurar a preparação da unidade e reparar a ferramenta para o serviço importar/exportar do Azure.
-author: muralikk
+title: Configurando a ferramenta de importação/exportação do Azure | Microsoft Docs
+description: Saiba como configurar a ferramenta de preparação e reparo da unidade para o serviço de importação/exportação do Azure.
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320470"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979041"
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a>Configurar a ferramenta de importação/exportação do Azure
+# <a name="setting-up-the-azure-importexport-tool"></a>Configurando a ferramenta de importação/exportação do Azure
 
-A ferramenta de importação/exportação do Microsoft Azure é a ferramenta de preparação e reparação de unidade que pode utilizar com o serviço de importação/exportação do Microsoft Azure. Pode usar a ferramenta para as seguintes funções:
+A ferramenta de Importação/Exportação do Microsoft Azure é a ferramenta de preparação e reparo da unidade que pode ser usada com o serviço Importação/Exportação do Microsoft Azure. Você pode usar a ferramenta para as seguintes funções:
 
-* Antes de criar uma tarefa de importação, pode utilizar esta ferramenta para copiar dados para as unidades de disco rígido que vai enviar para um centro de dados do Azure.
-* Depois de uma tarefa de importação foi concluída, pode utilizar esta ferramenta para reparar os blobs que foram corrompidos, estavam em falta ou que entraram em conflito com outros blobs.
-* Depois de receber as unidades de uma tarefa de exportação concluída, pode utilizar esta ferramenta para reparar todos os ficheiros que foram danificado ou em falta nas unidades.
+* Antes de criar um trabalho de importação, você pode usar essa ferramenta para copiar dados para os discos rígidos que serão enviados para um data center do Azure.
+* Após a conclusão de um trabalho de importação, você pode usar essa ferramenta para reparar todos os blobs que estavam corrompidos, estavam ausentes ou em conflito com outros BLOBs.
+* Depois de receber as unidades de um trabalho de exportação concluído, você pode usar essa ferramenta para reparar todos os arquivos que estavam corrompidos ou ausentes nas unidades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se estiver **preparar as unidades de** para uma tarefa de importação, têm de ser cumpridos os seguintes pré-requisitos:
+Se você estiver **preparando unidades** para um trabalho de importação, os seguintes pré-requisitos devem ser atendidos:
 
-* Tem de ter uma subscrição do Azure Active Directory.
-* A subscrição tem de incluir uma conta de armazenamento com espaço suficiente disponível para armazenar os ficheiros que pretende importar.
-* Terá de, pelo menos, uma das chaves de acesso da conta de armazenamento.
-* Precisa de um computador (a "máquina de cópia") com o Windows 7, Windows Server 2008 R2 ou um sistema de operativo mais recente do Windows instalada.
-* O .NET Framework 4 tem de estar instalado na máquina de cópia.
-* O BitLocker tem de estar ativado na máquina de cópia.
-* Precisa de um ou mais vazio 2.5 polegadas ou 3.5 polegadas SATAII ou III ou SSD unidades de disco rígido ligadas à máquina de cópia.
-* Os ficheiros que pretende importar tem de ser acessíveis a partir da máquina de cópia, estejam eles num compartilhamento de rede ou um disco rígido local.
+* Você deve ter uma assinatura ativa do Azure.
+* Sua assinatura deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os arquivos que você pretende importar.
+* Você precisa de pelo menos uma das chaves de acesso da conta de armazenamento.
+* Você precisa de um computador (a "máquina de cópia") com o Windows 7, o Windows Server 2008 R2 ou um sistema operacional Windows mais recente instalado.
+* O .NET Framework 4 deve ser instalado no computador de cópia.
+* O BitLocker deve estar habilitado no computador de cópia.
+* Você precisa de um ou mais discos rígidos SATAII, III ou SSD de 2,5 polegadas ou 3,5 de polegada vazia conectados à máquina de cópia.
+* Os arquivos que você planeja importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou disco rígido local.
 
-Se está a tentar **reparar uma importação** que falhou parcialmente, terá de:
+Se você estiver tentando **reparar uma importação** com falha parcial, será necessário:
 
-* Os ficheiros de registo de cópia
-* A chave de conta de armazenamento
+* Os arquivos de log de cópia
+* A chave da conta de armazenamento
 
-Se está a tentar **reparar uma exportação** que falhou parcialmente, terá de:
+Se estiver tentando **reparar uma exportação** que falhou parcialmente, você precisará de:
 
-* Os ficheiros de registo de cópia
-* Os arquivos de manifesto (opcionais)
-* A chave de conta de armazenamento
+* Os arquivos de log de cópia
+* Os arquivos de manifesto (opcional)
+* A chave da conta de armazenamento
 
-## <a name="installing-the-azure-importexport-tool"></a>Instalar a ferramenta de importação/exportação do Azure
+## <a name="installing-the-azure-importexport-tool"></a>Instalando a ferramenta de importação/exportação do Azure
 
-Primeiro, [transferir a ferramenta de importação/exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e extraia-o para um diretório no seu computador, por exemplo `c:\WAImportExport`.
+Primeiro, [Baixe a ferramenta de importação/exportação do Azure](https://www.microsoft.com/download/details.aspx?id=55280) e extraia-a para um diretório em seu computador, por exemplo `c:\WAImportExport`.
 
-A ferramenta de importação/exportação do Azure inclui os seguintes ficheiros:
+A ferramenta de importação/exportação do Azure consiste nos seguintes arquivos:
 
 * dataset.csv
 * driveset.csv
@@ -60,17 +60,17 @@ A ferramenta de importação/exportação do Azure inclui os seguintes ficheiros
 * Microsoft.WindowsAzure.Storage.dll
 * Microsoft.WindowsAzure.Storage.pdb
 * Microsoft.WindowsAzure.Storage.xml
-* WAImportExport.exe
+* WAImportExport. exe
 * WAImportExport.exe.config
-* WAImportExport.pdb
-* WAImportExportCore.dll
+* WAImportExport. pdb
+* WAImportExportCore. dll
 * WAImportExportCore.pdb
 * WAImportExportRepair.dll
-* WAImportExportRepair.pdb
+* WAImportExportRepair. pdb
 
-Em seguida, abra uma janela de linha de comandos no **modo de administrador**e altere para o diretório que contém os ficheiros extraídos.
+Em seguida, abra uma janela de prompt de comando no **modo de administrador**e altere para o diretório que contém os arquivos extraídos.
 
-A ajuda de saída para o comando, execute a ferramenta (`WAImportExport.exe`) sem parâmetros:
+Para gerar a ajuda para o comando, execute a ferramenta (`WAImportExport.exe`) sem parâmetros:
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
@@ -201,7 +201,7 @@ Examples:
         f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import.md)
 * [Pré-visualização da utilização da unidade para uma tarefa de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)

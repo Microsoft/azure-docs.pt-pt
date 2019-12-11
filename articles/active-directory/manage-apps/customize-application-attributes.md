@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d76a11fc41fd964ff4e43518aee34aad3ecffd3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922657"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997059"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -139,7 +139,7 @@ A RFC SCIM define um esquema de usuário e grupo principal, permitindo também q
    1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com), selecione **aplicativos empresariais**, selecione seu aplicativo e, em seguida, selecione **provisionamento**.
    2. Em **mapeamentos**, selecione o objeto (usuário ou grupo) para o qual você deseja adicionar um atributo personalizado.
    3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
-   4. Selecione **Editar lista de atributos para AppName*.
+   4. Selecione **Editar lista de atributos para AppName**.
    5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, selecione **Adicionar atributo**.
 
 Para aplicativos SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e o "CustomAttribute" podem ser personalizados de acordo com os requisitos do seu aplicativo, por exemplo: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute

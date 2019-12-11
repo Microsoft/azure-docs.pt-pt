@@ -1,17 +1,17 @@
 ---
-title: Dimensionar um banco de dados do Azure para PostgreSQL-grupo de servidores Citus (hiperescala)
+title: Dimensionar grupo de servidores-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
 description: Ajuste os recursos de memória do grupo de servidores, disco e CPU para lidar com o aumento de carga
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492324"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977561"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
 

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de daemon chamando APIs Web (mover para produção)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo daemon que chama APIs da Web (mover para produção)
+title: Mover aplicativo de daemon chamando APIs da Web para produção – plataforma de identidade da Microsoft | Azure
+description: Saiba como mover um aplicativo daemon que chama APIs da Web para produção
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175406"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962598"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicativo daemon que chama APIs da Web – mover para produção
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usar o SDK do Pesquisa na Web do Bing para Java'
+title: 'Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Java'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 07/25/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 64d1ce1aa6435d9d1716364cb16f8fee7ca09ebb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 97266269a5fbb66f9787cb4a8042f3b3dc13a5ec
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597802"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977238"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início rápido: Usar o SDK do Pesquisa na Web do Bing para Java
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Java
 
 O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
 Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing para Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) estão disponíveis para o GitHub.
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,6 +30,8 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * [JDK 7 ou 8](https://aka.ms/azure-jdks)
 * O [Apache Maven](https://maven.apache.org/download.cgi) ou a sua ferramenta de automatização de compilação favorita
 * Uma chave de subscrição
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-set-up-your-pom-file"></a>Criar um projeto e configurar seu arquivo POM
 
@@ -293,11 +291,11 @@ mvn compile exec:java
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código do programa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Referência a Java SDK do Azure](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

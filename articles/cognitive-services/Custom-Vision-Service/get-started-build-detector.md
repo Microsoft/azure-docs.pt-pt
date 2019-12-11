@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73520467"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969926"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início rápido: como criar um detector de objeto com Visão Personalizada
 
@@ -51,10 +51,10 @@ No navegador da Web, navegue até a [página da Web do visão personalizada](htt
 
 1. Em seguida, selecione um dos domínios disponíveis. Cada domínio otimiza o detector para tipos específicos de imagens, conforme descrito na tabela a seguir. Você poderá alterar o domínio mais tarde, se desejar.
 
-    |Domain|Objetivo|
+    |Domain|Finalidade|
     |---|---|
     |__Geral__| Otimizado para uma ampla variedade de tarefas de detecção de objetos. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio genérico. |
-    |__Logotipo__|Otimizado para localizar logotipos de marca em imagens.|
+    |__Logo__|Otimizado para localizar logotipos de marca em imagens.|
     |__Domínios compactados__| Otimizado para as restrições de detecção de objetos em tempo real em dispositivos móveis. Os modelos gerados por domínios do Compact podem ser exportados para serem executados localmente.|
 
 1. Por fim, selecione __criar projeto__.
@@ -100,7 +100,7 @@ Após a conclusão do treinamento, o desempenho do modelo é calculado e exibido
 
 ![Os resultados de treinamento mostram a precisão e a RECALL geral e a precisão média mediana.](./media/get-started-build-detector/trained-performance.png)
 
-### <a name="probability-threshold"></a>Limite de probabilidade
+### <a name="probability-threshold"></a>Limiar de Probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 

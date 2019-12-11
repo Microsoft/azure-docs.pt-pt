@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566337"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981164"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -66,6 +66,7 @@ Siga estas etapas se desejar permitir que os usuários que não estão em seu di
     | --- | --- |
     | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas podem solicitar esse pacote de acesso. |
     | **Todas as organizações conectadas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso. |
+    | **Todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos)** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso e se as configurações de lista de permissões B2B ou de negação devem ter precedência para qualquer novo usuário externo. |
 
     Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
 
@@ -80,7 +81,7 @@ Siga estas etapas se desejar permitir que os usuários que não estão em seu di
 1. Depois de selecionar todas as suas organizações conectadas, clique em **selecionar**.
 
     > [!NOTE]
-    > Todos os usuários das organizações conectadas selecionadas poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados à organização, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites para usuários B2B de organizações específicas](../articles/active-directory/b2b/allow-deny-list.md).
+    > Todos os usuários das organizações conectadas selecionadas poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados à organização, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites aos utilizadores B2B de organizações específicos](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Pule para a seção [aprovação](#approval) .
 

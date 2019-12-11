@@ -4,12 +4,12 @@ description: Criar e gerenciar Blockchain Gerenciador de Dados para o serviço B
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
-ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455823"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977029"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Blockchain Data Manager com o portal do Azure
 
@@ -32,7 +32,7 @@ Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó d
 
 Uma conexão de saída envia dados blockchain para a grade de eventos do Azure. Você configura uma conexão de saída única quando cria a instância. Blockchain Gerenciador de Dados dá suporte a várias conexões de saída de tópico de grade de eventos para qualquer instância de Gerenciador de Dados de Blockchain especificada. Você pode enviar dados do blockchain para um único destino ou enviar dados do blockchain para vários destinos. Para adicionar outro destino, basta adicionar outras conexões de saída à instância.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Vá para o membro do serviço Blockchain do Azure que você deseja conectar ao Blockchain Gerenciador de Dados. Selecione **Blockchain Gerenciador de dados**.
 1. Selecione **Adicionar**.
 
@@ -78,13 +78,15 @@ A ABI do contrato define as interfaces do contrato inteligente. Ele descreve com
 
 1. Salve a matriz **Abi** como um arquivo JSON. Por exemplo, *Abi. JSON*. Você usará o arquivo em uma etapa posterior.
 
-Blockchain Gerenciador de Dados requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Você pode obter o código de bytes implantado do arquivo de metadados do contrato compilado.
+Blockchain Gerenciador de Dados requer o código de bytes implantado para o contrato inteligente. O código de bytes implantado é diferente do código de bytes do contrato inteligente. Use a extensão do kit de desenvolvimento do Azure blockchain para copiar o código de bytes para a área de transferência.
 
-1. Abra o arquivo de metadados de contrato contido na pasta **Compilar/contratos** de seu projeto de solidez. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **. JSON** .
-1. Localize o elemento **deployedBytecode** no arquivo JSON.
-1. Copie o valor hexadecimal sem as aspas.
+1. No painel Visual Studio Code Explorer, expanda a pasta **Build/Contracts** do projeto de sólidaidade.
+1. Clique com o botão direito do mouse no arquivo JSON de metadados do contrato. O nome do arquivo é o nome do contrato inteligente seguido pela extensão **. JSON** .
+1. Selecione **copiar código de bytes da transação**.
 
-    ![Painel de Visual Studio Code com código de bytes nos metadados](./media/data-manager-portal/bytecode-metadata.png)
+    ![Painel de Visual Studio Code com a seleção de bytes de transação de cópia](./media/data-manager-portal/bytecode-devkit.png)
+
+    O código de bytes é copiado para a área de transferência.
 
 1. Salve o valor do **código de bytes** como um arquivo JSON. Por exemplo, *código de bytes. JSON*. Você usará o arquivo em uma etapa posterior.
 
@@ -164,7 +166,7 @@ Pare a instância do Gerenciador de Blockchain quando desejar parar de capturar 
 
     ![Parar instância](./media/data-manager-portal/stop-instance.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente o próximo tutorial Criando um Gerenciador de mensagens de transação blockchain usando o Blockchain Gerenciador de Dados e o Azure Cosmos DB.
 

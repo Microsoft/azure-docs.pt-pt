@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123220"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997246"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -505,7 +505,7 @@ Para fazer alterações nos arquivos da imagem, você pode anexar ao contêiner 
     docker exec -it debug /bin/bash
     ```
 
-1. Para localizar os arquivos usados pelo serviço, use o seguinte comando do shell bash no contêiner:
+1. Para localizar os arquivos usados pelo serviço, use o seguinte comando do shell bash no contêiner se o diretório padrão for diferente do `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app
@@ -526,7 +526,7 @@ Para fazer alterações nos arquivos da imagem, você pode anexar ao contêiner 
 
 1. Certifique-se de manter as alterações feitas nos arquivos no contêiner em sincronia com os arquivos locais que o VS Code usa. Caso contrário, a experiência do depurador não funcionará conforme o esperado.
 
-### <a name="stop-the-container"></a>Parar o contêiner
+### <a name="stop-the-container"></a>Parar o contentor
 
 Para parar o contêiner, use o seguinte comando:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e o Java'
+title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure e Java'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a API REST do Azure face com Java para detectar rostos em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 30e4852668fc12c38cd7d1794c461041acd654db
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859193"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978003"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início rápido: Detectar faces em uma imagem usando a API REST e o Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início rápido: detetar rostos numa imagem com a API REST e Java
 
 Neste guia de início rápido, você usará a API REST do Azure face com Java para detectar faces humanas em uma imagem.
 
@@ -32,10 +32,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Crie um novo aplicativo Java de linha de comando em seu IDE e adicione uma classe **principal** com um método **Main** .
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
-   - [Cliente http do Apache](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: HttpClient: 4.5.6)
-   - [Núcleo http do Apache](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: httpcore: 4.4.10)
+   - [Apache HTTP Client](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: HttpClient: 4.5.6)
+   - [Apache http Core](https://hc.apache.org/downloads.cgi) (org. Apache. httpcomponents: httpcore: 4.4.10)
    - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-   - [Log do Apache Commons](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons – log: Commons-Logging: 1.1.2)
+   - [Registro em log do Apache Commons](https://commons.apache.org/proper/commons-logging/download_logging.cgi) (Commons – log: Commons-Logging: 1.1.2)
 
 ## <a name="add-face-detection-code"></a>Adicionar código de detecção facial
 
@@ -65,11 +65,11 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Substitua a classe **principal** pelo código a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você também queira definir o `imageWithFaces` valor para um caminho que aponte para um arquivo de imagem diferente.
+Substitua a classe **principal** pelo código a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o campo de `subscriptionKey` com o valor de sua chave de assinatura e alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você também queira definir o valor `imageWithFaces` como um caminho que aponte para um arquivo de imagem diferente.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-O `faceAttributes` campo é simplesmente uma lista de determinados tipos de atributos. Ele especificará quais informações serão recuperadas sobre as faces detectadas.
+O campo `faceAttributes` é simplesmente uma lista de determinados tipos de atributos. Ele especificará quais informações serão recuperadas sobre as faces detectadas.
 
 ```Java
 public class Main {
@@ -88,7 +88,7 @@ public class Main {
 
 ### <a name="call-the-face-detection-rest-api"></a>Chamar a API REST de detecção facial
 
-Adicione o método **Main** com o código a seguir. Ele constrói uma chamada REST para o API de detecção facial para detectar informações de face na imagem remota (a cadeia `faceAttributes` de caracteres especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
+Adicione o método **Main** com o código a seguir. Ele constrói uma chamada REST para o API de Detecção Facial para detectar informações de face na imagem remota (a cadeia de caracteres `faceAttributes` especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
 
 ```Java
     public static void main(String[] args) {
@@ -246,9 +246,9 @@ Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de face 
 }]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um aplicativo de console Java simples que usa chamadas REST com o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, saiba como fazer mais com essa funcionalidade em um aplicativo Android.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutorial: criar um aplicativo do Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

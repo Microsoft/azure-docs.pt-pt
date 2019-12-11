@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850164"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996515"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -30,7 +30,7 @@ A automação do Azure dá suporte a três tipos de controle do código-fonte:
 
 * Um repositório de controle do código-fonte (GitHub ou Azure Repos)
 * Uma [conta Executar como](manage-runas-account.md)
-* Verifique se você tem os [módulos do Azure mais recentes](automation-update-azure-modules.md) em sua conta de automação
+* Verifique se você tem os [módulos do Azure mais recentes](automation-update-azure-modules.md) em sua conta de automação, incluindo o módulo **AzureRM. Profile** . 
 
 > [!NOTE]
 > Os trabalhos de sincronização de controle do código-fonte são executados na conta de automação dos usuários e são cobrados com a mesma taxa de outros trabalhos de automação.

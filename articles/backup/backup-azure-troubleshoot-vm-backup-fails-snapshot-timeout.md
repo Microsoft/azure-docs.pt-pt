@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928249"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996277"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: problemas com o agente ou extensão
 
@@ -29,7 +29,6 @@ O agente de VM do Azure pode ser interrompido, desatualizado, em um estado incon
   - Para VMs do Windows, siga estas [etapas](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar o agente convidado.<br>
   - Para VMs do Linux, siga estas [etapas](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar o agente convidado.
 
-
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-não foi possível se comunicar com o agente de VM para o status do instantâneo
 
 **Código de erro**: GuestAgentSnapshotTaskStatusError<br>
@@ -44,6 +43,8 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Causa 3: [o status do instantâneo não pode ser recuperado ou um instantâneo não pode ser obtido](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Causa 4: [falha ao atualizar ou carregar a extensão de backup](#the-backup-extension-fails-to-update-or-load)**
+
+**Causa 5: [as opções de configuração do agente de VM não estão definidas (para VMs do Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-a VM está em estado de provisionamento com falha
 
@@ -197,6 +198,11 @@ Se você precisar de log detalhado para waagent, siga estas etapas:
 2. Altere o valor **logs. Verbose** de *n* para *y*.
 3. Salve a alteração e reinicie o waagent concluindo as etapas descritas anteriormente nesta seção.
 
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>As opções de configuração do agente de VM não estão definidas (para VMs do Linux)
+
+Um arquivo de configuração (/etc/waagent.conf) controla as ações de waagent. Extensões de opções de arquivo de configuração **. Habilite** e **provisionamento. o agente** deve ser definido como **s** para que o backup funcione.
+Para obter uma lista completa das opções de arquivo de configuração do agente de VM, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>O status do instantâneo não pode ser recuperado ou um instantâneo não pode ser obtido
 
 O backup da VM depende de emitir um comando de instantâneo para a conta de armazenamento subjacente. O backup pode falhar porque não tem acesso à conta de armazenamento ou porque a execução da tarefa de instantâneo está atrasada.
@@ -224,7 +230,7 @@ Para desinstalar a extensão:
 2. Selecione **definições**.
 3. Selecione **Extensions** (Extensões).
 4. Selecione a **extensão Vmsnapshot**.
-5. Selecione **desinstalar**.
+5. Selecione **Desinstalar**.
 
 Para a VM do Linux, se a extensão VMSnapshot não for mostrada no portal do Azure, [atualize o agente Linux do Azure](../virtual-machines/linux/update-agent.md)e execute o backup.
 

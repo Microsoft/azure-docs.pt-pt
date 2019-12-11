@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1754168478caf3ca029e003ad0187fc29e85fa8a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421430"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997297"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -29,7 +29,7 @@ O banco de dados SQL cria automaticamente os backups de banco de dados que são 
 
 O banco de dados SQL usa a tecnologia SQL Server para criar [backups completos](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) toda semana, [backups diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) a cada 12 horas e [backups de log de transações](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) a cada 5-10 minutos. Os backups são armazenados em [blobs de armazenamento ra-grs](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) que são replicados para um [Data Center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção Data Center. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
-Você pode usar esses backups para:
+Pode utilizar estas cópias de segurança para:
 
 - **Restaure um banco de dados existente para um ponto no tempo no passado** dentro do período de retenção usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Em um banco de dados individual e pools elásticos, essa operação criará um novo banco de dados no mesmo servidor que o banco de dados original. No Instância Gerenciada, essa operação pode criar uma cópia do banco de dados ou o mesmo Instância Gerenciada ou diferente na mesma assinatura.
   - **[Altere o período de retenção de backup](#how-to-change-the-pitr-backup-retention-period)** entre 7 a 35 dias para configurar sua política de backup.
@@ -67,7 +67,7 @@ Se você precisar manter os backups por mais tempo do que o período máximo de 
 
 ### <a name="backups-for-point-in-time-restore"></a>Backups para restauração pontual
 
-O banco de dados SQL dá suporte a autoatendimento para PITR (restauração pontual) criando automaticamente backup completo, backups diferenciais e backups de log de transações. Os backups completos de banco de dados são criados semanalmente, os backups de banco de dados diferenciais são geralmente criados a cada 12 horas, e os backups de log de transações geralmente são criados a cada 5-10 minutos, com a frequência com base no tamanho e na quantidade de atividades de O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Ele geralmente é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tiver um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo em um banco de dados restaurado ou uma cópia de banco de dados. Após o primeiro backup completo, todos os backups adicionais são agendados automaticamente e gerenciados silenciosamente em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do banco de dados SQL, pois ele equilibra a carga de trabalho geral do sistema. Você não pode alterar ou desabilitar os trabalhos de backup. 
+O banco de dados SQL dá suporte a autoatendimento para PITR (restauração pontual) criando automaticamente backup completo, backups diferenciais e backups de log de transações. Os backups completos de banco de dados são criados semanalmente, os backups de banco de dados diferenciais são geralmente criados a cada 12 horas, e os backups de log de transações geralmente são criados a cada 5-10 minutos, com a frequência com base no tamanho e na quantidade de atividades de O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Ele geralmente é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tiver um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo em um banco de dados restaurado ou uma cópia de banco de dados. Depois da primeira cópia de segurança completa, todas as restantes cópias de segurança serão agendadas automaticamente e geridas silenciosamente em segundo plano. O prazo exato de todas as cópias de segurança de base de dados é determinado pelo serviço de Base de Dados SQL, pois este equilibra a carga de trabalho global do sistema. Não pode alterar ou desativar tarefas de cópia de segurança. 
 
 Os backups do PITR são com redundância geográfica e protegidos pela [replicação entre regiões do armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -115,7 +115,7 @@ Quando você migra seu banco de dados de uma camada de serviço baseada em DTU c
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Como alterar o período de retenção do backup PITR
 
-Você pode alterar o período de retenção de backup PITR padrão usando o portal do Azure, o PowerShell ou a API REST. Os valores com suporte são: 7, 14, 21, 28 ou 35 dias. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
+Você pode alterar o período de retenção de backup PITR padrão usando o portal do Azure, o PowerShell ou a API REST. Os exemplos a seguir ilustram como alterar a retenção de PITR para 28 dias.
 
 > [!WARNING]
 > Se você reduzir o período de retenção atual, todos os backups existentes mais antigos que o novo período de retenção não estarão mais disponíveis. Se você aumentar o período de retenção atual, o banco de dados SQL manterá os backups existentes até que o período de retenção mais longo seja atingido.

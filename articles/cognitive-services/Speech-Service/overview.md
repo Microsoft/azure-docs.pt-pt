@@ -1,7 +1,7 @@
 ---
-title: O que são os Serviços de Voz?
+title: O que é o serviço de Voz?
 titleSuffix: Azure Cognitive Services
-description: Os serviços de fala são a Unificação de fala para texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. Adicione fala a seus aplicativos, ferramentas e dispositivos com o SDK de fala, o SDK de dispositivos de fala ou as APIs REST.
+description: O serviço de fala é a Unificação de fala para texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. Adicione fala a seus aplicativos, ferramentas e dispositivos com o SDK de fala, o SDK de dispositivos de fala ou as APIs REST.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b1c32042fcb70ff16bb9d014a9f3546f4435e83f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c366beb80eda7087f1f74fffbcfbf8b143676f32
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075783"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995903"
 ---
-# <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
+# <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
-Os serviços de fala são a Unificação de fala a texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
+O serviço de fala é a Unificação de fala a texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
 
 > [!IMPORTANT]
-> Os serviços de fala substituiram API de Fala do Bing, Tradução de Fala e Fala Personalizada. Confira os guias de instruções _> migração_ para obter informações de migração.
+> O serviço de fala substituiu API de Fala do Bing, Tradução de Fala e Fala Personalizada. Confira os guias de instruções _> migração_ para obter informações de migração.
 
-Esses recursos compõem os serviços de fala do Azure. Use os links nesta tabela para saber mais sobre casos de uso comuns para cada recurso ou procure a referência de API.
+Esses recursos compõem o serviço de fala. Use os links nesta tabela para saber mais sobre casos de uso comuns para cada recurso ou procure a referência de API.
 
 | Serviço | Funcionalidade | Descrição | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
@@ -35,11 +35,11 @@ Esses recursos compõem os serviços de fala do Azure. Use os links nesta tabela
 | [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em voz | Conversão de texto em fala converte o texto de entrada em fala sintetizada por humanos usando a [linguagem de marcação de síntese de fala (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Escolha entre vozes padrão e vozes neurais (consulte [suporte a idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 |         | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | A conversão de fala permite tradução de fala em tempo real em vários idiomas para seus aplicativos, ferramentas e dispositivos. Use este serviço para tradução de fala a fala e conversão de fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
-| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam os serviços de fala do Azure capacitam os desenvolvedores a criarem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados (versão prévia) integrado para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
+| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço de fala capacitam os desenvolvedores a criarem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados (versão prévia) integrado para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
 
 ## <a name="news-and-updates"></a>Notícias e atualizações
 
-Saiba o que há de novo nos serviços de fala do Azure.
+Saiba o que há de novo no serviço de fala.
 
 - Setembro de 2019
   - Lançada a 1.7.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
@@ -53,7 +53,7 @@ Saiba o que há de novo nos serviços de fala do Azure.
   - Lançada a 1.5.1 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
   - Lançada o Speech SDK 1.5.0. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 
-## <a name="try-speech-services"></a>Experimente os serviços de fala
+## <a name="try-the-speech-service"></a>Experimente o serviço de fala
 
 Oferecemos guias de início rápido nas linguagens de programação mais populares, cada uma projetada para que você execute códigos em menos de 10 minutos. Esta tabela contém os guias de início rápido mais populares para cada recurso. Use a navegação do lado esquerdo para explorar idiomas e plataformas adicionais.
 
@@ -66,7 +66,7 @@ Oferecemos guias de início rápido nas linguagens de programação mais popular
 > [!NOTE]
 > A conversão de fala em texto e a conversão de texto em fala também têm pontos de extremidade REST e guias de início rápido associados.
 
-Depois de ter tido a oportunidade de usar os serviços de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
+Depois de ter tido a oportunidade de usar o serviço de fala, experimente nosso tutorial que ensina como reconhecer tentativas de fala usando o SDK de fala e o LUIS.
 
 - [Tutorial: reconhecer tentativas de fala com o SDK de fala e o LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Ativar voz para o bot com o SDK de fala,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,7 +74,7 @@ Depois de ter tido a oportunidade de usar os serviços de fala, experimente noss
 
 ## <a name="get-sample-code"></a>Obter o código de exemplo
 
-O código de exemplo está disponível no GitHub para cada um dos serviços de fala do Azure. Esses exemplos abrangem cenários comuns, como a leitura de áudio de um arquivo ou fluxo, um reconhecimento contínuo e de captura única e o trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
+O código de exemplo está disponível no GitHub para o serviço de fala. Esses exemplos abrangem cenários comuns, como a leitura de áudio de um arquivo ou fluxo, um reconhecimento contínuo e de captura única e o trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
 
 - [Exemplos de conversão de fala em texto, texto em fala e tradução de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Amostras de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
@@ -83,12 +83,12 @@ O código de exemplo está disponível no GitHub para cada um dos serviços de f
 
 ## <a name="customize-your-speech-experience"></a>Personalizar sua experiência de fala
 
-Os serviços de fala do Azure funcionam bem com modelos internos, no entanto, talvez você queira personalizar e ajustar a experiência para seu produto ou ambiente. As opções de personalização variam desde o ajuste do modelo acústico até fontes de voz exclusivas para sua marca. Depois de criar um modelo personalizado, você pode usá-lo com qualquer um dos serviços de fala do Azure.
+No entanto, o serviço de fala funciona bem com modelos internos, você talvez queira personalizar ainda mais e ajustar a experiência para seu produto ou ambiente. As opções de personalização variam desde o ajuste do modelo acústico até fontes de voz exclusivas para sua marca.
 
 | Serviço de Voz | Plataforma | Descrição |
 | -------------- | -------- | ----------- |
 | Voz em Texto | [Conversão de voz personalizada](https://aka.ms/customspeech) | Personalize modelos de reconhecimento de fala para suas necessidades e dados disponíveis. Ultrapasse barreiras de reconhecimento de voz, como o estilo de fala, o vocabulário e o barulho de fundo. |
-| Texto em Voz | [Voz personalizada](https://aka.ms/customvoice) | Crie uma voz única reconhecível para as suas aplicações de Conversão de Texto em Voz com os dados de voz disponíveis. Você pode ajustar ainda mais as saídas de voz ajustando um conjunto de parâmetros de voz. |
+| Texto para Discurso | [Voz personalizada](https://aka.ms/customvoice) | Crie uma voz única reconhecível para as suas aplicações de Conversão de Texto em Voz com os dados de voz disponíveis. Você pode ajustar ainda mais as saídas de voz ajustando um conjunto de parâmetros de voz. |
 
 ## <a name="reference-docs"></a>Documentos de referência
 

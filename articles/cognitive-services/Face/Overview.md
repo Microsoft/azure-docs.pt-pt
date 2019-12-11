@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743697"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961544"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é o API Face do Azure?
 
@@ -35,7 +35,7 @@ Para obter mais informações sobre a detecção facial, consulte o artigo conce
 
 ## <a name="face-verification"></a>Verificação de rostos
 
-A Verify API faz a autenticação contra dois rostos detetados ou entre um rosto detetado e um objeto de pessoa. Na prática, avalia se dois rostos pertencem à mesma pessoa. Esse recurso é potencialmente útil em cenários de segurança. Para obter mais informações, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência de [API de verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) .
+A API de verificação faz uma autenticação em relação a duas faces detectadas ou de uma face detectada a um objeto Person. Na prática, avalia se dois rostos pertencem à mesma pessoa. Esse recurso é potencialmente útil em cenários de segurança. Para obter mais informações, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência de [API de verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) .
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
@@ -45,11 +45,11 @@ O exemplo a seguir mostra a face de destino:
 
 ![Mulher a sorrir](./Images/FaceFindSimilar.QueryFace.jpg)
 
-E estes são os rostos candidatos:
+E essas imagens são as rostos candidatas:
 
 ![Cinco imagens de pessoas a sorrir. As imagens a e b mostram a mesma pessoa.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Para encontrar quatro faces semelhantes, o modo matchPerson retorna a e b, que mostra a mesma pessoa que a face de destino. O modo matchFace retorna a, b, c e d, exatamente quatro candidatos, mesmo que alguns não sejam a mesma pessoa que o destino ou tenham pouca semelhança. Para obter mais informações, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência de [API semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
+Para encontrar quatro faces semelhantes, o modo matchPerson retorna a e b, que mostra a mesma pessoa que a face de destino. O modo matchFace retorna a, b, c e d&mdash;exatamente quatro candidatos, mesmo que alguns não sejam a mesma pessoa que o destino ou tenham pouca semelhança. Para obter mais informações, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência de [API semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) .
 
 ## <a name="face-grouping"></a>Agrupamento de rostos
 
@@ -63,7 +63,7 @@ A imagem a seguir mostra um exemplo de um banco de dados chamado `"myfriends"`. 
 
 ![Uma grade com três colunas para pessoas diferentes, cada uma com três linhas de imagens de face](./Images/person.group.clare.jpg)
 
-Depois de criar e treinar um banco de dados, você pode executar a identificação em relação ao grupo com uma nova face detectada. Se o rosto for identificado como uma pessoa no grupo, esse objeto será devolvido.
+Depois de criar e treinar um banco de dados, você pode fazer a identificação em relação ao grupo com uma nova face detectada. Se o rosto for identificado como uma pessoa no grupo, esse objeto será devolvido.
 
 Para obter mais informações sobre a identificação de pessoa, consulte o guia de conceitos de [reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência de [API de identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 

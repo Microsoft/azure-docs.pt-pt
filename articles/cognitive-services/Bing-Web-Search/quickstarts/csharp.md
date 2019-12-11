@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Execute uma pesquisa na web com o C# -API de REST de pesquisa de Web do Bing'
+title: 'Início rápido: executar uma pesquisa na C# Web com a API REST-pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos para a API de REST de pesquisa do Bing Web utilizando C#e receber uma resposta JSON.
+description: Use este guia de início rápido para enviar solicitações para a API C#REST do pesquisa na Web do Bing usando e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823362"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978820"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa de Web do Bing eC#
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início rápido: pesquise a Web usando a API REST do Pesquisa na Web do Bing eC#
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Isso C# aplicação envia um pedido de pesquisa para a API e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse C# aplicativo envia uma solicitação de pesquisa para a API e mostra a resposta. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar este código para o `Program` classe conforme indicado acima.
+Tem de definir algumas variáveis para que possamos continuar.  `uriBase` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `uriBase` é válido e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`. Lembre-se de adicionar esse código à classe `Program`, conforme observado acima.
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Declarar o método Principal
 
-O `Main()` é necessário um método e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
+O método `Main()` é necessário e é o primeiro método invocado quando o programa é iniciado. Nesta aplicação, o método principal valida o `accessKey`, faz um pedido e imprime a resposta.
 
 Tenha em atenção que `main()` é dependente nos métodos que são criados nas próximas seções.
 
@@ -109,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Criar uma estrutura para os resultados de pesquisa
 
-Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. Ele é chamado quando efetua um pedido para a API de pesquisa Web Bing para criar um objeto de resultado.
+Esta estrutura devolve os resultados de pesquisa com cabeçalhos relevantes. Ele é chamado ao fazer uma solicitação para o API de Pesquisa na Web do Bing para criar um objeto de resultado.
 
 ```csharp
 // Returns search results with headers.
@@ -363,7 +363,7 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Detectar e estruturar rostos em uma imagem com o SDK do Android'
+title: 'Tutorial: Detetar e enquadrar rostos numa imagem com o SDK Android'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo Android simples que usa o API de Detecção Facial para detectar e emoldurar rostos em uma imagem.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858983"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977799"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar um aplicativo Android para detectar e estruturar rostos em uma imagem
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação Android para detetar e enquadrar rostos numa imagem
 
-Neste tutorial, você criará um aplicativo Android simples que usa o API de Detecção Facial do Azure, por meio do SDK do Java, para detectar faces humanas em uma imagem. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
+Neste tutorial, você criará um aplicativo Android que usa o API de Detecção Facial do Azure, por meio do SDK do Java, para detectar faces humanas em uma imagem. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
 
 Este tutorial mostrar-lhe como:
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `FACE_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `FACE_ENDPOINT`, respectivamente.
+- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a cadeia de caracteres de ponto de extremidade de serviço e chave, denominada `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) com o nível de API 22 ou posterior (exigido pela biblioteca de cliente facial).
 
@@ -61,7 +61,7 @@ Abra *activity_main. xml*. No editor de layout, selecione a guia **texto** e, em
 
 ### <a name="create-the-main-class"></a>Criar a classe principal
 
-Abra *MainActivity. java* e substitua as instruções `import` existentes pelo código a seguir.
+Abra *MainActivity. java* e substitua as instruções de `import` existentes pelo código a seguir.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
@@ -69,7 +69,7 @@ Em seguida, substitua o conteúdo da classe **MainActivity** pelo código a segu
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
-### <a name="try-the-app"></a>Experimente a aplicação
+### <a name="try-the-app"></a>Experimentar a aplicação
 
 Comente a chamada para **detectAndFrame** no método **onActivityResult** . Em seguida, pressione **executar** no menu para testar seu aplicativo. Quando o aplicativo for aberto, seja em um emulador ou em um dispositivo conectado, clique em **procurar** na parte inferior. A caixa de diálogo seleção de arquivo do dispositivo deve ser exibida. Escolha uma imagem e verifique se ela é exibida na janela. Em seguida, feche o aplicativo e avance para a próxima etapa.
 
@@ -85,7 +85,7 @@ No painel **Projeto**, utilize o seletor de lista pendente para selecionar **And
 
 ### <a name="add-the-face-related-project-code"></a>Adicionar o código do projeto relacionado à face
 
-Volte para **MainActivity. java** e adicione as seguintes `import` instruções:
+Volte para **MainActivity. java** e adicione as seguintes instruções de `import`:
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
@@ -103,7 +103,7 @@ Seu aplicativo irá detectar faces chamando o método **faceClient. face. Detect
 
 Cada **face** retornada inclui um retângulo para indicar seu local, combinado com uma série de atributos de face opcionais. Neste exemplo, somente os retângulos de face são solicitados.
 
-Insira os dois métodos a seguir na classe **MainActivity** . Observe que quando a detecção facial é concluída, o aplicativo chama o método **drawFaceRectanglesOnBitmap** para modificar o **ImageView**. Esse método será definido em seguida.
+Insira os dois métodos a seguir na classe **MainActivity** . Quando a detecção facial for concluída, o aplicativo chamará o método **drawFaceRectanglesOnBitmap** para modificar o **ImageView**. Esse método será definido em seguida.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
@@ -121,7 +121,7 @@ Execute a aplicação e procure uma imagem com um rosto. Aguarde alguns segundos
 
 ![Captura de tela do Android de rostos com retângulos vermelhos desenhados em torno deles](../Images/android_getstarted2.1.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu o processo básico para usar o SDK do Java API de Detecção Facial e criou um aplicativo para detectar e estruturar rostos em uma imagem. Em seguida, saiba mais sobre os detalhes da detecção facial.
 

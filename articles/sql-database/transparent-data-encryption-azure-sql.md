@@ -1,5 +1,5 @@
 ---
-title: Encriptação de Dados Transparente
+title: Encriptação de dados transparente
 description: Uma visão geral da Transparent Data Encryption para o banco de dados SQL e data warehouse. O documento aborda seus benefícios e as opções de configuração, que inclui criptografia de dados transparente gerenciada por serviço e Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
@@ -8,27 +8,27 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: b6af171eafbaf1f4d31bad649fcb0c69d8bdc24d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821697"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995886"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para o banco de dados SQL e data warehouse
 
-A TDE (Transparent Data Encryption) ajuda a proteger o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o Azure data warehouse contra a ameaça de atividades offline mal-intencionadas, criptografando os dados em repouso. Ele executa criptografia e descriptografia em tempo real do banco de dados, backups associados e arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo. Por padrão, o TDE está habilitado para todos os bancos de dados SQL do Azure implantados recentemente. TDE não pode ser usado para criptografar o banco de dados **mestre** lógico no banco de dados SQL.  O banco de dados **mestre** contém objetos que são necessários para executar as operações TDE nos bancos de dados de usuário.
+A TDE (Transparent Data Encryption) ajuda a proteger o banco de dados SQL do Azure, o SQL Instância Gerenciada do Azure e o Azure data warehouse contra a ameaça de atividades offline mal-intencionadas, criptografando os dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, a Encriptação de Dados Transparente está ativada para todas as Bases de Dados SQL do Azure recém-implementadas. TDE não pode ser usado para criptografar o banco de dados **mestre** lógico no banco de dados SQL.  O banco de dados **mestre** contém objetos que são necessários para executar as operações TDE nos bancos de dados de usuário.
 
 O TDE precisa ser habilitado manualmente para bancos de dados mais antigos do banco de dados SQL do Azure, Azure SQL Instância Gerenciada ou SQL Data Warehouse do Azure.
 Instância Gerenciada bancos de dados criados por meio da restauração herdam o status de criptografia do banco de dados de origem.
 
 A Transparent Data Encryption criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada a chave de criptografia do banco de dados. Essa chave de criptografia de banco de dados é protegida pelo protetor de Transparent Data Encryption. O protetor é um certificado gerenciado por serviço (criptografia de dados transparente gerenciada pelo serviço) ou uma chave assimétrica armazenada em Azure Key Vault (Bring Your Own Key). Você define o protetor de Transparent Data Encryption no nível do servidor para o banco de dados SQL do Azure e data warehouse e o nível de instância para o SQL Instância Gerenciada do Azure. O termo *servidor* se refere ao servidor e à instância em todo este documento, a menos que indicado de forma diferente.
 
-Na inicialização do banco de dados, a chave de criptografia do banco de dados criptografado é descriptografada e, em seguida, usada para descriptografia e recriptografia dos arquivos de banco de dados no processo de Mecanismo de Banco de Dados SQL Server. A Transparent Data Encryption executa criptografia de e/s em tempo real e a descriptografia dos dados no nível da página. Cada página é descriptografada quando lida na memória e, em seguida, criptografada antes de ser gravada no disco. Para obter uma descrição geral da Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
+Na inicialização do banco de dados, a chave de criptografia do banco de dados criptografado é descriptografada e, em seguida, usada para descriptografia e recriptografia dos arquivos de banco de dados no processo de Mecanismo de Banco de Dados SQL Server. A Transparent Data Encryption executa criptografia de e/s em tempo real e a descriptografia dos dados no nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. Para obter uma descrição geral da Transparent Data Encryption, consulte [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
 SQL Server em execução em uma máquina virtual do Azure também podem usar uma chave assimétrica de Key Vault. As etapas de configuração são diferentes de usar uma chave assimétrica no banco de dados SQL e no SQL Instância Gerenciada. Para obter mais informações, consulte [gerenciamento extensível de chaves usando Azure Key Vault (SQL Server)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server).
 
@@ -121,8 +121,8 @@ Conecte-se ao banco de dados usando um logon que seja um administrador ou membro
 | Comando | Descrição |
 | --- | --- |
 | [ALTER DATABASE (banco de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | DEFINIR ativar/desativar criptografia criptografa ou descriptografa um banco de dados |
-| [sys. dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de um banco de dados e suas chaves de criptografia de banco de dados associadas |
-| [sys. dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de cada nó de data warehouse e suas chaves de criptografia de banco de dados associadas |
+| [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de um banco de dados e suas chaves de criptografia de banco de dados associadas |
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retorna informações sobre o estado de criptografia de cada nó de data warehouse e suas chaves de criptografia de banco de dados associadas |
 |  | |
 
 Não é possível alternar o protetor de Transparent Data Encryption para uma chave de Key Vault usando o Transact-SQL. Use o PowerShell ou o portal do Azure.

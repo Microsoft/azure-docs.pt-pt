@@ -1,29 +1,27 @@
 ---
-title: 'Início rápido: Execute uma pesquisa na web com Go - API de REST de pesquisa de Web do Bing'
+title: 'Início rápido: executar uma pesquisa na Web com a API REST do Go-Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST através de Go e receber uma resposta JSON
+description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando Go e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648453"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978803"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e Go
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início rápido: pesquise a Web usando a API REST do Pesquisa na Web do Bing e vá
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação Go envia um pedido de pesquisa para a API e mostra a resposta. Embora esse aplicativo é escrito em Go, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
-
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo go envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esse aplicativo seja escrito em go, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
@@ -113,7 +111,7 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-Este código declara a função principal e define as variáveis que são precisas. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
+Este código declara a função principal e define as variáveis que são precisas. `endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -309,7 +307,7 @@ func main() {
 
 ## <a name="sample-response"></a>Resposta de amostra  
 
-As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada com o `BingAnswer` struct e mostra a `result.Name` e `result.URL`.
+As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta resposta de exemplo foi formatada usando o `BingAnswer` struct e mostra o `result.Name` e `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services
@@ -323,7 +321,7 @@ Microsoft Cognitive Services || https://westus.dev.cognitive.microsoft.com/docs/
 Cognitive Services - msdn.microsoft.com || https://msdn.microsoft.com/magazine/mt742868.aspx  
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

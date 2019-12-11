@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196427"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974789"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para o Azure
 
@@ -99,7 +99,7 @@ Por exemplo, se sua instalação local usar um disco de dados atribuído à unid
 1. No computador local (não no servidor host), abra um prompt de comando com privilégios elevados.
 2. Digite **DiskPart**.
 3. Digite **San**. Se a letra da unidade do sistema operacional convidado não for mantida, **offline todos** ou **compartilhado offline** será retornado.
-4. No prompt do **DiskPart** , digite **SANPOLICY = ONLINEALL**. Essa configuração garante que os discos sejam colocados online e sejam legíveis e graváveis.
+4. No prompt do **DiskPart** , digite **política de San = OnlineAll**. Essa configuração garante que os discos sejam colocados online e sejam legíveis e graváveis.
 5. Durante a migração de teste, você pode verificar se as letras da unidade são preservadas.
 
 
@@ -144,6 +144,6 @@ Após a migração, faça o seguinte nas VMs do Azure que são criadas.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Decida qual método você deseja usar para [migrar VMs VMware](server-migrate-overview.md) para o Azure ou iniciar a migração de [VMs Hyper-V](tutorial-migrate-hyper-v.md) ou [servidores físicos ou VMS virtualizadas/de nuvem](tutorial-migrate-physical-virtual-machines.md).

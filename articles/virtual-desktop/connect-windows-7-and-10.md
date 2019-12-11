@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006245"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997348"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
-> Aplica-se a: Windows 7 e Windows 10
+> Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
-Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7 ou Windows 10 usando o cliente de área de trabalho do Windows.
+Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows.
 
 > [!IMPORTANT]
 > A área de trabalho virtual do Windows não dá suporte ao cliente RADC (RemoteApp e área de trabalho) ou ao cliente do Conexão de Área de Trabalho Remota (MSTSC).

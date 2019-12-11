@@ -1,23 +1,23 @@
 ---
 title: Como transferir dados adicionais entre o dispositivo e o serviço de provisionamento de dispositivos do Azure
-description: Este documento descreve como transferir dados adicionais entre o dispositivo e o DPS
+description: Este documento descreve como transferir dados adicionais entre o serviço de provisionamento de dispositivos e dispositivos (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e9482f7069616d61efb98f66590ce33cfe3cf350
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123178"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974858"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Como transferir dados adicionais entre o dispositivo e o DPS
 Por vezes, o DPS precisa de mais dados dos dispositivos para poder aprovisioná-los corretamente ao Hub IoT certo, sendo que tem de ser o dispositivo a fornecer esses dados. Vice-versa, o DPS pode retornar dados para o dispositivo para facilitar as lógicas do lado do cliente. 
 
-## <a name="when-to-use-it"></a>Quando usá-lo
+## <a name="when-to-use-it"></a>Quando utilizar
 Esse recurso pode ser usado como um aprimoramento para a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por exemplo, você deseja alocar seus dispositivos com base no modelo de dispositivo sem intervenção humana. Nesse caso, você usará a [alocação personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Você pode configurar o dispositivo para relatar as informações do modelo como parte da [chamada do dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). O DPS passará as informações do dispositivo para o webhook de alocação personalizada. E sua função pode decidir a qual Hub IoT este dispositivo será usado quando receber informações de modelo do dispositivo. Da mesma forma, se o webhook quiser devolver alguns dados ao dispositivo, irá transmiti-los de volta como uma cadeia na resposta do webhook.  
 
 ## <a name="device-sends-data-to-dps"></a>O dispositivo envia dados para o DPS
@@ -54,7 +54,7 @@ Se o webhook da diretiva de alocação personalizada quiser retornar alguns dado
     } 
    ```
 
-## <a name="sdk-support"></a>Suporte a SDK
+## <a name="sdk-support"></a>Suporte de SKDs
 Esse recurso está disponível em SDKs do C# [cliente](https://docs.microsoft.com/azure/iot-dps/)C,, Java e node. js.  
 
 ## <a name="next-steps"></a>Passos seguintes

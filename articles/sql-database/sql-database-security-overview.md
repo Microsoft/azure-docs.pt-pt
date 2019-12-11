@@ -1,5 +1,5 @@
 ---
-title: Visão geral de segurança
+title: Visão geral da segurança
 description: Saiba mais sobre o banco de dados SQL do Azure e a segurança de SQL Server, incluindo as diferenças entre a nuvem e o SQL Server local.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483845"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997331"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do banco de dados SQL do Azure
 
@@ -130,7 +130,7 @@ O suporte a [Bring your own Key](transparent-data-encryption-byok-azure-sql.md) 
 
 O mascaramento de dados dinâmicos do Database do SQL limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios. O mascaramento de dados dinâmicos descobre automaticamente os dados potencialmente confidenciais no Azure SQL Database e fornece recomendações acionáveis para mascarar esses campos, com impacto mínimo sobre a camada de aplicativo. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte Introdução [à máscara de dados dinâmicos do banco de dados SQL](sql-database-dynamic-data-masking-get-started.md).
 
-## <a name="security-management"></a>Gestão de segurança
+## <a name="security-management"></a>Gestão da segurança
 
 ### <a name="vulnerability-assessment"></a>Avaliação de vulnerabilidades
 
@@ -138,11 +138,11 @@ A [avaliação de vulnerabilidades](sql-vulnerability-assessment.md) é um servi
 
 ### <a name="data-discovery--classification"></a>Deteção e classificação de dados
 
-A classificação de & de dados de descoberta (atualmente em visualização) fornece recursos avançados incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, saúde, dados pessoais etc.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Ele pode servir como uma infraestrutura para:
+A classificação de & de dados de descoberta (atualmente em visualização) fornece recursos avançados incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, saúde, dados pessoais etc.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Pode funcionar como infraestrutura para:
 
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas de acesso anormal a dados confidenciais.
 - Controlar o acesso ao e à proteção da segurança do, bancos de dados que contêm os mais altamente confidenciais.
-- Ajudando a atender aos padrões de privacidade de dados e aos requisitos de conformidade regulatória.
+- Ajudar a cumprir as normas de privacidade dos dados e os requisitos de conformidade regulamentares.
 
 Para obter mais informações, consulte Introdução [à classificação de & de descoberta de dados](sql-database-data-discovery-and-classification.md).
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794253"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997110"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
 Este tópico fornece orientação sobre como escolher e usar o provisionamento de nuvem Azure AD Connect como sua solução de identidade.
@@ -48,7 +48,7 @@ O restante do documento fornecerá instruções passo a passo para esses pré-re
      | --- | --- |
      | **80** | Baixa as listas de certificados revogados (CRLs) ao validar o certificado SSL |
      | **443** | Manipula toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Os agentes relatarão seu status a cada dez minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do AD do Azure. A porta 8080 _não_ é usada para entradas de usuário. |
+     | **8080** (opcional) | Os agentes relatarão seu status a cada dez minutos pela porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do AD do Azure. |
      
      Se o firewall impõe regras de acordo com os usuários de origem, abra essas portas para o tráfego de serviços do Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitir que você especifique os sufixos seguros, adicione conexões a **\*. msappproxy.net** e **\*. ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente.
@@ -73,9 +73,9 @@ Esse teste verificará se os agentes podem se comunicar com o Azure pela porta 4
 
 O Windows Server que hospedará o Azure AD Connect agente de provisionamento de nuvem precisa ter o TLS 1,2 habilitado antes de você instalá-lo.
 
-Para habilitar o TLS 1,2:
+Para ativar o TLS 1.2:
 
-1. Defina as seguintes chaves do registro:
+1. Defina as seguintes chaves de registo:
     
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: ac198ed8eac6221831fbb280129b76e5fa4e3413
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815772"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997280"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação em bancos de dados individuais e em pool
 
@@ -32,14 +32,17 @@ A replicação do SQL Server pode ser configurada para bancos de dados individua
 
 ## <a name="versions"></a>Versões  
 
-- O Publicador e o distribuidor devem ser pelo menos uma das seguintes versões:  
-- SQL Server 2017 (14. x)
-- SQL Server 2016 (13. x)
-- SQL Server 2014 (12. x) SP1 CU3
-- SQL Server 2014 (12. x) CU10 RTM
-- SQL Server 2012 (11. x) SP2 CU8 ou SP3
-- A tentativa de configurar a replicação usando uma versão mais antiga pode resultar em um número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome > solicitado pelo logon. Falha no logon.).  
-- Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+Os Publicadores SQL Server locais e os distribuidores devem estar usando (pelo menos) uma das seguintes versões:  
+
+- SQL Server 2016 e superior
+- SQL Server 2014 [RTM cu10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) ou [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) ou [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+
+> [!NOTE]
+> A tentativa de configurar a replicação usando uma versão sem suporte pode resultar em um número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome > solicitado pelo logon. Falha no logon.).  
+
+Para usar todos os recursos do banco de dados SQL do Azure, você deve usar as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
   
 ## <a name="remarks"></a>Observações
 
@@ -103,12 +106,12 @@ As seguintes opções não têm suporte para assinaturas do banco de dados SQL d
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma publicação e uma assinatura push. Para obter mais informações, consulte:
+Crie uma publicação e uma assinatura push. Para obter mais informações, veja:
   
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do banco de dados SQL do Azure como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '** ) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks** ).  
+- [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do banco de dados SQL do Azure como o assinante (por exemplo **n' azuresqldbdns. Database. Windows. net '** ) e o nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806723"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976609"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 
@@ -36,7 +36,7 @@ Video Indexer determina quando uma captura é alterada no vídeo com base em ind
 
 ## <a name="keyframe-detection"></a>Detecção de quadro-chave
 
-Seleciona os quadros que melhor representam a captura. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em Propriedades estética (por exemplo, contraste e capacidade de ativação). Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da captura, com base nas quais os clientes podem extrair a miniatura do quadro-chave. 
+Video Indexer seleciona os quadros que melhor representam cada imagem. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em Propriedades estética (por exemplo, contraste e capacidade de ativação). Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da captura, com base nas quais os clientes podem extrair o quadro-chave como uma imagem de alta resolução.  
 
 ### <a name="extracting-keyframes"></a>Extraindo quadros-chave
 

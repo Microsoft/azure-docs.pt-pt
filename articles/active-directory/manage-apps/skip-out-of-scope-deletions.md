@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958640"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997076"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a exclusão de contas de usuário que saem do escopo
 
@@ -30,16 +30,16 @@ Este guia descreve como usar a API do Microsoft Graph e o Gerenciador de API do 
 * Se ***SkipOutOfScopeDeletions*** for definido como 0 (false), as contas que saem do escopo ficarão desabilitadas no destino
 * Se ***SkipOutOfScopeDeletions*** for definido como 1 (true), as contas que saem do escopo não serão desabilitadas no destino esse sinalizador será definido no nível do aplicativo de *provisionamento* e poderá ser configurado usando o API do Graph. 
 
-Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, isso também pode ser usado com outros aplicativos de provisionamento.
+Como essa configuração é amplamente usada com o *WORKDAY para Active Directory* aplicativo de provisionamento de usuário, as etapas a seguir incluem capturas de tela do aplicativo workday. No entanto, isso também pode ser usado com **todos os outros aplicativos** , como ServiceNow, Salesforce, Dropbox, etc.).
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passo 1: Recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Etapa 1: recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
 
 1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
 1. Na seção Propriedades do aplicativo de provisionamento, copie o valor de GUID associado ao campo ID de *objeto* . Esse valor também é chamado de **servicePrincipalName** do seu aplicativo e ele será usado em operações do Gerenciador de gráficos.
 
    ![ID da entidade de serviço do aplicativo workday](./media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Passo 2: Entrar no Microsoft Graph Explorer
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Etapa 2: entrar no Microsoft Graph Explorer
 
 1. Iniciar o [Gerenciador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
 1. Clique no botão "entrar com a Microsoft" e entre usando as credenciais de administrador global ou de administrador de aplicativo do Azure AD.
@@ -48,7 +48,7 @@ Como essa configuração é amplamente usada com o *WORKDAY para Active Director
 
 1. Após a entrada bem-sucedida, você verá os detalhes da conta de usuário no painel esquerdo.
 
-## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Passo 3: Obter credenciais de aplicativo e detalhes de conectividade existentes
+## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>Etapa 3: obter credenciais de aplicativo e detalhes de conectividade existentes
 
 No Microsoft Graph Explorer, execute a seguinte consulta GET substituindo [servicePrincipalName] pelo **servicePrincipalName** extraído da [etapa 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
@@ -71,7 +71,7 @@ Aqui está o bloco JSON a ser adicionado ao mapeamento.
         }
 ```
 
-## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passo 4: Atualizar o ponto de extremidade dos segredos com o sinalizador SkipOutOfScopeDeletions
+## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Etapa 4: atualizar o ponto de extremidade dos segredos com o sinalizador SkipOutOfScopeDeletions
 
 No explorador do Graph, execute o comando a seguir para atualizar o ponto de extremidade dos segredos com o sinalizador ***SkipOutOfScopeDeletions*** . 
 
@@ -90,7 +90,7 @@ Você deve obter a saída como "êxito – código de status 204".
 
    ![COLOCAR resposta](./media/skip-out-of-scope-deletions/skip-06.png)
 
-## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Passo 5: Verificar se os usuários fora do escopo não são desabilitados
+## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Etapa 5: verificar se os usuários fora do escopo não são desabilitados
 
 Você pode testar esse sinalizador resulta no comportamento esperado atualizando suas regras de escopo para ignorar um usuário específico. No exemplo a seguir, estamos excluindo o funcionário com a ID 21173 (que estava anteriormente no escopo) adicionando uma nova regra de escopo: 
 

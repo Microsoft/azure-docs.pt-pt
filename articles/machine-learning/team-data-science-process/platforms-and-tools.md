@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626366"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978514"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -25,7 +25,7 @@ Os serviços de dados e análise disponíveis para as equipas de ciência de dad
 
 - Máquinas de virtuais de ciência dados (Windows e Linux CentOS)
 - Clusters do HDInsight Spark
-- SQL Data Warehouse
+- Data Warehouse SQL
 - Azure Data Lake
 - Clusters do HDInsight Hive
 - Armazenamento de Ficheiros do Azure
@@ -44,7 +44,7 @@ A máquina de virtual de ciência de dados oferecidos no Windows e Linux pela Mi
 - Ambiente de trabalho do Power BI para Windows
 - SQL Server 2016 Developer Edition no Windows / Postgres no Linux
 
-Ele também inclui **ferramentas de ML e AI** como xgboost, mxnet e Vowpal Wabbit.
+Ele também inclui **ferramentas de ml e ia** como xgboost, Mxnet e Vowpal Wabbit.
 
 Atualmente está disponível no DSVM **Windows** e **Linux CentOS** sistemas operativos. Escolha o tamanho da sua DSVM (número de núcleos de CPU) e a quantidade de memória com base nas necessidades dos projetos de ciência de dados que pretende executar no mesmo. 
 
@@ -62,7 +62,7 @@ Quando cria um cluster do Spark no HDInsight, está a criar recursos de computa�
 Equipe do TDSP da Microsoft publicou dois orientações passo a passo-a-ponto sobre como utilizar os Clusters do HDInsight Spark para Azure para criar soluções de ciência de dados, um que utilize Python e a outro Scala. Para obter mais informações sobre o Azure HDInsight **Clusters do Spark**, consulte [descrição geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para saber como criar uma ciência de dados solução usando **Python** num Cluster do Spark HDInsight do Azure, veja [descrição geral de ciência de dados com o Spark no Azure HDInsight](spark-overview.md). Para saber como criar uma ciência de dados solução usando **Scala** num Cluster do Spark HDInsight do Azure, veja [ciência de dados com o Scala e Spark no Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
 
 O Azure SQL Data Warehouse permite-lhe dimensionar recursos de computação facilmente e, em segundos, sem sobreaprovisionar ou pagar demasiado. Ele também oferece a opção exclusiva de colocar em pausa a utilização de recursos de computação, o que lhe dá a liberdade para melhor gerir os seus custos na cloud. A capacidade de implementar recursos de computação escalável torna possível reunir todos os dados para o Azure SQL Data Warehouse. Os custos de armazenamento são mínimos, e pode executar a computação apenas nas partes de conjuntos de dados que pretende analisar. 
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre o Azure SQL Data Warehouse, consulte a [o SQ
 
 Azure data lake é-se como um repositório de toda a empresa de todos os tipos de dados recolhidos numa única localização, antes de quaisquer requisitos formais ou um esquema que está a ser impostas. Essa flexibilidade permite que todos os tipos de dados ser mantidos num data lake, independentemente do porte e estrutura ou da rapidez com que é ingerido. As organizações podem, em seguida, utilizar o Hadoop ou análise avançada para encontrar padrões nestes dados lakes. Lakes de dados também podem servir como um repositório para preparação de dados de custo mais baixo e antes de moderação os dados e movê-lo para um armazém de dados.
 
-Para obter mais informações sobre o Azure Data Lake, veja [apresentando o Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Para saber como criar uma solução de ciência de dados ponto a ponto escaláveis com o Azure Data Lake, veja [ciência de dados dimensionável no Azure Data Lake: Uma passo a passo-a-ponto](data-lake-walkthrough.md)
+Para obter mais informações sobre o Azure Data Lake, veja [apresentando o Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Para saber como criar uma solução de ciência de dados ponto a ponto escaláveis com o Azure Data Lake, veja [ciência de dados dimensionável no Azure Data Lake: uma passo a passo-a-ponto](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Clusters do Azure Hive do HDInsight (Hadoop)
@@ -124,28 +124,30 @@ Execute o seguinte comando do bash para instalar o Git em máquinas do Linux (Ce
 
 Se estiver a utilizar máquinas do Linux (CentOS) para executar os comandos do git, terá de adicionar a chave pública de SSH do seu computador para seus serviços de DevOps do Azure, para que esta máquina é reconhecida pelos serviços de DevOps do Azure. Em primeiro lugar, terá de gerar uma chave SSH pública e adicione a chave para as chaves públicas SSH na sua página de definições de segurança de serviços de DevOps do Azure. 
 
-- Para gerar a chave SSH, execute os dois comandos seguintes: 
+1. Para gerar a chave SSH, execute os dois comandos seguintes: 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Comandos para gerar a chave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Comandos para gerar a chave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Copie todo o ssh incluindo chave *ssh-rsa*. 
-- Inicie sessão para os serviços de DevOps do Azure. 
-- Clique em **< nome da\>**  no canto superior direito da página e clique em **segurança**. 
+1. Copie todo o ssh incluindo chave *ssh-rsa*. 
+1. Inicie sessão para os serviços de DevOps do Azure. 
+1. Clique em **< nome da\>**  no canto superior direito da página e clique em **segurança**. 
     
-    ![Clique no seu nome e, em seguida, clique em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Clique no seu nome e, em seguida, clique em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Clique em **chaves públicas SSH**e clique em **+ adicionar**. 
+1. Clique em **chaves públicas SSH**e clique em **+ adicionar**. 
 
-    ![Clique em chaves públicas SSH e, em seguida, clique em + Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Clique em chaves públicas SSH e, em seguida, clique em + Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Colar o ssh key acabou de ser copiada na caixa de texto e guarde.
+1. Colar o ssh key acabou de ser copiada na caixa de texto e guarde.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Completa de instruções passo a passo de ponto-a-ponto, que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) tópico. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos executar os passos no processo de ciência de dados de equipa que utilizam o Azure Machine Learning Studio, consulte a [com o Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) percurso de aprendizagem.
+Para obter exemplos que mostram como executar etapas no processo de ciência de dados de equipe usando Azure Machine Learning Studio (clássico), consulte o com o roteiro de aprendizagem [do Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) .

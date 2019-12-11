@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 29971414219976f6d72caf30a909f1884b04aef7
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d4c9b926afe93f52946c5f1adf40835f72812f2a
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422432"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995827"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de Transparent Data Encryption (TDE) usando o PowerShell
 
@@ -39,7 +39,7 @@ Para instalação, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli
 
 * * *
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este guia de instruções descreve como responder a um protetor de TDE potencialmente comprometido para um banco de dados SQL do Azure ou data warehouse que está usando o TDE com chaves gerenciadas pelo cliente no suporte a BYOK (Azure Key Vault-Bring Your Own Key). Para saber mais sobre o suporte do BYOK para TDE, consulte a [página Visão geral](transparent-data-encryption-byok-azure-sql.md).
 

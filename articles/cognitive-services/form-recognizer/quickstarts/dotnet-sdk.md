@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904611"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978616"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 

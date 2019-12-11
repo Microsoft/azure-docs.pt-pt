@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem usando a API REST e o PHP'
+title: 'Início rápido: detetar rostos numa imagem com a API REST e PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos de uma imagem através da API Face com o PHP.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a0704f9e9a77eba2eb0d4f00bc1d880011e767de
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859206"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977935"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: Detectar faces em uma imagem usando a API REST e o PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: detetar rostos numa imagem com a API REST e PHP
 
 Neste guia de início rápido, você usará a API REST do Azure face com PHP para detectar faces humanas em uma imagem.
 
@@ -25,7 +25,7 @@ Neste guia de início rápido, você usará a API REST do Azure face com PHP par
 
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
 - Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download).
-- O pacote [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) do php.
+- O pacote de [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) do php.
 - Um navegador da Web habilitado para PHP. Se você não tiver configurado isso, poderá fazer isso instalando e Configurando o [XAMPP](https://www.apachefriends.org/) em seu computador.
 
 ## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
@@ -43,7 +43,7 @@ Crie um novo arquivo HTML, *detectFaces. html*, e adicione o código a seguir.
 
 ## <a name="write-the-php-script"></a>Gravar o script PHP
 
-Adicione o seguinte código dentro do `body` elemento do documento. Esse código configura uma interface do usuário básica com um campo de URL, um botão **analisar face** , um painel de resposta e um painel de exibição de imagem.
+Adicione o seguinte código dentro do elemento `body` do documento. Esse código configura uma interface do usuário básica com um campo de URL, um botão **analisar face** , um painel de resposta e um painel de exibição de imagem.
 
 ```php
 <?php
@@ -99,7 +99,7 @@ catch (HttpException $ex)
 ?>
 ```
 
-Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e precisará alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta. O `returnFaceAttributes` campo especifica quais atributos de face devem ser recuperados; talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
+Você precisará atualizar o campo `subscriptionKey` com o valor de sua chave de assinatura, e precisará alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres de ponto de extremidade correta. O campo `returnFaceAttributes` especifica quais atributos de face recuperar; Talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -286,7 +286,7 @@ Abra o arquivo em um navegador da Web habilitado para PHP. Você deve obter uma 
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
 

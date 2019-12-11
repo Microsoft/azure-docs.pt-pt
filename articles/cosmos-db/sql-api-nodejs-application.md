@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 8390520320566907e8aaef709a085a71e8c8e4d6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720819"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995954"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: criar um aplicativo Web node. js usando o SDK do JavaScript para gerenciar uma conta da API do SQL no Azure Cosmos DB 
 
@@ -115,7 +115,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
     const debug = require('debug')('todo:taskDao')
 
     // For simplicity we'll set a constant partition key
-    const partitionKey = '0'
+    const partitionKey = undefined
     class TaskDao {
       /**
        * Manages reading, adding, and updating Tasks in Cosmos DB

@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de daemon chamando APIs Web (configuração de aplicativo)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo daemon que chama APIs da Web (configuração de aplicativo)
+title: Configurar aplicativos de daemon que chamam APIs da Web-plataforma de identidade da Microsoft | Azure
+description: Saiba como configurar o código para seu aplicativo daemon que chama APIs da Web (configuração de aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175505"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962649"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 

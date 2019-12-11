@@ -1,42 +1,42 @@
 ---
-title: Como configurar clientes OpenVPN para o Gateway de VPN do Azure | Documentos da Microsoft
-description: Passos para configurar clientes OpenVPN para o Gateway de VPN do Azure
+title: Como configurar clientes OpenVPN para o gateway de VPN do Azure | Microsoft Docs
+description: Etapas para configurar clientes OpenVPN para o gateway de VPN do Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3366f3470e01e455acacf8748830f2b15c826f49
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477852"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997178"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o gateway de VPN do Azure
 
-Este artigo ajuda-o a configurar **OpenVPN® protocolo** clientes.
+Este artigo ajuda você a configurar os clientes do **OpenVPN® Protocol** .
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gateway VPN. Para obter detalhes, consulte [OpenVPN configurar para o Gateway de VPN do Azure](vpn-gateway-howto-openvpn.md).
+Verifique se você concluiu as etapas para configurar o OpenVPN para o gateway de VPN. Para obter detalhes, consulte [Configurar OpenVPN para o gateway de VPN do Azure](vpn-gateway-howto-openvpn.md).
 
-## <a name="windows"></a>Clientes do Windows
+## <a name="windows"></a>Clientes Windows
 
-1. Baixe e instale o cliente de OpenVPN (versão 2.4 ou superior) do official [OpenVPN site](https://openvpn.net/index.php/open-source/downloads.html).
-2. Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configuração de ponto a site no portal do Azure ou "New-AzVpnClientConfiguration" no PowerShell.
-3. Deszipe o perfil. Em seguida, abra a *vpnconfig.ovpn* ficheiro de configuração a partir da pasta de OpenVPN usando o bloco de notas.
-4. [Exportar](vpn-gateway-certificates-point-to-site.md#clientexport) o cliente de P2S de certificado criado e carregado para a configuração de P2S no gateway.
-5. Extrair a chave privada e o thumbprint de base64 a partir da *. pfx*. Existem múltiplas formas de efetuar este procedimento. Com OpenSSL no seu computador é uma forma. O *profileinfo.txt* arquivo contém a chave privada e o thumbprint da AC e o certificado de cliente. Certifique-se de que utiliza o thumbprint do certificado de cliente.
+1. Baixe e instale o cliente do OpenVPN (versão 2,4 ou superior) no site oficial do [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
+2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure ou ' New-AzVpnClientConfiguration ' no PowerShell.
+3. Deszipe o perfil. Em seguida, abra o arquivo de configuração *vpnconfig. ovpn* na pasta OpenVPN usando o bloco de notas.
+4. [Exporte](vpn-gateway-certificates-point-to-site.md#clientexport) o certificado de cliente P2S que você criou e carregou na configuração do P2S no gateway.
+5. Extraia a chave privada e a impressão digital base64 do *. pfx*. Existem múltiplas formas de efetuar este procedimento. Usar o OpenSSL em seu computador é de uma maneira. O arquivo *ProfileInfo. txt* contém a chave privada e a impressão digital para a autoridade de certificação e o certificado do cliente. Certifique-se de usar a impressão digital do certificado do cliente.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Open *profileinfo.txt* no bloco de notas. Para obter o thumbprint do certificado de cliente (filho), selecione o texto (incluindo e entre) "---BEGIN CERTIFICATE---" e "---certificado END---" para o filho de certificado e copiá-lo. Pode identificar o certificado de subordinado ao observar o assunto = / linha.
-7. Mude para o *vpnconfig.ovpn* arquivo aberto no bloco de notas do passo 3. A secção mostrada abaixo de localizar e Substituir tudo entre "cert" e "/ cert".
+6. Abra *ProfileInfo. txt* no bloco de notas. Para obter a impressão digital do certificado de cliente (filho), selecione o texto (incluindo e entre) "-----BEGIN CERTIFICATE-----" e "-----END CERTIFICATE-----" para o certificado filho e copie-o. Você pode identificar o certificado filho examinando o assunto =/linha.
+7. Alterne para o arquivo *vpnconfig. ovpn* que você abriu no bloco de notas da etapa 3. Localize a seção mostrada abaixo e substitua tudo entre "CERT" e "/CERT".
 
    ```
    # P2S client certificate
@@ -45,8 +45,8 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra o *profileinfo.txt* no bloco de notas. Para obter a chave privada, selecione o texto (incluindo e entre) "---BEGIN PRIVATE KEY---" e "---END PRIVATE KEY---" e copie-o.
-9. Volte para o ficheiro de vpnconfig.ovpn no bloco de notas e encontrar nesta secção. Cole a chave privada Substituir tudo entre e a "chave" e "/ chave".
+8. Abra o *ProfileInfo. txt* no bloco de notas. Para obter a chave privada, selecione o texto (incluindo e entre) "-----iniciar a chave privada-----" e "-----END PRIVATE KEY-----" e copie-o.
+9. Volte para o arquivo vpnconfig. ovpn no bloco de notas e localize esta seção. Cole a chave privada substituindo tudo entre "Key" e "/Key".
 
    ```
    # P2S client root certificate private key
@@ -61,24 +61,24 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 
 ## <a name="mac"></a>Clientes Mac
 
-1. Transferir e instalar um cliente OpenVPN, tal como [TunnelBlick](https://tunnelblick.net/downloads.html). 
-2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure ou com "New-AzVpnClientConfiguration" no PowerShell.
-3. Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn pasta OpenVPN no bloco de notas.
-4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Ver [exportar a chave pública](vpn-gateway-certificates-point-to-site.md#cer) para obter informações sobre como exportar um certificado para obter a chave pública codificada.
-5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Ver [exportar a chave privada](https://openvpn.net/community-resources/how-to/#pki) para obter informações sobre como extrair uma chave privada.
+1. Baixe e instale um cliente OpenVPN, como [TunnelBlick](https://tunnelblick.net/downloads.html). 
+2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure ou usando ' New-AzVpnClientConfiguration ' no PowerShell.
+3. Deszipe o perfil. Abra o arquivo de configuração vpnconfig. ovpn da pasta OpenVPN no bloco de notas.
+4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Consulte [exportar a chave pública](vpn-gateway-certificates-point-to-site.md#cer) para obter informações sobre como exportar um certificado para obter a chave pública codificada.
+5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Consulte [exportar sua chave privada](https://openvpn.net/community-resources/how-to/#pki) para obter informações sobre como extrair uma chave privada.
 6. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
-7. Clique duas vezes o ficheiro de perfil para criar o perfil no Tunnelblick.
-8. Inicie Tunnelblick a partir da pasta de aplicativos.
-9. Clique no ícone na Bandeja do sistema Tunnelblick e escolher ligar.
+7. Clique duas vezes no arquivo de perfil para criar o perfil em Tunnelblick.
+8. Inicie o Tunnelblick na pasta aplicativos.
+9. Clique no ícone de Tunnelblick na bandeja do sistema e selecione conectar.
 
 > [!IMPORTANT]
->Apenas iOS 11.0 e posterior e o MacOS 10.13 e superior, são suportados com o protocolo de OpenVPN.
+>Somente o iOS 11,0 e superior e o MacOS 10,13 e superior têm suporte com o protocolo OpenVPN.
 >
 
 ## <a name="linux"></a>Clientes Linux
 
-1. Abra uma nova sessão de Terminal. Pode abrir uma nova sessão, pressionar "Ctrl + Alt + t" ao mesmo tempo.
-2. Introduza o seguinte comando para instalar os componentes necessários:
+1. Abra uma nova sessão de terminal. Você pode abrir uma nova sessão pressionando ' Ctrl + Alt + t ' ao mesmo tempo.
+2. Digite o seguinte comando para instalar os componentes necessários:
 
    ```
    sudo apt-get install openvpn
@@ -86,17 +86,17 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
    sudo service network-manager restart
    ```
 3. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure.
-4. [Exportar](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) o cliente de P2S de certificado criado e carregado para a configuração de P2S no gateway. 
-5. Extrair a chave privada e o thumbprint de base64 da. pfx. Existem múltiplas formas de efetuar este procedimento. Com OpenSSL no seu computador é uma forma.
+4. [Exporte](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) o certificado de cliente P2S que você criou e carregou na configuração do P2S no gateway. 
+5. Extraia a chave privada e a impressão digital base64 do. pfx. Existem múltiplas formas de efetuar este procedimento. O uso do OpenSSL em seu computador é de uma maneira.
 
     ```
     openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   O *profileinfo.txt* ficheiro irá conter a chave privada e o thumbprint da AC e o certificado de cliente. Certifique-se de que utiliza o thumbprint do certificado de cliente.
+   O arquivo *ProfileInfo. txt* conterá a chave privada e a impressão digital para a autoridade de certificação e o certificado do cliente. Certifique-se de usar a impressão digital do certificado do cliente.
 
-6. Open *profileinfo.txt* num editor de texto. Para obter o thumbprint do certificado de cliente (filho), selecione o texto, inclusive e entre "---BEGIN certificado---" e "---certificado END---" para o filho de certificado e copiá-lo. Pode identificar o certificado de subordinado ao observar o assunto = / linha.
+6. Abra *ProfileInfo. txt* em um editor de texto. Para obter a impressão digital do certificado de cliente (filho), selecione o texto que inclui e entre "-----BEGIN CERTIFICATE-----" e "-----END CERTIFICATE-----" para o certificado filho e copie-o. Você pode identificar o certificado filho examinando o assunto =/linha.
 
-7. Abra o *vpnconfig.ovpn* de ficheiros e localize a secção mostrada abaixo. Substituir tudo entre a e "cert" e "/ cert".
+7. Abra o arquivo *vpnconfig. ovpn* e localize a seção mostrada abaixo. Substitua tudo entre a e "CERT" e "/CERT".
 
    ```
    # P2S client certificate
@@ -105,9 +105,9 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra o profileinfo.txt num editor de texto. Para obter a chave privada, selecione o texto, inclusive e entre "---BEGIN chave privada---" e "---END PRIVATE KEY---" e copie-o.
+8. Abra o ProfileInfo. txt em um editor de texto. Para obter a chave privada, selecione o texto que inclui e entre "-----BEGIN PRIVATE KEY-----" e "-----END PRIVATE KEY-----" e copie-o.
 
-9. Abra o ficheiro de vpnconfig.ovpn num editor de texto e encontrar nesta secção. Cole a chave privada Substituir tudo entre e a "chave" e "/ chave".
+9. Abra o arquivo vpnconfig. ovpn em um editor de texto e localize esta seção. Cole a chave privada substituindo tudo entre "Key" e "/Key".
 
    ```
    # P2S client root certificate private key
@@ -118,22 +118,22 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
    ```
 
 10. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
-11. Para ligar utilizando a linha de comandos, escreva o seguinte comando:
+11. Para se conectar usando a linha de comando, digite o seguinte comando:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>
+    sudo openvpn –-config <name and path of your VPN profile file>&
     ```
-12. Para ligar através da GUI, aceda às definições de sistema.
-13. Clique em **+** para adicionar uma nova ligação VPN.
-14. Sob **adicionar VPN**, escolha **importar do ficheiro...**
-15. Navegue para o ficheiro de perfil e clique duas vezes ou pick **aberto**.
-16. Clique em **Add** sobre o **VPN adicionar** janela.
+12. Para se conectar usando a GUI, vá para configurações do sistema.
+13. Clique em **+** para adicionar uma nova conexão VPN.
+14. Em **Adicionar VPN**, escolha **Importar do arquivo...**
+15. Navegue até o arquivo de perfil e clique duas vezes ou selecione **abrir**.
+16. Clique em **Adicionar** na janela **Adicionar VPN** .
   
-    ![Importar de ficheiro](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
-17. Pode ligar ao ativar a VPN **ON** no **as definições de rede** página, ou no ícone de rede na Bandeja do sistema.
+    ![Importar do ficheiro](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
+17. Você pode se **conectar ativando a VPN na** página **configurações de rede** ou sob o ícone rede na bandeja do sistema.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se pretender que os clientes VPN para conseguir aceder a recursos na outra VNet, em seguida, siga as instruções sobre a [VNet a VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artigo para configurar uma ligação vnet a vnet. Certifique-se de que ativar o BGP nos gateways e as ligações, caso contrário, o tráfego não irá fluir.
+Se você quiser que os clientes VPN possam acessar recursos em outra VNet, siga as instruções no artigo de [vnet para vnet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para configurar uma conexão de vnet para vnet. Certifique-se de habilitar o BGP nos gateways e nas conexões; caso contrário, o tráfego não fluirá.
 
-**"OpenVPN" é uma marca registada da OpenVPN Inc.**
+**"OpenVPN" é uma marca comercial da OpenVPN Inc.**

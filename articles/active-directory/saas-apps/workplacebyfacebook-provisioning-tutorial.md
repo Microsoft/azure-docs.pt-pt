@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c10171ae59772f58411997d16dc4ad1472e94e29
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574253"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996940"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuário
 
@@ -34,11 +34,11 @@ Para configurar a integração do Azure AD ao Workplace by Facebook, você preci
 - Uma assinatura habilitada para logon único do workplace by Facebook
 
 > [!NOTE]
-> Para testar as etapas neste tutorial, não recomendamos o uso de um ambiente de produção.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
 
-Para testar as etapas neste tutorial, você deve seguir estas recomendações:
+Para testar os passos neste tutorial, deve seguir estas recomendações:
 
-- Não use seu ambiente de produção, a menos que seja necessário.
+- Não utilize o seu ambiente de produção, a menos que seja necessário.
 - Se você não tiver um ambiente de avaliação do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-workplace-by-facebook"></a>Atribuindo usuários ao Workplace by Facebook
@@ -88,7 +88,7 @@ O Azure AD dá suporte à capacidade de sincronizar automaticamente os detalhes 
 
 9. Na seção mapeamentos, selecione **sincronizar Azure Active Directory usuários no workplace pelo Facebook.**
 
-10. Na seção **mapeamentos de atributo** , examine os atributos de usuário que são sincronizados do Azure ad para o Workplace by Facebook. Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no workplace by Facebook para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+10. Na seção **mapeamentos de atributo** , examine os atributos de usuário que são sincronizados do Azure ad para o Workplace by Facebook. Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no workplace by Facebook para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o Workplace by Facebook, altere o **status de provisionamento** para **ativado** na seção **configurações**
 
@@ -99,7 +99,7 @@ Para obter mais informações sobre como configurar o provisionamento automátic
 Agora você pode criar uma conta de teste. Aguarde até 20 minutos para verificar se a conta foi sincronizada com o Workplace by Facebook.
 
 > [!NOTE]
-> Estamos trabalhando junto com a equipe do workplace by Facebook para garantir que o aplicativo do Azure AD seja aprovado e atenda às suas novas diretrizes. O local de trabalho dos prazos do Facebook é 16 de dezembro e esperamos atendê-lo. Nenhum trabalho é esperado para os clientes nesse momento. Em 28 de fevereiro de 2020, os clientes precisarão fazer a transição para a nova integração. Postaremos aqui assim que o caminho de migração estiver disponível.    
+> O aplicativo de terceiros do Azure AD no workplace by Facebook foi aprovado. Os clientes não terão uma interrupção do serviço em 16 de dezembro. Você verá uma observação no console de administração do workplace by Facebook, indicando um prazo de 28 de fevereiro de 2020 por quando você precisará fazer a transição para o novo aplicativo. Estamos trabalhando para manter a transição o mais simples possível e fornecerei uma atualização aqui na transição por fim do mês.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

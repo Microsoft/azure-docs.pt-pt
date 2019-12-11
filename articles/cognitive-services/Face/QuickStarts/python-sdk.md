@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 9728ff86de8561c463886847494ecc4c1c007851
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977816"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 
@@ -117,7 +117,7 @@ O código a seguir gera a imagem fornecida para a exibição e desenha retângul
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
 
-![Uma mulher jovem com um retângulo vermelho desenhado em torno do rosto](../images/face-rectangle-result.png)
+![Uma moça com um retângulo vermelho desenhada em todo o Mostrador](../images/face-rectangle-result.png)
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 

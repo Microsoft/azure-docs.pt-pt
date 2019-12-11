@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271505"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997008"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma Microsoft Identity
 
@@ -98,7 +98,10 @@ O escopo de `profile` pode ser usado com o escopo de `openid` e quaisquer outros
 
 O [escopo de`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) dá ao aplicativo acesso a recursos em nome do usuário por um longo tempo. Na página de consentimento, esse escopo aparece como a permissão "manter o acesso aos dados aos quais você concedeu acesso". Quando um usuário aprova o escopo de `offline_access`, seu aplicativo pode receber tokens de atualização do ponto de extremidade de token da plataforma de identidade da Microsoft. Os tokens de atualização têm vida longa. Seu aplicativo pode obter novos tokens de acesso à medida que os antigos expiram.
 
-Se seu aplicativo não solicitar explicitamente o escopo de `offline_access`, ele não receberá tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2,0](active-directory-v2-protocols.md), você receberá apenas um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período de tempo. O token de acesso geralmente expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário de volta para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário pode precisar inserir suas credenciais novamente ou consentir novamente as permissões. Embora o escopo de `offline_access` seja solicitado automaticamente pelo servidor, o cliente ainda deve solicitá-lo para receber os tokens de atualização.
+> [!NOTE]
+> Essa permissão aparece em todas as telas de consentimento hoje, mesmo para fluxos que não fornecem um token de atualização (o [fluxo implícito](v2-oauth2-implicit-grant-flow.md)).  Isso é para abranger cenários em que um cliente pode começar dentro do fluxo implícito e, em seguida, ir até o fluxo de código em que um token de atualização é esperado.
+
+Na plataforma de identidade da Microsoft (solicitações feitas ao ponto de extremidade v 2.0), seu aplicativo deve solicitar explicitamente o escopo de `offline_access`, para receber tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2,0](active-directory-v2-protocols.md), você receberá apenas um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período de tempo. O token de acesso geralmente expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário de volta para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário pode precisar inserir suas credenciais novamente ou consentir novamente as permissões. 
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência de protocolo de plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
@@ -123,7 +126,7 @@ O parâmetro `scope` é uma lista separada por espaços de permissões delegadas
 Depois que o usuário inserir suas credenciais, o ponto de extremidade da plataforma de identidade da Microsoft verificará se há um registro correspondente de *consentimento do usuário*. Se o usuário não consentiu em nenhuma das permissões solicitadas no passado, nem tem um administrador que consentiu essas permissões em nome de toda a organização, o ponto de extremidade da plataforma de identidade da Microsoft solicita que o usuário conceda as permissões solicitadas.
 
 > [!NOTE]
-> Neste momento, o `offline_access` ("manter o acesso aos dados aos quais você concedeu acesso") e `user.read` ("entrar e ler seu perfil") as permissões são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade de aplicativo adequada – `offline_access` dá ao aplicativo acesso a tokens de atualização, crítico para aplicativos Web e nativos, enquanto `user.read` dá acesso à declaração de `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesso a informações rudimentares do usuário.  
+> Neste momento, o `offline_access` ("manter o acesso aos dados aos quais você concedeu acesso") e `user.read` ("entrar e ler seu perfil") as permissões são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade de aplicativo adequada-`offline_access` dá ao aplicativo acesso para atualizar tokens, essencial para aplicativos Web e nativos, enquanto `user.read` fornece acesso à declaração de `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações rudimentares do usuário.  
 
 ![Captura de tela de exemplo que mostra o consentimento da conta corporativa](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -199,11 +202,11 @@ Quando estiver pronto para solicitar permissões do administrador da sua organiz
 
 | Parâmetro     | Condição     | Descrição                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Necessário | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com `common` como visto no exemplo. |
-| `client_id` | Necessário | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Necessário |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal de registro de aplicativo. |
+| `tenant` | Obrigatório | O locatário do diretório do qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com `common` como visto no exemplo. |
+| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Obrigatório |O URI de redirecionamento no qual você deseja que a resposta seja enviada para que seu aplicativo manipule. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal de registro de aplicativo. |
 | `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que eles estavam. |
-|`scope`        | Necessário      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC (`openid`, `profile`, `email`). | 
+|`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC (`openid`, `profile`, `email`). | 
 
 
 Neste ponto, o Azure AD requer que um administrador de locatários entre para concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no parâmetro `scope`.  Se você usou um valor estático (`/.default`), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.

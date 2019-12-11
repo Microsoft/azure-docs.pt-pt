@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Efetua uma pesquisa com PHP - API de pesquisa Web Bing'
+title: 'Guia de Início Rápido: Executar uma pesquisa com o PHP – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST com PHP e receber uma resposta JSON
+description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando PHP e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648572"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961488"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de pesquisa Web Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação node. js envia um pedido de pesquisa para a API e mostra a resposta. Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo node. js envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Antes de começar, encontre `php.ini` e anule os comentários desta linha:
 
 Crie um novo projeto PHP no seu IDE ou editor preferido. Não se esqueça de adicionar etiquetas de abertura e fecho, `<?php` e `?>`.
 
-Tem de definir algumas variáveis para que possamos continuar. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
+Tem de definir algumas variáveis para que possamos continuar. `$endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -281,7 +281,7 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

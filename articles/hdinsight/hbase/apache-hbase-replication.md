@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931501"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995920"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -275,6 +275,10 @@ Ao replicar um cluster, você deve especificar as tabelas que deseja replicar. N
 
 Para criar uma tabela de **contatos** e inserir alguns dados na tabela, siga as instruções em [tutorial do Apache HBase: introdução ao uso do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> Se você quiser replicar tabelas de um namespace personalizado, será necessário garantir que os namespaces personalizados apropriados também sejam definidos no cluster de destino.
+>
+
 ## <a name="enable-replication"></a>Ativar a replicação
 
 As etapas a seguir descrevem como chamar o script de ação de script do portal do Azure. Para obter informações sobre como executar uma ação de script usando Azure PowerShell e a CLI clássica do Azure, consulte [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -395,6 +399,10 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 - **Desabilitar a replicação nas tabelas especificadas (Table1, Table2 e Table3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> Se você pretende excluir o cluster de destino, certifique-se de removê-lo da lista de pares do cluster de origem. Isso pode ser feito executando o comando remove_peer ' 1 ' no Shell do HBase no cluster de origem. Com falha, o cluster de origem pode não funcionar corretamente.
+>
 
 ## <a name="next-steps"></a>Passos seguintes
 
