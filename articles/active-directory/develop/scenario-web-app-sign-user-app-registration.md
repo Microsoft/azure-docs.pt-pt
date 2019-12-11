@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que conecta usuários (registro de aplicativo)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que entra em usuários (registro de aplicativo)
+title: Registrar um aplicativo Web que entra em usuários-plataforma de identidade da Microsoft | Azure
+description: Saiba como registrar um aplicativo Web que faz logon em usuários
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766077"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964825"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -54,11 +54,11 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
    1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
-   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, digite **https://localhost:44321** . Em seguida, selecione **registrar**.
+   1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, introduza **https://localhost:44321** . Em seguida, selecione **registrar**.
 1. Selecione o menu **autenticação** e, em seguida, adicione as seguintes informações:
    1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
    1. Na seção **Configurações avançadas** , defina **URL de logoff** para **https://localhost:44321/signout-oidc** .
-   1. Em **concessão implícita**, selecione **tokens de ID**.
+   1. Em **Concessão implícita**, selecione **Tokens de ID**.
    1. Selecione **Guardar**.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)

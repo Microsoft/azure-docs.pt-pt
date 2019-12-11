@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Converter script de texto-Tradução de Texto'
+title: 'Início rápido: converter script de texto-Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá como transliterar (converter) o texto de um script para outro usando o API de Tradução de Texto. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: fb6e3128bdcd0d60cb24b2af2efab43f1a84aae4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 42960acebcc8923c8228c35087d2a5156e2ff32b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827417"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975691"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Início rápido: Usar o API de Tradução de Texto para transliterar texto
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Início rápido: usar o API de Tradução de Texto para transliterar texto
 
 Neste guia de início rápido, você aprenderá como transliterar (converter) o texto de um script para outro usando a API REST do Tradução de Texto. No exemplo apresentado, o japonês é transliterado para utilizar o alfabeto latino.
 
@@ -54,7 +54,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 
 ::: zone-end
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Identificar o idioma por entrada](quickstart-detect.md)

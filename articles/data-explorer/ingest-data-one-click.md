@@ -7,83 +7,83 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0d7c8b2661ee3361b3a485b8cae4eef3a8225120
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688198"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975249"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Use a ingestão de um clique para ingerir dados no Azure Data Explorer
 
-Este artigo mostra como usar a ingestão de um clique para ingestão rápida de uma nova tabela em formatos JSON ou CSV do armazenamento ou do arquivo local em uma tabela existente ou em uma nova tabela no Azure Data Explorer. Use o assistente intuitivo e, em alguns minutos, seus dados são ingeridos, você pode editar a tabela e executar consultas usando a interface do usuário da Web.
+Este artigo mostra como usar a ingestão de um clique para ingestão rápida de uma nova tabela no formato JSON ou CSV. Os dados podem ser ingeridos do armazenamento ou de um arquivo local em uma tabela existente ou em uma nova tabela. Use o assistente de um único clique intuitivo e seus dados são ingeridos em alguns minutos. Em seguida, você pode editar a tabela e executar consultas usando a interface do usuário da Web do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Inicie sessão [na aplicação](https://dataexplorer.azure.com/).
-* Criar [um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md)
-* Entre na [interface do usuário da Web](https://dataexplorer.azure.com/) e [adicione uma conexão ao cluster](/azure/data-explorer/web-query-data#add-clusters)
-* Fonte de dados no armazenamento do Azure.
+* Crie [um cluster de data Explorer do Azure e um banco de dados](create-cluster-database-portal.md).
+* Entre na [interface do usuário da Web](https://dataexplorer.azure.com/) e [adicione uma conexão ao cluster](/azure/data-explorer/web-query-data#add-clusters).
+* Crie uma fonte de dados no armazenamento do Azure.
 
 ## <a name="ingest-new-data"></a>Ingerir novos dados
 
-1. Clique com o botão direito do mouse na linha do *banco de dados* ou da *tabela* no menu à esquerda da interface do usuário da Web e selecione **ingerir novos dados (visualização)**
+1. Clique com o botão direito do mouse na linha do *banco de dados* ou da *tabela* no menu à esquerda da interface do usuário da Web e selecione **ingerir novos dados (versão prévia)** .
 
-    ![Selecione uma ingestão de clique na interface do usuário da Web](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
+    ![Selecione a ingestão de um clique na interface do usuário da Web.](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
-1. Na janela **ingerir novos dados (versão prévia)** , na guia **origem** , preencha os **detalhes do projeto**:
+1. Na janela **ingerir novos dados (versão prévia)** , selecione a guia **origem** e preencha os **detalhes do projeto**:
 
-    * **Tabela**: selecione o nome da tabela existente na lista suspensa ou selecione **criar novo** para fazer uma nova tabela.
-    * Selecione o **tipo de ingestão** > **do armazenamento** ou **do arquivo**.
-        * Se você tiver selecionado **em armazenamento**, digite **vincular ao armazenamento** para adicionar a URL ao armazenamento. Use a [URL SAS do blob](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) para contas de armazenamento privado. 
-        * Se você selecionou **do arquivo**, selecione **procurar** e arraste o arquivo para a caixa.
+    * Para **tabela**, selecione um nome de tabela existente no menu suspenso ou selecione **criar novo** para fazer uma nova tabela.
+    * Para **tipo de ingestão**, selecione **de armazenamento** ou **de arquivo**.
+        * Se você tiver selecionado **em armazenamento**, selecione **vincular ao armazenamento** para adicionar a URL. Use a [URL SAS do blob](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) para contas de armazenamento privado. 
+            * Se você selecionou **do arquivo**, selecione **procurar** e arraste o arquivo para a caixa.
     * Selecione **Editar esquema** para exibir e editar a configuração da coluna da tabela.
  
-    ![detalhes da fonte de ingestão de um clique](media/ingest-data-one-click/one-click-ingestion-source.png) 
+    ![Detalhes da fonte de ingestão de um clique.](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
     > [!TIP]
     > Se você selecionar **ingerir novos dados (visualização)** em uma linha de *tabela* , o nome da tabela selecionada será exibido nos **detalhes do projeto**.
 
 1. Se você selecionou uma tabela existente, a janela **mapear colunas** será aberta para mapear colunas de dados de origem para colunas da tabela de destino. 
     * Use **omitir coluna** para remover uma coluna de destino da tabela. 
-    * Use **nova coluna** para adicionar uma nova coluna à sua tabela. 
+    * Use **nova coluna** para adicionar uma nova coluna à tabela. 
 
-    ![Janela mapear colunas](media/ingest-data-one-click/one-click-map-columns-window.png)
+    ![Janela mapear colunas.](media/ingest-data-one-click/one-click-map-columns-window.png)
 
 1. Na guia **esquema** :
 
-    * Selecione **tipo de compactação** na lista suspensa > **descompactado** ou **gzip**.
-    * Selecione **formato de dados** na lista suspensa > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**ou **PSV**. 
-        * Ao selecionar o formato **JSON** , selecione **níveis JSON**: 1-10. Os níveis afetam a representação de dados da coluna da tabela. 
-        * Se você selecionar um formato diferente de JSON:, marque a caixa de seleção **incluir nomes de coluna** para ignorar a linha de cabeçalho do arquivo.    
+    * Selecione **tipo de compactação** no menu suspenso e, em seguida, selecione **descompactado** ou **gzip**.
+    * Selecione **formato de dados** no menu suspenso e, em seguida, selecione **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE**ou **PSV**. 
+        * Ao selecionar o formato **JSON** , você também deve selecionar **níveis JSON**, de 1 a 10. Os níveis afetam a representação de dados da coluna da tabela. 
+        * Se você selecionar um formato diferente de JSON, deverá marcar a caixa de seleção **incluir nomes de coluna** para ignorar a linha de cabeçalho do arquivo.
     * O **nome do mapeamento** é definido automaticamente, mas pode ser editado.
-    * Se você selecionou uma tabela existente, poderá selecionar o botão **mapear colunas** para abrir a janela **mapear colunas** .
+    * Se você selecionou uma tabela existente, poderá selecionar **mapear colunas** para abrir a janela **mapear colunas** .
 
-    ![um formato CSV de ingestão de clique esquema. png](media/ingest-data-one-click/one-click-csv-format.png)
+    ![Esquema de formato CSV de ingestão com um clique.](media/ingest-data-one-click/one-click-csv-format.png)
 
-1. No **Editor**, selecione **V** à direita para abrir o editor. No editor, você pode exibir e copiar as consultas automáticas geradas de suas entradas. 
+1. Acima do painel do **Editor** , selecione o botão **v** para abrir o editor. No editor, você pode exibir e copiar as consultas automáticas geradas de suas entradas. 
 
 1.  Na tabela: 
-    * Clique com o botão direito do mouse em novos cabeçalhos de coluna para **alterar o tipo de dados**, **renomear coluna**, **Excluir coluna**, **classificar em ordem crescente**ou **classificar em ordem decrescente**. Em colunas existentes, somente a classificação de dados está disponível. 
+    * Clique com o botão direito do mouse em novos cabeçalhos de coluna para **alterar o tipo de dados**, **renomear coluna**, **Excluir coluna**, **classificar em ordem crescente**ou **classificar em ordem decrescente**. Nas colunas existentes, somente a classificação de dados está disponível. 
     * Clique duas vezes no nome da nova coluna a ser editada.
 
-1. Selecione **Iniciar ingestão** para criar tabela, criar mapeamento e ingestão de dados.
+1. Selecione **Iniciar ingestão** para criar uma tabela e um mapeamento e para iniciar a ingestão de dados.
 
-    ![esquema de formato JSON de ingestão de um clique](media/ingest-data-one-click/one-click-json-format.png) 
+    ![Esquema de formato JSON de ingestão com um clique.](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## <a name="query-data"></a>Consultar dados
 
-1. Na janela **ingestão de dados concluída** , todas as três etapas serão marcadas com marcas de seleção verdes se a ingestão de dados for concluída com êxito. 
+1. Na janela **ingestão de dados concluída** , todas as três etapas serão marcadas com marcas de seleção verdes se a ingestão de dados for concluída com êxito.
  
-    ![uma ingestão de dados de clique concluída](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
+    ![Ingestão de dados com um clique concluída.](media/ingest-data-one-click/one-click-data-ingestion-complete.png)
 
-1. Selecione **V** para abrir a consulta. Copie para a interface do usuário da Web para editar a consulta.
+1. Selecione o botão **v** para abrir a consulta. Copie para a interface do usuário da Web para editar a consulta.
 
-1. O menu à direita contém consultas e **ferramentas** **rápidas** . 
+1. O menu à direita contém **consultas rápidas** e opções de **ferramentas** . 
 
     * **Consultas rápidas** incluem links para a interface do usuário da Web com consultas de exemplo.
-    * As **ferramentas** incluem link para a interface do usuário da Web com **comandos drop** que permitem solucionar problemas executando o comando `.drop` relevante.
+    * As **ferramentas** incluem um link para **descartar comandos** na interface do usuário da Web, o que permite solucionar problemas executando os comandos `.drop` relevantes.
 
     > [!TIP]
     > Os dados podem ser perdidos usando comandos `.drop`. Use-os com cuidado.

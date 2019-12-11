@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ea37dc9ee6c9249aa9d18f7ee7ab1fdbe1230930
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816645"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975844"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 

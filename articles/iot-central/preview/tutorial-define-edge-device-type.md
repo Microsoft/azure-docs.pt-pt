@@ -3,18 +3,18 @@ title: Tutorial – definir um novo tipo de dispositivo Azure IoT Edge no Azure 
 description: Este tutorial mostra, como um construtor, como criar um novo dispositivo de Azure IoT Edge em seu aplicativo de IoT Central do Azure. Você define a telemetria, o estado, as propriedades e os comandos para seu tipo.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 97bfd2b1e8b571f44c0b782459567f5677dd36a7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702797"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979092"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: definir um novo tipo de dispositivo Azure IoT Edge em seu aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -103,7 +103,7 @@ Na página **Selecionar tipo de modelo** , selecione **Azure IOT Edge**e selecio
 
 No IoT Edge, você pode implantar e gerenciar a lógica de negócios na forma de módulos. Os módulos de IoT Edge são a menor unidade de computação gerenciada pelo IoT Edge e podem conter serviços do Azure (como Azure Stream Analytics) ou seu próprio código específico da solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, consulte [módulos IOT Edge](../../iot-edge/iot-edge-modules.md).
 
-Em um alto nível, um manifesto de implantação é uma lista de gêmeos de módulo configurados com suas propriedades desejadas. Um manifesto de implantação informa um dispositivo IoT Edge (ou um grupo de dispositivos) quais módulos instalar e como configurá-los. Os manifestos de implantação incluem as propriedades desejadas para cada módulo. IoT Edge dispositivos reportam as propriedades relatadas para cada módulo.
+Num alto nível, um manifesto de implantação é uma lista de duplos de módulo que estão configurados com as respetivas propriedades pretendidas. Um manifesto de implantação informa um dispositivo IoT Edge (ou um grupo de dispositivos) quais módulos instalar e como configurá-los. Os manifestos de implantação incluem as propriedades desejadas para cada módulo. IoT Edge dispositivos reportam as propriedades relatadas para cada módulo.
 
 Use Visual Studio Code para criar um manifesto de implantação. Para saber mais, confira [Azure IOT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
@@ -316,7 +316,7 @@ Quando tiver terminado de personalizar, selecione **salvar**.
 ![Captura de tela da página Personalizar modelo do sensor de ambiente](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
 
 
-### <a name="create-views"></a>Criar exibições
+### <a name="create-views"></a>Criar vistas
 
 Como um construtor, você pode personalizar o aplicativo para exibir informações relevantes sobre o dispositivo do sensor ambiental para um operador. Suas personalizações permitem que o operador gerencie os dispositivos do sensor ambiental conectados ao aplicativo. Você pode criar dois tipos de modos de exibição para que um operador Use para interagir com dispositivos:
 

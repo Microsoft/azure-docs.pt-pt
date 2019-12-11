@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73519161"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978684"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início rápido: como criar um classificador com Visão Personalizada
 
@@ -47,11 +47,11 @@ No navegador da Web, navegue até a [página da Web do visão personalizada](htt
    > [!NOTE]
    > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon no [customvision.ai](https://customvision.ai) com a mesma conta usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme que você selecionou o mesmo "diretório" no portal de Visão Personalizada como o diretório no portal do Azure em que os recursos do Visão Personalizada estão localizados. Em ambos os sites, você pode selecionar o diretório no menu suspenso da conta no canto superior direito da tela. 
 
-1. Selecione __classificação__ em __tipos de projeto__. Em seguida, em __tipos de classificação__, escolha **multirótulo** ou **multiclasse**, dependendo de seu caso de uso. A classificação de vários rótulos aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse classifica as imagens em categorias únicas (cada imagem que você enviar será classificada na marca mais provável). Você poderá alterar o tipo de classificação mais tarde, se desejar.
+1. Selecione __classificação__ em __tipos de projeto__. Em seguida, em __tipos de classificação__, escolha **multirótulo** ou **multiclasse**, dependendo de seu caso de uso. A classificação de vários rótulos aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse classifica as imagens em categorias únicas (cada imagem que você enviar será classificada na marca mais provável). Você poderá alterar o tipo de classificação posteriormente, se desejar.
 
 1. Em seguida, selecione um dos domínios disponíveis. Cada domínio otimiza o classificador para tipos específicos de imagens, conforme descrito na tabela a seguir. Você poderá alterar o domínio mais tarde, se desejar.
 
-    |Domain|Objetivo|
+    |Domain|Finalidade|
     |---|---|
     |__Genérica__| Otimizado para uma ampla gama de tarefas de classificação de imagem. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio genérico. |
     |__Alimentos__|Otimizado para fotografias de pratos como você os veria em um menu de restaurante. Se você quiser classificar fotografias de frutas individuais ou de refeições, use o domínio de alimentos.|
@@ -69,7 +69,7 @@ No navegador da Web, navegue até a [página da Web do visão personalizada](htt
 
 Nesta seção, você carregará e marcará manualmente as imagens para ajudar a treinar o classificador. 
 
-1. Para adicionar imagens, clique no botão __Adicionar imagens__ e selecione __procurar arquivos locais__. Selecione __abrir__ para mover para a marcação. Sua seleção de marca será aplicada a todo o grupo de imagens que você selecionou para carregar, portanto, é mais fácil carregar imagens em grupos separados de acordo com suas marcas desejadas. Você também pode alterar as marcas de imagens individuais depois que elas tiverem sido carregadas.
+1. Para adicionar imagens, clique no botão __Adicionar imagens__ e selecione __procurar arquivos locais__. Selecione __abrir__ para mover para a marcação. Sua seleção de marca será aplicada a todo o grupo de imagens que você selecionou para carregar, portanto, é mais fácil carregar imagens em grupos separados de acordo com as marcas desejadas. Você também pode alterar as marcas de imagens individuais depois que elas tiverem sido carregadas.
 
     ![O controle adicionar imagens é mostrado no canto superior esquerdo e como um botão no centro inferior.](./media/getting-started-build-a-classifier/add-images01.png)
 
@@ -103,13 +103,13 @@ Após a conclusão do treinamento, o desempenho do modelo será estimado e exibi
 
 ![Os resultados de treinamento mostram a precisão e a RECALL geral e a precisão e a recall para cada marca no classificador.](./media/getting-started-build-a-classifier/train03.png)
 
-### <a name="probability-threshold"></a>Limite de probabilidade
+### <a name="probability-threshold"></a>Limiar de Probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
-Cada vez que você treina o classificador, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . No painel esquerdo, você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
+Cada vez que você treina o classificador, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizadas. Você pode exibir todas as iterações no painel esquerdo da guia **desempenho** . Você também encontrará o botão **excluir** , que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui todas as imagens que estão associadas exclusivamente a ela.
 
 ## <a name="next-steps"></a>Passos seguintes
 

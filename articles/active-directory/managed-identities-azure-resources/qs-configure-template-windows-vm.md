@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bbc596321b4882ef99104e045ee2da752b125a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b12cd339aee0e9ae0e1cd6d31e523b9b1457c57
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547206"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971065"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando modelos
 
@@ -32,7 +32,7 @@ Neste artigo, usando o modelo de implantação Azure Resource Manager, você apr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com o uso do modelo de implantação Azure Resource Manager, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
+- Se você não estiver familiarizado com o uso do modelo de implantação Azure Resource Manager, confira a [seção visão geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
@@ -117,12 +117,12 @@ Para atribuir uma função à identidade atribuída pelo sistema de sua VM, sua 
 
     ```JSON
     "builtInRoleType": {
-          "type": "string",
-          "defaultValue": "Reader"
-        },
-        "rbacGuid": {
-          "type": "string"
-        }
+        "type": "string",
+        "defaultValue": "Reader"
+    },
+    "rbacGuid": {
+        "type": "string"
+    }
     ```
 
     Na seção `variables`, adicione o seguinte:
@@ -136,16 +136,16 @@ Para atribuir uma função à identidade atribuída pelo sistema de sua VM, sua 
     ```JSON
     {
         "apiVersion": "2017-09-01",
-         "type": "Microsoft.Authorization/roleAssignments",
-         "name": "[parameters('rbacGuid')]",
-         "properties": {
-                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-                "scope": "[resourceGroup().id]"
-          },
-          "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-            ]
+        "type": "Microsoft.Authorization/roleAssignments",
+        "name": "[parameters('rbacGuid')]",
+        "properties": {
+            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+            "scope": "[resourceGroup().id]"
+        },
+         "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+        ]
     }
     ```
 
@@ -167,17 +167,17 @@ Para remover a identidade gerenciada atribuída pelo sistema de uma VM, sua cont
    
 O exemplo a seguir mostra como remover uma identidade gerenciada atribuída pelo sistema de uma VM sem identidades gerenciadas atribuídas pelo usuário:
 
-```JSON
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[parameters('vmName')]",
-    "location": "[resourceGroup().location]",
-    "identity": { 
-        "type": "None"
-        },
-}
-```
+ ```JSON
+ {
+     "apiVersion": "2018-06-01",
+     "type": "Microsoft.Compute/virtualMachines",
+     "name": "[parameters('vmName')]",
+     "location": "[resourceGroup().location]",
+     "identity": { 
+         "type": "None"
+     }
+ }
+ ```
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
 
@@ -196,26 +196,26 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    Se o `apiVersion` for `2018-06-01`, suas identidades gerenciadas atribuídas pelo usuário serão armazenadas no formato de dicionário `userAssignedIdentities` e o valor de `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma variável definida na seção `variables` do seu modelo.
 
-   ```json
-   {
-       "apiVersion": "2018-06-01",
-       "type": "Microsoft.Compute/virtualMachines",
-       "name": "[variables('vmName')]",
-       "location": "[resourceGroup().location]",
-       "identity": {
-           "type": "userAssigned",
-           "userAssignedIdentities": {
-               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
-           }
+   ```JSON
+    {
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[resourceGroup().location]",
+        "identity": {
+            "type": "userAssigned",
+            "userAssignedIdentities": {
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+            }
         }
-   }
+    }
    ```
    
    **API Microsoft. Compute/virtualMachines versão 2017-12-01**
     
    Se o `apiVersion` for `2017-12-01`, suas identidades gerenciadas atribuídas pelo usuário serão armazenadas na matriz de `identityIds` e o valor de `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma variável definida na seção `variables` do seu modelo.
     
-   ```json
+   ```JSON
    {
        "apiVersion": "2017-12-01",
        "type": "Microsoft.Compute/virtualMachines",
@@ -265,10 +265,10 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
         }
-       }
-    ]
+    ]   
    ```
    **API Microsoft. Compute/virtualMachines versão 2017-12-01**
    
@@ -304,8 +304,8 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "port": 50342
+                }
             }
-        }
        }
     ]
    ```
@@ -347,4 +347,3 @@ Para remover uma identidade atribuída pelo usuário de uma VM, sua conta precis
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Identidades gerenciadas para visão geral dos recursos do Azure](overview.md).
-

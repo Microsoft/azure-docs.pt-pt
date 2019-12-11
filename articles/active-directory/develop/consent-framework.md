@@ -1,5 +1,5 @@
 ---
-title: Estrutura de consentimento Azure Active Directory
+title: Estrutura de consentimento do Azure AD
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a estrutura de consentimento em Azure Active Directory e como ela facilita o desenvolvimento de aplicativos de cliente nativos e Web multilocatários.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a04dc3c7946589d03c3fd07451ec643d9c088c1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843381"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963754"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento Azure Active Directory
 

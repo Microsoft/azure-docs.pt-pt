@@ -3,12 +3,12 @@ title: Como gerenciar atribuições com o PowerShell
 description: Saiba como gerenciar atribuições de plano gráfico com o módulo oficial do PowerShell para plantas oficiais do Azure, AZ. Blueprint.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: 5e91197cac97475aa20df8fef8649d98d762d920
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873187"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973650"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
 
@@ -246,6 +246,8 @@ Em vez de passar parâmetros para o cmdlet, o exemplo mostra o uso de um arquivo
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
     -AssignmentFile '.\assignment.json'
 ```
+
+Para obter um exemplo do arquivo de definição de atribuição JSON para uma identidade gerenciada atribuída pelo usuário, consulte o corpo da solicitação no [exemplo: atribuição com identidade gerenciada atribuída pelo usuário](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) para a API REST.
 
 ## <a name="update-blueprint-assignments"></a>Atualizar atribuições do Blueprint
 

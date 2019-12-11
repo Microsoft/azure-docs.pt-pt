@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Android-plataforma de identidade da Microsoft | Azure
-description: Como um aplicativo Android pode obter um token de acesso e chamar Microsoft Graph API ou APIs que exigem tokens de acesso da plataforma Microsoft Identity.
+title: Conectar usuários & chamar Microsoft Graph (Android)-plataforma de identidade da Microsoft | Azure
+description: Obter um token de acesso e chamar Microsoft Graph ou APIs que exigem tokens de acesso da plataforma Microsoft Identity (Android)
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5417c29b62414468064338a67b188c7b7f832ac5
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 7feefc368815b1bfe57b67db2cd94702db799d78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242212"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961562"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Tutorial: conectar usuários e chamar o Microsoft Graph de um aplicativo Android
 
@@ -543,7 +543,7 @@ Crie e implante o aplicativo em um dispositivo de teste ou emulador. Você deve 
 
 Depois de entrar, o aplicativo exibirá os dados retornados do ponto de extremidade do Microsoft Graph `/me`.
 
-### <a name="consent"></a>Consentimento
+### <a name="consent"></a>consentimento
 
 Na primeira vez que qualquer usuário entrar em seu aplicativo, ele será solicitado pela identidade da Microsoft para consentir as permissões solicitadas.  Embora a maioria dos usuários seja capaz de consentir, alguns locatários do Azure AD desabilitaram o consentimento do usuário, o que exige que os administradores consentissem em nome de todos os usuários. Para dar suporte a esse cenário, registre os escopos do seu aplicativo no portal do Azure.
 

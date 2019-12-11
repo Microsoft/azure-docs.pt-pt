@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b88257271f5177657e66cadc23abad36ad14e890
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186053"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974075"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: usar o serviço de entrega de licença e criptografia dinâmica de DRM
 
@@ -70,7 +70,7 @@ O exemplo "Encrypt with DRM" está localizado na pasta [EncryptWithDRM](https://
 > [!NOTE]
 > O exemplo cria recursos exclusivos toda vez que você executa o aplicativo. Normalmente, você reutilizará recursos existentes, como transformações e políticas (se o recurso existente tiver as configurações necessárias).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar APIs dos Serviços de Multimédia com SDK do .NET
 
 Para começar a usar as APIs dos serviços de mídia com o .NET, crie um objeto **AzureMediaServicesClient** . Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. No código que clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials, com base nas credenciais fornecidas no ficheiro de configuração local.
 
@@ -168,13 +168,17 @@ Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (nor
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
+Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.
 
 Execute o seguinte comando da CLI:
 
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 

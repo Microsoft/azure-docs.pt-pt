@@ -3,17 +3,17 @@ title: Usar grupos de dispositivos em seu aplicativo de IoT Central do Azure | M
 description: Como um operador, saiba como usar grupos de dispositivos para analisar a telemetria de dispositivos em seu aplicativo de IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895439"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976218"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>Tutorial: usar grupos de dispositivos para analisar a telemetria do dispositivo (recursos de visualização)
 
@@ -53,7 +53,7 @@ Para criar um grupo de dispositivos:
 
     ![Novo grupo de dispositivos](media/tutorial-use-device-groups/image1.png)
 
-1. Dê um nome ao seu grupo de dispositivos, como **dispositivos contoso**. Você também pode adicionar uma descrição. Um grupo de dispositivos só pode conter dispositivos de um único modelo de dispositivo. Escolha o modelo de dispositivo do **sensor ambiental** a ser usado para este grupo.
+1. Dê um nome ao seu grupo de dispositivos, como **dispositivos contoso**. Também pode adicionar uma descrição. Um grupo de dispositivos só pode conter dispositivos de um único modelo de dispositivo. Escolha o modelo de dispositivo do **sensor ambiental** a ser usado para este grupo.
 
 1. Crie a consulta para identificar os dispositivos pertencentes à **contoso** para o grupo de dispositivos, selecionando a propriedade **nome do cliente** , o operador de comparação **Equals** e **contoso** como o valor. Você pode adicionar várias consultas e dispositivos que atendem a **todos** os critérios são colocados no grupo de dispositivos. O grupo de dispositivos que você cria pode ser acessado por qualquer pessoa que tenha acesso ao aplicativo, para que qualquer pessoa possa exibir, modificar ou excluir o grupo de dispositivos.
 

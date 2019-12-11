@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web que chama APIs da Web (chamando uma API Web)-plataforma de identidade da Microsoft
+title: Chamar uma API da Web de um aplicativo Web-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo Web que chama APIs da Web (chamando uma API da Web)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,18 +15,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: de972c4efcfa544227649581d7c3441aae0bfb4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175297"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964944"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo Web que chama APIs da Web – chamar uma API da Web
 
 Agora que você tem um token, você pode chamar uma API Web protegida.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Aqui está um código simplificado da ação do `HomeController`. Esse código obtém um token para chamar o Microsoft Graph. Esse código de tempo foi adicionado, mostrando como chamar Microsoft Graph como uma API REST. A URL para a API do Graph é fornecida no arquivo de `appsettings.json` e lida em uma variável chamada `webOptions`:
 

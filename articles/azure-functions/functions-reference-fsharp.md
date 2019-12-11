@@ -6,19 +6,19 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226754"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975011"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência F# do Azure Functions Developer
 
 F#por Azure Functions é uma solução para executar facilmente pequenas partes de código ou "funções" na nuvem. Os dados fluem para F# sua função por meio de argumentos de função. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como os tokens de agente de log de função e cancelamento. 
 
 >[!IMPORTANT]
->F#o script (. fsx) só tem suporte da [versão 1. x](functions-versions.md#creating-1x-apps) do tempo de execução de Azure functions. Se você quiser usar F# o com o tempo de execução da versão 2. x, deverá usar um projeto F# de biblioteca de classes pré-compilado (. FS). Você cria, gerencia e publica um F# projeto de biblioteca de classes usando o Visual Studio como faria com um projeto de [ C# biblioteca de classes](functions-dotnet-class-library.md). Para obter mais informações sobre versões do functions, consulte [visão geral de versões do Azure Functions Runtime](functions-versions.md).
+>F#o script (. fsx) só tem suporte da [versão 1. x](functions-versions.md#creating-1x-apps) do tempo de execução de Azure functions. Se você quiser usar F# o com a versão 2. x e versões posteriores do tempo de execução, deverá usar um projeto F# de biblioteca de classes pré-compilado (. FS). Você cria, gerencia e publica um F# projeto de biblioteca de classes usando o Visual Studio como faria com um projeto de [ C# biblioteca de classes](functions-dotnet-class-library.md). Para obter mais informações sobre versões do functions, consulte [visão geral de versões do Azure Functions Runtime](functions-versions.md).
 
 Este artigo pressupõe que você já leu a [referência do Azure Functions Developer](functions-reference.md).
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 Há um arquivo [host. JSON](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem seu próprio arquivo de código (. fsx) e o arquivo de configuração de associação (Function. JSON).
 
-As extensões de associação necessárias na [versão 2. x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Associação a argumentos
 Cada associação dá suporte a algum conjunto de argumentos, conforme detalhado na [referência do desenvolvedor de Azure Functions gatilhos e associações](functions-triggers-bindings.md). Por exemplo, uma das associações de argumento que um gatilho de blob dá suporte é um POCO, que pode ser expresso F# usando um registro. Por exemplo:

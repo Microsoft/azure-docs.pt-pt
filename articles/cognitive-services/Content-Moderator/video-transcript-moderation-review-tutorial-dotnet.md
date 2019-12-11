@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Vídeos moderados e transcrições no .NET-Content Moderator'
+title: 'Tutorial: Moderar vídeos e transcrições no .NET – Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial ajuda você a entender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e criação de análise humana-in-the-loop.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564284"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976983"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
-Neste tutorial, você aprenderá a criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e criação de análise humana-in-the-loop.
+Neste tutorial, você aprenderá a criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e integração de análise humana.
 
 Este tutorial mostrar-lhe como:
 
@@ -37,12 +37,12 @@ Este tutorial mostrar-lhe como:
 - Inscreva-se no site da [ferramenta de revisão de Content moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Consulte [usar marcas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com esta etapa.
 
     ![captura de tela de marcas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
-- Para executar o aplicativo de exemplo, você precisa de uma conta do Azure, um recurso dos serviços de mídia do Azure, um recurso de Content Moderator do Azure e credenciais de Azure Active Directory. Para obter instruções sobre como obter esses recursos, consulte o guia da API de moderação de [vídeo](video-moderation-api.md) .
+- Para executar o aplicativo de exemplo, você precisa de uma conta do Azure, um recurso dos serviços de mídia do Azure, um recurso de Content Moderator do Azure e credenciais de Azure Active Directory. Para obter instruções sobre como obter esses recursos, consulte o guia da [API de moderação de vídeo](video-moderation-api.md) .
 - Baixe o [aplicativo de console de revisão de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) do github.
 
 ## <a name="enter-credentials"></a>Introduzir credenciais
 
-Edite `App.config` o arquivo e adicione o nome do locatário Active Directory, os pontos de extremidade de serviço e as `#####`chaves de assinatura indicados pelo. Precisará das seguintes informações:
+Edite o arquivo `App.config` e adicione o nome do locatário Active Directory, os pontos de extremidade de serviço e as chaves de assinatura indicados pelo `#####`. Precisará das seguintes informações:
 
 |Chave|Descrição|
 |-|-|
@@ -82,7 +82,7 @@ A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicaçã
 Se não estiver presente nenhum argumento de linha de comandos, `Main()` chamará `GetUserInputs()`. Este método pede ao utilizador para introduzir o caminho para um único ficheiro de vídeo e para especificar se deve ser gerada uma transcrição de texto.
 
 > [!NOTE]
-> A aplicação de consola utiliza a [API do Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> O aplicativo de console usa a [API Azure Media indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Métodos Initialize e ProcessVideo
 
@@ -223,7 +223,7 @@ O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido
 Também é produzida uma transcrição de áudio a partir do vídeo quando o sinalizador `GenerateVTT` é definido.
 
 > [!NOTE]
-> A aplicação de consola utiliza a [API do Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições a partir da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> O aplicativo de console usa a [API Azure Media indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Criar uma revisão humana
 
@@ -236,7 +236,7 @@ O processo de moderação devolve uma lista de fotogramas chave do vídeo, junta
 > [!NOTE]
 > A aplicação de consola utiliza a biblioteca [FFmpeg](https://ffmpeg.org/) para gerar miniaturas. Essas miniaturas (imagens) correspondem aos carimbos de data/hora do quadro na saída de moderação do vídeo.
 
-|Tarefa|Métodos|Ficheiro|
+|Tarefa|Métodos|Ficheiros|
 |-|-|-|
 |Extrair os fotogramas chave do vídeo e criar imagens em miniatura dos mesmos|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Analisar a transcrição de texto (se esta estiver disponível) para localizar áudio inadequado ou para adultos|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +252,7 @@ Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais.
 
 A aplicação realiza as seguintes tarefas:
 
-|Tarefa|Métodos|Ficheiro|
+|Tarefa|Métodos|Ficheiros|
 |-|-|-|
 |Determinar se serão geradas transcrições de texto|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |Se forem, submeter uma tarefa de transcrição como parte da moderação|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
@@ -357,9 +357,9 @@ Video review successfully completed...
 Total Elapsed Time: 00:05:56.8420355
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você configura um aplicativo que modera o conteúdo&mdash;de vídeo, incluindo conteúdo&mdash;de transcrição e cria revisões na ferramenta de revisão. Em seguida, saiba mais sobre os detalhes da moderação de vídeo.
+Neste tutorial, você configura um aplicativo que modera o conteúdo de vídeo&mdash;incluindo conteúdo de transcrição&mdash;e cria revisões na ferramenta de revisão. Em seguida, saiba mais sobre os detalhes da moderação de vídeo.
 
 > [!div class="nextstepaction"]
 > [Moderação de vídeo](./video-moderation-human-review.md)

@@ -1,6 +1,6 @@
 ---
 title: Tutorial – provisionar o dispositivo usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Este tutorial mostra como você pode provisionar seu dispositivo para um único Hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Este tutorial mostra como você pode provisionar seu dispositivo para um único Hub IoT usando o DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 358fa1fdc767919720ecb26497c818f4945badb6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702468"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975045"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: provisionar o dispositivo para um hub IoT usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
 

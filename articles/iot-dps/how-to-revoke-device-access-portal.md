@@ -1,6 +1,6 @@
 ---
 title: Cancelar o registro de dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como cancelar o registro de um dispositivo para impedir o provisionamento por meio do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6efbc4483e4768014678822e82f4ca4178f51863
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: af883da67f4e1bc819514e88ff480526e16124db
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228769"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974926"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do serviço de provisionamento de dispositivos no Hub IoT do Azure
 

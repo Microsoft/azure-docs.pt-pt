@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381030"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964094"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exigir política de proteção de aplicativo para acesso ao aplicativo de nuvem com acesso condicional (versão prévia)
 
-Seus funcionários usam dispositivos móveis para tarefas pessoais e de trabalho. Ao garantir que seus funcionários possam ser produtivos, você também deseja evitar a perda de dados. Com o acesso condicional do Azure Active Directory (AD do Azure), você pode proteger seus dados corporativos restringindo o acesso aos seus aplicativos de nuvem. Use aplicativos cliente primeiro com uma política de proteção de aplicativo.
+Os seus funcionários utilizam dispositivos móveis para tarefas pessoais e profissionais. Ao garantir que seus funcionários possam ser produtivos, você também deseja evitar a perda de dados. Com o acesso condicional do Azure Active Directory (AD do Azure), você pode proteger seus dados corporativos restringindo o acesso aos seus aplicativos de nuvem. Use aplicativos cliente primeiro com uma política de proteção de aplicativo.
 
 Este artigo explica como configurar políticas de acesso condicional que podem exigir uma política de proteção de aplicativo antes que o acesso seja concedido aos dados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Com o [acesso condicional do Azure ad](overview.md), você pode ajustar como os usuários autorizados podem acessar seus recursos. Por exemplo, você pode limitar o acesso aos seus aplicativos de nuvem a dispositivos confiáveis.
 
@@ -330,7 +330,7 @@ Todas as políticas de proteção de aplicativo do Intune são necessárias ante
 
 ### <a name="configuration"></a>Configuração
 
-**Etapa 1: configurar uma política de acesso condicional do Azure AD para o Exchange Online**
+**Etapa 1: configurar uma política de acesso condicional do Azure AD para o Exchange Online e o SharePoint Online**
 
 Para a política de acesso condicional nesta etapa, configure os seguintes componentes:
 
@@ -338,7 +338,7 @@ Para a política de acesso condicional nesta etapa, configure os seguintes compo
 
 1. Insira o nome da política de acesso condicional.
 1. Em **atribuições**, em **usuários e grupos**, selecione pelo menos um usuário ou grupo para cada política de acesso condicional.
-1. Em **aplicativos de nuvem**, selecione **Office 365 Exchange Online**. 
+1. Em **aplicativos de nuvem**, selecione **Office 365 Exchange Online** e **Office 365 SharePoint Online**. 
 
    ![Acesso Condicional](./media/app-protection-based-conditional-access/02.png)
 

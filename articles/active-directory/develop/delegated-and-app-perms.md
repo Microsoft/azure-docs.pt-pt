@@ -1,5 +1,5 @@
 ---
-title: Como reconhecer diferenças entre permissões delegadas e de aplicativo | Microsoft Docs
+title: Diferenças entre permissões delegadas e de aplicativo | Azure
 description: Saiba mais sobre as permissões delegadas e de aplicativo, como elas são usadas pelos clientes e expostas por recursos para aplicativos que você está desenvolvendo com o Azure AD
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30371c1a8406b1d348277cf923a9d7fbe00e97c6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b349424b13addbbd5dcc384b9ae04aa7599f191f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843313"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963703"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Como reconhecer diferenças entre permissões delegadas e de aplicativo
 

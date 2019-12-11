@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014947"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968634"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
@@ -27,7 +27,7 @@ ms.locfileid: "69014947"
 > Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
  Pode utilizar os Serviços de Multimédia para entregar transmissões em fluxo MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidas com a [gestão de direitos digitais (DRM) do PlayReady](https://www.microsoft.com/playready/overview/). Também pode entregar transmissões em fluxo DASH encriptadas com licenças DRM do Widevine. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC). Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine.
 
@@ -605,14 +605,18 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Utilizar a Encriptação Comum (CENC) com multi DRM e com controlo de acesso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configurar o empacotamento do Widevine com os Serviços de Multimédia)

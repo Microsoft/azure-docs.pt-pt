@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2019
-ms.openlocfilehash: d7a746c170d04ad17b86e8aca63384edffbe75ac
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806801"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975028"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure online usando DMS
 
@@ -214,7 +214,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 
 > [!NOTE]
-  > Se o serviço de migração de banco de dados do Azure mostrar o erro ' erro do sistema 53 ' ou ' erro do sistema 57 ', a causa poderá resultar em uma incapacidade do serviço de migração de banco de dados do Azure de acessar o compartilhamento de arquivos do Azure Se você encontrar um desses erros, conceda acesso ao armazenamento da conta da rede virtual usando as instruções [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+  > Se o serviço de migração de banco de dados do Azure mostrar o erro ' erro do sistema 53 ' ou ' erro do sistema 57 ', a causa poderá resultar em uma incapacidade do serviço de migração de banco de dados do Azure de acessar o compartilhamento de arquivos do Azure Se você encontrar um desses erros, conceda acesso à conta de armazenamento da rede virtual usando as instruções [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 
 2. Selecione **Guardar**.

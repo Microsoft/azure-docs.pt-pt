@@ -1,22 +1,22 @@
 ---
 title: Gerenciar o serviço de provisionamento de dispositivos no Hub IoT usando a extensão CLI do Azure & IoT
-description: Saiba como usar CLI do Azure e a extensão de IoT para gerenciar o serviço de provisionamento de dispositivos no Hub IoT
+description: Saiba como usar CLI do Azure e a extensão de IoT para gerenciar o DPS (serviço de provisionamento de dispositivos) do Hub IoT
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0e276ca32d7cd02f9668b33b3729757404b13b00
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ba92279632a7283ea6ede423e808e3c7be82cff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975164"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Como usar CLI do Azure e a extensão de IoT para gerenciar o serviço de provisionamento de dispositivos no Hub IoT
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando de plataforma cruzada de software livre para gerenciar recursos do Azure, como IOT Edge. O CLI do Azure está disponível no Windows, Linux e MacOS. CLI do Azure permite que você gerencie recursos do Hub IoT do Azure, instâncias do serviço de provisionamento de dispositivos e hubs vinculados prontos para uso.
+[CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma código-fonte aberto para várias plataforma ferramenta da linha de comandos para gerir recursos do Azure, como o IoT Edge. O CLI do Azure está disponível no Windows, Linux e MacOS. CLI do Azure permite que você gerencie recursos do Hub IoT do Azure, instâncias do serviço de provisionamento de dispositivos e hubs vinculados prontos para uso.
 
 A extensão de IoT enriquece CLI do Azure com recursos como o gerenciamento de dispositivos e o recurso de IoT Edge completo.
 

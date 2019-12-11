@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048995"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977136"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -41,10 +41,10 @@ O conteúdo de BDM – não espera que o leitor tenha qualquer conhecimento de c
 
 ## <a name="business-case-for-predictive-maintenance"></a>Caso comercial para manutenção preditiva
 
-As empresas requerem a execução de equipamento crítico na eficiência e utilização máximas para garantirem o retorno dos investimentos de capital. Esses ativos podem ir desde motores de aeronaves, turbines, elevadores ou chillers industriais - que custam milhões - a para baixo para aplicações de todos os dias como fotocopiadoras, máquinas de café ou coolers de água.
-- Por predefinição, a maioria das empresas dependem _manutenção corretiva_, onde as partes são substituídas como e quando eles falharem. Manutenção corretiva garante partes são totalmente utilizadas (vida de componente, por conseguinte, não desperdiçando), custos, mas os negócios em tempo de inatividade, trabalho e os requisitos de manutenção agendada (desativado horas ou localizações inconvenientes).
-- Na prática de empresas de nível, próximo _manutenção preventiva_, onde determinar o tempo de vida útil para uma peça e manter o ou substitua-o antes de uma falha. Manutenção preventiva evita falhas catastróficas e não agendadas. Mas os custos elevados de período de indisponibilidade planeado, permanecem de utilização insuficientemente do componente antes de seu ciclo de vida completo de uso e o trabalho ainda.
-- O objetivo de _manutenção preditiva_ é otimizar o equilíbrio entre manutenção corretiva e preventiva, ao permitir _just-in-time_ substituição dos componentes. Esta abordagem apenas substitui os componentes quando estiverem perto de falhar. Ao expandir empreguem componente (comparada com a manutenção preventiva) e reduzir os custos de trabalho e de manutenção agendada (através de manutenção corretiva), as empresas podem obter reduções de custos e vantagens competitivas.
+As empresas requerem a execução de equipamento crítico na eficiência e utilização máximas para garantirem o retorno dos investimentos de capital. Estes recursos podem variar entre motores de aeronaves, turbinas, elevadores ou refrigeradores industriais, que custam milhões, e dispositivos quotidianos como fotocopiadoras, máquinas de café ou refrigeradores de água.
+- Por predefinição, a maioria das empresas dependem _manutenção corretiva_, onde as partes são substituídas como e quando eles falharem. A manutenção corretiva assegura que as peças são utilizadas na totalidade (sem desperdiçar o tempo de vida do componente), mas afeta a empresa em termos de inatividade, mão-de-obra e requisitos de manutenção não agendada (fora do horário de funcionamento ou em locais inconvenientes).
+- Na prática de empresas de nível, próximo _manutenção preventiva_, onde determinar o tempo de vida útil para uma peça e manter o ou substitua-o antes de uma falha. A manutenção preventiva evita falhas imprevistas e catastróficas. Mas os custos elevados de período de indisponibilidade planeado, permanecem de utilização insuficientemente do componente antes de seu ciclo de vida completo de uso e o trabalho ainda.
+- O objetivo de _manutenção preditiva_ é otimizar o equilíbrio entre manutenção corretiva e preventiva, ao permitir _just-in-time_ substituição dos componentes. Esta abordagem apenas substitui os componentes quando estiverem perto de falhar. Ao prolongar o tempo de vida do componente (em comparação com a manutenção preventiva) e ao reduzir os custos de mão-de-obra e manutenção não agendada (na manutenção corretiva), as empresas podem poupar dinheiro e conquistar vantagens competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas de negócio num PdM
 As empresas enfrentam riscos operacionais elevado devido a falhas inesperadas e de limitaram informações sobre a causa raiz dos problemas em sistemas complexos. Algumas das principais perguntas empresariais que são:
@@ -203,7 +203,9 @@ Os requisitos comerciais definem até que ponto o modelo tem que prever o futuro
 #### <a name="rolling-aggregates"></a>Agregados sem interrupção
 Para cada registo de um ativo, uma janela sem interrupção de tamanho "W" for escolhida, para computar as agregações, como o número de unidades de tempo. Funcionalidades de atraso, em seguida, são calculadas usando os períodos de W _antes da data_ desse registo. Na figura 1, as linhas azuis mostram os valores de sensores registados para um recurso para cada unidade de tempo. Eles denotam uma média de valores de funcionalidade numa janela de tamanho W = 3. A média é calculada com todos os registos de carimbos de data no intervalo t<sub>1</sub> (cor de laranja) para t<sub>2</sub> (em verde). O valor para W normalmente está em minutos ou horas, consoante a natureza dos dados. Mas, para determinados problemas, escolher um grande W (Digamos, 12 meses) podem fornecer o histórico completo de um ativo até a hora do registo.
 
-![Figura 1. Implementar funcionalidades agregadas](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) figura 1. Implementar recursos de agregação
+![Figura 1. Implementar recursos de agregação](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+
+Figura 1. Implementar recursos de agregação
 
 Exemplos de sem interrupção agregados numa janela de tempo são contagem, média, medidas CUMESUM (soma cumulativa), valores mínimos/máximos. Além disso, variação, desvio padrão e contagem de valores atípicos, além de desvios padrão de N, muitas vezes, são utilizados. Exemplos de agregados podem ser aplicados para o [casos de utilização](#sample-pdm-use-cases) neste guia são listados abaixo. 
 - _Atraso de vôo_: contagem de códigos de erro durante o dia/semana passada.
@@ -217,7 +219,9 @@ Outra técnica útil no PdM é capturar alterações de tendências, picos e alt
 #### <a name="tumbling-aggregates"></a>Agregados em cascata
 Para cada registro rotulado de um ativo, uma janela de tamanho _w-<sub>k</sub>_  é definida, em que _k_ é o número de janelas de tamanho _w_. As agregações são então criadas sobre _k_ _em cascata Windows_ _W-k, w-<sub>(k-1)</sub>,..., w-<sub>2</sub>, w-<sub>1</sub>_  para os períodos antes do carimbo de data/hora de um registro. _k_ pode ser um número pequeno para capturar os efeitos de curto prazo, ou um número grande para capturar os padrões de degradação de longo prazo. (consulte a figura 2).
 
-![Figura 2. Funcionalidades de agregação em cascata](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) figura 2. Em cascata funcionalidades agregadas
+![Figura 2. Em cascata funcionalidades agregadas](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+
+Figura 2. Em cascata funcionalidades agregadas
 
 Por exemplo, lag funcionalidades para o caso de utilização do vento turbines pode ser criado com W = 1 e k = 3. Eles implicam o desfasamento para cada um dos últimos três meses usando valores atípicos superior e inferior.
 
@@ -227,7 +231,7 @@ As especificações técnicas do equipamento como a data de fabrico, número de 
 
 Os esforços de preparação de dados discutidos até agora devem levar aos dados que está a ser organizados conforme mostrado abaixo. Dados de treinamento, teste e validação devem ter este esquema lógico (Este exemplo mostra o tempo em unidades de dias).
 
-| ID do Recurso | Hora | \<colunas de recurso > | Etiqueta |
+| ID do Recurso | Tempo | \<colunas de recurso > | Label |
 | ---- | ---- | --- | --- |
 | A123 |Dia 1 | . . . | . |
 | A123 |Dia 2 | . . . | . |
@@ -262,7 +266,9 @@ Nesta técnica, os dois tipos de exemplos de treinamento são identificados. Um 
 #### <a name="label-construction-for-binary-classification"></a>Construção de etiqueta de classificação binária
 A questão aqui é: "o que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo?" Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar" (etiqueta = 1) e todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). (veja a figura 3).
 
-![Figura 3. Etiquetas de classificação binária](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) figura 3. Etiquetas de classificação binária
+![Figura 3. Etiquetas de classificação binária](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+
+Figura 3. Etiquetas de classificação binária
 
 Seguem-se exemplos de etiquetagem estratégia para alguns dos casos de utilização.
 - _Andamento a atrasos_: X pode ser escolhido como 1 dia, para prever a atrasos nas próximas 24 horas. Em seguida, todos os voos que estão dentro de 24 horas antes de falhas são identificados como 1.
@@ -277,7 +283,9 @@ Modelos de regressão estão habituados _a vida útil remanescente (RUL) de um r
 #### <a name="label-construction-for-regression"></a>Etiqueta de construção para regressão
 A questão aqui é: "Qual é a vida útil remanescente (RUL) do equipamento?" Para cada registo antes da falha, calcule a etiqueta a ser o número de unidades de tempo restante antes da falha seguinte. Nesse método, as etiquetas são variáveis contínuas. (Consulte a figura 4)
 
-![Figura 4. Etiquetagem para regressão](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) figura 4. Etiquetagem para regressão
+![Figura 4. Etiquetagem para regressão](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+
+Figura 4. Etiquetagem para regressão
 
 Para regressão, a etiquetagem é feita com referência a um ponto de falha. Não é possível efetuar os seus cálculos sem saber quanto o elemento Sobreviveu antes de uma falha. Então, por outro lado de classificação binária, ativos sem quaisquer falhas nos dados não podem ser utilizados para a Modelagem. Este problema é melhor Tratado pela outra técnica de estatística chamada [análise de sobrevivência](https://en.wikipedia.org/wiki/Survival_analysis). Mas possíveis complicações podem surgir ao aplicar essa técnica para casos de utilização de PdM que envolvam dados de variáveis de tempo de mensagens em fila com intervalos freqüentes. Para obter mais informações sobre a análise de sobrevivência, consulte [de um pager](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
@@ -289,11 +297,15 @@ Técnicas de classificação de Roc podem ser utilizadas em soluções de PdM pa
 #### <a name="label-construction-for-multi-class-classification"></a>Construção de etiqueta de classificação de Roc
 A questão aqui é: "o que é a probabilidade de que um recurso irá falhar nos próximos _nZ_ unidades de tempo em que _n_ é o número de períodos?" Para responder a essa pergunta, da etiqueta nZ registos antes da falha de um recurso com os registos de tempo (3Z, 2Z, Z). Etiqueta, todos os outros registos como "normal" (etiqueta = 0). Nesse método, a variável de destino mantém _categóricos_ valores. (Consulte a figura 5).
 
-![Figura 5. Etiquetas de predição de hora de falha para classificação multiclasses](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
+![Figura 5. Rótulos de previsão de tempo de falha para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+
+Figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
 
 A questão aqui é: "o que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo devido a causa de raiz/problema _P<sub>eu</sub>_ ?" em que _eu_ é o número de causas possíveis. Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar devido a causa raiz _P<sub>eu</sub>_ " (etiqueta = _P<sub>eu</sub>_ ). Todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). Nesse método além disso, as etiquetas são categóricos (consulte figura 6).
 
-![Figura 6. Etiquetas de predição para classificação de várias classes de causa raiz](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) figura 6. Etiquetas para classificação de Roc para predição de causa raiz
+![Figura 6. Rótulos de previsão de causa raiz para classificação multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+
+Figura 6. Etiquetas para classificação de Roc para predição de causa raiz
 
 O modelo atribui uma probabilidade de falha devido a cada _P<sub>eu</sub>_  , bem como a probabilidade de não falha. Estas probabilidades podem ser ordenadas por magnitude para permitir que a previsão dos problemas que é mais provável que ocorram no futuro.
 
@@ -329,7 +341,9 @@ Suponha que um fluxo de eventos de timestamped como medidas de vários sensores.
 
 Para divisão dependente de tempo, escolher uma _T o tempo limite de treinamento<sub>c</sub>_  no qual pretende preparar um modelo, com hiperparâmetros ajustados a utilização dos dados históricos até T<sub>c</sub>. Para evitar a fuga de etiquetas futuras que ultrapassam T<sub>c</sub> os dados de treinamento, escolha a hora mais recente para exemplos de treinamento de etiqueta ser X unidades antes de T<sub>c</sub>. No exemplo mostrado na figura 7, cada quadrado representa um registro no conjunto de dados em que as funcionalidades e as etiquetas são computadas, tal como descrito acima. A figura mostra os registos que devem passar à preparação e teste conjuntos para X = 2 e W = 3:
 
-![Figura 7. Dividir a classificação binário dependente de tempo](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) figura 7. Dividir a classificação binário dependente de tempo
+![Figura 7. Dividir a classificação binário dependente de tempo](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+
+Figura 7. Dividir a classificação binário dependente de tempo
 
 Os quadrados em verde representam registos que pertencem a unidades de tempo que podem ser usadas para treinamento. Cada exemplo de treinamento é gerado pelo passado a considerar três períodos para geração de funcionalidade e dois períodos futuros para etiquetagem antes de T<sub>c</sub>. Quando qualquer parte dos dois períodos futuros está além T<sub>c</sub>, excluir esse exemplo do conjunto de dados de treinamento, porque não existem visibilidade pressupõe-se para além de T<sub>c</sub>.
 
@@ -411,11 +425,11 @@ A seção final deste guia fornece uma lista de modelos de soluções PdM, tutor
 
 | # | Título | Descrição |
 |--:|:------|-------------|
-| 2 | [Modelo de solução de manutenção preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de código-fonte aberto que demonstra a Modelagem de ML e uma infraestrutura do Azure completa capaz de suportar cenários de manutenção preditiva no contexto de monitorização remota do IoT. |
+| 2 | [Modelo de solução de manutenção preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem do Azure ML e uma infraestrutura do Azure completa capaz de dar suporte a cenários de manutenção preditiva no contexto do monitoramento remoto de IoT. |
 | 3 | [Aprendizagem para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Bloco de notas do Azure com uma solução de demonstração de como utilizar as redes LSTM (memória de curto prazo longo) (uma classe de redes Neurais recorrente) para manutenção preditiva, com um [mensagem de blogue esta amostra](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guia de modelagem de manutenção preditiva no R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guia de modelagem de PdM com scripts em R.|
 | 5 | [Manutenção preditiva do Azure para aeronáutica](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Um dos modelos de soluções de PdM primeiro com base na versão 1.0 do Azure ML para manutenção de aeronave. Este guia originado este projeto. |
-| 6 | [Ferramentas de IA do Azure para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA no IoT edge com o TensorFlow; Kit de ferramentas pacotes aprofundadas modelos em contentores do Docker compatível com o Azure IoT Edge de aprendizagem e expor esses modelos como REST APIs.
+| 6 | [Ferramentas de IA do Azure para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA no IoT Edge usando TensorFlow; o kit de ferramentas empacota modelos de aprendizado profundo em contêineres do Docker compatíveis com Azure IoT Edge e expõe esses modelos como APIs REST.
 | 7 | [Manutenção preditiva do IoT do Azure](https://github.com/Azure/azure-iot-predictive-maintenance) | O Azure IoT Suite PCS – solução pré-configurada. Modelo de PdM de manutenção das aeronaves com o IoT Suite. [Outro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) e [passo a passo](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relacionados com o mesmo projeto. |
 | 8 | [Modelo de manutenção Preditiva com o SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demonstração de cenário de vida útil restante com base nos serviços de R. |
 | 9 | [Guia de modelagem de manutenção preditiva](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Funcionalidade de conjunto de dados de manutenção das aeronaves desenvolvida através da linguagem R com [experimentações](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) e [conjuntos de dados](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) e [bloco de notas do Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) e [experimentações](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)na versão 1.0 do AzureML|

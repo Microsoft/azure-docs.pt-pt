@@ -1,5 +1,5 @@
 ---
-title: API Web protegida-mover para produção
+title: Mover uma API Web protegida para produção | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida (mover para produção).
 services: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb5a04f23268edc112c38c993b190827fa65061
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 1f643d26e48dce0d2ee8718ac54bbd4bc8a248ab
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802516"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962496"
 ---
 # <a name="protected-web-api---move-to-production"></a>API Web protegida-mover para produção
 

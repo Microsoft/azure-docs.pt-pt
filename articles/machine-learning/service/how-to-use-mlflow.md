@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b6efdc75c15e9686728236f82fea8794f3782bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c06eb4043e0e7de886ef8180845464a6be554fd1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276645"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976558"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>Acompanhar métricas e implantar modelos com MLflow e Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -217,7 +217,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 Em vez de definir manualmente o URI de acompanhamento em cada sessão de notebook de experimento subsequente em seus clusters, faça isso automaticamente usando esse [Azure Machine Learning script de inicialização de cluster](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
 
-Quando configurado corretamente, você poderá ver seus dados de acompanhamento de MLflow na API REST do Azure Machine Learning e em todos os clientes e em Azure Databricks por meio da interface do usuário do MLflow ou usando o cliente MLflow.
+Quando configurado corretamente, você poderá ver os dados de rastreamento do MLflow na API REST do Azure Machine Learning e em todos os clientes, e em Azure Databricks por meio da interface do usuário do MLflow ou usando o cliente MLflow.
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>Exibir métricas e artefatos em seu espaço de trabalho
 
@@ -303,7 +303,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Em seguida, implante a imagem usando o método [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) do SDK do Azure Machine Learning. 
+Em seguida, implante a imagem usando o método Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) . 
 
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
@@ -359,7 +359,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 service_name ='aks-service'
 ```
 
-Em seguida, implante a imagem usando o método [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) do SDK do Azure Machine Learning. 
+Em seguida, implante a imagem usando o método Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) . 
 
 ```python
 # Webservice creation using single command
@@ -393,6 +393,6 @@ Se você não planeja usar as métricas registradas e os artefatos em seu espaç
 
 O [MLflow com os notebooks do Azure ml](https://aka.ms/azureml-mlflow-examples) demonstram e se expandem sobre os conceitos apresentados neste artigo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Gerencie seus modelos](concept-model-management-and-deployment.md).
 * Monitore seus modelos de produção para [descompasso de dados](how-to-monitor-data-drift.md).

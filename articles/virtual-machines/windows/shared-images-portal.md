@@ -1,5 +1,5 @@
 ---
-title: Criar imagens compartilhadas da máquina virtual do Azure para Windows usando o portal
+title: Criar uma galeria de imagens compartilhadas do Azure usando o portal
 description: Saiba como usar portal do Azure para criar e compartilhar imagens de máquinas virtuais.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065536"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975504"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagens compartilhada usando o portal do Azure
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Criar uma galeria de imagens compartilhadas do Azure usando o portal
 
 Uma [Galeria de imagens compartilhadas](shared-image-galleries.md) simplifica o compartilhamento de imagens personalizadas em sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. Imagens personalizadas podem ser usadas para inicializar tarefas de implantação, como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações de so. 
 

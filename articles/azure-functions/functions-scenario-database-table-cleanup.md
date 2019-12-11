@@ -4,12 +4,12 @@ description: Use Azure Functions para agendar uma tarefa que se conecta ao banco
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230386"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972239"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar Azure Functions para se conectar a um banco de dados SQL do Azure
 
@@ -19,7 +19,7 @@ Se esta for sua primeira experiência trabalhando com C# funções, você dever�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua as etapas no artigo [criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de função local direcionado para o tempo de execução da versão 2. x. Você também deve ter publicado seu projeto em um aplicativo de funções no Azure.
++ Conclua as etapas no artigo [criar sua primeira função usando o Visual Studio](functions-create-your-first-function-visual-studio.md) para criar um aplicativo de função local que tenha como destino a versão 2. x ou uma versão posterior do tempo de execução. Você também deve ter publicado seu projeto em um aplicativo de funções no Azure.
 
 + Este artigo demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de exemplo AdventureWorksLT. Para criar o banco de dados de exemplo AdventureWorksLT, conclua as etapas no artigo [criar um banco de dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
@@ -29,7 +29,7 @@ Se esta for sua primeira experiência trabalhando com C# funções, você dever�
 
 Você precisa obter a cadeia de conexão para o banco de dados criado quando concluiu a [criação de um banco de dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started-portal.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **bancos** de dados SQL no menu à esquerda e selecione seu banco de dados na página bancos de dados **SQL** .
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação web de página única - API de pesquisa Web Bing'
+title: 'Tutorial: Criar uma aplicação Web de página única – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
 description: Esta aplicação de página única demonstra como a API de Pesquisa na Web do Bing pode ser utilizada para obter, analisar e apresentar resultados de pesquisa relevantes numa aplicação de página única.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977255"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de pesquisa Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
 Esta aplicação de página única demonstra como obter, analisar e apresentar resultados de pesquisa a partir da API de Pesquisa na Web do Bing. O tutorial utiliza CSS e HTML automático e centra-se no código JavaScript. Os ficheiros HTML, CSS e JS estão disponíveis no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) com instruções de início rápido.
 
@@ -89,7 +89,7 @@ O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [A
 | `what` | Caixas de verificação para promover tipos de resultados específicos. Por exemplo, a promoção de imagens aumenta a classificação das imagens nos resultados da pesquisa. |
 | `when` | Um menu pendente que permite ao utilizador restringir os resultados da pesquisa para hoje, esta semana ou este mês. |
 | `safe` | Uma caixa de verificação para ativar a Pesquisa Segura do Bing, que filtra conteúdos para adultos. |
-| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere este valor para mostrar menos ou mais resultados por página. |
+| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere este valor para mostrar menos ou mais resultados por página. |
 | `offset` | Campo oculto. O desfasamento do primeiro resultado de pesquisa no pedido, que é utilizado para paginação. O valor é reposto para `0` em todos os novos pedidos. |
 
 > [!NOTE]
@@ -285,13 +285,13 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP com êxito *não* significa que a pesquisa teve êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa na Web do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Se o pedido tiver limites de velocidade, a API devolverá uma resposta vazia.
 
-A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
+Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Poderão ocorrer erros nas seguintes fases:
 
 | Fase | Potenciais erros | Resolvido por |
 |-------|--------------------|------------|
 | Criar o objeto do pedido | URL inválido | bloco `try` / `catch` |
 | Fazer o pedido | Erros de rede, ligações abortadas | Processadores de eventos `error` e `abort` |
-| Fazer a pesquisa | Pedido inválido, JSON inválido, limites de velocidade | Testes no processador de eventos `load` |
+| Fazer a pesquisa | Pedido inválido, JSON inválido, limites de frequência | Testes no processador de eventos `load` |
 
 Os erros são processados ao chamar a função `renderErrorMessage()`. Se a resposta passar em todos os testes de erros, será chamada a função `renderSearchResults()` para apresentar os resultados da pesquisa.
 
@@ -421,11 +421,11 @@ O compositor de imagens:
 * Calcula o tamanho da miniatura da imagem (a largura varia e a altura é fixa, com 60 píxeis).
 * Insere o HTML que precede o resultado da imagem com base no contexto.
 * Cria a etiqueta HTML `<a>` que liga à página que contém a imagem.
-* Cria a etiqueta HTML `<img>` para apresentar a miniatura da imagem.
+* Cria a tag `<img>` de HTML para apresentar a miniatura de imagem.
 
 O compositor de imagens utiliza as variáveis `section` e `index` para apresentar resultados de forma diferente conforme os respetivos locais de origem. É inserida uma quebra de linha (etiqueta `<br>`) entre os resultados de imagens na barra lateral, para que a mesma apresente uma coluna de imagens. Nas outras secções, o primeiro resultado de imagem `(index === 0)` será precedido por uma etiqueta `<p>`.
 
-O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. Os atributos `title` e `alt` (uma descrição textual da imagem) são criados a partir do nome de anfitrião e do nome da imagem no URL.
+O tamanho da miniatura é utilizado na tag `<img>` e nos campos `h` e `w` do respetivo URL. Os atributos `title` e `alt` (uma descrição textual da imagem) são criados a partir do nome de anfitrião e do nome da imagem no URL.
 
 Eis um exemplo da forma como as imagens são apresentadas na aplicação de exemplo:
 
@@ -435,9 +435,9 @@ Eis um exemplo da forma como as imagens são apresentadas na aplicação de exem
 
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se a sua aplicação utilizar mais do que uma das APIs de Pesquisa do Bing, certifique-se de que é enviado o mesmo ID de cliente nos pedidos em todos os serviços.
 
-Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem as pesquisas de um utilizador. Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela. Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem novas funcionalidades antes de serem disponibilizadas para o público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
+Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem as pesquisas de um utilizador. Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que melhor satisfaçam o pedido. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela. Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que foram escolhidos para ver uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser, como a Partilha de Recursos Transversais à Origem (CORS), poderão impedir que a aplicação de exemplo aceda ao cabeçalho `X-MSEdge-ClientID`. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
+As políticas de segurança do browser, como a Partilha de Recursos Transversais à Origem (CORS), poderão impedir que a aplicação de exemplo aceda ao cabeçalho `X-MSEdge-ClientID`. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
 
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor mesmo assim. Caso contrário, a sua chave de subscrição da API de Pesquisa do Bing terá de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
@@ -464,7 +464,7 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de exemplo. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP abaixo dos resultados da pesquisa, o cabeçalho `X-MSEdge-ClientID` deverá estar visível. Verifique que é o mesmo para todos os pedidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa na Web do Bing v7](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

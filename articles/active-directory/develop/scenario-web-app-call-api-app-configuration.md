@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que chama APIs da Web (configuração de código) – plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que chama APIs da Web (configuração de código do aplicativo)
+title: Configurar o aplicativo Web que chama APIs da Web-plataforma Microsoft Identity | Azure
+description: Saiba como configurar o código de um aplicativo Web que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175311"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964990"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicativo Web que chama as APIs da Web-configuração de código
 
@@ -43,7 +43,7 @@ As bibliotecas que dão suporte ao fluxo de código de autorização para aplica
 
 Selecione a guia correspondente à plataforma em que você está interessado:
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Considerando que permitir que uma entrada de usuário seja delegada ao middleware do Open ID Connect (OIDC), você deseja conectar-se no processo OIDC. A maneira de fazer isso é diferente dependendo da estrutura usada.
 No caso de ASP.NET Core, você assinará os eventos de middleware OIDC. O princípio é que:
@@ -82,11 +82,11 @@ O exemplo atualmente permite MSAL. O Python produz a URL do código de autoriza�
 
 ## <a name="code-that-redeems-the-authorization-code"></a>Código que resgata o código de autorização
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 ### <a name="startupcs"></a>Startup.cs
 
-Em ASP.NET Core, o princípio é que no arquivo `Startup.cs`. Você desejará assinar o evento `OnAuthorizationCodeReceived` Open ID Connect e, a partir desse evento, chame MSAL. O método da rede `AcquireTokenFromAuthorizationCode`, que tem o efeito de armazenar no cache de token, o token de acesso para o `scopes`solicitado e um token de atualização que será usado para atualizar o token de acesso quando ele estiver próximo da expiração ou para obter um token em nome do mesmo usuário , mas para um recurso diferente.
+Em ASP.NET Core, o princípio é que no arquivo `Startup.cs`. Você desejará assinar o evento `OnAuthorizationCodeReceived` Open ID Connect e, a partir desse evento, chame MSAL. O método da rede `AcquireTokenFromAuthorizationCode`, que tem o efeito de armazenar no cache de token, o token de acesso para o `scopes`solicitado e um token de atualização que será usado para atualizar o token de acesso quando ele estiver próximo da expiração ou para obter um token em nome do mesmo usuário, mas para um recurso diferente.
 
 Na prática, o [tutorial ASP.NET Core aplicativo Web](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) tenta fornecer código reutilizável para seus aplicativos Web.
 
@@ -320,7 +320,7 @@ Para somar, `AcquireTokenByAuthorizationCode` realmente resgata o código de aut
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-A maneira como o ASP.NET lida com coisas é semelhante ao ASP.NET Core, exceto pelo fato de que a configuração de OpenIdConnect e a assinatura para o evento `OnAuthorizationCodeReceived` acontece no arquivo [App_Start\Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Você encontrará conceitos semelhantes em ASP.NET Core, exceto que, em ASP.NET, precisará especificar o RedirectUri no [Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Essa configuração é um pouco menos robusta do que a feita no ASP.NET Core, pois você precisará alterá-la quando implantar seu aplicativo.
+A maneira como o ASP.NET lida com coisas é semelhante a ASP.NET Core, exceto que a configuração de OpenIdConnect e a assinatura para o evento de `OnAuthorizationCodeReceived` acontece no arquivo de [App_Start \startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Você encontrará conceitos semelhantes em ASP.NET Core, exceto que, em ASP.NET, precisará especificar o RedirectUri no [Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Essa configuração é um pouco menos robusta do que a feita no ASP.NET Core, pois você precisará alterá-la quando implantar seu aplicativo.
 
 ```CSharp
 public partial class Startup
@@ -486,7 +486,7 @@ Usar declarações de cliente é um cenário avançado, detalhado em [asserçõe
 > Em aplicativos Web (ou APIs Web como uma questão de fato), a implementação de cache de token é diferente das implementações de cache de token de aplicativos de área de trabalho (que geralmente são [baseadas em arquivo](scenario-desktop-acquire-token.md#file-based-token-cache)).
 > É importante, por motivos de segurança e desempenho, garantir que, para aplicativos Web e APIs Web, deve haver um cache de token por usuário (por conta). Você precisa serializar o cache de token para cada conta.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 O tutorial do ASP.NET Core usa injeção de dependência para permitir que você decida a implementação do cache de token no arquivo Startup.cs para seu aplicativo. Microsoft. Identity. Web vem com vários serializadores de cache de token pré-criados descritos em serialização de [cache de token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/README.md#token-cache-serialization). Uma possibilidade interessante é escolher ASP.NET Core [caches de memória distribuída](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 

@@ -1,7 +1,7 @@
 ---
 title: Treine o scikit-Aprenda os modelos de aprendizado de máquina
 titleSuffix: Azure Machine Learning
-description: Saiba como executar seus scripts de treinamento scikit-Learn em escala empresarial usando a classe SKlearn Estimator de Azure Machine Learning. Os scripts de exemplo classificam as imagens de flor íris para criar um modelo de aprendizado de máquina baseado no conjunto de informações de íris de scikit.
+description: Saiba como executar seus scripts de treinamento scikit-Learn em escala empresarial usando a classe SKlearn Estimator Azure Machine Learning. Os scripts de exemplo classificam as imagens de flor íris para criar um modelo de aprendizado de máquina baseado no conjunto de informações de íris de scikit.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224846"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976116"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Crie modelos scikit-Aprenda em escala com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, saiba como executar seus scripts de treinamento scikit-Learn em escala empresarial usando a classe [estimada SKlearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) do Azure Machine Learning. 
+Neste artigo, saiba como executar seus scripts de treinamento scikit-Learn em escala empresarial usando a classe Azure Machine Learning [SKlearn Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) . 
 
 Os scripts de exemplo neste artigo são usados para classificar imagens de flor de íris para criar um modelo de aprendizado de máquina baseado no [conjunto](https://archive.ics.uci.edu/ml/datasets/iris)de informações de íris do scikit.
 
@@ -32,7 +32,7 @@ Execute este código em qualquer um destes ambientes:
  - VM do notebook Azure Machine Learning-não é necessário nenhum download ou instalação
 
     - Conclua o [tutorial: ambiente de instalação e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
-    - Na pasta de treinamento de exemplos no servidor do notebook, localize um bloco de anotações concluído e expandido navegando até este diretório: **como usar-azureml > ml-frameworks > scikit-saiba > treinamento > Train-hiperparameter-ajuste-deploy-com-sklearn** pasta.
+    - Na pasta de treinamento de exemplos no servidor do notebook, localize um bloco de anotações concluído e expandido navegando até este diretório: **instruções-uso-azureml > ml-frameworks > scikit-saiba > treinamento > Train-hiperparameter-ajuste-deploy-com-sklearn** pasta.
 
  - Seu próprio servidor de Jupyter Notebook
 
@@ -74,7 +74,7 @@ Crie um objeto de espaço de trabalho a partir do `config.json` arquivo criado n
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Criar um experimento do Machine Learning
+### <a name="create-a-machine-learning-experiment"></a>Criar uma experimentação de machine learning
 
 Crie um experimento e uma pasta para manter seus scripts de treinamento. Neste exemplo, crie um experimento chamado "sklearn-íris".
 
@@ -89,7 +89,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 Neste tutorial, o script de treinamento **train_iris. py** já foi fornecido para você. Na prática, você deve ser capaz de pegar qualquer script de treinamento personalizado como está e executá-lo com o Azure ML sem precisar modificar seu código.
 
-Para usar os recursos de acompanhamento e métricas do Azure ML, adicione uma pequena quantidade de código do Azure ML dentro de seu script de treinamento.  O script de treinamento **train_iris. py** mostra como registrar algumas métricas em sua execução do Azure ml usando o objeto `Run` dentro do script.
+Para usar os recursos de métrica e acompanhamento do ML do Azure, adicione uma pequena quantidade de código do Azure ML dentro de seu script de treinamento.  O script de treinamento **train_iris. py** mostra como registrar algumas métricas em sua execução do Azure ml usando o objeto `Run` dentro do script.
 
 O script de treinamento fornecido usa dados de exemplo da função `iris = datasets.load_iris()`.  Para seus próprios dados, talvez seja necessário usar etapas como [carregar DataSet e scripts](how-to-train-keras.md#data-upload) para disponibilizar os dados durante o treinamento.
 
@@ -214,10 +214,10 @@ Observação: essas dependências são incluídas no contêiner de inferência s
 A implantação [completa abrange](how-to-deploy-and-where.md) em Azure Machine Learning mais detalhadamente.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você treinou e registrou um modelo scikit-Learn e aprendeu sobre as opções de implantação. Consulte estes outros artigos para saber mais sobre Azure Machine Learning.
 
-* [Rastrear métricas de execução durante o treinamento](how-to-track-experiments.md)
-* [Ajustar hiperparâmetros](how-to-tune-hyperparameters.md)
+* [Executar a métrica durante o treinamento do Roteiro](how-to-track-experiments.md)
+* [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Arquitetura de referência para treinamento de aprendizado profundo distribuído no Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

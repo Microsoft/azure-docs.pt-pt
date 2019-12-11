@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896051"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977697"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas dos registos de diagnósticos
 
@@ -107,6 +107,10 @@ Propriedades do esquema de solicitações de entrega de chave.
     }
 } 
 ```
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,14 +1,14 @@
 ---
 title: Funções de plantas do Azure
 description: Descreve as funções disponíveis para uso com artefatos de Blueprint em definições e atribuições de plantas do Azure.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128768"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970895"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para uso com plantas do Azure
 
@@ -29,9 +29,12 @@ Há suporte para as seguintes funções:
 
 Retorna um objeto das propriedades preenchidas com as saídas dos artefatos do Blueprint.
 
+> [!NOTE]
+> A função `artifacts()` não pode ser usada de dentro de um modelo do Resource Manager. A função só pode ser usada na definição do Blueprint JSON ou no artefato JSON ao gerenciar o plano gráfico com Azure PowerShell ou a API REST como parte de [plantas como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sim |string |O nome de um artefato de plano gráfico. |
 
@@ -105,11 +108,11 @@ Alguns exemplos de recuperação de dados do exemplo _myTemplateArtifact_ são:
 
 | Expressão | Tipo | Valor |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["primeiro", "segundo"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadeia | primeiro |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadeia | "meu valor de cadeia de caracteres" |
-|`[artifacts("myTemplateArtifact").outputs.myObject]` | Objeto | {"MyProperty": "meu valor", "anotherproperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadeia | "meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["primeiro", "segundo"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | primeiro |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"MyProperty": "meu valor", "anotherproperty": true} |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | Verdadeiro |
 
 ## <a name="concat"></a>Concat
@@ -120,7 +123,7 @@ Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | string1 |Sim |string |O primeiro valor para concatenação. |
 | argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
@@ -145,7 +148,7 @@ Retorna um valor de parâmetro Blueprint. O nome do parâmetro especificado deve
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a ser retornado. |
 
@@ -266,7 +269,7 @@ Retorna um objeto que representa o artefato do grupo de recursos especificado. A
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sim |string |O nome do espaço reservado do artefato do grupo de recursos a ser retornado. |
 

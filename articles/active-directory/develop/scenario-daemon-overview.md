@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de daemon chamando APIs Web (visão geral)-plataforma de identidade da Microsoft
+title: Criar um aplicativo daemon que chama APIs da Web-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo daemon que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +16,14 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0912203f2427694d2a9b8611966a55e1e6889e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 70a8c97ee1e10d53cd8da9687a9109eb4ce8ae3d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056387"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965573"
 ---
-# <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicativo daemon que chama APIs da Web
+# <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: aplicativo daemon que chama APIs da Web
 
 Saiba tudo o que você precisa para criar um aplicativo daemon que chama APIs da Web.
 
@@ -31,7 +31,7 @@ Saiba tudo o que você precisa para criar um aplicativo daemon que chama APIs da
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Seu aplicativo pode adquirir um token para chamar uma API da Web em nome de si mesmo (não em nome de um usuário). Esse cenário é útil para aplicativos de daemon. Ele está usando a concessão de [credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 padrão.
 
@@ -47,7 +47,7 @@ Há outro caso comum em que aplicativos não daemon usam credenciais de cliente:
 
 Aplicativos que adquirem um token para suas próprias identidades:
 
-- São aplicativos cliente confidenciais. Esses aplicativos, Considerando que acessam recursos independentemente de um usuário, precisam provar sua identidade. Eles também são aplicativos confidenciais, que precisam ser aprovados pelos administradores de locatário do Azure Active Directory (AD do Azure).
+- são aplicativos cliente confidenciais. Esses aplicativos, Considerando que acessam recursos independentemente de um usuário, precisam provar sua identidade. Eles também são aplicativos confidenciais, que precisam ser aprovados pelos administradores de locatário do Azure Active Directory (AD do Azure).
 - Registrou um segredo (senha de aplicativo ou certificado) com o Azure AD. Esse segredo é passado durante a chamada para o Azure AD para obter um token.
 
 ## <a name="specifics"></a>Especificações

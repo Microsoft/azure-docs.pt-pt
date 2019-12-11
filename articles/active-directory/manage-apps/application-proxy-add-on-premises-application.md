@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420462"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970351"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory
 
@@ -99,9 +99,9 @@ Se o firewall impõe o tráfego de acordo com os usuários de origem, abra as po
 
 Permitir acesso às seguintes URLs:
 
-| do IdP | Como é usado |
+| URL | Como é usado |
 | --- | --- |
-| \*. msappproxy.net<br>\*. servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do proxy de aplicativo |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem do proxy de aplicativo |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | O Azure usa essas URLs para verificar os certificados. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*. microsoftonline-p.com<br>\*. msauth.net<br>\*. msauthimages.net<br>\*. msecnd.net<br>\*. msftauth.net<br>\*. msftauthimages.net<br>\*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | O conector usa essas URLs durante o processo de registro. |
 
@@ -179,7 +179,7 @@ Agora que você preparou seu ambiente e instalou um conector, você está pronto
     | :---- | :---------- |
     | **Nome** | O nome do aplicativo que será exibido no painel de acesso e no portal do Azure. |
     | **URL interna** | A URL para acessar o aplicativo de dentro de sua rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, você pode publicar diferentes sites no mesmo servidor como aplicativos diferentes e dar a cada um deles seu próprio nome e suas regras de acesso.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo estiver em https:\//yourapp/app e usar imagens localizadas em https:\//yourapp/Media, você deverá publicar https:\//yourapp/como o caminho. Essa URL interna não precisa ser a página de aterrissagem que os usuários veem. Para obter mais informações, consulte [definir um Home Page personalizado para aplicativos publicados](application-proxy-configure-custom-home-page.md). |
-    | **URL externa** | O endereço para os usuários acessarem o aplicativo de fora da rede. Se você não quiser usar o domínio do proxy de aplicativo padrão, leia sobre [domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).|
+    | **URL externo** | O endereço para os usuários acessarem o aplicativo de fora da rede. Se você não quiser usar o domínio do proxy de aplicativo padrão, leia sobre [domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md).|
     | **Pré-autenticação** | Como o proxy de aplicativo verifica os usuários antes de conceder a eles acesso ao seu aplicativo.<br><br>**Azure Active Directory** -o proxy de aplicativo redireciona os usuários para entrar com o Azure AD, que autentica suas permissões para o diretório e o aplicativo. É recomendável manter essa opção como o padrão para que você possa aproveitar os recursos de segurança do Azure AD como o acesso condicional e a autenticação multifator. **Azure Active Directory** é necessário para monitorar o aplicativo com Microsoft Cloud segurança de aplicativo.<br><br>**Passagem** -os usuários não precisam se autenticar no Azure ad para acessar o aplicativo. Você ainda pode configurar os requisitos de autenticação no back-end. |
     | **Grupo de conectores** | Os conectores processam o acesso remoto ao seu aplicativo, e os grupos de conectores ajudam a organizar os conectores e aplicativos por região, rede ou finalidade. Se você ainda não tiver grupos de conectores criados, seu aplicativo será atribuído ao **padrão**.<br><br>Se seu aplicativo usa Websockets para se conectar, todos os conectores no grupo devem ser da versão 1.5.612.0 ou posterior.|
 
@@ -217,8 +217,9 @@ Para adicionar um usuário de teste:
 
 Para testar o logon no aplicativo:
 
-1. No navegador, navegue até a URL externa que você configurou durante a etapa de publicação. Você deve ver a tela iniciar.
-1. Entre como o usuário que você criou na seção anterior.
+1. No aplicativo que você deseja testar, selecione **proxy de aplicativo**.
+2. Na parte superior da página, selecione **testar aplicativo** para executar um teste no aplicativo e verificar se há problemas de configuração.
+3. Inicie primeiro o aplicativo para testar a entrada no aplicativo e, em seguida, baixe o relatório de diagnóstico para examinar as diretrizes de resolução para quaisquer problemas detectados.
 
 Para solucionar problemas, consulte [solucionar problemas de proxy de aplicativo e mensagens de erro](application-proxy-troubleshoot.md).
 

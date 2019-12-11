@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1e67fc3a2f878e5e04834f67027c98e0b37e9059
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580624"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973599"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
@@ -23,14 +23,14 @@ Saiba mais sobre a arquitetura, os conceitos e o fluxo de trabalho para Azure Ma
 
 ![Arquitetura e fluxo de trabalho de Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 O fluxo de trabalho do modelo de aprendizado de máquina geralmente segue esta sequência:
 
 1. **Trem**
     + Desenvolva scripts de treinamento do Machine Learning no **Python** ou com o Visual Designer.
-    + Criar e configurar um **destino de computação**.
-    + **Envie os scripts** para o destino de computação configurado para execução nesse ambiente. Durante o treinamento, os scripts podem ler ou gravar no **repositório de armazenamento**. E os registros de execução são salvos como são **executados** no **espaço de trabalho** e agrupados em **experimentos**.
+    + Criar e configurar uma **destino de computação**.
+    + **Submeter os scripts** para o destino de computação configurada para ser executado nesse ambiente. Durante o treinamento, os scripts podem ler ou gravar no **repositório de armazenamento**. E os registros de execução são salvos como são **executados** no **espaço de trabalho** e agrupados em **experimentos**.
 
 1. **Pacote** -após uma execução satisfatória ser encontrada, registre o modelo persistente no registro de **modelo**.
 
@@ -60,15 +60,15 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
 + <a href="#endpoints">Extremidade</a>
-+ <a href="#environments">Sistemas</a>
++ <a href="#environments">Ambientes</a>
 + [Estimativas](#estimators)
 + <a href="#experiments">Experiências</a>
 + <a href="#github-tracking-and-integration">Rastreamento de git</a>
 + <a href="#iot-module-endpoints">Módulos IoT</a>
-+ <a href="#logging">Logout</a>
++ <a href="#logging">Registro em log</a>
 + <a href="#ml-pipelines">Pipelines de ML</a>
 + <a href="#models">Modelos</a>
-+ <a href="#runs">Funcionam</a>
++ <a href="#runs">Executar</a>
 + <a href="#run-configurations">Configuração de execução</a>
 + <a href="#snapshots">Instantânea</a>
 + <a href="#training-scripts">Script de treinamento</a>
@@ -77,10 +77,10 @@ Use estas ferramentas para Azure Machine Learning:
 
 ### <a name="activities"></a>Atividades
 
-Uma atividade representa uma operação de execução longa. As seguintes operações são exemplos de atividades:
+Uma atividade representa uma operação de longa execução. As seguintes operações são exemplos de atividades:
 
-* Criando ou excluindo um destino de computação
-* Executando um script em um destino de computação
+* Criar ou eliminar um destino de computação
+* Executar um script num destino de computação
 
 As atividades podem fornecer notificações por meio do SDK ou da interface do usuário da Web para que você possa monitorar facilmente o progresso dessas operações.
 
@@ -151,7 +151,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 ### <a name="experiments"></a>Experimentações
 
-Um experimento é um agrupamento de muitas execuções de um script especificado. Ele sempre pertence a um espaço de trabalho. Ao enviar uma execução, você fornece um nome de experimento. As informações para a execução são armazenadas nesse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome especificado recentemente será criado automaticamente.
+Um experimento é um agrupamento de muitas execuções de um script especificado. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se você enviar uma execução e especificar um nome de experimento que não existe, um novo experimento com esse nome especificado recentemente será criado automaticamente.
 
 Para obter um exemplo de como usar um experimento, consulte [tutorial: treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md).
 
@@ -168,7 +168,7 @@ Ao desenvolver sua solução, use o SDK do Azure Machine Learning Python em seu 
 
 ### <a name="ml-pipelines"></a>Pipelines de ML
 
-Você usa pipelines de Machine Learning para criar e gerenciar fluxos de trabalho que unem as fases de aprendizado de máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento de modelo, implantação de modelo e fases de inferência/Pontuação. Cada fase pode abranger várias etapas, cada uma delas pode ser executada de forma autônoma em vários destinos de computação. 
+Você usa pipelines de Machine Learning para criar e gerenciar fluxos de trabalho que unem as fases de aprendizado de máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento de modelo, implantação de modelo e fases de inferência/Pontuação. Cada fase pode incluir vários passos, cada um dos quais pode ser executado automaticamente em vários destinos de computação. 
 
 As etapas de pipeline são reutilizáveis e podem ser executadas sem executar novamente as etapas subsequentes se a saída dessa etapa não tiver sido alterada. Por exemplo, você pode treinar novamente um modelo sem executar novamente as etapas dispendiosas de preparação de dados se os dados não forem alterados. Os pipelines também permitem que os cientistas de dados colaborem enquanto trabalham em áreas separadas de um fluxo de trabalho de aprendizado de máquina.
 
@@ -176,9 +176,9 @@ Para obter mais informações sobre pipelines de Machine Learning com esse servi
 
 ### <a name="models"></a>Modelos
 
-Em sua forma mais simples, um modelo é um trecho de código que usa uma entrada e produz a saída. A criação de um modelo de aprendizado de máquina envolve a seleção de um algoritmo, o fornecimento de dados e o ajuste de hiperparâmetros. O treinamento é um processo iterativo que produz um modelo treinado, que encapsula o que o modelo aprendeu durante o processo de treinamento.
+Em sua forma mais simples, um modelo é um trecho de código que usa entrada e produz um resultado. A criação de um modelo de aprendizagem automática envolve selecionar um algoritmo, fornecendo dados e ajuste hiperparâmetros. O treinamento é um processo iterativo que produz um modelo preparado, que encapsula o que o modelo aprendidas durante o processo de treinamento.
 
-Um modelo é produzido por uma execução em Azure Machine Learning. Você também pode usar um modelo treinado fora do Azure Machine Learning. Você pode registrar um modelo em um espaço de trabalho Azure Machine Learning.
+Um modelo é produzido por uma execução no Azure Machine Learning. Você também pode usar um modelo treinado fora do Azure Machine Learning. Você pode registrar um modelo em um espaço de trabalho Azure Machine Learning.
 
 A Azure Machine Learning é independente da estrutura. Ao criar um modelo, você pode usar qualquer estrutura de aprendizado de máquina popular, como Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
@@ -186,7 +186,7 @@ Para obter um exemplo de treinamento de um modelo usando Scikit-Learn e um estim
 
 O **registro de modelo** mantém o controle de todos os modelos em seu espaço de trabalho Azure Machine Learning.
 
-Os modelos são identificados por nome e versão. Cada vez que você registra um modelo com o mesmo nome de um existente, o registro pressupõe que ele é uma nova versão. A versão é incrementada e o novo modelo é registrado com o mesmo nome.
+Modelos são identificados pelo nome e versão. Cada vez que você registra um modelo com o mesmo nome de um existente, o registro pressupõe que ele é uma nova versão. A versão é incrementada e o novo modelo é registrado com o mesmo nome.
 
 Ao registrar o modelo, você pode fornecer marcas de metadados adicionais e, em seguida, usar as marcas ao pesquisar modelos.
 
@@ -204,9 +204,9 @@ Uma execução é uma única execução de um script de treinamento. Azure Machi
 * Metadados sobre a execução (carimbo de data/hora, duração e assim por diante)
 * Métricas registradas por seu script
 * Arquivos de saída que são coletados pelo experimento ou carregados explicitamente por você
-* Um instantâneo do diretório que contém seus scripts, antes da execução
+* Um instantâneo do diretório que contém os scripts, antes da execução
 
-Você produz uma execução quando envia um script para treinar um modelo. Uma execução pode ter zero ou mais execuções filhas. Por exemplo, a execução de nível superior pode ter duas execuções filhas, cada uma das quais pode ter sua própria execução filho.
+Você produz uma execução quando envia um script para treinar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a execução de nível superior pode ter duas execuções filhas, cada uma das quais pode ter sua própria execução filho.
 
 ### <a name="run-configurations"></a>Configurações de execução
 
@@ -217,18 +217,18 @@ Uma configuração de execução pode ser persistida em um arquivo dentro do dir
 Por exemplo, execute as configurações, consulte [selecionar e usar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md).
 ### <a name="snapshots"></a>Instantâneos
 
-Quando você envia uma execução, Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é então extraído e o script é executado lá. Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao espaço de trabalho pode procurar um registro de execução e baixar o instantâneo.
+Quando você envia uma execução, Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é então extraído e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso à área de trabalho pode procurar um registo de execução e transferir o instantâneo.
 
 > [!NOTE]
 > Para impedir que arquivos desnecessários sejam incluídos no instantâneo, faça um arquivo ignorado (. gitignore ou. amlignore). Coloque esse arquivo no diretório de instantâneo e adicione os nomes de arquivos a serem ignorados nele. O arquivo. amlignore usa a mesma [sintaxe e padrões que o arquivo. gitignore](https://git-scm.com/docs/gitignore). Se ambos os arquivos existirem, o arquivo. amlignore terá precedência.
 
-### <a name="training-scripts"></a>Scripts de treinamento
+### <a name="training-scripts"></a>Scripts de preparação
 
-Para treinar um modelo, você especifica o diretório que contém o script de treinamento e os arquivos associados. Você também especifica um nome de experimento, que é usado para armazenar informações coletadas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado sob o experimento no espaço de trabalho.
+Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Você também especifica um nome de experimento, que é usado para armazenar informações coletadas durante o treinamento. Durante o treinamento, o diretório inteiro é copiado para o ambiente de treinamento (destino de computação) e o script especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
 
 Para obter um exemplo, consulte [tutorial: treinar um modelo de classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### <a name="workspaces"></a>Áreas de Trabalho
+### <a name="workspaces"></a>Áreas de trabalho
 
 [O espaço de trabalho](concept-workspace.md) é o recurso de nível superior para Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefatos que você criar ao usar o Azure Machine Learning. Você pode compartilhar um espaço de trabalho com outras pessoas. Para obter uma descrição detalhada dos espaços de trabalho, consulte [o que é um espaço de trabalho Azure Machine Learning?](concept-workspace.md).
 
@@ -237,5 +237,5 @@ Para obter um exemplo, consulte [tutorial: treinar um modelo de classificação 
 Para começar a usar o Azure Machine Learning, consulte:
 
 * [O que é o Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Criar um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md)
+* [Criar uma área de trabalho do Azure Machine Learning](how-to-manage-workspace.md)
 * [Tutorial (parte 1): treinar um modelo](tutorial-train-models-with-aml.md)

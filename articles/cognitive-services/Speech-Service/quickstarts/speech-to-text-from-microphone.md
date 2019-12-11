@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 14299ae452f0265a9c02ddf90236c8b328a43773
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b2ae5feb574e67dd1233a1140ef4e2f28b2987db
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819024"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976014"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Início rápido: reconhecer a fala de um microfone
 

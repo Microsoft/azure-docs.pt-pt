@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707695"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973633"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer de Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -86,14 +86,14 @@ Para obter ajuda para navegar pela biblioteca de algoritmos de aprendizado de m�
 
 ## <a name="compute"></a>Recursos de computação
 
-Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação com suporte são:
+Use os recursos de computação do seu espaço de trabalho para executar seu pipeline e hospedar seus modelos implantados como pontos de extremidade em tempo real ou pontos de extremidade de pipeline (para inferência de lote). Os destinos de computação suportados são:
 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
-| Computação Azure Machine Learning | ✓ | |
+| Computação do Machine Learning do Azure | ✓ | |
 | Serviço Kubernetes do Azure | | ✓ |
 
-Os destinos de computação são anexados ao seu [espaço de trabalho](concept-workspace.md)do Machine Learning. Você gerencia seus destinos de computação em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
+Os destinos de computação são anexados ao seu [espaço de trabalho do Azure Machine Learning](concept-workspace.md). Você gerencia seus destinos de computação em seu espaço de trabalho em [Azure Machine Learning Studio (clássico)](https://ml.azure.com).
 
 ## <a name="deploy"></a>Implementar
 
@@ -122,7 +122,7 @@ Como resultado dessas atualizações, alguns conceitos e termos da interface vis
 
 | Conceito no designer | Anteriormente na interface visual |
 | ---- |:----:|
-| Rascunho do pipeline | Testes |
+| Rascunho do pipeline | Experimentação |
 | Ponto de extremidade em tempo real | Serviço Web |
 
 ### <a name="migrating-to-the-designer"></a>Migrando para o designer

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory códigos de erro de autenticação e autorização | Microsoft Docs
+title: Autenticação do Azure AD e códigos de erro de autorização | Azure
 description: Saiba mais sobre os códigos de erro AADSTS retornados do STS (serviço de token de segurança) do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,19 +17,19 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193182"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965811"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
 Procurando informações sobre os códigos de erro AADSTS que são retornados do STS (serviço de token de segurança) do Azure Active Directory (Azure AD)? Leia este documento para encontrar descrições de erro AADSTS, correções e algumas soluções alternativas sugeridas.
 
 > [!NOTE]
-> Essas informações são preliminares e estão sujeitas a alterações. Tem uma pergunta ou não consegue encontrar o que está procurando? Crie um problema do GitHub ou consulte [Opções de suporte e ajuda para os desenvolvedores](active-directory-develop-help-support.md) aprenderem sobre outras maneiras que você pode obter ajuda e suporte.
+> Estas informações são preliminares e estão sujeitas a alterações. Tem uma pergunta ou não consegue encontrar o que está procurando? Crie um problema do GitHub ou consulte [Opções de suporte e ajuda para os desenvolvedores](active-directory-develop-help-support.md) aprenderem sobre outras maneiras que você pode obter ajuda e suporte.
 >
 > Esta documentação é fornecida para diretrizes de desenvolvedor e administrador, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento para fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a criação de seu aplicativo. Os aplicativos que usam uma dependência de texto ou números de código de erro serão quebrados ao longo do tempo.
 

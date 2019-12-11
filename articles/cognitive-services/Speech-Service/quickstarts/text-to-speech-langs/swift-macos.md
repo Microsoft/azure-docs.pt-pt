@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
-ms.openlocfilehash: 616d212c9968fe740811805eb6ecdc200c749ed7
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ea0f61ddd2c60d2806af0f6dcf97c7d2388335d0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817728"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975878"
 ---
 # <a name="quickstart-synthesize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início rápido: sintetizar a fala em Swift no macOS usando o SDK de fala
 

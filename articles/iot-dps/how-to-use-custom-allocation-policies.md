@@ -1,18 +1,18 @@
 ---
 title: Políticas de alocação personalizadas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como usar políticas de alocação personalizadas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como usar políticas de alocação personalizadas com o serviço de provisionamento de dispositivos no Hub IoT do Azure (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2a17cc6c9f2211de31d4551bd12e6c832d4eee38
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228741"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974875"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -96,7 +96,7 @@ Nesta seção, você usa o Azure Cloud Shell para criar um serviço de provision
 
 Nesta seção, você cria uma função do Azure que implementa sua política de alocação personalizada. Essa função decide em qual Hub IoT de divisão um dispositivo deve ser registrado com base em se sua ID de registro contém a cadeia de caracteres **-contoso-tstrsd-007** ou **-contoso-hpsd-088**. Ele também define o estado inicial do dispositivo com base em se o dispositivo é um torradeira ou uma bomba de calor.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Em seu home page, selecione **+ criar um recurso**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Em seu home page, selecione **+ criar um recurso**.
 
 2. Na caixa Pesquisar *na pesquisa no Marketplace* , digite "aplicativo de funções". Na lista suspensa, selecione **aplicativo de funções**e, em seguida, selecione **criar**.
 
@@ -117,7 +117,7 @@ Nesta seção, você cria uma função do Azure que implementa sua política de 
 
     ![Criar um Aplicativo de funções do Azure para hospedar a função de alocação personalizada](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. Na página **Resumo** , selecione **criar** para criar o aplicativo de funções. A implantação pode levar vários minutos. Ao concluir, selecione **ir para o recurso**.
+4. Na página **Resumo** , selecione **criar** para criar o aplicativo de funções. A implementação poderá demorar vários minutos. Ao concluir, selecione **ir para o recurso**.
 
 5. No painel esquerdo da página **visão geral** do aplicativo de funções, selecione **+** ao lado de **funções** para adicionar uma nova função.
 

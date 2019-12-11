@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de desktop que chama APIs Web (registro de aplicativo)-plataforma de identidade da Microsoft
+title: Registrar um aplicativo de área de trabalho que chama APIs da Web-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (registro de aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +17,16 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268396"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965539"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Aplicativo de desktop que chama APIs Web-registro de aplicativo
 
-Este artigo contém as especificidades de registro do aplicativo para um aplicativo de área de trabalho.
+Este artigo aborda as especificações de registro do aplicativo para um aplicativo de área de trabalho.
 
 ## <a name="supported-accounts-types"></a>Tipos de contas com suporte
 
@@ -46,14 +46,14 @@ Se seu aplicativo de área de trabalho usa a autenticação interativa, você po
 
 Os URIs de redirecionamento a serem usados no aplicativo da área de trabalho dependerão do fluxo que você deseja usar.
 
-- Se você estiver usando a **autenticação interativa** ou o **fluxo de código do dispositivo**, você desejará usar `https://login.microsoftonline.com/common/oauth2/nativeclient`o. Você obterá essa configuração clicando na URL correspondente na seção de **autenticação** do seu aplicativo.
+- Se você estiver usando a **autenticação interativa** ou o **fluxo de código do dispositivo**, convém usar `https://login.microsoftonline.com/common/oauth2/nativeclient`. Você obterá essa configuração clicando na URL correspondente na seção de **autenticação** do seu aplicativo.
   
   > [!IMPORTANT]
-  > Hoje, o MSAL.NET usa outro URI de redirecionamento por padrão em aplicativos`urn:ietf:wg:oauth:2.0:oob`de área de trabalho em execução no Windows (). No futuro, vamos querer alterar esse padrão e, portanto, recomendamos que você use`https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > Hoje, o MSAL.NET usa outro URI de redirecionamento por padrão em aplicativos de área de trabalho em execução no Windows (`urn:ietf:wg:oauth:2.0:oob`). No futuro, vamos querer alterar esse padrão e, portanto, recomendamos que você use `https://login.microsoftonline.com/common/oauth2/nativeclient`
 
-- Se você estiver criando um aplicativo Objective-C ou Swift nativo para macOS, convém registrar o redirectUri com base no identificador de pacote do seu aplicativo no seguinte formato: **msauth. < seu. app. Bundle. id >://auth** (substituir < seu. app. Bundle. ID > com o identificador de pacote do seu aplicativo)
+- Se você estiver criando um aplicativo Objective-C ou Swift nativo para macOS, convém registrar o redirectUri com base no identificador de pacote do seu aplicativo no seguinte formato: **msauth. < seu. app. Bundle. id >://auth** (substitua < seu. app. Bundle. ID > pelo identificador de pacote do seu aplicativo)
 - Se seu aplicativo estiver usando apenas a autenticação integrada do Windows ou nome de usuário/senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esses fluxos fazem uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft e seu aplicativo não será chamado novamente em qualquer URI específico.
-- Para distinguir o fluxo de código do dispositivo, a autenticação integrada do Windows e o nome de usuário/senha de um fluxo de aplicativo cliente confidencial que não tem URIs de redirecionamento (o fluxo de credencial do cliente usado em aplicativos de daemon), você precisa expressar que o seu o aplicativo é um aplicativo cliente público. Para obter essa configuração, vá para a seção de **autenticação** do seu aplicativo. Em seguida, na subseção **Configurações avançadas** , no **tipo de cliente padrão** parágrafo, escolha **Sim** para o **aplicativo pergunta tratar como um cliente público**.
+- Para distinguir o fluxo de código do dispositivo, a autenticação integrada do Windows e o nome de usuário/senha de um fluxo de aplicativo cliente confidencial que não tem URIs de redirecionamento (o fluxo de credencial do cliente usado em aplicativos de daemon), você precisa expressar que seu aplicativo é um aplicativo cliente público. Para obter essa configuração, vá para a seção de **autenticação** do seu aplicativo. Em seguida, na subseção **Configurações avançadas** , no **tipo de cliente padrão** parágrafo, escolha **Sim** para o **aplicativo pergunta tratar como um cliente público**.
 
   ![Permitir cliente público](media/scenarios/default-client-type.png)
 

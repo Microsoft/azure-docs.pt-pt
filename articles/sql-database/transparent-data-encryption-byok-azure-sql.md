@@ -7,22 +7,22 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227966"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995852"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do SQL do Azure com chave gerenciada pelo cliente
 
 O Azure SQL [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) com chave gerenciada pelo cliente habilita o cenário Bring your own Key (BYOK) para proteção de dados em repouso e permite que as organizações implementem a separação de tarefas no gerenciamento de chaves e dados. Com a Transparent Data Encryption gerenciada pelo cliente, o cliente é responsável por e em um controle total de um gerenciamento de ciclo de vida de chave (criação de chave, carregamento, rotação, exclusão), permissões de uso de chave e auditoria de operações em chaves.
 
-Nesse cenário, a chave usada para criptografia da DEK (chave de criptografia de banco de dados), chamada de protetor de TDE, é uma chave assimétrica gerenciada pelo cliente, armazenada em um [akv (](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)gerenciamento de chaves externas) de Propriedade do cliente Azure Key Vault e com base em nuvem sistema. O Key Vault é um armazenamento seguro escalonável e altamente disponível para chaves de criptografia RSA, opcionalmente apoiado por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia/descriptografia usando a chave para as entidades autorizadas. A chave pode ser gerada pelo cofre de chaves, importada ou [transferida para o cofre de chaves de um dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+Nesse cenário, a chave usada para criptografia da DEK (chave de criptografia de banco de dados), chamada de protetor de TDE, é uma chave assimétrica gerenciada pelo cliente, armazenada em um [akv (Azure Key Vault)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)de Propriedade do cliente, um sistema de gerenciamento de chaves externas baseado em nuvem. O Key Vault é um armazenamento seguro escalonável e altamente disponível para chaves de criptografia RSA, opcionalmente apoiado por HSMs (módulos de segurança de hardware) validados pelo FIPS 140-2 nível 2. Ele não permite acesso direto a uma chave armazenada, mas fornece serviços de criptografia/descriptografia usando a chave para as entidades autorizadas. A chave pode ser gerada pelo cofre de chaves, importada ou [transferida para o cofre de chaves de um dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 Para o banco de dados SQL do Azure e o Azure SQL Data Warehouse, o protetor TDE é definido no nível do servidor lógico e é herdado por todos os bancos de dados criptografados associados a esse servidor. Para o Azure SQL Instância Gerenciada, o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* refere-se ao servidor lógico do banco de dados SQL e à instância gerenciada em todo este documento, a menos que indicado de forma diferente. 
 

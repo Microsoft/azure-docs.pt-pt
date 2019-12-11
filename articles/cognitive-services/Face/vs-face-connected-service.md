@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: API faceC#'
+title: 'Tutorial: API Face com C#'
 titleSuffix: Azure Cognitive Services
-description: Crie uma aplicação do Windows que utiliza a API Face dos serviços cognitivos para detetar recursos de faces numa imagem.
+description: Crie um aplicativo do Windows que usa os serviços cognitivas API de Detecção Facial para detectar recursos de rostos em uma imagem.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606803"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970300"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ligar à API Face dos Serviços Cognitivos ao utilizar os Serviços Ligados no Visual Studio
 
@@ -26,7 +26,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versão 15.7 ou posterior com o **desenvolvimento Web** instalada da carga de trabalho. [Transfira-a agora](https://www.visualstudio.com/downloads/).
+- Visual Studio 2017 versão 15,7 ou posterior com a carga de trabalho de **desenvolvimento da Web** instalada. [Transfira-a agora](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -79,7 +79,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
       }
    ```
 
-1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API Face](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do rato em uma das imagens, guardar para o disco rígido local, em seguida, no Explorador de soluções, clique com o botão direito na pasta de imagens e escolha **Add** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções:
+1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API Face](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta imagens e escolha **adicionar** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções:
  
    ![pasta de imagens com o ficheiro de imagem](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -147,7 +147,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
             });
         }
    ```
-    O código neste passo constrói um pedido HTTP com uma chamada à API de REST do rosto, utilizando a chave adicionado quando adicionou o serviço ligado.
+    O código nesta etapa constrói uma solicitação HTTP com uma chamada para a API REST de face, usando a chave que você adicionou quando adicionou o serviço conectado.
 
 1. Adicione as funções de programa auxiliar GetImageAsByteArray e JsonPrettyPrint.
 
@@ -243,6 +243,6 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 1. Selecione **Eliminar grupo de recursos**.
 1. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha mais informações sobre a API Face ao ler a [Documentação da API Face](Overview.md).

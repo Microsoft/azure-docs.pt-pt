@@ -1,5 +1,5 @@
 ---
-title: Introdução ao iOS e ao macOS – plataforma de identidade da Microsoft | Azure
+title: Introdução ao iOS & macOS – plataforma de identidade da Microsoft | Azure
 description: Como os aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960668"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964673"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -105,7 +105,7 @@ github "AzureAD/microsoft-authentication-library-for-objc" "master"
 
 Em uma janela de terminal, no mesmo diretório que o `Cartfile`atualizado, execute o seguinte comando para que o Carthage atualize as dependências em seu projeto.
 
-Cisco
+iOS:
 
 ```bash
 carthage update --platform iOS

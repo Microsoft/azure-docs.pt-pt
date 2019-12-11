@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927640"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978633"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -245,7 +245,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Instância Gerida | No momento, não há suporte para Instância Gerenciada do Banco de Dados SQL do Azure com bancos de dados de hiperescala. |
 | Conjuntos Elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
 | A migração para o hiperescala é uma operação unidirecional no momento | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo BACPAC ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.)|
-| Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
+| Migração de bancos de dados com objetos OLTP na memória | O hiperscale dá suporte apenas a um subconjunto de tipos de objeto OLTP em memória, incluindo tipos de tabela com otimização de memória, procedimentos armazenados compilados nativamente e funções. No entanto, quando qualquer objeto OLTP na memória estiver presente no banco de dados, a migração direta das camadas de serviço Premium e Comercialmente Crítico para hiperescala não terá suporte. A migração desse banco de dados para o hiperescala requer três etapas: (1) descartar todos os objetos OLTP na memória e suas dependências. Para preservar os dados em tabelas duráveis com otimização de memória, converta-os em tabelas de disco. (2) altere a camada de serviço do banco de dados para hiperescala. (3) recriar objetos anteriormente descartados. Tabelas duráveis e não duráveis com otimização de memória não têm suporte no momento em hiperescala e devem permanecer tabelas de disco. Há suporte para variáveis de tabela com otimização de memória. |
 | Monitorização de Alterações | O Controle de Alterações está atualmente em visualização pública e pode ser habilitado em bancos de dados de hiperescala novos ou existentes. |
 | Georreplicação  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |

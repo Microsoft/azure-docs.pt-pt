@@ -1,6 +1,6 @@
 ---
 title: Data Factory-log de alterações da API .NET
-description: Descreve as alterações significativas, adições de recursos, correções de bugs, etc... em uma versão específica da API do .NET para o Azure Data Factory.
+description: Descreve as alterações significativas, adições de recursos, correções de bugs e assim por diante, em uma versão específica da API do .NET para o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: e1902db6bc3a127262f5e37f36e82b07ab15c7c9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683199"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979007"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-log de alterações da API .NET
 > [!NOTE]
@@ -78,7 +78,7 @@ Adições de recursos:
   * Permite o uso do polybase para copiar dados em SQL Data Warehouse.
 
 ## <a name="version-461"></a>4\.6.1 da versão
-### <a name="bug-fixes"></a>Correções de bugs
+### <a name="bug-fixes"></a>Correções de Erros
 * Corrige a solicitação HTTP para listar as janelas de atividades.
   * Remove o nome do grupo de recursos e o nome do data factory da carga de solicitação.
 
@@ -89,7 +89,7 @@ Adições de recursos:
   * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
   * [Conjuntos de dados](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * As propriedades a seguir foram adicionadas a [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
-  * [Pipelinestate](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
+  * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
 * Adicionada nova tipo de [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) tipo [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) para definir conjuntos de dados cujo dado está no formato JSON.
 
 ## <a name="version-450"></a>Versão 4.5.0
@@ -151,10 +151,10 @@ As classes a seguir foram renomeadas. Os novos nomes eram os nomes originais das
 ### <a name="breaking-changes"></a>Alterações interruptivas
 * As seguintes classes/interfaces foram renomeadas.
 
-| Nome antigo | Novo nome |
+| Nome antigo | Nome novo |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabela |[DataSet](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| Tabelas |[Dataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | Tabelaproperties |[Propriedades](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |

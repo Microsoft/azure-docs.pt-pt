@@ -1,5 +1,5 @@
 ---
-title: Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
+title: Escolher colunas de distribuição – Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Saiba como escolher colunas de distribuição em cenários comuns de hiperescala no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482849"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975674"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 

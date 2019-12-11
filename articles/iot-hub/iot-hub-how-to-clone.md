@@ -2,18 +2,17 @@
 title: Como clonar um hub IoT do Azure
 description: Como clonar um hub IoT do Azure
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083274"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976150"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
 
@@ -73,9 +72,7 @@ Esse é o método geral que recomendamos para mover um hub IoT de uma região pa
    1. Adicione qualquer coisa que não tenha sido exportada para o modelo. 
    
        Por exemplo, os grupos de consumidores não são exportados para o modelo. Você precisa adicionar os grupos de consumidores ao modelo manualmente ou usar o [portal do Azure](https://portal.azure.com) depois que o Hub for criado. Há um exemplo de como adicionar um grupo de consumidores a um modelo no artigo [usar um modelo de Azure Resource Manager para configurar o roteamento de mensagens do Hub IOT](tutorial-routing-config-message-routing-rm-template.md).
-
-       Os [aprimoramentos de mensagens](iot-hub-message-enrichments-overview.md) também não são exportados para o modelo. Eles são usados em conjunto com mensagens de roteamento e precisarão ser atualizados manualmente no novo hub quando a configuração de roteamento de mensagens for atualizada.
-
+       
    1. Copie os dispositivos do Hub original para o clone. Isso é abordado na seção [Gerenciando os dispositivos registrados para o Hub IOT](#managing-the-devices-registered-to-the-iot-hub).
 
 ## <a name="how-to-handle-message-routing"></a>Como tratar o roteamento de mensagens
@@ -103,9 +100,6 @@ Se o Hub usar o roteamento de mensagens, você terá duas opções.
    * O Hub ainda faz referência aos recursos de roteamento originais e roteia mensagens para eles conforme configurado.
 
    * Você terá um pequeno impacto no desempenho porque o Hub e os recursos do ponto de extremidade de roteamento não estão no mesmo local.
-
-> [!NOTE]
-> Se o seu hub usar [aprimoramentos de mensagem](iot-hub-message-enrichments-overview.md), você precisará configurá-los manualmente no novo hub IOT, pois eles não são exportados com o modelo do Resource Manager.
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Preparar para migrar o Hub para outra região
 
@@ -359,7 +353,7 @@ Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteam
 
 1. Na caixa de pesquisa, coloque "implantação de modelo" e selecione Enter.
 
-1. Selecione **implantação de modelo (implantar usando modelos personalizados)** . Isso levará você para uma tela para o Implantação de modelo. Selecione **Criar**. Você verá esta tela:
+1. Selecione **implantação de modelo (implantar usando modelos personalizados)** . Isso levará você para uma tela para o Implantação de modelo. Selecione **Criar**. Verá este ecrã:
 
    ![Captura de tela mostrando o comando para criar seu próprio modelo](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 

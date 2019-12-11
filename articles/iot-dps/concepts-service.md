@@ -1,6 +1,6 @@
 ---
 title: Conceitos de serviço no serviço de provisionamento de dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Descreve os conceitos de provisionamento de serviço específicos para dispositivos com o serviço de provisionamento de dispositivos e o Hub IoT
+description: Descreve os conceitos de provisionamento de serviço específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104370"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975606"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do serviço de provisionamento de dispositivos no Hub IoT
 
@@ -31,7 +31,7 @@ O ponto de extremidade de operações de serviço é o ponto de extremidade para
 
 O ponto de extremidade de provisionamento do dispositivo é o único ponto de extremidade que todos os dispositivos usam para provisionamento automático. A URL é a mesma para todas as instâncias de serviço de provisionamento, para eliminar a necessidade de reflashar dispositivos com novas informações de conexão em cenários de cadeia de suprimentos. O escopo da ID garante o isolamento do locatário.
 
-## <a name="linked-iot-hubs"></a>Ligado a hubs IoT
+## <a name="linked-iot-hubs"></a>Hubs IoT Ligados
 
 O serviço de provisionamento de dispositivos só pode provisionar dispositivos para hubs IoT que foram vinculados a ele. Vincular um hub IoT a uma instância do serviço de provisionamento de dispositivos dá ao serviço permissões de leitura/gravação para o registro do dispositivo do Hub IoT; com o link, um serviço de provisionamento de dispositivos pode registrar uma ID de dispositivo e definir a configuração inicial no dispositivo. Os hubs IoT vinculados podem estar em qualquer região do Azure. Você pode vincular hubs em outras assinaturas ao serviço de provisionamento.
 
@@ -73,6 +73,6 @@ Um registro individual é uma entrada para um único dispositivo que pode ser re
 
 Um registro é o registro de um dispositivo que está se registrando/Provisionando com êxito em um hub IoT por meio do serviço de provisionamento de dispositivos. Os registros de registro são criados automaticamente; Eles podem ser excluídos, mas não podem ser atualizados.
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 As operações são a unidade de cobrança do serviço de provisionamento de dispositivos. Uma operação é a conclusão bem-sucedida de uma instrução para o serviço. As operações incluem o registo de dispositivos - e novos registos -, bem como alterações do lado do serviço, como adicionar e atualizar entradas de listas de inscrição.

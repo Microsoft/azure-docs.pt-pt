@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108732"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996657"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -220,7 +220,7 @@ Escolha o tipo de redirecionamento necessário: *permanente (301)* , *temporári
 
 Escolha outro ouvinte ou um site externo como o destino de redirecionamento.
 
-##### <a name="listener"></a>Listener
+##### <a name="listener"></a>Serviço de Escuta
 
 Escolha o ouvinte como o destino de redirecionamento para redirecionar o tráfego de um ouvinte para outro no gateway. Essa configuração é necessária quando você deseja habilitar o redirecionamento de HTTP para HTTPS. Ele redireciona o tráfego do ouvinte de origem que verifica as solicitações HTTP de entrada para o ouvinte de destino que verifica as solicitações HTTPS de entrada. Você também pode optar por incluir a cadeia de caracteres de consulta e o caminho da solicitação original na solicitação que é encaminhada para o destino de redirecionamento.
 
@@ -246,7 +246,7 @@ Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitaç�
  - [Visão geral de reescrever cabeçalhos HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurar a regravação do cabeçalho HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
-## <a name="http-settings"></a>Configurações de HTTP
+## <a name="http-settings"></a>Definições de HTTP
 
 O gateway de aplicativo roteia o tráfego para os servidores back-end usando a configuração que você especificar aqui. Depois de criar uma configuração de HTTP, você deve associá-la a uma ou mais regras de roteamento de solicitação.
 
@@ -256,7 +256,7 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 ### <a name="connection-draining"></a>Drenagem de ligação
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para o desregistro de instâncias devido à afinidade de sessão gerenciada por gateway e continuarão a ser proxy para as instâncias de desregistro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
 
 ### <a name="protocol"></a>Protocolo
 

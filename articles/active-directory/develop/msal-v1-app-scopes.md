@@ -1,5 +1,5 @@
 ---
-title: Escopos para um aplicativo v 1.0 (biblioteca de autenticação da Microsoft) | Azure
+title: Escopos de MSAL para um aplicativo v 1.0 | Azure
 description: Saiba mais sobre os escopos para um aplicativo v 1.0 usando a MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395b5105fdb067977f8414fe5675170032262fe0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921403"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963261"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
 
@@ -26,7 +26,7 @@ As permissões OAuth2 são escopos de permissão que um Azure Active Directory (
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas de OAuth2 de um aplicativo v 1.0
 
-Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, o Azure AD Graph, que é https:\//graph.windows.net), você precisa criar escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
+Para adquirir tokens para escopos específicos de um aplicativo v 1.0 (por exemplo, o Azure AD Graph, que é https://graph.windows.net), crie escopos concatenando um identificador de recurso desejado com uma permissão OAuth2 desejada para esse recurso.
 
 Por exemplo, para acessar em nome do usuário uma API Web v 1.0 em que o URI da ID do aplicativo é `ResourceId`:
 

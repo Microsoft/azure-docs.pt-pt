@@ -4,12 +4,12 @@ description: Conheça os conceitos e as técnicas de Azure Functions de que voc�
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 4aa42e8aef2e2205523be0536cb5aceafd1aa829
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226667"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974228"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia de desenvolvedores do Azure Functions
 Em Azure Functions, as funções específicas compartilham alguns conceitos técnicos e componentes essenciais, independentemente da linguagem ou da associação usada. Antes de ir para os detalhes de aprendizagem específicos de um determinado idioma ou associação, leia esta visão geral que se aplica a todos eles.
@@ -19,7 +19,7 @@ Este artigo pressupõe que você já tenha lido o [Azure Functions visão geral]
 ## <a name="function-code"></a>Código de função
 Uma *função* é o conceito principal no Azure functions. Uma função contém duas partes importantes: seu código, que pode ser escrito em uma variedade de linguagens, e algumas configurações, o arquivo function. JSON. Para idiomas compilados, esse arquivo de configuração é gerado automaticamente de anotações em seu código. Para linguagens de script, você mesmo deve fornecer o arquivo de configuração.
 
-O arquivo function. JSON define o gatilho, as associações e outras definições de configuração da função. Cada função tem apenas um gatilho. O tempo de execução usa esse arquivo de configuração para determinar os eventos a serem monitorados e como passar dados para e retornar dados de uma execução de função. Este é um arquivo function. JSON de exemplo.
+O arquivo function. JSON define o gatilho, as associações e outras definições de configuração da função. Cada função tem um, e apenas um, acionador. O tempo de execução usa esse arquivo de configuração para determinar os eventos a serem monitorados e como passar dados para e retornar dados de uma execução de função. Este é um arquivo function. JSON de exemplo.
 
 ```json
 {
@@ -73,7 +73,7 @@ Quando vários eventos de disparo ocorrem mais rápido do que um tempo de execu�
 
 ## <a name="functions-runtime-versioning"></a>Controle de versão do Functions Runtime
 
-Você pode configurar a versão do tempo de execução do Functions usando a configuração do aplicativo `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~ 2" indica que seu Aplicativo de funções usará 2. x como sua versão principal. Os aplicativos de funções são atualizados para cada nova versão secundária à medida que são liberados. Para obter mais informações, incluindo como exibir a versão exata do seu aplicativo de funções, consulte [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
+Você pode configurar a versão do tempo de execução do Functions usando a configuração do aplicativo `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~ 3" indica que seu Aplicativo de funções usará 3. x como sua versão principal. Os aplicativos de funções são atualizados para cada nova versão secundária à medida que são liberados. Para obter mais informações, incluindo como exibir a versão exata do seu aplicativo de funções, consulte [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repositórios
 O código para Azure Functions é de software livre e armazenado em repositórios GitHub:
@@ -82,8 +82,8 @@ O código para Azure Functions é de software livre e armazenado em repositório
 * [Host Azure Functions](https://github.com/Azure/azure-functions-host/)
 * [Portal de Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modelos de Azure Functions](https://github.com/azure/azure-functions-templates)
-* [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
-* [Azure WebJobs extensões do SDK](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/) (SDK de WebJobs do Azure)
+* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/) (Extensões do SDK de WebJobs do Azure)
 
 ## <a name="bindings"></a>Enlaces
 Aqui está uma tabela de todas as associações com suporte.

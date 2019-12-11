@@ -3,12 +3,12 @@ title: referência de host. JSON para Azure Functions 1. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 99a571483086343d4e7d6188b2f401abc616c1bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230598"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975470"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de host. JSON para Azure Functions 1. x
 
@@ -19,7 +19,7 @@ ms.locfileid: "74230598"
 O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis para o tempo de execução v1. O esquema JSON está em http://json.schemastore.org/host.
 
 > [!NOTE]
-> Este artigo é para as funções do Azure 1.x.  Para obter uma referência de host. JSON nas funções 2. x, consulte [referência de host. JSON para Azure Functions 2. x](functions-host-json.md).
+> Este artigo é para as funções do Azure 1.x.  Para obter uma referência de host. JSON nas funções 2. x e posterior, consulte [referência de host. JSON para Azure Functions 2. x](functions-host-json.md).
 
 Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md).
 
@@ -194,7 +194,7 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração de `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
-|comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
+|comlimite|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
 ## <a name="http"></a>http
 
@@ -252,7 +252,7 @@ Controla a filtragem de logs gravados por um [objeto ILogger](functions-monitori
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |categoryFilter|n/d|Especifica a filtragem por categoria| 
-|defaultLevel|Informações|Para todas as categorias não especificadas na matriz de `categoryLevels`, envie logs nesse nível e acima para Application Insights.| 
+|defaultLevel|Proteção das|Para todas as categorias não especificadas na matriz de `categoryLevels`, envie logs nesse nível e acima para Application Insights.| 
 |categoryLevels|n/d|Uma matriz de categorias que especifica o nível de log mínimo a ser enviado para Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e os valores mais longos têm precedência. No arquivo *host. JSON* de exemplo anterior, todas as categorias que começam com o log "host. agregador" no nível de `Information`. Todas as outras categorias que começam com "host", como "host. executor", fazem logon no nível de `Error`.| 
 
 ## <a name="queues"></a>filas
@@ -292,7 +292,7 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|from|n/d|O endereço de email do remetente em todas as funções.| 
+|de|n/d|O endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -310,7 +310,7 @@ Configuração para [gatilhos e associações do barramento de serviço](functio
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. | 
+|maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que deve iniciar o bombardeamento de mensagens. Por predefinição, o runtime das funções processa várias mensagens em simultâneo. Para direcionar o tempo de execução para processar apenas uma única fila ou uma mensagem de tópico ao mesmo tempo, defina `maxConcurrentCalls` como 1. | 
 |prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.| 
 |autoRenewTimeout|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.| 
 

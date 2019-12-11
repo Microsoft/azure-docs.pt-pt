@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143816"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968923"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+> [!CAUTION]
+> Os padrões incluem apenas pais de entidade aprendidas por computador, não subcomponentes.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Adicionar a expressão de modelo para criar padrão
 
@@ -30,14 +33,14 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
     > [!div class="mx-imgBorder"]
     > ![captura de tela da lista de padrões](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. Selecione a intenção correta para o padrão. 
+1. Selecione a intenção correta para o padrão.
 
-1. Na caixa de texto modelo, escreva a expressão de modelo e selecione Enter. Quando pretender introduzir o nome da entidade, utilize a sintaxe de entidade padrão correto. Começar a sintaxe de entidade com `{`. A lista de entidades apresenta. Selecione a entidade correta. 
+1. Na caixa de texto modelo, escreva a expressão de modelo e selecione Enter. Quando pretender introduzir o nome da entidade, utilize a sintaxe de entidade padrão correto. Começar a sintaxe de entidade com `{`. A lista de entidades apresenta. Selecione a entidade correta.
 
     > [!div class="mx-imgBorder"]
     > Captura de tela de ![da entidade para o padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único sinal de dois-pontos, `:`, após o nome da entidade, como `{Location:Origin}`. Apresenta a lista de funções para as entidades numa lista. Selecione a função e, em seguida, selecione Enter. 
+    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único sinal de dois-pontos, `:`, após o nome da entidade, como `{Location:Origin}`. Apresenta a lista de funções para as entidades numa lista. Selecione a função e, em seguida, selecione Enter.
 
     > [!div class="mx-imgBorder"]
     > ![captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
@@ -48,7 +51,7 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
     > ![captura de tela do padrão inserido com os dois tipos de entidades](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Preparar a sua aplicação depois de alterar o modelo com padrões
-Depois de adicionar, editar, remover ou reatribuir um padrão [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação. 
+Depois de adicionar, editar, remover ou reatribuir um padrão [treinar](luis-how-to-train.md) e [publicar](luis-how-to-publish-app.md) as suas alterações afetar a consultas de ponto final na sua aplicação.
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>

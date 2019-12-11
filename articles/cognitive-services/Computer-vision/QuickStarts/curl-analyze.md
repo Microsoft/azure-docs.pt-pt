@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4f03ae62e2a455a5a5101bef45cf2d78100248f4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 899d7780265366698feb35f2a890a51f61536a80
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177318"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978071"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: analisar uma imagem remota usando a API REST Pesquisa Visual Computacional e a ondulação
 
-Neste guia de início rápido, você analisa uma imagem armazenada remotamente para extrair recursos visuais usando a API REST do Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+Neste guia de início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST do Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
@@ -36,7 +36,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Copie o comando seguinte para um editor de texto.
 1. Faça as alterações seguintes ao comando, se for necessário:
     1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
-    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua própria URL de ponto de extremidade.
+    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua URL de ponto de extremidade.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere o parâmetro de idioma do URL do pedido (`language=en`) para utilizar um idioma suportado diferente.
     1. Opcionalmente, altere o URL da imagem no corpo do pedido (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) pelo URL de uma imagem diferente a ser analisada.

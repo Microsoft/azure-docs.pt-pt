@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 89c05d0582844f7b4c3e15c669c2c3aa81c4817d
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 13e16fef2ae66851909e03dddab293e9c7955acb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665513"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978786"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência C# do desenvolvedor do Azure Functions script (. CSX)
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 Há um arquivo [host. JSON](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem seu próprio arquivo de código (. CSX) e o arquivo de configuração de associação (Function. JSON).
 
-As extensões de associação necessárias na [versão 2. x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Associação a argumentos
 
@@ -370,7 +370,7 @@ Para obter informações sobre como carregar arquivos para sua pasta de funçõe
 O diretório que contém o arquivo de script de função é automaticamente observado para alterações em assemblies. Para observar as alterações de assembly em outros diretórios, adicione-as à lista de `watchDirectories` em [host. JSON](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
-Para usar os pacotes NuGet em uma função 2 C# . x, carregue um arquivo *Function. proj* para a pasta da função no sistema de arquivos do aplicativo de funções. Aqui está um arquivo *Function. proj* de exemplo que adiciona uma referência a *Microsoft. ProjectOxford. face* versão *1.1.0*:
+Para usar pacotes NuGet em uma função 2. x e C# posterior, carregue um arquivo *Function. proj* para a pasta da função no sistema de arquivos do aplicativo de funções. Aqui está um arquivo *Function. proj* de exemplo que adiciona uma referência a *Microsoft. ProjectOxford. face* versão *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -506,7 +506,7 @@ public static async Task Run(string input, Binder binder)
 A tabela a seguir lista os atributos do .NET para cada tipo de associação e os pacotes nos quais eles são definidos.
 
 > [!div class="mx-codeBreakAll"]
-> | Vinculação | Atributo | Adicionar referência |
+> | Vínculo | Atributo | Adicionar referência |
 > |------|------|------|
 > | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Hubs de Eventos | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |

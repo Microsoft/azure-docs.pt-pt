@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241423"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970028"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Salesforce
 
@@ -46,9 +46,9 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Salesforce dá suporte ao SSO iniciado pelo **SP**
 
-* O Salesforce dá suporte ao provisionamento **de usuário just in time**
+* O Salesforce dá suporte ao [provisionamento e desprovisionamento **automatizados** de usuários](salesforce-provisioning-tutorial.md) (recomendado)
 
-* O Salesforce dá suporte ao [provisionamento **automatizado** de usuários](salesforce-provisioning-tutorial.md)
+* O Salesforce dá suporte ao provisionamento **de usuário just in time**
 
 * Agora, o aplicativo móvel do Salesforce pode ser configurado com o Azure AD para habilitar o SSO. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 

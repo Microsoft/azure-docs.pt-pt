@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma página da Web de pesquisa personalizada-Pesquisa Personalizada do Bing'
+title: 'Tutorial: Criar uma página Web de pesquisa personalizada - Pesquisa Personalizada do Bing'
 titleSuffix: Azure Cognitive Services
 description: Saiba como configurar uma instância de pesquisa personalizada do Bing e integrá-la a uma página da Web.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564703"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977204"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -35,7 +35,7 @@ As tarefas abrangidas são:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se você ainda não tiver o Visual Studio 2017 ou posterior instalado, poderá baixar e usar o  [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito.
+- Se você ainda não tiver o Visual Studio 2017 ou posterior instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito.
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -79,7 +79,7 @@ Para excluir os resultados de sites ou URLs específicos, adicione-os ao separad
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas afixadas
 
-Para afixar uma página Web específica à parte superior dos resultados da pesquisa, adicione o termo de página Web e consulta ao separador **Afixado**. O separador **Afixado** contém uma lista de pares de termos de página Web e consulta que especificam a página Web apresentada como o melhor resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
+Para fixar uma página da Web específica na parte superior dos resultados da pesquisa, adicione a página da Web e o termo de consulta à guia **fixada** . A guia **fixada** contém uma lista de pares de termo de consulta e página da Web que especificam a página da Web que aparece como o principal resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) para obter mais informações.
 
 1. Na página **Configuração**, clique no separador **Afixado** e introduza o termo de página Web e consulta da página Web a devolver como o melhor resultado.  
   
@@ -127,10 +127,10 @@ A Pesquisa Personalizada fornece uma IU alojada para compor a resposta JSON da s
 
 Existem duas formas de consumir a IU alojada.  
 
-- Opção 1: Integre o trecho de JavaScript fornecido ao seu aplicativo.
-- Opção 2: Use o ponto de extremidade HTML fornecido.
+- Opção 1: Integrar o fragmento de JavaScript fornecido na sua aplicação.
+- Opção 2: Utilizar o Ponto Final de HTML fornecido.
 
-O restante deste tutorial ilustra **a opção 1: Trecho de**código JavaScript.  
+O resto deste tutorial ilustra a **Opção 1: fragmento de Javascript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurar a sua solução do Visual Studio
 
@@ -209,7 +209,7 @@ Efetuar uma pesquisa compõe resultados como os seguintes:
 
 ![Captura de ecrã de resultados de pesquisa personalizada](./media/custom-search-webapp-results.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Chamar o ponto final de Pesquisa Personalizada do Bing (C#)](../call-endpoint-csharp.md)

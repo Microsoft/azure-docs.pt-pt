@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Chamar seu ponto de extremidade de C# pesquisa personalizada do Bing usando o SDK | Microsoft Docs'
+title: 'Início rápido: chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando o SDK | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para começar a solicitar resultados de pesquisa de C# sua instância de pesquisa personalizada do Bing usando o SDK.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: c7ac6d051c8333a6329a3c2ed238d78fb9da4a30
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565720"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977153"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Início rápido: Chamar seu ponto de extremidade de C# pesquisa personalizada do Bing usando o SDK 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Início rápido: chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando o SDK 
 
 Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua C# instância do pesquisa personalizada do Bing, usando o SDK. Embora Pesquisa Personalizada do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK do Pesquisa Personalizada do Bing fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: Crie sua primeira instância](quick-start.md) de pesquisa personalizada do Bing para obter mais informações.
+- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: criar sua primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
 - Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
@@ -54,14 +54,14 @@ Use este guia de início rápido para começar a solicitar resultados de pesquis
 
 ## <a name="send-the-search-request-and-receive-a-response"></a>Enviar a solicitação de pesquisa e receber uma resposta
     
-1. Envie uma consulta de pesquisa usando o método `SearchAsync()` do cliente e salve a resposta. Certifique-se de substituir `YOUR-CUSTOM-CONFIG-ID` seu pela ID de configuração da instância (você pode encontrar a ID no [portal de pesquisa personalizada do Bing](https://www.customsearch.ai/)). Este exemplo pesquisa "Xbox".
+1. Envie uma consulta de pesquisa usando o método de `SearchAsync()` do seu cliente e salve a resposta. Certifique-se de substituir o `YOUR-CUSTOM-CONFIG-ID` pela ID de configuração da instância (você pode encontrar a ID no [portal do pesquisa personalizada do Bing](https://www.customsearch.ai/)). Este exemplo pesquisa "Xbox".
 
     ```csharp
     // This will look up a single query (Xbox).
     var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
     ```
 
-2. O método `SearchAsync()`devolve um objeto `WebData`. Use o objeto para iterar por `WebPages` meio de quaisquer que foram encontrados. Este código localiza o primeiro resultado de página Web, imprime-a `Name` e `URL`.
+2. O método `SearchAsync()`devolve um objeto `WebData`. Use o objeto para iterar por meio de qualquer `WebPages` que foram encontrados. Este código localiza o primeiro resultado de página Web, imprime-a `Name` e `URL`.
 
     ```csharp
     if (webData?.WebPages?.Value?.Count > 0)

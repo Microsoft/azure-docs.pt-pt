@@ -1,18 +1,18 @@
 ---
 title: Verificar certificados de autoridade de certificação X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos no Hub IoT do Azure
+description: Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos do Hub IoT do Azure (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b701b15b3dd4463b2d5adbb38ee23bf0c3bfdfe9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228689"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973446"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como fazer a prova de posse para certificados de AC X. 509 com o serviço de provisionamento de dispositivos
 

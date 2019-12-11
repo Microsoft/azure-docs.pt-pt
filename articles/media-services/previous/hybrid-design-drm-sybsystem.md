@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014698"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975198"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido de subsistemas DRM 
 
 Este tópico discute o design híbrido do (s) subsistemas DRM usando os serviços de mídia do Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Os serviços de mídia do Azure fornecem suporte para os três sistemas DRM a seguir:
 
@@ -69,8 +69,8 @@ Como parte de uma plataforma de vídeo em nuvem abrangente, o DRM dos serviços 
 
 ### <a name="drm-license-delivery"></a>Entrega de licença de DRM
 
-* AMS A licença de DRM é fornecida pelo serviço de entrega de licenças do AMS.
-* Terceiros: A licença de DRM é fornecida por um servidor de licença de DRM de terceiros fora do AMS.
+* AMS: a licença DRM é fornecida pelo serviço de entrega de licenças do AMS.
+* Terceiros: a licença DRM é fornecida por um servidor de licença DRM de terceiros fora do AMS.
 
 ## <a name="configure-based-on-your-hybrid-scenario"></a>Configurar com base em seu cenário híbrido
 
@@ -93,7 +93,7 @@ Por meio da configuração de uma política de entrega de ativos, você pode con
 
 ## <a name="scenarios-and-samples"></a>Cenários e exemplos
 
-Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam combinações de configuração da**política de entrega de ativos** de chave-de **conteúdo**(os exemplos mencionados na última coluna seguem a tabela):
+Com base nas explicações na seção anterior, os cinco cenários híbridos a seguir usam a respectiva **chave de conteúdo**-combinações de configuração de política de **entrega de ativos** (os exemplos mencionados na última coluna seguem a tabela):
 
 |**Origem de & de Hospedagem de conteúdo**|**Criptografia DRM**|**Entrega de licença DRM**|**Configurar chave de conteúdo**|**Configurar política de entrega de ativos**|**Exemplo**|
 |---|---|---|---|---|---|
@@ -108,30 +108,34 @@ Nos exemplos, a proteção PlayReady funciona tanto para o DASH quanto para Smoo
 ### <a name="sample-1"></a>Exemplo 1
 
 * URL de origem (base): https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* LA_URL PlayReady (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 * Widevine LA_URL (DASH): https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
 * FairPlay LA_URL (HLS): https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>Exemplo 2
 
 * URL de origem (base): https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (traço & suave): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* LA_URL PlayReady (traço & suave): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>Exemplo 3
 
 * URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* LA_URL PlayReady (traço & suave): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 
 ### <a name="sample-4"></a>Exemplo 4
 
 * URL de origem: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (traço & suave): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* LA_URL PlayReady (traço & suave): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="summary"></a>Resumo
 
 Em resumo, os componentes DRM dos serviços de mídia do Azure são flexíveis, você pode usá-los em um cenário híbrido Configurando adequadamente a chave de conteúdo e a política de entrega de ativos, conforme descrito neste tópico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Exibir os roteiros de aprendizagem dos serviços de mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

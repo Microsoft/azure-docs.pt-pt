@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075077"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975062"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado autoassinado de Aplicativo Azure gateway com uma autoridade de certificação raiz Personalizada
 
@@ -106,7 +106,7 @@ O CSR é uma chave pública que é dada a uma CA ao solicitar um certificado. A 
 1. Use o seguinte comando para criar o certificado:
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Verificar o certificado recém-criado
 
@@ -159,7 +159,7 @@ A configuração a seguir é um [bloco de servidor Nginx](https://nginx.org/docs
 
 1. Adicione o certificado raiz ao repositório de raiz confiável do computador. Ao acessar o site, certifique-se de que toda a cadeia de certificados seja vista no navegador.
 
-   ![Certificados raiz confiáveis](media/self-signed-certificates/trusted-root-cert.png)
+   ![Certificados de raiz fidedignos](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
    > Supõe-se que o DNS foi configurado para apontar o nome do servidor Web (neste exemplo, www.fabrikam.com) para o endereço IP do seu servidor Web. Caso contrário, você pode editar o [arquivo de hosts](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) para resolver o nome.

@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
-ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/05/2019
+ms.openlocfilehash: 986dbc48bae6cd133e74648ad6e900ba7e515f91
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970504"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o SDK do Visão Personalizada go
 
@@ -111,7 +111,7 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 
 Ao etiquetar imagens em projetos de deteção de objeto, tem de especificar a região de cada objeto etiquetado com coordenadas normalizadas.
 
-Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Tenha em atenção que, para este tutorial, as regiões estão codificadas inline. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
+Para adicionar as imagens, etiquetas e regiões ao projeto, insira o seguinte código após a criação da etiqueta. Observe que, neste tutorial, as regiões são embutidas em código. As regiões especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são dadas pela ordem seguinte: esquerda, superior, largura, altura.
 
 ```Go
 forkImageRegions := map[string][4]float64{

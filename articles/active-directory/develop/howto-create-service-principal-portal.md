@@ -1,7 +1,7 @@
 ---
-title: Criar identidade para o aplicativo do Azure no portal
+title: Criar um aplicativo do Azure AD & entidade de serviço com o portal
 titleSuffix: Microsoft identity platform
-description: Descreve como criar um novo aplicativo Azure Active Directory e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
+description: Crie um novo aplicativo Azure Active Directory & entidade de serviço para gerenciar o acesso a recursos com controle de acesso baseado em função no Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c883dc1f9743e4318db5fe21b0e52ea92d60dc5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917867"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967121"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 

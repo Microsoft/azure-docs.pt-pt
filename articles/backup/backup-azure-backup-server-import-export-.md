@@ -4,12 +4,12 @@ description: O backup do Azure permite que você envie dados fora da rede usando
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173238"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996328"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de backup offline para DPM e Servidor de Backup do Azure
 
@@ -21,7 +21,7 @@ O processo de propagação offline do backup do Azure é totalmente integrado ao
 > O processo de backup offline para o agente de Serviços de Recuperação do Microsoft Azure (MARS) é diferente do System Center DPM e Servidor de Backup do Azure. Para obter informações sobre como usar o backup offline com o agente MARS, consulte [Este artigo](backup-azure-backup-import-export.md). O backup offline não tem suporte para backups de estado do sistema feitos usando o agente de backup do Azure.
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Com a capacidade de propagação offline do backup do Azure e a importação/exportação do Azure, é simples carregar os dados offline no Azure usando discos. O processo de backup offline envolve as seguintes etapas:
 
@@ -64,7 +64,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 * Com relação aos discos que serão enviados para o Azure, certifique-se de que somente discos rígidos internos de SSD de 2,5 polegadas ou de 2,5 polegadas ou 3,5 polegadas são usados. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação do serviço de importação/exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA precisam estar conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia dos dados de backup do *local de preparo* para as unidades SATA é feita. Verifique se o BitLocker está habilitado no *computador de cópia*
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 As informações contidas nesta seção ajudam a concluir o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a documentação de [visão geral do serviço de importação](../storage/common/storage-import-export-service.md) referenciada anteriormente.
 
@@ -90,7 +90,7 @@ As informações contidas nesta seção ajudam a concluir o fluxo de trabalho de
 
 2. Conclua o fluxo de trabalho e inicie a cópia de backup offline, clique em **fazer backup agora** no console de gerenciamento do agente de backup do Azure. O backup inicial é gravado na área de preparação como parte desta etapa.
 
-    ![Fazer backup agora](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Fazer cópia de segurança agora](./media/backup-azure-backup-import-export/backupnow.png)
 
     Para concluir o fluxo de trabalho correspondente no System Center Data Protection Manager ou no servidor de backup do Azure, clique com o botão direito do mouse no **grupo de proteção**e escolha a opção **criar ponto de recuperação** . Em seguida, escolha a opção **proteção online** .
 
@@ -218,4 +218,4 @@ No momento do próximo backup agendado, o backup do Azure executa o backup incre
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para perguntas sobre o fluxo de trabalho de importação/exportação do Azure, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../storage/common/storage-import-export-service.md).
-* Consulte a seção backup offline das [perguntas frequentes](backup-azure-backup-faq.md) sobre o backup do Azure para dúvidas sobre o fluxo de trabalho.
+

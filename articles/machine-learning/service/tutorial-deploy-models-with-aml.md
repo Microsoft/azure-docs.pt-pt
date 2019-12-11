@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de classificação de imagem: implantar modelos'
+title: 'Tutorial de classificação de imagem: implementar modelos'
 titleSuffix: Azure Machine Learning
 description: Este tutorial mostra como usar Azure Machine Learning para implantar um modelo de classificação de imagem com scikit-Learn em um notebook Jupyter do Python. Este tutorial é o segundo de uma série de duas partes.
 services: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae657daca86c979495ca14d9df845e2a7a769e0a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb92132a1e8e05052bc2f7c7d19797a4342db54b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476142"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974211"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: implantar um modelo de classificação de imagem em instâncias de contêiner do Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Nesta parte do tutorial, você usa Azure Machine Learning para as seguintes tare
 > * Implante o modelo em instâncias de contêiner.
 > * Teste o modelo implantado.
 
-As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Para implantações de produção escalonáveis, considere o uso do serviço kubernetes do Azure. Para obter mais informações, consulte [como implantar e onde](how-to-deploy-and-where.md).
+As instâncias de contêiner são uma ótima solução para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
 >[!NOTE]
 > O código deste artigo foi testado com Azure Machine Learning SDK versão 1.0.41.
@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt
 import azureml
 from azureml.core import Workspace, Run
 
-# display the core SDK version number
+# Display the core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 

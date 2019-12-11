@@ -1,5 +1,5 @@
 ---
-title: Saiba mais sobre os diferentes tipos de token e declaração com suporte do Azure AD | Microsoft Docs
+title: Tipos de declaração de & de token do Azure AD | Microsoft Docs
 description: Um guia para entender e avaliar as declarações nos tokens SAML 2,0 e JSON Web tokens (JWT) emitidos pelo Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf4c976a1232d08df1be2549d2861295adf9ee1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 4acac79d79b584dac93d63f6d478627f7e953f81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532965"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965761"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do Azure AD
 
@@ -38,7 +38,7 @@ O Azure Active Directory (AD do Azure) emite vários tipos de tokens de seguran�
 > | Autenticação Instantânea | |Registra a data e a hora em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
 > |Método de Autenticação | `amr` |Identifica como o assunto do token foi autenticado. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nome Próprio | `given_name` |Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário do Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Grupos | `groups` |Fornece IDs de objeto que representam as associações de grupo da entidade. Esses valores são exclusivos (consulte a ID do objeto) e podem ser usados com segurança para gerenciar o acesso, como impor a autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados em uma base por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor de NULL excluirá todos os grupos, um valor de "grupo de segurança" incluirá apenas Active Directory associações de grupos de segurança, e um valor de "All" incluirá grupos de segurança e listas de distribuição do Office 365. <br><br> **Observações**: <br> Se o número de grupos em que o usuário está passa por um limite (150 para SAML, 200 para JWT), uma declaração excedente será adicionada às fontes de declaração que apontam para o ponto de extremidade do grafo que contém a lista de grupos para o usuário. no. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> |Grupos | `groups` |Fornece IDs de objeto que representam as associações de grupo da entidade. Esses valores são exclusivos (consulte a ID do objeto) e podem ser usados com segurança para gerenciar o acesso, como impor a autorização para acessar um recurso. Os grupos incluídos na declaração grupos são configurados em uma base por aplicativo, por meio da propriedade "groupMembershipClaims" do manifesto do aplicativo. Um valor de NULL excluirá todos os grupos, um valor de "grupo de segurança" incluirá apenas Active Directory associações de grupos de segurança, e um valor de "All" incluirá grupos de segurança e listas de distribuição do Office 365. <br><br> **Notas**: <br> Se o número de grupos em que o usuário está passa por um limite (150 para SAML, 200 para JWT), uma declaração excedente será adicionada às fontes de declaração que apontam para o ponto de extremidade do grafo que contém a lista de grupos para o usuário. no. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
 > | Indicador de excedente de grupos | `groups:src1` | Para solicitações de token que não têm comprimento limitado (consulte `hasgroups` acima), mas que ainda são muito grandes para o token, um link para a lista de grupos completos do usuário será incluído. Para SAML, isso é adicionado como uma nova declaração no lugar da declaração de `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Fornecedor de Identidade | `idp` |Regista o fornecedor de identidade que autenticou o requerente do token. Esse valor é idêntico ao valor da declaração do emissor, a menos que a conta de usuário esteja em um locatário diferente do emissor. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Armazena a hora em que o token foi emitido. Geralmente, ele é usado para medir a atualização do token. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
@@ -155,7 +155,7 @@ Este é um exemplo de um token SAML típico.
       <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
     </t:RequestSecurityTokenResponse>
 
-## <a name="related-content"></a>Conteúdo relacionado
+## <a name="related-content"></a>Related content (Conteúdos relacionados)
 
 * Consulte as [operações de política](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) do Azure ad Graph e a [entidade de política](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)para saber mais sobre como gerenciar a política de tempo de vida de token por meio do API do Graph do Azure AD.
 * Para obter mais informações e exemplos sobre como gerenciar políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [tempos de vida de token configuráveis no Azure ad](active-directory-configurable-token-lifetimes.md). 

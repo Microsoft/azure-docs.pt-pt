@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688512"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971507"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemplos de CLI para o serviço Azure App
 
@@ -32,6 +32,8 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 |**Dimensionar aplicativo**||
 | [Dimensionar um aplicativo manualmente](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do serviço de aplicativo e o dimensiona em duas instâncias. |
 | [Dimensionar um aplicativo em todo o mundo com uma arquitetura de alta disponibilidade](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Cria dois aplicativos do serviço de aplicativo em duas regiões geográficas diferentes e as disponibiliza por meio de um único ponto de extremidade usando o Gerenciador de tráfego do Azure. |
+|**Proteger aplicativo**||
+| [Integrar com o gateway de Aplicativo Azure](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um aplicativo do serviço de aplicativo e o integra com o gateway de aplicativo usando restrições de acesso e ponto de extremidade de serviço. |
 |**Conectar o aplicativo aos recursos**||
 | [Conectar um aplicativo a um banco de dados SQL](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do serviço de aplicativo e um banco de dados SQL e, em seguida, adiciona a cadeia de conexão do banco de dados às configurações do aplicativo. |
 | [Conectar um aplicativo a uma conta de armazenamento](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Cria um aplicativo do serviço de aplicativo e uma conta de armazenamento e, em seguida, adiciona a cadeia de conexão de armazenamento às configurações do aplicativo. |

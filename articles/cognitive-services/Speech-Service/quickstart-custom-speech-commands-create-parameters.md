@@ -8,14 +8,14 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74812757"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976592"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Início rápido: criar um comando personalizado com parâmetros (versão prévia)
 
@@ -37,7 +37,7 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | Definição            | Valor sugerido | Descrição                                                                                               |
    | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
    | Nome               | OnOff           | Um nome descritivo para seu parâmetro                                                                     |
-   | É global          | desmarcada       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
+   | É global          | Desmarcada       | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
    | Obrigatório           | check         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Ativar ou desativar?      | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
    | Tipo               | String          | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |
@@ -49,7 +49,7 @@ Neste artigo, estenderemos esse aplicativo com parâmetros para que ele possa li
    | Definição            | Valor sugerido   | Descrição                                                                                               |
    | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
    | Nome               | SubjectDevice     | Um nome descritivo para seu parâmetro                                                                     |
-   | É global          | desmarcada         | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
+   | É global          | Desmarcada         | Caixa de seleção que indica se um valor para esse parâmetro é globalmente aplicado a todos os comandos no projeto |
    | Obrigatório           | check           | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de concluir o comando          |
    | Modelo de resposta  | Qual dispositivo?     | Um prompt para solicitar o valor desse parâmetro quando ele não for conhecido                                       |
    | Tipo               | String            | O tipo de parâmetro, como número, Cadeia de caracteres ou data e hora                                               |

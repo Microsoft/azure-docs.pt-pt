@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 3f742d4cd2a5285c7c52611a0c4c4735dedc2f19
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844792"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970453"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming do PlayReady offline para Windows 10  
 
@@ -32,10 +32,10 @@ ms.locfileid: "70844792"
 
 Os serviços de mídia do Azure dão suporte a download/reprodução offline com proteção DRM. Este artigo aborda o suporte offline dos serviços de mídia do Azure para clientes Windows 10/PlayReady. Você pode ler sobre o suporte do modo offline para dispositivos iOS/FairPlay e Android/Widevine nos seguintes artigos:
 
-- [Offline FairPlay Streaming for iOS](media-services-protect-hls-with-offline-fairplay.md) (Transmissão Offline do FairPlay para iOS)
+- [Transmissão offline do FairPlay para iOS](media-services-protect-hls-with-offline-fairplay.md)
 - [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Esta seção fornece alguns planos de fundo sobre reprodução em modo offline, especialmente por que:
 
@@ -64,13 +64,13 @@ Abaixo estão dois conjuntos de ativos de teste, o primeiro usando a entrega de 
 
 #1 do ativo:
 
-* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (AMS):[https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* URL de download progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL do PlayReady (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 #2 do ativo:
 
-* URL de download progressivo:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (local):[https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* URL de download progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (local): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Para testes de reprodução, usei um aplicativo universal do Windows no Windows 10. Em [exemplos universais do Windows 10](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de player básico chamado [amostra de streaming adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tudo o que precisamos fazer é adicionar o código para que possamos escolher o vídeo baixado e usá-lo como a origem, em vez da fonte de streaming adaptável. As alterações estão no manipulador de eventos de clique do botão:
 
@@ -126,6 +126,10 @@ Em resumo, atingimos o modo offline nos serviços de mídia do Azure:
 * A entrega de licença do PlayReady pode ser dos serviços de mídia do Azure ou em outro lugar;
 * O conteúdo de Smooth streaming preparado ainda pode ser usado para streaming online via DASH ou Smooth com PlayReady como o DRM.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Estrutura de sistema de DRM híbrido](hybrid-design-drm-sybsystem.md)

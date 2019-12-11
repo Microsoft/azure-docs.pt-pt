@@ -1,20 +1,20 @@
 ---
 title: Interagir com um dispositivo de visualização de IoT Plug and Play de uma solução de IoT do Azure | Microsoft Docs
 description: Como desenvolvedor de soluções, saiba como usar o SDK do serviço para interagir com dispositivos de Plug and Play de IoT.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 07/24/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5abfe0300bd61f5ccfbfccedf16659f055eb8ad4
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877999"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977595"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de visualização de Plug and Play IoT e interagir com ele
 
@@ -30,13 +30,13 @@ npm install
 
 ## <a name="run-the-service-samples"></a>Executar os exemplos de serviço
 
-Use os exemplos a seguir para explorar os recursos do SDK do serviço node. js. Verifique se a variável `IOTHUB_CONNECTION_STRING` de ambiente está definida no Shell que você usa:
+Use os exemplos a seguir para explorar os recursos do SDK do serviço node. js. Verifique se a variável de ambiente `IOTHUB_CONNECTION_STRING` está definida no Shell que você usa:
 
 ### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Recuperar uma teledigital e listar as interfaces
 
 **get_digital_twin. js** Obtém a impressão digital associada ao seu dispositivo e imprime seu componente na linha de comando. Ele não requer um exemplo de dispositivo em execução para ter sucesso.
 
-o **get_digital_twin_interface_instance. js** Obtém uma única instância de interface de cópia digital associada ao seu dispositivo e a imprime na linha de comando. Ele não exige que o exemplo de dispositivo seja executado.
+**get_digital_twin_interface_instance. js** Obtém uma única instância de interface de cópia digital associada ao seu dispositivo e a imprime na linha de comando. Ele não exige que o exemplo de dispositivo seja executado.
 
 ### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Obter e definir propriedades usando o SDK do serviço de nó
 
@@ -52,7 +52,7 @@ Usando as mesmas instruções para os exemplos de serviço e dispositivo, você 
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia cadeias de **conexão** do **repositório da sua empresa**.
+Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia **cadeias de conexão** do **repositório da sua empresa**.
 
 A cadeia de conexão é semelhante ao exemplo a seguir:
 
@@ -70,7 +70,7 @@ Este exemplo baixa a interface **ModelDiscovery** e imprime esse modelo no termi
 
 ### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Executar consultas no Hub IoT com base em modelos e interfaces de recursos
 
-A linguagem de consulta do Hub `HAS_INTERFACE` IOT `HAS_CAPABILITYMODEL` dá suporte e conforme mostrado nos exemplos a seguir:
+A linguagem de consulta do Hub IoT dá suporte a `HAS_INTERFACE` e `HAS_CAPABILITYMODEL`, conforme mostrado nos exemplos a seguir:
 
 ```sql
 select * from devices where HAS_INTERFACE('id without version', version)

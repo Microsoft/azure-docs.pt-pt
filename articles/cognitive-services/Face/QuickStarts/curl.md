@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e a ondulação'
+title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure e a ondulação'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a API REST do Azure face com a rotação para detectar rostos em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: da929744922f8653bc293b68dbbadb9347a447e9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 59ffaa68cb2ee537b4eb688746f70eafb492d3a2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859148"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977850"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início rápido: Detectar faces em uma imagem usando a API REST de face e a ondulação
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início rápido: detectar faces em uma imagem usando a API REST de face e a ondulação
 
 Neste guia de início rápido, você usará a API REST de face do Azure com ondulação para detectar faces humanas em uma imagem.
 
@@ -29,14 +29,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="write-the-command"></a>Gravar o comando
  
-Você usará um comando como o seguinte para chamar o API de Detecção Facial e obter dados de atributo facial de uma imagem. Primeiro, copie o código em um editor&mdash;de texto, você precisará fazer alterações em determinadas partes do comando antes de poder executá-lo.
+Você usará um comando como o seguinte para chamar o API de Detecção Facial e obter dados de atributo facial de uma imagem. Primeiro, copie o código em um editor de texto&mdash;você precisará fazer alterações em determinadas partes do comando antes de poder executá-lo.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
 ### <a name="subscription-key"></a>Chave de subscrição
-Substitua `<Subscription Key>` por sua chave de assinatura de face válida.
+Substitua `<Subscription Key>` pela chave de assinatura de face válida.
 
 ### <a name="face-endpoint-url"></a>URL do ponto de extremidade facial
 
@@ -155,7 +155,7 @@ Depois de fazer as alterações, abra um prompt de comando e insira o novo coman
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você escreveu um comando de ondulação que chama o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais.
 

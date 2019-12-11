@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 7b9f1cfeb6ebcbc693135d83ad167092e16f478d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647336"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978463"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: criar um aplicativo Flask com os serviços cognitivas do Azure
 
@@ -106,7 +106,7 @@ Vamos criar um ambiente virtual para nosso aplicativo Flask usando `virtualenv`.
    | Plataforma | Shell | Comando |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
-   | Windows | raso | `source venv/Scripts/activate` |
+   | Windows | bash | `source venv/Scripts/activate` |
    | | Linha de Comandos | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
@@ -146,7 +146,7 @@ Em seguida, precisamos instalar o Flask. O Flask lida com o roteamento de nosso 
 
 2. Para executar o aplicativo Flask, você pode usar o comando Flask ou a opção-m do Python com Flask. Antes de fazer isso, você precisa informar ao seu terminal qual aplicativo trabalhar exportando a variável de ambiente `FLASK_APP`:
 
-   **MacOS/Linux**:
+   **macOS/Linux**:
    ```
    export FLASK_APP=app.py
    ```

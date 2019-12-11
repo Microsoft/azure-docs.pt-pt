@@ -1,17 +1,17 @@
 ---
-title: Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Criar usuários-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um banco de dados do Azure para PostgreSQL-Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515944"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977578"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -26,15 +26,13 @@ Um grupo de servidores Citus (hiperscale) criado recentemente vem com várias fu
 * *postgres*
 * *citus*
 
-O usuário administrador do servidor, *citus*, é membro da função *azure_pg_admin* .
-No entanto, ele não faz parte da função *postgres* (super usuário).  Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft faz parte da função de superusuário.
-
 O mecanismo PostgreSQL usa privilégios para controlar o acesso a objetos de banco de dados, conforme discutido na [documentação do produto PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-No banco de dados do Azure para PostgreSQL, o usuário administrador do servidor recebe estes privilégios: logon, superusuário, herdar, CreateDB, CreateRole, noreplication
+O usuário administrador do servidor, *citus*, é membro da função *azure_pg_admin* .
+No entanto, ele não faz parte da função *postgres* (super usuário).  Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft faz parte da função de superusuário. O usuário *citus* tem permissões limitadas e não pode, por exemplo, criar novos bancos de dados.
 
 ## <a name="how-to-create-additional-users"></a>Como criar usuários adicionais
 
-A conta do administrador do *citus* não tem permissão para criar usuários adicionais. Para adicionar um usuário, use o portal do Azure em vez disso.
+A conta do administrador do *citus* não tem permissão para criar usuários adicionais. Para adicionar um usuário, use a interface portal do Azure.
 
 1. Vá para a página **funções** do grupo de servidores de hiperescala e clique em **+ Adicionar**:
 
@@ -64,7 +62,7 @@ Por exemplo, para permitir que *DB_USER* leia *MyTable*, conceda a permissão:
 GRANT SELECT ON mytable TO db_user;
 ```
 
-O Citus (subscale) propaga instruções GRANT de tabela única por todo o cluster, aplicando-as em todos os nós de trabalho. No entanto, as concessões de todo o sistema (por exemplo, para todas as tabelas em um esquema) precisam ser executadas em cada nó de data.  Use a função auxiliar *run_command_on_workers ()* :
+O Citus (subscale) propaga instruções GRANT de tabela única por todo o cluster, aplicando-as em todos os nós de trabalho. No entanto, as concessões de todo o sistema (por exemplo, para todas as tabelas em um esquema) precisam ser executadas em cada nó de data.  Use a função auxiliar de *run_command_on_workers ()* :
 
 ```sql
 -- applies to the coordinator node
@@ -84,4 +82,4 @@ Para obter mais informações sobre o gerenciamento de conta de usuário de banc
 
 * [Funções e privilégios de banco de dados](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [Sintaxe de concessão](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [Direitos](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [Privilégios](https://www.postgresql.org/docs/current/static/ddl-priv.html)

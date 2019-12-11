@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e node. js'
+title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure e node. js'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a API REST do Azure face com node. js para detectar rostos em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 7035689f3813a94c7e24e4c6138016b11c1a4ef3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2a3deff1d6220d21c3796b22dc7c39ea284cb36b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859124"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977952"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: Detectar faces em uma imagem usando a API REST de face e o Node. js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: detectar faces em uma imagem usando a API REST de face e o Node. js
 
 Neste guia de início rápido, você usará a API REST do Azure face com node. js para detectar faces humanas em uma imagem.
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="set-up-the-node-environment"></a>Configurar o ambiente de nó
 
-Vá para a pasta na qual você gostaria de criar seu projeto e crie um novo arquivo, *facedetection. js*. Em seguida, `requests` instale o módulo para este projeto. Isso permite que seus scripts façam solicitações HTTP.
+Vá para a pasta na qual você gostaria de criar seu projeto e crie um novo arquivo, *facedetection. js*. Em seguida, instale o módulo `requests` para este projeto. Isso permite que seus scripts façam solicitações HTTP.
 
 ```shell
 npm install request --save
@@ -38,7 +38,7 @@ npm install request --save
 
 ## <a name="write-the-nodejs-script"></a>Gravar o script node. js
 
-Cole o código a seguir em *facedetection. js*. Esses campos especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e precisará alterar a cadeia de `uriBase` caracteres para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você queira alterar o `imageUrl` campo para apontar para sua própria imagem de entrada.
+Cole o código a seguir em *facedetection. js*. Esses campos especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o campo `subscriptionKey` com o valor de sua chave de assinatura, e precisará alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres de ponto de extremidade correta. Talvez você queira alterar o campo `imageUrl` para apontar para sua própria imagem de entrada.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -59,7 +59,7 @@ const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 ```
 
-Em seguida, adicione o código a seguir para chamar o API de Detecção Facial e obter dados de atributo facial da imagem de entrada. O `returnFaceAttributes` campo especifica quais atributos de face recuperar. Talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
+Em seguida, adicione o código a seguir para chamar o API de Detecção Facial e obter dados de atributo facial da imagem de entrada. O campo `returnFaceAttributes` especifica quais atributos de face recuperar. Talvez você queira alterar essa cadeia de caracteres dependendo do uso pretendido.
 
 
 ```javascript
@@ -94,7 +94,7 @@ request.post(options, (error, response, body) => {
 
 ## <a name="save-and-run-the-script"></a>Salvar e executar o script
 
-Depois de fazer as alterações, abra um prompt de comando e execute o arquivo com o `node` comando.
+Depois de fazer as alterações, abra um prompt de comando e execute o arquivo com o comando `node`.
 
 ```
 node facedetection.js

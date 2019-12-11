@@ -8,14 +8,14 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 081327e7c70128dad764d66942f1703a889f77fd
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951266"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976626"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 

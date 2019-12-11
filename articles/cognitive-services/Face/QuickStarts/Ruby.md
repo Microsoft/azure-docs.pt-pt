@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem usando a API REST e o Ruby'
+title: 'Início rápido: detetar rostos numa imagem com a API REST e Ruby'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos de uma imagem através da API Face com Ruby.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e043d9bf0e87304868b2c573600578c911134856
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce76136f166660bf34c81aab065ba761e4c2867a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859188"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977884"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início rápido: Detectar faces em uma imagem usando a API REST e o Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início rápido: detetar rostos numa imagem com a API REST e Ruby
 
 Neste guia de início rápido, você usará a API REST do Azure face com o Ruby para detectar faces humanas em uma imagem.
 
@@ -60,11 +60,11 @@ end
 puts response.body
 ```
 
-Você precisará atualizar o `request['Ocp-Apim-Subscription-Key']` valor com sua chave de assinatura e alterar a cadeia de `uri` caracteres para que ela contenha o ponto de extremidade correto.
+Você precisará atualizar o valor de `request['Ocp-Apim-Subscription-Key']` com sua chave de assinatura e alterar a cadeia de caracteres de `uri` para que ela contenha o ponto de extremidade correto.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Talvez você também queira alterar o `imageUri` campo para apontar para sua própria imagem de entrada. Você também pode desejar alterar o `returnFaceAttributes` campo, que especifica quais atributos de face recuperar.
+Talvez você também queira alterar o campo `imageUri` para apontar para sua própria imagem de entrada. Você também pode desejar alterar o campo `returnFaceAttributes`, que especifica quais atributos de face recuperar.
 
 ## <a name="run-the-script"></a>Executar o script
 
@@ -255,7 +255,7 @@ Você deve ver uma cadeia de caracteres JSON de dados de face detectados impress
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você escreveu um script Ruby que chama o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar políticas de entrega de elemento com a API de REST de serviços de multimédia | Documentos da Microsoft
-description: Este tópico mostra como configurar políticas de entrega de elemento diferente com a API de REST de serviços de multimédia.
+title: Configurando políticas de entrega de ativos usando a API REST dos serviços de mídia | Microsoft Docs
+description: Este tópico mostra como configurar políticas de entrega de ativos diferentes usando a API REST dos serviços de mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5e4e565b0b5272de19458617a9c4bd3509907cce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1c71a1329b930beea38fe39518914b278f9372d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60817409"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968413"
 ---
-# <a name="configuring-asset-delivery-policies"></a>Configurar políticas de entrega de ativo
+# <a name="configuring-asset-delivery-policies"></a>Configurando políticas de entrega de ativos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Se planear distribuir ativos encriptados de forma dinâmica, um dos passos no fluxo de trabalho de entrega de conteúdos de serviços de suporte de dados está a configurar políticas de entrega para ativos. A política de entrega de elementos informa os serviços de multimédia que pretende para o seu elemento seja entregue: em qual protocolo de transmissão em fluxo deve seu elemento ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se pretende encriptar dinamicamente ou não o elemento e como (envelope ou encriptação comum).
+Se você planeja fornecer ativos criptografados dinamicamente, uma das etapas no fluxo de trabalho de distribuição de conteúdo dos serviços de mídia é configurar políticas de entrega para ativos. A política de entrega de ativos informa aos serviços de mídia como você deseja que seu ativo seja entregue: em qual protocolo de streaming seu ativo deve ser empacotado dinamicamente (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), seja ou não você deseja criptografar dinamicamente seu ativo e como (envelope ou criptografia comum).
 
-Este tópico descreve por que e como criar e configurar políticas de entrega de ativo.
+Este tópico discute por que e como criar e configurar políticas de entrega de ativos.
 
 > [!NOTE]
 > Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
 >
-> Além disso, para poder utilizar o empacotamento dinâmico e a encriptação dinâmica seu elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável.
+> Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.
 
-Pode aplicar políticas diferentes para o mesmo elemento. Por exemplo, pode aplicar encriptação PlayReady para encriptação de transmissão em fluxo uniforme e AES Envelope para MPEG DASH e HLS. Quaisquer protocolos que não estão definidos numa política de entrega (por exemplo, adicionar uma única política que especifica apenas HLS como o protocolo) serão bloqueados da transmissão em fluxo. A exceção é quando não há qualquer política de entrega de elemento definida. Em seguida, todos os protocolos serão permitidos.
+Você pode aplicar políticas diferentes ao mesmo ativo. Por exemplo, você pode aplicar a criptografia PlayReady à criptografia de envelope Smooth Streaming e AES para MPEG DASH e HLS. Quaisquer protocolos que não estão definidos numa política de entrega (por exemplo, adicionar uma única política que especifica apenas HLS como o protocolo) serão bloqueados da transmissão em fluxo. A exceção é quando não há qualquer política de entrega de elemento definida. Em seguida, todos os protocolos serão permitidos.
 
-Se quiser fornecer um recurso de criptografado de armazenamento, é necessário configurar a política de entrega de elementos. Antes do seu elemento pode ser transmitido em fluxo, o servidor de transmissão em fluxo remove a encriptação de armazenamento e transmite os seus conteúdos através da política de entrega especificado. Por exemplo, para fornecer o seu elemento encriptado com a chave de encriptação de envelope Advanced Encryption Standard (AES), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a encriptação de armazenamento e transmitir em fluxo o elemento transparente, defina o tipo de política como **NoDynamicEncryption**. Siga os exemplos que mostram como configurar esses tipos de política.
+Se você quiser entregar um ativo de armazenamento criptografado, deverá configurar a política de entrega do ativo. Antes que o ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite seu conteúdo usando a política de entrega especificada. Por exemplo, para entregar seu ativo criptografado com a chave de criptografia de envelope criptografia AES (AES), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo em claro, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
-Dependendo de como configurar a política de entrega de elemento deve ser capaz de dinamicamente o pacote, dinamicamente encriptar e transmitir os seguintes protocolos de transmissão em fluxo: Smooth Streaming, HLS, transmissões em fluxo MPEG DASH.
+Dependendo de como você configura a política de entrega de ativos, você poderá empacotar dinamicamente, criptografar dinamicamente e transmitir os seguintes protocolos de streaming: os fluxos de Smooth Streaming, HLS, MPEG DASH.
 
-A lista seguinte mostra os formatos que utilize em fluxo uniforme, HLS, TRAÇO.
+A lista a seguir mostra os formatos que você usa para transmitir Smooth, HLS e DASH.
 
-Transmissão em fluxo uniforme:
+Smooth Streaming:
 
 {nome da conta do nome dos serviços multimédia do ponto final de transmissão em fluxo}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 HLS:
 
-{transmissão em fluxo ponto final dos serviços de multimédia de nome de conta name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = M3U8-AAPL)
 
 MPEG DASH
 
-{transmissão em fluxo ponto final dos serviços de multimédia de nome de conta name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{nome do ponto de extremidade de streaming-nome da conta dos serviços de mídia}. streaming. mediaservices. Windows. net/{ID do localizador}/{nome (Format = MPD-time-CSF)
 
 
 Para obter instruções sobre como publicar um elemento e compilar um URL de transmissão em fluxo, consulte [Compilar um URL de transmissão em fluxo](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Considerações
-* Não é possível eliminar um AssetDeliveryPolicy associado a um recurso enquanto um localizador OnDemand (transmissão em fluxo) existe para esse recurso. A recomendação é remove a política de recurso antes de eliminar a política.
-* Não é possível criar um localizador de transmissão em fluxo num recurso armazenamento encriptado quando não está definida nenhuma política de entrega de elementos.  Se o elemento não estiver armazenamento encriptado, o sistema lhe permitirá criar um localizador e transmitir em fluxo o elemento de forma sem uma política de entrega de elementos.
-* Pode ter várias diretivas de entrega de elemento associadas a um recurso único, mas só pode especificar uma forma de lidar com um determinado AssetDeliveryProtocol.  Ou seja, se tentar ligar duas políticas de entrega que especificar o protocolo de AssetDeliveryProtocol.SmoothStreaming resultará num erro porque o sistema não sabe que aquele que pretende que se aplicam quando um cliente faz um pedido de transmissão em fluxo uniforme.
-* Se tiver um recurso com um localizador de transmissão em fluxo existente, não é possível ligar uma nova política para o elemento, desassociar uma política existente do elemento ou atualizar uma política de entrega associada com o elemento.  Primeiro tem de remover o localizador de transmissão em fluxo, ajustar as políticas e, em seguida, voltar a criar o localizador de transmissão em fluxo.  Pode utilizar o mesmo locatorId quando recriar o localizador de transmissão em fluxo, mas deve garantir que não causará problemas para os clientes, uma vez que o conteúdo pode ser colocado em cache a origem ou de uma CDN downstream.
+* Não é possível excluir um AssetDeliveryPolicy associado a um ativo enquanto existir um localizador OnDemand (streaming) para esse ativo. A recomendação é remover a política do ativo antes de excluir a política.
+* Um localizador de streaming não pode ser criado em um ativo de armazenamento criptografado quando nenhuma política de entrega de ativo é definida.  Se o ativo não for um armazenamento criptografado, o sistema permitirá que você crie um localizador e transmita o ativo em claro sem uma política de entrega de ativos.
+* Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas só pode especificar uma maneira de lidar com um determinado AssetDeliveryProtocol.  Significando que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol. SmoothStreaming, que resultará em um erro, pois o sistema não sabe qual deles você deseja aplicar quando um cliente fizer uma solicitação de Smooth Streaming.
+* Se você tiver um ativo com um localizador de streaming existente, não poderá vincular uma nova política ao ativo, desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo.  Primeiro, você precisa remover o localizador de streaming, ajustar as políticas e, em seguida, recriar o localizador de streaming.  Você pode usar o mesmo locatorid ao recriar o localizador de streaming, mas deve garantir que não causará problemas para clientes, já que o conteúdo pode ser armazenado em cache pela origem ou por uma CDN downstream.
 
 > [!NOTE]
 > 
-> Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos em suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ligar aos Media Services
+## <a name="connect-to-media-services"></a>Ligue-se aos Serviços Multimédia
 
-Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como se conectar à API do AMS, consulte [acessar a API dos serviços de mídia do Azure com a autenticação do Azure ad](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="clear-asset-delivery-policy"></a>Política de entrega de elemento clara
-### <a id="create_asset_delivery_policy"></a>Criar política de entrega de elemento
-O pedido HTTP seguinte cria uma política de entrega de elemento que especifica para não aplicar a encriptação dinâmica e para disponibilizar o fluxo em qualquer um dos seguintes protocolos:  Protocolos de MPEG DASH, HLS e Smooth Streaming. 
+## <a name="clear-asset-delivery-policy"></a>Limpar política de entrega de ativos
+### <a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
+A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica para não aplicar a criptografia dinâmica e para entregar o fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e protocolos Smooth Streaming. 
 
-Para informações sobre quais os valores que pode especificar durante a criação de um AssetDeliveryPolicy, consulte a [tipos utilizados para definir a AssetDeliveryPolicy](#types) secção.   
+Para obter informações sobre quais valores você pode especificar ao criar um AssetDeliveryPolicy, consulte os [tipos usados ao definir](#types) a seção AssetDeliveryPolicy.   
 
 Pedido:
 
@@ -120,8 +120,8 @@ Resposta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Recurso de ligação com a política de entrega de elemento
-O pedido HTTP seguinte liga o elemento especificado para a política de entrega de elementos para.
+### <a id="link_asset_with_asset_delivery_policy"></a>Ativo de link com política de entrega de ativos
+A solicitação HTTP a seguir vincula o ativo especificado à política de entrega de ativos para.
 
 Pedido:
 
@@ -143,14 +143,14 @@ Resposta:
     HTTP/1.1 204 No Content
 
 
-## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Política de entrega de elementos de DynamicEnvelopeEncryption
-### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Criar chave de conteúdo do tipo EnvelopeEncryption e ligá-lo para o elemento
-Ao especificar a política de entrega de DynamicEnvelopeEncryption, terá de certificar-se de que ligar o seu elemento a uma chave de conteúdo do tipo EnvelopeEncryption. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicEnvelopeEncryption
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Criar a chave de conteúdo do tipo EnvelopeEncryption e vinculá-la ao ativo
+Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa se certificar de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para obter mais informações, consulte: [criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Obter URL de entrega
-Obter o URL de entrega para o método de entrega especificado da chave de conteúdo criado no passo anterior. Um cliente utiliza a URL retornada para solicitar uma chave AES ou um PlayReady de licença por ordem de reproduzir o conteúdo protegido.
+Obtenha a URL de entrega para o método de entrega especificado da chave de conteúdo criada na etapa anterior. Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença do PlayReady a fim de reproduzir o conteúdo protegido.
 
-Especifique o tipo do URL para se obter no corpo da solicitação HTTP. Se estiver a proteger seu conteúdo com o PlayReady, solicitar um URL de aquisição de licença de PlayReady de serviços de multimédia, através de 1 para o keyDeliveryType: {"keyDeliveryType": 1}. Se estiver a proteger seu conteúdo com a encriptação de envelope, solicitar um URL de aquisição de chave, especificando 2 para keyDeliveryType: {"keyDeliveryType": 2}.
+Especifique o tipo da URL a ser obtido no corpo da solicitação HTTP. Se você estiver protegendo seu conteúdo com o PlayReady, solicite uma URL de aquisição de licença do PlayReady dos serviços de mídia usando 1 para o keydeliverytype: {"keydeliverytype": 1}. Se você estiver protegendo seu conteúdo com a criptografia de envelope, solicite uma URL de aquisição de chave especificando 2 para keydeliverytype: {"keydeliverytype": 2}.
 
 Pedido:
 
@@ -185,10 +185,10 @@ Resposta:
     {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### <a name="create-asset-delivery-policy"></a>Criar política de entrega de elemento
-O pedido HTTP seguinte cria a **AssetDeliveryPolicy** que está configurada para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para o **HLS** protocolo (neste exemplo, outros protocolos serão bloqueados da transmissão em fluxo). 
+### <a name="create-asset-delivery-policy"></a>Criar política de entrega de ativos
+A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que está configurado para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) ao protocolo **HLS** (neste exemplo, outros protocolos serão impedidos de streaming). 
 
-Para informações sobre quais os valores que pode especificar durante a criação de um AssetDeliveryPolicy, consulte a [tipos utilizados para definir a AssetDeliveryPolicy](#types) secção.   
+Para obter informações sobre quais valores você pode especificar ao criar um AssetDeliveryPolicy, consulte os [tipos usados ao definir](#types) a seção AssetDeliveryPolicy.   
 
 Pedido:
 
@@ -226,20 +226,20 @@ Resposta:
     {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### <a name="link-asset-with-asset-delivery-policy"></a>Recurso de ligação com a política de entrega de elemento
-Consulte [recurso de ligação com a política de entrega de elemento](#link_asset_with_asset_delivery_policy)
+### <a name="link-asset-with-asset-delivery-policy"></a>Ativo de link com política de entrega de ativos
+Consulte o [ativo de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de elementos de DynamicCommonEncryption
-### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Criar chave de conteúdo do tipo CommonEncryption e ligá-lo para o elemento
-Ao especificar a política de entrega de DynamicCommonEncryption, terá de certificar-se de que ligar o seu elemento a uma chave de conteúdo do tipo CommonEncryption. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicCommonEncryption
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Criar a chave de conteúdo do tipo CommonEncryption e vinculá-la ao ativo
+Ao especificar a política de entrega DynamicCommonEncryption, você precisa se certificar de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para obter mais informações, consulte: [criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Obter URL de entrega
-Obter o URL de entrega para o método de entrega de PlayReady da chave de conteúdo criado no passo anterior. Um cliente utiliza a URL retornada para solicitar uma licença do PlayReady em ordem de reproduzir o conteúdo protegido. Para obter mais informações, consulte [obter URL de entrega](#get_delivery_url).
+Obtenha a URL de entrega para o método de entrega PlayReady da chave de conteúdo criada na etapa anterior. Um cliente usa a URL retornada para solicitar uma licença do PlayReady a fim de reproduzir o conteúdo protegido. Para obter mais informações, consulte [obter URL de entrega](#get_delivery_url).
 
-### <a name="create-asset-delivery-policy"></a>Criar política de entrega de elemento
-O pedido HTTP seguinte cria a **AssetDeliveryPolicy** que está configurada para aplicar encriptação comum dinâmica (**DynamicCommonEncryption**) para o **Smooth Streaming**protocol (neste exemplo, outros protocolos serão bloqueados da transmissão em fluxo). 
+### <a name="create-asset-delivery-policy"></a>Criar política de entrega de ativos
+A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que está configurado para aplicar a**DynamicCommonEncryption**(criptografia comum dinâmica) ao protocolo de **Smooth streaming** (neste exemplo, outros protocolos serão impedidos de streaming). 
 
-Para informações sobre quais os valores que pode especificar durante a criação de um AssetDeliveryPolicy, consulte a [tipos utilizados para definir a AssetDeliveryPolicy](#types) secção.   
+Para obter informações sobre quais valores você pode especificar ao criar um AssetDeliveryPolicy, consulte os [tipos usados ao definir](#types) a seção AssetDeliveryPolicy.   
 
 Pedido:
 
@@ -258,25 +258,25 @@ Pedido:
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Se pretender proteger os seus conteúdos com Widevine DRM, atualize os valores de AssetDeliveryConfiguration para utilizar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique o URL de um serviço de entrega de licença. Pode utilizar os seguintes parceiros de AMS para ajudar a fornecer licenças do Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+Se você quiser proteger seu conteúdo usando o Widevine DRM, atualize os valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique a URL de um serviço de entrega de licença. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [ezdrm e](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Por exemplo: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> Ao encriptar com Widevine, só seria capaz de fornecer com DASH. Certifique-se especificar o TRAÇO (2) o protocolo de entrega de elemento.
+> Ao criptografar com Widevine, você só poderá entregar usando DASH. Certifique-se de especificar DASH (2) no protocolo de entrega de ativos.
 > 
 > 
 
-### <a name="link-asset-with-asset-delivery-policy"></a>Recurso de ligação com a política de entrega de elemento
-Consulte [recurso de ligação com a política de entrega de elemento](#link_asset_with_asset_delivery_policy)
+### <a name="link-asset-with-asset-delivery-policy"></a>Ativo de link com política de entrega de ativos
+Consulte o [ativo de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Tipos de utilizadas para definir a AssetDeliveryPolicy
+## <a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-A enumeração seguinte descreve os valores que pode definir para o protocolo de entrega de elemento.
+A enumeração a seguir descreve os valores que você pode definir para o protocolo de entrega de ativos.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -311,7 +311,7 @@ A enumeração seguinte descreve os valores que pode definir para o protocolo de
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
-A enumeração seguinte descreve os valores que pode definir para o tipo de política de entrega de ativo.  
+A enumeração a seguir descreve os valores que você pode definir para o tipo de política de entrega de ativos.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -344,7 +344,7 @@ A enumeração seguinte descreve os valores que pode definir para o tipo de pol�
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
-A enumeração seguinte descreve os valores que pode utilizar para configurar o método de entrega da chave de conteúdo para o cliente.
+A enumeração a seguir descreve os valores que você pode usar para configurar o método de entrega da chave de conteúdo para o cliente.
     
     public enum ContentKeyDeliveryType
     {
@@ -377,7 +377,7 @@ A enumeração seguinte descreve os valores que pode utilizar para configurar o 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-A enumeração seguinte descreve os valores que pode definir para configurar as chaves utilizadas para obter uma configuração específica para uma política de entrega de elementos.
+A enumeração a seguir descreve os valores que você pode definir para configurar as chaves usadas para obter uma configuração específica para uma política de entrega de ativos.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -421,6 +421,10 @@ A enumeração seguinte descreve os valores que pode definir para configurar as 
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

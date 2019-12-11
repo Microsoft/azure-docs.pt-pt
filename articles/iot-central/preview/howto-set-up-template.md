@@ -3,17 +3,17 @@ title: Configurar um modelo de dispositivo em um aplicativo de IoT Central do Az
 description: Saiba como configurar um modelo de dispositivo com medidas, configurações, propriedades, regras e um painel.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/23/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e3925f2d6c2a1034cc96475721de7936deeb4a9d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 648d93b996cf8d4ef6a8beb323bb1ebce9d4c9c0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895634"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974381"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>Configurar e gerenciar um modelo de dispositivo (recursos de visualização)
 
@@ -120,8 +120,8 @@ A tabela a seguir mostra as definições de configuração para um recurso de te
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do valor de telemetria usado em painéis e formulários. |
 | Nome | O nome do campo na mensagem de telemetria. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Métrico. |
-| Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Capacidade | Métrico. |
+| Tipo de Semântica | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados Telemétrico, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos de semântica de evento e de estado. |
 | Gravidade | Disponível somente para o tipo semântico de evento. **Erro**, **informação**ou **aviso**. |
 | Valores de estado | Disponível somente para o tipo semântico de estado. Defina os valores de estado possíveis, cada um dos quais com nome de exibição, nome, tipo de enumeração e valor. |
@@ -140,8 +140,8 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do valor da propriedade usado em painéis e formulários. |
 | Nome | O nome da propriedade. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Propriedade. |
-| Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Capacidade | Propriedade. |
+| Tipo de Semântica | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos de semântica de evento e de estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para IoT Central e IoT Central poderá enviar atualizações de propriedade para o dispositivo.
 | Gravidade | Disponível somente para o tipo semântico de evento. **Erro**, **informação**ou **aviso**. |
@@ -161,7 +161,7 @@ A tabela a seguir mostra as definições de configuração para um recurso de co
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do comando usado em painéis e formulários. |
 | Nome | O nome do comando. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Comando |
+| Tipo de Capacidade | Comando |
 | Comando | SynchronousExecutionType. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
 | Descrição | Uma descrição da funcionalidade de comando. |
@@ -184,12 +184,12 @@ A tabela a seguir mostra as definições de configuração para uma propriedade 
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade de nuvem usado em painéis e formulários. |
 | Nome | O nome da propriedade de nuvem. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Semântica | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. |
 
 ## <a name="add-customizations"></a>Adicionar personalizações
 
-Use personalizações quando precisar modificar uma interface importada ou adicionar recursos específicos de IoT Central a um recurso. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Pode, por exemplo:
+Use personalizações quando precisar modificar uma interface importada ou adicionar recursos específicos de IoT Central a um recurso. Você só pode personalizar campos que não interrompem a compatibilidade de interface. Por exemplo, pode:
 
 - Personalize o nome de exibição e as unidades de um recurso.
 - Adicione uma cor padrão a ser usada quando o valor for exibido em um gráfico.

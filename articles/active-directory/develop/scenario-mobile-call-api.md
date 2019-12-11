@@ -1,5 +1,5 @@
 ---
-title: Aplicativo móvel que chama APIs da Web – chamando uma API da Web
+title: Chamar uma API da Web de um aplicativo móvel | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (chamando uma API da Web)
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802561"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962547"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo móvel que chama APIs Web – chamar uma API da Web
 

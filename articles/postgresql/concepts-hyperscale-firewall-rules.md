@@ -1,17 +1,17 @@
 ---
-title: Regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Regras de firewall-hiperescala (Citus)-banco de dados do Azure para PostgreSQL
 description: Este artigo descreve as regras de firewall para o banco de dados do Azure para PostgreSQL-Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 567fb27ed942a24ab7d031d791e18fa487956fad
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273730"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975572"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 O firewall de servidor do banco de dados do Azure para PostgreSQL impede todo o acesso ao nó do coordenador de hiperescala (Citus) até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
@@ -31,7 +31,7 @@ Um firewall de grupo de servidores de hiperescala (Citus) controla quem pode se 
 
 Quando o firewall bloqueia conexões, ele pode causar erros de aplicativo. O uso do driver JDBC do PostgreSQL, por exemplo, gera um erro como este:
 
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: nenhuma entrada\_de HBA de PG. conf para o host "123.45.67.890", usuário "citus", banco de dados "citus", SSL
+> Java. util. Concurrent. Execuexception: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: no PG\_entrada de HBA. conf para o host "123.45.67.890", usuário "citus", banco de dados "citus", SSL
 
 Consulte [criar e gerenciar regras de firewall](howto-hyperscale-manage-firewall-using-portal.md) para saber como as regras são definidas.
 
@@ -43,9 +43,9 @@ Quando o acesso ao banco de dados de Microsoft Azure para PostgreSQL-Citus (serv
 * **O usuário não está autorizado ou uma senha incorreta foi usada:** Se um usuário não tiver permissões no servidor ou a senha usada estiver incorreta, a conexão com o servidor será negada. A criação de uma configuração de firewall apenas fornece aos clientes uma oportunidade de tentar se conectar ao servidor; cada cliente ainda deve fornecer as credenciais de segurança necessárias.
 
 Por exemplo, usando um cliente JDBC, o erro a seguir pode aparecer.
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: falha na autenticação de senha para o usuário "seunomedeusuário"
+> Java. util. Concurrent. Execuexception: Java. lang. RuntimeException: org. PostgreSQL. util. PSQLException: FATAL: falha na autenticação de senha para o usuário "seunomedeusuário"
 
-* **Endereço IP dinâmico:** Se você tiver uma conexão com a Internet com endereçamento IP dinâmico e estiver tendo problemas para passar pelo firewall, poderá tentar uma das seguintes soluções:
+* **Endereço IP dinâmico:** se tiver uma ligação à Internet com endereçamento IP dinâmico e estiver a ter dificuldades em passar a firewall, pode experimentar uma das soluções seguintes.
 
 * Pergunte ao seu provedor de serviços de Internet (ISP) o intervalo de endereços IP atribuído aos seus computadores cliente que acessam o nó de coordenador de hiperescala (Citus) e, em seguida, adicione o intervalo de endereços IP como uma regra de firewall.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015431"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974619"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
@@ -29,10 +29,10 @@ ms.locfileid: "69015431"
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O AMS (serviços de mídia do Azure) adicionou a proteção dinâmica do Google Widevine (consulte o [blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) para obter detalhes). Além disso, Player de Mídia do Azure (AMP) também adicionou suporte Widevine (consulte [amp Document](https://amp.azure.net/libs/amp/latest/docs/) para obter detalhes). Essa é uma grande realização no conteúdo de streaming DASH protegido por CENC com vários DRM nativos (PlayReady e Widevine) em navegadores modernos equipados com o MSE e o EME.
 
-A partir do SDK do .NET dos serviços de mídia versão 3.5.2, os serviços de mídia permitem que você configure o modelo de licença do Widevine e obtenha licenças do Widevine. Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [ezdrm e](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+A partir do SDK do .NET dos serviços de mídia versão 3.5.2, os serviços de mídia permitem que você configure o modelo de licença do Widevine e obtenha licenças do Widevine. Também pode utilizar os seguintes parceiros de AMS para o ajudar a fornecer licenças Widevine: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
 
 Este artigo descreve como integrar e testar o servidor de licença Widevine gerenciado pelo Axinom. Especificamente, ele abrange:  
 
@@ -45,7 +45,7 @@ O sistema completo e o fluxo de chave de conteúdo, ID de chave, semente de chav
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Proteção de Conteúdo
-Para configurar a política de proteção dinâmica e de distribuição de chaves, consulte o blog de Mingfei: [Como configurar o empacotamento do Widevine com os serviços de mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Para configurar a política de proteção dinâmica e de distribuição de chaves, consulte o blog de Mingfei: [como configurar o empacotamento de Widevine com os serviços de mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Você pode configurar a proteção de CENC dinâmico com vários DRM para streaming de DASH tendo os dois procedimentos a seguir:
 
@@ -56,7 +56,7 @@ Consulte a seção [geração de tokens JWT](media-services-axinom-integration.m
 
 ### <a name="considerations"></a>Considerações
 1. Você deve usar a semente de chave Axinom especificada (8888000000000000000000000000000000000000) e a ID de chave gerada ou selecionada para gerar a chave de conteúdo para configurar o serviço de distribuição de chaves. O servidor de licença Axinom emite todas as licenças que contêm chaves de conteúdo com base na mesma semente de chave, que é válida para teste e produção.
-2. A URL de aquisição de licença do Widevine [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)para teste:. HTTP e HTTS são permitidos.
+2. A URL de aquisição de licença do Widevine para teste: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). HTTP e HTTS são permitidos.
 
 ## <a name="azure-media-player-preparation"></a>Preparação de Player de Mídia do Azure
 O 1.4.0 de AMP v dá suporte à reprodução de conteúdo do AMS que é empacotado dinamicamente com o PlayReady e o Widevine DRM.
@@ -177,6 +177,7 @@ Você pode ter notado que, no código para gerar um token JWT, a ID da chave é 
     }
 
 ## <a name="summary"></a>Resumo
+
 Com a adição mais recente do suporte a Widevine nos serviços de mídia do Azure Proteção de Conteúdo e Player de Mídia do Azure, podemos implementar streaming de DASH + multinativo-DRM (PlayReady + Widevine) com o serviço de licença do PlayReady no AMS e licença do Widevine servidor da Axinom para os seguintes navegadores modernos:
 
 * Chrome
@@ -194,12 +195,16 @@ Os parâmetros a seguir são necessários na mini-solução utilizando o servido
 | URL de aquisição de licença do Widevine |Deve ser usado na configuração da política de entrega de ativos para streaming de DASH (consulte [esta](media-services-axinom-integration.md#content-protection) seção). |
 | ID da chave de conteúdo |Deve ser incluído como parte do valor da declaração de mensagem de autorização do token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) seção). |
 
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>Confirmações
-Gostaríamos de reconhecer as seguintes pessoas que contribuíram para criar este documento: Kristjan jõgi Axinom, Mingfei Yan e Amit Rajput.
+### <a name="acknowledgments"></a>Agradecimentos
+Gostaríamos de reconhecer as seguintes pessoas que contribuíram para criar este documento: Kristjan jõgi of Axinom, Mingfei Yan e Amit Rajput.
 

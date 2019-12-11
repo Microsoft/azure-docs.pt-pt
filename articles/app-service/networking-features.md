@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672338"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971762"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -38,15 +38,15 @@ Para qualquer caso de uso específico, pode haver algumas maneiras de resolver o
  
 | Casos de uso de entrada | Funcionalidade |
 |---------------------|-------------------|
-| Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | Endereço atribuído ao aplicativo |
-| Não compartilhado, endereço de entrada dedicado para seu aplicativo | Endereço atribuído ao aplicativo |
+| Dar suporte às necessidades de SSL baseado em IP para seu aplicativo | endereço atribuído ao aplicativo |
+| Não compartilhado, endereço de entrada dedicado para seu aplicativo | endereço atribuído ao aplicativo |
 | Restringir o acesso ao seu aplicativo de um conjunto de endereços bem definidos | Restrições de acesso |
 | Expor meu aplicativo em IPs privados em minha VNet | ASE ILB </br> Gateway de aplicativo com pontos de extremidade de serviço |
 | Restringir o acesso ao meu aplicativo de recursos em uma VNet | Pontos Finais de Serviço </br> ASE ILB |
 | Expor meu aplicativo em um IP privado em minha VNet | ASE ILB </br> IP privado para entrada em um gateway de aplicativo com pontos de extremidade de serviço |
 | Proteger meu aplicativo com um WAF | Gateway de aplicativo + ILB ASE </br> Gateway de aplicativo com pontos de extremidade de serviço </br> Porta frontal do Azure com restrições de acesso |
 | Balancear a carga do tráfego para meus aplicativos em regiões diferentes | Porta frontal do Azure com restrições de acesso | 
-| Balancear a carga do tráfego na mesma região | Gateway de aplicativo com pontos de extremidade de serviço | 
+| Balancear a carga do tráfego na mesma região | [Gateway de aplicativo com pontos de extremidade de serviço][appgwserviceendpoints] | 
 
 Os seguintes casos de uso de saída sugerem como usar os recursos de rede do serviço de aplicativo para resolver as necessidades de acesso de saída para seu aplicativo. 
 
@@ -222,3 +222,4 @@ Você pode fazer com que vários aplicativos de front-end usem o mesmo aplicativ
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

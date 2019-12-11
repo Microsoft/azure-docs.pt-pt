@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113747"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969111"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -28,7 +28,7 @@ Ao criar um **localizador de streaming**, você deve especificar um nome de **at
 
 * [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
+* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 
 Você também pode especificar a hora de início e de término no seu localizador de streaming, o que permitirá que o usuário execute o conteúdo entre esses horários (por exemplo, entre 5/1/2019 e 5/5/2019).  
 
@@ -56,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Encriptados 
+### <a name="encrypted"></a>Encriptada 
 
 Se você precisar criptografar o conteúdo com a criptografia CENC, defina sua política como ' Predefined_MultiDrmCencStreaming '. A criptografia Widevine será aplicada a um fluxo de DASH e a um PlayReady para Smooth. A chave será entregue a um cliente de reprodução com base nas licenças DRM configuradas.
 
@@ -75,6 +75,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 Se você também quiser criptografar o fluxo do HLS com CBCS (FairPlay), use ' Predefined_MultiDrmStreaming '.
 
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="associate-filters-with-streaming-locators"></a>Associar filtros a localizadores de streaming
 
 Consulte [filtros: associar a localizadores de streaming](filters-concept.md#associating-filters-with-streaming-locator).
@@ -87,7 +90,7 @@ Consulte [filtragem, ordenação, paginação de entidades de serviços de mídi
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Idioma|API|
+|Linguagem|API|
 |---|---|
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
@@ -95,11 +98,11 @@ Para obter localizadores de streaming com base no nome do ativo associado, use a
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>Consulte também
+## <a name="also-see"></a>Veja também
 
 * [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
+* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: API Web protegida-registro de aplicativo
+title: Registro de aplicativo de API Web protegido | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida e as informações necessárias para registrar o aplicativo.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802537"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962530"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 

@@ -4,16 +4,16 @@ description: Como exportar dados de seu aplicativo de IoT Central do Azure para 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 10/15/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 35415fd1a552328faa8d1ad5812f44d8f4b6d5e4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894867"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974466"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Exportar seus dados de IoT Central do Azure (recursos de visualização)
 
@@ -37,13 +37,13 @@ Você deve ser um administrador em seu aplicativo IoT Central
 
 O destino de exportação deve existir antes de você configurar a exportação de dados contínuas.
 
-### <a name="create-event-hubs-namespace"></a>Criar namespace de hubs de eventos
+### <a name="create-event-hubs-namespace"></a>Criar o espaço de nomes dos Hubs de Eventos
 
 Se você não tiver um namespace de hubs de eventos existente para exportar para o, siga estas etapas:
 
 1. Crie um [novo namespace de hubs de eventos na portal do Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Você pode aprender mais em [documentos dos hubs de eventos do Azure](../../event-hubs/event-hubs-create.md).
 
-2. Escolha uma assinatura. Você pode exportar dados para outras assinaturas que não estão na mesma assinatura que o seu aplicativo de IoT Central pago pelo uso. Você se conecta usando uma cadeia de conexão nesse caso.
+2. Escolha uma subscrição. Você pode exportar dados para outras assinaturas que não estão na mesma assinatura que o seu aplicativo de IoT Central pago pelo uso. Você se conecta usando uma cadeia de conexão nesse caso.
 
 3. Crie um hub de eventos em seu namespace de hubs de eventos. Vá para o namespace e selecione **+ Hub de eventos** na parte superior para criar uma instância do hub de eventos.
 
@@ -52,7 +52,7 @@ Se você não tiver um namespace de hubs de eventos existente para exportar para
 Se você não tiver um namespace do barramento de serviço existente para exportar para o, siga estas etapas:
 
 1. Crie um [novo namespace do barramento de serviço no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Você pode aprender mais nos [documentos do barramento de serviço do Azure](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. Escolha uma assinatura. Você pode exportar dados para outras assinaturas que não estão na mesma assinatura que o seu aplicativo de IoT Central pago pelo uso. Você se conecta usando uma cadeia de conexão nesse caso.
+2. Escolha uma subscrição. Você pode exportar dados para outras assinaturas que não estão na mesma assinatura que o seu aplicativo de IoT Central pago pelo uso. Você se conecta usando uma cadeia de conexão nesse caso.
 
 3. Acesse o namespace do barramento de serviço e selecione **+ fila** ou **+ tópico** na parte superior para criar uma fila ou um tópico para o qual exportar.
 
@@ -310,7 +310,7 @@ Este é um instantâneo de exemplo que contém os dados de dispositivos e propri
 }
 ```
 
-## <a name="device-templates"></a>Modelos de dispositivo
+## <a name="device-templates"></a>Modelos do dispositivo
 
 Cada registro de mensagem ou de instantâneo representa uma ou mais alterações em um modelo de dispositivo desde a última mensagem exportada. As informações enviadas em cada mensagem ou registro incluem:
 

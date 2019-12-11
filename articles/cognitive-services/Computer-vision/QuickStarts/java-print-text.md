@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af781e8f2e5bd5d8b39e6ecb15e024483ab2c4d0
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: b976002ee185a87daedf37a93f3d02a166eb6f8a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613484"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974602"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Início rápido: extrair texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Java
 
 > [!NOTE]
 > Se você estiver extraindo o texto do idioma inglês, considere o uso da nova [operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Um [início rápido do Java](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/java-hand-text) está disponível. 
 
-Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+Neste guia de início rápido, você extrairá o texto impresso com reconhecimento óptico de caracteres (OCR) de uma imagem usando a API REST do Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
@@ -58,7 +58,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Substitua a classe pública `Main` pelo código a seguir.
 1. Opcionalmente, substitua o valor de `imageToAnalyze` pelo URL de uma imagem diferente da qual pretende extrair texto impresso.
-1. Guarde e, em seguida, crie o projeto Java.
+1. Guarde e, em seguida, compile o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
@@ -122,7 +122,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 ```json
 REST Response:

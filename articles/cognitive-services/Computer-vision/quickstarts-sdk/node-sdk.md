@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 199ead07e499575de21c6878cd348e648f604171
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981836"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972664"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente Pesquisa Visual Computacional para node. js
 
@@ -266,5 +266,5 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 > [!div class="nextstepaction"]
 >[Referência de API da Pesquisa Visual Computacional (Node. js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [O que é o API da Pesquisa Visual Computacional?](../Home.md)
+* [O que é Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

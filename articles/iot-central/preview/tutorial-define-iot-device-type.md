@@ -3,18 +3,18 @@ title: Definir um novo tipo de dispositivo IoT no Azure IoT Central | Microsoft 
 description: Este tutorial mostra, como um construtor, como criar um novo modelo de dispositivo IoT do Azure em seu aplicativo de IoT Central do Azure. Você define a telemetria, o estado, as propriedades e os comandos para seu tipo.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 177caaa5400c10ed8de80b04a3305dce7cae77d6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2127bec4d5fdf0d3bf76fb31c548eab98f910d42
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407010"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979024"
 ---
 # <a name="tutorial-define-a-new-iot-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: definir um novo tipo de dispositivo IoT em seu aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -125,8 +125,8 @@ A tabela a seguir mostra as definições de configuração para um recurso de te
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do valor de telemetria usado em painéis e formulários. |
 | Nome | O nome do campo na mensagem de telemetria. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Métrico. |
-| Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Capacidade | Métrico. |
+| Tipo de Semântica | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados Telemétrico, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos de semântica de evento e de estado. |
 | Gravidade | Disponível somente para o tipo semântico de evento. As severidades são **erro**, **informação**ou **aviso**. |
 | Valores de estado | Disponível somente para o tipo semântico de estado. Defina os valores de estado possíveis, cada um dos quais com nome de exibição, nome, tipo de enumeração e valor. |
@@ -145,8 +145,8 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do valor da propriedade usado em painéis e formulários. |
 | Nome | O nome da propriedade. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Propriedade. |
-| Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Capacidade | Propriedade. |
+| Tipo de Semântica | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos de semântica de evento e de estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para IoT Central e IoT Central poderá enviar atualizações de propriedade para o dispositivo.
 | Gravidade | Disponível somente para o tipo semântico de evento. As severidades são **erro**, **informação**ou **aviso**. |
@@ -166,7 +166,7 @@ A tabela a seguir mostra as definições de configuração para um recurso de co
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição do comando usado em painéis e formulários. |
 | Nome | O nome do comando. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo de funcionalidade | Linha. |
+| Tipo de Capacidade | Linha. |
 | Comando | `SynchronousExecutionType`. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
 | Descrição | Uma descrição da funcionalidade de comando. |
@@ -189,7 +189,7 @@ A tabela a seguir mostra as definições de configuração para uma propriedade 
 | ----- | ----------- |
 | Nome a Apresentar | O nome de exibição para o valor da propriedade de nuvem usado em painéis e formulários. |
 | Nome | O nome da propriedade de nuvem. IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
-| Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
+| Tipo de Semântica | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como Double, String ou Vector. As opções disponíveis são determinadas pelo tipo semântico. |
 
 ## <a name="add-customizations"></a>Adicionar personalizações
@@ -229,7 +229,7 @@ Para adicionar um painel a um modelo de dispositivo:
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Configurar o dispositivo de visualização para exibir o painel
 
-Para exibir e testar seu painel, selecione **Configurar dispositivo de visualização**. Isso permite que você veja o painel conforme o operador o vê depois de ser publicado. Use esta opção para validar que suas exibições mostram os dados corretos. Você pode escolher entre as seguintes opções:
+Para exibir e testar seu painel, selecione **Configurar dispositivo de visualização**. Isso permite que você veja o painel conforme o operador o vê depois de ser publicado. Use esta opção para validar que suas exibições mostram os dados corretos. Pode selecionar de entre o seguinte:
 
 - Nenhum dispositivo de visualização.
 - O dispositivo de teste real que você configurou para seu modelo de dispositivo.
@@ -359,8 +359,8 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
 
     | Nome a apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Date   |
-    | Nome do cliente     | Nenhum          | Cadeia |
+    | Data da Última Assistência | Nenhuma          | Date   |
+    | Nome do cliente     | Nenhuma          | String |
 
 2. Selecione **Guardar**.
 
@@ -376,7 +376,7 @@ Você não pode personalizar o nome da funcionalidade ou o tipo de funcionalidad
 
 Quando tiver terminado de personalizar, selecione **salvar**.
 
-### <a name="create-views"></a>Criar exibições
+### <a name="create-views"></a>Criar vistas
 
 Como um construtor, você pode personalizar o aplicativo para exibir informações relevantes sobre o dispositivo do sensor ambiental para um operador. Suas personalizações permitem que o operador gerencie os dispositivos do sensor ambiental conectados ao aplicativo. Você pode criar dois tipos de modos de exibição para que um operador Use para interagir com dispositivos:
 
@@ -425,7 +425,7 @@ Selecione sensor de ocupação e sensor S1 e selecione **conectar ao gateway**.
 
 Selecione um modelo de dispositivo de gateway e uma instância de dispositivo de gateway e selecione **ingressar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

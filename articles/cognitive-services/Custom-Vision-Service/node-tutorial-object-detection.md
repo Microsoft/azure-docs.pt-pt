@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: b922073df468ca2d92e319e4e59cae098734c13c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 648a9d43f911ffb7f4d6bc97fd63c2ea97ec84e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73518991"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977442"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: criar um projeto de detecção de objeto com o Visão Personalizada SDK do node. js
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js.
+Este artigo mostra como começar a usar o SDK do Visão Personalizada com node. js para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo node. js.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

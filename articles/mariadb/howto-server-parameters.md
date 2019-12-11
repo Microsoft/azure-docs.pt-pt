@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888670"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976303"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -37,21 +37,21 @@ A lista de parâmetros de servidor com suporte está constantemente a crescer. U
 
 Conjunto de memória intermédia de InnoDB e máx. ligações não são configuráveis e empatados para sua [escalão de preço](concepts-pricing-tiers.md).
 
-|**Escalão de Preço**| **vCore(s)**|**Pool de buffers de InnoDB (MB)**| **Máx. ligações**|
-|---|---|---|---|
-|Basic| 1| 1024| 50|
-|Basic| 2| 2560| 100|
-|Fins Gerais| 2| 3584| 300|
-|Fins Gerais| 4| 7680| 625|
-|Fins Gerais| 8| 15360| 1250|
-|Fins Gerais| 16| 31232| 2500|
-|Fins Gerais| 32| 62976| 5000|
-|Fins Gerais| 64| 125952| 10000|
-|Memória Otimizada| 2| 7168| 600|
-|Memória Otimizada| 4| 15360| 1250|
-|Memória Otimizada| 8| 30720| 2500|
-|Memória Otimizada| 16| 62464| 5000|
-|Memória Otimizada| 32| 125952| 10000|
+|**Escalão de Preço**| **vCore(s)**|**Pool de buffers de InnoDB (MB)**|
+|---|---|---|
+|Basic| 1| 1024|
+|Basic| 2| 2560|
+|Fins Gerais| 2| 3584|
+|Fins Gerais| 4| 7680|
+|Fins Gerais| 8| 15360|
+|Fins Gerais| 16| 31232|
+|Fins Gerais| 32| 62976|
+|Fins Gerais| 64| 125952|
+|Memória Otimizada| 2| 7168|
+|Memória Otimizada| 4| 15360|
+|Memória Otimizada| 8| 30720|
+|Memória Otimizada| 16| 62464|
+|Memória Otimizada| 32| 125952|
 
 Esses parâmetros de servidor adicionais não são configuráveis no sistema:
 

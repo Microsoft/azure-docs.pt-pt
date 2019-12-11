@@ -1,18 +1,18 @@
 ---
-title: Como usar a ferramenta de rotulação de dados do Azure Machine Learning
+title: Marcar imagens em um projeto de rotulagem
 title.suffix: Azure Machine Learning
-description: Este artigo ensina como usar as ferramentas de marcação de dados em um projeto de rotulagem de Azure Machine Learning.
+description: Saiba como usar as ferramentas de marcação de dados em um projeto de rotulagem de Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688224"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978139"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
 
@@ -108,7 +108,7 @@ Depois de criar as caixas delimitadores para uma imagem, selecione **Enviar** pa
 
 ## <a name="finish-up"></a>Concluir
 
-Quando você envia uma página de dados marcados, os novos dados não rotulados do Azure para você de uma fila de trabalho. Se não houver mais dados sem rótulo disponíveis, você receberá uma mensagem indicando isso junto com um link para o portal home page.
+Quando você envia uma página de dados marcados, o Azure atribui novos dados sem rótulo a você de uma fila de trabalho. Se não houver mais dados sem rótulo disponíveis, você receberá uma mensagem indicando isso junto com um link para o portal home page.
 
 Quando você terminar de rotular, selecione seu nome no canto superior direito do portal de rotulagem e, em seguida, selecione **sair**. Se você não sair, eventualmente o Azure irá "cronometrar você" e atribuir seus dados a outro Labeler.
 

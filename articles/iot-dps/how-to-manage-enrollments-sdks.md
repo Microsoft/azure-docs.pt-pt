@@ -1,18 +1,18 @@
 ---
 title: Gerenciar registros de dispositivo usando SDKs do Azure DPS
-description: Como gerenciar registros de dispositivo no serviço de provisionamento de dispositivos no Hub IoT usando os SDKs de serviço
+description: Como gerenciar registros de dispositivo no DPS (serviço de provisionamento de dispositivos) do Hub IoT usando os SDKs do serviço
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228806"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975079"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do serviço de provisionamento de dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que podem, em algum momento, ser registrados com o serviço de provisionamento de dispositivos. O registro de registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs do serviço de provisionamento do Azure IoT.  Os SDKs estão disponíveis no GitHub no mesmo repositório que os SDKs do IoT do Azure.
@@ -23,7 +23,7 @@ Um *registro de dispositivo* cria um registro de um único dispositivo ou um gru
     * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Registro individual: ID de registro e chave de endosso do TPM de um dispositivo físico ou do simulador do TPM.
         * O grupo de registro não se aplica ao atestado de TPM.
-    * [**X. 509**](/azure/iot-dps/concepts-security):
+    * [**X.509**](/azure/iot-dps/concepts-security):
         * Registro individual: o [certificado de folha](/azure/iot-dps/concepts-security) do dispositivo físico ou [do emulador](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de databases do SDK.
         * Grupo de registros: o [certificado de autoridade de certificação/raiz](/azure/iot-dps/concepts-security#root-certificate) ou o [certificado intermediário](/azure/iot-dps/concepts-security#intermediate-certificate), usado para produzir o certificado de dispositivo em um dispositivo físico.  Ele também pode ser gerado no emulador de SDKs do SDK.
 * Chamadas de API exatas podem ser diferentes devido a diferenças de idioma. Examine os exemplos fornecidos no GitHub para obter detalhes:

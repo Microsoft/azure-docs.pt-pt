@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 45cf376d54ef9f2e77acb2ece9529af640938853
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 72c66241965db1264cb508ed1f8f4c76a07883be
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931783"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974994"
 ---
 # <a name="quickstart-computer-vision-client-library-for-net"></a>Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para .NET
 
@@ -25,7 +25,7 @@ Use a biblioteca de cliente do Pesquisa Visual Computacional para .NET para:
 * Analise uma imagem para marcas, descrição de texto, rostos, conteúdo adulto e muito mais.
 * Reconheça o texto impresso e manuscrito com a API de leitura em lote.
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)  | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision)  | [do pacote)  |  de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [do NuGet ( do pacote)de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [amostras biblioteca](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -270,5 +270,5 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 > [!div class="nextstepaction"]
 >[Referência de API da Pesquisa Visual Computacional (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [O que é o API da Pesquisa Visual Computacional?](../Home.md)
+* [O que é Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).

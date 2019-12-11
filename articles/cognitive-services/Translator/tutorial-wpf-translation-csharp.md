@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 6f8196c276b4f8ef5c8a49f6f83f59f9f505a6be
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 25c51067f713b5d713684e5d267c133c21b17c93
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647711"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978531"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: criar um aplicativo de tradução com o WPF
 
@@ -41,8 +41,8 @@ Essa lista inclui os serviços cognitivas usados neste tutorial. Siga o link par
 |---------|---------|-------------|
 | Texto do Tradutor | [Obter idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupere uma lista completa de idiomas com suporte para tradução de texto. |
 | Texto do Tradutor | [Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduza o texto em mais de 60 idiomas. |
-| Texto do Tradutor | [Ocorre](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detectar o idioma do texto de entrada. Inclui a pontuação de confiança para detecção. |
-| Verificação Ortográfica do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrigir erros de ortografia para melhorar a precisão da tradução. |
+| Texto do Tradutor | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detectar o idioma do texto de entrada. Inclui a pontuação de confiança para detecção. |
+| Verificação de Ortografia do Bing | [Verificação Ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrigir erros de ortografia para melhorar a precisão da tradução. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -82,10 +82,10 @@ Vamos adicionar assemblies ao nosso projeto para serializar e desserializar obje
 1. A guia **assemblies** lista todos os assemblies .NET Framework que estão disponíveis para referência. Use a barra de pesquisa no canto superior direito para procurar referências.
    ![adicionar referências de assembly](media/add-assemblies-2019.png)
 1. Selecione as seguintes referências para seu projeto:
-   * [System. Runtime. Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
-   * [System. Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * System.Web.Extensions
-   * [System. Windows](https://docs.microsoft.com/dotnet/api/system.windows)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 1. Depois de adicionar essas referências ao seu projeto, você pode clicar em **OK** para fechar o **Gerenciador de referências**.
 
 > [!NOTE]
@@ -119,7 +119,7 @@ A interface do usuário inclui estes componentes:
 | `FromLanguageComboBox` | ComboBox | Exibe uma lista dos idiomas com suporte do Microsoft Translator para tradução de texto. O utilizador seleciona o idioma de origem que está a traduzir. |
 | `ToLanguageComboBox` | ComboBox | Exibe a mesma lista de idiomas que `FromComboBox`, mas é usado para selecionar o idioma para o qual o usuário está convertendo. |
 | `TextToTranslate` | TextBox | Permite que o usuário insira o texto a ser traduzido. |
-| `TranslateButton` | Button | Use esse botão para traduzir o texto. |
+| `TranslateButton` | Botão | Use esse botão para traduzir o texto. |
 | `TranslatedTextLabel` | Label | Exibe a tradução. |
 | `DetectedLanguageLabel` | Label | Exibe o idioma detectado do texto a ser traduzido (`TextToTranslate`). |
 
@@ -171,7 +171,7 @@ Agora você deve ver uma visualização da interface do usuário do aplicativo n
 > [!NOTE]
 > Sinta-se à vontade para ajustar esse formulário ou criar o seu próprio.
 
-## <a name="create-your-app"></a>Criar seu aplicativo
+## <a name="create-your-app"></a>Criar a sua aplicação
 
 `MainWindow.xaml.cs` contém o código que controla nosso aplicativo. Nas próximas seções, vamos adicionar o código para preencher nossos menus suspensos e chamar uma série de APIs expostas por Tradução de Texto e Verificação Ortográfica do Bing.
 
@@ -252,7 +252,7 @@ Nesse bloco de código, declaramos duas variáveis de membro que contêm informa
 
 | Variável | Tipo | Descrição |
 |----------|------|-------------|
-|`languageCodes` | Matriz de cadeias de caracteres |Coloca em cache os códigos de idioma. O serviço Translator utiliza códigos curtos, como `en` para inglês, para identificar idiomas. |
+|`languageCodes` | matriz de cadeias de caracteres |Coloca em cache os códigos de idioma. O serviço Translator utiliza códigos curtos, como `en` para inglês, para identificar idiomas. |
 |`languageCodesAndTitles` | Dicionário classificado | Mapeia os nomes "amigáveis" na interface do utilizador de volta para os códigos curtos utilizados na API. São mantidos ordenados por ordem alfabética, sem ter em conta as maiúsculas/minúsculas. |
 
 Em seguida, dentro do construtor de `MainWindow`, adicionamos tratamento de erro com `HandleExceptions`. Esse tratamento de erros garante que um alerta seja fornecido se uma exceção não for tratada. Em seguida, uma verificação é executada para confirmar se a chave de assinatura fornecida tem 32 caracteres de comprimento. Um erro será gerado se a chave for menor que/maior que 32 caracteres.
@@ -571,7 +571,7 @@ Após uma solicitação bem-sucedida, `TranslatedTextLabel.Content` é substitu�
 
 É isso, você tem um aplicativo de tradução funcional criado usando o WPF. Para executar seu aplicativo, clique no botão **Iniciar** no Visual Studio.
 
-## <a name="source-code"></a>Código de origem
+## <a name="source-code"></a>Código fonte
 
 O código-fonte deste projeto está disponível no GitHub.
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486723"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977459"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Criar um plano de continuidade de negócios para seu serviço de QnA Maker
 
@@ -33,7 +33,7 @@ A ideia de alto nível, como representada acima, é a seguinte:
 
 4. Depois que as pilhas primária e secundária tiverem sido configuradas, use o [Gerenciador de tráfego](https://docs.microsoft.com/azure/traffic-manager/) para configurar os dois pontos de extremidade e configurar um método de roteamento.
 
-5. Você precisaria criar um certificado SSL para o ponto de extremidade do Gerenciador de tráfego. [Associe o certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos serviços de aplicativo.
+5. Você precisaria criar um certificado de protocolo SSL (SSL) para o ponto de extremidade do Gerenciador de tráfego. [Associe o certificado SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) nos serviços de aplicativo.
 
 6. Por fim, use o ponto de extremidade do Gerenciador de tráfego em seu bot ou aplicativo.
 

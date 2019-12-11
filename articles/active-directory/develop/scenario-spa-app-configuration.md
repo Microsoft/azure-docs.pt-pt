@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de página única (configuração de código do aplicativo)-plataforma de identidade da Microsoft
+title: Configurar aplicativo de página única-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de página única (configuração de código do aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ec98a62aab0b8d87645f3f58dc28219abe4e4fc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 111f8d45fced1ed0e9293c874d7a56c64e9fb0e4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766281"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965420"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicativo de página única: configuração de código
 
@@ -32,7 +32,7 @@ A plataforma de identidade da Microsoft fornece as seguintes bibliotecas de MSAL
 
 | Biblioteca MSAL | Descrição |
 |--------------|--------------|
-| ![MSAL. js](media/sample-v2-code/logo_js.png) <br/> [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue. js e reaja. js. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca JavaScript simples para uso em qualquer aplicativo Web do lado do cliente criado por meio de estruturas JavaScript ou SPA, como angular, Vue. js e reaja. js. |
 | ![angular MSAL](media/sample-v2-code/logo_angular.png) <br/> [MSAL angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper da biblioteca MSAL. js principal para simplificar o uso em aplicativos de página única que são criados por meio da estrutura angular. Esta biblioteca está em visualização e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com determinadas versões e navegadores angulares. |
 
 ## <a name="application-code-configuration"></a>Configuração de código do aplicativo

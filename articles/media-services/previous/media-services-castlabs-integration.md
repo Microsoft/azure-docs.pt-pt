@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887820"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969145"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do castLabs para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
@@ -114,6 +114,10 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou W
    O servidor de licença castLab não precisa do prefixo "portador =" na frente do token. Portanto, remova-o antes de enviar o token.
 7. Atualize o Player.
 8. O vídeo deve ser reproduzido.
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

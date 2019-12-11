@@ -1,7 +1,7 @@
 ---
 title: O que são pipelines de ML
 titleSuffix: Azure Machine Learning
-description: Neste artigo, Aprenda as vantagens dos pipelines do Machine Learning que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines (ML) de aprendizado de máquina são utilizados por cientistas de dados para criar, otimizar e gerir os seus fluxos de trabalho de aprendizagem.
+description: Neste artigo, Aprenda as vantagens dos pipelines do ML (Machine Learning) que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines de Machine Learning são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112412"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973582"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -26,7 +26,7 @@ Azure Machine Learning pipelines permitem que você crie fluxos de trabalho em s
 + Flexibilidade
 + Controle de versão e acompanhamento
 + Modularidade 
-+ Garantia de qualidade
++ Controlo de qualidade
 + Controle de custo
 
 Esses benefícios se tornam significativos assim que o seu projeto de aprendizado de máquina passa além da exploração pura e da iteração. Até mesmo pipelines simples de uma etapa podem ser valiosos. Os projetos de aprendizado de máquina geralmente estão em um estado complexo, e pode ser um alívio para fazer o realização preciso de um único fluxo de trabalho um processo trivial.
@@ -185,7 +185,7 @@ Algumas situações que sugerem o uso de um pipeline:
 
 * Acoplamento pesado entre as etapas do pipeline. Se a refatoração de uma etapa dependente frequentemente exigir a modificação das saídas de uma etapa anterior, é provável que etapas separadas sejam atualmente mais de um custo do que um benefício. Outra pista de que as etapas são muito ligadas é argumentos para uma etapa que não são dados, mas sinalizadores para controlar o processamento. 
 
-* Otimização prematura dos recursos de computação. Por exemplo, muitas vezes há vários estágios para a preparação de dados e, muitas vezes, pode ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente , "e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
+* Otimização prematura dos recursos de computação. Por exemplo, geralmente há vários estágios para a preparação de dados e, com frequência, é possível ver "Ah, aqui está um lugar onde eu poderia usar um `MpiStep` para a programação paralela, mas aqui está um lugar onde eu poderia usar um `PythonScriptStep` com um destino de computação menos potente" e assim por diante. E talvez, a longo prazo, a criação de etapas refinadas como essa pode ser válida, especialmente se houver a possibilidade de usar resultados em cache em vez de sempre recalcular. Mas pipelines não se destinam a ser um substituto para o módulo `multiprocessing`. 
 
 Até que um projeto fique grande ou próximo da implantação, seus pipelines devem ser mais esparsos em vez de refinados. Se você considerar seu projeto ML como envolvendo _estágios_ e um pipeline como fornecer um fluxo de trabalho completo para movê-lo por um estágio específico, você está no caminho certo. 
 

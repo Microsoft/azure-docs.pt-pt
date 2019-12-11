@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar faces em uma imagem com a API REST do Azure e o Python'
+title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure e o Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a API REST do Azure face com Python para detectar rostos em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a00ec77148433d64f2980b1bb47d753d70a5ec20
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859027"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977918"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início rápido: Detectar faces em uma imagem usando a API REST de face e o Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início rápido: detectar faces em uma imagem usando a API REST de face e o Python
 
 Neste guia de início rápido, você usará a API REST do Azure face com Python para detectar faces humanas em uma imagem. O script desenhará quadros em volta das faces e sobreimporá as informações de gênero e idade na imagem.
 
@@ -43,7 +43,7 @@ Como alternativa, você pode executar este guia de início rápido na linha de c
 1. Copie o código seguinte para um editor de texto.
 1. Faça as alterações seguintes ao código, onde for necessário:
     1. Substitua o valor de `subscription_key` pela chave de subscrição.
-    1. Edite o valor `face_api_url` de para incluir a URL do ponto de extremidade para o recurso de API de detecção facial.
+    1. Edite o valor de `face_api_url` para incluir a URL do ponto de extremidade para o recurso de API de Detecção Facial.
     1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente que pretende analisar.
 1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `detect-face.py`.
 1. Abra uma janela da linha de comandos.
@@ -77,7 +77,7 @@ print(json.dumps(response.json()))
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito.
+Uma resposta bem-sucedida é devolvida no JSON.
 
 ```json
 [
@@ -258,7 +258,7 @@ O JSON devolve uma resposta de êxito.
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais sobre os cenários com suporte.
 

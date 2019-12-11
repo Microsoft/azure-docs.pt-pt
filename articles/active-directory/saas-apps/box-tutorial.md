@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração de logon único (SSO) do Azure Active Directory com o box | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com Box | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e box.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b808e13ec37b9667a3ab1aaa233532a076bf4970
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558917"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964179"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o box
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o box
 
 Neste tutorial, você aprenderá a integrar o box ao Azure Active Directory (Azure AD). Ao integrar o box ao Azure AD, você pode:
 
@@ -45,8 +45,8 @@ Para começar, você precisa dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * Box dá suporte ao SSO iniciado pelo **SP**
+* Box dá suporte ao [provisionamento e desprovisionamento **automatizados** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recomendado)
 * Box dá suporte ao provisionamento **de usuário just in time**
-* Box dá suporte ao [ provisionamento automatizado de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
 
 ## <a name="adding-box-from-the-gallery"></a>Adicionando o box da Galeria
 
@@ -84,9 +84,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<SUBDOMAIN>.account.box.com`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.account.box.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL:`box.net`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL: `box.net`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. [Equipe de suporte ao cliente da caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) de contato para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.

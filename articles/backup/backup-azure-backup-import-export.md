@@ -4,12 +4,12 @@ description: Saiba como o backup do Azure permite que você envie dados fora da 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173294"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997365"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 
@@ -65,7 +65,7 @@ Antes de iniciar o fluxo de trabalho de backup offline, conclua os seguintes pr�
 * Ao enviar discos para o Azure, use somente unidades de disco rígido internas SATA II de 2,5 polegadas ou 2,5 polegadas ou 3,5 polegadas. Você pode usar discos rígidos de até 10 TB. Verifique a [documentação do serviço de importação/exportação do Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) para obter o conjunto mais recente de unidades às quais o serviço dá suporte.
 * As unidades SATA devem ser conectadas a um computador (conhecido como um *computador de cópia*) de onde a cópia dos dados de backup do *local de preparo* para as unidades SATA é feita. Verifique se o BitLocker está habilitado no *computador de cópia*.
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 Esta seção descreve o fluxo de trabalho de backup offline para que seus dados possam ser entregues a um datacenter do Azure e carregados no armazenamento do Azure. Se você tiver dúvidas sobre o serviço de importação ou qualquer aspecto do processo, consulte a [documentação visão geral do serviço de importação](../storage/common/storage-import-export-service.md).
 
@@ -87,11 +87,11 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
 2. Quando solicitado, entre em sua assinatura do Azure. Você deve entrar para que o backup do Azure possa criar o aplicativo Azure Active Directory e fornecer as permissões necessárias para acessar o serviço de importação do Azure.
 
-    ![Fazer backup agora](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Fazer cópia de segurança agora](./media/backup-azure-backup-import-export/azurelogin.png)
 
 3. Conclua o fluxo de trabalho e, no console do agente de backup do Azure, clique em **fazer backup agora**.
 
-    ![Fazer backup agora](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Fazer cópia de segurança agora](./media/backup-azure-backup-import-export/backupnow.png)
 
 4. Na página confirmação do assistente, clique em **fazer backup**. O backup inicial é gravado na área de preparação como parte da configuração.
 
@@ -99,7 +99,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
     Após a conclusão da operação, o local de preparo estará pronto para ser usado para a preparação do disco.
 
-   ![Fazer backup agora](./media/backup-azure-backup-import-export/opbackupnow.png)
+   ![Fazer cópia de segurança agora](./media/backup-azure-backup-import-export/opbackupnow.png)
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 
@@ -133,7 +133,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
 3. Insira a letra da unidade sem os dois pontos à direita para o disco montado que você deseja preparar para a transferência para o Azure.
 4. Forneça a confirmação para a formatação da unidade quando solicitado.
-5. Você será solicitado a entrar em sua assinatura do Azure. Forneça suas credenciais.
+5. Você será solicitado a entrar em sua assinatura do Azure. Forneça as suas credenciais.
 
     ![Entrada da ferramenta de preparação de disco do Azure](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
@@ -206,4 +206,4 @@ Depois que o backup inicial for concluído, você poderá excluir com segurança
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para perguntas sobre o fluxo de trabalho de importação/exportação do Azure, consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento de BLOBs](../storage/common/storage-import-export-service.md).
-* Consulte a seção backup offline das [perguntas frequentes](backup-azure-backup-faq.md) sobre o backup do Azure para dúvidas sobre o fluxo de trabalho.
+

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando | Microsoft Docs'
+title: 'Início rápido: chamar seu ponto de C# extremidade de pesquisa personalizada do Bing usando | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para começar a solicitar os resultados da C#pesquisa de sua instância do pesquisa personalizada do Bing no.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/09/2019
 ms.author: maheshb
-ms.openlocfilehash: c1b118ec08e00705ad3eab9141d116fb9e6ef257
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 88a8cc0dbedeb9398637ab9a02323e9b2a6b8627
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405189"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975266"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usandoC# 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usandoC# 
 
 Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância de Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito no C#, o API de pesquisa personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: Crie sua primeira instância](quick-start.md) de pesquisa personalizada do Bing para obter mais informações.
+- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: criar sua primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Qualquer edição do [Visual Studio 2019 ou posterior](https://www.visualstudio.com/downloads/)
 - Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
@@ -78,7 +78,7 @@ Use este guia de início rápido para começar a solicitar resultados de pesquis
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construa a URL de solicitação acrescentando seu termo de pesquisa ao `q=` parâmetro de consulta e a ID de configuração personalizada da sua instância `customconfig=`de pesquisa para. Separe os parâmetros com um `&` caractere. 
+4. Construa a URL de solicitação acrescentando seu termo de pesquisa ao parâmetro de consulta `q=` e a ID de configuração personalizada da sua instância de pesquisa para `customconfig=`. Separe os parâmetros com um caractere de `&`. `url` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
@@ -88,7 +88,7 @@ Use este guia de início rápido para começar a solicitar resultados de pesquis
 
 ## <a name="send-and-receive-a-search-request"></a>Enviar e receber uma solicitação de pesquisa 
 
-1. Crie um cliente de solicitação e adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho.
+1. Crie um cliente de solicitação e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
     ```csharp
     var client = new HttpClient();
@@ -121,7 +121,7 @@ Use este guia de início rápido para começar a solicitar resultados de pesquis
     Console.ReadKey();
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de pesquisa personalizado](./tutorials/custom-search-web-page.md)

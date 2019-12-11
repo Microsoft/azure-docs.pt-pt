@@ -1,18 +1,18 @@
 ---
 title: Serviço de provisionamento de dispositivos no Hub IoT do Azure-conceitos de segurança
-description: Descreve os conceitos de provisionamento de segurança específicos para dispositivos com o serviço de provisionamento de dispositivos e o Hub IoT
+description: Descreve os conceitos de provisionamento de segurança específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228814"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973463"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de provisionamento de dispositivos no Hub IoT 
 
@@ -46,7 +46,7 @@ O TPM pode se referir a um padrão para armazenar com segurança as chaves usada
 
 O atestado de TPM baseia-se em um desafio de nonce, que usa as chaves raiz de armazenamento e endosso para apresentar um token SAS (assinatura de acesso compartilhado) assinado.
 
-### <a name="endorsement-key"></a>Chave de endosso
+### <a name="endorsement-key"></a>Chave de endossamento
 
 A chave de endosso é uma chave assimétrica contida no TPM, que foi gerada internamente ou injetada no tempo de fabricação e é exclusiva para cada TPM. A chave de endosso não pode ser alterada ou removida. A parte privada da chave de endosso nunca é liberada fora do TPM, enquanto a parte pública da chave de endosso é usada para reconhecer um TPM genuíno. Saiba mais sobre a [chave de endosso](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 

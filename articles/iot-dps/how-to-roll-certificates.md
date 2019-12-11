@@ -1,18 +1,18 @@
 ---
 title: Distribuir certificados X. 509 no serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como distribuir certificados X. 509 com a instância do serviço de provisionamento de dispositivos
+description: Como distribuir certificados X. 509 com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 55ed99c434028b9761ef53fc09a01481bbd184e1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228760"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974892"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como distribuir certificados de dispositivo X. 509
 
@@ -59,7 +59,7 @@ A atualização de entradas de registro para certificados acumulados é realizad
 
 2. Clique em **Gerir inscrições**.
 
-    ![Gerenciar registros](./media/how-to-roll-certificates/manage-enrollments-portal.png)
+    ![Gerir inscrições](./media/how-to-roll-certificates/manage-enrollments-portal.png)
 
 
 A maneira como você lida com a atualização da entrada de registro dependerá se você está usando registros individuais ou registros de grupo. Além disso, os procedimentos recomendados são diferentes, dependendo se você está sem interrupção de certificados devido a uma violação de segurança ou à expiração do certificado. As seções a seguir descrevem como lidar com essas atualizações.

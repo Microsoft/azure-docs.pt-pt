@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: b5cf375b1e5e4c09617dc6ae74513d303a9a6a4a
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b076c642f72e45f58be61d67e887e11b6ccb0aba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816672"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975861"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 

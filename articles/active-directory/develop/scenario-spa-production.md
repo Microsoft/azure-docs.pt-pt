@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de página única (mover para produção)-plataforma de identidade da Microsoft
+title: Mover o aplicativo de página única para produção-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de página única (mover para produção)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ba41b29cfcea2d9dfcab2cd552040eaffa4e90ff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766111"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965284"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplicativo de página única: mover para produção
 

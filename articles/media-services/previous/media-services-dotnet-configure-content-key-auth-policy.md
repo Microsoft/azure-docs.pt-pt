@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a2d978a68f6f654e3bdeea07c931cd7103f5850c
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 386b49698ca6b8ded2972aba14c1968620fcbb08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015535"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974500"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: Configurar uma política de autorização de chave de conteúdo
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Criptografia dinâmica: configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
  Você pode usar os serviços de mídia do Azure para fornecer fluxos MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protegidos com o criptografia AES (AES) usando chaves de criptografia de 128 bits ou o [DRM (gerenciamento de direitos digitais) do PlayReady](https://www.microsoft.com/playready/overview/). Com os serviços de mídia, você também pode fornecer fluxos de traço criptografados com o Widevine DRM. Tanto o PlayReady, como o Widevine, são encriptados de acordo com a especificação de encriptação comum (ISO/IEC 23001 7 CENC).
 
 Os serviços de mídia também fornecem um serviço de entrega de chave/licença do qual os clientes podem obter chaves AES ou licenças PlayReady/Widevine para reproduzir o conteúdo criptografado.
@@ -50,7 +50,7 @@ Para obter mais informações, veja os artigos seguintes:
 * O serviço de distribuição de chaves armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições de política) por 15 minutos. Você pode criar ContentKeyAuthorizationPolicy e especificar para usar uma restrição de token, testá-la e, em seguida, atualizar a política para a restrição aberta. Esse processo leva aproximadamente 15 minutos antes que a política alterne para a versão aberta da política.
 * Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar qualquer localizador existente e criar um novo.
 * No momento, não é possível criptografar downloads progressivos.
-* Um ponto de extremidade de streaming dos serviços de mídia define o valor do cabeçalho ' Access-Control-Allow-Origin ' do CORS na resposta de\*simulação como o curinga ' '. Esse valor funciona bem com a maioria dos players, incluindo Player de Mídia do Azure, Roku e JWPlayer, entre outros. No entanto, alguns jogadores que usam dashjs não funcionam porque, com o modo de credenciais definido como "include", XMLHttpRequest em seu dashjs não permite\*o curinga "" como o valor de "Access-Control-Allow-Origin". Como uma solução alternativa para essa limitação no dashjs, se você hospedar o cliente de um único domínio, os serviços de mídia poderão especificar esse domínio no cabeçalho de resposta de simulação. Para obter assistência, abra um tíquete de suporte por meio do portal do Azure.
+* Um ponto de extremidade de streaming dos serviços de mídia define o valor do cabeçalho ' Access-Control-Allow-Origin ' do CORS na resposta de simulação como o curinga '\*'. Esse valor funciona bem com a maioria dos players, incluindo Player de Mídia do Azure, Roku e JWPlayer, entre outros. No entanto, alguns players que usam dashjs não funcionam porque, com o modo de credenciais definido como "include", XMLHttpRequest em seu dashjs não permite o curinga "\*" como o valor de "Access-Control-Allow-Origin". Como uma solução alternativa para essa limitação no dashjs, se você hospedar o cliente de um único domínio, os serviços de mídia poderão especificar esse domínio no cabeçalho de resposta de simulação. Para obter assistência, abra um tíquete de suporte por meio do portal do Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Criptografia dinâmica AES-128
 ### <a name="open-restriction"></a>Restrição aberta
@@ -425,6 +425,10 @@ Para obter um token de teste com base na restrição de token que foi usada para
         JWT = 2,
     }
 ```
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Execute uma pesquisa na web com Ruby - API de pesquisa Web Bing'
+title: 'Início rápido: executar uma pesquisa na Web com o Ruby-API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST com Ruby e receber uma resposta JSON
+description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando o Ruby e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a902e869ed9fd2ae9274f0ad8eee11e43b8edc6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646840"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974330"
 ---
-# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar Ruby para chamar a API de pesquisa Web Bing  
+# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Ruby para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação Ruby envia um pedido de pesquisa para a API e mostra a resposta. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo Ruby envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ require 'json'
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Tem de definir algumas variáveis para que possamos continuar. Confirme que `$uri` e `path` são válidos e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `term`.
+Tem de definir algumas variáveis para que possamos continuar. `uri` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `uri` e `path` são válidos e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. Esteja à vontade para personalizar a consulta de pesquisa, ao substituir o valor por `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -261,7 +261,7 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

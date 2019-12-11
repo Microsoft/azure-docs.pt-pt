@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Utilizar a SDK de pesquisa Web Bing para Python'
+title: 'Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Python'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d6758fc5434406e42acf65ff3b712227b5cec0f8
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991626"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977221"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para Python
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Python
 
 O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
 Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) estão disponíveis para o GitHub.
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 O SDK de Pesquisa na Web do Bing é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6. Recomendamos utilizar um ambiente virtual para este início rápido.
@@ -33,6 +29,8 @@ O SDK de Pesquisa na Web do Bing é compatível com o Python 2.7, 3.3, 3.4, 3.5 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) para Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) para Python 3.x
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-and-configure-your-virtual-environment"></a>Criar e configurar o seu ambiente virtual
 
@@ -82,7 +80,7 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Crie um novo projeto do Python através do seu editor ou IDE favorito.
 
-1. Copie este código de exemplo para o seu projeto:  
+1. Copie este código de exemplo em seu projeto. `endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.:  
 
     ```python
     # Import required modules.
@@ -166,13 +164,13 @@ Se a resposta contiver páginas Web, imagens, notícias ou vídeos, será impres
 
 1. Substitua `SUBSCRIPTION_KEY` por uma chave de subscrição válida.
 
-1. Substitua `YOUR_ENDPOINT` pelo seu url de ponto final no portal.
+1. Substitua `YOUR_ENDPOINT` pela URL do ponto de extremidade no Portal.
 
 1. Execute o programa. Por exemplo: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definir funções e filtrar resultados
 
-Agora que fez a sua primeira chamada para a API de pesquisa Web Bing, vamos examinar algumas funções. As secções seguintes realçam a funcionalidade SDK para refinar a consultas e filtragem de resultados. Cada função pode ser adicionada para o programa de Python que criou na secção anterior.
+Agora que você fez sua primeira chamada para a API de Pesquisa na Web do Bing, vamos dar uma olhada em algumas funções. As seções a seguir destacam a funcionalidade do SDK para refinar consultas e filtrar os resultados. Cada função pode ser adicionada ao programa Python criado na seção anterior.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitar o número de resultados devolvidos pelo Bing
 
@@ -312,11 +310,11 @@ Este exemplo recorre aos parâmetros `answer_count`, `promote` e `safe_search` p
 
 Quando tiver terminado este projeto, certifique-se de que remove a sua chave de subscrição do código do programa e desativa o seu ambiente virtual.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) (Exemplos de SDK do Python nos Serviços Cognitivos)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Referência do SDK Python do Azure](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

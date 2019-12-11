@@ -1,34 +1,34 @@
 ---
-title: 'Início rápido: Efetua uma pesquisa com Python - API de pesquisa Web Bing'
+title: 'Guia de Início Rápido: Efetuar uma pesquisa com o Python – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST com o Python e receber uma resposta JSON
+description: Use este guia de início rápido para enviar solicitações para a API REST do Pesquisa na Web do Bing usando Python e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4f7f1c28423e67ff9ff09385a5e0c7675e4a6049
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338831"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976371"
 ---
-# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Python para chamar a API de pesquisa Web Bing  
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Python para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação de Python envia um pedido de pesquisa para a API e mostra a resposta. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa na Web do Bing e receber a resposta JSON. Esse aplicativo Python envia uma solicitação de pesquisa para a API e mostra a resposta. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Este exemplo é executado como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Selecione o destaque de associador de lançamento:
+Este exemplo é executado como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Selecione a notificação para iniciar o fichário:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 2.x ou 3.x](https://www.python.org/)
+* [Python 2. x ou 3. x](https://www.python.org/)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -41,7 +41,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Declarar o ponto final da API de Pesquisa na Web do Bing. Caso se depare com quaisquer erros de autorização, verifique novamente este valor relativamente ao ponto final da pesquisa do Bing no dashboard do Azure.
+Declarar o ponto final da API de Pesquisa na Web do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
@@ -69,7 +69,7 @@ search_results = response.json()
 
 ## <a name="format-and-display-the-response"></a>Formatar e apresentar a resposta
 
-O `search_results` objeto inclui os resultados da pesquisa e os metadados, como consultas relacionadas e páginas. Este código utiliza a biblioteca `IPython.display` para formatar e apresentar a resposta no seu browser.
+O objeto `search_results` inclui os resultados da pesquisa e os metadados, como consultas e páginas relacionadas. Este código utiliza a biblioteca `IPython.display` para formatar e apresentar a resposta no seu browser.
 
 ```python
 from IPython.display import HTML
@@ -86,7 +86,7 @@ HTML("<table>{0}</table>".format(rows))
 
 Se deseja executar este código localmente, o [exemplo completo está disponível no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

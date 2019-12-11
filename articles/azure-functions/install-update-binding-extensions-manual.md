@@ -3,16 +3,16 @@ title: Instalar ou atualizar manualmente Azure Functions extensões de associaç
 description: Saiba como instalar ou atualizar Azure Functions extensões de associação para aplicativos de funções implantados.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226513"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977493"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar manualmente Azure Functions extensões de associação do portal
 
-O tempo de execução da Azure Functions versão 2. x usa extensões de associação para implementar o código para gatilhos e associações. As extensões de associação são fornecidas em pacotes NuGet. Para registrar uma extensão, você essencialmente instala um pacote. Ao desenvolver funções, a maneira como você instala as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [registrar extensões de associação](./functions-bindings-register.md) no artigo gatilhos e associações.
+A partir da versão 2. x, o tempo de execução do Azure Functions usa extensões de associação para implementar o código para gatilhos e associações. As extensões de associação são fornecidas em pacotes NuGet. Para registrar uma extensão, você essencialmente instala um pacote. Ao desenvolver funções, a maneira como você instala as extensões de associação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [registrar extensões de associação](./functions-bindings-register.md) no artigo gatilhos e associações.
 
 Às vezes, você precisa instalar ou atualizar manualmente suas extensões de associação no portal do Azure. Por exemplo, talvez seja necessário atualizar uma associação registrada para uma versão mais recente. Talvez você também precise registrar uma associação com suporte que não possa ser instalada na guia **integrar** no Portal.
 
@@ -43,4 +43,4 @@ Use as etapas a seguir para instalar manualmente ou atualizar extensões do Port
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
+> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

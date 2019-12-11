@@ -1,17 +1,17 @@
 ---
-title: Gerenciar regras de firewall no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Gerenciar regras de firewall-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Criar e gerenciar regras de firewall para o banco de dados do Azure para PostgreSQL-Citus (hiperescala) usando o portal do Azure
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 1b132eb168f3d873c8150bc33b581aa0f0f8d124
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273712"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977544"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerenciar regras de firewall para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 As regras de firewall no nível de servidor podem ser usadas para gerenciar o acesso a um nó de coordenador de hiperescala (Citus) de um endereço IP ou intervalo de endereços IP especificado.
@@ -24,7 +24,7 @@ Para percorrer este guia de instruções, você precisa de:
 
 > [!NOTE]
 > Essas configurações também são acessíveis durante a criação de um grupo de servidores do banco de dados do Azure para PostgreSQL-Citus (hiperescala). Na guia **rede** , clique em **ponto de extremidade público**.
-> ![Portal do Azure-guia rede](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
+> ![portal do Azure guia rede](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Na página grupo de servidores PostgreSQL, no título segurança, clique em **rede** para abrir as regras de firewall.
 

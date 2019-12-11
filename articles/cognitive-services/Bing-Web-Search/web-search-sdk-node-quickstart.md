@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 059862255ca2cf0ce435496bf22d866a37c8be71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132734"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977170"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Node.js
 
@@ -23,17 +23,16 @@ O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do B
 
 Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) estão disponíveis para o GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior
 * Uma chave de subscrição  
 
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
+
+## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
 
 Vamos começar por configurar o ambiente de desenvolvimento para o nosso projeto do Node.js.
 

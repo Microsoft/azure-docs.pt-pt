@@ -3,17 +3,17 @@ title: Gerencie sua fatura e converta a avaliação para pagamento conforme o us
 description: Como administrador, saiba como gerenciar sua fatura e o seu aplicativo de avaliação para pagamento à medida que você estiver em sua aplicação de IoT Central do Azure
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 11bcdaab34cf4d82b688a578ab2d9ee686ffe07e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0c1c1643fb8c8394ce3ce50e5926f05fd4d366f6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894815"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976422"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gerenciar sua fatura em um aplicativo IoT Central
 

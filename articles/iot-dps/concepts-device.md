@@ -1,6 +1,6 @@
 ---
 title: Conceitos de dispositivo no provisionamento de dispositivos do Azure | Microsoft Docs
-description: Descreve os conceitos de provisionamento de dispositivos específicos para dispositivos com o serviço de provisionamento de dispositivos e o Hub IoT
+description: Descreve os conceitos de provisionamento de dispositivos específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720527"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975317"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Conceitos de dispositivo do serviço de provisionamento de dispositivos no Hub IoT
 
@@ -42,7 +42,7 @@ O módulo de segurança de hardware, ou HSM, é usado para armazenamento seguro 
 
 Os segredos do dispositivo também podem ser armazenados em software (memória), mas é uma forma menos segura de armazenamento do que um HSM.
 
-## <a name="registration-id"></a>ID de registro
+## <a name="registration-id"></a>ID de Registo
 
 A ID de registro é usada para identificar exclusivamente um dispositivo no serviço de provisionamento de dispositivos. A ID do dispositivo deve ser exclusiva no [escopo da ID](#id-scope)do serviço de provisionamento. Cada dispositivo deve ter uma ID de registro. A ID de registro é alfanumérica, não diferencia maiúsculas de minúsculas e pode conter caracteres especiais, incluindo dois pontos, ponto, sublinhado e hífen.
 

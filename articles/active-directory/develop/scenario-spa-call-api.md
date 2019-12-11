@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de página única (chamar uma API da Web)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo de página única (chamar uma API da Web)
+title: Compilar aplicativo de página única chamando uma API Web-plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo de página única que chama uma API da Web
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4170a6642d35802581b5d1ff28eb802a6eb3482b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1171d8c3bc28c7b325cc8daf6cc072965363339c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766162"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965336"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicativo de página única: chamar uma API da Web
 

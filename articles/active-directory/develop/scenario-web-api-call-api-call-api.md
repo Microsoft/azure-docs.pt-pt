@@ -1,6 +1,6 @@
 ---
-title: API Web que chama web APIs (chamada de APIs) - a plataforma de identidade da Microsoft
-description: Saiba como compilar uma web API web a jusante esse chamadas APIs (chamar uma API web).
+title: API Web que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+description: Saiba como criar uma API Web que chama APIs da Web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,22 +15,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074729"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965216"
 ---
-# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web que chama a APIs - web chamar uma API
+# <a name="web-api-that-calls-web-apis---call-an-api"></a>API Web que chama APIs da Web – chamar uma API
 
-Depois de ter um token, pode chamar uma API web protegida. Isso é feito a partir do controlador da API web ASP.NET/ASP.NET Core.
+Depois de ter um token, você pode chamar uma API Web protegida. Isso é feito a partir do controlador de sua API Web do ASP.NET/ASP.NET Core.
 
-## <a name="controller-code"></a>Código de controlador
+## <a name="controller-code"></a>Código do controlador
 
-Aqui é a continuação do código de exemplo mostrado na [APIs - adquirir um token de web de chamadas de web API protegido](scenario-web-api-call-api-acquire-token.md), denominado nas ações dos controladores da API, chamar uma API de downstream (com o nome todolist).
+Aqui está a continuação do código de exemplo mostrado em [API Web protegida chama APIs da Web-adquirindo um token](scenario-web-api-call-api-acquire-token.md), chamado nas ações dos controladores de API, chamando uma API downstream (chamada ToDoList).
 
-Assim que o utilizador tiver adquirido o token, utilizá-lo como um token de portador para chamar a API de downstream.
+Depois de adquirir o token, use-o como um token de portador para chamar a API downstream.
 
 ```CSharp
 private async Task GetTodoList(bool isAppStarting)
@@ -58,7 +58,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Mover para produção](scenario-web-api-call-api-production.md)

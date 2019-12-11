@@ -1,18 +1,18 @@
 ---
 title: Como provisionar dispositivos para multilocação no serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como provisionar dispositivos para multilocação com sua instância do serviço de provisionamento de dispositivos
+description: Como provisionar dispositivos para multilocação com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228795"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974977"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -146,7 +146,7 @@ Para facilitar a limpeza, essas VMs serão adicionadas ao mesmo grupo de recurso
     --authentication-type password
     ```
 
-    Este comando levará alguns minutos para ser concluído. Depois que o comando for concluído, anote o valor **publicIpAddress** para a VM da região leste dos EUA.
+    Este comando vai demorar alguns minutos a ser executado. Depois que o comando for concluído, anote o valor **publicIpAddress** para a VM da região leste dos EUA.
 
 1. No Azure Cloud Shell, execute o comando para criar uma VM da região **oeste dos EUA** depois de fazer as seguintes alterações de parâmetro no comando:
 
@@ -167,7 +167,7 @@ Para facilitar a limpeza, essas VMs serão adicionadas ao mesmo grupo de recurso
     --authentication-type password
     ```
 
-    Este comando levará alguns minutos para ser concluído. Após a conclusão do comando, anote o valor **publicIpAddress** da VM da região oeste dos EUA.
+    Este comando vai demorar alguns minutos a ser executado. Após a conclusão do comando, anote o valor **publicIpAddress** da VM da região oeste dos EUA.
 
 1. Abra dois shells de linha de comando. Conecte-se a uma das VMs regionais em cada shell usando SSH. 
 

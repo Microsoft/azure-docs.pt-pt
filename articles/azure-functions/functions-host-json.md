@@ -3,23 +3,23 @@ title: referência de host. JSON para Azure Functions 2. x
 description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323085"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975453"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>referência de host. JSON para Azure Functions 2. x  
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência de host. JSON para Azure Functions 2. x e posterior 
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis para o tempo de execução v2.  
+O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis a partir da versão 2. x do tempo de execução de Azure Functions.  
 
 > [!NOTE]
-> Este artigo é para o Azure Functions 2. x.  Para obter uma referência de host. JSON nas funções 1. x, consulte [referência de host. JSON para Azure Functions 1. x](functions-host-json-v1.md).
+> Este artigo é para o Azure Functions 2. x e versões posteriores.  Para obter uma referência de Host. JSON nas funções 1.x, consulte [referência de Host. JSON para as funções do Azure 1.x](functions-host-json-v1.md).
 
 Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md).
 
@@ -187,13 +187,13 @@ Definições de configuração do [Monitor de integridade do host](https://githu
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração de `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
-|comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
+|comlimite|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
 ## <a name="http"></a>http
 
 As definições de configuração podem ser encontradas em [gatilhos e associações http](functions-bindings-http-webhook.md#hostjson-settings).
 
-## <a name="logging"></a>logout
+## <a name="logging"></a>registo
 
 Controla os comportamentos de log do aplicativo de funções, incluindo Application Insights.
 
@@ -216,8 +216,8 @@ Controla os comportamentos de log do aplicativo de funções, incluindo Applicat
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define o nível de registro em log de arquivo habilitado.  As opções são `never`, `always``debugOnly`. |
-|logLevel|n/d|Objeto que define a filtragem de categoria de log para funções no aplicativo. A versão 2. x segue o layout de ASP.NET Core para filtragem de categorias de log. Isso permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [filtragem de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|consola|n/d| A configuração de log do [console](#console) . |
+|logLevel|n/d|Objeto que define a filtragem de categoria de log para funções no aplicativo. As versões 2. x e posteriores seguem o layout de ASP.NET Core para filtragem de categorias de log. Isso permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [filtragem de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|consola|n/d| O [console](#console) definição de registo. |
 |applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>consola

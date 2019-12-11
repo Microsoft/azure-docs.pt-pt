@@ -8,18 +8,23 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: bf4acf70b2937b3cb6b2552bf2d2ef9c2422743a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892724"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978309"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
 Quando você chama a API **obter índice de vídeo** e o status da resposta é ok, você obtém uma saída JSON detalhada como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações de vídeo especificadas. As informações incluem dimensões como: transcrições, OCRs, rostos, tópicos, blocos, etc. As dimensões têm instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
+
+1. Para recuperar o arquivo JSON, chame [obter API de índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. Se você também estiver interessado em artefatos específicos, chame [obter a API da URL de download do artefato de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+    Na chamada à API, especifique o tipo de artefato solicitado (OCR, rostos, quadros-chave, etc.)
 
 Você também pode examinar visualmente as informações resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . Para obter mais informações, consulte [Exibir e editar informações de vídeo](video-indexer-view-edit.md).
 

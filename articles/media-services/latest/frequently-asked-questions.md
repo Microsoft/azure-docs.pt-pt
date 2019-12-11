@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338823"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977731"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
 
@@ -30,27 +30,27 @@ Consulte [RBAC (controle de acesso baseado em função) para contas de serviços
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Como fazer configurar unidades reservadas de mídia?
 
-Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
+Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
 
 Para obter detalhes, consulte [escala de processamento de mídia com a CLI](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual é o método recomendado para processar vídeos?
 
-Use [](https://docs.microsoft.com/rest/api/media/transforms) transformações para configurar tarefas comuns para codificação ou análise de vídeos. Cada **transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar seus arquivos de vídeo ou áudio. Um [trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real aos serviços de mídia para aplicar a **transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Depois que a transformação tiver sido criada, você poderá enviar trabalhos usando as APIs dos serviços de mídia ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
+Use [transformações](https://docs.microsoft.com/rest/api/media/transforms) para configurar tarefas comuns para codificação ou análise de vídeos. Cada **transformação** descreve uma receita ou um fluxo de trabalho de tarefas para processar seus arquivos de vídeo ou áudio. Um [trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real aos serviços de mídia para aplicar a **transformação** a um determinado conteúdo de áudio ou vídeo de entrada. Depois que a transformação tiver sido criada, você poderá enviar trabalhos usando as APIs dos serviços de mídia ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
 
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
-Ao usar a paginação, você sempre deve usar o link seguinte para enumerar a coleção e não depender de um tamanho de página específico. Para obter detalhes e exemplos, consulte [filtragem, ordenação,](entities-overview.md)paginação.
+Ao usar a paginação, você sempre deve usar o link seguinte para enumerar a coleção e não depender de um tamanho de página específico. Para obter detalhes e exemplos, consulte [filtragem, ordenação, paginação](entities-overview.md).
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis nos serviços de mídia do Azure v3?
 
-Para obter detalhes, confira lacunas de [recursos em relação às APIs v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para obter detalhes, confira [lacunas de recursos em relação às APIs v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de mover uma conta de serviços de mídia entre assinaturas?  
 
 Para obter detalhes, consulte [movendo uma conta dos serviços de mídia entre assinaturas](media-services-account-concept.md).
 
-## <a name="live-streaming"></a>Transmissão em fluxo em direto 
+## <a name="live-streaming"></a>Transmissão em direto 
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Como inserir quebras/vídeos e slates de imagem durante a transmissão ao vivo?
 
@@ -90,10 +90,10 @@ No STS, dependendo do perfil do usuário, adicione declarações diferentes (com
 
 Use as APIs dos serviços de mídia do Azure para configurar a entrega de licença/chave e criptografar seus ativos (conforme mostrado neste [exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 - [Descrição geral da proteção de conteúdo](content-protection-overview.md)
-- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso)
+- [Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
 
 ### <a name="http-or-https"></a>HTTP ou HTTPS?
 A aplicação de leitor de ASP.NET MVC tem de suportar o seguinte:
@@ -118,6 +118,9 @@ Muitas vezes, os clientes investiram num farm de servidores de licença em seu p
 
 * STS deve emitir tokens que são aceitáveis e podem ser verificados pelo farm de servidores de licença. Por exemplo, os servidores de licença do Widevine fornecidos pelo Axinom requerem um JWT específico que contém uma mensagem de elegibilidade. Por conseguinte, tem de ter um STS para emitir um JWT desse tipo. 
 * Já não terá de configurar o serviço de entrega de licença nos serviços de multimédia. Tem de fornecer a licença de aquisição URLs (para o PlayReady, Widevine e FairPlay) ao configurar ContentKeyPolicies.
+
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-v2-vs-v3"></a>Serviços de mídia V2 vs v3 
 

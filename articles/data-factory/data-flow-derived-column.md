@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972256"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação coluna derivada no fluxo de dados de mapeamento
 
@@ -27,6 +27,16 @@ Para substituir uma coluna existente, selecione-a por meio da lista suspensa col
 Para adicionar mais colunas derivadas, passe o mouse sobre uma coluna derivada existente e clique no ícone de adição. Escolha o padrão **adicionar coluna** ou **adicionar coluna**. Padrões de coluna poderão ser úteis se os nomes de coluna forem variáveis de suas fontes. Para obter mais informações, consulte [padrões de coluna](concepts-data-flow-column-pattern.md).
 
 ![Nova seleção de coluna derivada](media/data-flow/columnpattern.png "Nova seleção de coluna derivada")
+
+## <a name="build-schemas-in-output-schema-pane"></a>Criar esquemas no painel de esquema de saída
+
+As colunas que você está modificando e adicionando ao seu esquema são listadas no painel esquema de saída,. Você pode criar interativamente estruturas de dados simples e complexas aqui. Para adicionar outros campos, selecione **adicionar coluna**. Para criar hierarquias, selecione **Adicionar subcoluna**.
+
+![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
+
+Para obter mais informações sobre como lidar com tipos complexos no fluxo de dados, consulte [manipulação de JSON no fluxo de dados de mapeamento](concepts-data-flow-json.md)
+
+![Adicionar coluna complexa](media/data-flow/complexcolumn.png "Adicionar colunas")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

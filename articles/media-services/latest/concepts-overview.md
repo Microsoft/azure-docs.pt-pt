@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910300"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970041"
 ---
 # <a name="media-services-concepts"></a>Conceitos dos serviços de mídia
 
@@ -32,7 +32,7 @@ Os conceitos fundamentais descritos nestes tópicos devem ser revisados antes de
 
 Esta seção mostra como alguns termos comuns do setor são mapeados para a API dos serviços de mídia v3.
 
-### <a name="live-event"></a>Evento Live
+### <a name="live-event"></a>Evento em Direto
 
 Um **evento ao vivo** representa um pipeline para ingestão, transcodificação (opcionalmente) e empacotamento de fluxos ao vivo de vídeo, áudio e metadados em tempo real.
 
@@ -51,7 +51,7 @@ Para começar a gerenciar, criptografar, codificar, analisar e transmitir conte�
 - [Carregamento e armazenamento na cloud](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
-## <a name="encoding"></a>Codificação
+## <a name="encoding"></a>Encoding
 
 Depois de carregar seus arquivos de mídia digital de alta qualidade em ativos, você pode codificá-los em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. 
 
@@ -93,15 +93,18 @@ Você pode usar **manifestos dinâmicos** dos serviços de mídia para transmiti
 ![Filtragem de representação](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Empacotamento dinâmico](dynamic-packaging-overview.md)
-- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
+- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos finais de transmissão em fluxo)
 - [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
 - [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-- [Content Key Policies](content-key-policy-concept.md) (Políticas de Chaves de Conteúdos)
+- [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
 - [Proteção de conteúdo](content-protection-overview.md)
 - [Dynamic manifests](filters-dynamic-manifest-overview.md) (Manifestos dinâmicos)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Transmissão em fluxo em direto
+> [!NOTE]
+> O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
+## <a name="live-streaming"></a>Transmissão em direto
 
 Os serviços de mídia do Azure permitem que você forneça eventos ao vivo para seus clientes na nuvem do Azure. Os **Eventos em Direto** são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando você cria um **evento ao vivo**, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. Depois que o fluxo fluir para o **evento ao vivo**, você poderá iniciar o evento de streaming criando um **ativo**, uma **saída ao vivo**e um **localizador de streaming**. A **saída ao vivo** arquivará o fluxo no **ativo** e o tornará disponível para os visualizadores por meio do ponto de **extremidade de streaming**. Um **evento ao vivo** pode ser um dos dois tipos: **codificação ativa**e de **passagem** .
 
@@ -121,7 +124,7 @@ Para ver o progresso do trabalho, você deve usar a **grade de eventos**. Os ser
 - [Manipulando eventos de grade de eventos](reacting-to-media-services-events.md)
 - [Esquemas](media-services-event-schemas.md)
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Monitor do Azure
 
 Monitore métricas e logs de diagnóstico que ajudam você a entender como seus aplicativos estão sendo executados com o Azure Monitor.
 
@@ -138,7 +141,7 @@ Você pode usar Player de Mídia do Azure para reproduzir conteúdo de mídia tr
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Codificar o arquivo remoto e o vídeo de fluxo – REST](stream-files-tutorial-with-rest.md)
 * [Codificar arquivo carregado e vídeo de fluxo-.NET](stream-files-tutorial-with-api.md)

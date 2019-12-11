@@ -3,17 +3,17 @@ title: Noções básicas sobre o controle de versão de modelo de dispositivo pa
 description: Iterar seus modelos de dispositivo criando novas versões e sem afetar seus dispositivos conectados ao vivo
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 666c3030d91fba3c3bdfe23f808c4e830dff6ec1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1f2ecb37ebe156b1eb092bda95f296c39c9e2baf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895595"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974969"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>Criar uma nova versão de modelo de dispositivo (recursos de visualização)
 

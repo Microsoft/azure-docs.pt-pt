@@ -1,5 +1,5 @@
 ---
-title: Banco de dados do Azure para PostgreSQL – opções de desempenho de Citus (hiperescala)
+title: Opções de desempenho – Citus (hiperescala) – banco de dados do Azure para PostgreSQL
 description: Opções para um grupo de servidores de hiperescala (Citus), incluindo computação de nó, armazenamento e regiões.
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 2b848827d3d2017e5e787989553c0bf1e26d48e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee3e661d6c01aa2e4f37ac9a70e00be5da5f794
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482633"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975640"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Banco de dados do Azure para PostgreSQL – opções de desempenho de Citus (hiperescala)
 
@@ -34,10 +34,10 @@ Os grupos de servidores de hiperescala (Citus) estão disponíveis nas seguintes
 
 * Américas
     * Centro-Canadá *
-    * EUA Leste
-    * EUA Leste 2
+    * Este dos E.U.A.
+    * Este dos E.U.A. 2
     * EUA Central norte *
-    * EUA Oeste 2
+    * E.U.A. Oeste 2
 * Pacífico Asiático:
     * Leste da Austrália *
     * Sudeste Asiático

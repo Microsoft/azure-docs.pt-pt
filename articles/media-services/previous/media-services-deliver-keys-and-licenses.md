@@ -1,6 +1,6 @@
 ---
-title: Utilizar serviços de multimédia do Azure para entregar licenças DRM ou chaves AES | Documentos da Microsoft
-description: Este artigo descreve como pode utilizar os serviços de multimédia do Azure para entregar licenças do PlayReady e/ou Widevine e as chaves AES mas que o restante (codificar, encriptar e transmitir) ao utilizar seus servidores no local.
+title: Usar os serviços de mídia do Azure para fornecer licenças DRM ou chaves AES | Microsoft Docs
+description: Este artigo descreve como você pode usar os serviços de mídia do Azure para fornecer licenças do PlayReady e/ou Widevine e chaves AES, mas fazer o restante (codificar, criptografar, transmitir) usando seus servidores locais.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 73a76162efaf7317c5e2f1668b76325da6f018ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a5213ea1b801b3ceeb3d9a698a20d479509811
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868137"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974534"
 ---
-# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilizar serviços de multimédia para entregar licenças DRM ou chaves AES 
+# <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os serviços de mídia para fornecer licenças DRM ou chaves AES 
 
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 >
 
-Serviços de multimédia do Azure permite-lhe ingerir, codificar, adicionar proteção de conteúdo e transmitir o seu conteúdo. Para obter mais informações, consulte [utilização PlayReady e/ou Widevine encriptação comum dinâmica](media-services-protect-with-playready-widevine.md). Alguns clientes querem utilizar os serviços de suporte de dados apenas para entregar licenças de e/ou as chaves e codificar, encriptar e transmitir através de seus servidores no local. Este artigo descreve como pode utilizar os serviços de multimédia para entregar licenças do PlayReady e/ou Widevine, mas faz o resto com os seus servidores no local. 
+Os serviços de mídia do Azure permitem ingerir, codificar, adicionar proteção de conteúdo e transmitir seu conteúdo. Para obter mais informações, consulte [usar a criptografia comum dinâmica do PlayReady e/ou do Widevine](media-services-protect-with-playready-widevine.md). Alguns clientes desejam usar os serviços de mídia apenas para entregar licenças e/ou chaves e codificar, criptografar e transmitir usando seus servidores locais. Este artigo descreve como você pode usar os serviços de mídia para fornecer licenças PlayReady e/ou Widevine, mas fazer o restante com seus servidores locais. 
 
-## <a name="overview"></a>Descrição geral
-Os Media Services fornecem um serviço para entrega de licenças de gestão (DRM) de direitos digitais do PlayReady e Widevine e chaves AES-128. Serviços de multimédia também fornecem APIs que permitem configurar os direitos e restrições que pretende para o runtime DRM a impor quando um utilizador reproduz conteúdo protegido por DRM. Quando um utilizador solicita o conteúdo protegido, a aplicação de leitor pede uma licença do serviço de licenciamento dos serviços de multimédia. Se está autorizada a licença, os serviços de suporte de dados de licença problemas do serviço de licença para o leitor. As licenças do PlayReady e Widevine contém a chave de desencriptação que pode ser utilizada pelo leitor de cliente para desencriptar e transmitir o conteúdo.
+## <a name="overview"></a>Visão geral
+Os serviços de mídia fornecem um serviço para fornecer licenças do PlayReady e Widevine Digital Rights Management (DRM) e chaves AES-128. Os serviços de mídia também fornecem APIs que permitem que você configure os direitos e restrições que você deseja que o tempo de execução do DRM aplique quando um usuário reproduzir o conteúdo protegido por DRM. Quando um usuário solicita o conteúdo protegido, o aplicativo de Player solicita uma licença do serviço de licença dos serviços de mídia. Se a licença for autorizada, o serviço de licença dos serviços de mídia emitirá a licença para o Player. As licenças PlayReady e Widevine contêm a chave de descriptografia que pode ser usada pelo Player do cliente para descriptografar e transmitir o conteúdo.
 
-Os Media Services suportam várias formas de autorização de utilizadores que efetuam a licença ou pedidos de chave. Configurar política de autorização da chave de conteúdo. A política pode ter um ou mais restrições. As opções são aberta ou token de restrição. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Serviços de multimédia suportam tokens no formato web simples token (SWT) e o formato JSON Web Token (JWT).
+Os serviços de mídia dão suporte a várias maneiras de autorizar usuários que fazem solicitações de licença ou chave. Você configura a política de autorização da chave de conteúdo. A política pode ter uma ou mais restrições. As opções são de restrição aberta ou de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os serviços de mídia dão suporte a tokens no formato Simple Web token (SWT) e no formato JSON Web token (JWT).
 
-O diagrama seguinte mostra os passos principais que precisa de efetuar para utilizar os serviços de multimédia para entregar licenças do PlayReady e/ou Widevine, mas o resto com os seus servidores no local:
+O diagrama a seguir mostra as principais etapas que você precisa tomar para usar os serviços de mídia para fornecer licenças PlayReady e/ou Widevine, mas fazer o restante com seus servidores locais:
 
 ![Proteger com PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>Transferir exemplo
-Para transferir o exemplo descrito neste artigo, consulte [utilizar serviços de multimédia do Azure para entregar licenças do PlayReady e/ou Widevine com o .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
+Para baixar o exemplo descrito neste artigo, consulte [usar os serviços de mídia do Azure para fornecer licenças PlayReady e/ou Widevine com o .net](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -52,8 +52,8 @@ Para transferir o exemplo descrito neste artigo, consulte [utilizar serviços de
     <add key="Audience" value="urn:test"/>
     ```
  
-## <a name="net-code-example"></a>Exemplo de código do .NET
-O exemplo de código seguinte mostra como criar uma chave de conteúdo comum e obter os URLs de aquisição de licença PlayReady ou Widevine. Para configurar seu servidor no local, precisa de uma chave de conteúdo, a chave de ID e o URL de aquisição de licença. Depois de configurar seu servidor no local, pode transmitir em fluxo do seu próprio servidor de transmissão em fluxo. Uma vez que os pontos de stream encriptado para dos serviços de multimédia para licenciar server, o seu leitor pede uma licença dos serviços de multimédia. Se escolher a autenticação de token, o servidor de licenças de serviços de multimédia valida o token enviado através de HTTPS. Se o token for válido, o servidor de licenças fornece a licença de volta ao seu player. Apenas o seguinte exemplo de código mostra como criar uma chave de conteúdo comum e obter os URLs de aquisição de licença PlayReady ou Widevine. Se quiser fornecer chaves AES-128, terá de criar uma chave de conteúdo do envelope e obter um URL de aquisição de chave. Para obter mais informações, consulte [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md).
+## <a name="net-code-example"></a>Exemplo de código .NET
+O exemplo de código a seguir mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença do PlayReady ou Widevine. Para configurar seu servidor local, você precisa de uma chave de conteúdo, a ID de chave e a URL de aquisição de licença. Depois de configurar o servidor local, você pode transmitir de seu próprio servidor de streaming. Como o fluxo criptografado aponta para um servidor de licença dos serviços de mídia, seu Player solicita uma licença dos serviços de mídia. Se você escolher autenticação de token, o servidor de licença dos serviços de mídia validará o token enviado por meio de HTTPS. Se o token for válido, o servidor de licença entregará a licença de volta ao seu player. O exemplo de código a seguir mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença do PlayReady ou Widevine. Se você quiser fornecer chaves AES-128, precisará criar uma chave de conteúdo de envelope e obter uma URL de aquisição de chave. Para obter mais informações, consulte [usar o serviço de distribuição de chaves e criptografia dinâmica AES-128](media-services-protect-with-aes128.md).
 
 ```csharp
 using System;
@@ -344,12 +344,16 @@ namespace DeliverDRMLicenses
 }
 ```
 
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md) (Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

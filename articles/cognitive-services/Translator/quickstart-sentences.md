@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter comprimentos de sentença-API de Tradução de Texto'
+title: 'Início rápido: obter comprimentos de sentença-API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a determinar o tamanho da frase usando o API de Tradução de Texto.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: fc2d75c47cb9a1f4011e6147f46ec2df31216482
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 505e16711281ba12c9c134799e7fb00db995f9fa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827445"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975725"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Início rápido: Usar o API de Tradução de Texto para determinar o comprimento da sentença
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Início rápido: usar a API de Tradução de Texto para determinar o comprimento da sentença
 
 Neste guia de início rápido, você aprenderá a determinar o comprimento das frases usando o API de Tradução de Texto.
 
@@ -54,7 +54,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 
 ::: zone-end
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

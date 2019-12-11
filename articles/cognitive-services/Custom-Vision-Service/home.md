@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 829921ae5600873fdc8f2946ae3ff355bffb06a8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177814"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978599"
 ---
 # <a name="what-is-custom-vision"></a>O que é a Visão Personalizada?
 

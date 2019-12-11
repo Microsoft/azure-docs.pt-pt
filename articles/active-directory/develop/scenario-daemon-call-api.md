@@ -1,6 +1,6 @@
 ---
-title: Aplicativo de daemon chamando APIs Web (chamando APIs Web)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo daemon que chama APIs da Web (chamando APIs Web)
+title: Chamar uma API da Web de um aplicativo daemon-plataforma Microsoft Identity | Azure
+description: Saiba como criar um aplicativo daemon que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af0bb023136ba07057e4078d5abfcb4a3194a56
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175374"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962615"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Aplicativo daemon que chama APIs Web – chama uma API Web do aplicativo
 
@@ -29,7 +29,7 @@ Um aplicativo de daemon pode chamar uma API da Web de um aplicativo de daemon do
 
 ## <a name="calling-a-web-api-daemon-application"></a>Chamando um aplicativo Web API daemon
 
-Veja como usar o token para chamar uma API
+Aqui está como usar o token para chamar uma API:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

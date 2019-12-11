@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML | Azure
+title: Plataforma de identidade da Microsoft & fluxo de declaração de portador SAML | Azure
 description: Saiba como buscar dados de Microsoft Graph sem solicitar credenciais ao usuário usando o fluxo de declaração de portador SAML.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b316568ba555de764c1aaa4ddf0e72d25cf24f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990952"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964624"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML 2,0 do OAuth
 O fluxo de asserção do portador SAML 2,0 do OAuth permite solicitar um token de acesso OAuth usando uma Asserção SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma Asserção SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende de seu conteúdo para identificar o assunto da declaração para fins relacionados à segurança.
@@ -80,7 +80,7 @@ Nesta etapa, busque um token OAuth2 usando a resposta de asserção do ADFS.
 1. Crie uma solicitação POST, conforme mostrado abaixo, com os valores de cabeçalho:
 
     ![Solicitação POST](./media/v2-saml-bearer-assertion/5.png)
-1. No corpo da solicitação, substitua **client_id**, **client_secret**e **Assertion** (a declaração SAML codificada em base64 obteve a etapa anterior):
+1. No corpo da solicitação, substitua **client_id**, **client_secret**e **asserção** (a declaração SAML codificada em base64 obteve a etapa anterior):
 
     ![Corpo do pedido](./media/v2-saml-bearer-assertion/6.png)
 1. Após a solicitação bem-sucedida, você receberá um token de acesso do Azure Active Directory.

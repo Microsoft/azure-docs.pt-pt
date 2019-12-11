@@ -3,17 +3,17 @@ title: Gerenciar os dispositivos em seu aplicativo de IoT Central do Azure | Mic
 description: Como um operador, saiba como gerenciar dispositivos em seu aplicativo de IoT Central do Azure.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/17/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 07afe441b9463cace9076a07d89e762586730e1b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bab5411b63cb71c47656696bd8049855ca797a57
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894776"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974109"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>Gerenciar dispositivos em seu aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -71,7 +71,7 @@ Para registrar dispositivos em massa em seu aplicativo:
     > [!NOTE]
     > Se você ainda não tiver um modelo de dispositivo, poderá importar dispositivos em **todos os dispositivos** e registrá-los sem um modelo. Depois que os dispositivos tiverem sido importados, você poderá migrá-los para um modelo.
 
-1. Selecione **importar**.
+1. Selecione **Import** (Importar).
 
     ![Importar ação](./media/howto-manage-devices/bulkimport1a.png)
 
@@ -147,7 +147,7 @@ Para exportar em massa dispositivos do seu aplicativo:
 
 Para obter mais informações sobre cadeias de conexão e conectar dispositivos reais ao seu aplicativo IoT Central, consulte [conectividade de dispositivo no IOT central do Azure](overview-iot-central-get-connected.md).
 
-## <a name="delete-a-device"></a>Excluir um dispositivo
+## <a name="delete-a-device"></a>Eliminar um dispositivo
 
 Para excluir um dispositivo real ou simulado do seu aplicativo de IoT Central do Azure:
 
@@ -157,7 +157,7 @@ Para excluir um dispositivo real ou simulado do seu aplicativo de IoT Central do
 
 1. Use as ferramentas de filtro para filtrar e pesquisar seus dispositivos. Marque a caixa ao lado dos dispositivos a serem excluídos.
 
-1. Escolha **excluir**. Você pode acompanhar o status dessa exclusão no painel de operações do dispositivo.
+1. Escolha **Eliminar**. Você pode acompanhar o status dessa exclusão no painel de operações do dispositivo.
 
 ## <a name="change-a-property"></a>Alterar uma propriedade
 

@@ -2,13 +2,13 @@
 title: Funções de modelo – recursos
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150678"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978854"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -36,7 +36,7 @@ Retorna a ID de recurso para um [recurso de extensão](extension-resource-types.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceId |Sim |string |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
@@ -116,7 +116,7 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
 | apiVersion |Sim |string |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **dd-mm-aaaa**. |
@@ -187,8 +187,8 @@ Os usos possíveis da lista * são mostrados na tabela a seguir.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | ListKeys |
-| Microsoft.MachineLearningServices/workspaces | ListKeys |
+| Microsoft.MachineLearningServices/workspaces/computes | listKeys |
+| Microsoft.MachineLearningServices/workspaces | listKeys |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -349,7 +349,7 @@ Devolve informações sobre um fornecedor de recursos e os tipos de recursos sup
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sim |string |Espaço de nomes do fornecedor |
 | resourceType |Não |string |O tipo de recurso dentro do espaço de nomes especificado. |
@@ -426,7 +426,7 @@ Devolve um objeto que representa o estado de runtime de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Nome ou o identificador exclusivo de um recurso. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência a um recurso implantado anteriormente, forneça a ID do recurso. |
 | apiVersion |Não |string |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado no mesmo modelo. Normalmente, no formato, **dd-mm-aaaa**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
@@ -672,21 +672,20 @@ A propriedade **ManagedBy** é retornada somente para grupos de recursos que con
 
 A função `resourceGroup()` não pode ser usada em um modelo [implantado no nível da assinatura](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos.
 
-Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
+Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo a seguir usa o local do grupo de recursos para um valor de parâmetro padrão.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 Você também pode usar a função resourcegroup para aplicar marcas do grupo de recursos a um recurso. Para obter mais informações, consulte [aplicar marcas do grupo de recursos](resource-group-using-tags.md#apply-tags-from-resource-group).
+
+Ao usar modelos aninhados para implantar em vários grupos de recursos, você pode especificar o escopo para avaliar a função resourcegroup. Para obter mais informações, consulte [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="resource-group-example"></a>Exemplo de grupo de recursos
 
@@ -730,7 +729,7 @@ Devolve o identificador exclusivo de um recurso. Utilize esta função quando o 
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |a cadeia de caracteres (formato de GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
 | resourceGroupName |Não |string |Valor predefinido é o grupo de recursos atual. Especifica este valor quando precisar de recuperar um recurso noutro grupo de recursos. |
@@ -866,10 +865,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subscrição
 
@@ -891,6 +890,10 @@ A função devolve o seguinte formato:
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### <a name="remarks"></a>Observações
+
+Ao usar modelos aninhados para implantar em várias assinaturas, você pode especificar o escopo para avaliar a função de assinatura. Para obter mais informações, consulte [implantar recursos do Azure em mais de uma assinatura ou grupo de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="subscription-example"></a>Exemplo de assinatura
 
@@ -920,7 +923,7 @@ Retorna o identificador exclusivo de um recurso implantado no nível da assinatu
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |Cadeia de caracteres (no formato GUID) |Valor predefinido é a subscrição atual. Especifica este valor quando precisar de recuperar um recurso noutra subscrição. |
 | resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
@@ -1004,7 +1007,7 @@ Retorna o identificador exclusivo de um recurso implantado no nível do locatár
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
 | resourceName1 |Sim |string |Nome do recurso. |

@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406443"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978378"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados
 
 ## <a name="web-service-input-and-response-data"></a>Dados de entrada e resposta do serviço Web
 
-A entrada e a resposta para o serviço, que corresponde às entradas para o modelo ML e sua previsão, são registradas nos rastreamentos do Aplicativo Azure insights sob a mensagem `"model_data_collection"`. Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no serviço do Azure ML para configurar o rotulamento, o retreinamento, a explicação, a análise de dados ou outro uso. 
+A entrada e a resposta para o serviço, que corresponde às entradas para o modelo ML e sua previsão, são registradas nos rastreamentos do Aplicativo Azure insights sob a mensagem `"model_data_collection"`. Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no Azure Machine Learning para configurar o rotulamento, o retreinamento, a explicação, a análise de dados ou outro uso. 
 
 ## <a name="use-the-azure-portal-to-configure"></a>Usar o portal do Azure para configurar
 
@@ -49,15 +49,15 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 
 1. Na guia **implantações** , selecione o serviço no qual você deseja habilitar o aplicativo Azure insights
 
-   [![lista de serviços na guia implantações](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![Lista de serviços no separador de implementações](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Selecione **Editar**
 
-   [botão Editar ![](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. Em **Configurações avançadas**, marque a caixa de seleção **habilitar diagnóstico de AppInsights**
 
-   [![caixa de seleção selecionada para habilitar o diagnóstico](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Caixa de verificação selecionada para ativar os diagnósticos](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações
 
@@ -66,11 +66,11 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 1. No [portal do Azure](https://portal.azure.com), abra seu espaço de trabalho
 1. Selecione **implantações**, selecione o serviço e, em seguida, selecione **Editar**
 
-   [![usar o botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Utilize o botão de edição](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Em **Configurações avançadas**, desmarque a caixa de seleção **habilitar diagnóstico de AppInsights**
 
-   [![caixa de seleção desmarcada para habilitar o diagnóstico](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Caixa de verificação desmarcada para ativar os diagnósticos](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Selecione **Atualizar** na parte inferior da tela para aplicar as alterações
  
@@ -92,7 +92,7 @@ Você pode habilitar e desabilitar informações de Aplicativo Azure no portal d
 
 ### <a name="log-custom-traces-in-your-service"></a>Rastreios personalizados no seu serviço
 
-Se você quiser registrar em log os rastreamentos personalizados, siga o processo de implantação padrão para AKS ou ACI no documento [como implantar e onde](how-to-deploy-and-where.md) . Em seguida, utilize os seguintes passos:
+Se quiser personalizados rastreios de registo, siga o processo de implementação padrão para o AKS ou ACI no [como implementar e, em que](how-to-deploy-and-where.md) documento. Em seguida, utilize os seguintes passos:
 
 1. Atualizar o arquivo de Pontuação adicionando instruções PRINT
     
@@ -121,13 +121,13 @@ Para desabilitar o Aplicativo Azure insights, use o seguinte código:
 Os dados do serviço são armazenados em sua conta do Aplicativo Azure insights, dentro do mesmo grupo de recursos que Azure Machine Learning.
 Para vê-la:
 
-1. Vá para o espaço de trabalho do serviço Machine Learning no [Azure Machine Learning Studio](https://ml.azure.com) e clique no link Application insights
+1. Vá para o espaço de trabalho Azure Machine Learning no [Azure Machine Learning Studio](https://ml.azure.com) e clique no link Application insights
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
 1. Selecione a guia **visão geral** para ver um conjunto básico de métricas para seu serviço
 
-   [Visão geral de ![](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Descrição geral](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. Para examinar suas cargas de entrada e resposta do serviço Web, selecione **análise**
 1. Na seção esquema, selecione **rastreamentos** e filtrar rastreamentos com a mensagem `"model_data_collection"`. Nas dimensões personalizadas, você pode ver as entradas, previsões e outros detalhes relevantes
@@ -136,9 +136,9 @@ Para vê-la:
 
 
 3. Para examinar seus rastreamentos personalizados, selecione **análise**
-4. Na seção esquema, selecione **rastreamentos**. Em seguida, selecione **executar** para executar a consulta. Os dados devem aparecer em um formato de tabela e devem ser mapeados para suas chamadas personalizadas em seu arquivo de Pontuação
+4. Na secção de esquema, selecione **rastreios**. Em seguida, selecione **executar** para executar a consulta. Os dados devem aparecer em um formato de tabela e devem ser mapeados para suas chamadas personalizadas em seu arquivo de Pontuação
 
-   [![rastreamentos personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Rastreios personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para saber mais sobre como usar o Aplicativo Azure insights, confira [o que é Application insights?](../../azure-monitor/app/app-insights-overview.md).
 

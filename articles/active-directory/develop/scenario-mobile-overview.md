@@ -1,5 +1,5 @@
 ---
-title: Aplicativo móvel que chama APIs Web-visão geral
+title: Compilar um aplicativo móvel que chama APIs da Web | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (visão geral)
 services: active-directory
@@ -17,16 +17,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803758"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965471"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: aplicativo móvel que chama APIs da Web
 
-Saiba tudo o que você precisa saber para criar um aplicativo móvel que chama APIs da Web.
+Saiba como criar um aplicativo móvel que chama APIs da Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ Saiba tudo o que você precisa saber para criar um aplicativo móvel que chama A
 
 ## <a name="getting-started"></a>Introdução
 
-Crie seu primeiro aplicativo móvel e experimente um início rápido!
+Crie seu primeiro aplicativo móvel e experimente um início rápido.
 
 > [!div class="nextstepaction"]
 > [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)

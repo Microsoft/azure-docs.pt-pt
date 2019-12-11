@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 350bc95e08aa994e4cb70db6bf1f08d53bbec5a3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177295"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977306"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: gerar uma miniatura usando a API REST Pesquisa Visual Computacional e a ondulação
 
@@ -54,7 +54,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Faça as alterações seguintes ao comando, se for necessário:
     1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
     1. Substitua o valor de `<thumbnailFile>` pelo nome do ficheiro e o caminho no qual pretende guardar a miniatura.
-    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua própria URL de ponto de extremidade.
+    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua URL de ponto de extremidade.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere o URL da imagem no corpo do pedido (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) pelo URL de uma imagem diferente a partir da qual pretende gerar uma miniatura.
 1. Abra uma janela da linha de comandos.

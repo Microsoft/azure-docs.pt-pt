@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420080"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973565"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -95,7 +95,7 @@ A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais i
 Você pode usar seus modelos em **Serviços Web** com os seguintes destinos de computação:
 
 * Instância de Contentor do Azure
-* Azure Kubernetes Service
+* Serviço Kubernetes do Azure
 * Ambiente de desenvolvimento local
 
 Para implantar o modelo como um serviço Web, você deve fornecer os seguintes itens:
@@ -116,10 +116,9 @@ Para obter mais informações, consulte [implantar modelos](how-to-deploy-and-wh
 
 O Microsoft Power BI dá suporte ao uso de modelos de aprendizado de máquina para análise de dados. Para obter mais informações, consulte [integração de Azure Machine Learning no Power bi (versão prévia)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Capturar os dados de governança necessários para capturar o ciclo de vida de ML de ponta a ponta
 
-O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Mais concretamente:
+O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a ponta de todos os seus ativos de ML. Especificamente:
 
 - O Azure ML [integra-se com o Git](how-to-set-up-training-targets.md#gitintegration) para rastrear informações sobre a qual repositório/Branch/confirmação seu código veio.
 - Os conjuntos de dados [do Azure ml](how-to-create-register-datasets.md) ajudam a acompanhar, criar o perfil e a versão. 
@@ -129,6 +128,7 @@ O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a p
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificar, automatizar e alertar sobre eventos no ciclo de vida am
 O Azure ML publica eventos-chave no Azure EventGrid, que pode ser usado para notificar e automatizar eventos no ciclo de vida do ML. Para obter mais informações, consulte [este documento](how-to-use-event-grid.md).
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>Monitorar problemas operacionais de & ML
 
 O monitoramento permite que você entenda quais dados estão sendo enviados para seu modelo e as previsões que ele retorna.
@@ -136,7 +136,6 @@ O monitoramento permite que você entenda quais dados estão sendo enviados para
 Essas informações ajudam a entender como seu modelo está sendo usado. Os dados de entrada coletados também podem ser úteis para treinar versões futuras do modelo.
 
 Para obter mais informações, consulte [como habilitar a coleta de dados de modelo](how-to-enable-data-collection.md).
-
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatizar o ciclo de vida do ML 
 

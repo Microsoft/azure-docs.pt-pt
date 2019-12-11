@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226686"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974245"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
@@ -50,7 +50,7 @@ PSFunctionApp
 
 Na raiz do projeto, há um arquivo de [`host.json`](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem uma pasta com seu próprio arquivo de código (. ps1) e arquivo de configuração de associação (`function.json`). O nome do diretório pai do arquivo function. JSON é sempre o nome da sua função.
 
-Determinadas associações exigem a presença de um arquivo de `extensions.csproj`. As extensões de associação, necessárias na [versão 2. x](functions-versions.md) do tempo de execução do functions, são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+Determinadas associações exigem a presença de um arquivo de `extensions.csproj`. As extensões de associação, necessárias na [versão 2. x e versões posteriores](functions-versions.md) do tempo de execução do functions, são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deve [registrar extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 Em aplicativos de funções do PowerShell, você pode, opcionalmente, ter um `profile.ps1` que é executado quando um aplicativo de funções começa a ser executado (caso contrário, é conhecido como um *[início frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
@@ -125,11 +125,11 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding`:
 
-| Nome | Tipo | propostas | Descrição |
+| Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da Associação de saída que você deseja definir. |
+| **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Object | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
-| **`-Clobber`** | SwitchParameter | Nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
+| **`-Clobber`** | ParâmetroOpcional | Nomeado | Adicional Quando especificado, força o valor a ser definido para uma associação de saída especificada. | 
 
 Os seguintes parâmetros comuns também têm suporte: 
 * `Verbose`
@@ -234,8 +234,8 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 | ------------- | -------------- |
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
-| Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Grava no log do nível de _informações_ . |
-| depurar | **`Write-Debug`** |
+| Proteção das | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Proteção das | Grava no log do nível de _informações_ . |
+| Depurar | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Além desses cmdlets, qualquer coisa gravada no pipeline é redirecionada para o nível de log `Information` e exibido com a formatação padrão do PowerShell.
@@ -274,7 +274,7 @@ Há vários gatilhos e associações disponíveis para você usar com seu aplica
 
 Todos os gatilhos e associações são representados no código como alguns tipos de dados reais:
 
-* Tabela
+* Hashtable
 * string
 * byte[]
 * int
@@ -296,7 +296,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 | Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | object |
+| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | < De cadeia de caracteres, Cadeia de caracteres > de dicionário<sup>*</sup> |
@@ -311,7 +311,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 
 | Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | Cadeia de caracteres ou int             |
@@ -599,7 +599,7 @@ Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-
 
 O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes da publicação para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

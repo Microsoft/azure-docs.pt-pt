@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821270"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973531"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos vCore e compra de DTU
 
@@ -129,7 +129,7 @@ Se você quiser migrar uma carga de trabalho de máquina virtual local ou SQL Se
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que se beneficiam de um pool elástico de recursos
 
-Os pools são adequados para bancos de dados com uma média de baixa utilização de recursos e picos de utilização relativamente pouco frequentes. O banco de dados SQL avalia automaticamente o uso histórico de recursos dos bancos de dados em um servidor de banco de dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Para obter mais informações, consulte [quando você deve considerar um pool elástico do banco de dados SQL?](sql-database-elastic-pool.md).
+Os pools são adequados para bancos de dados com uma média de baixa utilização de recursos e picos de utilização relativamente pouco frequentes. Para obter mais informações, consulte [quando você deve considerar um pool elástico do banco de dados SQL?](sql-database-elastic-pool.md).
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 

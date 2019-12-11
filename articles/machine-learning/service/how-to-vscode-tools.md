@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824359"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975997"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introdução ao Azure Machine Learning para Visual Studio Code
 
@@ -94,8 +94,8 @@ Para modificar seu projeto para que o Azure possa se tornar ciente de informaç�
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ Para modificar seu projeto para que o Azure possa se tornar ciente de informaç�
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -137,14 +137,14 @@ Para modificar seu projeto para que o Azure possa se tornar ciente de informaç�
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Executar o script no Azure
-Já está! Agora, basta usar a extensão para executar o script na nuvem! Observe que o vídeo explicativo a seguir usa a liberdade de compactar a quantidade de tempo que leva para criar um novo espaço de trabalho e computação do Azure ML, bem como o tempo necessário para executar o script de treinamento.
+Já está! Agora, basta usar a extensão para executar o script na nuvem! Observe que o vídeo explicativo a seguir usa a liberdade de compactar a quantidade de tempo que leva para criar um novo Azure Machine Learning espaço de trabalho e computação, bem como o tempo necessário para executar o script de treinamento.
 
    [![iniciar um experimento do Azure ML](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 Depois de clicar no botão Executar experimento, responda aos prompts da seguinte maneira:
 
-1. Escolher a sua subscrição do Azure
-1. Escolha criar um *novo* espaço de trabalho do Azure ml
+1. Escolha a sua subscrição do Azure.
+1. Escolha criar um *novo* espaço de trabalho Azure Machine Learning.
 1. Escolha um conjunto de modelos pré-configurados para inicializar o ambiente do Python para as execuções. Os modelos fornecem um ponto de partida e incluem configurações para:
     1. **PyTorch**, **TensorFlow**ou **Scikit-Learn**
     1. Treinamento de computação **única** ou **distribuída**
@@ -155,7 +155,7 @@ Depois de clicar no botão Executar experimento, responda aos prompts da seguint
 
     [Treinamento de ![na nuvem](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-Em alguns segundos, você será notificado de que o experimento foi enviado ao Azure no momento em que você pode exibir seu progresso no Azure Machine Learning Studio clicando no link **Exibir execução de experimento** na notificação de vs Code ou dentro de vs Code por pressionando o botão atualizar na guia Azure.
+Em alguns segundos, você será notificado de que o experimento foi enviado para o Azure no momento em que você pode exibir seu progresso no Azure Machine Learning Studio clicando no link **Exibir execução de experimento** na notificação vs Code ou dentro vs Code pressionando o botão atualizar na guia Azure.
 
 No momento, só há suporte para a exibição de métricas de execução no estúdio. O link **Exibir teste de execução** mencionado acima levará você para a execução onde você verá as métricas que você registrou.
 [![execução do experimento no portal](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
@@ -166,7 +166,7 @@ No passo a passos acima, enviamos um experimento seguindo o caminho mais fácil.
 
 Antes de começar a treinar e implantar modelos de aprendizado de máquina no Visual Studio Code, você precisa criar um [espaço de trabalho Azure Machine Learning](concept-workspace.md) na nuvem. Este espaço de trabalho conterá seus modelos e recursos.
 
-### <a name="create-a-workspace"></a>Criar uma área de trabalho
+### <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 1. Na barra de atividade do Visual Studio Code, selecione o ícone do Azure. A barra lateral Azure Machine Learning é exibida.
 
@@ -195,7 +195,7 @@ Um ou mais experimentos podem ser criados em seu espaço de trabalho para rastre
     [![criar um experimento](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
 
 
-### <a name="create-and-manage-compute-targets"></a>Criar e gerenciar destinos de computação
+### <a name="create-and-manage-compute-targets"></a>Criar e gerir os destinos de computação
 
 Com Azure Machine Learning para Visual Studio Code, você pode preparar seus dados, treinar modelos e implantá-los localmente e em destinos de computação remota.
 
@@ -209,9 +209,9 @@ Para criar um destino de computação:
 
 1. No modo de exibição de árvore, expanda sua assinatura do Azure e Azure Machine Learning espaço de trabalho.
 
-1. No nó do espaço de trabalho, clique com o botão direito do mouse no nó de **computação** e escolha **criar computação**.
+1. Sob o nó de área de trabalho, clique com botão direito a **computação** nó e escolha **criar computação**.
 
-1. Escolha o tipo de destino de computação na lista.
+1. Escolha o tipo de destino de computação da lista.
 
 1. No prompt da paleta de comandos, selecione um tamanho de máquina virtual. Você pode filtrar as computações com texto, como "GPU".
 
@@ -235,7 +235,7 @@ Aqui está um exemplo de como criar uma configuração de execução para o AmlC
 
 Para executar experimentos do Azure ML no computador local, um arquivo de configuração de execução ainda é necessário. Ao criar uma configuração de execução local, o ambiente Python usado usará como padrão o caminho para o intérprete que você definiu dentro VS Code.
 
-### <a name="train-and-tune-models"></a>Treinar e ajustar modelos
+### <a name="train-and-tune-models"></a>Dar formação e otimizar modelos
 
 Usando a extensão do am do Azure para VS Code há várias maneiras de executar um script de treinamento em um experimento.
 
@@ -252,7 +252,7 @@ Para executar um experimento de Azure Machine Learning:
 
 1. No nó do espaço de trabalho, expanda o nó **experimentos** e clique com o botão direito do mouse no experimento que você deseja executar.
 
-1. Selecione **executar experimento**.
+1. Selecione **execute experimentação**.
 
 1. Escolha o nome do arquivo Python que você deseja executar para treinar o modelo e pressione ENTER para enviar a execução. Observação: o arquivo escolhido deve residir na pasta que você abriu no momento VS Code.
 
@@ -262,7 +262,7 @@ Aqui está um exemplo de como executar um experimento na computação criada ant
 
 [![executar um experimento localmente](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
 
-### <a name="deploy-and-manage-models"></a>Implantar e gerenciar modelos
+### <a name="deploy-and-manage-models"></a>Implementar e gerir modelos
 No Azure Machine Learning, você pode implantar e gerenciar seus modelos de aprendizado de máquina na nuvem e na borda.
 
 #### <a name="register-your-model-to-azure-machine-learning-from-visual-studio-code"></a>Registrar seu modelo para Azure Machine Learning de Visual Studio Code
@@ -275,13 +275,13 @@ Para registrar seu modelo:
 
 1. No modo de exibição de árvore, expanda sua assinatura do Azure e Azure Machine Learning espaço de trabalho.
 
-1. No nó do espaço de trabalho, clique com o botão direito do mouse em **modelos** e escolha **registrar modelo**.
+1. Sob o nó de área de trabalho, clique com botão direito **modelos** e escolha **modelo registar**.
 
 1. Na paleta de comandos, no campo, insira um nome de modelo.
 
 1. Na lista, escolha se deseja carregar um **arquivo de modelo** (para modelos únicos) ou uma **pasta de modelo** (para modelos com vários arquivos, como TensorFlow).
 
-1. Selecione sua pasta ou arquivo.
+1. Selecione o ficheiro ou pasta.
 
 1. Quando terminar de configurar as propriedades do modelo, no canto inferior direito da janela, selecione **Enviar**.
 
@@ -304,7 +304,7 @@ Para implantar um serviço Web:
 
 1. No modo de exibição de árvore, expanda sua assinatura do Azure e seu espaço de trabalho Azure Machine Learning.
 
-1. No nó do espaço de trabalho, expanda o nó **modelos** .
+1. Sob o nó de área de trabalho, expanda o **modelos** nó.
 
 1. Clique com o botão direito do mouse no modelo que você deseja implantar e escolha **implantar serviço do modelo registrado** no menu de contexto.
 
@@ -318,7 +318,7 @@ Para implantar um serviço Web:
 
 1. Quando terminar de configurar suas propriedades de serviço, no canto inferior direito da janela, selecione **Enviar** para implantar. No arquivo de propriedades do serviço, você pode especificar um arquivo do Docker local ou um arquivo Schema. JSON.
 
-O serviço Web agora está implantado.
+O serviço web agora é implementado.
 
 Veja um exemplo de como implantar um serviço Web:
 

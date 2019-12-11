@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 0026aa377a58f6b766a400860692a35440deb962
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748353"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972341"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas Azure Data Factory
 
@@ -43,9 +43,9 @@ Para problemas de conector, por exemplo, encontrar erro ao usar a atividade de c
 
 - **Recomendação**: especifique o caminho do bloco de anotações na atividade do databricks.
 
-<br/>    
-              
-- **Mensagem**: `Cluster   ... does not exist.`
+<br/>  
+
+- **Mensagem**: `Cluster... does not exist.`
 
 - **Causa**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -53,7 +53,7 @@ Para problemas de conector, por exemplo, encontrar erro ao usar a atividade de c
 
 <br/>  
 
-- **Mensagem**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **Mensagem**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **Causa**: `Bad authoring.`
 
@@ -334,56 +334,56 @@ A tabela a seguir se aplica ao U-SQL.
 
 ### <a name="error-code--4121"></a>Código de erro: 4121
 
-- **Mensagem**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Mensagem**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: a credencial usada para acessar o serviço do Azure ml expirou.
+- **Causa**: a credencial usada para acessar Azure Machine Learning expirou.
 
 - **Recomendação**: Verifique se a credencial é válida e tente novamente
 
 
 ### <a name="error-code--4122"></a>Código de erro: 4122
 
-- **Mensagem**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Mensagem**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: a credencial fornecida no serviço vinculado do serviço do Azure ml é inválida ou não tem permissão para a operação.
+- **Causa**: a credencial fornecida no serviço vinculado Azure Machine Learning é inválida ou não tem permissão para a operação.
 
-- **Recomendação**: Verifique se a credencial no serviço vinculado é válida e tem permissão para acessar o serviço do Azure ml.
+- **Recomendação**: Verifique se a credencial no serviço vinculado é válida e tem permissão para acessar Azure Machine Learning.
 
 
 ### <a name="error-code--4123"></a>Código de erro: 4123
 
-- **Mensagem**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Mensagem**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **Causa**: as propriedades da atividade, como pipelineparameters, são inválidas para o pipeline do Azure ml.
 
 - **Recomendação**: Verifique o valor das propriedades de atividade para corresponder a carga esperada do pipeline do ml do Azure publicado especificado no serviço vinculado.
 
 
 ### <a name="error-code--4124"></a>Código de erro: 4124
 
-- **Mensagem**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Mensagem**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Causa**: o ponto de extremidade de pipeline do Azure ml publicado não existe.
 
-- **Recomendação**: Verifique se o ponto de extremidade do pipeline do Azure ml publicado especificado no serviço vinculado existe no serviço do Azure ml.
+- **Recomendação**: Verifique se o ponto de extremidade do pipeline de Azure Machine Learning publicado especificado no serviço vinculado existe no Azure Machine Learning.
 
 
 ### <a name="error-code--4125"></a>Código de erro: 4125
 
-- **Mensagem**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **Mensagem**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: erro de servidor no serviço do Azure ml.
+- **Causa**: erro de servidor em Azure Machine Learning.
 
-- **Recomendação**: tente novamente mais tarde. Contate a equipe de serviço do Azure ML para obter ajuda se o problema permanecer.
+- **Recomendação**: tente novamente mais tarde. Contate a equipe de Azure Machine Learning para obter ajuda se o problema permanecer.
 
 
 ### <a name="error-code--4126"></a>Código de erro: 4126
 
-- **Mensagem**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **Mensagem**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Causa**: falha na execução do pipeline do Azure ml.
 
-- **Recomendação**: Verifique o serviço de ml do Azure para obter mais logs de erros e corrija o pipeline ml
+- **Recomendação**: Verifique Azure Machine Learning para obter mais logs de erros e corrija o pipeline ml.
 
 
 
@@ -422,7 +422,7 @@ A tabela a seguir se aplica ao U-SQL.
 
 - **Causa**: a cadeia de conexão para o armazenamento é inválida ou tem um formato incorreto.
 
-- **Recomendação**: Vá para o portal do Azure, localize o armazenamento, copie a cadeia de conexão e cole o serviço vinculado e tente novamente.
+- **Recomendação**: Vá para a Portal do Azure, localize o armazenamento, copie a cadeia de conexão e cole o serviço vinculado e tente novamente.
 
 
 ### <a name="error-code--2108"></a>Código de erro: 2108
@@ -471,7 +471,7 @@ A tabela a seguir se aplica ao U-SQL.
 
 
 
-## <a name="custom"></a>Personalizado
+## <a name="custom"></a>Personalizados
 
 A tabela a seguir se aplica ao lote do Azure.
       
@@ -522,7 +522,7 @@ A tabela a seguir se aplica ao lote do Azure.
 
 ### <a name="error-code--2507"></a>Código de erro: 2507
 
-- **Mensagem**: `The folder path does not exist or is empty: ....`
+- **Mensagem**: `The folder path does not exist or is empty: ...`
 
 - **Causa**: nenhum arquivo está na conta de armazenamento no caminho especificado.
 
@@ -668,12 +668,12 @@ A tabela a seguir se aplica ao lote do Azure.
 - **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' 502-o servidor Web recebeu uma resposta inválida ao atuar como um gateway ou servidor proxy ', esse erro é retornado pelo serviço do HDInsight.
 
 
-- **Recomendação**: consulte a documentação de solução de problemas do Azure HDInsight, por exemplo, https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.htmlhttps://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
+- **Recomendação**: consulte a documentação de solução de problemas do Azure HDInsight, por exemplo, https://hdinsight.github.io/ambari/ambari-ui-502-error.html , https://hdinsight.github.io/spark/spark-thriftserver-errors.htmlhttps://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
                   
 
 <br>
 
-- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' não é possível atender à solicitação de envio de trabalho, pois o serviço Templeton está ocupado com muitas solicitações de trabalho de envio ' ou ' raiz da fila. joblauncher já tem 500 aplicativos, não é possível aceitar o envio de aplicativo ', isso significa que muitos trabalhos estão sendo enviados ao HDInsight ao mesmo tempo.
+- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' não é possível atender à solicitação do trabalho de envio, pois o serviço Templeton está ocupado com muitas solicitações de trabalho de envio ' ou ' raiz da fila. joblauncher já tem 500 aplicativos, não é possível aceitar o envio do aplicativo ', isso significa que muitos trabalhos estão sendo enviados ao HDInsight ao mesmo tempo.
 
 - **Recomendação**: considere limitar o número de trabalhos simultâneos enviados ao HDInsight. Consulte Data Factory a simultaneidade de atividade se os trabalhos estiverem sendo enviados pela mesma atividade. Altere os gatilhos para que as execuções de pipeline simultâneas sejam distribuídas com o passar do tempo. Consulte a documentação do HDInsight para ajustar Templeton. parallellism. Job. Submit conforme o erro sugere.
 
@@ -685,7 +685,7 @@ A tabela a seguir se aplica ao lote do Azure.
 - **Causa**: o serviço ou cluster HDInsight tem problemas.
 
 
-- **Recomendação**: esse erro ocorre quando o ADF não obtém resposta do cluster HDInsight ao tentar obter o status do trabalho em execução. Pode ser a causa de problemas no próprio cluster ou o serviço HDInsight pode ter uma interrupção. Consulte a documentação de solução de problemas do HDInsight em https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideou entre em contato com o suporte para obter assistência adicional.
+- **Recomendação**: esse erro ocorre quando o ADF não obtém resposta do cluster HDInsight ao tentar obter o status do trabalho em execução. Pode ser a causa de problemas no próprio cluster ou o serviço HDInsight pode ter uma interrupção. Consulte a documentação de solução de problemas do HDInsight em https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide ou entre em contato com o suporte para obter assistência adicional.
                 
 
 
@@ -816,7 +816,7 @@ A tabela a seguir se aplica ao lote do Azure.
 
 - **Recomendação**:  
       1. Verifique se as credenciais estão corretas abrindo a interface do usuário do Ambari do cluster HDInsight em um navegador.
-      2. Se o cluster estiver em VNet e o IR auto-hospedado estiver sendo usado, a URL HDI deverá ser a URL privada em VNets, o que significa que ele deve ter '-int ' após o nome do cluster. Por exemplo, "https://mycluster.azurehdinsight.net/" deve ser alterado para "https://mycluster-int.azurehdinsight.net/".
+      2. Se o cluster estiver em VNet e o IR auto-hospedado estiver sendo usado, a URL HDI deverá ser a URL privada em VNets, o que significa que ele deve ter '-int ' após o nome do cluster. Por exemplo, "https://mycluster.azurehdinsight.net/ " deve ser alterado para "https://mycluster-int.azurehdinsight.net/".
       2. Se o cluster estiver na VNet, o IR auto-hospedado está sendo usado e a URL privada foi usada e a conexão ainda falhou, a VM em que o IR está instalado teve problemas ao se conectar ao HDI. Conecte-se à VM em que o IR está instalado e abra a interface do usuário do Ambari em um navegador. Use a URL privada para o cluster. Essa conexão deve funcionar no navegador. Caso contrário, entre em contato com a equipe de suporte do HDInsight para obter mais assistência.
       3. Se o IR auto-hospedado não estiver sendo usado, o cluster HDI deverá ser acessível publicamente. Abra a interface do usuário do amAmbari em um navegador e verifique se ele é aberto. Se houver algum problema com o cluster ou com os serviços, entre em contato com a equipe de suporte do HDInsight para obter assistência.
       Portanto, em geral, a URL do cluster HDI usada no serviço vinculado do ADF deve ser acessível para o IR do ADF (auto-hospedado ou Azure) para que a conexão de teste passe e para que as execuções funcionem. Isso pode ser facilmente verificado abrindo a URL em um navegador, seja da VM ou de qualquer máquina pública.
@@ -977,7 +977,7 @@ A tabela a seguir se aplica ao lote do Azure.
 
 - **Causa**: falha na criação do cluster e o ADF não retornou um erro do serviço HDInsight.
 
-- **Recomendação**: Abra o portal do Azure e tente localizar o recurso HDI com o nome fornecido e verifique o status de provisionamento. Contate a equipe de suporte do HDInsight para obter mais assistência.
+- **Recomendação**: abra o portal do Azure e tente localizar o recurso HDI com o nome fornecido e verifique o status de provisionamento. Contate a equipe de suporte do HDInsight para obter mais assistência.
 
 
 ### <a name="error-code--2362"></a>Código de erro: 2362
@@ -1018,7 +1018,7 @@ Para usar o Fiddler para criar uma sessão HTTP do aplicativo Web monitorado:
 
 1. Se seu aplicativo Web usar HTTPS, vá para **ferramentas** > **Opções Fiddler** > **https**. Selecione **capturar conexões HTTPS** e **descriptografar tráfego HTTPS**.
 
-![Opções do Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Opções do Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Se seu aplicativo usar certificados SSL, adicione o certificado Fiddler ao seu dispositivo. Acesse **ferramentas** > **Opções Fiddler** > **ações** **https** >  > **Exportar certificado raiz para área de trabalho**.
 
@@ -1028,17 +1028,17 @@ Para usar o Fiddler para criar uma sessão HTTP do aplicativo Web monitorado:
 
 1. Criar uma solicitação:
 
-a. Selecione a guia **compositor** .
+   1. Selecione a guia **compositor** .
 
-b. Defina o método e a URL HTTP.
+   1. Defina o método e a URL HTTP.
+   
+   1. Adicione cabeçalhos e um corpo de solicitação, se necessário.
 
-c. Adicione cabeçalhos e um corpo de solicitação, se necessário.
+   1. Selecione **Executar**.
 
-d. Selecione **Executar**.
+1. Ative a captura de tráfego novamente e conclua a transação problemática em sua página.
 
-9. Ative a captura de tráfego novamente e conclua a transação problemática em sua página.
-
-10. Vá para **arquivo** > **salvar** > **todas as sessões**.
+1. Vá para **arquivo** > **salvar** > **todas as sessões**.
 
 Para obter mais informações, consulte [introdução ao Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
@@ -1046,7 +1046,7 @@ Para obter mais informações, consulte [introdução ao Fiddler](https://docs.t
 
 Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-*  [Blogue do Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)

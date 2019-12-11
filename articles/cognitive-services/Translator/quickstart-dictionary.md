@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisar palavras com o dicionário bilíngüe – API de Tradução de Texto'
+title: 'Início rápido: Pesquisar palavras com o dicionário bilíngüe-API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a obter traduções alternativas para um termo e também obterá exemplos de uso dessas traduções alternativas, usando o API de Tradução de Texto.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: fcbf6878be53d7aa6bf9569da194b4e90f2b10db
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 42e883a7563072fca771482998bdcdbebec50ae9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827456"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975776"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Início rápido: Pesquisar palavras com o dicionário bilíngüe
 
@@ -54,7 +54,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 
 ::: zone-end
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Traduzir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

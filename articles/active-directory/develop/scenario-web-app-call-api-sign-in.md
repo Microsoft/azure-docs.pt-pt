@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que chama APIs da Web (entrar)-plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo Web que chama APIs da Web (entrar)
+title: Remover contas do cache ao sair – plataforma de identidade da Microsoft | Azure
+description: Saiba como remover uma conta do cache de token ao sair
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596368"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961663"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicativo Web que chama APIs da Web-entrar
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Remover contas do cache na saída global
 
 Você já sabe como adicionar entrada ao seu aplicativo Web. Você aprende que, em um [aplicativo Web que entra com usuários-adicionar entrada](scenario-web-app-sign-user-sign-in.md).
 
@@ -32,7 +32,7 @@ O que há de diferente aqui é que, quando o usuário sai, desse aplicativo ou d
 
 Seu aplicativo pode interceptar o evento After `logout`, por exemplo, para limpar a entrada do cache de token associado à conta que se desconectou. O aplicativo Web irá armazenar tokens de acesso para o usuário em um cache. Interceptar o retorno de chamada After `logout` permite que o aplicativo Web remova o usuário do cache de token.
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Esse mecanismo é ilustrado no método `AddMsal()` de [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
 
@@ -80,7 +80,7 @@ O exemplo de Python não remove as contas do cache na saída global
 
 ## <a name="next-steps"></a>Passos seguintes
 
-# <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
 > [Adquirindo um token para o aplicativo Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)

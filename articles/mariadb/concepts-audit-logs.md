@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773080"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978054"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Logs de auditoria no banco de dados do Azure para MariaDB
 
@@ -27,6 +27,9 @@ Por padrão, o log de auditoria é desabilitado. Para habilitá-lo, defina `audi
 Outros parâmetros que você pode ajustar incluem:
 
 - `audit_log_events`: controla os eventos a serem registrados. Consulte a tabela abaixo para ver eventos de auditoria específicos.
+- `audit_log_include_users`: MariaDB os usuários a serem incluídos para registro em log. O valor padrão para esse parâmetro é vazio, o que incluirá todos os usuários para registro em log. Isso tem prioridade mais alta sobre `audit_log_exclude_users`. O comprimento máximo do parâmetro é de 512 caracteres.
+> [!Note]
+> `audit_log_include_users` tem prioridade mais alta sobre `audit_log_exclude_users`. Por exemplo, se `audit_log_include_users` = `demouser` e `audit_log_exclude_users` = `demouser`, o usuário será incluído nos logs de auditoria porque `audit_log_include_users` tem prioridade mais alta.
 - `audit_log_exclude_users`: MariaDB os usuários a serem excluídos do registro em log. Permite no máximo quatro usuários. O comprimento máximo do parâmetro é de 256 caracteres.
 
 | **Evento** | **Descrição** |
@@ -121,7 +124,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`ou `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` ou `DELETE` |
 | `connection_id_d` | ID de conexão exclusiva gerada por MariaDB |
 | `db_s` | Nome do banco de dados acessado |
 | `table_s` | Nome da tabela acessada |

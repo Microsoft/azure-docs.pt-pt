@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821285"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973548"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de dados públicos para teste e protótipos
 
@@ -24,9 +24,9 @@ Navegue nesta lista de conjuntos de dados públicos para dados que você pode us
 
 ## <a name="us-government-and-agency-data"></a>Dados do governo dos EUA e da Agência
 
-| Fonte de dados | Sobre os dados | Sobre os arquivos |
+| Origem de dados | Sobre os dados | Sobre os arquivos |
 |---|---|---|
-| [Dados do governo dos EUA](https://www.census.gov/data.html) | Mais de 190.000 conjuntos de dados que abrangem agricultura, clima, consumidor, ecossistemas, educação, energia, finanças, saúde, governo local, manufatura, marítimas, oceano, segurança pública e ciência e pesquisa nos EUA | Arquivos de vários tamanhos em vários formatos, incluindo HTML, XML, CSV, JSON, Excel e muitos outros. Você pode filtrar os conjuntos de dados disponíveis por formato de arquivo. |
+| [Dados do governo dos EUA](https://catalog.data.gov/dataset) | Mais de 250.000 conjuntos de dados que abrangem agricultura, clima, consumidor, ecossistemas, educação, energia, finanças, saúde, governo local, manufatura, marítimas, oceano, segurança pública e ciência e pesquisa nos EUA | Arquivos de vários tamanhos em vários formatos, incluindo HTML, XML, CSV, JSON, Excel e muitos outros. Você pode filtrar os conjuntos de dados disponíveis por formato de arquivo. |
 | [Dados de censo dos EUA](https://www.census.gov/data.html) | Dados estatísticos sobre a população dos Estados Unidos | Os conjuntos de dados estão em vários formatos. |
 | [Dados da ciência da terra da NASA](https://earthdata.nasa.gov/) | Mais de 32.000 coletas de dados que abrangem agricultura, atmosfera, biosphere, clima, criosfera, dimensões humanas, hidrosfera, superfície terrestre, oceanos, interações com Sun-Earth e muito mais. | Os conjuntos de dados estão em vários formatos. |
 | [Atrasos de voo de companhia aérea e outros dados de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "O departamento de transporte (ponto) dos Estados Unidos das estatísticas de transporte (BTS) do governo dos EUA controla o desempenho em tempo de vôos domésticos operados por grandes operadoras de ar. As informações resumidas sobre o número de vôos em tempo, atrasos, cancelados e divertidos são exibidas... em tabelas de resumo lançadas neste site. " | Os arquivos estão no formato CSV. |
@@ -37,7 +37,7 @@ Navegue nesta lista de conjuntos de dados públicos para dados que você pode us
 
 ## <a name="other-statistical-and-scientific-data"></a>Outros dados estatísticos e científicos
 
-| Fonte de dados | Sobre os dados | Sobre os arquivos |
+| Origem de dados | Sobre os dados | Sobre os arquivos |
 |---|---|---|
 | [Dados de táxi da cidade de Nova York](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Os registros de corrida de táxi incluem campos que capturam datas/horários de coleta e chegada, locais de seleção e chegada, distâncias de corrida, tarifas discriminadas, tipos de taxa, tipos de pagamento e contagens de passageiro relatadas pelo driver." | Os conjuntos de dados estão em arquivos CSV por mês. |
 | [Conjuntos de dados do Microsoft Research-"ciência de dados para pesquisa"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Vários conjuntos de dados que abrangem a interação humana do computador, áudio/vídeo, Data Mining/recuperação de informações, geoespacial/localização, processamento de linguagem natural e visão robótica/computacional. | Os conjuntos de dados estão em vários formatos, compactados para download. |
@@ -50,7 +50,7 @@ Navegue nesta lista de conjuntos de dados públicos para dados que você pode us
 
 ## <a name="online-service-data"></a>Dados do serviço online
 
-| Fonte de dados | Sobre os dados | Sobre os arquivos |
+| Origem de dados | Sobre os dados | Sobre os arquivos |
 |---|---|---|
 | [Arquivo morto do GitHub](https://www.githubarchive.org/) | "O arquivo morto do GitHub é um projeto para registrar a linha do tempo pública do GitHub [de eventos], arquivá-lo e torná-lo facilmente acessível para análise posterior." | Baixe arquivos mortos de eventos codificados em JSON no formato. gz (gzip) de um cliente Web. |
 | [Dados de atividade do GitHub do projeto GHTorrent](http://ghtorrent.org/) | "O projeto GHTorrent [é] um esforço para criar um espelho offline escalonável, passível de consulta e de dados oferecido por meio da API REST do GitHub. GHTorrent monitora a linha do tempo de evento público do GitHub. Para cada evento, ele recupera seu conteúdo e suas dependências, exaustivamente. " | Os despejos de banco de dados MySQL estão no formato CSV. |

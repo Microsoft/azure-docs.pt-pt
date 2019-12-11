@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: d146c264ebc2d36f0842f464f4547520546fd363
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888279"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978037"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: usar Visão Personalizada com um dispositivo IoT para relatar estados visuais
 
@@ -56,7 +56,7 @@ O aplicativo de alertas visuais do IoT é executado em um loop contínuo, altern
 
 Os arquivos a seguir tratam da funcionalidade principal do aplicativo.
 
-| Ficheiro | Descrição |
+| Ficheiros | Descrição |
 |-------------|-------------|
 | [MainPage. XAML](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Esse arquivo define a interface do usuário XAML. Ele hospeda o controle de câmera da Web e contém os rótulos usados para atualizações de status.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Esse código controla o comportamento da interface do usuário XAML. Ele contém o código de processamento da máquina de estado.|
@@ -116,7 +116,7 @@ Para repetir esse processo com seu próprio cenário:
 
 Depois que o aplicativo baixar o modelo treinado, ele mudará para o estado de **Pontuação** e iniciará as imagens de pontuação da câmera em um loop contínuo.
 
-Para cada imagem capturada, o aplicativo exibirá a marca superior na tela. Se ele não reconhecer o estado do Visual, ele não exibirá **nenhuma correspondência**. O aplicativo também envia essas mensagens para o Hub IoT e, se houver uma classe sendo detectada, a mensagem incluirá o rótulo, a pontuação de confiança e uma propriedade chamada `detectedClassAlert`, que pode ser usada por clientes do Hub IoT interessados em fazer o roteamento rápido de mensagens com base na Prop rties.
+Para cada imagem capturada, o aplicativo exibirá a marca superior na tela. Se ele não reconhecer o estado do Visual, ele não exibirá **nenhuma correspondência**. O aplicativo também envia essas mensagens para o Hub IoT e, se houver uma classe sendo detectada, a mensagem incluirá o rótulo, a pontuação de confiança e uma propriedade chamada `detectedClassAlert`, que pode ser usada por clientes do Hub IoT interessados em fazer roteamento rápido de mensagens com base nas propriedades.
 
 Além disso, o exemplo usa uma [biblioteca do Sense Hat](https://github.com/emmellsoft/RPi.SenseHat) para detectar quando ele está em execução em um PI Raspberry com uma unidade do Sense Hat, para que possa usá-lo como uma exibição de saída, definindo todas as luzes de exibição como vermelho sempre que detectar uma classe e em branco quando ela não detectar nada.
 

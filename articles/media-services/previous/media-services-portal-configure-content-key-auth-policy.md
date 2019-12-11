@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 64f5afdc8eb24758fac6faa0cc6d1e4e1002b5db
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895854"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968804"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurar uma política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -79,6 +79,10 @@ Quando você protege seu conteúdo com o PlayReady, uma das coisas que você pre
         </PlayReadyLicenseResponseTemplate>
 
 Você pode selecionar o botão **importar XML de política** e fornecer um XML diferente que esteja de acordo com o esquema XML definido na [visão geral do modelo de licença PlayReady dos serviços de mídia](media-services-playready-license-template-overview.md).
+
+## <a name="additional-notes"></a>Notas adicionais
+
+* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

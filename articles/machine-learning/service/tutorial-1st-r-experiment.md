@@ -10,19 +10,19 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307274"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974262"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutorial: treinar e implantar seu primeiro modelo em R com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste tutorial, você aprende os padrões de design básico em Azure Machine Learning.  Você treinará e implantará um modelo de **cursor** para prever a probabilidade de uma fatalização em um acidente de automóvel. Depois de concluir este tutorial, você terá o conhecimento prático do SDK do R para escalar verticalmente até o desenvolvimento de experimentos e fluxos de trabalho mais complexos.
 
-Neste tutorial, você aprende as seguintes tarefas:
+Neste tutorial, irá aprender as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Conectar seu espaço de trabalho
@@ -47,7 +47,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 2. Crie um espaço de trabalho Azure Machine Learning e baixe seu arquivo de configuração usando as etapas abaixo.
 
 
-### <a name="create-a-workspace"></a>Criar uma área de trabalho
+### <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no SDK. Se você já tiver um espaço de trabalho Azure Machine Learning, [pule para a próxima seção](#config). Caso contrário, crie um agora.
 
@@ -70,7 +70,7 @@ Agora você está pronto para executar o tutorial.
 > Se você tiver experiência com o RMarkdown, sinta-se à vontade para usar o código desse arquivo.  Ou você pode copiar/colar os trechos de código a partir daí, ou deste artigo em um script R ou na linha de comando.
 
 
-## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
 A configuração do seu trabalho de desenvolvimento neste tutorial inclui as seguintes ações:
 
 * Instalar pacotes necessários
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>Carregar dados no repositório de armazenamento
-Carregue dados na nuvem para que ele possa ser acessado pelo seu ambiente de treinamento remoto. Cada espaço de trabalho do Azure ML é fornecido com um armazenamento de dados padrão que armazena as informações de conexão para o contêiner de blob do Azure que é provisionado na conta de armazenamento anexada ao espaço de trabalho. O código a seguir carregará os dados de acidentes que você criou acima para esse armazenamento.
+Carregue dados na nuvem para que ele possa ser acessado pelo seu ambiente de treinamento remoto. Cada espaço de trabalho do Azure Machine Learning é fornecido com um armazenamento de dados padrão que armazena as informações de conexão para o contêiner de blob do Azure que é provisionado na conta de armazenamento anexada ao espaço de trabalho. O código a seguir carregará os dados de acidentes que você criou acima para esse armazenamento.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ Para este tutorial, ajuste um modelo de regressão logística em seus dados carr
 * Submeter o trabalho
 
 ### <a name="prepare-the-training-script"></a>Preparar o script de treinamento
-Um script de treinamento chamado `accidents.R` foi fornecido para você no mesmo diretório que este tutorial. Observe os seguintes detalhes **dentro do script de treinamento** que foi feito para aproveitar o serviço do Azure ml para treinamento:
+Um script de treinamento chamado `accidents.R` foi fornecido para você no mesmo diretório que este tutorial. Observe os seguintes detalhes **dentro do script de treinamento** que foi feito para aproveitar Azure Machine Learning para treinamento:
 
 * O script de treinamento usa um argumento `-d` para localizar o diretório que contém os dados de treinamento. Quando você definir e enviar seu trabalho mais tarde, aponte para o repositório de armazenamento para esse argumento. O Azure ML montará a pasta de armazenamento para o cluster remoto para o trabalho de treinamento.
-* O script de treinamento registra a precisão final como uma métrica para o registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de log para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e mantidas no registro de execução do experimento. As métricas podem então ser acessadas a qualquer momento ou exibidas na página de detalhes de execução no [Azure Machine Learning Studio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
+* O script de treinamento registra a precisão final como uma métrica para o registro de execução no Azure ML usando `log_metric_to_run()`. O SDK do Azure ML fornece um conjunto de APIs de log para registrar várias métricas durante execuções de treinamento. Essas métricas são registradas e mantidas no registro de execução do experimento. As métricas podem então ser acessadas a qualquer momento ou exibidas na página de detalhes de execução no [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para obter o conjunto completo de métodos de registro em log `log_*()`.
 * O script de treinamento salva seu modelo em um diretório chamado **Outputs**. A pasta `./outputs` recebe tratamento especial pelo Azure ML. Durante o treinamento, os arquivos gravados em `./outputs` são carregados automaticamente para o registro de execução pelo Azure ML e mantidos como artefatos. Ao salvar o modelo treinado em `./outputs`, você poderá acessar e recuperar o arquivo de modelo mesmo depois que a execução terminar e você não tiver mais acesso ao seu ambiente de treinamento remoto.
 
 ### <a name="create-an-estimator"></a>Criar simulador
@@ -373,7 +373,7 @@ delete_compute(compute)
 
 Você também pode manter o grupo de recursos, mas excluir um único espaço de trabalho. Exiba as propriedades do espaço de trabalho e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você concluiu seu primeiro experimento Azure Machine Learning em R, saiba mais sobre o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/index.html).
 

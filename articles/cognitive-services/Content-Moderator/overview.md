@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a78a92a33075a97ddadb2e1fe677b7ded541d12c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565578"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973497"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
-A API do Content Moderator do Azure é um serviço cognitivo que verifica a existência de material potencialmente ofensivo, duvidoso ou indesejável em conteúdo de texto, imagem e vídeo. Quando este tipo de material é encontrado, o serviço aplica etiquetas adequadas (sinalizadores) ao conteúdo. Em seguida, a aplicação pode processar o conteúdo sinalizado para cumprir os regulamentos ou manter o ambiente desejado para os utilizadores. Consulte a seção [APIs](#moderation-apis) de moderação para saber mais sobre o que os diferentes sinalizadores de conteúdo indicam.
+O Azure Content Moderator é um serviço cognitiva que verifica o conteúdo de texto, imagem e vídeo para materiais potencialmente ofensivos, arriscados ou de outra forma indesejáveis. Quando esse material é encontrado, o serviço aplica os rótulos (sinalizadores) apropriados ao conteúdo. Em seguida, a aplicação pode processar o conteúdo sinalizado para cumprir os regulamentos ou manter o ambiente desejado para os utilizadores. Consulte a seção [APIs de moderação](#moderation-apis) para saber mais sobre o que os diferentes sinalizadores de conteúdo indicam.
 
-## <a name="where-it-is-used"></a>Onde é utilizado
+## <a name="where-its-used"></a>Onde ele é usado
 
 Seguem-se alguns cenários onde um programador ou uma equipa de software pode utilizar o Content Moderator:
 
@@ -32,7 +32,7 @@ Seguem-se alguns cenários onde um programador ou uma equipa de software pode ut
 - Os provedores de soluções de educação K-12 filtram o conteúdo que é inadequado para estudantes e educadores.
 
 > [!NOTE]
-> Você não pode usar Content Moderator para detectar imagens de exploração de filhos ilegais. No entanto, as organizações qualificadas podem usar o serviço de [nuvem do PhotoDNA](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") para fazer a tela para esse tipo de conteúdo.
+> Você não pode usar Content Moderator para detectar imagens de exploração de filhos ilegais. No entanto, as organizações qualificadas podem usar o [serviço de nuvem PhotoDNA](https://www.microsoft.com/photodna "Serviço de nuvem do Microsoft PhotoDNA") para fazer a tela para esse tipo de conteúdo.
 
 ## <a name="what-it-includes"></a>O que inclui
 
@@ -49,7 +49,7 @@ A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 | Grupo de API | Descrição |
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Verifica o texto em busca de conteúdo ofensivo, de sexo explícito ou de conteúdo sugerido, de profanação e de dados pessoais.|
-|[**Listas personalizadas de termos**](try-terms-list-api.md)| Analisa o texto, comparando-o com uma lista personalizada de termos, além dos termos incorporados. Utilize listas personalizadas para bloquear ou permitir conteúdo de acordo com as suas próprias políticas de conteúdo.|  
+|[**Listas personalizadas de termos**](try-terms-list-api.md)| Examina o texto em relação a uma lista personalizada de termos junto com os termos internos. Utilize listas personalizadas para bloquear ou permitir conteúdo de acordo com as suas próprias políticas de conteúdo.|  
 |[**Moderação de imagens**](image-moderation-api.md)| Procura imagens com conteúdo para adultos ou indecoroso, deteta texto em imagens com a função de OCR (reconhecimento ótico de carateres) e deteta rostos.|
 |[**Listas personalizadas de imagens**](try-image-list-api.md)| Analisa as imagens, comparando-as com uma lista personalizada de imagens. Utilize listas personalizadas de imagens para filtrar instâncias de conteúdo normalmente recorrente, que não pretende classificar novamente.|
 |[**Moderação de vídeo**](video-moderation-api.md)| Analisa vídeos relativamente a conteúdo para adultos ou indecoroso e devolve marcadores de hora para o dito conteúdo.|
@@ -65,7 +65,7 @@ As APIs de revisão permitem que você integre seu pipeline de moderação com r
 
 ## <a name="the-review-tool"></a>A ferramenta de revisão
 
-O serviço de Content Moderator também inclui a ferramenta de [revisão](Review-Tool-User-Guide/human-in-the-loop.md)baseada na Web, que hospeda as revisões de conteúdo para que os moderadores humanos processem. A contribuição humana não prepara o serviço, mas o trabalho combinado do serviço e das equipas de revisão humana permite que os programadores encontrem o equilíbrio certo entre eficiência e precisão. A ferramenta de revisão também fornece um front-end amigável para uma variedade de recursos de Content Moderator.
+O serviço de Content Moderator também inclui a ferramenta de [revisão](Review-Tool-User-Guide/human-in-the-loop.md)baseada na Web, que hospeda as revisões de conteúdo para que os moderadores humanos processem. A entrada humana não treina o serviço, mas o trabalho combinado das equipes de serviço e de revisão humana permite que os desenvolvedores tenham o equilíbrio certo entre eficiência e precisão. A ferramenta de revisão também fornece um front-end amigável para vários Content Moderator recursos.
 
 ![Home page da ferramenta de revisão humana do Content Moderator](images/homepage.PNG)
 
@@ -73,6 +73,6 @@ O serviço de Content Moderator também inclui a ferramenta de [revisão](Review
 
 Assim como acontece com todos os serviços cognitivas, os desenvolvedores que usam o serviço de Content Moderator devem estar cientes das políticas da Microsoft nos dados do cliente. Consulte a [página serviços cognitivas](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) na central de confiabilidade da Microsoft para saber mais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a usar o serviço de Content Moderator seguindo as instruções em [Content moderator de teste na Web](quick-start.md).

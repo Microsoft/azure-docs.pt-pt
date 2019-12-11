@@ -3,17 +3,17 @@ title: Tutorial – criar e gerenciar regras no aplicativo IoT Central do Azure
 description: Este tutorial mostra como as regras de IoT Central do Azure permitem que você monitore seus dispositivos quase em tempo real e invoque automaticamente ações, como enviar um email, quando a regra é disparada.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702531"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979058"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: criar uma regra e configurar notificações no aplicativo IoT Central do Azure (recursos de visualização)
 
@@ -45,7 +45,7 @@ Para criar uma regra de telemetria, o modelo de dispositivo deve ter pelo menos 
 
 1. Se ainda não tiver criado nenhuma regra, você verá a tela a seguir:
 
-    ![Ainda não há regras](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
+    ![Ainda não existem regras](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
 
 1. Selecione **+** para adicionar uma nova regra.
 

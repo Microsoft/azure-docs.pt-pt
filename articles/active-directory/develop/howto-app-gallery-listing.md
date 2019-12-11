@@ -1,5 +1,5 @@
 ---
-title: Listar seu aplicativo na Galeria de aplicativos Azure Active Directory | Microsoft Docs
+title: Listar seu aplicativo na Galeria de aplicativos do Azure AD | Microsoft Docs
 description: Saiba como listar um aplicativo que dá suporte ao logon único na Galeria de aplicativos Azure Active Directory
 services: active-directory
 author: rwike77
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3bfdeaba26e98f600b81b3a473326ff4086f1aa2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918015"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967155"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7838e1930a8ccd190c95740a6a8e3dadc68149f0
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 95f7d71c0de7570eee6e4c94e88fd65ff1d45ec8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422128"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973089"
 ---
 # <a name="create-an-azure-bastion-host"></a>Criar um host de bastiões do Azure
 
@@ -78,6 +78,6 @@ Se você criar um host de bastiões no portal usando uma VM existente, várias c
    * **Nome do endereço IP público**: o nome do recurso de endereço IP público.
 1. Na tela validação, clique em **criar**. Aguarde cerca de 5 minutos para que o recurso de bastiões seja criado e implantado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as [perguntas frequentes de bastiões](bastion-faq.md)

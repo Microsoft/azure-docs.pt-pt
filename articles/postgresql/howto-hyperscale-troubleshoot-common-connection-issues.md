@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+title: Solucionar problemas de conexões-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
 description: Saiba como solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 keywords: conexão do PostgreSQL, Cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
 author: jonels-msft
@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952150"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977510"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -50,7 +50,7 @@ Se o aplicativo falhar de forma persistente ao se conectar ao Citus (subdimensio
 
 * Configuração de firewall do nó do Coordenador: Verifique se o Firewall do servidor de hiperescala está configurado para permitir conexões do seu cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Alguns firewalls exigem permitir não apenas aplicativos por nome, mas permitem os endereços IP e as portas do servidor.
-* Erro do usuário: Verifique a cadeia de conexão. Você pode ter parâmetros digitados, como o nome do servidor, ou um sufixo *\@Server* esquecido no nome de usuário.
+* Erro do usuário: Verifique a cadeia de conexão. Você pode ter parâmetros digitados informadamente, como o nome do servidor. Você pode encontrar cadeias de conexão para várias estruturas de linguagem e psql no portal do Azure. Vá para a página **cadeias de conexão** em seu grupo de servidores de hiperescala (Citus). Além disso, tenha em mente que os clusters de hiperescala (Citus) têm apenas um banco de dados e seu nome predefinido é **Citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver problemas de conectividade persistente
 

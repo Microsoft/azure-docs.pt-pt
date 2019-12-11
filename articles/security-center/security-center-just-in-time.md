@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576407"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997195"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando just-in-time
 
-O acesso à VM (just-in-time) de máquina virtual (JIT) pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário.
+O acesso à máquina virtual (VM) just-in-time (JIT) pode ser utilizado para bloquear o tráfego de entrada nas VMs do Azure, ao reduzir a exposição a ataques e ao proporcionar acesso fácil para ligar a VMs quando necessário.
 
 > [!NOTE]
 > O recurso just-in-time está disponível na camada Standard da central de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
@@ -176,10 +176,10 @@ Para sua conveniência, você pode se conectar a uma VM usando o JIT diretamente
 
 Para facilitar a distribuição do acesso just-in-time em suas VMs, você pode definir uma VM para permitir apenas o acesso just-in-time diretamente de dentro da VM.
 
-1. No portal do Azure, selecione **máquinas virtuais**.
-2. Clique na máquina virtual que você deseja limitar ao acesso just-in-time.
-3. No menu, clique em **configuração**.
-4. Em **tempo de acesso just-in-time,** clique em **habilitar política just-in-time**. 
+1. No [portal do Azure](https://ms.portal.azure.com), procure e selecione **máquinas virtuais**. 
+2. Selecione a máquina virtual que você deseja limitar ao acesso just-in-time.
+3. No menu, selecione **configuração**.
+4. Em **acesso just-in-time**, selecione **habilitar política just-in-time**. 
 
 Isso habilita o acesso just-in-time para a VM usando as seguintes configurações:
 

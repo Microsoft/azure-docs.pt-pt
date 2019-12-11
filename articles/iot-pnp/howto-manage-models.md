@@ -1,19 +1,19 @@
 ---
 title: Gerenciar modelos de visualização de Plug and Play de IoT no repositório | Microsoft Docs '
 description: Como gerenciar modelos de capacidade de dispositivo no repositório usando o portal do Azure Certified para IoT, o CLI do Azure e o Visual Studio Code.
-author: YasinMSFT
+author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: yahajiza
-ms.openlocfilehash: 1b71d8bd0f0417c7dc408c580a1c73ac654743ce
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.author: philmea
+ms.openlocfilehash: 4320a975f74d000bd492d291f5e610f591536b0d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932863"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979109"
 ---
 # <a name="manage-models-in-the-repository"></a>Gerenciar modelos no repositório
 
@@ -47,7 +47,7 @@ O CLI do Azure fornece comandos para gerenciar modelos de capacidade de disposit
 
 Para abrir a exibição do **repositório de modelos** no Visual Studio Code.
 
-1. Abra Visual Studio Code, use **Ctrl + Shift + P**, digite e selecione **a plug and Play de IOT: Abra o repositório**de modelos.
+1. Abra Visual Studio Code, use **Ctrl + Shift + P**, digite e selecione **IOT plug and Play: Abra o repositório de modelos**.
 
 1. Você pode optar por **abrir o repositório de modelos públicos** ou **abrir o repositório de modelos organizacionais**. Para o repositório de modelos da empresa, você precisa inserir a cadeia de conexão do repositório de modelos. Você pode encontrar essa cadeia de conexão no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com) na guia **cadeias de conexão** do **repositório da sua empresa**.
 
@@ -55,11 +55,11 @@ Para abrir a exibição do **repositório de modelos** no Visual Studio Code.
 
     Use esta exibição para adicionar, baixar e excluir modelos e interfaces de funcionalidade do dispositivo. Você pode usar um filtro para localizar itens específicos na lista.
 
-1. Para alternar entre o repositório de modelos da empresa e o repositório de modelos públicos, use **Ctrl + Shift + P**, **digite e selecione plug and Play de IOT: Repositório**de modelos de saída. Em seguida, **use o plug and Play IOT: Abra o comando** de repositório de modelos novamente.
+1. Para alternar entre o repositório de modelos da empresa e o repositório de modelos públicos, use **Ctrl + Shift + P**, digite e selecione **IOT plug and Play: sair do repositório de modelos**. Em seguida, use o comando **IoT plug and Play: abrir o repositório de modelos** novamente.
 
 > [!NOTE]
 > No VS Code, o repositório de modelo público é somente leitura. Os parceiros da Microsoft podem atualizar o repositório público no [portal do Azure Certified para IOT](https://preview.catalog.azureiotsolutions.com).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 A próxima etapa sugerida é aprender a [enviar um dispositivo de plug and Play de IOT para certificação](tutorial-certification-test.md).

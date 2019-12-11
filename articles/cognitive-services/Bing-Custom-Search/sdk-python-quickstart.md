@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python | Microsoft Docs'
+title: 'Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância de Pesquisa Personalizada do Bing usando o SDK do Python.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98070ab8f715305fe01c940026ecf5f49f8c28f9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564619"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976048"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python 
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python 
 
 Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância do Pesquisa Personalizada do Bing, usando o SDK do Python. Embora Pesquisa Personalizada do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK do Pesquisa Personalizada do Bing fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) com mais anotações e tratamento de erros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: Crie sua primeira instância](quick-start.md) de pesquisa personalizada do Bing para obter mais informações.
+- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: criar sua primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
 - Python [2. x ou 3. x](https://www.python.org/) 
 - O [SDK do pesquisa personalizada do Bing para Python](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) 
 
@@ -53,13 +53,13 @@ from msrest.authentication import CognitiveServicesCredentials
     subscription_key = 'your-subscription-key'
     ```
 
-2. Crie uma instância do `CustomSearchClient`, usando um `CognitiveServicesCredentials` objeto com a chave de assinatura. 
+2. Crie uma instância do `CustomSearchClient`, usando um objeto `CognitiveServicesCredentials` com a chave de assinatura. 
 
     ```python
     client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Envie uma solicitação de pesquisa `client.custom_instance.search()`com. Acrescente seu termo de pesquisa ao `query` parâmetro e defina `custom_config` -o como sua ID de configuração personalizada para usar sua instância de pesquisa. Você pode obter sua ID no [portal de pesquisa personalizada do Bing](https://www.customsearch.ai/), clicando na guia **produção** .
+3. Envie uma solicitação de pesquisa com `client.custom_instance.search()`. Acrescente seu termo de pesquisa ao parâmetro `query` e defina `custom_config` como sua ID de configuração personalizada para usar sua instância de pesquisa. Você pode obter sua ID no [portal de pesquisa personalizada do Bing](https://www.customsearch.ai/), clicando na guia **produção** .
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")
@@ -79,7 +79,7 @@ else:
     print("Didn't see any web data..")
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de pesquisa personalizado](./tutorials/custom-search-web-page.md)

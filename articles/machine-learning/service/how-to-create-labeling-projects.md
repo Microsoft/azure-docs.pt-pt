@@ -1,20 +1,20 @@
 ---
-title: Obter rótulos de dados
+title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar e executar rótulos de projetos para marcar dados para o aprendizado de máquina.
+description: Aprenda a criar e executar rótulos de projetos para marcar dados para o aprendizado de máquina.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: c171310fd1c9caf78288fa156b353ecdd517d602
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894695"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978241"
 ---
-# <a name="get-labels-for-data"></a>Obter rótulos de dados
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
 Rotular dados de volumosos em projetos de aprendizado de máquina costuma ser uma dor de cabeça. Os projetos que têm um componente de visão computacional, como classificação de imagem ou detecção de objetos, geralmente exigem rótulos para milhares de imagens.
  

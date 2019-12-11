@@ -1,6 +1,6 @@
 ---
 title: Provisionar dispositivos herdados usando chaves simétricas – serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como usar chaves simétricas para provisionar dispositivos herdados com sua instância do serviço de provisionamento de dispositivos
+description: Como usar chaves simétricas para provisionar dispositivos herdados com sua instância do serviço de provisionamento de dispositivos (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 3e3b54592608f5c39d618f5ceda40747ad4fd0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c9beda9c271c755c9ea61498b24a9e40bde35a7e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209920"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975113"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
 
@@ -30,7 +30,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 > [!NOTE]
 > O exemplo usado neste artigo é escrito em C. Também há um [ C# exemplo de chave simétrica de provisionamento de dispositivos](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para usar este exemplo, baixe ou clone o repositório [Azure-IOT-Samples-Csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções embutidas no código de exemplo. Você pode seguir as instruções neste artigo para criar um grupo de registro de chave simétrica usando o portal e para localizar o escopo da ID e as chaves primárias e secundárias necessárias para executar o exemplo. Você também pode criar registros individuais usando o exemplo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Uma ID de registro exclusiva será definida para cada dispositivo com base nas informações que identificam esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 

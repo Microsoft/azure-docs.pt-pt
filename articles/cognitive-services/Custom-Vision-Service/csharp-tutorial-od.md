@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 7baa3e2de00997496edb5b445f8426d899ac65a4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ed86a286051ba9240fe23951ef7cb72de1e96201
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383729"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74960575"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início Rápido: criar um projeto de deteção de objetos com o SDK .NET da Visão Personalizada
 
-Este artigo apresenta informações e código de exemplo para o ajudar a começar a utilizar o SDK da Visão Personalizada com C# para criar um modelo de deteção de objetos. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação .NET. 
+Este artigo mostra como começar a usar o SDK do Visão Personalizada com C# o para criar um modelo de detecção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação .NET. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Este artigo apresenta informações e código de exemplo para o ajudar a começa
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
 
-Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Esses pacotes são incluídos no projeto de exemplo que você vai baixar, mas você pode acessá-los individualmente aqui.
+Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Esses pacotes são incluídos no projeto de exemplo que você baixará, mas você pode acessá-los individualmente aqui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -41,7 +41,7 @@ Este projeto do Visual Studio cria um projeto de Visão Personalizada novo denom
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Abra o ficheiro _Program.cs_ e inspecione o código. [Crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para suas chaves de treinamento e previsão nomeadas `CUSTOM_VISION_TRAINING_KEY` e `CUSTOM_VISION_PREDICTION_KEY`, respectivamente. O script irá procurar por eles.
+Abra o ficheiro _Program.cs_ e inspecione o código. [Crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para suas chaves de treinamento e previsão nomeadas `CUSTOM_VISION_TRAINING_KEY` e `CUSTOM_VISION_PREDICTION_KEY`, respectivamente. O script procurará essas variáveis.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_keys)]
 
@@ -70,7 +70,7 @@ Depois, utilize este mapa de associações para carregar cada imagem de exemplo 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload)]
 
-Nesta fase, todas as imagens de exemplo foram carregadas e todas têm uma etiqueta (**fork** [garfo] ou **scissors** [tesoura]) e um retângulo de píxel associado a essa etiqueta.
+Neste ponto, você carregou todas as imagens de exemplos e marcou cada uma (**bifurcação** ou **tesoura**) com um retângulo de pixel associado.
 
 ### <a name="train-the-project"></a>Preparar o projeto
 
@@ -114,7 +114,7 @@ Depois, pode confirmar se a imagem de teste (que está em **Images/Test/** ) est
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora viu como cada passo do processo de deteção de objeto pode ser feito no código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
+Agora você viu como fazer todas as etapas do processo de detecção de objetos no código. Este exemplo executa uma única iteração de treinamento, mas, geralmente, você precisará treinar e testar seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md) (Testar e voltar a preparar um modelo)

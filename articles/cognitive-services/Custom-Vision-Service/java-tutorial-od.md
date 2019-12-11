@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 65bf9a88b86bc0e27d848c941f104be0b237d054
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: cad7c6464cff05bee7e2b086d22f9e696dfa1c4b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519010"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970317"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Início Rápido: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java
 
-Este artigo apresenta informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de Visão Personalizada com o Java para criar um modelo de deteção de objeto. Depois de criado, poderá adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
+Este artigo mostra como começar a usar o SDK do Visão Personalizada com Java para criar um modelo de detecção de objeto. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada do método **ImageClassification_Sample**&mdash;esse método executa o cenário de classificação de imagem, que não é abordado neste guia. O método **ObjectDetection_Sample** implementa a funcionalidade principal deste início rápido; navegue para a respetiva definição e inspecione o código. 
+Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Localize o método **runSample** e comente a chamada de método **ImageClassification_Sample**&mdash;esse método executa o cenário de classificação de imagem, que não é abordado neste guia. O método **ObjectDetection_Sample** implementa a funcionalidade principal deste início rápido; navegue para a respetiva definição e inspecione o código. 
 
 ### <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto do Serviço de Visão Personalizada
 

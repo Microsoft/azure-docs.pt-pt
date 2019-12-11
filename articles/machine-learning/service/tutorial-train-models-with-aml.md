@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de classificação de imagem: treinar modelos'
+title: 'Tutorial de classificação de imagem: preparação de modelos'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar um modelo de classificação de imagem com o scikit-Aprenda em um notebook Jupyter do Python com Azure Machine Learning. Este tutorial é a primeira parte de uma série composta por duas partes.
 services: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581530"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978735"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: treinar modelos de classificação de imagem com dados do MNIST e scikit-aprender a usar Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,8 +41,8 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua o [tutorial: introdução à criação de seu primeiro experimento do ml](tutorial-1st-experiment-sdk-setup.md) para:
-    * Criar uma área de trabalho
+* Conclua o [tutorial: introdução à criação de seu primeiro experimento do Azure ml](tutorial-1st-experiment-sdk-setup.md) para:
+    * Criar áreas de trabalho
     * Clone o notebook tutoriais em sua pasta no espaço de trabalho.
     * Crie uma VM de bloco de notas baseada em nuvem.
 
@@ -181,7 +181,7 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 
 ### <a name="display-some-sample-images"></a>Apresentar algumas imagens de exemplo
 
-Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Esta etapa requer uma função `load_data` que está incluída em um arquivo de `util.py`. Este ficheiro está incluído na pasta de exemplo. Verifique se ele está posicionado na mesma pasta que este bloco de anotações. A função `load_data` simplesmente analisa os arquivos compactados em matrizes numpy.
+Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Esta etapa requer uma função `load_data` que está incluída em um arquivo de `util.py`. Este ficheiro está incluído na pasta de exemplo. Verifique se ele está posicionado na mesma pasta que este bloco de anotações. O `load_data` função simplesmente analisa os arquivos compactados em matrizes de numpy.
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -218,7 +218,7 @@ Agora, tem uma ideia do aspeto destas imagens e do resultado previsto da prediç
 Para esta tarefa, submeta o trabalho para o cluster de preparação remoto que configurou anteriormente.  Para submeter um trabalho, tem de:
 * Criar um diretório
 * Criar um script de preparação
-* Criar um objeto estimador
+* Criar um objeto de Calculadora
 * Submeter o trabalho
 
 ### <a name="create-a-directory"></a>Criar um diretório
@@ -302,15 +302,15 @@ Repare que o script obtém dados e guarda modelos:
 
 ### <a name="create-an-estimator"></a>Criar simulador
 
-Um objeto de [estimador SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para enviar a execução. Crie seu estimador executando o seguinte código para definir esses itens:
+Um objeto de [estimador SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) é usado para enviar a execução. Crie o seu avaliador ao executar o código abaixo para definir os seguintes itens:
 
-* O nome do objeto estimador, `est`.
+* O nome do objeto de avaliador, `est`.
 * O diretório que contém os seus scripts. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
-* O destino de computação. Nesse caso, você usa o cluster de computação Azure Machine Learning que você criou.
-* O nome do script de treinamento, **Train.py**.
-* Parâmetros necessários do script de treinamento.
+* O destino de computação. Neste caso, irá utilizar o cluster de computação do Azure Machine Learning que criou.
+* O nome do script de preparação, ou seja, **train.py**.
+* Os parâmetros necessários do script de preparação.
 
-Neste tutorial, esse destino é AmlCompute. Todos os arquivos na pasta de script são carregados nos nós de cluster para execução. O **DATA_FOLDER** é definido para usar o conjunto de um. Primeiro, crie um objeto de ambiente que especifique as dependências necessárias para treinamento. 
+Neste tutorial, este destino é AmlCompute. Todos os arquivos na pasta de script são carregados nos nós de cluster para execução. O **DATA_FOLDER** é definido para usar o conjunto de um. Primeiro, crie um objeto de ambiente que especifique as dependências necessárias para treinamento. 
 
 ```python
 from azureml.core.environment import Environment
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 Você também pode excluir apenas o cluster de computação Azure Machine Learning. No entanto, o dimensionamento automático é ativado e o mínimo do cluster é zero. Portanto, esse recurso específico não incorrerá em cobranças de computação adicionais quando não estiver em uso:
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

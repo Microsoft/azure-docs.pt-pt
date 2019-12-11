@@ -1,5 +1,5 @@
 ---
-title: Autenticação na plataforma Microsoft Identity (v 1.0) | Azure
+title: Autenticação da plataforma de identidade da Microsoft (v 1.0) | Azure
 description: Conheça as noções básicas sobre autenticação na plataforma de identidade da Microsoft – o modelo de aplicativo, a API, o provisionamento e os cenários de autenticação mais comuns com suporte da plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 445f301e2a526dc8f9e2c261e897fe8b1abe2f1e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149189"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966780"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -64,16 +64,16 @@ No cenário de exemplo acima, pode classificar as aplicações de acordo com est
 
 Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
 
-|Flow | Requisitos | id_token | token de acesso | token de atualização | código de autorização | 
+|Flow | Requer | id_token | Token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Fluxo implícito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Fluxo de OIDC híbrido](v1-protocols-openid-connect-code.md#get-access-tokens)| | x  | |          |            x   |
 |[Resgate de token de atualização](v1-protocols-oauth-code.md#refreshing-the-access-tokens) | token de atualização | x | x | x| |
-|[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | token de acesso| x| x| x| |
+|[Fluxo em-nome-de](v1-oauth2-on-behalf-of-flow.md) | Token de acesso| x| x| x| |
 |[Credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações `groups` ou `wids`. 
+Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (em que `response_mode` é `query` ou `fragment`).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm declarações de `groups` ou `wids`. 
 
 Agora que você tem uma visão geral das noções básicas, continue lendo para entender o modelo e a API do aplicativo de identidade, como o provisionamento funciona na plataforma de identidade da Microsoft e links para informações detalhadas sobre os cenários comuns aos quais a plataforma de identidades da Microsoft dá suporte.
 

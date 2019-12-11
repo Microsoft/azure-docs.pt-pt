@@ -1,6 +1,6 @@
 ---
 title: Diagnosticar e solucionar problemas de desconexões com o DPS do Hub IoT do Azure
-description: Aprenda a diagnosticar e solucionar erros comuns com conectividade de dispositivo para o DPS do Hub IoT do Azure
+description: Aprenda a diagnosticar e solucionar erros comuns com conectividade de dispositivo para o serviço de provisionamento de dispositivos no Hub IoT do Azure (DPS)
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: b596a09e2185b38e6161ea4af2aa109e80faf248
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963424"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974824"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -58,7 +58,7 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 5. Habilite os logs desejados a serem coletados.
 
-    | Nome do Registo | Descrição |
+    | Nome do registo | Descrição |
     |-------|------------|
     | DeviceOperations | Logs relacionados aos eventos de conexão do dispositivo |
     | ServiceOperations | Logs de eventos relacionados ao uso do SDK do serviço (por exemplo, criação ou atualização de grupos de registro)|
@@ -69,13 +69,13 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 8. Clique em **executar** para exibir eventos recentes.
 
-9. Se houver resultados, `OperationName`procure, `ResultType`, `ResultSignature`e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
+9. Se houver resultados, procure `OperationName`, `ResultType`, `ResultSignature`e `ResultDescription` (mensagem de erro) para obter mais detalhes sobre o erro.
 
 
 ## <a name="common-error-codes"></a>Códigos de erro comuns
 Use esta tabela para entender e resolver erros comuns.
 
-| Código de Erro| Descrição | Código de status HTTP |
+| Código de Erro| Descrição | Código de Estado de HTTP |
 |-------|------------|------------|
 | 400 | O corpo da solicitação não é válido; por exemplo, ele não pode ser analisado ou o objeto não pode ser validado.| 400 formato inadequado |
 | 401 | O token de autorização não pode ser validado; por exemplo, ele está expirado ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | 401 não autorizado|

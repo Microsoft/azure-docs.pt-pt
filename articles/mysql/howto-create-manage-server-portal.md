@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 553234410a7b8b798d26f0e2fee6132a2602b1cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3fed615a767fee2fff1700f996b2103f411db825
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770514"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973480"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerenciar um servidor de banco de dados do Azure para MySQL usando o portal do Azure
-Este artigo mostra como gerenciar seu banco de dados afire para servidores MySQL. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
+Este artigo mostra como gerenciar seu banco de dados do Azure para servidores MySQL. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
 
 ## <a name="sign-in"></a>Iniciar sessão
 Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -84,7 +84,7 @@ Você pode alterar a senha da função de administrador usando o portal do Azure
 3. Selecione **OK** para salvar a nova senha.
 
 
-## <a name="delete-a-server"></a>Excluir um servidor
+## <a name="delete-a-server"></a>Eliminar um servidor
 
 Você pode excluir o servidor se não precisar mais dele. 
 
@@ -94,7 +94,7 @@ Você pode excluir o servidor se não precisar mais dele.
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que você deseja excluir.
 
-    ![confirmar-excluir](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > A exclusão de um servidor é irreversível.

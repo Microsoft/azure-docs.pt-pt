@@ -1,18 +1,18 @@
 ---
 title: Usar ferramentas de SDKs do serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Este documento revisa as ferramentas fornecidas nos SDKs do serviço de provisionamento de dispositivos no Hub IoT do Azure para desenvolvimento
+description: Este documento revisa as ferramentas fornecidas nos SDKs do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para desenvolvimento
 author: robinsh
 ms.author: robinsh
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: f5bdf81dedfcf803b8c53a5b0a29cfb823989873
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229676"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974807"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Como usar as ferramentas fornecidas nos SDKs para simplificar o desenvolvimento para provisionamento
 O serviço de provisionamento de dispositivos no Hub IoT simplifica o processo de provisionamento com [provisionamento automático](concepts-auto-provisioning.md) de toque zero e Just-in-time de maneira segura e escalonável.  O atestado de segurança na forma de certificado X. 509 ou de Trusted Platform Module (TPM) é necessário.  A Microsoft também está fazendo parceria com [outros parceiros de hardware de segurança](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para melhorar a confiança na proteção da implantação de IOT. Entender o requisito de segurança de hardware pode ser bastante desafiador para os desenvolvedores. Um conjunto de SDKs do serviço de provisionamento do Azure IoT é fornecido para que os desenvolvedores possam usar uma camada de conveniência para escrever clientes que se comunicam com o serviço de provisionamento. Os SDKs também fornecem exemplos para cenários comuns, bem como um conjunto de ferramentas para simplificar o atestado de segurança no desenvolvimento.

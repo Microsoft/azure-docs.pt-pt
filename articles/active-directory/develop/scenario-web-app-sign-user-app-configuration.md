@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web que conecta usuários (configuração de código)-plataforma de identidade da Microsoft
+title: Configurar um aplicativo Web que conecta usuários-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b7032f8568cc944fb95d2e56a84a3d475c3994
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b077a71a541d29c9b93778babc096ea40c3b43cb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964876"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -378,28 +378,28 @@ Session(app)
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 No próximo artigo, você aprenderá a disparar o logon e a saída.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+> [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+> [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+> [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Entrar e sair](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+> [Iniciar e terminar sessão](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
 
 ---

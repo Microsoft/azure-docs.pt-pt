@@ -3,17 +3,17 @@ title: Exportar um aplicativo de IoT Central do Azure | Microsoft Docs
 description: Como gerente de soluções, quero exportar um modelo de aplicativo para poder reutilizá-lo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9870b18be9fb75e25941a7e1d05e4164239aacbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480358"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977527"
 ---
 # <a name="export-your-application-preview-features"></a>Exportar seu aplicativo (recursos de visualização)
 
@@ -30,7 +30,7 @@ Tem duas opções:
 
 Você pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivo, histórico de dados do dispositivo e dados do usuário. A cópia é um aplicativo pago conforme o uso para o qual você será cobrado. Você não pode criar um aplicativo de avaliação copiando um aplicativo.
 
-Selecione **copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo pago conforme o uso. Em seguida, selecione **copiar** para confirmar que deseja continuar. Para saber mais sobre os campos no formulário, consulte o guia de início rápido [criar um aplicativo](quick-deploy-iot-central.md) .
+Selecione **Copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo pago conforme o uso. Em seguida, selecione **copiar** para confirmar que deseja continuar. Para saber mais sobre os campos no formulário, consulte o guia de início rápido [criar um aplicativo](quick-deploy-iot-central.md) .
 
 > [!NOTE]
 > Você pode **copiar seu aplicativo** somente para os locais da **Europa** e **dos EUA** .
@@ -97,6 +97,6 @@ Se você excluir um modelo de aplicativo, não poderá mais usar o link comparti
 
 Para atualizar o modelo de aplicativo, altere o nome ou a descrição do modelo na página **exportar do modelo de aplicativo** . Em seguida, selecione o botão **Exportar** novamente. Essa ação gera um novo **link compartilhável** e invalida qualquer URL de **link compartilhável** anterior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a usar modelos de aplicativos, a próxima etapa sugerida é aprender a [gerenciar IOT central da portal do Azure](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

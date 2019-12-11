@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926362"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972375"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions gatilhos e associações HTTP
 
@@ -679,6 +679,24 @@ Por padrão, todas as rotas de função são prefixadas com a *API*. Você tamb�
     }
 }
 ```
+
+### <a name="using-route-parameters"></a>Usando parâmetros de rota
+
+Parâmetros de rota definidos o padrão de `route` de uma função estão disponíveis para cada associação. Por exemplo, se você tiver uma rota definida como `"route": "products/{id}"`, uma associação de armazenamento de tabela poderá usar o valor do parâmetro `{id}` na configuração de associação.
+
+A configuração a seguir mostra como o parâmetro `{id}` é passado para a `rowKey`da associação.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
 
 ### <a name="working-with-client-identities"></a>Trabalhando com identidades de cliente
 

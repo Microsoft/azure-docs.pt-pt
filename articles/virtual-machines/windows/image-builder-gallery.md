@@ -1,26 +1,26 @@
 ---
-title: Usar o construtor de imagens do Azure com uma galeria de imagens para máquinas virtuais do Windows (versão prévia)
-description: Crie imagens do Windows com o Azure Image Builder e a Galeria de imagens compartilhadas.
+title: Usar o construtor de imagens do Azure com uma galeria de imagens para VMs do Windows (versão prévia)
+description: Crie imagens de VM do Windows com o Azure Image Builder e a Galeria de imagens compartilhadas.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698676"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976082"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la a uma galeria de imagens compartilhadas 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: criar uma imagem do Windows e distribuí-la para uma galeria de imagens compartilhadas 
 
 Este artigo mostra como você pode usar o construtor de imagens do Azure para criar uma versão de imagem em uma [Galeria de imagens compartilhada](shared-image-galleries.md)e, em seguida, distribuir a imagem globalmente.
 
 Usaremos um modelo. JSON para configurar a imagem. O arquivo. JSON que estamos usando está aqui: [helloImageTemplateforWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
 
-Para distribuir a imagem a uma galeria de imagens compartilhadas, o modelo usa [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o `distribute` valor da seção do modelo.
+Para distribuir a imagem a uma galeria de imagens compartilhadas, o modelo usa [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a seção `distribute` do modelo.
 
 > [!IMPORTANT]
 > O construtor de imagem do Azure está atualmente em visualização pública.
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Dê permissão ao construtor de imagens do Azure para criar recursos nesse grupo de recursos. O `--assignee` valor é a ID de registro do aplicativo para o serviço do construtor de imagem. 
+Dê permissão ao construtor de imagens do Azure para criar recursos nesse grupo de recursos. O valor de `--assignee` é a ID de registro do aplicativo para o serviço do construtor de imagem. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -211,7 +211,7 @@ az resource delete \
     -n helloImageTemplateforWinSIG01
 ```
 
-Obter a versão da imagem criada pelo construtor de imagem, que sempre `0.`começa com e, em seguida, exclui a versão da imagem
+Obter a versão da imagem criada pelo construtor de imagem, que sempre começa com `0.`e, em seguida, exclui a versão da imagem
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

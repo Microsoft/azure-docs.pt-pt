@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar rostos em uma imagem com a API REST do Azure eC#'
+title: 'Início rápido: detectar faces em uma imagem com a API REST do Azure eC#'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a API REST do C# Azure facial com para detectar faces em uma imagem.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: f7e1507289d3c21d51a0ec8529598e5eeb089d37
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 9d903a7d2d7e0cfe899da1fbb8869805f1f4f857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859002"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961255"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Início rápido: Detectar faces em uma imagem usando a API REST de face eC#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Início rápido: detectar faces em uma imagem usando a API REST de face eC#
 
 Neste guia de início rápido, você usará a API REST do C# Azure face para detectar faces humanas em uma imagem.
 
@@ -51,7 +51,7 @@ using System.Text;
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Adicione a classe **programa** que contém os campos a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o `subscriptionKey` campo com o valor de sua chave de assinatura e talvez precise alterar a `uriBase` cadeia de caracteres para que ela contenha a cadeia de caracteres do ponto de extremidade do recurso.
+Adicione a classe **programa** que contém os campos a seguir. Esses dados especificam como se conectar ao serviço de face e onde obter os dados de entrada. Você precisará atualizar o campo `subscriptionKey` com o valor de sua chave de assinatura, e talvez seja necessário alterar a cadeia de caracteres de `uriBase` para que ela contenha a cadeia de caracteres do ponto de extremidade do recurso.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -105,7 +105,7 @@ Adicione o código a seguir ao método **Main** da classe **Program** . Esse có
 
 ### <a name="call-the-face-detection-rest-api"></a>Chamar a API REST de detecção facial
 
-Adicione o seguinte método à classe **Programa**. Ele constrói uma chamada REST para o API de detecção facial para detectar informações de face na imagem remota (a cadeia `requestParameters` de caracteres especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
+Adicione o seguinte método à classe **Programa**. Ele constrói uma chamada REST para o API de Detecção Facial para detectar informações de face na imagem remota (a cadeia de caracteres `requestParameters` especifica quais atributos de face recuperar). Em seguida, ele grava os dados de saída em uma cadeia de caracteres JSON.
 
 Você definirá os métodos auxiliares nas etapas a seguir.
 
@@ -340,7 +340,7 @@ Uma resposta bem-sucedida exibirá dados de face em formato JSON facilmente leg�
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um aplicativo de console .NET simples que usa chamadas REST com o API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência do API de Detecção Facial para saber mais sobre os cenários com suporte.
 

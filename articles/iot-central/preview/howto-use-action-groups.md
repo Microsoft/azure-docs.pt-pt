@@ -4,16 +4,16 @@ description: Execute várias ações de uma única regra de IoT Central e crie g
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/21/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: e51a2fc7e3af9a56b90a66935ef01ac907ebce3b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: a93e96dd14411302bf5368b4825044e060b54a43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929890"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974364"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules-preview-features"></a>Agrupar várias ações a serem executadas de uma ou mais regras (recursos de visualização)
 
@@ -59,7 +59,7 @@ A tabela a seguir resume as informações enviadas para os tipos de ação com s
 
 | Tipo de ação | Formato de saída |
 | ----------- | -------------- |
-| Email       | Modelo de email de IoT Central padrão |
+| E-mail       | Modelo de email de IoT Central padrão |
 | SMS         | Alerta do Azure IoT Central: $ {applicationName}-"$ {ruleName}" disparado em "$ {DeviceName}" em $ {triggerDate} $ {triggertime} |
 | Voz       | Alerta central do Azure I. O. T: regra "$ {ruleName}" disparada no dispositivo "$ {DeviceName}" em $ {triggerDate} $ {triggertime}, no aplicativo $ {applicationName} |
 | Webhook     | {"SchemaId": "AzureIoTCentralRuleWebhook", "data": {[carga regular do webhook](howto-create-webhooks.md#payload)}} |

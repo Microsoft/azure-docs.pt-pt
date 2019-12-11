@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710056"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974670"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -30,11 +30,11 @@ Use essas comparações selecionadas para ajudá-lo a decidir qual método usar.
 **Definição** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
 **Permissões do Azure** | Você precisa de permissões para criar um projeto de migrações para Azure e registrar os aplicativos do Azure AD criados ao implantar o dispositivo de migrações para Azure. | Você precisa de permissões de colaborador na assinatura do Azure. 
-**Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho. | ND
+**Replicação simultânea** | Um máximo de 100 VMs pode ser replicado simultaneamente de um vCenter Server.<br/> Se você tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais em uma única vez afetará o desempenho. | N/D
 **Implantação de dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
-**Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
-**Disco de destino** | Managed disks | Managed disks
-**Limites de disco** | Disco do so: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do so: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
+**Compatibilidade Site Recovery** | Compatível. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
+**Disco de destino** | Managed Disks | Managed Disks
+**Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 4 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
 **Discos de passagem** | Não suportado | Suportadas
 **Inicialização UEFI** | Não suportado | A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
 
@@ -45,14 +45,15 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
-**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | Requerido | Requerido
-**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Requerido | Requerido
-**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | Requerido | Não é necessário.
-**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não necessário | Requerido
-**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não necessário | Requerido
-**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Requerido | Requerido
-**Executar uma migração de teste** | Execute uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Requerido | Requerido
-**Executar uma migração completa** | Migre as VMs. | Requerido | Requerido
+**Avaliação** | Avalie servidores antes da migração.  A avaliação é opcional. Sugerimos que você avalie as máquinas antes de migrá-las, mas não é necessário. <br/><br/> Para avaliação, as migrações para Azure configuram um dispositivo leve para descobrir e avaliar as VMs. | Se você executar uma migração sem agente após a avaliação, o mesmo dispositivo de migração do Azure configurado para avaliação será usado para a migração sem agente.  |  Se você executar uma migração baseada em agente após a avaliação, a configuração do dispositivo para avaliação não será usada durante a migração sem agente. Você pode deixar o dispositivo em vigor ou removê-lo se não quiser fazer mais descoberta e avaliação.
+**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
+**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
+**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | Obrigatório | Não é necessário.
+**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não necessário | Obrigatório
+**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não necessário | Obrigatório
+**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
+**Executar uma migração de teste** | Execute uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
+**Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório
 
 
 

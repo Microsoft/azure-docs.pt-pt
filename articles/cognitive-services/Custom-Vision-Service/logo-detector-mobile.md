@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177795"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970232"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: reconhecer logotipos de serviço do Azure em imagens da câmera
 
@@ -131,7 +131,7 @@ Após a conclusão bem-sucedida, você deverá ver a saída JSON a seguir, inclu
 }
 ```
 
-Anote os valores `clientId` e `tenantId`. Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
+Anote os valores de `clientId` e `tenantId`. Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -153,7 +153,7 @@ Siga estas etapas para executar o aplicativo:
 1. Na primeira tela, insira a ID do cliente da entidade de serviço, a ID do locatário e a senha. Selecione o botão **logon** .
 
     > [!NOTE]
-    > Em alguns emuladores, o botão de **logon** pode não ser ativado nesta etapa. Se isso acontecer, pare o aplicativo, abra o arquivo *Source/VisualProvision/Pages/LoginPage. XAML* , localize o botão nome de **logon**do elemento `Button`, remova a linha a seguir e execute o aplicativo novamente.
+    > Em alguns emuladores, o botão de **logon** pode não ser ativado nesta etapa. Se isso acontecer, pare o aplicativo, abra o arquivo *Source/VisualProvision/Pages/LoginPage. XAML* , localize o botão `Button` rótulo de **logon**, remova a linha a seguir e execute o aplicativo novamente.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
