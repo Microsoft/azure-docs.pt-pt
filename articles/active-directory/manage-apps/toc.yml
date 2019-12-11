@@ -387,8 +387,10 @@
           href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Aprovisionamento de HR de Cloud
       items:
-        - name: Referência de Atributo do SuccessFactors
+        - name: Referência de atributo da SuccessFactors
           href: sap-successfactors-attribute-reference.md
+        - name: Referência de atributo da Workday
+          href: workday-attribute-reference.md
     - name: Agente de Aprovisionamento do Azure AD Connect
       items:
         - name: Histórico de versões do Agente de Aprovisionamento

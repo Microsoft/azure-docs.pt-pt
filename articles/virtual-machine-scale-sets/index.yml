@@ -10,8 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: gwallace
-abstract:
-  description: 'Os conjuntos de dimensionamento de máquina virtual do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático. Saiba como criar, configurar, gerir e dimensionar automaticamente os conjuntos de disponibilidade de máquinas virtuais com os nossos inícios rápidos, tutoriais e amostras.'
+  description: Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs com balanceamento de carga e dimensionamento automático.
 sections:
   - title: Inícios rápidos
     items:
