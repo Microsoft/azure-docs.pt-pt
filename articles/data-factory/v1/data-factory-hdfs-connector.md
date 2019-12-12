@@ -4,21 +4,20 @@ description: Saiba mais sobre como mover dados do HDFS local usando Azure Data F
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ad5695f1bde1013b6a4c010f4a80256eac09fe63
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7652ab72fb972230d98913c2d7e2601737982532
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682566"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924353"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS local usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -65,7 +64,7 @@ As seções a seguir fornecem detalhes sobre as propriedades JSON que são usada
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 Um serviço vinculado vincula um armazenamento de dados a um data factory. Você cria um serviço vinculado do tipo **HDFS** para vincular um HDFS local ao seu data Factory. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do HDFS.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade Type deve ser definida como: **HDFS** |Sim |
 | url |URL para o HDFS |Sim |
@@ -118,7 +117,7 @@ Para obter uma lista completa das seções & propriedades disponíveis para defi
 
 A seção **typeproperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no repositório de dados. A seção typeproperties do conjunto de um do tipo **FileShare** (que inclui o conjunto de conjuntos de o HDFS) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
 | fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt |Não |
@@ -169,7 +168,7 @@ Para a atividade de cópia, quando a fonte é do tipo **FileSystemName** , as se
 
 O **FileSystemName** dá suporte às seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | recursive |Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. |True, false (padrão) |Não |
 
@@ -456,7 +455,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
     1. Vá para Gerenciador do Servidor > gerenciamento de Política de Grupo > domínio > objetos política de grupo > a política de domínio padrão ou ativa e edite.
 
-    2. Na janela pop-up **Editor de gerenciamento de política de grupo** , vá para configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas locais > opções de segurança e configure a **segurança de rede: configurar tipos de criptografia permitido para Kerberos**.
+    2. Na janela pop-up **Editor de gerenciamento de política de grupo** , vá para configuração do computador > políticas > configurações do Windows > configurações de segurança > políticas locais > opções de segurança e configure a **segurança de rede: configurar tipos de criptografia permitidos para Kerberos**.
 
     3. Selecione o algoritmo de criptografia que você deseja usar ao se conectar ao KDC. Normalmente, você pode simplesmente selecionar todas as opções.
 
