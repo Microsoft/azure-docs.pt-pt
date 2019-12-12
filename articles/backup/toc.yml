@@ -222,6 +222,8 @@
       items:
         - name: Criar cofre dos Serviços de Recuperação
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Atualizar as configurações do cofre dos Serviços de Recuperação
+          href: use-restapi-update-vault-properties.md
         - name: Criar e atualizar a política de cópias de segurança
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Fazer uma cópia de segurança de VMs do Azure
