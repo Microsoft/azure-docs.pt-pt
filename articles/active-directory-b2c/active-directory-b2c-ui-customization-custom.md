@@ -1,5 +1,6 @@
 ---
-title: Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C | Microsoft Docs
+title: Personalizar a interface do usuário do seu aplicativo com uma política personalizada
+titleSuffix: Azure AD B2C
 description: Saiba mais sobre como personalizar uma interface do usuário usando uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209453"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949631"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -63,7 +64,7 @@ Crie conteúdo HTML com o nome da marca do produto no título.
 
 Para hospedar esse conteúdo HTML no armazenamento de BLOBs, execute as seguintes etapas:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu **Hub** , selecione **novo** **armazenamento** de >  > **conta de armazenamento**.
 1. Selecione uma **assinatura** para sua conta de armazenamento.
 1. Crie um **grupo de recursos** ou selecione um existente.
@@ -100,7 +101,7 @@ Para criar um contêiner público no armazenamento de BLOBs, execute as seguinte
 Configure o armazenamento de BLOB para compartilhamento de recursos entre origens executando as seguintes etapas:
 
 1. No menu, selecione **CORS**.
-1. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome do seu locatário Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário.
+1. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao inserir o nome do locatário.
 1. Para **métodos permitidos**, selecione `GET` e `OPTIONS`.
 1. Para **cabeçalhos permitidos**, insira um asterisco (*).
 1. Para **cabeçalhos expostos**, insira um asterisco (*).
@@ -173,11 +174,11 @@ A pasta sample_templates/Wingtip contém os seguintes arquivos HTML:
 
 | Modelo HTML5 | Descrição |
 |----------------|-------------|
-| *PhoneFactor. html* | Use esse arquivo como um modelo para uma página de autenticação multifator. |
-| *ResetPassword. html* | Use esse arquivo como um modelo para uma página esquecida de senha. |
-| *selfasserted. html* | Use esse arquivo como um modelo para uma página de inscrição de conta social, uma página de inscrição de conta local ou uma página de entrada de conta local. |
-| *Unified. html* | Use esse arquivo como um modelo para uma página de inscrição ou entrada unificada. |
-| *updateProfile. html* | Use este arquivo como um modelo para uma página de atualização de perfil. |
+| *phonefactor.html* | Use esse arquivo como um modelo para uma página de autenticação multifator. |
+| *resetpassword.html* | Use esse arquivo como um modelo para uma página esquecida de senha. |
+| *selfasserted.html* | Use esse arquivo como um modelo para uma página de inscrição de conta social, uma página de inscrição de conta local ou uma página de entrada de conta local. |
+| *unified.html* | Use esse arquivo como um modelo para uma página de inscrição ou entrada unificada. |
+| *updateprofile.html* | Use este arquivo como um modelo para uma página de atualização de perfil. |
 
 Aqui estão as etapas sobre como usar o exemplo:
 
@@ -194,16 +195,16 @@ Na seção modificar sua política personalizada de inscrição ou entrada, voc�
 
 | ID de definição de conteúdo | Descrição |
 |-----------------------|-------------|
-| *API. Error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
-| *API. idpselections* | **Página de seleção do provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a entrada. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
-| *API. idpselections. signup* | **Seleção do provedor de identidade para inscrição**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
-| *API. localaccountpasswordreset* | **Página esqueci a senha**. Esta página contém um formulário que o usuário deve concluir para iniciar uma redefinição de senha.  |
-| *API. localaccountsignin* | **Página de entrada da conta local**. Esta página contém um formulário de entrada para entrar com uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter uma caixa de entrada de texto e uma caixa de entrada de senha. |
-| *API. localaccountsignup* | **Página de inscrição da conta local**. Esta página contém um formulário de inscrição para se inscrever em uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter vários controles de entrada, como uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
-| *API. PhoneFactor* | **Página de autenticação multifator**. Nessa página, os usuários podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
-| *API. selfasserted* | **Página de inscrição de conta social**. Esta página contém um formulário de inscrição que os usuários devem concluir ao se inscreverem usando uma conta existente de um provedor de identidade social, como Facebook ou Google +. Esta página é semelhante à página de inscrição de conta social anterior, exceto para os campos de entrada de senha. |
-| *API. selfasserted. profileUpdate* | **Página de atualização de perfil**. Esta página contém um formulário que os usuários podem usar para atualizar seu perfil. Esta página é semelhante à página de inscrição de conta social, exceto para os campos de entrada de senha. |
-| *API. signuporsignin* | **Página de inscrição ou entrada unificada**. Esta página manipula a inscrição e a entrada de usuários, que podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook ou Google +, ou contas locais.  |
+| *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
+| *api.idpselections* | **Página de seleção do provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a entrada. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
+| *api.idpselections.signup* | **Seleção do provedor de identidade para inscrição**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Essas opções são provedores de identidade Enterprise, provedores de identidade social, como Facebook e Google +, ou contas locais. |
+| *api.localaccountpasswordreset* | **Página esqueci a senha**. Esta página contém um formulário que o usuário deve concluir para iniciar uma redefinição de senha.  |
+| *api.localaccountsignin* | **Página de entrada da conta local**. Esta página contém um formulário de entrada para entrar com uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter uma caixa de entrada de texto e uma caixa de entrada de senha. |
+| *api.localaccountsignup* | **Página de inscrição da conta local**. Esta página contém um formulário de inscrição para se inscrever em uma conta local baseada em um endereço de email ou um nome de usuário. O formulário pode conter vários controles de entrada, como uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de opção, caixas suspensas de seleção única e caixas de seleção de várias seleções. |
+| *api.phonefactor* | **Página de autenticação multifator**. Nessa página, os usuários podem verificar seus números de telefone (usando texto ou voz) durante a inscrição ou entrada. |
+| *api.selfasserted* | **Página de inscrição de conta social**. Esta página contém um formulário de inscrição que os usuários devem concluir ao se inscreverem usando uma conta existente de um provedor de identidade social, como Facebook ou Google +. Esta página é semelhante à página de inscrição de conta social anterior, exceto para os campos de entrada de senha. |
+| *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que os usuários podem usar para atualizar seu perfil. Esta página é semelhante à página de inscrição de conta social, exceto para os campos de entrada de senha. |
+| *api.signuporsignin* | **Página de inscrição ou entrada unificada**. Esta página manipula a inscrição e a entrada de usuários, que podem usar provedores de identidade corporativa, provedores de identidade social, como Facebook ou Google +, ou contas locais.  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
