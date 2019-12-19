@@ -130,7 +130,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
-| Ilhas Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
+| Ilhas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
 | Curilas do Sul                                     |        ✓        |                |              |      ✓     |          ✓         |

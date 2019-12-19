@@ -29,7 +29,7 @@ O HDInsight fornece uma infraestrutura personalizada para garantir que quatro se
 
 Essa infra-estrutura consiste em vários serviços e componentes de software, alguns dos quais são projetados pela Microsoft. Os seguintes componentes são exclusivos para a plataforma HDInsight:
 
-- Controlador de failover escravo
+- Controlador de failover subordinado
 - Controlador de failover mestre
 - Serviço de alta disponibilidade subordinado
 - Serviço mestre de alta disponibilidade
@@ -62,20 +62,20 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 Cada cluster HDInsight tem dois cabeçalho nos modos ativo e em espera, respectivamente. Os serviços de alta disponibilidade do HDInsight são executados somente no cabeçalho. Esses serviços devem estar sempre em execução no cabeçalho ativo e interrompidos e colocados no modo de manutenção no cabeçalho em espera.
 
-Para manter os Estados corretos dos serviços de HA e fornecer um failover rápido, o HDInsight utiliza Apache ZooKeeper, que é um serviço de coordenação para aplicativos distribuídos, para realizar eleição cabeçalho ativa. O HDInsight também provisiona alguns processos Java em segundo plano, que coordenam o procedimento de failover para os serviços de HA do HDInsight. Esses serviços são os seguintes: o controlador de failover mestre, o controlador de failover escravo, o *Master-ha-Service*e o *slave-ha-Service*.
+Para manter os Estados corretos dos serviços de HA e fornecer um failover rápido, o HDInsight utiliza Apache ZooKeeper, que é um serviço de coordenação para aplicativos distribuídos, para realizar eleição cabeçalho ativa. O HDInsight também provisiona alguns processos Java em segundo plano, que coordenam o procedimento de failover para os serviços de HA do HDInsight. Esses serviços são os seguintes: o controlador de failover mestre, o controlador de failover subordinado, o *Master-ha-Service*e o *slave-ha-Service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
 Apache ZooKeeper é um serviço de coordenação de alto desempenho para aplicativos distribuídos. Em produção, o ZooKeeper geralmente é executado no modo replicado, em que um grupo replicado de servidores ZooKeeper formam um quorum. Cada cluster HDInsight tem três nós ZooKeeper que permitem que três servidores ZooKeeper formem um quorum. O HDInsight tem dois quorums ZooKeeper executados em paralelo uns com os outros. Um quorum decide a cabeçalho ativa em um cluster no qual os serviços de HA do HDInsight devem ser executados. Outro quorum é usado para coordenar os serviços de alta disponibilidade fornecidos pelo Apache, conforme detalhado nas seções posteriores.
 
-### <a name="slave-failover-controller"></a>Controlador de failover escravo
+### <a name="slave-failover-controller"></a>Controlador de failover subordinado
 
-O controlador de failover escravo é executado em cada nó em um cluster HDInsight. Esse controlador é responsável por iniciar o agente Ambari e o *slave-ha-Service* em cada nó. Ele consulta periodicamente o primeiro quorum ZooKeeper sobre o cabeçalho ativo. Quando as cabeçalho ativa e em espera são alteradas, o controlador de failover escravo executa o seguinte:
+O controlador de failover subordinado é executado em cada nó em um cluster HDInsight. Esse controlador é responsável por iniciar o agente Ambari e o *slave-ha-Service* em cada nó. Ele consulta periodicamente o primeiro quorum ZooKeeper sobre o cabeçalho ativo. Quando as cabeçalho ativa e em espera são alteradas, o controlador de failover subordinado executa o seguinte:
 
 1. Atualiza o arquivo de configuração do host.
 1. Reinicia o agente do Ambari.
 
-O *serviço escravo-ha-Service* é responsável por parar os serviços de ha do HDInsight (exceto o servidor Ambari) no cabeçalho em espera.
+O *serviço subordinado-ha-Service* é responsável por parar os serviços de ha do HDInsight (exceto o servidor Ambari) no cabeçalho em espera.
 
 ### <a name="master-failover-controller"></a>Controlador de failover mestre
 

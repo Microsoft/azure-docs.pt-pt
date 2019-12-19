@@ -206,7 +206,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
-| CI | Costa do Marfim|
+| CI | Costa do Marfim (Côte d’Ivoire)|
 | CL | Chile|
 | CM | Camarões|
 | CN | China|

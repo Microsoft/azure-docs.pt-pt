@@ -58,7 +58,7 @@ A solução começa a coletar dados sem a necessidade de configuração adiciona
 
 No painel da solução, clique em **configuração** para abrir a página configuração do análise de DNS. Há dois tipos de alterações de configuração que você pode fazer:
 
-- **Nomes de domínio na lista**de permissões. A solução não processa todas as consultas de pesquisa. Ele mantém uma lista branca de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem a sufixos de nome de domínio nesta lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados para Azure Monitor. A lista de permissões padrão inclui nomes de domínio públicos populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa rolando.
+- **Nomes de domínio na lista**de permissões. A solução não processa todas as consultas de pesquisa. Ele mantém uma lista de permissões de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem a sufixos de nome de domínio nesta lista de permissões não são processadas pela solução. O não processamento de nomes de domínio na lista de permissões ajuda a otimizar os dados enviados para Azure Monitor. A lista de permissões padrão inclui nomes de domínio públicos populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa rolando.
 
   Você pode modificar a lista para adicionar qualquer sufixo de nome de domínio para o qual você deseja exibir informações de pesquisa. Você também pode remover qualquer sufixo de nome de domínio para o qual não deseja exibir informações de pesquisa.
 
@@ -111,7 +111,7 @@ As informações ajudam a identificar o:
 - Endereços IP aos quais o nome de domínio é resolvido.
 - Endereço IP mal-intencionado.
 - Gravidade do problema.
-- Motivo da lista negra do IP mal-intencionado.
+- Motivo da lista de bloqueios do IP mal-intencionado.
 - Tempo de detecção.
 
 **Domínios consultados**. Fornece os nomes de domínio mais frequentes que estão sendo consultados pelos clientes DNS em seu ambiente. Você pode exibir a lista de todos os nomes de domínio consultados. Você também pode fazer uma busca detalhada nos detalhes da solicitação de pesquisa de um nome de domínio específico na pesquisa de logs.

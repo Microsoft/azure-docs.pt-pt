@@ -61,7 +61,7 @@ Você pode configurar uma política de filtragem geográfica para sua porta fron
 | CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
-| CI | Costa do Marfim|
+| CI | Costa do Marfim (Côte d’Ivoire)|
 | CL | Chile|
 | CM | Camarões|
 | CN | China|

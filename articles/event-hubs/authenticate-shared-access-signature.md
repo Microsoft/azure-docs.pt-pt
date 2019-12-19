@@ -207,7 +207,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode estar na lista negra de enviar para esse Hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode estar na lista de bloqueios de enviar para esse Hub de eventos.
 > 
 > É sempre recomendável fornecer escopos específicos e granulares.
 

@@ -115,7 +115,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
-| Ilhas Malvinas (Malvinas) | ✓ | ✓ |
+| Ilhas Falkland (Malvinas) | ✓ | ✓ |
 | Guiana Francesa             | ✓ | ✓ |
 | Gronelândia                 | ✓ | A partir do |
 | Granada                   | ✓ | ✓ |
@@ -191,7 +191,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Catar                     | ✓ | ✓ |
 | República da Coreia         | ✓ | A partir do |
 | Arábia Saudita              | ✓ | ✓ |
-| Ilhas Senkaku           |   | ✓ |
+| Ilhas Senkaku/Diaoyutai           |   | ✓ |
 | Singapura                 | ✓ | ✓|
 | Sri Lanka                 |   | A partir do |
 | República Árabe Síria      |   | A partir do |
@@ -247,7 +247,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 | Azerbaijão                | ✓ | A partir do |
 | Bielorrússia                   | A partir do | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bósnia-Herzegovina        | ✓ | ✓ |
+| Bósnia e Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |

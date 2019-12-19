@@ -500,7 +500,7 @@ Esta versão fornece o hive 1.2.1 e o hive 2.1.0 além dos seguintes patches:
 
 -   [*Hive-17621*](https://issues.apache.org/jira/browse/HIVE-17621): as configurações do hive-site são ignoradas durante o cálculo de divisão de HCatInputFormat.
 
--   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração de lista branca/Blacklist para permitir o cache seletivo de tabelas/partições e permitir a leitura durante o aquecimento.
+-   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração de lista de permissões/Blacklist para permitir o cache seletivo de tabelas/partições e permitir a leitura durante o aquecimento.
 
 -   [*Hive-17636*](https://issues.apache.org/jira/browse/HIVE-17636): adicione vários\_teste agg. q para blobstores.
 
