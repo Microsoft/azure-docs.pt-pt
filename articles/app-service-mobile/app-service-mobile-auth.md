@@ -1,34 +1,25 @@
 ---
-title: Autenticação e autorização no serviço de Azure App para aplicativos móveis | Microsoft Docs
-description: Referência conceitual e visão geral do recurso de autenticação/autorização para Azure App serviço, especificamente para aplicativos móveis
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Autenticação e autorização
+description: Referência conceitual e visão geral do recurso de autenticação/autorização para Azure App serviço, especificamente para aplicativos móveis.
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: mahender
-ms.openlocfilehash: 6017d9bc8b9a791e46fd1562660c9049ca0f72e5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388898"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668521"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticação e autorização no serviço de Azure App para aplicativos móveis
 
 > [!NOTE]
 > O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
 >
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
+> Se quiser integrar serviços cloud na sua aplicação móvel, inscreva-se no [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este artigo descreve como funciona a autenticação e a autorização ao desenvolver aplicativos móveis nativos com um back-end do serviço de aplicativo. O serviço de aplicativo fornece autenticação e autorização integradas, para que seus aplicativos móveis possam conectar usuários sem alterar nenhum código no serviço de aplicativo. Ele fornece uma maneira fácil de proteger seu aplicativo e trabalhar com dados por usuário. 
 
-Este artigo se concentra no desenvolvimento de aplicativos móveis. Para começar rapidamente com a autenticação e autorização do serviço de aplicativo para seu aplicativo móvel, consulte um dos tutoriais a seguir [Adicionar autenticação ao seu aplicativo IOS][iOS] (ou [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms]ou [Cordova]). 
+Este artigo se concentra no desenvolvimento de aplicativos móveis. Para começar rapidamente com a autenticação e autorização do serviço de aplicativo para seu aplicativo móvel, consulte um dos tutoriais a seguir [Adicionar autenticação ao aplicativo IOS][iOS] (ou [Xamarin.Android], [Windows], [Xamarin.iOS], Xamarin. [Android], [Xamarin.Forms]ou [Cordova]). 
 
 Para obter informações sobre como a autenticação e a autorização funcionam no serviço de aplicativo, consulte [autenticação e autorização no serviço de Azure app](../app-service/overview-authentication-authorization.md).
 
