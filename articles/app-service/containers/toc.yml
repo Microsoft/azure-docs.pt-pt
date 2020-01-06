@@ -8,7 +8,7 @@
       href: app-service-linux-intro.md
     - name: Comparar opções de alojamento
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar aplicação .NET Core
@@ -192,7 +192,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informações sobre a Quota
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guias do Assistente de Migração

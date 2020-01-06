@@ -16,7 +16,7 @@
 - name: Filas
   href: ./queues/index.yml?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Tabelas
-  href: ./tables/table-storage-overview.md
+  href: ./tables/index.yml?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Discos
   items:
     - name: Windows

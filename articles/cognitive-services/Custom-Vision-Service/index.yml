@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
-  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+  ms.openlocfilehash: 43dd5d574cc76acaaf11e7e3720fa4222b2cac86
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73647586"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75448243"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
@@ -102,8 +102,6 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Mover o seu projeto de Versão de Avaliação Limitada para o Azure
-      url: move-your-project-to-azure.md
     - text: Atualizar a sua aplicação para a API 3.0
       url: update-application-to-3.0-sdk.md
 - title: Referência

@@ -7,7 +7,7 @@
       href: overview.md
     - name: Compreender as diferentes funções
       href: rbac-and-directory-admin-roles.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Ver o acesso de um utilizador
       href: check-access.md
@@ -99,7 +99,7 @@
     - name: Operações do fornecedor de recursos
       href: resource-provider-operations.md
     - name: Limites do RBAC
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
     - name: CLI do Azure

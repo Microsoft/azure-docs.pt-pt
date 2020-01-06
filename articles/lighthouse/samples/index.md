@@ -3,12 +3,12 @@ title: Exemplos e modelos do Azure Lighthouse
 description: Estes exemplos e modelos do Azure Resource Manager mostram como integrar clientes na gestão de recursos delegados do Azure e dar suporte a cenários do Azure Lighthouse.
 ms.topic: sample
 ms.date: 10/17/2019
-ms.openlocfilehash: 20c1fc62c83202f97ed9cff68fd285280d94a321
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e7a3c761d3eff1e5ef44e46517bae839dedbd9f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456776"
 ---
 # <a name="azure-lighthouse-samples"></a>Exemplos do Azure Lighthouse
 
@@ -16,53 +16,19 @@ A tabela seguinte inclui ligações para modelos importantes do Azure Resource M
 
 ## <a name="onboarding-customers-to-azure-delegated-resource-management"></a>Integrar clientes na gestão de recursos delegados do Azure
 
-Disponibilizamos modelos diferentes para abordar cenários de integração específicos. Escolha a melhor opção para si e certifique-se de que modifica o ficheiro de parâmetros de forma a refletir o seu ambiente. Para obter mais informações sobre como utilizar estes ficheiros na sua implementação, veja [Integrar um cliente na gestão de recursos delegados do Azure ](../how-to/onboard-customer.md).
-
-| **Modelo** | **Descrição** |
-|---------|---------|
-| [delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | Integra a subscrição de um cliente na gestão de recursos delegados do Azure. Tem de fazer uma implementação separada para cada subscrição. |
-| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) | Integra um ou mais grupos de recursos de um cliente na gestão de recursos delegados do Azure. Utilize **rgDelegatedResourceManagement** para um único grupo de recursos ou **multipleRgDelegatedResourceManagement** para integrar vários grupos de recursos na mesma subscrição. |
-| [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management) | Se [publicou uma oferta de serviços geridos no Azure Marketplace](../how-to/publish-managed-services-offers.md), pode optar por utilizar este modelo para integrar recursos para os clientes que tenham aceitado a oferta. Os valores do Marketplace no ficheiro de parâmetros têm de corresponder aos valores que utilizou quando publicou a sua oferta. |
-
-Normalmente, é necessária uma implementação separada por cada subscrição que está a integrar, mas também pode implementar modelos em várias subscrições.
-
-| **Modelo** | **Descrição** |
-|---------|---------|
-| [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-subscription-deployment) | Implementa modelos do Azure Resource Manager em várias subscrições. |
+[!INCLUDE [azure-lighthouse-samples-onboarding](../../../includes/azure-lighthouse-samples-onboarding.md)]
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Estes exemplos mostram como utilizar o Azure Policy com subscrições que foram integradas na gestão de recursos delegados do Azure.
-
-| **Modelo** | **Descrição** |
-|---------|---------|
-| [policy-add-or-replace-tag](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) | Atribui uma política que adiciona ou remove uma etiqueta (através do efeito de modificação) relativamente a uma subscrição delegada. Para obter mais informações, veja [Implementar uma política que possa ser remediada numa subscrição delegada](../how-to/deploy-policy-remediation.md). |
-| [policy-audit-delegation](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-audit-delegation) | Atribui uma política que fará a auditoria das atribuições de delegação. |
-| [policy-enforce-keyvault-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring) | Atribui uma política que permite diagnósticos nos recursos do Azure Key Vault numa subscrição delegada (através do efeito deployIfNotExists). Para obter mais informações, veja [Implementar uma política que possa ser remediada numa subscrição delegada](../how-to/deploy-policy-remediation.md). |
-| [policy-enforce-sub-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-sub-monitoring) | Atribui várias políticas para permitir diagnósticos numa subscrição delegada e liga todas as VMs do Windows e Linux à área de trabalho do Log Analytics criada pela política. Para obter mais informações, veja [Implementar uma política que possa ser remediada numa subscrição delegada](../how-to/deploy-policy-remediation.md). |
-| [policy-initiative](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-initiative) | Aplica uma iniciativa (várias definições de política relacionadas) a uma subscrição delegada. |
+[!INCLUDE [azure-lighthouse-samples-policy](../../../includes/azure-lighthouse-samples-policy.md)]
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Estes exemplos mostram como utilizar o Azure Monitor para criar alertas para subscrições que foram integradas na gestão de recursos delegados do Azure.
-
-| **Modelo** | **Descrição** |
-|---------|---------|
-| [alert-using-actiongroup](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/alert-using-actiongroup) | Este modelo cria um alerta do Azure e liga-se a um Grupo de Ações existente.|
-| [multiple-loganalytics-alerts](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/multiple-loganalytics-alerts) | Cria vários alertas de registo com base nas consultas do Kusto.|
-| [delegation-alert-for-customer](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegation-alert-for-customer) | Implementa um alerta num inquilino quando um utilizador delega uma subscrição a um inquilino gestor.|
+[!INCLUDE [azure-lighthouse-samples-monitor](../../../includes/azure-lighthouse-samples-monitor.md)]
 
 ## <a name="additional-cross-tenant-scenarios"></a>Cenários adicionais entre inquilinos
 
-Estes exemplos ilustram várias tarefas que se pode realizar em cenários de gestão entre inquilinos.
-
-| **Modelo** | **Descrição** |
-|---------|---------|
-| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-rg-deployment) | Implementa contas de armazenamento em dois grupos de recursos diferentes.|
-| [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Cria os serviços de gestão do Azure, interliga-os e implementa soluções adicionais. Para fazer uma implementação completa, utilize o modelo **rgWithAzureMgmt.json**. |
-| [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | Ativa e configura o Centro de Segurança do Azure na subscrição do Azure visada. |
-| [deploy-azure-sentinel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-sentinel) | Implementa e ativa o Azure Sentinel numa área de trabalho do Log Analytics existente numa subscrição delegada. |
-| [deploy-log-analytics-vm-extensions](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-log-analytics-vm-extensions) | Estes modelos permitem-lhe implementar extensões de VM do Log Analytics nas suas VMs do Windows e Linux, ligando-as à área de trabalho do Log Analytics designada |
+[!INCLUDE [azure-lighthouse-samples-scenarios](../../../includes/azure-lighthouse-samples-scenarios.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

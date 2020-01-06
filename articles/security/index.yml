@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: c3f75decc72cbc314309b8cfb0bd81d9c0be2774
-  ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+  ms.openlocfilehash: a25189e75bcf313a5e2e8eee410a581d50f70584
+  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73686324"
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75563756"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -63,12 +63,15 @@ conceptualContent:
       text: Ver mais
   - title: Valores de referência e recomendações
     links:
-    - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+    - url: ./benchmarks/introduction.md
       itemType: download
       text: Valor de referência da segurança da cloud do Azure
     - url: ../security-center/security-center-using-recommendations.md
       itemType: overview
       text: Recomendações do Centro de Segurança do Azure
+    footerLink:
+      url: ./benchmarks/index.yml
+      text: Ver mais
   - title: Segredos e chaves
     links:
     - url: ../key-vault/key-vault-overview.md

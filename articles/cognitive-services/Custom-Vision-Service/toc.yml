@@ -4,7 +4,7 @@
   items:
     - name: O que é a Visão Personalizada?
       href: home.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Utilizar o portal Web
       items:
@@ -68,8 +68,6 @@
           href: export-model-python.md
     - name: Exportar ou eliminar dados da conta
       href: ./export-delete-data.md
-    - name: Mover o seu projeto de Versão de Avaliação Limitada para o Azure
-      href: ./move-your-project-to-azure.md
     - name: Atualizar a sua aplicação para a API 3.0
       href: ./update-application-to-3.0-sdk.md
 - name: Referência

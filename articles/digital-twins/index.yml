@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: KingdomOfEnds
   ms.author: v-adgera
-  ms.date: 09/03/2019
-  ms.openlocfilehash: 3d55dcfc4b57d0179ca6e02bae50bf3d37dc70f3
-  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+  ms.date: 12/12/2019
+  ms.openlocfilehash: 2eaad514cba989010762aab5c88fedef0181bd60
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/13/2019
-  ms.locfileid: "74009305"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75438076"
 landingContent:
 - title: Acerca do Azure Digital Twins
   linkLists:

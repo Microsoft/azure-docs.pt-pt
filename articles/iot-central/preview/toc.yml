@@ -4,8 +4,6 @@
   items:
     - name: O que é o Azure IoT Central
       href: overview-iot-central.md
-    - name: Opções de Solução IoT
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Apresentação da IU
       href: overview-iot-central-tour.md
     - name: Estar ligado
@@ -14,7 +12,7 @@
       href: overview-iot-central-stay-connected.md
     - name: Transformação
       href: overview-iot-central-transform.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: 1. Criar uma nova aplicação

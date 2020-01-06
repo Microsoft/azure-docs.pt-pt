@@ -1,10 +1,4 @@
-### YamlMime:Yaml
-ms.openlocfilehash: 798a3ad1a2e81eae8621ae43d47d41031603331f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74734465"
+### YamlMime:ZonePivotGroups
 groups:
 - id: programming-languages-set-one
   title: Linguagens de programação
@@ -100,3 +94,10 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: Postman
+metadata:
+  ms.openlocfilehash: aa838dc839bdd5b3b1b24dbfccc216802af29358
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75458634"

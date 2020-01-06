@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 442b9c5028ef899329912fa9d21ce780437d7970
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: e226dbf20550fc48de38882c364fe57e39a437ca
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73570180"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75429055"
 landingContent:
 - title: Sobre o IoT Plug and Play
   linkLists:
@@ -33,11 +33,11 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Ligar um dispositivo de exemplo ao Hub IoT
-      url: quickstart-connect-pnp-device.md
+      url: quickstart-connect-pnp-device-c-windows.md
     - text: Ligar um dispositivo de exemplo ao IoT Central
       url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - text: Utilizar um modelo de função de dispositivo para criar um dispositivo
-      url: quickstart-create-pnp-device.md
+      url: quickstart-create-pnp-device-windows.md
   - linkListType: tutorial
     links:
     - text: Criar e testar um modelo de função de dispositivo com o Visual Studio Code
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Interagir com um dispositivo ligado à sua solução
-      url: quickstart-connect-pnp-device-solution.md
+      url: quickstart-connect-pnp-device-solution-node.md
   - linkListType: concept
     links:
     - text: Deteção de modelos

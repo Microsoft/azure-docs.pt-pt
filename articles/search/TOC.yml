@@ -7,15 +7,15 @@
       href: search-what-is-azure-search.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar um serviço
       href: search-create-service-portal.md
     - name: Portal
       items:
-        - name: Criar um índice de pesquisa
+        - name: Criar um índice
           href: search-get-started-portal.md
-        - name: Criar uma aplicação (pré-visualização)
+        - name: Criar uma aplicação
           href: search-create-app-portal.md
         - name: Criar um conjunto de competências cognitivas
           href: cognitive-search-quickstart-blob.md

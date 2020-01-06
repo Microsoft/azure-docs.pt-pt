@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 9921093e078504323a57a2ae17a24b13b72fbc60
-  ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+  ms.openlocfilehash: d9ff6c7d5fffd8ceb5d282b35db61e0ec0a0b7de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/10/2019
-  ms.locfileid: "74973667"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75428354"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
@@ -93,6 +93,8 @@ landingContent:
       url: service/concept-model-management-and-deployment.md
     - text: Como e onde implementar
       url: service/how-to-deploy-and-where.md
+    - text: Autenticação
+      url: service/how-to-setup-authentication.md
     - text: Predição em tempo real
       url: service/how-to-consume-web-service.md
     - text: Predição de lote

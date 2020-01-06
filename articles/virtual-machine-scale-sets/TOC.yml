@@ -4,7 +4,7 @@
   items:
     - name: O que são os conjuntos de dimensionamento de máquinas virtuais?
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar no portal do Azure
@@ -64,7 +64,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Regiões
       href: ../virtual-machines/windows/regions.md

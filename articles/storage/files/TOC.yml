@@ -5,7 +5,7 @@
   items:
     - name: O que são os Ficheiros do Azure?
       href: storage-files-introduction.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar/utilizar partilhas de ficheiros - Windows
       href: storage-files-quick-create-use-windows.md
@@ -53,8 +53,6 @@
       items:
         - name: Autorização
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Segurança do Armazenamento do Azure
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Encriptação do Armazenamento do Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticação do Azure AD por SMB

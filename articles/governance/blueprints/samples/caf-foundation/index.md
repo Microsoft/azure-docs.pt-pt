@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 8339b7335ff2946dcd602db6ece4637ac4bc1d92
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545441"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562566"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -43,7 +43,7 @@ Todos estes elementos obedecem às práticas comprovadas publicados no [Centro d
 > O esquema Fundação do CAF estabelece uma arquitetura base para as cargas de trabalho.
 > Continua a ser necessário implementar as cargas de trabalho atrás desta arquitetura básica.
 
-Para obter mais informações, veja o artigo [Microsoft Cloud Adoption Framework para o Azure - Preparado](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
+Para obter mais informações, veja o artigo [Microsoft Cloud Adoption Framework para o Azure - Preparado](/azure/cloud-adoption-framework/ready/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

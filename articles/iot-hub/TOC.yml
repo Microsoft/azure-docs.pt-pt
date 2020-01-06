@@ -4,7 +4,7 @@
   items:
     - name: O que é o IoT Hub do Azure?
       href: about-iot-hub.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Enviar telemetria
@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: Conceitos
   items:
+    - name: Imposição de TLS 1.2
+      href: tls-1.2-everywhere.md
     - name: Descrição geral dos melhoramentos das mensagens
       href: iot-hub-message-enrichments-overview.md
     - name: Descrição geral da gestão de dispositivos

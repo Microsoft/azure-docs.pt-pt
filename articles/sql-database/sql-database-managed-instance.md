@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.date: 11/27/2019
+ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823285"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707631"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
@@ -29,7 +29,7 @@ O diagrama a seguir descreve os principais recursos das instâncias gerenciadas:
 
 ![principais recursos](./media/sql-database-managed-instance/key-features.png)
 
-O modelo de implantação de instância gerenciada foi projetado para clientes que procuram migrar um grande número de aplicativos de um ambiente local ou IaaS, autocompilado ou ISV fornecido para um ambiente de nuvem PaaS totalmente gerenciado, com o menor esforço de migração possível. Usando o [DMS (serviço de migração de dados)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) totalmente automatizado no Azure, os clientes podem migrar e deslocar seus SQL Server locais para uma instância gerenciada que oferece compatibilidade com SQL Server no local e isolamento completo de instâncias de clientes com suporte a VNet nativa.  Com o Software Assurance, você pode trocar suas licenças existentes por tarifas com desconto em uma instância gerenciada usando o [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Uma instância gerenciada é o melhor destino de migração na nuvem para SQL Server instâncias que exigem alta segurança e uma superfície de programação avançada.
+O modelo de implantação de instância gerenciada foi projetado para clientes que procuram migrar um grande número de aplicativos de um ambiente local ou IaaS, autocompilado ou ISV fornecido para um ambiente de nuvem PaaS totalmente gerenciado, com o menor esforço de migração possível. Usando o [DMS (serviço de migração de dados)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) totalmente automatizado no Azure, os clientes podem migrar e deslocar suas SQL Server locais para uma instância gerenciada que oferece compatibilidade com SQL Server local e isolamento completo de instâncias de clientes com suporte a VNet nativa.  Com o Software Assurance, você pode trocar suas licenças existentes por tarifas com desconto em uma instância gerenciada usando o [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Uma instância gerenciada é o melhor destino de migração na nuvem para SQL Server instâncias que exigem alta segurança e uma superfície de programação avançada.
 
 A opção de implantação de instância gerenciada visa entregas perto de 100% de compatibilidade de área de superfície com a versão de SQL Server local mais recente por meio de um plano de lançamento em etapas.
 
@@ -77,7 +77,7 @@ O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para 
 No modelo vCore, você pode escolher entre gerações de hardware.
 
 - **Gen4** As CPUs lógicas são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, SSD anexado, núcleos físicos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- **Gen5** As CPUs lógicas são baseadas em processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz, SSD Fast NVMe, núcleo lógico Hyper-thread e tamanhos de computação entre 4 e 80 núcleos.
+- **Gen5** As CPUs lógicas são baseadas em processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake), SSD Fast NVMe, núcleo lógico Hyper-thread e tamanhos de computação entre 4 e 80 núcleos.
 
 Encontre mais informações sobre a diferença entre as gerações de hardware em [limites de recursos de instância gerenciada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -124,7 +124,7 @@ Encontre mais informações sobre a diferença entre as camadas de serviço em [
 
 A Base de Dados SQL do Azure fornece operações de gestão que podem servir para implementar automaticamente novas instâncias geridas, atualizar propriedades de instâncias e eliminar instâncias quando já não precisar delas. Esta seção fornece informações sobre operações de gerenciamento e suas durações típicas.
 
-Para dar suporte a [implantações em redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, a instância gerenciada depende de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro do sub-rede da rede virtual do cliente. Essencialmente, cada implantação de instância gerenciada em uma sub-rede vazia resulta em um novo build-out de cluster virtual.
+Para dar suporte a [implantações em redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, a instância gerenciada depende de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), que representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente. Essencialmente, cada implantação de instância gerenciada em uma sub-rede vazia resulta em um novo build-out de cluster virtual.
 
 As operações subsequentes em instâncias gerenciadas implantadas também podem ter efeitos sobre seu cluster virtual subjacente. Isso afeta a duração das operações de gerenciamento, pois a implantação de máquinas virtuais adicionais vem com uma sobrecarga que precisa ser considerada quando você planeja novas implantações ou atualizações em instâncias gerenciadas existentes.
 
@@ -153,7 +153,7 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |Implementação |Primeira instância de outra geração de hardware em uma sub-rede não vazia (por exemplo, primeira instância de Gen 5 em uma sub-rede com instâncias de Gen 4)|Criação de cluster virtual *|90% das operações terminam em 4 horas|
 |Implementação |Primeira instância de criação de 4 vCores, em uma sub-rede vazia ou não vazia|Criação de cluster virtual * *|90% das operações terminam em 4 horas|
 |Implementação |Criação de instância subsequente dentro da sub-rede não vazia (2ª, 3ª, etc. instância)|Redimensionamento de cluster virtual|90% das operações são concluídas em 2,5 horas|
-|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/D|Até 1 minuto|
+|**Atualização** |Alteração da propriedade de instância (senha de administrador, logon do AAD, Benefício Híbrido do Azure Flag)|N/A|Até 1 minuto|
 |Atualizar |Expansão/redução do armazenamento de instância (Uso Geral camada de serviço)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
 |Atualizar |Expansão/redução do armazenamento de instância (Comercialmente Crítico camada de serviço)|-Redimensionamento de cluster virtual<br>-Always On propagação do grupo de disponibilidade|90% das operações são concluídas em 2,5 horas + tempo para propagar todos os bancos de dados (220 GB/hora)|
 |Atualizar |Expansão e redução da vCores (computação de instância) (Uso Geral)|-Redimensionamento de cluster virtual<br>-Anexando arquivos de banco de dados|90% das operações são concluídas em 2,5 horas|
@@ -246,11 +246,11 @@ A autorização refere-se ao que um usuário pode fazer em um banco de dados SQL
 
 A opção de implantação de instância gerenciada destina cenários de usuário com migração de banco de dados em massa de implementações locais ou de banco de dados IaaS. A instância gerenciada suporta várias opções de migração de banco de dados:
 
-### <a name="back-up-and-restore"></a>Criar cópias de segurança e restauro  
+### <a name="back-up-and-restore"></a>Cópia de segurança e restauro  
 
 A abordagem de migração aproveita os backups do SQL para o armazenamento de BLOBs do Azure. Os backups armazenados no Azure Storage blob podem ser restaurados diretamente em uma instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
-- Para obter um guia de início rápido mostrando como restaurar a Wide World Importers-arquivo de backup de banco de dados padrão, consulte [restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md). Este guia de início rápido mostra que você precisa carregar um arquivo de backup no armazenamento de blog do Azure e protegê-lo usando uma chave de assinatura de acesso compartilhado (SAS).
+- Para obter um guia de início rápido mostrando como restaurar a Wide World Importers-arquivo de backup de banco de dados padrão, consulte [restaurar um arquivo de backup para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md). Este guia de início rápido mostra que você precisa carregar um arquivo de backup no armazenamento de BLOBs do Azure e protegê-lo usando uma chave de assinatura de acesso compartilhado (SAS).
 - Para obter informações sobre a restauração de URL, consulte [Native Restore from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
@@ -279,11 +279,11 @@ A opção de implantação de instância gerenciada beneficia-se de estar sempre
 - A instância gerenciada não permite especificar caminhos físicos completos para que todos os cenários correspondentes tenham suporte diferentemente: RESTOre DB não dá suporte ao MOVE, CREATE DB não permite caminhos físicos, BULK INSERT funciona apenas com BLOBs do Azure, etc.
 - A instância gerenciada dá suporte à [autenticação do Azure ad](sql-database-aad-authentication.md) como alternativa à nuvem para autenticação do Windows.
 - A instância gerenciada gerencia automaticamente o grupo de arquivos e os arquivos XTP para bancos de dados que contêm objetos OLTP na memória
-- A instância gerenciada dá suporte a SQL Server Integration Services (SSIS) e pode hospedar o catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas eles são executados em um Azure-SSIS Integration Runtime gerenciado (IR) no Azure Data Factory (ADF), consulte [criar Azure-SSIS ir no ADF ](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS no banco de dados SQL, consulte comparar um banco de dados [SQL do Azure banco de dados individual, pool elástico e instância gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
+- A instância gerenciada dá suporte a SQL Server Integration Services (SSIS) e pode hospedar o catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas eles são executados em um Azure-SSIS Integration Runtime gerenciado (IR) no Azure Data Factory (ADF), consulte [criar Azure-SSIS ir no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS no banco de dados SQL, consulte comparar um banco de dados [SQL do Azure banco de dados individual, pool elástico e instância gerenciada](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Recursos de administração da instância gerenciada
 
-A opção de implantação de instância gerenciada permite que o administrador do sistema gaste menos tempo em tarefas administrativas porque o serviço do banco de dados SQL as executa para você ou simplifica bastante essas tarefas. Por exemplo, [instalação de so/RDBMS e aplicação de patch](sql-database-high-availability.md), [redimensionamento e configuração de instância dinâmica](sql-database-single-database-scale.md), [backups](sql-database-automated-backups.md), [replicação de banco de dados](replication-with-sql-database-managed-instance.md) (incluindo bancos de dados do sistema), configuração de [alta disponibilidade](sql-database-high-availability.md)e configuração de fluxos de dados de monitoramento de integridade e [desempenho](../azure-monitor/insights/azure-sql.md) .
+A opção de implantação de instância gerenciada permite que o administrador do sistema gaste menos tempo em tarefas administrativas porque o serviço do banco de dados SQL as executa para você ou simplifica bastante essas tarefas. Por exemplo, [instalação de so/RDBMS e aplicação de patches](sql-database-high-availability.md), [redimensionamento e configuração de instância dinâmica](sql-database-single-database-scale.md), [backups](sql-database-automated-backups.md), [replicação de banco](replication-with-sql-database-managed-instance.md) de dados (incluindo bancos de dados do sistema), [configuração de alta disponibilidade](sql-database-high-availability.md)e configuração de fluxos de monitoramento de integridade e [desempenho](../azure-monitor/insights/azure-sql.md) .
 
 > [!IMPORTANT]
 > Para obter uma lista de recursos com suporte, com suporte parcial e sem suporte, consulte [recursos do banco de dados SQL](sql-database-features.md). Para obter uma lista de diferenças de T-SQL em instâncias gerenciadas versus SQL Server, consulte [diferenças de t-SQL de instância gerenciada de SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -297,7 +297,7 @@ A tabela a seguir mostra várias propriedades, acessíveis por meio do Transact 
 |`@@VERSION`|Microsoft SQL Azure (RTM)-12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Esse valor é o mesmo que no banco de dados SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Esse valor é o mesmo que no banco de dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Esse valor identifica exclusivamente uma instância gerenciada.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS da instância completa no seguinte formato:`<instanceName>` `<dnsPrefix>`. database.windows.net, em que `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é a parte gerada automaticamente do nome, garantindo a exclusividade do nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Passos seguintes
 
