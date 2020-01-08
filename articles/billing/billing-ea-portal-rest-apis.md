@@ -4,16 +4,16 @@ description: Este artigo descreve as APIs REST para usar com a sua inscrição d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841426"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644533"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 
@@ -75,7 +75,7 @@ Exemplo: token de portador \&lt; ApiKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Está disponível um ponto final do Swagger em [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) ( APIs de Relatórios Enterprise v3) para as seguintes APIs. O Swagger ajuda a inspecionar a API. Utilize o Swagger para gerar SDKs de cliente com o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Os dados disponíveis após o dia 1 de maio de 2014 estão acessíveis através da API.
+Está disponível um ponto final do Swagger em [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) ( APIs de Relatórios Enterprise v3) para as seguintes APIs. O Swagger ajuda a inspecionar a API. Utilize o Swagger para gerar SDKs de cliente com o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](https://swagger.io/swagger-codegen/). Os dados disponíveis após o dia 1 de maio de 2014 estão acessíveis através da API.
 
 ### <a name="api-response-codes"></a>Códigos de resposta da API
 

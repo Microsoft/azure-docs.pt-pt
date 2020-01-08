@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 62a16a6a96fbfdfbb4ed2d70b74470e29efaa844
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 03464fca6d7e0694d9492de698c70d5caac89358
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849858"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644482"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do Contrato Enterprise do Azure
 
@@ -38,7 +38,7 @@ As seções seguintes descrevem as limitações e as capacidades de cada funçã
 
 |Função| Limite de utilizador|
 |---|---|
-|Administrador do Enterprise|Ilimitado|
+|Administrador do Enterprise (EA)|Ilimitado|
 |Administrador do Enterprise (só de leitura)|Ilimitado|
 |Administrador de Departamento|Ilimitado|
 |Administrador de Departamento (só de leitura)|Ilimitado|
@@ -48,7 +48,7 @@ As seções seguintes descrevem as limitações e as capacidades de cada funçã
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estrutura e permissões da organização por função
 
-|Tarefas| Administrador do Enterprise|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura)|Proprietário da Conta|
+|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura)|Proprietário da Conta|
 |---|---|---|---|---|---|
 |Ver Administradores do Enterprise|✔|✔|✘|✘|✘|
 |Adicionar ou remover Administradores do Enterprise|✔|✘|✘|✘|✘|
@@ -67,7 +67,7 @@ As seções seguintes descrevem as limitações e as capacidades de cada funçã
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de utilização e custos por função
 
-|Tarefas| Administrador do Enterprise|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta|
+|Tarefas| Administrador do Enterprise (EA)|Administrador do Enterprise (só de leitura)|Administrador de Departamento|Administrador de Departamento (só de leitura) |Proprietário da Conta|
 |---|---|---|---|---|---|
 |Ver saldo do crédito, incluindo alocação monetária|✔|✔|✘|✘|✘|
 |Ver quotas de despesas do departamento|✔|✔|✘|✘|✘|
