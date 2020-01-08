@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure IoT Edge
-summary: O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou "na periferia", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a periferia, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a eventos.
+summary: O Azure IoT Edge expande o Hub IoT. Analise os dados do dispositivo localmente em vez de o fazer na cloud para enviar menos dados para a cloud, reagir a eventos rapidamente e efetuar operações offline.
 metadata:
   title: Documentação do Azure IoT Edge
-  description: O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou "na periferia", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a periferia, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a eventos.
+  description: O Azure IoT Edge expande o Hub IoT. Analise os dados do dispositivo localmente em vez de o fazer na cloud para enviar menos dados para a cloud, reagir a eventos rapidamente e efetuar operações offline.
   services: iot-edge
   ms.service: iot-edge
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: 673243b2e38b6d93091faea2e32a40d23b2a5267
-  ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+  ms.openlocfilehash: bf968da3bba6510b3ce273ba1049f4ad164319c2
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/06/2019
-  ms.locfileid: "68815770"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75457216"
 landingContent:
 - title: Desenvolver para dispositivos Linux
   linkLists:

@@ -6,7 +6,9 @@
       href: api-management-key-concepts.md
     - name: Disponibilidade das funcionalidades da Gestão de API
       href: api-management-features.md
-- name: Inícios rápidos
+    - name: Gerir os microsserviços implementados no AKS
+      href: api-management-kubernetes.md
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma instância - Portal

@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Maps?
       href: about-azure-maps.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma aplicação Web
@@ -31,6 +31,16 @@
           href: tutorial-ev-routing.md
         - name: Analisar dados meteorológicos com o Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Migrar do Google Maps
+      items:
+        - name: Migrar do Google Maps
+          href: migrate-from-google-maps.md
+        - name: Migrar uma aplicação Web
+          href: migrate-from-google-maps-web-app.md
+        - name: Migrar uma aplicação Android
+          href: migrate-from-google-maps-android-app.md
+        - name: Migrar um serviço Web
+          href: migrate-from-google-maps-web-services.md
 - name: Conceitos
   items:
     - name: Autenticação com o Azure Maps
@@ -103,44 +113,48 @@
               href: create-data-source-web-sdk.md
             - name: Adicionar uma camada de símbolo
               href: map-add-pin.md
+            - name: Adicionar um pop-up
+              href: map-add-popup.md
             - name: Adicionar uma camada de bolha
               href: map-add-bubble-layer.md
+            - name: Adicionar marcadores HTML
+              href: map-add-custom-html.md
             - name: Adicionar uma camada de linhas
               href: map-add-line-layer.md
             - name: Adicionar uma camada de polígonos
               href: map-add-shape.md
-            - name: Adicionar uma camada de polígonos de extrusão
+            - name: Adicionar uma camada de extrusão de polígonos
               href: map-extruded-polygon.md
             - name: Adicionar uma camada de mapa térmico
               href: map-add-heat-map-layer.md
-            - name: Adicionar um pop-up
-              href: map-add-popup.md
+            - name: Adicionar uma camada de imagem
+              href: map-add-image-layer.md
+            - name: Adicionar camadas de mosaico
+              href: map-add-tile-layer.md
+            - name: Mostrar trânsito
+              href: map-show-traffic.md
             - name: Dados de ponto do cluster
               href: clustering-point-data-web-sdk.md
             - name: Utilizar expressões de estilo com base em dados
               href: data-driven-style-expressions-web-sdk.md
             - name: Como utilizar modelos de imagem
               href: how-to-use-image-templates-web-sdk.md
-            - name: Adicionar uma camada de imagem
-              href: map-add-image-layer.md
-            - name: Adicionar camadas de mosaico
-              href: map-add-tile-layer.md
-            - name: Marcadores HTML
-              href: map-add-custom-html.md
-            - name: Mostrar trânsito
-              href: map-show-traffic.md
             - name: Reagir a eventos
               href: map-events.md
             - name: Disponibilizar a sua aplicação
               href: map-accessibility.md
         - name: Ferramentas de desenho
           items:
-            - name: Adicionar barra de ferramentas de desenho
-              href: map-add-drawing-toolbar.md
-            - name: Definir opções de desenho
+            - name: Utilizar o módulo de ferramentas de desenho
               href: set-drawing-options.md
+            - name: Adicionar uma barra de ferramentas de desenho
+              href: map-add-drawing-toolbar.md
             - name: Obter dados da forma
               href: map-get-shape-data.md
+            - name: Reagir a eventos de desenho
+              href: drawing-tools-events.md
+            - name: Tipos de interação e atalhos de teclado
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: Módulo de serviços
           items:
             - name: Utilizar o módulo de serviços
@@ -231,6 +245,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Vídeos do Azure Maps
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Projetos open source
+      href: open-source-projects.md
     - name: Casos práticos do Azure Maps
       href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Glossário do Azure Maps

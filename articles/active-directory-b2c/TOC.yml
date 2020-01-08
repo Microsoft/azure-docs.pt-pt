@@ -7,7 +7,7 @@
       href: active-directory-b2c-overview.md
     - name: Descrição geral técnica e das funcionalidades
       href: technical-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Configurar o início de sessão - ASP.NET
@@ -76,8 +76,11 @@
   items:
     - name: Integração de aplicações
       items:
-        - name: Registar uma aplicação
+        - name: Registar uma aplicação OIDC
           href: tutorial-register-applications.md
+        - name: Registar um fornecedor de serviços SAML
+          href: connect-with-saml-service-providers.md
+          displayName: 'SP, RP, service provider, connect'
         - name: Adicionar uma aplicação de API Web
           href: add-web-application.md
         - name: Adicionar uma aplicação cliente nativa
@@ -160,6 +163,9 @@
               href: active-directory-b2c-reference-kmsi-custom.md
             - name: Alteração da palavra-passe
               href: active-directory-b2c-reference-password-change-custom.md
+            - name: Inscrição e início de sessão no telemóvel
+              href: phone-authentication.md
+              displayName: 'otp, passwordless, phone number'
         - name: Personalização da Experiência do Utilizador
           items:
             - name: Configurar a entrada do utilizador
@@ -168,6 +174,9 @@
               href: active-directory-b2c-ui-customization-custom.md
             - name: Personalizar a IU dinamicamente
               href: active-directory-b2c-ui-customization-custom-dynamic.md
+            - name: E-mail personalizado
+              href: custom-email.md
+              displayName: verification
             - name: Esquema de página
               href: page-layout.md
             - name: Ativar JavaScript
@@ -196,8 +205,10 @@
               items:
                 - name: ADFS
                   href: active-directory-b2c-custom-setup-adfs2016-idp.md
+                  displayName: SAML
                 - name: Salesforce
                   href: active-directory-b2c-setup-sf-app-custom.md
+                  displayName: SAML
         - name: Gestão de tokens e sessões
           items:
             - name: Personalizar tokens
@@ -254,6 +265,8 @@
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
+                    - name: Número de telefone
+                      href: phone-number-claims-transformations.md
                     - name: Contas externas
                       href: social-transformations.md
                     - name: StringCollection
@@ -277,6 +290,9 @@
                   items:
                     - name: Sobre os perfis técnicos
                       href: technical-profiles-overview.md
+                    - name: Multi-Factor Authentication do Azure
+                      href: multi-factor-auth-technical-profile.md
+                      displayName: mfa
                     - name: Resoluções de afirmação
                       href: claim-resolver-overview.md
                     - name: Azure Active Directory
@@ -289,6 +305,9 @@
                       href: oauth1-technical-profile.md
                     - name: OAuth2
                       href: oauth2-technical-profile.md
+                    - name: Palavra-passe monouso
+                      href: one-time-password-technical-profile.md
+                      displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
                     - name: REST
@@ -301,6 +320,11 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Validação
                       href: validation-technical-profile.md
+            - name: DisplayControls
+              href: display-controls.md
+              items:
+                - name: Verificação
+                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty

@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: 3f0771faeb8906c3f7fa5b9fcf14a2725bbbdcf2
-  ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+  ms.openlocfilehash: cd85a1409e3f8098a3a7104f7d2454bb61de24b7
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/14/2019
-  ms.locfileid: "74076102"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75435359"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:
@@ -116,6 +116,8 @@ landingContent:
       url: ./kafka/apache-kafka-get-started.md
   - linkListType: concept
     links:
+    - text: Migrar do 3.6 para o 4.0
+      url: ./kafka/migrate-versions.md
     - text: Otimizar o desempenho do Apache Kafka
       url: ./kafka/apache-kafka-performance-tuning.md
     - text: Escalabilidade do Apache Kafka

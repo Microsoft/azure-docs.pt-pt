@@ -6,7 +6,7 @@
       href: stream-analytics-introduction.md
     - name: Padrões de soluções de ponto a ponto
       href: stream-analytics-solution-patterns.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma tarefa - Portal do Azure
@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: Entradas de dados de referência
           href: stream-analytics-use-reference-data.md
-        - name: Escrever desserializadores .NET personalizados
+        - name: Ler entradas em qualquer formato com os desserializadores personalizados
           href: custom-deserializer-examples.md
     - name: Tipos de saída para uma tarefa
       items:
@@ -174,9 +174,9 @@
       items:
         - name: Instalar ferramentas
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Testar com dados de exemplo
+        - name: Testar localmente com dados de exemplo
           href: stream-analytics-vs-tools-local-run.md
-        - name: Testar com dados reais
+        - name: Testar localmente com dados reais
           href: stream-analytics-live-data-local-testing.md
         - name: Ver tarefas no Visual Studio
           href: stream-analytics-vs-tools.md
@@ -188,12 +188,14 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: Testar com dados de exemplo
-          href: vscode-local-run.md
+        - name: Testar localmente com dados de exemplo
+          href: visual-studio-code-local-run.md
+        - name: Testar localmente com dados reais
+          href: visual-studio-code-local-run-live-input.md
         - name: Configurar os pipelines CI/CD
           href: setup-cicd-vs-code.md
         - name: Explorar tarefas
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: Resolução de problemas
       items:
         - name: Input

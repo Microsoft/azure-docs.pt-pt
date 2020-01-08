@@ -4,7 +4,7 @@
   items:
     - name: Acerca do Azure IoT Edge
       href: about-iot-edge.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Implementar código num dispositivo do Linux
@@ -125,6 +125,10 @@
           href: how-to-install-iot-edge-ubuntuvm.md
         - name: Utilizar o Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: Instalar certificados de produção
+          href: how-to-install-production-certificates.md
+        - name: Criar certificados de teste
+          href: how-to-create-test-certificates.md
         - name: Atualizar a versão do runtime
           href: how-to-update-iot-edge.md
     - name: Aprovisionamento automático com DPS

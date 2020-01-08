@@ -4,7 +4,7 @@
   items:
     - name: Sobre o serviço Azure SignalR
       href: signalr-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: 'ASP.NET Core - C#'
@@ -25,6 +25,10 @@
   items:
     - name: Criar uma aplicação sem servidor em tempo real com a autenticação
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Monitorizar
+      items:
+        - name: Utilizar registos de diagnósticos para monitorizar o SignalR Service
+          href: signalr-tutorial-diagnostic-logs.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -100,7 +104,7 @@
     - name: FAQs
       href: signalr-resource-faq.md
     - name: Limites do nível de subscrição do SignalR Service
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Vídeos

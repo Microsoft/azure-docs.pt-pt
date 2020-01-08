@@ -8,7 +8,7 @@
       href: security-center-os-coverage.md
     - name: Funcionalidades suportadas
       href: security-center-services.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Subscrições do Azure
@@ -49,6 +49,8 @@
       items:
         - name: Descrição geral dos alertas de segurança
           href: security-center-alerts-overview.md
+        - name: Lista de alertas de referência
+          href: alerts-reference.md
         - name: Gerir alertas de segurança
           href: security-center-managing-and-responding-alerts.md
         - name: Gerir incidentes de segurança
@@ -61,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Deteção de ameaças para camadas de serviço do Azure
           href: security-center-alerts-service-layer.md
-        - name: Integração com Produtos de Segurança do Azure
+        - name: Deteção de ameaças da WAF do Azure e do Azure DDoS Protection
           href: security-center-alerts-integration.md
         - name: Correlação de Alertas Inteligentes da Cloud (incidentes)
           href: security-center-alerts-cloud-smart.md
@@ -75,6 +77,14 @@
       href: security-center-secure-score.md
     - name: Atualizar para a segurança avançada
       href: security-center-onboarding.md
+    - name: Analisar as VMs quanto a vulnerabilidades
+      items:
+        - name: Descrição geral da análise de vulnerabilidades
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Detetor de vulnerabilidades integrado para VMs
+          href: built-in-vulnerability-assessment.md
+        - name: Utilização de detetores externos
+          href: partner-vulnerability-assessment.md
     - name: Proteja os seus servidores com o Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Utilizar segurança de dados avançada para SQL nas VMs do Azure
@@ -125,14 +135,12 @@
           href: security-center-remediate-recommendations.md
         - name: Reforçar a postura de segurança
           href: security-center-monitoring.md
+        - name: Lista de recomendações de referência
+          href: recommendations-reference.md
         - name: Proteger as suas máquinas e aplicações
           href: security-center-virtual-machine-protection.md
-        - name: Referência das recomendações de computadores e aplicações
-          href: recommendations-compute-and-apps.md
         - name: Proteger os recursos de rede
           href: security-center-network-recommendations.md
-        - name: Referência das recomendações de rede
-          href: recommendations-network.md
         - name: Proteger os serviços de dados e de armazenamento
           href: security-center-sql-service-recommendations.md
         - name: Proteger a identidade e o acesso
@@ -155,8 +163,6 @@
           href: security-center-apply-system-updates.md
         - name: Instalar o Endpoint Protection
           href: security-center-install-endpoint-protection.md
-        - name: Avaliação de vulnerabilidades não instalada
-          href: security-center-vulnerability-assessment-recommendations.md
         - name: Relatórios de ameaça
           href: security-center-threat-report.md
         - name: Pontuação de confiança de alerta
