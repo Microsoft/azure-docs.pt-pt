@@ -4,16 +4,16 @@ description: Este artigo descreve alguns problemas comuns que podem ocorrer com 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ff8408a098049d860a614900bdeea80da1bd95e4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f48aaee34dd35f065fd7e2d065316674b72db7c5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841392"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644431"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Resolver problemas de acesso ao Azure EA Portal
 
