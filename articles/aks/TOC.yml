@@ -4,7 +4,7 @@
   items:
     - name: Acerca do AKS
       href: intro-kubernetes.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um cluster do AKS
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: Rodar certificados
           href: certificate-rotation.md
+        - name: Criar um cluster privado
+          href: private-clusters.md
     - name: Monitorização e registos
       items:
         - name: Azure Monitor para contentores
@@ -308,6 +310,9 @@
           href: gpu-cluster.md
         - name: Utilizar a Base de Dados do Azure para PostgreSQL
           href: ../postgresql/concepts-aks.md
+          maintainContext: true
+        - name: Utilizar a Gestão de API do Azure
+          href: ../api-management/api-management-kubernetes.md
           maintainContext: true
     - name: Selecionar e implementar uma malha de serviço
       items:

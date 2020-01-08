@@ -49,7 +49,7 @@
               href: sql-database-service-tier-hyperscale-faq.md
             - name: Migrar de Premium RS
               href: sql-database-service-tiers-prs.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Bases de dados SQL
@@ -69,6 +69,8 @@
         - name: Descrição geral da segurança
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
+        - name: Melhores práticas de segurança
+          href: sql-database-security-best-practice.md
         - name: Gestão de acesso
           items:
             - name: Controlo de acesso
@@ -292,7 +294,7 @@
               href: sql-database-elastic-scale-introduction.md
             - name: Glossário
               href: sql-database-elastic-scale-glossary.md
-            - name: Biblioteca de clientes de bases de dados elásticas - consolidado
+            - name: Biblioteca de clientes elástica
               href: sql-database-elastic-database-client-library.md
             - name: Mapas de partições horizontais
               href: sql-database-elastic-scale-shard-map-management.md
@@ -471,7 +473,7 @@
           href: sql-database-elastic-pool.md
         - name: Servidores de bases de dados
           href: sql-database-servers.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Criar
           items:
@@ -560,7 +562,7 @@
               href: sql-database-machine-learning-services-overview.md
             - name: Diferenças principais
               href: sql-database-machine-learning-services-differences.md
-            - name: Inícios rápidos
+            - name: Guias de Início Rápido
               items:
                 - name: Criar scripts R
                   href: sql-database-quickstart-r-create-script.md
@@ -683,16 +685,17 @@
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Instância gerida SQL
+  href: sql-database-managed-instance-index.yml
   items:
-    - name: Documentação de instância gerida
-      href: sql-database-managed-instance-index.yml
     - name: Descrição geral
-      href: sql-database-managed-instance.md
-    - name: Conjuntos de instâncias
-      href: sql-database-instance-pools.md
-    - name: FAQ
-      href: sql-database-managed-instance-faq.md
-    - name: Inícios rápidos
+      items:
+        - name: Instância gerida
+          href: sql-database-managed-instance.md
+        - name: Conjuntos de instâncias
+          href: sql-database-instance-pools.md
+        - name: FAQ
+          href: sql-database-managed-instance-faq.md
+    - name: Guias de Início Rápido
       items:
         - name: Criar
           items:
@@ -718,14 +721,18 @@
       items:
         - name: Migrar com o DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: Configurar a replicação transacional
-          href: replication-with-sql-database-managed-instance.md
         - name: Configurar a segurança
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Adicionar uma instância gerida a um grupo de ativação pós-falha
           href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Migrar utilizadores e grupos locais
           href: tutorial-managed-instance-azure-active-directory-migration.md
+        - name: Replicação transacional
+          items:
+            - name: Publicador de MI para subscritor de MI
+              href: replication-with-sql-database-managed-instance.md
+            - name: 'Publicador de MI, distribuidor de MI, Subscritor do SQL'
+              href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: Conceitos
       items:
         - name: Referência da API de Gestão

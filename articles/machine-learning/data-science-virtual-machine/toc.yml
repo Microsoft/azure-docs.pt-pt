@@ -10,7 +10,7 @@
       href: geo-ai-dsvm-overview.md
     - name: Ferramentas incluídas na DSVM
       href: tools-included.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar uma DSVM do Windows
@@ -24,19 +24,19 @@
 - name: Conceitos
   items:
     - name: Arquiteturas de Aprendizagem Profunda e AI
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: Linguagens de programação
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: Ferramentas de programação
       href: dsvm-tools-development.md
     - name: Ferramentas de LM e ciência de dados
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: Plataformas de dados
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: Ferramentas de ingestão de dados
       href: dsvm-tools-ingestion.md
-    - name: Ferramentas de exploração e visualização de dados
-      href: dsvm-tools-explore-and-visualize.md
+    - name: Ferramentas de produtividade
+      href: dsvm-tools-productivity.md
     - name: Orientação e segurança empresarial
       href: dsvm-enterprise-overview.md
 - name: Amostras

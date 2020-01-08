@@ -3,7 +3,7 @@ title: Documentação do Azure Container Instances
 summary: Execute contentores do Docker a pedido num ambiente do Azure gerido e sem servidor. O Azure Container Instances é uma solução para qualquer cenário que pode funcionar em contentores isolados sem orquestração. Execute aplicações condicionadas por eventos, implemente rapidamente a partir dos seus pipelines de desenvolvimento de contentores e execute o processamento de dados e as tarefas de compilação.
 metadata:
   title: Documentação do Azure Container Instances - contentores sem servidor e a pedido
-  description: Execute contentores do Docker num ambiente do Azure gerido e sem servidor.
+  description: O Azure Container Instances (ACI) permite-lhe executar contentores do Docker num ambiente cloud gerido e sem servidor, sem ter de configurar VMs, clusters ou orquestradores.
   services: 
   ms.service: container-instances
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71326954"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75445764"
 landingContent:
 - title: Acerca do Azure Container Instances
   linkLists:

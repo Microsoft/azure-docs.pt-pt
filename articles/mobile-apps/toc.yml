@@ -1,12 +1,12 @@
-- name: Crie aplicações móveis do mundo real com os serviços da Microsoft
+- name: Criar aplicações móveis do mundo real com os serviços da Microsoft
   href: index.md
 - name: Etapas de criação de aplicações móveis
   items:
     - name: Descrição geral
       href: stages-overview.md
-    - name: Escolha a arquitetura de desenvolvimento de aplicações móveis
+    - name: Escolher uma arquitetura de desenvolvimento de aplicações móveis
       href: front-end-development-platform.md
-    - name: Planear e conceber aplicações móveis com serviços de back-end
+    - name: Planear e conceber uma aplicação móvel com serviços de back-end
       items:
         - name: Autenticação
           href: authentication.md
@@ -22,7 +22,7 @@
       href: code-hosting-services.md
     - name: DevOps
       items:
-        - name: O que é o DevOps
+        - name: O que é o DevOps?
           href: devops.md
         - name: Criação e integração contínuas
           href: continuous-integration.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure Maps
       href: azure-maps.md
-    - name: CDN do Azure
+    - name: Rede de Entrega de Conteúdos do Microsoft Azure
       href: azure-cdn.md
     - name: Azure Cognitive Search
       href: azure-search.md

@@ -1,0 +1,125 @@
+### YamlMime:Landing
+title: Documentação do modelo do Azure Resource Manager
+summary: O modelo do Resource Manager é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto.
+metadata:
+  title: Documentação do Azure Resource Manager
+  description: Saiba como desenvolver modelos do Azure Resource Manager e como os utilizar para implementar recursos do Azure
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 43cd4dadc33ddc498106084ee26ef0819c14b973
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75469935"
+landingContent:
+- title: Acerca dos modelos do Azure Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os modelos?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Melhores práticas
+      url: template-best-practices.md
+    - text: Modos de implementação
+      url: deployment-modes.md
+    - text: Modelos ligados
+      url: linked-templates.md
+    - text: Implementação ao nível da subscrição
+      url: deploy-to-subscription.md
+  - linkListType: video
+    links:
+    - text: Novidades
+      url: https://youtu.be/3D-JIKShrws
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar modelos - portal
+      url: quickstart-create-templates-use-the-portal.md
+    - text: Criar modelos - VS Code
+      url: quickstart-create-templates-use-visual-studio-code.md
+    - text: Criar modelos - Visual Studio
+      url: create-visual-studio-deployment-project.md
+  - linkListType: tutorial
+    links:
+    - text: Tutoriais para principiantes
+      url: template-tutorial-create-first-template.md
+    - text: Implementar várias instâncias
+      url: template-tutorial-create-multiple-instances.md
+    - text: Definir a ordem de implementação
+      url: template-tutorial-create-templates-with-dependent-resources.md
+    - text: Integrar o cofre de chaves
+      url: template-tutorial-use-key-vault.md
+- title: Desenvolver modelos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar Código VS
+      url: use-vs-code-to-create-template.md
+    - text: Utilizar funções
+      url: template-functions.md
+    - text: Definir parâmetros
+      url: template-parameters.md
+    - text: Definir variáveis
+      url: template-variables.md
+    - text: Definir recursos
+      url: template-syntax.md#resources
+    - text: Definir saídas
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Sintaxe do ficheiro de modelos
+      url: template-syntax.md
+    - text: Modelos de Início Rápido do Azure
+      url: https://azure.microsoft.com/resources/templates/
+- title: Implementar modelos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Com o PowerShell
+      url: deploy-powershell.md
+    - text: Com a CLI
+      url: deploy-cli.md
+    - text: Com o portal
+      url: deploy-portal.md
+    - text: Com a API REST
+      url: deploy-rest.md
+    - text: Implementação de Hipóteses
+      url: template-deploy-what-if.md
+    - text: Ver histórico de implementações
+      url: deployment-history.md
+- title: Gerir modelos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportar modelos
+      url: export-template-portal.md
+    - text: CI/CD
+      url: add-template-to-azure-pipelines.md
+- title: Explorar conteúdo de referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referência de modelo
+      url: /azure/templates/
+    - text: API REST
+      url: /rest/api/resources/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: CLI do Azure
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources?view=azure-python

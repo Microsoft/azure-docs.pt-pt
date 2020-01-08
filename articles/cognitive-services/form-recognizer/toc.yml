@@ -4,23 +4,53 @@
   items:
     - name: O que é o Reconhecedor de Formato?
       href: overview.md
-- name: Inícios rápidos
+    - name: Novidades
+      href: whats-new.md
+- name: Guias de Início Rápido
   expaned: true
   items:
+    - name: Utilização da ferramenta de etiquetagem de exemplo
+      items:
+        - name: Preparar modelo personalizado com etiquetas
+          href: quickstarts/label-tool.md
     - name: Utilizar a API REST
       items:
-        - name: Preparar o modelo personalizado e extrair dados
+        - name: Preparar e utilizar o modelo personalizado sem etiquetas
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: Preparar e utilizar o modelo personalizado com etiquetas
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: Utilizar o modelo de recibos pré-criado
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: Obter informações de esquema de texto
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: Utilizar o SDK .NET
       href: quickstarts/dotnet-sdk.md
 - name: Tutoriais
@@ -43,8 +73,10 @@
           href: deploy-form-recognizer-on-container-instances.md
 - name: Referência
   items:
-    - name: API do Reconhecedor de Formato
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: API do Reconhecedor de Formato v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: API do Reconhecedor de Formato v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDKs
       items:
         - name: .NET

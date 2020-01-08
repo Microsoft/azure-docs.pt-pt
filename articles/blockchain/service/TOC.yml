@@ -4,7 +4,7 @@
   items:
     - name: Acerca do Azure Blockchain Service
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar membro - Portal
@@ -61,23 +61,23 @@
       href: data-manager-cosmosdb.md
 - name: Recursos
   items:
+    - name: Development Kit do Azure Blockchain
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: API REST de Blockchain
       href: 'https://docs.microsoft.com/rest/api/blockchain/'
-    - name: Blogue
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Extensão do Visual Studio Code no Azure Blockchain Service
-      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Exemplos de código
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Comunidade
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Fórum
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Fórum de suporte do MSDN
       href: 'https://aka.ms/workbenchforum'
+    - name: Suporte da comunidade
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Suporte do Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Comentários sobre o produto
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

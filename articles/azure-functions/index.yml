@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: fe554b2e7a146ccb3c0b593ffc7e8bef66e55ef2
-  ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+  ms.openlocfilehash: da29ab1936d0979de125087f9ef737cfe8d87a43
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71349902"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75433041"
 landingContent:
 - title: Acerca das Funções do Azure
   linkLists:
@@ -76,8 +76,10 @@ landingContent:
       url: functions-bindings-error-pages.md
   - linkListType: learn
     links:
-    - text: Desenvolver/testar/implementar com o Visual Studio
+    - text: Desenvolver funções com o Visual Studio
       url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
+    - text: Desenvolver funções a partir da linha de comandos
+      url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
   - linkListType: video
     links:
     - text: Desenvolver com o Visual Studio Code

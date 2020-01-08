@@ -4,7 +4,7 @@
   items:
     - name: Acerca das Máquinas Virtuais
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar VM - Portal
@@ -141,7 +141,7 @@
 - name: Conceitos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regiões
       href: regions.md
     - name: Disponibilidade e desempenho
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Configurar controladores de GPU
               href: n-series-driver-setup.md
+            - name: Configurar controladores GPU AMD
+              href: n-series-amd-driver-setup.md
         - name: Computação de elevado desempenho
           displayName: H-series
           href: sizes-hpc.md
@@ -672,7 +674,7 @@
 - name: Recursos
   items:
     - name: Modelos de autor
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Desenvolva as suas competências com o Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Mapa do Azure

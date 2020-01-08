@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: Balanceamento de carga para conjuntos de anfitriões agrupados
           href: configure-host-pool-load-balancing.md
+        - name: Tipo de atribuição de ambiente de trabalho pessoal
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Utilizar a licença do Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Personalizar a imagem do anfitrião de sessões
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: Personalizar o feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Implementar a ferramenta de diagnóstico
-      href: deploy-diagnostics.md
+    - name: Utilizar o diagnóstico do serviço
+      items:
+        - name: Implementar a ferramenta de diagnóstico
+          href: deploy-diagnostics.md
+        - name: Utilizar o diagnóstico com o Log Analytics
+          href: diagnostics-log-analytics.md
     - name: Publicar aplicações incorporadas
       href: publish-apps.md
     - name: Configurar a anexação da aplicação MSIX
@@ -78,8 +84,6 @@
   items:
     - name: Ambiente do Windows Virtual Desktop
       href: environment-setup.md
-    - name: Recomendações de largura de banda para sessões remotas
-      href: bandwidth-recommendations.md
     - name: Determinar a latência da ligação do utilizador
       href: connection-latency.md
     - name: Acesso delegado ao Windows Virtual Desktop
@@ -110,8 +114,10 @@
       href: troubleshoot-windows-7-vm.md
     - name: Resolução de problemas da ferramenta de gestão do Windows Virtual Desktop
       href: troubleshoot-management-tool.md
-    - name: Ligações cliente do Ambiente de Trabalho Remoto
-      href: troubleshoot-client-connection.md
+    - name: Ligações do serviço de Ambiente de Trabalho Remoto
+      href: troubleshoot-service-connection.md
+    - name: Problemas no cliente de Ambiente de Trabalho Remoto
+      href: troubleshoot-client.md
     - name: Windows Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
     - name: Diagnosticar problemas de desempenho de gráficos

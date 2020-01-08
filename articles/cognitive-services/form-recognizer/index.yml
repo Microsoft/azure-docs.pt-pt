@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Reconhecedor de Formato
-summary: O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. A aprendizagem não supervisionada permite ao modelo compreender o esquema e as relações entre os campos e as entradas sem etiquetagem de dados manual ou codificação e manutenção intensivas.
+summary: O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. A aprendizagem não supervisionada permite ao modelo compreender o esquema e os dados de campo sem etiquetagem de dados manual ou codificação intensiva. Também é possível efetuar uma aprendizagem não supervisionada com dados etiquetados manualmente. Os modelos preparados com dados etiquetados conseguem ter um desempenho melhor e trabalhar com documentos mais complicados.
 metadata:
   title: Documentação do Reconhecedor de Formato – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. A aprendizagem não supervisionada permite ao modelo compreender o esquema e as relações entre os campos e as entradas sem etiquetagem de dados manual ou codificação e manutenção intensivas.
+  description: O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. A aprendizagem não supervisionada permite ao modelo compreender o esquema e os dados de campo sem etiquetagem de dados manual ou codificação intensiva. Também é possível efetuar uma aprendizagem não supervisionada com dados etiquetados manualmente. Os modelos preparados com dados etiquetados conseguem ter um desempenho melhor e trabalhar com documentos mais complicados.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931291"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446513"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: O que é o Reconhecedor de Formato?
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Novidades no Reconhecedor de Formato?
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Automatização de processos com tecnologia de IA com o Reconhecedor de Formato
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Utilizar a API REST (cURL)
       url: quickstarts/curl-train-extract.md
-- title: Extrair dados de recibos
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Utilizar o SDK .NET
-      url: quickstarts/dotnet-sdk.md
 - title: Criar um conjunto de dados de preparação
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Criar um conjunto de dados de preparação
       url: build-training-data-set.md
+- title: Preparar um modelo personalizado através de etiquetas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dados etiquetados
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: Preparar com a ferramenta de etiquetagem de exemplo
+      url: quickstarts/label-tool.md
+    - text: Preparar com etiquetas através da API REST e do Python
+      url: quickstarts/python-labeled-data.md
+- title: Extrair dados de recibos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilizar a API REST (Python)
+      url: quickstarts/python-receipts.md
+    - text: Utilizar a API REST (cURL)
+      url: quickstarts/curl-receipts.md
+- title: Obter informações de esquema de texto
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilizar a API REST (Python)
+      url: quickstarts/python-layout.md
 - title: Utilizar contentores
   linkLists:
   - linkListType: get-started
@@ -68,8 +92,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API do Reconhecedor de Formato
-      url: https://aka.ms/form-recognizer/api
+    - text: API do Reconhecedor de Formato v2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: API do Reconhecedor de Formato v1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: SDK .NET
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

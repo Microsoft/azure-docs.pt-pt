@@ -6,7 +6,7 @@
       href: site-recovery-overview.md
     - name: Novidades no Site Recovery
       href: site-recovery-whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Replicar uma VM do Azure para outra região
@@ -43,7 +43,7 @@
           href: vmware-azure-tutorial.md
         - name: Executar um teste de recuperação após desastre
           href: tutorial-dr-drill-azure.md
-        - name: Ativar a ativação pós-falha e a reativação pós-falha
+        - name: Ativação pós-falha para o Azure
           href: vmware-azure-tutorial-failover-failback.md
     - name: Recuperação após desastre da VM do Hyper-V para o Azure
       items:
@@ -57,7 +57,7 @@
           href: hyper-v-vmm-azure-tutorial.md
         - name: Executar um teste de recuperação após desastre
           href: tutorial-dr-drill-azure.md
-        - name: Ativar a ativação pós-falha e a reativação pós-falha
+        - name: Ativação pós-falha para o Azure
           href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migrar para o Azure
       items:
@@ -73,7 +73,7 @@
   items:
     - name: Perguntas comuns sobre a Recuperação de Sites
       href: site-recovery-faq.md
-    - name: Sobre a recuperação após desastre para VMs do Azure
+    - name: Acerca da recuperação após desastre da VM do Azure
       items:
         - name: Arquitetura de Azure para o Azure
           href: azure-to-azure-architecture.md
@@ -87,9 +87,9 @@
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: ExpressRoute com recuperação após desastre de VM do Azure
           href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Sobre mover VMs do Azure
+    - name: Como mover VMs do Azure para outra região
       href: azure-to-azure-move-overview.md
-    - name: Sobre a Recuperação após desastre da VM para o VMware
+    - name: Acerca da recuperação após desastre da VM do VMware
       items:
         - name: Descrição geral da recuperação após desastre do VMware
           href: vmware-azure-about-disaster-recovery.md
@@ -103,11 +103,13 @@
           href: vmware-azure-configuration-server-requirements.md
         - name: Arquitetura de VMware para o Azure
           href: vmware-azure-architecture.md
+        - name: Acerca da exclusão de discos da replicação
+          href: exclude-disks-replication.md
         - name: Opções de localização de reativação pós-falha do Azure para o VMware
           href: concepts-types-of-failback.md
         - name: Suporte multi-inquilino para a recuperação após desastre do VMware
           href: vmware-azure-multi-tenant-overview.md
-    - name: Sobre a Recuperação após desastre da VM do Hyper-V para o Azure
+    - name: Acerca da recuperação após desastre da VM do Hyper-V
       items:
         - name: Perguntas comuns
           href: hyper-v-azure-common-questions.md
@@ -115,13 +117,17 @@
           href: hyper-v-azure-support-matrix.md
         - name: Arquitetura de Hyper-V para o Azure
           href: hyper-v-azure-architecture.md
-    - name: Sobre a recuperação após desastre do servidor físico para o Azure
+        - name: Acerca da exclusão de discos da replicação
+          href: exclude-disks-replication.md
+    - name: Acerca da recuperação após desastre do servidor físico
       items:
         - name: Matriz de suporte do Azure para o VMware/físico
           href: vmware-physical-azure-support-matrix.md
         - name: Arquitetura do servidor físico para o Azure
           href: physical-azure-architecture.md
-    - name: Sobre o funcionamento em rede para a recuperação após desastre para o Azure
+        - name: Acerca da exclusão de discos da replicação
+          href: exclude-disks-replication.md
+    - name: Acerca do funcionamento em rede para a recuperação após desastre
       items:
         - name: Gestor de Tráfego do Azure com Site Recovery
           href: concepts-traffic-manager-with-site-recovery.md
@@ -131,7 +137,9 @@
           href: concepts-network-security-group-with-site-recovery.md
         - name: Utilizar endereços IP públicos com o Site Recovery
           href: concepts-public-ip-address-with-site-recovery.md
-    - name: Sobre os planos de ativação pós-falha e recuperação
+    - name: Acerca da ativação pós-falha e da reativação pós-falha
+      href: failover-failback-overview.md
+    - name: Acerca dos planos de recuperação
       href: recovery-plan-overview.md
     - name: Sobre a migração para o Azure
       href: migrate-overview.md
@@ -231,13 +239,13 @@
               items:
                 - name: Descrição geral e instalação do serviço de mobilidade
                   href: vmware-physical-mobility-service-overview.md
-                - name: Preparar para a instalação push do serviço de Mobilidade
+                - name: Preparar para instalação push
                   href: vmware-azure-install-mobility-service.md
-                - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
+                - name: Automatizar a implementação do serviço de Mobilidade
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Ativar a replicação para as VMs do VMware
               href: vmware-azure-enable-replication.md
-            - name: Excluir discos
+            - name: Excluir discos da replicação
               href: vmware-azure-exclude-disk.md
             - name: Instruções-Configurar a replicação com vários inquilinos e CSP para as VMs do VMWare
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
@@ -249,17 +257,19 @@
               href: site-recovery-test-failover-to-azure.md
             - name: Executar uma ativação pós-falha para o Azure
               href: site-recovery-failover.md
-            - name: Voltar a proteger do Azure para o VMware local
+            - name: Preparar para nova proteção/reativação pós-falha
+              href: vmware-azure-prepare-failback.md
+            - name: Voltar a proteger do Azure para o local
               href: vmware-azure-reprotect.md
-            - name: Reativação pós-falha do Azure para o VMware
+            - name: Reativação pós-falha do Azure para o local
               href: vmware-azure-failback.md
-            - name: Configurar e gerir um servidor de processos no Azure para reativação pós-falha
+            - name: Configurar um servidor de processos de reativação pós-falha no Azure
               href: vmware-azure-set-up-process-server-azure.md
             - name: Configurar um servidor de destino principal do Linux para reativação pós-falha
               href: vmware-azure-install-linux-master-target.md
         - name: Gerir
           items:
-            - name: Gerir o agente de mobilidade do VMware
+            - name: Gerir o Agente de mobilidade
               href: vmware-physical-manage-mobility-service.md
             - name: Gerir o servidor de configuração para a recuperação do VMware
               href: vmware-azure-manage-configuration-server.md
@@ -303,9 +313,9 @@
           href: physical-to-azure-failover-failback.md
         - name: Gerir
           items:
-            - name: Gerir o agente de mobilidade para o servidor físico
+            - name: Gerir o Serviço de mobilidade
               href: vmware-physical-manage-mobility-service.md
-            - name: Gerir o servidor de configuração para a recuperação replicação do servidor físico
+            - name: Gerir o servidor de configuração
               href: physical-manage-configuration-server.md
             - name: Gerir servidores de processos
               href: vmware-azure-manage-process-server.md
@@ -345,7 +355,7 @@
           items:
             - name: Preparar o mapeamento de rede na recuperação após desastre de VM do Hyper-V
               href: hyper-v-vmm-network-mapping.md
-            - name: Excluir discos da replicação do Hyper-V para o Azure
+            - name: Excluir discos da replicação
               href: hyper-v-exclude-disk.md
         - name: Ativar a ativação pós-falha e a reativação pós-falha
           items:

@@ -1,5 +1,5 @@
 ---
-title: Documentação do Azure Power BI Embedded - Tutoriais, Referência da API | Microsoft Docs
+title: Documentação do Azure Power BI Embedded
 description: Saiba como incorporar visualizações de dados do Power BI e relatórios interativos nas aplicações. Tutoriais, referências de API e outra documentação.
 services: power-bi-embedded
 author: rkarlin
@@ -9,14 +9,14 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: decbe7c59f46ea77b1f5088bab8daf64722f2a8c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdc609735380a280b754841009d2706c245af961
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427087"
 ---
-# <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
+# <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
 
 Saiba como adicionar visualizações de dados e relatórios interativos a aplicações com o Power BI Embedded. Tutoriais, referências de API e outra documentação mostram-lhe como incorporar perfeitamente relatórios do Power BI e dashboards nas aplicações.
 
@@ -50,7 +50,7 @@ Saiba como adicionar visualizações de dados e relatórios interativos a aplica
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biblioteca de Vídeos do Azure Power BI Embedded</h3>
+                        <h3>Biblioteca de vídeos do Azure Power BI Embedded</h3>
                     </div>
                 </div>
             </div>

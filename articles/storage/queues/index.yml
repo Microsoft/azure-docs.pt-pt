@@ -12,12 +12,12 @@ metadata:
   author: mhopkins-msft
   ms.author: mhopkins
   ms.date: 08/27/2019
-  ms.openlocfilehash: 4dcf6ae4e9a5a65e060b647f02761b2c46238d13
-  ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+  ms.openlocfilehash: 871447957b905157625ab487269b9ce1ca105935
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/04/2019
-  ms.locfileid: "70277905"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75457298"
 landingContent:
 - title: Sobre as filas do Azure
   linkLists:
@@ -31,10 +31,18 @@ landingContent:
     links:
     - text: Criar uma fila e adicionar uma mensagem com o portal do Azure
       url: storage-quickstart-queues-portal.md
-    - text: Utilizar .NET para criar uma fila no Armazenamento do Azure
-      url: storage-quickstart-queues-dotnet.md
 - title: Programar com filas
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Armazenamento de Filas do Azure para .NET
+      url: storage-quickstart-queues-dotnet.md
+    - text: Armazenamento de Filas do Azure para Java
+      url: storage-quickstart-queues-java.md
+    - text: Armazenamento de Filas do Azure para Python
+      url: storage-quickstart-queues-python.md
+    - text: Armazenamento de Filas do Azure para JavaScript
+      url: storage-quickstart-queues-nodejs.md
   - linkListType: how-to-guide
     links:
     - text: Introdução ao Armazenamento de filas do Azure através do .NET

@@ -76,6 +76,8 @@
 - name: Portal de Parceiros da Cloud
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
+    - name: Migração do Cloud Partner Portal para o Centro de Parceiros
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
     - name: Tour pelo Portal
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -449,6 +451,8 @@
               href: ./partner-center-portal/create-new-azure-apps-offer.md
             - name: Processar comentários de crítica
               href: ./partner-center-portal/azure-apps-review-feedback.md
+            - name: API para integração
+              href: ./partner-center-portal/azure-app-apis.md
         - name: Ofertas do Dynamics 365
           items:
             - name: Criar uma oferta do Dynamics 365 for Customer Engagement & PowerApps
@@ -512,13 +516,33 @@
     - name: Opções de suporte
       href: ./partner-center-portal/support.md
     - name: Análise do Centro de Parceiros
-      href: ./partner-center-portal/analytics.md
+      items:
+        - name: Análise do Marketplace Comercial
+          href: ./partner-center-portal/analytics.md
+        - name: Dashboard de resumo
+          href: ./partner-center-portal/summary-dashboard.md
+        - name: Dashboard de pedidos
+          href: ./partner-center-portal/orders-dashboard.md
+        - name: Dashboard de utilização
+          href: ./partner-center-portal/usage-dashboard.md
+        - name: Dashboard de cliente
+          href: ./partner-center-portal/customer-dashboard.md
+        - name: Dashboard de Informações do Marketplace
+          href: ./partner-center-portal/insights-dashboard.md
+        - name: Dashboard de transferências
+          href: ./partner-center-portal/downloads-dashboard.md
+        - name: Dashboard de classificações e críticas
+          href: ./partner-center-portal/ratings-reviews.md
+        - name: Perguntas mais frequentes e terminologia
+          href: ./partner-center-portal/faq-terminology.md
     - name: Receber o pagamento
       items:
         - name: Receber o pagamento
           href: ./partner-center-portal/get-paid.md
         - name: Configurar a conta de dividendos e os formulários fiscais
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        - name: Detalhes de faturação
+          href: ./partner-center-portal/billing-details.md
         - name: 'Limiares, métodos e períodos de tempo de pagamento'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
         - name: Resumo dos dividendos

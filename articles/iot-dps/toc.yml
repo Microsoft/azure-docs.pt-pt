@@ -2,32 +2,26 @@
   href: index.yml
 - name: Descrição geral
   items:
-    - name: Sobre o Serviço de Aprovisionamento de Dispositivos de IoT
+    - name: "O que é o Serviço Aprovisionamento de Dispositivos no Hub\_IoT?"
       href: about-iot-dps.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
-    - name: Configurar o aprovisionamento automático - CLI do Azure
-      href: quick-setup-auto-provision-cli.md
-    - name: Configurar o aprovisionamento automático - Portal
-      href: quick-setup-auto-provision.md
-    - name: Configurar o aprovisionamento automático - Modelo
-      href: quick-setup-auto-provision-rm.md
-    - name: Aprovisionar automaticamente um dispositivo simulado
+    - name: Configurar um DPS
       items:
-        - name: Atestado de TPM
+        - name: Portal do Azure
+          href: quick-setup-auto-provision.md
+        - name: CLI do Azure
+          href: quick-setup-auto-provision-cli.md
+        - name: Modelo do Azure RM
+          href: quick-setup-auto-provision-rm.md
+    - name: Aprovisionar um único dispositivo simulado
+      items:
+        - name: Atestado de chave simétrica
           items:
             - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
-        - name: Atestado de X.509
+              href: quick-create-simulated-device-symm-key.md
+        - name: "Atestado de certificado\_X.509"
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,23 +33,21 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-        - name: Atestado de chave simétrica
+        - name: Atestado de dispositivo TPM simulado
           items:
             - name: C
-              href: quick-create-simulated-device-symm-key.md
-    - name: Inscrição de dispositivos com APIs de aprovisionamento de serviço
-      items:
-        - name: Atestado de TPM
-          items:
+              href: quick-create-simulated-device.md
             - name: Java
-              href: quick-enroll-device-tpm-java.md
+              href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
-              href: quick-enroll-device-tpm-csharp.md
+              href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
-              href: quick-enroll-device-tpm-node.md
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
-              href: quick-enroll-device-tpm-python.md
-        - name: Atestado de X.509
+              href: quick-create-simulated-device-tpm-python.md
+    - name: Criar inscrições de dispositivos com APIs DPS
+      items:
+        - name: "Inscrição de grupo com o Atestado de Certificado\_X.509"
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -65,11 +57,21 @@
               href: quick-enroll-device-x509-node.md
             - name: Python
               href: quick-enroll-device-x509-python.md
+        - name: Inscrição de dispositivo individual com o atestado de TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
 - name: Tutoriais
   items:
     - name: 1 - Configurar recursos de cloud
       href: tutorial-set-up-cloud.md
-    - name: 2 - Configurar o dispositivo
+    - name: 2 – Configurar um dispositivo
       href: tutorial-set-up-device.md
     - name: 3 - Aprovisionar um dispositivo para um hub IoT
       items:
@@ -79,7 +81,7 @@
           href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Aprovisionar dispositivos para vários hubs
       href: tutorial-provision-multiple-hubs.md
-    - name: 5 - Aprovisionar as inscrições de grupo
+    - name: 5 – Configurar inscrições de grupo
       href: tutorial-group-enrollments.md
 - name: Conceitos
   items:

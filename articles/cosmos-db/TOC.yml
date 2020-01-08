@@ -4,7 +4,7 @@
   items:
     - name: Bem-vindo ao Azure Cosmos DB
       href: introduction.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar recursos do Cosmos DB
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: Aprovisionar débito - modo Autopilot
           href: provision-throughput-autopilot.md
+        - name: FAQ acerca do Autopilot
+          href: autopilot-faq.md
     - name: Referência de consulta SQL
       items:
         - name: Introdução
@@ -545,7 +547,7 @@
           href: cassandra-introduction.md
         - name: Suporte a protocolo por fio
           href: cassandra-support.md
-        - name: Inícios rápidos
+        - name: Guias de Início Rápido
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -609,7 +611,7 @@
           href: mongodb-feature-support.md
         - name: Suporte a protocolo de transmissão (3.6)
           href: mongodb-feature-support-36.md
-        - name: Inícios rápidos
+        - name: Guias de Início Rápido
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -699,7 +701,7 @@
           href: graph-introduction.md
         - name: Suporte a protocolo por fio
           href: gremlin-support.md
-        - name: Inícios rápidos
+        - name: Guias de Início Rápido
           items:
             - name: Consola do Gremlin
               href: create-graph-gremlin-console.md
@@ -756,7 +758,7 @@
       items:
         - name: Introdução
           href: table-introduction.md
-        - name: Inícios rápidos
+        - name: Guias de Início Rápido
           items:
             - name: .NET
               href: create-table-dotnet.md
@@ -982,6 +984,8 @@
       items:
         - name: Monitorizar o Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Monitorizar com registos de diagnósticos
+          href: cosmosdb-monitor-resource-logs.md
         - name: Azure Monitor para Cosmos (pré-visualização)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Ver métricas da conta do Cosmos DB
