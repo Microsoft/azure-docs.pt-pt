@@ -157,7 +157,7 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurar o Monitor de Desempenho de Rede para o ExpressRoute
           href: how-to-npm.md
-    - name: Artigos sobre o modelo de implementação clássica
+    - name: Artigos clássicos e legados
       items:
         - name: Modificar um circuito
           href: expressroute-howto-circuit-classic.md
@@ -169,6 +169,8 @@
           href: expressroute-howto-coexist-classic.md
         - name: Adicionar um gateway a uma VNet
           href: expressroute-howto-add-gateway-classic.md
+        - name: Criar e modificar um peering público
+          href: about-public-peering.md
     - name: Melhores práticas
       items:
         - name: Melhores práticas para segurança de rede e serviços em nuvem
@@ -223,7 +225,7 @@
     - name: SLA
       href: 'https://azure.microsoft.com/support/legal/sla/'
     - name: Subscrição e Limites do Serviço
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: Vídeos

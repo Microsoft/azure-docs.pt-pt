@@ -3,6 +3,12 @@
 - name: Compreender a faturação do Azure
   expanded: true
   items:
+    - name: Âmbitos e contas de faturação
+      href: billing-view-all-accounts.md
+    - name: Contas de faturação do Contrato de Cliente Microsoft
+      href: billing-mca-overview.md
+    - name: Contas de faturação do Contrato de Parceiro da Microsoft
+      href: mpa-overview.md
     - name: Compreender a sua fatura
       href: billing-understand-your-bill.md
     - name: Compreender a sua fatura - Contrato de Cliente da Microsoft
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: Como pagar a sua fatura - Contrato de Cliente da Microsoft
       href: billing-how-to-pay-bill.md
-    - name: Contas de faturação do Contrato de Cliente Microsoft
-      href: billing-mca-overview.md
-    - name: Contas de faturação do Contrato de Parceiro da Microsoft
-      href: mpa-overview.md
 - name: Gerir os custos
   items:
     - name: Evitar custos inesperados
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: ID do parceiro de ligação
       href: billing-partner-admin-link-started.md
-    - name: Ver contas de faturação
-      href: billing-view-all-accounts.md
     - name: Organizar os custos com secções de fatura
       href: billing-mca-section-invoice.md
     - name: Tarefas de EA no Contrato de Cliente Microsoft
@@ -216,7 +216,7 @@
     - name: Ligar inquilino do Azure AD
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Limites e quotas
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Resolução de problemas
   items:
     - name: Não foram encontradas subscrições

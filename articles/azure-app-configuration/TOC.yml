@@ -6,7 +6,7 @@
       href: overview.md
     - name: FAQ
       href: faq.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Configuração
@@ -87,15 +87,15 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Construtor de .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: SDK do Azure em .NET
+        - name: SDK do Azure para .Net
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Fornecedor de Java Spring
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
-        - name: Java do SDK para o Azure
+        - name: SDK do Azure para Java
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
-        - name: SDK do Azure em Python
+        - name: SDK do Azure para Python
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
-        - name: SDK do Azure do JavaScript
+        - name: SDK do Azure para JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'

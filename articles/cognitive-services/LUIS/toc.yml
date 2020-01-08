@@ -7,7 +7,7 @@
       href: what-is-luis.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar uma aplicação de domínio pré-concebida
       href: luis-get-started-create-app.md
@@ -66,13 +66,8 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Conjuntos de dados de teste em lote
           href: luis-tutorial-batch-testing.md
-        - name: Adicionar formatos de expressão comuns
+        - name: Adicionar padrões para melhorar as previsões
           href: luis-tutorial-pattern.md
-        - name: Extrair padrões relacionados contextualmente
-          href: luis-tutorial-pattern-roles.md
-          displayName: roles
-        - name: Extrair dados sem formulário
-          href: luis-tutorial-pattern-any.md
     - name: Utilizar com o bot
       items:
         - name: 'Com C#'
@@ -173,6 +168,8 @@
         - name: Adicionar Descritor
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
+        - name: "Migrar para a Criação\_V3"
+          href: luis-migration-authoring-entities.md
         - name: Com APIs REST
           items:
             - name: Criar a aplicação através de programação com Node.js

@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Documentação das Aplicações Geridas
+summary: Oferecem soluções na cloud que os consumidores podem implementar e operar facilmente.
+metadata:
+  title: Documentação das Aplicações Geridas do Azure
+  description: As aplicações geridas do Azure permitem-lhe oferecer soluções na cloud que os consumidores podem implementar e operar facilmente.
+  ms.service: managed-applications
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 60f7d4b9c9bd9057e0869b3efe1843eeb8d873f8
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648383"
+landingContent:
+- title: Acerca das Aplicações Geridas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são as Aplicações Geridas do Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Artefacto de definição de vista
+      url: concepts-view-definition.md
+    - text: Azure Policy para associações
+      url: concepts-built-in-policy.md
+    - text: Artefacto de definição de função
+      url: concepts-custom-role-definition.md
+- title: Criar Aplicações Geridas
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Publicar a definição da aplicação
+      url: publish-managed-app-definition-quickstart.md
+    - text: Implementar a aplicação do catálogo de serviços
+      url: deploy-service-catalog-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Criar ficheiros de definição
+      url: publish-service-catalog-app.md
+    - text: Publicar a aplicação do marketplace
+      url: publish-marketplace-app.md
+    - text: Criar a aplicação gerida com fornecedor personalizado
+      url: tutorial-create-managed-app-with-custom-provider.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utilizar segredo do Key Vault
+      url: key-vault-access.md
+    - text: Publicar através do portal
+      url: publish-portal.md
+- title: Controlo de acesso
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Pedir acesso just-in-time
+      url: request-just-in-time-access.md
+    - text: Aprovar acesso just-in-time
+      url: approve-just-in-time-access.md
+    - text: Implementar com o Identidade Gerida
+      url: publish-managed-identity.md
+- title: Criar a IU do portal
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar interface do portal
+      url: create-uidefinition-overview.md
+    - text: Testar interface do portal
+      url: test-createuidefinition.md
+    - text: Artefacto de elementos da interface de utilizador
+      url: reference-createuidefinition-artifact.md
+    - text: Elementos da interface
+      url: create-uidefinition-elements.md
+    - text: Funções da interface
+      url: create-uidefinition-functions.md
+- title: Gerir recursos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorizar a instância implementada
+      url: monitor-managed-application-portal.md
+    - text: Implementar com notificações
+      url: publish-notifications.md
+    - text: Atualizar recursos geridos
+      url: update-managed-resources.md

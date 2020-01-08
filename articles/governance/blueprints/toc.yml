@@ -5,7 +5,7 @@
     - name: O que é o Azure Blueprints?
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um esquema - Portal
@@ -63,6 +63,17 @@
         - name: Passos para implementar
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA HITRUST
+      items:
+        - name: Descrição geral
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: Descrição geral

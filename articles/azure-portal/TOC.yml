@@ -16,6 +16,10 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guias de procedimentos
   items:
+    - name: Definir as preferências do portal do Azure
+      href: set-preferences.md
+    - name: Estabelecer definições de tempo limite de inatividade para todos os utilizadores
+      href: admin-timeout.md
     - name: Ativar o alto contraste ou a alteração de tema
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Adicionar, remover e ordenar favoritos'

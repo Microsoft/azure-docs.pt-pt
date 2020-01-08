@@ -755,18 +755,6 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Otimizar o Storm no HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gerir ficheiros (blobs)
-          items:
-            - name: Descrição geral
-              href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Spark no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Hive no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o MapReduce no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Otimizar o Storm no HDInsight
-              href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migrar dados
           items:
             - name: Atualizar do Data Lake Storage Gen1

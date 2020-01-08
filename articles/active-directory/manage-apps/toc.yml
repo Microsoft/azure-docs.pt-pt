@@ -9,7 +9,7 @@
       href: user-provisioning.md
     - name: O que é o Proxy de Aplicações para aplicações no local?
       href: what-is-application-proxy.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Adicionar uma aplicação da cloud a partir da galeria
       href: add-application-portal.md
@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Adicionar uma aplicação no local com o Proxy de Aplicações
       href: application-proxy-add-on-premises-application.md
+- name: Amostras
+  items:
+    - name: Exemplos do Azure PowerShell para o Proxy da Aplicação
+      href: application-proxy-powershell-samples.md
 - name: Conceitos
   expanded: true
   items:
@@ -70,12 +74,10 @@
               href: end-user-experiences.md
     - name: Aprovisionamento de aplicações (SCIM)
       items:
+        - name: Como funciona o aprovisionamento
+          href: how-provisioning-works.md
         - name: Planear uma implementação de aprovisionamento automático de utilizadores
           href: plan-auto-user-provisioning.md
-        - name: Aprovisionamento automático de aplicações com SCIM ativado
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Aprovisionamento manual vs. automático
-          href: application-provisioning-config-how-to.md
     - name: Aprovisionamento de HR de Cloud
       items:
         - name: Planear uma implementação de aprovisionamento de utilizadores de HR de cloud
@@ -139,6 +141,8 @@
           items:
             - name: Configurar o consentimento do utilizador
               href: configure-user-consent.md
+            - name: Conceder consentimento de administrador ao nível do inquilino
+              href: grant-admin-consent.md
             - name: Configurar o fluxo de trabalho de consentimento do administrador (pré-visualização)
               href: configure-admin-consent-workflow.md
             - name: Métodos para atribuir utilizadores e grupos a uma aplicação
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Aprovisionamento de aplicações (SCIM)
       items:
-        - name: Configurar o aprovisionamento de aplicações
+        - name: Configurar o aprovisionamento para uma aplicação da galeria
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Criar um ponto final SCIM e configurar o aprovisionamento
+          href: use-scim-to-provision-users-and-groups.md
+        - name: Editar os mapeamentos de atributos
           items:
-            - name: Configurar o aprovisionamento automático de utilizadores
-              href: configure-automatic-user-provisioning-portal.md
-            - name: Utilizar o SCIM para aprovisionamento automático
-              href: use-scim-to-provision-users-and-groups.md
             - name: Personalizar os mapeamentos de atributos
               href: Customize-application-attributes.md
             - name: Escrever expressões para mapeamentos de atributos
               href: functions-for-customizing-application-data.md
+        - name: Incluir ou excluir utilizadores e grupos do âmbito
+          items:
             - name: Definir o âmbito dos utilizadores ou grupos a aprovisionar
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorar eliminação de utilizadores fora do âmbito
               href: skip-out-of-scope-deletions.md
+        - name: Monitorizar e reportar aprovisionamentos
+          items:
             - name: Monitorizar o estado e o desempenho do aprovisionamento
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Relatório sobre o aprovisionamento de aplicações
               href: check-status-user-account-provisioning.md
-            - name: Exportar e importar configuração
+            - name: Exportar e importar a configuração
               href: export-import-provisioning-configuration.md
-            - name: Automatizar a configuração com o MS Graph
-              href: application-provisioning-configure-api.md
+        - name: Automatizar a configuração com o MS Graph
+          href: application-provisioning-configure-api.md
         - name: Resolver problemas de aprovisionamento de utilizadores
           items:
             - name: Resolver problemas de aprovisionamento de aplicações

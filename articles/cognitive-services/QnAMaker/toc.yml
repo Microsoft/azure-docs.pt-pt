@@ -6,7 +6,7 @@
       href: Overview/overview.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar uma nova base de dados de conhecimento
       href: quickstarts/create-publish-knowledge-base.md
@@ -14,6 +14,8 @@
       href: quickstarts/add-question-metadata-portal.md
     - name: Obter respostas com o Postman ou cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: Testar com o ficheiro batch
+      href: Quickstarts/batch-testing.md
     - name: Utilizar APIs REST
       items:
         - name: Criar uma nova base de dados de conhecimento
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-knowledge-rest-api-nodejs.md
+              href: Quickstarts/publish-kb-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: Publicar uma base de dados de conhecimento
@@ -37,7 +39,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: Obter resposta

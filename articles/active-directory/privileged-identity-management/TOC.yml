@@ -45,6 +45,8 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Gerir funções do Azure AD
       items:
+        - name: Atualização de funcionalidades
+          href: azure-ad-roles-features.md
         - name: Atribuir funções
           href: pim-how-to-add-role-to-user.md
         - name: Aprovar pedidos

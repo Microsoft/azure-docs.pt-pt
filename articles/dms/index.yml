@@ -2,18 +2,18 @@
 title: Documentação do Azure Database Migration Service
 summary: O Azure Database Migration Service permite migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo. O serviço utiliza o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para o guiar pelas alterações necessárias antes de realizar uma migração. Quando estiver preparado para iniciar o processo de migração, o Azure Database Migration Service realiza todos os passos necessários.
 metadata:
-  description: " Saiba como permitir migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo com o Azure Database Migration Service."
+  description: Saiba como permitir migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo com o Azure Database Migration Service.
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73583998"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437888"
 landingContent:
 - title: Acerca do Azure Database Migration Service
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: quickstart-create-data-migration-service-portal.md
     - text: Criar serviço no modo híbrido – Portal
       url: quickstart-create-data-migration-service-hybrid-portal.md
+  - linkListType: reference
+    links:
+    - text: Problemas conhecidos – Utilizar o modo híbrido
+      url: known-issues-dms-hybrid-mode.md
   - linkListType: video
     links:
     - text: Introdução ao Azure Database Migration Service
@@ -65,6 +69,8 @@ landingContent:
     links:
     - text: Problemas conhecidos - Migração online para a base de dados individual da Base de Dados SQL
       url: known-issues-azure-sql-online.md
+    - text: Problemas conhecidos – Migração online para a instância gerida da Base de Dados SQL
+      url: known-issues-azure-sql-db-managed-instance-online.md
     - text: Topologias de rede para migrações de instância gerida da Base de Dados SQL
       url: resource-network-topologies.md
     - text: Funções personalizadas das migrações online do SQL Server para a instância gerida da Base de Dados SQL

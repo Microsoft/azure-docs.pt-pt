@@ -7,7 +7,7 @@
   items:
     - name: Descrição geral
       href: v2-overview.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Configurar um inquilino
           href: quickstart-create-new-tenant.md
@@ -35,6 +35,7 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: quickstart-v2-nodejs-webapp.md
+              displayName: OIDC
             - name: Java
               href: quickstart-v2-java-webapp.md
             - name: Python
@@ -135,7 +136,7 @@
                   href: scenario-web-app-call-api-app-registration.md
                 - name: Configuração do código
                   href: scenario-web-app-call-api-app-configuration.md
-                - name: Iniciar sessão
+                - name: Fim de sessão global
                   href: scenario-web-app-call-api-sign-in.md
                 - name: Adquirir o token para a aplicação
                   href: scenario-web-app-call-api-acquire-token.md
@@ -213,7 +214,8 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
-                    - name: Utilizar mediadores com Aplicações Xamarin.iOS e Android
+                    - name: Utilizar mediadores com Xamarin iOS e Android
+                      displayName: Microsoft Authenticator Microsoft Intune
                       href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: Plataforma Universal do Windows
                       href: msal-net-uwp-considerations.md
@@ -241,13 +243,13 @@
                   href: msal-compare-msal-js-and-adal-js.md
                 - name: Migrar para MSAL.Android
                   href: migrate-android-adal-msal.md
-                - name: Migrar para MSAL.iOS e MacOS
+                - name: Migrar para MSAL.iOS/MacOS
                   href: migrate-objc-adal-msal.md
                 - name: Migrar para MSAL Python
                   href: migrate-python-adal-msal.md
                 - name: Migrar para MSAL para Java
                   href: migrate-adal-msal-java.md
-                - name: Migrar aplicações Xamarin com mediadores do ADAL.NET para o MSAL.NET
+                - name: Migrar aplicações Xamarin com mediadores para o MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Fluxos de autenticação suportados
               href: msal-authentication-flows.md
@@ -263,7 +265,7 @@
               items:
                 - name: Aplicações de cliente
                   href: msal-client-applications.md
-                - name: Configuração da aplicação (.NET)
+                - name: Configuração da aplicação
                   href: msal-client-application-configuration.md
                 - name: Inicializar aplicações (.NET)
                   href: msal-net-initializing-client-applications.md
@@ -313,11 +315,11 @@
                   items:
                     - name: Considerações sobre a utilização do IE
                       href: msal-js-use-ie-browser.md
-                    - name: Problemas conhecidos - IE e Microsoft Edge
+                    - name: Problemas conhecidos – IE e Microsoft Edge
                       href: msal-js-known-issues-ie-edge-browsers.md
-                    - name: Problemas conhecidos - Safari
+                    - name: Problemas conhecidos – Safari
                       href: msal-js-known-issues-safari-browser.md
-                - name: Problemas do MSAL para iOS e macOS SSL
+                - name: Resolver problemas de SSL (MSAL iOS/macOS)
                   href: ssl-issues.md
         - name: Protocolo de autenticação
           items:
@@ -388,7 +390,7 @@
       items:
         - name: Autenticação
           items:
-            - name: Configurar afirmações de função
+            - name: Configurar afirmação de função
               href: active-directory-enterprise-app-role-management.md
             - name: Personalizar afirmações - Portal
               href: active-directory-saml-claims-customization.md
@@ -400,9 +402,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Configuração da aplicação
           items:
-            - name: Fazer a transição dos Registos de aplicações (Legado) para a nova experiência de Registos de aplicações no portal do Azure
+            - name: Novo guia de preparação de registos de aplicações do portal do Azure
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Fazer a transição do Portal de Registo de Aplicações para a nova experiência de Registos de aplicações no portal do Azure
+            - name: Nova experiência de registos de aplicações do portal do Azure
               href: app-registration-portal-training-guide.md
             - name: Converter uma aplicação de inquilino único numa aplicação multi-inquilino
               href: howto-convert-app-to-be-multi-tenant.md
@@ -418,7 +420,7 @@
               href: howto-add-app-roles-in-azure-ad-apps.md
             - name: Diretrizes de imagem corporativa
               href: howto-add-branding-in-azure-ad-apps.md
-            - name: Domínio de publicador
+            - name: Configurar domínio do publicador
               href: howto-configure-publisher-domain.md
             - name: Termos do Serviço e Declaração de Privacidade
               href: howto-add-terms-of-service-privacy-statement.md
@@ -432,7 +434,7 @@
                   href: msal-net-token-cache-serialization.md
                 - name: Limpar a cache de token
                   href: msal-net-clear-token-cache.md
-                - name: Instanciar um cliente público com opções
+                - name: Instanciar uma aplicação de cliente pública
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Instanciar um cliente confidencial com opções
                   href: msal-net-instantiate-confidential-client-config-options.md
@@ -462,13 +464,13 @@
                   href: redirect-uris-ios.md
             - name: MSAL para Python
               items:
-                - name: Serialização de cache de token
+                - name: Personalizar serialização de cache de token
                   href: msal-python-token-cache-serialization.md
             - name: MSAL para Java
               items:
-                - name: Serialização de cache de token
+                - name: Personalizar serialização de cache de token
                   href: msal-java-token-cache-serialization.md
-                - name: Adicionar e remover contas da cache de tokens
+                - name: Obter e remover contas da cache de tokens
                   href: msal-java-get-remove-accounts-token-cache.md
         - name: Trabalhar com o Visual Studio
           items:
@@ -482,7 +484,7 @@
               href: vs-active-directory-webapi-getting-started.md
             - name: O que aconteceu ao meu projeto WebAPI?
               href: vs-active-directory-webapi-what-happened.md
-            - name: Erro durante a deteção de autenticação
+            - name: Diagnosticar erros durante a autenticação
               href: vs-active-directory-error.md
     - name: Referências
       items:
@@ -504,7 +506,7 @@
   items:
     - name: Descrição geral
       href: v1-overview.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Configurar um inquilino
           href: quickstart-create-new-tenant.md

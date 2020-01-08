@@ -6,9 +6,19 @@
       href: overview.md
     - name: Alterações de terminologia
       href: terminology.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
-    - name: Aplicações
+    - name: Monitorizar o recurso do Azure
+      href: learn/quick-monitor-azure-resource.md
+    - name: Monitorizar máquinas virtuais
+      items:
+        - name: Recolher - VMs do Azure
+          href: learn/quick-collect-azurevm.md
+        - name: Recolher - Computador com Linux
+          href: learn/quick-collect-linux-computer.md
+        - name: Recolher - Computador com Windows
+          href: learn/quick-collect-windows-computer.md
+    - name: Monitorizar aplicações
       items:
         - name: Aplicação .NET
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Aplicação Web
           href: app/website-monitoring.md
-    - name: Máquinas virtuais
-      items:
-        - name: Recolher - VMs do Azure
-          href: learn/quick-collect-azurevm.md
-        - name: Recolher - Computador com Linux
-          href: learn/quick-collect-linux-computer.md
-        - name: Recolher - Computador com Windows
-          href: learn/quick-collect-windows-computer.md
 - name: Tutoriais
   items:
-    - name: Registos
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: Registar consultas
-          href: log-query/get-started-queries.md
-        - name: Dashboard com dados de registo
-          href: learn/tutorial-logs-dashboards.md
-        - name: Alertar relativamente aos dados de registo
-          href: learn/tutorial-response.md
+    - name: Criar um gráfico de métricas
+      href: learn/tutorial-metrics-explorer.md
+    - name: Recolher registos do recurso do Azure
+      href: learn/tutorial-resource-logs.md
+    - name: Registar consultas de registo
+      href: log-query/get-started-queries.md
+    - name: Criar um dashboard a partir da consulta de registo
+      href: learn/tutorial-logs-dashboards.md
+    - name: Criar um alerta a partir da consulta de registo
+      href: learn/tutorial-response.md
+    - name: Dimensionamento automático com base no desempenho e numa agenda
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: Encontrar exceções de tempo de execução de aplicações
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: Dashboard com dados da aplicação
           href: learn/tutorial-app-dashboards.md
-    - name: Arquivar métricas de plataforma e registos de dados
-      href: learn/tutorial-archive-data.md
-    - name: Dimensionamento automático com base no desempenho e numa agenda
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: Amostras
   items:
     - name: Azure PowerShell
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: Monitorize grupos de recursos
           href: insights/resource-group-insights.md
-        - name: Descrição geral dos registos da plataforma
-          href: platform/platform-logs-overview.md
-        - name: Registos do recurso
+        - name: Registos da plataforma
           items:
             - name: Descrição geral
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: Recolher nos Registos do Azure Monitor
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: Arquivar no armazenamento
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: Transmitir em Fluxo para os Hubs de Eventos
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: Registo de atividades
-          items:
-            - name: Descrição geral
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: Recolher com a definição de diagnóstico
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: Ver e obter
-              displayname: Activity log
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: Ver Registo de atividades
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: Recolher e analisar
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: Recolher entre inquilinos
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: Exportar
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: Esquema
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: Enviar para destinos
+              items:
+                - name: Área de trabalho do Log Analytics
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Storage do Azure
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: Hubs de Eventos
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: Recolha de registos de Atividades Legadas
+              items:
+                - name: Descrição geral
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: Recolher e analisar
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: Recolher entre inquilinos
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exportar
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: Definições de diagnóstico
           items:
             - name: Criar definição de diagnóstico
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: Criar definição de diagnóstico com o Resource Manager
+            - name: Criar com o Resource Manager
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: Alterar para o formato de armazenamento de blobs
               displayname: Diagnostic settings
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Agentes do Windows
                   href: platform/agent-windows.md
+                - name: Agentes do Linux
+                  href: platform/agent-linux.md
                 - name: Extensão da VM para Windows
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: Extensão da VM para Linux
@@ -700,7 +698,7 @@
               items:
                 - name: Descrição geral dos dados em direto (pré-visualização)
                   href: insights/container-insights-livedata-overview.md
-                - name: Configurar
+                - name: Configuração
                   href: insights/container-insights-livedata-setup.md
                 - name: Ver métricas de clusters
                   href: insights/container-insights-livedata-metrics.md
@@ -1161,10 +1159,16 @@
       items:
         - name: Métricas suportadas
           href: platform/metrics-supported.md
+        - name: Métricas exportáveis com Definições de Diagnóstico
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: Métricas suportadas para os alertas mais recentes
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Serviços, categorias e esquemas do registo de plataformas'
-      href: platform/diagnostic-logs-schema.md
+    - name: Registos da plataforma
+      items:
+        - name: 'Serviços, categorias e esquemas do registo de recursos'
+          href: platform/diagnostic-logs-schema.md
+        - name: Esquema de registo de atividades
+          href: platform/activity-log-schema.md
     - name: CLI do Azure
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: CLI do Azure - Application Insights (Pré-visualização)

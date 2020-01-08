@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Database Migration Service?
       href: dms-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   items:
     - name: Criar serviço - Portal
       href: quickstart-create-data-migration-service-portal.md
@@ -67,12 +67,16 @@
           href: known-issues-troubleshooting-dms.md
         - name: Problemas Conhecidos - Migração online para a base de dados individual da BD SQL do Azure
           href: known-issues-azure-sql-online.md
+        - name: "Problemas Conhecidos – Migração online para a instância gerida da BD\_SQL"
+          href: known-issues-azure-sql-db-managed-instance-online.md
         - name: Problemas Conhecidos - Migração online para a BD do Azure para MySQL
           href: known-issues-azure-mysql-online.md
-        - name: Problemas Conhecidos - Migração online do PostgreSQL para a BD do Azure para PostgreSQL - Servidor único
+        - name: Problemas Conhecidos – Migração online do PostgreSQL para a BD do Azure para PostgreSQL – Servidor único
           href: known-issues-azure-postgresql-online.md
-        - name: Problemas Conhecidos - Migração online do Oracle para a BD do Azure para PostgreSQL - Servidor único
+        - name: Problemas Conhecidos – Migração online do Oracle para a BD do Azure para PostgreSQL – Servidor único
           href: known-issues-oracle-azure-postgresql-online.md
+        - name: Problemas Conhecidos – Utilizar o modo híbrido
+          href: known-issues-dms-hybrid-mode.md
     - name: Vídeos
       items:
         - name: Utilizar o Guia de Migração de Base de Dados

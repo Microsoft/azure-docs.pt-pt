@@ -5,7 +5,7 @@
       items:
         - name: Acerca do Azure Dev Spaces
           href: about.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Desenvolvimento em equipa
           href: quickstart-team-development.md
@@ -91,6 +91,8 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: Utilizar o Traefik para entrada personalizada e HTTPS
           href: how-to/ingress-https-traefik.md
+        - name: Utilizar o NGINX para entrada personalizada e HTTPS
+          href: how-to/ingress-https-nginx.md
         - name: Ligar o seu computador de desenvolvimento a um cluster do AKS (pré-visualização)
           href: how-to/connect.md
     - name: Resolução de problemas

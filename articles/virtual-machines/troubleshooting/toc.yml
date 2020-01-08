@@ -159,6 +159,8 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
+    - name: 'Reiniciar, Encerrar ou Parar serviços'
+      href: boot-error-troubleshoot-windows.md
 - name: Os nomes de dispositivo foram alterados
   href: troubleshoot-device-names-problems.md
 - name: Acesso da recuperação de VM

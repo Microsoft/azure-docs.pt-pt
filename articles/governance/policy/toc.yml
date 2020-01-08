@@ -5,7 +5,7 @@
     - name: O que é o Azure Policy?
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Atribuir uma política - Portal
@@ -300,6 +300,11 @@
     - name: Identificar recursos em não conformidade
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Integração do Cofre de Chaves do Azure
+      items:
+        - name: Integrar o Key Vault no Azure Policy
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integração do Azure Lighthouse
       items:
         - name: Implementar uma política à escala

@@ -7,7 +7,7 @@
           href: what-is-b2b.md
         - name: Comparar B2B com B2C
           href: compare-with-b2c.md
-    - name: Inícios rápidos
+    - name: Guias de Início Rápido
       items:
         - name: Adicionar utilizadores convidados no portal
           href: b2b-quickstart-add-guest-users-portal.md
@@ -28,6 +28,8 @@
     - name: Conceitos
       expanded: false
       items:
+        - name: Melhores práticas B2B
+          href: b2b-fundamentals.md
         - name: Licenciamento B2B
           href: licensing-guidance.md
         - name: Partilha externa do Office 365 e B2B
