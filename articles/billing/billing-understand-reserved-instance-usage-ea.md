@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225800"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644350"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter custos e utilização de reservas do Contrato Enterprise
 
@@ -65,9 +65,9 @@ Pode obter os dados com a API ou transferi-los no portal do Azure.
 
 Pode chamar a [API de Detalhes de Utilização](/rest/api/consumption/usagedetails/list) para obter os novos dados. Para obter detalhes sobre a terminologia, veja os [termos de utilização](billing-understand-your-usage.md). O autor da chamada deve ser um Administrador da Empresa para o contrato Enterprise através do [portal de EA](https://ea.azure.com). Os Administradores de Empresa só de leitura também podem obter os dados.
 
-Os dados não estão disponíveis em [APIs de Relatórios para clientes Enterprise – Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Tenha em atenção que estes dados não estão disponíveis em [APIs de Relatórios para clientes Enterprise – Detalhes de Utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Aqui está um exemplo de chamada para a API:
+Veja a seguir um exemplo de chamada para a API de Detalhes de Utilização:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ As informações na tabela a seguir sobre métrica e filtro podem ajudar a resol
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Transferir o ficheiro CSV de utilização com novos dados
 
-Se for um administrador de EA, poderá transferir o ficheiro CSV que contém os novos dados de utilização a partir do portal do Azure. Estes dados não estão disponíveis no [portal do EA](https://ea.azure.com).
+Se for um administrador de EA, poderá transferir o ficheiro CSV que contém os novos dados de utilização a partir do portal do Azure. Estes dados não estão disponíveis no EA Portal (ea.azure.com), pelo que deve transferir o ficheiro de utilização no portal do Azure (portal.azure.com) para ver os novos dados.
 
 No portal do Azure, navegue até [Gestão de Custos + Faturação](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -111,9 +111,9 @@ Os custos de compra de reserva estão disponíveis nos dados de Custo Real. Filt
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obter quantidade e custos de reserva subutilizados
 
-Obtenha dados de Custo Amortizado e filtre por _ChargeType_ _= UnusedReservation_. Obtém a quantidade diária de reserva não utilizada e o custo. Pode filtrar os dados para uma reserva ou ordem de reserva com os campos _ReservationId_ e _ProductOrderId_, respetivamente. Se uma reserva fosse utilizada a 100%, o registo teria uma quantidade de 0.
+Obtenha os dados do Custo Amortizado e filtre por _ChargeType_ _= UnusedReservation_. Obtém a quantidade diária de reserva não utilizada e o custo. Pode filtrar os dados para uma reserva ou ordem de reserva com os campos _ReservationId_ e _ProductOrderId_, respetivamente. Se uma reserva fosse utilizada a 100%, o registo teria uma quantidade de 0.
 
-### <a name="amortize-reservation-costs"></a>Amortizar custos de reserva
+### <a name="amortize-reservation-costs"></a>Amortizar os custos das reservas
 
 Obtenha dados de Custo Amortizado e filtre por uma ordem de reserva com _ProductOrderID_ para obter custos amortizados diários para uma reserva.
 
@@ -148,7 +148,7 @@ Os custos de reserva estão disponíveis na [análise de custo](https://aka.ms/c
 
 ![Exemplo que mostra onde selecionar o custo amortizado na análise de custo](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são compras, mas os custos serão alocados para os recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo  **UnusedReservation** ao examinar o custo amortizado.
+Agrupar por tipo de encargo para ver uma discriminação da utilização, das compras e dos reembolsos; ou por reserva para uma discriminação de reserva e custos a pedido. Lembre-se de que os únicos custos de reserva que verá ao examinar o custo real são as compras, mas os custos serão alocados aos recursos individuais que utilizaram o benefício ao examinar o custo amortizado. Também verá um novo tipo de encargo  **UnusedReservation** ao examinar o custo amortizado.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -158,7 +158,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)

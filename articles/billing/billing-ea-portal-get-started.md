@@ -4,16 +4,16 @@ description: Este artigo explica como é que os clientes Azure EA utilizam o Azu
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841375"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660669"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introdução ao Azure EA Portal
 
@@ -46,14 +46,15 @@ O diagrama a seguir ilustra hierarquias do Azure EA simples.
 
 ![Diagrama de hierarquias do Azure EA simples](./media/billing-ea-portal-get-started/ea-hierarchies.png)
 
-## <a name="enterprise-user-roles"></a>Funções de utilizador do Enterprise
+## <a name="enterprise-user-roles"></a>Funções de utilizador corporativo
 
-Para administrar os serviços do Azure na sua inscrição, existem quatro funções distintas de utilizador administrativo do Enterprise:
+Para administrar os serviços do Azure na sua inscrição, existem cinco funções distintas de utilizador administrativo do Enterprise:
 
 - Administrador do Enterprise
-- Administrador de departamento
-- Proprietário da conta
+- Administrador de Departamento
+- Proprietário de Conta
 - Administrador de serviço
+- Contacto de notificação
 
 As funções servem para concluir tarefas em dois portais do Microsoft Azure diferentes. O Azure EA Portal (https://ea.azure.com) serve para ajudar o utilizador a gerir a faturação e os custos. O portal do Azure (https://portal.azure.com) serve para gerir os serviços do Azure.
 
@@ -101,9 +102,15 @@ Cada conta requer uma Conta Profissional, Escolar ou Microsoft exclusiva. Para o
 
 O administrador de serviços tem permissões para gerir serviços no portal do Azure e atribuir utilizadores à função de coadministrador.
 
+### <a name="notification-contact"></a>Contacto de notificação
+
+O contacto de notificação recebe notificações de utilização relacionadas com a inscrição.
+
 ## <a name="activate-your-enrollment"></a>Ativar a inscrição
 
 Para ativar o serviço, o administrador do Enterprise inicial deve abrir o Azure EA Portal em [https://ea.azure.com](https://ea.azure.com) e iniciar sessão com o endereço de e-mail indicado no e-mail de convite.
+
+Se tiver sido configurado como administrador EA, não precisará de esperar pelo e-mail de ativação para iniciar sessão no Azure EA Portal. Pode avançar para [https://ea.azure.com](https://ea.azure.com) e iniciar sessão com o seu endereço de e-mail (seja este profissional, escolar ou live ID) e a palavra-passe.
 
 Caso tenha mais de uma inscrição, escolha uma para ativar. Por predefinição, só são mostradas as inscrição ativas. Para ver o histórico de inscrições, desmarque a opção **Ativa** no canto superior direito do Azure EA Portal.
 
