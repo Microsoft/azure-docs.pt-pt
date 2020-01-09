@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815517"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562532"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -147,6 +147,8 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 | `en-US-JessaNeural` | type=`cheerful` | Expressa uma emoção positiva e feliz |
 | | type=`empathy` | Expressa uma noção de preocupar e compreensão |
 | | type=`chat` | Fale em um tom casual e relaxado |
+| | type=`newscast` | Expressa um tom formal, semelhante a difusões de notícias |
+| | type=`customerservice` | Fale de forma amigável e paciente como atendimento ao cliente |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expressa um tom formal, semelhante a difusões de notícias |
 | | type=`sentiment` | Transmite uma mensagem ou uma história ao toque |
 
@@ -182,7 +184,7 @@ Use o elemento `break` para inserir pausas (ou interrupções) entre palavras ou
 
 | Atributo | Descrição | Obrigatório / opcional |
 |-----------|-------------|---------------------|
-| Segurança | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>tipa</li><li>x-Strong</li></ul> | Opcional |
+| segurança | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>tipa</li><li>x-Strong</li></ul> | Opcional |
 | hora | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são 2S e 500 | Opcional |
 
 | Força | Descrição |

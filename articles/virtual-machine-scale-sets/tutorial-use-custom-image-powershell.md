@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Utilizar uma imagem de VM personalizada num conjunto de dimensionamento com o Azure PowerShell | Microsoft Docs
+title: Tutorial – usar uma imagem de VM personalizada em um conjunto de dimensionamento com Azure PowerShell
 description: Saiba como utilizar o Azure PowerShell para criar uma imagem de VM personalizada que pode utilizar para implementar um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd605ac3a4dd3f878dd3d5b861374816243f3467
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 4f47c4118db9d5fc799193f4abeea142c74ec691
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728556"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551578"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 >[!NOTE]
 > Este tutorial explica o processo de criar e utilizar uma imagem de VM generalizada. Não é suportado criar um conjunto de dimensionamento a partir de um VHD especializado.
 
-Primeiro, crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), em seguida, crie uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Esta VM é depois utilizada como a origem de uma imagem de VM personalizada. O exemplo seguinte cria uma VM com o nome *myCustomVM* no grupo de recursos com o nome *myResourceGroup*. Quando lhe for pedido, introduza um nome de utilizador e uma palavra-passe a utilizar como credenciais de início de sessão para a VM:
+Primeiro, crie um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)e, em seguida, crie uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Esta VM é depois utilizada como a origem de uma imagem de VM personalizada. O exemplo seguinte cria uma VM com o nome *myCustomVM* no grupo de recursos com o nome *myResourceGroup*. Quando lhe for pedido, introduza um nome de utilizador e uma palavra-passe a utilizar como credenciais de início de sessão para a VM:
 
 ```azurepowershell-interactive
 # Create a resource a group
@@ -59,13 +59,13 @@ New-AzVm `
   -OpenPorts 3389
 ```
 
-Para ligar à sua VM, liste o endereço IP público com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) da seguinte forma:
+Para se conectar à sua VM, liste o endereço IP público com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) da seguinte maneira:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Crie uma ligação remota à VM. Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do PowerShell ou do Cliente de Ambiente de Trabalho Remoto. Indique o seu endereço IP do comando anterior. Quando tal lhe for pedido, introduza as credenciais utilizadas quando criou a VM no primeiro passo:
+Crie uma ligação remota à VM. Se utiliza o Azure Cloud Shell, efetue este passo a partir de um pedido local do Power Shell ou do Cliente de Ambiente de Trabalho Remoto. Indique o seu endereço IP do comando anterior. Quando tal lhe for pedido, introduza as credenciais utilizadas quando criou a VM no primeiro passo:
 
 ```powershell
 mstsc /v:<IpAddress>
@@ -77,7 +77,7 @@ Para personalizar a sua VM, vamos instalar um servidor Web básico. Quando a ins
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-O último passo para preparar a sua VM para utilização como imagem personalizada é gerar a VM. O Sysprep remove todas as suas informações de conta e configurações pessoais e repõe a VM para um estado limpo para futuras implementações. Para obter mais informações, consulte [como utilizar Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
+O último passo para preparar a sua VM para utilização como imagem personalizada é gerar a VM. O Sysprep remove todas as suas informações de conta e configurações pessoais e repõe a VM para um estado limpo para futuras implementações. Para obter mais informações, consulte [Como Utilizar o Sysprep: Uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Para generalizar a VM, execute o Sysprep e defina a VM para uma experiência fora da caixa. Quando terminar, indique ao Sysprep que encerre a VM:
 
@@ -91,7 +91,7 @@ A ligação remota à VM é automaticamente fechada quando o Sysprep conclui o p
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Criar uma imagem de VM personalizada a partir da VM de origem
 A VM de origem está agora personalizada com o servidor Web IIS instalado. Vamos criar a imagem de VM personalizada para utilizar com um conjunto de dimensionamento.
 
-Para criar uma imagem, a VM tem de ser desalocada. Desaloque a VM com [Stop-AzVm](/powershell/module/az.compute/stop-azvm). Em seguida, defina o estado da VM como generalizado com [Set-AzVm](/powershell/module/az.compute/set-azvm) para que a plataforma do Azure saiba que a VM está pronta para utilizar uma imagem personalizada. Pode criar apenas uma imagem a partir de uma VM generalizada:
+Para criar uma imagem, a VM tem de ser desalocada. Desaloque a VM com [Stop-AzVm](/powershell/module/az.compute/stop-azvm). Em seguida, defina o estado da VM como generalizado com [set-AzVm](/powershell/module/az.compute/set-azvm) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Pode criar apenas uma imagem a partir de uma VM generalizada:
 
 ```azurepowershell-interactive
 Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
@@ -113,9 +113,21 @@ $image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID
 New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
+## <a name="configure-the-network-security-group-rules"></a>Configurar as regras do grupo de segurança de rede
+Antes de criar o conjunto de dimensionamento, precisamos configurar as regras de grupo de segurança de rede associando para permitir o acesso a HTTP, RDP e comunicação remota 
+
+```azurepowershell-interactive
+$rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+
+$rule2 = New-AzNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+
+$rule3 = New-AzNetworkSecurityRuleConfig -Name remoting-rule -Description "Allow PS Remoting" -Access Allow -Protocol Tcp -Direction Inbound -Priority 120 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 5985
+
+New-AzNetworkSecurityGroup -Name "myNSG" -ResourceGroupName "myResourceGroup" -Location "EastUS" -SecurityRules $rule1,$rule2,$rule3
+```
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Criar um conjunto de dimensionamento a partir da imagem de VM personalizada
-Agora, crie um conjunto de dimensionamento com [New-AzVmss](/powershell/module/az.compute/new-azvmss) que utiliza o `-ImageName` parâmetro para definir a imagem VM personalizada criada no passo anterior. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
+Agora, crie um conjunto de dimensionamento com [New-AzVmss](/powershell/module/az.compute/new-azvmss) que usa o parâmetro `-ImageName` para definir a imagem de VM personalizada criada na etapa anterior. Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -124,6 +136,7 @@ New-AzVmss `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
+  -SecurityGroupName "myNSG"
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
   -UpgradePolicyMode "Automatic" `
@@ -134,7 +147,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o seu conjunto de dimensionamento em ação, obtenha o endereço IP público do seu Balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) da seguinte forma:
+Para ver seu conjunto de dimensionamento em ação, obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) da seguinte maneira:
 
 
 ```azurepowershell-interactive
@@ -149,14 +162,14 @@ Escreva o endereço IP público no seu browser. A página Web IIS predefinida é
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
+Para remover seu conjunto de dimensionamento e recursos adicionais, exclua o grupo de recursos e todos os seus recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo. O parâmetro `-AsJob` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a criar e utilizar uma imagem de VM personalizada nos seus conjuntos de dimensionamento com o Azure PowerShell:
 
 > [!div class="checklist"]

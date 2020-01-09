@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: b1f627668c6bbd1d802eb3a4c11b6171e84887c8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b003f2823ffceebecdb2af681a3bdbb4cf25704c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073250"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615079"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do agente de máquina virtual do Azure
 O Microsoft Azure agente de máquina virtual (agente de VM) é um processo leve e seguro que gerencia a interação de VM (máquina virtual) com o controlador de malha do Azure. O agente de VM tem uma função primária na habilitação e execução de extensões de máquina virtual do Azure. As extensões de VM habilitam a configuração pós-implantação da VM, como instalar e configurar o software. As extensões de VM também habilitam recursos de recuperação, como redefinir a senha administrativa de uma VM. Sem o agente de VM do Azure, as extensões de VM não podem ser executadas.
@@ -60,12 +60,6 @@ Se você não tiver os agentes instalados, não poderá usar alguns serviços do
 
 ### <a name="manual-installation"></a>Instalação manual
 O agente de VM do Windows pode ser instalado manualmente com um pacote do Windows Installer. A instalação manual pode ser necessária quando você cria uma imagem de VM personalizada que é implantada no Azure. Para instalar manualmente o agente de VM do Windows, [Baixe o instalador do agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789). O agente de VM tem suporte no Windows Server 2008 R2 e posterior.
-
-O agente de VM pode ser instalado clicando-se duas vezes no arquivo do Windows Installer. Para uma instalação automatizada ou autônoma do agente de VM, execute o seguinte comando:
-
-```cmd
-msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
-```
 
 ### <a name="prerequisites"></a>Pré-requisitos
 O agente de VM do Windows precisa de pelo menos o Windows Server 2008 R2 (64 bits) para ser executado com o .NET Framework 4,0. Consulte [suporte mínimo de versão para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

@@ -1,25 +1,24 @@
 ---
-title: Usar desserializadores do .NET para trabalhos de Azure Stream Analytics
+title: Ler entrada em qualquer formato usando desserializadores personalizados do .NET no Azure Stream Analytics
 description: Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para Azure Stream Analytics trabalhos de nuvem e borda.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024929"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553023"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Usar desserializadores do .NET para trabalhos de Azure Stream Analytics
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Ler entrada em qualquer formato usando desserializadores personalizados do .NET
 
-Os desserializadores personalizados do .NET permitem que seu trabalho de Azure Stream Analytics leia dados de formatos fora dos três [formatos de dados internos](stream-analytics-parsing-json.md). Este artigo explica o formato de serialização e as interfaces que definem desserializadores .NET personalizados para Azure Stream Analytics trabalhos de nuvem e borda. Também há exemplos de desserializadores para buffer de protocolo e formato CSV.
+Os desserializadores personalizados do .NET permitem que seu trabalho de Azure Stream Analytics leia dados de formatos fora dos três [formatos de dados internos](stream-analytics-parsing-json.md). Este artigo explica o formato de serialização e as interfaces que definem desserializadores personalizados do .NET para Azure Stream Analytics trabalhos de nuvem e borda. Também há exemplos de desserializadores para buffer de protocolo e formato CSV.
 
-## <a name="custom-net-deserializer"></a>Desserializador personalizado do .NET
+## <a name="net-custom-deserializer"></a>Desserializador personalizado do .NET
 
 Os exemplos de código a seguir são as interfaces que definem o desserializador personalizado e implementam `StreamDeserializer<T>`.
 
@@ -226,12 +225,12 @@ O código JavaScript a seguir é um exemplo do formato de serialização do dess
 
 Esse recurso está disponível nas seguintes regiões:
 
-* EUA Central ocidental (disponível)
-* Europa Setentrional (disponível)
-* Leste dos EUA (disponível)
-* Oeste dos EUA (distribuindo em breve)
-* Leste dos EUA 2 (distribuindo em breve)
-* Europa Ocidental (acumulando em breve)
+* E.U.A. Centro-Oeste
+* Europa do Norte
+* Este dos E.U.A.
+* Oeste dos E.U.A.
+* Este dos E.U.A. 2
+* Europa Ocidental
 
 Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para regiões adicionais.
 
@@ -239,7 +238,7 @@ Você pode [solicitar suporte](https://aka.ms/ccodereqregion) para regiões adic
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quando esse recurso estará disponível em todas as regiões do Azure?
 
-Esse recurso está disponível em 6 regiões (suporte ao #region). Se você estiver interessado em usar essa funcionalidade em outra região, poderá [Enviar uma solicitação](https://aka.ms/ccodereqregion). O suporte para todas as regiões do Azure está no roteiro.
+Esse recurso está disponível em [6 regiões](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Se você estiver interessado em usar essa funcionalidade em outra região, poderá [Enviar uma solicitação](https://aka.ms/ccodereqregion). O suporte para todas as regiões do Azure está no roteiro.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Posso acessar o MetadataPropertyValue de minhas entradas semelhantes à função GetMetadataPropertyValue?
 
@@ -251,4 +250,4 @@ Depois de implementar seu desserializador, você pode ajudar outras pessoas comp
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* [Desserializadores do .NET personalizados para trabalhos de Azure Stream Analytics nuvem](custom-deserializer.md)
+* [Desserializadores personalizados do .NET para trabalhos de Azure Stream Analytics nuvem](custom-deserializer.md)

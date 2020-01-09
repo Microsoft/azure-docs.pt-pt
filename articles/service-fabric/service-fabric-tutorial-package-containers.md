@@ -1,29 +1,19 @@
 ---
-title: Compactar e implementar contentores como uma aplicação do Service Fabric no Azure | Microsoft Docs
+title: Empacotar e implantar contêineres
 description: Neste tutorial, saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como compactar a aplicação.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Contentores, Microsserviços, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385050"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614031"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo Service Fabric usando o Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Compactar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
 
 Este tutorial é a segunda parte de uma série. Neste tutorial, é utilizada uma ferramenta de gerador de modelos (Yeoman) para gerar uma definição de aplicação do Service Fabric. Esta aplicação pode, depois, ser utilizada para implementar contentores no Service Fabric. Neste tutorial, ficará a saber como:
 
@@ -282,11 +272,11 @@ Utilize o script de instalação disponibilizado no diretório **TestContainer**
 ./install.sh
 ```
 
-Abra um navegador e navegue até Service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
+Abra um navegador e navegue até Service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
 
 ![Service Fabric Explorer][sfx]
 
-Para se conectar ao aplicativo em execução, abra um navegador da Web e vá para a URL do cluster-por exemplo,\/http:/containertestcluster.eastus.cloudapp.Azure.com:80. Deverá ver a aplicação Voting na IU da Web.
+Para se conectar ao aplicativo em execução, abra um navegador da Web e vá para a URL do cluster-por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
 
 ![votingapp][votingapp]
 

@@ -1,25 +1,25 @@
 ---
-title: Ajustar as configurações de rede para o Microsoft Azure cluster de filer do FXT Edge
+title: 'Tutorial: configurar a rede em um cluster de arquivos do Azure FXT Edge'
 description: Como personalizar as configurações de rede depois de criar o cluster de arquivos do Azure FXT Edge
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: d250e566d884760244ee25e4c43d30fbe5323a7c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254886"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551068"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: definir as configurações de rede do cluster 
+# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: definir as configurações de rede do cluster
 
 Antes de usar um cluster de filer do Azure FXT Edge criado recentemente, você deve verificar e personalizar várias configurações de rede para seu fluxo de trabalho. 
 
 Este tutorial explica as configurações de rede que talvez você precise ajustar para um novo cluster. 
 
-Aprenderá: 
+Aprenderá sobre: 
 
 > [!div class="checklist"]
 > * Quais configurações de rede talvez precisem ser atualizadas após a criação de um cluster
@@ -64,7 +64,7 @@ Para saber mais sobre as configurações de rede para o cluster, leia [Configura
 
 * Carregar [certificados de criptografia](#encryption-certificates) para o cluster usar (opcional)
 
-### <a name="encryption-certificates"></a>Certificados de criptografia
+### <a name="encryption-certificates"></a>Certificados de encriptação
 
 O cluster de arquivos de borda do FXT usa certificados X. 509 para essas funções:
 

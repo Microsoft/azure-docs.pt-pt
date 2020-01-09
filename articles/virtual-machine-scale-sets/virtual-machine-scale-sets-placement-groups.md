@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com Conjuntos de Dimensionamento de Máquinas Virtuais de grande escala do Azure | Microsoft Docs
-description: O que precisa saber para utilizar conjuntos de dimensionamento de máquinas virtuais de grande escala do Azure
+title: Trabalhando com grandes conjuntos de dimensionamento de máquinas virtuais do Azure
+description: O que você precisa saber sobre grandes conjuntos de dimensionamento de máquinas virtuais do Azure para usá-los em seu aplicativo.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459337"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -50,7 +50,7 @@ Quando cria um conjunto de dimensionamento no portal do Azure, basta especificar
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Pode criar um conjunto de dimensionamento de máquina virtual de grande escala com o comando da [CLI do Azure](https://github.com/Azure/azure-cli) _az vmss create_. Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
+Você pode criar um grande conjunto de dimensionamento de máquinas virtuais usando o comando [CLI do Azure](https://github.com/Azure/azure-cli) _AZ vmss Create_ . Este comando configura as predefinições inteligentes, como a dimensão da sub-rede baseada no argumento _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra

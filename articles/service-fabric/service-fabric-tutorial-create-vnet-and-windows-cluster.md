@@ -1,26 +1,15 @@
 ---
-title: Criar um Cluster Service Fabric executando o Windows no Azure | Microsoft Docs
+title: Criar um Cluster Service Fabric executando o Windows no Azure
 description: Neste tutorial, você aprenderá a implantar um cluster do Windows Service Fabric em uma rede virtual do Azure e um grupo de segurança de rede usando o PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177980"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551731"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: implantar um Cluster Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -112,6 +101,7 @@ As seguintes regras de tráfego de entrada estão ativadas no recurso **Microsof
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
+* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Intervalo de portas efêmeras: 49152 a 65534 (precisa de um mínimo de 256 portas).
 * Portas para utilização de aplicações: 80 e 443
@@ -153,7 +143,7 @@ Por padrão, o [programa Windows Defender antivírus](/windows/security/threat-p
 
 O arquivo de parâmetros [azuredeploy. Parameters. JSON][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Veja a seguir os parâmetros a serem modificados para sua implantação:
 
-**Meter** | **Valor de exemplo** | **Notas** 
+**Parâmetro** | **Valor de exemplo** | **Notas** 
 |---|---|---|
 |adminUserName|vmadmin| O nome de utilizador administrador para as VMs do cluster. [Requisitos de nome de usuário para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| A palavra-passe de utilizador administrador para as VMs do cluster. [Requisitos de senha para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
@@ -177,7 +167,7 @@ Um Cluster Service Fabric oferece vários pontos de entrada para sua funcionalid
 
 Neste artigo, presumimos que você já criou um locatário. Se você ainda não fez isso, comece lendo [como obter um locatário de Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Para simplificar as etapas envolvidas na configuração do Azure AD com um Cluster Service Fabric, criamos um conjunto de scripts do Windows PowerShell. [Baixe os scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) em seu computador.
+Para simplificar as etapas envolvidas na configuração do Azure AD com um Cluster Service Fabric, criamos um conjunto de scripts do Windows PowerShell. [Baixe os scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) em seu computador.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicativos do Azure AD e atribuir usuários a funções
 Crie dois aplicativos do Azure AD para controlar o acesso ao cluster: um aplicativo Web e um aplicativo nativo. Depois de criar os aplicativos para representar o cluster, atribua os usuários às [funções com suporte pelo Service Fabric](service-fabric-cluster-security-roles.md): somente leitura e administrador.
@@ -199,12 +189,12 @@ Você pode encontrar sua ID de *locatário*, ou de diretório, no [portal do Azu
 
 *WebApplicationReplyUrl* é o ponto de extremidade padrão que o Azure ad retorna para os usuários depois que terminam de entrar. Defina esse ponto de extremidade como o ponto de extremidade Service Fabric Explorer para o cluster, que por padrão é:
 
-https://&lt;cluster_domain&gt;: 19080/Explorer
+https://&lt;cluster_domain&gt;:19080/Explorer
 
 Você será solicitado a entrar em uma conta que tenha privilégios administrativos para o locatário do Azure AD. Depois de entrar, o script cria os aplicativos Web e nativos para representar o Cluster Service Fabric. Nos aplicativos do locatário no [portal do Azure](https://portal.azure.com), você deverá ver duas novas entradas:
 
    * *Clustername\_cluster*
-   * *Clustername*\_cliente
+   * *ClusterName*\_Client
 
 O script imprime o JSON exigido pelo modelo do Resource Manager quando você cria o cluster, portanto, é uma boa ideia manter a janela do PowerShell aberta.
 
@@ -443,7 +433,7 @@ Para habilitar o serviço EventStore em seu cluster, adicione o seguinte à prop
 
 Azure Monitor logs é nossa recomendação para monitorar eventos no nível do cluster. Para configurar logs de Azure Monitor para monitorar o cluster, você precisa ter o [diagnóstico habilitado para exibir eventos no nível do cluster](#configure-diagnostics-collection-on-the-cluster).  
 
-O espaço de trabalho precisa estar conectado aos dados de diagnóstico provenientes do seu cluster.  Esses dados de log são armazenados na conta de armazenamento *applicationDiagnosticsStorageAccountName* , nas tabelas WADServiceFabric * eventtable, WADWindowsEventLogsTable e WADETWEventTable.
+A área de trabalho precisa de estar ligado para os dados de diagnóstico originários do seu cluster.  Esses dados de log são armazenados na conta de armazenamento *applicationDiagnosticsStorageAccountName* , nas tabelas WADServiceFabric * eventtable, WADWindowsEventLogsTable e WADETWEventTable.
 
 Adicione o espaço de trabalho Log Analytics do Azure e adicione a solução ao espaço de trabalho:
 

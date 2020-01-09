@@ -2,17 +2,17 @@
 title: O que é o serviço de vínculo privado do Azure?
 description: Saiba mais sobre o serviço de vínculo privado do Azure.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912989"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647378"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
@@ -68,7 +68,7 @@ Um serviço de vínculo privado especifica as seguintes propriedades:
  
 - Um único serviço de vínculo privado pode ser acessado de vários pontos de extremidade privados que pertencem a diferentes VNets, assinaturas e/ou locatários Active Directory. A conexão é estabelecida por meio de um fluxo de trabalho de conexão. 
  
-- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Vários serviços de vínculo privado podem ser criados no mesmo Standard Load Balancer usando configurações de IP de front-end diferentes. Há limites para o número de serviços de vínculo privado que você pode criar por Standard Load Balancer e por assinatura. Para obter detalhes, consulte [limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - O serviço de vínculo privado pode ter mais de uma configuração de IP NAT vinculada a ela. A escolha de mais de uma configuração de IP NAT pode ajudar os provedores de serviços a dimensionar. Hoje, os provedores de serviços podem atribuir até oito endereços IP de NAT por serviço de vínculo privado. Com cada endereço IP de NAT, você pode atribuir mais portas para suas conexões TCP e, portanto, escalar horizontalmente. Depois de adicionar vários endereços IP NAT a um serviço de vínculo privado, você não pode excluir os endereços IP de NAT. Isso é feito para garantir que as conexões ativas não sejam afetadas durante a exclusão dos endereços IP de NAT.
 

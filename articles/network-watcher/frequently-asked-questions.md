@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598228"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647293"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
 O serviço [observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure. Este artigo responde a perguntas comuns sobre o serviço.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-network-watcher"></a>O que é o observador de rede?
+### <a name="what-is-network-watcher"></a>O que é o Observador de Rede?
 O observador de rede foi projetado para monitorar e reparar a integridade da rede de componentes IaaS (infraestrutura como serviço), que inclui máquinas virtuais, redes virtuais, gateways de aplicativo, balanceadores de carga e outros recursos em uma rede virtual do Azure. Não é uma solução para monitorar a infraestrutura PaaS (plataforma como serviço) ou obter a análise Web/móvel.
 
 ### <a name="what-tools-does-network-watcher-provide"></a>Quais ferramentas o observador de rede fornece?
@@ -51,14 +51,20 @@ Para obter informações mais detalhadas, consulte a [página Visão geral do ob
 ### <a name="how-does-network-watcher-pricing-work"></a>Como funciona o preço do observador de rede?
 Visite a [página de preços](https://azure.microsoft.com/pricing/details/network-watcher/) dos componentes do observador de rede e seus preços.
 
-### <a name="which-regions-is-network-watcher-available-in"></a>Em quais regiões o observador de rede está disponível?
+### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Em quais regiões o observador de rede tem suporte/está disponível?
 Você pode exibir a disponibilidade regional mais recente na [página de disponibilidade do serviço do Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="what-are-resource-limits-on-network-watcher"></a>O que são limites de recursos no observador de rede?
-Consulte a página [limites de serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) para todos os limites.  
+Consulte a página [limites de serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) para todos os limites.  
 
 ### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Por que apenas uma instância do observador de rede é permitida por região?
 O observador de rede precisa ser habilitado apenas uma vez para uma assinatura para que seus recursos funcionem, esse não é um limite de serviço.
+
+### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Por que preciso instalar a extensão do observador de rede? 
+A extensão do observador de rede é necessária para qualquer recurso que precise gerar ou interceptar o tráfego de uma VM. 
+
+### <a name="which-features-require-the-network-watcher-extension"></a>Quais recursos exigem a extensão do observador de rede?
+Somente a captura de pacote, a solução de problemas de conexão e o monitor de conexão precisam que a extensão do observador de rede esteja presente.
 
 ## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 

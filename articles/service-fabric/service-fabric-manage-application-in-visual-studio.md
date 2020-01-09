@@ -1,92 +1,82 @@
 ---
-title: Gerir as suas aplicações do Azure Service Fabric no Visual Studio | Documentos da Microsoft
-description: Utilize o Visual Studio para criar, desenvolver, empacotar, implementar e depurar as suas aplicações do Azure Service Fabric e serviços.
-services: service-fabric
-documentationcenter: .net
+title: Gerir aplicações no Visual Studio
+description: Use o Visual Studio para criar, desenvolver, empacotar, implantar e depurar seus aplicativos e serviços do Azure Service Fabric.
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6734f5da0fb7e5c9052b26b55b2d90b068bdbbf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720100"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614337"
 ---
-# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilizar o Visual Studio para simplificar a criação e gestão das suas aplicações do Service Fabric
-Pode gerenciar seus aplicativos de Azure Service Fabric e serviços através do Visual Studio. Assim que tiver [configurar o ambiente de desenvolvimento](service-fabric-get-started.md), pode utilizar o Visual Studio para criar aplicações do Service Fabric, serviços, ou pacote, registre-se de adicionar e implementar aplicações no seu cluster de desenvolvimento local.
+# <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Use o Visual Studio para simplificar a gravação e o gerenciamento de seus aplicativos Service Fabric
+Você pode gerenciar seus aplicativos e serviços do Azure Service Fabric por meio do Visual Studio. Depois de [configurar seu ambiente de desenvolvimento](service-fabric-get-started.md), você pode usar o Visual Studio para criar Service Fabric aplicativos, adicionar serviços ou empacotar, registrar e implantar aplicativos em seu cluster de desenvolvimento local.
 
-## <a name="deploy-your-service-fabric-application"></a>Implementar a sua aplicação do Service Fabric
-Por predefinição, a implantação de um aplicativo combina as etapas a seguir numa operação simple:
+## <a name="deploy-your-service-fabric-application"></a>Implantar seu aplicativo Service Fabric
+Por padrão, a implantação de um aplicativo combina as seguintes etapas em uma operação simples:
 
-1. Criar o pacote de aplicação
-2. Carregar o pacote de aplicação para o armazenamento de imagens
-3. Registar o tipo de aplicação
-4. Remoção de nenhum aplicativo instâncias em execução
-5. Criar uma instância de aplicação
+1. Criando o pacote de aplicativos
+2. Carregando o pacote de aplicativos no repositório de imagens
+3. Registrando o tipo de aplicativo
+4. Removendo todas as instâncias do aplicativo em execução
+5. Criando uma instância do aplicativo
 
-No Visual Studio, premindo **F5** implanta seu aplicativo e anexar o depurador para todas as instâncias da aplicação. Pode usar **Ctrl + F5** para implementar uma aplicação sem depuração ou pode publicar num cluster local ou remoto com o perfil de publicação.
+No Visual Studio, pressionar **F5** implanta seu aplicativo e anexa o depurador a todas as instâncias de aplicativo. Você pode usar **Ctrl + F5** para implantar um aplicativo sem depuração ou pode publicar em um cluster local ou remoto usando o perfil de publicação.
 
-### <a name="application-debug-mode"></a>Modo de depuração da aplicação
-Visual Studio fornecem uma propriedade chamada **modo de depuração do aplicativo**, que controla a forma como pretende que o Visual Studio para lidar com a implementação de aplicações como parte de depuração.
+### <a name="application-debug-mode"></a>Modo de depuração do aplicativo
+O Visual Studio fornece uma propriedade chamada **modo de depuração do aplicativo**, que controla como você deseja que o Visual estúdios manipule a implantação do aplicativo como parte da depuração.
 
-#### <a name="to-set-the-application-debug-mode-property"></a>Para definir a propriedade do modo de depuração da aplicação
-1. No Service Fabric application do projeto (*. sfproj) menu de atalho, escolha **propriedades** (ou prima o **F4** chave).
-2. Na **propriedades** janela, definida a **modo de depuração do aplicativo** propriedade.
+#### <a name="to-set-the-application-debug-mode-property"></a>Para definir a propriedade do modo de depuração do aplicativo
+1. No menu de atalho do projeto de aplicativo Service Fabric (*. sfproj), escolha **Propriedades** (ou pressione a tecla **F4** ).
+2. Na janela **Propriedades** , defina a propriedade **modo de depuração do aplicativo** .
 
-![Definir a propriedade de modo de depuração do aplicativo][debugmodeproperty]
+![Definir a propriedade do modo de depuração do aplicativo][debugmodeproperty]
 
-#### <a name="application-debug-modes"></a>Modos de depuração da aplicação
+#### <a name="application-debug-modes"></a>Modos de depuração de aplicativo
 
-1. **Atualizar aplicação** este modo permite-lhe rapidamente alterar e depurar seu código e suporta edição de arquivos de web estática durante a depuração. Este modo só funciona se o cluster de desenvolvimento local estiver no modo de 1 nó. Esta é a predefinição do modo de depuração do aplicativo.
-2. **Remover aplicação** faz com que o aplicativo a serem removidos quando termina a sessão de depuração.
-3. **Atualizar de automático** a aplicação continua a ser executada quando termina a sessão de depuração. A próxima sessão de depuração tratará da implementação como uma atualização. O processo de atualização preserva todos os dados que introduziu numa sessão de depuração anterior.
-4. **Manter o aplicativo** o aplicativo permanece em execução no cluster quando termina a sessão de depuração. No início da próxima sessão de depuração, o aplicativo será removido.
+1. **Atualizar aplicativo** Esse modo permite que você altere e depure rapidamente seu código e dê suporte à edição de arquivos estáticos da Web durante a depuração. Esse modo só funcionará se o cluster de desenvolvimento local estiver no modo de 1 nó. Esse é o modo de depuração de aplicativo padrão.
+2. **Remover aplicativo** faz com que o aplicativo seja removido quando a sessão de depuração termina.
+3. **Atualização automática** O aplicativo continua a ser executado quando a sessão de depuração termina. A próxima sessão de depuração tratará a implantação como uma atualização. O processo de atualização preserva todos os dados que você inseriu em uma sessão de depuração anterior.
+4. **Manter aplicativo** O aplicativo continua em execução no cluster quando a sessão de depuração termina. No início da próxima sessão de depuração, o aplicativo será removido.
 
-Para **atualizar de automático** os dados são preservados aplicando os recursos de atualização de aplicação do Service Fabric. Para obter mais informações sobre a atualização de aplicativos e como pode efetuar uma atualização num ambiente real, consulte [atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md).
+Para os dados de **atualização automática** são preservados com a aplicação dos recursos de atualização de aplicativo do Service Fabric. Para obter mais informações sobre como atualizar aplicativos e como você pode executar uma atualização em um ambiente real, consulte [Service Fabric atualização do aplicativo](service-fabric-application-upgrade.md).
 
-## <a name="add-a-service-to-your-service-fabric-application"></a>Adicionar um serviço a sua aplicação do Service Fabric
-Pode adicionar novos serviços à sua aplicação para expandir a sua funcionalidade. Para garantir que o serviço está incluído no seu pacote de aplicação, adicione o serviço por meio do **novo serviço de recursos de infraestrutura...**  item de menu.
+## <a name="add-a-service-to-your-service-fabric-application"></a>Adicionar um serviço ao seu aplicativo Service Fabric
+Você pode adicionar novos serviços ao seu aplicativo para estender sua funcionalidade. Para garantir que o serviço seja incluído no pacote de aplicativos, adicione o serviço por meio do novo item de menu **serviço de malha...** .
 
-![Adicionar um novo serviço do Service Fabric][newservice]
+![Adicionar um novo serviço de Service Fabric][newservice]
 
-Selecione um tipo de projeto do Service Fabric para adicionar à sua aplicação e especifique um nome para o serviço.  Ver [escolher uma estrutura para o seu serviço](service-fabric-choose-framework.md) para ajudar a decidir o tipo de serviço a utilizar.
+Selecione um tipo de projeto Service Fabric para adicionar ao seu aplicativo e especifique um nome para o serviço.  Consulte [escolhendo uma estrutura para seu serviço](service-fabric-choose-framework.md) para ajudá-lo a decidir qual tipo de serviço usar.
 
-![Selecione um tipo de projeto de serviço do Service Fabric para adicionar à sua aplicação][addserviceproject]
+![Selecione um tipo de projeto de serviço Service Fabric para adicionar ao seu aplicativo][addserviceproject]
 
-O novo serviço é adicionado à sua solução e o pacote de aplicação existente. As referências de serviço e uma instância de serviço predefinida serão adicionados ao manifesto do aplicativo, fazendo com que o serviço ser criada e iniciada na próxima vez que a aplicação é implementada.
+O novo serviço é adicionado à sua solução e ao pacote de aplicativos existente. As referências de serviço e uma instância de serviço padrão serão adicionadas ao manifesto do aplicativo, fazendo com que o serviço seja criado e iniciado na próxima vez que você implantar o aplicativo.
 
-![O novo serviço é adicionado para o manifesto da aplicação][newserviceapplicationmanifest]
+![O novo serviço é adicionado ao manifesto do aplicativo][newserviceapplicationmanifest]
 
-## <a name="package-your-service-fabric-application"></a>Empacotar a sua aplicação do Service Fabric
-Para implementar a aplicação e os respetivos serviços num cluster, terá de criar um pacote de aplicação.  O pacote organiza o manifesto do aplicativo, manifestos de serviço e outros arquivos necessários num layout específico.  Visual Studio configura e gere o pacote na pasta do projeto de aplicativo, no diretório 'pkg'.  Clicar **pacote** partir a **aplicação** menu de contexto cria ou atualiza o pacote de aplicação.
+## <a name="package-your-service-fabric-application"></a>Empacotar seu aplicativo Service Fabric
+Para implantar o aplicativo e seus serviços em um cluster, você precisa criar um pacote de aplicativos.  O pacote organiza o manifesto do aplicativo, os manifestos do serviço e outros arquivos necessários em um layout específico.  O Visual Studio configura e gerencia o pacote na pasta do projeto de aplicativo, no diretório ' pkg '.  Clicar em **pacote** no menu de contexto do **aplicativo** cria ou atualiza o pacote de aplicativos.
 
-## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Remover aplicações e tipos de aplicação com o Cloud Explorer
-Pode efetuar operações de gestão de cluster básico no Visual Studio com o Cloud Explorer, o que pode iniciar a partir da **vista** menu. Por exemplo, pode eliminar aplicações e anular o aprovisionamento de tipos de aplicações em clusters locais ou remotos.
+## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Remover aplicativos e tipos de aplicativos usando o Cloud Explorer
+Você pode executar operações básicas de gerenciamento de cluster no Visual Studio usando o Cloud Explorer, que pode ser iniciado no menu **Exibir** . Por exemplo, você pode excluir aplicativos e desprovisionar tipos de aplicativos em clusters locais ou remotos.
 
 ![Remover uma aplicação][removeapplication]
 
 > [!TIP]
-> Para uma funcionalidade de gestão de cluster mais avançada, consulte [visualizar o seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Para obter uma funcionalidade de gerenciamento de cluster mais rica, consulte [visualizando seu cluster com Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos Seguintes
-* [Modelo de aplicação do Service Fabric](service-fabric-application-model.md)
-* [Implementação de aplicação do Service Fabric](service-fabric-deploy-remove-applications.md)
-* [Gerir parâmetros da aplicação para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
-* [Depurar a aplicação do Service Fabric](service-fabric-debugging-your-application.md)
-* [Visualizar o seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Modelo de aplicativo Service Fabric](service-fabric-application-model.md)
+* [Implantação de aplicativo Service Fabric](service-fabric-deploy-remove-applications.md)
+* [Gerenciando parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
+* [Depurando seu aplicativo Service Fabric](service-fabric-debugging-your-application.md)
+* [Visualizando seu cluster usando Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

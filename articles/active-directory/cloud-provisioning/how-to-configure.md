@@ -1,6 +1,6 @@
 ---
 title: Configuração de novo agente de provisionamento de Azure AD Connect nuvem
-description: Este tópico descreve como instalar o provisionamento de nuvem.
+description: Este artigo descreve como instalar o provisionamento de nuvem.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,74 +11,83 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 853950cf441007eac0170f32f28f2d9c16a71292
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997127"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549436"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect a nova configuração de provisionamento de nuvem
+# <a name="azure-ad-connect-cloud-provisioning-new-agent-configuration"></a>Configuração de novo agente de provisionamento de Azure AD Connect nuvem
 
-Depois de instalar o agente, você precisará entrar no portal do Azure e configurar o provisionamento.  Use as etapas a seguir para habilitar o agente.
+Depois de instalar o agente, você precisa entrar no portal do Azure e configurar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect. Siga estas etapas para habilitar o agente.
 
 ## <a name="configure-provisioning"></a>Configurar provisionamento
-Para configurar o provisionamento, use as seguintes etapas:
+Para configurar o provisionamento, siga estas etapas.
 
-1.  No portal do AD do Azure, clique em **Azure Active Directory**
-2.  Clique em **Azure ad Connect**
-3.  Selecione **gerenciar provisionamento (visualização)** 
-![](media/how-to-configure/manage1.png)
+1.  No portal do Azure, selecione **Azure Active Directory**.
+1.  Selecione **Azure ad Connect**.
+1.  Selecione **gerenciar provisionamento (versão prévia)** .
 
-4.  Clique em **nova configuração**.
-5.  Na tela de configuração, o domínio local é preenchido previamente
-6. Insira um **email de notificação**. Este email será notificado quando o provisionamento não estiver íntegro.  
-8. Mova o seletor para **habilitar** e clique em **salvar**.
-![](media/tutorial-single-forest/configure2.png)
+    ![Gerenciar provisionamento (versão prévia)](media/how-to-configure/manage1.png)
 
-## <a name="scoping-provisioning-to-specific-users-and-groups"></a>Escopo de provisionamento para usuários e grupos específicos
-Se você quiser fazer o escopo do agente para sincronizar apenas usuários e grupos específicos, poderá fazê-lo. Você pode usar o escopo usando grupos do AD locais ou unidades organizacionais. Você não pode configurar grupos e unidades organizacionais em uma configuração. 
+1.  Selecione **nova configuração**.
+1.  Na tela de configuração, o domínio local é preenchido previamente.
+1.  Insira um **email de notificação**. Este email será notificado quando o provisionamento não estiver íntegro.
+1.  Mova o seletor para **habilitar**e selecione **salvar**.
 
-1.  No portal do AD do Azure, clique em **Azure Active Directory**
-2.  Clique em **Azure ad Connect**
-3.  Selecionar **gerenciar provisionamento (visualização)**
-4.  Em **configuração** , clique em sua configuração.  
-![](media/how-to-configure/scope1.png)
+    ![Provisionamento do Azure AD (versão prévia)](media/tutorial-single-forest/configure2.png)
 
-5.  Em **Configurar**, selecione **todos os usuários** para alterar o escopo da regra de configuração.
-![](media/how-to-configure/scope2.png)
+## <a name="scope-provisioning-to-specific-users-and-groups"></a>Provisionamento de escopo para usuários e grupos específicos
+Você pode fazer o escopo do agente para sincronizar usuários e grupos específicos usando grupos de Active Directory locais ou unidades organizacionais. Você não pode configurar grupos e unidades organizacionais em uma configuração. 
 
-6. À direita, você pode alterar o escopo para incluir apenas grupos de segurança inserindo o nome distinto do grupo e clicando em **Adicionar**.
-![](media/how-to-configure/scope3.png)
+1.  No portal do Azure, selecione **Azure Active Directory**.
+1.  Selecione **Azure ad Connect**.
+1.  Selecione **gerenciar provisionamento (versão prévia)** .
+1.  Em **configuração**, selecione sua configuração.
 
-7. Ou altere-o para incluir apenas UOs específicas. Clique em **concluído** e em **salvar**.
-![](media/how-to-configure/scope4.png)
+    ![Seção de configuração](media/how-to-configure/scope1.png)
+
+1.  Em **Configurar**, selecione **todos os usuários** para alterar o escopo da regra de configuração.
+
+    ![Opção todos os usuários](media/how-to-configure/scope2.png)
+
+1. À direita, você pode alterar o escopo para incluir apenas grupos de segurança. Insira o nome distinto do grupo e selecione **Adicionar**.
+
+    ![Opção de grupos de segurança selecionados](media/how-to-configure/scope3.png)
+
+1.  Ou você pode alterar o escopo para incluir apenas unidades organizacionais específicas. Selecione **concluído** e **salvar**.
+
+    ![Opção de unidades organizacionais selecionadas](media/how-to-configure/scope4.png)
 
 
 ## <a name="restart-provisioning"></a>Reiniciar o provisionamento 
-Se não quiser aguardar a próxima execução agendada, você poderá disparar a execução de provisionamento usando o botão reiniciar provisionamento. 
-1.  No portal do AD do Azure, clique em **Azure Active Directory**
-2.  Clique em **Azure ad Connect**
-3.  Selecionar **gerenciar provisionamento (visualização)**
-4.  Em **configuração** , clique em sua configuração.  
-![](media/how-to-configure/scope1.png)
+Se você não quiser aguardar a próxima execução agendada, acione o provisionamento executado usando o botão **reiniciar provisionamento** . 
+1.  No portal do Azure, selecione **Azure Active Directory**.
+1.  Selecione **Azure ad Connect**.
+1.  Selecione **gerenciar provisionamento (versão prévia)** .
+1.  Em **configuração**, selecione sua configuração.
 
-5.  Na parte superior, clique em **reiniciar provisionamento**.
+    ![Seleção de configuração para reiniciar o provisionamento](media/how-to-configure/scope1.png)
 
-## <a name="removing-a-configuration"></a>Removendo uma configuração
-Se você quiser excluir uma configuração, poderá fazer isso usando as etapas a seguir.
+1.  Na parte superior, selecione **reiniciar provisionamento**.
 
-1.  No portal do AD do Azure, clique em **Azure Active Directory**
-2.  Clique em **Azure ad Connect**
-3.  Selecionar **gerenciar provisionamento (visualização)**
-4.  Em **configuração** , clique em sua configuração.  
-![](media/how-to-configure/scope1.png)
+## <a name="remove-a-configuration"></a>Remover uma configuração
+Para excluir uma configuração, siga estas etapas.
 
-5.  Na parte superior, clique em **excluir**.
-![](media/how-to-configure/remove1.png)
+1.  No portal do Azure, selecione **Azure Active Directory**.
+1.  Selecione **Azure ad Connect**.
+1.  Selecione **gerenciar provisionamento (versão prévia)** .
+1.  Em **configuração**, selecione sua configuração.
+
+    ![Seleção de configuração para remover a configuração](media/how-to-configure/scope1.png)
+
+1.  Na parte superior da tela de configuração, selecione **excluir**.
+
+    ![Botão de eliminar](media/how-to-configure/remove1.png)
 
 >[!IMPORTANT]
->Não há nenhuma confirmação antes de excluir uma configuração, portanto, certifique-se de que essa é a ação que você deseja executar antes de clicar em **excluir**.
+>Não há nenhuma confirmação antes de excluir uma configuração. Certifique-se de que essa é a ação que você deseja executar antes de selecionar **excluir**.
 
 
 ## <a name="next-steps"></a>Passos seguintes 

@@ -1,149 +1,146 @@
 ---
-title: Gerir aplicações do Azure Service Fabric com a CLI do Azure Service Fabric (sfctl)
-description: Saiba como implementar e remover aplicações a partir de um cluster do Azure Service Fabric, utilizando a CLI do Azure Service Fabric
-services: service-fabric
+title: Gerenciar aplicativos de Service Fabric do Azure usando o sfctl
+description: Saiba como implantar e remover aplicativos de um Cluster Service Fabric do Azure usando a CLI do Service Fabric do Azure
 author: Christina-Kang
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621382"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610238"
 ---
-# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerir uma aplicação do Azure Service Fabric com a CLI do Azure Service Fabric (sfctl)
+# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerenciar um aplicativo de Service Fabric do Azure usando a CLI do Service Fabric do Azure (sfctl)
 
-Saiba como criar e eliminar aplicações em execução num cluster do Azure Service Fabric.
+Saiba como criar e excluir aplicativos que estão sendo executados em um cluster de Service Fabric do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale a CLI do Service Fabric. Em seguida, selecione o cluster do Service Fabric. Para obter mais informações, consulte [introdução à CLI do Service Fabric](service-fabric-cli.md).
+* Instale o Service Fabric CLI. Em seguida, selecione o Cluster Service Fabric. Para obter mais informações, consulte Introdução [à CLI do Service Fabric](service-fabric-cli.md).
 
-* Tem um pacote de aplicação do Service Fabric, pronto para ser implementada. Para obter mais informações sobre como autor e pacote de uma aplicação, leia sobre o [modelo de aplicação do Service Fabric](service-fabric-application-model.md).
+* Ter um pacote de aplicativo Service Fabric pronto para ser implantado. Para obter mais informações sobre como criar e empacotar um aplicativo, leia sobre o [modelo de aplicativo Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
-Para implementar um novo aplicativo, conclua estes passos:
+Para implantar um novo aplicativo, conclua estas etapas:
 
-1. Carregar um pacote de aplicação para o armazenamento de imagens do Service Fabric.
-2. Aprovisione um tipo de aplicação.
-3. Elimine o conteúdo do arquivo de imagem.
-4. Especificar e criar uma aplicação.
-5. Especifique e criar serviços.
+1. Carregue um pacote de aplicativos no repositório de imagens Service Fabric.
+2. Provisionar um tipo de aplicativo.
+3. Exclua o conteúdo do repositório de imagens.
+4. Especifique e crie um aplicativo.
+5. Especifique e crie serviços.
 
-Para remover uma aplicação existente, conclua estes passos:
+Para remover um aplicativo existente, conclua estas etapas:
 
-1. Elimine a aplicação.
-2. Anular o aprovisionamento do tipo de aplicação associados.
+1. Exclua o aplicativo.
+2. Desprovisionar o tipo de aplicativo associado.
 
-## <a name="deploy-a-new-application"></a>Implementar uma nova aplicação
+## <a name="deploy-a-new-application"></a>Implantar um novo aplicativo
 
-Para implementar um novo aplicativo, conclua as seguintes tarefas:
+Para implantar um novo aplicativo, conclua as seguintes tarefas:
 
-### <a name="upload-a-new-application-package-to-the-image-store"></a>Carregar um novo pacote de aplicação para o armazenamento de imagens
+### <a name="upload-a-new-application-package-to-the-image-store"></a>Carregar um novo pacote de aplicativos no repositório de imagens
 
-Antes de criar uma aplicação, carregar o pacote de aplicação para o armazenamento de imagens do Service Fabric.
+Antes de criar um aplicativo, carregue o pacote de aplicativos no repositório de imagens Service Fabric.
 
-Por exemplo, se o seu pacote de aplicação está no `app_package_dir` directory, utilize os seguintes comandos para carregar o diretório:
+Por exemplo, se o pacote de aplicativo estiver no diretório `app_package_dir`, use os seguintes comandos para carregar o diretório:
 
 ```azurecli
 sfctl application upload --path ~/app_package_dir
 ```
 
-Para pacotes de aplicações grande, pode especificar o `--show-progress` opção para apresentar o progresso do carregamento.
+Para pacotes de aplicativos grandes, você pode especificar a opção `--show-progress` para exibir o progresso do upload.
 
-### <a name="provision-the-application-type"></a>Aprovisionar o tipo de aplicação
+### <a name="provision-the-application-type"></a>Provisionar o tipo de aplicativo
 
-Quando o carregamento estiver concluído, Aprovisione a aplicação. Para aprovisionar a aplicação, utilize o seguinte comando:
+Quando o upload for concluído, provisione o aplicativo. Para provisionar o aplicativo, use o seguinte comando:
 
 ```azurecli
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
-O valor para `application-type-build-path` é o nome do diretório onde o seu pacote de aplicação que carregou.
+O valor de `application-type-build-path` é o nome do diretório em que você carregou o pacote de aplicativos.
 
-### <a name="delete-the-application-package"></a>Eliminar o pacote de aplicação
+### <a name="delete-the-application-package"></a>Excluir o pacote de aplicativos
 
-É recomendado que remova o pacote de aplicação depois do aplicativo for registado com êxito.  A eliminação de pacotes de aplicação do arquivo de imagens liberta os recursos do sistema.  Manter os pacotes de aplicações não utilizadas consome armazenamento em disco e leva a problemas de desempenho do aplicativo. 
+É recomendável que você remova o pacote de aplicativos depois que o aplicativo for registrado com êxito.  A exclusão de pacotes de aplicativos do repositório de imagens libera os recursos do sistema.  Manter pacotes de aplicativos não utilizados consome armazenamento em disco e leva a problemas de desempenho de aplicativos. 
 
-Para eliminar o pacote de aplicação a partir do arquivo de imagem, utilize o seguinte comando:
+Para excluir o pacote de aplicativos do repositório de imagens, use o seguinte comando:
 
 ```azurecli
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path` tem de ser o nome do diretório que carregou quando criou a aplicação.
+`content-path` deve ser o nome do diretório que você carregou ao criar o aplicativo.
 
-### <a name="create-an-application-from-an-application-type"></a>Criar uma aplicação a partir de um tipo de aplicação
+### <a name="create-an-application-from-an-application-type"></a>Criar um aplicativo a partir de um tipo de aplicativo
 
-Depois de aprovisionar a aplicação, utilize o seguinte comando para nomear e criar a sua aplicação:
+Depois de provisionar o aplicativo, use o seguinte comando para nomear e criar seu aplicativo:
 
 ```azurecli
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name` é o nome que pretende utilizar para a instância de aplicação. Pode obter parâmetros adicionais a partir do manifesto do aplicativo aprovisionados anteriormente.
+`app-name` é o nome que você deseja usar para a instância do aplicativo. Você pode obter parâmetros adicionais do manifesto do aplicativo provisionado anteriormente.
 
-O nome da aplicação tem de começar com o prefixo `fabric:/`.
+O nome do aplicativo deve começar com o prefixo `fabric:/`.
 
-### <a name="create-services-for-the-new-application"></a>Criar serviços para a nova aplicação
+### <a name="create-services-for-the-new-application"></a>Criar serviços para o novo aplicativo
 
-Depois de criar um aplicativo, crie serviços da aplicação. No exemplo a seguir, criamos um novo serviço sem monitoração de estado de nosso aplicativo. Os serviços que podem ser criados a partir de um aplicativo são definidos no manifesto do serviço no pacote de aplicação previamente aprovisionado.
+Depois de criar um aplicativo, crie serviços a partir do aplicativo. No exemplo a seguir, criamos um novo serviço sem estado de nosso aplicativo. Os serviços que você pode criar por meio de um aplicativo são definidos em um manifesto de serviço no pacote de aplicativos provisionado anteriormente.
 
 ```azurecli
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## <a name="verify-application-deployment-and-health"></a>Certifique-se a implementação da aplicação e o estado de funcionamento
+## <a name="verify-application-deployment-and-health"></a>Verificar a implantação e a integridade do aplicativo
 
-Para verificar se tudo o que está em bom estado, utilize os seguintes comandos do Estado de funcionamento:
+Para verificar se tudo está íntegro, use os seguintes comandos de integridade:
 
 ```azurecli
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
-Para verificar que o serviço está em bom estado, utilize comandos semelhantes para obter o estado de funcionamento do serviço e o aplicativo:
+Para verificar se o serviço está íntegro, use comandos semelhantes para recuperar a integridade do serviço e do aplicativo:
 
 ```azurecli
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-Aplicações e serviços em bom estado de ter uma `HealthState` valor de `Ok`.
+Os serviços e aplicativos íntegros têm um valor `HealthState` de `Ok`.
 
-## <a name="remove-an-existing-application"></a>Remover uma aplicação existente
+## <a name="remove-an-existing-application"></a>Remover um aplicativo existente
 
-Para remover uma aplicação, conclua as seguintes tarefas:
+Para remover um aplicativo, conclua as seguintes tarefas:
 
-### <a name="delete-the-application"></a>Eliminar a aplicação
+### <a name="delete-the-application"></a>Excluir o aplicativo
 
-Para eliminar a aplicação, utilize o seguinte comando:
+Para excluir o aplicativo, use o seguinte comando:
 
 ```azurecli
 sfctl application delete --application-id TestEdApp
 ```
 
-### <a name="unprovision-the-application-type"></a>Anular o aprovisionamento do tipo de aplicação
+### <a name="unprovision-the-application-type"></a>Desprovisionar o tipo de aplicativo
 
-Depois de eliminar o aplicativo, pode anular o aprovisionamento do tipo de aplicação se já não precisam dele. Para anular o aprovisionamento do tipo de aplicação, utilize o seguinte comando:
+Depois de excluir o aplicativo, você poderá desprovisionar o tipo de aplicativo se não precisar mais dele. Para desprovisionar o tipo de aplicativo, use o seguinte comando:
 
 ```azurecli
 sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
-O nome do tipo e a versão de tipo tem de corresponder o nome e a versão no manifesto do aplicativo aprovisionados anteriormente.
+O nome do tipo e a versão do tipo devem corresponder ao nome e à versão no manifesto do aplicativo provisionado anteriormente.
 
-## <a name="upgrade-application"></a>Atualizar aplicação
+## <a name="upgrade-application"></a>Atualizar aplicativo
 
-Depois de criar seu aplicativo, pode repetir o mesmo conjunto de passos para Aprovisionar uma segunda versão do seu aplicativo. Em seguida, com uma atualização de aplicação do Service Fabric é possível passar para executar a segunda versão da aplicação. Para obter mais informações, consulte a documentação sobre [as atualizações de aplicações do Service Fabric](service-fabric-application-upgrade.md).
+Depois de criar seu aplicativo, você pode repetir o mesmo conjunto de etapas para provisionar uma segunda versão do seu aplicativo. Em seguida, com uma atualização Service Fabric aplicativo, você pode fazer a transição para a execução da segunda versão do aplicativo. Para obter mais informações, consulte a documentação sobre [atualizações Service Fabric aplicativo](service-fabric-application-upgrade.md).
 
-Para efetuar uma atualização, primeiro Aprovisione a próxima versão da aplicação com os mesmos comandos como antes:
+Para executar uma atualização, primeiro Provisione a próxima versão do aplicativo usando os mesmos comandos que antes:
 
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
@@ -151,22 +148,22 @@ sfctl application provision --application-type-build-path app_package_dir_2
 sfctl store delete --content-path app_package_dir_2
 ```
 
-Recomenda-se, em seguida, para executar uma atualização automática monitorizada, inicie a atualização ao executar o seguinte comando:
+Em seguida, é recomendável executar uma atualização automática monitorada, iniciar a atualização executando o seguinte comando:
 
 ```azurecli
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
-Atualizações substituem parâmetros existentes com qualquer conjunto especificado. Parâmetros de aplicação devem ser transmitidos como argumentos para o comando de atualização, se necessário. Parâmetros de aplicação devem ser codificados como um objeto JSON.
+As atualizações substituem os parâmetros existentes por qualquer conjunto especificado. Os parâmetros do aplicativo devem ser passados como argumentos para o comando de atualização, se necessário. Os parâmetros do aplicativo devem ser codificados como um objeto JSON.
 
-Para obter todos os parâmetros especificados anteriormente, pode usar o `sfctl application info` comando.
+Para recuperar todos os parâmetros especificados anteriormente, você pode usar o comando `sfctl application info`.
 
-Quando uma atualização da aplicação está em curso, o estado pode ser obtido com o `sfctl application upgrade-status` comando.
+Quando uma atualização de aplicativo está em andamento, o status pode ser recuperado usando o comando `sfctl application upgrade-status`.
 
-Por fim, se uma atualização está em progresso e precisa ser cancelada, pode utilizar o `sfctl application upgrade-rollback` para reverter a atualização.
+Por fim, se uma atualização estiver em andamento e precisar ser cancelada, você poderá usar o `sfctl application upgrade-rollback` para reverter a atualização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Noções básicas da CLI do Service Fabric](service-fabric-cli.md)
+* [Noções básicas do Service Fabric CLI](service-fabric-cli.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)
-* [Iniciar uma atualização de aplicação do Service Fabric](service-fabric-application-upgrade.md)
+* [Iniciando uma atualização de aplicativo Service Fabric](service-fabric-application-upgrade.md)

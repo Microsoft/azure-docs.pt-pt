@@ -1,25 +1,14 @@
 ---
-title: Trabalhando com coleções confiáveis | Microsoft Docs
-description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Trabalhar com as Reliable Collections
+description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis em um aplicativo Service Fabric do Azure.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 2d1284115a35881087e0ced0ee735ea38ce3f5ce
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598717"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645978"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores do .NET por meio de coleções confiáveis. Especificamente, Service Fabric fornece classes confiáveis de dicionário e fila confiável. Quando você usa essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado em uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto Dictionary confiável e ver o que ele está realmente fazendo.
@@ -57,7 +46,7 @@ Normalmente, você escreve seu código para reagir a um TimeoutException, captur
 
 Depois que o bloqueio é adquirido, addasync adiciona as referências de objeto de chave e valor a um dicionário temporário interno associado ao objeto ITransaction. Isso é feito para fornecer a semântica de leitura de sua própria gravação. Ou seja, depois de chamar addasync, uma chamada posterior para TryGetValueAsync (usando o mesmo objeto ITransaction) retornará o valor mesmo que você ainda não tenha confirmado a transação. Em seguida, addasync serializa seus objetos de chave e valor para matrizes de bytes e acrescenta essas matrizes de bytes a um arquivo de log no nó local. Por fim, addasync envia as matrizes de bytes para todas as réplicas secundárias para que elas tenham as mesmas informações de chave/valor. Embora as informações de chave/valor tenham sido gravadas em um arquivo de log, as informações não são consideradas parte do dicionário até que a transação à qual elas estão associadas tenha sido confirmada.
 
-No código acima, a chamada para CommitAsync confirma todas as operações da transação. Especificamente, ele acrescenta informações de confirmação ao arquivo de log no nó local e também envia o registro de confirmação para todas as réplicas secundárias. Depois que um quorum (maioria) das réplicas tiver respondido, todas as alterações de dados serão consideradas permanentes e todos os bloqueios associados às chaves que foram manipuladas por meio do objeto ITransaction serão liberados para que outros threads/transações possam manipular as mesmas chaves e suas os.
+No código acima, a chamada para CommitAsync confirma todas as operações da transação. Especificamente, ele acrescenta informações de confirmação ao arquivo de log no nó local e também envia o registro de confirmação para todas as réplicas secundárias. Depois que um quorum (maioria) das réplicas tiver respondido, todas as alterações de dados serão consideradas permanentes e todos os bloqueios associados às chaves que foram manipuladas por meio do objeto ITransaction serão liberados para que outros threads/transações possam manipular as mesmas chaves e seus valores.
 
 Se CommitAsync não for chamado (geralmente devido a uma exceção sendo gerada), o objeto ITransaction será Descartado. Ao descartar um objeto ITransaction não confirmado, Service Fabric acrescenta informações de anulação ao arquivo de log do nó local e nada precisa ser enviado a nenhuma das réplicas secundárias. E, em seguida, todos os bloqueios associados às chaves que foram manipuladas por meio da transação são liberados.
 
@@ -143,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erros de programador
-Idealmente, gostaríamos que o compilador Relate erros quando você acidentalmente produza código que modificava o estado de um objeto que você deve considerar imutável. Mas, o C# compilador não tem a capacidade de fazer isso. Portanto, para evitar possíveis bugs de programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis para serem tipos imutáveis. Especificamente, isso significa que você se fixa a tipos de valor de núcleo (como números [Int32, UInt64, etc.], DateTime, GUID, TimeSpan e like). Você também pode usar a cadeia de caracteres. É melhor evitar as propriedades de coleção, pois a serialização e a desserialização podem afetar o desempenho com frequência. No entanto, se você quiser usar propriedades de coleção, é altamente recomendável o uso de. Biblioteca de coleções imutáveis da rede ([System. Collections. imutável](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download no https://nuget.org. Também recomendamos lacrar suas classes e fazer com que os campos sejam somente leitura sempre que possível.
+Idealmente, gostaríamos que o compilador Relate erros quando você acidentalmente produza código que modificava o estado de um objeto que você deve considerar imutável. Mas, o C# compilador não tem a capacidade de fazer isso. Portanto, para evitar possíveis bugs de programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis para serem tipos imutáveis. Especificamente, isso significa que você se fixa a tipos de valor de núcleo (como números [Int32, UInt64, etc.], DateTime, GUID, TimeSpan e like). Você também pode usar a cadeia de caracteres. É melhor evitar as propriedades de coleção, pois a serialização e a desserialização podem afetar o desempenho com frequência. No entanto, se você quiser usar propriedades de coleção, é altamente recomendável o uso de. Biblioteca de coleções imutáveis da rede ([System. Collections. imutável](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para download em https://nuget.org. Também recomendamos lacrar suas classes e fazer com que os campos sejam somente leitura sempre que possível.
 
 O tipo de UserInfo a seguir demonstra como definir um tipo imutável aproveitando as recomendações mencionadas anteriormente.
 
@@ -201,7 +190,7 @@ public struct ItemId
 ```
 
 ## <a name="schema-versioning-upgrades"></a>Controle de versão de esquema (atualizações)
-Internamente, as coleções confiáveis serializam seus objetos usando o. DataContractSerializer da NET. Os objetos serializados são persistidos no disco local da réplica primária e também são transmitidos para as réplicas secundárias. À medida que o serviço amadurece, é provável que você queira alterar o tipo de dados (esquema) exigido pelo seu serviço. Aborde o controle de versão de seus dados com muito cuidado. Primeiro, você sempre deve ser capaz de desserializar dados antigos. Especificamente, isso significa que o código de desserialização deve ser infinitamente compatível com versões anteriores: A versão 333 do seu código de serviço deve ser capaz de operar em dados colocados em uma coleção confiável pela versão 1 do seu código de serviço há cinco anos.
+Internamente, as coleções confiáveis serializam seus objetos usando o. DataContractSerializer da NET. Os objetos serializados são persistidos no disco local da réplica primária e também são transmitidos para as réplicas secundárias. À medida que o serviço amadurece, é provável que você queira alterar o tipo de dados (esquema) exigido pelo seu serviço. Aborde o controle de versão de seus dados com muito cuidado. Primeiro, você sempre deve ser capaz de desserializar dados antigos. Especificamente, isso significa que seu código de desserialização deve ser infinitamente compatível com versões anteriores: a versão 333 do seu código de serviço deve ser capaz de operar em dados colocados em uma coleção confiável pela versão 1 do seu código de serviço há cinco anos.
 
 Além disso, o código de serviço é atualizado um domínio de atualização por vez. Portanto, durante uma atualização, você tem duas versões diferentes do código de serviço em execução simultaneamente. Você deve evitar que a nova versão do seu código de serviço use o novo esquema, já que as versões antigas do seu código de serviço podem não ser capazes de lidar com o novo esquema. Quando possível, você deve criar cada versão do serviço para ser compatível com uma versão. Especificamente, isso significa que v1 do seu código de serviço deve ser capaz de ignorar qualquer elemento de esquema que ele não manipula explicitamente. No entanto, ele deve ser capaz de salvar quaisquer dados que não saiba explicitamente e escrevê-los novamente ao atualizar uma chave ou um valor de dicionário.
 
@@ -209,10 +198,10 @@ Além disso, o código de serviço é atualizado um domínio de atualização po
 > Embora seja possível modificar o esquema de uma chave, você deve garantir que o código de hash da chave e os algoritmos de Equals sejam estáveis. Se você alterar a forma como um desses algoritmos Opera, não será possível pesquisar a chave no dicionário confiável novamente.
 > As cadeias de caracteres do .NET podem ser usadas como uma chave, mas usam a própria cadeia de caracteres como a chave – não usam o resultado de String. GetHashCode como a chave.
 
-Como alternativa, você pode executar o que normalmente é conhecido como duas atualizações. Com uma atualização de duas fases, você atualiza seu serviço de v1 para v2: O v2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código v2 lê dados v1, ele opera e grava dados v1. Em seguida, depois que a atualização for concluída em todos os domínios de atualização, você poderá, de alguma forma, sinalizar para as instâncias V2 em execução que a atualização foi concluída. (Uma maneira de sinalizar isso é distribuir uma atualização de configuração; isso é o que faz isso uma atualização de duas fases.) Agora, as instâncias v2 podem ler dados v1, convertê-los em dados v2, operar nele e escrevê-los como dados v2. Quando outras instâncias lêem dados v2, elas não precisam convertê-los, simplesmente operam nele e gravam dados v2.
+Como alternativa, você pode executar o que normalmente é conhecido como duas atualizações. Com uma atualização de duas fases, você atualiza seu serviço de v1 para v2: v2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código v2 lê dados v1, ele opera e grava dados v1. Em seguida, depois que a atualização for concluída em todos os domínios de atualização, você poderá, de alguma forma, sinalizar para as instâncias V2 em execução que a atualização foi concluída. (Uma maneira de sinalizar isso é distribuir uma atualização de configuração; isso é o que faz isso uma atualização de duas fases.) Agora, as instâncias v2 podem ler dados v1, convertê-los em dados v2, operar nele e escrevê-los como dados v2. Quando outras instâncias lêem dados v2, elas não precisam convertê-los, simplesmente operam nele e gravam dados v2.
 
 ## <a name="next-steps"></a>Próximos Passos
-Para saber mais sobre como criar contratos de dados compatíveis com o encaminhamento, consulte [contratos de dados compatíveis](https://msdn.microsoft.com/library/ms731083.aspx) com o encaminhamento
+Para saber mais sobre como criar contratos de dados compatíveis com o encaminhamento, consulte [contratos de dados compatíveis com o encaminhamento](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Para aprender as práticas recomendadas sobre o controle de versão de contratos de dados, consulte [controle de versão de contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx)
 

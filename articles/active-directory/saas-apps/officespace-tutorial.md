@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Software de OfficeSpace | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Software de OfficeSpace.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o OfficeSpace software | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o software OfficeSpace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,249 +13,186 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: cf40686adcee757db065fa6f68f990ea122b9747
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 80712c7f59845287006c1699524573c6094498b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095866"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561717"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de OfficeSpace
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o OfficeSpace software
 
-Neste tutorial, saiba como integrar o Software de OfficeSpace com o Azure Active Directory (Azure AD).
-Integrar o Software de OfficeSpace no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o OfficeSpace software ao Azure Active Directory (Azure AD). Ao integrar o OfficeSpace software ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao OfficeSpace Software.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para o Software de OfficeSpace (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao OfficeSpace software.
+* Habilite seus usuários a serem conectados automaticamente ao OfficeSpace software com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Software de OfficeSpace, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Software de OfficeSpace logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do OfficeSpace software.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Oferece suporte a OfficeSpace Software **SP** iniciada SSO
+* O software OfficeSpace dá suporte ao SSO iniciado por **SP**
 
-* Oferece suporte a OfficeSpace Software **Just In Time** aprovisionamento de utilizadores
 
-## <a name="adding-officespace-software-from-the-gallery"></a>Adicionar OfficeSpace Software a partir da Galeria
+* O OfficeSpace software dá suporte ao provisionamento **de usuário just-in-time**
 
-Para configurar a integração de OfficeSpace Software com o Azure AD, terá de adicionar OfficeSpace Software a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar OfficeSpace Software a partir da galeria, execute os seguintes passos:**
+## <a name="adding-officespace-software-from-the-gallery"></a>Adicionar o OfficeSpace software da Galeria
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+Para configurar a integração do OfficeSpace software ao Azure AD, você precisará adicionar o OfficeSpace software da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **OfficeSpace software** na caixa de pesquisa.
+1. Selecione **OfficeSpace software** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-officespace-software"></a>Configurar e testar o logon único do Azure AD para o OfficeSpace software
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+Configure e teste o SSO do Azure AD com o OfficeSpace software usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no OfficeSpace software.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+Para configurar e testar o SSO do Azure AD com o OfficeSpace software, conclua os seguintes blocos de construção:
 
-4. Na caixa de pesquisa, escreva **OfficeSpace Software**, selecione **OfficeSpace Software** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do OfficeSpace software](#configure-officespace-software-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do OfficeSpace software](#create-officespace-software-test-user)** – para ter um equivalente de B. Simon no OfficeSpace software que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-     ![Software de OfficeSpace na lista de resultados](common/search-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Software de OfficeSpace com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no OfficeSpace Software deve ser estabelecido.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **OfficeSpace software** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-Para configurar e testar o Azure AD início de sessão único com o Software de OfficeSpace, tem de concluir os seguintes blocos de construção:
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar OfficeSpace Software início de sessão único](#configure-officespace-software-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de OfficeSpace Software](#create-officespace-software-test-user)**  - para ter um equivalente da Eduarda Almeida no OfficeSpace Software, que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com o Software de OfficeSpace, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **OfficeSpace Software** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
-
-    ![OfficeSpace Software domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
-
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
-
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `<company name>.officespacesoftware.com`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `<company name>.officespacesoftware.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de Software OfficeSpace](mailto:support@officespacesoftware.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do OfficeSpace software](mailto:support@officespacesoftware.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. Aplicação de OfficeSpace Software espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Espera que a aplicação de OfficeSpace Software **nameidentifier** seja mapeado com **user.mail**, por isso, precisa editar o mapeamento do atributo, clicando em **editar** ícone e alteração o mapeamento do atributo.
+1. O aplicativo OfficeSpace software espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, onde o **nameidentifier** é mapeado com **User. UserPrincipalName**. O aplicativo OfficeSpace software espera que o **nameidentifier** seja mapeado com **User. mail**, portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterar o mapeamento de atributo.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-6. Além dos acima, o aplicativo de OfficeSpace Software espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
+1. Além disso, o aplicativo OfficeSpace software espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
-    | email | user.mail |
-    | name | user.displayname |
+    | e-mail | user.mail |
+    | nome | user.displayname |
     | first_name | user.givenname |
-    | last_name | user.surname |
+    | last_name | User. sobrenome |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+1. Na seção **certificado de autenticação SAML** , clique no botão **Editar** para abrir a caixa de diálogo **certificado de autenticação SAML** .
 
-    ![image](common/new-save-attribute.png)
+    ![Editar certificado de autenticação SAML](common/edit-certificate.png)
 
-    ![image](common/new-attribute-details.png)
+1. Na seção **certificado de autenticação SAML** , copie o **valor da impressão digital** e salve-o em seu computador.
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    ![Copiar valor de impressão digital](common/copy-thumbprint.png)
 
-    c. Deixe o **espaço de nomes** em branco.
+1. Na seção **configurar software OfficeSpace** , copie as URLs apropriadas com base em seu requisito.
 
-    d. Selecione a origem de dado **atributo**.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    f. Clique em **Ok**
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    g. Clique em **Guardar**.
-
-7. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
-
-    ![Editar o certificado de assinatura de SAML](common/edit-certificate.png)
-
-8. Na **certificado de assinatura SAML** secção, copie a **Thumbprint** e guarde-o no seu computador.
-
-    ![Copie o valor do Thumbprint](common/copy-thumbprint.png)
-
-9. Sobre o **configurar OfficeSpace Software** secção, copie os URLs apropriados de acordo com seus requisitos.
-
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-    a. URL de início de sessão
-
-    b. Identificador do Azure AD
-
-    c. URL de fim de sessão
-
-### <a name="configure-officespace-software-single-sign-on"></a>Configurar o Software de OfficeSpace início de sessão único
-
-1. Numa janela do browser web diferente, inicie sessão no seu inquilino OfficeSpace Software como um administrador.
-
-2. Aceda a **configurações** e clique em **conectores**.
-
-    ![Configurar o início de sessão único no lado de aplicação](./media/officespace-tutorial/tutorial_officespace_002.png)
-
-3. Clique em **autenticação SAML**.
-
-    ![Configurar o início de sessão único no lado de aplicação](./media/officespace-tutorial/tutorial_officespace_003.png)
-
-4. Na **autenticação SAML** secção, execute os seguintes passos:
-
-    ![Configurar o início de sessão único no lado de aplicação](./media/officespace-tutorial/tutorial_officespace_004.png)
-
-    a. Na **url de fim de sessão do fornecedor** caixa de texto, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
-
-    b. Na **url de destino do cliente idp** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
-
-    c. Colar o **Thumbprint** valor que copiou do portal do Azure, para o **impressão digital do certificado de cliente IDP** caixa de texto. 
-
-    d. Clique em **guardar as definições de**.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao OfficeSpace Software.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao OfficeSpace software.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **OfficeSpace Software**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **OfficeSpace software**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **OfficeSpace Software**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de OfficeSpace Software na lista de aplicações](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+### <a name="configure-officespace-software-sso"></a>Configurar o SSO do OfficeSpace software
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Em uma janela diferente do navegador da Web, entre no seu locatário do OfficeSpace software como administrador.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+2. Vá para **configurações** e clique em **conectores**.
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+    ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_002.png)
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+3. Clique em **autenticação SAML**.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+    ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_003.png)
 
-### <a name="create-officespace-software-test-user"></a>Criar utilizador de teste de OfficeSpace Software
+4. Na seção **autenticação SAML** , execute as seguintes etapas:
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na OfficeSpace Software. Software de OfficeSpace suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no OfficeSpace Software, é criado um novo após a autenticação.
+    ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_004.png)
+
+    a. Na caixa de texto **URL do provedor de logout** , Cole o valor da URL de **logout** que você copiou do portal do Azure.
+
+    b. Na caixa de texto **URL de destino do IDP do cliente** , Cole o valor da URL de **logon** que você copiou do portal do Azure.
+
+    c. Cole o valor de **impressão digital** copiado de portal do Azure na caixa de texto **impressão digital do certificado IDP do cliente** . 
+
+    d. Clique em **salvar configurações**.
+
+### <a name="create-officespace-software-test-user"></a>Criar usuário de teste do OfficeSpace software
+
+Nesta seção, um usuário chamado B. Simon é criado no OfficeSpace software. O OfficeSpace software dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no OfficeSpace software, um novo será criado após a autenticação.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contacto [equipa de suporte do Software de OfficeSpace](mailto:support@officespacesoftware.com).
+> Se precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do OfficeSpace software](mailto:support@officespacesoftware.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de OfficeSpace Software no painel de acesso, deve ser automaticamente conectado para o Software de OfficeSpace para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco OfficeSpace software no painel de acesso, você deverá ser conectado automaticamente ao software OfficeSpace para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o OfficeSpace software com o Azure AD](https://aad.portal.azure.com/)
 

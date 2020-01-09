@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488451"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640725"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -39,7 +39,7 @@ Quando você cria recursos de endereço IP público, o Azure atribui um endereç
 - Você pode criar recursos de endereço IP público a partir de um intervalo conhecido.
 - Você, ou seus parceiros de negócios, podem criar regras de firewall com intervalos que incluem endereços IP públicos que você atribuiu atualmente, bem como endereços que ainda não foram atribuídos. Isso elimina a necessidade de alterar as regras de firewall à medida que você atribui endereços IP a novos recursos.
 - O tamanho padrão de um intervalo que você pode criar é/28 ou 16 endereços IP.
-- No entanto, não há limites quanto a quantos intervalos você pode criar. no entanto, há limites no número máximo de endereços IP públicos estáticos que você pode ter em uma assinatura do Azure. Como resultado, o número de intervalos que você cria não pode abranger endereços IP públicos mais estáticos do que você pode ter em sua assinatura. Para obter mais informações, consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- No entanto, não há limites quanto a quantos intervalos você pode criar. no entanto, há limites no número máximo de endereços IP públicos estáticos que você pode ter em uma assinatura do Azure. Como resultado, o número de intervalos que você cria não pode abranger endereços IP públicos mais estáticos do que você pode ter em sua assinatura. Para obter mais informações, consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Os endereços que você cria usando endereços do prefixo podem ser atribuídos a qualquer recurso do Azure ao qual você possa atribuir um endereço IP público.
 - Você pode ver facilmente quais endereços IP alocados e ainda não foram alocados dentro do intervalo.
 
@@ -56,7 +56,7 @@ Você pode associar os seguintes recursos a um endereço IP público estático d
 ## <a name="constraints"></a>Restrições
 
 - Você não pode especificar os endereços IP para o prefixo. O Azure aloca os endereços IP para o prefixo, com base no tamanho que você especificar.
-- Você pode criar um prefixo de até 16 endereços IP ou a/28. Para obter mais informações, consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Você pode criar um prefixo de até 16 endereços IP ou um/28. Para obter mais informações, consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Você não pode alterar o intervalo, depois de criar o prefixo.
 - Somente endereços IP públicos estáticos criados com o SKU Standard podem ser atribuídos a partir do intervalo do prefixo. Para saber mais sobre as SKUs de endereço IP público, consulte [endereço IP público](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Os endereços do intervalo só podem ser atribuídos a Azure Resource Manager recursos. Os endereços não podem ser atribuídos a recursos no modelo de implantação clássico.

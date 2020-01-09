@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a206b63b03bcb3bb17e201487f0e00bcb3926151
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582231"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646732"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Mover dados para o armazenamento de BLOBs do Azure
 
@@ -21,7 +21,7 @@ Este artigo explica as melhores maneiras de mover dados para o armazenamento de 
 
 Tenha esses fatos em mente:
 
-* O cache HPC do Azure usa um formato de armazenamento especializado para organizar dados no armazenamento de BLOBs. É por isso que um destino de armazenamento de BLOBs deve ser um contêiner novo, vazio ou um contêiner de BLOBs que foi usado anteriormente para dados de cache do Azure HPC. (O[avere vFXT para Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) também usa esse sistema de arquivos de nuvem.)
+* O cache HPC do Azure usa um formato de armazenamento especializado para organizar dados no armazenamento de BLOBs. É por isso que um destino de armazenamento de BLOBs deve ser um contêiner novo, vazio ou um contêiner de BLOBs que foi usado anteriormente para dados de cache do Azure HPC. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * A cópia de dados por meio do cache do Azure HPC para um destino de armazenamento de back-end é mais eficiente quando você usa vários clientes e operações paralelas. Um comando de cópia simples de um cliente moverá os dados de forma lenta.
 
@@ -31,7 +31,7 @@ Se você não quiser usar o utilitário de carregamento ou se quiser adicionar c
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Pré-carregar dados no armazenamento de BLOBs com CLFSLoad
 
-Você pode usar o <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad Utility para copiar dados para um novo contêiner de armazenamento de BLOBs antes de adicioná-lo como um destino de armazenamento. Esse utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o cache do HPC do Azure. O CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento de BLOBs para uso com o cache.
+Pode utilizar a definição <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad Utility para copiar dados para um novo contêiner de armazenamento de BLOBs antes de adicioná-lo como um destino de armazenamento. Esse utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o cache do HPC do Azure. O CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento de BLOBs para uso com o cache.
 
 O utilitário avere CLFSLoad está disponível por solicitação de sua equipe de cache do Azure HPC. Peça para o contato da sua equipe ou abra um [tíquete de suporte](hpc-cache-support-ticket.md) para solicitar assistência.
 
@@ -64,7 +64,7 @@ Os comandos ``cp`` ou ``copy`` que você normalmente usa para transferir dados d
 
 Esta seção explica estratégias para criar um sistema de cópia de arquivos multifuncional multifuncional para mover dados para o armazenamento de BLOBs com o cache do Azure HPC. Ele explica os conceitos de transferência de arquivos e os pontos de decisão que podem ser usados para a cópia eficiente de dados usando vários clientes e comandos de cópia simples.
 
-Ele também explica alguns utilitários que podem ajudar. O utilitário ``msrsync`` pode ser usado para automatizar parcialmente o processo de dividir um conjunto de um em buckets e usar comandos rsync. O script ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente.
+Ele também explica alguns utilitários que podem ajudar. O utilitário ``msrsync`` pode ser usado para automatizar parcialmente o processo de dividir um conjunto de um DataSet em buckets e usar comandos rsync. O script ``parallelcp`` é outro utilitário que lê o diretório de origem e emite comandos de cópia automaticamente.
 
 ### <a name="strategic-planning"></a>Planejamento estratégico
 

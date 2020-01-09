@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: compilar um aplicativo Web usando a API do Azure para Mongo DB e o SDK do Java-Azure Cosmos DB'
-description: Apresenta um exemplo de código Java que você pode usar para se conectar e consultar usando a API do Azure Cosmos DB para MongoDB.
+title: 'Início rápido: criar um aplicativo Web usando a API de Azure Cosmos DB para o Mongo DB e o SDK do Java'
+description: Aprenda a criar um exemplo de código Java que você pode usar para se conectar e consultar usando a API do Azure Cosmos DB para MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445511"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Início rápido: criar um aplicativo de console com Java e a API do MongoDB no Azure Cosmos DB
 
@@ -120,7 +120,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
-1. Execute `mvn package` num terminal para instalar os módulos npm necessários
+1. Executar `mvn package` num terminal para instalar os módulos npm necessários
 
 2. Execute `mvn exec:java -D exec.mainClass=GetStarted.Program` num terminal para iniciar a aplicação Java.
 

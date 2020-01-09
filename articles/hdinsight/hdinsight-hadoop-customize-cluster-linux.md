@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
-ms.translationtype: MT
+ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035728"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638991"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight usando ações de script
 
@@ -328,7 +328,7 @@ Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um clust
 
 ### <a name="the-azure-portal"></a>O portal do Azure
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. No menu à esquerda, navegue até **todos os serviços** > **Analytics** > **clusters HDInsight**.
 
@@ -422,7 +422,7 @@ Você pode usar a interface do usuário da Web do amAmbari para exibir informaç
 
 ### <a name="the-apache-ambari-web-ui"></a>A interface do usuário da Web do Apache amAmbari
 
-1. No navegador, vá para https://CLUSTERNAME.azurehdinsight.net. Substitua **CLUSTERNAME** pelo nome do cluster do HDInsight.
+1. No browser, aceda a `https://CLUSTERNAME.azurehdinsight.net`. Substitua **CLUSTERNAME** pelo nome do cluster do HDInsight.
 
     Quando solicitado, insira o nome da conta de administrador, o **administrador**e a senha para o cluster. Talvez seja necessário inserir novamente as credenciais de administrador em um formulário da Web.
 

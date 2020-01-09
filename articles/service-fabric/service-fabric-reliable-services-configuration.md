@@ -1,25 +1,16 @@
 ---
-title: Configurar o Reliable Services de Service Fabric do Azure | Microsoft Docs
-description: Saiba mais sobre a configuração de Reliable Services com estado no Service Fabric do Azure.
-services: Service-Fabric
-documentationcenter: .net
+title: Configurar o Service Fabric do Azure Reliable Services
+description: Saiba como configurar Reliable Services com estado em um aplicativo de Service Fabric do Azure globalmente e para um único serviço.
 author: sumukhs
-manager: chackdan
-editor: vturecek
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242897"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645519"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services com estado
 Há dois conjuntos de parâmetros de configuração para os Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado serviço confiável.
@@ -32,7 +23,7 @@ A configuração global de serviço confiável é especificada no manifesto do c
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |Número mínimo de KB para alocar no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem Limite |O tamanho máximo para o qual o pool de memória do buffer de gravação do agente pode crescer. |
-| SharedLogId |VOLUME |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado padrão usado por todos os Reliable Services em todos os nós no cluster que não especificam o SharedLogId em sua configuração específica de serviço. Se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
+| SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado padrão usado por todos os Reliable Services em todos os nós no cluster que não especificam o SharedLogId em sua configuração específica de serviço. Se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome do caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado em que o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath em sua configuração específica de serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB de espaço em disco para alocar estaticamente para o log compartilhado. O valor deve ser 2048 ou maior. |
 
@@ -111,17 +102,17 @@ ReplicatorConfig
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Segundos |0, 15 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta uma confirmação para a primária. Quaisquer outras confirmações a serem enviadas para operações processadas nesse intervalo são enviadas como uma resposta. |
+| BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador no secundário aguarda depois de receber uma operação antes de enviar de volta uma confirmação para a primária. Quaisquer outras confirmações a serem enviadas para operações processadas nesse intervalo são enviadas como uma resposta. |
 | ReplicatorEndpoint |N/A |Nenhum padrão--parâmetro obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Isso deve fazer referência a um ponto de extremidade de recurso TCP no manifesto do serviço. Consulte [recursos de manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir recursos de ponto de extremidade em um manifesto do serviço. |
 | MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila primária. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |50 |Quantidade de espaço do arquivo de log após o qual o estado é marcado. |
 | MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
 | MinLogSizeInMB |MB |0 (sistema determinado) |Tamanho mínimo do log transacional. O log não terá permissão para truncar um tamanho abaixo dessa configuração. 0 indica que o replicador determinará o tamanho mínimo do log. Aumentar esse valor aumenta a possibilidade de fazer cópias parciais e backups incrementais, já que as chances de registros de log relevantes sendo truncados são reduzidas. |
-| TruncationThresholdFactor |Multi-fator |2 |Determina em qual tamanho do log o truncamento será disparado. O limite de truncamento é determinado por MinLogSizeInMB multiplicado por TruncationThresholdFactor. TruncationThresholdFactor deve ser maior que 1. MinLogSizeInMB * TruncationThresholdFactor deve ser menor que MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Multi-fator |4 |Determina em qual tamanho do log, a réplica começará a ser limitada. O limite de limitação (em MB) é determinado por Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). O limite de limitação (em MB) deve ser maior que o limite de truncamento (em MB). O limite de truncamento (em MB) deve ser menor que MaxStreamSizeInMB. |
+| TruncationThresholdFactor |Fator |2 |Determina em qual tamanho do log o truncamento será disparado. O limite de truncamento é determinado por MinLogSizeInMB multiplicado por TruncationThresholdFactor. TruncationThresholdFactor deve ser maior que 1. MinLogSizeInMB * TruncationThresholdFactor deve ser menor que MaxStreamSizeInMB. |
+| ThrottlingThresholdFactor |Fator |4 |Determina em qual tamanho do log, a réplica começará a ser limitada. O limite de limitação (em MB) é determinado por Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). O limite de limitação (em MB) deve ser maior que o limite de truncamento (em MB). O limite de truncamento (em MB) deve ser menor que MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |Tamanho máximo acumulado (em MB) de logs de backup em uma cadeia de logs de backup específica. Uma solicitação de backup incremental falhará se o backup incremental gerar um log de backup que causaria os logs de backup acumulados, pois o backup completo relevante seria maior do que esse tamanho. Nesses casos, o usuário precisa fazer um backup completo. |
-| SharedLogId |VOLUME |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
+| SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome do caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado em que o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 | SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para chamadas de API gerenciadas. Exemplo: função de retorno de chamada de backup fornecida pelo usuário. Depois que o intervalo tiver passado, um relatório de integridade de aviso será enviado ao Gerenciador de integridade. |
 | LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurável no qual o truncamento de log será iniciado em cada réplica. Ele é usado para garantir que o log também seja truncado com base no tempo, em vez de apenas no tamanho do log. Essa configuração também força a limpeza de entradas excluídas no dicionário confiável. Portanto, ele pode ser usado para garantir que os itens excluídos sejam limpos em tempo hábil. |

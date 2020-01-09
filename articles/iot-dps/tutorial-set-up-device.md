@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434569"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: configurar um dispositivo para provisionar usando o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -23,7 +23,7 @@ No tutorial anterior, aprendeu a configurar o Serviço Aprovisionamento de Dispo
 > [!div class="checklist"]
 > * Compilar o SDK de Cliente dos Serviços Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Criar o software de registo de dispositivos
+> * Configurar o software de registo de dispositivos
 
 Este tutorial espera que tenha criado a instância do Serviço de Aprovisionamento de Dispositivos e um hub IoT com as instruções no tutorial [Configurar recursos na cloud](tutorial-set-up-cloud.md) anterior.
 
@@ -36,10 +36,11 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de [trabalho C++' desenvolvimento de desktop com '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a seção apropriada em [preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK do.
+
+* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com a carga de [trabalho C++' desenvolvimento de desktop com '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Compilar uma versão do SDK específica para uma plataforma
 
@@ -49,23 +50,26 @@ O SDK de Cliente do Serviço Aprovisionamento de Dispositivos ajuda-o a implemen
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
-1. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
-    
+2. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
+
+3. Abra uma linha de comandos ou a shell do Git Bash. Execute os comandos a seguir para clonar a versão mais recente do repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) . Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Esta operação deve demorar vários minutos a ser concluída.
 
-
-1. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. 
+4. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Execute os seguintes comandos no diretório `azure-iot-sdk-c`:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. Crie o SDK para a sua plataforma de desenvolvimento com base nos mecanismos de atestado que irá utilizar. Utilize um dos seguintes comandos (tenha também em atenção os dois carateres de ponto final à direita de cada comando). Após a conclusão, o CMake compila o subdiretório `/cmake` com conteúdo específico do seu dispositivo:
+5. Crie o SDK para a sua plataforma de desenvolvimento com base nos mecanismos de atestado que irá utilizar. Utilize um dos seguintes comandos (tenha também em atenção os dois carateres de ponto final à direita de cada comando). Após a conclusão, o CMake compila o subdiretório `/cmake` com conteúdo específico do seu dispositivo:
  
     - Em dispositivos que utilizam o simulador de TPM para a atestação:
 
@@ -96,8 +100,9 @@ Consoante tenha criado o SDK para utilizar um atestado para um TPM/HSM físico o
 
 - Para um dispositivo X.509, tem de obter os certificados emitidos para o(s) seu(s) dispositivo(s). O serviço de aprovisionamento expõe dois tipos de entrada de inscrição que controlam o acesso para dispositivos que utilizem o mecanismo de atestado X.509. Os certificados necessários dependem dos tipos de inscrição que irá utilizar.
 
-    1. Inscrições individuais: inscrição de um único dispositivo específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-security.md#end-entity-leaf-certificate).
-    1. Grupos de inscrição: este tipo de entrada de inscrição requer certificados intermediários ou de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Inscrições individuais: inscrição de um único dispositivo específico. Este tipo de entrada de inscrição requer [certificados "folha" de entidade final](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Grupos de inscrição: este tipo de entrada de inscrição requer certificados intermediários ou de raiz. Para obter mais informações, veja [Controlar o acesso a dispositivos para o serviço de aprovisionamento com certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados
 
@@ -134,7 +139,7 @@ Consoante tenha criado o SDK para utilizar um atestado para um dispositivo simul
 
 Estes artefactos de segurança são necessários durante a inscrição do seu dispositivo no Serviço Aprovisionamento de Dispositivos. O Serviço Aprovisionamento aguarda que o dispositivo seja arrancado e se ligue ao mesmo num momento posterior. Da primeira vez que o dispositivo for arrancado, a lógica do SDK de Cliente interage com o seu chip (ou simulador) para extrair os artefactos de segurança do dispositivo e verifica o registo no Serviço Aprovisionamento de Dispositivos. 
 
-## <a name="create-the-device-registration-software"></a>Criar o software de registo de dispositivos
+## <a name="create-the-device-registration-software"></a>Configurar o software de registo de dispositivos
 
 O último passo consiste em escrever uma aplicação de registo que utiliza o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para registar o dispositivo no serviço Hub IoT. 
 
@@ -204,9 +209,9 @@ Neste momento, os serviços Aprovisionamento de Dispositivos e Hub IoT poderão 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Compilar o SDK de Cliente do Serviço Aprovisionamento de Dispositivos para plataformas específicas
+> * Compilar o SDK de Cliente do Serviço de Aprovisionamento de Dispositivos para plataformas específicas
 > * Extrair os artefactos de segurança
-> * Criar o software de registo de dispositivos
+> * Configurar o software de registo de dispositivos
 
 Avance para o próximo tutorial para saber como aprovisionar o dispositivo no seu hub IoT ao inscrevê-lo no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionamento automático.
 

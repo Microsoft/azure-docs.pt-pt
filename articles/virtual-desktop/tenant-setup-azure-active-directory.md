@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459517"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: criar um locatário na área de trabalho virtual do Windows
 
@@ -25,7 +25,9 @@ Neste tutorial, ficará a saber como:
 > * Atribua a função de aplicativo TenantCreator a um usuário em seu locatário Azure Active Directory.
 > * Crie um locatário de área de trabalho virtual do Windows.
 
-Veja o que você precisa para configurar seu locatário de área de trabalho virtual do Windows:
+## <a name="what-you-need-to-set-up-a-tenant"></a>O que você precisa para configurar um locatário
+
+Antes de começar a configurar seu locatário de área de trabalho virtual do Windows, verifique se você tem estas coisas:
 
 * A ID de locatário [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para usuários da área de trabalho virtual do Windows.
 * Uma conta de administrador global dentro do locatário Azure Active Directory.
@@ -33,6 +35,8 @@ Veja o que você precisa para configurar seu locatário de área de trabalho vir
    * A conta de administrador deve ser originada no locatário Azure Active Directory no qual você está tentando criar o locatário da área de trabalho virtual do Windows. Esse processo não oferece suporte a Azure Active Directory contas B2B (de convidado).
    * A conta de administrador deve ser uma conta corporativa ou de estudante.
 * Uma subscrição do Azure.
+
+Você deve ter a ID de locatário, a conta de administrador global e a assinatura do Azure pronta para que o processo descrito neste tutorial possa funcionar corretamente.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Conceder permissões para área de trabalho virtual do Windows
 
@@ -135,6 +139,12 @@ Substitua os valores entre colchetes por valores relevantes para sua organizaç�
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+É uma boa ideia atribuir acesso administrativo a um segundo usuário no caso de você estar bloqueado de sua conta ou de férias e precisar de alguém para atuar como administrador de locatários em sua ausência. Para atribuir acesso de administrador a um segundo usuário, execute o seguinte cmdlet com `<TenantName>` e `<Upn>` substituído pelo nome do locatário e pelo UPN do segundo usuário.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

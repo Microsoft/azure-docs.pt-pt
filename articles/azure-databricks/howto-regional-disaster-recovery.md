@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129339"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639876"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters de Azure Databricks
 
@@ -21,7 +21,7 @@ Este artigo descreve uma arquitetura de recuperação de desastre útil para clu
 
 ## <a name="azure-databricks-architecture"></a>Arquitetura de Azure Databricks
 
-Em um alto nível, quando você cria um espaço de trabalho de Azure Databricks da portal do Azure, um [dispositivo gerenciado](../managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, oeste dos EUA). Esse dispositivo é implantado em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [grupo de segurança de rede](../virtual-network/manage-network-security-group.md) e uma conta de armazenamento do Azure, disponível em sua assinatura. A rede virtual fornece segurança de nível de perímetro para o espaço de trabalho do databricks e é protegida por meio do grupo de segurança de rede. No espaço de trabalho, você pode criar clusters do databricks fornecendo o tipo de VM de operador e de driver e a versão de tempo de execução do databricks. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Depois que o cluster é criado, você pode executar trabalhos por meio de blocos de anotações, APIs REST, pontos de extremidade ODBC/JDBC anexando-os a um cluster específico.
+Em um alto nível, quando você cria um espaço de trabalho de Azure Databricks da portal do Azure, um [dispositivo gerenciado](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, oeste dos EUA). Esse dispositivo é implantado em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [grupo de segurança de rede](../virtual-network/manage-network-security-group.md) e uma conta de armazenamento do Azure, disponível em sua assinatura. A rede virtual fornece segurança de nível de perímetro para o espaço de trabalho do databricks e é protegida por meio do grupo de segurança de rede. No espaço de trabalho, você pode criar clusters do databricks fornecendo o tipo de VM de operador e de driver e a versão de tempo de execução do databricks. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Depois que o cluster é criado, você pode executar trabalhos por meio de blocos de anotações, APIs REST, pontos de extremidade ODBC/JDBC anexando-os a um cluster específico.
 
 O plano de controle do databricks gerencia e monitora o ambiente de espaço de trabalho do databricks. Qualquer operação de gerenciamento, como criar cluster, será iniciada no plano de controle. Todos os metadados, como os trabalhos agendados, são armazenados em um banco de dados do Azure com replicação geográfica para tolerância a falhas.
 

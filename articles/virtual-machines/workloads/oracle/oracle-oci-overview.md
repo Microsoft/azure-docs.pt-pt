@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799566"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459312"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle que integram Microsoft Azure e a infraestrutura de nuvem da Oracle (versão prévia)
 
@@ -50,9 +50,9 @@ O diagrama a seguir é uma visão geral de alto nível da solução conectada. P
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus) & Sul do Reino Unido (uksouth) e às regiões do OCI Ashburn (leste dos EUA) & Londres (Sul do Reino Unido). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
+* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus), do Sul do Reino Unido (uksouth) e do Canadá central (canadacentral) e às regiões do OCI Ashburn (leste dos EUA), Londres (Sul do Reino Unido) e Toronto (sudeste do Canadá). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 
 Os clientes corporativos geralmente optam por diversificar e implantar cargas de trabalho em várias nuvens por vários motivos operacionais e de negócios. Para diversificar, os clientes interconectam redes em nuvem usando a Internet, VPN IPSec ou usando a solução de conectividade direta do provedor de nuvem por meio de sua rede local. A interconexão de redes em nuvem pode exigir investimentos significativos em tempo, dinheiro, design, aquisição, instalação, teste e operações. 
 
@@ -66,7 +66,7 @@ A segurança de rede é um componente crucial de qualquer aplicativo empresarial
 
 Além disso, você pode configurar [listas de segurança](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) em sua rede de nuvem virtual de OCI e regras de segurança (conectadas a [grupos de segurança de rede](../../../virtual-network/security-overview.md)do Azure). Use essas regras para controlar o fluxo de tráfego entre as máquinas nas redes virtuais. As regras de segurança de rede podem ser adicionadas em um nível de máquina, em um nível de sub-rede, bem como no nível de rede virtual.
  
-## <a name="identity"></a>identidade
+## <a name="identity"></a>Identidade
 
 A identidade é um dos pilares principais da parceria entre a Microsoft e a Oracle. Foi feito um trabalho significativo para integrar o IDCS ( [serviço de nuvem de identidades](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) ) da Oracle com o [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft. Ele ajuda os usuários a entrar e acessar vários recursos. O AD do Azure também permite que você gerencie seus usuários e suas permissões.
 

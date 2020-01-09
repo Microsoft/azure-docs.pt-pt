@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bebdd8beacb3b5fc91802fb41055df7e24b93218
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078957"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647667"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078957"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -148,7 +148,7 @@ ms.locfileid: "70078957"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -197,7 +197,7 @@ Essas notas SAP estão relacionadas ao tópico do SAP no Azure:
 | [1999351] |Virtualização no Windows: monitoramento avançado |
 | [2243692] |Uso do armazenamento de SSD Premium do Azure para instância do SAP DBMS |
 
-Saiba mais sobre as [limitações das assinaturas do Azure][azure-subscription-service-limits-subscription], incluindo limitações padrão gerais e limites máximos.
+Saiba mais sobre as [limitações das assinaturas do Azure][azure-resource-manager/management/azure-subscription-service-limits-subscription], incluindo limitações padrão gerais e limites máximos.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP de alta disponibilidade com Azure Resource Manager versus o modelo de implantação clássico do Azure
 Os modelos de implantação do Azure Resource Manager e clássico do Azure são diferentes nas seguintes áreas:
@@ -207,7 +207,7 @@ Os modelos de implantação do Azure Resource Manager e clássico do Azure são 
 - Suporte para cenários de vários SID do SAP
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a>Grupos de recursos
-No Azure Resource Manager, você pode usar grupos de recursos para gerenciar todos os recursos do aplicativo em sua assinatura do Azure. Uma abordagem integrada, em um grupo de recursos, que todos os recursos têm o mesmo ciclo de vida. Por exemplo, todos os recursos são criados ao mesmo tempo e são excluídos ao mesmo tempo. Saiba mais sobre [grupos de recursos](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+No Azure Resource Manager, você pode usar grupos de recursos para gerenciar todos os recursos do aplicativo em sua assinatura do Azure. Uma abordagem integrada, em um grupo de recursos, que todos os recursos têm o mesmo ciclo de vida. Por exemplo, todos os recursos são criados ao mesmo tempo e são excluídos ao mesmo tempo. Saiba mais sobre [grupos de recursos](../../../azure-resource-manager/management/overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a>Dependência do balanceador de carga interno do Azure no grupo de recursos do Azure
 
@@ -1210,7 +1210,7 @@ Para adicionar uma porta de investigação:
 
    O número da porta é definido nos modelos de Azure Resource Manager do SAP. Você pode atribuir o número da porta no PowerShell.
 
-   Para definir um novo valor de ProbePort para o recurso de cluster de **IP do SAP <*Sid*>** , execute o seguinte script do PowerShell. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script for executado, será solicitado que você reinicie o grupo de clusters SAP para ativar as alterações.
+   Para definir um novo valor de ProbePort para o recurso de cluster de **IP do SAP <*Sid*** , execute o seguinte script do PowerShell. Atualize as variáveis do PowerShell para seu ambiente. Depois que o script for executado, será solicitado que você reinicie o grupo de clusters SAP para ativar as alterações.
 
    ```powershell
    $SAPSID = "PR1"      # SAP <SID>

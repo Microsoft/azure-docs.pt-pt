@@ -1,56 +1,50 @@
 ---
-title: 'Início rápido: Criar uma DSVM do Ubuntu'
+title: 'Início rápido: criar um DSVM do Ubuntu'
 description: Configure e crie um Máquina Virtual de Ciência de Dados para Linux (Ubuntu) para fazer análises e aprendizado de máquina.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677850"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612092"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início rápido: Configurar o Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início rápido: configurar o Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
-Comece a executar o Máquina Virtual de Ciência de Dados Ubuntu.
+Comece a executar o Máquina Virtual de Ciência de Dados Ubuntu 18, 4.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar um Máquina Virtual de Ciência de Dados do Windows, você deve ter uma assinatura do Azure. [Experimente o Azure gratuitamente](https://azure.com/free).
+Para criar um Máquina Virtual de Ciência de Dados Ubuntu 18, 4, você deve ter uma assinatura do Azure. [Experimente o Azure gratuitamente](https://azure.com/free).
 Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitadas para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar a sua máquina de Virtual de ciência de dados para Linux
 
-Eis os passos para criar uma instância de máquina de Virtual de ciência de dados para Linux:
+Estas são as etapas para criar uma instância do Máquina Virtual de Ciência de Dados Ubuntu 18, 4:
 
 1. Vá para a [portal do Azure](https://portal.azure.com) você pode ser solicitado a entrar em sua conta do Azure, se você ainda não tiver entrado.
-1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados para Linux (Ubuntu)".
-    
-    ![Listagem de VMs Ubuntu](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados-Ubuntu 18, 4 Preview".
 
 1. Na janela subsequente, selecione **criar**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Botão para criar um computador Ubuntu")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Você deve ser redirecionado para a folha "criar uma máquina virtual".
    
-   ![Guia básico correspondente à máquina virtual Ubuntu](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Insira as informações a seguir para configurar cada etapa do assistente:
 
     1. **Noções básicas**:
     
-       * **Subscrição**: Se você tiver mais de uma assinatura, selecione aquela em que a máquina será criada e cobrada. Tem de ter privilégios de criação de recursos para esta subscrição.
+       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que a máquina será criada e cobrada. Tem de ter privilégios de criação de recursos para esta subscrição.
        * **Grupo de recursos**: Crie um novo grupo ou use um existente.
        * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá na sua portal do Azure.
-       * **Região**: Selecione o datacenter mais apropriado. Para acesso mais rápido à rede, é o datacenter que tem a maior parte dos seus dados ou está mais próximo de sua localização física. Saiba mais sobre [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Imagem**: Deixe o valor predefinido.
-       * **Tamanho**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo de autenticação**: Para configuração mais rápida, selecione "senha". 
+       * **Região**: selecione o datacenter mais apropriado. Para acesso mais rápido à rede, é o datacenter que tem a maior parte dos seus dados ou está mais próximo de sua localização física. Saiba mais sobre [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Imagem**: Deixe o valor padrão.
+       * **Tamanho**: isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Tipo de autenticação**: para configuração mais rápida, selecione "senha". 
          
          > [!NOTE]
          > Se você pretende usar JupyterHub, certifique-se de selecionar "senha", já que JupyterHub *não* está configurado para usar chaves públicas SSH.
@@ -100,11 +94,11 @@ A VM do Linux já está provisionada com o servidor X2Go e está pronta para ace
 1. Na janela configuração resultante, insira os seguintes parâmetros de configuração:
    * **Separador de sessão**:
      * **Host**: Insira o endereço IP da sua VM, que você fez anotar anteriormente.
-     * **Logon**: Insira o nome de usuário na VM Linux.
-     * **Porta SSH**: Deixe em 22, o valor padrão.
-     * **Tipo de sessão**: Altere o valor para **Xfce**. Atualmente, a VM Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia mídia**: Você pode desativar o suporte a som e a impressão do cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: Se você quiser diretórios de seus computadores cliente montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nessa guia.
+     * **Logon**: Insira o nome de usuário na VM do Linux.
+     * **Porta SSH**: deixá-lo em 22, o valor predefinido.
+     * **Tipo de sessão**: Altere o valor para **XFCE**. Atualmente, a VM Linux dá suporte apenas à área de trabalho XFCE.
+   * **Guia de suporte de dados**: pode desativar o suporte para som e cliente impressão se não precisar usá-los.
+   * **Pastas compartilhadas**: Se pretender que diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
 
    ![Configuração do X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Selecione **OK**.
@@ -120,9 +114,9 @@ A VM do Linux já está provisionada com o servidor X2Go e está pronta para ace
 O Ubuntu DSVM executa o [JupyterHub](https://github.com/jupyterhub/jupyterhub), um servidor Jupyter multiusuário. Para se conectar, execute as seguintes etapas:
 
    1. Anote o endereço IP público para sua VM, pesquisando e selecionando sua VM no portal do Azure.
-      ![Endereço IP do computador Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
+      ![endereço IP do computador Ubuntu](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
-   1. No computador local, abra um navegador da Web e navegue para https:\//Your-VM-IP: 8000, substituindo "Your-VM-IP" pelo endereço IP que você fez antes.
+   1. No computador local, abra um navegador da Web e navegue até https:\//Your-VM-IP: 8000, substituindo "Your-VM-IP" pelo endereço IP que você fez antes.
    1. Insira o nome de usuário e a senha que você usou para criar a VM e entre. 
 
       ![Insira o logon do Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)

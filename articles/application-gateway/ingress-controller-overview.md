@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 838145f8573e11deff8566c932a9c73c6f59f03b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795535"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561665"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>O que é o controlador de entrada do gateway de aplicativo?
-O AGIC (controlador de entrada do gateway de aplicativo) é um aplicativo kubernetes, que possibilita aos clientes [do AKS (Azure kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) aproveitar o balanceador de carga L7 do [Gateway de aplicativo](https://azure.microsoft.com/services/application-gateway/) nativo do Azure para expor o software de nuvem para a Internet. O AGIC monitora o cluster kubernetes em que ele está hospedado e atualiza continuamente um gateway de aplicativo, para que os serviços selecionados sejam expostos à Internet.
+O AGIC (controlador de entrada do gateway de aplicativo) é um aplicativo kubernetes, que possibilita aos clientes [do AKS (Azure kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) aproveitar o balanceador de carga L7 do [Gateway de aplicativo](https://azure.microsoft.com/services/application-gateway/) nativo do Azure para expor o software de nuvem à Internet. O AGIC monitora o cluster kubernetes em que ele está hospedado e atualiza continuamente um gateway de aplicativo, para que os serviços selecionados sejam expostos à Internet.
 
 O controlador de entrada é executado em seu próprio pod no AKS do cliente. O AGIC monitora um subconjunto de recursos do kubernetes para alterações. O estado do cluster AKS é convertido na configuração específica do gateway de aplicativo e aplicado ao [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
@@ -28,7 +28,7 @@ O uso do gateway de aplicativo além do AGIC também ajuda a proteger o cluster 
 
 ![Aplicativo Azure gateway + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-O AGIC é configurado por meio do [recurso de entrada](http://kubernetes.io/docs/user-guide/ingress/)do kubernetes, juntamente com o serviço e as implantações/pods. Ele fornece uma série de recursos, aproveitando o balanceador de carga L7 do gateway de aplicativo nativo do Azure. Para citar alguns:
+O AGIC é configurado por meio do [recurso de entrada](https://kubernetes.io/docs/user-guide/ingress/)do kubernetes, juntamente com o serviço e as implantações/pods. Ele fornece uma série de recursos, aproveitando o balanceador de carga L7 do gateway de aplicativo nativo do Azure. Para citar alguns:
   - Encaminhamento do URL
   - Afinidade com base no cookie
   - Terminação de SSL

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424883"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
 
@@ -49,9 +49,15 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 
+### <a name="known-behavior"></a>Comportamento conhecido
+
+No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar esse certificado antes que possa continuar a usar o navegador.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+
+[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
 
 [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
 

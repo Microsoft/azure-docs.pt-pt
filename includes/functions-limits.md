@@ -4,19 +4,19 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8946da455b4a395814d4cb5a833932c2e3d56f0a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322912"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75658530"
 ---
-| Resource | [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plano de serviço de aplicativo](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Recurso | [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plano de serviço de aplicativo](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| Aumentar horizontalmente | Controlado por evento | Controlado por evento | [Manual/dimensionamento automático](../articles/app-service/manage-scale-up.md) | 
+| Aumentar horizontalmente | Orientada por eventos | Orientada por eventos | [Manual/dimensionamento automático](../articles/app-service/manage-scale-up.md) | 
 | Máximo de instâncias | 200 | 100 | 10-20 |
 |[Duração do tempo limite](../articles/azure-functions/functions-scale.md#timeout) padrão (min) |5 | 30 |30<sup>2</sup> |
-|Duração máxima de [tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | Não associado<sup>3</sup> |
+|[Duração do tempo limite](../articles/azure-functions/functions-scale.md#timeout) máximo (min) |10 | 60 | Não associado<sup>3</sup> |
 | Máximo de conexões de saída (por instância) | 600 ativo (total de 1200) | unbounded | unbounded |
 | Tamanho máximo da solicitação (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Tamanho máximo da cadeia de caracteres de consulta<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -29,7 +29,7 @@ ms.locfileid: "74322912"
 | Domínios personalizados por aplicativo</a> |500<sup>7</sup> |500 |500 |
 | Suporte a [SSL](../articles/app-service/configure-ssl-bindings.md) de domínio personalizado |conexão SSL SNI não vinculada incluída | conexões SSL SNI não associadas e 1 IP SSL incluídas |conexões SSL SNI não associadas e 1 IP SSL incluídas | 
 
-<sup>1</sup> para limites específicos para as várias opções do plano do serviço de aplicativo, consulte os [limites do plano do serviço de aplicativo](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>1</sup> para limites específicos para as várias opções do plano do serviço de aplicativo, consulte os [limites do plano do serviço de aplicativo](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> por padrão, o tempo limite para o tempo de execução do Functions 1. x em um plano do serviço de aplicativo é não associado.  
 <sup>3</sup> requer que o plano do serviço de aplicativo seja definido como [Always on](../articles/azure-functions/functions-scale.md#always-on). Pague com [tarifas](https://azure.microsoft.com/pricing/details/app-service/)padrão.  
 <sup>4</sup> esses limites são [definidos no host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  

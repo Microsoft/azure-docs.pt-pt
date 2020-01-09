@@ -11,18 +11,18 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827141"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553074"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 
 Este tópico ensina como configurar um grupo de [failover automático](sql-database-auto-failover-group.md) para um banco de dados individual do banco de dados SQL do Azure, um pool elástico e uma instância gerenciada usando o portal do Azure ou o PowerShell. 
 
-## <a name="single-database"></a>Base de dados individual
+## <a name="single-database"></a>Base de dados única
 Crie o grupo de failover e adicione um único banco de dados a ele usando o portal do Azure ou o PowerShell.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -35,6 +35,7 @@ Considere os seguintes pré-requisitos:
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Crie seu grupo de failover e adicione seu banco de dados a ele usando o portal do Azure.
+
 
 1. Selecione **SQL do Azure** no menu à esquerda da [portal do Azure](https://portal.azure.com). Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
 1. Selecione o banco de dados individual que você deseja adicionar ao grupo de failover. 
@@ -183,6 +184,9 @@ Reverter grupo de failover de volta para o servidor primário:
 
 ---
 
+> [!IMPORTANT]
+> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+
 ## <a name="elastic-pool"></a>Conjunto elástico
 Crie o grupo de failover e adicione um pool elástico a ele usando o portal do Azure ou o PowerShell.  
 
@@ -328,11 +332,14 @@ Fazer failover para o servidor secundário:
 
 ---
 
+> [!IMPORTANT]
+> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+
 ## <a name="managed-instance"></a>Instância gerida
 
 Crie um grupo de failover entre duas instâncias gerenciadas usando o portal do Azure ou o PowerShell. 
 
-Você precisará criar um gateway para a rede virtual de cada instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover.
+Você precisará configurar o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um gateway para a rede virtual de cada instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Considere os seguintes pré-requisitos:
@@ -344,7 +351,7 @@ Considere os seguintes pré-requisitos:
 
 ### <a name="create-primary-virtual-network-gateway"></a>Criar gateway de rede virtual primária 
 
-Crie o gateway de rede virtual primária com o portal do Azure ou o PowerShell. 
+Se você não tiver configurado o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), poderá criar o gateway de rede virtual primária com o portal do Azure ou o PowerShell. 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 

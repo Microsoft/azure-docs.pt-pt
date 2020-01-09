@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928773"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646902"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -156,6 +156,8 @@ O painel de configuração mostra as seguintes configurações do repositório d
 - O GitHub Enterprise com uma versão anterior a 2.14.0 não funciona no navegador Microsoft Edge.
 
 - A integração do GitHub com o Data Factory ferramentas de criação visual funciona apenas na versão disponível do Data Factory.
+
+- Um máximo de 1.000 entidades por tipo de recurso (como pipelines e conjuntos de valores) pode ser buscado em uma única ramificação do GitHub. Se esse limite for atingido, o será sugerido para dividir seus recursos em fábricas separadas.
 
 ## <a name="switch-to-a-different-git-repo"></a>Alternar para um repositório git diferente
 

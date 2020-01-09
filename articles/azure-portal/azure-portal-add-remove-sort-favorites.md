@@ -1,23 +1,23 @@
 ---
-title: Adicionar, remover e classificar favoritos no portal do Azure | Microsoft Docs
-description: Saiba como adicionar ou remover itens da lista de favoritos e classificar a ordem dos itens
+title: Adicionar, remover e organizar favoritos no portal do Azure | Microsoft Docs
+description: Saiba como adicionar ou remover itens da lista de favoritos e reorganizar a ordem dos itens
 services: azure-portal
-keywords: favoritas
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: favoritos, portal
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579622"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640572"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Adicionar, remover e ordenar favoritos
+# <a name="add-remove-and-rearrange-favorites"></a>Adicionar, remover e reorganizar favoritos
 
 Adicione ou remova itens da sua lista de **favoritos** para que você possa ir rapidamente para os serviços que usa com mais frequência. Já adicionamos alguns serviços comuns à sua lista de **favoritos** , mas provavelmente você desejará personalizá-lo. Você é o único que vê as alterações feitas nos **favoritos**.
 
@@ -51,7 +51,7 @@ Agora você pode remover um item diretamente da lista de **favoritos** .
 
 2. No cartão de informações, selecione a estrela para que ela seja alterada de preenchida para não preenchida. O serviço é removido da lista de **favoritos** .
 
-## <a name="sort-favorites"></a>Classificar favoritos
+## <a name="rearrange-favorites"></a>Reorganizar favoritos
 
 Você pode alterar a ordem em que seus serviços favoritos são listados. Basta arrastar e soltar o item de menu em outro local em **favoritos**.
 

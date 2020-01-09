@@ -1,5 +1,5 @@
 ---
-title: Converter o armazenamento do Azure Managed disks de Standard para Premium ou Premium para Standard
+title: Converter o armazenamento de discos gerenciados entre SSD Standard e Premium
 description: Como converter o Azure Managed disks de Standard para Premium ou Premium para Standard usando Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b63d4d0247fd640e961d03d336d6b211473c48fb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cbc2d09429c0a36992167b8c8251d0a570ffbae3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033931"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563314"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerenciado
 
@@ -113,7 +113,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 Siga estes passos.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione a VM na lista de **máquinas virtuais** no Portal.
 3. Se a VM não estiver parada, selecione **parar** na parte superior do painel **visão geral** da VM e aguarde a interrupção da VM.
 3. No painel da VM, selecione **discos** no menu.
@@ -122,7 +122,7 @@ Siga estes passos.
 6. Altere o **tipo de conta** de **HDD Standard** para **SSD Premium**.
 7. Clique em **salvar**e feche o painel disco.
 
-A conversão de tipo de disco é instantânea. Você pode reiniciar a VM após a conversão.
+A conversão de tipo de disco é instantânea. Você pode iniciar a VM após a conversão.
 
 ## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Mudar os discos gerenciados entre HDD Standard e SSD Standard 
 

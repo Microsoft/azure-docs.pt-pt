@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985760"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562141"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar Key Vault exclusão reversível com o PowerShell
 
@@ -30,7 +30,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 
 >[!NOTE]
 > Há uma versão desatualizada do nosso Key Vault arquivo de formatação de saída do PowerShell que **pode** ser carregado em seu ambiente em vez da versão correta. Estamos prevendo uma versão atualizada do PowerShell para conter a correção necessária para a formatação de saída e atualizaremos esse tópico nesse momento. A solução alternativa atual, caso você encontre esse problema de formatação, é:
-> - Use a consulta a seguir se você observar que não está vendo a propriedade de exclusão reversível habilitada neste tópico `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`:.
+> - Use a consulta a seguir se você observar que não está vendo a propriedade habilitado para exclusão reversível descrita neste tópico: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
 Para Key Vault informações de referência específicas para o PowerShell, consulte [referência do Azure Key Vault PowerShell](/powershell/module/az.keyvault).
@@ -43,7 +43,7 @@ As operações de Key Vault são gerenciadas separadamente por meio de permissõ
 |:--|:--|:--|
 |Lista|Lista os cofres de chaves excluídos.|Microsoft.KeyVault/deletedVaults/read|
 |Recuperar|Restaura um cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
-|Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Remover|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 Para obter mais informações sobre permissões e controle de acesso, consulte [proteger seu cofre de chaves](key-vault-secure-your-key-vault.md).
 
@@ -164,7 +164,7 @@ As ações de **recuperação** e **limpeza** têm suas próprias permissões as
 
 #### <a name="set-a-key-vault-access-policy"></a>Definir uma política de acesso do cofre de chaves
 
-O comando a seguir user@contoso.com concede permissão para usar várias operações em chaves no *ContosoVault* , incluindo a **limpeza**:
+O comando a seguir concede user@contoso.com permissão para usar várias operações em chaves no *ContosoVault* , incluindo a **limpeza**:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
@@ -208,7 +208,7 @@ Como as chaves, os segredos são gerenciados com seus próprios comandos:
 
 A função de limpeza é usada para excluir permanentemente um objeto do cofre de chaves ou um cofre de chaves inteiro, que anteriormente foi excluído de forma reversível. Conforme demonstrado na seção anterior, os objetos armazenados em um cofre de chaves com o recurso de exclusão reversível habilitada podem passar por vários Estados:
 - **Ativo**: antes da exclusão.
-- **Excluído de**forma reversível: após a exclusão, pode ser listado e recuperado novamente para o estado ativo.
+- **Excluído de forma reversível**: após a exclusão, pode ser listado e recuperado novamente para o estado ativo.
 - **Excluído permanentemente**: após a limpeza, não é possível recuperá-lo.
 
 
@@ -216,7 +216,7 @@ O mesmo é verdadeiro para o cofre de chaves. Para excluir permanentemente um co
 
 ### <a name="purging-a-key-vault"></a>Limpando um cofre de chaves
 
-Quando um cofre de chaves é limpo, seu conteúdo inteiro é excluído permanentemente, incluindo chaves, segredos e certificados. Para limpar um cofre de chaves com exclusão reversível, `Remove-AzKeyVault` use o comando com `-InRemovedState` a opção e especificando o local do cofre de chaves excluído com `-Location location` o argumento. Você pode encontrar o local de um cofre excluído usando o comando `Get-AzKeyVault -InRemovedState`.
+Quando um cofre de chaves é limpo, seu conteúdo inteiro é excluído permanentemente, incluindo chaves, segredos e certificados. Para limpar um cofre de chaves com exclusão reversível, use o comando `Remove-AzKeyVault` com a opção `-InRemovedState` e especificando o local do cofre de chaves excluído com o argumento `-Location location`. Você pode encontrar o local de um cofre excluído usando o comando `Get-AzKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
@@ -257,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>Outros recursos
 
 - Para obter uma visão geral do recurso de exclusão reversível do Key Vault, consulte [visão geral da exclusão reversível Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obter uma visão geral do uso de Azure Key Vault, consulte [o que é Azure Key Vault?](key-vault-overview.md). ATA = êxito}
+- Para obter uma visão geral do uso de Azure Key Vault, consulte [o que é Azure Key Vault?](key-vault-overview.md).

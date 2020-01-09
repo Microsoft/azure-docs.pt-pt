@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848141"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608759"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
 
@@ -30,9 +30,6 @@ Esta página abrange uma nova instalação do servidor e a configuração da mes
 > A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
 
 ## <a name="plan-your-deployment"></a>Planeie a sua implementação
-
-> [!WARNING]
-> A partir de março de 2019, os downloads do servidor MFA só estarão disponíveis para locatários pagos. Os locatários gratuitos/de avaliação não poderão mais baixar ou gerar e usar credenciais de ativação.
 
 Antes de transferir o Servidor Multi-Factor Authentication do Azure, considere quais são os seus requisitos de elevada disponibilidade e carga. Utilize estas informações para decidir como e onde implementar.
 
@@ -96,9 +93,6 @@ Se não estiver a utilizar a funcionalidade Confirmação de Eventos e os seus u
 
 ## <a name="download-the-mfa-server"></a>Transferir o Servidor MFA
 
-> [!WARNING]
-> A partir de março de 2019, os downloads do servidor MFA só estarão disponíveis para locatários pagos. Os locatários gratuitos/de avaliação não poderão mais baixar ou gerar e usar credenciais de ativação.
-
 Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azure a partir do portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
@@ -122,6 +116,9 @@ Agora que transferiu o servidor, pode instalá-lo e configurá-lo. Certifique-se
    ![Ignorar usando o assistente de configuração de autenticação](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Na página a partir da qual transferiu o servidor, clique no botão **Gerar Credenciais de Ativação**. Copie estas informações para o servidor MFA do Azure nas caixas fornecidas e clique em **Ativar**.
+
+> [!NOTE]
+> Somente os administradores globais podem gerar credenciais de ativação no portal do Azure.
 
 ## <a name="send-users-an-email"></a>Enviar uma mensagem de e-mail aos utilizadores
 

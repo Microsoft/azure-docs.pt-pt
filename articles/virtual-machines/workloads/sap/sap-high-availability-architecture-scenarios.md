@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4352fbf71b23aedc1dddd3e454b58196d4f5a6e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078476"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638209"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura e cenários de alta disponibilidade para o SAP NetWeaver
 
@@ -37,8 +37,8 @@ ms.locfileid: "70078476"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -224,16 +224,16 @@ ms.locfileid: "70078476"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
 ## <a name="terminology-definitions"></a>Definições de terminologia
 
-**Elevada disponibilidade**: Refere-se a um conjunto de tecnologias que minimizam as interrupções de ti, fornecendo continuidade de negócios dos serviços de ti por meio de componentes redundantes, tolerantes a falhas ou protegidos por failover dentro do *mesmo* Data Center. Em nosso caso, a data center reside em uma região do Azure.
+**Alta disponibilidade**: refere-se a um conjunto de tecnologias que minimizam as interrupções de ti, fornecendo continuidade de negócios dos serviços de ti por meio de componentes redundantes, tolerantes a falhas ou protegidos por failover dentro do *mesmo* Data Center. Em nosso caso, a data center reside em uma região do Azure.
 
-**Recuperação de desastre**: Também se refere à minimização da interrupção dos serviços de ti e à sua recuperação, mas em *vários* data centers que podem estar a centenas de quilômetros de distância uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região do geopolítica ou em locais, conforme estabelecido por você como um cliente.
+**Recuperação de desastres**: também se refere à minimização da interrupção dos serviços de ti e à sua recuperação, mas em *vários* data centers que podem estar a centenas de quilômetros uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região do geopolítica ou em locais, conforme estabelecido por você como um cliente.
 
 
 ## <a name="overview-of-high-availability"></a>Visão geral da alta disponibilidade
@@ -265,7 +265,7 @@ Atualmente, há um SLA de VM única de 99,9% com o armazenamento Premium. Para t
 
 A base para o cálculo é de 30 dias por mês ou de 43.200 minutos. Por exemplo, um tempo de inatividade de 0, 5% corresponde a 21,6 minutos. Como de costume, a disponibilidade dos vários serviços é calculada da seguinte maneira:
 
-(Serviço de disponibilidade #1/100) * (serviço de disponibilidade #2/100) * (serviço de disponibilidade #3 \*/100)...
+(Serviço de disponibilidade #1/100) * (serviço de disponibilidade #2/100) * (serviço de disponibilidade #3/100) \*...
 
 Por exemplo:
 
@@ -349,7 +349,7 @@ As seções a seguir discutem como obter alta disponibilidade para todos os trê
 
 Normalmente, você não precisa de uma solução específica de alta disponibilidade para o servidor de aplicativos SAP e as instâncias de caixa de diálogo. Você obtém alta disponibilidade por redundância e configura várias instâncias de caixa de diálogo em várias instâncias de máquinas virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas instâncias de máquinas virtuais do Azure.
 
-![Figura 1: Servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
+![Figura 1: servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
 
 _**Figura 1:** Servidor de aplicativos SAP de alta disponibilidade_
 
@@ -367,8 +367,8 @@ O número de domínios de atualização e de falha que podem ser usados por um c
 
 Se você implantar algumas instâncias do servidor de aplicativos SAP em suas VMs dedicadas, supondo que tenhamos cinco domínios de atualização, a imagem a seguir surgirá. O número máximo real de domínios de atualização e falha dentro de um conjunto de disponibilidade pode mudar no futuro:
 
-![Figura 2: Alta disponibilidade de servidores de aplicativos SAP em um conjunto][planning-guide-figure-3000]
-_de disponibilidade do Azure**Figura 2:** Alta disponibilidade de servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
+![Figura 2: alta disponibilidade de servidores de aplicativos SAP em um conjunto de disponibilidade do Azure][planning-guide-figure-3000]
+_ **Figura 2:** alta disponibilidade de servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
 
 Para obter mais informações, consulte [gerenciar a disponibilidade de máquinas virtuais do Windows no Azure][azure-virtual-machines-manage-availability].
 
@@ -387,9 +387,9 @@ Para obter mais informações, consulte a seção [conjuntos de disponibilidade 
 
 Você pode usar uma solução WSFC para proteger a instância do SAP ASCS/SCS. A solução tem duas variantes:
 
-* **Clusterizar a instância do SAP ASCS/SCS usando discos compartilhados clusterizados**: Para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk].   
+* **Clusterizar a instância do SAP ASCS/SCS usando discos compartilhados clusterizados**: para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Clusterizar a instância do SAP ASCS/SCS usando o compartilhamento de arquivos**: Para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share].
+* **Clusterizar a instância do SAP ASCS/SCS usando o compartilhamento de arquivos**: para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share].
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Linux
 
@@ -416,7 +416,7 @@ Para obter mais informações sobre como clusterizar a instância do SAP ASCS/SC
 
 O DBMS também é um ponto único de contato em um sistema SAP. Você precisa protegê-lo usando uma solução de alta disponibilidade. A figura a seguir mostra uma solução de alta disponibilidade SQL Server AlwaysOn no Azure, com o clustering de failover do Windows Server e o balanceador de carga interno do Azure. SQL Server o AlwaysOn replica os dados do DBMS e os arquivos de log usando sua própria replicação de DBMS. Nesse caso, você não precisa de um disco compartilhado clusterizado, o que simplifica toda a configuração.
 
-![Figura 3: Exemplo de um DBMS SAP de alta disponibilidade, com o SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Figura 3: exemplo de um DBMS SAP de alta disponibilidade, com o SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
 _**Figura 3:** Exemplo de um DBMS SAP de alta disponibilidade, com o SQL Server AlwaysOn_
 

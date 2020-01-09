@@ -1,110 +1,101 @@
 ---
-title: Descrição geral do Service Fabric Reliable Services do modelo de programação | Documentos da Microsoft
-description: Saiba mais sobre o modelo de programação do Service Fabric Reliable Service e começar a escrever seus próprios serviços.
-services: Service-Fabric
-documentationcenter: .net
+title: Visão geral do modelo de programação de Reliable Service
+description: Saiba mais sobre o modelo de programação de serviço confiável do Service Fabric e comece a escrever seus próprios serviços.
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727017"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614252"
 ---
-# <a name="reliable-services-overview"></a>Descrição geral do Reliable Services
-O Azure Service Fabric simplifica a escrita e gestão de serviços fiáveis com e sem estado. Este tópico abrange:
+# <a name="reliable-services-overview"></a>Descrição geral dos Reliable Services
+O Azure Service Fabric simplifica a gravação e o gerenciamento de Reliable Services com e sem estado. Este tópico abrange:
 
-* O modelo de programação Reliable Services para serviços com e sem estado.
-* As opções disponíveis para a tomar ao escrever um serviço fiável.
-* Alguns cenários e exemplos de quando utilizar a Reliable Services e como elas são gravadas.
+* O modelo de programação de Reliable Services para serviços com e sem estado.
+* As opções que você precisa fazer ao escrever um serviço confiável.
+* Alguns cenários e exemplos de quando usar Reliable Services e como eles são gravados.
 
-Reliable Services é um dos modelos de programação disponíveis no Service Fabric. O outro é o modelo de programação dos Reliable Actors, que fornece um modelo de programação de Ator virtual por cima do modelo do Reliable Services. Para obter mais informações sobre o modelo de programação Reliable Actors, consulte [introdução ao Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+Reliable Services é um dos modelos de programação disponíveis no Service Fabric. O outro é o modelo de programação de ator confiável, que fornece um modelo de programação de ator virtual sobre o modelo de Reliable Services. Para obter mais informações sobre o modelo de programação Reliable Actors, consulte [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-O Service Fabric gere o ciclo de vida dos serviços, desde o aprovisionamento e implementação através da atualização e eliminação, via [gestão de aplicações do Service Fabric](service-fabric-deploy-remove-applications.md).
+O Service Fabric gerencia o tempo de vida dos serviços, desde o provisionamento e a implantação até a atualização e exclusão, por meio do [Gerenciamento de aplicativos Service Fabric](service-fabric-deploy-remove-applications.md).
 
-## <a name="what-are-reliable-services"></a>Quais são os Reliable Services?
-Reliable Services-lhe um modelo de programação simple, poderoso, de nível superior para o ajudar a expressar o que é importante para a sua aplicação. Com o modelo de programação de serviços fiáveis, obtém:
+## <a name="what-are-reliable-services"></a>O que são Reliable Services?
+Reliable Services fornece um modelo de programação simples, poderoso e de nível superior para ajudá-lo a expressar o que é importante para seu aplicativo. Com o modelo de programação Reliable Services, você obtém:
 
-* Acesso ao restante dos APIs de programação do Service Fabric. Ao contrário dos serviços do Service Fabric, modelado como [executáveis convidados](service-fabric-guest-executables-introduction.md), Reliable Services possa usar o resto das APIs de recursos de infraestrutura do serviço diretamente. Isso permite que os serviços:
+* Acesso ao restante das APIs de programação de Service Fabric. Ao contrário dos serviços de Service Fabric modelados como [executáveis convidados](service-fabric-guest-executables-introduction.md), Reliable Services obter o uso do restante das APIs do Service Fabric diretamente. Isso permite que os serviços:
   * consultar o sistema
-  * Estado de funcionamento do relatório sobre entidades do cluster
-  * receber notificações sobre alterações de configuração e de código
-  * localizar e se comunicar com outros serviços,
-  * (opcionalmente) a utilizar o [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+  * relatar a integridade sobre entidades no cluster
+  * receber notificações sobre alterações de configuração e código
+  * Localize e comunique-se com outros serviços,
+  * (opcionalmente) usar as [coleções confiáveis](service-fabric-reliable-services-reliable-collections.md)
   * ...e. conceder acesso à muitas outras funcionalidades, tudo a partir de um modelo de programação de primeira classe em várias linguagens de programação.
-* Um modelo simples para executar seu próprio código que parece que já conhece de modelos de programação. Seu código tem um ponto de entrada bem-definida e o ciclo de vida facilmente gerenciado.
-* Um modelo de comunicação conectáveis. Utilizar o transporte de sua escolha, tal como HTTP com [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, ou qualquer outra coisa. Reliable Services fornecer algumas ótimas opções de out-of-the-box pode utilizar, ou pode fornecer seu próprio.
-* Para serviços com estado, o modelo de programação Reliable Services permite-lhe consistente e fiável armazenar seu estado diretamente dentro do seu serviço, utilizando [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). As coleções fiáveis são um conjunto simples de classes de coleção de elevada disponibilidade e fiáveis que lhe será familiar para qualquer pessoa que tenha utilizado C# coleções. Tradicionalmente, os serviços necessários sistemas externos para gerenciamento de estado fiável. Com as Reliable Collections, pode armazenar seu estado junto a computação com o mesmo elevada disponibilidade e fiabilidade de que poderia esperar de elevada disponibilidade arquivos externos. Este modelo também melhora a latência porque alocar conjuntamente a computação e o estado para funcionar.
+* Um modelo simples para executar seu próprio código que se parece com modelos de programação para os quais você está acostumado. Seu código tem um ponto de entrada bem definido e um ciclo de vida gerenciado com facilidade.
+* Um modelo de comunicação conectável. Use o transporte de sua escolha, como HTTP com [API Web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados ou qualquer outra coisa. Reliable Services fornecem algumas opções excelentes que você pode usar, ou você pode fornecer a sua própria.
+* Para serviços com estado, o modelo de programação Reliable Services permite que você armazene de forma consistente e confiável seu estado no seu serviço usando [coleções confiáveis](service-fabric-reliable-services-reliable-collections.md). As coleções confiáveis são um conjunto simples de classes de coleções altamente disponíveis e confiáveis que serão familiares para qualquer pessoa que C# tenha usado coleções. Tradicionalmente, os serviços precisavam de sistemas externos para o gerenciamento confiável de estado. Com as coleções confiáveis, você pode armazenar seu estado ao lado de sua computação com a mesma alta disponibilidade e confiabilidade que espera de armazenamentos externos altamente disponíveis. Esse modelo também melhora a latência porque você está Colocalizando a computação e o estado de que precisa para funcionar.
 
-## <a name="what-makes-reliable-services-different"></a>O que diferencia Reliable Services?
-Serviços fiáveis no Service Fabric são diferentes dos serviços que possa ter escrito antes. O Service Fabric fornece confiabilidade, disponibilidade, consistência e escalabilidade.
+## <a name="what-makes-reliable-services-different"></a>O que torna Reliable Services diferente?
+Os Reliable Services em Service Fabric são diferentes dos serviços que você pode ter escrito anteriormente. Service Fabric fornece confiabilidade, disponibilidade, consistência e escalabilidade.
 
-* **Confiabilidade** – os serviço permanece até mesmo em ambientes não confiáveis em que as máquinas falharam ou pressionar problemas de rede ou em casos em que os serviços se encontram erros e falhas ou falharam. Para serviços com estado, o seu estado é preservado mesmo na ocorrência de rede ou outras falhas.
-* **Disponibilidade** -seu serviço está acessível e a capacidade de resposta. Service Fabric mantém o número pretendido da execução de cópias.
-* **Escalabilidade** - serviços estão desassociados dos hardware específico e podem aumentar ou diminuir conforme necessário através da adição ou remoção de hardware ou outros recursos. Os serviços são facilmente particionados (especialmente no caso de com monitoração de estado) para se certificar de que o serviço pode ser dimensionado e lidar com falhas parciais. Os serviços podem ser criados e eliminado dinamicamente por meio do código, permitindo que mais instâncias ser rotacionado conforme necessário, digamos em resposta aos pedidos dos clientes. Por fim, o Service Fabric incentiva serviços para ser leve. Service Fabric permite milhares de serviços a serem aprovisionados dentro de um único processo, em vez de exigir ou dedicar instâncias de sistema operacional inteiras ou processos para uma única instância de um serviço.
-* **Consistência** -todas as informações armazenadas neste serviço podem ser garantidas como estando consistente. Isso vale mesmo entre várias coleções fiáveis dentro de um serviço. Podem ser feitas alterações nos conjuntos de dentro de um serviço de forma ao nível das transações atômica.
+* **Confiabilidade** – seu serviço permanece até mesmo em ambientes não confiáveis em que seus computadores falham ou atingem problemas de rede, ou em casos em que os próprios serviços encontram erros e falham ou falham. Para serviços com estado, seu estado é preservado mesmo na presença de rede ou outras falhas.
+* **Disponibilidade** -seu serviço está acessível e respondendo. Service Fabric mantém o número desejado de cópias em execução.
+* **Escalabilidade** -os serviços são dissociados de um hardware específico e podem crescer ou reduzir conforme necessário por meio da adição ou remoção de hardware ou outros recursos. Os serviços são particionados facilmente (especialmente no caso com estado) para garantir que o serviço possa ser dimensionado e lidar com falhas parciais. Os serviços podem ser criados e excluídos dinamicamente por meio de código, permitindo que mais instâncias sejam giradas conforme o necessário, digamos em resposta às solicitações do cliente. Por fim, Service Fabric incentiva os serviços a serem leves. Service Fabric permite que milhares de serviços sejam provisionados em um único processo, em vez de exigir ou dedicar processos ou instâncias de sistema operacional inteiras a uma única instância de um serviço.
+* **Consistência** -todas as informações armazenadas nesse serviço podem ter a garantia de serem consistentes. Isso é verdadeiro mesmo em várias coleções confiáveis dentro de um serviço. As alterações nas coleções de um serviço podem ser feitas de forma transacional atômica.
 
 ## <a name="service-lifecycle"></a>Ciclo de vida do serviço
-Se o seu serviço estiver com monitoração de estado ou sem estado, o Reliable Services fornecem um ciclo de vida simple que lhe permitem conectar seu código rapidamente e começar a utilizar.  Há apenas um ou dois métodos que precisa implementar para obter o seu serviço em funcionamento.
+Se o seu serviço tem monitoração de estado ou sem estado, Reliable Services fornecer um ciclo de vida simples que permita que você conecte seu código rapidamente e comece a usar.  Há apenas um ou dois métodos que você precisa implementar para colocar seu serviço em funcionamento.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -esse método é onde o serviço define o stack(s) de comunicação que ele deseja usar. A comunicação de pilha, como [Web API](service-fabric-reliable-services-communication-webapi.md), é o que define o ponto final de escuta ou a pontos de extremidade do serviço (como os clientes chegarem ao serviço). Também define como as mensagens que são apresentados interagem com o restante do código de serviço.
-* **RunAsync** -esse método é onde o seu serviço é executada a sua lógica de negócios e, em que ele seria disparar todas as tarefas em segundo plano que devem ser executados durante o ciclo de vida do serviço. O token de cancelamento é fornecido é um sinal para quando esse trabalho deverá ser interrompida. Por exemplo, se o serviço precisar extraem as mensagens fora de uma fila do Reliable e processá-las, isso é onde acontece esse trabalho.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -esse método é onde o serviço define as pilhas de comunicação que deseja usar. A pilha de comunicação, como a [API Web](service-fabric-reliable-services-communication-webapi.md), é o que define o ponto de extremidade de escuta ou pontos de extremidades para o serviço (como os clientes atingem o serviço). Ele também define como as mensagens que aparecem interagem com o restante do código do serviço.
+* **RunAsync** -esse método é onde o serviço executa sua lógica de negócios e onde ele iniciaria todas as tarefas em segundo plano que devem ser executadas durante o tempo de vida do serviço. O token de cancelamento fornecido é um sinal para quando o trabalho deve parar. Por exemplo, se o serviço precisar extrair mensagens de uma fila confiável e processá-las, é aí que esse trabalho acontece.
 
-Se estiver aprendendo sobre serviços fiáveis pela primeira vez, continue a ler! Se procura-se para obter instruções detalhadas do ciclo de vida dos reliable services, pode ir para o [este artigo](service-fabric-reliable-services-lifecycle.md).
+Se você estiver aprendendo sobre os Reliable Services pela primeira vez, continue lendo! Se você estiver procurando uma explicação detalhada do ciclo de vida dos Reliable Services, poderá ir até [Este artigo](service-fabric-reliable-services-lifecycle.md).
 
 ## <a name="example-services"></a>Serviços de exemplo
-Vamos saber esse modelo de programação, dar uma olhada rápida em dois serviços diferentes para ver como essas partes se encaixam.
+Sabendo esse modelo de programação, vamos dar uma olhada rápida em dois serviços diferentes para ver como essas peças se encaixam.
 
-### <a name="stateless-reliable-services"></a>Sem monitoração de estado do Reliable Services
-Um serviço sem estado é o local uma onde não existe nenhum estado mantido no serviço em chamadas. Qualquer Estado que está presente é inteiramente descartável e não requer sincronização, replicação, persistência ou elevada disponibilidade.
+### <a name="stateless-reliable-services"></a>Reliable Services sem estado
+Um serviço sem estado é aquele em que não há nenhum estado mantido dentro do serviço entre chamadas. Qualquer estado presente é totalmente descartável e não requer sincronização, replicação, persistência ou alta disponibilidade.
 
-Por exemplo, considere uma calculadora de que não tem memória e recebe todos os termos e operações a serem executadas ao mesmo tempo.
+Por exemplo, considere uma calculadora que não tem memória e receba todos os termos e operações a serem executados ao mesmo tempo.
 
-Neste caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, uma vez que não existe nenhuma tarefa-processamento de em segundo plano que o serviço precisa para fazer. Quando o serviço da Calculadora é criado, ele retorna um `ICommunicationListener` (C#) ou `CommunicationListener` (Java) (por exemplo [Web API](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto final de escuta em alguma porta. Este ponto final de escuta conecta-se para os métodos de cálculo diferentes (exemplo: "Adicionar (n1, n2)") que definem de API pública a Calculadora.
+Nesse caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, já que não há nenhum processamento de tarefa em segundo plano que o serviço precisa fazer. Quando o serviço de calculadora é criado, ele retorna um `ICommunicationListener`C#() ou `CommunicationListener` (Java) (por exemplo, [API Web](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conecta aos diferentes métodos de cálculo (exemplo: "Add (N1, N2)") que definem a API pública da calculadora.
 
-Quando é efetuada uma chamada a partir de um cliente, o método apropriado é invocado e o serviço da Calculadora realiza as operações nos dados fornecidos e devolve o resultado. Não armazena qualquer Estado.
+Quando uma chamada é feita de um cliente, o método apropriado é invocado e o serviço de calculadora executa as operações nos dados fornecidos e retorna o resultado. Ele não armazena nenhum estado.
 
-Não armazenar qualquer Estado interno torna esta Calculadora de exemplo simples. Mas a maioria dos serviços não são verdadeiramente sem monitoração de estado. Em vez disso, eles externalizar seu estado para algum outro armazenamento. (Por exemplo, qualquer aplicação web que se baseia em manter o estado da sessão num arquivo de backup ou uma cache não é sem monitoração de estado.)
+Não armazenar nenhum estado interno torna essa calculadora de exemplo simples. Mas a maioria dos serviços não é realmente sem estado. Em vez disso, eles externamente o estado para algum outro repositório. (Por exemplo, qualquer aplicativo Web que dependa da manutenção do estado de sessão em um repositório de backup ou cache não está sem estado.)
 
-Um exemplo comum da forma como os serviços sem monitoração de estado são utilizados no Service Fabric é como um front-end que expõe a API de destinado ao público para um aplicativo web. O serviço de front-end, em seguida, conversa com os serviços com estado para concluir um pedido de utilizador. Neste caso, as chamadas dos clientes são direcionadas para uma porta conhecida, como 80, onde o serviço sem estado está a escutar. Este serviço sem estado recebe a chamada e determina se a chamada é de um confiável e que mantê-lo se destinar a.  Em seguida, o serviço sem estado reencaminha a chamada para a partição correta do serviço com monitorização de estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Um exemplo de um serviço como esse é em nossos exemplos [ C# ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Este é apenas um exemplo desse padrão nos exemplos, há outros nos outros exemplos também.
+Um exemplo comum de como os serviços sem estado são usados no Service Fabric é como um front-end que expõe a API voltada para o público para um aplicativo Web. Em seguida, o serviço de front-end se comunica com serviços com estado para concluir uma solicitação de usuário. Nesse caso, as chamadas de clientes são direcionadas para uma porta conhecida, como 80, em que o serviço sem estado está escutando. Esse serviço sem estado recebe a chamada e determina se a chamada é de uma parte confiável e para qual serviço ela está destinada.  Em seguida, o serviço sem estado encaminha a chamada para a partição correta do serviço com estado e aguarda uma resposta. Quando o serviço sem estado recebe uma resposta, ele responde ao cliente original. Um exemplo de tal serviço está em nossos exemplos [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Esse é apenas um exemplo desse padrão nos exemplos; também há outros em outros exemplos.
 
 ### <a name="stateful-reliable-services"></a>Reliable Services com estado
-Um serviço com estado é aquele que tem de ter uma parte do estado mantido consistentes e presentes para que o serviço de função. Considere um serviço que constantemente computa uma média móvel de um valor com base nas atualizações que recebe. Para tal, tem de ter o conjunto atual de pedidos de entrada tem de processo e a média de atual. Qualquer serviço que obtém, processa e armazena informações num repositório externo (por exemplo, um blob ou tabela loja Azure hoje mesmo) é com monitoração de estado. Apenas mantém seu estado no arquivo de estado externo.
+Um serviço com estado é aquele que deve ter uma parte do estado mantida consistente e presente para que o serviço funcione. Considere um serviço que computa constantemente uma média móvel de algum valor com base nas atualizações recebidas. Para fazer isso, ele deve ter o conjunto atual de solicitações de entrada que precisa processar e a média atual. Qualquer serviço que recupere, processe e armazene informações em um repositório externo (como um blob do Azure ou repositório de tabelas hoje) é com estado. Ele apenas mantém seu estado no armazenamento de estado externo.
 
-A maioria dos serviços hoje armazenar seus Estados externamente, uma vez que o arquivo externo é o que fornece a fiabilidade, disponibilidade, escalabilidade e consistência para esse Estado. No Service Fabric, os serviços não são necessários para armazenar seus Estados externamente. Service Fabric se encarrega dos requisitos seguintes para o código de serviço e o estado do serviço.
+A maioria dos serviços atualmente armazena seu estado externamente, já que o repositório externo é o que fornece confiabilidade, disponibilidade, escalabilidade e consistência para esse estado. No Service Fabric, os serviços não são necessários para armazenar seu estado externamente. Service Fabric cuida desses requisitos para o código do serviço e o estado do serviço.
 
-Vamos supor que Desejamos escrever um serviço que processa imagens. Para fazer isso, o serviço aceita uma imagem e a série de conversões para executar na mesma. Este serviço retorna um serviço de escuta de comunicação (vamos suponha que é uma API Web) que expõe uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Quando recebe um pedido, o serviço armazena-a num `IReliableQueue`e retorna algumas id para o cliente para que possa acompanhar o pedido.
+Digamos que desejamos escrever um serviço que processa imagens. Para fazer isso, o serviço usa uma imagem e a série de conversões a serem executadas nessa imagem. Esse serviço retorna um ouvinte de comunicação (vamos supor que se trata de um WebAPI) que expõe uma API como `ConvertImage(Image i, IList<Conversion> conversions)`. Quando recebe uma solicitação, o serviço a armazena em uma `IReliableQueue`e retorna alguma ID ao cliente para que possa rastrear a solicitação.
 
-Neste serviço, `RunAsync()` poderia ser mais complexa. O serviço tem um loop dentro do respetivo `RunAsync()` que recebe pedidos de `IReliableQueue` e realiza as conversões de pedido. Os resultados são armazenados num `IReliableDictionary` , de modo que quando o cliente volta e eles podem obter as suas imagens convertidas. Para garantir que, mesmo se algo falhar a imagem não é perdido, este serviço fiável seria puxar para fora da fila, execute as conversões e Armazeno o resultado numa única transação. Neste caso, a mensagem é removida da fila e os resultados são armazenados no dicionário de resultado, apenas quando as conversões estiverem concluídas. Em alternativa, o serviço foi possível extrair a imagem para fora da fila e armazená-los imediatamente num armazenamento remoto. Isso reduz a quantidade de estado que do serviço tem de gerir, mas a complexidade aumenta, desde que o serviço tem de manter os metadados necessários para gerir o armazenamento remoto. Com qualquer uma das abordagens, se algo falhou no meio, o pedido permanece na fila de espera para serem processados.
+Nesse serviço, `RunAsync()` pode ser mais complexo. O serviço tem um loop dentro de seu `RunAsync()` que efetua pull das solicitações de `IReliableQueue` e executa as conversões solicitadas. Os resultados são armazenados em um `IReliableDictionary` para que, quando o cliente voltar, eles possam obter suas imagens convertidas. Para garantir que, mesmo que algo falhe, a imagem não seja perdida, esse serviço confiável extrairá a fila, executará as conversões e armazenaria o resultado tudo em uma única transação. Nesse caso, a mensagem é removida da fila e os resultados são armazenados no dicionário de resultados somente quando as conversões são concluídas. Como alternativa, o serviço pode extrair a imagem da fila e armazená-la imediatamente em um repositório remoto. Isso reduz a quantidade de estado que o serviço precisa gerenciar, mas aumenta a complexidade, pois o serviço precisa manter os metadados necessários para gerenciar o armazenamento remoto. Com qualquer abordagem, se algo falhar no meio, a solicitação permanecerá na fila aguardando para ser processada.
 
-Uma coisa a ser observado sobre este serviço é que ele pode parecer um serviço .NET normal! A única diferença é que os dados de estrutura a ser utilizado (`IReliableQueue` e `IReliableDictionary`) são fornecidos pelo Service Fabric e são altamente confiável, disponível e consistente.
+Uma coisa a ser observada sobre esse serviço é que ele parece um serviço .NET normal! A única diferença é que as estruturas de dados que estão sendo usadas (`IReliableQueue` e `IReliableDictionary`) são fornecidas por Service Fabric e são altamente confiáveis, disponíveis e consistentes.
 
-## <a name="when-to-use-reliable-services-apis"></a>Quando utilizar APIs de serviços fiáveis
-Se qualquer um dos seguintes caracterizam as necessidades do seu serviço de aplicação, avalie a possibilidade de APIs de serviços fiáveis:
+## <a name="when-to-use-reliable-services-apis"></a>Quando usar Reliable Services APIs
+Se qualquer um dos seguintes caracterizar suas necessidades de serviço de aplicativo, você deve considerar Reliable Services APIs:
 
-* Quer o código do seu serviço (e, opcionalmente, de estado) para ser altamente disponível e fiável
-* Terá de garantias transacionais em várias unidades de estado (por exemplo, orders e itens de linha da ordem).
-* Estado da sua aplicação pode ser modelado naturalmente como dicionários fiável e filas.
-* O código de aplicativos ou estado tem de ser altamente disponível com baixa latência leituras e gravações.
-* Seu aplicativo precisa para controlar a simultaneidade ou a granularidade de operações transacionadas numa ou mais coleções fiáveis.
-* Pretende gerir as informações ou controlar o esquema de partição para o seu serviço.
-* O código precisa de um ambiente de tempo de execução possuem threads.
-* A aplicação tem de criar e destruir dicionários fiável ou nas filas e serviços todos no tempo de execução de forma dinâmica.
-* Precisa controlar fornecido com recursos de infraestrutura do serviço de cópia de segurança e restaurar funcionalidades para o estado do seu serviço através de programação.
-* Seu aplicativo precisa para manter o histórico de alterações de suas unidades de estado.
-* Pretende desenvolver ou fornecedores de estado personalizado, third party desenvolvidas de consumir.
+* Você deseja que o código do serviço (e, opcionalmente, o estado) seja altamente disponível e confiável
+* Você precisa de garantias transacionais em várias unidades de estado (por exemplo, pedidos e itens de linha de ordem).
+* O estado do seu aplicativo pode ser modelado naturalmente como dicionários e filas confiáveis.
+* O código ou o estado de seus aplicativos precisa estar altamente disponível com leituras e gravações de baixa latência.
+* Seu aplicativo precisa controlar a simultaneidade ou a granularidade de operações transacionadas em uma ou mais coleções confiáveis.
+* Você deseja gerenciar as comunicações ou controlar o esquema de particionamento para seu serviço.
+* Seu código precisa de um ambiente de tempo de execução de thread livre.
+* Seu aplicativo precisa criar ou destruir dinamicamente dicionários confiáveis ou filas ou serviços inteiros em tempo de execução.
+* Você precisa controlar programaticamente os recursos de backup e restauração fornecidos pelo Service Fabric para o estado do seu serviço.
+* Seu aplicativo precisa manter o histórico de alterações para suas unidades de estado.
+* Você deseja desenvolver ou consumir provedores de estado personalizado desenvolvidos por terceiros.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
-* [Coleções fiáveis](service-fabric-reliable-services-reliable-collections.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Início rápido de Reliable Services](service-fabric-reliable-services-quick-start.md)
+* [Coleções confiáveis](service-fabric-reliable-services-reliable-collections.md)
 * [O modelo de programação Reliable Actors](service-fabric-reliable-actors-introduction.md)

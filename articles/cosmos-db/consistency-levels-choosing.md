@@ -1,5 +1,5 @@
 ---
-title: Escolhendo o nível de consistência certo para seu aplicativo que usa Azure Cosmos DB
+title: Escolha o nível de consistência certo para seu aplicativo Azure Cosmos DB
 description: Escolhendo o nível de consistência certo para seu aplicativo no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: cea157e272a2bf464141e592b8e742f314a83233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441909"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher o nível de consistência certo 
 
-Os bancos de dados distribuídos que dependem da replicação para alta disponibilidade, baixa latência ou ambos, tornam a compensação fundamental entre a consistência de leitura versus disponibilidade, latência e taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de consistência é bem definido, intuitivo e pode ser usado para cenários do mundo real específicos. Cada um dos cinco modelos de consistência fornece compensações de [desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. As considerações simples a seguir o ajudarão a fazer a escolha certa em muitos cenários comuns.
+Os bancos de dados distribuídos que dependem da replicação para alta disponibilidade, baixa latência ou ambos, tornam a compensação fundamental entre a consistência de leitura versus disponibilidade, latência e taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de consistência é bem definido, intuitivo e pode ser usado para cenários do mundo real específicos. Cada um dos cinco modelos de consistência fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. As considerações simples a seguir o ajudarão a fazer a escolha certa em muitos cenários comuns.
 
 ## <a name="sql-api-and-table-api"></a>API e API de Tabela do SQL
 
@@ -52,11 +52,11 @@ Na prática, muitas vezes você pode obter garantias de consistência mais forte
 
 * Para os três níveis de consistência restantes, a janela de desatualização é amplamente dependente de sua carga de trabalho. Por exemplo, se não houver nenhuma operação de gravação no banco de dados, uma operação de leitura com níveis de consistência **eventual**, de **sessão**ou de **prefixo consistente** provavelmente produzirá os mesmos resultados que uma operação de leitura com um nível de consistência forte.
 
-Se sua conta do Azure Cosmos estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de que os clientes possam obter leituras fortes e consistentes para suas cargas de trabalho examinando o *Probabilistic limitado* Métrica de desatualização (PBS). Essa métrica é exposta na portal do Azure para saber mais, consulte monitorar a [métrica do PBS (](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)desatualização vinculada Probabilistic).
+Se sua conta do Azure Cosmos estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de que seus clientes possam obter leituras fortes e consistentes para suas cargas de trabalho examinando a métrica do PBS (desatualização limitada) do *Probabilistic* . Essa métrica é exposta na portal do Azure para saber mais, consulte monitorar a [métrica do PBS (desatualização vinculada Probabilistic)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 A desatualização limitada por probabilística mostra como sua consistência eventual é eventual. Essa métrica fornece uma percepção da frequência com que você pode obter uma consistência mais forte do que o nível de consistência configurado atualmente em sua conta do Azure Cosmos. Em outras palavras, você pode ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de gravação e leitura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os níveis de consistência nos seguintes artigos:
 

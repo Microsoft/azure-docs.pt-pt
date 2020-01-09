@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e9b4f3baace39cfe8bebe011ae284fc4c6b2b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893268"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550133"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o portal do NetOp
 
@@ -84,7 +84,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. O aplicativo do portal NetOp espera as asserções do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -146,7 +146,7 @@ Para configurar o logon único no lado do **NetOp portal** , é necessário o XM
 
 ### <a name="create-netop-portal-test-user"></a>Criar usuário de teste do NetOp Portal
 
-Nesta seção, você criará um usuário chamado Brenda Simon no portal do NetOp. Trabalhe com a [equipe de suporte do NetOp portal](mailto:casemanager@netop.com) para adicionar os usuários na plataforma do portal do NetOp. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta seção, você criará um usuário chamado Brenda Simon no portal do NetOp. Trabalhe com a [equipe de suporte do NetOp portal](mailto:casemanager@netop.com) para adicionar os usuários na plataforma do portal do NetOp. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ## <a name="test-sso"></a>Testar SSO 
 

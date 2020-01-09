@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035452"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561291"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 
@@ -27,7 +27,7 @@ Você pode usar um dos vários métodos para implantar a plataforma de contêine
 
 - Você pode implantar manualmente os componentes necessários da infraestrutura do Azure e, em seguida, seguir a [documentação da plataforma de contêiner do OpenShift](https://docs.openshift.com/container-platform).
 - Você também pode usar um modelo existente do [Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica a implantação do cluster da plataforma de contêiner do OpenShift.
-- Outra opção é usar a [oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Outra opção é usar a [oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Para todas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux é registrada na assinatura do Red Hat e anexada à ID do pool que contém os direitos para a plataforma de contêiner OpenShift.
 Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Você pode usar uma chave de ativação, ID da organização e ID do pool. Você pode verificar essas informações entrando em https://access.redhat.com.
@@ -248,7 +248,7 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Arquivo Parameters. JSON explicado
 
-| Propriedade | Descrição | Opções válidas | Valor Predefinido |
+| Propriedade | Descrição | Opções válidas | Default Value |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Região do Azure para implantar recursos |  |  |
@@ -282,9 +282,9 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 | `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
 | `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhuma |
-| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | predefinição <br> Personalizar | predefinição |
+| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | predefinição <br> personalizado | predefinição |
 | `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará nip.io.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> Personalizar | nipio |
+| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará nip.io.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> personalizado | nipio |
 | `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se selecionou ' personalizado ' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
 | `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourceGroup().name |
@@ -300,12 +300,12 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 | `existingInfraSubnetReference` | Referência completa à sub-rede existente para nós de infraestrutura. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa para a sub-rede existente para nós do CNS. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa para a sub-rede existente para nós de computação. Não é necessário se estiver criando uma nova vNet/sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | publicada <br> privado | publicada |
+| `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se privado for escolhido, os nós mestres não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | público <br> privado | público |
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | publicada <br> privado | publicada |
+| `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | público <br> privado | público |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
-| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |
-| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |
+| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
+| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
 
 <br>
 

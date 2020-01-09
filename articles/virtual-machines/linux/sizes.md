@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 91bf935ef1a31af0bea6437bd98fa8da4ba11911
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e10c0905237f3cc28dd0ac113dfaf844e781bac
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280628"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646664"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos e as opções disponíveis para as máquinas virtuais do Azure que você pode usar para executar seus aplicativos e cargas de trabalho do Linux. Ele também fornece considerações de implantação a serem consideradas quando você pretende usar esses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -38,7 +38,7 @@ Este artigo descreve os tamanhos e as opções disponíveis para as máquinas vi
 
 - Para obter informações sobre os preços de vários tamanhos, consulte [preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - Para obter a disponibilidade de tamanhos de VM nas regiões do Azure, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
-- Para ver os limites gerais em VMs do Azure, confira [assinatura do Azure e limites de serviço, cotas e restrições](../../azure-subscription-service-limits.md).
+- Para ver os limites gerais em VMs do Azure, confira [assinatura do Azure e limites de serviço, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Saiba mais sobre como as [unidades de computação do Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho de computação entre SKUs do Azure.
 
 

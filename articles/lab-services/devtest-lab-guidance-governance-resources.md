@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561652"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644873"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança de Azure DevTest Labs infraestrutura – recursos
 Este artigo aborda o alinhamento e o gerenciamento de recursos para DevTest Labs em sua organização. 
@@ -44,7 +44,7 @@ A **segunda prática recomendada** é habilitar a assinatura DevTest no portal e
 
 Esse modelo fornece à organização a flexibilidade para implantar Azure DevTest Labs em escala. Uma organização pode dar suporte a centenas de laboratórios para várias unidades de negócios com 100 a 1000 máquinas virtuais em execução em paralelo. Ele promove a noção de uma solução de laboratório empresarial centralizada que pode compartilhar os mesmos princípios de gerenciamento de configuração e controles de segurança.
 
-Esse modelo também garante que a organização não esgote seus limites de recursos associados à sua assinatura do Azure. Para obter detalhes sobre os limites de serviço e assinatura, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md). O processo de provisionamento do DevTest Labs pode consumir um grande número de grupos de recursos. Você pode solicitar que os limites sejam aumentados por meio de uma solicitação de suporte na assinatura do Azure DevTest. Os recursos na assinatura de produção não são afetados à medida que a assinatura de desenvolvimento cresce em uso. Para obter mais informações sobre o dimensionamento de DevTest Labs, consulte [dimensionar cotas e limites em DevTest Labs](devtest-lab-scale-lab.md).
+Esse modelo também garante que a organização não esgote seus limites de recursos associados à sua assinatura do Azure. Para obter detalhes sobre os limites de serviço e assinatura, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md). O processo de provisionamento do DevTest Labs pode consumir um grande número de grupos de recursos. Você pode solicitar que os limites sejam aumentados por meio de uma solicitação de suporte na assinatura do Azure DevTest. Os recursos na assinatura de produção não são afetados à medida que a assinatura de desenvolvimento cresce em uso. Para obter mais informações sobre o dimensionamento de DevTest Labs, consulte [dimensionar cotas e limites em DevTest Labs](devtest-lab-scale-lab.md).
 
 Um limite de nível de assinatura comum que precisa ser contabilizado é como as atribuições de intervalo de IP de rede são alocadas para dar suporte a assinaturas de desenvolvimento e de produção. Essas atribuições devem considerar o crescimento ao longo do tempo (supondo conectividade local ou outra topologia de rede que exija que a empresa Gerencie sua pilha de rede, em vez de padronizar para a implementação do Azure). A prática recomendada é ter algumas redes virtuais que tenham um prefixo de endereço IP grande atribuído e dividido com muitas sub-redes grandes, em vez de ter várias redes virtuais com sub-redes pequenas. Por exemplo, com 10 assinaturas, você pode definir 10 redes virtuais (uma para cada assinatura). Todos os laboratórios que não exigem isolamento podem compartilhar a mesma sub-rede na vnet da assinatura.
 

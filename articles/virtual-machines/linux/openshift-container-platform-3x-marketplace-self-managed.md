@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035525"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561325"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -28,7 +28,7 @@ Antes de usar a oferta do Marketplace para implantar um cluster da plataforma de
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implantar usando a oferta do Marketplace
 
-A maneira mais simples de implantar um cluster OpenShift da plataforma de contêiner autogerenciada 3,11 no Azure é usar a [oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+A maneira mais simples de implantar um cluster OpenShift da plataforma de contêiner autogerenciada 3,11 no Azure é usar a [oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Essa opção é a mais simples, mas também tem recursos de personalização limitados. A oferta do Marketplace implanta a plataforma de contêiner OpenShift 3.11.82 e inclui as seguintes opções de configuração:
 

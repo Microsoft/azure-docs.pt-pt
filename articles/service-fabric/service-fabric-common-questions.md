@@ -1,25 +1,15 @@
 ---
-title: Perguntas comuns sobre Microsoft Azure Service Fabric | Microsoft Docs
-description: Perguntas frequentes sobre Service Fabric e suas respostas
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Perguntas comuns sobre Microsoft Azure Service Fabric
+description: Perguntas frequentes sobre Service Fabric, incluindo recursos, casos de uso e cenários comuns.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481644"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614643"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre Service Fabric
 
@@ -94,7 +84,7 @@ Para cargas de trabalho de produção, você deve ser resiliente a falhas simult
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Posso desativar meu cluster à noite/finais de semana para economizar custos?
 
-Em geral, não. O Service Fabric armazena o estado em discos locais e efêmeros, o que significa que, se a máquina virtual for movida para um host diferente, os dados não serão movidos com ele. Na operação normal, isso não é um problema, pois o novo nó é atualizado por outros nós. No entanto, se você parar todos os nós e reiniciá-los mais tarde, haverá uma possibilidade significativa de que a maioria dos nós inicie em novos hosts e faça com que o sistema não possa ser recuperado.
+Geralmente, não. O Service Fabric armazena o estado em discos locais e efêmeros, o que significa que, se a máquina virtual for movida para um host diferente, os dados não serão movidos com ele. Na operação normal, isso não é um problema, pois o novo nó é atualizado por outros nós. No entanto, se você parar todos os nós e reiniciá-los mais tarde, haverá uma possibilidade significativa de que a maioria dos nós inicie em novos hosts e faça com que o sistema não possa ser recuperado.
 
 Se você quiser criar clusters para testar seu aplicativo antes que ele seja implantado, recomendamos que você crie esses clusters dinamicamente como parte de seu [pipeline de implantação contínua/integração contínua](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
@@ -111,13 +101,13 @@ Não. Não há suporte para VMs de baixa prioridade.
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e processos que preciso excluir ao executar um programa antivírus em meu cluster?
 
-| **Diretórios excluídos antivírus** |
+| **Diretórios de excluído antivírus** |
 | --- |
 | Programa Files\Microsoft Service Fabric |
 | FabricDataRoot (a partir de configuração de cluster) |
 | FabricLogRoot (a partir de configuração de cluster) |
 
-| **Processos de antivírus excluídos** |
+| **Antivírus excluídos processos** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |
@@ -135,7 +125,7 @@ Não. Não há suporte para VMs de baixa prioridade.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode se autenticar no keyvault para obter segredos?
 Veja a seguir os meios para que seu aplicativo obtenha credenciais para autenticação no keyvault:
 
-A. Durante o trabalho de criação/empacotamento de aplicativos, você pode efetuar pull de um certificado no pacote de dados do seu aplicativo de it e usá-lo para autenticar no keyvault.
+R. Durante o trabalho de criação/empacotamento de aplicativos, você pode efetuar pull de um certificado no pacote de dados do seu aplicativo de it e usá-lo para autenticar no keyvault.
 B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
@@ -177,7 +167,7 @@ Observe que esse cálculo também pressupõe:
 
 Assim como acontece com os Reliable Services, a quantidade de dados que você pode armazenar em um serviço de ator é limitada apenas pelo espaço total em disco e pela memória disponível em todos os nós no cluster. No entanto, os atores individuais são mais eficazes quando são usados para encapsular uma pequena quantidade de estado e lógica de negócios associada. Como regra geral, um ator individual deve ter um estado medido em kilobytes.
 
-## <a name="other-questions"></a>Outras perguntas
+## <a name="other-questions"></a>Outras questões
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Como Service Fabric se relaciona a contêineres?
 

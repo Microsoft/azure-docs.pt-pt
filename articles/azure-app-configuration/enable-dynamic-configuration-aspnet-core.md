@@ -1,5 +1,6 @@
 ---
-title: Tutorial para usar a configuração dinâmica de configuração do Azure App em um aplicativo ASP.NET Core | Microsoft Docs
+title: 'Tutorial: usar a configuração dinâmica de configuração de aplicativo no ASP.NET Core'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433715"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -201,7 +202,7 @@ Antes de continuar, conclua a [criação de um aplicativo ASP.NET Core com a con
 
     | Chave | Valor |
     |---|---|
-    | TestApp:Settings:BackgroundColor | verde |
+    | TestApp:Settings:BackgroundColor | green |
     | TestApp:Settings:FontColor | lightGray |
     | TestApp: configurações: mensagem | Dados da configuração do Azure App – agora com atualizações dinâmicas! |
 

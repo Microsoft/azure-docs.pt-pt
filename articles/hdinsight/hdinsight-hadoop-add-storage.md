@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435578"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 
@@ -24,7 +24,7 @@ Saiba como usar ações de script para adicionar mais *contas* de armazenamento 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster Hadoop no HDInsight. Consulte [introdução ao HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nome e chave da conta de armazenamento. Consulte [gerenciar configurações de conta de armazenamento no portal do Azure](../storage/common/storage-account-manage.md).
+* Nome e chave da conta de armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 * [Nome do cluster em maiúscula corretamente](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Se estiver usando o PowerShell, você precisará do módulo AZ.  Consulte [visão geral do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * Se você ainda não instalou o CLI do Azure, consulte [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
@@ -108,7 +108,7 @@ Consulte [aplicar uma ação de script a um cluster em execução](hdinsight-had
 
 ### <a name="storage-firewall"></a>Firewall de armazenamento
 
-Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas**, certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar seu armazenamento considerar.
+Se você optar por proteger sua conta de armazenamento com as restrições de **redes virtuais e firewalls** em **redes selecionadas**, certifique-se de habilitar a exceção **permitir serviços confiáveis da Microsoft...** para que o HDInsight possa acessar sua conta de armazenamento.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Contas de armazenamento não exibidas em portal do Azure ou ferramentas
 
@@ -142,7 +142,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
 ```
 
-### <a name="bash"></a>raso
+### <a name="bash"></a>bash
 
 Substitua `CLUSTERNAME` pelo nome de cluster em maiúsculas e minúsculas. Substitua `PASSWORD` pela senha de administrador do cluster. Substitua `STORAGEACCOUNT` pelo nome da conta de armazenamento real.
 

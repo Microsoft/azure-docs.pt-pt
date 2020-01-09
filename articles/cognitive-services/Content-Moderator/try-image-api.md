@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448249"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Imagens moderadas do console de API
 
-Use a [API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Azure Content moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em listas negras personalizadas e compartilhadas.
+Use a [API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Azure Content moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em relação a bloqueio personalizadas e compartilhadas.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
 Antes de poder testar a API no console online, você precisa da sua chave de assinatura. Isso está localizado na guia **configurações** , na caixa **OCP-APIM-Subscription-Key** . Para obter mais informações, veja [Descrição geral](overview.md).

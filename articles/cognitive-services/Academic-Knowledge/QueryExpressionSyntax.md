@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448957"
 ---
 # <a name="query-expression-syntax"></a>Sintaxe de expressão de consulta
 
@@ -24,41 +24,42 @@ Vimos que a resposta a uma solicitação de **interpretação** inclui uma expre
 
 Você também pode construir suas próprias expressões de consulta e usá-las em uma solicitação de **avaliação** . Isso pode ser útil se você estiver criando sua própria interface do usuário, que cria uma expressão de consulta em resposta às ações do usuário. Para fazer isso, você precisa saber a sintaxe para expressões de consulta.  
 
-Cada atributo de entidade que pode ser incluído em uma expressão de consulta tem um tipo de dados específico e um conjunto de possíveis operadores de consulta. O conjunto de atributos de entidade e os operadores com suporte para cada atributo é especificado em [atributos de entidade](EntityAttributes.md). Uma consulta de valor único requer que o atributo dê suporte à operação Equals. Uma consulta de prefixo requer que o atributo dê suporte à operação *StartsWith* . As consultas de intervalo numérico exigem o atributo para dar suporte à operação isBetween.
+Cada atributo de entidade que pode ser incluído em uma expressão de consulta tem um tipo de dados específico e um conjunto de possíveis operadores de consulta. O conjunto de atributos de entidade e os operadores com suporte para cada atributo é especificado em [atributos de entidade](EntityAttributes.md). Uma consulta de valor único requer que o atributo dê suporte à operação *Equals* . Uma consulta de prefixo requer que o atributo dê suporte à operação *StartsWith* . As consultas de intervalo numérico exigem o atributo para dar suporte à operação *isBetween* .
 
 Alguns dos dados da entidade são armazenados como atributos compostos, conforme indicado por um ponto '. ' no nome do atributo. Por exemplo, as informações de autor/afiliação são representadas como um atributo composto. Ele contém 4 componentes: AuN, AuId, AfN, AfId. Esses componentes são partes separadas de dados que formam um único valor de atributo de entidade.
 
+Observação: todas as expressões de consulta devem estar em minúsculas e sem caracteres especiais.
 
-**Atributo de cadeia de caracteres: Único valor** (inclui correspondências contra sinônimos)  
+**Atributo de cadeia de caracteres: valor único** (inclui correspondências em sinônimos)  
 Ti = ' indexação por análise semântica latente '  
 Composto (AA. AuN = ' Suzana Dumais ')
 
-**Atributo de cadeia de caracteres: Valor** único exato (corresponde apenas a valores canônicos)  
+**Atributo de cadeia de caracteres: valor único exato** (corresponde apenas a valores canônicos)  
 Ti = = ' indexação por análise semântica latente '  
 Composto (AA. AuN = = ' Susan t Dumais ')
      
-**Atributo de cadeia de caracteres: Valor do prefixo**   
+**Atributo de cadeia de caracteres: valor de prefixo**   
 Ti = ' indexação por Seman latente '...  
 Composto (AA. AuN = ' Suzana du '...)
 
-**Atributo numérico: Valor único**  
+**Atributo numérico: valor único**  
 Y=2010
  
-**Atributo numérico: Valor do intervalo**  
+**Atributo numérico: valor do intervalo**  
 Y>2005  
 Y>=2005  
 Y<2010  
 Y<=2010  
-Y =\[2010, 2012\) (inclui somente o valor de limite esquerdo: 2010, 2011)  
-Y =\[2010, 2012\] (inclui ambos os valores de limite: 2010, 2011, 2012)
+Y =\[2010, 2012\) (inclui apenas o valor de limite esquerdo: 2010, 2011)  
+Y =\[2010, 2012\] (inclui os dois valores de limite: 2010, 2011, 2012)
  
-**Atributo numérico: Valor do prefixo**  
+**Atributo numérico: valor de prefixo**  
 Y = ' 19 '... (qualquer valor numérico que comece com 19) 
  
-**Atributo de data: Valor único**  
+**Atributo Date: valor único**  
 D='2010-02-04'
 
-**Atributo de data: Valor do intervalo**  
+**Atributo Date: valor de intervalo**  
 D > ' 2010-02-03 '  
 D=['2010-02-03','2010-02-05']
 
@@ -86,7 +87,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>Nesta versão, como Composite () é aplicado ao autor e à afiliação individualmente antes e (), obtemos todos os documentos em que um dos autores é "Mike Smith" e uma das afiliações dos autores é "Harvard". Isso parece semelhante ao exemplo de consulta anterior, mas não é a mesma coisa.
 
-Em geral, considere o seguinte exemplo: Temos um atributo composto C que tem dois componentes A e B. Uma entidade pode ter vários valores para C. Estas são nossas entidades:
+Em geral, considere o exemplo a seguir: temos um atributo composto C que tem dois componentes A e B. Uma entidade pode ter vários valores para C. Estas são nossas entidades:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

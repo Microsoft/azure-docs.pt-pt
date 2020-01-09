@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707989"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647684"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -39,11 +39,11 @@ As etapas a seguir descrevem como uma conexão é estabelecida com um banco de d
 
 O banco de dados SQL do Azure dá suporte às três opções a seguir para a configuração de política de conexão de um servidor de banco de dados SQL:
 
-- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à latência reduzida e melhoraram em todo o mundo. Para conexões usarem este modo, os clientes precisam
+- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à latência reduzida e à taxa de transferência aprimorada. Para conexões usarem este modo, os clientes precisam
    - Permitir comunicação de entrada e saída do cliente para todos os endereços IP do Azure na região em portas no intervalo de 11000 11999.  
    - Permita a comunicação de entrada e saída do cliente para endereços IP do gateway do banco de dados SQL do Azure na porta 1433.
 
-- **Proxy:** Nesse modo, todas as conexões são proxy por meio dos gateways de banco de dados SQL do Azure, levando a uma latência maior e reduzidas em todo o mundo. Para conexões usarem esse modo, os clientes precisam permitir a comunicação de entrada e saída do cliente para endereços IP do gateway de banco de dados SQL do Azure na porta 1433.
+- **Proxy:** Nesse modo, todas as conexões são proxy por meio dos gateways de banco de dados SQL do Azure, levando a uma latência maior e taxa de transferência reduzida. Para conexões usarem esse modo, os clientes precisam permitir a comunicação de entrada e saída do cliente para endereços IP do gateway de banco de dados SQL do Azure na porta 1433.
 
 - **Padrão:** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para `Proxy` ou `Redirect`. A política padrão é`Redirect` para todas as conexões de cliente originadas dentro do Azure (por exemplo, de uma máquina virtual do Azure) e `Proxy`para todas as conexões de cliente que se originam fora (por exemplo, conexões de sua estação de trabalho local).
 

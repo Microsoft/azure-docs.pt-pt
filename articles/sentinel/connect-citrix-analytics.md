@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: 36a0c36de7b3f6c6aa4932770e6264bc14c2790f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4a720702cdadf641665c4c8dc3754edd1c42361
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518089"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610629"
 ---
-# <a name="connect-citrix-analytics-security"></a>Conectar o Citrix Analytics (segurança) 
+# <a name="connect-citrix-analytics-security"></a>Ligar a Citrix Analytics (Segurança) 
 
 A integração do Citrix Analytics (segurança) com o Azure Sentinel ajuda a exportar dados analisados para eventos arriscados do Citrix Analytics (segurança) para o Azure Sentinel. Você pode criar painéis personalizados, analisar dados de outras fontes junto com o do Citrix Analytics (segurança) e criar fluxos de trabalho personalizados usando aplicativos lógicos para monitorar e atenuar eventos de segurança. 
 
@@ -46,4 +46,6 @@ A integração do Citrix Analytics (segurança) com o Azure Sentinel ajuda a exp
 Neste documento, você aprendeu a conectar o Citrix Analytics (segurança) ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
 - Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
+
 

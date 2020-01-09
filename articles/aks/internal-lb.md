@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b4bbac5d8555a705b2311abcea8396c1151da90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430776"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o serviço de kubernetes do Azure (AKS)
 
 Para restringir o acesso aos seus aplicativos no AKS (serviço kubernetes do Azure), você pode criar e usar um balanceador de carga interno. Um balanceador de carga interno torna um serviço kubernetes acessível somente para aplicativos em execução na mesma rede virtual que o cluster kubernetes. Este artigo mostra como criar e usar um balanceador de carga interno com o AKS (serviço kubernetes do Azure).
 
 > [!NOTE]
-> O Azure Load Balancer está disponível em dois SKUs- *básico* e *Standard*. Por padrão, a SKU *básica* é usada quando um manifesto de serviço é usado para criar um balanceador de carga no AKs. Para obter mais informações, consulte [comparação de SKU do Azure Load][azure-lb-comparison]Balancer.
+> O Azure Load Balancer está disponível em dois SKUs- *básico* e *Standard*. Por padrão, o SKU padrão é usado quando você cria um cluster AKS.  Ao criar um serviço com o tipo como Balancer, você obterá o mesmo tipo de lb que ao provisionar o cluster. Para obter mais informações, consulte [comparação de SKU do Azure Load Balancer][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -31,7 +31,7 @@ A entidade de serviço de cluster AKS precisará de permissão para gerenciar re
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
-Para criar um balanceador de carga interno, crie um manifesto de `internal-lb.yaml` serviço chamado com o tipo de serviço Balancer e a anotação interna do balanceador de *carga do Azure* , conforme mostrado no exemplo a seguir:
+Para criar um balanceador de carga interno, crie um manifesto de serviço chamado `internal-lb.yaml` com o tipo de serviço *Balancer* e a anotação *interna do balanceador de carga do Azure* , conforme mostrado no exemplo a seguir:
 
 ```yaml
 apiVersion: v1
@@ -108,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Talvez seja necessário conceder à entidade de serviço para o cluster AKS a função de *colaborador de rede* para o grupo de recursos em que os recursos da rede virtual do Azure são implantados. Exiba a entidade de serviço com [AZ AKs show][az-aks-show], `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`como. Para criar uma atribuição de função, use o comando [AZ role Assignment Create][az-role-assignment-create] .
+> Talvez seja necessário conceder à entidade de serviço para o cluster AKS a função de *colaborador de rede* para o grupo de recursos em que os recursos da rede virtual do Azure são implantados. Exiba a entidade de serviço com [AZ AKs show][az-aks-show], como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para criar uma atribuição de função, use o comando [AZ role Assignment Create][az-role-assignment-create] .
 
 ## <a name="specify-a-different-subnet"></a>Especificar uma sub-rede diferente
 
@@ -134,7 +134,7 @@ spec:
 
 Quando todos os serviços que usam o balanceador de carga interno são excluídos, o próprio balanceador de carga também é excluído.
 
-Você também pode excluir diretamente um serviço como com qualquer recurso kubernetes, `kubectl delete service internal-app`como, que também exclui o balanceador de carga do Azure subjacente.
+Você também pode excluir diretamente um serviço como com qualquer recurso kubernetes, como `kubectl delete service internal-app`, que também exclui o balanceador de carga do Azure subjacente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

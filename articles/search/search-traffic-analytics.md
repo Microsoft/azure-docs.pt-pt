@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932570"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426995"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementar análise de tráfego de pesquisa no Azure Pesquisa Cognitiva
 
@@ -167,9 +167,7 @@ Toda vez que um usuário clica em um documento, esse é um sinal que deve ser re
 
 ## <a name="3---analyze-in-power-bi"></a>3-analisar no Power BI
 
-Depois de instrumentar seu aplicativo e verificar se seu aplicativo está conectado corretamente ao Application Insights, você pode usar um modelo predefinido criado pelo Azure Pesquisa Cognitiva para Power BI desktop. 
-
-A pesquisa cognitiva do Azure fornece um [pacote de conteúdo](https://app.powerbi.com/getdata/services/azure-search) de monitoramento Power bi para que você possa analisar os dados de log. T o pacote de conteúdo adiciona gráficos predefinidos e tabelas úteis para analisar os dados adicionais capturados para análise de tráfego de pesquisa. Para obter mais informações, consulte a [página de ajuda do pacote de conteúdos](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Depois de instrumentar seu aplicativo e verificar se seu aplicativo está conectado corretamente ao Application Insights, você baixa um modelo de relatório predefinido para analisar dados no Power BI desktop. O relatório contém gráficos predefinidos e tabelas úteis para analisar os dados adicionais capturados para análise de tráfego de pesquisa. 
 
 1. No painel de navegação à esquerda do painel de Pesquisa Cognitiva do Azure, em **configurações**, clique em **análise de tráfego de pesquisa**.
 
@@ -179,9 +177,9 @@ A pesquisa cognitiva do Azure fornece um [pacote de conteúdo](https://app.power
 
 2. Na mesma página, clique em **baixar Power bi relatório**.
 
-3. O relatório é aberto no Power BI Desktop e você é solicitado a se conectar ao Application Insights. Você pode encontrar essas informações nas páginas de portal do Azure para o recurso de Application Insights.
+3. O relatório é aberto no Power BI Desktop e você é solicitado a se conectar ao Application Insights e fornecer credenciais. Você pode encontrar informações de conexão nas páginas de portal do Azure para o recurso de Application Insights. Para credenciais, forneça o mesmo nome de usuário e senha que você usa para entrar no Portal.
 
-   ![Conectar-se ao Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Ligar ao Application Insights")
+   ![Conectar-se ao Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Ligue-se ao Application Insights")
 
 4. Clique em **Carregar**.
 
@@ -189,11 +187,8 @@ O relatório contém gráficos e tabelas que ajudam você a tomar decisões mais
 
 As métricas incluíam os seguintes itens:
 
-* Taxa de clique por (CTR): a taxa de usuários que clicam em um documento específico para o número total de pesquisas.
+* Pesquisar o volume e os pares de documentos de termo mais populares: termos que resultam no mesmo documento clicado, ordenados por cliques.
 * Pesquisa sem cliques: termos para as principais consultas que não registram nenhum clique
-* Documentos mais clicados: a maioria dos documentos clicados por ID nas últimas 24 horas, 7 dias e 30 dias.
-* Pares de documentos de termo populares: termos que resultam no mesmo documento clicado, ordenados por cliques.
-* Hora para clicar: clica em buckets por tempo desde a consulta de pesquisa
 
 A captura de tela a seguir mostra os relatórios e gráficos internos para analisar a análise de tráfego de pesquisa.
 

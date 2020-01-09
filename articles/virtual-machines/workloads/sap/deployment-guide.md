@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: 549fd8f4cb770d472eefd1c504e42837fa8230dd
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066856"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645859"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -77,8 +77,8 @@ ms.locfileid: "71066856"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md (Implantação de DBMS de máquinas virtuais do Azure para SAP)
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Cache para VMs e VHDs)
@@ -234,7 +234,7 @@ ms.locfileid: "71066856"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Armazenamento: Armazenamento do Microsoft Azure e discos de dados)
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
 [sap-pam]: https://support.sap.com/pam (Matriz de disponibilidade de produto SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -253,7 +253,7 @@ ms.locfileid: "71066856"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -506,7 +506,7 @@ Na portal do Azure, insira os seguintes parâmetros para o modelo:
 
 O agente de VM do Azure é implantado por padrão quando você usa uma imagem do Azure Marketplace.
 
-#### <a name="configure-proxy-settings"></a>Definir configurações de proxy
+#### <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
 Dependendo de como sua rede local está configurada, talvez seja necessário configurar o proxy em sua VM. Se sua VM estiver conectada à sua rede local via VPN ou ExpressRoute, a VM poderá não ser capaz de acessar a Internet e não poderá baixar as extensões de VM necessárias ou coletar informações de infraestrutura do Azure para o agente de host do SAP por meio da extensão SAP para o Azure. Para obter mais informações, consulte [Configurar o proxy][deployment-guide-configure-proxy].
 
@@ -652,7 +652,7 @@ Para usar os modelos descritos na seção anterior, o agente do Linux já deve e
 
 Se sua implantação do Azure estiver conectada a uma instância do DNS ou Active Directory local por meio de uma conexão VPN site a site do Azure ou Azure ExpressRoute (isso é chamado de *entre instalações* no [planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver][planning-guide]), espera-se que a VM ingresse em um domínio local. Para obter mais informações sobre as considerações para esta etapa, consulte [unir uma VM a um domínio local (somente Windows)][deployment-guide-4.3].
 
-#### <a name="configure-proxy-settings"></a>Definir configurações de proxy
+#### <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
 Dependendo de como sua rede local está configurada, talvez seja necessário configurar o proxy em sua VM. Se sua VM estiver conectada à sua rede local via VPN ou ExpressRoute, a VM poderá não ser capaz de acessar a Internet e não poderá baixar as extensões de VM necessárias ou coletar informações de infraestrutura do Azure para o agente de host do SAP por meio da extensão SAP para o Azure, consulte [Configurar o proxy][deployment-guide-configure-proxy].
 
@@ -692,7 +692,7 @@ O fluxograma a seguir mostra a sequência de etapas para mover uma VM local usan
 
 Se o disco já tiver sido carregado e definido no Azure (consulte [planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver][planning-guide]), execute as tarefas descritas nas próximas seções.
 
-#### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+#### <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 Para criar uma implantação usando um disco de sistema operacional privado por meio do portal do Azure, use o modelo SAP publicado no [repositório Azure-QuickStart-templates do GitHub][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o PowerShell.
 
@@ -742,7 +742,7 @@ Se você não usar os modelos descritos na seção anterior, também poderá ins
 
 Se sua implantação do Azure estiver conectada a uma instância do DNS ou Active Directory local por meio de uma conexão VPN site a site do Azure ou ExpressRoute (isso é chamado de *entre instalações* em [planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver][planning-guide]), espera-se que a VM ingresse em um domínio local. Para obter mais informações sobre as considerações para essa tarefa, consulte [unir uma VM a um domínio local (somente Windows)][deployment-guide-4.3].
 
-#### <a name="configure-proxy-settings"></a>Definir configurações de proxy
+#### <a name="configure-proxy-settings"></a>Configurar definições de proxy
 
 Dependendo de como sua rede local está configurada, talvez seja necessário configurar o proxy em sua VM. Se sua VM estiver conectada à sua rede local via VPN ou ExpressRoute, a VM poderá não ser capaz de acessar a Internet e não poderá baixar as extensões de VM necessárias ou coletar informações de infraestrutura do Azure para o agente de host do SAP por meio da extensão SAP para o Azure, consulte [Configurar o proxy][deployment-guide-configure-proxy].
 
@@ -947,7 +947,7 @@ Para instalar a extensão do Azure para SAP usando o PowerShell:
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
     ```
 
-Depois de inserir os dados da conta e identificar a máquina virtual do Azure, o script implantará as extensões necessárias e habilitará os recursos necessários. Isso pode levar vários minutos.
+Depois de inserir os dados da conta e identificar a máquina virtual do Azure, o script implantará as extensões necessárias e habilitará os recursos necessários. Esta ação poderá demorar alguns minutos.
 Para obter mais informações sobre `Set-AzVMAEMExtension`, consulte [set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
 ![Execução bem-sucedida de cmdlets do Azure específicos do SAP Set-AzVMAEMExtension][deployment-guide-figure-900]
@@ -1014,7 +1014,7 @@ Para instalar a extensão do Azure para SAP usando CLI do Azure:
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
    ```
 
-   A saída tem a seguinte aparência:
+   A saída é semelhante a esta:
    ```
    ...
    2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
@@ -1036,7 +1036,7 @@ Essa verificação garante que todas as métricas de desempenho que aparecem den
 
 1. Entre na máquina virtual do Azure (não é necessário usar uma conta de administrador).
 1. Abra uma janela de Linha de Comandos.
-1. No prompt de comando, altere o diretório para a pasta de instalação da extensão do Azure para SAP: C:\\pacotes\\plug-ins\\Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler\\&lt;versão > soltar\\
+1. No prompt de comando, altere o diretório para a pasta de instalação da extensão do Azure para SAP: C:\\pacotes\\plug-ins\\Microsoft. AzureCAT. AzureEnhancedMonitoring. AzureCATExtensionHandler\\&lt;versão > soltar
 
    A *versão* no caminho para a extensão pode variar. Se você vir pastas para várias versões da extensão na pasta de instalação, verifique a configuração do serviço do Windows AzureEnhancedMonitoring e, em seguida, alterne para a pasta indicada como *caminho para o executável*.
 

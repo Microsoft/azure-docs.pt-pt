@@ -1,6 +1,6 @@
 ---
-title: Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
-description: Propriedades de rede de configuração para conjuntos de dimensionamento de máquinas virtuais do Azure.
+title: Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de dimensionamento de máquinas virtuais do Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 390da9179280a1ab8898d1ccea4df81e3b98805a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244832"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647582"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -238,7 +238,7 @@ Exemplo de saída do [Azure Resource Explorer](https://resources.azure.com) e a 
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Vários endereços IP por NIC
-Todas as NICs ligadas a uma VM dentro de um conjunto de dimensionamento podem ter uma ou mais configurações de IP associadas a si. É atribuído um endereço IP privado a cada configuração. Cada configuração também pode ter um recurso de endereço IP público associado a si. Para compreender quantos endereços IP podem ser atribuídos a uma NIC e quantos pode utilizar numa subscrição do Azure, veja os [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Todas as NICs ligadas a uma VM dentro de um conjunto de dimensionamento podem ter uma ou mais configurações de IP associadas a si. É atribuído um endereço IP privado a cada configuração. Cada configuração também pode ter um recurso de endereço IP público associado a si. Para compreender quantos endereços IP podem ser atribuídos a uma NIC e quantos pode utilizar numa subscrição do Azure, veja os [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Várias NICs por máquina virtual
 Pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo relativo aos tamanhos das VMs](../virtual-machines/windows/sizes.md). Todas as NICs ligadas a uma instância de VM têm de estar ligadas à mesma rede virtual. As NICs podem ligar-se a sub-redes diferentes, mas todas as sub-redes têm de fazer parte da mesma rede virtual.

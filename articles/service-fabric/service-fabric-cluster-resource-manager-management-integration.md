@@ -1,25 +1,16 @@
 ---
-title: Service Fabric o Gerenciador de recursos de cluster – integração de gerenciamento | Microsoft Docs
+title: Gerenciador de recursos de cluster-integração de gerenciamento
 description: Uma visão geral dos pontos de integração entre o Gerenciador de recursos de cluster e o gerenciamento de Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196501"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614626"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de recursos de cluster com o gerenciamento de Cluster Service Fabric
 O Service Fabric cluster Resource Manager não impulsiona as atualizações no Service Fabric, mas está envolvido. A primeira maneira que o Gerenciador de recursos de cluster ajuda com o gerenciamento do é rastrear o estado desejado do cluster e os serviços dentro dele. O Gerenciador de recursos de cluster envia relatórios de integridade quando não pode colocar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gerenciador de recursos de cluster enviará avisos de integridade e erros indicando o problema. Outra parte da integração tem a ver com o funcionamento das atualizações. O Gerenciador de recursos de cluster altera seu comportamento um pouco durante as atualizações.  
@@ -114,7 +105,7 @@ Inclusão na lista não é uma condição permanente. Depois de alguns minutos, 
 
 Com todas essas restrições, você deve estar pensando: "Ei, acho que restrições de domínio de falha são a coisa mais importante no meu sistema. Para garantir que a restrição de domínio de falha não seja violada, estou disposto a violar outras restrições. "
 
-As restrições podem ser configuradas com diferentes níveis de prioridade. Nomeadamente:
+As restrições podem ser configuradas com diferentes níveis de prioridade. São eles:
 
    - "Hard" (0)
    - "soft" (1)
@@ -190,7 +181,7 @@ Se o ambiente estiver configurado corretamente, todas as restrições serão tot
 ## <a name="the-preferred-location-constraint"></a>A restrição de local preferencial
 A restrição PreferredLocation é um pouco diferente, pois ela tem dois usos diferentes. Um uso dessa restrição é durante as atualizações do aplicativo. O Gerenciador de recursos de cluster gerencia automaticamente essa restrição durante as atualizações. Ele é usado para garantir que, quando as atualizações forem concluídas, as réplicas retornarão aos seus locais iniciais. O outro uso da restrição PreferredLocation é para a [política de posicionamento`PreferredPrimaryDomain`](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Ambos são otimizações e, portanto, a restrição PreferredLocation é a única restrição definida como "otimização" por padrão.
 
-## <a name="upgrades"></a>Actualizações
+## <a name="upgrades"></a>Atualizações
 O Gerenciador de recursos de cluster também ajuda durante atualizações de aplicativo e cluster, durante as quais ele tem dois trabalhos:
 
 * Verifique se as regras do cluster não estão comprometidas

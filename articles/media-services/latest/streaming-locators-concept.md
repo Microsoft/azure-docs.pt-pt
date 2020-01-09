@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969111"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611003"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -28,7 +28,7 @@ Ao criar um **localizador de streaming**, você deve especificar um nome de **at
 
 * [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
 
 Você também pode especificar a hora de início e de término no seu localizador de streaming, o que permitirá que o usuário execute o conteúdo entre esses horários (por exemplo, entre 5/1/2019 e 5/5/2019).  
 
@@ -95,14 +95,14 @@ Para obter localizadores de streaming com base no nome do ativo associado, use a
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="also-see"></a>Veja também
 
 * [Recursos](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md) (Políticas de Transmissão em Fluxo)
-* [Políticas de Chave de Conteúdo](content-key-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md) (Políticas de chave de conteúdo)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,29 +1,20 @@
 ---
-title: Dimensionar automaticamente uma aplicação em execução no Azure Service Fabric em malha | Documentos da Microsoft
+title: Dimensionar automaticamente um aplicativo em execução na malha de Service Fabric do Azure
 description: Saiba como configurar políticas de dimensionamento automático para os serviços de um aplicativo de malha do Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461967"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Criar políticas de dimensionamento automático para um aplicativo de malha do Service Fabric
-Uma das principais vantagens da implementação de aplicações no Service Fabric Mesh é a capacidade de reduzir ou aumentar horizontalmente os seus serviços. Deve utilizar a redução ou o aumento para processar quantidades diferentes de carga nos serviços ou melhorar a disponibilidade. Pode dimensionar os seus serviços dentro ou para fora manualmente ou configurar políticas de dimensionamento automático.
+Uma das principais vantagens da implantação de aplicativos em Service Fabric malha é a capacidade de você facilmente dimensionar seus serviços para dentro ou para fora. Isso deve ser usado para lidar com quantidades diferentes de carga em seus serviços ou para melhorar a disponibilidade. Pode dimensionar os seus serviços dentro ou para fora manualmente ou configurar políticas de dimensionamento automático.
 
 [Dimensionamento automático](service-fabric-mesh-scalability.md#autoscaling-service-instances) permite-lhe dimensionar dinamicamente o número de instâncias de serviço (dimensionamento horizontal). Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento ou remoção de instâncias de serviço com base na utilização de CPU ou memória.
 
@@ -123,5 +114,5 @@ application:
           ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [Dimensionar manualmente um serviço](service-fabric-mesh-tutorial-template-scale-services.md)

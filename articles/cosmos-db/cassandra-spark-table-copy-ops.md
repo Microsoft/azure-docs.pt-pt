@@ -1,6 +1,6 @@
 ---
-title: Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark.
-description: Este artigo fornece detalhes sobre como copiar dados entre tabelas na API de Cassandra do Azure Cosmos DB
+title: Operações de cópia de tabela no Azure Cosmos DB API do Cassandra do Spark
+description: Este artigo fornece detalhes sobre como copiar dados entre tabelas no Azure Cosmos DB API do Cassandra
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32714e216e59565c787f92bf1e8da62957bc7233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60895186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445615"
 ---
-# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark
+# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia de tabela no Azure Cosmos DB API do Cassandra do Spark
 
-Este artigo descreve como copiar dados entre tabelas na API de Cassandra do Azure Cosmos DB do Spark. Os comandos descritos neste artigo também podem ser utilizados para copiar dados de tabelas do Apache Cassandra para tabelas de Cassandra API do Azure Cosmos DB.
+Este artigo descreve como copiar dados entre tabelas no Azure Cosmos DB API do Cassandra do Spark. Os comandos descritos neste artigo também podem ser usados para copiar dados de tabelas do Apache Cassandra para Azure Cosmos DB API do Cassandra tabelas.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -63,9 +63,9 @@ booksDF.write
   .save()
 ```
 
-## <a name="copy-data-between-tables"></a>Copiar dados entre as tabelas
+## <a name="copy-data-between-tables"></a>Copiar dados entre tabelas
 
-### <a name="copy-data-between-tables-destination-table-exists"></a>Copiar dados entre as tabelas (tabela de destino existe)
+### <a name="copy-data-between-tables-destination-table-exists"></a>Copiar dados entre tabelas (a tabela de destino existe)
 
 ```scala
 //1) Create destination table
@@ -93,7 +93,7 @@ sqlContext
   .show
 ```
 
-### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Copiar dados entre as tabelas (tabela de destino não existir)
+### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Copiar dados entre tabelas (a tabela de destino não existe)
 
 ```scala
 import com.datastax.spark.connector._
@@ -127,7 +127,7 @@ sqlContext
   .load
   .show
 ```
-Saída-
+A saída-
 ```
 +-------+------------------+--------------------+----------+-------------+
 |book_id|       book_author|           book_name|book_price|book_pub_year|
@@ -144,7 +144,7 @@ readBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: str
 newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: string ... 3 more fields]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  * Começar a [criar uma conta de API para Cassandra do Azure Cosmos DB, uma base de dados e uma tabela](create-cassandra-api-account-java.md) com uma aplicação Java.
  * [Carregar dados de exemplo para a tabela da API para Cassandra](cassandra-api-load-data.md) ao utilizar uma aplicação Java.

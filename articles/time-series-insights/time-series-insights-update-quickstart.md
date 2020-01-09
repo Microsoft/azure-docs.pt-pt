@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: explorar o ambiente de demonstração de visualização-Azure Time Series Insights | Microsoft Docs'
-description: Saiba mais sobre Azure Time Series Insights Visualizar ambientes de demonstração por meio de um guia de início rápido de exemplo.
+description: Explore os principais recursos do ambiente de demonstração do Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014762"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497422"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início rápido: explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -43,33 +43,33 @@ O Time Series Insights Preview Explorer demonstra dados históricos e análise d
    1. Altere o intervalo de exibição para **1/1/17 20:00:00.00 para 3/10/17 20:00:00.00 (UTC)** .
    1. Para selecionar um sensor, selecione **contoso Plant 1** > **W7** > **sistema gerador** > **GeneratorSpeed**. Em seguida, examine os valores mostrados.
 
-      [![W7 na contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 na contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Recentemente, a contoso encontrou um incêndio na turbina de vento **W7**. As opiniões variam sobre o que causou o incêndio. No Time Series Insights, podemos ver que o sensor de alerta de acionamento foi ativado durante o incêndio.
 
    1. Altere o intervalo de exibição para **3/9/17 20:00:00.00 para 3/10/17 20:00:00.00 (UTC)** .
    1. Selecione **sistema de segurança** > **FireAlert**.
 
-      [![contoso encontrou um incêndio na turbina de vento W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![contoso encontrou um incêndio na turbina de vento W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Examine outros eventos ao mesmo tempo do incêndio para entender o que ocorreu. A pressão do óleo e os avisos ativos são picodos logo antes do incêndio.
 
    1. Selecione **sistema de Pitch** > **HydraulicOilPressure**.
    1. Selecione **sistema de Pitch** > **ActiveWarning**.
 
-      [![examinar outros eventos ao mesmo tempo](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![examinar outros eventos ao mesmo tempo](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. A pressão do óleo e os sensores ativos de aviso são picos logo antes do incêndio. Expanda a série temporal exibida para ver outros sinais que ficaram evidentes levando até o incêndio. Ambos os sensores flutuam consistentemente ao longo do tempo. As flutuações indicam um padrão persistente e preocupante.
 
     * Altere o intervalo de exibição para **2/24/17 20:00:00.00 para 3/10/17 20:00:00.00 (UTC)** .
 
-      [![pressão de óleo e sensores de aviso ativos também são compicodos](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![pressão de óleo e sensores de aviso ativos também são compicodos](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. Examinar dois anos de dados históricos revela outro evento de incêndio que tinha as mesmas flutuações de sensor.
 
     * Altere o intervalo de exibição para **1/1/16 para 12/31/17** (todos os dados).
 
-      [![procurar padrões de histórico](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![procurar padrões de histórico](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Ao usar a telemetria Time Series Insights e sensor, descobrimos uma tendência de longo prazo oculta nos dados históricos. Com essas novas informações, podemos:
 
@@ -84,7 +84,7 @@ Ao usar a telemetria Time Series Insights e sensor, descobrimos uma tendência d
     1. Altere o intervalo de exibição para **6/1/17 20:00:00.00 para 7/1/17 20:00:00.00 (UTC)** .
     1. Selecione **contoso Plant 1** > **W6** > **segurança System** > **VoltageActuatorSwitchWarning**.
 
-       [![alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. O aviso indica um problema com a tensão do gerador. A saída geral de energia do gerador está dentro dos parâmetros normais no intervalo atual. Ao aumentar nosso intervalo, vemos outro padrão surgindo. Uma queda é evidente.
 
@@ -92,20 +92,20 @@ Ao usar a telemetria Time Series Insights e sensor, descobrimos uma tendência d
     1. Selecione **sistema gerador** > **ActivePower**.
     1. Altere o intervalo para **3D**.
 
-       [![alterar o intervalo para 3D](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![alterar o intervalo para 3D](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. Ao expandir o intervalo de tempo, podemos determinar se o problema foi interrompido ou se ele continua.
 
     * Estenda o período de tempo para 60 dias.
 
-      [![estender o período de tempo para 60 dias](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![estender o período de tempo para 60 dias](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. Outros pontos de dados do sensor podem ser adicionados para fornecer um contexto maior. Quanto mais sensores veremos, mais a nossa compreensão do problema é. Vamos remover um marcador para ver os valores reais. 
 
     1. Selecione **sistema gerador**e, em seguida, selecione três sensores: **GridVoltagePhase1**, **GridVoltagePhase2**e **GridVoltagePhase3**.
     1. Solte um marcador no último ponto de dados na área visível.
 
-       [![remover um marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![remover um marcador](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Dois dos sensores de tensão estão operando comparativamente e dentro dos parâmetros normais. Parece que o sensor **GridVoltagePhase3** é o culpado.
 
@@ -113,7 +113,7 @@ Ao usar a telemetria Time Series Insights e sensor, descobrimos uma tendência d
 
     * Altere a exibição para sobrepor todos os sensores do **sistema do gerador** na mesma escala do gráfico.
 
-      [![alterar a exibição para incluir tudo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![alterar a exibição para incluir tudo](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

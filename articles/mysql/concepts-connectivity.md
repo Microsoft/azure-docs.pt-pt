@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765211"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659224"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Manipular erros transitórios e conectar-se com eficiência ao banco de dados do Azure para MySQL
 
@@ -52,7 +52,7 @@ As conexões de banco de dados são um recurso limitado, portanto, fazer uso efe
 
 O gerenciamento de conexões de banco de dados pode ter um impacto significativo no desempenho do aplicativo como um todo. Para otimizar o desempenho do seu aplicativo, o objetivo deve ser reduzir o número de vezes que as conexões são estabelecidas e o tempo para estabelecer conexões em caminhos de código-chave. É altamente recomendável usar o pool de conexões de banco de dados ou conexões persistentes para se conectar ao banco de dados do Azure para MySQL. O pool de conexões de banco de dados lida com a criação, o gerenciamento e a alocação de conexões de banco de dados. Quando um programa solicita uma conexão de banco de dados, ele prioriza a alocação de conexões de banco de dados ociosas existentes, em vez da criação de uma nova conexão. Depois que o programa terminar de usar a conexão de banco de dados, a conexão será recuperada na preparação para uso posterior, em vez de simplesmente ser fechada.
 
-Para uma ilustração melhor, este artigo fornece [um trecho de código de exemplo](./sample-scripts-java-connection-pooling.md) que usa Java como exemplo. Para obter mais informações, consulte [apache common dbcp](http://commons.apache.org/proper/commons-dbcp/).
+Para uma ilustração melhor, este artigo fornece [um trecho de código de exemplo](./sample-scripts-java-connection-pooling.md) que usa Java como exemplo. Para obter mais informações, consulte [apache common dbcp](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > O servidor configura um mecanismo de tempo limite para fechar uma conexão que esteve em estado ocioso por algum tempo para liberar recursos. Certifique-se de configurar o sistema de verificação para garantir a eficácia de conexões persistentes quando você as estiver usando. Para obter mais informações, consulte [Configurar sistemas de verificação no lado do cliente para garantir a eficácia de conexões persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).

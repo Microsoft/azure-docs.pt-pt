@@ -1,25 +1,16 @@
 ---
-title: Práticas recomendadas de design de aplicativo Service Fabric do Azure | Microsoft Docs
-description: Práticas recomendadas para o desenvolvimento de aplicativos Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Práticas recomendadas de design do aplicativo Service Fabric do Azure
+description: Práticas recomendadas e considerações de design para desenvolver aplicativos e serviços usando o Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262268"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551850"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Práticas recomendadas de design do aplicativo Service Fabric do Azure
 
@@ -66,8 +57,8 @@ Economize custos e melhore a disponibilidade:
 
 ## <a name="how-to-work-with-reliable-services"></a>Como trabalhar com Reliable Services
 Service Fabric Reliable Services permite que você crie facilmente serviços com e sem estado. Para obter mais informações, consulte a [introdução ao Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
-- Sempre honra o [token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) de cancelamento no `RunAsync()` método para serviços com e sem estado e `ChangeRole()` o método para serviços com estado. Caso contrário, Service Fabric não saberá se o serviço pode ser fechado. Por exemplo, se você não honrar o token de cancelamento, poderão ocorrer tempos de atualização de aplicativos muito mais longos.
--   Abra e feche os ouvintes de [comunicação](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) em tempo hábil e aceite os tokens de cancelamento.
+- Sempre obedeça ao [token de cancelamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) no método `RunAsync()` para serviços com e sem estado e o método `ChangeRole()` para serviços com estado. Caso contrário, Service Fabric não saberá se o serviço pode ser fechado. Por exemplo, se você não honrar o token de cancelamento, poderão ocorrer tempos de atualização de aplicativos muito mais longos.
+-   Abra e feche os [ouvintes de comunicação](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) em tempo hábil e aceite os tokens de cancelamento.
 -   Nunca misture código de sincronização com código assíncrono. Por exemplo, não use `.GetAwaiter().GetResult()` em suas chamadas assíncronas. Use Async *completamente* por meio da pilha de chamadas.
 
 ## <a name="how-to-work-with-reliable-actors"></a>Como trabalhar com Reliable Actors
@@ -76,17 +67,17 @@ Service Fabric Reliable Actors permite que você crie facilmente atores com esta
 - Considere seriamente o uso de mensagens pub/sub entre seus atores para dimensionar seu aplicativo. As ferramentas que fornecem esse serviço incluem o [SoCreate de código-fonte aberto Service Fabric pub/sub](https://service-fabric-pub-sub.socreate.it/) e o [barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
 - Torne o estado do ator o mais [granular possível](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
 - Gerencie o [ciclo de vida do ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Exclua os atores se você não for usá-los novamente. Excluir atores desnecessários é especialmente importante quando você está usando o [provedor de estado volátil](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), pois todo o estado é armazenado na memória.
-- Devido à sua [simultaneidade baseada em](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)desligamento, os atores são mais bem usados como objetos independentes. Não crie grafos de chamadas de método síncronas multisservidor (cada uma delas mais provavelmente se tornará uma chamada de rede separada) ou crie solicitações de ator circulares. Isso irá afetar significativamente o desempenho e a escala.
+- Devido à sua [simultaneidade baseada em desligamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), os atores são mais bem usados como objetos independentes. Não crie grafos de chamadas de método síncronas multisservidor (cada uma delas mais provavelmente se tornará uma chamada de rede separada) ou crie solicitações de ator circulares. Isso irá afetar significativamente o desempenho e a escala.
 - Não misture o código de sincronização com código assíncrono. Use o Async de forma consistente para evitar problemas de desempenho.
 - Não faça chamadas de longa execução em atores. Chamadas de longa execução bloquearão outras chamadas para o mesmo ator, devido à simultaneidade baseada em desligamento.
-- Se você estiver se comunicando com outros serviços usando [Service Fabric comunicação remota](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e estiver criando `ServiceProxyFactory`um, crie a fábrica no nível de [serviço de ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *não* no nível de ator.
+- Se você estiver se comunicando com outros serviços usando [Service Fabric comunicação remota](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e estiver criando uma `ServiceProxyFactory`, crie a fábrica no nível de [serviço de ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *não* no nível de ator.
 
 
 ## <a name="application-diagnostics"></a>Diagnóstico de aplicativos
 Seja completo sobre a adição de [log de aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) em chamadas de serviço. Ele o ajudará a diagnosticar cenários nos quais os serviços se chamam uns aos outros. Por exemplo, quando uma chamada B chama C calls D, ela pode falhar em qualquer lugar. Se você não tiver registro em log suficiente, as falhas serão difíceis de diagnosticar. Se os serviços estiverem registrando muito em log devido a volumes de chamada, certifique-se de pelo menos erros e avisos de log.
 
 ## <a name="iot-and-messaging-applications"></a>Aplicativos de mensagens e de IoT
-Quando você estiver lendo mensagens do [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), use [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). O ServiceFabricProcessor integra-se com Service Fabric Reliable Services para manter o estado de leitura das partições do hub de eventos e envia por push novas mensagens para `IEventProcessor::ProcessEventsAsync()` seus serviços por meio do método.
+Quando você estiver lendo mensagens do [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), use [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). O ServiceFabricProcessor integra-se com Service Fabric Reliable Services para manter o estado de leitura das partições do hub de eventos e envia novas mensagens para seus serviços por meio do método `IEventProcessor::ProcessEventsAsync()`.
 
 
 ## <a name="design-guidance-on-azure"></a>Diretrizes de design no Azure

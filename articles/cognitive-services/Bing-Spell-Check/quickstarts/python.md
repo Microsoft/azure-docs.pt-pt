@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: verificar a ortografia com a API REST e o Python-Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448460"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início rápido: verificar a ortografia com a API REST do Verificação Ortográfica do Bing e Python
 
@@ -36,7 +36,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
    import json
    ```
 
-2. Crie variáveis para o texto no qual você deseja verificar a ortografia, sua chave de assinatura e seu ponto de extremidade de Verificação Ortográfica do Bing.
+2. Crie variáveis para o texto no qual você deseja verificar a ortografia, sua chave de assinatura e seu ponto de extremidade de Verificação Ortográfica do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -85,9 +85,18 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     print(json.dumps(json_response, indent=4))
     ```
 
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Se você estiver usando a linha de comando, use o comando a seguir para executar o aplicativo.
+
+```bash
+python <FILE_NAME>.py
+```
+
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {

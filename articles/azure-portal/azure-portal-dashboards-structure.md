@@ -1,29 +1,29 @@
 ---
 title: A estrutura dos painéis do Azure | Microsoft Docs
-description: Este artigo explica a estrutura JSON de um painel do Azure
+description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832783"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640368"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos painéis do Azure
 Este documento percorre a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
 
-![painel de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
+![dashboard de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
 Como os [painéis do Azure compartilhados são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), esse painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
 
@@ -312,13 +312,13 @@ As marcas são um recurso comum dos recursos do Azure que permitem organizar seu
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>O objeto Properties
-O objeto Properties contém duas propriedades, __lentes__ e __metadados__. A propriedade __lentes__ contém informações sobre os blocos (também conhecido como partes) no painel.  A propriedade __Metadata__ está lá para possíveis recursos futuros.
+O objeto Properties contém duas propriedades, __lentes__ e __metadados__. A propriedade __lentes__ contém informações sobre os blocos no painel.  A propriedade __Metadata__ está lá para possíveis recursos futuros.
 
 ### <a name="the-lenses-property"></a>A propriedade lentes
 A propriedade __lentes__ contém o painel. Observe que o objeto de lentes neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não está implementado atualmente em painéis. Por enquanto, todos os seus painéis têm essa propriedade única no objeto Lens, novamente, chamado "0".
 
 ### <a name="the-lens-object"></a>O objeto de lente
-O objeto sob o "0" contém duas propriedades, __Order__ e __Parts__.  Na versão atual dos painéis, o __pedido__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também conhecido como blocos) no painel.
+O objeto sob o "0" contém duas propriedades, __Order__ e __Parts__.  Na versão atual dos painéis, o __pedido__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também chamadas de blocos) no painel.
 
 O objeto __Parts__ contém uma propriedade para cada parte, em que o nome da propriedade é um número. Esse número não é significativo. 
 

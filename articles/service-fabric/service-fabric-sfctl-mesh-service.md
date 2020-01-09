@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-serviço de malha sfctl | Microsoft Docs
-description: Descreve os comandos do serviço de malha do Service Fabric CLI sfctl.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-serviço de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter detalhes de serviço para um recurso de aplicativo.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: d2ddc34f8b298a4037a1c8286eceb9ef13b1f416
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1ae04d054a254746d59b85f4fe366cebf19e3faf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901157"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646097"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Obter detalhes do serviço e listar serviços de um recurso de aplicativo.
@@ -40,7 +31,7 @@ Obtém as informações sobre todos os serviços de um recurso de aplicativo. As
 
 |Argumento|Descrição|
 | --- | --- |
-| --App-Name--nome-do-aplicativo [obrigatório] | O nome do aplicativo. |
+| --App-Name--nome-do-aplicativo [obrigatório] | O nome da aplicação. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -61,7 +52,7 @@ Obtém as informações sobre o recurso de serviço com o nome fornecido. As inf
 
 |Argumento|Descrição|
 | --- | --- |
-| --App-Name--nome-do-aplicativo [obrigatório] | O nome do aplicativo. |
+| --App-Name--nome-do-aplicativo [obrigatório] | O nome da aplicação. |
 | --Name-n [obrigatório] | O nome do serviço. |
 
 ### <a name="global-arguments"></a>Argumentos globais

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: MT
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847301"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644992"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -36,7 +36,7 @@ Para criar um cluster HDInsight que usa Data Lake Storage Gen2 para armazenament
 
 Crie uma identidade gerenciada atribuída pelo usuário, se você ainda não tiver uma.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No canto superior esquerdo, **crie um recurso**.
 1. Na caixa de pesquisa, digite **usuário atribuído** e clique em **identidade gerenciada atribuída pelo usuário**.
 1. Clique em **Criar**.
@@ -47,11 +47,11 @@ Para obter mais informações sobre como as identidades gerenciadas funcionam no
 
 ![Criar uma identidade gerida atribuída pelo utilizador](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-### <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta de Data Lake Storage Gen2
+### <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta do Data Lake Storage Gen2
 
 Crie uma conta de armazenamento Azure Data Lake Storage Gen2.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. No canto superior esquerdo, **crie um recurso**.
 1. Na caixa de pesquisa, digite **armazenamento** e clique em **conta de armazenamento**.
 1. Clique em **Criar**.
@@ -146,6 +146,10 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
+
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Criar um cluster com Data Lake Storage Gen2 por meio de Azure PowerShell
+
+No momento, não há suporte para o uso do PowerShell para criar um cluster HDInsight com o Azure Data Lake Storage Gen2.
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Controle de acesso para Data Lake Storage Gen2 no HDInsight
 

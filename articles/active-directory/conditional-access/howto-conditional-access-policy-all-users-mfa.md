@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424943"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso condicional: exigir MFA para todos os usuários
 
@@ -57,8 +57,24 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 
+### <a name="named-locations"></a>Localizações com nome
+
+As organizações podem optar por incorporar locais de rede conhecidos conhecidos como **locais nomeados** a suas políticas de acesso condicional. Esses locais nomeados podem incluir redes IPv4 confiáveis como as de um local principal do Office. Para obter mais informações sobre como configurar locais nomeados, consulte o artigo [qual é a condição de local em Azure Active Directory acesso condicional?](location-condition.md)
+
+Na política de exemplo acima, uma organização pode optar por não exigir a autenticação multifator se estiver acessando um aplicativo de nuvem de sua rede corporativa. Nesse caso, eles podem adicionar a seguinte configuração à política:
+
+1. Em **atribuições**, selecione **condições** > **locais**.
+   1. Configurar **Sim**.
+   1. Inclua **qualquer local**.
+   1. Exclua **todos os locais confiáveis**.
+   1. Selecione **Done** (Concluído).
+1. Selecione **Done** (Concluído).
+1. **Salve** as alterações de política.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+
+[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
 
 [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)

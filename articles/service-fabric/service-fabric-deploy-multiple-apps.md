@@ -1,42 +1,33 @@
 ---
-title: Implementar uma aplicação de node. js que utiliza o MongoDB para o Azure Service Fabric | Documentos da Microsoft
-description: Passo a passo sobre como empacotar vários executáveis convidados para implementar um cluster do Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Implantar um aplicativo node. js que usa o MongoDB
+description: Orientações sobre como empacotar vários executáveis convidados para implantar em um cluster de Service Fabric do Azure
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537709"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614473"
 ---
-# <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
-Este artigo mostra como empacotar e implementar vários executáveis convidados para o Azure Service Fabric. Para criar e implementar um único pacote de recursos de infraestrutura do serviço Leia como a [implementar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
+# <a name="deploy-multiple-guest-executables"></a>Implementar várias aplicações executáveis convidadas
+Este artigo mostra como empacotar e implantar vários executáveis convidados no Azure Service Fabric. Para criar e implantar um único pacote de Service Fabric leia como [implantar um executável convidado para Service Fabric](service-fabric-deploy-existing-app.md).
 
-Embora estas instruções mostram como implementar uma aplicação com um node. js front-end que utiliza o MongoDB como arquivo de dados, pode aplicar os passos para qualquer aplicação que apresenta dependências em outro aplicativo.   
+Embora este passo a passos mostre como implantar um aplicativo com um front-end node. js que usa o MongoDB como o armazenamento de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências em outro aplicativo.   
 
-Pode utilizar o Visual Studio para produzir o pacote de aplicação que contém vários executáveis convidados. Ver [usando o Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de ter adicionado o primeiro executável de convidado, clique com o botão direito do rato no projeto de aplicação e selecione o **adicionar -> serviço novo do Service Fabric** para adicionar o segundo projeto executáveis de convidado para a solução. Nota: Se optar por ligar a origem no projeto do Visual Studio, compilar a solução do Visual Studio, serão Certifique-se de que o seu pacote de aplicação é atualizado com as alterações na origem. 
+Você pode usar o Visual Studio para produzir o pacote de aplicativos que contém vários executáveis convidados. Consulte [usando o Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de adicionar o primeiro executável convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione o **novo serviço de Service Fabric de >** para adicionar o segundo projeto executável convidado à solução. Observação: se você optar por vincular a origem no projeto do Visual Studio, criar a solução do Visual Studio, o garantirá que o pacote de aplicativos esteja atualizado com as alterações na origem. 
 
 ## <a name="samples"></a>Exemplos
-* [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemplo de dois executáveis convidados (C# e NodeJS) se comunicando por meio do serviço de cadastramento usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>O pacote manualmente vários aplicação executável convidada
-Em alternativa pode empacotar manualmente o convidado executável. Para obter detalhes, consulte [manualmente agrupar e implementar um executável existente](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
+## <a name="manually-package-the-multiple-guest-executable-application"></a>Empacotar manualmente o aplicativo executável de vários convidados
+Como alternativa, você pode empacotar manualmente o executável convidado. Para obter detalhes, consulte [empacotar manualmente e implantar um executável existente](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
-### <a name="packaging-the-nodejs-application"></a>Empacotar a aplicação node. js
-Este artigo pressupõe que o node. js não está instalado em nós no cluster do Service Fabric. Como conseqüência, terá de adicionar Node.exe para o diretório de raiz da sua aplicação de nó antes de empacotamento. A estrutura do diretório da aplicação node. js (com a arquitetura de web Express e o mecanismo de modelo Jade) deve ter um aspeto semelhante à abaixo:
+### <a name="packaging-the-nodejs-application"></a>Empacotando o aplicativo node. js
+Este artigo pressupõe que node. js não está instalado nos nós no Cluster Service Fabric. Como consequência, você precisa adicionar o Node. exe ao diretório raiz do seu aplicativo de nó antes do empacotamento. A estrutura de diretório do aplicativo node. js (usando a estrutura da Web expresso e o mecanismo de modelo Jade) deve ser semelhante à seguinte:
 
 ```
 |-- NodeApplication
@@ -61,22 +52,22 @@ Este artigo pressupõe que o node. js não está instalado em nós no cluster do
     |-- node.exe
 ```
 
-Como passo seguinte, crie um pacote de aplicação para a aplicação node. js. O código abaixo cria um pacote de aplicação do Service Fabric que contém a aplicação node. js.
+Como uma próxima etapa, você cria um pacote de aplicativos para o aplicativo node. js. O código a seguir cria um pacote de aplicativo Service Fabric que contém o aplicativo node. js.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Segue-se uma descrição dos parâmetros que estão a ser utilizados:
+Abaixo está uma descrição dos parâmetros que estão sendo usados:
 
 * **/Source** aponta para o diretório do aplicativo que deve ser empacotado.
-* **/ destino** define o diretório no qual o pacote deve ser criado. Este diretório tem de ser diferente do diretório de origem.
-* **/appname** define o nome da aplicação da aplicação existente. É importante compreender que isto traduz-se para o nome do serviço no manifesto e não ao nome de aplicação do Service Fabric.
-* **/exe** define o executável que o Service Fabric é suposto para iniciar, neste caso `node.exe`.
-* **/Ma** define o argumento que está a ser utilizado para iniciar o executável. Como não está instalado o node. js, Service Fabric tem de iniciar o servidor de web de node. js executando `node.exe bin/www`.  `/ma:'bin/www'` informa a ferramenta de empacotamento para utilizar `bin/www` como o argumento node.exe.
-* **/ AppType** define o nome de tipo de aplicação do Service Fabric.
+* **/target** define o diretório no qual o pacote deve ser criado. Esse diretório deve ser diferente do diretório de origem.
+* **/AppName** define o nome do aplicativo do aplicativo existente. É importante entender que isso se traduz no nome do serviço no manifesto, e não no nome do aplicativo Service Fabric.
+* **/exe** define o executável que Service Fabric deve iniciar, nesse caso `node.exe`.
+* **/ma** define o argumento que está sendo usado para iniciar o executável. Como o Node. js não está instalado, Service Fabric precisa iniciar o servidor Web node. js executando `node.exe bin/www`.  `/ma:'bin/www'` informa a ferramenta de empacotamento para usar `bin/www` como argumento para node. exe.
+* **/AppType** define o nome do tipo de aplicativo Service Fabric.
 
-Se navegar até o diretório que foi especificado no parâmetro /target, pode ver que a ferramenta criou um pacote de recursos de infraestrutura do serviço totalmente funcional conforme mostrado abaixo:
+Se você navegar até o diretório que foi especificado no parâmetro/Target, poderá ver que a ferramenta criou um pacote de Service Fabric totalmente funcional, como mostrado abaixo:
 
 ```
 |--[yourtargetdirectory]
@@ -96,7 +87,7 @@ Se navegar até o diretório que foi especificado no parâmetro /target, pode ve
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-O servicemanifest. XML gerado agora tem uma secção que descreve a forma como o servidor de web de node. js deve ser inicializado, conforme mostrado no fragmento de código abaixo:
+O canmanifest. XML gerado agora tem uma seção que descreve como o servidor Web node. js deve ser iniciado, conforme mostrado no trecho de código abaixo:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -109,7 +100,7 @@ O servicemanifest. XML gerado agora tem uma secção que descreve a forma como o
     </EntryPoint>
 </CodePackage>
 ```
-Neste exemplo, o servidor de web de node. js escuta a porta 3000, por isso terá de atualizar as informações de ponto final no ficheiro servicemanifest. XML, conforme mostrado abaixo.   
+Neste exemplo, o servidor Web node. js escuta a porta 3000 e, portanto, você precisa atualizar as informações do ponto de extremidade no arquivo manifest. xml, conforme mostrado abaixo.   
 
 ```xml
 <Resources>
@@ -118,10 +109,10 @@ Neste exemplo, o servidor de web de node. js escuta a porta 3000, por isso terá
       </Endpoints>
 </Resources>
 ```
-### <a name="packaging-the-mongodb-application"></a>Empacotar a aplicação do MongoDB
-Agora que o ter compactado a aplicação node. js, pode ir em frente e pacotes MongoDB. Como mencionado anteriormente, os passos de que revê agora não são específicos de node. js e MongoDB. Na verdade, eles se aplicam a todas as aplicações que devem ser empacotados em conjunto como uma aplicação do Service Fabric.  
+### <a name="packaging-the-mongodb-application"></a>Empacotando o aplicativo MongoDB
+Agora que você pacoteu o aplicativo node. js, pode prosseguir e empacotar o MongoDB. Como mencionado anteriormente, as etapas que você passa agora não são específicas para node. js e MongoDB. Na verdade, eles se aplicam a todos os aplicativos que devem ser empacotados em conjunto como um aplicativo Service Fabric.  
 
-Para empacotar a MongoDB, quer certificar-se de que o pacote Mongod.exe e Mongo.exe. Ambos os binários são localizados no `bin` diretório do seu diretório de instalação do MongoDB. A estrutura do diretório é semelhante à abaixo.
+Para empacotar o MongoDB, você deseja se certificar de que você empacota o mongod. exe e o Mongo. exe. Ambos os binários estão localizados no diretório `bin` do diretório de instalação do MongoDB. A estrutura do diretório é semelhante à mostrada abaixo.
 
 ```
 |-- MongoDB
@@ -130,25 +121,25 @@ Para empacotar a MongoDB, quer certificar-se de que o pacote Mongod.exe e Mongo.
         |-- mongo.exe
         |-- anybinary.exe
 ```
-Recursos de infraestrutura do serviço necessita para começar a MongoDB com um comando semelhante de abaixo, por isso terá de utilizar o `/ma` parâmetro quando o empacotamento do MongoDB.
+Service Fabric precisa iniciar o MongoDB com um comando semelhante ao mostrado abaixo, portanto, você precisa usar o parâmetro `/ma` ao empacotar o MongoDB.
 
 ```
 mongod.exe --dbpath [path to data]
 ```
 > [!NOTE]
-> Os dados não é a ser mantidos no caso de uma falha de nó, se colocar o diretório de dados do MongoDB no diretório local do nó. Deve utilizar o armazenamento durável ou implementar uma réplica de MongoDB, definir a fim de evitar a perda de dados.  
+> Os dados não serão preservados no caso de uma falha de nó se você colocar o diretório de dados do MongoDB no diretório local do nó. Você deve usar o armazenamento durável ou implementar um conjunto de réplicas do MongoDB para evitar a perda de dados.  
 >
 >
 
-No PowerShell ou a shell de comandos, podemos executar a ferramenta de empacotamento com os seguintes parâmetros:
+No PowerShell ou no Shell de comando, executamos a ferramenta de empacotamento com os seguintes parâmetros:
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
 ```
 
-Para adicionar o MongoDB ao seu pacote de aplicação do Service Fabric, terá de certificar-se de que os pontos de parâmetro /target no mesmo diretório que já contém a aplicação do manifesto, juntamente com a aplicação node. js. Terá também de certificar-se de que está a utilizar o mesmo nome de ApplicationType.
+Para adicionar o MongoDB ao seu pacote de aplicativo Service Fabric, você precisa certificar-se de que o parâmetro/Target aponta para o mesmo diretório que já contém o manifesto do aplicativo junto com o aplicativo node. js. Você também precisa se certificar de que está usando o mesmo nome de ApplicationType.
 
-Vamos, navegue para o diretório e examinar o que criou a ferramenta.
+Vamos procurar o diretório e examinar o que a ferramenta criou.
 
 ```
 |--[yourtargetdirectory]
@@ -164,7 +155,7 @@ Vamos, navegue para o diretório e examinar o que criou a ferramenta.
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Como pode ver, a ferramenta adicionada uma nova pasta, MongoDB, para o diretório que contém os binários do MongoDB. Se abrir o `ApplicationManifest.xml` arquivo, pode ver que o pacote contém agora a aplicação node. js e MongoDB. O código abaixo mostra o conteúdo do manifesto do aplicativo.
+Como você pode ver, a ferramenta adicionou uma nova pasta, MongoDB, ao diretório que contém os binários do MongoDB. Se você abrir o arquivo `ApplicationManifest.xml`, poderá ver que o pacote agora contém o aplicativo node. js e o MongoDB. O código a seguir mostra o conteúdo do manifesto do aplicativo.
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -189,8 +180,8 @@ Como pode ver, a ferramenta adicionada uma nova pasta, MongoDB, para o diretóri
 </ApplicationManifest>  
 ```
 
-### <a name="publishing-the-application"></a>Publicação da aplicação
-A última etapa é publicar a aplicação no cluster do Service Fabric local usando os scripts do PowerShell abaixo:
+### <a name="publishing-the-application"></a>Publicando o aplicativo
+A última etapa é publicar o aplicativo no cluster de Service Fabric local usando os scripts do PowerShell abaixo:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -204,17 +195,17 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Assim que a aplicação é publicada com êxito para o cluster local, pode aceder a aplicação node. js na porta que entramos no manifesto do serviço da aplicação node. js, por exemplo, http:\//localhost:3000.
+Depois que o aplicativo for publicado com êxito no cluster local, você poderá acessar o aplicativo node. js na porta que inserimos no manifesto do serviço do aplicativo node. js, por exemplo, http:\//localhost: 3000.
 
-Neste tutorial, viu como empacotar facilmente dois aplicativos existentes como uma aplicação do Service Fabric. Também aprendeu como implementá-la para o Service Fabric, para que ele pode beneficiar de alguns dos recursos do Service Fabric, como elevada disponibilidade e a integração do sistema de estado de funcionamento.
+Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes como um aplicativo Service Fabric. Você também aprendeu como implantá-lo no Service Fabric para que ele possa se beneficiar de alguns dos recursos de Service Fabric, como a alta disponibilidade e a integração do sistema de integridade.
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Adicionar mais executáveis de convidado para uma aplicação existente com o Yeoman no Linux
+## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Adicionando mais executáveis convidados a um aplicativo existente usando o Yeoman no Linux
 
 Para adicionar outro serviço a uma aplicação já criada com o `yo`, execute os seguintes passos: 
 1. Altere o diretório para a raiz da aplicação existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
-2. Executar `yo azuresfguest:AddService` e forneça os detalhes necessários.
+2. Execute `yo azuresfguest:AddService` e forneça os detalhes necessários.
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre a implementação de contentores com [descrição geral do Service Fabric e contentores](service-fabric-containers-overview.md)
-* [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre como implantar contêineres com [Service Fabric e contêineres visão geral](service-fabric-containers-overview.md)
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Exemplo de dois executáveis convidados (C# e NodeJS) se comunicando por meio do serviço de cadastramento usando REST](https://github.com/Azure-Samples/service-fabric-containers)

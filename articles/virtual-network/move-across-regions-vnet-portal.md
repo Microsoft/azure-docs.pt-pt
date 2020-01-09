@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: d6f417e53e7d7a1a242a0c0dc56c2356f78f5344
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c54725d9a947b0c912a822686d7b2cffe1a7b5c9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828957"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640793"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Mover uma rede virtual do Azure para outra região usando o portal do Azure
 
 Há vários cenários para mover uma rede virtual do Azure existente de uma região para outra. Por exemplo, talvez você queira criar uma rede virtual com a mesma configuração para teste e disponibilidade como sua rede virtual existente. Ou talvez você queira mover uma rede virtual de produção para outra região como parte de seu planejamento de recuperação de desastre.
 
-Você pode usar um modelo de Azure Resource Manager para concluir a movimentação da rede virtual para outra região. Você faz isso exportando a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região. Para obter mais informações sobre modelos do Resource Manager, consulte [Quickstart: Crie e implante modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Você pode usar um modelo de Azure Resource Manager para concluir a movimentação da rede virtual para outra região. Você faz isso exportando a rede virtual para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantando o modelo na nova região. Para obter mais informações sobre modelos do Resource Manager, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Você pode usar um modelo de Azure Resource Manager para concluir a movimentaç�
 
 - Verifique se sua assinatura do Azure permite que você crie redes virtuais na região de destino. Para habilitar a cota necessária, contate o suporte.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparar para a movimentação
@@ -42,7 +42,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. Entre no [portal do Azure](https://portal.azure.com)e, em seguida, selecione **grupos de recursos**.
 1. Localize o grupo de recursos que contém a rede virtual de origem e, em seguida, selecione-o.
-1. Selecione **configurações** > **Exportar modelo**.
+1. Selecione **configurações** > **modelo de exportação**.
 1. No painel **Exportar modelo** , selecione **implantar**.
 1. Para abrir o arquivo *Parameters. JSON* em seu editor online, selecione **modelo** > **Editar parâmetros**.
 1. Para editar o parâmetro do nome da rede virtual, altere a propriedade **Value** em **parâmetros**:
@@ -89,7 +89,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. Adicional Você também pode alterar outros parâmetros no modelo, dependendo de seus requisitos:
 
-    * **Espaço de endereço**: Antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos** > **addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando **os recursos** > seção **addressSpace** e alterando a propriedade **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -109,7 +109,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
         ```
 
-    * **Sub-rede**: Você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do modelo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
+    * **Sub-rede**: você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do modelo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -180,11 +180,11 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o port
 
 1. Para escolher a assinatura na qual a rede virtual de destino será implantada, selecione **noções básicas** > **assinatura**.
 
-1. Para escolher o grupo de recursos em que a rede virtual de destino será implantada, selecione **básico** > **grupo de recursos**. 
+1. Para escolher o grupo de recursos em que a rede virtual de destino será implantada, selecione **noções básicas** > **grupo de recursos**. 
 
     Se você precisar criar um novo grupo de recursos para a rede virtual de destino, selecione **criar novo**. Certifique-se de que o nome não seja o mesmo que o nome do grupo de recursos de origem na rede virtual existente.
 
-1. Verifique se o**local** **básico** >  está definido como o local de destino onde você deseja que a rede virtual seja implantada.
+1. Verifique se o **local** **básico** > está definido como o local de destino onde você deseja que a rede virtual seja implantada.
 
 1. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
 

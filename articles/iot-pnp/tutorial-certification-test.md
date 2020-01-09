@@ -7,15 +7,15 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878083"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550167"
 ---
-# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutorial: Certificar seu dispositivo de visualização de Plug and Play de IoT
+# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutorial: certificar seu dispositivo de visualização de Plug and Play de IoT
 
 Para publicar um dispositivo de visualização de IoT Plug and Play no [Catálogo de dispositivos certificado pelo Azure para IOT](https://aka.ms/iotdevcat), ele deve passar por um conjunto de testes de certificação. Use o portal do [Azure Certified para IOT](https://aka.ms/ACFI) para enviar seu dispositivo para certificação. O [serviço de certificação IOT do Azure](https://aka.ms/azure-iot-aics) executa os testes de certificação.
 
@@ -77,7 +77,7 @@ Essas etapas são uma etapa única para executar testes de certificação e não
 1. Entre no portal usando sua conta do Partner Center.
 1. Clique em **conectar + teste** para iniciar o fluxo de certificação.
 1. Escolha o [método de autenticação](../iot-dps/concepts-security.md#attestation-mechanism) para provisionar seu dispositivo para AICS usando o [serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
-   * Se você estiver usando um [certificado x. 509](../iot-hub/iot-hub-security-x509-get-started.md#prerequisites), carregue seu certificado x. 509 gerado. Talvez você queira examinar o código de exemplo que mostra como usar os certificados X. 509: [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/iothub_ll_client_x509_sample/iothub_ll_client_x509_sample.c), [C#](../iot-hub/iot-hub-security-x509-get-started.md).
+   * Se você estiver usando um [certificado x. 509](../iot-hub/iot-hub-security-x509-get-started.md#prerequisites), carregue seu certificado x. 509 gerado. Talvez você queira examinar o código de exemplo que mostra como usar certificados X. 509: [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/iothub_ll_client_x509_sample/iothub_ll_client_x509_sample.c), [C#](../iot-hub/iot-hub-security-x509-get-started.md).
    * Se você estiver usando uma [chave simétrica](../iot-dps/concepts-symmetric-key-attestation.md), copie e cole a chave simétrica em seu código de dispositivo.
    * Não há suporte para o método de autenticação do TPM no momento.
 1. Copie e cole as seguintes IDs geradas em seu código de dispositivo.
@@ -99,7 +99,7 @@ Na página revisão, você pode examinar as interfaces de Plug and Play IoT desc
 1. Publique o dispositivo de Plug and Play de IoT certificado para o catálogo. Para adicionar o dispositivo certificado ao catálogo, selecione **Adicionar ao catálogo** na barra de ferramentas. Se a opção **Adicionar ao catálogo** estiver esmaecida, significa que as informações do produto estão incompletas ou os testes falharam. 
 1. Selecione o link "certificado e no catálogo" para exibir o dispositivo publicado no catálogo do dispositivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu sobre a certificação de Plug and Play dispositivo IoT, a próxima etapa sugerida é aprender mais sobre o gerenciamento de modelos de recursos:
 

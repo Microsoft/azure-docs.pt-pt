@@ -1,28 +1,19 @@
 ---
-title: Tutorial de limpeza de cluster autónomo do Service Fabric - Azure Service Fabric | Microsoft Docs
-description: Neste tutorial, você aprenderá a limpar seu cluster autônomo
-services: service-fabric
-documentationcenter: .net
+title: Limpar um cluster autônomo
+description: Neste tutorial, você aprenderá a limpar os recursos do AWS ou do Azure no Cluster Service Fabric autônomo.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385159"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639025"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpar seu cluster autônomo
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: limpe o seu cluster autónomo
 
 Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, você cria um cluster autônomo hospedado no AWS ou no Azure e instala um aplicativo nele.
 
@@ -63,7 +54,7 @@ Na quarta parte da série, ficará a saber como:
 1. Entre em sua conta do AWS.
 2. Vá para a consola EC2.
 3. Selecione os três nós que criou na primeira parte do tutorial.
-4. Clique no  > estadoda > instância de ações**encerrar**.
+4. Clique em **ações** > **estado da instância** > **encerrar**.
 
 ## <a name="clean-up-azure-resources"></a>Limpar recursos do Azure
 
@@ -72,7 +63,7 @@ Na quarta parte da série, ficará a saber como:
 3. Marque as caixas de seleção dos três nós que você criou na parte um do tutorial.
 4. Clique em **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na quarta parte da série, aprendeu a apagar os recursos criados nos passos anteriores.
 

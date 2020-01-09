@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-sfctl compor | Microsoft Docs
-description: Descreve os comandos de composição de sfctl da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl Compose
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para Docker Compose aplicativos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 561616fca7401f5251c4fbac67173260a665b602
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9fa142dd45674e4a3e88745acffef225b80a64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901658"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645400"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Crie, exclua e gerencie aplicativos Docker Compose.
@@ -30,11 +21,11 @@ Crie, exclua e gerencie aplicativos Docker Compose.
 | --- | --- |
 | criar | Cria uma implantação de Service Fabric compor. |
 | list | Obtém a lista de implantações de composição criadas no Cluster Service Fabric. |
-| exclu | Exclui uma implantação existente de composição de Service Fabric do cluster. |
+| remover | Exclui uma implantação existente de composição de Service Fabric do cluster. |
 | status | Obtém informações sobre uma implantação de Service Fabric compor. |
-| Melhora | Inicia a atualização de uma implantação do Compose no Cluster Service Fabric. |
-| atualização-reversão | Inicia a reversão de uma atualização de implantação do Compose no Cluster Service Fabric. |
-| atualização-status | Obtém detalhes para a atualização mais recente executada neste Service Fabric a implantação de composição. |
+| upgrade | Inicia a atualização de uma implantação do Compose no Cluster Service Fabric. |
+| upgrade-rollback | Inicia a reversão de uma atualização de implantação do Compose no Cluster Service Fabric. |
+| upgrade-status | Obtém detalhes para a atualização mais recente executada neste Service Fabric a implantação de composição. |
 
 ## <a name="sfctl-compose-create"></a>sfctl compor criação
 Cria uma implantação de Service Fabric compor.
@@ -43,7 +34,7 @@ Cria uma implantação de Service Fabric compor.
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | O nome da implantação. |
+| --Deployment-Name [obrigatório] | O nome da implementação. |
 | --File-Path [obrigatório] | Caminho para o arquivo de Docker Compose de destino. |
 | --criptografado-aprovado | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada. |
 | --aprovado | Solicitará uma senha para o registro de contêiner. |
@@ -70,7 +61,7 @@ Obtém o status sobre as implantações de composição que foram criadas ou no 
 |Argumento|Descrição|
 | --- | --- |
 | --continuação-token | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio é incluído na resposta da API quando os resultados do sistema não se ajustam em uma única resposta. Quando esse valor é passado para a próxima chamada à API, a API retorna o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --Max-Results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
+| --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser menores que os resultados máximos especificados se não couberem na mensagem de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero ou não for especificado, a consulta paginável incluirá o máximo possível de resultados que couberem na mensagem de retorno. |
 | --Timeout-t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -136,26 +127,26 @@ Valida os parâmetros de atualização fornecidos e inicia a atualização da im
 
 |Argumento|Descrição|
 | --- | --- |
-| --Deployment-Name [obrigatório] | O nome da implantação. |
+| --Deployment-Name [obrigatório] | O nome da implementação. |
 | --File-Path [obrigatório] | Caminho para o arquivo do Docker Compose de destino. |
-| --padrão-svc-tipo-mapa de integridade | O dicionário codificado em JSON que descreve a política de integridade usada para avaliar a integridade dos serviços. |
+| --default-svc-type-health-map | O dicionário codificado em JSON que descreve a política de integridade usada para avaliar a integridade dos serviços. |
 | --criptografado-aprovado | Em vez de solicitar uma senha de registro de contêiner, use uma frase secreta já criptografada. |
 | --ação de falha | Os valores possíveis incluem\: ' invalid ', ' Rollback ', ' manual '. |
 | --Force-Restart | Os processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização só altera a configuração ou os dados. |
 | --aprovado | Solicitará uma senha para o registro de contêiner. |
-| – repetição de verificação de integridade | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro. |
-| --Health-Check-estável | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --verificação de integridade-espera | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade. |
-| --conjunto de réplicas-verificação | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expirar, o processamento do domínio de atualização continuará independentemente dos problemas de perda de disponibilidade. O tempo limite é redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
-| --SVC-tipo-mapa de integridade | Lista de objetos codificados em JSON que descrevem as políticas de integridade usadas para avaliar a integridade de diferentes tipos de serviço. |
+| --health-check-retry | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro. |
+| --health-check-stable | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --health-check-wait | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade. |
+| --replica-set-check | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expirar, o processamento do domínio de atualização continuará independentemente dos problemas de perda de disponibilidade. O tempo limite é redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
+| --svc-type-health-map | Lista de objetos codificados em JSON que descrevem as políticas de integridade usadas para avaliar a integridade de diferentes tipos de serviço. |
 | --Timeout-t | Padrão\: 60. |
-| --aplicativo não íntegro | A porcentagem máxima permitida de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam não íntegros, esse valor seria 10. A porcentagem representa a porcentagem máxima tolerada de aplicativos que podem não estar íntegros antes que o cluster seja considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como aviso. Isso é calculado dividindo o número de aplicativos não íntegros no número total de instâncias do aplicativo no cluster. |
+| --unhealthy-app | A porcentagem máxima permitida de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam não íntegros, esse valor seria 10. A porcentagem representa a porcentagem máxima tolerada de aplicativos que podem não estar íntegros antes que o cluster seja considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como aviso. Isso é calculado dividindo o número de aplicativos não íntegros no número total de instâncias do aplicativo no cluster. |
 | --tempo limite do domínio de atualização | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a falha seja executada. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
 | --tipo de atualização | Padrão\: sem interrupção. |
 | --modo de atualização | Os valores possíveis incluem\: ' invalid ', ' UnmonitoredAuto ', ' UnmonitoredManual ', ' Monitored '.  Padrão\: UnmonitoredAuto. |
-| --tempo limite de atualização | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --upgrade-timeout | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
 | --user | Nome de usuário para se conectar ao registro de contêiner. |
-| --aviso-as-erro | Indica se os avisos são tratados com a mesma severidade que os erros. |
+| --warning-as-error | Indica se os avisos são tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

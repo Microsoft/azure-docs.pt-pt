@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883581"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657986"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Visão geral da terminação SSL e SSL de ponta a ponta com o gateway de aplicativo
 
@@ -36,21 +36,21 @@ Para configurar a terminação SSL, um certificado SSL deve ser adicionado ao ou
 Para que a conexão SSL funcione, você precisa garantir que o certificado SSL atenda às seguintes condições:
 
 - Que a data e a hora atuais estão dentro do intervalo de datas "válido de" e "válido para" no certificado.
-- O “Nome Comum” (NC) do certificado corresponde ao cabeçalho do anfitrião no pedido. Por exemplo, se o cliente estiver a realizar um pedido para `https://www.contoso.com/`, o NC deverá ser `www.contoso.com`.
+- O “Nome Comum” (NC) do certificado corresponde ao cabeçalho do anfitrião no pedido. Por exemplo, se o cliente estiver a realizar um pedido para `https://www.contoso.com/`, o NC tem de ser `www.contoso.com`.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certificados com suporte para terminação SSL
 
 O gateway de aplicativo dá suporte aos seguintes tipos de certificados:
 
-- Certificado de AC (autoridade de certificação): Um certificado de autoridade de certificação é um certificado digital emitido por uma autoridade de certificação (CA)
-- Certificado EV (validação estendida): Um certificado EV é uma diretriz de certificado padrão do setor. Isso ativará a barra de localizador de navegador como verde e publicará o nome da empresa também.
-- Certificado curinga: Esse certificado dá suporte a qualquer número de subdomínios com base em *. site.com, em que o subdomínio substituiria o *. No entanto, ele não dá suporte a site.com, portanto, caso os usuários estejam acessando seu site sem digitar o "www" líder, o certificado curinga não abordará isso.
-- Certificados autoassinados: Os navegadores cliente não confiam nesses certificados e avisam o usuário de que o certificado do serviço virtual não faz parte de uma cadeia de confiança. Os certificados autoassinados são bons para testes ou ambientes em que os administradores controlam os clientes e podem ignorar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem usar certificados autoassinados.
+- Certificado de AC (autoridade de certificação): um certificado de autoridade de certificação é um certificado digital emitido por uma autoridade de certificação (CA)
+- Certificado EV (validação estendida): um certificado EV é uma diretriz de certificado padrão do setor. Isso ativará a barra de localizador de navegador como verde e publicará o nome da empresa também.
+- Certificado curinga: esse certificado dá suporte a qualquer número de subdomínios com base em *. site.com, em que o subdomínio substituiria o *. No entanto, ele não dá suporte a site.com, portanto, caso os usuários estejam acessando seu site sem digitar o "www" líder, o certificado curinga não abordará isso.
+- Certificados autoassinados: os navegadores cliente não confiam nesses certificados e avisam o usuário de que o certificado do serviço virtual não faz parte de uma cadeia de confiança. Os certificados autoassinados são bons para testes ou ambientes em que os administradores controlam os clientes e podem ignorar com segurança os alertas de segurança do navegador. As cargas de trabalho de produção nunca devem usar certificados autoassinados.
 
 Para obter mais informações, consulte [Configurar terminação SSL com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Tamanho do certificado
-Verifique a seção [limites do gateway de aplicativo](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) para saber o tamanho máximo de certificado SSL com suporte.
+Verifique a seção [limites do gateway de aplicativo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) para saber o tamanho máximo de certificado SSL com suporte.
 
 ## <a name="end-to-end-ssl-encryption"></a>Criptografia SSL de ponta a ponta
 
@@ -72,7 +72,7 @@ Se os certificados dos membros no pool de back-end não forem assinados por auto
 
 > [!NOTE] 
 >
-> O certificado adicionado à **configuração de http de back-end** para autenticar os servidores de back-end pode ser o mesmo que o certificado adicionado ao ouvinte para terminação SSL no gateway de aplicativo ou diferente para aumentar a segurança.
+> O certificado adicionado à **configuração de http de back-end** para autenticar os servidores de back-end pode ser o mesmo que o certificado adicionado ao **ouvinte** para terminação SSL no gateway de aplicativo ou diferente para aumentar a segurança.
 
 ![cenário de SSL ponto a ponto][1]
 

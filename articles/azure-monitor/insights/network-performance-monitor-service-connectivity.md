@@ -1,5 +1,5 @@
 ---
-title: Monitor de Desempenho de Rede solução no Azure Log Analytics | Microsoft Docs
+title: Conectividade do serviço de solução Monitor de Desempenho de Rede-Log Analytics do Azure
 description: Use o recurso monitor de conectividade de serviço no Monitor de Desempenho de Rede para monitorar a conectividade de rede para qualquer ponto de extremidade que tenha uma porta TCP aberta.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd02dad6d0f5b42181ad0bb27201384a6336ed6e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898825"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551510"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 

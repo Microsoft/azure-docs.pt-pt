@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 12/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0085db3f38fb8af014434f36893182e1682b05a7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9f67a5b5513ad5d8a07551b2a9f5605fc32a9bf6
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972153"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561852"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com a margem de atraso
 
@@ -45,7 +44,8 @@ Para começar, você precisa dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * A margem de atraso dá suporte ao SSO iniciado pelo **SP**
-* A margem de atraso dá suporte ao [provisionamento e desprovisionamento **automatizados** de usuários](slack-provisioning-tutorial.md) (recomendado)
+* A margem de atraso dá suporte ao provisionamento **de usuário just in time**
+* A margem de atraso dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
@@ -68,10 +68,10 @@ Configure e teste o SSO do Azure AD com a margem de atraso usando um usuário de
 Para configurar e testar o SSO do Azure AD com a margem de atraso, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO de margem de atraso](#configure-slack-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste de margem de atraso](#create-slack-test-user)** – para ter um equivalente de B. Simon na margem de atraso vinculada à representação do usuário no Azure AD.
+    * **[Criar usuário de teste de margem de atraso](#create-slack-test-user)** – para ter um equivalente de B. Simon na margem de atraso vinculada à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
@@ -86,12 +86,23 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<your Slack company>.slack.com`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.slack.com`
 
     b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL: `https://slack.com`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente de margem de atraso](https://slack.com/help/contact) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+
+1. O aplicativo de margem de atraso espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![imagem](common/edit-attribute.png)
+
+1. Além de acima, o aplicativo de margem de atraso espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos. Se os usuários não tiverem endereço de email, mapeie o **EmailAddress** para **User. UserPrincipalName**.
+
+    | Nome | Atributo de origem |
+    | -----|---------|
+    | EmailAddress | user.userprincipalname |
+    | | |
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -135,7 +146,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Em uma janela diferente do navegador da Web, entre no site da empresa de margem de atraso como administrador.
 
-2. Navegue até o nome da sua empresa de margem de atraso à esquerda, que, em nosso caso, foi configurada como **Microsoft Azure ad** e, em seguida, vá para **configurações da equipe** , conforme mostrado na captura de tela a seguir.
+2. Navegue até **Microsoft Azure ad** , em seguida, vá para **configurações da equipe**.
 
      ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_001.png)
 

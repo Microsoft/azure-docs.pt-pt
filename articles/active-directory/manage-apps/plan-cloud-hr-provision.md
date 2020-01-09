@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
-ms.translationtype: MT
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433825"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -96,7 +96,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 | | [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
 | | [Tutorial: configurar o WORKDAY para provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [Provisionamento automatizado de usuários](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| FAQ | [Provisionamento automatizado de usuários](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisionamento do WORKDAY para o Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Arquitetura de soluções
@@ -130,7 +130,7 @@ Quando os projetos de tecnologia falham, eles normalmente fazem isso devido a ex
 
 Você deve incluir um representante da organização de RH que pode fornecer entradas de processos de negócios existentes e requisitos de processamento de dados de trabalho e identidades do trabalho.
 
-### <a name="plan-communications"></a>Planejar comunicações
+### <a name="plan-communications"></a>Planear as comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Você deve se comunicar proativamente com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
 
@@ -165,7 +165,7 @@ A integração de provisionamento entre o aplicativo de RH de nuvem e o AD reque
 - Locatário do aplicativo de RH na nuvem
 - Aplicativo do conector de provisionamento
 - Agente de provisionamento do Azure AD Connect
-- Domínio do AD
+- domínio AD
 
 A topologia de implantação do agente de provisionamento do Azure AD Connect depende do número de locatários do aplicativo de RH de nuvem e domínios filho do AD que você planeja integrar. Se você tiver vários domínios do AD, dependerá se os domínios do AD são contíguos [ou não](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
@@ -181,7 +181,7 @@ Recomendamos a seguinte configuração de produção:
 |Requisito|Recomendação|
 |:-|:-|
 |Número de agentes de provisionamento de Azure AD Connect a serem implantados|2 (para alta disponibilidade e failover)
-|Número de aplicativos do conector de provisionamento a serem configurados|um aplicativo por domínio filho|
+|Número de aplicativos do conector de provisionamento a serem configurados|Um aplicativo por domínio filho|
 |Host do servidor para o agente de provisionamento do Azure AD Connect|Windows 2012 R2 + com linha de visão para controladores de domínio do AD localizados geograficamente</br>Pode coexistir com o serviço Azure AD Connect|
 
 ![Fluxo para agentes locais](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
@@ -195,7 +195,7 @@ Recomendamos a seguinte configuração de produção:
 |Requisito|Recomendação|
 |:-|:-|
 |Número de agentes de provisionamento de Azure AD Connect para implantar no local|2 por floresta de AD não contíguo|
-|Número de aplicativos do conector de provisionamento a serem configurados|um aplicativo por domínio filho|
+|Número de aplicativos do conector de provisionamento a serem configurados|Um aplicativo por domínio filho|
 |Host do servidor para o agente de provisionamento do Azure AD Connect|Windows 2012 R2 + com linha de visão para controladores de domínio do AD localizados geograficamente</br>Pode coexistir com o serviço Azure AD Connect|
 
 ![Floresta do AD não contíguo do locatário de aplicativo de RH de nuvem única](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
@@ -319,14 +319,14 @@ O SSPR é um meio simples para os administradores de ti permitirem que os usuár
 
 ## <a name="plan-for-initial-cycle"></a>Planejar o ciclo inicial
 
-Quando o serviço de provisionamento do Azure AD é executado pela primeira vez, ele executa um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) em relação ao aplicativo de RH na nuvem para criar um instantâneo de todos os objetos de usuário no aplicativo de RH na nuvem. O tempo necessário para os ciclos iniciais é diretamente dependente de quantos usuários estão presentes no sistema de origem. O ciclo inicial de alguns locatários do aplicativo de RH na nuvem com mais de 100.000 usuários pode levar muito tempo.
+Quando o serviço de provisionamento do Azure AD é executado pela primeira vez, ele executa um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) em relação ao aplicativo de RH na nuvem para criar um instantâneo de todos os objetos de usuário no aplicativo de RH na nuvem. O tempo necessário para os ciclos iniciais é diretamente dependente de quantos usuários estão presentes no sistema de origem. O ciclo inicial de alguns locatários do aplicativo de RH na nuvem com mais de 100.000 usuários pode levar muito tempo.
 
 **Para locatários de aplicativo de RH de nuvem grande (> usuários 30.000), recomendamos** que você execute o ciclo inicial em estágios progressivos e inicie as atualizações incrementais somente após a validação de que os atributos corretos estão definidos no AD para diferentes cenários de provisionamento de usuário. Siga a ordem abaixo:
 
 1. Execute o ciclo inicial somente para um conjunto limitado de usuários definindo o [filtro de escopo](#plan-scoping-filters-and-attribute-mapping).
 2. Verifique o provisionamento de conta do AD e os valores de atributo definidos para os usuários selecionados para a primeira execução. Se o resultado atender às suas expectativas, expanda o filtro de escopo para incluir progressivamente mais usuários e verificar os resultados da segunda execução.
 
-Quando estiver satisfeito com os resultados do ciclo inicial dos usuários de teste, você poderá iniciar as [atualizações incrementais](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+Quando estiver satisfeito com os resultados do ciclo inicial dos usuários de teste, você poderá iniciar as [atualizações incrementais](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## <a name="plan-testing-and-security"></a>Teste e segurança de planos
 
@@ -350,7 +350,7 @@ Use os resultados acima para determinar como fazer a transição de sua implemen
 > [!TIP]
 > É recomendável usar técnicas como a redução de dados e a depuração de dados ao atualizar o ambiente de teste com dados de produção para remover/mascarar dados confidenciais de PII (informações de identificação pessoal) para atender aos padrões de privacidade e segurança.
 
-### <a name="plan-security"></a>Segurança do plano
+### <a name="plan-security"></a>Planear a segurança
 
 É comum que uma revisão de segurança seja exigida como parte da implantação de um novo serviço. Se uma análise de segurança for necessária ou ainda não tiver sido realizada, examine os muitos [White papers](https://www.microsoft.com/download/details.aspx?id=36391) do Azure AD que fornecem uma visão geral da identidade como um serviço.
 
@@ -358,7 +358,7 @@ Use os resultados acima para determinar como fazer a transição de sua implemen
 
 Se a implementação de provisionamento de usuário de RH da nuvem não funcionar conforme o desejado no ambiente de produção, as etapas de reversão a seguir podem ajudá-lo a reverter para um estado válido anterior conhecido:
 
-1. Examine o [relatório de Resumo de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) e [os logs de provisionamento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (consulte [gerenciar provisionamento de usuário do aplicativo de RH de nuvem](#manage-your-configuration)) para determinar quais são as operações incorretas executadas nos usuários e/ou grupos afetados.
+1. Examine o [relatório de Resumo de provisionamento](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) e [os logs de provisionamento](check-status-user-account-provisioning.md#provisioning-logs-preview) (consulte [gerenciar provisionamento de usuário do aplicativo de RH de nuvem](#manage-your-configuration)) para determinar quais são as operações incorretas executadas nos usuários e/ou grupos afetados.
 2. O último estado bom conhecido dos usuários e/ou grupos afetados pode ser determinado por meio dos logs de auditoria de provisionamento ou revisando os sistemas de destino (Azure AD ou AD).
 3. Trabalhe com o proprietário do aplicativo para atualizar os usuários e/ou grupos afetados diretamente no aplicativo usando os últimos valores de estado válidos conhecidos.
 
@@ -374,7 +374,7 @@ O Azure AD pode fornecer informações adicionais sobre o uso de provisionamento
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Obter informações de relatórios e logs
 
-Após um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning)bem-sucedido, o serviço de provisionamento do Azure ad continuará a executar atualizações incrementais de back-to-back indefinidamente, em intervalos definidos nos tutoriais específicos de cada aplicativo, até que um dos seguintes eventos ocorra:
+Após um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)bem-sucedido, o serviço de provisionamento do Azure ad continuará a executar atualizações incrementais de back-to-back indefinidamente, em intervalos definidos nos tutoriais específicos de cada aplicativo, até que um dos seguintes eventos ocorra:
 
 - O serviço é interrompido manualmente e um novo ciclo inicial é disparado usando o [portal do Azure](https://portal.azure.com/) ou usando o comando da [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) apropriado.
 - Um novo ciclo inicial é disparado devido a uma alteração nos mapeamentos de atributo ou filtros de escopo.

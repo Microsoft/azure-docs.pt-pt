@@ -4,15 +4,15 @@ description: Este artigo descreve como gerenciar dados pessoais armazenados no A
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7733b27bb5af01e55cd732c16f6c9cb1e9301819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932133"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394756"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados em Log Analytics e Application Insights
 
@@ -73,7 +73,7 @@ Log Analytics é um armazenamento flexível, que, ao assinar um esquema para seu
 
 ## <a name="how-to-export-and-delete-private-data"></a>Como exportar e excluir dados privados
 
-Conforme mencionado na seção [estratégia para manipulação de dados pessoais](#strategy-for-personal-data-handling) anteriormente, é __altamente__ recomendável se tudo isso for possível, reestruturar sua política de coleta de dados para desabilitar a coleta de dados privados, ofuscar ou anonimá-lo, ou caso contrário, modifique-o para removê-lo de ser considerado "privado". Lidar com os dados resultará em custos para você e sua equipe para definir e automatizar uma estratégia, criar uma interface para seus clientes para interagir com seus dados e os custos de manutenção em andamento. Além disso, é computacionalmente dispendioso para Log Analytics e Application Insights, e um grande volume de consulta simultânea ou chamadas à API de limpeza têm o potencial de afetar negativamente todas as outras interações com a funcionalidade Log Analytics. Dito isso, há, na verdade, alguns cenários válidos em que os dados privados devem ser coletados. Nesses casos, os dados devem ser tratados conforme descrito nesta seção.
+Conforme mencionado na seção [estratégia para manipulação de dados pessoais](#strategy-for-personal-data-handling) anteriormente, é __altamente__ recomendável se tudo isso for possível, reestruturar sua política de coleta de dados para desabilitar a coleta de dados privados, ofuscar ou anonimá-lo, ou então modificá-lo para removê-lo de ser considerado "privado". Lidar com os dados resultará em custos para você e sua equipe para definir e automatizar uma estratégia, criar uma interface para seus clientes para interagir com seus dados e os custos de manutenção em andamento. Além disso, é computacionalmente dispendioso para Log Analytics e Application Insights, e um grande volume de consulta simultânea ou chamadas à API de limpeza têm o potencial de afetar negativamente todas as outras interações com a funcionalidade Log Analytics. Dito isso, há, na verdade, alguns cenários válidos em que os dados privados devem ser coletados. Nesses casos, os dados devem ser tratados conforme descrito nesta seção.
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 

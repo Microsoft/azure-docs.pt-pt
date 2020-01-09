@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
-ms.openlocfilehash: 2836a89f491d731a11e6bc6fc56e0d049f01ac9a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 59af4189b52c2ad7a1109ffb03accedbc69dc6c6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151416"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647922"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação do Azure AD (versão prévia)
 
@@ -39,6 +39,10 @@ Ao trabalhar com um perfil baseado em certificado, verifique se os certificados 
 ### <a name="radius"></a>Para criar um perfil de cliente RADIUS
 
   ![radiano](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  
+> [!NOTE]
+> O segredo do servidor pode ser exportado no perfil do cliente VPN P2S.  As instruções sobre como exportar um perfil de cliente podem ser encontradas [aqui](about-vpn-profile-download.md).
+>
 
 ### <a name="export"></a>Para exportar e distribuir um perfil de cliente
 
@@ -46,33 +50,33 @@ Quando tiver um perfil de trabalho e precisar distribuí-lo para outros usuário
 
 1. Realce o perfil do cliente VPN que você deseja exportar, selecione **...** e, em seguida, selecione **Exportar**.
 
-    ![Export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![exportar](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Selecione o local no qual você deseja salvar esse perfil, deixe o nome do arquivo como está e, em seguida, selecione **salvar** para salvar o arquivo XML.
 
-    ![Export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![exportar](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>Para importar um perfil de cliente
 
 1. Na página, selecione **importar**.
 
-    ![importe](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. Navegue até o arquivo XML do perfil e selecione-o. Com o arquivo selecionado, selecione **abrir**.
 
-    ![importe](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Especifique o nome do perfil e selecione **salvar**.
 
-    ![importe](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Selecione **conectar** para conectar-se à VPN.
 
-    ![importe](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Uma vez conectado, o ícone ficará verde e diria **conectado**.
 
-    ![importe](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![importar](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>Para excluir um perfil de cliente
 
@@ -112,19 +116,19 @@ Essas etapas ajudam a configurar sua conexão para se conectar automaticamente c
 
 1. Na home page do cliente VPN, selecione configurações de **VPN**.
 
-    ![Automático](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. Selecione **Sim** na caixa de diálogo Alternar aplicativos.
 
-    ![Automático](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Verifique se a conexão que você deseja definir ainda não está conectada e, em seguida, realce o perfil e marque a caixa de seleção **conectar automaticamente** .
 
-    ![Automático](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Selecione **conectar** para iniciar a conexão VPN.
 
-    ![Automático](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose"></a>Diagnosticar problemas de conexão
 
@@ -143,6 +147,26 @@ Essas etapas ajudam a configurar sua conexão para se conectar automaticamente c
 4. Exiba os resultados do diagnóstico.
 
     ![tect](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## <a name="faq"></a>FAQ
+
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Como fazer adicionar sufixos DNS ao cliente VPN?
+
+Você pode modificar o arquivo XML do perfil baixado e adicionar as marcas de **\<dnssuffixes >\<dnssufix > \</dnssufix >\</dnssuffixes >**
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

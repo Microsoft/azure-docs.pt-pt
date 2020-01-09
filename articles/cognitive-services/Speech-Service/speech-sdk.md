@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446805"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca do SDK de Voz
 
-A conversão de voz Software Development Kit (SDK) proporciona o acesso de aplicações para as funções do serviço de voz, tornando-o mais fácil de desenvolver software habilitado para fala. Atualmente, os SDKs fornecem acesso a voz **-para-texto**, conversão de **texto em fala**, **tradução de fala**, **reconhecimento de intenção**e **canal de fala de linha direta da estrutura de bot**. Uma visão geral sobre os recursos e as plataformas com suporte pode ser encontrada na [página de entrada](https://aka.ms/csspeech)de documentação.
+A conversão de voz Software Development Kit (SDK) proporciona o acesso de aplicações para as funções do serviço de voz, tornando-o mais fácil de desenvolver software habilitado para fala. Atualmente, os SDKs fornecem acesso a voz **-para-texto**, conversão de **texto em fala**, **tradução de fala**, **reconhecimento de intenção**e **canal de fala de linha direta da estrutura de bot**.
+
+Você pode facilmente capturar áudio de um microfone, ler de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de fala. O SDK de Voz suporta áudio de canal único WAV/PCM 16 bits, 16 kHz/8 kHz para reconhecimento de voz. Formatos de áudio adicionais têm suporte usando o [ponto de extremidade REST de fala para texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [serviço de transcrição do lote](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+
+Uma visão geral sobre os recursos e as plataformas com suporte pode ser encontrada na [página de entrada](https://aka.ms/csspeech)de documentação.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,14 +35,14 @@ A conversão de voz Software Development Kit (SDK) proporciona o acesso de aplic
 
 Para Windows, oferecemos suporte os idiomas seguintes:
 
-* C# (UWP e .NET), C++: pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. O pacote inclui bibliotecas de cliente de 32 bits e 64 bits e bibliotecas de gerenciadas (.NET). O SDK pode ser instalado no Visual Studio com o NuGet. Procure **Microsoft.CognitiveServices.Speech**.
+* C# (UWP e .NET), C++: pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. O pacote inclui bibliotecas de cliente de 32 bits e 64 bits e bibliotecas de gerenciadas (.NET). O SDK pode ser instalado no Visual Studio usando NuGet, [Microsoft. cognitivaservices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
-* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz, que suporta apenas o Windows x64. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` como uma dependência.
+* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz, que suporta apenas o Windows x64. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` como uma dependência.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> Atualmente, damos suporte apenas ao Ubuntu 16, 4, Ubuntu 18, 4 e Debian 9 nas seguintes arquiteturas de destino:
+> Atualmente, há suporte apenas para Ubuntu 16, 4, Ubuntu 18, 4 e Debian 9 nas seguintes arquiteturas de destino:
 > - x86, x64 e ARM64 para C++ desenvolvimento
 > - x64 e ARM64 para Java
 > - x64 para .NET Core e Python
@@ -62,7 +66,7 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#: Pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. Para referenciar o SDK, adicione a seguinte referência de pacote ao seu projeto:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` como uma dependência.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795839"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531484"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços Cognitivos e aprendizagem automática
 
@@ -22,13 +22,13 @@ Os serviços cognitivas fornecem recursos de aprendizado de máquina para resolv
 
 Os [Serviços cognitivas](welcome.md) são um grupo de serviços, cada um oferecendo suporte a recursos de previsão diferentes e generalizados. Os serviços são divididos em categorias diferentes para ajudá-lo a encontrar o serviço certo. 
 
-|Categoria de serviço|Objetivo|
+|Categoria de serviço|Finalidade|
 |--|--|
 |[Tomada](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crie aplicações que mostrem recomendações para uma tomada de decisões informada e eficiente.|
 |[Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/) (Idioma)|Permita às suas aplicações processar linguagem natural com scripts pré-criados, avaliar sentimentos e aprender a reconhecer o que os utilizadores pretendem.|
 |[Pesquisa](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Adicione APIs da Pesquisa do Bing às suas aplicações e tire partida da capacidade de lidar com milhares de milhões de páginas Web, imagens, vídeos e notícias com uma única chamada à API.|
-|[Palestra](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
-|[Fornecimento](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
+|[Reconhecimento de voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converta voz em texto e texto em voz natural. Traduza de um idioma para outro e ative o reconhecimento e a verificação de orador.|
+|[Visão](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconheça, identifique, legende, indexe e modere as suas imagens, vídeos e conteúdo com tinta digital.|
 ||||
 
 Use serviços cognitivas quando você:
@@ -96,12 +96,12 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
 |[Imagem Digitalizada](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Visão Personalizada](./Custom-Vision-Service/home.md)||x||
-|[Sorridente](./Face/Overview.md)|x|x||
+|[Face](./Face/Overview.md)|x|x||
 |[Reconhecedor de formulário](./form-recognizer/overview.md)||x||
 |[Leitor de imersão](./immersive-reader/overview.md)|x|||
 |[Reconhecedor de tinta](./Ink-recognizer/overview.md)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizador](./personalizer/what-is-personalizer.md)|w.x.y.|w.x.y.|x|
+|[Personalizador](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[Criador de FAQ](./QnAMaker/Overview/overview.md)||x||
 |[Reconhecedor do palestrante](./speaker-recognition/home.md)||x||
 |[Conversão de texto em fala (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -131,10 +131,10 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 |--|--|
 |[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * [Guia de arquitetura – quais são os produtos de Machine Learning da Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Machine Learning-introdução ao aprendizado profundo versus aprendizado de máquina](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [Machine Learning-introdução ao aprendizado profundo versus aprendizado de máquina](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

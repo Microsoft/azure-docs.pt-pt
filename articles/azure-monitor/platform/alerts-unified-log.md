@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396485"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
@@ -31,15 +31,15 @@ São criadas regras de pesquisa de registos pelos Alertas do Azure para executar
 
 As regras de pesquisa de log são definidas pelos seguintes detalhes:
 
-- **Consulta de log**.  A consulta que é executada toda vez que a regra de alerta é acionada.  Os registros retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta de análise pode ser para um espaço de trabalho Log Analytics específico ou Application Insights aplicativo e até mesmo abranger [vários log Analytics e Application insights recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) fornecidos o usuário tem acesso, bem como direitos de consulta a todos os recursos. 
+- **Consulta de log**.  a consulta que é executada sempre que a regra de alerta é acionada.  Os registros retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta de análise pode ser para um espaço de trabalho Log Analytics específico ou Application Insights aplicativo e até mesmo abranger [vários log Analytics e Application insights recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) fornecidos o usuário tem acesso, bem como direitos de consulta a todos os recursos. 
     > [!IMPORTANT]
     > suporte [a consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) em alertas de log para Application insights e alertas de log para [log Analytics configurados usando apenas a API scheduledQueryRules](../../azure-monitor/platform/alerts-log-api-switch.md) .
 
     Alguns comandos e combinações analíticas são incompatíveis com o uso em alertas de log; para obter mais detalhes, consulte [log de consultas de alerta em Azure monitor](../../azure-monitor/platform/alerts-log-query.md).
 
-- **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo da hora atual. O período de tempo restringe os dados buscados para a consulta de log para evitar abuso e contorne qualquer comando de tempo (como atrás) usado na consulta de log. <br>*For exemplo, se o período de tempo for definido como 60 minutos e a consulta for executada às 1:15 PM, somente os registros criados entre 12:15 PM e 1:15 PM serão retornados para executar a consulta de log. Agora, se a consulta de log usar o comando de tempo como atrás (7D), a consulta de log será executada somente para dados entre 12:15 e 1:15 PM-como se os dados existirem apenas nos últimos 60 minutos. E não por sete dias de dados, conforme especificado na consulta de log.*
+- **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo da hora atual. O período de tempo restringe os dados buscados para a consulta de log para evitar abuso e contorne qualquer comando de tempo (como atrás) usado na consulta de log. <br>*Por exemplo, se o período de tempo for definido como 60 minutos e a consulta for executada às 1:15 PM, somente os registros criados entre 12:15 PM e 1:15 PM serão retornados para executar a consulta de log. Agora, se a consulta de log usar o comando de tempo como atrás (7D), a consulta de log será executada somente para dados entre 12:15 e 1:15 PM-como se os dados existirem apenas nos últimos 60 minutos. E não por sete dias de dados, conforme especificado na consulta de log.*
 
-- **Frequência**.  Especifica com que frequência a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor que o período de tempo.  Se o valor for maior que o período de tempo, os registros de risco serão perdidos.<br>*For exemplo, considere um período de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada às 1:00, ela retornará registros entre 12:30 e 1:00 PM.  A próxima vez que a consulta seria executada é 2:00 quando ela retornaria registros entre 1:30 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados.*
+- **Frequência**.  Especifica com que frequência a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor que o período de tempo.  Se o valor for maior que o período de tempo, os registros de risco serão perdidos.<br>*Por exemplo, considere um período de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada às 1:00, ela retornará registros entre 12:30 e 1:00 PM.  A próxima vez que a consulta seria executada é 2:00 quando ela retornaria registros entre 1:30 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados.*
 
 - **Limite**.  Os resultados da pesquisa de log são avaliados para determinar se um alerta deve ser criado.  O limite é diferente para os diferentes tipos de regras de alerta de pesquisa de logs.
 
@@ -57,7 +57,7 @@ As diferenças entre os tipos de regra de alerta são as seguintes.
 
 Regras de alerta de **número de resultados** criam um único alerta quando o número de registros retornados pela consulta de pesquisa excede o limite especificado. Esse tipo de regra de alerta é ideal para trabalhar com eventos como logs de eventos do Windows, syslog, resposta WebApp e logs personalizados.  Talvez você queira criar um alerta quando um evento de erro específico for criado ou quando vários eventos de erro forem criados em um período de tempo específico.
 
-**Limite**: O limite para um número de resultados de regras de alerta é maior ou menor que um valor específico.  Se o número de registros retornados pela pesquisa de log corresponder a esses critérios, um alerta será criado.
+**Limite**: o limite para um número de resultados de regras de alerta é maior ou menor que um valor específico.  Se o número de registros retornados pela pesquisa de log corresponder a esses critérios, um alerta será criado.
 
 Para alertar sobre um único evento, defina o número de resultados para maior que 0 e verifique a ocorrência de um único evento que foi criado desde a última vez em que a consulta foi executada. Alguns aplicativos podem registrar um erro ocasional que não deve necessariamente gerar um alerta.  Por exemplo, o aplicativo pode repetir o processo que criou o evento de erro e, em seguida, ter sucesso na próxima vez.  Nesse caso, talvez você não queira criar o alerta, a menos que vários eventos sejam criados em um período de tempo específico.  
 
@@ -78,19 +78,19 @@ Em seguida, Alert executaria a consulta a cada 5 minutos, com 30 minutos de dado
 
 As regras de alerta de **medição de métrica** criam um alerta para cada objeto em uma consulta com um valor que exceda um limite especificado e uma condição de gatilho especificada. Ao contrário **do número de resultados de regras de** alerta, as regras de alerta de **medição métrica** funcionam quando o resultado da análise fornece uma série temporal. Eles têm as seguintes diferenças distintas das regras de alerta de **número de resultados** .
 
-- **Função de agregação**: Determina o cálculo que é executado e potencialmente um campo numérico a ser agregado.  Por exemplo, **Count ()** retorna o número de registros na consulta, **AVG (** CounterValue) retorna a média do campo Counter-Value ao longo do intervalo. A função de agregação na consulta deve ser nomeada/chamada: AggregatedValue e forneça um valor numérico. 
+- **Função de agregação**: determina o cálculo que é executado e potencialmente um campo numérico a ser agregado.  Por exemplo, **Count ()** retorna o número de registros na consulta, **AVG (** CounterValue) retorna a média do campo Counter-Value ao longo do intervalo. A função de agregação na consulta deve ser nomeada/chamada: AggregatedValue e fornecer um valor numérico. 
 
-- **Campo de grupo**: Um registro com um valor agregado é criado para cada instância desse campo, e um alerta pode ser gerado para cada um.  Por exemplo, se você quisesse gerar um alerta para cada computador, usaria **por computador**. Caso haja vários campos de grupo especificados na consulta de alerta, o usuário pode especificar qual campo será usado para classificar os resultados usando o parâmetro **Aggregate on** (metricColumn)
+- **Campo de grupo**: um registro com um valor agregado é criado para cada instância desse campo e um alerta pode ser gerado para cada um.  Por exemplo, se você quisesse gerar um alerta para cada computador, usaria **por computador**. Caso haja vários campos de grupo especificados na consulta de alerta, o usuário pode especificar qual campo será usado para classificar os resultados usando o parâmetro **Aggregate on** (metricColumn)
 
     > [!NOTE]
     > A opção *Aggregate on* (metricColumn) está disponível para alertas de log do tipo de medição métrica para Application insights e alertas de log para [log Analytics configurados usando](../../azure-monitor/platform/alerts-log-api-switch.md) apenas a API do scheduledQueryRules.
 
-- **Intervalo**:  Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificou **cinco minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos ao longo do período especificado para o alerta.
+- **Intervalo**: define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificou **cinco minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos ao longo do período especificado para o alerta.
 
     > [!NOTE]
-    > A função bin deve ser usada na consulta para especificar o intervalo. As bin () podem resultar em intervalos de tempo desiguais-o alerta converterá automaticamente o comando bin no comando bin_at com o tempo apropriado em tempo de execução, para garantir os resultados com um ponto fixo. O tipo de medição métrica do alerta de log foi projetado para funcionar com consultas com até três instâncias do comando bin ()
+    > A função bin deve ser usada na consulta para especificar o intervalo. As bin () podem resultar em intervalos de tempo desiguais-o alerta converterá automaticamente o comando bin em bin_at comando com o tempo apropriado em tempo de execução, para garantir os resultados com um ponto fixo. O tipo de medição métrica do alerta de log foi projetado para funcionar com consultas com até três instâncias do comando bin ()
     
-- **Limite**: O limite para as regras de alerta de medição métrica é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de log exceder esse valor, ele será considerado uma violação.  Se o número de violações em para qualquer objeto nos resultados exceder o valor especificado, um alerta será criado para esse objeto.
+- **Limite**: o limite para as regras de alerta de medição métrica é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de log exceder esse valor, ele será considerado uma violação.  Se o número de violações em para qualquer objeto nos resultados exceder o valor especificado, um alerta será criado para esse objeto.
 
 A configuração incorreta da opção *Aggregate on* ou *metricColumn* pode fazer com que as regras de alerta misfire. Para obter mais informações, consulte [Solucionando problemas quando a regra de alerta de medição de métrica está incorreta](alert-log-troubleshoot.md#metric-measurement-alert-rule-is-incorrect).
 
@@ -102,13 +102,13 @@ Considere um cenário em que você queria um alerta se algum computador excedess
 - **Período de tempo:** 30 minutos<br>
 - **Frequência de alerta:** cinco minutos<br>
 - **Lógica de alerta-limite de & da condição:** Maior que 90<br>
-- **Campo de grupo (agregação):** Computer
+- **Campo de grupo (agregação):** Ele
 - **Disparar alerta com base em:** Total de violações maiores que 2<br>
 
 A consulta criaria um valor médio para cada computador em intervalos de 5 minutos.  Essa consulta seria executada a cada 5 minutos para os dados coletados nos últimos 30 minutos. Como o campo de grupo (agregação) escolhido é colunar ' computador '-o AggregatedValue é dividido para vários valores de ' computador ' e a utilização média do processador para cada computador é determinada para uma hora de 5 minutos.  O resultado da consulta de exemplo para (digamos) três computadores é o seguinte.
 
 
-|TimeGenerated [UTC] |Computer  |AggregatedValue  |
+|TimeGenerated [UTC] |Computador  |AggregatedValue  |
 |---------|---------|---------|
 |20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
@@ -134,11 +134,11 @@ Vamos ver esse comportamento em ação com um exemplo prático. Suponha que tenh
 Em cada intervalo abaixo, o sistema de alertas do Azure avalia a condição para o *contoso-log-Alert*.
 
 
-| Time    | Número de registros retornados pela consulta de pesquisa de log | Condição de log evalution | Resultado 
+| Tempo    | Número de registros retornados pela consulta de pesquisa de log | Condição de log evalution | Resultado 
 | ------- | ----------| ----------| ------- 
 | 1:05 PM | 0 registros | 0 não é > 0; portanto, FALSE |  O alerta não é acionado. Nenhuma ação chamada.
 | 1:10 PM | 2 registros | 2 > 0 assim, verdadeiro  | O alerta é acionado e os grupos de ação chamados. Estado de alerta ativo.
-| 1:15 PM | 5 registros | 5 > 0 tão verdadeiro  | O alerta é acionado e os grupos de ação chamados. Estado de alerta ativo.
+| 13:15 | 5 registros | 5 > 0 tão verdadeiro  | O alerta é acionado e os grupos de ação chamados. Estado de alerta ativo.
 | 1:20 PM | 0 registros | 0 não é > 0; portanto, FALSE |  O alerta não é acionado. Nenhuma ação chamada. Estado de alerta deixado ativo.
 
 Usando o caso anterior como exemplo:
@@ -149,12 +149,12 @@ Usando o caso anterior como exemplo:
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e cobrança de alertas de log
 
-Os preços aplicáveis para alertas de log são indicados na página de [preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) . No Azure Bills, os alertas de log são representados como tipo `microsoft.insights/scheduledqueryrules` com:
+Os preços aplicáveis para alertas de log são indicados na página de [preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) . No Azure Bills, os alertas de log são representados como o tipo `microsoft.insights/scheduledqueryrules` com:
 
 - Alertas de log em Application Insights mostrados com o nome exato do alerta junto com as propriedades do grupo de recursos e do alerta
 - Alertas de log em Log Analytics mostrados com o nome exato do alerta junto com as propriedades do grupo de recursos e do alerta; Quando criado usando a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-A [API de log Analytics herdada](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e agendas como parte de log Analytics pesquisa salva e [recursos do Azure](../../azure-resource-manager/resource-group-overview.md)inadequados. Portanto, para habilitar a cobrança para esses alertas de log herdados criados para Log Analytics usando portal do Azure **sem** [alternar para a nova API](../../azure-monitor/platform/alerts-log-api-switch.md) ou por meio da [API de log Analytics herdada](../../azure-monitor/platform/api-alerts.md) , as regras de pseudodispositivo ocultas são criadas no `microsoft.insights/scheduledqueryrules` para cobrança no Azure. As regras de pseudo-alerta ocultas criadas para cobrança no `microsoft.insights/scheduledqueryrules`, conforme mostrado como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`, juntamente com as propriedades do grupo de recursos e do alerta.
+A [API de log Analytics herdada](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e agendas como parte de log Analytics pesquisa salva e [recursos do Azure](../../azure-resource-manager/management/overview.md)inadequados. Portanto, para habilitar a cobrança para tais alertas de log herdados criados para Log Analytics usando portal do Azure **sem** [alternar para a nova API](../../azure-monitor/platform/alerts-log-api-switch.md) ou por meio da [API de log Analytics herdada](../../azure-monitor/platform/api-alerts.md) , as regras de pseudodispositivo ocultas são criadas em `microsoft.insights/scheduledqueryrules` para cobrança no Azure. As regras de pseudo-alerta ocultas criadas para cobrança em `microsoft.insights/scheduledqueryrules` conforme mostrado como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` junto com as propriedades do grupo de recursos e do alerta.
 
 > [!NOTE]
 > Se forem presentes caracteres inválidos, como `<, >, %, &, \, ?, /`, eles serão substituídos por `_` no nome da regra de pseudo-alerta oculto e, portanto, também na fatura do Azure.
@@ -164,7 +164,7 @@ Para remover os recursos de scheduleQueryRules ocultos criados para a cobrança 
 - Qualquer usuário pode [alternar a preferência de API para as regras de alerta no espaço de trabalho log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e sem perda de suas regras de alerta ou movimentação de monitoramento para Azure Resource Manager [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)compatível. Portanto, elimine a necessidade de tornar as regras de alerta pseudo-ocultas para cobrança.
 - Ou, se o usuário não quiser alternar a preferência de API, o usuário precisará **excluir** a agenda original e a ação de alerta usando a [API de log Analytics herdada](api-alerts.md) ou excluir em [portal do Azure regra de alerta de log original](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Além disso, para os recursos ocultos do scheduleQueryRules criados para a cobrança de regras de alerta usando a [API de log Analytics herdada](api-alerts.md), qualquer operação de modificação como Put falhará. Como as pseudovariáveis de tipo `microsoft.insights/scheduledqueryrules` são para fins de cobrança das regras de alerta criadas usando a [API de log Analytics herdada](api-alerts.md). Qualquer modificação de regra de alerta deve ser feita usando a [API de log Analytics herdada](api-alerts.md) (ou) o usuário pode [alternar a preferência de API para que as regras de alerta usem a](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) em vez disso.
+Além disso, para os recursos ocultos do scheduleQueryRules criados para a cobrança de regras de alerta usando a [API de log Analytics herdada](api-alerts.md), qualquer operação de modificação como Put falhará. Como as pseudovariáveis de tipo de `microsoft.insights/scheduledqueryrules` são para fins de cobrança das regras de alerta criadas usando a [API de log Analytics herdada](api-alerts.md). Qualquer modificação de regra de alerta deve ser feita usando a [API de log Analytics herdada](api-alerts.md) (ou) o usuário pode [alternar a preferência de API para que as regras de alerta usem a](../../azure-monitor/platform/alerts-log-api-switch.md) [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) em vez disso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

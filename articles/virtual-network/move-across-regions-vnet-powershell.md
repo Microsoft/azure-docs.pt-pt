@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828986"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646715"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Mover uma rede virtual do Azure para outra região usando Azure PowerShell
 
@@ -32,7 +32,7 @@ Você pode usar um modelo de Azure Resource Manager para concluir a movimentaç�
 
 - Verifique se sua assinatura do Azure permite que você crie redes virtuais na região de destino. Para habilitar a cota necessária, contate o suporte.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de redes virtuais para esse processo. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparar para a movimentação
@@ -60,7 +60,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. O arquivo baixado tem o mesmo nome que o grupo de recursos do qual o recurso foi exportado. Localize o *\<resource-Group-name > arquivo. JSON* , que você exportou com o comando e, em seguida, abra-o em seu editor:
+1. O arquivo baixado tem o mesmo nome que o grupo de recursos do qual o recurso foi exportado. Localize o *\<nome do grupo de recursos > arquivo. JSON* , que você exportou com o comando e, em seguida, abra-o em seu editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
@@ -105,9 +105,9 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
     Get-AzLocation | format-table
     ```
 
-1. Adicional Você também pode alterar outros parâmetros no arquivo *\<resource-Group-name >. JSON* , dependendo dos seus requisitos:
+1. Adicional Você também pode alterar outros parâmetros no *\<Resource-Group-name > arquivo. JSON* , dependendo dos seus requisitos:
 
-    * **Espaço de endereço**: Antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando a seção **recursos** > **addressSpace** e alterando a propriedade **addressPrefixes** :
+    * **Espaço de endereço**: antes de salvar o arquivo, você pode alterar o espaço de endereço da rede virtual modificando **os recursos** > seção **addressSpace** e alterando a propriedade **addressPrefixes** :
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
                     },
         ```
 
-    * **Sub-rede**: Você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do arquivo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
+    * **Sub-rede**: você pode alterar ou adicionar o nome da sub-rede e o espaço de endereço da sub-rede alterando a seção **sub-redes** do arquivo. Você pode alterar o nome da sub-rede alterando a propriedade **Name** . E você pode alterar o espaço de endereço de sub-rede alterando a propriedade **addressPrefix** :
 
         ```json
                 "subnets": [
@@ -193,7 +193,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
          ]
         ```
 
-1. Salve o  *\<arquivo-Group-Name >. JSON* .
+1. Salve o *\<nome do grupo de recursos > arquivo. JSON* .
 
 1. Crie um grupo de recursos na região de destino para a rede virtual de destino a ser implantada usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
@@ -201,7 +201,7 @@ Para exportar a rede virtual e implantar a rede virtual de destino usando o Powe
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Implante o arquivo editado *\<resource-Group-name >. JSON* no grupo de recursos que você criou na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Implante o\<edited *Resource-Group-name > arquivo. JSON* no grupo de recursos que você criou na etapa anterior usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 

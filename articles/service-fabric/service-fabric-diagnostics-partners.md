@@ -1,25 +1,16 @@
 ---
-title: Parceiros de monitoramento de Service Fabric do Azure | Microsoft Docs
-description: Saiba como monitorar o Azure Service Fabric com soluções de monitoramento de parceiros
-services: service-fabric
-documentationcenter: .net
+title: Parceiros de monitoramento de Service Fabric do Azure
+description: Saiba como monitorar aplicativos, clusters e infraestrutura do Azure Service Fabric com soluções de monitoramento de parceiros.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8353c8846820aa996214e6b119a2f9027b8b6fe6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232457"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645723"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitoramento de Service Fabric do Azure
 
@@ -43,11 +34,11 @@ O New Relic é outra ferramenta de gerenciamento de desempenho de aplicativos qu
 
 ## <a name="elk"></a>ELK 
 
-A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Ao usá-los em combinação, você pode coletar, armazenar e analisar Service Fabric dados de monitoramento e diagnóstico. Temos um tutorial sobre como fazer isso com Service Fabric aplicativos Java nativos [aqui](service-fabric-tutorial-java-elk.md). 
+A pilha ELK é uma coleção de tecnologias de código aberto: Elasticsearch, Logstash e Kibana. Usando essas tecnologias em combinação, você pode coletar, armazenar e analisar Service Fabric dados de monitoramento e diagnóstico. Temos um tutorial sobre como fazer isso com Service Fabric aplicativos Java nativos [aqui](service-fabric-tutorial-java-elk.md). 
 
 ## <a name="humio"></a>Humio
 
-Humio é um serviço de coleta de log que pode coletar logs de seus aplicativos e eventos de Service Fabric na nuvem ou localmente em tempo real. Além da observação ao vivo, o Humio oferece o estado da análise de arte e os recursos de visualização para exibir e coletar informações de seu diagnóstico. O Humio tem planos de preços econômicos e é criado para ser dimensionado enquanto retém a velocidade rápida. Ele integra-se diretamente com Service Fabric eventos da plataforma e telemetria do aplicativo. Você pode ler mais sobre a integração do Humio e do Service Fabric [aqui](https://github.com/humio/service-fabric-humio).
+Humio é um serviço de coleta de log que pode coletar logs de seus aplicativos e eventos de Service Fabric na nuvem ou localmente em tempo real. Além da observação ao vivo, o Humio oferece recursos de análise e visualização de última geração para exibir e coletar informações de seu diagnóstico. O Humio tem planos de preços econômicos e é criado para ser dimensionado enquanto retém a velocidade rápida. Ele integra-se diretamente com Service Fabric eventos da plataforma e telemetria do aplicativo. Você pode ler mais sobre a integração do Humio e do Service Fabric [aqui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passos seguintes
 

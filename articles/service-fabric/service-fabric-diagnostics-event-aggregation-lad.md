@@ -1,56 +1,47 @@
 ---
-title: Agregação de eventos de recursos de infraestrutura de serviço do Azure com o diagnóstico do Linux do Azure | Documentos da Microsoft
-description: Saiba mais sobre a agregação e a recolha de eventos usando LAD para monitorização e diagnóstico de clusters do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Agregação de eventos com Linux Diagnóstico do Azure
+description: Saiba mais sobre como agregar e coletar eventos usando o LAD para monitoramento e diagnóstico de clusters de Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 212158d9a76fa2e49c60be0b5c52f281497c155b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdb78498d33416ef21b2e2b0f498e7afa6a58d99
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393134"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609966"
 ---
-# <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e coleções com o diagnóstico do Linux do Azure
+# <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação e coleta de eventos usando o Linux Diagnóstico do Azure
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
-Quando estiver a executar um cluster do Azure Service Fabric, é uma boa idéia para recolher os registos de todos os nós numa localização central. Ter os registos numa localização central ajuda a analisar e resolver problemas no seu cluster, ou problemas em aplicações e serviços em execução nesse cluster.
+Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda você a analisar e solucionar problemas no cluster ou problemas nos aplicativos e serviços em execução nesse cluster.
 
-Uma forma de carregar e recolher registos é utilizar a extensão de diagnóstico de Azure Linux (LAD), que carrega os registos para o armazenamento do Azure e, também tem a opção para enviar registos para o Azure Application Insights ou Hubs de eventos. Também pode utilizar um processo externo para ler os eventos de armazenamento e colocá-los num produto de plataforma de análise, como [registos do Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de registos.
+Uma maneira de carregar e coletar logs é usar a extensão LAD (Linux Diagnóstico do Azure), que carrega logs no armazenamento do Azure e também tem a opção de enviar logs para Aplicativo Azure insights ou hubs de eventos. Você também pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como [logs de Azure monitor](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log.
 
-## <a name="log-and-event-sources"></a>Origens de registos e eventos
+## <a name="log-and-event-sources"></a>Origens de log e eventos
 
-### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
-Service Fabric emite alguns registos de out-of-the-box via [LTTng](https://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Estes registos são armazenados na localização que especifica o modelo do Resource Manager do cluster. Para obter ou definir os detalhes da conta de armazenamento, procure a marca **AzureTableWinFabETWQueryable** e procure **StoreConnectionString**.
+### <a name="service-fabric-platform-events"></a>Service Fabric eventos da plataforma
+Service Fabric emite alguns logs prontos para uso por meio de [LTTng](https://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Esses logs são armazenados no local que o modelo do Resource Manager do cluster especifica. Para obter ou definir os detalhes da conta de armazenamento, procure a marca **AzureTableWinFabETWQueryable** e procure **StoreConnectionString**.
 
-### <a name="application-events"></a>Eventos da aplicação
- Eventos emitidos a partir do código de seus aplicativos e dos serviços conforme especificado por si quando instrumentar o seu software. Pode usar qualquer solução de registo que escreve os ficheiros de registo baseados em texto, por exemplo, LTTng. Para obter mais informações, consulte a documentação de LTTng no rastreamento de seu aplicativo.
+### <a name="application-events"></a>Eventos de aplicativo
+ Eventos emitidos por meio do código de seus aplicativos e serviços, conforme especificado por você ao instrumentar seu software. Você pode usar qualquer solução de registro em log que grava arquivos de log baseados em texto, por exemplo, LTTng. Para obter mais informações, consulte a documentação do LTTng sobre como rastrear seu aplicativo.
 
-[Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+[Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
-## <a name="deploy-the-diagnostics-extension"></a>Implementar a extensão de diagnóstico
-Recolher registos a primeira etapa é implantar a extensão de diagnóstico em cada uma das VMs no cluster do Service Fabric. A extensão de diagnóstico recolhe registos em cada VM e carrega-os para a conta de armazenamento que especificar. 
+## <a name="deploy-the-diagnostics-extension"></a>Implantar a extensão de diagnóstico
+A primeira etapa na coleta de logs é implantar a extensão de diagnóstico em cada uma das VMs no Cluster Service Fabric. A extensão de diagnóstico coleta logs em cada VM e os carrega na conta de armazenamento que você especificar. 
 
-Para implementar a extensão de diagnóstico para as VMs no cluster como parte da criação do cluster, defina **diagnóstico** ao **no**. Depois de criar o cluster, é possível alterar esta definição com o portal, precisará fazer as alterações apropriadas no modelo do Resource Manager.
+Para implantar a extensão de diagnóstico nas VMs no cluster como parte da criação do cluster, defina **diagnóstico** como **ativado**. Depois de criar o cluster, você não pode alterar essa configuração usando o portal, portanto, você precisará fazer as alterações apropriadas no modelo do Resource Manager.
 
-Esta ação configura o agente LAD para monitorizar os ficheiros de registo especificado. Sempre que uma nova linha é anexada ao arquivo, ele cria uma entrada de syslog que é enviada para o armazenamento (tabela) que especificou.
+Isso configura o agente do LAD para monitorar os arquivos de log especificados. Sempre que uma nova linha é anexada ao arquivo, ela cria uma entrada syslog que é enviada para o armazenamento (tabela) que você especificou.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-1. Para entender mais detalhadamente quais eventos, deve examinar durante a resolução de problemas, consulte [documentação LTTng](https://lttng.org/docs) e [LAD usando](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
-2. [Configurar o agente do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementados no seu cluster e visualizar os seus registos 
+1. Para entender mais detalhadamente os eventos que devem ser examinados durante a solução de problemas, consulte a [documentação do LTTng](https://lttng.org/docs) e o [uso do Lad](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+2. [Configurar o agente de log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a coletar métricas, monitorar contêineres implantados em seu cluster e visualizar seus logs 

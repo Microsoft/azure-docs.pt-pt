@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: ed00a9df46660cc6bfb4ec5fd9a93c80f5d6653e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815327"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562549"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
 
@@ -42,15 +42,24 @@ Este diagrama fornece uma visão geral de alto nível do fluxo de trabalho.
 Ao preparar seu arquivo de texto, verifique se:
 
 * É texto sem formatação (. txt) ou o texto SSML (. txt)
-  * Para texto sem formatação, cada parágrafo é separado ao pressionar o exemplo **Inserir/retornar** -exibir [entrada de texto sem formatação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * Para o texto SSML, cada parte da SSML é considerada um parágrafo. As partes de SSML devem ser separadas por parágrafos diferentes-exibir [exemplo de entrada de texto de SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt). Para ver o código de idioma, consulte [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md)
 * É codificado como [UTF-8 com marca de ordem de byte (bom)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Contém mais de 10.000 caracteres ou mais de 50 parágrafos
 * É um arquivo único, não um zip
+* Contém mais de 400 caracteres para texto sem formatação ou 400 [caracteres cobráveis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) para texto de SSML e menos de 10.000 parágrafos
+  * Para texto sem formatação, cada parágrafo é separado ao pressionar o exemplo **Inserir/retornar** -exibir [entrada de texto sem formatação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * Para o texto SSML, cada parte da SSML é considerada um parágrafo. As partes de SSML devem ser separadas por parágrafos diferentes – exibir [exemplo de entrada de texto de SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+> [!NOTE]
+> Para chinês (continente), chinês (Hong Kong), chinês (Taiwan), japonês e coreano, uma palavra será contada como dois caracteres. 
+
+## <a name="submit-synthesis-requests"></a>Enviar solicitações de síntese
+
+Depois de preparar o conteúdo de entrada, siga o [início rápido de síntese de áudio de forma longa](https://aka.ms/long-audio-python) para enviar a solicitação. Se você tiver mais de um arquivo de entrada, será necessário enviar várias solicitações. Há algumas limitações a serem consideradas: 
+* O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta de assinatura do Azure. Se ele exceder a limitação, o cliente receberá um código de erro 429 (muitas solicitações). Reduza o valor da solicitação por segundo
+* O servidor tem permissão para executar e enfileirar até 120 solicitações para cada conta de assinatura do Azure. Se ele exceder a limitação, o servidor retornará um código de erro 429 (número excessivo de solicitações). Aguarde e evite enviar uma nova solicitação até que algumas solicitações sejam concluídas
+* O servidor manterá até 20.000 solicitações para cada conta de assinatura do Azure. Se ele exceder a limitação, exclua algumas solicitações antes de enviar novas.
 
 ## <a name="audio-output-formats"></a>Formatos de saída de áudio
 
-Os seguintes formatos de saída de áudio são suportados pela API de áudio longa:
+Damos suporte a formatos de saída de áudio flexíveis. Você pode gerar saídas de áudio por parágrafo ou concatenar os áudios em uma saída definindo o parâmetro ' concatenateResult '. Os seguintes formatos de saída de áudio são suportados pela API de áudio longa:
 
 > [!NOTE]
 > O formato de áudio padrão é riff-16kHz-16 bits-mono-PCM.
@@ -66,7 +75,7 @@ Os seguintes formatos de saída de áudio são suportados pela API de áudio lon
 * Audio-24kHz-96kbitrate-mono-mp3
 * Audio-24kHz-160kbitrate-mono-mp3
 
-## <a name="quickstarts"></a>Inícios rápidos
+## <a name="quickstarts"></a>Guias de Início Rápido
 
 Oferecemos guias de início rápido projetados para ajudá-lo a executar a API de áudio longo com êxito. Esta tabela inclui uma lista de guias de início rápido da API de áudio longa organizados por idioma.
 

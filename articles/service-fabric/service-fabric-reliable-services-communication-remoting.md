@@ -1,25 +1,16 @@
 ---
-title: Comunicação remota do serviço C# usando no Service Fabric | Microsoft Docs
+title: Comunicação remota do serviço C# usando no Service Fabric
 description: Service Fabric comunicação remota permite que clientes e serviços se C# comuniquem com serviços usando uma chamada de procedimento remoto.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433871"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do C# serviço no com o Reliable Services
 
@@ -90,7 +81,7 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-A estrutura de comunicação remota propaga exceções geradas pelo serviço para o cliente. Como resultado, quando `ServiceProxy`is usado, o cliente é responsável por manipular as exceções geradas pelo serviço.
+A estrutura de comunicação remota propaga exceções geradas pelo serviço para o cliente. Como resultado, quando `ServiceProxy`é usado, o cliente é responsável por manipular as exceções geradas pelo serviço.
 
 ## <a name="service-proxy-lifetime"></a>Tempo de vida do proxy de serviço
 
@@ -98,7 +89,7 @@ A criação de proxy de serviço é uma operação leve, para que você possa cr
 
 ### <a name="service-proxy-factory-lifetime"></a>Tempo de vida da fábrica de proxy de serviço
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica que cria instâncias de proxy para diferentes interfaces de comunicação remota. Se você usar a API `ServiceProxyFactory.CreateServiceProxy` para criar um proxy, a estrutura criará um proxy de serviço singleton.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica que cria instâncias de proxy para diferentes interfaces de comunicação remota. Se você usar o `ServiceProxyFactory.CreateServiceProxy` de API para criar um proxy, a estrutura criará um proxy de serviço singleton.
 É útil criar um manualmente quando você precisa substituir as propriedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) .
 A criação de fábrica é uma operação cara. Uma fábrica de proxy de serviço mantém um cache interno do cliente de comunicação.
 Uma prática recomendada é armazenar em cache a fábrica de proxy de serviço pelo máximo de tempo possível.
@@ -239,12 +230,12 @@ Essa etapa garante que o serviço esteja escutando apenas no ouvinte v2.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Usar a pilha do Remoting v2 (compatível com a interface)
 
- A pilha remota v2 (compatível com a interface, conhecida como V2_1) tem todos os recursos da pilha de comunicação remota v2. Sua pilha de interface é compatível com a pilha de comunicação remota v1, mas não é compatível com a versão V2 e v1. Para atualizar de v1 para V2_1 sem afetar a disponibilidade do serviço, siga as etapas no artigo atualizar de v1 para v2 (compatível com a interface).
+ A pilha remota v2 (compatível com a interface, conhecida como V2_1) tem todos os recursos da pilha de comunicação remota v2. Sua pilha de interface é compatível com a pilha de comunicação remota v1, mas não é compatível com a versão V2 e v1. Para atualizar do v1 para o V2_1 sem afetar a disponibilidade do serviço, siga as etapas no artigo atualizar da v1 para v2 (compatível com a interface).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Usar um atributo de assembly para usar a pilha do Remoting v2 (compatível com a interface)
 
-Siga estas etapas para mudar para uma pilha V2_1.
+Siga estas etapas para mudar para uma pilha de V2_1.
 
 1. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
 
@@ -322,12 +313,12 @@ Siga estes passos.
 Para atualizar da v1 para a v2 (compatível com a interface, conhecida como V2_1), são necessárias atualizações em duas etapas. Siga as etapas nesta sequência.
 
 > [!NOTE]
-> Ao atualizar do v1 para o v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
+> Ao atualizar da v1 para a v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
 >
 >
 
-1. Atualize o serviço v1 para o serviço V2_1 usando o atributo a seguir.
-Essa alteração garante que o serviço esteja escutando no ouvinte v1 e V2_1.
+1. Atualize o serviço v1 para V2_1 serviço usando o atributo a seguir.
+Essa alteração garante que o serviço esteja escutando no v1 e no ouvinte de V2_1.
 
     a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
       ```xml
@@ -347,13 +338,13 @@ Essa alteração garante que o serviço esteja escutando no ouvinte v1 e V2_1.
     }
     ```
 
-    c. Adicione um atributo de assembly em interfaces de comunicação remota para usar o ouvinte v1, V2_1 e o cliente V2_1.
+    c. Adicione um atributo de assembly em interfaces de comunicação remota para usar o cliente v1, V2_1 Listener e V2_1.
     ```csharp
    [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1 | RemotingListenerVersion.V1, RemotingClientVersion = RemotingClientVersion.V2_1)]
 
       ```
-2. Atualize o cliente v1 para o cliente V2_1 usando o atributo de cliente V2_1.
-Essa etapa garante que o cliente esteja usando a pilha V2_1.
+2. Atualize o cliente v1 para o V2_1 cliente usando o atributo de cliente V2_1.
+Essa etapa garante que o cliente esteja usando a pilha de V2_1.
 Nenhuma alteração no projeto/serviço do cliente é necessária. A criação de projetos de cliente com o assembly de interface atualizado é suficiente.
 
 3. Este passo é opcional. Remova a versão v1 do ouvinte do atributo e, em seguida, atualize o serviço v2.
@@ -546,7 +537,7 @@ Siga estes passos.
    }
    ```
 
-3. Substitua o provedor de serialização padrão por `JsonSerializationProvider` para uma fábrica de cliente de comunicação remota.
+3. Substitua o provedor de serialização padrão por `JsonSerializationProvider` para uma fábrica de cliente remoto.
 
     ```csharp
     var proxyFactory = new ServiceProxyFactory((c) =>

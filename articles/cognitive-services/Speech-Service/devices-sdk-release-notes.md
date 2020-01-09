@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446950"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
 
@@ -23,14 +23,14 @@ As seções a seguir listam as alterações nas versões mais recentes.
 
 ## <a name="speech-devices-sdk-170"></a>SDK de dispositivos de fala 1.7.0:
 
-*   Agora há suporte para o ARM do Linux.
-*   Os binários iniciais para Roobov2 são fornecidos (Linux ARM64).
-*   Os usuários do Windows podem usar AudioConfig. fromDefaultMicrophoneInput () ou AudioConfig. fromMicrophoneInput (DeviceName) para especificar o microfone a ser usado.
-*   O tamanho da biblioteca foi otimizado.
-*   Suporte para reconhecimento de Multiturn usando o mesmo objeto de reconhecedor de fala/intenção.
-*   Corrija a interrupção ocasional que ocorreria ao parar o reconhecimento.
-*   Os aplicativos de exemplo agora contêm um arquivo participantes. Properties de exemplo para demonstrar o formato do arquivo.
-*   Atualizado o componente [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) para a versão 1.7.0. Para obter mais informações, consulte suas [notas de versão](https://aka.ms/csspeech/whatsnew).
+- Agora há suporte para o ARM do Linux.
+- Os binários iniciais para Roobo v2 são fornecidos (Linux ARM64).
+- Os usuários do Windows podem usar `AudioConfig.fromDefaultMicrophoneInput()` ou `AudioConfig.fromMicrophoneInput(deviceName)` para especificar o microfone a ser usado.
+- O tamanho da biblioteca foi otimizado.
+- Suporte para reconhecimento de Multiturn usando o mesmo objeto de reconhecedor de fala/intenção.
+- Corrija a interrupção ocasional que ocorreria ao parar o reconhecimento.
+- Os aplicativos de exemplo agora contêm um arquivo participantes. Properties de exemplo para demonstrar o formato do arquivo.
+- Atualizado o componente [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) para a versão 1.7.0. Para obter mais informações, consulte suas [notas de versão](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>SDK de dispositivos de fala 1.6.0:
 
@@ -68,8 +68,8 @@ As seções a seguir listam as alterações nas versões mais recentes.
 
 - [A instalação de uma palavra-chave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) foi simplificada, agora faz parte do aplicativo e não precisa de instalação separada no dispositivo.
 - O reconhecimento de palavra-chave foi alterado e há suporte para dois eventos.
-  - RecognizingKeyword, indica que o resultado de fala contém o texto da palavra-chave (não verificado).
-  - RecognizedKeyword, indica que o reconhecimento de palavra-chave foi concluído reconhecendo a palavra-chave fornecida.
+  - `RecognizingKeyword,` indica que o resultado da fala contém o texto da palavra-chave (não verificado).
+  - `RecognizedKeyword`, indica que o reconhecimento de palavra-chave foi concluído reconhecendo a palavra-chave fornecida.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>SDK 1.1.0 de dispositivos de fala: 2018 – versão de novembro
 

@@ -1,54 +1,45 @@
 ---
-title: Implementar um cluster do Azure Service Fabric em zonas de disponibilidade | Documentos da Microsoft
-description: Saiba como criar um cluster do Azure Service Fabric em zonas de disponibilidade.
-services: service-fabric
-documentationcenter: .net
+title: Implantar um cluster entre Zonas de Disponibilidade
+description: Saiba como criar um cluster de Service Fabric do Azure em Zonas de Disponibilidade.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: b664c3d655ab45c89a65a0aea31622f57ddc8d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077459"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609983"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementar um cluster do Azure Service Fabric em zonas de disponibilidade
-As zonas de disponibilidade no Azure é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. Zona de disponibilidade é uma localização física exclusiva equipada com energia, refrigeração e redes dentro de uma região do Azure.
+# <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
+Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
 
-O Service Fabric suporta clusters que abrangem em zonas de disponibilidade ao implementar os tipos de nós que são afixados a zonas específicas. Isto irá garantir a elevada disponibilidade das suas aplicações. As zonas de disponibilidade do Azure só estão disponíveis nas regiões selecionadas. Para obter mais informações, consulte [descrição geral das zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+O Service Fabric dá suporte a clusters que se estendem por Zonas de Disponibilidade implantando tipos de nós que são fixados em zonas específicas. Isso garantirá a alta disponibilidade de seus aplicativos. Zonas de Disponibilidade do Azure só estão disponíveis em regiões selecionadas. Para obter mais informações, consulte [zonas de disponibilidade do Azure visão geral](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Modelos de exemplo estão disponíveis: [Modelo de zona de disponibilidade em várias de Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Os modelos de exemplo estão disponíveis: [Service Fabric modelo de zona de disponibilidade cruzada](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Recomendado topologia para o tipo de nó primário de expansão por zonas de disponibilidade de clusters de Azure Service Fabric
-Um cluster do Service Fabric distribuído por zonas de disponibilidade garante elevada disponibilidade do Estado do cluster. Expanda o cluster do Service Fabric em zonas, tem de criar um tipo de nó principal em cada zona de disponibilidade suportadas pela região. Isto irá distribuir uniformemente nós de semente em cada um dos tipos de nó primário.
+## <a name="recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones"></a>Topologia recomendada para o tipo de nó primário dos clusters de Service Fabric do Azure que abrangem em Zonas de Disponibilidade
+Um Cluster Service Fabric distribuído entre Zonas de Disponibilidade garante a alta disponibilidade do estado do cluster. Para abranger um Cluster Service Fabric entre zonas, você deve criar um tipo de nó primário em cada zona de disponibilidade com suporte na região. Isso distribuirá os nós de semente uniformemente em cada um dos tipos de nó primários.
 
 A topologia recomendada para o tipo de nó primário requer os recursos descritos abaixo:
 
-* Definir o nível de fiabilidade de cluster para platina.
-* Três tipos de nó marcado como primários.
-    * Cada tipo de nó deve ser mapeado para o seu próprio conjunto de dimensionamento de máquina virtual localizado em zonas diferentes.
-    * Cada conjunto de dimensionamento de máquina virtual deve ter, pelo menos, cinco nós (durabilidade de prata).
-* Um único recurso de IP público com o Standard SKU.
-* Um recurso de Balanceador de carga único com o Standard SKU.
-* Um NSG referenciado por sub-rede na qual implementar seus conjuntos de dimensionamento de máquina virtual.
+* O nível de confiabilidade do cluster definido como platina.
+* Três tipos de nó marcados como primários.
+    * Cada tipo de nó deve ser mapeado para seu próprio conjunto de dimensionamento de máquinas virtuais localizado em diferentes zonas.
+    * Cada conjunto de dimensionamento de máquinas virtuais deve ter pelo menos cinco nós (durabilidade prateada).
+* Um único recurso de IP público usando SKU padrão.
+* Um único recurso de Load Balancer usando SKU padrão.
+* Um NSG referenciado pela sub-rede na qual você implanta seus conjuntos de dimensionamento de máquinas virtuais.
 
 >[!NOTE]
-> O conjunto de dimensionamento de máquinas virtuais propriedade do grupo de colocação único tem de ser definida como true, uma vez que o Service Fabric não suporta um conjunto de dimensionamento de máquina virtual única que abrange as zonas.
+> A propriedade de grupo de posicionamento único do conjunto de dimensionamento de máquinas virtuais deve ser definida como true, pois Service Fabric não dá suporte a um único conjunto de dimensionamento de máquinas virtuais que abrange zonas.
 
  ![Arquitetura de zona de disponibilidade do Azure Service Fabric][sf-architecture]
 
 ## <a name="networking-requirements"></a>Requisitos de rede
-### <a name="public-ip-and-load-balancer-resource"></a>IP público e o recurso do Balanceador de carga
-Para ativar as zonas de propriedade numa escala de máquina virtual definida recursos, o Balanceador de carga e o recurso IP referenciado por esse conjunto de dimensionamento de máquina virtual têm ambos de utilizar um *padrão* SKU. Criar um balanceador de carga ou o recurso IP sem a propriedade SKU criará um SKU básico, o que não suporta zonas de disponibilidade. Um balanceador de carga de Standard SKU irá bloquear todo o tráfego de fora, por padrão. para permitir que fora de tráfego, tem de ser implementado um NSG à sub-rede.
+### <a name="public-ip-and-load-balancer-resource"></a>IP público e recurso de Load Balancer
+Para habilitar a propriedade Zones em um recurso de conjunto de dimensionamento de máquinas virtuais, o balanceador de carga e o recurso de IP referenciados por esse conjunto de dimensionamento de máquinas virtuais devem estar usando um SKU *padrão* . Criar um balanceador de carga ou um recurso de IP sem a propriedade SKU criará um SKU básico, que não oferece suporte a Zonas de Disponibilidade. Um balanceador de carga SKU padrão bloqueará todo o tráfego de fora por padrão; para permitir o tráfego externo, um NSG deve ser implantado na sub-rede.
 
 ```json
 {
@@ -96,10 +87,10 @@ Para ativar as zonas de propriedade numa escala de máquina virtual definida rec
 ```
 
 >[!NOTE]
-> Não é possível fazer uma alteração no local do SKU nos recursos de Balanceador de carga e IP públicos. Se estiver a migrar a partir de recursos existentes que têm um SKU básico, consulte a secção de migração deste artigo.
+> Não é possível fazer uma alteração in-loco do SKU nos recursos de IP público e do balanceador de carga. Se você estiver migrando de recursos existentes que têm uma SKU básica, consulte a seção migração deste artigo.
 
-### <a name="virtual-machine-scale-set-nat-rules"></a>Regras NAT de conjunto de dimensionamento de máquina virtual
-O Balanceador de carga regras NAT de entrada devem corresponder os conjuntos NAT do conjunto de dimensionamento de máquina virtual. Cada conjunto de dimensionamento de máquina virtual tem de ter um conjunto exclusivo de NAT de entrada.
+### <a name="virtual-machine-scale-set-nat-rules"></a>Regras NAT do conjunto de dimensionamento de máquinas virtuais
+As regras NAT de entrada do balanceador de carga devem corresponder aos pools NAT do conjunto de dimensionamento de máquinas virtuais. Cada conjunto de dimensionamento de máquinas virtuais deve ter um pool de NAT de entrada exclusivo.
 
 ```json
 {
@@ -144,18 +135,18 @@ O Balanceador de carga regras NAT de entrada devem corresponder os conjuntos NAT
 }
 ```
 
-### <a name="standard-sku-load-balancer-outbound-rules"></a>Regras de saída de Balanceador de carga de SKU padrão
-Standard Balanceador de carga e o IP público Standard apresentam novas capacidades e comportamentos diferentes para conectividade de saída quando em comparação ao uso SKUs básica. Se quiser conectividade de saída ao trabalhar com Standard SKUs, tem de defini-lo, com endereços IP públicos Standard ou Balanceador de carga Standard público explicitamente. Para obter mais informações, consulte [ligações de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) e [Balanceador de carga Standard do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+### <a name="standard-sku-load-balancer-outbound-rules"></a>Standard SKU Load Balancer regras de saída
+Standard Load Balancer e IP público Standard introduzem novas capacidades e comportamentos diferentes para a conectividade de saída quando comparados ao uso de SKUs básicos. Se você quiser a conectividade de saída ao trabalhar com SKUs padrão, deverá defini-la explicitamente com endereços IP públicos padrão ou Load Balancer públicos padrão. Para obter mais informações, consulte [conexões de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) e [Standard Load Balancer do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 >[!NOTE]
-> O modelo padrão faz referência a um NSG que permite que todo o tráfego de saída, por predefinição. Tráfego de entrada está limitado às portas que são necessárias para operações de gestão do Service Fabric. As regras do NSG podem ser modificadas para satisfazer os seus requisitos.
+> O modelo padrão faz referência a um NSG que permite todo o tráfego de saída por padrão. O tráfego de entrada é limitado às portas necessárias para operações de gerenciamento de Service Fabric. As regras de NSG podem ser modificadas para atender às suas necessidades.
 
-### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Ativar zonas numa escala de máquina virtual definido
-Para ativar uma zona, numa escala de máquina virtual definida, deve incluir os seguintes três valores no recurso de conjunto de dimensionamento de máquina virtual.
+### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Habilitando zonas em um conjunto de dimensionamento de máquinas virtuais
+Para habilitar uma zona, em um conjunto de dimensionamento de máquinas virtuais, você deve incluir os três valores a seguir no recurso do conjunto de dimensionamento de máquinas virtuais.
 
-* O primeiro valor é o **zonas** propriedade, que especifica o conjunto de dimensionamento de máquina virtual será implementado em qual zona de disponibilidade.
-* O segundo valor é a propriedade de "singlePlacementGroup", que tem de ser definida como true.
-* O terceiro valor é a propriedade de "faultDomainOverride" na extensão de conjunto de dimensionamento da máquina virtual de Service Fabric. O valor para esta propriedade deve incluir a região e zona em que este conjunto de dimensionamento de máquina virtual será colocado. Exemplo: "faultDomainOverride": "eastus/az1" conjunto de dimensionamento de máquinas virtuais de todos os recursos devem ser colocados na mesma região, porque o Azure Service Fabric clusters não tem cruzada suporte de região.
+* O primeiro valor é a propriedade **Zones** , que especifica em qual zona de disponibilidade o conjunto de dimensionamento de máquinas virtuais será implantado.
+* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como true.
+* O terceiro valor é a propriedade "faultDomainOverride" na extensão do conjunto de dimensionamento de máquinas virtuais Service Fabric. O valor dessa propriedade deve incluir a região e a zona em que esse conjunto de dimensionamento de máquinas virtuais será colocado. Exemplo: "faultDomainOverride": "eastus/AZ1" todos os recursos do conjunto de dimensionamento de máquinas virtuais devem ser colocados na mesma região porque os clusters do Azure Service Fabric não têm suporte entre regiões.
 
 ```json
 {
@@ -195,8 +186,8 @@ Para ativar uma zona, numa escala de máquina virtual definida, deve incluir os 
 }
 ```
 
-### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Ativar vários tipos de nó primário no recurso de Cluster do Service Fabric
-Para definir um ou mais tipos de nó principal num recurso de cluster como, defina a propriedade de "isPrimary" como "true". Ao implementar um cluster do Service Fabric em zonas de disponibilidade, deve ter três tipos de nó em zonas diferentes.
+### <a name="enabling-multiple-primary-node-types-in-the-service-fabric-cluster-resource"></a>Habilitando vários tipos de nó primários no recurso de Cluster Service Fabric
+Para definir um ou mais tipos de nó como primário em um recurso de cluster, defina a propriedade "IsPrimary" como "true". Ao implantar um Cluster Service Fabric em Zonas de Disponibilidade, você deve ter três tipos de nó em zonas distintas.
 
 ```json
 {
@@ -254,20 +245,20 @@ Para definir um ou mais tipos de nó principal num recurso de cluster como, defi
 }
 ```
 
-## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrar para utilizar zonas de disponibilidade de um cluster com um balanceador de carga de SKU básico e um IP de SKU básico
-Para migrar um cluster, o que estava a utilizar um balanceador de carga e o IP com um SKU básico, primeiro tem de criar um recurso de Balanceador de carga e IP totalmente novo com o SKU standard. Não é possível atualizar estes recursos no local.
+## <a name="migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrar para o uso de Zonas de Disponibilidade de um cluster usando um Load Balancer de SKU básico e um IP de SKU básico
+Para migrar um cluster, que estava usando um Load Balancer e IP com um SKU básico, primeiro você deve criar um recurso de Load Balancer e IP totalmente novo usando o SKU Standard. Não é possível atualizar esses recursos in-loco.
 
-O novo LB e IP devem ser referenciado nos novos tipos de nó de zona de disponibilidade em vários que deseja usar. No exemplo acima, três dimensionamento de máquinas virtuais de novos recursos do conjunto de foram adicionados em zonas de 1,2 e 3. Estes dimensionamento de máquinas virtuais referência de conjuntos do LB e IP recém-criado e estão assinalados como tipos de nó primário no recurso de Cluster do Service Fabric.
+O novo LB e o IP devem ser referenciados nos novos tipos de nó de zona de disponibilidade cruzada que você gostaria de usar. No exemplo acima, três novos recursos do conjunto de dimensionamento de máquinas virtuais foram adicionados nas zonas 1, 2 e 3. Esses conjuntos de dimensionamento de máquinas virtuais referenciam o LB e o IP recém-criados e são marcados como tipos de nó primários no recurso de Cluster Service Fabric.
 
-Para começar, terá de adicionar os novos recursos ao seu modelo de Gestor de recursos existente. Estes recursos incluem:
-* Um recurso IP público com o Standard SKU.
-* Um recurso do Balanceador de carga com o Standard SKU.
-* Um NSG referenciado por sub-rede na qual implementar seus conjuntos de dimensionamento de máquina virtual.
-* Três tipos de nó marcado como primários.
-    * Cada tipo de nó deve ser mapeado para o seu próprio conjunto de dimensionamento de máquina virtual localizado em zonas diferentes.
-    * Cada conjunto de dimensionamento de máquina virtual deve ter, pelo menos, cinco nós (durabilidade de prata).
+Para começar, será necessário adicionar os novos recursos ao modelo do Resource Manager existente. Esses recursos incluem:
+* Um recurso de IP público usando SKU padrão.
+* Um recurso Load Balancer usando o SKU Standard.
+* Um NSG referenciado pela sub-rede na qual você implanta seus conjuntos de dimensionamento de máquinas virtuais.
+* Três tipos de nó marcados como primários.
+    * Cada tipo de nó deve ser mapeado para seu próprio conjunto de dimensionamento de máquinas virtuais localizado em diferentes zonas.
+    * Cada conjunto de dimensionamento de máquinas virtuais deve ter pelo menos cinco nós (durabilidade prateada).
 
-Um exemplo desses recursos pode ser encontrado na [modelo de exemplo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
+Um exemplo desses recursos pode ser encontrado no modelo de [exemplo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-Ubuntu-2-NodeType-Secure).
 
 ```powershell
 New-AzureRmResourceGroupDeployment `
@@ -276,7 +267,7 @@ New-AzureRmResourceGroupDeployment `
     -TemplateParameterFile $Parameters
 ```
 
-Assim que os recursos tem concluído a implantação, pode começar a desativar os nós no tipo de nó principal do original cluster. Como os nós estão desativados, os serviços do sistema serão migrados para o novo tipo de nó principal que tinha sido implementado no passo acima.
+Depois que os recursos terminarem de implantar, você poderá começar a desabilitar os nós no tipo de nó primário do cluster original. À medida que os nós estiverem desabilitados, os serviços do sistema serão migrados para o novo tipo de nó primário que foi implantado na etapa anterior.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
@@ -298,7 +289,7 @@ foreach($name in $nodeNames) {
 }
 ```
 
-Assim que os nós estão todos desativados, os serviços do sistema serão executados sobre o tipo de nó primário, o que é distribuído por todos zonas. Em seguida, pode remover os nós desativado do cluster. Assim que os nós são removidos, pode remover o IP original, o Balanceador de carga, e recursos do conjunto de dimensionamento de máquina virtual.
+Depois que os nós estiverem todos desabilitados, os serviços do sistema serão executados no tipo de nó primário, que é distribuído entre as zonas. Em seguida, você pode remover os nós desabilitados do cluster. Depois que os nós forem removidos, você poderá remover o IP original, Load Balancer e os recursos do conjunto de dimensionamento de máquinas virtuais.
 
 ```powershell
 foreach($name in $nodeNames){
@@ -318,9 +309,9 @@ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ```
 
-Em seguida, deve remover as referências a estes recursos do modelo do Resource Manager que tinha implementado.
+Em seguida, você deve remover as referências a esses recursos do modelo do Resource Manager que você implantou.
 
-A última etapa envolverá a atualizar o nome DNS e o IP público.
+A etapa final envolverá a atualização do nome DNS e do IP público.
 
 ```powershell
 $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname

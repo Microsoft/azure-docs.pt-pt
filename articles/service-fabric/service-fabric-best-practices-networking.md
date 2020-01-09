@@ -1,31 +1,22 @@
 ---
-title: Práticas recomendadas de rede Service Fabric do Azure | Microsoft Docs
-description: Práticas recomendadas para gerenciar Service Fabric rede.
-services: service-fabric
-documentationcenter: .net
+title: Práticas recomendadas de rede Service Fabric do Azure
+description: Práticas recomendadas e considerações de design para gerenciar a conectividade de rede usando o Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262255"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551799"
 ---
-# <a name="networking"></a>Redes
+# <a name="networking"></a>Funcionamento em Rede
 
 Conforme você cria e gerencia clusters do Azure Service Fabric, você está fornecendo conectividade de rede para seus nós e aplicativos. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, balanceadores de carga e grupos de segurança de rede. Neste artigo, você aprenderá as práticas recomendadas para esses recursos.
 
-Examine os [padrões de rede Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) do Azure para saber como criar clusters que usam os seguintes recursos: Rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
+Examine os [padrões de rede Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) do Azure para saber como criar clusters que usam os seguintes recursos: rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
 
 ## <a name="infrastructure-networking"></a>Rede de infraestrutura
 Maximize o desempenho da sua máquina virtual com rede acelerada, declarando a propriedade enableAcceleratedNetworking em seu modelo do Resource Manager, o trecho a seguir é de um NetworkInterfaceConfigurations do conjunto de dimensionamento de máquinas virtuais que habilita a rede acelerada:
@@ -48,13 +39,13 @@ Maximize o desempenho da sua máquina virtual com rede acelerada, declarando a p
 ```
 Service Fabric cluster pode ser provisionado no [Linux com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)e [Windows com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o SKU Standard_DS8_v3 em 1/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux.
+A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o Standard_DS8_v3 SKU em 1/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux.
 
 Para habilitar a rede acelerada em um cluster existente do Service Fabric, você precisa primeiro [dimensionar um cluster de Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), para executar o seguinte:
 1. Provisionar um NodeType com rede acelerada habilitada
 2. Migre seus serviços e seu estado para o NodeType provisionado com rede acelerada habilitada
 
-A infraestrutura de expansão é necessária para habilitar a rede acelerada em um cluster existente, pois a habilitação da rede acelerada em vigor causaria tempo de inatividade, pois requer que todas as máquinas virtuais em um conjunto de disponibilidade sejam [interrompidas e desalocadas antes Habilitando a rede acelerada em qualquer NIC existente](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+A infraestrutura de expansão é necessária para habilitar a rede acelerada em um cluster existente, pois a habilitação da rede acelerada em vigor causaria tempo de inatividade, pois requer que todas as máquinas virtuais em um conjunto de disponibilidade sejam [interrompidas e desalocadas antes de habilitar a rede acelerada em qualquer NIC existente](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ## <a name="cluster-networking"></a>Rede de cluster
 
@@ -76,8 +67,8 @@ A infraestrutura de expansão é necessária para habilitar a rede acelerada em 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Criar um cluster em VMs ou computadores que executam [o Linux: criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

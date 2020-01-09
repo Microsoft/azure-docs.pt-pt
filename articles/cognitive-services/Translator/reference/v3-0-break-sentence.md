@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835892"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446687"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de Tradução de Texto 3,0: BreakSentence
 
@@ -37,7 +37,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th width="20%">Parâmetro de consulta</th>
   <th>Descrição</th>
   <tr>
-    <td>versão da API</td>
+    <td>api-version</td>
     <td>*Parâmetro de consulta necessário*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
   </tr>
   <tr>
@@ -60,11 +60,11 @@ Os cabeçalhos de solicitação incluem:
     <td><em>Cabeçalho de solicitação necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Tipo de conteúdo</td>
+    <td>Content-Type</td>
     <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
-    <td>Comprimento do conteúdo</td>
+    <td>Content-Length</td>
     <td>*Cabeçalho de solicitação necessário*.<br/>O comprimento do corpo da solicitação.</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento de matriz é um objet
 ]
 ```
 
-As seguintes limitações se aplicam:
+As seguintes limitações aplicam-se:
 
 * A matriz pode ter no máximo 100 elementos.
 * O valor de texto de um elemento de matriz não pode exceder 10.000 caracteres, incluindo espaços.
@@ -109,7 +109,7 @@ Um exemplo de resposta JSON é:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -134,7 +134,7 @@ Um exemplo de resposta JSON é:
 A seguir estão os códigos de status HTTP possíveis que uma solicitação retorna. 
 
 <table width="100%">
-  <th width="20%">Código de status</th>
+  <th width="20%">Código de Estado</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>
@@ -150,7 +150,7 @@ A seguir estão os códigos de status HTTP possíveis que uma solicitação reto
   </tr>
   <tr>
     <td>403</td>
-    <td>A solicitação não é autorizada. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
+    <td>O pedido não está autorizado. Verifique a mensagem de erro detalhes. Isso geralmente indica que todas as traduções gratuitas fornecidas com uma assinatura de avaliação foram usadas.</td>
   </tr>
   <tr>
     <td>429</td>

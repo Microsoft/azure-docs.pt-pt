@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358382"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs do Windows no Azure usandoC# #
 
@@ -111,7 +111,7 @@ Antes de iniciar esta etapa, verifique se você tem acesso a uma [entidade de se
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
+Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao método Main:
 

@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-sfctl é | Microsoft Docs
-description: Descreve o Service Fabric CLI sfctl é comandos.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl é
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar a infraestrutura do.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c3c98e8da0c2a5449296a0fd108977ec0633f83d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901575"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639127"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
@@ -41,7 +32,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 |Argumento|Descrição|
 | --- | --- |
 | --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
-| --ID do serviço | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
+| --service-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
 | --Timeout-t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -64,7 +55,7 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 |Argumento|Descrição|
 | --- | --- |
 | --comando [obrigatório] | O texto do comando a ser invocado. O conteúdo do comando é específico da infraestrutura. |
-| --ID do serviço | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
+| --service-id | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema de URI ' Fabric\:'. Esse parâmetro é necessário apenas para o cluster que tem mais de uma instância do serviço de infraestrutura em execução. |
 | --Timeout-t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais

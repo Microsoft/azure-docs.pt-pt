@@ -1,24 +1,26 @@
 ---
-title: Apresentar um bloco de notas do Jupyter como uma apresentação de diapositivos no Azure
-description: Como configurar células para o modo de apresentação de slides num bloco de notas do Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de aumento.
-ms.topic: article
+title: Apresentar um notebook Jupyter como uma apresentação de slides sobre Azure Notebooks visualização
+description: Saiba como configurar células para o modo de apresentação de slides em um notebook Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de elevação.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277584"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647123"
 ---
-# <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides do bloco de notas
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Executar uma apresentação de slides do bloco de notas em Azure Notebooks visualização
 
 Blocos de notas do Azure está pré-configurada com o Jupyter/IPython Slideshow extensão (aumento) que permite-lhe apresentar um bloco de notas diretamente como uma apresentação de diapositivos. Numa apresentação de diapositivos, as células são normalmente apresentados um a um usando um tamanho de fonte que é adequado para apresentar em telas grandes e pode executar o código, em vez de mudar para um computador separado de demonstração.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 A imagem seguinte mostra a vista de bloco de anotações padrão, no qual pode ver as células de Markdown e o código de todas as ferramentas:
 
 ![Um bloco de notas no modo de exibição padrão](media/slideshow/slideshow-notebook-view.png)
 
-Quando você inicia uma apresentação de slides, a primeira célula é ampliada para preencher o navegador, onde o **X** na parte superior esquerda sai da apresentação de slides **?** o apresenta à esquerda inferior atalhos de teclado e as setas no canto inferior direito navegue entre slides:
+Quando inicia uma apresentação de slides, a primeira célula for alargada para preencher o browser, onde o **X** no canto superior esquerdo termina a apresentação de slides, **?** o apresenta à esquerda inferior atalhos de teclado e as setas no canto inferior direito navegue entre slides:
 
 ![Um bloco de notas no modo de apresentação de slides](media/slideshow/slideshow-slide-view.png)
 
@@ -32,11 +34,11 @@ Preparar um bloco de notas para uma apresentação de diapositivos envolve duas 
 
 Se tirar um bloco de notas aleatório e utilizá-lo para uma apresentação de diapositivos, normalmente descobrir que estão se todas as células e grande parte do conteúdo está oculto desativado na parte inferior da janela do navegador. Para fazer uma apresentação em vigor, em seguida, tem de atribuir um tipo de apresentação de slides para cada célula usando a barra de ferramentas do Slideshow célula:
 
-1. No menu **Exibir** , selecione a **barra de ferramentas da célula** > **apresentação de slides**:
+1. Sobre o **vista** menu, selecione **barra de ferramentas de célula** > **Slideshow**:
 
     ![Ativar a barra de ferramentas de apresentação de slides da célula](media/slideshow/slideshow-view-cell-toolbar.png)
 
-1. Uma lista suspensa **tipo de slide** aparece no canto superior direito de cada célula no bloco de anotações:
+1. R **deslize tipo** pendente é apresentado no canto superior direito de cada célula no bloco de notas:
 
     ![Barra de ferramentas de apresentação de slides de célula](media/slideshow/slideshow-cell-toolbar.png)
 
@@ -53,11 +55,11 @@ Se tirar um bloco de notas aleatório e utilizá-lo para uma apresentação de d
     | Ignorar | Célula não é mostrada na apresentação de slides. |
     | Notas | Célula contém como anotações do orador, que não são mostradas na apresentação de slides. |
 
-1. Inicialmente, é útil escolher o **Slide** para cada célula. Em seguida, pode executar a apresentação de slides e efetue os ajustes adequados.
+1. Inicialmente, é útil escolher **deslize** para cada célula. Em seguida, pode executar a apresentação de slides e efetue os ajustes adequados.
 
 ### <a name="example-fragment-cells-for-bullet-items"></a>Exemplo: fragmento células de itens de marca de lista
 
-Para fazer com que os marcadores em um slide apareçam um por um, coloque o cabeçalho do slide em uma célula de redução com o tipo de **Slide** e coloque cada marcador em uma célula de redução separada com o tipo de **fragmento** :
+Para tornar marcadores num slide aparecer uma ao local de um, o cabeçalho de slides numa célula de Markdown com o **Slide** escreva, em seguida, coloque cada item numa célula separada de Markdown com o **fragmento** tipo:
 
 ![Exemplo de criação de várias células de Markdown para itens de marca de lista](media/slideshow/slideshow-fragments.png)
 
@@ -65,13 +67,13 @@ Uma vez que a apresentação de slides renderiza fragmentos com mais vertical es
 
 ## <a name="run-the-slideshow"></a>Executar a apresentação de slides
 
-1. Se você tiver editado todas as células de redução, certifique-se de executá-las para renderizar o HTML, caso contrário, elas aparecerão *como* uma redução na apresentação de slides.
+1. Se tiver editado células de Markdown, certifique-se para executá-los para renderizar o HTML, caso contrário, eles aparecem *como* Markdown na apresentação de slides.
 
-1. Depois de configurar o **tipo de slide** para cada célula, selecione a célula com a qual deseja iniciar a apresentação de slides e, em seguida, selecione o botão de slides de **elevação de inserção/saída** na barra de ferramentas principal:
+1. Assim que tiver configurado a **tipo de deslize** para cada célula, selecionar a célula com a qual iniciar a apresentação de slides, em seguida, selecione o **apresentação de slides de aumentar Enter/saída** botão na barra de ferramentas principal:
 
     ![Apresentação de slides de aumentar entrar/sair do botão na barra de ferramentas principal](media/slideshow/slideshow-start.png)
 
-1. Para navegar entre slides, bem como fragmentos, use as setas do esquerda e direita no controle de navegação. O texto no controle mostra um número que representa o *Slide. subslide*.
+1. Para navegar entre slides, bem como fragmentos, use as setas do esquerda e direita no controle de navegação. O texto no controle mostra um número que representa *slide.sub slide*.
 
     ![Controle de navegação de apresentação de slides](media/slideshow/slideshow-navigation-control.png)
 
@@ -86,13 +88,13 @@ Uma vez que a apresentação de slides renderiza fragmentos com mais vertical es
     ![Saída de célula de código é apresentado na apresentação de diapositivos](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > Saída de célula é considerada parte da célula numa apresentação de diapositivos. Se executar uma célula no bloco de notas ou exibição de apresentação de slides, o resultado é apresentado na outra vista também. Para limpar a saída, use a **célula** > **saídas atuais** > comando **Clear** (para a célula atual) ou **célula** > **todas as saídas** > **Clear** (para todas as células).
+    > Saída de célula é considerada parte da célula numa apresentação de diapositivos. Se executar uma célula no bloco de notas ou exibição de apresentação de slides, o resultado é apresentado na outra vista também. Para limpar a saída, utilize o **célula** > **saídas atual** > **limpar** comando (para a célula atual) ou **célula**  >  **Todos os resultados** > **clara** (para todas as células).
 
-1. Quando terminar de usar a apresentação de slides, use o **X** para retornar ao modo de exibição do bloco de anotações.
+1. Quando tiver terminado com a apresentação de slides, utilize o **X** para regressar à vista de bloco de notas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)
-- [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)

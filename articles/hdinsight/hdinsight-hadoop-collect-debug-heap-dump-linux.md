@@ -2,18 +2,18 @@
 title: Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight – Azure
 description: Habilite despejos de heap para serviços de Apache Hadoop de clusters HDInsight baseados em Linux para depuração e análise.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494845"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658802"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos de heap para serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "73494845"
 
 Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são úteis para diagnosticar problemas que ocorrem em tempo de execução.
 
-## <a name="whichServices"></a>Serviços
+## <a name="services"></a>Serviços
 
 Você pode habilitar despejos de heap para os seguintes serviços:
 
@@ -33,7 +33,7 @@ Você pode habilitar despejos de heap para os seguintes serviços:
 
 Você também pode habilitar despejos de heap para o mapa e reduzir os processos executados pelo HDInsight.
 
-## <a name="configuration"></a>Compreendendo a configuração de despejo de heap
+## <a name="understanding-heap-dump-configuration"></a>Compreendendo a configuração de despejo de heap
 
 Os despejos de heap são habilitados por meio da passagem de opções (às vezes conhecidas como optas ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços [Apache Hadoop](https://hadoop.apache.org/) , você pode modificar o script de shell usado para iniciar o serviço para passar essas opções.
 
@@ -41,8 +41,8 @@ Em cada script, há uma exportação para **\*\_** opções, que contém as que 
 
 Os processos de mapeamento e redução são ligeiramente diferentes, pois essas operações são um processo filho do serviço MapReduce. Cada mapa ou redução de processo é executado em um contêiner filho, e há duas entradas que contêm as opções de JVM. Ambos estão contidos em **mapred-site. xml**:
 
-* **MapReduce. admin. map. Child. java. de optas**
-* **MapReduce. admin. Reduza. Child. java.**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]  
 > É recomendável usar o [Apache Ambari](https://ambari.apache.org/) para modificar os scripts e as configurações de mapred-site. xml, uma vez que o Ambari lida com a replicação de alterações entre nós no cluster. Consulte a seção [usando o Apache Ambari](#using-apache-ambari) para obter etapas específicas.
@@ -81,12 +81,7 @@ Você também pode disparar um script quando ocorrer um **OutOfMemoryError** . P
 
 Para modificar a configuração de um serviço, use as seguintes etapas:
 
-1. Abra a interface do usuário da Web do amAmbari para seu cluster. A URL é https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    Quando solicitado, autentique-se no site usando o nome da conta HTTP (padrão: admin) e a senha do cluster.
-
-   > [!NOTE]  
-   > Você pode ser solicitado uma segunda vez por Ambari para o nome de usuário e a senha. Nesse caso, insira o mesmo nome de conta e senha.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
 2. Usando a lista de à esquerda, selecione a área de serviço que você deseja modificar. Por exemplo, **HDFS**. Na área central, selecione a guia **configurações** .
 
@@ -121,4 +116,3 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
    > As entradas do botão **reiniciar** podem ser diferentes para outros serviços.
 
 8. Depois que os serviços forem reiniciados, use o botão **ações de serviço** para desativar o modo de **manutenção**. Este Ambari para retomar o monitoramento de alertas para o serviço.
-

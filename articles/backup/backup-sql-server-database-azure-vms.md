@@ -4,12 +4,12 @@ description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172106"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611394"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -43,36 +43,51 @@ Para todas as operações, uma VM SQL Server requer conectividade com os endere�
 
 Estabeleça a conectividade usando uma das seguintes opções:
 
-* **Permitir os intervalos de IP do datacenter do Azure**. Essa opção permite [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no download. Para acessar um NSG (grupo de segurança de rede), use o cmdlet Set-AzureNetworkSecurityRule. Se você for um destinatário seguro lista apenas IPs específicos da região, também precisará atualizar a lista de destinatários seguros a marca de serviço Azure Active Directory (Azure AD) para habilitar a autenticação.
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Permitir os intervalos de IP do datacenter do Azure
 
-* **Permitir acesso usando marcas NSG**.  Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure. Além disso, você também deve permitir a conectividade para autenticação e transferência de dados usando [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para o Azure AD e o armazenamento do Azure. Isso pode ser feito no portal ou no PowerShell.
+Essa opção permite os [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no arquivo baixado. Para acessar um NSG (grupo de segurança de rede), use o cmdlet Set-AzureNetworkSecurityRule. Se sua lista de destinatários confiáveis incluir apenas IPs específicos de região, você também precisará atualizar a lista de destinatários seguros a marca de serviço Azure Active Directory (AD do Azure) para habilitar a autenticação.
 
-    Para criar uma regra usando o portal:
+#### <a name="allow-access-using-nsg-tags"></a>Permitir acesso usando marcas NSG
 
-  * Em **todos os serviços**, vá para **grupos de segurança de rede** e selecione o grupo de segurança de rede.
-  * Selecione **regras de segurança de saída** em **configurações**.
-  * Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma nova regra, conforme descrito em [configurações de regra de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verifique se a opção **destino** está definida como **marca de serviço** e se a **marca serviço de destino** está definida como **AzureBackup**.
-  * Clique em **Adicionar**para salvar a regra de segurança de saída recém-criada.
+Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure. Além disso, você também deve permitir a conectividade para autenticação e transferência de dados usando [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para o Azure AD e o armazenamento do Azure. Isso pode ser feito no portal do Azure ou por meio do PowerShell.
 
-   Para criar uma regra usando o PowerShell:
+Para criar uma regra usando o portal:
 
-  * Adicionar credenciais de conta do Azure e atualizar as nuvens nacionais<br/>
-    ``Add-AzureRmAccount``
-  * Selecione a assinatura do NSG<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * Selecione o NSG<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Adicionar regra de permissão de saída para a marca do serviço de backup do Azure<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * Salve o NSG<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. Em **todos os serviços**, vá para **grupos de segurança de rede** e selecione o grupo de segurança de rede.
+  2. Selecione **regras de segurança de saída** em **configurações**.
+  3. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma nova regra, conforme descrito em [configurações de regra de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verifique se a opção **destino** está definida como **marca de serviço** e se a **marca serviço de destino** está definida como **AzureBackup**.
+  4. Clique em **Adicionar**para salvar a regra de segurança de saída recém-criada.
 
-* **Permitir acesso usando marcas de firewall do Azure**. Se você estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a [marca de FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Isso permite o acesso de saída ao backup do Azure.
-* **Implante um servidor proxy http para rotear o tráfego**. Quando você faz backup de um banco de dados SQL Server em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento para o backup do Azure e dados para o armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Encaminhe o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
+Para criar uma regra usando o PowerShell:
+
+ 1. Adicionar credenciais de conta do Azure e atualizar as nuvens nacionais<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Selecione a assinatura do NSG<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Selecione o NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Adicionar regra de permissão de saída para a marca do serviço de backup do Azure<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Adicionar regra de permissão de saída para a marca de serviço de armazenamento<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Adicionar regra de permissão de saída para a marca de serviço AzureActiveDirectory<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Salve o NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Permitir acesso usando marcas de firewall do Azure**. Se você estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a [marca de FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Isso permite o acesso de saída ao backup do Azure.
+
+**Implante um servidor proxy http para rotear o tráfego**. Quando você faz backup de um banco de dados SQL Server em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento para o backup do Azure e dados para o armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Encaminhe o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
 
 As opções de conectividade incluem as seguintes vantagens e desvantagens:
 
-**Opção** | **Principais** | **Desvantagens**
+**Opção** | **Vantagens** | **Desvantagens**
 --- | --- | ---
 Permitir intervalos de IP | Sem custos adicionais | Complexo para gerenciar porque os intervalos de endereços IP mudam ao longo do tempo <br/><br/> Fornece acesso ao todo o Azure, não apenas ao armazenamento do Azure
 Usar marcas de serviço NSG | Mais fácil de gerenciar como as alterações de intervalo são mescladas automaticamente <br/><br/> Sem custos adicionais <br/><br/> | Pode ser usado somente com NSGs <br/><br/> Fornece acesso ao serviço inteiro
@@ -232,11 +247,12 @@ Para criar uma política de backup:
 
     ![Editar a política de backup de log](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. No menu **política de backup** , escolha se deseja habilitar a **compactação de backup do SQL**.
-    * A compactação é desabilitada por padrão.
-    * No back-end, o backup do Azure usa a compactação de backup nativo do SQL.
+13. No menu **política de backup** , escolha se deseja habilitar a **compactação de backup do SQL** ou não. Esta opção está desativada por predefinição. Se habilitada, SQL Server enviará um fluxo de backup compactado para o VDI.  Observe que o backup do Azure substitui os padrões de nível de instância pela cláusula COMPRESSION/NO_COMPRESSION dependendo do valor desse controle.
 
 14. Depois de concluir as edições na política de backup, selecione **OK**.
+
+> [!NOTE]
+> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, os logs diferenciais diários e de 2 horas. Todos eles são mantidos por 30 dias. No entanto, a semana completa pode ser realmente limpa/excluída somente depois que o próximo backup completo estiver disponível, ou seja, após 30 a 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse total ocorre antes do próximo agendamento completo, em novembro de 22. Até que esse log esteja disponível até dec 22, o 16º total de novembro não poderá ser excluído. Portanto, o 16º 16 de novembro é mantido até dec 22.
 
 ## <a name="enable-auto-protection"></a>Habilitar proteção automática  
 
@@ -261,7 +277,7 @@ Se você precisar desabilitar a proteção automática, selecione o nome da inst
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a:
+Saiba como:
 
 * [Restaurar bancos de dados SQL Server de backup](restore-sql-database-azure-vm.md)
 * [Gerenciar bancos de dados SQL Server com backup](manage-monitor-sql-database-backup.md)

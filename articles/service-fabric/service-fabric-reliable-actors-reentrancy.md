@@ -1,33 +1,24 @@
 ---
-title: Reentrada no actors do Azure Service Fabric | Documentos da Microsoft
-description: Introdução ao reentrada dos Reliable Actors do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Reentrância no Azure Service Fabric atores
+description: Introdução à reentrância para Service Fabric Reliable Actors, uma maneira de evitar logicamente o bloqueio com base no contexto de chamada.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46ce91e607341e2fbdc0b6a3018e74cb24e76839
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725419"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645536"
 ---
-# <a name="reliable-actors-reentrancy"></a>Reentrada do Reliable Actors
-O tempo de execução do Reliable Actors, por predefinição, permite reentrância com base no contexto de chamadas lógicas. Isto permite atores são reentrantes se eles estiverem na mesma cadeia de contexto de chamada. Por exemplo, o Ator A envia uma mensagem para o Ator B, que envia uma mensagem para c de Ator. Como parte do processamento da mensagem, se chama o C de Ator Ator A, a mensagem é reentrantes, pelo que terá permissão. Outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até terminar de processamento.
+# <a name="reliable-actors-reentrancy"></a>Reentrada Reliable Actors
+O tempo de execução de Reliable Actors, por padrão, permite a reentrância baseada em contexto de chamada lógica. Isso permite que os atores sejam reentrante se estiverem na mesma cadeia de contexto de chamada. Por exemplo, o ator A envia uma mensagem para o ator B, que envia uma mensagem para o ator C. Como parte do processamento de mensagens, se o ator C chamar o ator A, a mensagem será reentrante e, portanto, será permitida. Qualquer outra mensagem que faça parte de um contexto de chamada diferente será bloqueada no ator A até que o processamento seja concluído.
 
-Existem duas opções disponíveis para reentrância de ator definida no `ActorReentrancyMode` enum:
+Há duas opções disponíveis para a reentrância do ator definida no `ActorReentrancyMode` enum:
 
-* `LogicalCallContext` (comportamento predefinido)
-* `Disallowed` -Desativa reentrância
+* `LogicalCallContext` (comportamento padrão)
+* `Disallowed`-desabilita a reentrância
 
 ```csharp
 public enum ActorReentrancyMode
@@ -43,9 +34,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-Reentrada pode ser configurada num `ActorService`do definições durante o registo. A definição aplica-se a todas as instâncias de ator criadas no serviço de ator.
+A reentrância pode ser configurada nas configurações de um `ActorService`durante o registro. A configuração se aplica a todas as instâncias de ator criadas no serviço de ator.
 
-O exemplo seguinte mostra um serviço de ator que define o modo de reentrância como `ActorReentrancyMode.Disallowed`. Neste caso, se um ator envia uma mensagem de reentrância para outro ator, uma exceção de tipo `FabricException` será gerada.
+O exemplo a seguir mostra um serviço de ator que define o modo de reentrância como `ActorReentrancyMode.Disallowed`. Nesse caso, se um ator enviar uma mensagem reentrante para outro ator, uma exceção do tipo `FabricException` será lançada.
 
 ```csharp
 static class Program
@@ -110,5 +101,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre a reentrada no [documentação de referência da API de Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre a reentrância na documentação de [referência da API do ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)

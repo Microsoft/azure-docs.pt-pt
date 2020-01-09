@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fa60cbeb3dc2dea928168529a7e7a58cf01657c4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838537"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615006"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de arquivos do Azure no Linux
 
@@ -142,7 +142,7 @@ Você não tem acesso
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **controle de acesso (iam)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **controle de acesso (iam)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: as regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento
 
@@ -228,9 +228,9 @@ Quando você tenta listar arquivos em um compartilhamento de arquivos do Azure u
 ### <a name="solution"></a>Solução
 Atualize o kernel do Linux para as seguintes versões que têm uma correção para esse problema:
 
-- 4.4.87 +
-- 4.9.48 +
-- 4.12.11 +
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
 - Todas as versões que são maiores ou iguais a 4,13
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Não é possível criar links simbólicos-ln: falha ao criar o link simbólico ' T': operação sem suporte

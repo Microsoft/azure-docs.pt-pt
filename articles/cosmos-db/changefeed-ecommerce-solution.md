@@ -1,22 +1,22 @@
 ---
 title: Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
-description: Este artigo descreve como feed de alterações pode ser utilizado por uma empresa de revenda para compreender os padrões de utilizador, efetuar a análise de dados em tempo real e visualização.
+description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para entender os padrões do usuário, executar análise e visualização de dados em tempo real
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442076"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 
-O feed de alteração Azure Cosmos DB é um mecanismo para obter um feed contínuo e incremental de registros de um contêiner Cosmos do Azure, pois esses registros estão sendo criados ou modificados. Feed de alterações funciona de suporte através da escuta de contentor para efetuar quaisquer alterações. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. Para saber mais sobre o feed de alterações, veja [trabalhar com o feed de alterações](change-feed.md) artigo. 
+O feed de alteração Azure Cosmos DB é um mecanismo para obter um feed contínuo e incremental de registros de um contêiner Cosmos do Azure, pois esses registros estão sendo criados ou modificados. Feed de alterações funciona de suporte através da escuta de contentor para efetuar quaisquer alterações. Em seguida, disponibiliza a lista ordenada dos documentos que foram alterados, pela ordem pela qual foram modificados. Para saber mais sobre o feed de alterações, veja [trabalhar com o feed de alterações](change-feed.md) artigo. 
 
 Este artigo descreve como feed de alterações pode ser utilizado por uma empresa de comércio eletrônico para compreender os padrões de utilizador, efetuar a análise de dados em tempo real e visualização. Irá analisar eventos como um utilizador visualizar um item, adicionando um item ao seu carrinho ou compra de um item. Quando um dos seguintes eventos ocorre, é criado um novo registo e registos que registam de feed da alteração. Feed de alterações, em seguida, aciona uma série de passos, resultando na visualização de métricas que analisar o desempenho da empresa e a atividade. As métricas de exemplo que pode ver incluem receita, visitantes de site exclusivo, itens mais populares, e preço médio dos itens que são visualizados adicionado ao carrinho versus adquiridas. Estas métricas de exemplo podem ajudar a avaliar sua popularidade do site, desenvolver seu publicidade e estratégias de preços e tomar decisões sobre o inventário de investir numa empresa de comércio eletrônico.
 
@@ -30,7 +30,7 @@ O diagrama abaixo representa o fluxo de dados e componentes envolvidos na soluç
 
 ![Projeto visual](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Geração de dados:** O simulador de dados é usado para gerar dados de varejo que representam eventos como um usuário exibindo um item, adicionando um item ao seu carrinho e comprando um item. Pode gerar grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerado contém documentos no seguinte formato:
+1. **Geração de dados:** simulador de dados é usado para gerar dados de revenda que representa os eventos como um utilizador de um item de exibição, adicionando um item ao seu carrinho e compra de um item. Pode gerar grande conjunto de dados de exemplo usando o gerador de dados. Os dados de exemplo gerado contém documentos no seguinte formato:
    
    ```json
    {      
@@ -45,13 +45,13 @@ O diagrama abaixo representa o fluxo de dados e componentes envolvidos na soluç
 
 3. **Feed de alterações:** O feed de alterações escutará as alterações no contêiner Cosmos do Azure. Sempre que um novo documento é adicionado à coleção (que é quando um evento ocorre como um utilizador visualizar um item, adicionando um item ao seu carrinho, ou de um item), a alteração feed irá acionar um [função do Azure](../azure-functions/functions-overview.md).  
 
-4. **Azure Functions:** A função do Azure processa os novos dados e os envia para um [Hub de eventos do Azure](../event-hubs/event-hubs-about.md).  
+4. **Função do Azure:** a função do Azure processa os novos dados e envia-o para uma [Hub de eventos do Azure](../event-hubs/event-hubs-about.md).  
 
-5. **Hub de eventos:** O Hub de eventos do Azure armazena esses eventos e os envia para [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para executar uma análise adicional.  
+5. **Hub de eventos:** Hub de eventos do Azure armazena estes eventos e envia-lhes [do Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para efetuar a análise.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics define consultas para processar os eventos e executar análise de dados em tempo real. Estes dados, em seguida, são enviados para [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **O Azure Stream Analytics:** o Azure Stream Analytics define consultas para processar os eventos e realizar análises de dados em tempo real. Estes dados, em seguida, são enviados para [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Power BI:** Power BI é usado para visualizar os dados enviados pelo Azure Stream Analytics. Pode criar um dashboard para ver como as métricas de alteram em tempo real.  
+7. **Power BI:** Power BI é utilizado para visualizar os dados enviados pelo Azure Stream Analytics. Pode criar um dashboard para ver como as métricas de alteram em tempo real.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -165,7 +165,7 @@ Para ver como feed de alterações processa novas ações num site de comércio 
 
 1. Navegue de volta para o repositório no Explorador de ficheiros e, com o botão direito **ChangeFeedFunction.sln** para abri-lo novamente numa nova janela do Visual Studio.  
 
-2. Navegue até o arquivo **app. config** . No bloco, adicione o ponto de extremidade e a **chave primária** exclusiva da sua conta de Azure Cosmos DB que você recuperou anteriormente. `<appSettings>`  
+2. Navegue até o arquivo **app. config** . No bloco de `<appSettings>`, adicione o ponto de extremidade e a **chave primária** exclusiva da sua conta de Azure Cosmos DB que você recuperou anteriormente.  
 
 3. Adicione a **coleção** e **base de dados** nomes. (Esses nomes devem ser **changefeedlabcollection** e **changefeedlabdatabase** , a menos que escolher para um nome diferente.)
 
@@ -250,7 +250,7 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
  
 5. Selecione **averagePrice** partir **conjuntos de dados YOUR**, em seguida, selecione **seguinte**.  
 
-6. Na **tipo de visualização** campo, escolha **colocar em cluster gráfico de barras** no menu pendente. Sob **eixo**, adicione a ação. Ignorar **legenda** sem adicionar nada. Em seguida, na secção seguinte chamado **valor**, adicione **média**. Selecione **próxima**, em seguida, o gráfico do título e selecione **aplicar**. Deverá ver um novo gráfico no seu dashboard!  
+6. Na **tipo de visualização** campo, escolha **colocar em cluster gráfico de barras** no menu pendente. Sob **eixo**, adicione a ação. Ignorar **legenda** sem adicionar nada. Em seguida, na próxima seção chamada **Value**, adicione **AVG**. Selecione **Avançar**, então, título do gráfico e selecione **aplicar**. Deverá ver um novo gráfico no seu dashboard!  
 
 7. Agora, se quiser visualizar mais métricas, pode voltar para **streamjob1** e criar três saídas mais com os seguintes campos.
 
@@ -316,7 +316,7 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
 
    ![visualizações](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualizar com um site de comércio eletrônico
+## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualize com um site de comércio eletrónico
 
 Agora irá observar como pode utilizar a nova ferramenta de análise de dados para estabelecer ligação com um site de comércio eletrônico real. Para criar o site de comércio eletrônico, use um banco de dados Cosmos do Azure para armazenar a lista de categorias de produtos (mulheres, homens, unissex), o catálogo de produtos e uma lista dos itens mais populares.
 
@@ -392,7 +392,7 @@ Agora irá observar como pode utilizar a nova ferramenta de análise de dados pa
 
 Para eliminar os recursos que criou durante este laboratório, navegar para o grupo de recursos na [Portal do Azure](https://portal.azure.com/), em seguida, selecione **eliminar grupo de recursos** no menu na parte superior da página e siga as instruções fornecido.
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
   
 * Para saber mais sobre o feed de alterações, veja [suporte de feed de trabalhar com a alteração no Azure Cosmos DB](change-feed.md) 
 * [Solução de notificação de feed de alterações](change-feed-hl7-fhir-logic-apps.md) para a organização de cuidados de saúde com o Azure Cosmos DB.

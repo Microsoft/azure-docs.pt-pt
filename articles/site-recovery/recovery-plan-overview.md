@@ -1,41 +1,39 @@
 ---
 title: Sobre os planos de recuperação no Azure Site Recovery
-description: Saiba mais sobre como usar planos de recuperação para recuperação de desastres com o serviço de Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+description: Saiba mais sobre os planos de recuperação no Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 640f7258821718c5d406dd581d1f9c503e0d41c2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953879"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497886"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
-Este artigo descreve os planos de recuperação no [Azure site Recovery](site-recovery-overview.md).
+Este artigo fornece uma visão geral dos planos de recuperação no [Azure site Recovery](site-recovery-overview.md).
 
-Um plano de recuperação reúne computadores em grupos de recuperação. Você pode personalizar um plano adicionando uma ordem, instruções e tarefas a ele. Depois que um plano é definido, você pode executar um failover nele.  Os computadores podem ser referenciados em vários planos de recuperação, nos quais os planos subsequentes irão ignorar a implantação/inicialização do computador se ele foi implantado anteriormente por outro plano de recuperação.
+Um plano de recuperação reúne computadores em grupos de recuperação. Um plano de recuperação ajuda você a definir um processo de recuperação sistemático, criando pequenas unidades independentes nas quais você pode fazer failover. Uma unidade normalmente representa um aplicativo em seu ambiente.
+
+- Um plano de recuperação define como os computadores fazem failover e a sequência na qual eles iniciam após o failover.
+- Até 100 instâncias protegidas podem ser adicionadas a um plano de recuperação.
+- Você pode personalizar um plano adicionando uma ordem, instruções e tarefas a ele.
+- Depois que um plano é definido, você pode executar um failover nele.
+- Os computadores podem ser referenciados em vários planos de recuperação, nos quais os planos subsequentes ignoram a implantação/inicialização de um computador se ele foi implantado anteriormente usando outro plano de recuperação.
 
 
-## <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?
+### <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?
 
-Um plano de recuperação ajuda você a definir um processo de recuperação sistemático, criando pequenas unidades independentes nas quais você pode fazer failover. Uma unidade normalmente representa um aplicativo em seu ambiente. Um plano de recuperação define como os computadores fazem failover e a sequência na qual eles iniciam após o failover. Use planos de recuperação para:
+Use planos de recuperação para:
 
 * Modele um aplicativo em relação a suas dependências.
-* Automatize as tarefas de recuperação para reduzir o RTO.
+* Automatize as tarefas de recuperação para reduzir o RTO (objetivo de tempo de recuperação).
 * Verifique se você está preparado para migração ou recuperação de desastres, garantindo que seus aplicativos façam parte de um plano de recuperação.
-* Execute o failover de teste nos planos de recuperação para garantir que a recuperação ou a migração de desastres funcione conforme o esperado.
+* Execute failovers de teste em planos de recuperação para garantir que a recuperação ou a migração de desastres funcione conforme o esperado.
 
 
-## <a name="model-apps"></a>Aplicativos de modelo
-
-> [!NOTE]
-> Até 100 instâncias protegidas podem ser adicionadas a um plano de recuperação.
-
+## <a name="model-apps"></a>Aplicativos de modelo 
 Você pode planejar e criar um grupo de recuperação para capturar propriedades específicas do aplicativo. Por exemplo, vamos considerar um aplicativo típico de três camadas com um back-end do SQL Server, middleware e um front-end da Web. Normalmente, você personaliza o plano de recuperação para que os computadores em cada camada sejam iniciados na ordem correta após o failover.
 
 - O back-end do SQL deve iniciar primeiro, o middleware em seguida e, por fim, o front-end da Web.
@@ -44,7 +42,7 @@ Você pode planejar e criar um grupo de recuperação para capturar propriedades
 - Essa ordem também ajuda a garantir que o servidor front-end seja iniciado por último, de modo que os usuários finais não se conectem à URL do aplicativo antes que todos os componentes estejam em funcionamento e o aplicativo esteja pronto para aceitar solicitações.
 
 Para criar essa ordem, você adiciona grupos ao grupo de recuperação e adiciona computadores aos grupos.
-- Quando Order é especificado, o sequenciamento é usado. As ações são executadas em paralelo, quando apropriado, para melhorar o RTO da recuperação de aplicativos.
+- Quando Order é especificado, o sequenciamento é usado. As ações são executadas em paralelo conforme apropriado, para melhorar o RTO da recuperação de aplicativos.
 - Os computadores em um único grupo fazem failover em paralelo.
 - Os computadores em grupos diferentes fazem failover em ordem de grupo, para que os computadores do grupo 2 iniciem seu failover somente depois que todos os computadores no grupo 1 tiverem feito failover e iniciados.
 
@@ -58,7 +56,7 @@ Com essa personalização em vigor, veja o que acontece quando você executa um 
 4. Os grupos de inicialização são executados em ordem e iniciam os computadores em cada grupo. Primeiro, o grupo 1 é executado, depois o grupo 2 e, por fim, o grupo 3. Se houver mais de um computador em qualquer grupo, todos os computadores iniciarão em paralelo.
 
 
-## <a name="automate-tasks"></a>Automatizar tarefas
+## <a name="automate-tasks-in-recovery-plans"></a>Automatizar tarefas em planos de recuperação
 
 A recuperação de aplicativos grandes pode ser uma tarefa complexa. As etapas manuais tornam o processo propenso a erros e a pessoa que executa o failover pode não estar ciente de todos os pormenores do aplicativo. Você pode usar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, usando runbooks de automação do Azure para failover para o Azure ou scripts. Para tarefas que não podem ser automatizadas, você pode inserir pausas para ações manuais em planos de recuperação. Há alguns tipos de tarefas que você pode configurar:
 
@@ -71,7 +69,7 @@ A recuperação de aplicativos grandes pode ser uma tarefa complexa. As etapas m
     * Altere a configuração ou as regras do servidor Web.
 
 
-## <a name="test-failover"></a>Ativação pós-falha de teste
+### <a name="run-a-test-failover-on-recovery-plans"></a>Executar um failover de teste nos planos de recuperação
 
 Você pode usar um plano de recuperação para disparar um failover de teste. Use as seguintes práticas recomendadas:
 
@@ -83,9 +81,9 @@ Você pode usar um plano de recuperação para disparar um failover de teste. Us
 
     ![Captura de tela de um exemplo de plano de recuperação de teste no Site Recovery](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-the-video"></a>Ver o vídeo
+## <a name="watch-a-recovery-plan-video"></a>Assista a um vídeo do plano de recuperação
 
-Assista a um vídeo de exemplo rápido mostrando um failover de clique para um aplicativo WordPress de duas camadas.
+Assista a um vídeo de exemplo rápido mostrando um failover de clique para um plano de recuperação para um aplicativo WordPress de duas camadas.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
@@ -94,4 +92,4 @@ Assista a um vídeo de exemplo rápido mostrando um failover de clique para um a
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Crie](site-recovery-create-recovery-plans.md) um plano de recuperação.
-- Saiba mais sobre [failovers em execução](site-recovery-failover.md).  
+- [Executar](site-recovery-failover.md) failovers. 

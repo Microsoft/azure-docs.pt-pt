@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 62a010480dc83561a11c6ee99c76f35b29e808c1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8c703cc2fd93900e13d39021992bc11247881b47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394707"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar Azure Monitor dados de log para Power BI
 
@@ -63,7 +63,7 @@ Quando você publicar no Power BI, um conjunto de um DataSet e um relatório ser
 1. Quando a publicação for concluída, clique em **abrir no Power bi** para abrir Power bi com seu novo conjunto de novos.
 
 
-### <a name="configure-scheduled-refresh"></a>Configurar a atualização agendada
+### <a name="configure-scheduled-refresh"></a>Configure scheduled refresh (Configurar a atualização agendada)
 O conjunto de dados criado no Power BI terá os mesmos dados que você viu anteriormente em Power BI Desktop.  Você precisa atualizar o conjunto de dados periodicamente para executar a consulta novamente e preenchê-la com os dados mais recentes de Azure Monitor.  
 
 1. Clique no espaço de trabalho onde você carregou o relatório e selecione o menu **conjuntos** de itens. 

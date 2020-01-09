@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585396"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645094"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para o Firewall do aplicativo Web V2 no Aplicativo Azure gateway
 
@@ -29,7 +29,7 @@ Diferentes condições de correspondência dentro da mesma regra sempre são com
 Se você quiser **ou** duas condições diferentes, as duas condições deverão estar em regras diferentes. Por exemplo, bloqueie o tráfego de um endereço IP específico ou bloqueie o tráfego se eles estiverem usando um navegador específico.
 
 > [!NOTE]
-> O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-subscription-service-limits.md#application-gateway-limits).
+> O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras do CRS. Para obter exemplos desses, consulte os exemplos 3 e 5 em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
 
@@ -190,7 +190,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | BE | Bélgica|
 | BF | Burkina Faso|
 | BG | Bulgária|
-| BH | Barém|
+| BH | Bahrain|
 | BI | Burundi|
 | BJ | Benim|
 | BL | São Bartolomeu|
@@ -206,7 +206,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
-| CI | Costa do Marfim (Côte d’Ivoire)|
+| CI | Costa do Marfim|
 | CL | Chile|
 | CM | Camarões|
 | CN | China|
@@ -240,7 +240,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | GY | Guiana|
 | HK | RAE de Hong Kong|
 | HN | Honduras|
-| HR | Croácia|
+| RH | Croácia|
 | HT | Haiti|
 | HU | Hungria|
 | ID | Indonésia|
@@ -255,7 +255,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | JO | Jordânia|
 | JP | Japão|
 | KE | Quénia|
-| KG | Quirguistão|
+| KG | Quirguizistão|
 | KH | Camboja|
 | KI | Kiribati|
 | KN | São Cristóvão e Neves|
@@ -266,7 +266,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | KZ | Cazaquistão|
 | LA | República Democrática Popular do Laos|
 | LB | Líbano|
-| LI | Liechtenstein|
+| LI | Listenstaine|
 | LK | Sri Lanka|
 | LR | Libéria|
 | LS | Lesoto|
@@ -290,7 +290,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | MX | México|
 | MY | Malásia|
 | MZ | Moçambique|
-| ND | Namíbia|
+| N/D | Namíbia|
 | NE | Níger|
 | NG | Nigéria|
 | NI | Nicarágua|
@@ -333,14 +333,14 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | TH | Tailândia|
 | TN | Tunísia|
 | TR | Turquia|
-| TT | Trindade e Tobago|
+| TT | Trinidad e Tobago|
 | TW | Taiwan|
 | TZ | Tanzânia, República Unida da|
 | UA | Ucrânia|
 | UG | Uganda|
 | EUA | Estados Unidos|
 | UY | Uruguai|
-| UZ | Uzbequistão|
+| UZ | Usbequistão|
 | VC | São Vicente e Granadinas|
 | VE | Venezuela|
 | VG | Ilhas Virgens Britânicas|

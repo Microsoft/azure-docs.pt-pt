@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 29eaad9835b74e9867454dffb35799a01bbb03e1
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7721aca9187a0faee2254bc100bce03fe34232c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073428"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646919"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
@@ -85,4 +85,4 @@ Se um aumento de cota for necessário para comprar uma única assinatura RI, voc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre cobrança e cotas, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Para obter mais informações sobre cobrança e cotas, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

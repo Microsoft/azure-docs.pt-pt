@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-implantação de malha sfctl | Microsoft Docs
-description: Descreve os comandos de implantação de malha do Service Fabric CLI sfctl.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-implantação de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para criar Service Fabric recursos de malha.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: dbecf8e96c6cb5d0d6d873309d848304fe33eaaa
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6512cce075906fc8708a39fa0747ec27be33e961
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901257"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645366"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Crie Service Fabric recursos de malha.

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script Azure PowerShell-adicionar uma regra de grupo de segurança de rede | Microsoft Docs
+title: Adicionar uma regra de grupo de segurança de rede no PowerShell
 description: Azure PowerShell exemplo de script – adiciona um grupo de segurança de rede para permitir o tráfego de entrada em uma porta específica.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 44bb0e615453450c401949f0ce76f15cb82fab67
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 33ee8028031bf94d69d11b08c347f84db94494a3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680529"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610425"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Adicionar uma regra de grupo de segurança de rede de entrada
 

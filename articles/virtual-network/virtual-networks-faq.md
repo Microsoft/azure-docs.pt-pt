@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457033"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646885"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -66,7 +66,7 @@ Qualquer intervalo de endereços IP definido no [RFC 1918](https://tools.ietf.or
 Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Há um limite para o número de sub-redes na minha VNet?
-Sim. Consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor um ao outro.
+Sim. Consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor um ao outro.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Há alguma restrição sobre o uso de endereços IP dentro dessas sub-redes?
 Sim. O Azure reserva cinco endereços IP em cada sub-rede. Esses são x. x. x. 0-x. x. x. 3 e o último endereço da sub-rede. x. x. x. 1-x. x. 3 é reservado em cada sub-rede para os serviços do Azure.   
@@ -100,7 +100,7 @@ Não.
 Sim. As sub-redes podem ser adicionadas ao VNets a qualquer momento, desde que o intervalo de endereços de sub-rede não faça parte de outra sub-rede e haja espaço disponível restante no intervalo de endereços da rede virtual.
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Posso modificar o tamanho da minha sub-rede depois de criá-la?
-Sim. Você pode adicionar, remover, expandir ou reduzir uma sub-rede se não houver VMs ou serviços implantados nela.
+Sim. Pode adicionar, remover, expandir ou encolher uma sub-rede se não houver VMs ou serviços implementados na mesma.
 
 ### <a name="can-i-modify-subnets-after-i-created-them"></a>Posso modificar sub-redes depois de criá-las?
 Sim. Você pode adicionar, remover e modificar os blocos CIDR usados por uma VNet.
@@ -128,7 +128,7 @@ Use a tabela de decisão na página [resolução de nomes para VMs e instâncias
 Sim. Você pode especificar endereços IP do servidor DNS nas configurações de VNet. A configuração é aplicada como o (s) servidor (es) DNS padrão para todas as VMs na VNet.
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>Quantos servidores DNS posso especificar?
-Faça referência aos [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Faça referência aos [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Posso modificar meus servidores DNS depois de ter criado a rede?
 Sim. Você pode alterar a lista de servidores DNS para sua VNet a qualquer momento. Se você alterar a lista de servidores DNS, será necessário executar uma renovação de concessão DHCP em todas as VMs afetadas na VNet para que as novas configurações de DNS entrem em vigor. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. Para outros tipos de sistema operacional, consulte a documentação de renovação de concessão de DHCP para o tipo de SO específico. 
@@ -232,7 +232,7 @@ Sim. Saiba mais sobre como usar:
 - PowerShell para gerenciar o VNets implantado por meio do [Resource Manager](/powershell/module/az.network) e dos modelos de implantação [clássicos](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) .
 - A CLI (interface de linha de comando) do Azure para implantar e gerenciar VNets implantadas por meio do [Resource Manager](/cli/azure/network/vnet) e dos modelos de implantação [clássicos](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) .  
 
-## <a name="vnet-peering"></a>VNet peering
+## <a name="vnet-peering"></a>VNet Peering
 
 ### <a name="what-is-vnet-peering"></a>O que é emparelhamento VNet?
 O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você conecte redes virtuais. Uma conexão de emparelhamento VNet entre redes virtuais permite rotear o tráfego entre elas de forma privada por meio de endereços IPv4. As máquinas virtuais no VNets emparelhado podem se comunicar entre si como se estivessem dentro da mesma rede. Essas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como emparelhamento de VNet global). As conexões de emparelhamento VNet também podem ser criadas nas assinaturas do Azure.
@@ -251,7 +251,7 @@ Os recursos a seguir podem usar balanceadores de carga básicos, o que significa
 - MI SQL
 - Gestão de API
 - Serviço de Domínio do Active Directory (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -402,13 +402,13 @@ Não há limite para o número total de pontos de extremidade de serviço de VNe
 |||
 |---|---|
 |Serviço do Azure| Limites nas regras de VNet|
-|Storage do Azure| 100|
+|Armazenamento do Azure| 100|
 |SQL do Azure| 128|
-|Azure SQL Data Warehouse|  128|
-|Cofre de chaves do Azure|    127|
+|Armazém de Dados SQL do Azure|  128|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Service Bus do Azure| 128|
+|Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b53207802b84e63f08c26de254ccd86a6b4620e2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 679e033418fba34eddddd21ddca66b1d9bb2fd48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099994"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645893"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099994"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -236,7 +236,7 @@ ms.locfileid: "70099994"
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -250,7 +250,7 @@ ms.locfileid: "70099994"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -341,7 +341,7 @@ O SAP no IBM DB2 para LUW em Microsoft Azure serviços de máquina virtual tem s
 Para obter informações sobre os produtos SAP com suporte e os tipos de VM do Azure, consulte a observação do SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do IBM DB2 para Linux, UNIX e Windows para instalações do SAP em VMs do Azure
-### <a name="storage-configuration"></a>Configuração de armazenamento
+### <a name="storage-configuration"></a>Configuração de Armazenamento
 Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no armazenamento de BLOBs de páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços de arquivo do Azure **não** tem suporte para arquivos de banco de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -363,7 +363,7 @@ Para os discos que contêm os caminhos de armazenamento do DB2 para seus diretó
 
 Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, em comparação com o desempenho do armazenamento Premium do Azure, ao usar o Azure Acelerador de Gravação. Portanto, você deve implantar os Acelerador de Gravação do Azure para os VHD que formam o volume para os logs de transação do DB2. Os detalhes podem ser lidos no [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)do documento.
 
-### <a name="backuprestore"></a>Cópia de segurança/Restauro
+### <a name="backuprestore"></a>Backup/Restauro
 A funcionalidade de backup/restauração para IBM DB2 para LUW tem suporte da mesma maneira que nos sistemas operacionais Windows Server padrão e no Hyper-V.
 
 Você deve verificar se tem uma estratégia de backup de banco de dados válida em vigor. 
@@ -382,7 +382,7 @@ Para aumentar o número de destinos para gravação, duas opções podem ser usa
 >[!NOTE]
 >O DB2 no Windows não oferece suporte à tecnologia VSS do Windows. Como resultado, o backup de VM consistente com o aplicativo do serviço de backup do Azure não pode ser utilizado para VMs em que o DBMS do DB2 é implantado.
 
-### <a name="high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres
+### <a name="high-availability-and-disaster-recovery"></a>Elevada Disponibilidade e Recuperação Após Desastre
 Não há suporte para o MSCS (Microsoft Cluster Server).
 
 Há suporte para o HADR (recuperação de desastre de alta disponibilidade) do DB2. Se as máquinas virtuais da configuração de HA tiverem a resolução de nomes funcionando, a configuração no Azure não será diferente de nenhuma configuração feita no local. Não é recomendável confiar apenas na resolução de IP.

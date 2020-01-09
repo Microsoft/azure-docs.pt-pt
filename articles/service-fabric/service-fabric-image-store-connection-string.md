@@ -1,56 +1,47 @@
 ---
-title: Azure cadeia de ligação do arquivo de imagem do Service Fabric | Documentos da Microsoft
-description: Compreender a cadeia de ligação do arquivo de imagem
-services: service-fabric
-documentationcenter: .net
+title: Cadeia de conexão do repositório de imagens do Azure Service Fabric
+description: Saiba mais sobre a cadeia de conexão do repositório de imagens, incluindo seus usos e aplicativos para um Cluster Service Fabric.
 author: alexwun
-manager: chackdan
-editor: ''
-ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720200"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645672"
 ---
-# <a name="understand-the-imagestoreconnectionstring-setting"></a>Compreender a definição ImageStoreConnectionString
+# <a name="understand-the-imagestoreconnectionstring-setting"></a>Entender a configuração de ImageStoreConnectionString
 
-Em alguns da nossa documentação, mencionamos brevemente a existência de um parâmetro de "ImageStoreConnectionString" sem que descreve o que realmente significa. E depois de passar por um artigo como [implementar e remover aplicações com o PowerShell][10], ele se parece com tudo o que fazer é copiar/colar o valor conforme mostrado no manifesto do cluster do cluster de destino. Portanto, a definição deve ser configurável por cluster, mas quando cria um cluster através da [portal do Azure][11], não existe nenhuma opção para configurar esta definição e é sempre "recursos de infraestrutura: ImageStore". O que é a finalidade de, em seguida, esta definição?
+Em algumas de nossas documentações, mencionamos rapidamente a existência de um parâmetro "ImageStoreConnectionString" sem descrever o que realmente significa. E, depois de passar por um artigo como [implantar e remover aplicativos usando o PowerShell][10], parece que tudo o que você faz é copiar/colar o valor, conforme mostrado no manifesto do cluster do cluster de destino. Portanto, a configuração deve ser configurável por cluster, mas quando você cria um cluster por meio do [portal do Azure][11], não há nenhuma opção para definir essa configuração e é sempre "Fabric: ImageStore". Qual é a finalidade dessa configuração?
 
 ![Manifesto do cluster][img_cm]
 
-Service Fabric iniciada como uma plataforma de consumo interno da Microsoft por muitas equipes diferentes, para alguns aspectos do mesmo são altamente personalizáveis - a "imagem Store" é um dos aspectos desse tipo. Essencialmente, a imagem Store é um repositório conectável para armazenar pacotes de aplicações. Quando a aplicação é implementada para um nó do cluster, esse nó transfere o conteúdo do seu pacote de aplicação a partir do Store de imagem. O ImageStoreConnectionString é uma definição que inclui todas as informações necessárias para os clientes e nós para encontrar a correta Store de imagem para um determinado cluster.
+Service Fabric iniciado como uma plataforma para o consumo interno da Microsoft por várias equipes diversas, de modo que alguns aspectos dele sejam altamente personalizáveis – o "Repositório de Imagens" é um aspecto desse tipo. Essencialmente, o Repositório de Imagens é um repositório conectável para armazenar pacotes de aplicativos. Quando seu aplicativo é implantado em um nó no cluster, esse nó baixa o conteúdo do seu pacote de aplicativos do Repositório de Imagens. O ImageStoreConnectionString é uma configuração que inclui todas as informações necessárias para que os clientes e os nós encontrem o Repositório de Imagens correto para um determinado cluster.
 
-Atualmente, existem três tipos possíveis de fornecedores de imagem Store e suas cadeias de caracteres de conexão correspondentes são os seguintes:
+Atualmente, há três tipos possíveis de provedores de Repositório de Imagens e suas cadeias de conexão correspondentes são as seguintes:
 
-1. Serviço de imagem Store: "recursos de infraestrutura: ImageStore"
+1. Serviço de Repositório de Imagens: "Fabric: ImageStore"
 
-2. Sistema de ficheiros: "caminho do sistema file:[file]"
+2. Sistema de arquivos: "arquivo: [caminho do sistema de arquivos]"
 
 3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...]"
 
-O tipo de fornecedor utilizado na produção é o serviço de Store de imagem, que é um serviço de sistema persistentes com estado que pode ver no Service Fabric Explorer. 
+O tipo de provedor usado na produção é o serviço de Repositório de Imagens, que é um serviço de sistema persistente com monitoração de estado que você pode ver na Service Fabric Explorer. 
 
-![Serviço de imagem Store][img_is]
+![Serviço de Repositório de Imagens][img_is]
 
-Hospedar o Store de imagem num serviço de sistema dentro do cluster em si elimina as dependências externas para o repositório do pacote e dá-nos mais controlo sobre a localização de armazenamento. Melhorias futuras em todo o Store de imagem são provável que o fornecedor de Store de imagem de destino, primeiro, se não exclusivamente. A cadeia de ligação para o fornecedor de serviços de Store de imagem não tem quaisquer informações exclusivas, uma vez que o cliente já está ligado ao cluster de destino. O cliente só precisa de saber que os protocolos visando o serviço de sistema devem ser utilizados.
+Hospedar o Repositório de Imagens em um serviço do sistema dentro do próprio cluster elimina dependências externas para o repositório de pacotes e nos dá mais controle sobre a localidade do armazenamento. Melhorias futuras em relação à Repositório de Imagens provavelmente serão direcionadas primeiro ao provedor de Repositório de Imagens, se não exclusivamente. A cadeia de conexão para o provedor de serviços Repositório de Imagens não tem nenhuma informação exclusiva, pois o cliente já está conectado ao cluster de destino. O cliente só precisa saber que os protocolos que visam o serviço do sistema devem ser usados.
 
-O fornecedor do sistema de ficheiros é utilizado em vez do serviço de Store de imagem para clusters de caixa de um locais, durante o desenvolvimento para iniciar o cluster de um pouco mais rapidamente. A diferença é normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível implementar um cluster de caixa de um local com os outros fornecedor tipos de armazenamento também, mas geralmente não há motivo para isso, uma vez que o fluxo de trabalho de desenvolver/teste permanece o mesmo, independentemente do fornecedor. O fornecedor de armazenamento do Azure só existe para o suporte legacy antigos clusters implementados antes do fornecedor de serviços de Store de imagem foi introduzido.
+O provedor do sistema de arquivos é usado em vez do serviço de Repositório de Imagens para clusters de uma caixa local durante o desenvolvimento para inicializar o cluster ligeiramente mais rápido. A diferença é normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível implantar um cluster One-Box local com outros tipos de provedor de armazenamento, mas geralmente não há motivo para isso, pois o fluxo de trabalho de desenvolvimento/teste permanece o mesmo, independentemente do provedor. O provedor de armazenamento do Azure só existe para suporte herdado de clusters antigos implantados antes da introdução do provedor de serviços de Repositório de Imagens.
 
-Além disso, não o fornecedor do sistema de ficheiros ou o fornecedor de armazenamento do Azure deve ser usado como um método de compartilhamento Store uma imagem entre vários clusters – isso resultará em Corrupção de dados de configuração de cluster como cada cluster pode escrever dados em conflito para a imagem Store. Para partilhar os pacotes de aplicações aprovisionadas entre vários clusters, utilize [sfpkg] [ 12] ficheiros em vez disso, que podem ser carregados para qualquer arquivo externo com um URI de transferência.
+Além disso, não o provedor do sistema de arquivos ou o provedor de armazenamento do Azure deve ser usado como um método de compartilhamento de um Repositório de Imagens entre vários clusters-isso resultará na corrupção dos dados de configuração do cluster, pois cada cluster pode gravar dados conflitantes na imagem Armazenadas. Para compartilhar pacotes de aplicativos provisionados entre vários clusters, use os arquivos [sfpkg][12] , que podem ser carregados em qualquer repositório externo com um URI de download.
 
-Então, enquanto o ImageStoreConnectionString é configurável, simplesmente usar a configuração padrão. Ao publicar no Azure através do Visual Studio, o parâmetro é automaticamente definido para si em conformidade. Para a implementação programática para clusters alojados no Azure, a cadeia de ligação é sempre "recursos de infraestrutura: ImageStore". Embora em caso de dúvida, seu valor sempre pode ser verificado ao obter o manifesto do cluster por [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testar no local e clusters de produção sempre devem ser configuradas para utilizar o fornecedor de serviços de Store de imagem também.
+Assim, embora o ImageStoreConnectionString seja configurável, basta usar a configuração padrão. Ao publicar no Azure por meio do Visual Studio, o parâmetro é definido automaticamente para você de acordo. Para a implantação programática em clusters hospedados no Azure, a cadeia de conexão é sempre "Fabric: ImageStore". No entanto, quando em dúvida, seu valor sempre pode ser verificado recuperando o manifesto do cluster pelo [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.net](https://msdn.microsoft.com/library/azure/mt161375.aspx)ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Os clusters de teste e de produção locais sempre devem ser configurados para usar o provedor de serviços de Repositório de Imagens também.
 
-### <a name="next-steps"></a>Passos Seguintes
-[Implementar e remover aplicações com o PowerShell][10]
+### <a name="next-steps"></a>Passos seguintes
+[Implantar e remover aplicativos usando o PowerShell][10]
 
 <!--Image references-->
 [img_is]: ./media/service-fabric-image-store-connection-string/image_store_service.png

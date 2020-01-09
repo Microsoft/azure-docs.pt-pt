@@ -1,25 +1,16 @@
 ---
-title: Configurar modos de rede para os serviços de contêiner de Service Fabric do Azure | Microsoft Docs
+title: Configurar modos de rede para serviços de contêiner
 description: Saiba como configurar os diferentes modos de rede com suporte do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168791"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639807"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêineres Service Fabric
 
@@ -30,7 +21,7 @@ Se você tiver um serviço de contêiner com um ponto de extremidade estático n
 Quando um serviço de contêiner é reiniciado ou movido para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não recomendamos o uso do endereço IP atribuído dinamicamente para descobrir os serviços de contêiner. Somente o Serviço de Nomenclatura Service Fabric ou o serviço DNS deve ser usado para a descoberta de serviço. 
 
 >[!WARNING]
->O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que estão usando o modo aberto) não podem exceder 65.356 IPs em uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede NAT. Além disso, outras dependências, como o balanceador de carga, terão outras [limitações](https://docs.microsoft.com/azure/azure-subscription-service-limits) a serem consideradas. Atualmente, até 50 IPs por nó foram testados e são estáveis em termos de estabilidade. 
+>O Azure permite um total de 65.356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que estão usando o modo aberto) não podem exceder 65.356 IPs em uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede NAT. Além disso, outras dependências, como o balanceador de carga, terão outras [limitações](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) a serem consideradas. Atualmente, até 50 IPs por nó foram testados e são estáveis em termos de estabilidade. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede aberto
@@ -210,7 +201,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    |Ação | Permitir  | |
    | | |
 
-4. Especifique o modo de rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. O modo de rede **aberto** resulta no serviço que obtém um endereço IP dedicado. Se um modo não for especificado, o serviço usa como padrão o modo **NAT** . No exemplo de manifesto a seguir, os serviços `NodeContainerServicePackage1` e `NodeContainerServicePackage2` podem escutar na mesma porta (ambos os serviços estão escutando em `Endpoint1`). Quando o modo de rede aberto é especificado, as configurações `PortBinding` não podem ser especificadas.
+4. Especifique o modo de rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. O modo de rede **aberto** resulta no serviço que obtém um endereço IP dedicado. Se um modo não for especificado, o serviço usa como padrão o modo **NAT** . No exemplo de manifesto a seguir, o `NodeContainerServicePackage1` e os serviços de `NodeContainerServicePackage2` podem escutar na mesma porta (ambos os serviços estão escutando no `Endpoint1`). Quando o modo de rede aberto é especificado, `PortBinding` configurações não podem ser especificadas.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

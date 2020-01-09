@@ -1,24 +1,16 @@
 ---
-title: Configurar o ambiente de desenvolvimento no Mac OS X para trabalhar com o Azure Service Fabric | Microsoft Docs
-description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para criar aplicações no Mac OS X.
-services: service-fabric
-documentationcenter: linux
+title: Configurar seu ambiente de desenvolvimento no macOS
+description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir essa configuração, você estará pronto para criar aplicativos no macOS.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035291"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609881"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -109,7 +101,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. O cluster levará alguns instantes para ser iniciado. Quando estiver em execução, você poderá exibir os logs usando o comando a seguir ou ir até o painel para exibir a integridade [http://localhost:19080](http://localhost:19080)dos clusters:
+5. O cluster levará alguns instantes para ser iniciado. Quando estiver em execução, você poderá exibir os logs usando o comando a seguir ou ir até o painel para exibir a integridade dos clusters [http://localhost:19080](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -174,7 +166,7 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar uma aplica
     ```
 
     > [!IMPORTANT]
-    > As versões atuais `brew cask install java` do podem instalar uma versão mais recente do JDK.
+    > As versões atuais do `brew cask install java` podem instalar uma versão mais recente do JDK.
     > Certifique-se de instalar o JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Implementar a aplicação no seu Mac a partir do terminal
@@ -219,7 +211,7 @@ Os atributos são definidos do seguinte modo:
 >Se iniciar o contentor com um nome que não seja `sfonebox`, atualize o valor de nome no ficheiro testclient.sh na sua aplicação Java de atores do Service Fabric.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 <!-- Links -->
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

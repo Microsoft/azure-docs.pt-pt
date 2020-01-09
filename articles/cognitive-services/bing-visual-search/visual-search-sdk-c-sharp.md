@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: obter informações de imagem usando o SDK para C# -pesquisa visual do Bing'
 titleSuffix: Azure Cognitive Services
-description: Saiba como carregar uma imagem usando o SDK do Pesquisa Visual do Bing e obter informações sobre ela.
+description: Saiba como carregar uma imagem usando o SDK do Pesquisa Visual do Bing e obtenha informações sobre ele com este guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3db40f999770823052f07a328d3d8dc8c01ce345
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446615"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Início rápido: obter informações de imagem usando o SDK do Pesquisa Visual do Bing paraC#
 
@@ -32,7 +32,7 @@ Use este guia de início rápido para começar a obter informações de imagem d
         - Newtonsoft.Json
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

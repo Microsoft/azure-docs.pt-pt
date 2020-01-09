@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703716"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549453"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: configurar o LDAP seguro para um domínio gerenciado Azure Active Directory Domain Services
 
@@ -63,7 +63,7 @@ O certificado solicitado ou criado deve atender aos seguintes requisitos. O dom�
 
 * **Emissor confiável** -o certificado deve ser emitido por uma autoridade confiável por computadores que se conectam ao domínio gerenciado usando o LDAP seguro. Essa autoridade pode ser uma CA pública ou uma autoridade de certificação corporativa confiável para esses computadores.
 * **Tempo de vida** -o certificado deve ser válido por pelo menos os próximos 3-6 meses. LDAP Seguro acesso ao domínio gerenciado é interrompido quando o certificado expira.
-* **Nome da entidade** -o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se seu domínio for denominado *aadds.contoso.com*, o nome da entidade do certificado deverá ser **aadds.contoso.com*.
+* **Nome da entidade** -o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se seu domínio for denominado *aadds.contoso.com*, o nome da entidade do certificado deverá ser * *. aadds.contoso.com*.
     * O nome DNS ou o nome alternativo da entidade do certificado deve ser um certificado curinga para garantir que o LDAP seguro funcione corretamente com o Azure AD Domain Services. Os controladores de domínio usam nomes aleatórios e podem ser removidos ou adicionados para garantir que o serviço permaneça disponível.
 * **Uso de chave** -o certificado deve ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado** -o certificado deve ser válido para autenticação do servidor SSL.

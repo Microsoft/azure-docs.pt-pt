@@ -1,25 +1,14 @@
 ---
-title: Serialização de objeto de coleção confiável no Azure Service Fabric | Microsoft Docs
-description: Serialização de objeto de coleções confiáveis do Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Serialização de objeto de coleção confiável
+description: Saiba mais sobre a serialização de objeto de coleções confiáveis do Azure Service Fabric, incluindo a estratégia padrão e como definir a serialização personalizada. '
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/8/2017
-ms.author: atsenthi
-ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599304"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639552"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de coleção confiável no Azure Service Fabric
 As coleções confiáveis replicam e persistem seus itens para garantir que sejam duráveis em caso de falhas de máquina e interrupções de energia.
@@ -34,19 +23,19 @@ O Gerenciador de estado confiável inclui o serializador interno para alguns tip
 Serializadores internos são mais eficientes, pois sabem que seus tipos não podem ser alterados e não precisam incluir informações sobre o tipo, como seu nome de tipo.
 
 O Gerenciador de estado confiável tem um serializador interno para os seguintes tipos: 
-- Guid
-- bool
-- byte
+- GUID
+- booleano
+- minuciosa
 - SByte
 - byte[]
 - char
-- Cadeia de caracteres
+- string
 - decimal
 - double
 - float
 - int
 - uint
-- long
+- longa
 - ULONG
 - baixo
 - num
@@ -55,7 +44,7 @@ O Gerenciador de estado confiável tem um serializador interno para os seguintes
 
 Serializadores personalizados são comumente usados para aumentar o desempenho ou para criptografar os dados pela conexão e no disco. Entre outros motivos, os serializadores personalizados são geralmente mais eficientes do que o serializador genérico, pois não precisam serializar informações sobre o tipo. 
 
-[IReliableStateManager. TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo T especificado. Esse registro deve ocorrer na construção do StatefulServiceBase para garantir que antes do início da recuperação, todas as coleções confiáveis tenham acesso ao serializador relevante para ler seus dados persistentes.
+[IReliableStateManager. TryAddStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) é usado para registrar um serializador personalizado para o tipo t especificado. Esse registro deve ocorrer na construção do StatefulServiceBase para garantir que antes do início da recuperação, todas as coleções confiáveis tenham acesso ao serializador relevante para ler seus dados persistentes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Como implementar um serializador personalizado
 
-Um serializador personalizado precisa implementar a [interface\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
+Um serializador personalizado precisa implementar a interface [IStateSerializer\<t >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) .
 
 > [!NOTE]
 > IStateSerializer\<T > inclui uma sobrecarga para Write e Read que usa um T chamado valor base adicional. Essa API é para serialização diferencial. Atualmente, o recurso de serialização diferencial não é exposto. Portanto, essas duas sobrecargas não são chamadas até que a serialização diferencial seja exposta e habilitada.
@@ -96,7 +85,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Veja a seguir um exemplo de implementação\<de IStateSerializer OrderKey >.
+Veja a seguir um exemplo de implementação de IStateSerializer\<OrderKey >.
 Observe que as sobrecargas de leitura e gravação que levam em baseValue chamam sua respectiva sobrecarga para a compatibilidade de encaminhamentos.
 
 ```csharp
@@ -148,7 +137,7 @@ Os usuários do serializador personalizado devem aderir às diretrizes do serial
 A maneira comum de dar suporte a todas as versões é adicionar informações de tamanho no início e apenas adicionar propriedades opcionais.
 Dessa forma, cada versão pode ler o máximo possível e pular a parte restante do fluxo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Referência do desenvolvedor para coleções confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   * [Atualizar seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante uma atualização de aplicativo usando o Visual Studio.

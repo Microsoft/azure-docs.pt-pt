@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014998"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645111"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas do Hub virtual para direcionar o tráfego para uma solução de virtualização de rede
 
@@ -21,7 +21,7 @@ Este artigo mostra como direcionar o tráfego de um hub virtual para uma soluç�
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-route-table/vwanroute.png)
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 * Criar uma WAN
 * Criar um hub
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Confirme as alterações no Hub virtual.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

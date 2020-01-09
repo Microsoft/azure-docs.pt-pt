@@ -1,5 +1,6 @@
 ---
-title: Não é possível adicionar o domínio personalizado usando Key Vault certificado no gerenciamento de API do Azure | Microsoft Docs
+title: Não é possível adicionar o domínio personalizado usando Key Vault certificado
+titleSuffix: Azure API Management
 description: Saiba como solucionar o problema no qual você não pode adicionar um domínio personalizado no gerenciamento de API do Azure usando um certificado do Key Vault.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430582"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Falha ao atualizar os nomes de host do serviço de gerenciamento de API
 
@@ -27,7 +28,7 @@ Este artigo descreve o erro "falha ao atualizar nomes de host de serviço de ger
 
 Ao tentar adicionar um domínio personalizado ao serviço de gerenciamento de API usando um certificado do Azure Key Vault, você receberá a seguinte mensagem de erro:
 
-- Falha ao atualizar os nomes de host do serviço de gerenciamento de API. Falha na solicitação para https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 o recurso ' ' com StatusCode: Proibido para RequestId:. Mensagem de exceção: A operação retornou um código de status inválido ' proibido '.
+- Falha ao atualizar os nomes de host do serviço de gerenciamento de API. Falha na solicitação para o recurso 'https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 ' com StatusCode: proibido para RequestId:. Mensagem de exceção: a operação retornou um código de status inválido ' proibido '.
 
 ## <a name="cause"></a>Causa
 
@@ -38,16 +39,16 @@ O serviço de gerenciamento de API não tem permissão para acessar o cofre de c
 Para resolver este problema, siga estes passos:
 
 1. Vá para a [portal do Azure](Https://portal.azure.com), selecione sua instância de gerenciamento de API e, em seguida, selecione **identidades gerenciadas**. Verifique se a opção **registrar com Azure Active Directory** está definida como **Sim**. 
-    ![Registrando com o Azure active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
+    ![registrando com o Azure active Director](./media/api-management-troubleshoot-cannot-add-custom-domain/register-with-aad.png)
 1. No portal do Azure, abra o serviço de **cofres de chaves** e selecione o cofre de chaves que você está tentando usar para o domínio personalizado.
 1. Selecione **políticas de acesso**e verifique se há uma entidade de serviço que corresponda ao nome da instância do serviço de gerenciamento de API. Se houver, selecione a entidade de serviço e verifique se ela tem a permissão **obter** listada em **permissões secretas**.  
-    ![Adicionando política de acesso para entidade de serviço](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
+    ![adicionar política de acesso para a entidade de serviço](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Se o serviço de gerenciamento de API não estiver na lista, selecione **Adicionar política de acesso**e, em seguida, crie a seguinte política de acesso:
-    - **Configurar do modelo**: Nenhum
-    - **Selecionar entidade de segurança**: Pesquise o nome do serviço de gerenciamento de API e selecione-o na lista
-    - **Permissões de chave**: Nenhum
-    - **Permissões de segredo**: Get
-    - **Permissões de certificado**: Nenhum
+    - **Configurar do modelo**: nenhum
+    - **Selecionar entidade**: Pesquise o nome do serviço de gerenciamento de API e, em seguida, selecione-o na lista
+    - **Permissões de chave**: nenhuma
+    - **Permissões secretas**: obter
+    - **Permissões de certificado**: nenhuma
 1. Selecione **OK** para criar a política de acesso.
 1. Selecione **guardar** para guardar as alterações.
 

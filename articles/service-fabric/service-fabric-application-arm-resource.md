@@ -1,25 +1,14 @@
 ---
-title: Implantar e atualizar aplicativos e serviços com o Azure Resource Manager | Microsoft Docs
+title: Implantar e atualizar com Azure Resource Manager
 description: Saiba como implantar aplicativos e serviços em um Cluster Service Fabric usando um modelo de Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71153591"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610255"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como Azure Resource Manager recursos
 
@@ -28,8 +17,8 @@ Pode implementar serviços e aplicações no seu cluster do Service Fabric atrav
 Essa é a maneira recomendada para implantar qualquer configuração, governança ou aplicativos de gerenciamento de cluster que você precisa em seu cluster. Isso inclui o [aplicativo de orquestração de patches](service-fabric-patch-orchestration-application.md), Watchdogs ou quaisquer aplicativos que precisam estar em execução no cluster antes que outros aplicativos ou serviços sejam implantados. 
 
 Quando aplicável, gerencie seus aplicativos como recursos do Resource Manager para melhorar:
-* Trilha de auditoria: O Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear todas as alterações feitas nesses aplicativos e no cluster.
-* RBAC (controle de acesso baseado em função): O gerenciamento de acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
+* Trilha de auditoria: o Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear quaisquer alterações feitas nesses aplicativos e no cluster.
+* RBAC (controle de acesso baseado em função): o gerenciamento de acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
 * Azure Resource Manager (via portal do Azure) se torna uma loja única para gerenciar o cluster e implantações de aplicativos críticos.
 
 O trecho a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
@@ -275,7 +264,7 @@ A simples remoção de Microsoft. infabric/clusters/aplicativo do modelo do ARM 
 Se o cluster já estiver ativo e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e reimplantá-los, você poderá usar uma chamada PUT usando as mesmas APIs para que os aplicativos obtenham reconhecido como recursos do Resource Manager. Para obter informações adicionais, consulte o [que é o modelo de recurso de aplicativo Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar "maxPercentUnhealthyApplications: 100 "na seção" upgradeDescription/healthPolicy "; descrições detalhadas de todas as configurações estão na [documentação da política de atualização de cluster da API REST de malhas de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar "maxPercentUnhealthyApplications: 100" na seção "upgradeDescription/healthPolicy"; descrições detalhadas de todas as configurações estão na [documentação da política de atualização de cluster da API REST de malhas de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Passos seguintes
 

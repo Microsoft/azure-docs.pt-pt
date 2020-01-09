@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328351"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646749"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -39,7 +39,7 @@ As vantagens da utilização do peering de redes virtuais, sejam locais ou globa
 
 O tráfego de rede entre redes virtuais em modo de peering é privado. O tráfego entre as redes virtuais é mantido na rede principal da Microsoft. Não é necessária Internet pública, gateways ou encriptação na comunicação entre as redes virtuais.
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Ligação
 
 Para redes virtuais emparelhadas, os recursos em qualquer rede virtual podem se conectar diretamente com recursos na rede virtual emparelhada.
 
@@ -91,7 +91,7 @@ As seguintes restrições se aplicam somente quando as redes virtuais são empar
 * Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um Load Balancer interno básico (ILB) em uma rede virtual emparelhada globalmente.
 * Alguns serviços que usam um balanceador de carga básico não funcionam em emparelhamento de rede virtual global. Para obter mais informações, consulte [quais são as restrições relacionadas ao emparelhamento de VNet global e aos balanceadores de carga?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-Para obter mais informações, consulte [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre o número de emparelhamentos com suporte, consulte [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Para obter mais informações, consulte [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre o número de emparelhamentos com suporte, consulte [limites de rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="permissions"></a>Permissões
 

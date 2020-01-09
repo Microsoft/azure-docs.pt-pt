@@ -3,18 +3,18 @@ title: Criar e testar um dispositivo de visualização de Plug and Play de IoT |
 description: Como desenvolvedor de dispositivos, saiba como usar VS Code para criar e testar um novo modelo de capacidade de dispositivo para um dispositivo de visualização de IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569890"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550337"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: criar e testar um modelo de capacidade de dispositivo usando Visual Studio Code
 
@@ -259,7 +259,7 @@ Agora você tem os três arquivos que compõem o modelo de capacidade do disposi
 * EnvironmentalSensor. interface. JSON
 * SensorboxModel. capabilitymodel. JSON
 
-## <a name="publish-the-model"></a>Publicar o modelo
+## <a name="publish-the-model"></a>Publique o modelo
 
 Para que a ferramenta do Azure IoT Explorer Leia o modelo de capacidade do dispositivo, você precisa publicá-lo no repositório da sua empresa. Para publicar de VS Code, você precisa da cadeia de conexão para o repositório da empresa:
 
@@ -335,7 +335,7 @@ Siga as instruções no arquivo **README.MD** na pasta **sensorbox_app** para co
 
 Quando você executa o código, ele se conecta ao Hub IoT e começa a enviar amostra de telemetria e valores de propriedade. O dispositivo também responde a comandos enviados do Hub IoT. Para verificar esse comportamento:
 
-1. Para criar um hub IoT:
+1. Para criar um hub IoT:
 
     ```azurecli-interactive
     az group create --name environmentalsensorresources --location centralus

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 1790a7806b1abbe4d537f309f33dee686e30662b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533896"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645043"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Tutorial: usar Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para o cluster HDInsight
 
@@ -187,7 +187,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
         |----|----|
         |Tipo de recurso de link|Selecione **cluster HDInsight** na lista suspensa.|
         |Nome do cluster/URL| Insira o nome do cluster.|
-        |Tipo de autenticação| Deixar como **autenticação básica**|
+        |Tipo de Autenticação| Deixar como **autenticação básica**|
         |Nome de Utilizador| Insira o nome de usuário do cluster, o padrão é admin.|
         |Palavra-passe| Digite a senha para o nome de usuário.|
 
@@ -198,10 +198,10 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
         |Propriedade |Valor |
         |----|----|
         |Tipo de recurso de link|Selecione **serviço Livy** na lista suspensa.|
-        |Ponto de extremidade Livy| Inserir ponto de extremidade Livy|
+        |Livy Endpoint| Enter Livy Endpoint|
         |Nome do cluster| Insira o nome do cluster.|
         |Ponto de extremidade yarn|Opcional.|
-        |Tipo de autenticação| Deixar como **autenticação básica**|
+        |Tipo de Autenticação| Deixar como **autenticação básica**|
         |Nome de Utilizador| Insira o nome de usuário do cluster, o padrão é admin.|
         |Palavra-passe| Digite a senha para o nome de usuário.|
 
@@ -232,14 +232,14 @@ Depois de criar um aplicativo escala, você pode enviá-lo para o cluster.
     |Clusters do Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Selecione um artefato para enviar|Mantenha a configuração padrão.|
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticências ( **...** )  e escolhendo outra classe.|
-    |Configurações de trabalho|Você pode alterar as chaves e/ou valores padrão. Para obter mais informações, consulte [API REST do Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configurações de trabalho|Você pode alterar as chaves e/ou valores padrão. Para obter mais informações, consulte [API REST do Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Argumentos de linha de comando|Você pode inserir argumentos separados por espaço para a classe principal, se necessário.|
     |Jars referenciados e arquivos referenciados|Você pode inserir os caminhos para os jars e arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente dá suporte apenas ao cluster do ADLS Gen 2. Para obter mais informações: [configuração de Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consulte também [como carregar recursos no cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Armazenamento de upload de trabalho|Expanda para revelar opções adicionais.|
     |Tipo de armazenamento|Selecione **usar blob do Azure para carregar** na lista suspensa.|
     |Conta de Armazenamento|Insira sua conta de armazenamento.|
-    |Chave de armazenamento|Insira sua chave de armazenamento.|
-    |Contêiner de armazenamento|Selecione o contêiner de armazenamento na lista suspensa uma vez que a **conta de armazenamento** e a chave de **armazenamento** foram inseridas.|
+    |Chave de Armazenamento|Insira sua chave de armazenamento.|
+    |Contentor de armazenamento|Selecione o contêiner de armazenamento na lista suspensa uma vez que a **conta de armazenamento** e a chave de **armazenamento** foram inseridas.|
 
     ![A caixa de diálogo envio do Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
@@ -455,7 +455,7 @@ Você pode converter os aplicativos existentes do Spark Scale que você criou no
 
 Se você não pretende usar este aplicativo, exclua o cluster que você criou com as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
 

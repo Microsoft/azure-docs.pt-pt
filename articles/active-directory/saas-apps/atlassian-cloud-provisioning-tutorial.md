@@ -11,16 +11,15 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c3173841de25a30b84870332c7334a81773e84d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 604dca2861b7a7126d2e37b5a01bcb85c530546e
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68561588"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561464"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: configurar o Atlassian Cloud para provisionamento automático de usuário
 
@@ -28,7 +27,6 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Atlassia
 
 > [!NOTE]
 > Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,15 +47,15 @@ Antes de configurar o Atlassian Cloud para o provisionamento automático de usu�
 
 1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
 2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, insira **Atlassian Cloud**, selecione **Atlassian Cloud** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
@@ -102,61 +100,63 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
-5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** da conta da nuvem do Atlassian. Exemplos desses valores são:
+5. Navegue até [Atlassian Organization Manager](https://admin.atlassian.com) **> selecione o diretório > org**.
+
+    ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+
+6. Clique em **provisionamento de usuário** e clique em **criar um diretório**. Copie a **URL base do diretório** e o **token de portador** para os campos **URL do locatário** e **token secreto** , respectivamente.
+
+    ![o provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![o provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![o provisionamento de nuvem Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+
+7. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** da conta da nuvem do Atlassian. Exemplos desses valores são:
 
    * No campo **URL do locatário** , preencha o ponto de extremidade do locatário específico que você recebe do Atlassian, conforme descrito na etapa 6. Por exemplo: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * No campo **token secreto** , preencha o token secreto conforme descrito na etapa 6.
 
-6. Navegue até [Atlassian Organization Manager](https://admin.atlassian.com) **> provisionamento de usuário** e clique em **criar um token**. Copie a **URL base do diretório** e o **token de portador** para os campos **URL do locatário** e **token secreto** , respectivamente.
-
-    ![Atlassian provisionamento de nuvem ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian provisionamento de nuvem ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-
-    ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
-
-7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Atlassian Cloud. Se a conexão falhar, verifique se sua conta do Atlassian Cloud tem permissões de administrador e tente novamente.
+8. Ao preencher os campos mostrados na etapa 7, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Atlassian Cloud. Se a conexão falhar, verifique se sua conta do Atlassian Cloud tem permissões de administrador e tente novamente.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-8. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
+9. No campo **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e marque a caixa de seleção- **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. Clique em **Guardar**.
+10. Clique em **Guardar**.
 
-10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o Atlassian Cloud**.
+11. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o Atlassian Cloud**.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-11. Examine os atributos de usuário que são sincronizados do Azure AD para o Atlassian Cloud na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Atlassian Cloud para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+12. Examine os atributos de usuário que são sincronizados do Azure AD para o Atlassian Cloud na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Atlassian Cloud para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
-12. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o Atlassian Cloud**.
+13. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o Atlassian Cloud**.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-13. Examine os atributos de grupo que são sincronizados do Azure AD para o Atlassian Cloud na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Atlassian Cloud para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
+14. Examine os atributos de grupo que são sincronizados do Azure AD para o Atlassian Cloud na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Atlassian Cloud para operações de atualização. Selecione o botão **salvar** para confirmar as alterações.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-14. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+15. Para configurar filtros de escopo, consulte as instruções a seguir fornecidas no [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar o serviço de provisionamento do Azure AD para o Atlassian Cloud, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+16. Para habilitar o serviço de provisionamento do Azure AD para o Atlassian Cloud, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-on.png)
 
-16. Defina os usuários e/ou grupos que você deseja provisionar para o Atlassian Cloud escolhendo os valores desejados no **escopo** na seção **configurações** .
+17. Defina os usuários e/ou grupos que você deseja provisionar para o Atlassian Cloud escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
-17. Quando estiver pronto para provisionar, clique em **salvar**.
+18. Quando estiver pronto para provisionar, clique em **salvar**.
 
     ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Atlassian Cloud.
 
-Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 

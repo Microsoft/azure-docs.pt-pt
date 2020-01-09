@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de configuração de convidado
 description: Saiba como criar uma política de configuração de convidado Azure Policy para VMs Windows ou Linux com Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873085"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608529"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -24,6 +24,9 @@ Use as ações a seguir para criar sua própria configuração para validar o es
 ## <a name="add-the-guestconfiguration-resource-module"></a>Adicionar o módulo de recurso GuestConfiguration
 
 Para criar uma política de configuração de convidado, o módulo de recurso deve ser adicionado. Este módulo de recurso pode ser usado com o PowerShell instalado localmente, com [Azure cloud Shell](https://shell.azure.com)ou com a [imagem de Azure PowerShell Core do Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> Embora o módulo **GuestConfiguration** funcione nos ambientes acima, as etapas para compilar uma configuração DSC devem ser concluídas no Windows PowerShell 5,1.
 
 ### <a name="base-requirements"></a>Requisitos de base
 
@@ -59,6 +62,12 @@ Se sua configuração exigir apenas recursos que são internos com a instalaçã
 ### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisitos para recursos personalizados de configuração de convidado
 
 Quando a configuração de convidado audita um computador, ele é executado pela primeira vez `Test-TargetResource` para determinar se ele está no estado correto. O valor booliano retornado pela função determina se o status de Azure Resource Manager para a atribuição de convidado deve ser compatível/não em conformidade. Se o booliano for `$false` para qualquer recurso na configuração, o provedor será executado `Get-TargetResource`. Se o booliano for `$true`, `Get-TargetResource` não será chamado.
+
+#### <a name="configuration-requirements"></a>Requisitos de configuração
+
+O único requisito para a configuração de convidado usar uma configuração personalizada é que o nome da configuração seja consistente em todos os lugares em que for usado.  Isso inclui o nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF armazenado dentro do pacote de conteúdo e o nome da configuração usada no ARM como o nome da atribuição de convidado.
+
+#### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
 A função `Get-TargetResource` tem requisitos especiais para configuração de convidado que não foram necessários para a configuração de estado desejado do Windows.
 
@@ -96,7 +105,7 @@ A configuração de DSC para configuração de convidado no Linux usa o recurso 
 
 O exemplo a seguir cria uma configuração denominada **linha de base**, importa o módulo de recurso **GuestConfiguration** e usa o recurso `ChefInSpecResource` definir o nome da definição inspec como **Linux-patch-Baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ A configuração de DSC para Azure Policy configuração de convidado é usada p
 
 O exemplo a seguir cria uma configuração chamada **AuditBitLocker**, importa o módulo de recurso **GuestConfiguration** e usa o recurso `Service` para auditar um serviço em execução:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 Para políticas do Linux, inclua a propriedade **AttributesYmlContent** em sua configuração e substitua os valores de acordo. O agente de configuração convidado cria automaticamente o arquivo YaML usado por inspec para armazenar atributos. Veja o exemplo abaixo.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ Uma boa referência para a criação de chaves GPG para usar com computadores Li
 
 Depois que o conteúdo for publicado, acrescente uma marca com o nome `GuestConfigPolicyCertificateValidation` e o valor `enabled` a todas as máquinas virtuais em que a assinatura de código deve ser necessária. Essa marca pode ser entregue em escala usando Azure Policy. Consulte a amostra [aplicar marca e seu valor padrão](../samples/apply-tag-default-value.md) . Depois que essa marca estiver em vigor, a definição de política gerada usando o cmdlet `New-GuestConfigurationPolicy` habilita o requisito por meio da extensão de configuração de convidado.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>APRESENTAÇÃO Solucionando problemas de atribuições de política de configuração de convidado
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Solucionando problemas de atribuições de política de configuração de convidado (versão prévia)
 
 Uma ferramenta está disponível na visualização para auxiliar na solução de problemas Azure Policy atribuições de configuração de convidado. A ferramenta está em versão prévia e foi publicada no Galeria do PowerShell como nome do módulo [solução de problemas de configuração de convidado](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
 

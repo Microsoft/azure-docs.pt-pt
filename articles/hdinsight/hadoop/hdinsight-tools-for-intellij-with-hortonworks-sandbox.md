@@ -3,18 +3,18 @@ title: Usar Azure Toolkit for IntelliJ com a área restrita do Hortonworks
 description: Saiba como usar as ferramentas do HDInsight em Azure Toolkit for IntelliJ com a área restrita do Hortonworks.
 keywords: ferramentas do Hadoop, consulta de Hive, IntelliJ, hortonworks sandbox, kit de ferramentas do Azure para IntelliJ
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076261"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647837"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usar as ferramentas do HDInsight para IntelliJ com a área restrita do Hortonworks
 
@@ -52,8 +52,8 @@ Nesta seção, você cria um exemplo de projeto escalar usando IntelliJ IDEA. Na
    1. Selecione **HDInsight** > **Spark no HDInsight (Scala)** .
    2. Na lista de **ferramentas de compilação** , selecione uma das seguintes opções, com base em seu cenário:
 
-      * **Maven**: Para o suporte do assistente escala de criação de projeto.
-      * **SBT**: Para gerenciar dependências e compilar para o projeto escalar.
+      * **Maven**: suporte ao assistente de criação de projeto escalar.
+      * **SBT**: para gerenciar dependências e compilar para o projeto escalar.
 
    ![IntelliJ criar novo projeto escalar](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
@@ -62,7 +62,7 @@ Nesta seção, você cria um exemplo de projeto escalar usando IntelliJ IDEA. Na
 
    1. Na caixa **nome do projeto** , insira um nome de projeto.
    2. Na caixa **local do projeto** , insira um local do projeto.
-   3. Ao lado da lista suspensa **SDK do projeto** , selecione **novo**, selecione **JDK**e, em seguida, ESPECIFIQUE a pasta para o Java JDK versão 1,7 ou posterior. Selecione **Java 1,8** para o cluster Spark 2. x. Selecione **Java 1,7** para o cluster Spark 1. x. O local padrão é C:\Program Files\Java\jdk1.8.x_xxx.
+   3. Ao lado da lista suspensa **SDK do projeto** , selecione **novo**, selecione **JDK**e, em seguida, ESPECIFIQUE a pasta para o Java JDK versão 1,7 ou posterior. Selecione **Java 1,8** para o cluster Spark 2. x. Selecione **Java 1,7** para o cluster Spark 1. x. O local padrão é C:\Program Files\Java\jdk1.8. x_xxx.
    4. Na lista suspensa **versão do Spark** , o assistente de criação de projeto escalar integra a versão correta para o SDK do Spark e o SDK do Scale. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Este exemplo usa o Spark 1.6.2 (escala 2.10.5). Verifique se você está usando o repositório marcado como **escalat 2.10. x**. Não use o repositório marcado como escala 2.11. x.
     
       ![Criar propriedades de projeto escalares IntelliJ](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
@@ -72,7 +72,7 @@ Nesta seção, você cria um exemplo de projeto escalar usando IntelliJ IDEA. Na
 5. Se o modo de exibição de **projeto** ainda não estiver aberto, pressione **ALT + 1** para abri-lo.
 6. No **Explorador de projeto**, expanda o projeto e, em seguida, selecione **src**.
 7. Clique com o botão direito do mouse em **src**, aponte para **novo**e selecione **classe escalar**.
-8. Na caixa **nome** , insira um nome. Na caixa **tipo** , selecione **objeto**. Em seguida, selecione **OK**.
+8. Na caixa **Nome**, introduza um nome. Na caixa **tipo** , selecione **objeto**. Em seguida, selecione **OK**.
 
     ![A caixa de diálogo Criar nova classe escala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -158,4 +158,3 @@ Para enviar um projeto a um emulador:
 
 - Saiba como [usar as ferramentas do HDInsight no Azure Toolkit for Eclipse para criar Apache Spark aplicativos](../spark/apache-spark-eclipse-tool-plugin.md).
 
-- Para ver um vídeo sobre as ferramentas do HDInsight para Eclipse, consulte [usar as ferramentas do hdinsight para Eclipse para criar aplicativos Spark](https://mix.office.com/watch/1rau2mopb6fha).

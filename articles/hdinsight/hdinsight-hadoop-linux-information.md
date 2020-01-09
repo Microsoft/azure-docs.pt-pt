@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150048"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644958"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -52,7 +52,7 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, [J
 
 ## <a name="remote-access-to-services"></a>Acesso remoto a serviços
 
-* **Ambari (Web)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (Web)**  - `https://CLUSTERNAME.azurehdinsight.net`
 
     Autentique usando o usuário e a senha do administrador de cluster e, em seguida, entre no Ambari.
 
@@ -63,14 +63,14 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, [J
     >
     > Para usar a funcionalidade completa da interface do usuário da Web do amAmbari, use um túnel SSH para o tráfego da Web de proxy para o nó principal do cluster. Consulte [usar o túnel SSH para acessar a IU da Web do Apache Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Autentique usando o usuário e a senha do administrador de cluster.
     >
     > A autenticação é de texto sem formatação – sempre use HTTPS para ajudar a garantir que a conexão seja segura.
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > Autentique usando o usuário e a senha do administrador de cluster.
@@ -84,7 +84,7 @@ Esse comando retorna um documento JSON que descreve o serviço e, em seguida, [J
 
 Para obter mais informações, consulte o documento [portas usadas pelo Apache Hadoop Services no HDInsight](hdinsight-hadoop-port-settings-for-services.md) .
 
-## <a name="file-locations"></a>Locais de arquivo
+## <a name="file-locations"></a>Localizações dos ficheiros
 
 Os arquivos relacionados ao Hadoop podem ser encontrados nos nós de cluster em `/usr/hdp`. Esse diretório contém os seguintes subdiretórios:
 
@@ -199,7 +199,7 @@ Se estiver usando o __armazenamento do Azure__, consulte os links a seguir para 
 
 Se estiver usando __Azure data Lake Storage__, consulte os links a seguir para obter maneiras de acessar seus dados:
 
-* [Navegador da Web](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [CLI do Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST do WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)

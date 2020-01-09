@@ -1,25 +1,17 @@
 ---
-title: Configurar um gateway para solicitações de rota | Microsoft Docs
+title: Configurar um gateway para rotear solicitações
 description: Saiba como configurar o gateway que manipula o tráfego de entrada para seus aplicativos em execução na malha de Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461966"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurar um recurso de gateway para rotear solicitações
 
@@ -29,7 +21,7 @@ Os recursos de gateway precisam ser declarados como parte do modelo de implanta�
 
 ## <a name="options-for-configuring-your-gateway-resource"></a>Opções para configurar o recurso de gateway
 
-Como o recurso de gateway serve como uma ponte entre a rede do seu aplicativo e a rede da infraestrutura subjacente `open` (a rede). Você só precisa configurar um (na visualização de malha, há um limite de um gateway por aplicativo). A declaração do recurso consiste em duas partes principais: metadados de recurso e as propriedades. 
+Como o recurso de gateway serve como uma ponte entre a rede do seu aplicativo e a rede da infraestrutura subjacente (a rede `open`). Você só precisa configurar um (na visualização de malha, há um limite de um gateway por aplicativo). A declaração do recurso consiste em duas partes principais: metadados de recurso e as propriedades. 
 
 ### <a name="gateway-resource-metadata"></a>Metadados de recurso de gateway
 
@@ -89,7 +81,7 @@ As regras de roteamento são especificadas por porta. Cada porta de entrada tem 
 Uma regra de roteamento TCP consiste nas seguintes propriedades: 
 * `name`-referência à regra que pode ser qualquer cadeia de caracteres de sua escolha 
 * `port`-porta a ser escutada para solicitações de entrada 
-* `destination`-especificação de ponto de `applicationName`extremidade `serviceName`que inclui `endpointName`, e, para onde as solicitações precisam ser roteadas
+* especificação de ponto de extremidade `destination` que inclui `applicationName`, `serviceName`e `endpointName`, para onde as solicitações precisam ser roteadas
 
 Aqui está um exemplo de regra de roteamento de TCP:
 
@@ -119,13 +111,13 @@ Uma regra de roteamento HTTP consiste nas seguintes propriedades:
 * `hosts`-uma matriz de políticas que se aplica a solicitações recebidas para os vários "hosts" na porta especificada acima. Os hosts são o conjunto de aplicativos e serviços que podem estar em execução na rede e podem atender a solicitações de entrada, ou seja, um aplicativo Web. As políticas de host são interpretadas em ordem, portanto, você deve criar o seguinte em níveis decrescentes de especificidade
     * `name`-o nome DNS do host para o qual as regras de roteamento a seguir são especificadas. Usar "*" aqui criaria regras de roteamento para todos os hosts.
     * `routes`-uma matriz de políticas para este host específico
-        * `match`-especificação da estrutura de solicitação de entrada para esta regra a ser aplicada, com base em um`path`
-            * `path`-contém um `value` (URI de entrada) `rewrite` , (como você deseja que a solicitação seja encaminhada) e um `type` (no momento, só pode ser "prefixo")
+        * `match`-especificação da estrutura de solicitação de entrada para esta regra a ser aplicada, com base em um `path`
+            * `path`-contém um `value` (URI de entrada), `rewrite` (como você deseja que a solicitação seja encaminhada) e um `type` (no momento, só pode ser "prefix")
             * `header`-é uma matriz opcional de valores de cabeçalhos para corresponder ao cabeçalho da solicitação que se a solicitação corresponder à especificação do caminho (acima).
-              * cada entrada contém `name` (nome da cadeia de caracteres do cabeçalho para corresponder `value` ), (valor da cadeia de caracteres do cabeçalho na solicitação) `type` e um (no momento, só pode ser "exato")
-        * `destination`-se a solicitação for correspondente, ela será roteada para esse destino, que é especificado usando `applicationName`um `serviceName`, e`endpointName`
+              * cada entrada contém `name` (nome da cadeia de caracteres do cabeçalho para corresponder), `value` (valor da cadeia de caracteres do cabeçalho na solicitação) e um `type` (no momento, só pode ser "exato")
+        * `destination`-se a solicitação corresponder, ela será roteada para esse destino, que é especificado usando um `applicationName`, `serviceName`e `endpointName`
 
-Aqui está um exemplo de regra de roteamento HTTP que se aplica a solicitações recebidas na porta 80, para todos os hosts servidos por aplicativos nesta rede. Se a URL da solicitação tiver uma estrutura que corresponda à especificação do caminho, ou `<IPAddress>:80/pickme/<requestContent>`seja,, ela será direcionada para `myListener` o ponto de extremidade.  
+Aqui está um exemplo de regra de roteamento HTTP que se aplica a solicitações recebidas na porta 80, para todos os hosts servidos por aplicativos nesta rede. Se a URL da solicitação tiver uma estrutura que corresponda à especificação de caminho, ou seja, `<IPAddress>:80/pickme/<requestContent>`, ela será direcionada para o ponto de extremidade de `myListener`.  
 
 ```json
 "properties": {
@@ -227,7 +219,7 @@ Aqui está a aparência de uma configuração de recurso de gateway completa (is
 ```
 
 Esse gateway está configurado para um aplicativo Linux, "meshAppLinux", que consiste em pelo menos dois serviços, "helloWorldService" e "MyService", que escuta na porta 80. Dependendo da estrutura de URL da solicitação de entrada, ela roteará a solicitação para um desses serviços. 
-* "\<IPAddress >: 80/HelloWorld/\<Request\>" resultaria em uma solicitação sendo direcionada para "helloWorldListener" no helloWorldService. 
+* "\<IPAddress >: 80/helloWorld/\<solicitação\>" resultaria em uma solicitação sendo direcionada para o "helloWorldListener" no helloWorldService. 
 * "\<IPAddress >: 80/contador/\<solicitação\>" resultaria em uma solicitação sendo direcionada para o "ouvinte" no mesmo serviço. 
 
 ## <a name="next-steps"></a>Passos seguintes

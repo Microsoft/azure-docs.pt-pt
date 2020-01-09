@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037461"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647888"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade Always On-Resource Manager
 Este tópico mostra como:
@@ -137,7 +137,7 @@ A porta de front-end é a porta que os aplicativos usam para se conectar à inst
 > [!NOTE]
 > Para SQL Server grupos de disponibilidade, cada endereço IP requer uma porta de investigação específica. Por exemplo, se um endereço IP em um balanceador de carga usar a porta de investigação 59999, nenhum outro endereços IP nesse balanceador de carga poderá usar a porta de investigação 59999.
 
-* Para obter informações sobre limites de balanceador de carga, consulte **IP de front-end privado por balanceador de carga** em [limites de rede-Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Para obter informações sobre limites de balanceador de carga, consulte **IP de front-end privado por balanceador de carga** em [limites de rede-Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Para obter informações sobre os limites do grupo de disponibilidade, consulte [restrições (grupos de disponibilidade)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB usa a porta do ouvinte para a porta de front-end de balanceamento de carga. Essa porta pode ser a porta na qual SQL Server está escutando. Para instâncias padrão do SQL Server, a porta é 1433. A regra de balanceamento de carga para um grupo de disponibilidade requer um IP flutuante (retorno de servidor direto) para que a porta de back-end seja a mesma que a porta de front-end. Atualize as variáveis para seu ambiente. 
@@ -181,7 +181,7 @@ $BEConfig = Get-AzLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddress
 $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzLoadBalancer   
 ```
 
-## <a name="configure-the-listener"></a>Configurar o ouvinte
+## <a name="configure-the-listener"></a>Configurar o serviço de escuta
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
@@ -230,7 +230,7 @@ Observe as seguintes diretrizes no ouvinte do grupo de disponibilidade no Azure 
 ## <a name="for-more-information"></a>Para obter mais informações:
 Para obter mais informações, consulte [Configurar o grupo de disponibilidade Always on na VM do Azure manualmente](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
-## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlets Powershell
 Use os seguintes cmdlets do PowerShell para criar um balanceador de carga interno para máquinas virtuais do Azure.
 
 * [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) cria um balanceador de carga. 

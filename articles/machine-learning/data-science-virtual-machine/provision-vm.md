@@ -1,22 +1,22 @@
 ---
 title: 'Início rápido: criar um DSVM do Windows'
-description: Configure e crie um Máquina Virtual de Ciência de Dados no Azure para análise e aprendizado de máquina.
+description: Configurar e criar uma máquina de Virtual de ciência de dados no Azure para análise e machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483230"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611922"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início rápido: configurar o Máquina Virtual de Ciência de Dados para Windows
 
-Comece a executar com um Máquina Virtual de Ciência de Dados do Windows.
+Comece a executar com um Máquina Virtual de Ciência de Dados do Windows Server 2019.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -28,16 +28,11 @@ Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina vi
 Para criar uma instância de DSVM:
 
 1. Vá para a [portal do Azure](https://portal.azure.com) você pode ser solicitado a entrar em sua conta do Azure, se você ainda não tiver entrado.
-1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados-Windows 2016".
-
-    ![Listagem de VM do Windows](./media/provision-vm/search-windows.png)
+1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados-Win 2019 (versão prévia)".
 
 1. Selecione o botão **criar** na parte inferior.
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. Você deve ser redirecionado para a folha "criar uma máquina virtual".
-   ![guia noções básicas correspondente à máquina virtual do Windows](./media/provision-vm/review-create-windows.png)
 
 1. Preencha a guia **noções básicas** :
       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que a máquina será criada e cobrada. Tem de ter privilégios de criação de recursos para esta subscrição.
@@ -50,7 +45,7 @@ Para criar uma instância de DSVM:
       * **Senha**: Insira a senha que você usará para fazer logon em sua máquina virtual.    
 1. Selecione **Rever + criar**.
 1. **Examinar + criar**
-   * Verifique se todas as informações inseridas estão corretas. 
+   * Certifique-se de que todas as informações que introduziu estão corretas. 
    * Selecione **Criar**.
 
 
@@ -62,7 +57,7 @@ Para criar uma instância de DSVM:
 
 Depois que a VM for criada e provisionada, siga as etapas listadas para [conectar-se à sua máquina virtual baseada no Azure](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Use as credenciais da conta de administrador que você configurou na etapa **básico** da criação de uma máquina virtual. 
 
-Você está pronto para começar a usar as ferramentas que estão instaladas e configuradas na VM. Muitas das ferramentas podem ser acessadas por meio de blocos do menu **Iniciar** e ícones da área de trabalho.
+Está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. Muitas das ferramentas podem ser acessadas por meio de blocos do menu **Iniciar** e ícones da área de trabalho.
 
 Você também pode anexar um DSVM ao Azure Notebooks para executar blocos de anotações do Jupyter na VM e ignorar as limitações da camada de serviço gratuita. Para obter mais informações, consulte [gerenciar e configurar projetos de blocos de anotações](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
 
@@ -72,9 +67,7 @@ Você também pode anexar um DSVM ao Azure Notebooks para executar blocos de ano
 ## <a name="next-steps"></a>Passos seguintes
 
 * Explore as ferramentas no DSVM abrindo o menu **Iniciar** .
-* Saiba mais sobre o Azure Machine Learning lendo [o que é Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e experimentando [tutoriais](../index.yml).
-* No explorador de arquivos, navegue até C:\Program Programas\microsoft\ml Server\R_SERVER\library\RevoScaleR\demoScripts para obter exemplos que usam a biblioteca RevoScaleR em R que dá suporte à análise de dados em escala empresarial. 
+* Saiba mais sobre o Azure Machine Learning lendo [o que é Azure Machine Learning?](../overview-what-is-azure-ml.md) e experimentando [tutoriais](../index.yml).
 * Leia o artigo [dez coisas que você pode fazer no máquina virtual de ciência de dados](https://aka.ms/dsvmtenthings).
-* Saiba como criar soluções analíticas de ponta a ponta sistematicamente usando o processo de ciência de [dados de equipe](../team-data-science-process/index.yml).
-* Visite o [Galeria de ia do Azure](https://gallery.cortanaintelligence.com) para obter exemplos de aprendizado de máquina e análise de dados que usam Azure Machine Learning e serviços de dados relacionados no Azure. Também fornecemos um ícone para essa galeria no menu **Iniciar** e na área de trabalho da máquina virtual.
+* Visite o [Galeria de IA do Azure](https://gallery.cortanaintelligence.com) para machine learning e os dados analytics de exemplo que utilizam o Azure Machine Learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone para essa galeria no menu **Iniciar** e na área de trabalho da máquina virtual.
 

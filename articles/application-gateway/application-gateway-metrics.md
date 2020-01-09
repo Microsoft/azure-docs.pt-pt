@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309835"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551391"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -22,19 +22,21 @@ O gateway de aplicativo publica pontos de dados, chamados métricas, para [Azure
 
 ### <a name="timing-metrics"></a>Métricas de tempo
 
-As métricas a seguir relacionadas ao tempo da solicitação e resposta estão disponíveis. Ao analisar essas métricas, você pode determinar se a lentidão no aplicativo ocorre devido à WAN, ao gateway de aplicativo, à rede entre o gateway de aplicativo e o back-end ou o desempenho do aplicativo.
+As métricas a seguir relacionadas ao tempo da solicitação e resposta estão disponíveis. Ao analisar essas métricas para um ouvinte específico, você pode determinar se a lentidão no aplicativo devido à WAN, ao gateway de aplicativo, à rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
+
+> [!NOTE]
+>
+> Se houver mais de um ouvinte no gateway de aplicativo, sempre filtre pela dimensão do *ouvinte* , comparando métricas de latência diferentes para obter uma inferência significativa.
 
 - **RTT do cliente**
 
-  Tempo médio de ida e volta entre clientes e o gateway de aplicativo. Essa métrica indica quanto tempo leva para estabelecer conexões e retornar confirmações.
+  Tempo médio de ida e volta entre clientes e o gateway de aplicativo. Essa métrica indica quanto tempo leva para estabelecer conexões e retornar confirmações. 
 
 - **Tempo total do gateway de aplicativo**
 
   Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como a média do intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até o momento em que a operação de envio de resposta é concluída. É importante observar que isso geralmente inclui o tempo de processamento do gateway de aplicativo, o tempo que os pacotes de solicitação e resposta estão viajando pela rede e o tempo que o servidor back-end levou para responder.
-
-- **Tempo de conexão de back-end**
-
-  Tempo gasto estabelecendo uma conexão com um servidor de back-end. 
+  
+Se o *RTT do cliente* for muito mais do que o *tempo total do gateway de aplicativo*, ele poderá ser deduzido de que a latência observada pelo cliente é devido à conectividade de rede entre o cliente e o gateway de aplicativo. Se ambas as latências forem comparáveis, a alta latência poderá ser devido a qualquer um dos seguintes: gateway de aplicativo, a rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
 
 - **Tempo de resposta do primeiro byte do back-end**
 
@@ -43,6 +45,13 @@ As métricas a seguir relacionadas ao tempo da solicitação e resposta estão d
 - **Tempo de resposta do último byte do back-end**
 
   Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do último byte do corpo da resposta
+  
+Se o *tempo total do gateway de aplicativo* for muito maior do que o *tempo de resposta do último byte de back-end* para um ouvinte específico, ele poderá ser deduzido de que a alta latência pode ser devido ao gateway de aplicativo. Por outro lado, se as duas métricas forem comparáveis, o problema poderá ser devido à rede entre o gateway de aplicativo e o aplicativo de back-end, ou o desempenho do aplicativo de back-end.
+
+- **Tempo de conexão de back-end**
+
+  Tempo gasto estabelecendo uma conexão com um aplicativo de back-end. No caso do SSL, ele inclui o tempo gasto no handshake. Observe que essa métrica é diferente das outras métricas de latência, pois isso só mede o tempo de conexão e, portanto, não deve ser diretamente comparado a magnitude com as outras latências. No entanto, a comparação do padrão de *tempo de conexão de back-end* com o padrão das outras latências pode indicar se um aumento em outras latências pode ser deduzido devido a uma variação na rede entre o aplicativo gateway e o aplicativo back-end. 
+  
 
 ### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
 
@@ -62,7 +71,7 @@ Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
 
 - **Unidades de capacidade atuais**
 
-   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo com base no consumo que é cobrado além do custo fixo. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta por, no máximo: 1 unidade de computação, ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
+   Contagem de unidades de capacidade consumidas. As unidades de capacidade medem o custo com base no consumo que é cobrado além do custo fixo. Há três determinantes para unidade de computação de unidade de capacidade, conexões persistentes e taxa de transferência. Cada unidade de capacidade é composta de no máximo: 1 unidade de computação ou 2500 conexões persistentes ou taxa de transferência de 2,22 Mbps.
 
 - **Unidades de computação atuais**
 
@@ -115,6 +124,10 @@ Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
 
 Para o gateway de aplicativo, as seguintes métricas estão disponíveis:
 
+- **Utilização da CPU**
+
+  Exibe a utilização das CPUs alocadas para o gateway de aplicativo.  Em condições normais, o uso da CPU não deve exceder regularmente 90%, pois isso pode causar latência nos sites hospedados atrás do gateway de aplicativo e interromper a experiência do cliente. Você pode controlar indiretamente ou melhorar a utilização da CPU modificando a configuração do gateway de aplicativo aumentando a contagem de instâncias ou movendo para um tamanho de SKU maior ou fazendo ambos.
+
 - **Conexões atuais**
 
   Contagem de conexões atuais estabelecidas com o gateway de aplicativo
@@ -157,7 +170,7 @@ Navegue até um gateway de aplicativo, em **monitoramento** selecione **métrica
 
 Na imagem a seguir, você verá um exemplo com três métricas exibidas nos últimos 30 minutos:
 
-[![](media/application-gateway-diagnostics/figure5.png "Exibição de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Para ver uma lista atual de métricas, consulte [métricas com suporte com Azure monitor](../azure-monitor/platform/metrics-supported.md).
 
@@ -173,7 +186,7 @@ O exemplo a seguir orienta você pela criação de uma regra de alerta que envia
 
 2. Na página **Adicionar regra** , preencha as seções nome, condição e notificar e selecione **OK**.
 
-   * No seletor de **condição** , selecione um dos quatro valores: **Maior**que, **maior ou igual**a, **menor que**ou **menor ou igual a**.
+   * No seletor de **condição** , selecione um dos quatro valores: **maior que**, **maior ou igual**a, **menor que**ou **menor ou igual a**.
 
    * No seletor de **período** , selecione um período de cinco minutos a seis horas.
 

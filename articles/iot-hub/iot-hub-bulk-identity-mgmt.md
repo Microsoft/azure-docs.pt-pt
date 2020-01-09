@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429262"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades de dispositivo do Hub IoT em massa
 
@@ -91,7 +91,7 @@ Somente um trabalho de importação ou exportação de dispositivo ativo é perm
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
-Use o método **ExportDevicesAsync** para exportar todo o registro de identidade do Hub IOT para um contêiner de blobs de [armazenamento do Azure](../storage/index.yml) usando uma [assinatura de acesso compartilhado](../storage/common/storage-security-guide.md#authorization).
+Use o método **ExportDevicesAsync** para exportar todo o registro de identidade do Hub IOT para um contêiner de blobs de armazenamento do Azure usando uma SAS (assinatura de acesso compartilhado). Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md).
 
 Esse método permite que você crie backups confiáveis de suas informações de dispositivo em um contêiner de BLOBs que você controla.
 
@@ -261,7 +261,7 @@ Use a propriedade **importmode** opcional nos dados de serialização de importa
 | --- | --- |
 | **createOrUpdate** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
 | **criar** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
-| **cumulativo** |Se já existir um dispositivo com a **ID**especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
+| **update** |Se já existir um dispositivo com a **ID**especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
 | **updateIfMatchETag** |Se já existir um dispositivo com a **ID**especificada, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. <br/>Se houver uma incompatibilidade de **ETag** , um erro será gravado no arquivo de log. |
 | **createOrUpdateIfMatchETag** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos somente se houver uma correspondência de **ETag** . <br/>Se houver uma incompatibilidade de **ETag** , um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar o entrelaçar dados junto com os dados do dispositivo. O ETag de ' s ', se especificado, é processado independentemente da eTag do dispositivo. Se houver uma incompatibilidade com a ETag de ' s existente, um erro será gravado no arquivo de log. |
 | **eliminar** |Se um dispositivo já existir com a **ID**especificada, ele será excluído sem considerar o valor de **ETag** . <br/>Se o dispositivo não existir, um erro será gravado no arquivo de log. |
@@ -432,7 +432,7 @@ Para saber mais sobre como gerenciar o Hub IoT do Azure, confira os seguintes ar
 
 Para explorar ainda mais os recursos do Hub IoT, consulte:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
 * [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar o uso do serviço de provisionamento de dispositivos no Hub IoT para habilitar o provisionamento sem toque e Just-in-time, consulte: 

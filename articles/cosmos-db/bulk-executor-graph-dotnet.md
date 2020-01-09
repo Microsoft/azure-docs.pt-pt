@@ -1,5 +1,5 @@
 ---
-title: Usando a biblioteca .NET do executor em massa do grafo para executar operações em massa no Azure Cosmos DB API do Gremlin
+title: Usar a biblioteca .NET do executor em massa do grafo com a API Azure Cosmos DB Gremlin
 description: Saiba como usar a biblioteca de executores em massa para importar dados de grafo maciçamente em um contêiner de API Azure Cosmos DB Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442174"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usando a biblioteca .NET do executor em massa do grafo para executar operações em massa no Azure Cosmos DB API do Gremlin
 
@@ -131,7 +131,7 @@ Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros
 Ficheiros|Descrição
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
-`Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção `DocumentClient`, tratando as limpezas e enviando as solicitações de executor em massa.
+`Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção de `DocumentClient`, tratando as limpezas e enviando as solicitações de executor em massa.
 `Util.cs`| Este ficheiro contém uma classe de programa auxiliar que inclui a lógica subjacente à geração de dados de teste e verifica se a base de dados e a coleção existem.
 
 No ficheiro `App.config`, podem ser fornecidos os seguintes valores de configuração:

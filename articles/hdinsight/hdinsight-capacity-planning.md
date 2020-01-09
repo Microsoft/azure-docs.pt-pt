@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682263"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640946"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -47,7 +47,7 @@ Se você já tiver uma conta de armazenamento ou Data Lake Storage que contenha 
 
 Depois de ter um cluster HDInsight implantado, você pode anexar outras contas de armazenamento do Azure ou acessar outros Data Lake Storage. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Storage pode estar em um local diferente, embora isso possa introduzir uma latência de leitura/gravação de dados.
 
-O armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto data Lake Storage Gen1 é praticamente ilimitado.
+O armazenamento do Azure tem alguns [limites de capacidade](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), enquanto data Lake Storage Gen1 é praticamente ilimitado.
 
 Um cluster pode acessar uma combinação de diferentes contas de armazenamento. Os exemplos típicos incluem:
 
@@ -92,9 +92,19 @@ Você é cobrado pelo tempo de vida de um cluster. Se houver apenas alguns momen
 
 ## <a name="quotas"></a>Quotas
 
-Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade da cota atual da sua assinatura. Quando você atingir um limite de cota, talvez não seja possível implantar novos clusters ou escalar horizontalmente os clusters existentes adicionando mais nós de trabalho. O único limite de cota é a cota de núcleos de CPU que existe no nível de região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos na região leste dos EUA. Se você precisar solicitar um aumento de cota, execute as seguintes etapas:
+Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade da cota atual da sua assinatura. Quando você atingir um limite de cota, talvez não seja possível implantar novos clusters ou escalar horizontalmente os clusters existentes adicionando mais nós de trabalho. O único limite de cota é a cota de núcleos de CPU que existe no nível de região para cada assinatura. Por exemplo, sua assinatura pode ter um limite de 30 núcleos na região leste dos EUA. 
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Para verificar os núcleos disponíveis, execute as seguintes etapas:
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+2. Navegue até a página **visão geral** do cluster HDInsight. 
+3. No menu à esquerda, clique em **limites de cota**.
+
+   A página exibe o número de núcleos em uso, o número de núcleos disponíveis e o total de núcleos.
+
+Se você precisar solicitar um aumento de cota, execute as seguintes etapas:
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **ajuda + suporte** no lado inferior esquerdo da página.
 1. Selecione **Novo pedido de suporte**.
 1. Na página **nova solicitação de suporte** , na guia **noções básicas** , selecione as seguintes opções:
@@ -115,7 +125,7 @@ Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, v
 
 Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter no máximo 10.000 núcleos. Para obter detalhes sobre esses limites, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter no máximo 10.000 núcleos. Para obter detalhes sobre esses limites, consulte [assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Passos seguintes
 

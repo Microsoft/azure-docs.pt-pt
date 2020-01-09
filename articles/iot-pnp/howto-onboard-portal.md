@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 77559636dab00a570db416118b047200320c0308
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73848af299f87edf60ab36713d09ad4421b18fd
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978990"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531235"
 ---
 # <a name="onboard-to-the-azure-certified-for-iot-portal"></a>Integrar no portal do Azure Certified for IoT
 

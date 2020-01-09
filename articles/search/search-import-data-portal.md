@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460695"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistente de importação de dados para o Azure Pesquisa Cognitiva
 
@@ -75,7 +75,7 @@ Você deve criar essa tabela ou exibição única antes de executar o assistente
 
 Nos bastidores, o assistente cria, configura e invoca os objetos a seguir. Depois que o assistente for executado, você poderá encontrar sua saída nas páginas do Portal. A página Visão geral do seu serviço tem listas de índices, indexadores, fontes de dados e habilidades. As definições de índice podem ser exibidas em JSON completo no Portal. Para outras definições, você pode usar a [API REST](https://docs.microsoft.com/rest/api/searchservice/) para obter objetos específicos.
 
-| Object | Descrição | 
+| Objeto | Descrição | 
 |--------|-------------|
 | [Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persiste informações de conexão para dados de origem, incluindo credenciais. Um objeto de fonte de dados é usado exclusivamente com indexadores. | 
 | [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
@@ -109,7 +109,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 
 1. Defina atributos para determinar como esse campo é usado em um índice. 
 
-   Reserve seu tempo com esta etapa porque os atributos determinam a expressão física dos campos no índice. Se desejar alterar atributos posteriormente, até mesmo programaticamente, você quase sempre precisará remover e recompilar o índice. Os atributos principais, como **pesquisáveis** e **recuperáveis** , têm um [impacto insignificante no armazenamento](search-what-is-an-index.md#storage-implications). Habilitar filtros e usar sugestores aumentam os requisitos de armazenamento. 
+   Reserve seu tempo com esta etapa porque os atributos determinam a expressão física dos campos no índice. Se desejar alterar atributos posteriormente, até mesmo programaticamente, você quase sempre precisará remover e recompilar o índice. Os atributos principais, como **pesquisáveis** e **recuperáveis** , têm um [impacto insignificante no armazenamento](search-what-is-an-index.md#index-size). Habilitar filtros e usar sugestores aumentam os requisitos de armazenamento. 
    
    + **Pesquisável** habilita a pesquisa de texto completo. Cada campo usado em consultas de forma livre ou em expressões de consulta deve ter esse atributo. Os índices invertidos são criados para cada campo que você marca como **pesquisável**.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 848b15cef43efa62fdff6715bfcfef9819f4e100
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7fae3c08dd4b51b8c8dc9437fce5b5b5de063726
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078280"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637921"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -31,8 +31,8 @@ ms.locfileid: "70078280"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -178,7 +178,7 @@ ms.locfileid: "70078280"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -205,11 +205,11 @@ Em comparação com as implantações de nuvem privada ou bare-metal, as máquin
 
 A plataforma de nuvem do Azure não oferece a opção de configurar endereços IP virtuais, como endereços IP flutuantes. Você precisa de uma solução alternativa para configurar um endereço IP virtual para alcançar o recurso de cluster na nuvem. 
 
-O serviço de Azure Load Balancer fornece um balanceador de *carga interno* para o Azure. Com o balanceador de carga interno, os clientes acessam o cluster pelo endereço IP virtual do cluster. 
+O serviço de Azure Load Balancer fornece um *balanceador de carga interno* para o Azure. Com o balanceador de carga interno, os clientes acessam o cluster pelo endereço IP virtual do cluster. 
 
 Implante o balanceador de carga interno no grupo de recursos que contém os nós de cluster. Em seguida, configure todas as regras de encaminhamento de porta necessárias usando as portas de investigação do balanceador de carga interno. Os clientes podem se conectar por meio do nome de host virtual. O servidor DNS resolve o endereço IP do cluster, e o balanceador de carga interno manipula o encaminhamento de porta para o nó ativo do cluster.
 
-![Figura 1: Configuração do clustering de failover do Windows no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
+![Figura 1: configuração do clustering de failover do Windows no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
 
 _**Figura 1:** Configuração do Windows Server failover clustering no Azure sem um disco compartilhado_
 
@@ -219,24 +219,24 @@ No Windows, uma instância do SAP ASCS/SCS contém os serviços SAP central, o s
 Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 * Serviços SAP central:
-    * Dois processos, um servidor de mensagens e de enfileiramento e um nome de \<host virtual ASCS/SCS >, que é usado para acessar esses dois processos.
-    * Estrutura de arquivos: S:\usr\sap\\Sid\&gt;ASCS/SCS\<número da instância&lt;\>
+    * Dois processos, um servidor de mensagens e de enfileiramento, e um \<nome de host virtual do ASCS/SCS >, que é usado para acessar esses dois processos.
+    * Estrutura de arquivos: S:\usr\sap\\&lt;SID&gt;\ ASCS/SCS\<número da instância\>
 
 
 * Arquivos de host global do SAP:
-  * Estrutura de arquivos: S:\usr\sap\\SID&lt;\SYS.\..&gt;
-  * O compartilhamento de arquivos sapmnt, que permite o acesso a esses\\S:\usr\sap&gt;&lt;globais\.Sid \SYS.. files usando o seguinte caminho UNC:
+  * Estrutura de arquivos: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * O compartilhamento de arquivos sapmnt, que permite o acesso a esses S:\usr\sap global\\&lt;SID&gt;\SYS\... arquivos usando o seguinte caminho UNC:
 
-    \\\\<\>nome do host virtual do ASCS/\\SCS \sapmnt\.&lt;SID&gt;\SYS..
+    \\\\< nome de host virtual ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de host global de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
+![Figura 2: processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de host global de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
 _**Figura 2:** Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de host global de uma instância do SAP ASCS/SCS_
 
 Em uma configuração de alta disponibilidade, você agrupa instâncias do SAP ASCS/SCS. Usamos *discos compartilhados clusterizados* (unidades S, em nosso exemplo), para posicionar os arquivos de host SAP ASCS/SCS e SAP global.
 
-![Figura 3: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
+![Figura 3: arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
 
 _**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
 
@@ -247,7 +247,7 @@ _**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco com
 >
 
 
-![Figura 4: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8003]
+![Figura 4: arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8003]
 
 _**Figura 4:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
 
@@ -263,9 +263,9 @@ Para criar um recurso de disco compartilhado para um cluster:
 2. Execute o SIOS datakeeper Cluster Edition em ambos os nós da máquina virtual.
 3. Configure o SIOS datakeeper Cluster Edition para que ele espelhe o conteúdo do volume anexado de disco adicional da máquina virtual de origem para o volume de disco anexado adicional da máquina virtual de destino. O SIOS datakeeper abstrai os volumes locais de origem e de destino e os apresenta ao clustering de failover do Windows Server como um disco compartilhado.
 
-Obtenha mais informações sobre o [sios](https://us.sios.com/products/datakeeper-cluster/)datakeeper.
+Obtenha mais informações sobre o [sios Datakeeper](https://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 5: Configuração do Windows Server failover clustering no Azure com SIOS datakeeper][sap-ha-guide-figure-1002]
+![Figura 5: configuração do Windows Server failover clustering no Azure com SIOS datakeeper][sap-ha-guide-figure-1002]
 
 _**Figura 5:** Configuração do clustering de failover do Windows no Azure com SIOS datakeeper_
 
@@ -273,7 +273,7 @@ _**Figura 5:** Configuração do clustering de failover do Windows no Azure com 
 > Você não precisa de discos compartilhados para alta disponibilidade com alguns produtos DBMS, como SQL Server. SQL Server o AlwaysOn replica os dados do DBMS e os arquivos de log do disco local de um nó de cluster para o disco local de outro nó de cluster. Nesse caso, a configuração de cluster do Windows não precisa de um disco compartilhado.
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 

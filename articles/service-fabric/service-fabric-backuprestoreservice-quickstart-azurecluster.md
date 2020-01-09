@@ -1,27 +1,18 @@
 ---
 title: Backup e restauração periódicos no Azure Service Fabric
 description: Use o recurso de backup e restauração periódicos do Service Fabric para habilitar o backup de dados periódicos dos dados do seu aplicativo.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209622"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526333"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric 
+# <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e restauração periódicos em um cluster de Service Fabric do Azure
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters autônomos](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -46,7 +37,7 @@ O serviço de backup e restauração no Service Fabric permite um backup fácil 
 Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidade relacionada ao recurso de backup e restauração periódicos:
 
 - Agendar backup periódico de serviços confiáveis com estado e Reliable Actors com suporte para upload de backup para locais de armazenamento (externos). Locais de armazenamento com suporte
-    - Storage do Azure
+    - Armazenamento do Azure
     - Compartilhamento de arquivos (local)
 - Enumerar backups
 - Disparar um backup ad hoc de uma partição
@@ -75,7 +66,7 @@ Service Fabric fornece um conjunto de APIs para obter a seguinte funcionalidade 
 
 ## <a name="enabling-backup-and-restore-service"></a>Habilitando o serviço de backup e restauração
 
-### <a name="using-azure-portal"></a>Com o Portal do Azure
+### <a name="using-azure-portal"></a>Utilizar o portal do Azure
 
 Habilitar `Include backup restore service` caixa de seleção em `+ Show optional settings` na guia `Cluster Configuration`.
 

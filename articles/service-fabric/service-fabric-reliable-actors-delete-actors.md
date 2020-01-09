@@ -1,30 +1,21 @@
 ---
-title: Eliminar atores do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como eliminar manualmente os Reliable Actors do Service Fabric e o respetivo estado.
-services: service-fabric
-documentationcenter: .net
+title: Excluir atores de Service Fabric do Azure
+description: Saiba como excluir manualmente e completamente Reliable Actors e seu estado em um aplicativo de Service Fabric do Azure.
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726609"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645621"
 ---
-# <a name="delete-reliable-actors-and-their-state"></a>Eliminar Reliable Actors e o respetivo estado
-Coleta de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator é reativado, seus dados é novamente disponibilizados ao mesmo através do Gestor de estado. Nos casos onde atores armazenar dados no Gestor de estado e estiverem desativados, mas nunca reativados, poderá ser necessário limpar os seus dados.
+# <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e seu estado
+A coleta de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gerenciador de estado de um ator. Quando um ator é reativado, seus dados são novamente disponibilizados para ele por meio do Gerenciador de estado. Nos casos em que os atores armazenam dados no Gerenciador de estado e são desativados, mas nunca reativados, pode ser necessário limpar seus dados.
 
-O [serviço de Ator](service-fabric-reliable-actors-platform.md) fornece uma função para a eliminar atores de um chamador remoto:
+O [serviço de ator](service-fabric-reliable-actors-platform.md) fornece uma função para excluir atores de um chamador remoto:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -43,24 +34,24 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-A eliminação de um ator tem os seguintes efeitos dependendo se pretende ou não o ator está ativo no momento:
+A exclusão de um ator tem os seguintes efeitos dependendo se o ator está ativo no momento:
 
-* **Ator do Active Directory**
-  * Ator é removido da lista de atores do Active Directory e é desativado.
-  * O estado é eliminado permanentemente.
-* **Ator inativo**
-  * O estado é eliminado permanentemente.
+* **Ator ativa**
+  * O ator é removido da lista de atores ativos e é desativado.
+  * Seu estado é excluído permanentemente.
+* **Ator inativa**
+  * Seu estado é excluído permanentemente.
 
-Não é possível chamar um ator eliminar em si mesmo a partir de um de seus métodos de ator, uma vez que o ator não pode ser eliminado durante a execução dentro de um contexto de chamada de ator, em que o tempo de execução foi obtido um bloqueio em torno da chamada de ator para impor o acesso de thread único.
+Um ator não pode chamar Delete em si mesmo por meio de um de seus métodos de ator porque o ator não pode ser excluído durante a execução em um contexto de chamada de ator, no qual o tempo de execução obteve um bloqueio em volta da chamada de ator para impor o acesso de thread único.
 
 Para obter mais informações sobre Reliable Actors, leia o seguinte:
-* [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
+* [Temporizadores e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
-* [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
-* [Monitorização de desempenho e diagnóstico de ator](service-fabric-reliable-actors-diagnostics.md)
+* [Reentrância do ator](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnóstico de ator e monitoramento de desempenho](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API de ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo de c#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C#Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

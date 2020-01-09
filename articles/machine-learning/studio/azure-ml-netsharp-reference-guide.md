@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427673"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Azure Machine Learning Studio (clássico)
 
@@ -54,9 +54,9 @@ Além disso, net # dá suporte aos quatro tipos de grupos de conexão avançados
 + Agrupamentos de **pools** e de **normalização de resposta**. Eles são semelhantes aos grupos de convolução, pois o usuário define pequenos bairros de nós na camada de origem. A diferença é que os pesos das bordas desses grupos não são treináveis. Em vez disso, uma função predefinida é aplicada aos valores de nó de origem para determinar o valor do nó de destino.
 
 
-## <a name="supported-customizations"></a>Personalizações com suporte
+## <a name="supported-customizations"></a>Supported customizations (Personalizações avançadas)
 
-A arquitetura dos modelos de rede neural que você cria na versão clássica do Azure Machine Learning Studio pode ser amplamente personalizada com o uso de net #. Pode:
+A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Pode:
 
 + Crie camadas ocultas e controle o número de nós em cada camada.
 + Especifique como as camadas devem ser conectadas entre si.
@@ -128,12 +128,12 @@ Uma declaração de camada para uma camada de treinamento (as camadas ocultas ou
 
 Há suporte para as seguintes funções de saída:
 
-+ sigmoide
++ sigmoid
 + linear
 + softmax
 + rlinear
 + quadrado
-+ Sqrt
++ sqrt
 + srlinear
 + ABS
 + Tanh
@@ -169,7 +169,7 @@ hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 ```
 
-+ No predicado para `ByRow`, `s` é um parâmetro que representa um índice na matriz retangular de nós da camada de entrada, `Pixels`e `d` é um parâmetro que representa um índice na matriz de nós da camada oculta , `ByRow`. O tipo de `s` e `d` é uma tupla de inteiros de comprimento dois. Conceitualmente, `s` intervalos em todos os pares de inteiros com `0 <= s[0] < 10` e `0 <= s[1] < 20`e `d` intervalos em todos os pares de inteiros, com `0 <= d[0] < 10` e `0 <= d[1] < 12`.
++ No predicado para `ByRow`, `s` é um parâmetro que representa um índice na matriz retangular de nós da camada de entrada, `Pixels`e `d` é um parâmetro que representa um índice na matriz de nós da camada oculta, `ByRow`. O tipo de `s` e `d` é uma tupla de inteiros de comprimento dois. Conceitualmente, `s` intervalos em todos os pares de inteiros com `0 <= s[0] < 10` e `0 <= s[1] < 20`e `d` intervalos em todos os pares de inteiros, com `0 <= d[0] < 10` e `0 <= d[1] < 12`.
 
 + No lado direito da expressão de predicado, há uma condição. Neste exemplo, para cada valor de `s` e `d` de modo que a condição seja verdadeira, há uma borda do nó da camada de origem para o nó da camada de destino. Portanto, essa expressão de filtro indica que o pacote inclui uma conexão do nó definido por `s` para o nó definido por `d` em todos os casos em que s [0] é igual a d [0].
 
@@ -259,7 +259,7 @@ Para obter mais informações sobre camadas de pool, consulte estes artigos:
 
 A **normalização de resposta** é um esquema de normalização local que foi introduzido pela primeira vez por Geoffrey Hinton, et al, no papel [ImageNet classificação com redes neurais de convolução profundas](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-A normalização de resposta é usada para auxiliar a generalização em redes neurais. Quando um neurônio está sendo acionado em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β`e `k`) e uma estrutura de convolução (ou forma de vizinhança). Cada neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, em que `f` é o nível de ativação de um neurônio e `Nx` é o kernel (ou o conjunto que contém os neurônios na vizinhança de **x**), conforme definido pela seguinte convolução estruturá
+A normalização de resposta é usada para auxiliar a generalização em redes neurais. Quando um neurônio está sendo acionado em um nível de ativação muito alto, uma camada de normalização de resposta local suprime o nível de ativação dos neurônios circundantes. Isso é feito usando três parâmetros (`α`, `β`e `k`) e uma estrutura de convolução (ou forma de vizinhança). Cada neurônio na camada de destino **y** corresponde a um neurônio **x** na camada de origem. O nível de ativação de **y** é fornecido pela fórmula a seguir, em que `f` é o nível de ativação de um neurônio e `Nx` é o kernel (ou o conjunto que contém os neurônios na vizinhança de **x**), conforme definido pela seguinte estrutura de convolução:
 
 ![fórmula para estrutura de convolução](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 

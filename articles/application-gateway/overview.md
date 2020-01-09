@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996583"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658275"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -139,7 +139,7 @@ O Standard_v2 do gateway de aplicativo e o WAF_v2 SKU podem ser configurados par
 
 O SKU do gateway de aplicativo Standard e WAF é atualmente oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
-Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 A tabela a seguir mostra uma taxa de transferência de desempenho médio para cada instância do Application Gateway v1 com descarregamento de SSL habilitado:
 

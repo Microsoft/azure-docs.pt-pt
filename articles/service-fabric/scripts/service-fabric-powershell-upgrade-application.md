@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script Azure PowerShell – atualizar um aplicativo Service Fabric | Microsoft Docs
-description: Exemplo de script Azure PowerShell – atualizar um aplicativo Service Fabric.
+title: Atualizar um aplicativo Service Fabric no PowerShell
+description: Azure PowerShell exemplo de script – atualizar e monitorar um aplicativo de Service Fabric do Azure usando o PowerShell.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 45186f497371b533451ff374e68b38f9a7eebe51
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035490"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614745"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Atualizar um aplicativo Service Fabric
 
@@ -47,7 +47,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Remove um pacote de aplicativo Service Fabric do repositório de imagens.|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo Service Fabric PowerShell, consulte [Azure PowerShell documentação](/powershell/azure/service-fabric/?view=azureservicefabricps).
 

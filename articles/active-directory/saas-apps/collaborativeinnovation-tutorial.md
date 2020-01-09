@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com a inovação colaborativa | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com inovação colaborativa | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e inovação colaborativa.
 services: active-directory
 documentationCenter: na
@@ -9,43 +9,42 @@ ms.reviewer: barbkess
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
+ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/22/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a860331e0f4b16ef21b02212217a22e2f5be67
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 38ca9365be46c8fd7653f91a76b64c5a6ebfd077
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158525"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611837"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: integração de Azure Active Directory com inovação colaborativa
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-collaborative-innovation"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com inovação colaborativa
 
-Neste tutorial, você aprenderá a integrar a inovação colaborativa com o Azure Active Directory (Azure AD).
-A integração da inovação colaborativa ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar a inovação colaborativa com o Azure Active Directory (Azure AD). Ao integrar a inovação colaborativa ao Azure AD, você pode:
 
-* No Azure AD, é possível controlar quem tem acesso à inovação colaborativa.
-* Você pode permitir que seus usuários sejam automaticamente conectados à inovação colaborativa (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um local central-a portal do Azure.
+* Controle no Azure AD quem tem acesso à inovação colaborativa.
+* Permita que os usuários sejam automaticamente conectados à inovação colaborativa com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com a inovação colaborativa, você precisa dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Collaborative inovação
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura com SSO (logon único) habilitado da inovação colaborativa.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * A inovação colaborativa dá suporte ao SSO iniciado por **SP**
+
 
 * A inovação colaborativa dá suporte ao provisionamento **de usuário just-in-time**
 
@@ -53,59 +52,38 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração da inovação colaborativa ao Azure AD, você precisa adicionar inovação colaborativa da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar inovação colaborativa da galeria, execute as seguintes etapas:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **inovação colaborativa** na caixa de pesquisa.
+1. Selecione **inovação colaborativa** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![O botão Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-collaborative-innovation"></a>Configurar e testar o logon único do Azure AD para inovação colaborativa
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+Configure e teste o SSO do Azure AD com inovação colaborativa usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em inovação colaborativa.
 
-    ![A folha aplicativos empresariais](common/enterprise-applications.png)
+Para configurar e testar o SSO do Azure AD com a inovação colaborativa, conclua os seguintes blocos de construção:
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO de inovação colaborativa](#configure-collaborative-innovation-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste de inovação colaborativa](#create-collaborative-innovation-test-user)** – para ter um equivalente de B. Simon na inovação colaborativa vinculada à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O botão novo aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-4. Na caixa de pesquisa, digite **inovação colaborativa**, selecione **inovação colaborativa** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![Inovação colaborativa na lista de resultados](common/search-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos de **inovação colaborativa** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Nesta seção, você configurará e testará o logon único do Azure AD com a inovação colaborativa, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado da inovação colaborativa.
-
-Para configurar e testar o logon único do Azure AD com a inovação colaborativa, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar logon único de inovação colaborativa](#configure-collaborative-innovation-single-sign-on)** -para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste de inovação colaborativa](#create-collaborative-innovation-test-user)** – para ter um equivalente de Brenda Simon em inovação colaborativa vinculada à representação de usuário do Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com a inovação colaborativa, execute as seguintes etapas:
-
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos de **inovação colaborativa** , selecione **logon único**.
-
-    ![Link configurar logon único](common/select-sso.png)
-
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
-
-    ![Editar configuração básica de SAML](common/edit-urls.png)
-
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
-
-    ![Informações de logon único de domínio e URLs de inovação colaborativa](common/sp-identifier.png)
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
     a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<instancename>.foundry.<companyname>.com/`
 
@@ -114,115 +92,68 @@ Para configurar o logon único do Azure AD com a inovação colaborativa, execut
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente de inovação colaborativa](https://www.unilever.com/contact/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. O aplicativo de inovação colaborativa espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **atributos de usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir a caixa de diálogo **atributos de usuário** .
+1. O aplicativo de inovação colaborativa espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![imagem](common/edit-attribute.png)
 
-6. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , edite as declarações usando o **ícone Editar** ou adicione as declarações usando **Adicionar nova declaração** para configurar o atributo de token SAML, conforme mostrado na imagem acima, e execute as seguintes etapas: 
+1. Além de acima, o aplicativo de inovação colaborativa espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
     | Nome | Atributo de origem|
     | ---------------| --------------- |
-    | GivenName | User. excertoname |
-    | Sobrenome | User. sobrenome |
-    | EmailAddress | User. UserPrincipalName |
-    | nome | User. UserPrincipalName |
+    | givenName | user.givenname |
+    | Apelido | User. sobrenome |
+    | EmailAddress | user.userprincipalname |
+    | nome | user.userprincipalname |
 
-    a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![imagem](common/new-save-attribute.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
-    ![imagem](common/new-attribute-details.png)
-
-    b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
-
-    c. Deixe o **namespace** em branco.
-
-    d. Selecione origem como **atributo**.
-
-    e. Na lista **atributo de origem** , digite o valor do atributo mostrado para essa linha.
-
-    f. Clique em **OK**
-
-    g. Clique em **Guardar**.
-
-4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
-
-    ![O link de download do certificado](common/metadataxml.png)
-
-6. Na seção **Configurar inovação colaborativa** , copie as URLs apropriadas de acordo com seu requisito.
+1. Na seção **Configurar a inovação colaborativa** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de logout
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-### <a name="configure-collaborative-innovation-single-sign-on"></a>Configurar logon único de inovação colaborativa
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Para configurar o logon único no lado de **inovação colaborativa** , você precisa enviar o **XML de metadados de Federação** baixado e URLs copiadas apropriadas do portal do Azure para a equipe de suporte de [inovação colaborativa](https://www.unilever.com/contact/). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso à inovação colaborativa.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **inovação colaborativa**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-2. Selecione **novo usuário** na parte superior da tela.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![Botão novo usuário](common/new-user.png)
+## <a name="configure-collaborative-innovation-sso"></a>Configurar SSO de inovação colaborativa
 
-3. Nas propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo usuário](common/user-properties.png)
-
-    a. No campo **nome** , insira **brendafernandes**.
-  
-    b. No campo **nome de usuário** , digite **brendafernandes\@yourcompanydomain. Extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso à inovação colaborativa.
-
-1. No portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **inovação colaborativa**.
-
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **inovação colaborativa**.
-
-    ![O link de inovação colaborativa na lista de aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **usuários e grupos**.
-
-    ![O link "usuários e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+Para configurar o logon único no lado de **inovação colaborativa** , você precisa enviar o **XML de metadados de Federação** baixado e URLs copiadas apropriadas do portal do Azure para a equipe de suporte de [inovação colaborativa](https://www.unilever.com/contact/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-collaborative-innovation-test-user"></a>Criar usuário de teste de inovação colaborativa
 
-Para permitir que os usuários do Azure AD façam logon na inovação colaborativa, eles devem ser provisionados na inovação colaborativa.  
+Nesta seção, um usuário chamado B. Simon é criado na inovação colaborativa. A inovação colaborativa dá suporte ao provisionamento just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir na inovação colaborativa, um novo será criado quando você tentar acessar a inovação colaborativa.
 
-No caso desse aplicativo, o provisionamento é automático, pois o aplicativo dá suporte ao provisionamento de usuário just-in-time. Portanto, não há necessidade de executar nenhuma etapa aqui.
+## <a name="test-sso"></a>Testar SSO 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
-
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco de inovação colaborativa no painel de acesso, você deverá entrar automaticamente na inovação colaborativa para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -230,7 +161,9 @@ Ao clicar no bloco de inovação colaborativa no painel de acesso, você deverá
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente a inovação colaborativa com o Azure AD](https://aad.portal.azure.com/)
 

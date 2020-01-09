@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-contêiner sfctl | Microsoft Docs
-description: Descreve os comandos de contêiner do Service Fabric CLI sfctl.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-contêiner sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para contêineres.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 13de6ff7b3e5a41eced5ca49a3af38fab60ba0a0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 316715e65af07176b3dc276d47979a5fa3dc1d6f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901304"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639144"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Execute comandos relacionados ao contêiner em um nó de cluster.
@@ -46,7 +37,7 @@ Invocar a API do contêiner em um contêiner implantado em um Service Fabric nó
 | --Service-manifest-Name [obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um Cluster Service Fabric. |
 | --contêiner-API-corpo | Corpo da solicitação HTTP para a API REST do contêiner. |
 | --contêiner-API-tipo de conteúdo | Tipo de conteúdo para a API REST do contêiner, o padrão é ' Application/JSON '. |
-| --contêiner-API-http-verbo | Verbo HTTP para API REST de contêiner, o padrão a ser obtido. |
+| --container-api-http-verb | Verbo HTTP para API REST de contêiner, o padrão a ser obtido. |
 | --Timeout-t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais

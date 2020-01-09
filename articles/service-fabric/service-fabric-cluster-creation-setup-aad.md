@@ -1,25 +1,14 @@
 ---
-title: Configurar Azure Active Directory para autenticação de cliente Service Fabric | Microsoft Docs
+title: Configurar Azure Active Directory para autenticação de cliente
 description: Saiba como configurar o Azure Active Directory (Azure AD) para autenticar clientes para Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901507"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614694"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar Azure Active Directory para autenticação de cliente
 
@@ -31,6 +20,11 @@ Um Cluster Service Fabric oferece vários pontos de entrada para sua funcionalid
 
 > [!NOTE]
 > No Linux, você deve concluir as etapas a seguir antes de criar o cluster. No Windows, você também tem a opção de [Configurar a autenticação do Azure ad para um cluster existente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+
+> [!NOTE]
+> É um [problema conhecido](https://github.com/microsoft/service-fabric/issues/399) que aplicativos e nós em clusters habilitados para AAD do Linux não podem ser exibidos no portal do Azure.
+
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Neste artigo, presumimos que você já tenha criado um locatário. Se você não tiver, comece lendo [como obter um locatário Azure Active Directory][active-directory-howto-tenant].
@@ -61,12 +55,12 @@ Você pode encontrar sua *tenantid* executando o comando do PowerShell `Get-Azur
 
 *WebApplicationReplyUrl* é o ponto de extremidade padrão que o Azure ad retorna para os usuários depois que terminam de entrar. Defina esse ponto de extremidade como o ponto de extremidade Service Fabric Explorer para o cluster. Se você estiver criando aplicativos do Azure AD para representar um cluster existente, verifique se essa URL corresponde ao ponto de extremidade do cluster existente. Se você estiver criando aplicativos para um novo cluster, planeje o ponto de extremidade que o seu cluster terá e certifique-se de não usar o ponto de extremidade de um cluster existente. Por padrão, o ponto de extremidade Service Fabric Explorer é:
 
-https://&lt;cluster_domain&gt;: 19080/Explorer
+https://&lt;cluster_domain&gt;:19080/Explorer
 
 Você será solicitado a entrar em uma conta que tenha privilégios administrativos para o locatário do Azure AD. Depois de entrar, o script cria os aplicativos Web e nativos para representar o Cluster Service Fabric. Se você examinar os aplicativos do locatário na [portal do Azure][azure-portal], verá duas novas entradas:
 
    * *Clustername\_cluster*
-   * *Clustername*\_cliente
+   * *ClusterName*\_Client
 
 O script imprime o JSON exigido pelo modelo de Azure Resource Manager quando você [cria o cluster habilitado do AAD](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), portanto, é uma boa ideia manter a janela do PowerShell aberta.
 

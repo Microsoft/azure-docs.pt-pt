@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546946"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658292"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -131,7 +131,7 @@ Sim, você deve criar uma conexão de Active Directory antes de implantar um vol
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Há suporte para quantas conexões Active Directory?
 
-O Azure NetApp Files atualmente dá suporte a uma conexão de Active Directory por assinatura. Além disso, a conexão Active Directory é específica para uma única conta do NetApp; Ele não é compartilhado entre contas. 
+O Azure NetApp Files atualmente dá suporte apenas a uma conexão de Active Directory por conta do NetApp, por assinatura e em cada região; a conexão não é compartilhada entre as contas do NetApp.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure NetApp Files oferece suporte a Azure Active Directory? 
 

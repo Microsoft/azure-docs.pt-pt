@@ -1,35 +1,26 @@
 ---
-title: Infraestrutura de Service Fabric do Azure como práticas recomendadas de código | Microsoft Docs
-description: Práticas recomendadas para o gerenciamento de Service Fabric como infraestrutura como código.
-services: service-fabric
-documentationcenter: .net
+title: Infraestrutura de Service Fabric do Azure como práticas recomendadas de código
+description: Práticas recomendadas e considerações de design para gerenciar o Azure Service Fabric como uma infraestrutura como código.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 83439a913989875c5e26ee51901f10558e5debd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1c044d5fd973d3c577088a887f2fac413d2ab79d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955619"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551833"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
 Em um cenário de produção, crie clusters de Service Fabric do Azure usando modelos do Resource Manager. Os modelos do Resource Manager fornecem um controle maior das propriedades de recurso e garantem que você tenha um modelo de recurso consistente.
 
-Os modelos do Resource Manager de exemplo estão disponíveis para Windows e Linux nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Esses modelos podem ser usados como um ponto de partida para o modelo de cluster. Baixe `azuredeploy.json` e`azuredeploy.parameters.json` edite-os para atender aos seus requisitos personalizados.
+Os modelos do Resource Manager de exemplo estão disponíveis para Windows e Linux nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Esses modelos podem ser usados como um ponto de partida para o modelo de cluster. Baixe `azuredeploy.json` e `azuredeploy.parameters.json` e edite-os para atender aos seus requisitos personalizados.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para implantar os `azuredeploy.json` modelos `azuredeploy.parameters.json` e que você baixou acima, use os seguintes comandos de CLI do Azure:
+Para implantar os modelos de `azuredeploy.json` e `azuredeploy.parameters.json` que você baixou acima, use os seguintes comandos de CLI do Azure:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -113,7 +104,7 @@ A atualização de suas máquinas virtuais é uma operação iniciada pelo usuá
 ```
 Ao usar atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é distribuída em um domínio de atualização por vez para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric o cluster deve ser configurado para usar a camada de durabilidade prateada ou superior.
 
-Verifique se a seguinte chave do registro está definida como false para impedir que suas máquinas host do Windows iniciem atualizações não coordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Verifique se a seguinte chave do registro está definida como false para impedir que suas máquinas host do Windows iniciem atualizações não coordenadas: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para definir a chave do registro do WindowsUpdate como false:
 ```json
@@ -140,8 +131,8 @@ Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
 Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Criar um cluster em VMs ou computadores que executam [o Linux: criar um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

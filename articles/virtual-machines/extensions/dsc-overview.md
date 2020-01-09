@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: DSC
+keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176654"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497288"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de configuração de estado desejado do Azure
 
@@ -115,7 +115,7 @@ Informações importantes sobre os cmdlets de extensão DSC do Resource Manager:
 
 A extensão DSC do Azure pode usar documentos de configuração DSC para configurar diretamente as VMs do Azure durante a implantação. Esta etapa não registra o nó na automação. O nó *não* é gerenciado centralmente.
 
-O exemplo a seguir mostra um exemplo simples de uma configuração. Salve a configuração localmente como IisInstall. ps1.
+O exemplo a seguir mostra um exemplo simples de uma configuração. Salve a configuração localmente como iisInstall. ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Os comandos a seguir colocam o script IisInstall. ps1 na VM especificada. Os comandos também executam a configuração e relatam o status.
+Os comandos a seguir colocam o script iisInstall. ps1 na VM especificada. Os comandos também executam a configuração e relatam o status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -143,7 +143,7 @@ Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupN
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate -ConfigurationName 'IISInstall'
 ```
 
-## <a name="azure-cli-deployment"></a>Implantação de CLI do Azure
+## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
 O CLI do Azure pode ser usado para implantar a extensão de DSC em uma máquina virtual existente.
 

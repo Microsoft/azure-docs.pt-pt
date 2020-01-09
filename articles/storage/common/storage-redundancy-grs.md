@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895225"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614892"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure
 
@@ -31,7 +31,7 @@ Algumas considerações para ter em mente ao usar RA-GRS:
 
 - Seu aplicativo precisa gerenciar a qual ponto de extremidade ele está interagindo ao usar RA-GRS.
 - Como a replicação assíncrona envolve um atraso, as alterações que ainda não foram replicadas para a região secundária poderão ser perdidas se os dados não puderem ser recuperados da região primária.
-- Você pode verificar a hora da última sincronização da sua conta de armazenamento. A hora da última sincronização é um valor de data/hora GMT. Todas as gravações primárias antes da hora da última sincronização foram gravadas com êxito no local secundário, o que significa que elas estão disponíveis para serem lidas a partir do local secundário. As gravações primárias após a hora da última sincronização podem ou não estar disponíveis para leituras ainda. Você pode consultar esse valor usando o [portal do Azure](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)ou de uma das bibliotecas de cliente de armazenamento do Azure.
+- Você pode verificar a propriedade **hora da última sincronização** da sua conta de armazenamento. A **hora da última sincronização** é um valor de data/hora GMT. Todas as gravações primárias feitas antes da **hora da última sincronização** foram gravadas com êxito no local secundário, o que significa que elas estão disponíveis para serem lidas a partir do local secundário. As gravações primárias após a **hora da última sincronização** podem ou não estar disponíveis para leituras ainda. Você pode consultar esse valor usando o PowerShell, CLI do Azure ou uma das bibliotecas de cliente de armazenamento do Azure. Para obter mais informações, consulte **obtendo o horário da última sincronização** na [criação de aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - Se você iniciar um failover de conta (versão prévia) de uma conta GRS ou RA-GRS para a região secundária, o acesso de gravação a essa conta será restaurado após a conclusão do failover. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento (versão prévia)](storage-disaster-recovery-guidance.md).
 - O RA-GRS destina-se a fins de alta disponibilidade. Para obter diretrizes de escalabilidade, examine a [lista de verificação de desempenho](storage-performance-checklist.md).
 - Para obter sugestões sobre como projetar para alta disponibilidade com o RA-GRS, consulte [criando aplicativos altamente disponíveis usando o armazenamento ra-grs](storage-designing-ha-apps-with-ragrs.md).

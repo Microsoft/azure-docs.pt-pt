@@ -1,61 +1,52 @@
 ---
-title: Monitorizar contentores no Azure Service Fabric com os registos do Azure Monitor | Documentos da Microsoft
-description: Utilize registos de Azure Monitor para monitorizar contentores em execução em clusters do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Monitorar contêineres com logs de Azure Monitor
+description: Use logs de Azure Monitor para monitorar contêineres em execução em clusters de Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60321919"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614439"
 ---
-# <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorizar contentores com os registos do Azure Monitor
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorar contêineres com logs de Azure Monitor
  
-Este artigo aborda os passos necessários para configurar o contentor de registos do Azure Monitor, solução de monitorização para ver eventos de contentor. Para configurar o seu cluster para recolher eventos de contentor, veja este [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md). 
+Este artigo aborda as etapas necessárias para configurar a solução de monitoramento de contêiner de logs de Azure Monitor para exibir eventos de contêiner. Para configurar o cluster para coletar eventos de contêiner, consulte este [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="set-up-the-container-monitoring-solution"></a>Configurar o solução de monitorização do contentor
+## <a name="set-up-the-container-monitoring-solution"></a>Configurar a solução de monitoramento de contêiner
 
 > [!NOTE]
-> Tem de ter o Azure Monitor registos configurar para o seu cluster, bem como o agente de Log Analytics implementados em seus nós. Se não o fizer, siga os passos em [configurar os registos do Azure Monitor](service-fabric-diagnostics-oms-setup.md) e [adicionar o agente Log Analytics a um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
+> Você precisa ter Azure Monitor logs configurados para o cluster, bem como ter o agente de Log Analytics implantado em seus nós. Se não estiver, siga as etapas em [Configurar Logs de Azure monitor](service-fabric-diagnostics-oms-setup.md) e [adicione o agente de log Analytics a um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
 
-1. Assim que o seu cluster está configurado com os registos do Azure Monitor e o agente Log Analytics, implemente os contentores. Aguarde que os contentores ser implementado antes de passar para o passo seguinte.
+1. Depois que o cluster estiver configurado com os logs de Azure Monitor e o agente de Log Analytics, implante seus contêineres. Aguarde até que os contêineres sejam implantados antes de passar para a próxima etapa.
 
-2. No Azure Marketplace, procure *solução de monitorização de contentores* e clique nas **solução de monitorização de contentores** recurso que aparece em monitorização + gestão categoria.
+2. No Azure Marketplace, pesquise *solução de monitoramento de contêiner* e clique no recurso de solução de monitoramento de **contêiner** que aparece na categoria monitoramento + gerenciamento.
 
     ![Adicionar a solução de Contentores](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Crie a solução dentro da mesma área de trabalho que já foi criada para o cluster. Esta alteração aciona automaticamente o agente para iniciar a recolha de dados de docker nos contentores. Em cerca de 15 minutos ou menos, deverá ver a solução leve a cópia de segurança com registos de entrada e estatísticas, conforme mostrado na imagem abaixo.
+3. Crie a solução dentro do mesmo espaço de trabalho que já foi criado para o cluster. Essa alteração dispara automaticamente o agente para iniciar a coleta de dados do Docker nos contêineres. Em cerca de 15 minutos ou mais, você deve ver a solução se acender com estatísticas e logs de entrada, conforme mostrado na imagem abaixo.
 
-    ![Dashboard de análise de registos básicas](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![Painel de Log Analytics básica](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-O agente permite que a coleção de vários registos de contentor específicas que podem ser consultados nos registos do Azure Monitor ou usados para visualizar os indicadores de desempenho. Os tipos de registo que são recolhidos são:
+O agente permite a coleta de vários logs específicos de contêiner que podem ser consultados em logs de Azure Monitor ou usados para visualizar indicadores de desempenho. Os tipos de log que são coletados são:
 
-* ContainerInventory: mostra informações sobre a localização do contentor, o nome e imagens
+* ContainerInventory: mostra informações sobre o local, o nome e as imagens do contêiner
 * ContainerImageInventory: informações sobre imagens implantadas, incluindo IDs ou tamanhos
-* ContainerLog: registos de erro específico, registos do docker (stdout, etc.) e outras entradas
-* ContainerServiceLog: comandos de daemon de docker que foram executados
-* Desempenho: contadores de desempenho incluindo contentor cpu, memória, o tráfego de rede, disco e/s e métricas personalizadas dos computadores anfitrião
+* ContainerLog: logs de erros específicos, logs do Docker (stdout, etc.) e outras entradas
+* ContainerServiceLog: comandos de daemon do Docker que foram executados
+* Desempenho: contadores de desempenho, incluindo CPU de contêiner, memória, tráfego de rede, e/s de disco e métricas personalizadas dos computadores host
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [do Azure Monitor registos de solução de contentores](../azure-monitor/insights/containers.md).
-* Saiba mais sobre a orquestração de contentores no Service Fabric - [Service Fabric e contentores](service-fabric-containers-overview.md)
-* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte dos registos do Azure Monitor
-* Configurar registos de Monitor do Azure para configurar [alertas automáticos](../log-analytics/log-analytics-alerts.md) regras para ajudar a detetar e diagnóstico
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre a [solução de contêineres de logs de Azure monitor](../azure-monitor/insights/containers.md).
+* Leia mais sobre orquestração de contêiner em Service Fabric- [Service Fabric e contêineres](service-fabric-containers-overview.md)
+* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor
+* Configurar logs de Azure Monitor para configurar regras de [alerta automatizado](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico

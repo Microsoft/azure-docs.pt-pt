@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582993"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435091"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo IoT Central do Azure
 
@@ -25,12 +25,12 @@ Este artigo descreve como, como um desenvolvedor de dispositivos, conectar um di
 
 Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
-1. Um aplicativo IoT Central do Azure criado no modelo de aplicativo **devkits de exemplo** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+1. Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **herdado** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para comprar um dispositivo DevKit, visite [MXChip IOT devkit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## <a name="sample-devkits-application"></a>Aplicativo devkits de exemplo
+## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um modelo de dispositivo **MXChip** que define as seguintes características de dispositivo:
+No aplicativo IoT Central do Azure, adicione um novo modelo de dispositivo **MXChip** que define as seguintes características de dispositivo:
 
 - Medidas de telemetria para **umidade**, **temperatura**, **pressão**, **magnetômetro** (medida ao longo de x, y, eixo z), **acelerômetro** (medido ao longo de x, y, eixo z) e **giroscópio** (medido ao longo do eixo x, y, z).
 - Medida de estado para o **estado do dispositivo**.
@@ -40,6 +40,11 @@ Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um mo
 - Propriedade **de nuvem fabricada em**.
 - Comandos **Echo** e **contagem regressiva**. Quando um dispositivo real recebe um comando **Echo** , ele mostra o valor enviado na tela do dispositivo. Quando um dispositivo real recebe um comando de **contagem regressiva** , o LED percorre um padrão e o dispositivo envia valores de contagem regressiva de volta para IOT central.
 
+1. Selecione **+ novo** nos modelos de dispositivo ![modelo de dispositivo](media/howto-connect-devkit/adddevicetemplate.png)
+   
+
+2. Selecione **MXChip** e crie o modelo de dispositivo MXChip ![adicionar modelo de dispositivo](media/howto-connect-devkit/newtemplate.png)
+
 Para obter detalhes completos sobre a configuração, consulte [detalhes do modelo de dispositivo MXChip](#mxchip-device-template-details)
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
@@ -48,7 +53,7 @@ Para obter detalhes completos sobre a configuração, consulte [detalhes do mode
 
 No aplicativo IoT Central do Azure, adicione um dispositivo real do modelo de dispositivo **MXChip** e anote os detalhes de conexão do dispositivo: **ID do escopo, ID do dispositivo e chave primária**:
 
-1. Adicione um **dispositivo real** de Device Explorer, selecione **+ novo > real** para adicionar um dispositivo real.
+1. Adicionar um **dispositivo real** de dispositivos, selecione **+ novo > real** para adicionar um dispositivo real.
 
     * Insira uma ID de **dispositivo**em minúsculas ou use a **ID de dispositivo**sugerida.
     * Insira um **nome de dispositivo**ou use o nome sugerido
@@ -197,7 +202,7 @@ Um aplicativo criado no modelo de aplicativo devkits de exemplo inclui um modelo
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidade       | %      | 0       | 100     | 0              |
-| Temp           | °     | -40     | 120     | 0              |
+| temp           | °     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
@@ -223,15 +228,15 @@ Um aplicativo criado no modelo de aplicativo devkits de exemplo inclui um modelo
 
 Configurações numéricas
 
-| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | This |
+| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Volta      | setvoltage | V | 0              | 0       | 240     | 0       |
-| Atualizados      | SetCurrent | 2,0  | 0              | 0       | 100     | 0       |
+| Volta      | setVoltage | V | 0              | 0       | 240     | 0       |
+| Atual      | SetCurrent | 2,0  | 0              | 0       | 100     | 0       |
 | Velocidade do ventilador    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Alternar configurações
 
-| Nome a apresentar | Nome do campo | Em texto | Fora do texto | This |
+| Nome a apresentar | Nome do campo | Em texto | Fora do texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ON      | OFF      | Desativado     |
 
@@ -240,15 +245,15 @@ Alternar configurações
 | Tipo            | Nome a apresentar | Nome do campo | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
-| Propriedade do dispositivo | Local do dispositivo   | localização  | localização    |
-| Texto            | Fabricado em     | fabricado   | N/D       |
+| Propriedade do dispositivo | Localização do Dispositivo   | localização  | localização    |
+| Texto            | Fabricado em     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>Comandos
 
 | Nome a apresentar | Nome do campo | Tipo de retorno | Nome de exibição do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Eco         | echo       | texto        | valor a ser exibido         | disreproduçãovalue   | texto             |
-| Contagem regressiva    | Contagem regressiva  | número      | Contar de               | countFrom        | número           |
+| Contagem regressiva    | contagem regressiva  | número      | Contar de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Passos seguintes
 

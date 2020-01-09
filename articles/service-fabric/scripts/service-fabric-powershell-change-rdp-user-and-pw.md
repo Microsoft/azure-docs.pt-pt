@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script do Azure PowerShell - Atualizar o nome de utilizador e palavra-passe do RDP | Microsoft Docs
+title: Atualizar o nome de usuário e a senha de RDP no PowerShell
 description: Exemplo de Script do Azure PowerShell - Atualizar o nome de utilizador e palavra-passe do RDP para todos os nós de cluster do Service Fabric de um tipo de nó específico.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2618d9100c81cdb35b4a3a82436e94068a9f9bf0
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035522"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614813"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Atualizar o nome de utilizador de administrador e a palavra-passe das VMs num cluster
 
@@ -35,7 +35,7 @@ Se necessário, instale o Azure PowerShell com a instrução que se encontra no 
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos: Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos: cada comando na tabela está ligado a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
@@ -43,7 +43,7 @@ Este script utiliza os seguintes comandos: Cada comando na tabela liga à docume
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Adiciona uma extensão ao conjunto de dimensionamento de máquinas virtuais.|
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Atualiza o estado de um conjunto de dimensionamento de máquinas virtuais definido como o estado de um objeto VMSS local.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

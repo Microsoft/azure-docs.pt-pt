@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123543"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647735"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerenciar o cluster de serviços am no Azure HDInsight
 
@@ -23,7 +23,7 @@ Neste artigo, você aprende a gerenciar um cluster existente dos serviços ML no
 
 * Um cluster de serviços do ML no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços ml** para o **tipo de cluster**.
 
-* Um cliente Secure Shell (SSH): Um cliente SSH é usado para se conectar remotamente ao cluster HDInsight e executar comandos diretamente no cluster. Para obter mais informações, consulte [usar SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md)
+* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar remotamente ao cluster HDInsight e executar comandos diretamente no cluster. Para obter mais informações, consulte [usar SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="enable-multiple-concurrent-users"></a>Permitir vários utilizadores em simultâneo
 
@@ -48,9 +48,9 @@ Como o RStudio é executado no nó de borda do cluster, há várias etapas aqui:
 2. Adicionar mais utilizadores do Linux ao nó de extremidade
 3. Utilizar a versão de comunidade do RStudio com o utilizador criado
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Passo 1: Usar o usuário SSH criado para entrar no nó de borda
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Etapa 1: usar o usuário SSH criado para entrar no nó de borda
 
-Siga as instruções em [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para acessar o nó de borda. O endereço do nó de borda para o cluster de serviços `CLUSTERNAME-ed-ssh.azurehdinsight.net`am no HDInsight é.
+Siga as instruções em [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para acessar o nó de borda. O endereço do nó de borda para o cluster de serviços am no HDInsight é `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Passo 2: Adicionar mais utilizadores do Linux ao nó de extremidade
 
@@ -70,7 +70,7 @@ Quando for solicitada a "senha atual do Kerberos:", basta pressionar **Enter** p
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Passo 3: Utilizar a versão de comunidade do RStudio com o utilizador criado
 
-Acesse RStudio https://CLUSTERNAME.azurehdinsight.net/rstudio/ de. Se você estiver fazendo logon pela primeira vez depois de criar o cluster, insira as credenciais de administrador do cluster seguidas pelas credenciais de usuário do SSH que você criou. Se este não for seu primeiro logon, insira apenas as credenciais para o usuário SSH que você criou.
+Acesse RStudio de `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Se você estiver fazendo logon pela primeira vez depois de criar o cluster, insira as credenciais de administrador do cluster seguidas pelas credenciais de usuário do SSH que você criou. Se este não for seu primeiro logon, insira apenas as credenciais para o usuário SSH que você criou.
 
 Você também pode entrar usando as credenciais originais (por padrão, é *sshuser*) simultaneamente de outra janela do navegador.
 
@@ -78,7 +78,7 @@ Repare também que os utilizadores adicionados recentemente não têm privilégi
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Conectar-se remotamente aos serviços do Microsoft ML
 
-Você pode configurar o acesso ao contexto de computação do HDInsight Spark de uma instância remota do cliente do ML em execução na sua área de trabalho. Para fazer isso, você deve especificar as opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) ao definir o contexto de computação RxSpark em sua área de trabalho: Por exemplo:
+Você pode configurar o acesso ao contexto de computação do HDInsight Spark de uma instância remota do cliente do ML em execução na sua área de trabalho. Para fazer isso, você deve especificar as opções (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) ao definir o contexto de computação RxSpark em sua área de trabalho: por exemplo:
 
     myNameNode <- "default"
     myPort <- 0
@@ -110,11 +110,11 @@ O contexto de cálculo permite-lhe controlar se a computação é feita localmen
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuir o código R por vários nós
 
-Com os serviços do ML no HDInsight, você pode usar o código R existente e executá-lo em vários nós no `rxExec`cluster usando o. Esta função é útil para fazer varrimentos ou simulações de parâmetros. O código abaixo é um exemplo de como utilizar `rxExec`:
+Com os serviços do ML no HDInsight, você pode usar o código R existente e executá-lo em vários nós no cluster usando `rxExec`. Esta função é útil para fazer varrimentos ou simulações de parâmetros. O código abaixo é um exemplo de como utilizar `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Se você ainda estiver usando o contexto do Spark, esse comando retornará o valor de NodeName para os nós de `(Sys.info()["nodename"])` trabalho em que o código é executado. Por exemplo, em um cluster de quatro nós, você espera receber uma saída semelhante ao trecho a seguir:
+Se você ainda estiver usando o contexto do Spark, esse comando retornará o valor de NodeName para os nós de trabalho em que o código `(Sys.info()["nodename"])` é executado. Por exemplo, em um cluster de quatro nós, você espera receber uma saída semelhante ao trecho a seguir:
 
     $rxElem1
         nodename
@@ -169,13 +169,13 @@ O código abaixo disponibiliza alguns códigos de exemplos de utilização das f
     rxSparkDisconnect(myHadoopCluster)
 
 
-Para obter informações adicionais sobre o `?RxHivedata` uso dessas novas funções, consulte a ajuda online nos serviços do ml por meio do uso dos comandos e. `?RxParquetData`  
+Para obter informações adicionais sobre o uso dessas novas funções, consulte a ajuda online nos serviços do ML por meio do uso dos comandos `?RxHivedata` e `?RxParquetData`.  
 
 ## <a name="install-additional-r-packages-on-the-cluster"></a>Instalar pacotes R adicionais no cluster
 
 ### <a name="to-install-r-packages-on-the-edge-node"></a>Para instalar pacotes do R no nó de borda
 
-Se você quiser instalar pacotes R adicionais no nó de borda, poderá usar `install.packages()` diretamente de dentro do console do r, uma vez conectado ao nó de borda por meio de SSH. 
+Se você quiser instalar pacotes R adicionais no nó de borda, poderá usar `install.packages()` diretamente de dentro do console do R, uma vez conectado ao nó de borda por meio de SSH. 
 
 ### <a name="to-install-r-packages-on-the-worker-node"></a>Para instalar pacotes do R no nó de trabalho
 
@@ -192,11 +192,11 @@ Para instalar pacotes do R nos nós de trabalho do cluster, você deve usar uma 
 
    * Para **nome**, forneça um nome para a ação de script.
 
-     * Para **URI de script bash**, `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`insira. Este é o script que instala pacotes R adicionais no nó de trabalho
+     * Para **URI de script bash**, insira `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Este é o script que instala pacotes R adicionais no nó de trabalho
 
    * Marque a caixa de seleção somente para o **trabalho**.
 
-   * **Parâmetros**: Os pacotes de R a serem instalados. Por exemplo, `bitops stringr arules`
+   * **Parâmetros**: os pacotes de R que vão ser instalados. Por exemplo, `bitops stringr arules`
 
    * Marque a caixa de seleção para **persistir essa ação de script**.  
 

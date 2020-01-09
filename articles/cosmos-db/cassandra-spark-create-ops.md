@@ -1,6 +1,6 @@
 ---
-title: Criar/inserir dados na API de Cassandra do Azure Cosmos DB do Spark
-description: Este artigo mostra em detalhe como inserir dados de exemplo em tabelas Cassandra API do Azure Cosmos DB
+title: Criar ou inserir dados em Azure Cosmos DB API do Cassandra do Spark
+description: Este artigo fornece detalhes sobre como inserir dados de exemplo em tabelas Azure Cosmos DB API do Cassandra
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: aea646e7a390d5b53f0d4b388cfecd0c80fb19da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eb23a3d8b1098110bd8b75faa22cc483637d183
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60894050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442128"
 ---
-# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na API de Cassandra do Azure Cosmos DB do Spark
+# <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados no API do Cassandra de Azure Cosmos DB do Spark
  
-Este artigo descreve como inserir dados de exemplo numa tabela na API de Cassandra do Azure Cosmos DB do Spark.
+Este artigo descreve como inserir dados de exemplo em uma tabela no Azure Cosmos DB API do Cassandra do Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -47,7 +47,7 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 ## <a name="dataframe-api"></a>Pacote de API de dados
 
-### <a name="create-a-dataframe-with-sample-data"></a>Crie um Dataframe com dados de exemplo
+### <a name="create-a-dataframe-with-sample-data"></a>Criar um dataframe com dados de exemplo
 
 ```scala
 // Generate a dataframe containing five records
@@ -67,11 +67,11 @@ booksDF.show
 ```
 
 > [!NOTE]
-> A funcionalidade "Criar se não existir", num nível de linha, ainda não é suportada.
+> A funcionalidade "criar se não existe", em nível de linha, ainda não tem suporte.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Manter-se ao Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir para Azure Cosmos DB API do Cassandra
 
-Ao guardar os dados, também pode definir time-to-live e definições de política de consistência, conforme mostrado no exemplo a seguir:
+Ao salvar dados, você também pode definir as configurações de vida útil e de política de consistência, conforme mostrado no exemplo a seguir:
 
 ```scala
 //Persist
@@ -83,7 +83,7 @@ booksDF.write
 ```
 
 > [!NOTE]
-> TTL de nível de coluna ainda não é suportado.
+> O TTL no nível de coluna ainda não é compatível.
 
 #### <a name="validate-in-cqlsh"></a>Validar no cqlsh
 
@@ -92,7 +92,7 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="resilient-distributed-database-rdd-api"></a>API de resiliente base de dados distribuída (RDD)
+## <a name="resilient-distributed-database-rdd-api"></a>API de RDD (banco de dados distribuído resiliente)
 
 ### <a name="create-a-rdd-with-sample-data"></a>Criar um RDD com dados de exemplo
 ```scala
@@ -114,11 +114,11 @@ booksRDD.take(2).foreach(println)
 ```
 
 > [!NOTE]
-> Criar, se ainda não existe funcionalidade ainda não é suportada.
+> Criar se ainda não houver suporte para a funcionalidade.
 
-### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Manter-se ao Azure Cosmos DB Cassandra API
+### <a name="persist-to-azure-cosmos-db-cassandra-api"></a>Persistir para Azure Cosmos DB API do Cassandra
 
-Ao guardar os dados para a API de Cassandra, também pode definir time-to-live e definições de política de consistência, conforme mostrado no exemplo a seguir:
+Ao salvar dados no API do Cassandra, você também pode definir as configurações de vida útil e de política de consistência, conforme mostrado no exemplo a seguir:
 
 ```scala
 import com.datastax.spark.connector.writer._
@@ -134,11 +134,11 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de inserir dados na tabela Cassandra API do Azure Cosmos DB, avance para os seguintes artigos para executar outras operações nos dados armazenados no Cassandra API do Cosmos DB:
+Depois de inserir dados na tabela Azure Cosmos DB API do Cassandra, vá para os seguintes artigos para executar outras operações nos dados armazenados em Cosmos DB API do Cassandra:
  
-* [operações de leitura](cassandra-spark-read-ops.md)
+* [Operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)
 * [Operações de eliminação](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)

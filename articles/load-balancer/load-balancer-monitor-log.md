@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428838"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs de Azure Monitor para Load Balancer básica pública
 
@@ -34,7 +34,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 > [!IMPORTANT]
 > Os logs de Azure Monitor atualmente só funcionam para balanceadores de carga básicos públicos. Os logs estão disponíveis somente para recursos implantados no modelo de implantação do Gerenciador de recursos. Você não pode usar logs para recursos no modelo de implantação clássico. Para obter mais informações sobre os modelos de implantação, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging"></a>Ativar o registo
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
 
@@ -51,7 +51,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda n�
    * **Transmitir para um hub de eventos**
    * **Enviar para Log Analytics**
 
-    ### <a name="archive-to-a-storage-account"></a>Arquivar em uma conta de armazenamento
+    ### <a name="archive-to-a-storage-account"></a>Arquivar numa conta de armazenamento
     Você precisará de uma conta de armazenamento já criada para esse processo.  Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
     1. Marque a caixa de seleção ao lado de **arquivar em uma conta de armazenamento**.
@@ -60,7 +60,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda n�
     4. Selecione o nome da sua conta de armazenamento em **conta de armazenamento** na caixa de pull. 
     5. Selecione OK.
 
-    ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
+    ### <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
     Você precisará de um hub de eventos já criado para esse processo.  Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando portal do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
     1. Marque a caixa de seleção ao lado de **transmitir para um hub de eventos**
@@ -170,8 +170,8 @@ Conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para
 > [!TIP]
 > Se estiver familiarizado com os conceitos básicos do Visual Studio para alterar os valores de constantes e variáveis em C#, pode utilizar as [ferramentas de conversor de registo](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
-## <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
-Quando as informações de diagnóstico são transmitidas para um hub de eventos, elas podem ser usadas para análise de log centralizada em uma ferramenta SIEM de terceiros com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+## <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
+Quando as informações de diagnóstico são transmitidas para um hub de eventos, elas podem ser usadas para análise de log centralizada em uma ferramenta SIEM de terceiros com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 Os recursos no Azure podem ter suas informações de diagnóstico enviadas diretamente para um espaço de trabalho Log Analytics onde consultas complexas podem ser executadas em relação às informações para solução de problemas e análise.  Para obter mais informações, consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)

@@ -1,24 +1,14 @@
 ---
-title: Atualizar um cluster de Service Fabric do Azure para usar o nome comum do certificado | Microsoft Docs
+title: Atualizar um cluster para usar o nome comum do certificado
 description: Saiba como alternar um Cluster Service Fabric usando impressões digitais de certificado para usar o nome comum do certificado.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: a9e2a2c20a8de4bed3876f431566b293cbfa4ef5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109653"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610204"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster da impressão digital do certificado para o nome comum
 Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Alternar um cluster implantado do uso de impressões digitais de certificado para usar nomes comuns de certificado torna o gerenciamento de certificados muito mais simples. Este artigo descreve como atualizar um Cluster Service Fabric em execução para usar o nome comum do certificado em vez da impressão digital do certificado.

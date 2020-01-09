@@ -1,30 +1,19 @@
 ---
-title: Implantar um aplicativo Service Fabric com integração contínua e Azure Pipelines no Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a configurar a integração e a implantação contínuas para um aplicativo Service Fabric usando o Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Implantar um aplicativo com CI e Azure Pipelines
+description: Neste tutorial, saiba como configurar a integração contínua e implementação para uma aplicação de Service Fabric com Pipelines do Azure.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838961"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614150"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação com CI/CD num cluster do Service Fabric
 
-Este tutorial é a parte quatro de uma série e descreve como configurar a integração e a implantação contínua para um aplicativo de Service Fabric do Azure usando Azure Pipelines.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Compilar uma aplicação .NET](service-fabric-tutorial-create-dotnet-app.md) é utilizada como exemplo.
+Este tutorial é a parte quatro de uma série e descreve como configurar a integração contínua e implementação para uma aplicação de Azure Service Fabric com Pipelines do Azure.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Compilar uma aplicação .NET](service-fabric-tutorial-create-dotnet-app.md) é utilizada como exemplo.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -50,7 +39,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2019](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e **ASP.net e desenvolvimento** para a Web.
 * [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 * Crie um cluster do Windows Service Fabric no Azure, por exemplo, [seguindo este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Crie uma [organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isso permite que você crie um projeto no Azure DevOps e use Azure Pipelines.
+* Crie uma [organização do Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). Isto permite-lhe criar um projeto de DevOps do Azure e utilizar Pipelines do Azure.
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
 
@@ -62,7 +51,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
 
-Agora que já [criou uma aplicação](service-fabric-tutorial-create-dotnet-app.md) e [implementou a aplicação no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação dentro de seu aplicativo para uso pelo processo de implantação executado no Azure Pipelines.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...** .
+Agora que já [criou uma aplicação](service-fabric-tutorial-create-dotnet-app.md) e [implementou a aplicação no Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md), está pronto para configurar a integração contínua.  Em primeiro lugar, prepare um perfil de publicação na sua aplicação para utilização pelo processo de implementação que é executado num Pipelines do Azure.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...** .
 
 Escolha um perfil de destino no seu projeto de aplicação para utilizar para o fluxo de trabalho de integração contínua, por exemplo, a Cloud.  Especifique o ponto final de ligação do cluster.  Marque a caixa de verificação **Atualizar a Aplicação** para que a aplicação seja atualizada para cada implementação no Azure DevOps.  Clique na hiperligação **Guardar** para guardar as definições do perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
 
@@ -84,33 +73,33 @@ Verifique o seu e-mail e selecione a sua conta na lista pendente **Domínio do A
 
 A publicação do repositório cria um novo projeto na sua conta com o mesmo nome que o repositório local. Para criar o repositório num projeto existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto. Pode ver o código na Web, selecionando **Ver na Web**.
 
-## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar a entrega contínua com o Azure Pipelines
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Configurar entrega contínua com Pipelines do Azure
 
 Um pipeline de Build Azure Pipelines descreve um fluxo de trabalho que é composto por um conjunto de etapas de compilação que são executadas sequencialmente. Crie um pipeline de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre [Pipelines de compilação do Azure Pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizados em conjunto, o pipeline de compilação e o pipeline de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre os [pipelines de versão Azure pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizados em conjunto, o pipeline de compilação e o pipeline de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [Pipelines do Azure lançar pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Criar um pipeline de compilação
 
 Abra um browser e navegue até ao novo projeto em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecione a guia **pipelines** , **Builds**e, em seguida, clique em **novo pipeline**.
+Selecione o **Pipelines** separador, em seguida, **baseia-se**, em seguida, clique em **novo Pipeline**.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Azure Repos git** como fonte, projeto de equipe de **votação** , repositório de **votação** e Branch padrão **mestre** para compilações manuais e agendadas.  Em seguida, clique em **Continuar**.
+Selecione **Azure repositórios Git** como origem, **Voting** projeto de equipe **Voting** repositório, e **mestre** ramo predefinido para manual e compilações programadas.  Em seguida, clique em **Continuar**.
 
-![Selecionar repositório][select-repo]
+![Selecione o repositório][select-repo]
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicação do Azure Service Fabric** e clique em **Aplicar**.
 
 ![Escolher o modelo de compilação][select-build-template]
 
-Em **tarefas**, digite "Hosted VS2017" como o **pool de agentes**.
+Na **tarefas**, introduza "Hosted VS2017" como o **conjunto de agentes**.
 
 ![Selecionar tarefas][save-and-queue]
 
-Em **Acionadores**, ative a integração contínua ao selecionar **Ativar a integração contínua**. Em **filtros de ramificação**, a **especificação de ramificação** usa como padrão o **mestre**. Selecione **Guardar e colocar em fila de espera** para iniciar manualmente uma compilação.
+Em **Acionadores**, ative a integração contínua ao selecionar **Ativar a integração contínua**. Dentro **filtros para filiais**, o **ramificar especificação** assume a predefinição **mestre**. Selecione **Guardar e colocar em fila de espera** para iniciar manualmente uma compilação.
 
 ![Selecionar acionadores][save-and-queue2]
 
@@ -118,7 +107,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-pipeline"></a>Criar um pipeline de versão
 
-Selecione a guia **pipelines** , em seguida, **versões**e **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione o **Pipelines** separador, em seguida, **versões**, em seguida, **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -144,7 +133,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 Selecione **+ Versão** -> **Criar uma Versão** -> **Criar** para criar manualmente uma versão. Pode monitorizar o progresso da versão no separador **Versões**.
 
-Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um navegador da Web e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
+Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Consolidar e emitir alterações, acionar uma versão
 
@@ -156,15 +145,15 @@ Na vista **Alterações**, no Team Explorer, adicione uma mensagem que descreva 
 
 ![Consolidar tudo][changes]
 
-Selecione o ícone da barra de estado de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a vista de Sincronização no Team Explorer. Selecione **enviar por push** para atualizar seu código no Azure pipelines.
+Selecione o ícone da barra de estado de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a vista de Sincronização no Team Explorer. Selecione **Push** atualizar seu código em Pipelines do Azure.
 
 ![Emitir alterações][push]
 
-Enviar as alterações para Azure Pipelines dispara automaticamente uma compilação.  Quando o pipeline de compilação for concluído com êxito, é criada automaticamente uma versão e a aplicação no cluster começa a ser atualizada.
+Enviar as alterações para os Pipelines do Azure automaticamente aciona uma compilação.  Quando o pipeline de compilação for concluído com êxito, é criada automaticamente uma versão e a aplicação no cluster começa a ser atualizada.
 
 Para verificar o progresso da compilação, mude para o separador **Compilações** no **Team Explorer** no Visual Studio.  Depois de verificar se a compilação é executada com êxito, defina um pipeline de versão que implementa a aplicação num cluster.
 
-Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um navegador da Web e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
+Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -180,7 +169,7 @@ A atualização de versão da aplicação pode demorar vários minutos. Quando a
 
 ![Service Fabric Explorer][sfx3]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

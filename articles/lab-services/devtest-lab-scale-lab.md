@@ -1,5 +1,5 @@
 ---
-title: Quotas e limites de dimensionamento no seu laboratório no Azure DevTest Labs | Documentos da Microsoft
+title: Dimensionar cotas e limites em seu laboratório no Azure DevTest Labs | Microsoft Docs
 description: Saiba como dimensionar um laboratório no Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,58 +13,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 231a227cbccaa4cbf74f3b13839c0ba42895cf24
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623512"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644856"
 ---
-# <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites de dimensionamento no DevTest Labs
-À medida que trabalha no DevTest Labs, pode observar que existem determinados limites predefinidos a alguns recursos do Azure, o que podem afetar o serviço de DevTest Labs. Estes limites são denominados **quotas**.
+# <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
+Enquanto trabalha no DevTest Labs, você pode observar que há alguns limites padrão para alguns recursos do Azure, que podem afetar o serviço do DevTest Labs. Esses limites são chamados de **cotas**.
 
 > [!NOTE]
-> O serviço de DevTest Labs não impõe quaisquer quotas. Quaisquer quotas que poderá encontrar são restrições predefinidas da subscrição do Azure em geral.
+> O serviço DevTest Labs não impõe nenhuma cota. As cotas que você pode encontrar são restrições padrão da assinatura geral do Azure.
 
-Pode usar cada recurso do Azure até atingir a quota. Cada subscrição tem quotas separadas e a utilização é controlada por subscrição.
+Você pode usar cada recurso do Azure até atingir sua cota. Cada subscrição tem quotas separadas e a utilização é controlada por subscrição.
 
-Por exemplo, cada subscrição tem uma quota predefinida de 20 núcleos. Então, se estiver a criar VMs no seu laboratório com quatro núcleos, pode criar apenas cinco VMs.
+Por exemplo, cada assinatura tem uma cota padrão de 20 núcleos. Portanto, se você estiver criando VMs em seu laboratório com quatro núcleos cada, você só poderá criar cinco VMs.
 
-[Subscrição e limites do serviço do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits) lista algumas das mais comuns quotas para recursos do Azure. Os recursos mais comumente usados num laboratório e, para que pode encontrar as quotas, inclui os núcleos VM, endereços IP públicos, interface de rede, os discos geridos, atribuição de função RBAC e circuitos do ExpressRoute.
+[Os limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) lista algumas das cotas mais comuns para recursos do Azure. Os recursos mais comumente usados em um laboratório e para os quais você pode encontrar cotas, incluem núcleos de VM, endereços IP públicos, interface de rede, Managed disks, atribuição de função RBAC e circuitos de ExpressRoute.
 
-## <a name="view-your-usage-and-quotas"></a>Ver a utilização e quotas
-Estes passos mostram como para ver as quotas atuais na sua subscrição para recursos específicos do Azure e, para ver o percentual de cada quota que utilizou.
+## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
+Estas etapas mostram como exibir as cotas atuais em sua assinatura para recursos específicos do Azure e para ver qual percentual de cada cota você usou.
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **mais serviços**e, em seguida, selecione **faturação** da lista.
-1. No painel de faturação, selecione uma subscrição.
-4. Selecione **utilização + quotas**.
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **mais serviços**e, em seguida, selecione **cobrança** na lista.
+1. Na folha de cobrança, selecione uma assinatura.
+4. Selecione **uso + cotas**.
 
-   ![Botão de utilização e quotas](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
+   ![Botão uso e cotas](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
 
-   A utilização + quotas é apresentado o painel, listagem diferentes recursos disponíveis nessa subscrição e a percentagem da quota que está a ser utilizado por recurso.
+   A folha uso + cotas é exibida, listando diferentes recursos disponíveis nessa assinatura e a porcentagem da cota que está sendo usada por recurso.
 
-   ![Quotas e utilização](./media/devtest-lab-scale-lab/devtestlab-view-quotas.png)
+   ![Cotas e uso](./media/devtest-lab-scale-lab/devtestlab-view-quotas.png)
 
-## <a name="requesting-more-resources-in-your-subscription"></a>Pedir mais recursos na sua subscrição
-Se atingir um limite de quota, o limite predefinido de um recurso numa subscrição pode ser aumentado até um limite máximo, conforme descrito em [subscrição do Azure e limites do serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+## <a name="requesting-more-resources-in-your-subscription"></a>Solicitando mais recursos em sua assinatura
+Se você atingir um limite de cota, o limite padrão de um recurso em uma assinatura poderá ser aumentado até um máximo, conforme descrito em [assinatura do Azure e limites de serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-Estes passos mostram-lhe como pedir um aumento de quota através da [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **mais serviços**, selecione **faturação**e, em seguida, selecione **utilização + quotas**.
-1. Na utilização + quotas painel, selecione o **pedir aumentar** botão.
+1. Selecione **mais serviços**, selecione **cobrança**e, em seguida, selecione **uso + cotas**.
+1. Na folha uso + cotas, selecione o botão **solicitar aumento** .
 
-   ![Botão de aumento de pedido](./media/devtest-lab-scale-lab/devtestlab-request-increase.png)
+   ![Botão solicitar aumento](./media/devtest-lab-scale-lab/devtestlab-request-increase.png)
 
-1. Para concluir e submeter o pedido, preencha as informações necessárias em todos os três separadores do **novo pedido de suporte** formulário.
+1. Para concluir e enviar a solicitação, preencha as informações necessárias em todas as três guias do formulário **nova solicitação de suporte** .
 
-   ![Formulário de pedido de aumento](./media/devtest-lab-scale-lab/devtestlab-support-form.png)
+   ![Formulário de solicitação de aumento](./media/devtest-lab-scale-lab/devtestlab-support-form.png)
 
-[Compreender limites do Azure e aumenta](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) fornece mais informações sobre como contactar o suporte do Azure para pedir um aumento de quota.
+[Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) fornece mais informações sobre como contatar o suporte do Azure para solicitar um aumento de cota.
 
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>Passos Seguintes
-* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+### <a name="next-steps"></a>Passos seguintes
+* Explore a [Galeria de modelos do DevTest Labs Azure Resource Manager guia de início rápido](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

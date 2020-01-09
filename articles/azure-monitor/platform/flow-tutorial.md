@@ -4,15 +4,15 @@ description: Saiba como você pode usar Microsoft Flow para automatizar rapidame
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
-ms.openlocfilehash: c74ff0f4d23df8f906870c3810a699db254d70b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3c1df04e96aff55ae5b9f7130b1593638e3ea1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395068"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de log de Azure Monitor com o conector para Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) permite que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. A saída de uma ação pode ser usada como entrada para outra, permitindo que você crie a integração entre diferentes serviços.  O conector do Log Analytics do Azure para Microsoft Flow permite que você crie fluxos de trabalho que incluem dados recuperados por consultas de log de um espaço Log Analytics no Azure Monitor.
@@ -36,7 +36,7 @@ O tutorial neste artigo mostra como criar um fluxo que envia automaticamente os 
 
 
 ## <a name="step-3-add-a-log-analytics-action"></a>Etapa 3: adicionar uma ação de Log Analytics
-1. Clique em **+ nova etapa**e, em seguida, clique em **Adicionar uma ação**.
+1. Clique em **+ Novo passo** e, em seguida, clique em **Adicionar uma ação**.
 2. Procure **log Analytics**.
 3. Clique em **log Analytics do Azure – executar consulta e Visualizar resultados**.<br><br>![Log Analytics janela de consulta de execução](media/flow-tutorial/flow02.png)
 

@@ -1,17 +1,17 @@
 ---
-title: Inicializar o hardware-Microsoft Azure FXT Edge infiler
+title: 'Tutorial: inicializar hardware – Azure FXT Edge Filer'
 description: Como definir uma senha inicial nos nós de filer do Azure FXT Edge
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256011"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550896"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Tutorial: definir senhas de hardware
 
@@ -94,7 +94,7 @@ Re-enter password:**********
 Loading AvereOS......
 ```
 
-Depois de inserir a senha, o sistema continuará a inicialização. Quando ele é concluído, ele fornece um prompt ``login:``. 
+Depois de inserir a senha, o sistema continuará a inicialização. Quando ele for concluído, ele fornecerá um prompt de ``login:``. 
 
 ## <a name="sign-in-as-root"></a>Entrar como raiz
 

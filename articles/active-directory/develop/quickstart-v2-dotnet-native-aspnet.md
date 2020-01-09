@@ -1,6 +1,6 @@
 ---
-title: Chamar o Azure AD Protected ASP.NET Web API-plataforma de identidade da Microsoft
-description: Neste guia de início rápido, saiba como chamar uma API Web ASP.NET protegida por Azure Active Directory de um aplicativo de área de trabalho do Windows (WPF). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API da Web.
+title: Chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft
+description: Neste guia de início rápido, saiba como chamar uma API Web ASP.NET protegida pela plataforma de identidade da Microsoft de um aplicativo de área de trabalho do Windows (WPF). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API da Web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c6c51b0a7ae7255391fd35d234b5ee47b7a9525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424042"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Início rápido: chamar um ASP.NET Web API protegido pelo Azure AD
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Início rápido: chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft
 
-Neste guia de início rápido, você expõe uma API da Web e a protege para que somente o usuário autenticado possa acessá-la. Este exemplo mostra como expor um ASP.NET Web API para que ele possa aceitar tokens emitidos por contas pessoais (incluindo outlook.com, live.com e outros), bem como contas corporativas e de estudante de qualquer empresa ou organização integrada ao Azure Active Directory.
+Neste guia de início rápido, você expõe uma API da Web e a protege para que somente o usuário autenticado possa acessá-la. Este exemplo mostra como expor um ASP.NET Web API para que ele possa aceitar tokens emitidos por contas pessoais (incluindo outlook.com, live.com e outros), bem como contas corporativas e de estudante de qualquer empresa ou organização integrada ao Microsoft Identity plataforma.
 
 O exemplo também inclui um cliente do WPF (aplicativo de área de trabalho do Windows) que demonstra como você pode solicitar um token de acesso para acessar uma API da Web.
 
@@ -76,7 +76,7 @@ Se você quiser registrar seus aplicativos manualmente, como uma primeira etapa,
      - Manter **estado** como **habilitado**
      - Selecione **Adicionar escopo**
 
-### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>Configurar os projetos de serviço e cliente para que correspondam à API Web registrada 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurar o projeto de serviço para corresponder à API Web registrada 
 
 1. Abra a solução no Visual Studio e, em seguida, abra o arquivo **Web. config** na raiz do projeto **TodoListService** .
 1. Substitua o valor do parâmetro `ida:ClientId` pela **ID do cliente (ID do aplicativo)** do aplicativo que você acabou de registrar no portal de registro do aplicativo.
@@ -104,7 +104,7 @@ Nesta etapa, você configura o projeto *TodoListClient* registrando um novo apli
    - Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional**.
    - Selecione **Registar** para criar a aplicação.
 1. Na página Visão geral do aplicativo, selecione a seção **autenticação** .
-   - Na seção **redirecionar urls** | **redirecionar URLs sugeridas para clientes públicos (móvel, área de trabalho)** , marque **urn: IETF: WG: OAuth: 2.0: OOB**
+   - Na seção **redirecionar uris** | **URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - Selecione **Guardar**.
 1. Selecione a seção **permissões de API**
    - Clique no botão **Adicionar uma permissão** e, em seguida,

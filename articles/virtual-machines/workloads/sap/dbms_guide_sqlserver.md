@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328299"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645808"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server implantação de DBMS de máquinas virtuais do Azure para SAP NetWeaver
 
@@ -77,8 +77,8 @@ ms.locfileid: "74328299"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "74328299"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74328299"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -489,7 +489,7 @@ Se um domínio não for possível, também será possível usar certificados par
 
 Um tutorial para configurar o espelhamento de banco de dados no Azure pode ser encontrado aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
-### <a name="sql-server-always-on"></a>SQL Server Always On
+### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Como Always On tem suporte para SAP local (consulte a observação SAP [1772688]), há suporte em combinação com o SAP no Azure. Há algumas considerações especiais sobre a implantação do ouvinte do grupo de disponibilidade SQL Server (não deve ser confundido com o conjunto de disponibilidade do Azure), já que o Azure neste momento não permite a criação de um objeto AD/DNS, pois ele é possível localmente. Portanto, algumas etapas de instalação diferentes são necessárias para superar o comportamento específico do Azure.
 
 Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade são:
@@ -552,7 +552,7 @@ Há muitas recomendações neste guia e recomendamos que você leia mais de uma 
 1. Use a versão mais recente do DBMS, como SQL Server 2017, que tem mais vantagens no Azure. 
 2. Planeje cuidadosamente seu cenário do sistema SAP no Azure para balancear o layout do arquivo de dados e as restrições do Azure:
    * Não tenha muitos discos, mas tenha o suficiente para garantir que você possa acessar o IOPS necessário.
-   * Se você não usar Managed Disks, lembre-se de que o IOPS também é limitado por conta de armazenamento do Azure e que as contas de armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-subscription-service-limits]). 
+   * Se você não usar Managed Disks, lembre-se de que o IOPS também é limitado por conta de armazenamento do Azure e que as contas de armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-resource-manager/management/azure-subscription-service-limits]). 
    * Somente distribua entre discos se você precisar obter uma taxa de transferência mais alta.
 3. Nunca instale software ou coloque arquivos que exijam persistência no D:\ como não permanente, qualquer coisa nessa unidade é perdida na reinicialização do Windows.
 4. Não use o cache de disco para o armazenamento standard do Azure.

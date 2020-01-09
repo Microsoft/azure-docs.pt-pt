@@ -3,18 +3,18 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230862"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613063"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimando os custos do plano de consumo
 
-Atualmente, há três tipos de planos de hospedagem para um aplicativo executado no Azure Functions, com cada plano com seu próprio modelo de preços: 
+Atualmente, há três tipos de planos de hospedagem para um aplicativo que é executado no Azure Functions, com cada plano com seu próprio modelo de preços: 
 
-| Planear | Descrição |
+| Plano | Descrição |
 | ---- | ----------- |
 | [**Utilização**](functions-scale.md#consumption-plan) | Você é cobrado apenas pelo tempo em que seu aplicativo de funções é executado. Esse plano inclui uma[página de preços] de [concessão gratuita]em uma base por assinatura.|
 | [**Especiais**](functions-scale.md#premium-plan) | Fornece os mesmos recursos e mecanismo de dimensionamento que o plano de consumo, mas com o desempenho aprimorado e o acesso à VNET. O custo é baseado no tipo de preço escolhido. Para saber mais, confira [Azure Functions plano Premium](functions-premium-plan.md). |
@@ -81,7 +81,7 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
     | Subscrição    |  A sua subscrição  | A assinatura com seu aplicativo de funções.  |
     | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços Aplicacionais | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
-    | Resource     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
+    | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 
 1. Selecione **aplicar** para escolher o aplicativo de funções como o recurso a ser monitorado.
 
@@ -188,7 +188,7 @@ Esse comando retorna uma carga JSON semelhante ao exemplo a seguir:
   ]
 }
 ```
-Essa resposta específica mostra que de `2019-09-11T21:46` para `2019-09-11T23:18`, durante o qual o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
+Essa resposta específica mostra que de `2019-09-11T21:46` para `2019-09-11T23:18`, o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
 
 ## <a name="determine-memory-usage"></a>Determinar o uso de memória
 
@@ -208,12 +208,12 @@ Os resultados são semelhantes ao exemplo a seguir:
 
 | carimbo de data/hora \[UTC\]          | nome          | valor       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | Bytes particulares | 209.932.288 |
-| 9/12/2019, 1:06:14\.994 AM | Bytes particulares | 212.189.184 |
-| 9/12/2019, 1:06:30\.010 | Bytes particulares | 231.714.816 |
-| 9/12/2019, 1:07:15\.040 AM | Bytes particulares | 210.591.744 |
-| 9/12/2019, 1:12:16\.285 AM | Bytes particulares | 216.285.184 |
-| 9/12/2019, 1:12:31\.376 AM | Bytes particulares | 235.806.720 |
+| 9/12/2019, 1:05:14\.947 AM | Bytes Privados | 209.932.288 |
+| 9/12/2019, 1:06:14\.994 AM | Bytes Privados | 212.189.184 |
+| 9/12/2019, 1:06:30\.010 | Bytes Privados | 231.714.816 |
+| 9/12/2019, 1:07:15\.040 AM | Bytes Privados | 210.591.744 |
+| 9/12/2019, 1:12:16\.285 AM | Bytes Privados | 216.285.184 |
+| 9/12/2019, 1:12:31\.376 AM | Bytes Privados | 235.806.720 |
 
 ## <a name="function-level-metrics"></a>Métricas de nível de função
 
@@ -232,7 +232,7 @@ customMetrics
 | QueueTrigger MaxDurationMs | 90\.249                     |
 | QueueTrigger MinDurationMs | 8\.522                      |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre como monitorar aplicativos de funções](functions-monitoring.md)

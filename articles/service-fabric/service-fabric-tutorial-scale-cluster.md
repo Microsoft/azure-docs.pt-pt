@@ -1,26 +1,15 @@
 ---
-title: Dimensionar um cluster do Service Fabric no Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a dimensionar um Cluster Service Fabric no Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Dimensionar um Cluster Service Fabric no Azure
+description: Neste tutorial, você aprenderá a dimensionar um Cluster Service Fabric no Azure para dentro e para fora e como limpar recursos restantes.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177742"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639059"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -66,8 +55,8 @@ Ao dimensionar um cluster do Azure, tenha em mente as seguintes diretrizes:
 
 * Um único tipo de nó de Service Fabric/conjunto de dimensionamento não pode conter mais de 100 nós/VMs.  Para dimensionar um cluster além de 100 nós, adicione outros tipos de nó.
 * Os tipos de nó primários que executam cargas de trabalho de produção devem ter um [nível de durabilidade][durability] ouro ou prata e ter sempre cinco ou mais nós.
-* Os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
-* Os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
+* os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
+* os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
 * Qualquer tipo de nó de [nível de durabilidade][durability] Gold ou prata sempre deve ter cinco ou mais nós.
 * Se estiver dimensionando (removendo nós de) um tipo de nó primário, você nunca deverá diminuir o número de instâncias para menos do que o [nível de confiabilidade][reliability] requer.
 
@@ -91,9 +80,9 @@ A colocação em escala horizontal e vertical ou dimensionamento vertical altera
 
 ### <a name="update-the-template"></a>Atualizar o modelo
 
-[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster e três parâmetros que definem o número de nós para cada tipo de nó: *nt0InstanceCount*, *nt1InstanceCount*e  *nt2InstanceCount*.  O parâmetro *nt1InstanceCount* , por exemplo, define a contagem de instâncias para o segundo tipo de nó e define o número de VMs no conjunto de dimensionamento de máquinas virtuais associado.
+[Exporte um modelo e arquivo de parâmetros](#export-the-template-for-the-resource-group) do grupo de recursos para a implantação mais recente.  Abra o arquivo *Parameters. JSON* .  Se você implantou o cluster usando o [modelo de exemplo][template] neste tutorial, há três tipos de nó no cluster e três parâmetros que definem o número de nós para cada tipo de nó: *nt0InstanceCount*, *nt1InstanceCount*e *nt2InstanceCount*.  O parâmetro *nt1InstanceCount* , por exemplo, define a contagem de instâncias para o segundo tipo de nó e define o número de VMs no conjunto de dimensionamento de máquinas virtuais associado.
 
-Portanto, ao atualizar o valor de *nt1InstanceCount* , você altera o número de nós no segundo tipo de nó.  Lembre-se de que você não pode dimensionar um tipo de nó para mais de 100 nós.  Os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. Os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
+Portanto, ao atualizar o valor de *nt1InstanceCount* , você altera o número de nós no segundo tipo de nó.  Lembre-se de que você não pode dimensionar um tipo de nó para mais de 100 nós.  os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. os tipos de nó não primário que executam cargas de trabalho de produção sem monitoração de estado sempre devem ter dois ou mais nós.
 
 Se você estiver dimensionando, removendo nós de, um tipo de nó de [nível de durabilidade][durability] bronze, deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para a camada de durabilidade prata e ouro, essas etapas são feitas automaticamente pela plataforma.
 
@@ -387,6 +376,20 @@ No arquivo *Template. JSON* , adicione novos recursos de grupo de segurança de 
     },
     "properties": {
         "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {

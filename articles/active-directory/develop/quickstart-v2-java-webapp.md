@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920706"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549946"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Java
 
@@ -61,7 +61,7 @@ Para executar este exemplo, você precisará de:
 >    - Deixe **URI de redirecionamento** em branco por enquanto e selecione **registrar**.
 > 1. Na página **visão geral** , localize a **ID do aplicativo (cliente)** e os valores de **ID do diretório (locatário)** do aplicativo. Copie esses valores para mais tarde.
 > 1. Selecione a **autenticação** no menu e, em seguida, adicione as seguintes informações:
->    - Em **URIs de redirecionamento**, adicione `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
+>    - Em **URIs de redirecionamento**, adicione `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me`.
 >    - Selecione **Guardar**.
 > 1. Selecione os **certificados & segredos** no menu e, na seção **segredos do cliente** , clique em **novo segredo do cliente**:
 >
@@ -121,7 +121,7 @@ Se você estiver executando o aplicativo Web de um IDE, clique em executar e nav
 
 1. Na página frontal, selecione o botão de **logon** para redirecionar para Azure Active Directory e solicite ao usuário suas credenciais.
 
-1. Depois que o usuário é autenticado, ele é redirecionado para *http://localhost:8080/msal4jsamples/secure/aad* . Agora eles estão conectados e a página mostrará informações sobre a conta conectada. A interface do usuário de exemplo tem os seguintes botões:
+1. Depois que o usuário é autenticado, ele é redirecionado para *http://localhost:8080/msal4jsample/secure/aad* . Agora eles estão conectados e a página mostrará informações sobre a conta conectada. A interface do usuário de exemplo tem os seguintes botões:
     - *Sair*: assina o usuário atual do aplicativo e os redireciona para o Home Page.
     - *Mostrar informações do usuário*: adquire um token para Microsoft Graph e chama Microsoft Graph com uma solicitação que contém o token, que retorna informações básicas sobre o usuário conectado.
 

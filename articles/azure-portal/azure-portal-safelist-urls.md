@@ -3,18 +3,18 @@ title: As URLs de portal do Azure imsafelist | Microsoft Docs
 description: Adicione essas URLs ao bypass do servidor proxy para se comunicar com o portal do Azure e seus serviços
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4f4badbd923b10cf2cd66f7df9742a6bc657a01c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218050"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637547"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>ProSafe a portal do Azure URLs no seu firewall ou servidor proxy
 
@@ -47,7 +47,7 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[RELATIVAS Nuvem governamental](#tab/us-government-cloud)
+#### <a name="us-government-cloudtabus-government-cloud"></a>[Nuvem do governo dos EUA](#tab/us-government-cloud)
 ```
 *.azure.us
 *.loganalytics.us
@@ -80,7 +80,7 @@ Os pontos de extremidade de URL para a lista segura para os portal do Azure são
 Precisa de endereços IP de resafelist? Baixe a lista de intervalos de IP do datacenter Microsoft Azure para sua nuvem:
 
 * [Pelo](https://www.microsoft.com/download/details.aspx?id=56519)
-* [RELATIVAS Instituições](https://www.microsoft.com/download/details.aspx?id=57063)
+* [Governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
 * [China](https://www.microsoft.com/download/details.aspx?id=57062)
 

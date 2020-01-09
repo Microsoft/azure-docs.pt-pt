@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950470"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647412"
 ---
-# <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
+# <a name="what-is-azure-iot-hub"></a>O que é o Hub IoT do Azure?
 
 O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de mensagens para assegurar a comunicação bidirecional entre a aplicação IoT e os dispositivos que esta gere. Pode utilizar o Hub IoT do Azure para criar soluções de IoT com comunicações fiáveis e seguras entre milhões de dispositivos IoT e um back-end de solução alojado na cloud. Pode ligar praticamente qualquer dispositivo ao Hub IoT.
 
@@ -25,7 +25,7 @@ O Hub IoT ajuda-o a criar soluções de IoT dimensionáveis e com todas as funci
 
 ## <a name="scale-your-solution"></a>Dimensionar a sua solução
 
-O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. Para obter mais informações sobre como dimensionar o Hub IoT, consulte dimensionamento do [Hub IOT](iot-hub-scaling.md?branch=release-iotbasic). Para saber mais sobre as várias camadas de serviço oferecidas pelo Hub IoT e como se ajustar melhor às suas necessidades de escalabilidade, confira a [página de preços](https://azure.microsoft.com/pricing/details/iot-hub/).
+O Hub IoT dimensiona milhões de dispositivos ligados em simultâneo e milhões de eventos por segundo para suportar as suas cargas de trabalho de IoT. Para obter mais informações sobre como dimensionar o Hub IoT, consulte [dimensionamento do Hub IOT](iot-hub-scaling.md?branch=release-iotbasic). Para saber mais sobre as várias camadas de serviço oferecidas pelo Hub IoT e como se ajustar melhor às suas necessidades de escalabilidade, confira a [página de preços](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Comunicações protegidas
 
@@ -81,7 +81,7 @@ Pode gerir os dispositivos ligados ao Hub IoT com uma matriz de funcionalidade i
 
 Existe um [Contrato de Nível de Serviço para o Hub IoT](https://azure.microsoft.com/support/legal/sla/iot-hub/) de 99,9%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/) completo explica a disponibilidade garantida do Azure em termos globais.
 
-## <a name="connect-your-devices"></a>Ligar os dispositivos
+## <a name="connect-your-devices"></a>Ligue os seus dispositivos
 
 Utilize as bibliotecas do [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) para criar aplicações que são executadas nos seus dispositivos e que interagem com o Hub IoT. As plataformas suportadas incluem múltiplas distribuições do Linux, Windows e sistemas operativos em tempo real. As linguagens suportadas incluem:
 
@@ -111,12 +111,16 @@ Se a sua solução não conseguir utilizar um dos protocolos suportados, pode ex
 
 Cada subscrição do Azure tem limites de quota predefinidos para evitar o abuso do serviço, pelo que estes limites podem afetar o âmbito da sua solução de IoT. O limite atual em uma base por assinatura é de 50 hubs IoT por assinatura. Pode contactar o suporte para pedir o aumento da quota. Para obter mais informações, consulte [limitação e cotas do Hub IOT](iot-hub-devguide-quotas-throttling.md). Para obter mais detalhes sobre os limites de cota, consulte um dos seguintes artigos:
 
-* [Limites de serviço da subscrição do Azure](../azure-subscription-service-limits.md)
+* [Limites de serviço da subscrição do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [A limitação do Hub IoT e o que significa para si](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para experimentar uma solução de IoT ponto a ponto, veja os guias de início rápido do Hub IoT:
 
-* [Quickstart: Enviar telemetria de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md)
+* [Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md)
+
+Para saber mais sobre as maneiras como você pode criar e implantar soluções de IoT com o Azure IoT, visite:
+
+* [Conceitos básicos: tecnologias e soluções do Azure IOT](../iot-fundamentals/iot-services-and-technologies.md).

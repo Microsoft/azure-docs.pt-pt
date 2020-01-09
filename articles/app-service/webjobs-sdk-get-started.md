@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684185"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640851"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
 
@@ -399,7 +399,7 @@ Para aproveitar o log de [Application insights](../azure-monitor/app/app-insight
 
 Nesta seção, você executará novamente localmente para verificar se os dados de log agora vão Application Insights e também para o console.
 
-1. Use **Gerenciador de servidores** no Visual Studio para criar uma mensagem da fila, da mesma maneira que fazia [anteriormente](#trigger-the-function-in-azure), exceto inserir *Hello app insights!* como o texto da mensagem.
+1. Use **Gerenciador de servidores** no Visual Studio para criar uma mensagem da fila como você fez [anteriormente](#test-locally), exceto inserir *Hello app insights!* como o texto da mensagem.
 
 1. Execute o projeto.
 
@@ -407,13 +407,15 @@ Nesta seção, você executará novamente localmente para verificar se os dados 
 
 1. Feche a janela do console.
 
-1. Abra o [portal do Azure](https://portal.azure.com/)e vá para o recurso de Application insights.
+1. Vá para a [portal do Azure](https://portal.azure.com/) para exibir o recurso de Application insights. Procure e selecione **Application insights**.
+
+1. Escolha sua instância de Application Insights.
 
 1. Selecione **Pesquisar**.
 
    ![Selecionar pesquisa](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Se você não vir o *Hello app insights!* , selecione **Atualizar** periodicamente por vários minutos. (Os logs não aparecem imediatamente porque leva algum tempo para que o cliente do Application Insights libere os logs que ele processa.)
+1. Se você não vir o *Hello app insights!* , selecione **Atualizar** periodicamente por vários minutos. (Os logs não aparecem imediatamente, pois leva algum tempo para que o cliente do Application Insights libere os logs que ele processa.)
 
    ![Logs em Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

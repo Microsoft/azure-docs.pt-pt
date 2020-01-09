@@ -1,54 +1,45 @@
 ---
-title: Depurar a sua aplicação do Azure Service Fabric no Eclipse | Documentos da Microsoft
-description: Melhore a fiabilidade e desempenho dos seus serviços ao desenvolver e depurá-los no Eclipse num cluster de desenvolvimento local.
-services: service-fabric
-documentationcenter: .net
+title: Depurar seu aplicativo no Eclipse
+description: Melhore a confiabilidade e o desempenho de seus serviços desenvolvendo e Depurando-os no Eclipse em um cluster de desenvolvimento local.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393593"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614490"
 ---
-# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar a sua aplicação Java do Service Fabric com o Eclipse
+# <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar seu aplicativo Java Service Fabric usando o eclipse
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. Iniciar um cluster de desenvolvimento local ao seguir os passos em [como configurar o ambiente de desenvolvimento do Service Fabric](service-fabric-get-started-linux.md).
+1. Inicie um cluster de desenvolvimento local seguindo as etapas em [configurando seu ambiente de desenvolvimento de Service Fabric](service-fabric-get-started-linux.md).
 
-2. Atualize entryPoint.sh do serviço que pretende depurar, para que ele inicia o processo de java com parâmetros de depuração remota. Este ficheiro pode ser encontrado na seguinte localização: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. A porta 8001 está definida para depuração neste exemplo.
+2. Atualize entryPoint.sh do serviço que você deseja depurar, para que ele inicie o processo Java com os parâmetros de depuração remota. Esse arquivo pode ser encontrado no seguinte local: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. A porta 8001 está definida para depuração neste exemplo.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Atualize o manifesto da aplicação ao definir a contagem de instâncias ou de réplicas para o serviço que está a ser depurado como 1. Esta definição evita conflitos na porta utilizada para depuração. Por exemplo, para serviços sem estado, defina `InstanceCount="1"` e para serviços com estado, defina os tamanhos de destino e de réplica mínimos como 1 da seguinte forma: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
+3. Atualize o manifesto do aplicativo definindo a contagem de instâncias ou a contagem de réplicas para o serviço que está sendo depurado como 1. Esta definição evita conflitos na porta utilizada para depuração. Por exemplo, para serviços sem estado, defina `InstanceCount="1"` e para serviços com estado, defina os tamanhos de destino e de réplica mínimos como 1 da seguinte forma: `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
-4. Implemente a aplicação.
+4. Implementar a aplicação.
 
-5. No Eclipse IDE, selecione **executar -> configurações de depuração -> aplicação Java remota e propriedades de ligação de entrada** e defina as propriedades da seguinte forma:
+5. No IDE do eclipse, selecione **executar-> configurações de depuração-> aplicativo Java remoto e propriedades de conexão de entrada** e defina as propriedades da seguinte maneira:
 
    ```
    Host: ipaddress
    Port: 8001
    ```
-6.  Defina pontos de interrupção em pontos pretendidos e depurar a aplicação.
+6.  Defina os pontos de interrupção nas pontas desejadas e depure o aplicativo.
 
-Se o aplicativo está falhando, pode também querer ativar coredumps. Executar `ulimit -c` numa shell e se ele retorna 0, então coredumps não estão ativadas. Para ativar coredumps ilimitado, execute o seguinte comando: `ulimit -c unlimited`. Também pode verificar o estado com o comando `ulimit -a`.  Se quiser atualizar o caminho de geração de coredump, executar `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
+Se o aplicativo estiver falhando, talvez você também queira habilitar o os despejos. Execute `ulimit -c` em um shell e, se ele retornar 0, os despejos não estará habilitado. Para habilitar os despejos ilimitados, execute o seguinte comando: `ulimit -c unlimited`. Você também pode verificar o status usando o comando `ulimit -a`.  Se você quisesse atualizar o caminho de geração de despejo, execute `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`. 
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Passos seguintes
 
-* [Recolher registos com o diagnóstico do Linux do Azure](service-fabric-diagnostics-how-to-setup-lad.md).
-* [Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+* [Coletar logs usando o diagnóstico do Azure do Linux](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

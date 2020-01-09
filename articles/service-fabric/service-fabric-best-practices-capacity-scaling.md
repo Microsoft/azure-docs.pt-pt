@@ -1,25 +1,16 @@
 ---
-title: Planejamento de capacidade e dimensionamento para o Azure Service Fabric | Microsoft Docs
+title: Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 description: Práticas recomendadas para planejamento e dimensionamento de Service Fabric clusters e aplicativos.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377468"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -57,7 +48,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 O dimensionamento vertical de um conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva. Em vez disso, dimensione horizontalmente o cluster adicionando um novo conjunto de dimensionamento com o SKU desejado. Em seguida, migre seus serviços para a SKU desejada para concluir uma operação de dimensionamento vertical segura. A alteração de um SKU de recurso do conjunto de dimensionamento de máquinas virtuais é uma operação destrutiva porque recria a imagem de seus hosts, o que remove todos os Estados persistentes localmente.
 
-O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Quando você estiver dimensionando verticalmente seu tipo de nó primário, declare valores de `"nodeTypeRef"`Propriedade idênticos para. Você pode encontrar esses valores na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais. 
+O cluster usa [as propriedades do nó Service Fabric e as restrições de posicionamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) para decidir onde hospedar os serviços do aplicativo. Quando você estiver dimensionando verticalmente seu tipo de nó primário, declare valores de propriedade idênticos para `"nodeTypeRef"`. Você pode encontrar esses valores na extensão de Service Fabric para conjuntos de dimensionamento de máquinas virtuais. 
 
 O trecho a seguir de um modelo do Resource Manager mostra as propriedades que você irá declarar. Ele tem o mesmo valor para os conjuntos de dimensionamento recém provisionados para os quais você está Dimensionando e tem suporte apenas como um serviço com estado temporário para o cluster.
 
@@ -68,22 +59,22 @@ O trecho a seguir de um modelo do Resource Manager mostra as propriedades que vo
 ```
 
 > [!NOTE]
-> Não deixe o cluster em execução com vários conjuntos de dimensionamento que `nodeTypeRef` usam o mesmo valor de propriedade mais longo do que o necessário para concluir uma operação de dimensionamento vertical bem-sucedida.
+> Não deixe o cluster em execução com vários conjuntos de dimensionamento que usam o mesmo valor de propriedade `nodeTypeRef` mais longo do que o necessário para concluir uma operação de dimensionamento vertical bem-sucedida.
 >
 > Sempre valide as operações em ambientes de teste antes de tentar as alterações no ambiente de produção. Por padrão, Service Fabric serviços do sistema de cluster têm uma restrição de posicionamento apenas para o tipo de nó primário de destino.
 
 Com as propriedades de nó e as restrições de posicionamento declaradas, siga as etapas a seguir uma instância de VM por vez. Isso permite que os serviços do sistema (e seus serviços com estado) sejam desligados normalmente na instância de VM que você está removendo à medida que novas réplicas são criadas em outro lugar.
 
-1. No PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
+1. No PowerShell, execute `Disable-ServiceFabricNode` com `RemoveNode` de intenção para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
 2. Execute `Get-ServiceFabricNode` para certificar-se de que o nó está em transição para desabilitado. Caso contrário, aguarde até que o nó está desabilitado. Isso pode levar algumas horas para cada nó. Não continue até que o nó seja transferido para desabilitado.
 3. Diminua o número de VMs por um nesse tipo de nó. A instância de VM mais alta agora será removida.
 4. Repita os passos 1 a 3 conforme necessário, mas nunca reduzir verticalmente o número de instâncias, os tipos de nó primário, de menos do que o que justifica o escalão de fiabilidade. Consulte [planejando a capacidade de cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 5. Depois que todas as VMs estiverem ausentes (representadas como "inativas"), o Fabric:/System/InfrastructureService/[nome do nó] mostrará um estado de erro. Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo ARM ou editar o recurso de cluster por meio do [Azure Resource Manager](https://resources.azure.com). Isso iniciará uma atualização de cluster, o que removerá o serviço Fabric:/System/InfrastructureService/[nó Type] que está em estado de erro.
- 6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com `Remove-ServiceFabricNodeState` o comando.
+ 6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com `Remove-ServiceFabricNodeState` comando.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento horizontal
 
-Você pode fazer o dimensionamento horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou programaticamente. [](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
+Você pode fazer o dimensionamento horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou [programaticamente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > Se você estiver dimensionando um tipo de nó que tem durabilidade prata ou ouro, o dimensionamento será lento.
@@ -117,7 +108,7 @@ O dimensionamento no requer mais consideração do que escalar horizontalmente. 
 
 Para dimensionar manualmente, siga estas etapas:
 
-1. No PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
+1. No PowerShell, execute `Disable-ServiceFabricNode` com `RemoveNode` de intenção para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
 2. Execute `Get-ServiceFabricNode` para certificar-se de que o nó está em transição para desabilitado. Caso contrário, aguarde até que o nó está desabilitado. Isso pode levar algumas horas para cada nó. Não continue até que o nó seja transferido para desabilitado.
 3. Diminua o número de VMs por um nesse tipo de nó. A instância de VM mais alta agora será removida.
 4. Repita as etapas 1 a 3, conforme necessário, até que você provisione a capacidade desejada. Não reduza verticalmente o número de instâncias nos tipos de nó primários para menos do que a camada de confiabilidade garante. Consulte [planejando a capacidade de cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
@@ -149,7 +140,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Desative e remova o nó usando a mesma `FabricClient` instância (`client` nesse caso) e a instância de nó`instanceIdString` (nesse caso) que você usou no código anterior:
+Desative e remova o nó usando a mesma instância de `FabricClient` (`client` nesse caso) e a instância de nó (`instanceIdString` nesse caso) que você usou no código anterior:
 
 ```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -185,10 +176,10 @@ O [nível de confiabilidade](https://docs.microsoft.com/azure/service-fabric/ser
 
 O nível de confiabilidade determinará o número mínimo de nós que seu tipo de nó primário deve ter. A camada de confiabilidade pode ter os seguintes valores:
 
-* Platinum Executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete e nove nós de semente.
-* Setor Executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete e sete nós de semente.
-* Prata Executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de cinco e cinco nós de semente.
-* Bronze: Executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de três e três nós de semente.
+* Platina: executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete e nove nós de semente.
+* Ouro: executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete e sete nós de semente.
+* Prata: executa os serviços do sistema com uma contagem de conjuntos de réplicas de destino de cinco e cinco nós de semente.
+* Bronze: executa os serviços do sistema com uma contagem de conjunto de réplicas de destino de três e três nós de semente.
 
 O nível de confiabilidade mínimo recomendado é prata.
 
@@ -222,7 +213,7 @@ O nível de durabilidade deve ser definido em dois recursos. Um é o perfil de e
 }
 ```
 
-O outro recurso está sob `nodeTypes` o [recurso Microsoft. perfabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
+O outro recurso está em `nodeTypes` no [recurso Microsoft. perfabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters): 
 
 ```json
 "nodeTypes": [
@@ -233,10 +224,10 @@ O outro recurso está sob `nodeTypes` o [recurso Microsoft. perfabric/clusters](
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Criar um cluster em VMs ou computadores que executam o Linux: [Crie um cluster do Linux](service-fabric-cluster-creation-via-portal.md).
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação de cluster para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Criar um cluster em VMs ou computadores que executam [o Linux: criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md).
 * Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

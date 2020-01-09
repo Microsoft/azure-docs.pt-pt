@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075955"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644941"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -65,11 +65,11 @@ Definimos duas regras:
 | Regra | Front-end do mapa | Para o pool de back-end |
 | --- | --- | --- |
 | 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIPs](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocol | porta | Destino | porta |
+| Regra | Endereço IP Front-end | protocol | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra roxa](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -117,7 +117,7 @@ Definimos duas regras:
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocol | porta | Destino | porta |
+| Regra | Endereço IP Front-end | protocol | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |igual ao frontend (65.52.0.1) |igual ao front-end (80) |
 | ![regra roxa](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |igual ao frontend (65.52.0.2) |igual ao front-end (80) |
@@ -133,7 +133,7 @@ O tipo de regra IP flutuante é a base de vários padrões de configuração do 
 * Há suporte para várias configurações de front-end apenas com VMs IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos SNAT de saída. Se seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO convidado, o SNAT de saída do Azure não estará disponível para regravar o fluxo de saída e o fluxo falhará.  Examine os [cenários de saída](load-balancer-outbound-connections.md).
 * Os endereços IP públicos têm um efeito na cobrança. Para obter mais informações, consulte [preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Os limites de assinatura se aplicam. Para obter mais informações, consulte [limites de serviço](../azure-subscription-service-limits.md#networking-limits) para obter detalhes.
+* Os limites de assinatura se aplicam. Para obter mais informações, consulte [limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) para obter detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

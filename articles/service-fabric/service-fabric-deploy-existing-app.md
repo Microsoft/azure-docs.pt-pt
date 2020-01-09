@@ -1,25 +1,14 @@
 ---
-title: Implantar um executável existente no Azure Service Fabric | Microsoft Docs
+title: Implantar um executável existente no Azure Service Fabric
 description: Saiba como empacotar um aplicativo existente como um executável convidado, para que ele possa ser implantado em um Cluster Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377111"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
 Ao empacotar um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), você pode optar por usar um modelo de projeto do Visual Studio ou [criar o pacote de aplicativos manualmente](#manually). Usando o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo novo modelo de projeto para você.
@@ -31,16 +20,16 @@ Ao empacotar um executável existente como um [executável convidado](service-fa
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Usar o Visual Studio para empacotar e implantar um executável existente
 O Visual Studio fornece um modelo de serviço Service Fabric para ajudá-lo a implantar um executável convidado em um Cluster Service Fabric.
 
-1. Escolha **arquivo** > **novo projeto**e crie um Service Fabric aplicativo.
+1. Escolha **arquivo** > **novo projeto**e crie um aplicativo Service Fabric.
 2. Escolha **executável convidado** como o modelo de serviço.
 3. Clique em **procurar** para selecionar a pasta com seu executável e preencha o restante dos parâmetros para criar o serviço.
    * *Comportamento do pacote de códigos*. Pode ser definido para copiar todo o conteúdo da pasta para o projeto do Visual Studio, o que será útil se o executável não for alterado. Se você espera que o executável seja alterado e queira que a capacidade de obter novas compilações dinamicamente, você pode optar por vincular à pasta em vez disso. Você pode usar pastas vinculadas ao criar o projeto de aplicativo no Visual Studio. Isso é vinculado ao local de origem de dentro do projeto, possibilitando que você atualize o executável do convidado em seu destino de origem. Essas atualizações se tornam parte do pacote de aplicativos na compilação.
    * *Programa* especifica o executável que deve ser executado para iniciar o serviço.
    * *Argumentos* especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
    * *WorkingFolder* especifica o diretório de trabalho para o processo que será iniciado. Você pode especificar três valores:
-     * `CodeBase`Especifica que o diretório de trabalho será definido para o diretório de código no pacote de aplicativos (`Code` diretório mostrado na estrutura de arquivo anterior).
-     * `CodePackage`Especifica que o diretório de trabalho será definido como a raiz do pacote de aplicativos (`GuestService1Pkg` mostrado na estrutura de arquivo anterior).
-     * `Work`Especifica que os arquivos são colocados em um subdiretório chamado trabalho.
+     * `CodeBase` especifica que o diretório de trabalho será definido como o diretório de código no pacote de aplicativos (`Code` diretório mostrado na estrutura de arquivos anterior).
+     * `CodePackage` especifica que o diretório de trabalho será definido como a raiz do pacote de aplicativos (`GuestService1Pkg` mostrado na estrutura de arquivos anterior).
+     * `Work` especifica que os arquivos são colocados em um subdiretório chamado trabalho.
 4. Dê um nome ao serviço e clique em **OK**.
 5. Se o serviço precisar de um ponto de extremidade para comunicação, agora você poderá adicionar o protocolo, a porta e o tipo ao arquivo do serviço de manifesto. xml. Por exemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Agora você pode usar o pacote e a ação de publicação em seu cluster local Depurando a solução no Visual Studio. Quando estiver pronto, você poderá publicar o aplicativo em um cluster remoto ou fazer check-in da solução para o controle do código-fonte.
@@ -78,7 +67,7 @@ Você pode começar criando a estrutura de diretório, conforme descrito em [emp
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicionar o código e os arquivos de configuração do aplicativo
 Depois de criar a estrutura de diretório, você pode adicionar o código do aplicativo e os arquivos de configuração nos diretórios de código e configuração. Você também pode criar diretórios ou subdiretórios adicionais nos diretórios de código ou configuração.
 
-Service Fabric faz um `xcopy` do conteúdo do diretório raiz do aplicativo, portanto, não há nenhuma estrutura predefinida a ser usada além de criar dois diretórios principais, código e configurações. (Você pode escolher nomes diferentes, se desejar. Mais detalhes estão na próxima seção.)
+Service Fabric faz uma `xcopy` do conteúdo do diretório raiz do aplicativo, portanto, não há nenhuma estrutura predefinida a ser usada além de criar dois diretórios principais, código e configurações. (Você pode escolher nomes diferentes, se desejar. Mais detalhes estão na próxima seção.)
 
 > [!NOTE]
 > Certifique-se de incluir todos os arquivos e dependências de que o aplicativo precisa. Service Fabric copia o conteúdo do pacote de aplicativos em todos os nós no cluster em que os serviços do aplicativo serão implantados. O pacote deve conter todo o código que o aplicativo precisa para ser executado. Não presuma que as dependências já estejam instaladas.
@@ -92,7 +81,7 @@ A próxima etapa é editar o arquivo de manifesto do serviço para incluir as se
 * O comando a ser usado para iniciar o aplicativo (ExeHost).
 * Qualquer script que precise ser executado para configurar o aplicativo (SetupEntrypoint).
 
-Veja a seguir um exemplo de um `ServiceManifest.xml` arquivo:
+Veja a seguir um exemplo de um arquivo de `ServiceManifest.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,7 +120,7 @@ As seções a seguir passam pelas diferentes partes do arquivo que você precisa
 </ServiceTypes>
 ```
 
-* Você pode escolher qualquer nome que desejar `ServiceTypeName`. O valor é usado no `ApplicationManifest.xml` arquivo para identificar o serviço.
+* Você pode escolher qualquer nome que desejar para `ServiceTypeName`. O valor é usado no arquivo de `ApplicationManifest.xml` para identificar o serviço.
 * Especifique `UseImplicitHost="true"`. Esse atributo informa Service Fabric que o serviço é baseado em um aplicativo independente, de modo que todos os Service Fabric precisam fazê-lo para iniciá-lo como um processo e monitorar sua integridade.
 
 #### <a name="update-codepackage"></a>Atualizar CodePackage
@@ -141,9 +130,9 @@ O elemento CodePackage especifica o local (e a versão) do código do serviço.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-O `Name` elemento é usado para especificar o nome do diretório no pacote de aplicativos que contém o código do serviço. `CodePackage`também tem o `version` atributo. Isso pode ser usado para especificar a versão do código e também pode ser usado para atualizar o código do serviço usando a infraestrutura de gerenciamento do ciclo de vida do aplicativo em Service Fabric.
+O elemento `Name` é usado para especificar o nome do diretório no pacote de aplicativos que contém o código do serviço. `CodePackage` também tem o atributo `version`. Isso pode ser usado para especificar a versão do código e também pode ser usado para atualizar o código do serviço usando a infraestrutura de gerenciamento do ciclo de vida do aplicativo em Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Opcional: Atualizar SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Opcional: atualizar SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -155,7 +144,7 @@ O elemento SetupEntryPoint é usado para especificar qualquer executável ou arq
 
 Há apenas um SetupEntryPoint, portanto, os scripts de instalação precisam ser agrupados em um único arquivo em lotes se a instalação do aplicativo exigir vários scripts. O SetupEntryPoint pode executar qualquer tipo de arquivo: arquivos executáveis, arquivos em lotes e cmdlets do PowerShell. Para obter mais detalhes, consulte [Configurar SetupEntryPoint](service-fabric-application-runas-security.md).
 
-No exemplo anterior, o SetupEntryPoint executa um arquivo em lotes chamado `LaunchConfig.cmd` que está localizado `scripts` no subdiretório do diretório do código (supondo que o elemento WorkingFolder esteja definido como codebase).
+No exemplo anterior, o SetupEntryPoint executa um arquivo em lotes chamado `LaunchConfig.cmd` que está localizado no subdiretório `scripts` do diretório de código (supondo que o elemento WorkingFolder esteja definido como CodeBase).
 
 #### <a name="update-entrypoint"></a>Atualizar ponto de entrada
 ```xml
@@ -168,16 +157,16 @@ No exemplo anterior, o SetupEntryPoint executa um arquivo em lotes chamado `Laun
 </EntryPoint>
 ```
 
-O `EntryPoint` elemento no arquivo de manifesto do serviço é usado para especificar como iniciar o serviço.
+O elemento `EntryPoint` no arquivo de manifesto do serviço é usado para especificar como iniciar o serviço.
 
-O `ExeHost` elemento Especifica o executável (e os argumentos) que devem ser usados para iniciar o serviço. Opcionalmente, você pode adicionar `IsExternalExecutable="true"` o atributo `ExeHost` a para indicar que o programa é um executável externo fora do pacote de códigos. Por exemplo, `<ExeHost IsExternalExecutable="true">`.
+O elemento `ExeHost` especifica o executável (e os argumentos) que devem ser usados para iniciar o serviço. Opcionalmente, você pode adicionar o atributo `IsExternalExecutable="true"` a `ExeHost` para indicar que o programa é um executável externo fora do pacote de códigos. Por exemplo, `<ExeHost IsExternalExecutable="true">`.
 
-* `Program`Especifica o nome do executável que deve iniciar o serviço.
-* `Arguments`Especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
-* `WorkingFolder`Especifica o diretório de trabalho para o processo que será iniciado. Você pode especificar três valores:
-  * `CodeBase`Especifica que o diretório de trabalho será definido para o diretório de código no pacote de aplicativos (`Code` diretório na estrutura de arquivos anterior).
-  * `CodePackage`Especifica que o diretório de trabalho será definido como a raiz do pacote de aplicativos (`GuestService1Pkg` na estrutura de arquivo anterior).
-    * `Work`Especifica que os arquivos são colocados em um subdiretório chamado trabalho.
+* `Program` especifica o nome do executável que deve iniciar o serviço.
+* `Arguments` especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
+* `WorkingFolder` especifica o diretório de trabalho para o processo que será iniciado. Você pode especificar três valores:
+  * `CodeBase` especifica que o diretório de trabalho será definido como o diretório de código no pacote de aplicativos (`Code` diretório na estrutura de arquivos anterior).
+  * `CodePackage` especifica que o diretório de trabalho será definido como a raiz do pacote de aplicativos (`GuestService1Pkg` na estrutura de arquivos anterior).
+    * `Work` especifica que os arquivos são colocados em um subdiretório chamado trabalho.
 
 O WorkingFolder é útil para definir o diretório de trabalho correto para que os caminhos relativos possam ser usados pelo aplicativo ou scripts de inicialização.
 
@@ -188,12 +177,12 @@ O WorkingFolder é útil para definir o diretório de trabalho correto para que 
 </Endpoints>
 
 ```
-No exemplo anterior, o `Endpoint` elemento Especifica os pontos de extremidade que o aplicativo pode escutar. Neste exemplo, o aplicativo node. js escuta no http na porta 3000.
+No exemplo anterior, o elemento `Endpoint` especifica os pontos de extremidade que o aplicativo pode escutar. Neste exemplo, o aplicativo node. js escuta no http na porta 3000.
 
 Além disso, você pode pedir Service Fabric para publicar esse ponto de extremidade no Serviço de Nomenclatura para que outros serviços possam descobrir o endereço do ponto de extremidade para esse serviço. Isso permite que você seja capaz de se comunicar entre os serviços que são executáveis convidados.
-O endereço do ponto de extremidade publicado está `UriScheme://IPAddressOrFQDN:Port/PathSuffix`no formato. `UriScheme`e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN`é o endereço IP ou o nome de domínio totalmente qualificado do nó no qual esse executável é colocado e é calculado para você.
+O endereço do ponto de extremidade publicado está no formato `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN` é o endereço IP ou o nome de domínio totalmente qualificado do nó no qual esse executável é colocado e é calculado para você.
 
-No exemplo a seguir, depois que o serviço for implantado, em Service Fabric Explorer você verá um `http://10.1.4.92:3000/myapp/` ponto de extremidade semelhante ao publicado para a instância de serviço. Ou, se esse for um computador local, você `http://localhost:3000/myapp/`verá.
+No exemplo a seguir, depois que o serviço for implantado, em Service Fabric Explorer você verá um ponto de extremidade semelhante a `http://10.1.4.92:3000/myapp/` publicado para a instância de serviço. Ou, se esse for um computador local, você verá `http://localhost:3000/myapp/`.
 
 ```xml
 <Endpoints>
@@ -203,7 +192,7 @@ No exemplo a seguir, depois que o serviço for implantado, em Service Fabric Exp
 Você pode usar esses endereços com [proxy reverso](service-fabric-reverseproxy.md) para se comunicar entre os serviços.
 
 ### <a name="edit-the-application-manifest-file"></a>Editar o arquivo de manifesto do aplicativo
-Depois de configurar o `Servicemanifest.xml` arquivo, você precisa fazer algumas alterações `ApplicationManifest.xml` no arquivo para garantir que o tipo de serviço e o nome corretos sejam usados.
+Depois de configurar o arquivo de `Servicemanifest.xml`, você precisa fazer algumas alterações no arquivo de `ApplicationManifest.xml` para garantir que o tipo de serviço e o nome corretos sejam usados.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -215,7 +204,7 @@ Depois de configurar o `Servicemanifest.xml` arquivo, você precisa fazer alguma
 ```
 
 #### <a name="servicemanifestimport"></a>ServiceManifestImport
-`ServiceManifestImport` No elemento, você pode especificar um ou mais serviços que deseja incluir no aplicativo. Os serviços são referenciados com `ServiceManifestName`, que especifica o nome do diretório onde o `ServiceManifest.xml` arquivo está localizado.
+No elemento `ServiceManifestImport`, você pode especificar um ou mais serviços que deseja incluir no aplicativo. Os serviços são referenciados com `ServiceManifestName`, que especifica o nome do diretório onde o arquivo de `ServiceManifest.xml` está localizado.
 
 ```xml
 <ServiceManifestImport>
@@ -223,9 +212,9 @@ Depois de configurar o `Servicemanifest.xml` arquivo, você precisa fazer alguma
 </ServiceManifestImport>
 ```
 
-## <a name="set-up-logging"></a>Configurar o registro em log
+## <a name="set-up-logging"></a>Configurar o registo
 Para executáveis convidados, é útil ser capaz de ver os logs do console para descobrir se os scripts de configuração e de aplicativo mostram erros.
-O redirecionamento de console pode ser configurado `ServiceManifest.xml` no arquivo usando `ConsoleRedirection` o elemento.
+O redirecionamento de console pode ser configurado no arquivo de `ServiceManifest.xml` usando o elemento `ConsoleRedirection`.
 
 > [!WARNING]
 > Nunca use a política de redirecionamento de console em um aplicativo implantado em produção porque isso pode afetar o failover do aplicativo. Use isso *apenas* para fins de depuração e desenvolvimento locais.  
@@ -243,11 +232,11 @@ O redirecionamento de console pode ser configurado `ServiceManifest.xml` no arqu
 </EntryPoint>
 ```
 
-`ConsoleRedirection`pode ser usado para redirecionar a saída do console (stdout e stderr) para um diretório de trabalho. Isso fornece a capacidade de verificar se não há erros durante a instalação ou execução do aplicativo no Cluster Service Fabric.
+`ConsoleRedirection` pode ser usado para redirecionar a saída do console (stdout e stderr) para um diretório de trabalho. Isso fornece a capacidade de verificar se não há erros durante a instalação ou execução do aplicativo no Cluster Service Fabric.
 
-`FileRetentionCount`Determina quantos arquivos são salvos no diretório de trabalho. Um valor de 5, por exemplo, significa que os arquivos de log das cinco execuções anteriores são armazenados no diretório de trabalho.
+`FileRetentionCount` determina quantos arquivos são salvos no diretório de trabalho. Um valor de 5, por exemplo, significa que os arquivos de log das cinco execuções anteriores são armazenados no diretório de trabalho.
 
-`FileMaxSizeInKb`Especifica o tamanho máximo dos arquivos de log.
+`FileMaxSizeInKb` especifica o tamanho máximo dos arquivos de log.
 
 Os arquivos de log são salvos em um dos diretórios de trabalho do serviço. Para determinar onde os arquivos estão localizados, use Service Fabric Explorer para determinar em qual nó o serviço está sendo executado e qual diretório de trabalho está sendo usado. Esse processo é abordado posteriormente neste artigo.
 
@@ -276,7 +265,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 Um serviço de Service Fabric pode ser implantado em várias "configurações". Por exemplo, ele pode ser implantado como uma ou várias instâncias ou pode ser implantado de forma que haja uma instância do serviço em cada nó do cluster de Service Fabric.
 
-O `InstanceCount` parâmetro`New-ServiceFabricService` do cmdlet é usado para especificar quantas instâncias do serviço devem ser iniciadas no Cluster Service Fabric. Você pode definir o `InstanceCount` valor, dependendo do tipo de aplicativo que você está implantando. Os dois cenários mais comuns são:
+O parâmetro `InstanceCount` do cmdlet `New-ServiceFabricService` é usado para especificar quantas instâncias do serviço devem ser iniciadas no Cluster Service Fabric. Você pode definir o valor de `InstanceCount`, dependendo do tipo de aplicativo que você está implantando. Os dois cenários mais comuns são:
 
 * `InstanceCount = "1"`. Nesse caso, apenas uma instância do serviço é implantada no cluster. O Agendador de Service Fabric determina em qual nó o serviço será implantado.
 * `InstanceCount ="-1"`. Nesse caso, uma instância do serviço é implantada em cada nó no Cluster Service Fabric. O resultado é ter uma (e apenas uma) instância do serviço para cada nó no cluster.

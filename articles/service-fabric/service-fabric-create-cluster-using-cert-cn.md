@@ -1,25 +1,14 @@
 ---
-title: Criar um cluster de Service Fabric do Azure usando o nome comum do certificado | Microsoft Docs
+title: Criar um cluster usando o nome comum do certificado
 description: Saiba como criar um Cluster Service Fabric usando o nome comum do certificado de um modelo.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-ms.openlocfilehash: 73e02b4482f69ec0c9d5a602f30cefea77279778
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764730"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614558"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implantar um Cluster Service Fabric que usa o nome comum do certificado em vez da impressão digital
 Dois certificados não podem ter a mesma impressão digital, o que torna difícil a substituição ou o gerenciamento do certificado do cluster. No entanto, vários certificados podem ter o mesmo nome ou assunto comum.  Um cluster que usa nomes comuns de certificado torna muito mais simples o gerenciamento de certificados. Este artigo descreve como implantar um Cluster Service Fabric para usar o nome comum do certificado em vez da impressão digital do certificado.
@@ -28,7 +17,7 @@ Dois certificados não podem ter a mesma impressão digital, o que torna difíci
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>Obter um certificado
-Primeiro, obtenha um certificado de uma [autoridade de certificação (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que você possui e comprado de um registrador de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem provisionar certificados para domínios MS, para que você não possa usar os nomes DNS de seu LB ou Gerenciador de tráfego como nomes comuns para seu certificado, e será necessário provisionar uma [zona DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se seu domínio personalizado for resolvabl e no Azure. Você também desejará declarar seu domínio personalizado que você possui como "managementEndpoint" do seu cluster se desejar que o portal reflita o alias de domínio personalizado para o cluster.
+Primeiro, obtenha um certificado de uma [autoridade de certificação (CA)](https://wikipedia.org/wiki/Certificate_authority).  O nome comum do certificado deve ser para o domínio personalizado que você possui e comprado de um registrador de domínio. Por exemplo, "azureservicefabricbestpractices.com"; aqueles que não são funcionários da Microsoft não podem provisionar certificados para domínios MS, para que você não possa usar os nomes DNS de seu LB ou Gerenciador de tráfego como nomes comuns para seu certificado, e você precisará provisionar uma [zona DNS do Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) se seu domínio personalizado puder ser resolvido no Azure. Você também desejará declarar seu domínio personalizado que você possui como "managementEndpoint" do seu cluster se desejar que o portal reflita o alias de domínio personalizado para o cluster.
 
 Para fins de teste, você pode obter um certificado assinado por uma autoridade de certificação de uma autoridade de certificação gratuita ou aberta.
 
@@ -131,7 +120,7 @@ Em seguida, abra o arquivo *azuredeploy. JSON* em um editor de texto e faça tr�
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. No recurso **Microsoft. Compute/virtualMachineScaleSets** , atualize a extensão da máquina virtual para usar o nome comum nas configurações de certificado em vez da impressão digital.  Em->**Propriedades**->**de extensões do virtualMachineProfile**extensionProfileconfiguraçõesdo->**certificado**, adicionar->-> 
+3. No recurso **Microsoft. Compute/virtualMachineScaleSets** , atualize a extensão da máquina virtual para usar o nome comum nas configurações de certificado em vez da impressão digital.  Em **virtualMachineProfile**->**extensionProfile**->**extensões**->**Propriedades**->**configurações**->**certificado**, adicionar 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
@@ -222,7 +211,7 @@ New-AzResourceGroup -Name $groupname -Location $clusterloc
 New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a [segurança do cluster](service-fabric-cluster-security.md).
 * Saiba como [sobrepor um certificado de cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Atualizar e gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)

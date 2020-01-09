@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 527ab905997d18433d1dba5c16ee67c8146f5afa
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 90995b1c9d10c7b589706f5abf37f92d76e4362b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73141739"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560356"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Configurar uma VPN ponto a site (P2S) no Windows para uso com os arquivos do Azure
 Você pode usar uma conexão VPN ponto a site (P2S) para montar seus compartilhamentos de arquivos do Azure via SMB de fora do Azure, sem abrir a porta 445. Uma conexão VPN ponto a site é uma conexão VPN entre o Azure e um cliente individual. Para usar uma conexão VPN P2S com os arquivos do Azure, uma conexão VPN P2S precisará ser configurada para cada cliente que deseja se conectar. Se você tiver muitos clientes que precisam se conectar aos compartilhamentos de arquivos do Azure de sua rede local, você poderá usar uma conexão VPN de site a site (S2S) em vez de uma conexão ponto a site para cada cliente. Para saber mais, confira [Configurar uma VPN site a site para uso com os arquivos do Azure](storage-files-configure-s2s-vpn.md).
@@ -161,7 +161,7 @@ foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
         $recordName = $fqdn.split('.', 2)[0]
         $dnsZone = $fqdn.split('.', 2)[1]
         New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
+            -ResourceGroupName $resourceGroupName `
             -Name $recordName `
             -RecordType A `
             -ZoneName $zone.Name `

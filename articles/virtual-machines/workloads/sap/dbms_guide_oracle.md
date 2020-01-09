@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099991"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645849"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação de DBMS de máquinas virtuais do Azure para carga de trabalho do SAP
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099991"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70099991"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70099991"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -372,12 +372,12 @@ Para identificar os tipos de VM do Azure com suporte, consulte a observação do
 
 A configuração mínima é a seguinte: 
 
-| Componente | Disco | Colocação em Cache | Pool de armazenamento |
+| Componente | Discos | Colocação em Cache | Agrupamento de armazenamento |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
-| \oracle\<SID > \origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| \oracle\<SID > \origlogaA & mirrlogB | Premium | Nenhuma | Não necessário |
+| \oracle\<SID > \origlogaB & mirrlogA | Premium | Nenhuma | Não necessário |
 | \oracle\<SID > \sapdata1... p | Premium | Só de leitura | Pode ser usado |
-| \oracle\<SID > \oraarch | Standard | Nenhum | Não necessário |
+| \oracle\<SID > \oraarch | Padrão | Nenhuma | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não necessário |
 
 
@@ -385,15 +385,15 @@ A seleção de discos para hospedar logs de refazer online deve ser orientada po
 
 A configuração de desempenho é a seguinte:
 
-| Componente | Disco | Colocação em Cache | Pool de armazenamento |
+| Componente | Discos | Colocação em Cache | Agrupamento de armazenamento |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA | Premium | Nenhum | Pode ser usado  |
-| \oracle\<SID > \origlogaB | Premium | Nenhum | Pode ser usado |
-| \oracle\<SID > \mirrlogAB | Premium | Nenhum | Pode ser usado |
-| \oracle\<SID > \mirrlogBA | Premium | Nenhum | Pode ser usado |
+| \oracle\<SID > \origlogaA | Premium | Nenhuma | Pode ser usado  |
+| \oracle\<SID > \origlogaB | Premium | Nenhuma | Pode ser usado |
+| \oracle\<SID > \mirrlogAB | Premium | Nenhuma | Pode ser usado |
+| \oracle\<SID > \mirrlogBA | Premium | Nenhuma | Pode ser usado |
 | \oracle\<SID > \sapdata1... p | Premium | Só de leitura | Recomendado  |
-| \oracle\SID\sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| \oracle\<SID > \oraarch * | Premium | Nenhum | Não necessário |
+| \oracle\SID\sapdata(n+1)* | Premium | Nenhuma | Pode ser usado |
+| \oracle\<SID > \oraarch * | Premium | Nenhuma | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não necessário |
 
 \* (n + 1): hospedando o sistema, TEMP e desfazer espaços de tabela. O padrão de e/s dos espaços de tabela do sistema e de desfazer são diferentes de outros espaços de tabela que hospedam dados de aplicativo. Nenhum cache é a melhor opção para desempenho do sistema e desfazer espaços de tabela.
@@ -448,7 +448,7 @@ Para Oracle Linux Kernels UEK, um mínimo de UEK versão 4 é necessário para d
 
 É altamente recomendável usar o [Azure Managed disks](../../windows/managed-disks-overview.md). Também é altamente recomendável usar o [SSDs Premium do Azure](../../windows/disks-types.md) para suas implantações de Oracle Database.
 
-Unidades de rede ou compartilhamentos remotos como os serviços de arquivos do Azure não têm suporte para arquivos Oracle Database. Para obter mais informações, consulte o seguinte: 
+Unidades de rede ou compartilhamentos remotos como os serviços de arquivos do Azure não têm suporte para arquivos Oracle Database. Para mais informações, consulte: 
 
 - [Introducing Microsoft Azure File Service (Introdução ao Serviço de Ficheiros do Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -462,12 +462,12 @@ Para identificar os tipos de VM do Azure com suporte, consulte a observação do
 
 Configuração mínima:
 
-| Componente | Disco | Colocação em Cache | Remoção |
+| Componente | Discos | Colocação em Cache | Remoção |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA & mirrlogB | Premium | Nenhum | Não necessário |
-| /Oracle/\<SID >/origlogaB & mirrlogA | Premium | Nenhum | Não necessário |
+| /Oracle/\<SID >/origlogaA & mirrlogB | Premium | Nenhuma | Não necessário |
+| /Oracle/\<SID >/origlogaB & mirrlogA | Premium | Nenhuma | Não necessário |
 | /Oracle/\<SID >/sapdata1... p | Premium | Só de leitura | Pode ser usado |
-| /Oracle/\<SID >/oraarch | Standard | Nenhum | Não necessário |
+| /Oracle/\<SID >/oraarch | Padrão | Nenhuma | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não necessário |
 
 \* Remoção: LVM ou MDADM usando RAID0
@@ -476,15 +476,15 @@ A seleção de disco para hospedar os logs redo online da Oracle deve ser orient
 
 Configuração de desempenho:
 
-| Componente | Disco | Colocação em Cache | Remoção |
+| Componente | Discos | Colocação em Cache | Remoção |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA | Premium | Nenhum | Pode ser usado  |
-| /Oracle/\<SID >/origlogaB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/mirrlogAB | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/mirrlogBA | Premium | Nenhum | Pode ser usado |
+| /Oracle/\<SID >/origlogaA | Premium | Nenhuma | Pode ser usado  |
+| /Oracle/\<SID >/origlogaB | Premium | Nenhuma | Pode ser usado |
+| /Oracle/\<SID >/mirrlogAB | Premium | Nenhuma | Pode ser usado |
+| /Oracle/\<SID >/mirrlogBA | Premium | Nenhuma | Pode ser usado |
 | /Oracle/\<SID >/sapdata1... p | Premium | Só de leitura | Recomendado  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhum | Pode ser usado |
-| /Oracle/\<SID >/oraarch * | Premium | Nenhum | Não necessário |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Nenhuma | Pode ser usado |
+| /Oracle/\<SID >/oraarch * | Premium | Nenhuma | Não necessário |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não necessário |
 
 \* Remoção: LVM ou MDADM usando RAID0

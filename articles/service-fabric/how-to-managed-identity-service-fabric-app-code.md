@@ -1,19 +1,14 @@
 ---
-title: Service Fabric do Azure – usar identidade gerenciada com aplicativos Service Fabric | Microsoft Docs
-description: Como usar identidades gerenciadas de Service Fabric código do aplicativo
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Usar identidade gerenciada com um aplicativo
+description: Como usar identidades gerenciadas no Azure Service Fabric código do aplicativo para acessar os serviços do Azure. Esta funcionalidade está em pré-visualização pública.
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968226"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610323"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure (versão prévia)
 
@@ -39,9 +34,9 @@ Especificamente, o ambiente de um serviço de Service Fabric habilitado para ide
 > O código do aplicativo deve considerar o valor da variável de ambiente ' MSI_SECRET ' como dados confidenciais-ele não deve ser registrado em log ou ser disseminado de outra forma. O código de autenticação não tem valor fora do nó local ou depois que o processo que hospeda o serviço termina, mas ele representa a identidade do serviço de Service Fabric e, portanto, deve ser tratado com as mesmas precauções que o token de acesso em si.
 
 Para obter um token, o cliente executa as seguintes etapas:
-- forma um URI concatenando o ponto de extremidade de identidade gerenciada (valor MSI_ENDPOINT) com a versão da API e o recurso (público) necessário para o token
+- forma um URI concatenando o ponto de extremidade de identidade gerenciada (MSI_ENDPOINT valor) com a versão da API e o recurso (público) necessário para o token
 - Cria uma solicitação HTTP GET para o URI especificado
-- Adiciona o código de autenticação (valor MSI_SECRET) como um cabeçalho à solicitação
+- Adiciona o código de autenticação (MSI_SECRET valor) como um cabeçalho à solicitação
 - envia a solicitação
 
 Uma resposta bem-sucedida conterá um conteúdo JSON que representa o token de acesso resultante, bem como os metadados que o descrevem. Uma resposta com falha também incluirá uma explicação da falha. Veja abaixo detalhes adicionais sobre o tratamento de erros.
@@ -49,18 +44,18 @@ Uma resposta bem-sucedida conterá um conteúdo JSON que representa o token de a
 Os tokens de acesso serão armazenados em cache por Service Fabric em vários níveis (nó, cluster, serviço de provedor de recursos), portanto, uma resposta bem-sucedida não significa, necessariamente, que o token foi emitido diretamente em resposta à solicitação do aplicativo do usuário. Os tokens serão armazenados em cache por menos do que o tempo de vida e, portanto, um aplicativo terá a garantia de receber um token válido. É recomendável que o código do aplicativo armazene em cache todos os tokens de acesso adquiridos; a chave de cache deve incluir (uma derivação) do público. 
 
 
-Exemplo de solicitação:
+Sample request:
 ```http
 GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
-Posição
+em que:
 
 | Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar dados do ponto de extremidade. Nesse caso, um token de acesso OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | O ponto de extremidade de identidade gerenciada para aplicativos Service Fabric, fornecido por meio da variável de ambiente MSI_ENDPOINT. |
-| `api-version` | Um parâmetro de cadeia de caracteres de consulta, especificando a versão de API do serviço de token de identidade gerenciado; Atualmente, o único valor aceito `2019-07-01-preview`é e está sujeito a alterações. |
-| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Isso será refletido como a `aud` declaração (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo é https\/:/keyvault.Azure.com/. |
+| `api-version` | Um parâmetro de cadeia de caracteres de consulta, especificando a versão de API do serviço de token de identidade gerenciado; Atualmente, o único valor aceito é `2019-07-01-preview`e está sujeito a alterações. |
+| `resource` | Um parâmetro de cadeia de caracteres de consulta, indicando o URI da ID do aplicativo do recurso de destino. Isso será refletido como a declaração de `aud` (público) do token emitido. Este exemplo solicita um token para acessar Azure Key Vault, cujo URI de ID do aplicativo é https:\//keyvault.azure.com/. |
 | `Secret` | Um campo de cabeçalho de solicitação HTTP, exigido pelo Service Fabric serviço de token de identidade gerenciada para serviços de Service Fabric para autenticar o chamador. Esse valor é fornecido pelo tempo de execução da it por meio da variável de ambiente MSI_SECRET. |
 
 
@@ -75,14 +70,14 @@ Content-Type: application/json
     "resource":  "https://keyvault.azure.com/"
 }
 ```
-Posição
+em que:
 
 | Elemento | Descrição |
 | ------- | ----------- |
 | `token_type` | O tipo de token; Nesse caso, um token de acesso "portador", que significa que o apresentador ("portador") desse token é o assunto pretendido do token. |
-| `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no `Authorization` campo de cabeçalho de solicitação como um token de "portador", permitindo que a API autentique o chamador. | 
-| `expires_on` | O carimbo de data/hora da expiração do token de acesso; representado como o número de segundos de "1970-01-01T0:0: 0Z UTC" e corresponde à declaração do `exp` token. Nesse caso, o token expira em 2019-08-08T06:10:11 + 00:00 (em RFC 3339)|
-| `resource` | O recurso para o qual o token de acesso foi emitido, especificado `resource` por meio do parâmetro de cadeia de caracteres de consulta da solicitação; corresponde à declaração ' AUD ' do token. |
+| `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação de `Authorization` como um token de "portador", permitindo que a API autentique o chamador. | 
+| `expires_on` | O carimbo de data/hora da expiração do token de acesso; representado como o número de segundos de "1970-01-01T0:0: 0Z UTC" e corresponde à declaração de `exp` do token. Nesse caso, o token expira em 2019-08-08T06:10:11 + 00:00 (em RFC 3339)|
+| `resource` | O recurso para o qual o token de acesso foi emitido, especificado por meio do parâmetro de cadeia de caracteres de consulta `resource` da solicitação; corresponde à declaração ' AUD ' do token. |
 
 
 ## <a name="acquiring-an-access-token-using-c"></a>Adquirindo um token de acesso usandoC#
@@ -339,7 +334,7 @@ Erro de exemplo:
 
 A seguir está uma lista de erros típicos de Service Fabric específicos para identidades gerenciadas:
 
-| Código | Message | Descrição | 
+| Código | Mensagem | Descrição | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | O segredo não foi encontrado nos cabeçalhos da solicitação. | O código de autenticação não foi fornecido com a solicitação. | 
 | ManagedIdentityNotFound | Identidade gerenciada não encontrada para o host de aplicativo especificado. | O aplicativo não tem nenhuma identidade ou o código de autenticação é desconhecido. |
@@ -351,7 +346,7 @@ A seguir está uma lista de erros típicos de Service Fabric específicos para i
 
 Normalmente, o único código de erro com nova tentativa é 429 (muitas solicitações); erros de servidor interno/códigos de erro 5xx podem ser tentados novamente, embora a causa possa ser permanente. 
 
-Limites de limitação se aplicam ao número de chamadas feitas ao subsistema de identidade gerenciada – especificamente as dependências de "upstream" (o serviço do Azure de identidade gerenciada ou o serviço de token seguro). O Service Fabric armazena em cache tokens em vários níveis no pipeline, mas, considerando a natureza distribuída dos componentes envolvidos, o chamador pode sofrer respostas de limitação inconsistentes (ou seja, limitado em um nó/instância de um aplicativo, mas não em um nó diferente ao solicitar um token para a mesma identidade.) Quando a condição de limitação é definida, as solicitações subsequentes do mesmo aplicativo podem falhar com o código de status HTTP 429 (muitas solicitações) até que a condição seja apagada.  
+Limites de limitação se aplicam ao número de chamadas feitas ao subsistema de identidade gerenciada – especificamente as dependências de "upstream" (o serviço do Azure de identidade gerenciada ou o serviço de token seguro). O Service Fabric armazena em cache tokens em vários níveis no pipeline, mas, considerando a natureza distribuída dos componentes envolvidos, o chamador pode experimentar respostas de limitação inconsistentes (ou seja, limitado em um nó/instância de um aplicativo, mas não em um nó diferente ao solicitar um token para a mesma identidade). Quando a condição de limitação é definida, as solicitações subsequentes do mesmo aplicativo podem falhar com o código de status HTTP 429 (muitas solicitações) até que a condição seja apagada.  
 
 É recomendável que as solicitações que falharam devido à limitação sejam repetidas com uma retirada exponencial, da seguinte maneira: 
 
@@ -367,7 +362,7 @@ Limites de limitação se aplicam ao número de chamadas feitas ao subsistema de
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 Consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-msi.md) para obter uma lista de recursos que dão suporte ao Azure AD e suas respectivas IDs de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Conceder a um aplicativo de Service Fabric do Azure acesso a outros recursos do Azure](./how-to-grant-access-other-resources.md)

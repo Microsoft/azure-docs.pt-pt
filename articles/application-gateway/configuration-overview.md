@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996657"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658343"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -46,9 +46,9 @@ Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de segurança de rede na sub-rede do gateway de aplicativo
 
-Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há várias restrições:
+Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Mas há algumas restrições:
 
-- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como *qualquer*. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem iniciar alterações nesses pontos de extremidade sem certificados apropriados em vigor.
+- Você deve permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para o SKU do gateway de aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como qualquer e origem como **uma** marca de serviço do **gatewaymanager** . Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
 
 - A conectividade de Internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que:
 
@@ -57,12 +57,12 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 
 - O tráfego da marca **AzureLoadBalancer** deve ser permitido.
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir o acesso do gateway de aplicativo a alguns IPs de origem
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir o acesso do gateway de aplicativo a alguns IPs de origem
 
 Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as seguintes restrições na sub-rede nesta ordem de prioridade:
 
-1. Permitir o tráfego de entrada de um IP de origem ou intervalo de IP e o destino como toda a sub-rede do gateway de aplicativo ou para o IP de front-end privado configurado específico. O NSG não funciona em um IP público.
-2. Permitir solicitações de entrada de todas as fontes para as portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para SKU v2 para [comunicação de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
+1. Permita o tráfego de entrada de um IP de origem ou intervalo de IP com o destino como o intervalo de endereços de sub-rede do gateway de aplicativo inteiro e a porta de destino como sua porta de acesso de entrada, por exemplo, a porta 80 para acesso HTTP.
+2. Permitir solicitações de entrada da origem como **uma** marca de serviço do **gatewaymanager** e destino como portas de destino e como 65503-65534 para a SKU do gateway de aplicativo v1 e portas 65200-65535 para SKU v2 para [comunicação de status de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir investigações de Azure Load Balancer de entrada (marca*AzureLoadBalancer* ) e tráfego de rede virtual de entrada (marca*VirtualNetwork* ) no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
 5. Permitir o tráfego de saída para a Internet para todos os destinos.
@@ -74,10 +74,10 @@ Para a SKU v1, as rotas definidas pelo usuário (UDRs) têm suporte na sub-rede 
 Para a SKU v2, não há suporte para UDRs na sub-rede do gateway de aplicativo. Para obter mais informações, consulte [SKU do aplicativo Azure gateway v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> Não há suporte para UDRs na SKU v2.  Se precisar de UDRs, você deverá continuar a implantar a SKU v1.
+> UDRs não tem suporte para a SKU v2 a partir de agora.
 
 > [!NOTE]
-> Usar UDRs na sub-rede do gateway de aplicativo faz com que o status de integridade na [exibição de integridade do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) seja exibido como "desconhecido". Ele também faz com que a geração de logs e métricas do gateway de aplicativo falhe. Recomendamos que você não use UDRs na sub-rede do gateway de aplicativo para poder exibir a integridade, os logs e as métricas de back-end.
+> Usar UDRs na sub-rede do gateway de aplicativo pode fazer com que o status de integridade na [exibição de integridade do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) seja exibido como "desconhecido". Ele também pode causar falha na geração de logs e métricas do gateway de aplicativo. Recomendamos que você não use UDRs na sub-rede do gateway de aplicativo para poder exibir a integridade, os logs e as métricas de back-end.
 
 ## <a name="front-end-ip"></a>IP de front-end
 
@@ -165,7 +165,7 @@ Para configurar uma página de erro personalizada global, consulte [configuraç�
 
 Você pode centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança. Você pode escolher política SSL *padrão*, *predefinida*ou *personalizada* .
 
-Você configura a política SSL para controlar as versões do protocolo SSL. Você pode configurar um gateway de aplicativo para usar uma versão de protocolo mínima para Handshakes de TLS do TLS 1.0, TLS 1.1 e TLS 1.2. Por padrão, o SSL 2,0 e o 3,0 estão desabilitados e não são configuráveis. Para obter mais informações, consulte [visão geral da política SSL do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Você configura a política SSL para controlar as versões do protocolo SSL. Você pode configurar um gateway de aplicativo para usar uma versão mínima de protocolo para Handshakes de TLS do TLS 1.0, TLS 1.1 e TLS 1.2. Por padrão, o SSL 2,0 e o 3,0 estão desabilitados e não são configuráveis. Para obter mais informações, consulte [visão geral da política SSL do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Depois de criar um ouvinte, você o associa a uma regra de roteamento de solicitação. Essa regra determina como as solicitações recebidas no ouvinte são roteadas para o back-end.
 
@@ -256,7 +256,7 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 ### <a name="connection-draining"></a>Drenagem de ligação
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para o desregistro de instâncias devido à afinidade de sessão gerenciada por gateway e continuarão a ser proxy para as instâncias de desregistro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end continuem a manter as conexões existentes e atendem a solicitações em andamento para um tempo limite configurável e não recebam novas solicitações ou conexões. A única exceção a isso são solicitações associadas para cancelar o registro de instâncias devido à afinidade de sessão gerenciada pelo gateway e continuarão sendo encaminhadas para as instâncias de cancelamento de registro. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end.
 
 ### <a name="protocol"></a>Protocolo
 

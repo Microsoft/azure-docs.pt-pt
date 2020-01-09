@@ -2,19 +2,15 @@
 title: Execução de runbook na automação do Azure
 description: Descreve os detalhes de como um runbook na automação do Azure é processado.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850759"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658122"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na automação do Azure
 
@@ -37,11 +33,11 @@ Os Runbooks na automação do Azure podem ser executados em uma área restrita n
 |Integre com recursos do Azure|Área restrita do Azure|Hospedado no Azure, a autenticação é mais simples. Se você estiver usando uma Hybrid Runbook Worker em uma VM do Azure, poderá usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que, por sua vez, tem menos latência|
 |Minimizar os custos operacionais|Área restrita do Azure|Não há nenhuma sobrecarga de computação, não há necessidade de uma VM|
-|Script de longa execução|Função de Trabalho de Runbook Híbrida|As áreas restritas do Azure têm [limitações nos recursos](../azure-subscription-service-limits.md#automation-limits)|
+|Script de longa execução|Função de Trabalho de Runbook Híbrida|As áreas restritas do Azure têm [limitações nos recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Interagir com serviços locais|Função de Trabalho de Runbook Híbrida|Pode ter acesso diretamente ao computador host|
 |Exigir software de terceiros e executáveis|Função de Trabalho de Runbook Híbrida|Você gerencia o sistema operacional e pode instalar o software|
 |Monitorar um arquivo ou uma pasta com um runbook|Função de Trabalho de Runbook Híbrida|Usar uma [tarefa do observador](automation-watchers-tutorial.md) em um Hybrid runbook Worker|
-|Script com uso intensivo de recursos|Função de Trabalho de Runbook Híbrida| As áreas restritas do Azure têm [limitações nos recursos](../azure-subscription-service-limits.md#automation-limits)|
+|Script com uso intensivo de recursos|Função de Trabalho de Runbook Híbrida| As áreas restritas do Azure têm [limitações nos recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Usando módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> **WinSCP** -dependência em WinSCP. exe </br> **IISAdministration** -precisa que o IIS seja habilitado|
 |Instalar o módulo que requer o instalador|Função de Trabalho de Runbook Híbrida|Os módulos para área restrita devem ser copiable|
 |Usando runbooks ou módulos que exigem .NET Framework diferentes de 4.7.2|Função de Trabalho de Runbook Híbrida|As áreas restritas de automação têm .NET Framework 4.7.2, e não há nenhuma maneira de atualizá-la|
@@ -320,7 +316,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 Para compartilhar recursos entre todos os runbooks na nuvem, a automação do Azure descarrega temporariamente ou interrompe qualquer trabalho que tenha sido executado por mais de três horas. Os trabalhos para [runbooks baseados no PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks do Python](automation-runbook-types.md#python-runbooks) são interrompidos e não reiniciados, e o status do trabalho mostra parado.
 
-Para tarefas de longa execução, é recomendável usar um [Hybrid runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid runbook Workers não são limitados por Fair share e não têm uma limitação de quanto tempo um runbook pode executar. Os outros [limites](../azure-subscription-service-limits.md#automation-limits) de trabalho se aplicam a áreas restritas do Azure e Hybrid runbook Workers. Embora Hybrid runbook Workers não sejam limitados pelo limite de compartilhamento justo de 3 horas, os runbooks executados neles devem ser desenvolvidos para dar suporte a comportamentos de reinicialização de problemas de infraestrutura local inesperados.
+Para tarefas de longa execução, é recomendável usar um [Hybrid runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid runbook Workers não são limitados por Fair share e não têm uma limitação de quanto tempo um runbook pode executar. Os outros [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de trabalho se aplicam a áreas restritas do Azure e Hybrid runbook Workers. Embora Hybrid runbook Workers não sejam limitados pelo limite de compartilhamento justo de 3 horas, os runbooks executados neles devem ser desenvolvidos para dar suporte a comportamentos de reinicialização de problemas de infraestrutura local inesperados.
 
 Outra opção é otimizar o runbook usando runbooks filho. Se o runbook efetuar o loop pela mesma função em vários recursos, como uma operação de banco de dados em vários bancos, você poderá mover essa função para um [runbook filho](automation-child-runbooks.md) e chamá-la com o cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) . Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento diminui a quantidade total de tempo para o runbook pai ser concluído. Você pode usar o cmdlet [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) em seu runbook para verificar o status do trabalho para cada filho se houver operações que são executadas após a conclusão do runbook filho.
 

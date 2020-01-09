@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-sfctl rpm | Microsoft Docs
-description: Descreve os comandos do sfctl rpm do Service Fabric CLI.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl rpm
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o serviço do Gerenciador de reparo.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 9c37dc8131f14a3b35e68b3e88502c91f96810f6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901024"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639093"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço do Gerenciador de reparo.
@@ -85,7 +76,7 @@ Esta API dá suporte à plataforma Service Fabric; Ele não deve ser usado diret
 
 |Argumento|Descrição|
 | --- | --- |
-| --executor-filtro | O nome do executor de reparo cujas tarefas reivindicadas devem ser incluídas na lista. |
+| --executor-filter | O nome do executor de reparo cujas tarefas reivindicadas devem ser incluídas na lista. |
 | --Estado-filtro | Um bit ou dos valores a seguir, especificando quais Estados de tarefa devem ser incluídos na lista de resultados. <br> 1-criado <br>2-declarado  <br>4-preparando  <br>8-aprovado  <br>16-executando  <br>32-restaurando  <br>64-concluído |
 | --ID-da-tarefa-filtro | O prefixo da ID da tarefa de reparo a ser correspondido. |
 

@@ -1,25 +1,18 @@
 ---
-title: Criar clusters de Service Fabric do Azure no Windows Server e no Linux | Microsoft Docs
+title: Criar clusters no Windows Server e no Linux
 description: Service Fabric clusters são executados no Windows Server e no Linux, o que significa que você poderá implantar e hospedar Service Fabric aplicativos em qualquer lugar em que possa executar o Windows Server ou o Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390384"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614677"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral de clusters de Service Fabric no Azure
 Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adicionar novos nós ao cluster, Service Fabric reequilibrará as réplicas e instâncias de partição de serviço em um número maior de nós. O desempenho geral do aplicativo melhora e a contenção de acesso à memória diminui. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. Service Fabric novamente reequilibra as réplicas e instâncias de partição em todo o número de nós reduzido para fazer melhor uso do hardware em cada nó.
@@ -31,7 +24,7 @@ Um Cluster Service Fabric no Azure é um recurso do Azure que usa e interage com
 * VMs e placas de rede virtual
 * conjuntos de dimensionamento de máquinas virtuais
 * redes virtuais
-* balanceadores de carga
+* Balanceadores de carga
 * contas de armazenamento
 * endereços IP públicos
 
@@ -54,15 +47,15 @@ Você pode usar conjuntos de dimensionamento para implantar e gerenciar uma cole
 
 Para obter mais informações, leia [Service Fabric tipos de nó e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
-As instâncias de VM são unidas por trás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo DNS.  Quando você provisiona um cluster com  *&lt;ClusterName&gt;*  *&lt;&lt; , o nome DNS, ClusterName&gt;. Location&gt;. cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+As instâncias de VM são unidas por trás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo DNS.  Ao provisionar um cluster com *&lt;clustername&gt;* , o nome DNS *&lt;ClusterName&gt;.&lt;local&gt;. cloudapp.Azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
-As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e o tráfego de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para esses computadores por meio de regras NAT (clientes se conectam a nós/instâncias específicos) ou regras de balanceamento de carga (o tráfego vai para VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato:  *&lt;ClusterName&gt;.&lt; Location&gt;. cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nó em um cluster, um balanceador de carga será criado para cada tipo de nó/conjunto de dimensionamento. Ou então, você pode configurar um único balanceador de carga para vários tipos de nó.  O tipo de nó primário tem o rótulo  *&lt;DNS ClusterName.&lt; &gt; Location&gt;. cloudapp.Azure.com*, outros tipos de nó têm o  *&lt;&gt;-&gt;rótulo DNS ClusterName&lt;NodeType. &lt; Location&gt;. cloudapp.Azure.com*.
+As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e o tráfego de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para esses computadores por meio de regras NAT (clientes se conectam a nós/instâncias específicos) ou regras de balanceamento de carga (o tráfego vai para VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato: *&lt;clustername&gt;.&lt;local&gt;. cloudapp.Azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nó em um cluster, um balanceador de carga será criado para cada tipo de nó/conjunto de dimensionamento. Ou então, você pode configurar um único balanceador de carga para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS *&lt;clustername&gt;.&lt;local&gt;. cloudapp.Azure.com*, outros tipos de nó têm o rótulo DNS *&lt;ClusterName&gt;-nodetype &lt;.&gt;local&lt;. cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 Cada tipo de nó de cluster tem suporte de uma [conta de armazenamento do Azure](/azure/storage/common/storage-introduction) e de discos gerenciados.
 
-## <a name="cluster-security"></a>Segurança do cluster
+## <a name="cluster-security"></a>Segurança em clusters
 Um Cluster Service Fabric é um recurso que você possui.  É sua responsabilidade proteger seus clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. 
 
 ### <a name="node-to-node-security"></a>Segurança de nó para nó
@@ -80,7 +73,7 @@ Para obter mais informações, leia [segurança de cliente para nó](service-fab
 ### <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
 O RBAC (controle de acesso baseado em função) permite que você atribua controles de acesso refinados nos recursos do Azure.  Você pode atribuir diferentes regras de acesso a assinaturas, grupos de recursos e recursos.  Regras de RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupo de usuários em seu AAD com regras de RBAC para que usuários e grupos designados possam modificar o cluster.  Para obter mais informações, leia a [visão geral do RBAC do Azure](/azure/role-based-access-control/overview).
 
-O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Há suporte para dois tipos de controle de acesso para clientes que se conectam a um cluster: Função de administrador e função de usuário.  
+O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Há suporte para dois tipos de controle de acesso para clientes que se conectam a um cluster: função de administrador e função de usuário.  
 
 Para obter mais informações, leia [Service Fabric controle de acesso baseado em função (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -95,7 +88,7 @@ As demandas de aplicativo mudam ao longo do tempo. Talvez seja necessário aumen
 
 Para obter mais informações, leia [dimensionando clusters do Azure](service-fabric-cluster-scaling.md).
 
-## <a name="upgrading"></a>A atualizar
+## <a name="upgrading"></a>Atualizar
 Um Cluster Service Fabric do Azure é um recurso que você possui, mas é parcialmente gerenciado pela Microsoft. A Microsoft é responsável por aplicar patches no sistema operacional subjacente e executar Service Fabric atualizações de tempo de execução em seu cluster. Você pode definir o cluster para receber atualizações de tempo de execução automáticas, quando a Microsoft lançar uma nova versão ou optar por selecionar uma versão de tempo de execução com suporte desejada. Além das atualizações de tempo de execução, você também pode atualizar a configuração de cluster, como certificados ou portas de aplicativo.
 
 Para obter mais informações, leia [atualizando clusters](service-fabric-cluster-upgrade.md).
@@ -110,7 +103,7 @@ Você pode criar clusters em máquinas virtuais que executam estes sistemas oper
 | Windows Server 1709 | 6.0 |
 | Windows Server versão 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
-| Windows Server de 2019 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
@@ -120,7 +113,7 @@ Para obter informações adicionais, consulte [versões de cluster com suporte n
 >
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre como [proteger](service-fabric-cluster-security.md), [dimensionar](service-fabric-cluster-scaling.md)e [Atualizar](service-fabric-cluster-upgrade.md) clusters do Azure.
 
 Saiba mais sobre [as opções de suporte do Service Fabric](service-fabric-support.md).

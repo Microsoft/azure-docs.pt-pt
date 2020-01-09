@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: fb8f4de3b3b24d1eba372600c817627771ef0ef6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f099a0eb6501b6576c4560e0b397d3105bb15f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158871"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610714"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Conectar dados da ATP (proteção avançada contra ameaças) do Azure
 

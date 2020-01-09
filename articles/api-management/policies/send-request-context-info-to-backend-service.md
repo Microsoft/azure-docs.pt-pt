@@ -1,5 +1,6 @@
 ---
-title: Exemplo de política de gerenciamento de API do Azure – enviar informações de contexto de solicitação para o serviço de back-end | Microsoft Docs
+title: Política de gerenciamento de API de exemplo – enviar informações de contexto de solicitação para serviço de back-end
+titleSuffix: Azure API Management
 description: Exemplo de política de gerenciamento de API do Azure – demonstra como enviar informações de contexto de solicitação para o serviço de back-end.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: cc770ff700155f8ab32bbbd6737c9dad7bc6e664
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8cef989ca7ce8ee649c4f4aeb579c43bf8a8d6ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442409"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>Enviar informações de contexto de solicitação para o serviço de back-end
 
@@ -29,7 +30,7 @@ Cole o código no bloco de **entrada** .
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Send request context information to the backend service.policy.xml)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as políticas de APIM:
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706129"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561631"
 ---
 # <a name="what-are-durable-functions"></a>O que é a Durable Functions?
 
@@ -48,7 +48,7 @@ No padrão de encadeamento de funções, uma sequência de funções é executad
 
 Você pode usar Durable Functions para implementar o padrão de encadeamento de funções de forma concisa, conforme mostrado no exemplo a seguir.
 
-Neste exemplo, os valores `F1`, `F2`, `F3`e `F4` são os nomes de outras funções no aplicativo de funções. Você pode implementar o fluxo de controle usando construções de codificação imperativas normais. O código é executado de cima para baixo. O código pode envolver a semântica de fluxo de controle de linguagem existente, como condicionais e loops. Você pode incluir a lógica de tratamento de erros no `try`/`catch`/blocos de `finally`.
+Neste exemplo, os valores `F1`, `F2`, `F3`e `F4` são os nomes de outras funções no mesmo aplicativo de funções. Você pode implementar o fluxo de controle usando construções de codificação imperativas normais. O código é executado de cima para baixo. O código pode envolver a semântica de fluxo de controle de linguagem existente, como condicionais e loops. Você pode incluir a lógica de tratamento de erros no `try`/`catch`/blocos de `finally`.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ Um cliente externo pode entregar a notificação de eventos a uma função de or
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-Um evento também pode ser gerado usando o cliente de orquestração durável de outra função:
+Um evento também pode ser gerado usando o cliente de orquestração durável de outra função no mesmo aplicativo de funções:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -507,7 +507,7 @@ Para fornecer garantias de execução confiáveis e de execução longa, as fun�
 
 ## <a name="billing"></a>Faturação
 
-Durable Functions são cobradas da mesma forma que Azure Functions. Para obter mais informações, consulte [preços de Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de consumo](../functions-scale.md#consumption-plan)de Azure functions, há alguns comportamentos de cobrança a serem cientes. Para obter mais informações sobre esses comportamentos, consulte o artigo [Durable Functions cobrança](durable-functions-billing.md) .
+Durable Functions são cobradas da mesma forma que Azure Functions. Para obter mais informações, consulte [preços de funções do Azure](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de consumo](../functions-scale.md#consumption-plan)de Azure functions, há alguns comportamentos de cobrança a serem cientes. Para obter mais informações sobre esses comportamentos, consulte o artigo [Durable Functions cobrança](durable-functions-billing.md) .
 
 ## <a name="jump-right-in"></a>Ir direto para a direita
 

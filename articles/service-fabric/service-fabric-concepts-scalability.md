@@ -1,25 +1,16 @@
 ---
-title: Escalabilidade dos serviços de Service Fabric | Microsoft Docs
-description: Descreve como dimensionar os serviços de Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Escalabilidade dos serviços de Service Fabric
+description: Saiba mais sobre o dimensionamento no Azure Service Fabric e as várias técnicas usadas para dimensionar aplicativos.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035926"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610017"
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento em Service Fabric
 O Azure Service Fabric facilita a criação de aplicativos escalonáveis gerenciando os serviços, as partições e as réplicas nos nós de um cluster. A execução de muitas cargas de trabalho no mesmo hardware permite a utilização máxima de recursos, mas também fornece flexibilidade em termos de como você escolhe dimensionar suas cargas de trabalho. Este vídeo do Channel 9 descreve como você pode criar aplicativos de microserviços escalonáveis:
@@ -36,7 +27,7 @@ O dimensionamento em Service Fabric é feito de várias maneiras diferentes:
 6. Dimensionamento usando métricas do Gerenciador de recursos de cluster
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Dimensionamento criando ou removendo instâncias de serviço sem estado
-Uma das maneiras mais simples de dimensionar em Service Fabric funciona com serviços sem estado. Ao criar um serviço sem estado, você tem a chance de definir um `InstanceCount`. `InstanceCount`define quantas cópias em execução do código do serviço são criadas quando o serviço é iniciado. Digamos, por exemplo, que há 100 nós no cluster. Digamos também que um serviço seja criado com um `InstanceCount` de 10. Durante o tempo de execução, essas 10 cópias em execução do código podem se tornar muito ocupadas (ou podem não estar ocupadas o suficiente). Uma maneira de dimensionar essa carga de trabalho é alterar o número de instâncias. Por exemplo, parte do código de monitoramento ou de gerenciamento pode alterar o número existente de instâncias para 50, ou para 5, dependendo se a carga de trabalho precisa ser expandida ou reduzida com base na carga. 
+Uma das maneiras mais simples de dimensionar em Service Fabric funciona com serviços sem estado. Ao criar um serviço sem estado, você tem a chance de definir um `InstanceCount`. `InstanceCount` define quantas cópias em execução do código desse serviço são criadas quando o serviço é iniciado. Digamos, por exemplo, que há 100 nós no cluster. Digamos também que um serviço seja criado com um `InstanceCount` de 10. Durante o tempo de execução, essas 10 cópias em execução do código podem se tornar muito ocupadas (ou podem não estar ocupadas o suficiente). Uma maneira de dimensionar essa carga de trabalho é alterar o número de instâncias. Por exemplo, parte do código de monitoramento ou de gerenciamento pode alterar o número existente de instâncias para 50, ou para 5, dependendo se a carga de trabalho precisa ser expandida ou reduzida com base na carga. 
 
 C#:
 
@@ -46,7 +37,7 @@ updateDescription.InstanceCount = 50;
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-PowerShell
+PowerShell:
 
 ```posh
 Update-ServiceFabricService -Stateless -ServiceName $serviceName -InstanceCount 50
@@ -63,7 +54,7 @@ serviceDescription.InstanceCount = -1;
 await fc.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless -PartitionSchemeSingleton -InstanceCount "-1"
@@ -72,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Dimensionamento criando ou removendo novos serviços nomeados
 Uma instância de serviço nomeada é uma instância específica de um tipo de serviço (consulte [Service Fabric ciclo de vida do aplicativo](service-fabric-application-lifecycle.md)) em alguma instância de aplicativo nomeada no cluster. 
 
-Novas instâncias de serviço nomeado podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isso permite que as solicitações sejam distribuídas por mais instâncias de serviço, geralmente permitindo que a carga de serviços existentes diminua. Ao criar serviços, o Gerenciador de recursos de Cluster Service Fabric coloca os serviços no cluster de maneira distribuída. As decisões exatas são governadas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e outras regras de posicionamento. Os serviços podem ser criados de várias maneiras diferentes, mas o mais comum é por meio de ações administrativas [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), como alguém que chama [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet), ou por chamada de código. `CreateServiceAsync`pode até ser chamado de dentro de outros serviços em execução no cluster.
+Novas instâncias de serviço nomeado podem ser criadas (ou removidas) à medida que os serviços se tornam mais ou menos ocupados. Isso permite que as solicitações sejam distribuídas por mais instâncias de serviço, geralmente permitindo que a carga de serviços existentes diminua. Ao criar serviços, o Gerenciador de recursos de Cluster Service Fabric coloca os serviços no cluster de maneira distribuída. As decisões exatas são governadas pelas [métricas](service-fabric-cluster-resource-manager-metrics.md) no cluster e outras regras de posicionamento. Os serviços podem ser criados de várias maneiras diferentes, mas o mais comum é por meio de ações administrativas, como alguém que chama [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)ou pelo código que chama [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` pode até ser chamado de dentro de outros serviços em execução no cluster.
 
 Criar serviços dinamicamente pode ser usado em todos os tipos de cenários e é um padrão comum. Por exemplo, considere um serviço com estado que representa um fluxo de trabalho específico. As chamadas que representam o trabalho serão exibidas para esse serviço, e esse serviço irá executar as etapas para esse fluxo e registrar o progresso. 
 
@@ -103,24 +94,24 @@ Considere um serviço que usa um esquema de particionamento de intervalo com uma
 
 <center>
 
-![Layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
+![o layout de partição com três nós](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 Se você aumentar o número de nós, Service Fabric moverá algumas das réplicas existentes ali. Por exemplo, digamos que o número de nós aumente para quatro e as réplicas sejam redistribuídas. Agora, o serviço agora tem três réplicas em execução em cada nó, cada uma pertencente a partições diferentes. Isso permite uma melhor utilização de recursos, pois o novo nó não está frio. Normalmente, ele também melhora o desempenho, pois cada serviço tem mais recursos disponíveis para ele.
 
 <center>
 
-![Layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
+![o layout de partição com quatro nós](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
 ## <a name="scaling-by-using-the-service-fabric-cluster-resource-manager-and-metrics"></a>Dimensionamento usando o Gerenciador de recursos de Cluster Service Fabric e métricas
-[](service-fabric-cluster-resource-manager-metrics.md) As métricas são como os serviços expressam seu consumo de recursos para Service Fabric. O uso de métricas dá ao Gerenciador de recursos de cluster uma oportunidade de reorganizar e otimizar o layout do cluster. Por exemplo, pode haver muitos recursos no cluster, mas eles podem não ser alocados para os serviços que estão trabalhando atualmente. O uso de métricas permite ao Gerenciador de recursos de cluster reorganizar o cluster para garantir que os serviços tenham acesso aos recursos disponíveis. 
+As [métricas](service-fabric-cluster-resource-manager-metrics.md) são como os serviços expressam seu consumo de recursos para Service Fabric. O uso de métricas dá ao Gerenciador de recursos de cluster uma oportunidade de reorganizar e otimizar o layout do cluster. Por exemplo, pode haver muitos recursos no cluster, mas eles podem não ser alocados para os serviços que estão trabalhando atualmente. O uso de métricas permite ao Gerenciador de recursos de cluster reorganizar o cluster para garantir que os serviços tenham acesso aos recursos disponíveis. 
 
 
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Dimensionamento adicionando e removendo nós do cluster 
 Outra opção para dimensionar com Service Fabric é alterar o tamanho do cluster. Alterar o tamanho do cluster significa adicionar ou remover nós de um ou mais dos tipos de nó no cluster. Por exemplo, considere um caso em que todos os nós no cluster estejam ativos. Isso significa que os recursos do cluster são quase todos consumidos. Nesse caso, adicionar mais nós ao cluster é a melhor maneira de dimensionar. Depois que os novos nós ingressam no cluster, o Gerenciador de recursos de Cluster Service Fabric move os serviços para eles, resultando em menos carga total nos nós existentes. Para serviços sem estado com contagem de instâncias =-1, mais instâncias de serviço são criadas automaticamente. Isso permite que algumas chamadas sejam movidas dos nós existentes para os novos nós. 
 
-Para obter mais informações, consulte dimensionamento de [cluster](service-fabric-cluster-scaling.md).
+Para obter mais informações, consulte [dimensionamento de cluster](service-fabric-cluster-scaling.md).
 
 ## <a name="choosing-a-platform"></a>Escolhendo uma plataforma
 
@@ -129,7 +120,7 @@ Devido a diferenças de implementação entre sistemas operacionais, optar por u
 ## <a name="putting-it-all-together"></a>Juntar tudo
 Vamos pegar todas as ideias que discutimos aqui e falar por meio de um exemplo. Considere o seguinte serviço: você está tentando criar um serviço que atua como um catálogo de endereços, mantendo os nomes e as informações de contato. 
 
-À frente você tem várias perguntas relacionadas à escala: Quantos usuários você vai ter? Quantos contatos cada usuário armazenará? Tentar descobrir tudo isso quando você estiver posicionando seu serviço pela primeira vez é difícil. Digamos que você vá com um único serviço estático com uma contagem de partição específica. As consequências de escolher a contagem de partições errada podem causar problemas de escala posteriormente. Da mesma forma, mesmo que você escolha a contagem correta, talvez não tenha todas as informações necessárias. Por exemplo, você também precisa decidir o tamanho do cluster na frente, tanto em termos do número de nós quanto de seus tamanhos. Geralmente, é difícil prever quantos recursos um serviço irá consumir durante seu tempo de vida. Também pode ser difícil saber antecipadamente o padrão de tráfego que o serviço realmente vê. Por exemplo, talvez as pessoas adicionem e removam seus contatos apenas na manhã, ou talvez sejam distribuídas uniformemente no decorrer do dia. Com base nesse caso, talvez seja necessário escalar horizontalmente e de forma dinâmica. Talvez você possa aprender a prever quando precisará escalar e reduzir horizontalmente, mas de qualquer forma, provavelmente será necessário reagir à alteração do consumo de recursos pelo seu serviço. Isso pode envolver a alteração do tamanho do cluster para fornecer mais recursos ao reorganizar o uso de recursos existentes não é suficiente. 
+À frente você tem várias perguntas relacionadas à escala: quantos usuários você vai ter? Quantos contatos cada usuário armazenará? Tentar descobrir tudo isso quando você estiver posicionando seu serviço pela primeira vez é difícil. Digamos que você vá com um único serviço estático com uma contagem de partição específica. As consequências de escolher a contagem de partições errada podem causar problemas de escala posteriormente. Da mesma forma, mesmo que você escolha a contagem correta, talvez não tenha todas as informações necessárias. Por exemplo, você também precisa decidir o tamanho do cluster na frente, tanto em termos do número de nós quanto de seus tamanhos. Geralmente, é difícil prever quantos recursos um serviço irá consumir durante seu tempo de vida. Também pode ser difícil saber antecipadamente o padrão de tráfego que o serviço realmente vê. Por exemplo, talvez as pessoas adicionem e removam seus contatos apenas na manhã, ou talvez sejam distribuídas uniformemente no decorrer do dia. Com base nesse caso, talvez seja necessário escalar horizontalmente e de forma dinâmica. Talvez você possa aprender a prever quando precisará escalar e reduzir horizontalmente, mas de qualquer forma, provavelmente será necessário reagir à alteração do consumo de recursos pelo seu serviço. Isso pode envolver a alteração do tamanho do cluster para fornecer mais recursos ao reorganizar o uso de recursos existentes não é suficiente. 
 
 Mas por que mesmo tentar escolher um único esquema de partição para todos os usuários? Por que limitar-se a um serviço e a um cluster estático? Normalmente, a situação real é mais dinâmica. 
 
@@ -149,7 +140,7 @@ Esse padrão de criação dinâmica tem muitos benefícios:
   - Você não está executando uma série de instâncias de serviço ou réplicas enquanto está aguardando que os clientes apareçam
   - Se um cliente sair, remover suas informações do serviço é tão simples quanto fazer com que o Gerenciador exclua esse serviço ou aplicativo que ele criou.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre conceitos de Service Fabric, consulte os seguintes artigos:
 
 * [Disponibilidade de serviços de Service Fabric](service-fabric-availability-services.md)
