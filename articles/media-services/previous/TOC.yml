@@ -50,6 +50,7 @@
 - name: Procedimento
   items:
     - name: Componentes legados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Migrar do Codificador de Multimédia do Azure
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Componentes legados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Multimédia do Azure
