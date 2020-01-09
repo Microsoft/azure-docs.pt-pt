@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação do Serviço de Aplicações no Linux
 metadata:
-  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
   title: 'Contentores do Linux - Tutoriais, Referência'
   meta.description: Learn how to build Linux websites and web applications in App Service. Run your code in a default Docker container or run a custom container.
   ms.topic: landing-page
@@ -106,7 +105,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI do Azure</a></p>
           - title: Linguagens
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST

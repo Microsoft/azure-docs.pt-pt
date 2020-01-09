@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação de Máquinas Virtuais
 metadata:
-  document_id: na
   title: 'Documentação da Máquina Virtual do Azure - Tutoriais, Referência da API'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
@@ -110,7 +109,7 @@ sections:
         className: cardsD
         items:
           - title: Linha de Comandos
-            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">O Azure PowerShell</a></p>
+            html: <p><a href="/cli/azure/vm">CLI do Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
           - title: Linguagens
             html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
           - title: REST

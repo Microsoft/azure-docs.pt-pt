@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Plataforma como Serviço
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Base de Dados SQL do Azure - Plataforma como Serviço
   meta.description: Learn about the PaaS capabilities of Azure SQL Database.
   services: sql-database

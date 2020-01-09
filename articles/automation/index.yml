@@ -1,7 +1,6 @@
 ### YamlMime:Landing
 title: Documentação da Automatização do Azure
 metadata:
-  document_id: 
   title: Documentação da Automatização do Azure
   description: Saiba como utilizar a Automatização para configurar e automatizar tarefas operacionais num ambiente híbrido.
   services: automation
@@ -12,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2019
   ms.author: robreed
-  ms.openlocfilehash: 580ae2d2544b3db15ffd52a150c7bb02c2a44007
-  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+  ms.openlocfilehash: 9207c92a1fcb6a6f5522a450912ddd10d0294c3f
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/20/2019
-  ms.locfileid: "74231573"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75769970"
 landingContent:
 - title: Introdução à Automatização do Azure
   linkLists:
@@ -59,7 +58,7 @@ landingContent:
       url: automation-dsc-overview.md
   - linkListType: concept
     links:
-    - text: PowerShell DSC
+    - text: DSC do PowerShell
       url: /powershell/scripting/dsc/overview/overview
   - linkListType: quickstart
     links:

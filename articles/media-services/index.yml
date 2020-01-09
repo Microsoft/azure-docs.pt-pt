@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação dos Serviços de Multimédia do Azure
 metadata:
-  document_id: null
   title: Documentação dos Serviços de Multimédia do Azure | Microsoft Docs
   description: 'Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais.'
   services: media-services

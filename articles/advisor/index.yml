@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/16/2019
-  ms.openlocfilehash: 43e35c1d6afd96ff78ebd938fa76a503dd4e935d
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: e7cf35654bec7302423a62e66a39651ad1745651
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75443021"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75768661"
 landingContent:
 - title: Acerca do Assistente do Azure
   linkLists:
@@ -38,6 +38,6 @@ landingContent:
     - text: Common Language Interface (CLI)
       url: /cli/azure/advisor?view=azure-cli-latest
     - text: PowerShell
-      url: /powershell/module/az.advisor/?view=azps-1.2.0"
+      url: /powershell/module/az.advisor/?view=azps-1.2.0
     - text: API REST
       url: /rest/api/advisor/

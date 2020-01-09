@@ -86,7 +86,7 @@
       displayName: studio
       href: concept-designer.md
     - name: Referência rápida para algoritmos
-      href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context
+      href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Aprendizagem automática automatizada
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

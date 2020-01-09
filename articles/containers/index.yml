@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure para Contentores
 metadata:
-  document_id: null
   title: 'Azure para Contentores - Inícios Rápidos, Tutoriais, Referência da API'
   description: 'Comece a gerir e implementar aplicações de contentor com o Azure com inícios rápidos, tutoriais e ferramentas para contentores.'
   keywords: 'Azure, Contentores, Docker, API, Kubernetes'

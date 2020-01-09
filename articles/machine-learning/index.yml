@@ -12,93 +12,93 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: d9ff6c7d5fffd8ceb5d282b35db61e0ec0a0b7de
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 4324451c27342b96bedcfb420fe7ff1134624bde
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75428354"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75771364"
 landingContent:
 - title: Introdução ao Azure ML
   linkLists:
   - linkListType: tutorial
     links:
     - text: Experimentação em notebooks Python
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: Experimentação no RStudio
-      url: service/tutorial-1st-r-experiment.md
+      url: tutorial-1st-r-experiment.md
     - text: Experimentação com o estruturador de arrastar e largar
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: Experimentação com o ML automatizado
-      url: service/tutorial-first-experiment-automated-ml.md
+      url: tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
     - text: O que é o Azure ML?
-      url: service/overview-what-is-azure-ml.md
+      url: overview-what-is-azure-ml.md
     - text: Arquitetura e conceitos
-      url: service/concept-azure-machine-learning-architecture.md
+      url: concept-azure-machine-learning-architecture.md
   - linkListType: how-to-guide
     links:
     - text: Configurar o ambiente
-      url: service/how-to-configure-environment.md
+      url: how-to-configure-environment.md
     - text: Configurar destinos de computação de preparação
-      url: service/how-to-set-up-training-targets.md
+      url: how-to-set-up-training-targets.md
 - title: 'Experimentação: SDK Python'
   linkLists:
   - linkListType: tutorial
     links:
     - text: Criar a primeira experimentação de ML
-      url: service/tutorial-1st-experiment-sdk-setup.md
+      url: tutorial-1st-experiment-sdk-setup.md
     - text: Classificar imagens
-      url: service/tutorial-train-models-with-aml.md
+      url: tutorial-train-models-with-aml.md
     - text: Prever tarifas de táxi com ML automatizado
-      url: service/tutorial-auto-train-models.md
+      url: tutorial-auto-train-models.md
   - linkListType: how-to-guide
     links:
     - text: Preparar com o Scikit-learn
-      url: service/how-to-train-scikit-learn.md
+      url: how-to-train-scikit-learn.md
     - text: Preparar com o TensorFlow
-      url: service/how-to-train-tensorflow.md
+      url: how-to-train-tensorflow.md
     - text: Preparar com o PyTorch
-      url: service/how-to-train-pytorch.md
+      url: how-to-train-pytorch.md
     - text: Preparar com o Keras
-      url: service/how-to-train-keras.md
+      url: how-to-train-keras.md
 - title: Utilizar Pipelines de ML
   linkLists:
   - linkListType: overview
     links:
     - text: O que são pipelines de ML?
-      url: service/concept-ml-pipelines.md
+      url: concept-ml-pipelines.md
     - text: O estruturador de arrastar e largar
-      url: service/concept-designer.md
+      url: concept-designer.md
   - linkListType: tutorial
     links:
     - text: Regressão linear para prever preços (estruturador)
-      url: service/tutorial-designer-automobile-price-train-score.md
+      url: tutorial-designer-automobile-price-train-score.md
     - text: Criar pipelines de ML (SDK do Python)
-      url: service/tutorial-pipeline-batch-scoring-classification.md
+      url: tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Agendar pipelines de ML (SDK do Python)
-      url: service/how-to-schedule-pipelines.md
+      url: how-to-schedule-pipelines.md
     - text: Prever atrasos (estruturador)
-      url: service/how-to-designer-sample-classification-flight-delay.md
+      url: how-to-designer-sample-classification-flight-delay.md
     - text: Prever alterações (estruturador)
-      url: service/how-to-designer-sample-classification-churn.md
+      url: how-to-designer-sample-classification-churn.md
 - title: Implementar e gerir modelos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: O que é o MLOps?
-      url: service/concept-model-management-and-deployment.md
+      url: concept-model-management-and-deployment.md
     - text: Como e onde implementar
-      url: service/how-to-deploy-and-where.md
+      url: how-to-deploy-and-where.md
     - text: Autenticação
-      url: service/how-to-setup-authentication.md
+      url: how-to-setup-authentication.md
     - text: Predição em tempo real
-      url: service/how-to-consume-web-service.md
+      url: how-to-consume-web-service.md
     - text: Predição de lote
-      url: service/how-to-run-batch-predictions.md
+      url: how-to-run-batch-predictions.md
     - text: Exemplos ponto a ponto (GitHub)
       url: https://github.com/microsoft/MLOps
 - title: Ir para documentos de referência
