@@ -3,17 +3,17 @@ title: Conectividade do dispositivo no Azure IoT Central | Microsoft Docs
 description: Este artigo apresenta os principais conceitos relacionados à conectividade do dispositivo no Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ef0e4c9070733266349a37e863c48901eae90c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 412a678465589da87c713a55a7b67193b254bf96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434937"
 ---
 # <a name="get-connected-to-azure-iot-central-preview-features"></a>Conectar-se ao Azure IoT Central (recursos de visualização)
 
@@ -177,7 +177,7 @@ Abaixo está o formato da carga adicional que o dispositivo enviaria durante a c
 > [!NOTE]
 > Observe que a opção de aprovação automática deve ser habilitada para que os dispositivos se conectem automaticamente, descubram o modelo e comecem a enviar dados.
 
-## <a name="device-status"></a>Status do dispositivo
+## <a name="device-status"></a>Estado do dispositivo
 
 Quando um dispositivo real se conecta ao seu aplicativo IoT Central, o status do dispositivo é alterado da seguinte maneira:
 
@@ -196,7 +196,7 @@ Quando um dispositivo real se conecta ao seu aplicativo IoT Central, o status do
     - Dispositivos não registrados manualmente na página **dispositivos** conectados com credenciais válidas, mas sem especificar a ID do modelo durante o registro.  
 O operador pode associar um dispositivo a um modelo da página **dispositivos** usando o botão **migrar** .
 
-## <a name="sdk-support"></a>Suporte a SDK
+## <a name="sdk-support"></a>Suporte de SKDs
 
 Os SDKs de dispositivo do Azure oferecem a maneira mais fácil de implementar o código do dispositivo. Os seguintes SDKs de dispositivo estão disponíveis:
 
@@ -215,9 +215,9 @@ Todas as comunicações de dispositivo com o Hub IoT usam as seguintes opções 
 
 A tabela a seguir resume como o Azure IoT Central recursos do dispositivo são mapeados para os recursos do Hub IoT:
 
-| Azure IoT Central | Azure IoT Hub |
+| Azure IoT Central | Hub IoT do Azure |
 | ----------- | ------- |
-| Medida: telemetria | Mensagens do dispositivo para a nuvem |
+| Medida: telemetria | Mensagens de dispositivo para cloud |
 | Propriedades do dispositivo | Propriedades relatadas do dispositivo. |
 | Definições | Propriedades relatadas e desejadas do dispositivo. |
 

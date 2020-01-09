@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434859"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: definir um novo tipo de dispositivo Azure IoT Edge em seu aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -294,7 +294,7 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
     | Nome a apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
     | Data da Última Assistência | Nenhuma          | Date   |
-    | Nome do cliente     | Nenhuma          | String |
+    | Nome do cliente     | Nenhuma          | Cadeia |
 
 2. Selecione **Guardar**.
 
@@ -400,4 +400,4 @@ Neste tutorial, ficou a saber como:
 Agora que você criou um modelo de dispositivo em seu aplicativo de IoT Central do Azure, poderá fazer o seguinte:
 
 > [!div class="nextstepaction"]
-> [Conectar dispositivo](./tutorial-connect-pnp-device.md)
+> [Conectar dispositivo do Edge](./tutorial-add-edge-as-leaf-device.md)

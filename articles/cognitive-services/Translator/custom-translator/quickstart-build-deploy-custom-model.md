@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975759"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446751"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: criar, implantar e usar um modelo personalizado para tradução
 
@@ -37,7 +37,7 @@ Na página de aterrissagem do portal do tradutor personalizado, clique em novo p
 
 ## <a name="upload-documents"></a>Carregar documentos
 
-Em seguida, carregue os conjuntos de documentos de [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator) e [teste](training-and-model.md#testing-dataset-for-custom-translator) . Você pode carregar documentos [paralelos](what-are-parallel-documents.md) e de combinação. Você também pode carregar o [dicionário](what-is-dictionary.md).
+Em seguida, carregue os conjuntos de documentos de [treinamento](training-and-model.md#training-document-type-for-custom-translator), [ajuste](training-and-model.md#tuning-document-type-for-custom-translator) e [teste](training-and-model.md#testing-dataset-for-custom-translator) . Você pode carregar documentos [paralelos](what-are-parallel-documents.md) e de combinação. Você também pode carregar o [dicionário](what-is-dictionary.md).
 
 Você pode carregar documentos da guia documentos ou da página de um projeto específico.
 
@@ -49,7 +49,7 @@ Ao carregar documentos, escolha o tipo de documento (treinamento, ajuste ou test
 
 Quando todos os documentos necessários forem carregados, a próxima etapa será criar seu modelo.
 
-Selecione o projeto que você criou. Você verá todos os documentos que carregou e que compartilham um par de idiomas com este projeto. Selecione os documentos que você deseja incluir em seu modelo. Você pode selecionar [treinamento](training-and-model.md#training-dataset-for-custom-translator), [ajuste](training-and-model.md#tuning-dataset-for-custom-translator)e [teste](training-and-model.md#testing-dataset-for-custom-translator) de dados ou selecionar apenas dados de treinamento e permitir que o tradutor personalizado crie automaticamente conjuntos de ajuste e teste para seu modelo.
+Selecione o projeto que você criou. Você verá todos os documentos que carregou e que compartilham um par de idiomas com este projeto. Selecione os documentos que você deseja incluir em seu modelo. Você pode selecionar [treinamento](training-and-model.md#training-document-type-for-custom-translator), [ajuste](training-and-model.md#tuning-document-type-for-custom-translator)e [teste](training-and-model.md#testing-dataset-for-custom-translator) de dados ou selecionar apenas dados de treinamento e permitir que o tradutor personalizado crie automaticamente conjuntos de ajuste e teste para seu modelo.
 
 ![Criar um modelo](media/quickstart/ct-how-to-train.png)
 

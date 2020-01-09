@@ -1,5 +1,5 @@
 ---
-title: Importar e atualizar dados em massa no Azure Cosmos DB usando a biblioteca de executores em massa
+title: Visão geral do Azure Cosmos DB biblioteca de executores em massa
 description: Execute operações em massa em Azure Cosmos DB por meio de APIs de importação em massa e de atualização em massa oferecidas pela biblioteca de executor em massa.
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442159"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Visão geral do Azure Cosmos DB biblioteca de executores em massa
  

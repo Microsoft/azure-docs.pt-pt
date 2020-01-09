@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script – Azure Cosmos DB atualizar RU/s para API do MongoDB
+title: Script do PowerShell para atualizar o RU/s para a API do Azure Cosmos DB para MongoDB
 description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência de um banco de dados ou de um contêiner na API de Azure Cosmos DB para MongoDB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7064d9e6387b264b9b7134eb7dff5f988347a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441412"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualizar RU/s para um banco de dados ou uma coleção para a API Azure Cosmos DB MongoDB
 

@@ -1,41 +1,33 @@
 ---
-title: Comunicação remota do serviço através de Java no Azure Service Fabric | Documentos da Microsoft
-description: Comunicação remota do Service Fabric permite que os clientes e serviços para comunicar com os serviços de Java através de uma chamada de procedimento remoto.
-services: service-fabric
-documentationcenter: java
+title: Comunicação remota do serviço usando Java no Azure Service Fabric
+description: Service Fabric comunicação remota permite que clientes e serviços se comuniquem com os serviços Java usando uma chamada de procedimento remoto.
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51c8c689bd3fe3e8967bab77e776ad02f9cb59f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426639"
 ---
-# <a name="service-remoting-in-java-with-reliable-services"></a>Comunicação remota do serviço em Java com o Reliable Services
+# <a name="service-remoting-in-java-with-reliable-services"></a>Comunicação remota do serviço em Java com Reliable Services
 > [!div class="op_single_selector"]
 > * [C# no Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java em Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-Para os serviços que não ficam amarrados a um protocolo de comunicação específico ou a pilha, como WebAPI, Windows Communication Foundation (WCF) ou outras pessoas, a estrutura de Reliable Services fornece um mecanismo de comunicação remota de forma rápida e fácil configurar chamadas de procedimento remoto para serviços.  Este artigo aborda como configurar a chamadas de procedimento remoto para os serviços escritos com Java.
+Para serviços que não estão vinculados a um determinado protocolo de comunicação ou pilha, como WebAPI, Windows Communication Foundation (WCF) ou outros, a estrutura de Reliable Services fornece um mecanismo de comunicação remota para configurar de forma rápida e fácil as chamadas de procedimento remoto para serviços.  Este artigo discute como configurar chamadas de procedimento remoto para serviços escritos com Java.
 
-## <a name="set-up-remoting-on-a-service"></a>Configurar remotamente num serviço
-Configurar a comunicação remota para um serviço é feita em duas etapas simples:
+## <a name="set-up-remoting-on-a-service"></a>Configurar a comunicação remota em um serviço
+A configuração da comunicação remota para um serviço é feita em duas etapas simples:
 
-1. Crie uma interface para o seu serviço implementar. Esta interface define os métodos disponíveis para uma chamada de procedimento remoto no seu serviço. Tem de ser os métodos que retornam task métodos assíncronos. Tem de implementar a interface `microsoft.serviceFabric.services.remoting.Service` para sinalizar que o serviço tem uma interface de comunicação remota.
-2. Utilize um serviço de escuta de comunicação remota no seu serviço. Este é um `CommunicationListener` implementação que fornece capacidades de comunicação remota. `FabricTransportServiceRemotingListener` pode ser utilizado para criar um serviço de escuta de comunicação remota utilizando o protocolo de transporte de comunicação remota do padrão.
+1. Crie uma interface para o serviço implementar. Essa interface define os métodos que estão disponíveis para uma chamada de procedimento remoto em seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `microsoft.serviceFabric.services.remoting.Service` para sinalizar que o serviço tem uma interface de comunicação remota.
+2. Use um ouvinte de comunicação remota em seu serviço. Essa é uma implementação `CommunicationListener` que fornece recursos de comunicação remota. `FabricTransportServiceRemotingListener` pode ser usado para criar um ouvinte de comunicação remota usando o protocolo de transporte remoto padrão.
 
-Por exemplo, o serviço sem estado seguinte expõe um único método para obter "Hello World" através de uma chamada de procedimento remoto.
+Por exemplo, o serviço sem estado a seguir expõe um único método para obter "Olá, Mundo" sobre uma chamada de procedimento remoto.
 
 ```java
 import java.util.ArrayList;
@@ -70,12 +62,12 @@ class MyServiceImpl extends StatelessService implements MyService {
 ```
 
 > [!NOTE]
-> Os argumentos e os tipos de retorno na interface de serviço podem ser qualquer tipo personalizado, simple ou complexo, mas têm de ser serializáveis.
+> Os argumentos e os tipos de retorno na interface de serviço podem ser de tipos simples, complexos ou personalizados, mas devem ser serializáveis.
 >
 >
 
-## <a name="call-remote-service-methods"></a>Chamar os métodos de serviço remoto
-Chamar métodos num serviço utilizando a pilha de comunicação remota é feito usando um proxy local para o serviço através do `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` classe. O `ServiceProxyBase` método cria um proxy local com a mesma interface, que implementa o serviço. Com que o proxy, pode simplesmente chamar métodos na interface remotamente.
+## <a name="call-remote-service-methods"></a>Chamar métodos de serviço remoto
+Chamar métodos em um serviço usando a pilha de comunicação remota é feito usando um proxy local para o serviço por meio da classe `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase`. O método `ServiceProxyBase` cria um proxy local usando a mesma interface implementada pelo serviço. Com esse proxy, você pode simplesmente chamar métodos na interface remotamente.
 
 ```java
 
@@ -85,25 +77,25 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-A estrutura de comunicação remota propaga exceções geradas no serviço ao cliente. Lógica de manipulação de exceção por isso, o cliente utilizando `ServiceProxyBase` diretamente pode manipular exceções que o serviço gera.
+A estrutura de comunicação remota propaga exceções lançadas no serviço para o cliente. Portanto, a lógica de tratamento de exceção no cliente usando `ServiceProxyBase` pode tratar diretamente as exceções que o serviço lança.
 
-## <a name="service-proxy-lifetime"></a>O tempo de vida do serviço Proxy
-Criação de ServiceProxy é uma operação simples, para que possa criar tantos conforme necessário. Instâncias de Proxy de serviço podem ser reutilizadas, desde que eles são necessários. Se uma chamada de procedimento remoto lança uma exceção, ainda pode reutilizar a mesma instância de proxy. Cada ServiceProxy contenha um cliente de comunicação utilizado para enviar mensagens durante a transmissão. Ao invocar chamadas remotas, são executadas verificações de internas para determinar se o cliente de comunicação é válido. Com base nos resultados dessas verificações, o cliente de comunicação é recriado se for necessário. Por conseguinte, se ocorrer uma exceção, não precisa de recriar `ServiceProxy`.
+## <a name="service-proxy-lifetime"></a>Tempo de vida do proxy de serviço
+A criação do outproxy é uma operação leve, para que você possa criar quantas forem necessárias. As instâncias de proxy de serviço podem ser reutilizadas desde que sejam necessárias. Se uma chamada de procedimento remoto lançar uma exceção, você ainda poderá reutilizar a mesma instância de proxy. Cada outproxy contém um cliente de comunicação usado para enviar mensagens pela conexão. Ao invocar chamadas remotas, verificações internas são executadas para determinar se o cliente de comunicação é válido. Com base nos resultados dessas verificações, o cliente de comunicação é recriado, se necessário. Portanto, se ocorrer uma exceção, você não precisará recriar `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) é uma fábrica que cria o proxy para interfaces de comunicação remota diferente. Se usar a API `ServiceProxyBase.create` para a criação de proxy, em seguida, framework cria uma `FabricServiceProxyFactory`.
-É útil criar um manualmente quando precisa substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) propriedades.
-Que é uma operação dispendiosa. `FabricServiceProxyFactory` mantém a cache de clientes de comunicação.
-Melhor prática consiste em cache `FabricServiceProxyFactory` pelo tempo possível.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) é uma fábrica que cria um proxy para diferentes interfaces de comunicação remota. Se você usar `ServiceProxyBase.create` de API para criar o proxy, a estrutura criará uma `FabricServiceProxyFactory`.
+É útil criar um manualmente quando você precisa substituir as propriedades [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory) .
+A fábrica é uma operação cara. `FabricServiceProxyFactory` mantém o cache de clientes de comunicação.
+A prática recomendada é armazenar em cache `FabricServiceProxyFactory` por tanto tempo quanto possível.
 
 ## <a name="remoting-exception-handling"></a>Manipulação de exceção de comunicação remota
-A exceção de remota gerada pela API de serviço, como RuntimeException ou FabricException são enviados ao cliente.
+Todas as exceções remotas geradas pela API de serviço são enviadas de volta ao cliente como RuntimeException ou Fabricexception.
 
-ServiceProxy lidar com todas as exceções de ativação pós-falha para a partição de serviço é criado para. Novamente resolve os pontos de extremidade se houver Exceptions(Non-Transient Exceptions) ativação pós-falha e repetem a chamada com o ponto final correto. Número de tentativas de ativação pós-falha de exceção é indefinido.
-Em caso de TransientExceptions, apenas repete a chamada.
+O Service-Proxy lida com toda exceção de failover para a partição de serviço para a qual ela foi criada. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e tentará novamente a chamada com o ponto de extremidade correto. O número de repetições para a exceção de failover é indefinido.
+No caso do TransientExceptions, ele apenas tenta a chamada novamente.
 
-Padrão repetição parâmetros são fornecem pela [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
-Pode configurar estes valores, passando o objeto OperationRetrySettings para ServiceProxyFactory construtor.
+Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Você pode configurar esses valores passando o objeto OperationRetrySettings para o Construtor ServiceProxyFactory.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Proteger a comunicação de Reliable Services](service-fabric-reliable-services-secure-communication-java.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Protegendo a comunicação para Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

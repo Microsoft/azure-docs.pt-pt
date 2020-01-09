@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar uma pesquisa de notícias com o Ruby e a API REST do Pesquisa de Notícias do Bing'
+title: 'Início rápido: executar uma pesquisa de notícias com o Ruby e a API REST do Pesquisa de Notícias do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando o Ruby e receber uma resposta JSON.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/19/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ab16a54269c2afe820d9d17d1400152d078186ed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: ce1ef2b6c586ddd688bacb755d7c6f2ffd16a0a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448538"
 ---
-# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias usando o Ruby e a API REST do Pesquisa de Notícias do Bing
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando o Ruby e a API REST do Pesquisa de Notícias do Bing
 
 Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa de Notícias do Bing e receber uma resposta JSON. Esse aplicativo JavaScript simples envia uma consulta de pesquisa para a API e processa os resultados.
 
@@ -30,8 +30,6 @@ Embora esse aplicativo seja escrito em Python, a API é uma maioria das linguage
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
 1. Importe os seguintes pacotes para o seu ficheiro de código.
@@ -42,7 +40,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     require 'json'
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, URL de pesquisa de notícias, sua chave de assinatura e termo de pesquisa.
+2. Crie variáveis para o ponto de extremidade da API, URL de pesquisa de notícias, sua chave de assinatura e termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     accessKey = "enter key here"
@@ -176,7 +174,7 @@ puts JSON::pretty_generate(JSON(response.body))
 ```
 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo de único de página](tutorial-bing-news-search-single-page-app.md)

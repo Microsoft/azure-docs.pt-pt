@@ -1,28 +1,19 @@
 ---
-title: Monitorar um Cluster Service Fabric no Azure | Microsoft Docs
+title: Monitorar um Cluster Service Fabric no Azure
 description: Neste tutorial, você aprende a monitorar um cluster exibindo Service Fabric eventos, consultando as APIs EventStore, monitorando contadores de desempenho e exibindo relatórios de integridade.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376635"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um Cluster Service Fabric no Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: monitorar um Cluster Service Fabric no Azure
 
 O monitoramento e o diagnóstico são essenciais para o desenvolvimento, o teste e a implantação de cargas de trabalho em qualquer ambiente de nuvem. Este tutorial é a parte dois de uma série e mostra como monitorar e diagnosticar um Cluster Service Fabric usando eventos, contadores de desempenho e relatórios de integridade.   Para obter mais informações, leia a visão geral sobre monitoramento de [cluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) e monitoramento de [infraestrutura](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
@@ -52,7 +43,7 @@ Antes de começar este tutorial:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro 
-* Configurar a [coleta](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) de diagnósticos para o cluster
+* Configurar a [coleta de diagnósticos](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) para o cluster
 * Habilitar o [serviço EventStore](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) no cluster
 * Configurar [logs de Azure monitor e o agente de log Analytics](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) para o cluster
 
@@ -219,7 +210,7 @@ Eventos de ator confiáveis podem ser exibidos de maneira semelhante:
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Para configurar eventos mais detalhados para Reliable Actors, você `scheduledTransferKeywordFilter` pode alterar o na configuração da extensão de diagnóstico no modelo de cluster. Os detalhes sobre os valores para eles estão na [referência de eventos](service-fabric-reliable-actors-diagnostics.md#keywords)dos Reliable Actors.
+Para configurar eventos mais detalhados para Reliable Actors, você pode alterar o `scheduledTransferKeywordFilter` na configuração da extensão de diagnóstico no modelo de cluster. Os detalhes sobre os valores para eles estão na [referência de eventos dos Reliable Actors](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -242,7 +233,7 @@ Clique em **dados**e em **contadores de desempenho do Windows**. Há uma lista d
 
 Feche a folha configurações avançadas e selecione **Resumo do espaço de trabalho** no cabeçalho **geral** . Para cada uma das soluções habilitadas, há um bloco gráfico, incluindo um para Service Fabric. Clique no **Service Fabric** grafo para continuar a solução de análise do Service Fabric.
 
-Há blocos gráficos para eventos de canal operacional e Reliable Services. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá em métricas de **nó**. 
+Há blocos gráficos para eventos de canal operacional e Reliable Services. A representação gráfica dos dados que fluem para os contadores selecionados aparecerá em **métricas de nó**. 
 
 Selecione o grafo de **métrica de contêiner** para ver detalhes adicionais. Você também pode consultar dados do contador de desempenho da mesma forma que os eventos de cluster e filtrar os nós, o nome do contador perf e os valores usando a linguagem de consulta Kusto.
 
@@ -482,7 +473,7 @@ Obtenha a integridade agregada dos serviços do sistema:
 Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServiceHealth | select ServiceName, AggregatedHealthState | ft -AutoSize
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

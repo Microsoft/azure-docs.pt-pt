@@ -1,6 +1,6 @@
 ---
-title: Criando e usando arquivos de recursos – lote do Azure | Microsoft Docs
-description: Saiba como criar arquivos de recursos do lote do Azure de várias fontes de entrada.
+title: Criando e usando arquivos de recursos – lote do Azure
+description: Saiba como criar arquivos de recursos de lote de várias fontes de entrada. Este artigo aborda alguns métodos comuns de como criá-los e colocá-los em uma VM.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 9c55b22d1cb85fb645087cf48b54f9d5ac12d58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e890bce378327fe5b1f4068d6719e6b905404f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390056"
 ---
 # <a name="creating-and-using-resource-files"></a>Criando e usando arquivos de recursos
 
@@ -32,9 +32,9 @@ Há algumas opções diferentes disponíveis para gerar arquivos de recursos. O 
 
 Opções para criar um arquivo de recurso:
 
-- [URL do contêiner de armazenamento](#storage-container-url): Gera um arquivo de recurso de qualquer contêiner de armazenamento no Azure
-- [Nome do contêiner de armazenamento](#storage-container-name): Gera um arquivo de recurso do nome de um contêiner em uma conta de armazenamento do Azure vinculada ao lote
-- [Ponto de extremidade da Web](#web-endpoint): Gera um arquivo de recurso de qualquer URL HTTP válida
+- [URL do contêiner de armazenamento](#storage-container-url): gera um arquivo de recurso de qualquer contêiner de armazenamento no Azure
+- [Nome do contêiner de armazenamento](#storage-container-name): gera um arquivo de recurso do nome de um contêiner em uma conta de armazenamento do Azure vinculada ao lote
+- [Ponto de extremidade da Web](#web-endpoint): gera um arquivo de recurso de qualquer URL http válida
 
 ### <a name="storage-container-url"></a>URL do contêiner de armazenamento
 
@@ -53,9 +53,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> Para acesso de contêiner, você deve ter `Read` ambas `List` as permissões e, ao passo que com acesso de `Read` BLOB, você só precisa de permissão.
+> Para acesso ao contêiner, você deve ter as permissões `Read` e `List`, enquanto com acesso ao blob, você precisa apenas de `Read` permissão.
 
-Depois que as permissões forem configuradas, crie o token SAS e formate a URL SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)de recurso com.
+Depois que as permissões forem configuradas, crie o token SAS e formate a URL SAS para acesso ao contêiner de armazenamento. Usando a URL de SAS formatada para o contêiner de armazenamento, gere um arquivo de recurso com [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -106,7 +106,7 @@ Se houver várias centenas de arquivos de recursos especificados em uma tarefa, 
 
 Se não houver como minimizar o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recursos. Para fazer isso, coloque os arquivos de recurso em um contêiner de armazenamento do Azure e use os diferentes modos de "contêiner" dos arquivos de recurso. Use as opções de prefixo de BLOB para especificar coleções de arquivos a serem baixados para suas tarefas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre os [pacotes de aplicativos](batch-application-packages.md) como uma alternativa aos arquivos de recursos.
 - Para obter mais informações sobre como usar contêineres para arquivos de recursos, consulte [cargas de trabalho de contêiner](batch-docker-container-workloads.md).

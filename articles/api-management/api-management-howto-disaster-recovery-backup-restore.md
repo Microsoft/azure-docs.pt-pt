@@ -1,5 +1,6 @@
 ---
-title: Implementar a recuperação de desastre usando backup e restauração no gerenciamento de API do Azure | Microsoft Docs
+title: Implementar a recuperação de desastre usando backup e restauração no gerenciamento de API
+titleSuffix: Azure API Management
 description: Saiba como usar o backup e a restauração para executar a recuperação de desastre no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430702"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup e a restauração do serviço no gerenciamento de API do Azure
 
@@ -54,7 +55,7 @@ Todas as tarefas que você faz em recursos usando o Azure Resource Manager devem
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo Azure Active Directory
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Usando a assinatura que contém a instância do serviço de gerenciamento de API, navegue até a guia **registros de aplicativo** em **Azure Active Directory** (Azure Active Directory > gerenciar/registros de aplicativo).
 
     > [!NOTE]
@@ -64,7 +65,7 @@ Todas as tarefas que você faz em recursos usando o Azure Resource Manager devem
 
     A janela **criar** é exibida à direita. É aí que você insere as informações relevantes do aplicativo do AAD.
 
-4. Insira um nome para o aplicativo.
+4. Introduza um nome para a aplicação.
 5. Para o tipo de aplicativo, selecione **nativo**.
 6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento**, pois é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
 7. Clique em **Criar**.
@@ -84,7 +85,7 @@ Todas as tarefas que você faz em recursos usando o Azure Resource Manager devem
 8. Pressione **selecionar**.
 9. Clique em **conceder permissões**.
 
-### <a name="configuring-your-app"></a>Configurando seu aplicativo
+### <a name="configuring-your-app"></a>Configurar a sua aplicação
 
 Antes de chamar as APIs que geram o backup e restaurá-la, você precisa obter um token. O exemplo a seguir usa o pacote NuGet [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar o token.
 
@@ -147,7 +148,7 @@ Para fazer backup de um serviço de gerenciamento de API, emita a seguinte solic
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-posição
+em que:
 
 -   `subscriptionId`-ID da assinatura que contém o serviço de gerenciamento de API que você está tentando fazer backup
 -   `resourceGroupName`-nome do grupo de recursos do serviço de gerenciamento de API do Azure
@@ -188,7 +189,7 @@ Para restaurar um serviço de gerenciamento de API de um backup criado anteriorm
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-posição
+em que:
 
 -   `subscriptionId`-ID da assinatura que contém o serviço de gerenciamento de API no qual você está restaurando um backup
 -   `resourceGroupName`-nome do grupo de recursos que contém o serviço de gerenciamento de API do Azure no qual você está restaurando um backup

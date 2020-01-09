@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a1fb3b1260beb6bd85363f4611dae23cd3d321f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427355"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -28,8 +28,8 @@ A tabela seguinte resume as opções para mover dados para o SQL Server numa má
 
 | <b>ORIGEM</b> | <b>DESTINO: SQL Server numa VM do Azure</b> |
 | --- | --- |
-| <b>Ficheiro simples</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia em massa da linha de comandos (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">Utilitários gráficos de incorporado no SQL Server</a> |
-| <b>SQL Server no local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementar uma base de dados do SQL Server num Assistente de VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportar para um ficheiro simples </a><br> 3. <a href="#sql-migration">Assistente de migração de base de dados SQL </a> <br> 4. <a href="#sql-backup">Base de dados back cópia de segurança e restauro </a><br> |
+| <b>Ficheiro simples</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia em massa de linha de comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">consulta SQL de inserção em massa</a><br> 3. <a href="#sql-builtin-utilities">utilitários internos gráficos no SQL Server</a> |
+| <b>SQL Server no local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">implantar um banco de dados SQL Server em um assistente de VM Microsoft Azure</a><br> 2. <a href="#export-flat-file">exportar para um arquivo simples</a><br> 3. <a href="#sql-migration">Assistente de migração de banco de dados SQL</a> <br> 4. <a href="#sql-backup">backup e restauração de banco de dados</a><br> |
 
 Tenha em atenção que este documento parte do princípio de que os comandos SQL são executados do SQL Server Management Studio ou do Gerenciador de banco de dados do Visual Studio.
 
@@ -42,7 +42,7 @@ Tenha em atenção que este documento parte do princípio de que os comandos SQL
 Este tutorial parte do princípio de que tem:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Irá utilizar uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, terá de obter a chave de conta utilizada para aceder ao armazenamento. Ver [gerir as chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+* Uma **conta de armazenamento do Azure**. Irá utilizar uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, terá de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * Aprovisionado **SQL Server numa VM do Azure**. Para obter instruções, consulte [configurar uma máquina virtual do Azure SQL Server como servidor IPython Notebook para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Instalou e configurou **do Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
@@ -90,11 +90,11 @@ CREATE TABLE <tablename>
 Se os dados que se estiver a mover forem grandes, pode acelerar as coisas, ao mesmo tempo executando vários comandos do BCP em paralelo num Script do PowerShell.
 
 > [!NOTE]
-> **Grandes volumes de dados de ingestão** para otimizar o carregamento para conjuntos de dados grandes e muito grandes de dados, suas tabelas de base de dados lógico e físico com vários grupos de ficheiros de partição e tabelas de partição. Para obter mais informações sobre como criar e carregar dados para tabelas de partição, veja [paralela tabelas de partição de SQL de carga](parallel-load-sql-partitioned-tables.md).
+> **Ingestão de Big data** Para otimizar o carregamento de dados para grandes e muito grandes conjuntos, particione suas tabelas de banco de dado lógico e físico usando vários grupos de arquivos e tabelas de partição. Para obter mais informações sobre como criar e carregar dados para tabelas de partição, veja [paralela tabelas de partição de SQL de carga](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-O seguinte script do PowerShell de exemplo demonstra inserções paralelas com o bcp:
+O exemplo de script do PowerShell a seguir demonstra inserções paralelas usando bcp:
 
 ```powershell
 $NO_OF_PARALLEL_JOBS=2

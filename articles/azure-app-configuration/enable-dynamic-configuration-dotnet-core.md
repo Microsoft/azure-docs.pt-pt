@@ -1,5 +1,6 @@
 ---
-title: Tutorial para usar a configuração dinâmica de configuração de Azure App em um aplicativo .NET Core | Microsoft Docs
+title: 'Tutorial: usar a configuração dinâmica em um aplicativo .NET Core'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração para aplicativos .NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433669"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: usar a configuração dinâmica em um aplicativo .NET Core
 
@@ -119,7 +120,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos**e selecione a instância do repositório de configuração de aplicativo que você criou no guia de início rápido.
 
 1. Selecione **Configuration Explorer**e atualize os valores das seguintes chaves:
 
@@ -138,7 +139,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você habilitou seu aplicativo .NET Core para atualizar dinamicamente as definições de configuração da configuração do aplicativo. Para saber como usar uma identidade gerenciada do Azure para simplificar o acesso à configuração do aplicativo, prossiga para o próximo tutorial.
 

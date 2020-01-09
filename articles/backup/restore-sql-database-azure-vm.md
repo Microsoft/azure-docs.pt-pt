@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390751"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados SQL Server em VMs do Azure
 
@@ -110,7 +110,15 @@ Para restaurar os dados de backup como arquivos. bak, em vez de em um banco de d
 
 1. No menu **configuração de restauração** , em **onde restaurar**, selecione **restaurar como arquivos**.
 2. Selecione o nome de SQL Server para o qual você deseja restaurar os arquivos de backup.
-3. No **caminho de destino no servidor** , insira o caminho da pasta no servidor selecionado na etapa 2. Esse é o local onde o serviço irá despejar todos os arquivos de backup necessários. Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.
+3. No **caminho de destino no servidor** , insira o caminho da pasta no servidor selecionado na etapa 2. Esse é o local onde o serviço irá despejar todos os arquivos de backup necessários. Normalmente, um caminho de compartilhamento de rede, ou caminho de um compartilhamento de arquivos do Azure montado quando especificado como o caminho de destino, permite o acesso mais fácil a esses arquivos por outros computadores na mesma rede ou com o mesmo compartilhamento de arquivos do Azure montado neles.<BR>
+
+>Para restaurar os arquivos de backup de banco de dados em um compartilhamento de arquivos do Azure montado na VM registrada de destino, verifique se NT AUTHORITY\SYSTEM tem acesso ao compartilhamento de arquivos. Você pode executar as etapas fornecidas abaixo para conceder as permissões de leitura/gravação para o AFS montado na VM:
+>- Execute `PsExec -s cmd` para entrar no Shell NT AUTHORITY\SYSTEM
+>   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - Verificar o acesso com `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+>- Disparar uma restauração como arquivos do cofre de backup para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
+Você pode baixar o PsExec por meio do <https://docs.microsoft.com/sysinternals/downloads/psexec>
+
 4. Selecione **OK**.
 
 ![Selecione restaurar como arquivos](./media/backup-azure-sql-database/restore-as-files.png)

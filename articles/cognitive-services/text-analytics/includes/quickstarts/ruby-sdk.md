@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/02/2019
 ms.author: aahi
-ms.openlocfilehash: 847b2d0489dc04b4275465dbe957b72418bbf1a4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ffa14a4e3628bdc3453e8d536797b0edf6129a12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446202"
 ---
 [Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) |  | [(RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics)
 
@@ -45,12 +45,14 @@ Em seu arquivo Ruby, importe os pacotes a seguir.
 
 [!code-ruby[Import statements](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=includeStatement)]
 
-Crie variáveis para o ponto de extremidade e a chave do Azure do recurso, chamadas `TEXT_ANALYTICS_ENDPOINT` e `TEXT_ANALYTICS_SUBSCRIPTION_KEY`. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que o executa para acessar a variável. 
+Crie variáveis para o ponto de extremidade e a chave do Azure do recurso. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-
-[!code-ruby[endpoint, key variables](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=vars)]
+```ruby
+const subscription_key = '<paste-your-text-analytics-key-here>'
+const endpoint = `<paste-your-text-analytics-endpoint-here>`
+```
 
 ## <a name="object-model"></a>Modelo de objeto 
 
@@ -65,7 +67,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente Análise de Texto para Python:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Análise de Sentimento](#sentiment-analysis)
+* [Análise de sentimentos](#sentiment-analysis)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade](#entity-recognition)
 * [Extração de frases-chave](#key-phrase-extraction)
@@ -81,7 +83,7 @@ class TextAnalyticsClient
 end
 ```
 
-Nessa classe, crie uma função chamada `initialize` para autenticar o cliente. Use suas `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` variáveis de ambiente. 
+Nessa classe, crie uma função chamada `initialize` para autenticar o cliente usando sua chave e ponto de extremidade. 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 
@@ -204,7 +206,7 @@ Document ID: 2
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="key-phrase-extraction"></a>Extração de expressões-chave
+## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
 No objeto cliente, crie uma função chamada `ExtractKeyPhrases()` que usa uma lista de documentos de entrada que serão criados posteriormente. Chame a função de `key_phrases()` do cliente e obtenha o resultado. Em seguida, itere pelos resultados e imprima a ID de cada documento e as frases-chave extraídas.
 

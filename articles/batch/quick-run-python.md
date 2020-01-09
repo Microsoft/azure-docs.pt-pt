@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: executar um trabalho do lote do Azure – API do Python'
-description: Execute rapidamente uma tarefa do Batch com a biblioteca de clientes do Batch Python.
+description: Execute rapidamente um trabalho de exemplo do lote do Azure e tarefas usando a biblioteca de cliente Python do lote. Conheça os principais conceitos do serviço de lote.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390226"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
 
@@ -31,11 +31,11 @@ A aplicação carrega vários ficheiros de dados de entrada para o armazenamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python versão 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
+* [Python 2.7, 3.3 ou posterior](https://www.python.org/downloads/)
 
 * Gestor de pacotes [pip](https://pip.pypa.io/en/stable/installing/)
 
-* Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md). 
+* Uma conta do Batch do Azure e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -45,7 +45,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
@@ -178,7 +178,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
 
-Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, os trabalhos não têm tarefas.
+Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, o trabalho não tem tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -234,7 +234,7 @@ for task in tasks:
 
 A aplicação elimina automaticamente o contentor de armazenamento criado e oferece-lhe a opção de eliminar o conjunto e o trabalho do Batch. É cobrado o conjunto enquanto os nós estiverem em execução, mesmo se não existirem tarefas agendadas. Quando já não precisar do conjunto, elimine-o. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. 
 
-Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do lote e selecione **excluir grupo de recursos**.
+Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do lote e selecione **excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

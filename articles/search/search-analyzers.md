@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460711"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
@@ -55,12 +55,15 @@ Alguns analisadores predefinidos, como **Pattern** ou **Stop**, dão suporte a u
 
 3. Opcionalmente, em vez de uma propriedade do **analisador** , você pode definir diferentes analisadores para indexação e consulta usando os parâmetros de campo **indexAnalyzer** e **searchAnalyzer** . Você usaria analisadores diferentes para preparação e recuperação de dados se uma dessas atividades exigisse uma transformação específica não necessária para a outra.
 
+> [!NOTE]
+> Não é possível usar um [analisador de linguagem](index-add-language-analyzers.md) diferente no tempo de indexação do que no momento da consulta para um campo. Esse recurso é reservado para [analisadores personalizados](index-add-custom-analyzers.md). Por esse motivo, se você tentar definir as propriedades **searchAnalyzer** ou **indexAnalyzer** como o nome de um analisador de idioma, a API REST retornará uma resposta de erro. Em vez disso, você deve usar a propriedade **Analyzer** .
+
 Não é permitido atribuir o **Analyzer** ou o **indexAnalyzer** a um campo que já foi criado fisicamente. Se algum deles estiver incorreto, examine a tabela a seguir para obter uma análise de quais ações exigem uma recompilação e por quê.
  
  | Cenário | Impacto | Passos |
  |----------|--------|-------|
- | Adicionar um novo campo | Muito | Se o campo ainda não existir no esquema, não haverá nenhuma revisão de campo a ser feita, pois o campo ainda não tem uma presença física no índice. Você pode usar [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para adicionar um novo campo a um índice existente e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para preenchê-lo.|
- | Adicione um **analisador** ou **indexAnalyzer** a um campo indexado existente. | [constitui](search-howto-reindex.md) | O índice invertido para esse campo deve ser recriado do zero e o conteúdo desses campos deve ser reindexado. <br/> <br/>Para índices em desenvolvimento ativo, [exclua](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [crie](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice para selecionar a nova definição de campo. <br/> <br/>Para índices em produção, você pode adiar uma recompilação criando um novo campo para fornecer a definição revisada e começar a usá-lo no lugar do antigo. Use [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para incorporar o novo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para preenchê-lo. Posteriormente, como parte do serviço de índice planejado, você pode limpar o índice para remover campos obsoletos. |
+ | Adicionar um novo campo | muito | Se o campo ainda não existir no esquema, não haverá nenhuma revisão de campo a ser feita, pois o campo ainda não tem uma presença física no índice. Você pode usar [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para adicionar um novo campo a um índice existente e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para preenchê-lo.|
+ | Adicione um **analisador** ou **indexAnalyzer** a um campo indexado existente. | [rebuild](search-howto-reindex.md) | O índice invertido para esse campo deve ser recriado do zero e o conteúdo desses campos deve ser reindexado. <br/> <br/>Para índices em desenvolvimento ativo, [exclua](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [crie](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice para selecionar a nova definição de campo. <br/> <br/>Para índices em produção, você pode adiar uma recompilação criando um novo campo para fornecer a definição revisada e começar a usá-lo no lugar do antigo. Use [Atualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) para incorporar o novo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para preenchê-lo. Posteriormente, como parte do serviço de índice planejado, você pode limpar o índice para remover campos obsoletos. |
 
 ## <a name="when-to-add-analyzers"></a>Quando adicionar analisadores
 
@@ -113,8 +116,8 @@ Percorrendo este exemplo:
 
 * Os analisadores são uma propriedade da classe de campo para um campo pesquisável.
 * Um analisador personalizado faz parte de uma definição de índice. Ele pode ser levemente personalizado (por exemplo, personalizar uma única opção em um filtro) ou personalizado em vários locais.
-* Nesse caso, o analisador personalizado é "my_analyzer", que por sua vez usa um criador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro asciifolding minúsculo e personalizado "my_asciifolding".
-* Ele também define dois filtros de caractere personalizado "map_dash" e "remove_whitespace". O primeiro substitui todos os traços por sublinhados, enquanto o segundo remove todos os espaços. Os espaços precisam ser codificados em UTF-8 nas regras de mapeamento. Os filtros de caracteres são aplicados antes da geração de tokens e afetarão os tokens resultantes (o criador padrão é interrompido em Dash e espaços, mas não no sublinhado).
+* Nesse caso, o analisador personalizado é "my_analyzer", que, por sua vez, usa um criador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro asciifolding em minúsculas e personalizado "my_asciifolding".
+* Ele também define 2 filtros de caractere personalizado "map_dash" e "remove_whitespace". O primeiro substitui todos os traços por sublinhados, enquanto o segundo remove todos os espaços. Os espaços precisam ser codificados em UTF-8 nas regras de mapeamento. Os filtros de caracteres são aplicados antes da geração de tokens e afetarão os tokens resultantes (o criador padrão é interrompido em Dash e espaços, mas não no sublinhado).
 
 ~~~~
   {
@@ -344,9 +347,9 @@ Crie um objeto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Configure analisadores personalizados](index-add-custom-analyzers.md) para o processamento mínimo ou processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 
- [Pesquisar API REST de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST) 
 
  [Sintaxe de consulta simples](query-simple-syntax.md) 
 

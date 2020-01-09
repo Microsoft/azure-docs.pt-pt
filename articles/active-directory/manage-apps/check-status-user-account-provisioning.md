@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430229"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: relatórios sobre o provisionamento automático de conta de usuário
 
@@ -28,7 +28,7 @@ O Azure Active Directory (AD do Azure) inclui um [serviço de provisionamento de
 
 Este artigo descreve como verificar o status dos trabalhos de provisionamento depois que eles foram configurados e como solucionar problemas de provisionamento de usuários individuais e grupos.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Os conectores de provisionamento são configurados e definidos usando o [portal do Azure](https://portal.azure.com), seguindo a [documentação fornecida](../saas-apps/tutorial-list.md) para o aplicativo com suporte. Uma vez configurado e em execução, os trabalhos de provisionamento podem ser relatados usando um dos dois métodos:
 
@@ -55,8 +55,8 @@ A partir daqui, você pode acessar a barra de progresso de provisionamento e os 
 A [barra de progresso de provisionamento](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) fica visível na guia **provisionamento** para determinado aplicativo. Ele está localizado na seção **status atual** abaixo de **configurações**e mostra o status do ciclo inicial ou incremental atual. Esta seção também mostra:
 
 * O número total de usuários e/grupos que foram sincronizados e estão atualmente em escopo para provisionamento entre o sistema de origem e o sistema de destino.
-* A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20-40 minutos, após a conclusão de um [ciclo inicial](user-provisioning.md#what-happens-during-provisioning) .
-* Se um [ciclo inicial](user-provisioning.md#what-happens-during-provisioning) foi concluído ou não.
+* A última vez em que a sincronização foi executada. As sincronizações normalmente ocorrem a cada 20-40 minutos, após a conclusão de um [ciclo inicial](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) .
+* Se um [ciclo inicial](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) foi concluído ou não.
 * Se o processo de provisionamento foi colocado em quarentena e qual é o motivo do status de quarentena (por exemplo, falha ao se comunicar com o sistema de destino devido a credenciais de administrador inválidas).
 
 O **status atual** deve ser o primeiro lugar em que os administradores procuram verificar a integridade operacional do trabalho de provisionamento.

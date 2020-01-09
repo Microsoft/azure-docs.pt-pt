@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356356"
 ---
 # <a name="coarse-relocalization"></a>Relocalização genérica
 
-A relocalização de alta disponibilidade é um recurso que fornece uma resposta inicial para a pergunta: *onde está meu dispositivo agora/qual conteúdo devo observar?* A resposta não é precisa, mas, em vez disso, está no formato: *você está perto dessas âncoras, tente localizar uma delas*.
+A relocalização de alta disponibilidade é um recurso que fornece uma resposta inicial para a pergunta: *onde está meu dispositivo agora/qual conteúdo devo observar?* A resposta não é precisa, mas, em vez disso, está no formato: *você está perto dessas âncoras; Tente localizar uma delas*.
 
-A relocalização de alta geração funciona associando várias leituras de sensor no dispositivo com a criação e a consulta de âncoras. Para cenários de posicionamento externo, os dados do sensor normalmente são a posição do GPS (GPS) do dispositivo. Quando o GPS não está disponível ou não é confiável (como inportas), os dados do sensor consistem nos pontos de acesso WiFi e nos beacons do Bluetooth no intervalo. Todos os dados de sensor coletados contribuem para manter um índice espacial. O índice espacial é aproveitado pelo serviço de ancoragem para determinar rapidamente as âncoras que estão dentro de aproximadamente 100 metros de seu dispositivo.
+A relocalização de alta geração funciona associando várias leituras de sensor no dispositivo com a criação e a consulta de âncoras. Para cenários de posicionamento externo, os dados do sensor normalmente são a posição do GPS (GPS) do dispositivo. Quando o GPS não está disponível ou não é confiável (como inportas), os dados do sensor consistem nos pontos de acesso WiFi e nos beacons do Bluetooth no intervalo. Todos os dados de sensor coletados contribuem para a manutenção de um índice espacial que é usado pelas âncoras espaciais do Azure para determinar rapidamente as âncoras que estão dentro de aproximadamente 100 metros do seu dispositivo.
 
-A pesquisa rápida de âncoras habilitadas por uma relocalação de alta qualidade simplifica o desenvolvimento de aplicativos apoiados por coleções de escala mundial (digamos milhões de âncoras geograficamente distribuídos). A complexidade do gerenciamento de âncora está todas ocultas, permitindo que você se concentre mais em sua lógica de aplicativo incrível. Toda a âncora pesada é feita para você nos bastidores pelo serviço!
+A pesquisa rápida de âncoras habilitadas por alta relocalização simplifica o desenvolvimento de aplicativos apoiados por coleções de escala mundial de âncoras (digamos, milhões de geograficamente distribuídos). A complexidade do gerenciamento de âncora está todas ocultas, permitindo que você se concentre mais em sua lógica de aplicativo incrível. Toda a âncora pesada é feita para você nos bastidores por âncoras espaciais do Azure.
 
 ## <a name="collected-sensor-data"></a>Dados do sensor coletados
 
@@ -118,13 +118,13 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Em seguida, você precisará decidir quais sensores deseja usar para a relocalização de alta geração. Essa decisão é, em geral, específica ao aplicativo que você está desenvolvendo, mas as recomendações na tabela a seguir devem lhe dar um bom ponto de partida:
+Em seguida, você precisará decidir quais sensores deseja usar para a relocalização de alta geração. Essa decisão é específica para o aplicativo que você está desenvolvendo, mas as recomendações na tabela a seguir devem fornecer um bom ponto de partida:
 
 
 |             | Inportações | Externas |
 |-------------|---------|----------|
 | GPS         | Desativado | Ativado |
-| Fio        | Ativado | Ativado (opcional) |
+| Wi-Fi        | Ativado | Ativado (opcional) |
 | Beacons BLE | Em (opcional com advertências, veja abaixo) | Desativado |
 
 
@@ -182,8 +182,9 @@ Ao usar o GPS em seu aplicativo, tenha em mente que as leituras fornecidas pelo 
 
 Em geral, o so do dispositivo e as âncoras espaciais do Azure farão alguma filtragem e extrapolação no sinal de GPS bruto em uma tentativa de mitigar esses problemas. Esse processamento extra exige tempo adicional para a convergência, portanto, para obter os melhores resultados, você deve tentar:
 
-* criar o provedor de impressão digital do sensor o mais cedo possível em seu aplicativo
-* manter o provedor de impressão digital do sensor ativo e compartilhar entre várias sessões
+* criar um provedor de impressão digital do sensor o mais cedo possível em seu aplicativo
+* manter o provedor de impressão digital do sensor ativo entre várias sessões
+* compartilhar o provedor de impressão digital do sensor entre várias sessões
 
 Se você planeja usar o provedor de impressão digital do sensor fora de uma sessão de ancoragem, certifique-se de iniciá-lo antes de solicitar as estimativas do sensor. Por exemplo, o código a seguir cuidará da atualização da posição do dispositivo no mapa em tempo real:
 
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Os beacons são geralmente dispositivos versáteis, onde tudo-incluindo UUIDs e endereços MAC-podem ser configurados. Essa flexibilidade pode ser problemática para âncoras espaciais do Azure que consideram que os beacons sejam identificados exclusivamente por seus UUIDs. Falha ao garantir que essa exclusividade provavelmente será traduzida em fendas espaciais. Para obter os melhores resultados, você deve:
+Os beacons são geralmente dispositivos versáteis, onde tudo-incluindo UUIDs e endereços MAC-podem ser configurados. Essa flexibilidade pode ser problemática para âncoras espaciais do Azure, pois considera que beacons sejam identificados exclusivamente por seus UUIDs. Deixar de garantir essa exclusividade provavelmente causará fendas espaciais. Para obter os melhores resultados, você deve:
 
 * Atribua UUIDs exclusivos aos seus beacons.
 * implantá-los-normalmente em um padrão normal, como uma grade.
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-As âncoras espaciais do Azure rastrearão apenas os beacons Bluetooth que estão na lista. Os beacons mal-intencionados programados para ter UUIDs relacionados à permissão ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
+As âncoras espaciais do Azure só controlarão os beacons Bluetooth que estão na lista UUIDs de proximidade de Beacon conhecidos. Os beacons mal-intencionados programados para ter UUIDs relacionados à permissão ainda podem afetar negativamente a qualidade do serviço. Por esse motivo, você deve usar beacons somente em espaços na organização em que você pode controlar sua implantação.
 
 ## <a name="querying-with-sensor-data"></a>Consultando com dados de sensor
 
-Depois de criar âncoras com dados de sensor associados, você pode começar a recuperá-los usando as leituras do sensor relatadas pelo seu dispositivo. Não é mais necessário fornecer ao serviço uma lista de âncoras conhecidas que você espera encontrar. em vez disso, basta permitir que o serviço saiba o local do seu dispositivo conforme relatado por seus sensores integrados. O serviço âncoras espaciais irá imaginar o conjunto de âncoras perto de seu dispositivo e tentará fazer a correspondência Visual.
+Depois de criar âncoras com dados de sensor associados, você pode começar a recuperá-los usando as leituras do sensor relatadas pelo seu dispositivo. Não é mais necessário fornecer ao serviço uma lista de âncoras conhecidas que você espera encontrar. em vez disso, basta permitir que o serviço saiba o local do seu dispositivo conforme relatado por seus sensores integrados. As âncoras espaciais do Azure descobrirão o conjunto de âncoras perto de seu dispositivo e tentarão fazer a correspondência Visual delas.
 
-Para que as consultas usem os dados do sensor, comece criando um critério de localização:
+Para fazer com que as consultas usem os dados do sensor, comece criando os critérios do "próximo dispositivo":
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -593,7 +594,7 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 O parâmetro `DistanceInMeters` controla a distância com que exploraremos o gráfico de âncora para recuperar o conteúdo. Suponha que, por exemplo, você tenha preenchido algum espaço com âncoras em uma densidade constante de 2 todos os medidores. Além disso, a câmera em seu dispositivo está observando uma única âncora e o serviço a localizou com êxito. Provavelmente, você está interessado em recuperar todas as âncoras que colocou perto, em vez da âncora única que está observando no momento. Supondo que as âncoras que você colocou estão conectadas em um grafo, o serviço pode recuperar todas as âncoras próximas para você seguindo as bordas no grafo. A quantidade de percurso de grafo feita é controlada por `DistanceInMeters`; Você receberá todas as âncoras conectadas às que você localizou, que estão mais próximas que `DistanceInMeters`.
 
-Tenha em mente que valores grandes para `MaxResultCount` podem afetar negativamente o desempenho. Tente defini-lo como um valor sensato que faça sentido para seu aplicativo.
+Tenha em mente que valores grandes para `MaxResultCount` podem afetar negativamente o desempenho. Defina-o como um valor sensato para seu aplicativo.
 
 Por fim, você precisará dizer à sessão para usar a pesquisa baseada em sensor:
 
@@ -650,7 +651,7 @@ A tabela a seguir estima o espaço de pesquisa esperado para cada tipo de sensor
 | Sensores      | Raio do espaço de pesquisa (aproximadamente) | Detalhes |
 |-------------|:-------:|---------|
 | GPS         | 20 m-30 m | Determinado pela incerteza de GPS entre outros fatores. Os números relatados são estimados para a precisão de GPS mediana de telefones celulares com um-GPS, que é 7 metros. |
-| Fio        | 50 m-100 m | Determinado pelo intervalo dos pontos de acesso sem fio. Depende da frequência, força do transmissor, obstruções físicas, interferência e assim por diante. |
+| Wi-Fi        | 50 m-100 m | Determinado pelo intervalo dos pontos de acesso sem fio. Depende da frequência, força do transmissor, obstruções físicas, interferência e assim por diante. |
 | Beacons BLE |  70 m | Determinado pelo intervalo do Beacon. Depende da frequência, da força de transmissão, das obstruções físicas, da interferência e assim por diante. |
 
 ## <a name="per-platform-support"></a>Suporte por plataforma
@@ -661,7 +662,7 @@ A tabela a seguir resume os dados do sensor coletados em cada uma das plataforma
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/A | Com suporte por meio de APIs do [locationmanager][3] (GPS e rede) | Com suporte por meio de APIs [CLLocationManager][4] |
-| Fio        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Suportado. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
+| Wi-Fi        | Com suporte a uma taxa de aproximadamente uma verificação a cada 3 segundos | Suportado. A partir do nível de API 28, as verificações de WiFi são limitadas a 4 chamadas a cada 2 minutos. No Android 10, a limitação pode ser desabilitada no menu de configurações do desenvolvedor. Para obter mais informações, consulte a [documentação do Android][5]. | N/A-sem API pública |
 | Beacons BLE | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] | Limitado a [Eddystone][1] e [iBeacon][2] |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,21 +1,22 @@
 ---
-title: Visão geral da conta de armazenamento do Azure | Microsoft Docs
+title: Descrição geral da conta de armazenamento
+titleSuffix: Azure Storage
 description: Entenda as opções para criar e usar uma conta de armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460607"
 ---
-# <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
+# <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do armazenamento do Azure: BLOBs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para os dados do armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados em sua conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros e amplamente escalonáveis.
 
@@ -55,11 +56,11 @@ As contas de armazenamento v1 de uso geral fornecem acesso a todos os serviços 
 
 Você deve usar contas de uso geral v2 na maioria dos casos. Você pode usar contas v1 de uso geral para estes cenários:
 
-* Seus aplicativos exigem o modelo de implantação clássico do Azure. Contas de uso geral V2 e contas de armazenamento de BLOBs dão suporte apenas ao modelo de implantação Azure Resource Manager.
+- Seus aplicativos exigem o modelo de implantação clássico do Azure. Contas de uso geral V2 e contas de armazenamento de BLOBs dão suporte apenas ao modelo de implantação Azure Resource Manager.
 
-* Seus aplicativos têm uso intensivo de transações ou usam uma largura de banda de replicação geográfica significativa, mas não exigem grande capacidade. Nesse caso, a finalidade geral v1 pode ser a opção mais econômica.
+- Seus aplicativos têm uso intensivo de transações ou usam uma largura de banda de replicação geográfica significativa, mas não exigem grande capacidade. Nesse caso, a finalidade geral v1 pode ser a opção mais econômica.
 
-* Você usa uma versão da [API REST dos serviços de armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) que é anterior à 2014-02-14 ou uma biblioteca de cliente com uma versão inferior a 4. x. Não é possível atualizar seu aplicativo.
+- Você usa uma versão da [API REST dos serviços de armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) que é anterior à 2014-02-14 ou uma biblioteca de cliente com uma versão inferior a 4. x. Não é possível atualizar seu aplicativo.
 
 ### <a name="blockblobstorage-accounts"></a>Contas do BlockBlobStorage
 
@@ -86,12 +87,12 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 
 As contas de armazenamento de uso geral podem ser configuradas para qualquer um dos seguintes níveis de desempenho:
 
-* Um nível de desempenho padrão para armazenar blobs, arquivos, tabelas, filas e discos de máquina virtual do Azure.
-* Um nível de desempenho premium para armazenar apenas discos de máquina virtual não gerenciados.
+- Um nível de desempenho padrão para armazenar blobs, arquivos, tabelas, filas e discos de máquina virtual do Azure. Para obter mais informações sobre metas de escalabilidade para contas de armazenamento padrão, consulte [metas de escalabilidade para contas de armazenamento padrão](scalability-targets-standard-account.md).
+- Um nível de desempenho premium para armazenar apenas discos de máquina virtual não gerenciados. A Microsoft recomenda o uso de discos gerenciados com máquinas virtuais do Azure em vez de discos não gerenciados. Para obter mais informações sobre metas de escalabilidade para o nível de desempenho premium, consulte [metas de escalabilidade para contas de armazenamento de blobs de páginas Premium](../blobs/scalability-targets-premium-page-blobs.md).
 
-As contas de armazenamento BlockBlobStorage fornecem um nível de desempenho premium para armazenar blobs de bloco e blobs de acréscimo.
+As contas de armazenamento BlockBlobStorage fornecem um nível de desempenho premium para armazenar blobs de bloco e blobs de acréscimo. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de blocos Premium](../blobs/scalability-targets-premium-block-blobs.md).
 
-As contas de armazenamento de armazenamento de arquivo fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure.
+As contas de armazenamento de armazenamento de arquivo fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure. Para obter mais informações, consulte [escalabilidade e metas de desempenho dos arquivos do Azure](../files/storage-files-scale-targets.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Camadas de acesso para dados de blob de blocos
 
@@ -99,9 +100,9 @@ O armazenamento do Azure fornece opções diferentes para acessar dados de blob 
 
 As camadas de acesso disponíveis são:
 
-* A camada de acesso **quente** . Essa camada é otimizada para acesso frequente de objetos na conta de armazenamento. O acesso a dados na camada quente é mais econômico, enquanto os custos de armazenamento são mais altos. As novas contas de armazenamento são criadas na camada quente por padrão.
-* A camada de acesso **fria** . Essa camada é otimizada para armazenar grandes quantidades de dados acessados com pouca frequência e armazenados por pelo menos 30 dias. O armazenamento de dados na camada fria é mais econômico, mas acessar esses dados pode ser mais caro do que acessar dados na camada quente.
-* A camada de **arquivo morto** . Essa camada está disponível somente para BLOBs de blocos individuais. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
+- A camada de acesso **quente** . Essa camada é otimizada para acesso frequente de objetos na conta de armazenamento. O acesso a dados na camada quente é mais econômico, enquanto os custos de armazenamento são mais altos. As novas contas de armazenamento são criadas na camada quente por padrão.
+- A camada de acesso **fria** . Essa camada é otimizada para armazenar grandes quantidades de dados acessados com pouca frequência e armazenados por pelo menos 30 dias. O armazenamento de dados na camada fria é mais econômico, mas acessar esses dados pode ser mais caro do que acessar dados na camada quente.
+- A camada de **arquivo morto** . Essa camada está disponível somente para BLOBs de blocos individuais. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
 
 Se houver uma alteração no padrão de uso de seus dados, você poderá alternar entre essas camadas de acesso a qualquer momento. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
@@ -124,10 +125,10 @@ Uma conta de armazenamento fornece um namespace exclusivo no Azure para seus dad
 
 Por exemplo, se sua conta de armazenamento de uso geral for denominada *mystorageaccount*, os pontos de extremidade padrão para essa conta serão:
 
-* Armazenamento de BLOBs: http://*mystorageaccount*. blob.Core.Windows.net
-* Armazenamento de tabelas: http://*mystorageaccount*. Table.Core.Windows.net
-* Armazenamento de filas: http://*mystorageaccount*. Queue.Core.Windows.net
-* Arquivos do Azure: http://*mystorageaccount*. File.Core.Windows.net
+- Armazenamento de BLOBs: `https://*mystorageaccount*.blob.core.windows.net`
+- Armazenamento de tabelas: `https://*mystorageaccount*.table.core.windows.net`
+- Armazenamento de filas: `https://*mystorageaccount*.queue.core.windows.net`
+- Arquivos do Azure: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > O bloco BLOB e as contas de armazenamento de blob expõem apenas o ponto de extremidade do serviço BLOB.
@@ -171,7 +172,7 @@ A biblioteca de movimento de dados do Armazenamento do Azure para .NET baseia-se
 
 Você pode criar um aplicativo personalizado para migrar seus dados de uma conta de armazenamento v1 de uso geral para uma conta de armazenamento de BLOBs. Use uma das bibliotecas de cliente do Azure ou a API REST dos serviços de armazenamento do Azure. O Storage do Azure fornece bibliotecas de cliente avançadas para várias linguagens e plataformas como .NET, Java, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem funcionalidades avançadas, tais como lógica de repetição, registo e carregamentos paralelos. Também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que efetue pedidos HTTP/HTTPS.
 
-Para obter mais informações sobre a API REST do armazenamento do Azure, consulte [referência da API REST dos serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/). 
+Para obter mais informações sobre a API REST do armazenamento do Azure, consulte [referência da API REST dos serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação com o blob. Se copiar um blob com encriptação do lado do cliente, certifique-se de que a operação de cópia preserva os metadados do blob e, especialmente, os metadados relacionados com a encriptação. Se copiar um blob sem os metadados de encriptação, não poderá obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -182,6 +183,5 @@ Para obter mais informações sobre a API REST do armazenamento do Azure, consul
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
-* [Criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md)
-* [Gerenciar contas de armazenamento do Azure](storage-account-manage.md)
+- [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
+- [Criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md)

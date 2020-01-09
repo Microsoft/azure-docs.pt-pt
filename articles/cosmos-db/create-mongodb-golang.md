@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de console usando a API do Azure Cosmos DB para MongoDB e o SDK do Golang
+title: Aplicativo de console usando a API do Azure Cosmos DB para MongoDB e SDK do Golang
 description: Apresenta um exemplo de código Golang que você pode usar para se conectar e consultar usando a API do Azure Cosmos DB para MongoDB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441953"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Início rápido: criar um aplicativo de console usando a API do Azure Cosmos DB para o MongoDB e o SDK do Golang
 
@@ -25,7 +25,7 @@ ms.locfileid: "72755120"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode criar e consultar rapidamente documentos, chave/valor e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Cosmos DB.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Você pode criar e consultar rapidamente documentos, chave/valor e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Cosmos DB.
 
 Este guia de início rápido demonstra como pegar um aplicativo MongoDB existente escrito em [Golang](https://golang.org/) e conectá-lo ao seu banco de dados Cosmos usando a API do Azure Cosmos DB para MongoDB.
 
@@ -38,7 +38,7 @@ Em outras palavras, seu aplicativo Golang só sabe que está se conectando usand
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - O [Go](https://golang.org/dl/) e conhecimento básico da linguagem [Go](https://golang.org/).
-- Um IDE — [GoLand](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) pela Microsoft ou [Atom](https://atom.io/). Neste tutorial, estou usando GoLand.
+- Um IDE — [GoLand](https://www.jetbrains.com/go/) , da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) pela Microsoft, ou [Atom](https://atom.io/). Neste tutorial, estou usando GoLand.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -61,7 +61,7 @@ Clone a aplicação de exemplo e instale os pacotes necessários.
     go get gopkg.in/mgo.v2
     ```
 
-O driver [MgO](https://labix.org/mgo) é um driver do [MongoDB](https://www.mongodb.com/) para a [linguagem go](https://golang.org/) que implementa uma seleção rica e bem testada de recursos em uma API muito simples, seguindo os idiomas go padrão.
+O [mgo](https://labix.org/mgo) driver é um [MongoDB](https://www.mongodb.com/) controlador para o [linguagem Go](https://golang.org/) que implementa uma seleção avançada e bem testada de funcionalidades sob uma API muito simples, seguindo o padrão Go idiomas.
 
 <a id="connection-string"></a>
 

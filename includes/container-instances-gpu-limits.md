@@ -2,18 +2,18 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 10/17/2019
 ms.author: danlep
-ms.openlocfilehash: 0a6d617d8aa03344edcfb8c73373e02edb5ee73f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ff13716d6098809f1205802f0df81c5ecde49de3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445824"
 ---
 ### <a name="resource-availability"></a>Disponibilidade dos recursos
 
-| SO | GPU SKU | Contagem GPU | CPU |  Memória (GB) |
+| SO | SKU DE GPU | Contagem de GPU | Máx. da CPU | Memória máxima (GB) |
 | --- | --- | --- | --- | --- |
 | Linux | K80 | 1 | 6 | 56 |
 | Linux | K80 | 2 | 12 | 112 |

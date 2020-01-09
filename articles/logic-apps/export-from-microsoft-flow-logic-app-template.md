@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428888"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
 
@@ -32,7 +32,7 @@ Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo 
 
 1. Entre para [automatizar a energia](https://flow.microsoft.com)e selecione **meus fluxos**. Localize e selecione seu fluxo. Na barra de ferramentas, selecione o botão de reticências ( **...** ). Selecione **exportar** > **modelo de aplicativos lógicos (. JSON)** .
 
-   ![Fluxo de exportação](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
+   ![Exportar fluxo](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
 1. Salve o modelo no local desejado.
 
@@ -133,7 +133,7 @@ Se você tiver configurado o Visual Studio com os [pré-requisitos](../logic-app
 
 1. No Gerenciador de Soluções, abra o menu de atalho projeto e selecione **implantar** > **novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
 
-1. Quando solicitado, confirme a assinatura do Azure, o grupo de recursos do Azure e todas as outras configurações que você deseja usar para a implantação, como um [arquivo de parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) a ser usado para passar os valores de parâmetro de modelo e, em seguida, selecione **implantar**.
+1. Quando solicitado, confirme a assinatura do Azure, o grupo de recursos do Azure e todas as outras configurações que você deseja usar para a implantação, como um [arquivo de parâmetros](../azure-resource-manager/templates/parameter-files.md) a ser usado para passar os valores de parâmetro de modelo e, em seguida, selecione **implantar**.
 
    ![Confirmar configurações de implantação](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 

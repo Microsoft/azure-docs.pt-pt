@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 7b77b2b2b24c7c4114796976127f8c4ee34d52c2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 91eb95df1ef4c14966b6dd5a943e79bf29ed5cc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468480"
 ---
 > [!div class="nextstepaction"]
 > [Explore os exemplos do Python no GitHub](https://aka.ms/speech/github-python)

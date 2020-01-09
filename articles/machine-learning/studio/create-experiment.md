@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427727"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início rápido: criar seu primeiro experimento de ciência de dados no Azure Machine Learning Studio (clássico)
 
@@ -45,7 +45,7 @@ Este guia de início rápido segue o fluxo de trabalho padrão para um experimen
 ## <a name="get-the-data"></a>Obter os dados
 
 A primeira coisa que você precisa no aprendizado de máquina são os dados.
-Há vários conjuntos de dados de exemplo incluídos na versão clássica do estúdio que você pode usar, ou você pode importar dados de várias fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))** , que está incluído na sua área de trabalho.
+Há vários conjuntos de dados de exemplo incluídos com o estúdio (clássico) que você pode usar, ou você pode importar dados de várias fontes. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))** , que está incluído na sua área de trabalho.
 Este conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como a marca, o modelo, as especificações técnicas e o preço.
 
 > [!TIP]

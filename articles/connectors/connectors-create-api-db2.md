@@ -1,22 +1,22 @@
 ---
-title: Conectar-se ao IBM DB2
-description: Gerenciar recursos com APIs REST do IBM DB2 e aplicativos lógicos do Azure
+title: Acessar e gerenciar recursos do IBM DB2
+description: Leia, edite, atualize e gerencie recursos do IBM DB2 criando fluxos de trabalho automatizados usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6e32056783a816d847db191de4fcdae2616ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446186"
 ---
-# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerenciar recursos do IBM DB2 com aplicativos lógicos do Azure
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acessar e gerenciar recursos do IBM DB2 usando aplicativos lógicos do Azure
 
-Com os aplicativos lógicos do Azure e o conector IBM DB2, você pode criar tarefas e fluxos de trabalho automatizados com base nos recursos armazenados em seu banco de dados DB2. Seus fluxos de trabalho podem se conectar aos recursos no banco de dados, ler e listar suas tabelas de banco de dados, adicionar linhas, alterar linhas, excluir linhas e muito mais. Você pode incluir ações em seus aplicativos lógicos que obtêm respostas do seu banco de dados e disponibilizar a saída para outras ações.
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector IBM DB2](/connectors/db2/), você pode criar tarefas e fluxos de trabalho automatizados com base nos recursos armazenados em seu banco de dados DB2. Seus fluxos de trabalho podem se conectar aos recursos no banco de dados, ler e listar suas tabelas de banco de dados, adicionar linhas, alterar linhas, excluir linhas e muito mais. Você pode incluir ações em seus aplicativos lógicos que obtêm respostas do seu banco de dados e disponibilizar a saída para outras ações.
 
 Este artigo mostra como você pode criar um aplicativo lógico que executa várias operações de banco de dados. Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
@@ -28,8 +28,8 @@ O conector IBM DB2 dá suporte a essas plataformas e versões do IBM DB2, juntam
 
 | Plataforma | Versão | 
 |----------|---------|
-| IBM DB2 para z/OS | 11,1, 10,1 |
-| IBM DB2 para i | 7,3, 7,2, 7,1 |
+| IBM DB2 para z/OS | 11.1, 10.1 |
+| IBM DB2 para i | 7.3, 7.2, 7.1 |
 | IBM DB2 para LUW | 11, 10,5 |
 |||
 
@@ -42,7 +42,7 @@ O conector IBM DB2 dá suporte a essas operações de banco de dados, que são m
 | Listar tabelas de banco de dados | Obter tabelas |
 | Ler uma linha usando SELECT | Obter linha |
 | Ler todas as linhas usando SELECT | Obter linhas |
-| Adicionar uma linha usando INSERT | Inserir linha |
+| Adicionar uma linha usando INSERT | Insert row |
 | Editar uma linha usando atualizar | Atualizar linha |
 | Remover uma linha usando DELETE | Excluir linha |
 |||
@@ -157,7 +157,7 @@ Para buscar um registro em uma tabela de banco de dados DB2, use a ação **obte
    | **ID da área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
    ||||
 
-   ![selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -192,7 +192,7 @@ Para buscar todos os registros em uma tabela de banco de dados DB2, use a ação
 
 1. Abra a lista **nome da tabela** e, em seguida, selecione a tabela desejada, que é "área" neste exemplo:
 
-   ![selecionar tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Para especificar um filtro ou uma consulta de resultados, escolha **Mostrar opções avançadas**.
 
@@ -217,7 +217,7 @@ Expanda a ação **obter linhas** .
 
    ![Exibir linhas de saída](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="insert-row"></a>Inserir linha
+## <a name="insert-row"></a>Insert row
 
 Para adicionar um único registro a uma tabela de banco de dados DB2, use a ação **Inserir linha** em seu aplicativo lógico. Essa ação executa uma instrução de `INSERT` do DB2, por exemplo, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
@@ -241,7 +241,7 @@ Para adicionar um único registro a uma tabela de banco de dados DB2, use a aç�
 
    Por exemplo:
 
-   ![selecionar tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -289,7 +289,7 @@ Para atualizar um único registro em uma tabela de banco de dados DB2, use a aç
 
    Por exemplo:
 
-   ![selecionar tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 
@@ -334,7 +334,7 @@ Para excluir um único registro de uma tabela de banco de dados DB2, use a açã
 
    Por exemplo:
 
-   ![selecionar tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Quando terminar, na barra de ferramentas do designer, escolha **salvar**.
 

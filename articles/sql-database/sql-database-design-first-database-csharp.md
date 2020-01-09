@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354948"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: criar um banco de dados relacional em um banco de dados individual dentro&#x23; do banco de dados SQL do Azure C e ADO.net
 
@@ -40,11 +40,11 @@ Uma instalação do [Visual Studio 2019](https://www.visualstudio.com/downloads/
 
 ## <a name="create-a-blank-single-database"></a>Criar uma base de dados única em branco
 
-Um banco de dados individual no banco de dados SQL do Azure é criado com um conjunto definido de recursos de computação e armazenamento. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
+Um banco de dados individual no banco de dados SQL do Azure é criado com um conjunto definido de recursos de computação e armazenamento. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
 
 Siga estas etapas para criar um banco de dados individual em branco.
 
-1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
+1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 2. Na página **Nova**, selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque**.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
@@ -55,7 +55,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Subscrição** | *yourSubscription*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-    | **Grupo de recursos** | *Seugruporecursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+    | **Grupo de recursos** | *yourResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
     | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha o formulário **novo servidor** com as seguintes informações:
@@ -112,7 +112,7 @@ Seu endereço IP agora pode passar pelo firewall de IP. Agora você pode se cone
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar e executar consultas. Aprendeu a:
 

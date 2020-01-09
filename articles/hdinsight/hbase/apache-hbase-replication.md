@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435671"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -51,7 +51,7 @@ Você tem três opções de configuração:
 
 Este artigo aborda o cenário de replicação geográfica.
 
-Para ajudá-lo a configurar os ambientes, criamos alguns [modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Se você preferir configurar os ambientes usando outros métodos, consulte:
+Para ajudá-lo a configurar os ambientes, criamos alguns [modelos de Azure Resource Manager](../../azure-resource-manager/management/overview.md). Se você preferir configurar os ambientes usando outros métodos, consulte:
 
 - [Criar clusters Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Criar clusters do Apache HBase na rede virtual do Azure](apache-hbase-provision-vnet.md)
@@ -285,7 +285,7 @@ As etapas a seguir descrevem como chamar o script de ação de script do portal 
 
 **Para habilitar a replicação do HBase no portal do Azure**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Abra o cluster HBase de origem.
 3. No menu do cluster, selecione **ações de script**.
 4. Na parte superior da página, selecione **Enviar novo**.

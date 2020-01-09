@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355290"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da central de segurança do Azure para aumentar a segurança
 Você pode reduzir as chances de um evento de segurança significativo Configurando uma política de segurança e, em seguida, implementando as recomendações fornecidas pela central de segurança do Azure. Este artigo mostra como usar as políticas de segurança e recomendações na central de segurança para ajudar a mitigar um ataque de segurança. 
@@ -63,7 +63,7 @@ Como parte de suas atividades diárias de monitoramento, Jeff entra no Azure e a
 
 5. Quando Jeff clica em **computação e aplicativos**, eles veem uma lista de recomendações e manipula-os de acordo com o impacto de Pontuação segura.
 
-6. Jeff tem várias VMs voltadas para a Internet e, como suas portas são expostas, eles estão preocupados com o fato de um invasor poder ter controle sobre os servidores. Portanto, Jeff escolhe usar (**acesso de VM just-in-time**) [Security-Center-just-in-time.MD].
+6. Jeff tem várias VMs voltadas para a Internet e, como suas portas são expostas, eles estão preocupados com o fato de um invasor poder ter controle sobre os servidores. Portanto, Jeff escolhe usar o [**acesso à VM just-in-time**](security-center-just-in-time.md).
 
 Jeff continua a percorrer as recomendações de alta prioridade e prioridade média e toma decisões sobre a implementação. Para cada recomendação, Jeff examina as informações detalhadas fornecidas pela central de segurança para entender quais recursos são afetados, qual é o impacto da Pontuação segura, o que cada recomendação significa e as etapas de correção para saber como atenuar cada problema.
 

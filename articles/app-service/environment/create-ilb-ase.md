@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bbc2dcc86d50e0a88e2f3e96c426cb317f41dea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375037"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e usar um Load Balancer interno Ambiente do Serviço de Aplicativo 
 
@@ -126,7 +126,7 @@ Para saber mais sobre como configurar o ASE ILB com um dispositivo WAF, consulte
 
 ILB ASEs que foram feitas antes de 2019 de maio exigiram que você definisse o sufixo de domínio durante a criação do ASE. Eles também exigiram que você carregue um certificado padrão baseado nesse sufixo de domínio. Além disso, com um ASE ILB mais antigo, você não pode executar o logon único no console do kudu com aplicativos nesse ILB ASE. Ao configurar o DNS para um ASE ILB mais antigo, você precisa definir o curinga A de um registro em uma zona que corresponda ao seu sufixo de domínio. 
 
-## <a name="get-started"></a>Introdução ##
+## <a name="get-started"></a>Começar ##
 
 * Para começar a usar o ASEs, consulte [introdução aos ambientes do serviço de aplicativo][Intro]. 
 
@@ -150,7 +150,7 @@ ILB ASEs que foram feitas antes de 2019 de maio exigiram que você definisse o s
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

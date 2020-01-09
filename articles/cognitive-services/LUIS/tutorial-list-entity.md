@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 83644ac7144adaa664b13b6e7d7993c50da0e779
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447774"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: obter dados de correspondência de texto exatos de um expressão com uma entidade de lista
 
 Neste tutorial, entenda como obter dados que correspondem exatamente a uma lista predefinida de itens.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Neste tutorial, vai aprender a:**
 
@@ -51,7 +49,7 @@ Uma entidade de lista é uma boa opção para este tipo de dados quando:
 
 ## <a name="import-example-json-and-add-utterances"></a>Importar example. JSON e adicionar declarações
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -74,7 +72,7 @@ Exemplos de nome primário e sinônimos são:
 |Nome canônico|Sinónimos|
 |--|--|
 |Dish profunda|longo<br>crust Dish profunda<br>espessura<br>crust espesso|
-|Deslocamento panorâmico|Regularmente<br>Original<br>normal<br>crust regular<br>crust original<br>crust normal|
+|Deslocamento panorâmico|regularmente<br>Original<br>normal<br>crust regular<br>crust original<br>crust normal|
 |Inserida|inserida crust|
 |Dinâmico|crust fino<br>Skinn<br>Skinny crust|
 

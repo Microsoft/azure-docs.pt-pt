@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando o SDK | Microsoft Docs'
+title: 'Início rápido: chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando o SDK'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para começar a solicitar resultados de pesquisa de C# sua instância de pesquisa personalizada do Bing usando o SDK.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5e932b1ff597fc0170a6bb83841bc6ca7306693a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448722"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Início rápido: chamar seu ponto de extremidade C# de pesquisa personalizada do Bing usando o SDK 
 

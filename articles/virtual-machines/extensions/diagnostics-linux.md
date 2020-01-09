@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359367"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux para monitorar as métricas e os logs
 
@@ -135,7 +135,7 @@ storageAccountSasToken | Um [token SAS de conta](https://azure.microsoft.com/blo
 mdsdHttpProxy | adicional Informações de proxy HTTP necessárias para habilitar a extensão para se conectar à conta de armazenamento e ao ponto de extremidade especificados.
 sinksConfig | adicional Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados com suporte na extensão são abordados nas seções a seguir.
 
-Para obter um token SAS em um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, consulte [exemplo de função de lista](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+Para obter um token SAS em um modelo do Resource Manager, use a função **listAccountSas** . Para obter um modelo de exemplo, consulte [exemplo de função de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Você pode construir facilmente o token SAS necessário por meio do portal do Azure.
 
@@ -144,7 +144,7 @@ Você pode construir facilmente o token SAS necessário por meio do portal do Az
 1. Faça as seções apropriadas conforme descrito anteriormente
 1. Clique no botão "gerar SAS".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![imagem](./media/diagnostics-linux/make_sas.png)
 
 Copie a SAS gerada para o campo storageAccountSasToken; remover o ponto de interrogação ("?") à esquerda.
 
@@ -309,7 +309,7 @@ Esta seção opcional controla a coleção de métricas. As amostras brutas são
 
 Elemento | Valor
 ------- | -----
-Coletores | adicional Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métrica agregados. Todas as métricas agregadas são publicadas em cada coletor listado. Consulte [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
+coletores | adicional Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métrica agregados. Todas as métricas agregadas são publicadas em cada coletor listado. Consulte [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 tipo | Identifica o provedor real da métrica.
 Classe | Junto com "Counter", identifica a métrica específica dentro do namespace do provedor.
 counter | Junto com "Class", identifica a métrica específica dentro do namespace do provedor.
@@ -355,7 +355,7 @@ A coleção syslogEventConfiguration tem uma entrada para cada recurso de syslog
 
 Elemento | Valor
 ------- | -----
-Coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log que correspondem às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
+coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log que correspondem às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
 facilityName | Um nome de instalação de syslog (por exemplo, "LOG\_usuário" ou "LOG\_LOCAL0"). Consulte a seção "instalação" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa.
 minSeverity | Um nível de severidade de syslog (como "LOG\_ERR" ou "LOG\_INFO"). Consulte a seção "nível" da [página do manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa. A extensão captura eventos enviados para a instalação no nível especificado ou acima dele.
 
@@ -388,7 +388,7 @@ espaço de nomes | adicional O namespace OMI no qual a consulta deve ser executa
 consulta | A consulta OMI a ser executada.
 table | adicional A tabela de armazenamento do Azure, na conta de armazenamento designada (consulte [Configurações protegidas](#protected-settings)).
 frequência | adicional O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é 15 segundos.
-Coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos da métrica de exemplo devem ser publicados. Nenhuma agregação dessas amostras brutas é computada pela extensão ou pelas métricas do Azure.
+coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos da métrica de exemplo devem ser publicados. Nenhuma agregação dessas amostras brutas é computada pela extensão ou pelas métricas do Azure.
 
 A "tabela" ou "coletores" ou ambos devem ser especificados.
 
@@ -410,7 +410,7 @@ Elemento | Valor
 ------- | -----
 file | O nome do caminho completo do arquivo de log a ser monitorado e capturado. O PathName deve nomear um único arquivo; Ele não pode nomear um diretório nem conter curingas.
 table | adicional A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas da "parte final" do arquivo são gravadas.
-Coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
+coletores | adicional Uma lista separada por vírgulas de nomes de coletores adicionais para os quais as linhas de log são enviadas.
 
 A "tabela" ou "coletores" ou ambos devem ser especificados.
 
@@ -422,7 +422,7 @@ O provedor de métrica interna é uma fonte de métricas mais interessante para 
 * Memória
 * Rede
 * Sistema de ficheiros
-* Disco
+* Discos
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métricas internas para a classe de processador
 
@@ -485,7 +485,7 @@ A classe de métricas FileSystem fornece informações sobre o uso do sistema de
 
 counter | Significado
 ------- | -------
-EspaçoLivre | Espaço em disco disponível em bytes
+FreeSpace | Espaço em disco disponível em bytes
 UsedSpace | Espaço em disco usado em bytes
 PercentFreeSpace | Percentual de espaço livre
 PercentUsedSpace | Percentual de espaço usado
@@ -539,7 +539,7 @@ Com base nas definições anteriores, aqui está um exemplo de configuração de
 
 Essas configurações particulares são configuradas:
 
-* uma conta de armazenamento
+* Uma conta de armazenamento
 * um token SAS da conta correspondente
 * vários coletores (JsonBlob ou EventHubs com tokens SAS)
 
@@ -682,11 +682,11 @@ O `resourceId` na configuração deve corresponder ao da VM ou ao conjunto de di
 * Se você usar o dimensionamento automático do Azure, o ResourceId na configuração de dimensionamento automático deve corresponder ao ResourceId usado pelo LAD.
 * O ResourceId é incorporado aos nomes de JsonBlobs gravados pelo LAD.
 
-## <a name="view-your-data"></a>Exibir seus dados
+## <a name="view-your-data"></a>Ver os dados
 
 Use o portal do Azure para exibir dados de desempenho ou definir alertas:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![imagem](./media/diagnostics-linux/graph_metrics.png)
 
 Os dados de `performanceCounters` sempre são armazenados em uma tabela de armazenamento do Azure. As APIs de armazenamento do Azure estão disponíveis para várias linguagens e plataformas.
 
@@ -695,11 +695,11 @@ Os dados enviados aos coletores do JsonBlob são armazenados em BLOBs na conta d
 Além disso, você pode usar essas ferramentas de interface do usuário para acessar os dados no armazenamento do Azure:
 
 * Gerenciador de Servidores do Visual Studio.
-* [Explorador de Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
+* [Explorador de Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Explorador do Armazenamento do Azure").
 
 Esse instantâneo de uma sessão de Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas de armazenamento do Azure e os contêineres gerados de uma extensão LAD 3,0 configurada corretamente em uma VM de teste. A imagem não corresponde exatamente à [configuração de exemplo do LAD 3,0](#an-example-lad-30-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+![imagem](./media/diagnostics-linux/stg_explorer.png)
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) para saber como consumir mensagens publicadas em um ponto de extremidade do EventHubs.
 

@@ -3,24 +3,24 @@ title: Interagir com um dispositivo de visualização de IoT Plug and Play de um
 description: Como desenvolvedor de soluções, saiba como usar o SDK do serviço para interagir com dispositivos de Plug and Play de IoT.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977595"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531348"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de visualização de Plug and Play IoT e interagir com ele
 
 Este guia de instruções mostra como usar os exemplos no SDK do serviço de nó que mostram como sua solução de IoT pode interagir com dispositivos de visualização de IoT Plug and Play.
 
-Se você ainda não tiver concluído o [dispositivo conectar um plug and Play IOT ao seu](quickstart-connect-pnp-device-solution.md) início rápido de solução, faça isso agora. O guia de início rápido mostra como baixar e instalar o SDK e executar alguns dos exemplos.
+Se você ainda não tiver concluído o [dispositivo conectar um plug and Play IOT ao seu](quickstart-connect-pnp-device-solution-node.md) início rápido de solução, faça isso agora. O guia de início rápido mostra como baixar e instalar o SDK e executar alguns dos exemplos.
 
 Antes de executar os exemplos de serviço, abra um novo terminal, vá para a pasta raiz do seu repositório clonado, navegue até a pasta **digitaltwins/QuickStartES/Service** e, em seguida, execute o seguinte comando para instalar as dependências:
 

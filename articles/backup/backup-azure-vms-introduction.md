@@ -3,12 +3,12 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391905"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -109,7 +109,6 @@ Quando você estiver configurando backups de VM, sugerimos seguir estas prática
 - Modifique os horários de agendamento padrão que são definidos em uma política. Por exemplo, se o tempo padrão na política for 12:00, aumente o tempo em vários minutos para que os recursos sejam usados de forma ideal.
 - Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
 - Para o backup de VMs que estão usando o armazenamento Premium, com a restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
-- As restaurações de uma camada de armazenamento v1 de uso geral (instantâneo) serão concluídas em minutos porque o instantâneo está na mesma conta de armazenamento. As restaurações da camada de armazenamento v2 de uso geral (cofre) podem levar horas. Nos casos em que os dados estão disponíveis no armazenamento v1 de uso geral, recomendamos que você use o recurso de [restauração instantânea](backup-instant-restore-capability.md) para restaurações mais rápidas. (Se os dados precisarem ser restaurados de um cofre, isso levará mais tempo.)
 - O limite no número de discos por conta de armazenamento é relativo ao nível de acesso dos discos por aplicativos em execução em uma VM de IaaS (infraestrutura como serviço). Como uma prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para separar as contas de armazenamento.
 
 ## <a name="backup-costs"></a>Custos de backup
@@ -124,14 +123,14 @@ O cálculo do tamanho da instância protegida é baseado no tamanho *real* da VM
 
 Da mesma forma, a cobrança de armazenamento de backup é baseada na quantidade de dados armazenados no backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 
-Por exemplo, pegue uma VM de tamanho padrão a2 que tenha dois discos de dados adicionais com um tamanho máximo de 4 TB cada. A tabela a seguir mostra os dados reais armazenados em cada um desses discos:
+Por exemplo, pegue uma VM de tamanho padrão a2 que tenha dois discos de dados adicionais com um tamanho máximo de 32 TB cada. A tabela a seguir mostra os dados reais armazenados em cada um desses discos:
 
 **Disco** | **Tamanho máximo** | **Dados reais presentes**
 --- | --- | ---
-Disco do SO | 4095 GB | 17 GB
+Disco do SO | 32 TB | 17 GB
 Disco local/temporário | 135 GB | 5 GB (não incluído para backup)
-Disco de dados 1 | 4095 GB | 30 GB
-Disco de dados 2 | 4095 GB | 0 GB
+Disco de dados 1 | 32 TB| 30 GB
+Disco de dados 2 | 32 TB | 0 GB
 
 O tamanho real da VM, nesse caso, é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de instância protegida (47 GB) se torna a base para a fatura mensal. À medida que aumenta a quantidade de dados na VM, o tamanho da instância protegida usada para correspondência de alterações de cobrança.
 

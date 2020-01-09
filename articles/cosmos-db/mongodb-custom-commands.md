@@ -1,38 +1,38 @@
 ---
-title: Comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB
-description: Este artigo descreve como utilizar comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB.
+title: Comandos de extensão do MongoDB para gerenciar dados na API do Azure Cosmos DB para MongoDB
+description: Este artigo descreve como usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para o MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445209"
 ---
-# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
+# <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode comunicar com a API do Azure Cosmos DB para o MongoDB por meio de um código-fonte aberto [controladores de cliente da MongoDB](https://docs.mongodb.org/ecosystem/drivers). API do Azure Cosmos DB do MongoDB permite a utilização de controladores existentes do cliente através do respetivo a [protocolo de MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Você pode se comunicar com a API do Azure Cosmos DB para MongoDB usando qualquer um dos drivers de [cliente do MongoDB](https://docs.mongodb.org/ecosystem/drivers)de software livre. A API do Azure Cosmos DB para MongoDB permite o uso de drivers de cliente existentes ao aderir ao [protocolo de transmissão do MongoDB](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Ao utilizar a API do Azure Cosmos DB para o MongoDB, pode desfrutar dos benefícios do Cosmos DB, tais como distribuição global, fragmentação automática, elevada disponibilidade, garantias de latência, automática, encriptação em repouso, cópias de segurança, e muitos mais, embora preservar seus investimentos na sua aplicação MongoDB.
+Usando a API do Azure Cosmos DB para MongoDB, você pode aproveitar os benefícios Cosmos DB como distribuição global, fragmentação automática, alta disponibilidade, garantias de latência, automático, criptografia em repouso, backups e muito mais, enquanto preserva seus investimentos em seu aplicativo MongoDB.
 
-## <a name="mongodb-protocol-support"></a>Suporte de protocolo do MongoDB
+## <a name="mongodb-protocol-support"></a>Suporte ao protocolo MongoDB
 
-Por predefinição, o Azure Cosmos DB API do MongoDB é compatível com o MongoDB a versão de servidor 3.2, para obter mais detalhes, consulte [funcionalidades e sintaxe suportados](mongodb-feature-support.md). Os recursos ou operadores de consulta, adicionados no MongoDB versão 3.4 estão atualmente disponíveis como pré-visualização na API do Azure Cosmos DB para o MongoDB. Os seguintes comandos de extensão suportam a funcionalidade específica do Azure Cosmos DB ao realizar operações de CRUD em dados armazenados na API do Azure Cosmos DB para o MongoDB:
+Por padrão, a API do Azure Cosmos DB para MongoDB é compatível com o servidor MongoDB versão 3,2, para obter mais detalhes, consulte [recursos e sintaxe com suporte](mongodb-feature-support.md). Os recursos ou operadores de consulta adicionados no MongoDB versão 3,4 estão atualmente disponíveis como uma visualização na API do Azure Cosmos DB para MongoDB. Os comandos de extensão a seguir dão suporte a Azure Cosmos DB funcionalidade específica ao executar operações CRUD nos dados armazenados na API do Azure Cosmos DB para MongoDB:
 
-* [Criar base de dados](#create-database)
-* [Atualizar base de dados](#update-database)
-* [Obter a base de dados](#get-database)
+* [Criar banco de dados](#create-database)
+* [Atualizar banco de dados](#update-database)
+* [Obter banco de dados](#get-database)
 * [Criar coleção](#create-collection)
-* [Atualizar a coleção](#update-collection)
+* [Atualizar coleção](#update-collection)
 * [Obter coleção](#get-collection)
 
-## <a id="create-database"></a> Criar base de dados
+## <a id="create-database"></a>Criar banco de dados
 
-O comando de extensão de base de dados create Cria uma nova base de dados do MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateDatabase é o seguinte:
+O comando criar extensão de banco de dados cria um novo banco de dados MongoDB. O nome do banco de dados é usado no contexto de bancos de dados no qual o comando é executado. O formato do comando CreateDatabase é o seguinte:
 
 ```
 {
@@ -41,40 +41,40 @@ O comando de extensão de base de dados create Cria uma nova base de dados do Mo
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-| customAction   |  string  |   Nome do comando personalizado, tem de ser "CreateDatabase".      |
-| offerThroughput | int  | Débito aprovisionado que definiu na base de dados. Este parâmetro é opcional. |
+| Ação   |  string  |   Nome do comando personalizado; ele deve ser "CreateDatabase".      |
+| offerThroughput | int  | Taxa de transferência provisionada que você define no banco de dados. Este parâmetro é opcional. |
 
 ### <a name="output"></a>Saída
 
-Devolve uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Retorna uma resposta de comando personalizado padrão. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
 **Criar uma base de dados**
 
-Para criar uma base de dados com o nome "teste", utilize o seguinte comando:
+Para criar um banco de dados chamado "Test", use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase"});
 ```
 
-**Criar uma base de dados com débito**
+**Criar um banco de dados com taxa de transferência**
 
-Para criar uma base de dados com o nome "teste" e o débito aprovisionado de 1000 RUs, utilize o seguinte comando:
+Para criar um banco de dados chamado "teste" e uma taxa de transferência provisionada de 1000 RUs, use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-## <a id="update-database"></a> Atualizar base de dados
+## <a id="update-database"></a>Atualizar banco de dados
 
-O comando de extensão de base de dados de atualização atualiza as propriedades associadas a base de dados especificada. Atualmente, só é possível atualizar a propriedade de "offerThroughput".
+O comando Atualizar extensão do banco de dados atualiza as propriedades associadas ao banco de dados especificado. No momento, você só pode atualizar a propriedade "offerThroughput".
 
 ```
 {
@@ -83,31 +83,31 @@ O comando de extensão de base de dados de atualização atualiza as propriedade
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-| customAction    |    string     |   Nome do comando personalizado. Tem de ser "UpdateDatabase".      |
-|  offerThroughput   |  int       |     Débito aprovisionado novos que queira definir na base de dados.    |
+| Ação    |    string     |   Nome do comando personalizado. Deve ser "UpdateDatabase".      |
+|  offerThroughput   |  int       |     Nova taxa de transferência provisionada que você deseja definir no banco de dados.    |
 
 ### <a name="output"></a>Saída
 
-Devolve uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Retorna uma resposta de comando personalizado padrão. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
-**Atualizar o débito aprovisionado associado a uma base de dados**
+**Atualizar a taxa de transferência provisionada associada a um banco de dados**
 
-Para atualizar o débito aprovisionado das bases de dados com o nome "teste" para 1200 RU, utilize o seguinte comando:
+Para atualizar a taxa de transferência provisionada de um banco de dados com o nome "Test" para 1200 RUs, use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a id="get-database"></a> Obter a base de dados
+## <a id="get-database"></a>Obter banco de dados
 
-O comando de extensão de base de dados de get retorna o objeto de base de dados. O nome de base de dados é utilizado a partir do contexto de base de dados em relação ao qual o comando for executado.
+O comando obter extensão do banco de dados retorna o objeto de banco de dados. O nome do banco de dados é usado no contexto do banco de dados no qual o comando é executado.
 
 ```
 {
@@ -115,39 +115,39 @@ O comando de extensão de base de dados de get retorna o objeto de base de dados
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nome do comando personalizado. Tem de ser "GetDatabase"|
+|  Ação   |   string      |   Nome do comando personalizado. Deve ser "GetDatabase"|
         
 ### <a name="output"></a>Saída
 
-Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos:
+Se o comando for executado com sucesso, a resposta conterá um documento com os seguintes campos:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-|  `ok`   |   `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
-| `database`    |    `string`        |   Nome da base de dados.      |
-|   `provisionedThroughput`  |    `int`      |    Débito aprovisionado é definido na base de dados. Este é um parâmetro opcional de resposta.     |
+|  `ok`   |   `int`     |   Status da resposta. 1 = = êxito. 0 = = falha.      |
+| `database`    |    `string`        |   Nome do banco de dados.      |
+|   `provisionedThroughput`  |    `int`      |    Taxa de transferência provisionada definida no banco de dados. Esse é um parâmetro de resposta opcional.     |
 
-Se o comando falhar, é devolvida uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Se o comando falhar, uma resposta de comando personalizado padrão será retornada. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
-**Obter a base de dados**
+**Obter o banco de dados**
 
-Para obter o objeto de base de dados para uma base de dados com o nome "teste", utilize o seguinte comando:
+Para obter o objeto de banco de dados para um banco de dados chamado "Test", use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "GetDatabase"});
 ```
 
-## <a id="create-collection"></a> Criar coleção
+## <a id="create-collection"></a>Criar coleção
 
-O comando de extensão de coleção de criar cria uma nova coleção MongoDB. O nome de base de dados é utilizado a partir do contexto de bases de dados em relação ao qual o comando for executado. O formato do comando CreateCollection é o seguinte:
+O comando criar extensão da coleção cria uma nova coleção do MongoDB. O nome do banco de dados é usado no contexto de bancos de dados no qual o comando é executado. O formato do comando é o seguinte:
 
 ```
 {
@@ -158,42 +158,42 @@ O comando de extensão de coleção de criar cria uma nova coleção MongoDB. O 
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-| customAction    | string | Nome do comando personalizado. Tem de ser "CreateCollection"     |
-| Coleção      | string | Nome da coleção                                   |
-| offerThroughput | int    | Débito aprovisionado para definir na base de dados. É um parâmetro opcional |
-| shardKey        | string | Caminho da chave de partição horizontal para criar uma coleção em partição horizontal. É um parâmetro opcional |
+| Ação    | string | Nome do comando personalizado. Deve ser ""     |
+| coleção      | string | Nome da coleção                                   |
+| offerThroughput | int    | Taxa de transferência provisionada a ser definida no banco de dados. É um parâmetro opcional |
+| shardKey        | string | Caminho da chave de fragmento para criar uma coleção fragmentada. É um parâmetro opcional |
 
 ### <a name="output"></a>Saída
 
-Devolve uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Retorna uma resposta de comando personalizado padrão. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
-**Criar uma coleção de unsharded**
+**Criar uma coleção não fragmentada**
 
-Para criar uma coleção de unsharded com o nome "testCollection" e o débito aprovisionado de 1000 RUs, utilize o seguinte comando: 
+Para criar uma coleção não fragmentada com o nome "testcollection" e uma taxa de transferência provisionada de 1000 RUs, use o seguinte comando: 
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000});
 ``` 
 
-**Criar uma coleção em partição horizontal**
+**Criar uma coleção fragmentada**
 
-Para criar uma coleção em partição horizontal com o nome "testCollection" e o débito aprovisionado de 1000 RUs, utilize o seguinte comando:
+Para criar uma coleção fragmentada com o nome "testcollection" e uma taxa de transferência provisionada de 1000 RUs, use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
-## <a id="update-collection"></a> Atualizar a coleção
+## <a id="update-collection"></a>Atualizar coleção
 
-O comando de extensão de coleção de atualização atualiza as propriedades associadas a coleção especificada.
+O comando Atualizar extensão da coleção atualiza as propriedades associadas à coleção especificada.
 
 ```
 {
@@ -203,32 +203,32 @@ O comando de extensão de coleção de atualização atualiza as propriedades as
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-|  customAction   |   string      |   Nome do comando personalizado. Tem de ser "UpdateCollection".      |
-|  Coleção   |   string      |   Nome da coleção.       |
-| offerThroughput   |int|   Débito aprovisionado para definir na coleção.|
+|  Ação   |   string      |   Nome do comando personalizado. Deve ser "updatecollection".      |
+|  coleção   |   string      |   Nome da coleção.       |
+| offerThroughput   |int|   Taxa de transferência provisionada a ser definida na coleção.|
 
 ## <a name="output"></a>Saída
 
-Devolve uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Retorna uma resposta de comando personalizado padrão. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
-**Atualizar o débito aprovisionado associado a uma coleção**
+**Atualizar a taxa de transferência provisionada associada a uma coleção**
 
-Para atualizar o débito aprovisionado de uma coleção com o nome "testCollection" para 1200 RU, utilize o seguinte comando:
+Para atualizar a taxa de transferência provisionada de uma coleção com o nome "testcollection" para 1200 RUs, use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a id="get-collection"></a> Obter coleção
+## <a id="get-collection"></a>Obter coleção
 
-O comando personalizado da coleção de get retorna o objeto de coleção.
+O comando Get Collection personalizado retorna o objeto da coleção.
 
 ```
 {
@@ -237,53 +237,53 @@ O comando personalizado da coleção de get retorna o objeto de coleção.
 }
 ```
 
-A tabela seguinte descreve os parâmetros no comando:
+A tabela a seguir descreve os parâmetros no comando:
 
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-| customAction    |   string      |   Nome do comando personalizado. Tem de ser "GetCollection".      |
-| Coleção    |    string     |    Nome da coleção.     |
+| Ação    |   string      |   Nome do comando personalizado. Deve ser "GetCollection".      |
+| coleção    |    string     |    Nome da coleção.     |
 
 ### <a name="output"></a>Saída
 
-Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos
+Se o comando for executado com sucesso, a resposta conterá um documento com os campos a seguir
 
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
-| `database`    |    `string`     |   Nome da base de dados.      |
+|  `ok`   |    `int`     |   Status da resposta. 1 = = êxito. 0 = = falha.      |
+| `database`    |    `string`     |   Nome do banco de dados.      |
 | `collection`    |    `string`     |    Nome da coleção.     |
-|  `shardKeyDefinition`   |   `document`      |  Documento de especificação de um índice utilizado como uma chave de partição horizontal. Este é um parâmetro opcional de resposta.       |
-|  `provisionedThroughput`   |   `int`      |    Débito aprovisionado para definir na coleção. Este é um parâmetro opcional de resposta.     |
+|  `shardKeyDefinition`   |   `document`      |  Documento de especificação de índice usado como chave de fragmentação. Esse é um parâmetro de resposta opcional.       |
+|  `provisionedThroughput`   |   `int`      |    Taxa de transferência provisionada a ser definida na coleção. Esse é um parâmetro de resposta opcional.     |
 
-Se o comando falhar, é devolvida uma resposta de comando personalizado predefinido. Consulte a [predefinido saída](#default-output) do comando personalizado para os parâmetros na saída.
+Se o comando falhar, uma resposta de comando personalizado padrão será retornada. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
 
 ### <a name="examples"></a>Exemplos
 
 **Obter a coleção**
 
-Para obter o objeto de coleção para uma coleção designada "testCollection", utilize o seguinte comando:
+Para obter o objeto de coleção para uma coleção chamada "testcollection", use o seguinte comando:
 
 ```shell
 use test
 db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
 
-## <a id="default-output"></a> Saída padrão de um comando personalizado
+## <a id="default-output"></a>Saída padrão de um comando personalizado
 
-Se não for especificado, uma resposta personalizada contém um documento com os seguintes campos:
+Se não for especificado, uma resposta personalizada conterá um documento com os seguintes campos:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-|  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
-| `code`    |   `int`      |   Só devolvido quando a falha do comando (ou seja, ok = = 0). Contém o código de erro do MongoDB. Este é um parâmetro opcional de resposta.      |
-|  `errMsg`   |  `string`      |    Só devolvido quando a falha do comando (ou seja, ok = = 0). Contém uma mensagem de erro amigável de utilizador. Este é um parâmetro opcional de resposta.      |
+|  `ok`   |    `int`     |   Status da resposta. 1 = = êxito. 0 = = falha.      |
+| `code`    |   `int`      |   Retornado somente quando o comando falhou (ou seja, ok = = 0). Contém o código de erro do MongoDB. Esse é um parâmetro de resposta opcional.      |
+|  `errMsg`   |  `string`      |    Retornado somente quando o comando falhou (ou seja, ok = = 0). Contém uma mensagem de erro amigável. Esse é um parâmetro de resposta opcional.      |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, pode avançar para saber os seguintes conceitos do Azure Cosmos DB: 
+Em seguida, você pode continuar a aprender os seguintes conceitos de Azure Cosmos DB: 
 
 * [Indexação no Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Expirar dados no Azure Cosmos DB automaticamente com o tempo de duração](../cosmos-db/time-to-live.md)
+* [Expirar dados em Azure Cosmos DB automaticamente com vida útil](../cosmos-db/time-to-live.md)

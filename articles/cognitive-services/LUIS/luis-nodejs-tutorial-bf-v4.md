@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Reconhecimento vocal bot node. js v4'
 titleSuffix: Azure Cognitive Services
-description: Com Node.js, crie um chatbot integrado na compreensão de idioma (LUIS). Este chatbot utiliza a aplicação Human Resources para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
+description: Usando o Node. js, crie um bot de chat integrado ao LUIS (reconhecimento de linguagem) neste tutorial. Este chatbot utiliza a aplicação Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448004"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: usar um bot de aplicativo Web habilitado com Reconhecimento vocal no node. js 
 
@@ -24,7 +24,7 @@ Use o Node. js para criar um bot de chat integrado ao LUIS (reconhecimento de li
 
 [!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -46,7 +46,7 @@ Use o Node. js para criar um bot de chat integrado ao LUIS (reconhecimento de li
 
 1. Em **Bot Service** (Serviço de Bot), indique as informações necessárias:
 
-    |Definição|Objetivo|Definição sugerida|
+    |Definição|Finalidade|Definição sugerida|
     |--|--|--|
     |Nome do bot|Nome do recurso|`luis-nodejs-bot-` + `<your-name>`, por exemplo, `luis-nodejs-bot-johnsmith`|
     |Subscrição|Subscrição na qual vai criar o bot.|A sua subscrição principal.
@@ -56,13 +56,13 @@ Use o Node. js para criar um bot de chat integrado ao LUIS (reconhecimento de li
     |Nome da aplicação|O nome é utilizado como o subdomínio quando o bot é implementado na cloud (por exemplo, humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, por exemplo, `luis-nodejs-bot-johnsmith`|
     |Modelo de bot|Definições do Bot Framework - veja a tabela seguinte|
     |Localização da Aplicação LUIS|Tem de ser a mesma da região de recursos do LUIS|`westus`|
-    |Local/plano do serviço de aplicativo|Não altere o valor padrão fornecido.|
-    |Application Insights|Não altere o valor padrão fornecido.|
-    |ID e senha do aplicativo Microsoft|Não altere o valor padrão fornecido.|
+    |Plano do Serviço de Aplicações/Localização|Não altere o valor padrão fornecido.|
+    |Estatísticas das Aplicações|Não altere o valor padrão fornecido.|
+    |ID e palavra-passe da Aplicação Microsoft|Não altere o valor padrão fornecido.|
 
 1. No **modelo de bot**, selecione o seguinte e, em seguida, escolha o botão **selecionar** nessas configurações:
 
-    |Definição|Objetivo|Seleção|
+    |Definição|Finalidade|Seleção|
     |--|--|--|
     |Versão do SDK|Versão do Bot Framework|**SDK v4**|
     |Idioma do SDK|Linguagem de programação do bot|**Node.js**|
@@ -83,9 +83,9 @@ O processo de criação do serviço bot também cria um novo aplicativo LUIS com
 |Vôo do livro|`Travel to Paris`|
 |Cancelar|`bye`|
 |GetWeather|`what's the weather like?`|
-|Nenhum|Tudo o que estiver fora do domínio da aplicação.|
+|Nenhuma|Tudo o que estiver fora do domínio da aplicação.|
 
-## <a name="test-the-bot-in-web-chat"></a>Testar o bot no chat da Web
+## <a name="test-the-bot-in-web-chat"></a>Testar o bot em Web Chat
 
 1. Ainda na portal do Azure para o novo bot, selecione **testar no Web Chat**. 
 1. Na caixa de texto **Digite sua mensagem** , insira o texto `Book a flight from Seattle to Berlin tomorrow`. O bot responde com a verificação de que você deseja reservar um vôo. 

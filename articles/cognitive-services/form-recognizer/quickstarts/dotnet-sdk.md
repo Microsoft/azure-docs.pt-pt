@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET | Microsoft Docs'
-description: Introdução à biblioteca de cliente do reconhecedor de formulário para .NET para treinar, extrair, analisar e obter a saída de dados estruturados.
+title: 'Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET'
+description: Introdução à biblioteca de cliente do reconhecedor de formulário para .NET para treinar, extrair, analisar e obter a saída de dados estruturada com este guia de início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446484"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 
@@ -28,7 +28,7 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 * [Obter uma lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Excluir um modelo personalizado](#delete-a-custom-model)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | o pacote de | do [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) [(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/) da biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | o pacote de | do [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) [(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/) da biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

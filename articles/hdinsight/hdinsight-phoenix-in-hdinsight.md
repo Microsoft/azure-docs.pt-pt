@@ -5,22 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435500"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix no Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) é uma camada de banco de dados relacional de software livre, massivamente paralela, criada no [Apache HBase](hbase/apache-hbase-overview.md). O Phoenix permite que você use consultas do tipo SQL no HBase. O Phoenix usa drivers JDBC abaixo para permitir que os usuários criem, excluam, alterem tabelas SQL, índices, exibições e sequências e Upsert linhas individualmente e em massa. O Phoenix usa a compilação nativa noSQL em vez de usar o MapReduce para compilar consultas, permitindo a criação de aplicativos de baixa latência sobre o HBase. O Phoenix adiciona coprocessadores para dar suporte à execução de código fornecido pelo cliente no espaço de endereço do servidor, executando o código colocado com os dados. Essa abordagem minimiza a transferência de dados do cliente/servidor.
 
 Apache Phoenix abre Big Data consultas a não-desenvolvedores que podem usar uma sintaxe do tipo SQL em vez de programação. O Phoenix é altamente otimizado para o HBase, ao contrário de outras ferramentas, como [Apache Hive](hadoop/hdinsight-use-hive.md) e Apache Spark SQL. O benefício para os desenvolvedores é escrever consultas altamente de alto desempenho com muito menos código.
-<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quando você envia uma consulta SQL, o Phoenix compila a consulta para chamadas nativas do HBase e executa a verificação (ou o plano) em paralelo para otimização. Essa camada de abstração libera o desenvolvedor de escrever trabalhos MapReduce, para se concentrar na lógica de negócios e no fluxo de trabalho de seus aplicativos em relação ao armazenamento Big Data da Phoenix.
 
@@ -44,15 +43,15 @@ Essa abordagem pode gerar um aumento significativo de desempenho em relação à
 
 As exibições de Phoenix fornecem uma maneira de superar uma limitação do HBase, em que o desempenho começa a ser prejudicado quando você cria mais de cerca de 100 tabelas físicas. As exibições do Phoenix permitem que várias *tabelas virtuais* compartilhem uma tabela física do HBase subjacente.
 
-A criação de uma exibição Phoenix é semelhante ao uso da sintaxe de exibição SQL padrão. Uma diferença é que você pode definir colunas para sua exibição, além das colunas herdadas de sua tabela base. Você também pode adicionar novas colunas `KeyValue`.
+A criação de uma exibição Phoenix é semelhante ao uso da sintaxe de exibição SQL padrão. Uma diferença é que você pode definir colunas para sua exibição, além das colunas herdadas de sua tabela base. Você também pode adicionar novas colunas de `KeyValue`.
 
 Por exemplo, aqui está uma tabela física chamada `product_metrics` com a seguinte definição:
 
 ```sql
 CREATE  TABLE product_metrics (
     metric_type CHAR(1),
-    created_by VARCHAR, 
-    created_date DATE, 
+    created_by VARCHAR,
+    created_date DATE,
     metric_id INTEGER
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
@@ -100,7 +99,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 O *hotspotting do servidor de região* pode ocorrer ao gravar registros com chaves sequenciais no HBase. Embora você possa ter vários servidores de região em seu cluster, suas gravações estão ocorrendo em apenas um. Essa concentração cria o problema de hotspotting em que, em vez de sua carga de trabalho de gravação sendo distribuída entre todos os servidores de região disponíveis, apenas um está lidando com a carga. Como cada região tem um tamanho máximo predefinido, quando uma região atinge esse limite de tamanho, ela é dividida em duas regiões pequenas. Quando isso acontece, uma dessas novas regiões usa todos os novos registros, tornando-se o novo hotspot.
 
-Para atenuar esse problema e obter melhor desempenho, divida tabelas de forma que todos os servidores de região sejam usados igualmente. Phoenix fornece *tabelas salted*, adicionando de forma transparente o byte de Salting à chave de linha de uma tabela específica. A tabela é previamente dividida nos limites de bytes de Salt para garantir a distribuição de carga igual entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando o desempenho de gravação e leitura. Para Salt de uma tabela, especifique a propriedade de tabela `SALT_BUCKETS` quando a tabela for criada:
+Para atenuar esse problema e obter melhor desempenho, divida tabelas de forma que todos os servidores de região sejam usados igualmente. Phoenix fornece *tabelas salted*, adicionando de forma transparente o byte de Salting à chave de linha de uma tabela específica. A tabela é previamente dividida nos limites de bytes de Salt para garantir a distribuição de carga igual entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando o desempenho de gravação e leitura. Para Salt de uma tabela, especifique a propriedade da tabela de `SALT_BUCKETS` quando a tabela for criada:
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -125,7 +124,7 @@ CREATE TABLE Saltedweblogs (
 
 HDInsight An cluster HBase inclui a [interface do usuário do amAmbari](hdinsight-hadoop-manage-ambari.md) para fazer alterações de configuração.
 
-1. Para habilitar ou desabilitar o Phoenix e controlar as configurações de tempo limite da consulta da Phoenix, faça logon na interface do usuário da Web do amAmbari (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) usando suas credenciais de usuários do Hadoop.
+1. Para habilitar ou desabilitar o Phoenix e controlar as configurações de tempo limite de consulta da Phoenix, faça logon na interface do usuário da Web do amAmbari (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) usando suas credenciais de usuários do Hadoop.
 
 2. Selecione **HBase** na lista de serviços no menu esquerdo e, em seguida, selecione a guia **configurações** .
 
@@ -138,3 +137,5 @@ HDInsight An cluster HBase inclui a [interface do usuário do amAmbari](hdinsigh
 ## <a name="see-also"></a>Ver também
 
 * [Usar Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hbase/apache-hbase-query-with-phoenix.md)
+
+* [Usar o Apache Zeppelin para executar consultas de Apache Phoenix sobre o Apache HBase no Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

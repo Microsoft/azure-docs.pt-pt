@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure IoT Central | Microsoft Docs
-description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
+description: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/26/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 30e7b4c39c24f4271c53f7a9f8940e4fb3c2e298
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: a1aa2f12f62a95ac14750c821079df2bac46e8ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434959"
 ---
 <!---
 Purpose of an Overview article: 
@@ -70,7 +70,7 @@ Como construtor, também pode personalizar a IU da aplicação do Azure IoT Cent
 - Configurar dashboards personalizados para ajudar os operadores a detetar informações e resolver os problemas mais rapidamente.
 - Configurar uma análise personalizada para explorar os dados de séries de tempo dos seus dispositivos ligados.
 
-## <a name="connect-your-devices"></a>Ligar os dispositivos
+## <a name="connect-your-devices"></a>Ligue os seus dispositivos
 
 Depois de o construtor definir os tipos de dispositivos que podem ligar à aplicação, um programador de dispositivos cria o código que irá ser executado nos dispositivos. Como programador de dispositivos, utilize os [SDKs open source do Azure IoT](https://github.com/Azure/azure-iot-sdks) da Microsoft para criar o código do dispositivo. Estes SDKs incluem um suporte abrangente de linguagem, plataforma e protocolo para satisfazer as suas necessidades de ligar os dispositivos à sua aplicação do Azure IoT Central. Os SDKs ajudam a implementar os seguintes recursos de dispositivo:
 
@@ -99,7 +99,7 @@ Os administradores gerenciam o acesso ao seu aplicativo com [funções e permiss
 
 Agora que tem uma descrição geral do Azure IoT Central, eis os passos sugeridos:
 
-- Compreender as diferenças entre o [Azure IoT Central e os aceleradores de soluções do Azure IoT](overview-iot-options.md).
+- Entenda as [tecnologias e os serviços do Azure disponíveis para a criação de soluções de IOT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarizar-se com a [IU do Azure IoT Central](overview-iot-central-tour.md).
 - Começar por [criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).
 - Siga uma sequência de tutoriais que mostram como:

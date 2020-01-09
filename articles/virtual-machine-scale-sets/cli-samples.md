@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure | Microsoft Docs
-description: Exemplos da CLI do Azure
+title: Exemplos da CLI do Azure
+description: Uma tabela que inclui links para scripts de bash de exemplo criados usando o CLI do Azure, como criar e gerenciar um conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ea397616c7909283128118f66fc36218ff36d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 540941bd2d54c5d3c8d26186e700727e8d75f501
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60872531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459350"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Exemplos da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais
 

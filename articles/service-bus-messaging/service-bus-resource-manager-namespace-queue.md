@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar fila e namespace do barramento de serviço do Azure usando o modelo de Azure Resource Manager'
+title: Criar fila e namespace do barramento de serviço do Azure usando o modelo do Azure
 description: 'Início rápido: criar um namespace e uma fila do barramento de serviço usando Azure Resource Manager modelo'
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 40aeff225cfa6d499ebdfae6736e0684b2a27244
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 978111596330d7d6b324c1ecc07fd424c7fd47b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718792"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427010"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Início rápido: criar um namespace e uma fila do barramento de serviço usando um modelo de Azure Resource Manager
 
@@ -146,7 +146,7 @@ Saiba como gerenciar esses recursos exibindo estes artigos:
 * [Gerir o Service Bus com o PowerShell](service-bus-manage-with-ps.md)
 * [Gerenciar recursos do barramento de serviço com o Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md

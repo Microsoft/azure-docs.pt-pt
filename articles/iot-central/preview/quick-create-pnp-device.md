@@ -3,17 +3,17 @@ title: Início rápido-adicionar um dispositivo simulado ao Azure IoT Central
 description: Este guia de início rápido mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434832"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Início rápido: adicionar um dispositivo simulado ao seu aplicativo de IoT Central (recursos de visualização)
 
@@ -70,16 +70,16 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
 
 1. Selecione **Propriedades de nuvem** e **+ Adicionar Propriedade de nuvem**. Use as informações na tabela a seguir para adicionar uma propriedade de nuvem ao modelo de dispositivo.
 
-    | Nome a Apresentar      | Tipo semântico | Esquema |
+    | Nome a Apresentar      | Tipo de Semântica | Esquema |
     | ----------------- | ------------- | ------ |
     | Data da Última Assistência | Nenhuma          | Date   |
-    | Nome do cliente     | Nenhuma          | String |
+    | Nome do cliente     | Nenhuma          | Cadeia |
 
 1. Selecione **salvar** para salvar as alterações:
 
     ![Propriedades de nuvem](media/quick-create-pnp-device/cloudproperties.png)
 
-## <a name="create-views"></a>Criar exibições
+## <a name="create-views"></a>Criar vistas
 
 Como um construtor, você pode personalizar o aplicativo para exibir informações relevantes sobre o dispositivo do sensor ambiental para um operador. Suas personalizações permitem que o operador gerencie os dispositivos do sensor ambiental conectados ao aplicativo. Você pode criar dois tipos de modos de exibição para que um operador Use para interagir com dispositivos:
 
@@ -162,7 +162,7 @@ Depois de criar um novo dispositivo simulado, o construtor pode usar este dispos
 
 1. Selecione qualquer uma das exibições que você deseja editar ou crie uma nova exibição. Clique em **Configurar visualização do dispositivo**e **selecione de um dispositivo em execução**. Aqui você pode escolher entre não ter nenhum dispositivo de visualização, usando um dispositivo real que pode ser configurado para teste ou de um dispositivo existente que você adicionou ao IoT Central.
 
-1. Escolha o dispositivo simulado na lista. Em seguida, selecione **aplicar**. Agora você pode ver o mesmo dispositivo simulado em seus modos de exibição de modelo de dispositivo experiência de criação. Essa exibição é útil para gráficos e outras visualizações.
+1. Escolha o dispositivo simulado na lista. Em seguida, selecione **Aplicar**. Agora você pode ver o mesmo dispositivo simulado em seus modos de exibição de modelo de dispositivo experiência de criação. Essa exibição é útil para gráficos e outras visualizações.
 
     ![Configurar o dispositivo de visualização](./media/quick-create-pnp-device/configure-preview.png)
 

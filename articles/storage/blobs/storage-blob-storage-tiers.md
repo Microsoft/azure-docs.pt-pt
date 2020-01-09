@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371960"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
@@ -51,7 +51,7 @@ A camada de acesso quente tem custos de armazenamento maiores do que as camadas 
 
 ## <a name="cool-access-tier"></a>Escalão de acesso esporádico
 
-A camada de acesso frio reduz os custos de armazenamento e os custos de acesso mais altos em comparação com o armazenamento dinâmico. Esta camada destina-se a dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de uso de exemplo para a camada de acesso frio incluem:
+A camada de acesso frio reduz os custos de armazenamento e os custos de acesso mais altos em comparação com o armazenamento dinâmico. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de uso de exemplo para a camada de acesso frio incluem:
 
 - Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
@@ -105,7 +105,7 @@ Quando um blob é movido para uma camada mais quente (arquivo morto-> frio, > qu
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminação precoce de blobs de acesso esporádico e de arquivo
 
-Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. Estes custos são rateados. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
+Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. Este custo é rateado. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
 
 Você pode calcular a exclusão antecipada usando a propriedade BLOB, **Last-Modified**, se não houver nenhuma alteração na camada de acesso. Caso contrário, você pode usar quando a camada de acesso foi modificada pela última vez para fria ou arquivo morto exibindo a propriedade blob: **acesso-camada-alteração-tempo**. Para obter mais informações sobre propriedades de BLOB, consulte [obter propriedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
@@ -115,11 +115,11 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 
 |                                           | **Desempenho premium**   | **Camada quente** | **Camada fria**       | **Camada de arquivo morto**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Está           |
-| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Está           |
+| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
+| **Disponibilidade** <br> **(leituras RA-GRS)**  | N/A                       | 99,99%       | 99,9%               | Offline           |
 | **Custos de utilização**                         | Custos de armazenamento mais altos, menor acesso e custo da transação | Custos de armazenamento mais altos, acesso menor e custos de transações | Custos de armazenamento mais baixos, acesso mais alto e custos de transações | Custos de armazenamento mais baixos, acesso mais alto e custos de transações |
-| **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
-| **Duração mínima do armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
+| **Tamanho mínimo do objeto**                   | N/A                       | N/A          | N/A                 | N/A               |
+| **Duração mínima do armazenamento**              | N/A                       | N/A          | 30 dias<sup>1</sup> | 180 dias
 | **Latência** <br> **(Tempo até ao primeiro byte)** | Milissegundos de dígito único | milissegundos | milissegundos        | horas<sup>2</sup> |
 
 <sup>1</sup> os objetos na camada fria em contas GPv2 têm uma duração de retenção mínima de 30 dias. As contas de armazenamento de BLOBs não têm uma duração de retenção mínima para a camada fria.
@@ -131,18 +131,20 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
-Nesta secção, são demonstrados os seguintes cenários através do portal do Azure:
+Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
 
 - Como alterar a camada de acesso predefinida de uma conta de armazenamento de Blobs ou GPv2.
 - Como alterar a camada de um blob numa conta de armazenamento de Blobs ou GPv2.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso predefinida de uma conta GPv2 ou de Armazenamento de Blobs
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
+1. Na portal do Azure, procure e selecione **todos os recursos**.
 
-1. Em configurações, clique em **configuração** para exibir e alterar a configuração da conta.
+1. Selecione a sua conta de armazenamento.
+
+1. Em **configurações**, selecione **configuração** para exibir e alterar a configuração da conta.
 
 1. Selecione a camada de acesso certa para suas necessidades: defina a **camada de acesso** como **fria** ou **quente**.
 
@@ -150,9 +152,11 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob em uma conta de armazenamento de BLOBs ou de GPv2
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
+1. Na portal do Azure, procure e selecione **todos os recursos**.
+
+1. Selecione seu contêiner e, em seguida, selecione seu BLOB.
 
 1. Nas **Propriedades do blob**, selecione **alterar camada**.
 

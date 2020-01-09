@@ -1,5 +1,5 @@
 ---
-title: Executar scripts Python
+title: Execute scripts do Python
 titleSuffix: ML Studio (classic) - Azure
 description: Saiba como usar o módulo executar script Python para usar o código Python em experimentos Machine Learning Studio (clássico) e serviços Web.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427658"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Executar scripts do Python Machine Learning no Azure Machine Learning Studio (clássico)
 
@@ -53,7 +53,7 @@ A função `azureml_main` deve retornar um único quadro de tabela pandas em uma
 
 ## <a name="translation-of-input-and-output-data-types"></a>Tradução de tipos de dados de entrada e saída
 
-Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. Como resultado, os conjuntos de dados de entrada na versão clássica do estúdio são convertidos em pandas dataframe, e os dataframes de saída são convertidos de volta para conjuntos de dados Studio (clássicos). Durante esse processo de conversão, as seguintes traduções também são executadas:
+Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. Como resultado, os conjuntos de dados de entrada no estúdio (clássico) são convertidos em pandas dataframe, e os dataframes de saída são convertidos de volta nos conjuntos de dados do estúdio (clássico). Durante esse processo de conversão, as seguintes traduções também são executadas:
 
  **Tipo de dados do Python** | **Procedimento de tradução do estúdio** |
 | --- | --- |
@@ -67,9 +67,9 @@ Os conjuntos de valores do estúdio não são os mesmos que o Panda dataframes. 
 
 ## <a id="import-modules"></a>Importando módulos de script Python existentes
 
-O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. A versão clássica do Studio atualmente não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
+O back-end usado para executar o Python é baseado em [Anaconda](https://www.anaconda.com/distribution/), uma distribuição de Python científica amplamente usada. Ele vem com quase 200 dos pacotes python mais comuns usados em cargas de trabalho centradas em dados. O estúdio (clássico) atualmente não dá suporte ao uso de sistemas de gerenciamento de pacotes como PIP ou Conda para instalar e gerenciar bibliotecas externas.  Se você achar a necessidade de incorporar bibliotecas adicionais, use o cenário a seguir como guia.
 
-Um caso de uso comum é incorporar scripts Python existentes à versão clássica do Studio experimentos. O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
+Um caso de uso comum é incorporar scripts Python existentes em experimentos de estúdio (clássicos). O módulo [Executar script Python][execute-python-script] aceita um arquivo ZIP contendo módulos Python na terceira porta de entrada. O arquivo é descompactado pela estrutura de execução no tempo de execução e o conteúdo é adicionado ao caminho da biblioteca do intérprete do Python. A função de ponto de entrada `azureml_main` pode então importar esses módulos diretamente. 
 
 Como exemplo, considere o arquivo Hello.py que contém uma função "Hello, World" simples.
 
@@ -79,7 +79,7 @@ Em seguida, criamos um arquivo Hello. zip que contém Hello.py:
 
 ![Arquivo zip que contém o código Python definido pelo usuário](./media/execute-python-scripts/figure5.png)
 
-Carregue o arquivo zip como um conjunto de uma versão clássica do estúdio. Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
+Carregue o arquivo zip como um conjunto de um DataSet no Studio (clássico). Em seguida, crie e execute um experimento que use o código Python no arquivo Hello. zip anexando-o à terceira porta de entrada do módulo **Executar script Python** , conforme mostrado na imagem a seguir.
 
 ![Teste de exemplo com Hello. zip como uma entrada para um módulo executar script Python](./media/execute-python-scripts/figure6a.png)
 
@@ -141,11 +141,11 @@ Esse processo é ilustrado nas imagens a seguir que criam uma matriz de gráfico
 
 ![Visualizando plotagens para um experimento de exemplo usando código Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-É possível retornar várias figuras salvando-as em imagens diferentes. A versão clássica do tempo de execução do estúdio pega todas as imagens e as concatena para visualização.
+É possível retornar várias figuras salvando-as em imagens diferentes. O tempo de execução do estúdio (clássico) pega todas as imagens e as concatena para visualização.
 
 ## <a name="advanced-examples"></a>Exemplos avançados
 
-O ambiente Anaconda instalado na versão clássica do estúdio contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
+O ambiente Anaconda instalado no estúdio (clássico) contém pacotes comuns, como NumPy, SciPy e scikits-learn. Esses pacotes podem ser usados efetivamente para processamento de dados em um pipeline de Machine Learning.
 
 Por exemplo, o experimento e o script a seguir ilustram o uso de aprendizes do Ensemble no scikits-Learn para calcular pontuações de importância de recursos para um conjunto de informações. As pontuações podem ser usadas para executar a seleção de recursos supervisionados antes de serem alimentadas em outro modelo.
 
@@ -153,7 +153,7 @@ Aqui está a função Python usada para calcular as pontuações de importância
 
 ![Função para classificar recursos por pontuações](./media/execute-python-scripts/figure8.png)
 
-Em seguida, o experimento a seguir computa e retorna as pontuações de importância dos recursos no conjunto de Pima "diabetes Índico" na versão clássica do Azure Machine Learning Studio:
+Em seguida, o experimento a seguir computa e retorna as pontuações de importância dos recursos no conjunto de Pima "diabetes Índico" no Azure Machine Learning Studio (clássico):
 
 ![Teste para classificar recursos no conjunto de Pima Índico diabetes usando Python](./media/execute-python-scripts/figure9a.png)
 

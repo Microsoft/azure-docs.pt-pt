@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429314"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -37,11 +37,11 @@ Você pode conceder [permissões](#iot-hub-permissions) das seguintes maneiras:
 
 * **Políticas de acesso compartilhado no nível do Hub IOT**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#iot-hub-permissions). Você pode definir políticas no [portal do Azure](https://portal.azure.com), programaticamente usando as [APIs REST de recurso do Hub IOT](/rest/api/iothub/iothubresource)ou usando a CLI de [política AZ IOT Hub](/cli/azure/iot/hub/policy?view=azure-cli-latest) . Um hub IoT criado recentemente tem as seguintes políticas padrão:
   
-  | Política de Acesso Partilhado | Permissões |
+  | Política de acesso compartilhado | Permissões |
   | -------------------- | ----------- |
   | iothubowner | Todas as permissões |
   | serviço | Permissões do **OnConnect** |
-  | dispositivo | Permissões de **DeviceConnect** |
+  | device | Permissões de **DeviceConnect** |
   | registryRead | Permissões de **RegistryRead** |
   | registryReadWrite | Permissões **RegistryRead** e **RegistryWrite** |
 
@@ -57,14 +57,14 @@ Por exemplo, em uma solução de IoT típica:
 > [!NOTE]
 > Consulte [permissões](#iot-hub-permissions) para obter informações detalhadas.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 O Hub IoT do Azure concede acesso aos pontos de extremidade verificando um token em relação às políticas de acesso compartilhado e às credenciais de segurança do registro de identidade.
 
 As credenciais de segurança, como chaves simétricas, nunca são enviadas pela conexão.
 
 > [!NOTE]
-> O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Para obter mais informações sobre como construir e usar tokens de segurança, consulte [tokens de segurança do Hub IOT](iot-hub-devguide-security.md#security-tokens).
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre como construir e usar tokens de segurança, 
 
 Cada protocolo com suporte, como MQTT, AMQP e HTTPS, transporta tokens de maneiras diferentes.
 
-Ao usar MQTT, o pacote Connect tem a DeviceID como ClientID, `{iothubhostname}/{deviceId}` no campo username, e um token SAS no campo password. `{iothubhostname}`deve ser o CName completo do Hub IoT (por exemplo, contoso.azure-devices.net).
+Ao usar MQTT, o pacote CONNECT tem a DeviceID como o ClientId, `{iothubhostname}/{deviceId}` no campo username e um token SAS no campo password. `{iothubhostname}` deve ser o CName completo do Hub IoT (por exemplo, contoso.azure-devices.net).
 
 Ao usar o [AMQP](https://www.amqp.org/), o Hub IOT dá suporte à [segurança baseada em declarações](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) [SASL Plain](https://tools.ietf.org/html/rfc4616) e AMQP.
 
@@ -80,8 +80,8 @@ Se você usar a segurança baseada em declarações do AMQP, o padrão especific
 
 Por SASL PLAIN, o **nome de usuário** pode ser:
 
-* `{policyName}@sas.root.{iothubName}`Se estiver usando tokens de nível de Hub IoT.
-* `{deviceId}@sas.{iothubname}`Se estiver usando tokens no escopo do dispositivo.
+* `{policyName}@sas.root.{iothubName}` se estiver usando tokens de nível de Hub IoT.
+* `{deviceId}@sas.{iothubname}` se estiver usando tokens no escopo do dispositivo.
 
 Em ambos os casos, o campo senha contém o token, conforme descrito em [tokens de segurança do Hub IOT](iot-hub-devguide-security.md#security-tokens).
 
@@ -89,7 +89,7 @@ O HTTPS implementa a autenticação incluindo um token válido no cabeçalho de 
 
 #### <a name="example"></a>Exemplo
 
-Nome de usuário (DeviceID diferencia maiúsculas de minúsculas):`iothubname.azure-devices.net/DeviceId`
+Nome de usuário (DeviceID diferencia maiúsculas de minúsculas): `iothubname.azure-devices.net/DeviceId`
 
 Senha (você pode gerar um token SAS com a ferramenta [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) , o comando de extensão da CLI [AZ IOT Hub Generate-SAS-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)ou as ferramentas de iot do [Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
@@ -134,17 +134,17 @@ O token de segurança tem o seguinte formato:
 
 Estes são os valores esperados:
 
-| Value | Descrição |
+| Valor | Descrição |
 | --- | --- |
-| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no `{URL-encoded-resourceURI} + "\n" + expiry`formato:. **Importante**: A chave é decodificada da Base64 e usada como chave para executar a computação HMAC-SHA256. |
+| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da Base64 e usada como chave para executar a computação HMAC-SHA256. |
 | {resourceURI} |Prefixo do URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome do host do Hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
 | expiração |Cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
 | {URL-encoded-resourceURI} |Codificação de URL em minúsculas do URI de recurso em letras minúsculas |
 | {policyName} |O nome da política de acesso compartilhado à qual esse token se refere. Ausente se o token se referir a credenciais do registro do dispositivo. |
 
-**Observação no prefixo**: O prefixo do URI é calculado por segmento e não por caractere. Por exemplo `/a/b` , é um prefixo `/a/b/c` para, mas `/a/bc`não para.
+**Observação no prefixo**: o prefixo URI é computado por segmento e não por caractere. Por exemplo `/a/b` é um prefixo para `/a/b/c`, mas não para `/a/bc`.
 
-O trecho do node. js a seguir mostra uma função chamada **generateSasToken** que computa o token das entradas `resourceUri, signingKey, policyName, expiresInMins`. As seções a seguir detalham como inicializar as diferentes entradas para os diferentes casos de uso de token.
+O trecho do node. js a seguir mostra uma função chamada **generateSasToken** que computa o token do `resourceUri, signingKey, policyName, expiresInMins`de entradas. As seções a seguir detalham como inicializar as diferentes entradas para os diferentes casos de uso de token.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -240,7 +240,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 Há duas maneiras de obter permissões **DeviceConnect** com o Hub IOT com tokens de segurança: Use uma [chave de dispositivo simétrica do registro de identidade](#use-a-symmetric-key-in-the-identity-registry)ou use uma [chave de acesso compartilhado](#use-a-shared-access-policy).
 
-Lembre-se de que todas as funcionalidades acessíveis dos dispositivos são expostas por design `/devices/{deviceId}`em pontos de extremidade com prefixo.
+Lembre-se de que toda a funcionalidade acessível dos dispositivos é exposta por design em pontos de extremidade com o prefixo `/devices/{deviceId}`.
 
 > [!IMPORTANT]
 > A única maneira de o Hub IoT autenticar um dispositivo específico é usando a chave simétrica de identidade do dispositivo. Em casos em que uma política de acesso compartilhado é usada para acessar a funcionalidade do dispositivo, a solução deve considerar o componente que emite o token de segurança como um subcomponente confiável.
@@ -254,12 +254,12 @@ Os pontos de extremidade voltados para o dispositivo são (independentemente do 
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Usar uma chave simétrica no registro de identidade
 
-Ao usar a chave simétrica de uma identidade de dispositivo para gerar um token, o elemento`skn`PolicyName () do token é omitido.
+Ao usar a chave simétrica de uma identidade de dispositivo para gerar um token, o elemento PolicyName (`skn`) do token é omitido.
 
 Por exemplo, um token criado para acessar toda a funcionalidade do dispositivo deve ter os seguintes parâmetros:
 
-* URI do recurso `{IoT hub name}.azure-devices.net/devices/{device id}`:,
-* chave de assinatura: qualquer chave simétrica para `{device id}` a identidade,
+* URI do recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`,
+* chave de assinatura: qualquer chave simétrica para a identidade de `{device id}`,
 * nenhum nome de política,
 * qualquer hora de expiração.
 
@@ -281,7 +281,7 @@ O resultado, que concede acesso a todas as funcionalidades para Device1, seria:
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 
-Ao criar um token de uma política de acesso compartilhado, defina o `skn` campo como o nome da política. Essa política deve conceder a permissão **DeviceConnect** .
+Ao criar um token de uma política de acesso compartilhado, defina o campo `skn` como o nome da política. Essa política deve conceder a permissão **DeviceConnect** .
 
 Os dois principais cenários para usar políticas de acesso compartilhado para acessar a funcionalidade do dispositivo são:
 
@@ -292,9 +292,9 @@ Como a política de acesso compartilhado pode potencialmente conceder acesso par
 
 Por exemplo, um serviço de token usando a política de acesso compartilhado pré-criada chamada **Device** criaria um token com os seguintes parâmetros:
 
-* URI do recurso `{IoT hub name}.azure-devices.net/devices/{device id}`:,
-* chave de assinatura: uma das chaves da `device` política,
-* nome da política `device`:,
+* URI do recurso: `{IoT hub name}.azure-devices.net/devices/{device id}`,
+* chave de assinatura: uma das chaves da política de `device`,
+* nome da política: `device`,
 * qualquer hora de expiração.
 
 Um exemplo que usa a função node. js anterior seria:
@@ -311,7 +311,7 @@ O resultado, que concede acesso a todas as funcionalidades para Device1, seria:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
-Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, simplesmente definindo o `myhub.azure-devices.net/devices`URI de recurso como.
+Um gateway de protocolo poderia usar o mesmo token para todos os dispositivos, simplesmente definindo o URI de recurso como `myhub.azure-devices.net/devices`.
 
 ### <a name="use-security-tokens-from-service-components"></a>Usar tokens de segurança de componentes de serviço
 
@@ -328,9 +328,9 @@ Aqui estão as funções de serviço expostas nos pontos de extremidade:
 
 Por exemplo, uma geração de serviço usando a política de acesso compartilhado pré-criada chamada **registryRead** criaria um token com os seguintes parâmetros:
 
-* URI do recurso `{IoT hub name}.azure-devices.net/devices`:,
-* chave de assinatura: uma das chaves da `registryRead` política,
-* nome da política `registryRead`:,
+* URI do recurso: `{IoT hub name}.azure-devices.net/devices`,
+* chave de assinatura: uma das chaves da política de `registryRead`,
+* nome da política: `registryRead`,
 * qualquer hora de expiração.
 
 ```javascript
@@ -367,11 +367,11 @@ O [SDK do serviço IOT do C# Azure para](https://github.com/Azure/azure-iot-sdk-
 
 Você também pode usar o comando de extensão da CLI [AZ IOT Hub Device-Identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) para configurar certificados X. 509 para dispositivos.
 
-### <a name="c-support"></a>Suporte\# a C
+### <a name="c-support"></a>Suporte a\# de C
 
 A classe **registrymanager** fornece uma maneira programática de registrar um dispositivo. Em particular, os métodos **AddDeviceAsync** e **UpdateDeviceAsync** permitem que você registre e atualize um dispositivo no registro de identidade do Hub IOT. Esses dois métodos usam uma instância de **dispositivo** como entrada. A classe de **dispositivo** inclui uma propriedade de **autenticação** que permite especificar as impressões digitais do certificado X. 509 primário e secundário. A impressão digital representa um hash SHA256 do certificado X. 509 (armazenado usando a codificação Binary DER). Você tem a opção de especificar uma impressão digital primária ou uma impressão digital secundária ou ambas. Há suporte para impressões digitais primárias e secundárias para lidar com cenários de substituição de certificado.
 
-Aqui está um exemplo de\# trecho de código C para registrar um dispositivo usando uma impressão digital do certificado X. 509:
+Aqui está um trecho de código de\# de exemplo C para registrar um dispositivo usando uma impressão digital do certificado X. 509:
 
 ```csharp
 var device = new Device(deviceId)
@@ -392,7 +392,7 @@ await registryManager.AddDeviceAsync(device);
 
 O [SDK do dispositivo IOT do Azure para .net](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (versão 1.0.11 ou superior +) dá suporte ao uso de certificados X. 509.
 
-### <a name="c-support"></a>Suporte\# a C
+### <a name="c-support"></a>Suporte a\# de C
 
 A classe **DeviceAuthenticationWithX509Certificate** dá suporte à criação de instâncias **DeviceClient** usando um certificado X. 509. O certificado X. 509 deve estar no formato PFX (também chamado de #12 PKCS) que inclui a chave privada.
 
@@ -418,7 +418,7 @@ Estas são as principais etapas do padrão de serviço de token:
 
 2. Quando um dispositivo/módulo precisa acessar o Hub IoT, ele solicita um token assinado do seu serviço de token. O dispositivo pode autenticar com seu esquema personalizado de registro/autenticação de identidade para determinar a identidade do dispositivo/módulo que o serviço de token usa para criar o token.
 
-3. O serviço de token retorna um token. O `/devices/{deviceId}` token é criado usando o `resourceURI`ou `/devices/{deviceId}/module/{moduleId}` o, com `deviceId` o como o dispositivo que está sendo `moduleId` autenticado ou como o módulo que está sendo autenticado. O serviço de token usa a política de acesso compartilhado para construir o token.
+3. O serviço de token retorna um token. O token é criado usando `/devices/{deviceId}` ou `/devices/{deviceId}/module/{moduleId}` como `resourceURI`, com `deviceId` como o dispositivo que está sendo autenticado ou `moduleId` como o módulo que está sendo autenticado. O serviço de token usa a política de acesso compartilhado para construir o token.
 
 4. O dispositivo/módulo usa o token diretamente com o Hub IoT.
 
@@ -462,7 +462,7 @@ Outros tópicos de referência no guia do desenvolvedor do Hub IoT incluem:
 
 * [Suporte a MQTT do Hub IOT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IOT para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você aprendeu a controlar o acesso ao Hub IoT, talvez esteja interessado nos seguintes tópicos do guia do desenvolvedor do Hub IoT:
 

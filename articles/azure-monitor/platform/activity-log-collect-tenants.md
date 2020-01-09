@@ -4,20 +4,21 @@ description: Use os hubs de eventos e os aplicativos lógicos para coletar dados
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931841"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530005"
 ---
-# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory
+# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
 
-> [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-subscription.md).
+> [!NOTE]
+> Este artigo descreve o método herdado para configurar o log de atividades do Azure em locatários do Azure a serem coletados em um espaço de trabalho Log Analytics.  Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](activity-log-collect.md).
+
 
 Este artigo percorre um método para coletar os logs de atividades do Azure em um espaço de trabalho Log Analytics no Azure Monitor usando o conector do coletor de dados do Azure Log Analytics para aplicativos lógicos. Use o processo neste artigo quando precisar enviar logs para um espaço de trabalho em um locatário Azure Active Directory diferente. Por exemplo, se for um fornecedor de serviços geridos, poderá querer recolher registos de atividades da subscrição de um cliente e armazená-los numa área de trabalho do Log Analytics na sua própria subscrição.
 
@@ -59,13 +60,13 @@ Seguem-se os requisitos para os recursos do Azure utilizados neste cenário.
 
    ![imagem da caixa de diálogo “criar hub de eventos”](media/collect-activity-logs-subscriptions/create-event-hub1.png)
 
-4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nomes. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
+4. Escolha o escalão de preço (Básico ou Standard) e uma subscrição, um grupo de recursos e uma localização do Azure para o recurso novo.  Clique em **Criar** para criar o espaço de nome. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.
 6. Clique no nome do espaço de nomes que acabou de criar na lista.
 7. Selecione **Políticas de acesso partilhado** e clique em **RootManageSharedAccessKey**.
 
    ![Imagem das políticas de acesso partilhado do hub de eventos](media/collect-activity-logs-subscriptions/create-event-hub7.png)
    
-8. Clique no botão Copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
+8. Clique no botão copiar para copiar a cadeia de ligação **RootManageSharedAccessKey** para a área de transferência. 
 
    ![imagem da chave de acesso partilhado do hub de eventos](media/collect-activity-logs-subscriptions/create-event-hub8.png)
 

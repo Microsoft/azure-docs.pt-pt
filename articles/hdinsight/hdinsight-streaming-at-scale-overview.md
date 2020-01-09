@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435386"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte [o que é Apache Storm no Azure HDInsigh
 
 ## <a name="spark-streaming"></a>Streaming do Spark
 
-O streaming do Spark é uma extensão do Spark, que permite reutilizar o mesmo código que você usa para o processamento em lotes. Você pode combinar consultas de lote e interativas no mesmo aplicativo. Ao contrário do Storm, o Spark streaming fornece semântica de processamento com estado exatamente uma vez. Quando usado em combinação com a [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka sejam recebidos pelo Spark streaming exatamente uma vez, é possível atingir garantias de ponta a ponta exatamente uma vez. Um dos pontos fortes do Spark streaming são seus recursos tolerantes a falhas, recuperando os nós com falha rapidamente quando vários nós estão sendo usados dentro do cluster.
+O streaming do Spark é uma extensão do Spark, que permite reutilizar o mesmo código que você usa para o processamento em lotes. Você pode combinar consultas de lote e interativas no mesmo aplicativo. Ao contrário do Storm, o Spark streaming fornece estado exatamente após o processamento da semântica. Quando usado em combinação com a [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka sejam recebidos pelo Spark streaming exatamente uma vez, é possível atingir as garantias de ponta a ponta exatamente uma vez. Um dos pontos fortes do Spark streaming são seus recursos tolerantes a falhas, recuperando os nós com falha rapidamente quando vários nós estão sendo usados dentro do cluster.
 
 Para obter mais informações, consulte [o que é Apache Spark streaming?](hdinsight-spark-streaming-overview.md).
 
@@ -49,7 +49,7 @@ Há vantagens em desacoplar as tecnologias. Por exemplo, Kafka é uma tecnologia
 
 ### <a name="scale-the-stream-buffering-layer"></a>Dimensionar a camada de buffer de fluxo
 
-Os hubs de eventos das tecnologias de buffer de fluxo e os Kafka usam partições e os consumidores lêem dessas partições. O dimensionamento da taxa de transferência de entrada requer a expansão do número de partições e a adição de partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições `kafka-reassign-partitions.sh`,. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),. `rebalance_rackaware.py` Essa ferramenta de rebalanceamento chama `kafka-reassign-partitions.sh` a ferramenta de forma que cada réplica esteja em um domínio de falha e atualização de domínio separado, tornando o Kafka rack ciente e aumentando a tolerância a falhas.
+Os hubs de eventos das tecnologias de buffer de fluxo e os Kafka usam partições e os consumidores lêem dessas partições. O dimensionamento da taxa de transferência de entrada requer a expansão do número de partições e a adição de partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py`. Essa ferramenta de rebalanceamento chama a ferramenta de `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha e atualização de domínio separado, tornando o Kafka rack ciente e aumentando a tolerância a falhas.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensionar a camada de processamento de fluxo
 
@@ -57,11 +57,11 @@ O Apache Storm e o Spark streaming dão suporte à adição de nós de trabalho 
 
 Para aproveitar os novos nós adicionados por meio de dimensionamento do Storm, você precisa reequilibrar todas as topologias do Storm iniciadas antes que o tamanho do cluster seja aumentado. Esse rebalanceamento pode ser feito usando a interface do usuário da Web do Storm ou sua CLI. Para obter mais informações, consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-O Apache Spark usa três parâmetros principais para configurar seu ambiente, dependendo dos requisitos do aplicativo `spark.executor.instances`: `spark.executor.cores`, e `spark.executor.memory`. Um *executor* é um processo que é iniciado para um aplicativo Spark. Um executor é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos de executor para cada cluster são calculados com base no número de nós de trabalho e no tamanho do nó de trabalho. Esses números são armazenados no `spark-defaults.conf`arquivo em cada nó de cabeçalho do cluster.
+O Apache Spark usa três parâmetros principais para configurar seu ambiente, dependendo dos requisitos do aplicativo: `spark.executor.instances`, `spark.executor.cores`e `spark.executor.memory`. Um *executor* é um processo que é iniciado para um aplicativo Spark. Um executor é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos de executor para cada cluster são calculados com base no número de nós de trabalho e no tamanho do nó de trabalho. Esses números são armazenados no arquivo de `spark-defaults.conf`em cada nó de cabeçalho do cluster.
 
 Esses três parâmetros podem ser configurados no nível do cluster, para todos os aplicativos que são executados no cluster e também podem ser especificados para cada aplicativo individual. Para obter mais informações, consulte [Gerenciando recursos para clusters de Apache Spark](spark/apache-spark-resource-manager.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e monitorar uma topologia de Apache Storm no Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](storm/apache-storm-example-topology.md)

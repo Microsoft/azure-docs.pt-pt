@@ -4,15 +4,15 @@ description: Defina as configurações que se aplicam a todo o ambiente de servi
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430491"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para ambientes do serviço de aplicativo
 ## <a name="overview"></a>Visão geral
@@ -57,6 +57,19 @@ Como alternativa, você pode atualizar o Ambiente do Serviço de Aplicativo usan
 No entanto, você envia a alteração, leva aproximadamente 30 minutos multiplicado pelo número de front-ends na Ambiente do Serviço de Aplicativo para que a alteração entre em vigor.
 Por exemplo, se um Ambiente do Serviço de Aplicativo tiver quatro front-ends, levará aproximadamente duas horas para que a atualização de configuração seja concluída. Enquanto a alteração de configuração está sendo distribuída, nenhuma outra operação de dimensionamento ou operação de alteração de configuração pode ocorrer na Ambiente do Serviço de Aplicativo.
 
+## <a name="enable-internal-encryption"></a>Habilitar criptografia interna
+
+O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta onde você não pode ver os componentes internos ou a comunicação dentro do sistema. Para habilitar uma taxa de transferência mais alta, a criptografia não é habilitada por padrão entre os componentes internos. O sistema é seguro, pois o tráfego está totalmente inacessível para ser monitorado ou acessado. Se você tiver um requisito de conformidade, embora exija a criptografia completa do caminho de dados de ponta a ponta, há uma maneira de habilitá-lo com um clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+Depois que o InternalEncryption clusterSetting estiver habilitado, poderá haver um impacto no desempenho do sistema. Quando você faz a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável que você não habilite isso em um ASE enquanto ele estiver em uso. Se você precisar habilitá-lo em um ASE usado ativamente, é altamente recomendável desviar o tráfego para um ambiente de backup até que a operação seja concluída. 
+
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar TLS 1,0 e TLS 1,1
 
 Se você quiser gerenciar as configurações de TLS em um aplicativo pela base do aplicativo, poderá usar as diretrizes fornecidas com a documentação [impor configurações de TLS](../configure-ssl-bindings.md#enforce-tls-versions) . 
@@ -87,7 +100,7 @@ Outra pergunta dos clientes é se eles podem modificar a lista de codificações
 > 
 > 
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 O site do modelo de início rápido do Azure Resource Manager inclui um modelo com a definição de base para [criar um ambiente do serviço de aplicativo](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

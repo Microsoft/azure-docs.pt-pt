@@ -1,6 +1,5 @@
 ---
-title: Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - CRUD adicionar as funções para a aplicação
-titleSuffix: Azure Cosmos DB
+title: Adicionar funções CRUD a um aplicativo angular com a API do Azure Cosmos DB para MongoDB
 description: Parte 6 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 42015ca816f2744ef28660c5396db4cfd93a76f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441095"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - CRUD adicionar as funções para a aplicação
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-adicionar funções CRUD ao aplicativo
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada com a API do Cosmos DB para o MongoDB](mongodb-introduction.md). A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
+Este tutorial de várias partes demonstra como criar um novo aplicativo escrito em node. js com o Express e o angular e, em seguida, conectá-lo à sua [conta do cosmos configurada com a API do cosmos DB para MongoDB](mongodb-introduction.md). A Parte 6 do tutorial é a continuação da [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar as funções Post, Put e Delete para o serviço hero
@@ -37,7 +36,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
 
 ## <a name="add-a-post-function-to-the-hero-service"></a>Adicionar uma função Post ao serviço hero
 
-1. No Visual Studio Code, abra **routes.js** e **hero.service.js** lado a lado ao premir o botão **Dividir Editor** ![botão de divisão Editor no Visual Studio ](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
+1. No Visual Studio Code, abra **routes.js** e **hero.service.js** lado a lado ao premir o botão **Dividir Editor**![botão de divisão Editor no Visual Studio ](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
 
     Veja se a linha 7 de routes.js chama a função `getHeroes` na linha 5 de **hero.service.js**.  Temos de criar este emparelhamento para as funções post, put e delete. 
 
@@ -85,7 +84,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
     });
     ```
 
-5. Execute a aplicação para confirmar que está tudo a funcionar. No Visual Studio Code, guarde todas as alterações, selecione o botão **Depurar** ![ícone de Depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png), no lado esquerdo, selecione o botão **Iniciar Depuração** ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Execute a aplicação para confirmar que está tudo a funcionar. No Visual Studio Code, guarde todas as alterações, selecione o botão **Depurar**![ícone de Depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png), no lado esquerdo, selecione o botão **Iniciar Depuração**![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue para [http://localhost:3000](http://localhost:3000) para ver as chamadas efetuadas através da rede.
 
@@ -170,7 +169,7 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
     };
     ```
 
-4. Agora que atualizámos o código, selecione o botão **Reiniciar** ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) no Visual Studio Code.
+4. Agora que atualizámos o código, selecione o botão **Reiniciar**![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) no Visual Studio Code.
 
 5. Atualize a página do browser e selecione o botão **Adicionar novo hero**. Adicione um hero novo com o ID "9", o nome "Starlord" e a indicação "Hi". Selecione o botão **Guardar** para guardar o hero novo.
 

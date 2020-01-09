@@ -1,5 +1,5 @@
 ---
-title: Usando a biblioteca .NET do executor em massa para executar operações de importação e atualização em massa no Azure Cosmos DB
+title: Usar a biblioteca .NET do executor em massa no Azure Cosmos DB para operações de importação e atualização em massa
 description: Importe e atualize em massa os documentos de Azure Cosmos DB usando a biblioteca .NET do executor em massa.
 author: tknandu
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d76426e738d78391b92b008e821672017520b7d2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442184"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET do executor em massa para executar operações em massa no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Atualmente, a biblioteca de executores em massa é suportada apenas pela API do 
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Ou, você pode usar o [emulador](https://docs.microsoft.com/azure/cosmos-db/local-emulator) de Azure Cosmos DB `https://localhost:8081` com o ponto de extremidade. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Ou, você pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
 * Crie uma conta da API do SQL Azure Cosmos DB usando as etapas descritas na seção [criar conta do banco de dados](create-sql-api-dotnet.md#create-account) do artigo início rápido do .net.
 
@@ -115,15 +115,15 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
    |NumberOfDocumentsImported (longo)   |  O número total de documentos que foram importados com êxito do total de documentos fornecidos para a chamada à API de importação em massa.       |
    |TotalRequestUnitsConsumed (duplo)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
    |TotalTimeTaken (TimeSpan)    |   O tempo total gasto pela chamada à API de importação em massa para concluir a execução.      |
-   |BadInputDocuments (>\<de objeto de lista)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Corrija os documentos retornados e tente importar novamente. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |BadInputDocuments (lista\<objeto >)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Corrija os documentos retornados e tente importar novamente. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Atualizar dados em massa em sua conta do Azure Cosmos
 
-Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, você definirá o `Name` campo como um novo valor e removerá o `Description` campo dos documentos existentes. Para obter o conjunto completo de operações de atualização com suporte, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exemplo, você definirá o campo `Name` como um novo valor e removerá o campo `Description` dos documentos existentes. Para obter o conjunto completo de operações de atualização com suporte, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
 1. Navegue até a pasta "BulkUpdateSample" e abra o arquivo "BulkUpdateSample. sln".  
 
-2. Defina os itens de atualização junto com as operações de atualização de campo correspondentes. Neste exemplo, você usará `SetUpdateOperation` para atualizar o `Name` campo e `UnsetUpdateOperation` remover o `Description` campo de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina os itens de atualização junto com as operações de atualização de campo correspondentes. Neste exemplo, você usará `SetUpdateOperation` para atualizar o `Name` campo e `UnsetUpdateOperation` para remover o campo `Description` de todos os documentos. Pode também executar outras operações, como o incremento um campo de documento por um valor específico, enviar por push valores específicos para um campo de matriz ou remover um valor específico de um campo de matriz. Para saber mais sobre os diferentes métodos fornecidos pela API de atualização em massa, consulte a [documentação da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -171,11 +171,11 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca de exe
 
 * Para obter o melhor desempenho, execute o aplicativo de uma máquina virtual do Azure que esteja na mesma região que a região de gravação da sua conta do Azure Cosmos.  
 
-* É recomendável que você crie uma instância `BulkExecutor` de um único objeto para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos específico do Azure.  
+* É recomendável que você crie uma instância de um único objeto `BulkExecutor` para todo o aplicativo em uma única máquina virtual que corresponda a um contêiner Cosmos específico do Azure.  
 
-* Como uma única execução de API de operação em massa consome uma grande parte da CPU da máquina do cliente e da e/s de rede (isso acontece pela geração de várias tarefas internamente). Evite a geração de várias tarefas simultâneas no processo do aplicativo que executam chamadas à API de operação em massa. Se uma única chamada à API de operação em massa que está em execução em uma única máquina virtual não puder consumir a taxa de transferência do contêiner inteiro (se a taxa de transferência do contêiner > 1 milhão RU/s), é preferível criar máquinas virtuais separadas para execução simultânea as chamadas à API da operação em massa.  
+* Como uma única execução de API de operação em massa consome uma grande parte da CPU da máquina do cliente e da e/s de rede (isso acontece pela geração de várias tarefas internamente). Evite a geração de várias tarefas simultâneas no processo do aplicativo que executam chamadas à API de operação em massa. Se uma única chamada à API de operação em massa que está sendo executada em uma única máquina virtual não puder consumir a taxa de transferência do contêiner inteiro (se a taxa de transferência do contêiner > 1 milhão RU/s), é preferível criar máquinas virtuais separadas para executar simultaneamente as chamadas à API da operação em massa.  
 
-* Verifique se `InitializeAsync()` o método é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partição do contêiner de Cosmos de destino.  
+* Verifique se o método `InitializeAsync()` é invocado depois de instanciar um objeto BulkExecutor para buscar o mapa de partição do contêiner de Cosmos de destino.  
 
 * No app. config do seu aplicativo, verifique se o **gcServer** está habilitado para melhorar o desempenho
   ```xml  

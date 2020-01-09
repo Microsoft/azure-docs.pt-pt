@@ -1,19 +1,19 @@
 ---
 title: Práticas recomendadas e solução de problemas do node. js
 description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430570"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de práticas recomendadas e solução de problemas para aplicativos de nó em janelas de serviço Azure App
 
@@ -29,7 +29,7 @@ Esse [arquivo de esquema](https://github.com/Azure/iisnode/blob/master/src/confi
 
 ### <a name="nodeprocesscountperapplication"></a>nodeProcessCountPerApplication
 
-Essa configuração controla o número de processos de nó que são iniciados por aplicativo do IIS. O valor padrão é 1. Você pode iniciar quantos node. EXEs forem sua contagem de vCPU de VM alterando o valor para 0. O valor recomendado é 0 para a maioria dos aplicativos, para que você possa usar todos os vCPUs em seu computador. O Node. exe é de thread único, portanto, um node. exe consome um máximo de 1 vCPU. Para obter o desempenho máximo do seu aplicativo de nó, você deseja usar todos os vCPUs.
+Essa configuração controla o número de processos de nó que são iniciados por aplicativo do IIS. O valor predefinido é 1. Você pode iniciar quantos node. EXEs forem sua contagem de vCPU de VM alterando o valor para 0. O valor recomendado é 0 para a maioria dos aplicativos, para que você possa usar todos os vCPUs em seu computador. O Node. exe é de thread único, portanto, um node. exe consome um máximo de 1 vCPU. Para obter o desempenho máximo do seu aplicativo de nó, você deseja usar todos os vCPUs.
 
 ### <a name="nodeprocesscommandline"></a>nodeProcessCommandLine
 
@@ -83,11 +83,11 @@ Além disso, para aplicativos de streaming, você também deve definir responseB
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Uma lista de arquivos separados por ponto e vírgula que são observados para alterações. Qualquer alteração em um arquivo faz com que o aplicativo seja reciclado. Cada entrada consiste em um nome de diretório opcional, bem como um nome de arquivo necessário, que são relativos ao diretório em que o ponto de entrada do aplicativo principal está localizado. Curingas são permitidos somente na parte do nome do arquivo. O valor padrão é `*.js;iisnode.yml`
+Uma lista de arquivos separados por ponto e vírgula que são observados para alterações. Qualquer alteração em um arquivo faz com que o aplicativo seja reciclado. Cada entrada consiste em um nome de diretório opcional, bem como um nome de arquivo necessário, que são relativos ao diretório em que o ponto de entrada do aplicativo principal está localizado. Curingas são permitidos somente na parte do nome do arquivo. O valor predefinido é `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-O valor padrão é false. Se habilitada, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_controle de\_PIPE) e enviar uma mensagem de "reciclagem". Isso faz com que w3wp seja reciclado normalmente.
+O valor predefinido é false. Se habilitada, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_controle de\_PIPE) e enviar uma mensagem de "reciclagem". Isso faz com que w3wp seja reciclado normalmente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -99,7 +99,7 @@ O valor padrão é 0, o que significa que esse recurso está desabilitado. Quand
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor padrão é false. Se definido como true, iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP, ele enviará o valor do cabeçalho `iisnode-debug` será uma URL. Partes individuais de informações de diagnóstico podem ser obtidas examinando o fragmento de URL, no entanto, uma visualização está disponível abrindo a URL em um navegador.
+O valor predefinido é false. Se definido como true, iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP, ele enviará o valor do cabeçalho `iisnode-debug` será uma URL. Partes individuais de informações de diagnóstico podem ser obtidas examinando o fragmento de URL, no entanto, uma visualização está disponível abrindo a URL em um navegador.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -107,7 +107,7 @@ Essa configuração controla o registro em log de stdout e stderr por iisnode. I
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor padrão é false. Quando definido como true, iisnode exibe o código de status HTTP e o código de erro do Win32 em seu navegador. O código Win32 é útil na depuração de determinados tipos de problemas.
+O valor predefinido é false. Quando definido como true, iisnode exibe o código de status HTTP e o código de erro do Win32 em seu navegador. O código Win32 é útil na depuração de determinados tipos de problemas.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar no site de produção ao vivo)
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de página única do AngularJS do Azure AD para entrar & sair | Microsoft Docs
+title: Criar um aplicativo de página única do AngularJS do Azure AD para entrar/sair | Microsoft Docs
 description: Saiba como criar um aplicativo de página única AngularJS que integra o Azure AD para entrada & logout & chama as APIs protegidas do Azure AD usando o OAuth.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424101"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar uma aplicação de página única AngularJS para início de sessão e fim de sessão com o Azure Active Directory
 
@@ -59,7 +59,7 @@ Para começar, conclua estes pré-requisitos:
 
 Para permitir que a aplicação autentique utilizadores e obtenha tokens, primeiro tem de registá-la no seu inquilino do Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Se tiver sessão iniciada em vários diretórios, poderá ter de certificar-se de que está a ver o diretório correto. Para tal, na barra superior, clique na sua conta. Na lista **Diretório**, escolha o inquilino do Azure AD onde pretende registar a aplicação.
 1. Clique em **Todos os serviços** no painel esquerdo e selecione **Azure Active Directory**.
 1. Clique em **registros de aplicativo**e, em seguida, selecione **novo registro**.

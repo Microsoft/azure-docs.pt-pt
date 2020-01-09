@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 526b2a9b086f1463b6862a8c03c4cb30dd0a09ab
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 567d647693668273270fb01965526e140ba78d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468597"
 ---
 > [!div class="nextstepaction"]
 > [Explorar C++ exemplos no github](https://aka.ms/speech/github-cpp)

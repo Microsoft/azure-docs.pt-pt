@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 48d2b36e35a2e0b41b1202beda9944339dc7530c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448639"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Início rápido: Enviar uma solicitação de pesquisa para a API REST do Pesquisa de Entidade do Bing usando o Node. js
 
@@ -40,7 +40,7 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
     let https = require ('https');
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e consulta de pesquisa.
+2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -110,7 +110,7 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {

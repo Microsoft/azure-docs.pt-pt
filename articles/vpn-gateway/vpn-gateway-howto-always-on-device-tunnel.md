@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425674"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurar um túnel de dispositivo VPN AlwaysOn
 
@@ -37,7 +37,7 @@ Configure o gateway de VPN para usar a autenticação IKEv2 e com base em certif
 
 Os requisitos a seguir devem ser atendidos para estabelecer com êxito um túnel de dispositivo:
 
-* O dispositivo deve ser um computador ingressado no domínio que executa o Windows 10 Enterprise ou o Education versão 1709 ou posterior.
+* O dispositivo deve ser um computador ingressado no domínio que executa o Windows 10 Enterprise ou o Education versão 1809 ou posterior.
 * O túnel só é configurável para a solução de VPN interna do Windows e é estabelecido usando IKEv2 com autenticação de certificado do computador. 
 * Somente um túnel de dispositivo pode ser configurado por dispositivo.
 
@@ -139,15 +139,15 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
 1. Em um prompt de comando de administrador, inicie o PowerShell executando:
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![PowerShell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
+   ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. No PowerShell, alterne para a pasta em que **devicecert. ps1** e **VPNProfile. xml** estão localizados e execute o seguinte comando:
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)

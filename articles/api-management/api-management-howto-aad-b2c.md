@@ -1,5 +1,6 @@
 ---
-title: Autorizar contas de desenvolvedor usando o Azure Active Directory B2C-gerenciamento de API do Azure | Microsoft Docs
+title: Autorizar contas de desenvolvedor usando Azure Active Directory B2C
+titleSuffix: Azure API Management
 description: Saiba como autorizar usuários usando Azure Active Directory B2C no gerenciamento de API.
 services: api-management
 documentationcenter: API Management
@@ -12,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: d6e7c04cbd5a7f1ed509b27cf87ac3f692c28d9f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 11dae2b6d771138503643c402ba4525df1f04a88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454466"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430754"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando Azure Active Directory B2C no gerenciamento de API do Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Azure Active Directory B2C é uma solução de gerenciamento de identidade de nuvem para aplicativos móveis e Web voltados para o consumidor. Você pode usá-lo para gerenciar o acesso ao portal do desenvolvedor. Este guia mostra a configuração necessária em seu serviço de gerenciamento de API para integração com o Azure Active Directory B2C. Para obter informações sobre como habilitar o acesso ao portal do desenvolvedor usando Azure Active Directory clássicas, consulte [como autorizar contas de desenvolvedor usando Azure Active Directory].
 

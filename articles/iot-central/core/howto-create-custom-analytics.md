@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435037"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
@@ -40,14 +40,14 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 | Definição | Valor |
 | ------- | ----- |
 | Plano de pagamento | "Pay-As-You-Go" |
-| Modelo de aplicação | Exemplo da Contoso |
+| Modelo de aplicação | Aplicativo herdado |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | Este dos E.U.A. |
+| Região | Estados Unidos |
 
-Os exemplos e capturas de tela neste artigo usam a região **leste dos EUA** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
+Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
 
 ### <a name="resource-group"></a>Grupo de recursos
 
@@ -72,7 +72,7 @@ Use o [portal do Azure para criar um serviço de Azure Databricks](https://porta
 
 | Definição | Valor |
 | ------- | ----- |
-| Nome do espaço de trabalho    | Escolha o nome do seu espaço de trabalho |
+| Nome da área de trabalho    | Escolha o nome do seu espaço de trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
 | Localização | Este dos E.U.A. |
@@ -112,7 +112,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de dispositivo | Desativado |
+    | Modelos de Dispositivos | Desativado |
 
 ![Configuração de exportação de dados contínuas](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -131,14 +131,14 @@ Use as informações na tabela a seguir para criar o cluster:
 | Definição | Valor |
 | ------- | ----- |
 | Nome do cluster | centralanalysis |
-| Modo de cluster | Padrão |
+| Modo do Cluster | Padrão |
 | Versão do Databricks Runtime | 5,3 (escala 2,11, Spark 2.4.0) |
-| Versão do Python | 3 |
+| Versão de Python | 3 |
 | Ativar o Dimensionamento Automático | Não |
 | Terminar após minutos de inatividade | 30 |
-| Tipo de trabalho | Standard_DS3_v2 |
+| Tipo de Função de Trabalho | Standard_DS3_v2 |
 | Pelos | 1 |
-| Tipo de driver | Igual ao trabalho |
+| Tipo de Controlador | O mesmo que a função de trabalho |
 
 A criação de um cluster pode levar vários minutos, aguarde a conclusão da criação do cluster antes de continuar.
 

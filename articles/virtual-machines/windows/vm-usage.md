@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 4fac557a5c1b6d10c28e1041dd937e61e7af521f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353725"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso da máquina virtual do Azure
 Analisando os dados de uso do Azure, as ideias de consumo poderosas podem ser obtidas – informações que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um detalhamento dos detalhes de consumo de computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [noções básicas sobre sua fatura](../../billing/billing-understand-your-bill.md).
@@ -40,15 +40,15 @@ Para começar, [Baixe os detalhes de uso](../../billing/billing-download-azure-i
 | Consumido           | A quantidade do recurso que foi consumida para esse dia. Para computação, cobramos por cada minuto que a VM foi executada por uma determinada hora (até 6 decimais de precisão).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
 | Localização do Recurso  | Identifica o datacenter onde o recurso está em execução.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Leste do Japão"                                                                                                                                                                                                                                                                                                                                                        |
 | Serviço Consumido   | O serviço da plataforma do Azure que você usou.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft. Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Grupo de Recursos     | O grupo de recursos no qual o recurso implementado está em execução. Para obter mais informações, consulte [Azure Resource Manager visão geral.](../../azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
+| Grupo de Recursos     | O grupo de recursos no qual o recurso implementado está em execução. Para obter mais informações, consulte [Azure Resource Manager visão geral.](../../azure-resource-manager/management/overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
 | ID da Instância        | O identificador do recurso. O identificador contém o nome que especificou para o recurso quando o criou. Para VMs, a ID da instância conterá SubscriptionId, ResourceGroupName e VMName (ou nome do conjunto de dimensionamento para uso do conjunto de dimensionamento).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyRG/Providers/Microsoft. Compute/virtualMachines/MyVM1"<br><br>ou<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyRG/Providers/Microsoft. Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
 | Etiquetas               | Marca que você atribui ao recurso. Use marcas para agrupar registros de cobrança. Saiba como [marcar suas máquinas virtuais.](tag.md) Isso está disponível somente para VMs do Gerenciador de recursos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Informações Adicionais    | Metadados específicos do serviço. Para VMs, preenchemos o seguinte no campo informações adicionais: <ul><li>Imagem específica do tipo de imagem que você executou. Localize a lista completa de cadeias de caracteres com suporte abaixo em tipos de imagem.</li><li>Tipo de serviço: o tamanho que você implantou.</li><li>VMName: nome da sua VM. Isso só é populado para VMs do conjunto de dimensionamento. Se você precisar do nome da VM para VMs do conjunto de dimensionamento, poderá encontrar isso na cadeia de caracteres de ID da instância acima.</li><li>UsageType: especifica o tipo de uso que representa.<ul><li>ComputeHR é o uso de hora de computação para a VM subjacente, como Standard_D1_v2.</li><li>ComputeHR_SW é a cobrança de software Premium se a VM estiver usando software Premium, como Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de dimensionamento de máquinas virtuais {"ImageType": "canônico", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Premium Software {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
-## <a name="image-type"></a>Tipo de imagem
+## <a name="image-type"></a>Tipo de Imagem
 Para algumas imagens na galeria do Azure, o tipo de imagem é populado no campo informações adicionais. Isso permite que os usuários compreendam e acompanhem o que eles implantaram em sua máquina virtual. Os valores que são preenchidos nesse campo com base na imagem implantada são os seguintes:
   - BitRock 
-  - Canónico 
+  - Canonical 
   - FreeBSD 
   - Lógica aberta 
   - Oracle 
@@ -72,44 +72,44 @@ O nome da região populado no campo local do recurso nos detalhes de uso varia d
 
 |    **Nome da região do Resource Manager**       |    **Local do recurso em detalhes de uso**    |
 |--------------------------|------------------------------------------|
-|    australiaeast         |    Leste da Austrália                               |
+|    australiaeast         |    AU Leste                               |
 |    australiasoutheast    |    AU Sudeste                          |
 |    brazilsouth           |    Sul BR                              |
 |    CanadaCentral         |    Canadá Central                            |
 |    CanadaEast            |    Leste do Canadá                               |
-|    CentralIndia          |    Índia Central                            |
-|    centralus             |    EUA Central                            |
+|    CentralIndia          |    IN Central                            |
+|    e.u.a.central             |    Centro dos E.U.A.                            |
 |    chinaeast             |    Norte da China                            |
 |    chinanorth            |    China Norte                           |
-|    eastasia              |    Ásia Oriental                             |
-|    eastus                |    EUA Leste                               |
-|    eastus2               |    EUA Leste 2                             |
+|    eastasia              |    Este Asiático                             |
+|    eastus                |    Este dos E.U.A.                               |
+|    eastus2               |    Este dos E.U.A. 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
 |    GermanyNortheast      |    Nordeste da Alemanha                          |
-|    japaneast             |    Leste do Japão                               |
-|    japanwest             |    Oeste do Japão                               |
-|    KoreaCentral          |    Coreia do Sul Central                            |
-|    KoreaSouth            |    Sul da Coreia do Sul                              |
-|    northcentralus        |    EUA Centro-Norte                      |
+|    japaneast             |    Este JA                               |
+|    japanwest             |    Oeste JA                               |
+|    KoreaCentral          |    KR do Sul Central                            |
+|    KoreaSouth            |    Sul KR do Sul                              |
+|    northcentralus        |    E.U.A. Centro-Norte                      |
 |    northeurope           |    Europa do Norte                          |
-|    southcentralus        |    EUA Centro-Sul                      |
-|    southeastasia         |    Sudeste asiático                        |
-|    SouthIndia            |    Sul da Índia                              |
+|    southcentralus        |    E.U.A. Centro-Sul                      |
+|    Sudeste Asiático         |    Sudeste Asiático                        |
+|    SouthIndia            |    IN Sul                              |
 |    UKNorth               |    Norte dos EUA                              |
-|    uksouth               |    Reino Unido Sul                              |
-|    UKSouth2              |    Sul do Reino Unido 2                            |
-|    ukwest                |    Reino Unido Oeste                               |
-|    USDoDCentral          |    US DoD Centro                        |
-|    USDoDEast             |    US DoD Leste                           |
+|    uksouth               |    Sul do Reino Unido                              |
+|    UKSouth2              |    Sul do Reino Unido 2                            |
+|    ukwest                |    Oeste do Reino Unido                               |
+|    USDoDCentral          |    US DoD - Centro                        |
+|    USDoDEast             |    US Gov - Arizona                           |
 |    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
 |    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    Virgínia de USGov                        |
-|    westcentralus         |    EUA Centro-Oeste                       |
-|    westeurope            |    Europa ocidental                           |
-|    WestIndia             |    Oeste da Índia                               |
-|    westus                |    EUA Oeste                               |
-|    westus2               |    EUA Oeste 2                             |
+|    usgovvirginia         |    USGov Virginia                        |
+|    E.U.A. Centro-Oeste         |    E.U.A. Centro-Oeste                       |
+|    westeurope            |    Europa Ocidental                           |
+|    WestIndia             |    Índia Ocidental                               |
+|    westus                |    Oeste dos E.U.A.                               |
+|    westus2               |    E.U.A. Oeste 2                             |
 
 
 ## <a name="virtual-machine-usage-faq"></a>Perguntas frequentes sobre uso da máquina virtual

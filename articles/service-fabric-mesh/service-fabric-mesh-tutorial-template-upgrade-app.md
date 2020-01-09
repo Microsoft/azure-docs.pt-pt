@@ -1,30 +1,21 @@
 ---
-title: Tutorial – Atualizar uma aplicação em execução no Azure Service Fabric Mesh | Microsoft Docs
+title: Tutorial-atualizar um aplicativo em execução na malha de Service Fabric do Azure
 description: Neste tutorial, vai ficar a saber como atualizar uma aplicação do Service Fabric em execução no Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3567ede82f2eebf602e95dcd012f5c88a40af796
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351734"
 ---
-# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar uma aplicação do Service Fabric em execução na malha de recursos de infraestrutura do serviço
+# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Atualizar uma aplicação do Service Fabric em execução no Service Fabric Mesh
 
-Este tutorial é a terceira parte de uma série. Vai ficar a saber como atualizar uma aplicação do Service Fabric que foi [implementada anteriormente no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) ao aumentar o número de recursos alocados da CPU.  Quando tiver terminado, terá um serviço de front-end da web em execução com recursos de CPU superior.
+Este tutorial é a terceira parte de uma série. Vai ficar a saber como atualizar uma aplicação do Service Fabric que foi [implementada anteriormente no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) ao aumentar o número de recursos alocados da CPU.  Quando tiver terminado, você terá um serviço de front-end da Web em execução com recursos de CPU mais altos.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -53,13 +44,13 @@ Antes de começar este tutorial:
 
 Uma das principais vantagens da implementação de aplicações no Service Fabric Mesh é a capacidade de atualizar facilmente a configuração da sua aplicação.  Por exemplo, os recursos de CPU ou de memória dos seus serviços.
 
-Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e deve estar agora em execução. O aplicativo tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi inicialmente implementado com recursos de CPU de 0,5.  Para ver os recursos de CPU do serviço WebFrontEnd, execute o seguinte:
+Este tutorial utiliza o exemplo de Lista de Tarefas, que foi [implementado anteriormente](service-fabric-mesh-tutorial-template-deploy-app.md) e deve estar agora em execução. A aplicação tem dois serviços: WebFrontEnd e ToDoService. Cada serviço foi inicialmente implementado com recursos de CPU de 0,5.  Para ver os recursos de CPU do serviço WebFrontEnd, execute o seguinte:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-No modelo de implementação do recurso da aplicação, cada serviço tem uma propriedade *cpu* que pode ser utilizada para definir os recursos da CPU pedidos. Uma aplicação pode consistir em vários serviços, cada um com uma definição de *cpu* exclusiva, que são implementados e geridos em conjunto. Para aumentar os recursos de CPU do serviço web do front-end, modificar os *cpue* valor no ficheiro de modelo ou parâmetros de implementação.  Em seguida, atualize a aplicação.
+No modelo de implementação do recurso da aplicação, cada serviço tem uma propriedade *cpu* que pode ser utilizada para definir os recursos da CPU pedidos. Uma aplicação pode consistir em vários serviços, cada um com uma definição de *cpu* exclusiva, que são implementados e geridos em conjunto. Para aumentar os recursos de CPU do serviço de front-end da Web, modifique o valor *CPUE* no modelo de implantação ou no arquivo de parâmetros.  Em seguida, atualize a aplicação.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificar os parâmetros do modelo de implementação
 
@@ -133,7 +124,7 @@ Tal vai iniciar uma atualização sem interrupção para a aplicação e deve ve
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

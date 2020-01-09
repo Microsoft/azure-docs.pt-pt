@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446896"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Início rápido: criar um comando personalizado (versão prévia)
 
@@ -24,10 +24,15 @@ O aplicativo reconhecerá um expressão como "ligar a TV" e responderá com uma 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura de fala. [Experimente o serviço de fala gratuitamente](~/articles/cognitive-services/speech-service/get-started.md).
+- Uma assinatura de fala. 
+
+Se você não tiver uma assinatura de fala, poderá criar uma navegando até o [Speech Studio](https://speech.microsoft.com/) e selecionando **criar um recurso de fala**.
+
+  > [!div class="mx-imgBorder"]
+  > [![criar um projeto](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Durante a visualização, somente a região westus2 tem suporte para chaves de assinatura.
+  > Durante a visualização, há suporte apenas para a região westus2.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Ir para o Speech Studio para comandos personalizados
 
@@ -65,6 +70,20 @@ O modo de exibição padrão é uma lista dos aplicativos de comandos personaliz
 1. Depois de criado, selecione seu projeto.
 
 Sua exibição agora deve ser uma visão geral do aplicativo de comandos personalizados.
+
+## <a name="update-luis-resources-optional"></a>Atualizar recursos do LUIS (opcional)
+
+Você pode atualizar o conjunto de recursos de criação na janela novo projeto e definir um recurso de previsão usado para reconhecer entradas durante o tempo de execução. 
+
+> [!NOTE]
+> Você precisará definir um recurso de previsão antes que seu aplicativo solicite previsões além das 1.000 solicitações fornecidas pelo recurso de criação.
+
+> [!div class="mx-imgBorder"]
+> ![definir recursos de LUIS](media/custom-speech-commands/set-luis-resources.png)
+
+1. Navegue até o painel recursos do LUIS selecionando **configurações** no painel esquerdo e, em seguida, **Luis recursos** no painel central.
+1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**
+1. Selecione **Guardar**
 
 ## <a name="create-a-new-command"></a>Criar um novo comando
 
@@ -116,11 +135,10 @@ Agora, adicione uma regra de conclusão para responder ao usuário indicando que
 > [!div class="mx-imgBorder"]
 > ![criar uma regra de conclusão](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Definição    | Valor sugerido                        | Descrição                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Nome da Regra  | "ConfirmationResponse"                 | Um nome que descreve a finalidade da regra          |
-| Condições | Nenhuma                                   | Condições que determinam quando a regra pode ser executada    |
+| Definição    | Valor sugerido                          | Descrição                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Nome da Regra  | "ConfirmationResponse"                   | Um nome que descreve a finalidade da regra          |
+| Condições | Nenhuma                                     | Condições que determinam quando a regra pode ser executada    |
 | Ações    | SpeechResponse "-Ok, ligando a TV" | A ação a ser tomada quando a condição da regra for verdadeira |
 
 ## <a name="try-it-out"></a>Experimentar

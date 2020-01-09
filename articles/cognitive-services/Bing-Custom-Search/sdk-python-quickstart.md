@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python | Microsoft Docs'
+title: 'Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância de Pesquisa Personalizada do Bing usando o SDK do Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 98070ab8f715305fe01c940026ecf5f49f8c28f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448685"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando o SDK do Python 
 

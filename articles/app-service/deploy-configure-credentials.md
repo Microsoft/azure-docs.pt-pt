@@ -1,27 +1,27 @@
 ---
-title: Configurar credenciais de implantação
+title: Configurar as credenciais de implementação
 description: Saiba quais tipos de credenciais de implantação estão no serviço Azure App e como configurá-las e usá-las.
 ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 15b556781f8ba620ab61c502b6f55e55e98df83c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430536"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar credenciais de implantação para o serviço Azure App
 [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714) dá suporte a dois tipos de credenciais para implantação do [git local](deploy-local-git.md) e [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são as mesmas que suas credenciais de assinatura do Azure.
 
-* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar o serviço de aplicativo para qualquer aplicativo, em qualquer assinatura, que a conta do Azure tenha permissão para acessar. É o conjunto padrão que é exibido na GUI do portal (como a **visão geral** e **as propriedades** da [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)do aplicativo). Quando um usuário recebe acesso de aplicativo via RBAC (controle de acesso baseado em função) ou permissões de coadministrador, esse usuário pode usar suas próprias credenciais de nível de usuário até que o acesso seja revogado. Não compartilhe essas credenciais com outros usuários do Azure.
+* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar o serviço de aplicativo para qualquer aplicativo, em qualquer assinatura, que a conta do Azure tenha permissão para acessar. É o conjunto padrão que é exibido na GUI do portal (como a **visão geral** e **as propriedades** da [página de recursos](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)do aplicativo). Quando um usuário recebe acesso de aplicativo via RBAC (controle de acesso baseado em função) ou permissões de coadministrador, esse usuário pode usar suas próprias credenciais de nível de usuário até que o acesso seja revogado. Não compartilhe essas credenciais com outros usuários do Azure.
 
 * **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Ele pode ser usado para implantar somente nesse aplicativo. As credenciais para cada aplicativo são geradas automaticamente na criação do aplicativo. Eles não podem ser configurados manualmente, mas podem ser redefinidos a qualquer momento. Para que um usuário receba acesso às credenciais de nível de aplicativo via (RBAC), esse usuário deve ser colaborador ou superior no aplicativo. Os leitores não têm permissão para publicar e não podem acessar essas credenciais.
 
 ## <a name="userscope"></a>Configurar credenciais de nível de usuário
 
-Você pode configurar suas credenciais no nível do usuário na página de [recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)de qualquer aplicativo. Independentemente de qual aplicativo você configurar essas credenciais, ele se aplica a todos os aplicativos e a todas as assinaturas em sua conta do Azure. 
+Você pode configurar suas credenciais no nível do usuário na página de [recursos](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)de qualquer aplicativo. Independentemente de qual aplicativo você configurar essas credenciais, ele se aplica a todos os aplicativos e a todas as assinaturas em sua conta do Azure. 
 
 ### <a name="in-the-cloud-shell"></a>No Cloud Shell
 

@@ -1,5 +1,6 @@
 ---
-title: Modificar conteúdos de páginas no portal do programador na Gestão de API do Azure | Microsoft Docs
+title: Modificar o conteúdo da página no portal do desenvolvedor no gerenciamento de API
+titleSuffix: Azure API Management
 description: Saiba como editar conteúdos de páginas no portal do programador na Gestão de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430636"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:
@@ -29,7 +30,7 @@ Existem três formas fundamentais de personalizar o portal do programador na Ges
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>Estrutura das páginas do portal do programador
+## <a name="page-structure"> </a>Estrutura das páginas do portal do desenvolvedor
 
 O portal do programador baseia-se num sistema de gestão de conteúdos. O esquema de cada página é criado com base num conjunto de pequenos elementos de página conhecidos como widgets:
 
@@ -41,7 +42,7 @@ Todos os widgets são editáveis.
 
 Na edição diária de páginas, um indivíduo modificaria frequentemente apenas o widget Conteúdos, que terá conteúdo diferente para cada página individual.
 
-## <a name="modify-layout-widget"> </a>Modificar o conteúdo de um widget de esquema
+## <a name="modify-layout-widget"> </a>Modificando o conteúdo de um widget de layout
 
 O portal do Programador está acessível a partir do Portal do Azure.
 
@@ -54,7 +55,7 @@ O portal do Programador está acessível a partir do Portal do Azure.
 
 Agora deve conseguir ver o novo cabeçalho em todas as páginas do portal do programador.
 
-## <a name="next-steps"> </a>Passos seguintes
+## <a name="next-steps"> </a>Próximas etapas
 * [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
 * [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
 

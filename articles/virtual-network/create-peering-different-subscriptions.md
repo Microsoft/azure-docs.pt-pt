@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 11144b1595370f9eb17afce71e0302a63468a089
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: dd1d930fa09e3e53a4ac67e513ba1bff77ee1376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373367"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Gerenciador de recursos, assinaturas diferentes
 
@@ -52,16 +52,16 @@ As etapas a seguir usam contas diferentes para cada assinatura. Se você estiver
     - **Espaço de endereço**: *10.0.0.0/16*
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
-    - **Assinatura**: Selecione A assinatura A.
-    - **Grupo de recursos**: Selecione **criar novo** e insira *myResourceGroupA*
-    - **Local**: *Leste dos EUA*
+    - **Assinatura**: selecione A assinatura A.
+    - **Grupo de recursos**: selecione **criar novo** e insira *myResourceGroupA*
+    - **Local**: *leste dos EUA*
 4. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetA*. Selecione **myVnetA** quando ele aparecer nos resultados da pesquisa. 
 5. Selecione **controle de acesso (iam)** na lista vertical de opções no lado esquerdo.
 6. Em **myVnetA-controle de acesso (iam)** , selecione **+ Adicionar atribuição de função**.
 7. Selecione **colaborador de rede** na caixa **função** .
 8. Na caixa **selecionar** , selecione *UserB*ou digite o endereço de email de UserB para procurá-lo.
 9. Selecione **Guardar**.
-10. Em **myVnetA-controle de acesso (iam)** , selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID do recurso**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`:.
+10. Em **myVnetA-controle de acesso (iam)** , selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID do recurso**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Faça logoff do portal como UserA e, em seguida, faça logon como UserB.
 12. Conclua as etapas 2-3, inserindo ou selecionando os seguintes valores na etapa 3:
 
@@ -69,12 +69,12 @@ As etapas a seguir usam contas diferentes para cada assinatura. Se você estiver
     - **Espaço de endereço**: *10.1.0.0/16*
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
-    - **Assinatura**: Selecione a assinatura B.
-    - **Grupo de recursos**: Selecione **criar novo** e insira *myResourceGroupB*
-    - **Local**: *Leste dos EUA*
+    - **Assinatura**: selecione a assinatura B.
+    - **Grupo de recursos**: selecione **criar novo** e insira *myResourceGroupB*
+    - **Local**: *leste dos EUA*
 
 13. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetB*. Selecione **myVnetB** quando ele aparecer nos resultados da pesquisa.
-14. Em **myVnetB**, selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID do recurso**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`:.
+14. Em **myVnetB**, selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID do recurso**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Selecione **controle de acesso (iam)** em **myVnetB**e conclua as etapas 5-10 para MyVnetB, inserindo **UserA** na etapa 8.
 16. Faça logoff do portal como UserB e faça logon como UserA.
 17. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetA*. Selecione **myVnetA** quando ele aparecer nos resultados da pesquisa.
@@ -83,7 +83,7 @@ As etapas a seguir usam contas diferentes para cada assinatura. Se você estiver
 20. Em **myVnetA-emparelhamentos**, selecione **+ Adicionar**
 21. Em **Adicionar emparelhamento**, insira ou selecione as seguintes opções e, em seguida, selecione **OK**:
      - **Name**: *myVnetAToMyVnetB*
-     - **Modelo de implantação de rede virtual**:  Selecione o **Resource Manager**.
+     - **Modelo de implantação de rede virtual**: selecione **Gerenciador de recursos**.
      - **Sei minha ID de recurso**: Marque esta caixa.
      - **ID do recurso**: Insira a ID do recurso da etapa 14.
      - **Permitir acesso à rede virtual:** Verifique se **habilitado** está selecionado.
@@ -94,12 +94,12 @@ As etapas a seguir usam contas diferentes para cada assinatura. Se você estiver
 25. Alguns segundos depois de selecionar **OK** para criar o emparelhamento para myVnetB, o emparelhamento de **myVnetBToMyVnetA** que você acabou de criar é listado com **conectado** na coluna **status de emparelhamento** .
 26. Faça logoff do portal como UserB e faça logon como UserA.
 27. Conclua as etapas 17-19 novamente. O **status de emparelhamento** para o emparelhamento **myVnetAToVNetB** agora também está **conectado**. O emparelhamento é estabelecido com êxito depois que você vê **conectado** na coluna **status de emparelhamento** para ambas as redes virtuais no emparelhamento. Todos os recursos do Azure criados em qualquer rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nome do Azure padrão para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você quiser resolver nomes entre redes virtuais em um emparelhamento, você deve criar seu próprio servidor DNS. Saiba como configurar a [resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **Opcional**: Embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
-29. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas na seção [excluir recursos](#delete-portal) deste artigo.
+28. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
+29. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas na seção [excluir recursos](#delete-portal) deste artigo.
 
 ## <a name="cli"></a>Criar emparelhamento-CLI do Azure
 
-Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, poderá usar a mesma conta para todas as etapas, ignorar as etapas para fazer logoff do Azure e remover as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com eUserB@azure.com em todos os scripts a seguir pelos nomes de acessados que você está usando para UserA e UserB. 
+Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, poderá usar a mesma conta para todas as etapas, ignorar as etapas para fazer logoff do Azure e remover as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir pelos nomes de acessados que você está usando para UserA e UserB. 
 
 Os seguintes scripts:
 
@@ -108,8 +108,8 @@ Os seguintes scripts:
 
 Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. Tem a CLI do Azure pré-instalada e configurada para ser utilizada com a sua conta. Selecione o botão **experimentar** no script a seguir, que invoca um Cloud Shell no qual você pode fazer logon em sua conta do Azure com.
 
-1. Abra uma sessão da CLI e faça logon no Azure como UserA usando `azure login` o comando. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
-2. Copie o script a seguir em um editor de texto em seu computador `<SubscriptionA-Id>` , substitua pela ID da assinaturaA e copie o script modificado, Cole-o na sessão da CLI e pressione `Enter`. Se você não souber sua ID de assinatura, insira `az account show` o comando. O valor de **ID** na saída é sua ID de assinatura.
+1. Abra uma sessão da CLI e faça logon no Azure como UserA usando o comando `azure login`. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
+2. Copie o script a seguir em um editor de texto em seu computador, substitua `<SubscriptionA-Id>` pela ID da assinaturaA e copie o script modificado, Cole-o na sessão da CLI e pressione `Enter`. Se você não souber sua ID de assinatura, insira o comando `az account show`. O valor de **ID** na saída é sua ID de assinatura.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -131,10 +131,10 @@ Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud She
       --scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
     ```
 
-3. Faça logoff do Azure como UserA usando o `az logout` comando e, em seguida, faça logon no Azure como UserB. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
-4. Criar myVnetB. Copie o conteúdo do script na etapa 2 para um editor de texto em seu computador. Substituir `<SubscriptionA-Id>` pela ID de SubscriptionB. Altere 10.0.0.0/16 para 10.1.0.0/16, altere tudo como para B e todos os BS para a. Copie o script modificado, Cole-o em sua sessão da CLI e pressione `Enter`.
+3. Faça logoff do Azure como UserA usando o comando `az logout` e, em seguida, faça logon no Azure como UserB. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
+4. Criar myVnetB. Copie o conteúdo do script na etapa 2 para um editor de texto em seu computador. Substitua `<SubscriptionA-Id>` pela ID de SubscriptionB. Altere 10.0.0.0/16 para 10.1.0.0/16, altere tudo como para B e todos os BS para a. Copie o script modificado, Cole-o em sua sessão da CLI e pressione `Enter`.
 5. Faça logoff do Azure como UserB e faça logon no Azure como UserA.
-6. Crie um emparelhamento de rede virtual de myVnetA para myVnetB. Copie o conteúdo do script a seguir em um editor de texto em seu computador. Substituir `<SubscriptionB-Id>` pela ID de SubscriptionB. Para executar o script, copie o script modificado, Cole-o na sessão da CLI e pressione Enter.
+6. Crie um emparelhamento de rede virtual de myVnetA para myVnetB. Copie o conteúdo do script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID de SubscriptionB. Para executar o script, copie o script modificado, Cole-o na sessão da CLI e pressione Enter.
 
     ```azurecli-interactive
         # Get the id for myVnetA.
@@ -165,13 +165,13 @@ Em vez de instalar a CLI e suas dependências, você pode usar o Azure Cloud She
 
 8. Faça logoff do UserA do Azure e faça logon no Azure como UserB.
 9. Crie o emparelhamento de myVnetB para myVnetA. Copie o conteúdo do script na etapa 6 para um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID da assinaturaA e altere tudo como para B e todas as BS para a. Depois de fazer as alterações, copie o script modificado, Cole-o na sessão da CLI e pressione `Enter`.
-10. Exiba o estado de emparelhamento de myVnetB. Copie o conteúdo do script na etapa 7 para um editor de texto em seu computador. Altere a para B para o grupo de recursos e os nomes de rede virtual, copie o script, Cole o script modificado em na sessão da CLI e `Enter`pressione. O estado de emparelhamento é **conectado**. O estado de emparelhamento de myVnetA muda para **conectado** depois que você criou o emparelhamento de MyVnetB para myVnetA. Você pode fazer logon UserA novamente no Azure e concluir a etapa 7 novamente para verificar o estado de emparelhamento de myVnetA. 
+10. Exiba o estado de emparelhamento de myVnetB. Copie o conteúdo do script na etapa 7 para um editor de texto em seu computador. Altere a para B para o grupo de recursos e os nomes de rede virtual, copie o script, Cole o script modificado em na sessão da CLI e, em seguida, pressione `Enter`. O estado de emparelhamento é **conectado**. O estado de emparelhamento de myVnetA muda para **conectado** depois que você criou o emparelhamento de MyVnetB para myVnetA. Você pode fazer logon UserA novamente no Azure e concluir a etapa 7 novamente para verificar o estado de emparelhamento de myVnetA. 
 
     > [!NOTE]
     > O emparelhamento não é estabelecido até que o estado de emparelhamento seja **conectado** para ambas as redes virtuais.
 
-11. **Opcional**: Embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
-12. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [excluir recursos](#delete-cli) neste artigo.
+11. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
+12. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [excluir recursos](#delete-cli) neste artigo.
 
 Todos os recursos do Azure criados em qualquer rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nome do Azure padrão para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você quiser resolver nomes entre redes virtuais em um emparelhamento, você deve criar seu próprio servidor DNS. Saiba como configurar a [resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -179,12 +179,12 @@ Todos os recursos do Azure criados em qualquer rede virtual agora podem se comun
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, poderá usar a mesma conta para todas as etapas, ignorar as etapas para fazer logoff do Azure e remover as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com eUserB@azure.com em todos os scripts a seguir pelos nomes de acessados que você está usando para UserA e UserB.
+Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, poderá usar a mesma conta para todas as etapas, ignorar as etapas para fazer logoff do Azure e remover as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir pelos nomes de acessados que você está usando para UserA e UserB.
 
-1. Confirme se você tem Azure PowerShell versão 1.0.0 ou superior. Você pode fazer isso executando o `Get-Module -Name Az` recomendamos instalar a versão mais recente do [módulo AZ](/powershell/azure/install-az-ps)do PowerShell. Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme se você tem Azure PowerShell versão 1.0.0 ou superior. Você pode fazer isso executando o `Get-Module -Name Az` é recomendável instalar a versão mais recente do [módulo AZ](/powershell/azure/install-az-ps)do PowerShell. Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Inicie uma sessão do PowerShell.
-3. No PowerShell, faça logon no Azure como UserA digitando o `Connect-AzAccount` comando. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
-4. Crie um grupo de recursos e uma rede virtual A. Copie o script a seguir em um editor de texto em seu computador. Substituir `<SubscriptionA-Id>` pela ID da assinaturaA. Se você não souber sua ID de assinatura, insira `Get-AzSubscription` o comando para exibi-la. O valor de **ID** na saída retornada é sua ID de assinatura. Para executar o script, copie o script modificado, Cole-o no PowerShell e pressione `Enter`.
+3. No PowerShell, faça logon no Azure como UserA digitando o comando `Connect-AzAccount`. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
+4. Crie um grupo de recursos e uma rede virtual A. Copie o script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionA-Id>` pela ID da assinaturaA. Se você não souber sua ID de assinatura, insira o comando `Get-AzSubscription` para exibi-la. O valor de **ID** na saída retornada é sua ID de assinatura. Para executar o script, copie o script modificado, Cole-o no PowerShell e, em seguida, pressione `Enter`.
 
     ```powershell
     # Create a resource group.
@@ -207,9 +207,9 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
     ```
 
 5. Faça logoff do UserA do Azure e faça logon no UserB. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
-6. Copie o conteúdo do script na etapa 4 para um editor de texto em seu computador. Substitua `<SubscriptionA-Id>` pela ID da assinatura B. Altere 10.0.0.0/16 para 10.1.0.0/16. Altere tudo como para B e todo o BS para a. Para executar o script, copie o script modificado, Cole-o no PowerShell e pressione `Enter`.
+6. Copie o conteúdo do script na etapa 4 para um editor de texto em seu computador. Substitua `<SubscriptionA-Id>` pela ID da assinatura B. Altere 10.0.0.0/16 para 10.1.0.0/16. Altere tudo como para B e todo o BS para a. Para executar o script, copie o script modificado, Cole-o no PowerShell e, em seguida, pressione `Enter`.
 7. Faça logoff do UserB do Azure e faça logon no UserA.
-8. Crie o emparelhamento de myVnetA para myVnetB. Copie o script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID da assinatura B. Para executar o script, copie o script modificado, Cole-o no PowerShell e pressione `Enter`.
+8. Crie o emparelhamento de myVnetA para myVnetB. Copie o script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID da assinatura B. Para executar o script, copie o script modificado, Cole-o no PowerShell e, em seguida, pressione `Enter`.
 
    ```powershell
    # Peer myVnetA to myVnetB.
@@ -232,21 +232,21 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
     O estado é **iniciado**. Ele muda para **conectado** depois que você configura o emparelhamento para MyVnetA de myVnetB.
 
 10. Faça logoff do UserA do Azure e faça logon no UserB.
-11. Crie o emparelhamento de myVnetB para myVnetA. Copie o conteúdo do script na etapa 8 para um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID da assinatura a e altere tudo como para B e todas as BS para a. Para executar o script, copie o script modificado, Cole-o no PowerShell e pressione `Enter`.
-12. Exiba o estado de emparelhamento de myVnetB. Copie o conteúdo do script na etapa 9 para um editor de texto em seu computador. Altere a para B para o grupo de recursos e os nomes de rede virtual. Para executar o script, Cole o script modificado no PowerShell e, em seguida `Enter`, pressione. O estado é **conectado**. O estado de emparelhamento de **myVnetA** muda para **conectado** depois que você criou o emparelhamento de **myVnetB** para **myVnetA**. Você pode registrar UserA novamente no Azure e concluir a etapa 9 novamente para verificar o estado de emparelhamento de myVnetA.
+11. Crie o emparelhamento de myVnetB para myVnetA. Copie o conteúdo do script na etapa 8 para um editor de texto em seu computador. Substitua `<SubscriptionB-Id>` pela ID da assinatura A e altere tudo como para B e todas as BS para a. Para executar o script, copie o script modificado, Cole-o no PowerShell e, em seguida, pressione `Enter`.
+12. Exiba o estado de emparelhamento de myVnetB. Copie o conteúdo do script na etapa 9 para um editor de texto em seu computador. Altere a para B para o grupo de recursos e os nomes de rede virtual. Para executar o script, Cole o script modificado no PowerShell e, em seguida, pressione `Enter`. O estado é **conectado**. O estado de emparelhamento de **myVnetA** muda para **conectado** depois que você criou o emparelhamento de **myVnetB** para **myVnetA**. Você pode registrar UserA novamente no Azure e concluir a etapa 9 novamente para verificar o estado de emparelhamento de myVnetA.
 
     > [!NOTE]
     > O emparelhamento não é estabelecido até que o estado de emparelhamento seja **conectado** para ambas as redes virtuais.
 
     Todos os recursos do Azure criados em qualquer rede virtual agora podem se comunicar entre si por meio de seus endereços IP. Se você estiver usando a resolução de nome do Azure padrão para as redes virtuais, os recursos nas redes virtuais não poderão resolver nomes entre as redes virtuais. Se você quiser resolver nomes entre redes virtuais em um emparelhamento, você deve criar seu próprio servidor DNS. Saiba como configurar a [resolução de nomes usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-13. **Opcional**: Embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
-14. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [excluir recursos](#delete-powershell) neste artigo.
+13. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
+14. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [excluir recursos](#delete-powershell) neste artigo.
 
 ## <a name="template"></a>Criar emparelhamento-modelo do Resource Manager
 
 1. Para criar uma rede virtual e atribuir as [permissões](virtual-network-manage-peering.md#permissions)apropriadas, conclua as etapas nas seções [portal](#portal), [CLI do Azure](#cli)ou [PowerShell](#powershell) deste artigo.
-2. Salve o texto a seguir em um arquivo no computador local. Substituir `<subscription ID>` pela ID da assinatura do UserA. Você pode salvar o arquivo como vnetpeeringA. JSON, por exemplo.
+2. Salve o texto a seguir em um arquivo no computador local. Substitua `<subscription ID>` pela ID da assinatura do UserA. Você pode salvar o arquivo como vnetpeeringA. JSON, por exemplo.
 
    ```json
    {
@@ -276,13 +276,13 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
    }
    ```
 
-3. Faça logon no Azure como UserA e implante o modelo usando o [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), o [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)ou o [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome do arquivo que você salvou o texto JSON de exemplo na etapa 2 para.
+3. Faça logon no Azure como UserA e implante o modelo usando o [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), o [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template)ou o [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome do arquivo que você salvou o texto JSON de exemplo na etapa 2 para.
 4. Copie o JSON de exemplo da etapa 2 para um arquivo no computador e faça alterações nas linhas que começam com:
    - **nome**: Altere *myVnetA/myVnetAToMyVnetB* para *myVnetB/myVnetBToMyVnetA*.
-   - **ID**: Substitua `<subscription ID>` pela ID da assinatura do UserB e altere *myVnetB* para *myVnetA*.
+   - **ID**: substitua `<subscription ID>` pela ID da assinatura do UserB e altere *myVnetB* para *myVnetA*.
 5. Conclua a etapa 3 novamente, conectado ao Azure como UserB.
-6. **Opcional**: Embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
-7. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas na seção [excluir recursos](#delete) deste artigo, usando o portal do Azure, o PowerShell ou o CLI do Azure.
+6. **Opcional**: embora a criação de máquinas virtuais não seja abordada neste tutorial, você pode criar uma máquina virtual em cada rede virtual e conectar-se de uma máquina virtual para a outra, para validar a conectividade.
+7. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas na seção [excluir recursos](#delete) deste artigo, usando o portal do Azure, o PowerShell ou o CLI do Azure.
 
 ## <a name="delete"></a>Excluir recursos
 Ao concluir este tutorial, talvez você queira excluir os recursos criados no tutorial, para que não incorra em encargos de uso. A exclusão de um grupo de recursos também exclui todos os recursos que estão no grupo de recursos.
@@ -326,7 +326,7 @@ Ao concluir este tutorial, talvez você queira excluir os recursos criados no tu
    Remove-AzResourceGroup -Name myResourceGroupB -force
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Familiarize-se totalmente com [restrições e comportamentos importantes de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar um emparelhamento de rede virtual para uso em produção.
 - Saiba mais sobre todas [as configurações de emparelhamento de rede virtual](virtual-network-manage-peering.md#create-a-peering).

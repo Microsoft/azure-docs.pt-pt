@@ -1,17 +1,17 @@
 ---
-title: Crie contêineres de Cosmos do Azure com chave de partição grande usando o portal do Azure e vários SDKs.
+title: Criar contêineres Cosmos do Azure com chave de partição grande
 description: Saiba como criar um contêiner em Azure Cosmos DB com chave de partição grande usando portal do Azure e SDKs diferentes.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 42e92fa2b088fc04d4aa670e6586fcfe26ff3a70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441690"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
 
@@ -80,5 +80,5 @@ No momento, você não pode usar contêineres com chave de partição grande den
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
-* [Provisionar taxa de transferência em contêineres e bancos de dados](set-throughput.md)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com a conta do Azure Cosmos](account-overview.md)

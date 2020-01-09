@@ -1,5 +1,5 @@
 ---
-title: Push seguro dos hubs de notificação do Azure
+title: Push seguro de hubs de notificação do Azure para Windows
 description: Saiba como enviar notificações por push seguras no Azure. Exemplos de código escrito em C# utilizando a API .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212044"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530736"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push de hubs de notificação do Azure com segurança
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212044"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio fácil de usar, multiplataforma e escalável, que simplifica bastante a implementação de notificações por push para aplicativos de consumidor e empresariais para dispositivos móveis compatíveis.
 
@@ -62,7 +62,7 @@ Este tutorial de push seguro mostra como enviar uma notificação por push com s
     ```csharp
     RegisterBackgroundTask();
     ```
-2. Ainda em app.XAML.cs, adicione o seguinte código imediatamente após o `OnLaunched()` método:
+2. Ainda em App.xaml.cs, adicione o código a seguir imediatamente após o método de `OnLaunched()`:
 
     ```csharp
     private async void RegisterBackgroundTask()
@@ -79,7 +79,7 @@ Este tutorial de push seguro mostra como enviar uma notificação por push com s
         }
     }
     ```
-3. Adicione as seguintes `using` instruções na parte superior do arquivo app.XAML.cs:
+3. Adicione as seguintes instruções `using` na parte superior do arquivo App.xaml.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
@@ -96,7 +96,7 @@ A próxima etapa é criar o componente de plano de fundo Push.
 
     ![][12]
 3. Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **PushBackgroundComponent (Windows Phone 8,1)** , clique em **Adicionar**e em **classe**. Nomeie a nova classe `PushBackgroundTask.cs`. Clique em **Adicionar** para gerar a classe.
-4. Substitua todo o conteúdo da `PushBackgroundComponent` definição do namespace pelo código a seguir, substituindo o espaço reservado `{back-end endpoint}` pelo ponto de extremidade de back-end obtido durante a implantação do back-end:
+4. Substitua todo o conteúdo da definição de namespace `PushBackgroundComponent` pelo código a seguir, substituindo o espaço reservado `{back-end endpoint}` pelo ponto de extremidade de back-end obtido durante a implantação do back-end:
 
     ```csharp
     public sealed class Notification
@@ -147,7 +147,7 @@ A próxima etapa é criar o componente de plano de fundo Push.
 7. Na caixa **Procurar**, escreva **Cliente HTTP**.
 8. Na lista de resultados, clique em **bibliotecas de cliente http da Microsoft**e, em seguida, clique em **instalar**. Conclua a instalação.
 9. Na caixa **Procurar** no NuGet, escreva **Json.net**. Instale o pacote **JSON.net** e feche a janela Gerenciador de pacotes NuGet.
-10. Adicione as seguintes `using` instruções na parte superior `PushBackgroundTask.cs` do arquivo:
+10. Adicione as seguintes instruções de `using` na parte superior do arquivo de `PushBackgroundTask.cs`:
 
     ```csharp
     using Windows.ApplicationModel.Background;

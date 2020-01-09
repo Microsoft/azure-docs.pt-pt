@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: bc4ac68cb415a43ac34d36afc2adc30307e6d37c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6707e844948ac76d4cec29faf69d80b3c9cb3c0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392262"
 ---
-| Recurso | Básica | Standard | Premium |
+| Recurso | Basic | Padrão | Premium |
 |---|---|---|---|
 | Armazenamento<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Tamanho máximo da camada de imagem | 200 GiB | 200 GiB | 200 GiB |
@@ -23,14 +23,14 @@ ms.locfileid: "73795243"
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | Baixar largura de banda<sup>2</sup> | 30 | 60 | 100 |
 | Carregar largura de banda<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Georreplicação | N/D | N/D | [Suportado][geo-replication] |
-| Confiança de conteúdo | N/D | N/D | [Suportado][content-trust] |
-| Acesso à rede virtual | N/D | N/D | [Pré-visualização][vnet] |
-| Permissões no escopo do repositório | N/D | N/D | [Pré-visualização][token]|
-| Tokens de &bull; | N/D | N/D | 20.000 |
-| &bull; mapas de escopo | N/D | N/D | 20.000 |
-| &bull; repositórios por mapa de escopo | N/D | N/D | 500 |
+| Webhooks | 2 | 10 | 500 |
+| Georreplicação | N/A | N/A | [Suportado][geo-replication] |
+| Confiança de conteúdo | N/A | N/A | [Suportado][content-trust] |
+| Acesso à rede virtual | N/A | N/A | [Pré-visualização][vnet] |
+| Permissões no escopo do repositório | N/A | N/A | [Pré-visualização][token]|
+| Tokens de &bull; | N/A | N/A | 20,000 |
+| &bull; mapas de escopo | N/A | N/A | 20,000 |
+| &bull; repositórios por mapa de escopo | N/A | N/A | 500 |
 
 
 <sup>1</sup> Os limites de armazenamento especificados são a quantidade de armazenamento *incluído* para cada camada. Você é cobrado por uma taxa diária adicional por GiB para o armazenamento de imagens acima desses limites. Para obter informações de taxa, consulte [preços do registro de contêiner do Azure][pricing].

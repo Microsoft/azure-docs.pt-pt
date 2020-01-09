@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com API de consulta integrada à linguagem JavaScript no Azure Cosmos DB
+title: Trabalhar com API de consulta integrada do JavaScript no Azure Cosmos DB
 description: Este artigo apresenta os conceitos da API de consulta integrada à linguagem JavaScript para criar procedimentos armazenados e gatilhos no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 01e5e95da3c19c03d07c7f3c1d716f5f1e97de98
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445319"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta JavaScript no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Além de emitir consultas usando a API do SQL no Azure Cosmos DB, o [SDK do lado
 
 ## <a name="supported-javascript-functions"></a>Funções JavaScript com suporte
 
-| **Funcionamento** | **Descrição** |
+| **Função** | **Descrição** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|Inicia uma chamada em cadeia que tem de ser terminada com Value ().|
 |`filter(predicateFunction [, options] [, callback])`|Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar documentos entrados entrada/saída para o conjunto resultante. Esta função tem um comportamento semelhante a uma cláusula WHERE em SQL.|
@@ -33,7 +33,7 @@ Além de emitir consultas usando a API do SQL no Azure Cosmos DB, o [SDK do lado
 
 Quando incluídos no interior do predicado de e/ou o Seletor de funções, as construções de JavaScript seguintes serão automaticamente otimizadas para ser executado diretamente no Azure Cosmos DB índices:
 
-- Operadores simples: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
+- Operadores simples: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
 - Literais, incluindo o literal de objeto: {}
 - var, retorno
 
@@ -49,7 +49,7 @@ Para obter mais informações, consulte a [documentação de JavaScript do lado 
 A tabela seguinte apresenta várias consultas SQL e as consultas de JavaScript correspondentes. Assim como acontece com as consultas SQL, as propriedades (por exemplo, item.id) diferenciam maiúsculas de minúsculas.
 
 > [!NOTE]
-> `__`(sublinhado duplo) é um alias para `getContext().getCollection()` quando usar a API de consulta JavaScript.
+> `__` (sublinhado duplo) é um alias a ser `getContext().getCollection()` ao usar a API de consulta JavaScript.
 
 |**SQL**|**API de consulta JavaScript**|**Descrição**|
 |---|---|---|
@@ -60,7 +60,7 @@ A tabela seguinte apresenta várias consultas SQL e as consultas de JavaScript c
 |SELECIONAR<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs. Message como msg<br>ATRAVÉS da documentação<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Consultas para documentos com um predicado, id = "X998_Y998" e, em seguida, projeta o id e a mensagem (um alias para msg).|
 |Etiqueta de SELECT VALUE<br>ATRAVÉS da documentação<br>Junte-se docs IN de marca. Etiquetas<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolva o documento. As etiquetas & & Array.isArray (documento. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolver doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|Filtros para documentos que tem uma propriedade de matriz, etiquetas e ordena os documentos resultantes pela propriedade de sistema TS timestamp e, em seguida, projetos + nivela a matriz de etiquetas.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre conceitos e como escrever e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

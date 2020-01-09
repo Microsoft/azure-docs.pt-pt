@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435110"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicação?
 
@@ -30,11 +30,10 @@ Os modelos de aplicativo consistem em:
 
 Sua escolha de modelo de aplicativo determina se seu aplicativo usa IoT Central recursos de visualização, como Plug and Play para dispositivos.
 
-Atualmente, os modelos de aplicativos que usam recursos _geralmente disponíveis_ são:
+Atualmente, o modelo de aplicativo que usa recursos _geralmente disponíveis_ é:
 
-- Aplicativo personalizado > aplicativos personalizados
-- Aplicativo personalizado > exemplo de contoso
-- Aplicativo personalizado > exemplo devkits
+- Aplicativo personalizado > aplicação herdada
+
 
 Atualmente, os modelos de aplicativo que usam recursos de _Visualização pública_ são:
 
@@ -52,7 +51,7 @@ Atualmente, os modelos de aplicativo que usam recursos de _Visualização públi
 - Assistência médica > monitoramento contínuo de pacientes
 
 > [!NOTE]
-> O **aplicativo personalizado, exemplo da Contoso, modelos de devkits de exemplo** estão disponíveis atualmente no **Estados Unidos**, na **Austrália**, no **Pacífico Asiático**ou nos locais da **Europa** , enquanto outros modelos estão disponíveis no momento apenas nas localizações da **Europa** e **dos EUA** .
+> Os modelos de **aplicativo herdados** estão disponíveis no momento no **Estados Unidos**, na **Austrália**, **Pacífico Asiático**ou nos locais da **Europa** , enquanto outros modelos estão disponíveis no momento apenas nas localizações da **Europa** e **dos EUA** .
 
 ## <a name="industry-focused-templates"></a>Modelos focados no setor
 
@@ -64,9 +63,9 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
   - Análise na loja – monitoramento de condição
   - Análise na loja-check-out
   - Gerenciamento de inventário inteligente
-- [Consumo](../energy/overview-iot-central-energy.md)
-  - Monitoramento do medidor inteligente
-  - Monitoramento do painel solar
+- [Energia](../energy/overview-iot-central-energy.md)
+  - Monitorização do smart meter
+  - Monitorização de painéis solares
 - [Instituições](../government/overview-iot-central-government.md)
   - Gestão de resíduos associada
   - Monitorização do consumo de água
@@ -74,6 +73,6 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
 - [Saúde](../healthcare/overview-iot-central-healthcare.md).
   - Monitorização contínua do paciente
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe o que são os modelos de aplicativo IoT Central, comece [criando um aplicativo IOT central](quick-deploy-iot-central.md).

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d1218b10eadf0788752bab2aec4b21614666888c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372215"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou excluir um contêiner no armazenamento do Azure com o .NET
 
@@ -40,7 +40,7 @@ Para criar um contêiner, chame um dos seguintes métodos:
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
-Os métodos **Create** e createasync lançam uma exceção se já existir um contêiner com o mesmo nome.
+Os métodos **Create** e **createasync** lançam uma exceção se já existir um contêiner com o mesmo nome.
 
 Os métodos **CreateIfNotExists** e **CreateIfNotExistsAsync** retornam um valor booliano que indica se o contêiner foi criado. Se já existir um contêiner com o mesmo nome, esses métodos retornarão **false** para indicar que um novo contêiner não foi criado.
 
@@ -126,7 +126,7 @@ Para excluir um contêiner no .NET, use um dos seguintes métodos:
 
 Os métodos **delete** e **DeleteAsync** geram uma exceção se o contêiner não existir.
 
-Os métodos **DeleteIfNotExists** e **DeleteIfNotExistsAsync** retornam um valor booliano que indica se o contêiner foi excluído. Se o contêiner especificado não existir, esses métodos retornarão **false** para indicar que o contêiner não foi excluído.
+Os métodos **DeleteIfExists** e **DeleteIfExistsAsync** retornam um valor booliano que indica se o contêiner foi excluído. Se o contêiner especificado não existir, esses métodos retornarão **false** para indicar que o contêiner não foi excluído.
 
 Depois de excluir um contêiner, você não pode criar um contêiner com o mesmo nome por pelo menos 30 segundos e possivelmente mais longo. Enquanto o contêiner está sendo excluído, uma tentativa de criar um contêiner com o mesmo nome falhará com o código de erro HTTP 409 (conflito). Qualquer outra operação no contêiner ou nos BLOBs que ele contém falhará com o código de erro HTTP 404 (não encontrado) enquanto o contêiner está sendo excluído.
 
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Criar operação de contêiner](/rest/api/storageservices/create-container)
 - [Operação Eliminar Contentor](/rest/api/storageservices/delete-container)

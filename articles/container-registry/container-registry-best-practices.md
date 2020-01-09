@@ -3,16 +3,18 @@ title: Registar melhores práticas
 description: Saiba como utilizar o registo de contentor do Azure de forma eficiente, ao seguir estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455328"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445794"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
 Ao seguir estas melhores práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu registo privado do Docker no Azure.
+
+Consulte também [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para estratégias para marcas e imagens de versão no registro. 
 
 ## <a name="network-close-deployment"></a>Implementação sem rede
 
@@ -31,7 +33,7 @@ Para saber como utilizar a georreplicação, veja o tutorial de três partes [Ge
 
 Ao tirar partido dos espaços de nomes do repositório, pode permitir a partilha de um único registo em vários grupos na sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo.
 
-Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são utilizadas a nível empresarial, como `aspnetcore`, são colocadas no espaço de nomes de raiz, enquanto as imagens de contentor pertencentes a grupos de Produção e Marketing utilizam os seus próprios espaços de nomes.
+Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner de propriedade dos produtos e grupos de marketing usam seus próprios namespaces.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0

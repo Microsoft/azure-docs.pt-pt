@@ -1,5 +1,6 @@
 ---
-title: Importar uma Function App do Azure como uma API na Gestão de API do Azure | Microsoft Docs
+title: Importar um Aplicativo de funções do Azure como uma API no gerenciamento de API
+titleSuffix: Azure API Management
 description: Este tutorial mostra como importar uma Function App do Azure para a Gestão de API do Azure como uma API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442586"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -31,7 +32,7 @@ Vai aprender a:
 > * Importar uma Function App do Azure como uma API
 > * Anexar uma Function App do Azure como uma API
 > * Ver a nova chave de anfitrião da Function App do Azure e o valor nomeado da Gestão de API do Azure
-> * Testar a API no Portal do Azure
+> * Testar a API no portal do Azure
 > * Testar a API no portal do programador
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -106,7 +107,7 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
 
-8. Clique em **Importar**.
+8. Clique em **importar**.
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 

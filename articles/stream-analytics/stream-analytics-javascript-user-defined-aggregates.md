@@ -1,20 +1,18 @@
 ---
 title: Agregados definidos pelo utilizador do JavaScript no Azure Stream Analytics
 description: Este artigo descreve como executar uma mecânica de consulta avançada com agregações definidas pelo usuário do JavaScript em Azure Stream Analytics.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426095"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics agregações definidas pelo usuário do JavaScript
  
@@ -80,7 +78,7 @@ Cada UDA de JavaScript é definido por uma declaração de objeto de função. A
 
 ### <a name="function-alias"></a>Alias de função
 
-O alias da função é o identificador UDA. Quando chamado na consulta Stream Analytics, sempre use o alias UDA junto com um "UDA". prefixo.
+O alias da função é o identificador UDA. Quando chamado na consulta Stream Analytics, sempre use o alias UDA junto com um "UDA". .
 
 ### <a name="function-type"></a>Tipo de função
 

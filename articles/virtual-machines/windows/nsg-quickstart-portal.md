@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371416"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas para uma máquina virtual com o portal do Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -73,7 +73,7 @@ O passo final é associar o grupo de segurança de rede a uma sub-rede ou uma in
 
     Todas as VMs que você conectar a essa sub-rede agora estarão acessíveis na porta 80.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
 Você também pode [executar as etapas neste artigo usando Azure PowerShell](nsg-quickstart-powershell.md).
 
@@ -85,5 +85,5 @@ Para aplicativos Web altamente disponíveis, considere colocar suas VMs por trá
 Neste artigo, você criou um grupo de segurança de rede, criou uma regra de entrada que permite o tráfego HTTP na porta 80 e, em seguida, associou essa regra a uma sub-rede. 
 
 Você pode encontrar informações sobre como criar ambientes mais detalhados nos seguintes artigos:
-- [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Grupos de segurança](../../virtual-network/security-overview.md)

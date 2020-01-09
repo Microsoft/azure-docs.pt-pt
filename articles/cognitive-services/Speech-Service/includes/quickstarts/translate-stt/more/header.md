@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 0892a454664c4062713635111294cc819d1b0eaf
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bac5bff7b98f4d9f0a10ec6feec186024efe15a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469233"
 ---
 Exiba ou baixe todas as <a href="https://aka.ms/speech/github">amostras do SDK de fala</a> no github.

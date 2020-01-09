@@ -1,45 +1,47 @@
 ---
-title: Gestão de dispositivos automática à escala com o IoT Hub do Azure | Documentos da Microsoft
-description: Utilize a gestão de automático de dispositivos do IoT Hub do Azure para atribuir uma configuração de vários dispositivos de IoT
+title: Gerenciamento automático de dispositivos em escala com o Hub IoT do Azure | Microsoft Docs
+description: Usar configurações automáticas do Hub IoT do Azure para gerenciar vários dispositivos e módulos de IoT
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429344"
 ---
-# <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestão automática de dispositivos de IoT em escala no portal do Azure
+# <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gerenciamento automático de módulos e dispositivos IoT usando o portal do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Gerenciamento automático de dispositivos no IoT Hub do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de frotas de dispositivo grandes. Com a gestão de dispositivos automático, pode visar um conjunto de dispositivos com base nas respetivas propriedades, definir uma configuração desejada e, em seguida, permitir que o IoT Hub atualizar os dispositivos quando eles vão para o âmbito. Esta atualização é feita usando uma _configuração do dispositivo automática_, que permite que resumir conclusão e a conformidade, a mesclagem de identificador e a conflitos e implementar configurações numa abordagem faseada.
+O gerenciamento automático de dispositivos no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas do gerenciamento de frotas de dispositivos grandes. Com o gerenciamento automático de dispositivos, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e, em seguida, permitir que o Hub IoT atualize os dispositivos quando eles entrarem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_, que permite resumir a conclusão e a conformidade, lidar com a mesclagem e os conflitos e distribuir configurações em uma abordagem em fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Funciona a gestão de dispositivos automático ao atualizar um conjunto de dispositivos duplos com as propriedades pretendidas e um resumo com base no dispositivo duplo de relatórios de propriedades comunicadas.  Ele introduz uma nova classe e o documento JSON chamado um *configuração* que possui três partes:
+O gerenciamento automático de dispositivo funciona atualizando um conjunto de dispositivos gêmeos ou gêmeos de módulo com as propriedades desejadas e relatando um resumo baseado em Propriedades relatadas de entrelaçamento.  Ele introduz uma nova classe e um documento JSON denominado uma *configuração* que tem três partes:
 
-* O **condição de destino** define o âmbito dos dispositivos duplos para ser atualizado. A condição de destino é especificada como uma consulta nas etiquetas do dispositivo duplo e/ou propriedades comunicadas.
+* A **condição de destino** define o escopo do dispositivo gêmeos ou gêmeos do módulo a ser atualizado. A condição de destino é especificada como uma consulta em marcas de cima e/ou Propriedades relatadas.
 
-* O **conteúdo de destino** define as propriedades pretendidas para ser adicionados ou atualizados nos gémeos de dispositivo de destino. O conteúdo inclui um caminho para a secção de propriedades pretendidas para serem alterados.
+* O **conteúdo de destino** define as propriedades desejadas a serem adicionadas ou atualizadas no dispositivo de destino gêmeos ou no módulo gêmeos. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterada.
 
-* O **métricas** definem as contagens de resumidas de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo de propriedades comunicadas.  As métricas do sistema são as métricas de predefinição que medem o estado de atualização de duplo, como o número de dispositivos duplos, que são visados e o número de duplos foram atualizadas com êxito.
+* As **métricas** definem as contagens de Resumo de vários Estados de configuração, como **êxito**, **em andamento**e **erro**. As métricas personalizadas são especificadas como consultas em Propriedades relatadas de entrelaçamento.  As métricas do sistema são as métricas padrão que medem o status de atualização de entrelaçamento, como o número de gêmeos que são direcionadas e o número de gêmeos que foram atualizados com êxito.
 
-Configurações de dispositivos automática executam pela primeira vez, logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Consultas de métricas executam sempre que a configuração do dispositivo automática é executada.
+As configurações automáticas são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
-## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos duplos para configurar dispositivos
+## <a name="implement-twins"></a>Implementar gêmeos
 
-Configurações de dispositivos automático requerem a utilização de dispositivos duplos para sincronizar o estado entre a cloud e dispositivos.  Consulte a [compreender e utilizar dispositivos duplos no IoT Hub](iot-hub-devguide-device-twins.md) para obter orientações sobre como utilizar dispositivos duplos.
+As configurações automáticas de dispositivo exigem o uso do dispositivo gêmeos para sincronizar o estado entre a nuvem e os dispositivos.  Para obter mais informações, veja [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Compreender e utilizar dispositivos duplos no Hub IoT).
 
-## <a name="identify-devices-using-tags"></a>Identificar os dispositivos utilizando etiquetas
+As configurações automáticas de módulo exigem o uso do módulo gêmeos para sincronizar o estado entre a nuvem e os módulos. Para obter mais informações, consulte [entender e usar o módulo gêmeos no Hub IOT](iot-hub-devguide-module-twins.md).
 
-Antes de criar uma configuração, tem de especificar quais os dispositivos que quer afetar. O IoT Hub do Azure identifica dispositivos utilizando as etiquetas no dispositivo duplo. Cada dispositivo pode ter várias etiquetas e pode defini-las qualquer forma que faça sentido para a sua solução. Por exemplo, se gerir dispositivos em diferentes locais, adicione as seguintes etiquetas para um dispositivo duplo:
+## <a name="use-tags-to-target-twins"></a>Usar marcas para gêmeos de destino
+
+Antes de criar uma configuração, você deve especificar quais dispositivos ou módulos você deseja afetar. O Hub IoT do Azure identifica dispositivos e usando marcas no dispositivo e identifica os módulos usando marcas no módulo. Cada dispositivo ou módulo pode ter várias marcas e você pode defini-las de qualquer maneira que faça sentido para sua solução. Por exemplo, se você gerenciar dispositivos em locais diferentes, adicione as seguintes marcas a um dispositivo.
 
 ```json
 "tags": {
@@ -54,41 +56,55 @@ Antes de criar uma configuração, tem de especificar quais os dispositivos que 
 
 1. Na [portal do Azure](https://portal.azure.com), aceda ao seu hub IoT. 
 
-2. Selecione **configuração do dispositivo IoT**.
+2. Selecione **configuração do dispositivo IOT**.
 
-3. Selecione **Adicionar configuração**.
+3. Selecione **Adicionar configuração de dispositivo** ou **Adicionar configuração de módulo**.
 
-Existem cinco passos para criar uma configuração. As seções a seguir, percorra cada um deles. 
+   ![Adicionar configuração de dispositivo ou configuração de módulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
-### <a name="name-and-label"></a>Nome e etiqueta
+Há cinco etapas para criar uma configuração. As seções a seguir, percorra cada um deles. 
 
-1. Dê um nome exclusivo que é até 128 minúsculas da configuração. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
+### <a name="name-and-label"></a>Nome e rótulo
 
-2. Adicione etiquetas para ajudar a controlar as configurações. As etiquetas são **Name**, **valor** pares que descrevem a configuração. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
+1. Dê à sua configuração um nome exclusivo que tenha até 128 letras minúsculas. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
 
-3. Selecione **seguinte** para mover para o passo seguinte. 
+2. Adicione rótulos para ajudar a acompanhar suas configurações. Os rótulos são pares **nome**, **valor** que descrevem sua configuração. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
 
-### <a name="specify-settings"></a>Especificar as definições
+3. Selecione **Avançar** para ir para a próxima etapa. 
 
-Esta secção especifica o conteúdo de destino sejam definidas no gémeos de dispositivo de destino. Existem duas entradas para cada conjunto de definições. A primeira é o caminho de twin do dispositivo, o que é o caminho para a secção JSON nas propriedades pretendida do duplo que serão definidas.  O segundo é o conteúdo JSON a ser inserido nesta secção. Por exemplo, defina o caminho do dispositivo duplo e o conteúdo para o seguinte:
+### <a name="specify-settings"></a>Especificar configurações
 
-![Definir o caminho do dispositivo duplo e o conteúdo](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
+Esta seção define o conteúdo a ser definido no dispositivo de destino ou no módulo gêmeos. Há duas entradas para cada conjunto de configurações. A primeira é o caminho de configuração, que é o caminho para a seção JSON dentro das propriedades desejadas de entrelaçamento que serão definidas.  O segundo é o conteúdo JSON a ser inserido nessa seção. 
 
-Também pode definir as configurações individuais especificando o caminho de todo o caminho do dispositivo duplo e o valor no conteúdo sem Retos. Por exemplo, definir o caminho do dispositivo duplo `properties.desired.chiller-water.temperature` e defina o conteúdo como `66`.
+Por exemplo, você pode definir o caminho de entrelaçamento para `properties.desired.chiller-water` e, em seguida, fornecer o seguinte conteúdo JSON: 
 
-Se o mesmo caminho de Twin do dispositivo de destino de duas ou mais configurações, aplicará o conteúdo a partir da configuração de prioridade mais alta (a prioridade é definida na etapa 4).
+```json
+{
+  "temperature": 66,
+  "pressure": 28
+}
+```
 
-Se quiser remover uma propriedade, especifique o valor da propriedade para `null`.
+![Definir o caminho e o conteúdo do entrelaçamento](./media/iot-hub-automatic-device-management/module-config-twin-settings.png)
 
-Pode adicionar definições adicionais, selecionando **Adicionar definição do dispositivo duplo**.
 
-### <a name="specify-metrics-optional"></a>Especificar as métricas (opcionais)
+Você também pode definir configurações individuais especificando todo o caminho de conjunto de entrelaçamento e fornecendo o valor sem colchetes. Por exemplo, com o `properties.desired.chiller-water.temperature`de caminho de conjunto de entrelaçamento, defina o conteúdo como `66`. Em seguida, crie uma nova configuração de entrelaçamento para a propriedade de pressão. 
 
-Métricas fornecem contagens de resumidas dos diversos Estados em que um dispositivo pode comunicar de volta depois de aplicar o conteúdo de configuração. Por exemplo, pode criar uma métrica para definições alterações pendentes, uma métrica para erros e uma métrica para alterações de definições concluída com êxito.
+Se duas ou mais configurações tiverem como destino o mesmo caminho de entrelaçamento, o conteúdo da configuração de prioridade mais alta será aplicado (a prioridade é definida na etapa 4).
 
-1. Introduza um nome para **nome da métrica**.
+Se você quiser remover uma propriedade existente, especifique o valor da propriedade para `null`.
 
-2. Introduza uma consulta para **critérios de métrica**.  A consulta baseia-se no dispositivo duplo de propriedades comunicadas.  A métrica representa o número de linhas retornadas pela consulta.
+Você pode adicionar configurações adicionais selecionando **Adicionar dispositivo de configuração** ou **Adicionar configuração do módulo**.
+
+### <a name="specify-metrics-optional"></a>Especificar métricas (opcional)
+
+As métricas fornecem contagens de resumo dos vários Estados que um dispositivo ou módulo pode reportar depois de aplicar o conteúdo de configuração. Por exemplo, você pode criar uma métrica para alterações de configurações pendentes, uma métrica de erros e uma métrica para alterações de configurações bem-sucedidas.
+
+Cada configuração pode ter até cinco métricas personalizadas. 
+
+1. Insira um nome para o **nome da métrica**.
+
+2. Insira uma consulta para **critérios de métrica**.  A consulta baseia-se nas propriedades relatadas do dispositivo.  A métrica representa o número de linhas retornadas pela consulta.
 
 Por exemplo:
 
@@ -97,7 +113,7 @@ SELECT deviceId FROM devices
   WHERE properties.reported.chillerWaterSettings.status='pending'
 ```
 
-Pode incluir uma cláusula foi aplicada a configuração, por exemplo: 
+Você pode incluir uma cláusula na qual a configuração foi aplicada, por exemplo: 
 
 ```sql
 /* Include the double brackets. */
@@ -105,75 +121,88 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
+Se você estiver criando uma métrica para relatar os módulos configurados, selecione `moduleId` de `devices.modules`. Por exemplo:
+
+```sql
+SELECT deviceId, moduleId FROM devices.modules
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
 ### <a name="target-devices"></a>Dispositivos de destino
 
-Utilize a propriedade de etiquetas de seus dispositivos duplos para os dispositivos específicos que devem receber esta configuração de destino.  Também pode visar dispositivos por dispositivo duplo de propriedades comunicadas.
+Use a propriedade Tags de seu gêmeos para direcionar os dispositivos ou módulos específicos que devem receber essa configuração. Você também pode direcionar as propriedades relatadas de entrelaçar.
 
-Uma vez que várias configurações podem direcionar o mesmo dispositivo, deve dar a cada configuração de um número de prioridade. Se já houver um conflito, a configuração com a prioridade mais alta wins. 
+As configurações automáticas de dispositivo só podem direcionar marcas de dispositivo de destino e as configurações automáticas de módulo só podem ser direcionadas a marcas de módulo. 
 
-1. Introduza um número inteiro positivo para a configuração **prioridade**. O maior valor numérico é considerado a prioridade mais alta. Se duas configurações de tem o mesmo número de prioridade, aquele que foi criado mais recentemente wins. 
+Como várias configurações podem ter como destino o mesmo dispositivo ou módulo, cada configuração precisa de um número de prioridade. Se houver algum conflito, a configuração com a maior prioridade vence. 
 
-2. Introduza um **condição de destino** para determinar quais os dispositivos que serão visados para esta configuração. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. Pode especificar `*` para todos os dispositivos de destino.
+1. Insira um número inteiro positivo para a **prioridade**de configuração. O valor numérico mais alto é considerado a prioridade mais alta. Se duas configurações tiverem o mesmo número de prioridade, aquela que foi criada mais recentemente ganha. 
+
+2. Insira uma **condição de destino** para determinar quais dispositivos ou módulos serão direcionados a essa configuração. A condição se baseia em marcas de entrelaçamento ou em Propriedades relatadas de entrelaçamento e deve corresponder ao formato de expressão. 
+
+   Para configuração automática do dispositivo, você pode especificar apenas a marca ou a propriedade relatada para destino. Por exemplo, `tags.environment='test'` ou `properties.reported.chillerProperties.model='4000x'`. Você pode especificar `*` para direcionar todos os dispositivos. 
+   
+   Para configuração automática de módulo, use uma consulta para especificar marcas ou Propriedades relatadas dos módulos registrados para o Hub IoT. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`. O curinga não pode ser usado para direcionar todos os módulos. 
 
 3. Selecione **seguinte** para avançar para a etapa final.
 
-### <a name="review-configuration"></a>Configuração de revisão
+### <a name="review-configuration"></a>Examinar configuração
 
-Reveja as suas informações de configuração, em seguida, selecione **submeter**.
+Examine as informações de configuração e, em seguida, selecione **Enviar**.
 
-## <a name="monitor-a-configuration"></a>Uma configuração de monitor
+## <a name="monitor-a-configuration"></a>Monitorar uma configuração
 
-Para ver os detalhes de uma configuração e monitorizar os dispositivos a executá-lo, utilize os seguintes passos:
+Para exibir os detalhes de uma configuração e monitorar os dispositivos que o executam, use as seguintes etapas:
 
 1. Na [portal do Azure](https://portal.azure.com), aceda ao seu hub IoT. 
 
-2. Selecione **configuração do dispositivo IoT**.
+2. Selecione **configuração do dispositivo IOT**.
 
-3. Inspecione a lista de configuração. Para cada configuração, pode ver os seguintes detalhes:
+3. Inspecione a lista de configurações. Para cada configuração, você pode exibir os seguintes detalhes:
 
    * **ID** -o nome da configuração.
 
-   * **Condição de destino** -a consulta usada para definir os dispositivos visados.
+   * **Condição de destino** -a consulta usada para definir dispositivos ou módulos de destino.
 
-   * **Prioridade** -o número de prioridade atribuído à configuração.
+   * **Priority** -o número de prioridade atribuído à configuração.
 
-   * **Hora de criação** -o carimbo de hora de quando a configuração foi criada. Este timestamp é utilizado para dividir os empates quando duas configurações têm a mesma prioridade. 
+   * **Hora de criação** – o carimbo de data/hora de quando a configuração foi criada. Esse carimbo de data/hora é usado para quebrar ligações quando duas configurações têm a mesma prioridade. 
 
-   * **As métricas do sistema** -métricas que são calculadas ao IoT Hub e não podem ser personalizadas pelos desenvolvedores. Direcionada Especifica o número de dispositivos duplos que correspondem à condição de destino. Aplica-se especificado o número de dispositivos duplos, que foram modificados pela configuração, que pode incluir modificações parciais no caso de uma configuração de separado de elevada prioridade também fez alterações. 
+   * **Métricas do sistema** -métricas que são calculadas pelo Hub IOT e não podem ser personalizadas por desenvolvedores. Target especifica o número de gêmeos de dispositivo que correspondem à condição de destino. Aplica-se o número especificado de dispositivos gêmeos que foram modificados pela configuração, que podem incluir modificações parciais no caso de uma configuração separada e de prioridade mais alta também ter sido alterada. 
 
-   * **Métricas personalizadas** -propriedades comunicadas de métricas que foram especificadas pelo desenvolvedor como consultas no dispositivo duplo.  Até cinco métricas personalizadas podem ser definidas por configuração. 
+   * **Métricas personalizadas** -métricas que foram especificadas pelo desenvolvedor como consultas em Propriedades relatadas de entrelaçamento.  Até cinco métricas personalizadas podem ser definidas por configuração. 
    
-4. Selecione a configuração que pretende monitorizar.  
+4. Selecione a configuração que você deseja monitorar.  
 
-5. Inspecione os detalhes de configuração. Pode utilizar os separadores para ver detalhes específicos sobre os dispositivos que receberam a configuração.
+5. Inspecione os detalhes de configuração. Você pode usar guias para exibir detalhes específicos sobre os dispositivos que receberam a configuração.
 
-   * **Condição de destino** -os dispositivos que correspondem à condição de destino. 
+   * **Condição de destino** -os dispositivos ou módulos que correspondem à condição de destino. 
 
-   * **Métricas** -uma lista de métricas do sistema e métricas personalizadas.  Pode ver uma lista de dispositivos que são contabilizados para cada uma, selecione a métrica na lista pendente e, em seguida, selecionando **ver dispositivos**.
+   * **Métricas** -uma lista de métricas de sistema e métricas personalizadas.  Você pode exibir uma lista de dispositivos ou módulos que são contados para cada métrica selecionando a métrica na lista suspensa e, em seguida, selecionando **exibir dispositivos** ou **Exibir módulos**.
 
-   * **Definições do dispositivo duplo** -as definições de twin de dispositivos que estão definidas pela configuração. 
+   * Configurações de conjunto de **dispositivos** ou configurações de **módulo** de configuração de conjunto – as configurações de alto que são definidas pelo Configuration. 
 
-   * **Etiquetas de configuração** -pares chave-valor usados para descrever uma configuração.  Etiquetas não tem nenhum impacto na funcionalidade. 
+   * **Rótulos de configuração** – pares chave-valor usados para descrever uma configuração.  Os rótulos não têm impacto sobre a funcionalidade. 
 
 ## <a name="modify-a-configuration"></a>Modificar uma configuração
 
-Quando modifica uma configuração, as alterações são replicadas imediatamente para todos os dispositivos direcionados. 
+Quando você modifica uma configuração, as alterações são replicadas imediatamente para todos os dispositivos ou módulos de destino. 
 
 Se atualizar a condição de destino, ocorrem as seguintes atualizações:
 
-* Se um dispositivo duplo não cumpre a condição de destino antigo, mas que atenda à nova condição de destino e esta configuração é a prioridade mais alta para esse dispositivo duplo, esta configuração é aplicada para o dispositivo duplo. 
+* Se um Altova não atender à condição de destino antiga, mas atender à nova condição de destino e essa configuração for a prioridade mais alta para esse pressione, essa configuração será aplicada. 
 
-* Se um dispositivo duplo já não cumpre a condição de destino, serão possível remover as definições da configuração e o dispositivo duplo será modificado pela configuração de prioridade mais alta seguinte. 
+* Se um "n" em execução nesta configuração não atender mais à condição de destino, as configurações da configuração serão removidas e o número de teleatualização será modificado pela próxima configuração de prioridade mais alta. 
 
-* Se um dispositivo duplo atualmente em execução esta configuração já não cumpre a condição de destino e não cumpre a condição de destino de quaisquer outras configurações, em seguida, as definições da configuração serão removidas e nenhuma outra alteração serão feitas no duplo. 
+* Se um "n" em execução nesta configuração não atender mais à condição de destino e não cumprir a condição de destino de nenhuma das outras configurações, as configurações da configuração serão removidas e nenhuma outra alteração será feita em. 
 
-Para modificar uma configuração, utilize os seguintes passos: 
+Para modificar uma configuração, use as seguintes etapas: 
 
 1. Na [portal do Azure](https://portal.azure.com), aceda ao seu hub IoT. 
 
-2. Selecione **configuração do dispositivo IoT**. 
+2. Selecione **configuração do dispositivo IOT**. 
 
-3. Selecione a configuração que pretende modificar. 
+3. Selecione a configuração que você deseja modificar. 
 
 4. Efetue as atualizações para os seguintes campos: 
 
@@ -184,35 +213,35 @@ Para modificar uma configuração, utilize os seguintes passos:
 
 4. Selecione **Guardar**.
 
-5. Siga os passos em [monitorizar uma configuração](#monitor-a-configuration) para ver as alterações a implementar. 
+5. Siga as etapas em [monitorar uma configuração](#monitor-a-configuration) para observar a distribuição das alterações. 
 
-## <a name="delete-a-configuration"></a>Eliminar uma configuração
+## <a name="delete-a-configuration"></a>Excluir uma configuração
 
-Quando elimina uma configuração, quaisquer dispositivos duplos assumem a seguinte configuração de prioridade mais alta. Se os dispositivos duplos não cumprem a condição de destino de qualquer outra configuração, não existem outras definições são aplicadas. 
+Quando você exclui uma configuração, qualquer dispositivo gêmeos assume sua próxima configuração de prioridade mais alta. Se o dispositivo gêmeos não atender à condição de destino de nenhuma outra configuração, nenhuma outra definição será aplicada. 
 
 1. Na [portal do Azure](https://portal.azure.com), aceda ao seu hub IoT. 
 
-2. Selecione **configuração do dispositivo IoT**. 
+2. Selecione **configuração do dispositivo IOT**. 
 
-3. Utilize a caixa de verificação para selecionar a configuração que pretende eliminar. 
+3. Use a caixa de seleção para selecionar a configuração que você deseja excluir. 
 
 4. Selecione **Eliminar**.
 
-5. Uma linha de comandos irá pedir-lhe para confirmar.
+5. Um prompt pedirá que você confirme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a configurar e monitorizar dispositivos de IoT em escala. Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
+Neste artigo, você aprendeu a configurar e monitorar dispositivos IoT em escala. Siga estes links para saber mais sobre como gerenciar o Hub IoT do Azure:
 
 * [Gerir as identidades do dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas do IoT Hub](iot-hub-metrics.md)
+* [Métricas do Hub IoT](iot-hub-metrics.md)
 * [Monitorização de operações](iot-hub-operations-monitoring.md)
 
-Para explorar ainda mais os recursos do IoT Hub, veja:
+Para explorar ainda mais os recursos do Hub IoT, consulte:
 
 * [guia para programadores do IoT Hub](iot-hub-devguide.md)
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Para explorar, utilizando o serviço de aprovisionamento de dispositivos do IoT Hub para ativar o aprovisionamento sem toque e just-in-time, consulte: 
+Para explorar o uso do serviço de provisionamento de dispositivos no Hub IoT para habilitar o provisionamento sem toque e Just-in-time, consulte: 
 
 * [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)

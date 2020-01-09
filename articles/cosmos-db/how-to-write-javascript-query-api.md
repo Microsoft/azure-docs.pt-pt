@@ -1,17 +1,17 @@
 ---
-title: Como escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
+title: Escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
 description: Saiba como escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96ecd77cb955d5e63cdcae8657e3096bbbadba89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441711"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e gatilhos em Azure Cosmos DB usando a API de consulta JavaScript
 
@@ -19,10 +19,10 @@ Azure Cosmos DB permite que você execute consultas otimizadas usando uma interf
 
 ## <a id="stored-procedures"></a>Procedimento armazenado usando a API de consulta JavaScript
 
-O exemplo de código a seguir é um exemplo de como a API de consulta JavaScript é usada no contexto de um procedimento armazenado. O procedimento armazenado insere um item Cosmos do Azure que é especificado por um parâmetro de entrada e atualiza um documento de metadados usando `__.filter()` o método, com minSize, MaxSize e totalSize com base na propriedade Size do item de entrada.
+O exemplo de código a seguir é um exemplo de como a API de consulta JavaScript é usada no contexto de um procedimento armazenado. O procedimento armazenado insere um item Cosmos do Azure que é especificado por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()`, com minSize, maxSize e totalSize com base na propriedade Size do item de entrada.
 
 > [!NOTE]
-> `__`(sublinhado duplo) é um alias para `getContext().getCollection()` quando usar a API de consulta JavaScript.
+> `__` (sublinhado duplo) é um alias a ser `getContext().getCollection()` ao usar a API de consulta JavaScript.
 
 ```javascript
 /**
@@ -78,7 +78,7 @@ function insertDocumentAndUpdateMetadata(item) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os artigos a seguir para saber mais sobre procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

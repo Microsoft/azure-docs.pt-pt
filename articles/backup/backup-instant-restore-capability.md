@@ -4,12 +4,12 @@ description: Capacidade de restauração instantânea do Azure e perguntas frequ
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7a962ff42125b262f6ec6673f75b0afd2954de24
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391309"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obtenha melhor desempenho de backup e restauração com o recurso de restauração instantânea do backup do Azure
 
@@ -52,7 +52,7 @@ Por padrão, os instantâneos são retidos por dois dias. Esse recurso permite a
 
 ## <a name="cost-impact"></a>Impacto de custo
 
-Os instantâneos incrementais são armazenados na conta de armazenamento da VM, que é usada para recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual ao espaço ocupado por páginas que são gravadas após a criação do instantâneo. A cobrança ainda é para o espaço usado por GB ocupado pelo instantâneo e o preço por GB é o mesmo mencionado na [página de preços](https://azure.microsoft.com/pricing/details/managed-disks/).
+Os instantâneos incrementais são armazenados na conta de armazenamento da VM, que é usada para recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual ao espaço ocupado por páginas que são gravadas após a criação do instantâneo. A cobrança ainda é para o espaço usado por GB ocupado pelo instantâneo e o preço por GB é o mesmo mencionado na página de [preços](https://azure.microsoft.com/pricing/details/managed-disks/). Para VMs que usam discos não gerenciados, os instantâneos podem ser vistos no menu do arquivo VHD de cada disco. Para discos gerenciados, os instantâneos são armazenados em um recurso de coleção de pontos de restauração em um grupo de recursos designado, e os instantâneos em si não são diretamente visíveis.
 
 >[!NOTE]
 > A retenção de instantâneos é fixada em 5 dias para políticas semanais.

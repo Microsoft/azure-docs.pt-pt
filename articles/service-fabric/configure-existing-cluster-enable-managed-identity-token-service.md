@@ -1,18 +1,14 @@
 ---
-title: Service Fabric do Azure – configurar um cluster existente do Service Fabric do Azure para habilitar o suporte de identidade gerenciada | Microsoft Docs
+title: Service Fabric do Azure – configurar um cluster existente do Service Fabric do Azure para habilitar o suporte de identidade gerenciada
 description: Este artigo mostra como configurar um cluster existente do Service Fabric do Azure para habilitar o suporte para identidades gerenciadas
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351597"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurar um cluster existente do Service Fabric do Azure para habilitar o suporte de identidade gerenciada (versão prévia)
 Para acessar o recurso de identidade gerenciada para aplicativos Service Fabric do Azure, primeiro você deve habilitar o **serviço de token de identidade gerenciado** no cluster. Esse serviço é responsável pela autenticação de Service Fabric aplicativos usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Quando o serviço estiver habilitado, você poderá vê-lo em Service Fabric Explorer na seção **sistema** no painel esquerdo, executando sob o nome **Fabric:/System/ManagedIdentityTokenService**.
@@ -42,7 +38,7 @@ Para habilitar o serviço de token de identidade gerenciado em um cluster existe
 ]
 ```
 
-Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo `forceRestart` , é a configuração essencial; use os valores existentes para o restante das configurações.  
+Para que as alterações entrem em vigor, você também precisará alterar a política de atualização para especificar uma reinicialização forçada do tempo de execução de Service Fabric em cada nó à medida que a atualização progride por meio do cluster. Essa reinicialização garante que o serviço de sistema habilitado recentemente seja iniciado e em execução em cada nó. No trecho de código abaixo, `forceRestart` é a configuração essencial; Use seus valores existentes para o restante das configurações.  
 
 ```json
 "upgradeDescription": {
@@ -57,7 +53,7 @@ Para que as alterações entrem em vigor, você também precisará alterar a pol
 ```
 
 > [!NOTE]
-> Após a conclusão bem-sucedida da atualização, não se esqueça de reverter a `forceRestart` configuração para minimizar o impacto das atualizações subsequentes. 
+> Após a conclusão bem-sucedida da atualização, não se esqueça de reverter a configuração de `forceRestart` para minimizar o impacto das atualizações subsequentes. 
 
 ## <a name="errors-and-troubleshooting"></a>Erros e solução de problemas
 
@@ -70,7 +66,7 @@ Se a implantação falhar com a mensagem a seguir, isso significa que o cluster 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aproveite a identidade gerenciada de um aplicativo Service Fabric do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)

@@ -1,33 +1,24 @@
 ---
-title: Pilha de comunicações WCF de serviços fiável | Documentos da Microsoft
-description: A pilha de comunicações WCF incorporada no Service Fabric fornece comunicações de WCF do serviço de cliente para Reliable Services.
-services: service-fabric
-documentationcenter: .net
+title: Pilha de comunicações WCF de Reliable Services
+description: A pilha de comunicação WCF interna no Service Fabric fornece comunicação WCF de serviço de cliente para Reliable Services.
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
-ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433869"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicações baseadas no WCF de Reliable Services
-A estrutura de Reliable Services permite que os autores de serviços escolher a pilha de comunicação que pretende utilizar o seu serviço. Eles podem de plug-in a pilha de comunicações de sua preferência por meio do **ICommunicationListener** devolvido do [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) métodos. O framework fornece uma implementação da pilha de comunicações com base no Windows Communication Foundation (WCF) para autores de serviço que pretendem utilizar a comunicação baseada em WCF.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicação baseada em WCF para Reliable Services
+O Reliable Services Framework permite que os autores de serviço escolham a pilha de comunicação que desejam usar para seu serviço. Eles podem conectar a pilha de comunicação de sua escolha por meio do **ICommunicationListener** retornado dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . A estrutura fornece uma implementação da pilha de comunicação com base no Windows Communication Foundation (WCF) para autores de serviço que desejam usar a comunicação baseada no WCF.
 
-## <a name="wcf-communication-listener"></a>Serviço de escuta de comunicação de WCF
-A implementação de específicas do WCF de **ICommunicationListener** fornecido pela **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** classe.
+## <a name="wcf-communication-listener"></a>Ouvinte de comunicação do WCF
+A implementação específica do WCF do **ICommunicationListener** é fornecida pela classe **Microsoft. Services. Communication. WCF. Runtime. WcfCommunicationListener** .
 
-Que acabam sendo Digamos que exista um contrato de serviço do tipo `ICalculator`
+Última digamos que temos um contrato de serviço do tipo `ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -38,7 +29,7 @@ public interface ICalculator
 }
 ```
 
-Podemos criar um serviço de escuta de comunicação do WCF no serviço da seguinte forma.
+Podemos criar um ouvinte de comunicação do WCF no serviço da seguinte maneira.
 
 ```csharp
 
@@ -64,8 +55,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Escrita de clientes para a pilha de comunicações de WCF
-Para escrever os clientes comuniquem com os serviços usando o WCF, o framework fornece **WcfClientCommunicationFactory**, que é a implementação de específicas do WCF de [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Gravando clientes para a pilha de comunicação do WCF
+Para que os clientes de gravação se comuniquem com serviços usando o WCF, a estrutura fornece **WcfClientCommunicationFactory**, que é a implementação específica do WCF do [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -77,7 +68,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-O canal de comunicação do WCF pode ser acedido a partir da **WcfCommunicationClient** criado pela **WcfCommunicationClientFactory**.
+O canal de comunicação do WCF pode ser acessado do **WcfCommunicationClient** criado pelo **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -91,7 +82,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Código de cliente pode utilizar o **WcfCommunicationClientFactory** juntamente com o **WcfCommunicationClient** quais implementa **ServicePartitionClient** para determinar o ponto final de serviço e comunicar com o serviço.
+O código do cliente pode usar o **WcfCommunicationClientFactory** junto com o **WcfCommunicationClient** , que implementa **ServicePartitionClient** para determinar o ponto de extremidade do serviço e se comunicar com o serviço.
 
 ```csharp
 // Create binding
@@ -119,12 +110,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> A predefinição ServicePartitionResolver parte do princípio de que o cliente está em execução no mesmo cluster que o serviço. Se não for o caso, crie um objeto de ServicePartitionResolver e passar os pontos de extremidade de ligação do cluster.
+> O ServicePartitionResolver padrão assume que o cliente está sendo executado no mesmo cluster que o serviço. Se esse não for o caso, crie um objeto ServicePartitionResolver e passe os pontos de extremidade de conexão do cluster.
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Chamada de procedimento remoto com a comunicação remota do Reliable Services](service-fabric-reliable-services-communication-remoting.md)
-* [Web API com o OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Proteger a comunicação de Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Chamada de procedimento remoto com Reliable Services comunicação remota](service-fabric-reliable-services-communication-remoting.md)
+* [API Web com OWIN em Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Protegendo a comunicação para Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

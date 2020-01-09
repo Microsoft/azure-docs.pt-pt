@@ -5,17 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/20/2019
+ms.date: 12/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 53ccd439429dc7df311e086d79f7234e26fd8b0e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 95639caddfa627290f4e7153d50f9f7799a1f320
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460542"
 ---
-> [!IMPORTANT]
-> A chave da conta de armazenamento é semelhante à palavra-passe de raiz da conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta. Evite distribuí-la a outros utilizadores, pré-programá-la ou guardá-la num texto simples em qualquer lugar que seja acessível a outras pessoas. Regenere a chave da conta através do portal do Azure se considerar que poderá ter sido comprometida.
->
-> Tokens SAS (assinatura de acesso partilhado) são fundamentais para proteger, assim como as chaves de acesso da conta. Enquanto estiver fornecendo granularidade SAS concede aos clientes acesso aos recursos na sua conta de armazenamento e não devem ser partilhada publicamente. Quando partilha é necessária para resolução de problemas motivos considere utilizar uma versão eliminada de quaisquer ficheiros de registo ou eliminar os tokens de SAS (caso exista) dos arquivos de log e certificar-se de que as capturas de ecrã não contêm as informações de SAS ou.
+## <a name="protect-your-access-keys"></a>Proteger suas chaves de acesso
+
+As chaves de acesso da conta de armazenamento são semelhantes a uma senha raiz para sua conta de armazenamento. Sempre tenha cuidado para proteger suas chaves de acesso. Use Azure Key Vault para gerenciar e girar suas chaves com segurança. Evite distribuir chaves de acesso para outros usuários, embuti-las em código ou salvá-las em qualquer lugar em texto sem formatação que seja acessível a outras pessoas. Gire suas chaves se acreditar que elas podem ter sido comprometidas.
+
+Se possível, use Azure Active Directory (Azure AD) para autorizar solicitações para o armazenamento de BLOBs e de filas em vez da chave compartilhada. O Azure AD fornece segurança superior e facilidade de uso sobre chave compartilhada. Para obter mais informações sobre como autorizar o acesso a dados com o Azure AD, consulte [autorizar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](../articles/storage/common/storage-auth-aad.md).

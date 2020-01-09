@@ -3,18 +3,18 @@ title: Apresentação da IU do Azure IoT Central | Microsoft Docs
 description: Familiarize-se com as principais áreas da interface do usuário IoT Central do Azure que você usa para criar, gerenciar e usar sua solução de IoT.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73893957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434902"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Faça um tour pela interface do usuário do IoT Central do Azure (recursos de visualização)
 
@@ -160,7 +160,7 @@ A análise permite que você crie exibições personalizadas sobre os dados do d
 
 A página trabalhos permite executar operações de gerenciamento de dispositivo em massa em seus dispositivos. Você pode atualizar propriedades do dispositivo, configurações e executar comandos em grupos de dispositivos. Para obter mais informações, veja o artigo [Executar uma tarefa](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 
-### <a name="device-templates"></a>Modelos de dispositivo
+### <a name="device-templates"></a>Modelos do dispositivo
 
 > [!div class="mx-imgBorder"]
 > página de modelos de dispositivo ![](media/overview-iot-central-tour/templates-pnp.png)
@@ -176,7 +176,7 @@ O *Solution Builder* também pode criar formulários e painéis para que os oper
 
 Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](howto-set-up-template.md). 
 
-### <a name="data-export"></a>Exportação de dados
+### <a name="data-export"></a>Exportar dados
 > [!div class="mx-imgBorder"]
 > ](media/overview-iot-central-tour/export-pnp.png) ![página de exportação de dados
 

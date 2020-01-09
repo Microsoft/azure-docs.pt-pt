@@ -4,15 +4,15 @@ description: Este artigo fornece detalhes sobre como configurar o agente de Log 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395839"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -50,7 +50,7 @@ As entradas no arquivo de autenticação são descritas na tabela a seguir.
 | Senha codificada em base64| Senha do usuário de monitoramento do MySQL codificada em base64. |
 | AutoUpdate| Especifica se é para examinar novamente as alterações no arquivo My. cnf e substituir o arquivo de autenticação OMI do MySQL quando o provedor de OMI do MySQL for atualizado. |
 
-### <a name="default-instance"></a>Instância padrão
+### <a name="default-instance"></a>Instância predefinida
 O arquivo de autenticação OMI do MySQL pode definir uma instância padrão e um número da porta para facilitar o gerenciamento de várias instâncias do MySQL em um host Linux.  A instância padrão é denotada por uma instância com a porta 0. Todas as instâncias adicionais herdarão as propriedades definidas da instância padrão, a menos que especifiquem valores diferentes. Por exemplo, se a instância do MySQL ouvindo na porta ' 3308 ' for adicionada, o endereço de ligação, o nome de usuário e a senha codificada em base64 da instância padrão serão usados para tentar monitorar a instância escutando em 3308. Se a instância em 3308 estiver associada a outro endereço e usar o mesmo nome de usuário e senha do MySQL, somente o endereço de ligação será necessário e as outras propriedades serão herdadas.
 
 A tabela a seguir tem configurações de instância de exemplo 
@@ -76,9 +76,9 @@ A tabela a seguir fornece detalhes sobre a sintaxe para usar o mycimprovauth.
 | atualização automática *falsa ou verdadeira* | mycimprovauth AutoUpdate false | Define se o arquivo de autenticação será atualizado ou não automaticamente na reinicialização ou atualização. |
 | *senha de nome de usuário do endereço de ligação* padrão | mycimprovauth padrão 127.0.0.1 root pwd | Define a instância padrão no arquivo de autenticação OMI do MySQL.<br>O campo de senha deve ser inserido em texto sem formatação-a senha no arquivo de autenticação OMI do MySQL será codificada em base 64. |
 | excluir *padrão ou port_num* | mycimprovauth 3308 | Exclui a instância especificada por padrão ou por número de porta. |
-| Ajuda | ajuda do mycimprov | Imprime uma lista de comandos a serem usados. |
-| Imprimir | mycimprov imprimir | Imprime um arquivo de autenticação de OMI do MySQL fácil de ler. |
-| atualizar *a senha do nome de usuário do endereço de ligação* do port_num | atualização do mycimprov 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância, caso ela não exista. |
+| Obter ajuda | ajuda do mycimprov | Imprime uma lista de comandos a serem usados. |
+| imprimir | mycimprov imprimir | Imprime um arquivo de autenticação de OMI do MySQL fácil de ler. |
+| atualizar port_num *senha de nome de usuário do endereço de associação* | atualização do mycimprov 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância, caso ela não exista. |
 
 Os comandos de exemplo a seguir definem uma conta de usuário padrão para o servidor MySQL no localhost.  O campo de senha deve ser inserido em texto sem formatação-a senha no arquivo de autenticação OMI do MySQL será codificada em base 64
 
@@ -95,7 +95,7 @@ O usuário do MySQL requer acesso às consultas a seguir para coletar dados de d
 O usuário do MySQL também requer acesso de seleção às tabelas padrão a seguir.
 
 - information_schema
-- MySQL. 
+- mysql. 
 
 Esses privilégios podem ser concedidos executando os seguintes comandos Grant.
 
@@ -110,7 +110,7 @@ Esses privilégios podem ser concedidos executando os seguintes comandos Grant.
 
 Depois de configurar o agente de Log Analytics para Linux para enviar dados para Azure Monitor, você deve configurar os contadores de desempenho a serem coletados.  Use o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
-| Nome do objeto | Nome do contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco em bytes |
 | Base de Dados MySQL | Tabelas |
@@ -146,7 +146,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente de Log Analytics para Linux para enviar dados para Azure Monitor, você deve configurar os contadores de desempenho a serem coletados.  Use o procedimento em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
-| Nome do objeto | Nome do contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Servidor HTTP Apache | Trabalhadores ocupados |
 | Servidor HTTP Apache | Trabalhos ociosos |
@@ -162,4 +162,4 @@ Depois de configurar o agente de Log Analytics para Linux para enviar dados para
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Coletar contadores de desempenho](data-sources-performance-counters.md) de agentes do Linux.
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

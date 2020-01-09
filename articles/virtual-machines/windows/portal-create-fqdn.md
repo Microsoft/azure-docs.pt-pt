@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 727636b4b59bf4b31fd7592b1a0f2d52d5dbbfd3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fa4e4bd7561a7a745e6eb0b70016144b9fb57998
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371280"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows
 
@@ -36,5 +36,5 @@ Agora você pode se conectar remotamente à VM usando esse nome DNS, como para o
 ## <a name="next-steps"></a>Passos seguintes
 Agora que sua VM tem um IP público e um nome DNS, você pode implantar estruturas de aplicativo ou serviços comuns, como IIS, SQL ou SharePoint.
 
-Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/resource-group-overview.md) para obter dicas sobre como criar suas implantações do Azure.
+Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/management/overview.md) para obter dicas sobre como criar suas implantações do Azure.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4b0b0d91af15912e1c64761351ba33acfd3e2725
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405149"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448728"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é a API de Pesquisa Personalizada do Bing?
 
@@ -30,22 +30,24 @@ O API de Pesquisa Personalizada do Bing permite que você crie experiências de 
 |[Experiências de pesquisa de vídeo personalizadas](get-videos-from-instance.md)     | Permita que os usuários pesquisem vídeos de domínios e sites especificados em sua instância de pesquisa personalizada.        |    
 |[Compartilhar sua instância de pesquisa personalizada](share-your-custom-search.md)     | Edite e teste colaborativamente sua instância de pesquisa compartilhando-a com membros de sua equipe.        | 
 |[Configurar uma interface do usuário para seus aplicativos e sites](hosted-ui.md)     | Edite e teste colaborativamente sua instância de pesquisa compartilhando-a com membros de sua equipe.        | 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 Você pode criar uma instância de pesquisa personalizada usando o [portal de pesquisa personalizada do Bing](https://customsearch.ai). O portal permite que você crie uma instância de pesquisa personalizada que especifica os domínios, sites e páginas da Web que você deseja que o Bing pesquise, junto com aqueles que você não deseja que ele pesquise. Você também pode usar o portal para: Visualizar a experiência de pesquisa, ajustar as classificações de pesquisa que a API fornece e, opcionalmente, configurar uma interface de usuário pesquisável para ser renderizada em seus sites e aplicativos.
 
 Depois de criar sua instância de pesquisa, você pode integrá-la (e, opcionalmente, uma interface do usuário) em seu site ou aplicativo chamando o API de Pesquisa Personalizada do Bing:
 
-![Imagem mostrando que você pode se conectar à pesquisa personalizada do Bing por meio da API](media/BCS-Overview.png "Como pesquisa personalizada do Bing funciona.")
+![Imagem mostrando que você pode se conectar à pesquisa personalizada do Bing por meio da API](media/BCS-Overview.png "Como Pesquisa Personalizada do Bing funciona.")
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar rapidamente, consulte [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 
 Para obter detalhes sobre como personalizar a sua instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
 
 Certifique-se de ler [os requisitos de uso e exibição do Bing](./use-and-display-requirements.md) para usar os resultados da pesquisa em seus serviços e aplicativos.
+
+Visite a [página do hub de API pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
 
 Familiarize-se com o conteúdo de referência para cada um dos pontos finais da pesquisa personalizada. A referência contém a lista de pontos finais, cabeçalhos e parâmetros de consulta que teria de utilizar para pedir os resultados da pesquisa. Também inclui as definições dos objetos de resposta.
 

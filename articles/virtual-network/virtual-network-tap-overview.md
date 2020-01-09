@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373235"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -58,7 +58,7 @@ A imagem a seguir mostra como o toque da rede virtual funciona. Você pode adici
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se você não tiver uma solução de parceiro em sua rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de toque de rede virtual para agregar o tráfego de várias interfaces de rede na mesma assinatura ou em assinaturas diferentes. Se as interfaces de rede monitoradas estiverem em assinaturas diferentes, as assinaturas deverão ser associadas ao mesmo locatário Azure Active Directory. Além disso, as interfaces de rede monitoradas e o ponto de extremidade de destino para agregar o tráfego de toque podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o toque da rede virtual.
+Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se você não tiver uma solução de parceiro em sua rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de toque de rede virtual para agregar o tráfego de várias interfaces de rede na mesma assinatura ou em assinaturas diferentes. Se as interfaces de rede monitoradas estiverem em assinaturas diferentes, as assinaturas deverão ser associadas ao mesmo locatário Azure Active Directory. Além disso, as interfaces de rede monitoradas e o ponto de extremidade de destino para agregar o tráfego de toque podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o toque da rede virtual.
 
 ## <a name="permissions"></a>Permissões
 

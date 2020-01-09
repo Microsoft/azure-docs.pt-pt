@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435674"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
@@ -389,7 +389,7 @@ Ao enviar o trabalho para um cluster HDInsight, você será solicitado a vincula
   >
   >![Ferramentas do hive do Spark & para Visual Studio Code Reader vinculado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
-## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
+## <a name="azure-data-lake-storage-gen2"></a>Ger2 de Armazenamento do Azure Data Lake
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Procurar uma conta de Data Lake Storage Gen2
 
@@ -403,7 +403,7 @@ Ao enviar um trabalho para um cluster HDInsight usando Data Lake Storage Gen2, v
 
 > [!NOTE]
 >
-> Você pode obter a chave de acesso para a conta de armazenamento do portal do Azure. Para obter mais informações, consulte [Exibir e copiar chaves de acesso](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+> Você pode obter a chave de acesso para a conta de armazenamento do portal do Azure. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 
 ## <a name="unlink-cluster"></a>Desvincular cluster
 

@@ -3,23 +3,23 @@ title: Introdução ao Cloud Services do Azure e ao ASP.NET | Microsoft Docs
 description: Saiba como criar uma aplicação de várias camadas com o MVC do ASP.NET e o Azure. A aplicação é executada num serviço em nuvem, com a função da Web e a função de trabalho. Utiliza as filas e os blobs do Entity Framework, da SQL Database e do Storage do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386736"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [Base de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
@@ -31,7 +31,7 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de aplicativo e trabalhos Web
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: serviço de aplicativo e trabalhos Web
 Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [serviço Azure app](/azure/app-service/) e usar o recurso [webjobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adaptam ao seu cenário, consulte [comparação de serviço Azure app, serviços de nuvem e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>O que irá aprender
@@ -155,7 +155,7 @@ Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada
     ![Novo servidor da Base de Dados SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Clique em **Criar**.
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 Uma conta do Storage do Azure fornece recursos para armazenar dados de fila e blob na nuvem.
 
 Numa aplicação real, normalmente criaria contas separadas para os dados da aplicação versus os dados de registo e contas separadas para os dados de teste versus os dados de produção. Para este tutorial, utilizará apenas uma conta.
@@ -229,7 +229,7 @@ As cadeias de ligação da conta do Storage do Azure para o projeto da função 
 1. No **Explorador de Soluções**, clique com o botão direito do rato em **ContosoAdsWeb**, em **Funções** no projeto **ContosoAdsCloudService**, e clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique no separador **Definições**. Na caixa pendente **Configuração do serviço**, selecione **Nuvem**.
+2. Clique na guia **configurações** . Na caixa suspensa **configuração de serviço** , escolha **nuvem**.
 
     ![Configuração da nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências ( **…** ) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
@@ -388,8 +388,8 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 8. Ainda na janela de propriedades **ContosoAdsWorker [Função]** , adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
-   * Escreva: Cadeia
-   * Valor: Cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
+   * Tipo: Cadeia
+   * Valor: cole a mesma cadeia de ligação utilizada para o projeto da função da Web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -404,9 +404,9 @@ Para adicionar ficheiros a um projeto ou a uma pasta, clique com o botão direit
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
 
    * *Global.asax.cs*.  
-   * Na pasta *Views\Shared* : Layout. cshtml.  *\_*
-   * Na pasta *views\home* : *Index. cshtml*.
-   * Na pasta *controladores* : *AdController.cs*.
+   * Na pasta *Vistas\Partilhadas*: *\_Layout.cshtml*.
+   * Na pasta *Vistas\Início*: *Index.cshtml*.
+   * Na pasta *Controladores*: *AdController.cs*.
    * Na pasta *Vistas\Anúncio* (crie a pasta primeiro): cinco ficheiros *.cshtml*.
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto transferido.
 
@@ -772,7 +772,10 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Serviços de nuvem do Azure parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Parte 1 dos Cloud Services do Azure: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
-* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
+* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

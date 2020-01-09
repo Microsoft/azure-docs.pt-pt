@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469660"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -22,6 +22,10 @@ ms.locfileid: "74875537"
 ### <a name="publicip"></a>Preciso de um IP público em minha máquina virtual?
 
 Você não precisa de um IP público na máquina virtual do Azure ao qual está se conectando com o serviço de bastiões do Azure. O serviço de bastiões abrirá a sessão/conexão RDP/SSH para sua máquina virtual por meio do IP privado de sua máquina virtual, dentro de sua rede virtual.
+
+### <a name="is-ipv6-supported"></a>Há suporte para IPv6?
+
+No momento, não há suporte para IPv6. A bastiões do Azure dá suporte apenas a IPv4.
 
 ### <a name="rdpssh"></a>Preciso de um cliente RDP ou SSH?
 

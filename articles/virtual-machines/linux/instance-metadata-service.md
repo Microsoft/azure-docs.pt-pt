@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f693da11b5b850d8ebca637b426ac0748a4127ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6ca8dd08f3b6c1a7bc9a0b8c7ba853adb46fd30c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355985"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -125,7 +125,7 @@ As solicitações também devem conter um cabeçalho `Metadata: true` para garan
 
 Se houver um elemento de dados não encontrado ou uma solicitação malformada, o serviço de metadados de instância retornará erros HTTP padrão. Por exemplo:
 
-Código de status HTTP | Razão
+Código de Estado de HTTP | Razão
 ----------------|-------
 200 OK |
 400 solicitação inadequada | Cabeçalho de `Metadata: true` ausente ou formato ausente ao consultar um nó folha
@@ -344,7 +344,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 atestados | Ver [dados atestados](#attested-data) | 2018-10-01
-identity | Identidades gerenciadas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identidade | Identidades gerenciadas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
 
@@ -358,18 +358,18 @@ Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure em que a VM está sendo executada | 2018-10-01
 customData | Ver [dados personalizados](#custom-data) | 2019-02-01
-location | Região do Azure em que a VM está sendo executada | 2017-04-02
+localização | Região do Azure em que a VM está sendo executada | 2017-04-02
 nome | Nome da VM | 2017-04-02
 oferta | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento de máquinas virtuais | 2017-08-01
-intenção | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e publicador para uma VM se sua imagem do Azure Marketplace | 2018-04-02
+plano | [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e publicador para uma VM se sua imagem do Azure Marketplace | 2018-04-02
 platformUpdateDomain |  [Atualizar domínio](manage-availability.md) no qual a VM está sendo executada | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) em que a VM está sendo executada | 2017-04-02
-operador | Provedor da VM | 2018-10-01
+em WMI | Provedor da VM | 2018-10-01
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
-publisher | Editor da imagem da VM | 2017-04-02
-resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para sua máquina virtual | 2017-08-01
+publicador | Editor da imagem da VM | 2017-04-02
+resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para sua máquina virtual | 2017-08-01
 resourceId | A ID [totalmente qualificada](https://docs.microsoft.com/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
 SKU | SKU específico para a imagem da VM | 2017-04-02
 subscriptionId | Assinatura do Azure para a máquina virtual | 2017-08-01
@@ -643,7 +643,7 @@ Verification successful
 Dados | Descrição
 -----|------------
 nonce | Cadeia de caracteres opcional fornecida pelo usuário com a solicitação. Se nenhum nonce foi fornecido na solicitação, o carimbo de data/hora UTC atual será retornado
-intenção | [Planejar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) uma VM em que ela é uma imagem do Azure Marketplace, contém nome, produto e Publicador
+plano | [Planejar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) uma VM em que ela é uma imagem do Azure Marketplace, contém nome, produto e Publicador
 timestamp/createdOn | O carimbo de data/hora em que o primeiro documento assinado foi criado
 timestamp/expiresOn | O carimbo de data/hora em que o documento assinado expira
 vmId |  [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a VM
@@ -757,14 +757,14 @@ My custom data.
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de chamada de serviço de metadados usando diferentes idiomas dentro da VM
 
-Idioma | Exemplo
+Linguagem | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl

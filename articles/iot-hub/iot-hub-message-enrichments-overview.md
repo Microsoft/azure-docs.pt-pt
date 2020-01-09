@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429113"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem
 
@@ -54,7 +54,7 @@ As mensagens podem vir de qualquer fonte de dados com suporte no [Roteamento de 
 
 Você pode adicionar aprimoramentos a mensagens que vão para o ponto de extremidade interno de um hub IoT ou mensagens que estão sendo roteadas para pontos de extremidades personalizados, como o armazenamento de BLOBs do Azure, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
-Você pode adicionar aprimoramentos às mensagens que estão sendo publicadas na grade de eventos selecionando o ponto de extremidade como grade de eventos. Criamos uma rota padrão no Hub IoT para telemetria de dispositivo, com base em sua assinatura de grade de eventos. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Você pode configurar aprimoramentos para a grade de eventos ent [ponto depois de ter criado a assinatura da grade de eventos para a telemetria do dispositivo. Para obter mais informações, consulte [Hub IOT e grade de eventos](iot-hub-event-grid.md).
+Você pode adicionar aprimoramentos às mensagens que estão sendo publicadas na grade de eventos selecionando o ponto de extremidade como grade de eventos. Criamos uma rota padrão no Hub IoT para telemetria de dispositivo, com base em sua assinatura de grade de eventos. Essa rota única pode lidar com todas as suas assinaturas de grade de eventos. Você pode configurar aprimoramentos para o ponto de extremidade da grade de eventos depois de criar a assinatura da grade de eventos para a telemetria do dispositivo. Para obter mais informações, consulte [Hub IOT e grade de eventos](iot-hub-event-grid.md).
 
 Os aprimoramentos são aplicados por ponto de extremidade. Se você especificar cinco aprimoramentos a serem carimbados para um ponto de extremidade específico, todas as mensagens que vão para esse ponto de extremidade serão carimbadas com os mesmos cinco aprimoramentos.
 

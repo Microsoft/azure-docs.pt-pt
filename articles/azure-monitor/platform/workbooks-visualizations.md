@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394475"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -197,7 +197,7 @@ O exemplo a seguir mostra as métricas de integridade do contêiner (tamanho do 
 | `Show the expander on` | A coluna na qual mostrar o expansor de árvore. É comum que as grades de árvore ocultem seus campos ID e ID pai porque não são muito legíveis. Em vez disso, o expansor aparece em um campo com um valor mais legível, como o nome da entidade |
 | `Expand the top level of the tree` | Se marcada, a grade de árvore será expandida no nível superior. Útil se você quiser mostrar mais informações por padrão |
 
-## <a name="graphs"></a>Graphs
+## <a name="graphs"></a>Gráficos
 
 As pastas de trabalho dão suporte à visualização de grafos arbitrários com base em dados de logs para mostrar as relações entre entidades de monitoramento.
 

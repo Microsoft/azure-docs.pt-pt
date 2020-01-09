@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: b631a370c64522c201f1208819b5a76895d83b09
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d19b3d59c48cfc8fc91d4678c2f979b110575b1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457516"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359158"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -281,7 +281,7 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
 
 O modelo do Resource Manager de exemplo é [201-DSC-Linux-Azure-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-DSC-Linux-Public-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-Para obter mais informações sobre o modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre o modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
@@ -289,7 +289,7 @@ Para obter mais informações sobre o modelo de Azure Resource Manager, consulte
 ### <a name="use-azure-cliazure-cli"></a>Usar [CLI do Azure] [Azure-CLI]
 Antes de implantar a extensão DSCForLinux, configure seu `public.json` e `protected.json` de acordo com os diferentes cenários na seção 3.
 
-#### <a name="classic"></a>Clássica
+#### <a name="classic"></a>Clássico
 O modo de implantação clássico também é chamado de modo de gerenciamento de serviços do Azure. Você pode alternar para ele executando:
 ```
 $ azure config mode asm
@@ -324,7 +324,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 ### <a name="use-azure-powershellazure-powershell"></a>Usar [Azure PowerShell] [Azure-PowerShell]
 
-#### <a name="classic"></a>Clássica
+#### <a name="classic"></a>Clássico
 
 Você pode entrar em sua conta do Azure no modo de gerenciamento de serviços do Azure executando:
 

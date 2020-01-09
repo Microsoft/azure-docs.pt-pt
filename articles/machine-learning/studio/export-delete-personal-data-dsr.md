@@ -1,7 +1,7 @@
 ---
 title: Exportar e eliminar dados
 titleSuffix: ML Studio (classic) - Azure
-description: Os dados no produto armazenados por Azure Machine Learning Studio (clássico) estão disponíveis para exportação e exclusão por meio do portal do Azure e também por meio de APIs REST autenticadas. Os dados de telemetria podem ser acessados por meio do portal de privacidade do Azure. Este artigo mostra como.
+description: Os dados no produto armazenados por Azure Machine Learning Studio (clássico) estão disponíveis para exportação e exclusão por meio do portal do Azure e também por meio de APIs REST autenticadas. Os dados de telemetria podem ser acessados por meio do portal de privacidade do Azure. Este artigo mostra-lhe como.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427593"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e excluir dados de usuário no produto do Azure Machine Learning Studio (clássico)
 
-Você pode excluir ou exportar dados no produto armazenados por Azure Machine Learning Studio (clássico) usando o portal do Azure, a interface do Studio (clássico), o PowerShell e as APIs REST autenticadas. Este artigo explica como. 
+Você pode excluir ou exportar dados no produto armazenados por Azure Machine Learning Studio (clássico) usando o portal do Azure, a interface do Studio (clássico), o PowerShell e as APIs REST autenticadas. Este artigo mostra-lhe como. 
 
-Os dados de telemetria podem ser acessados por meio do portal de privacidade do Azure. 
+Dados de telemetria podem ser acedidos através do portal de privacidade do Azure. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -61,7 +61,7 @@ Os usuários podem excluir ativos em um espaço de trabalho selecionando-os e, e
 
 ![Excluir ativos em Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-asset.png)
 
-### <a name="delete-an-entire-workspace"></a>Excluir um espaço de trabalho inteiro
+### <a name="delete-an-entire-workspace"></a>Eliminar uma área de trabalho inteira
 
 Os usuários também podem excluir seu espaço de trabalho inteiro:
 - Espaço de trabalho pago: exclua o portal do Azure.
@@ -70,7 +70,7 @@ Os usuários também podem excluir seu espaço de trabalho inteiro:
 ![Excluir um espaço de trabalho gratuito no Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportar dados do estúdio (clássico) com o PowerShell
-Use o PowerShell para exportar todas as suas informações para um formato portátil da versão clássica do Azure Machine Learning Studio usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
+Use o PowerShell para exportar todas as suas informações para um formato portátil do Azure Machine Learning Studio (clássico) usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
 
 ## <a name="next-steps"></a>Passos seguintes
 

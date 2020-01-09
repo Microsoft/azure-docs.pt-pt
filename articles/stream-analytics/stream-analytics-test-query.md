@@ -1,24 +1,23 @@
 ---
 title: Testar um trabalho de Azure Stream Analytics com dados de exemplo
 description: Este artigo descreve como usar o portal do Azure para testar um trabalho de Azure Stream Analytics, entrada de exemplo e carregar dados de exemplo.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891759"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369869"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Testar um trabalho de Azure Stream Analytics com dados de exemplo
 
-No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local no portal do Azure. Você também pode testar as consultas localmente de seus dados de exemplo locais ou dados dinâmicos no [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](vscode-local-run.md). 
+No Azure Stream Analytics, você pode testar sua consulta sem iniciar ou parar seu trabalho. Você pode testar consultas em dados de entrada de seu coletor de entrada ou carregar dados de exemplo de um arquivo local no portal do Azure. Você também pode testar as consultas localmente de seus dados de exemplo locais ou dados dinâmicos no [Visual Studio](stream-analytics-live-data-local-testing.md) e [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## <a name="sample-incoming-data-from-input"></a>Exemplo de dados de entrada de entrada
 
@@ -30,7 +29,7 @@ Azure Stream Analytics busca automaticamente eventos de sua entrada de streaming
 
 3. Na página Stream Analytics trabalho, no cabeçalho **topologia do trabalho** , selecione **consulta** para abrir a janela do editor de consultas. 
 
-4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada**. 
+4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada**.
 
    a. O tipo de serialização para seus dados será detectado automaticamente se seu JSON ou CSV. Você pode alterá-lo manualmente, bem como JSON, CSV, AVRO alterando a opção no menu suspenso.
     
@@ -74,7 +73,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 1. Inicie sessão no Portal do Azure.
    
-2. Localize o trabalho de Stream Analytics existente e selecione-o.
+2. Localize a tarefa de Stream Analytics existente e selecioná-lo.
 
 3. Na página Stream Analytics trabalho, no cabeçalho **topologia do trabalho** , selecione **consulta** para abrir a janela do editor de consultas.
 
@@ -106,4 +105,4 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
 * [Entender as entradas para Azure Stream Analytics](stream-analytics-add-inputs.md)
 
-* [Entender as saídas de Azure Stream Analytics](stream-analytics-define-outputs.md)
+* [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

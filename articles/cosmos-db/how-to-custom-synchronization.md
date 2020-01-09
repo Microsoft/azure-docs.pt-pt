@@ -1,17 +1,17 @@
 ---
-title: Como implementar a sincronização personalizada para otimizar para maior disponibilidade e desempenho no Azure Cosmos DB
+title: Implementar a sincronização personalizada no Azure Cosmos DB
 description: Saiba como implementar a sincronização personalizada para otimizar a disponibilidade e o desempenho mais altos no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 1fdd05f8a4757a49414a2a03c8f991a80186ed44
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2c989b352ef1b7800980c3a89b007c625198f822
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441819"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implemente a sincronização personalizada para otimizar para maior disponibilidade e desempenho
 

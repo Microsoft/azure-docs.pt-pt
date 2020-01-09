@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374265"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar grupos de disponibilidade Always On em máquinas virtuais do Azure automaticamente: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar grupos de disponibilidade Always On em máquinas virtuais do Azure automaticamente: Gerenciador de recursos
 
 Este tutorial mostra como criar um grupo de disponibilidade SQL Server que usa Azure Resource Manager máquinas virtuais. O tutorial usa as folhas do Azure para configurar um modelo. Você pode examinar as configurações padrão, digitar as configurações necessárias e atualizar as folhas no portal conforme percorre este tutorial.
 
@@ -42,7 +42,7 @@ Todos os recursos nesta solução pertencem a um único grupo de recursos.
 Antes de iniciar este tutorial, confirme o seguinte:
 
 * Você já tem uma conta do Azure. Se você não tiver uma, [Inscreva-se para uma conta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
-* Você já sabe como usar a GUI para provisionar uma máquina virtual SQL Server da Galeria de máquinas virtuais. Para obter mais informações, consulte Provisionando [uma máquina virtual SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
+* Você já sabe como usar a GUI para provisionar uma máquina virtual SQL Server da Galeria de máquinas virtuais. Para obter mais informações, consulte [Provisionando uma máquina virtual SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 * Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, consulte [grupos de disponibilidade Always on (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 
 > [!NOTE]
@@ -65,23 +65,23 @@ O Azure fornece uma imagem da galeria para toda a solução. Para localizar o mo
 1. Entre no portal do Azure usando sua conta.
 2. No portal do Azure, clique em **criar um recurso** para abrir o **novo** painel.
 3. No painel **novo** , procure **AlwaysOn**.
-   ![Localizar modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+   ![encontrar o modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Nos resultados da pesquisa, localize **SQL Server Cluster AlwaysOn**.
-   ![Modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+   ![modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. Em **selecionar um modelo de implantação**, escolha **Gerenciador de recursos**.
 
-### <a name="basics"></a>Noções Básicas
+### <a name="basics"></a>Noções básicas
 Clique em **noções básicas** e defina as seguintes configurações:
 
 * O **nome de usuário administrador** é uma conta de usuário que tem permissões de administrador de domínio e é membro da função de servidor fixa sysadmin SQL Server em ambas as instâncias do SQL Server. Para este tutorial, use **DomainAdmin**.
 * **Senha** é a senha para a conta de administrador de domínio. Use uma senha complexa. Confirme a palavra-passe.
 * **Assinatura** é a assinatura que o Azure cobra para executar todos os recursos implantados para o grupo de disponibilidade. Se sua conta tiver várias assinaturas, você poderá especificar uma assinatura diferente.
-* **Grupo de recursos** é o nome do grupo ao qual todos os recursos do Azure criados por este modelo pertencem. Para este tutorial, use **SQL-ha-RG**. Para obter mais informações, veja [Descrição geral do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Grupo de recursos** é o nome do grupo ao qual todos os recursos do Azure criados por este modelo pertencem. Para este tutorial, use **SQL-ha-RG**. Para obter mais informações, veja [Descrição geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Local** é a região do Azure em que o tutorial cria os recursos. Escolha uma região do Azure.
 
 A captura de tela a seguir é uma folha **básica** completa:
 
-![Noções Básicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Noções básicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Clique em **OK**.
 
@@ -109,8 +109,8 @@ Examine as configurações e clique em **OK**.
 Em **configurações do grupo de disponibilidade**, examine os valores predefinidos para o grupo de disponibilidade e o ouvinte.
 
 * **Nome do grupo de disponibilidade** é o nome do recurso clusterizado para o grupo de disponibilidade. Para este tutorial, use **contoso-AG**.
-* O nome do ouvinte do **grupo de disponibilidade** é usado pelo cluster e pelo balanceador de carga interno. Clientes que se conectam ao SQL Server podem usar esse nome para se conectar à réplica apropriada do banco de dados. Para este tutorial, use **contoso-Listener**.
-* **Porta** do ouvinte do grupo de disponibilidade especifica a porta TCP do ouvinte de SQL Server. Para este tutorial, use a porta padrão, **1433**.
+* O **nome do ouvinte do grupo de disponibilidade** é usado pelo cluster e pelo balanceador de carga interno. Clientes que se conectam ao SQL Server podem usar esse nome para se conectar à réplica apropriada do banco de dados. Para este tutorial, use **contoso-Listener**.
+* **Porta do ouvinte do grupo de disponibilidade** especifica a porta TCP do ouvinte de SQL Server. Para este tutorial, use a porta padrão, **1433**.
 
 Se necessário, você pode alterar esses valores. Para este tutorial, use os valores predefinidos.  
 
@@ -136,7 +136,7 @@ Em **tamanho da VM, configurações de armazenamento**, escolha um SQL Server ta
 * A **otimização de armazenamento** define definições de configuração de armazenamento específicas para as SQL Server máquinas virtuais com base no tipo de carga de trabalho. Todas as máquinas virtuais SQL Server nesse cenário usam o armazenamento Premium com o cache do host de disco do Azure definido como somente leitura. Além disso, você pode otimizar SQL Server configurações para a carga de trabalho escolhendo uma dessas três configurações:
 
   * A **carga de trabalho geral** não define definições de configuração específicas.
-  * O **processamento** transacional define o sinalizador de rastreamento 1117 e 1118.
+  * O **processamento transacional** define o sinalizador de rastreamento 1117 e 1118.
   * O **data warehouse** define o sinalizador de rastreamento 1117 e 610.
 
 Para este tutorial, use a **carga de trabalho geral**.
@@ -165,7 +165,7 @@ Para obter informações adicionais sobre o espaço de armazenamento e pools de 
 
 Para obter mais informações sobre as práticas recomendadas de configuração do SQL Server, consulte [práticas recomendadas de desempenho para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
-### <a name="sql-server-settings"></a>Definições de SQL Server
+### <a name="sql-server-settings"></a>Definições do SQL Server
 Em **SQL Server configurações**, examine e modifique o prefixo do nome da máquina virtual SQL Server, SQL Server versão, SQL Server conta de serviço e senha e a agenda de manutenção de aplicação de patch automática do SQL.
 
 * **SQL Server prefixo de nome** é usado para criar um nome para cada máquina virtual SQL Server. Para este tutorial, use o **SqlServer**. O modelo nomeia o SQL Server máquinas virtuais *SqlServer-0* e *SqlServer-1*.
@@ -180,19 +180,19 @@ Em **SQL Server configurações**, examine e modifique o prefixo do nome da máq
 >
 >
 
-![Definições de SQL Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
+![Definições do SQL Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/5-sql.png)
 
 Examine as configurações e clique em **OK**.
 
 ### <a name="summary"></a>Resumo
 Na página Resumo, o Azure valida as configurações. Você também pode baixar o modelo. Reveja o resumo. Clique em **OK**.
 
-### <a name="buy"></a>Comprar
+### <a name="buy"></a>Compre
 Essa folha final contém os **termos de uso**e a **política de privacidade**. Examine essas informações. Quando estiver pronto para o Azure começar a criar as máquinas virtuais e todos os outros recursos necessários para o grupo de disponibilidade, clique em **criar**.
 
 O portal do Azure cria o grupo de recursos e todos os recursos.
 
-## <a name="monitor-deployment"></a>Monitorar a implantação
+## <a name="monitor-deployment"></a>Monitorizar a implementação
 Monitore o progresso da implantação no portal do Azure. Um ícone que representa a implantação é fixado automaticamente no painel portal do Azure.
 
 ![Painel do Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
@@ -205,7 +205,7 @@ Para o RDP para um SQL Server, siga estas etapas:
 1. No painel portal do Azure, verifique se a implantação foi bem-sucedida.
 2. Clique em **recursos**.
 3. Na folha **recursos** , clique em **SqlServer-0**, que é o nome do computador de uma das máquinas virtuais em execução SQL Server.
-4. Na folha do **SqlServer-0**, clique em **conectar**. Seu navegador pergunta se você deseja abrir ou salvar o objeto de conexão remota. Clique em **aberto**.
+4. Na folha do **SqlServer-0**, clique em **conectar**. Seu navegador pergunta se você deseja abrir ou salvar o objeto de conexão remota. Clique em **Open** (Abrir).
 5. A **conexão de área de trabalho remota** pode avisá-lo que o editor dessa conexão remota não pode ser identificado. Clique em **Ligar**.
 6. A segurança do Windows solicita que você insira suas credenciais para se conectar ao endereço IP do controlador de domínio primário. Clique em **usar outra conta**. Para **nome de usuário**, digite **contoso\DomainAdmin**. Você configurou essa conta ao definir o nome de usuário do administrador no modelo. Use a senha complexa que você escolheu ao configurar o modelo.
 7. A **área de trabalho remota** pode avisá-lo que o computador remoto não pôde ser autenticado devido a problemas com seu certificado de segurança. Ele mostra o nome do certificado de segurança. Se você seguiu o tutorial, o nome é **SqlServer-0.contoso.com**. Clique em **Sim**.

@@ -1,5 +1,5 @@
 ---
-title: Criar uma VM e uma conta de armazenamento para uma aplicação dimensionável no Azure | Microsoft Docs
+title: Criar uma VM e uma conta de armazenamento para um aplicativo escalonável no Azure
 description: Saiba como implementar uma VM para servir para executar uma aplicação dimensionável através do armazenamento de blobs do Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 49689585b3f52bbee300ff68d2c2653f5e7ff8d0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372300"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e uma conta de armazenamento para uma aplicação dimensionável
 
@@ -21,8 +21,8 @@ Este tutorial é a primeira parte de uma série. Este tutorial mostra como imple
 Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
-> * Criar uma máquina virtual
+> * Create a storage account
+> * Crie uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -41,7 +41,7 @@ Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Create a storage account
  
 O exemplo carrega 50 ficheiros grandes para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que você criou usando o comando [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) .
 
@@ -55,7 +55,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Kind Storage `
 ```
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 Criar uma configuração da máquina virtual. Esta configuração inclui as definições que são utilizadas ao implementar a máquina virtual, como uma imagem de máquina virtual, o tamanho e a configuração da autenticação. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
@@ -126,8 +126,8 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 Na primeira parte da série, aprendeu como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
-> * Criar uma máquina virtual
+> * Create a storage account
+> * Crie uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
 Avance para a segunda parte da série para carregar grandes quantidades de dados para uma conta de armazenamento através da repetição exponencial e do paralelismo.

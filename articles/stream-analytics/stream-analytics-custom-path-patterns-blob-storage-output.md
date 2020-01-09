@@ -1,7 +1,6 @@
 ---
-title: A criação de partições de saída de Blobs do Azure Stream Analytics, personalizado
-description: Este artigo descreve os padrões de caminho de DateTime personalizados e os recursos de campo ou atributos personalizados para a saída de armazenamento de BLOBs de tarefas do Azure Stream Analytics.
-services: stream-analytics
+title: Azure Stream Analytics o particionamento de saída de blob personalizado
+description: Este artigo descreve os padrões de caminho de data e hora personalizados e os recursos de campo ou atributos personalizados para a saída do armazenamento de blobs de trabalhos de Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,62 +8,62 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426386"
 ---
-# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>A criação de partições de saída de Blobs do Azure Stream Analytics, personalizado
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics o particionamento de saída de blob personalizado
 
-O Azure Stream Analytics suporta a criação de partições com campos personalizados ou atributos e DateTime personalizadas padrões de caminho de saída de blob personalizado. 
+O Azure Stream Analytics dá suporte ao particionamento de saída de blob personalizado com campos ou atributos personalizados e padrões de caminho de data e hora personalizados. 
 
-## <a name="custom-field-or-attributes"></a>Campo personalizado ou atributos
+## <a name="custom-field-or-attributes"></a>Campo ou atributos personalizados
 
-Campo personalizado ou atributos de entrada melhoram downstream processamento de dados e relatórios de fluxos de trabalho, permitindo mais controle sobre a saída.
+Os atributos de campo ou de entrada personalizados melhoram os fluxos de trabalho de processamento e relatório de dados downstream, permitindo mais controle sobre a saída.
 
 ### <a name="partition-key-options"></a>Opções de chave de partição
 
-A chave de partição ou o nome de coluna, utilizado para particionar os dados de entrada pode conter carateres alfanuméricos, hífenes, carateres de sublinhado e espaços. Não é possível usar campos aninhados como uma chave de partição, a menos que utilizado em conjunto com aliases. A chave de partição tem de ser nvarchar (Max).
+A chave de partição, ou o nome da coluna, usada para particionar dados de entrada pode conter caracteres alfanuméricos com hifens, sublinhados e espaços. Não é possível usar campos aninhados como uma chave de partição, a menos que sejam usados em conjunto com aliases. A chave de partição deve ser NVARCHAR (MAX).
 
 ### <a name="example"></a>Exemplo
 
-Suponha que uma tarefa leva dados de entrada de sessões de utilizador em direto ligados a um serviço externo de vídeo de jogo em que os dados ingeridos contém uma coluna **client_id** para identificar as sessões. Para particionar os dados por **client_id**, defina o campo de padrão do caminho de Blob para incluir um token de partição **{client_id}** nas propriedades de saída do blob durante a criação de uma tarefa. Como os dados com vários **client_id** valores fluem através de tarefa do Stream Analytics, os dados de saída são guardados em pastas separadas com base num único **client_id** valor por pasta.
+Suponha que um trabalho receba dados de entrada de sessões de usuário ao vivo conectadas a um serviço de jogo de vídeo externo em que os dados ingeridos contenham uma coluna **client_id** para identificar as sessões. Para particionar os dados por **client_id**, defina o campo padrão de caminho de BLOB para incluir um token de partição **{client_id}** nas propriedades de saída de blob ao criar um trabalho. Como os dados com vários valores de **client_id** fluem por meio do trabalho de Stream Analytics, os dados de saída são salvos em pastas separadas com base em um único valor de **client_id** por pasta.
 
-![Padrão do caminho com o id de cliente](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
+![Padrão de caminho com a ID do cliente](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
-Da mesma forma, se a tarefa de entrada foi dados de sensores de milhões de sensores em que cada sensor tinha uma **sensor_id**, o padrão de caminho seria **{sensor_id}** para particionar cada dados de sensor para pastas diferentes.  
+Da mesma forma, se a entrada do trabalho tiver dados de sensor de milhões de sensores em que cada sensor tinha um **sensor_id**, o padrão de caminho será **{sensor_id}** para particionar cada dado de sensor em pastas diferentes.  
 
 
-Arquivo usado para que a solicitação com a API REST, a secção de saída de um JSON pode ser semelhante ao seguinte:  
+Usando a API REST, a seção de saída de um arquivo JSON usado para essa solicitação pode ser semelhante ao seguinte:  
 
-![Saída de REST API](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+![Saída da API REST](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
-Assim que a tarefa é iniciada em execução, o *clientes* contentor pode ser semelhante ao seguinte:  
+Depois que o trabalho começar a ser executado, o contêiner de *clientes* poderá ser semelhante ao seguinte:  
 
-![Contentor de clientes](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
+![Contêiner de clientes](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Cada pasta pode conter vários blobs em que cada blob contém um ou mais registos. No exemplo acima, há um único blob numa pasta assinaladas como "06000000" com o seguinte conteúdo:
+Cada pasta pode conter vários BLOBs em que cada blob contém um ou mais registros. No exemplo acima, há um único blob em uma pasta rotulada "06000000" com o seguinte conteúdo:
 
 ![Conteúdo do blob](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
-Tenha em atenção que cada registo no blob tem um **client_id** nome da coluna correspondente na pasta, desde que a coluna utilizada para particionar a saída no caminho de saída foi **client_id**.
+Observe que cada registro no blob tem uma coluna **client_id** correspondente ao nome da pasta, pois a coluna usada para particionar a saída no caminho de saída foi **client_id**.
 
 ### <a name="limitations"></a>Limitações
 
-1. Apenas uma chave de partição personalizada é permitida na propriedade de saída do blob de padrão do caminho. Todos os seguintes padrões de caminho são válidos:
+1. Somente uma chave de partição personalizada é permitida na propriedade de saída de blob de padrão de caminho. Todos os seguintes padrões de caminho são válidos:
 
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
    * cluster1/{date}/{time}/{aFieldInMyData} 
    
-2. As chaves de partição diferenciam maiúsculas de minúsculas, pelo que as chaves de partição, como "John" e "João" são equivalentes. Além disso, expressões não podem ser utilizadas como chaves de partição. Por exemplo, **{ferramenta + columnB}** não funciona.  
+2. As chaves de partição não diferenciam maiúsculas de minúsculas, portanto, chaves de partição como "John" e "João" são equivalentes. Além disso, as expressões não podem ser usadas como chaves de partição. Por exemplo, **{ColumnA + coluna b}** não funciona.  
 
-3. Quando um fluxo de entrada é composta por registos com uma cardinalidade de chave de partição em 8000, os registos serão acrescentados a blobs existentes e apenas criar novos blobs quando necessário. Se a cardinalidade é efetuada através de 8000 não existe nenhuma garantia existente blobs de escrita e novos blobs não serão criados para um número arbitrário de registos com a mesma chave de partição.
+3. Quando um fluxo de entrada consiste em registros com uma cardinalidade de chave de partição em 8000, os registros serão anexados aos BLOBs existentes e apenas criarão novos BLOBs quando necessário. Se a cardinalidade estiver acima de 8000, não haverá nenhum blob de garantia que será gravado e novos BLOBs não serão criados para um número arbitrário de registros com a mesma chave de partição.
 
-## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizadas
+## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizados
 
 Padrões de caminho de DateTime personalizadas permitem-lhe especificar um formato de saída que se alinha com convenções de ramo de registo de transmissão em fluxo, oferecendo a capacidade de enviar dados para o Azure HDInsight e o Azure Databricks para processar downstream de Azure Stream Analytics. Padrões de caminho de DateTime personalizados facilmente são implementados usando o `datetime` palavra-chave no campo de prefixo do caminho do seu blob de saída, juntamente com o especificador de formato. Por exemplo, `{datetime:yyyy}`.
 
@@ -130,6 +129,6 @@ Quando iniciar a tarefa, uma estrutura de pastas com base no padrão de caminho 
 
 ![Saída de blob do Stream Analytics com o padrão do caminho personalizado](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-output-folder-structure.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)

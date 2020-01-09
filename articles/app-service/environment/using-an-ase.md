@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 806d6ddb09cbaf14c9c488e3d3b39909c22ef284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374935"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um ambiente do serviço de aplicativo #
 
@@ -61,7 +61,7 @@ Para criar um aplicativo em um ASE:
 
     c. Selecione seu ASE na lista suspensa **local** . 
     
-    d. Selecione um tipo de preço **isolado** . Selecione **selecionar**.
+    d. Selecione um tipo de preço **isolado** . Selecione **Selecionar**.
 
     e. Selecione **OK**.
     
@@ -172,7 +172,7 @@ Para excluir um ASE:
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md

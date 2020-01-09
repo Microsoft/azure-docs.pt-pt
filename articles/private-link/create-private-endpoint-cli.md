@@ -2,17 +2,17 @@
 title: Início rápido-criar um ponto de extremidade privado do Azure usando CLI do Azure
 description: Saiba mais sobre o ponto de extremidade privado do Azure neste guia de início rápido
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459969"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Início rápido: criar um ponto de extremidade privado usando CLI do Azure
 O ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual, um servidor de banco de dados SQL com um ponto de extremidade privado usando CLI do Azure. Em seguida, você pode acessar a VM para e acessar com segurança o recurso de link privado (um servidor de banco de dados SQL do Azure privado neste exemplo). 
@@ -29,7 +29,7 @@ Para poder criar qualquer recurso, você precisa criar um grupo de recursos para
 az group create --name myResourceGroup --location westcentralus
 ```
 
-## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
 Crie uma rede virtual com [AZ Network vnet Create](/cli/azure/network/vnet). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mysubnet*:
 
 ```azurecli-interactive
@@ -127,7 +127,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
 1. Abra o arquivo. rdp * baixado.
 
@@ -177,5 +177,5 @@ Quando não for mais necessário, você pode usar AZ Group Delete para remover o
 az group delete --name myResourceGroup --yes 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [link privado do Azure](private-link-overview.md)

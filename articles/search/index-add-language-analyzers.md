@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460808"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
@@ -48,7 +48,10 @@ O analisador padrão é o Lucene padrão, que funciona bem para o inglês, mas t
 
 ## <a name="configuring-analyzers"></a>Configurando analisadores
 
-Os analisadores de linguagem são usados no estado em que se encontram. Para cada campo na definição de índice, você pode definir a propriedade do **analisador** como um nome do analisador que especifica a pilha de idiomas e linguísticas (Microsoft ou Lucene). O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições do Hotel em inglês, francês e espanhol que existem lado a lado no mesmo índice. Como alternativa, em vez de **analisador**, você pode usar **indexAnalyzer** e **searchAnalyzer** para ter regras de análise diferentes no tempo de indexação e no tempo de consulta. 
+Os analisadores de linguagem são usados no estado em que se encontram. Para cada campo na definição de índice, você pode definir a propriedade do **analisador** como um nome do analisador que especifica a pilha de idiomas e linguísticas (Microsoft ou Lucene). O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições do Hotel em inglês, francês e espanhol que existem lado a lado no mesmo índice.
+
+> [!NOTE]
+> Não é possível usar um analisador de linguagem diferente no tempo de indexação do que no momento da consulta para um campo. Esse recurso é reservado para [analisadores personalizados](index-add-custom-analyzers.md). Por esse motivo, se você tentar definir as propriedades **searchAnalyzer** ou **indexAnalyzer** como o nome de um analisador de idioma, a API REST retornará uma resposta de erro. Em vez disso, você deve usar a propriedade **Analyzer** .
 
 Use o parâmetro de consulta **searchFields** para especificar o campo específico do idioma a ser pesquisado em suas consultas. Você pode examinar os exemplos de consulta que incluem a propriedade do analisador em [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
@@ -59,7 +62,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 ## <a name="language-analyzer-list"></a>Lista do analisador de idioma 
  Abaixo está a lista de idiomas com suporte junto com os nomes do Lucene e do Microsoft Analyzer.  
 
-|Idioma|Nome do Microsoft Analyzer|Nome do analisador Lucene|  
+|Linguagem|Nome do Microsoft Analyzer|Nome do analisador Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar. Lucene|  
 |Arménio||hipótese. Lucene|  
@@ -95,7 +98,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 |Lituano|lt.microsoft||  
 |Malayalam|ml.microsoft||  
 |Malaio (latino)|ms.microsoft||  
-|Marata|mr.microsoft||  
+|Marati|mr.microsoft||  
 |Norueguês|nb.microsoft|Não. Lucene|  
 |Persa||FA. Lucene|  
 |Polaco|pl.microsoft|pl. Lucene|  

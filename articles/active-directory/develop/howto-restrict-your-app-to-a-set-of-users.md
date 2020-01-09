@@ -1,5 +1,5 @@
 ---
-title: Restringir usuários de aplicativos registrados Azure Active Directory | Azure
+title: Restringir o aplicativo Azure AD a um conjunto de usuários | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como restringir o acesso aos seus aplicativos registrados no Azure AD para um conjunto selecionado de usuários.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424466"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários
 
@@ -46,7 +46,7 @@ A opção de restringir um aplicativo a um conjunto específico de usuários ou 
 
 Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada. Uma delas requer a função de **administrador global** , a segunda não.
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Aplicativos empresariais (requer a função de administrador global)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicativos empresariais (requer a função de administrador global)
 
 1. Vá para a [**portal do Azure**](https://portal.azure.com/) e entre como um **administrador global**.
 1. Na barra superior, selecione a conta conectada. 

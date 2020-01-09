@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352878"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -45,7 +45,7 @@ A ordenação não é garantida ao usar entidades particionadas. Caso uma parti�
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
-- Advanced Message Queuing Protocol (AMQP)
+- Avançadas Message Queuing Protocol (AMQP)
 - Protocolo de mensagens do barramento de serviço (SBMP)
 - HTTP
 
@@ -113,7 +113,7 @@ Qualquer transferência de dados dentro de uma determinada região do Azure é f
 Não, o barramento de serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as próximas perguntas frequentes.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
-O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $ sistema '.
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/< azure_subscription_id >/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $system '.
 
 Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
 
@@ -150,7 +150,7 @@ Você pode mover um namespace de uma assinatura do Azure para outra, usando os c
 
 #### <a name="portal"></a>Portal
 
-Para usar o portal do Azure para migrar namespaces do barramento de serviço para outra assinatura, siga as instruções [aqui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Para usar o portal do Azure para migrar namespaces do barramento de serviço para outra assinatura, siga as instruções [aqui](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

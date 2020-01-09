@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434745"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -191,7 +191,6 @@ Para facilitar a limpeza, essas VMs serão adicionadas ao mesmo grupo de recurso
 
 Nesta seção, você clonará o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará o provisionamento de dispositivos de um locatário de cada região.
 
-
 1. Para cada VM, instale **CMake**, **g + +** , **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
@@ -199,12 +198,14 @@ Nesta seção, você clonará o SDK do Azure IoT C em cada VM. O SDK contém um 
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
 
-1. Clone o [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.
+1. Clone o [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.  Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operação deve demorar vários minutos a ser concluída.

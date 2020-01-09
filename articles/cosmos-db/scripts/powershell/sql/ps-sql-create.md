@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script-Azure Cosmos DB criar o contêiner e o banco de dados da API do SQL (núcleo)
+title: Script do PowerShell para criar Azure Cosmos DB contêiner e banco de dados da API do SQL (núcleo)
 description: Azure PowerShell script-Azure Cosmos DB criar o contêiner e o banco de dados da API do SQL (núcleo)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5a57b8cb3e4e7076d3be73a9010d9a29a8b004a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441349"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Criar um banco de dados e um contêiner para a API Azure Cosmos DB-SQL (Core)
 
@@ -22,7 +22,7 @@ ms.locfileid: "71178803"
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Esse script cria uma conta Cosmos para a API do SQL (núcleo) em duas regiões com consistência no nível da sessão, um banco de dados com taxa de transferência compartilhada e um contêiner com uma chave de partição, política de indexação personalizada, política de chave exclusiva, TTL, taxa de transferência dedicada e último gravador ganha política de resolução de conflito com um caminho de resolução de conflito personalizado que `multipleWriteLocations=true`será usado quando.
+Esse script cria uma conta Cosmos para a API do SQL (núcleo) em duas regiões com consistência no nível da sessão, um banco de dados com taxa de transferência compartilhada e um contêiner com uma chave de partição, política de indexação personalizada, política de chave exclusiva, TTL, taxa de transferência dedicada e última política de resolução de conflitos do WINS com um caminho de resolução de conflito personalizado que será usado `multipleWriteLocations=true`quando
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-create.ps1 "Create an account, database, and container for SQL (Core) API")]
 

@@ -3,18 +3,18 @@ title: Criar uma aplicação do Azure IoT Central | Microsoft Docs
 description: Crie uma nova aplicação do Azure IoT Central. Utilize um modelo de aplicação para criar uma aplicação de avaliação ou pay as you go.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bbb287805ac0351153778191d484bae2ef319705
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287040"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434804"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Criar um aplicativo de IoT Central do Azure (recursos de visualização)
 
@@ -56,7 +56,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Examine os termos e condições e selecione **criar** na parte inferior da página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 

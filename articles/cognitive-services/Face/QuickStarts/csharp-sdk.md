@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: biblioteca de cliente facial para .NET | Microsoft Docs'
-description: Introdução à biblioteca de cliente facial para .NET.
+title: 'Início rápido: biblioteca de cliente facial para .NET'
+description: Introdução à biblioteca de cliente facial para .NET com este guia de início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5602e26e2e1b327d65d411f8e92f264f1bf9fb91
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 269f2c9a2cf8578438971e8ad75fec1379a21c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448191"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Início rápido: biblioteca de cliente facial para .NET
 

@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ffc9c0ed5787803fff01d929567bda23b698135
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fb4deaf3d8fdc0347058b0af2079aebbd4cb22e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424551"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
 Este artigo contém definições para alguns dos principais conceitos de desenvolvedor e terminologia, que são úteis ao aprender sobre o desenvolvimento de aplicativos usando a plataforma de identidade da Microsoft.
 
-## <a name="access-token"></a>Token de acesso
+## <a name="access-token"></a>token de acesso
 
 Um tipo de [token de segurança](#security-token) emitido por [um servidor de autorização](#authorization-server)e usado por um [aplicativo cliente](#client-application) para acessar um [servidor de recursos protegido](#resource-server). Normalmente, na forma de um [JSON Web token (JWT)][JWT], o token incorpora a autorização concedida ao cliente pelo [proprietário do recurso](#resource-owner), para um nível de acesso solicitado. O token contém todas as [declarações](#claim) aplicáveis sobre o assunto, permitindo que o aplicativo cliente o use como uma forma de credencial ao acessar um determinado recurso. Isso também elimina a necessidade de o proprietário do recurso expor as credenciais para o cliente.
 
@@ -41,7 +41,7 @@ O identificador exclusivo do Azure AD emite para um registro de aplicativo que i
 
 ## <a name="application-manifest"></a>manifesto do aplicativo
 
-Um recurso fornecido pelo [portal do Azure][AZURE-portal], que produz uma representação JSON da configuração de identidade do aplicativo, usado como um mecanismo para atualizar seu [aplicativo][AAD-Graph-App-Entity] associado e entidades de [entidade de segurança][AAD-Graph-Sp-Entity] . Consulte [noções básicas sobre o manifesto do aplicativo Azure Active Directory][AAD-App-Manifest] para obter mais detalhes.
+Um recurso fornecido pelo [portal do Azure][AZURE-portal], que produz uma representação JSON da configuração de identidade do aplicativo, usado como um mecanismo para atualizar seu [aplicativo][Graph-App-Resource] associado e entidades de [entidade de segurança][Graph-Sp-Resource] . Consulte [noções básicas sobre o manifesto do aplicativo Azure Active Directory][AAD-App-Manifest] para obter mais detalhes.
 
 ## <a name="application-object"></a>objeto de aplicativo
 
@@ -102,7 +102,7 @@ Conforme definido pela [estrutura de autorização OAuth2][OAuth2-Role-Def], um 
 
 Um aplicativo cliente solicita [autorização](#authorization) de um proprietário de recurso para participar de um fluxo de [concessão de autorização OAuth2](#authorization-grant) e pode acessar APIs/dados em nome do proprietário do recurso. A estrutura de autorização OAuth2 [define dois tipos de clientes][OAuth2-Client-Types], "confidencial" e "público", com base na capacidade do cliente de manter a confidencialidade de suas credenciais. Os aplicativos podem implementar um [cliente Web (confidencial)](#web-client) que é executado em um servidor Web, um [cliente nativo (público)](#native-client) instalado em um dispositivo ou um cliente baseado em [agente de usuário (público)](#user-agent-based-client) que é executado no navegador de um dispositivo.
 
-## <a name="consent"></a>consentimento
+## <a name="consent"></a>Consentimento
 
 O processo de um [proprietário de recurso](#resource-owner) que concede autorização a um [aplicativo cliente](#client-application), para acessar recursos protegidos sob [permissões](#permissions)específicas, em nome do proprietário do recurso. Dependendo das permissões solicitadas pelo cliente, um administrador ou usuário será solicitado a fornecer consentimento para permitir o acesso a seus dados da organização/individuais, respectivamente. Observe que, em um cenário [multilocatário](#multi-tenant-application) , a entidade de [serviço](#service-principal-object) do aplicativo também é registrada no locatário do usuário que está consentindo.
 
@@ -116,7 +116,7 @@ Consulte [referência de token da plataforma de identidade da Microsoft][AAD-Tok
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidades da Microsoft
 
-A plataforma de identidades da Microsoft é a evolução da plataforma para programadores e do serviço de identidades do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro e configuração de aplicativos, documentação completa para desenvolvedores, exemplos de código e outros conteúdos de desenvolvedores. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect. Consulte [sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md) para obter mais detalhes.
+A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Permite que os programadores compilem aplicações que iniciam sessão em todas as identidades da Microsoft, obtenham tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs compiladas pelos programadores. É uma plataforma completa que consiste em um serviço de autenticação, bibliotecas, registro e configuração de aplicativos, documentação completa para desenvolvedores, exemplos de código e outros conteúdos de desenvolvedores. A plataforma de identidades da Microsoft suporta protocolos norma da indústria, tais como OAuth 2.0 e o OpenID Connect. Consulte [sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md) para obter mais detalhes.
 
 ## <a name="multi-tenant-application"></a>aplicativo multilocatário
 
@@ -137,7 +137,7 @@ Um [aplicativo cliente](#client-application) obtém acesso a um [servidor de rec
 
 Elas também são apresentadas durante o processo de [consentimento](#consent) , dando ao administrador ou ao proprietário do recurso a oportunidade de conceder/negar o acesso do cliente aos recursos em seu locatário.
 
-As solicitações de permissão são configuradas na página **permissões de API** para um aplicativo no [portal do Azure][AZURE-portal], selecionando as "permissões delegadas" e "permissões de aplicativo" desejadas (a última opção requer associação na função de administrador global). Como um [cliente público](#client-application) não pode manter as credenciais com segurança, ele só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O objeto de [aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [Propriedade requiredResourceAccess][AAD-Graph-App-Entity].
+As solicitações de permissão são configuradas na página **permissões de API** para um aplicativo no [portal do Azure][AZURE-portal], selecionando as "permissões delegadas" e "permissões de aplicativo" desejadas (a última opção requer associação na função de administrador global). Como um [cliente público](#client-application) não pode manter as credenciais com segurança, ele só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O objeto de [aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [Propriedade requiredResourceAccess][Graph-App-Resource].
 
 ## <a name="resource-owner"></a>proprietário do recurso
 
@@ -147,25 +147,25 @@ Conforme definido pela [estrutura de autorização OAuth2][OAuth2-Role-Def], uma
 
 Conforme definido pela [estrutura de autorização OAuth2][OAuth2-Role-Def], um servidor que hospeda recursos protegidos, capaz de aceitar e responder a solicitações de recursos protegidos por [aplicativos cliente](#client-application) que apresentam um [token de acesso](#access-token). Também conhecido como um servidor de recursos protegido ou aplicativo de recurso.
 
-Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a estrutura de autorização OAuth 2,0. Os exemplos incluem o API do Graph do Azure AD que fornece acesso aos dados de locatário do Azure AD e as APIs do Office 365 que fornecem acesso a dados como email e calendário. Ambos também podem ser acessados por meio da [API Microsoft Graph][Microsoft-Graph].
+Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a estrutura de autorização OAuth 2,0. Os exemplos incluem a [API Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados de locatário do Azure AD e as APIs do Office 365 que fornecem acesso a dados como email e calendário. 
 
-Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida por meio do [registro](#application-registration) em um locatário do Azure AD, fornecendo o aplicativo e o objeto de entidade de serviço. Algumas APIs fornecidas pela Microsoft, como o API do Graph do Azure AD, têm entidades de serviço previamente registradas disponibilizadas em todos os locatários durante o provisionamento.
+Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida por meio do [registro](#application-registration) em um locatário do Azure AD, fornecendo o aplicativo e o objeto de entidade de serviço. Algumas APIs fornecidas pela Microsoft, como a API de Microsoft Graph, têm entidades de serviço previamente registradas disponibilizadas em todos os locatários durante o provisionamento.
 
-## <a name="roles"></a>roles
+## <a name="roles"></a>funções
 
 Como os [escopos](#scopes), as funções fornecem uma maneira para um [servidor de recursos](#resource-server) controlar o acesso aos seus recursos protegidos. Há dois tipos: uma função de "usuário" implementa o controle de acesso baseado em função para usuários/grupos que exigem acesso ao recurso, enquanto uma função de "aplicativo" implementa o mesmo para [aplicativos cliente](#client-application) que exigem acesso.
 
-As funções são cadeias de caracteres definidas pelo recurso (por exemplo, "Aprovador de despesas", "somente leitura", "Directory. ReadWrite. All"), gerenciadas no [portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest)do recurso e armazenadas na [Propriedade appRoles][AAD-Graph-Sp-Entity]do recurso. O portal do Azure também é usado para atribuir usuários a funções de "usuário" e configurar [permissões de aplicativo](#permissions) cliente para acessar uma função de "aplicativo".
+As funções são cadeias de caracteres definidas pelo recurso (por exemplo, "Aprovador de despesas", "somente leitura", "Directory. ReadWrite. All"), gerenciadas no [portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest)do recurso e armazenadas na [Propriedade appRoles][Graph-Sp-Resource]do recurso. O portal do Azure também é usado para atribuir usuários a funções de "usuário" e configurar [permissões de aplicativo](#permissions) cliente para acessar uma função de "aplicativo".
 
-Para obter uma discussão detalhada sobre as funções de aplicativo expostas pelo API do Graph do Azure AD, consulte [API do Graph escopos de permissão][AAD-Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [gerenciar o acesso usando o RBAC e o portal do Azure][AAD-RBAC].
+Para obter uma discussão detalhada sobre as funções de aplicativo expostas pela API de Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, consulte [gerenciar o acesso usando o RBAC e o portal do Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>âmbitos
 
 Como as [funções](#roles), os escopos fornecem uma maneira para um [servidor de recursos](#resource-server) controlar o acesso aos seus recursos protegidos. Os escopos são usados para implementar o controle de acesso [baseado em escopo][OAuth2-Access-Token-Scopes] , para um [aplicativo cliente](#client-application) que recebeu acesso delegado ao recurso por seu proprietário.
 
-Os escopos são cadeias de caracteres definidas pelo recurso (por exemplo, "mail. Read", "Directory. ReadWrite. All"), gerenciados no [portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest)do recurso e armazenados na [Propriedade oauth2Permissions][AAD-Graph-Sp-Entity]do recurso. O portal do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
+Os escopos são cadeias de caracteres definidas pelo recurso (por exemplo, "mail. Read", "Directory. ReadWrite. All"), gerenciados no [portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest)do recurso e armazenados na [Propriedade oauth2Permissions][Graph-Sp-Resource]do recurso. O portal do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
 
-Uma Convenção de nomenclatura de prática recomendada é usar um formato "Resource. Operation. Constraint". Para obter uma discussão detalhada dos escopos expostos pelo API do Graph do Azure AD, consulte [API do Graph escopos de permissão][AAD-Graph-Perm-Scopes]. Para escopos expostos pelos serviços do Office 365, consulte [referência de permissões de API do office 365][O365-Perm-Ref].
+Uma Convenção de nomenclatura de prática recomendada é usar um formato "Resource. Operation. Constraint". Para obter uma discussão detalhada dos escopos expostos pela API Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para escopos expostos pelos serviços do Office 365, consulte [referência de permissões de API do office 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token de segurança
 
@@ -207,7 +207,7 @@ Um tipo de [aplicativo cliente](#client-application) que baixa o código de um s
 
 ## <a name="user-principal"></a>entidade de usuário
 
-Semelhante ao modo como um objeto de entidade de serviço é usado para representar uma instância de aplicativo, um objeto de entidade de usuário é outro tipo de entidade de segurança, que representa um usuário. A [entidade de usuário][AAD-Graph-User-Entity] do Azure ad Graph define o esquema para um objeto de usuário, incluindo propriedades relacionadas ao usuário, como nome e sobrenome, nome principal de usuário, associação de função de diretório, etc. Isso fornece a configuração de identidade do usuário para o Azure AD estabelecer uma entidade de usuário em tempo de execução. A entidade de usuário é usada para representar um usuário autenticado para logon único, registrar a delegação de [consentimento](#consent) , tomar decisões de controle de acesso etc.
+Semelhante ao modo como um objeto de entidade de serviço é usado para representar uma instância de aplicativo, um objeto de entidade de usuário é outro tipo de entidade de segurança, que representa um usuário. O [tipo de recurso de usuário][Graph-User-Resource] Microsoft Graph define o esquema para um objeto de usuário, incluindo propriedades relacionadas ao usuário, como nome e sobrenome, nome principal de usuário, associação de função de diretório, etc. Isso fornece a configuração de identidade do usuário para o Azure AD estabelecer uma entidade de usuário em tempo de execução. A entidade de usuário é usada para representar um usuário autenticado para logon único, registrar a delegação de [consentimento](#consent) , tomar decisões de controle de acesso etc.
 
 ## <a name="web-client"></a>cliente Web
 
@@ -226,10 +226,10 @@ Use a seção de comentários a seguir para fornecer comentários e ajudar a ref
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: /graph/permissions-reference
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
+[Graph-Perm-Scopes]: /graph/permissions-reference
+[Graph-App-Resource]: /graph/api/resources/application
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:quickstart-create-new-tenant.md

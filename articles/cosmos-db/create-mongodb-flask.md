@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web Flask usando a API do Azure Cosmos DB para o MongoDB e o SDK do Python
+title: Compilar um aplicativo Web Python Flask usando a API do Azure Cosmos DB para MongoDB
 description: Apresenta um exemplo de código do Python Flask que você pode usar para se conectar e consultar usando a API do Azure Cosmos DB para MongoDB.
 author: markjbrown
 ms.author: mjbrown
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 2bd8fa81d0825e604c42c54c0f789b7939206804
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8e58d0bdaaa5e4fb4564a68b46de7887ec28336d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445479"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Início rápido: compilar um aplicativo Python usando a API do Azure Cosmos DB para MongoDB
 
@@ -26,7 +26,7 @@ ms.locfileid: "72756943"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode criar e consultar rapidamente documentos, chave/valor e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Cosmos DB.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Você pode criar e consultar rapidamente documentos, chave/valor e bancos de dados de grafo, todos beneficiando-se dos recursos de escala horizontal e distribuição global no núcleo de Cosmos DB.
 
 Este guia de início rápido usa o [exemplo de Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) a seguir e demonstra como criar um aplicativo de Flask de tarefa simples com o [emulador de Azure Cosmos DB](local-emulator.md) e a API do Azure Cosmos DB para MongoDB.
 

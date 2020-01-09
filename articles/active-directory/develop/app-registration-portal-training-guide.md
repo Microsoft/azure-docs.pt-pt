@@ -1,5 +1,5 @@
 ---
-title: Fazer a transição do Portal de Registo de Aplicações para a nova experiência de Registos de aplicações no portal do Azure
+title: Nova experiência de registro de aplicativo portal do Azure
 titleSuffix: Microsoft identity platform
 description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424640"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Fazer a transição do Portal de Registo de Aplicações para a nova experiência de Registos de aplicações no portal do Azure
+# <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativo portal do Azure
 
 Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
 
 ## <a name="whats-not-changing"></a>O que não está mudando?
 
--   Seus aplicativos e configurações relacionadas podem ser encontrados no estado em que se encontram na nova experiência. Você não precisa registrar os aplicativos novamente e os usuários de seus aplicativos não precisarão entrar novamente.
+- Seus aplicativos e configurações relacionadas podem ser encontrados no estado em que se encontram na nova experiência. Você não precisa registrar os aplicativos novamente e os usuários de seus aplicativos não precisarão entrar novamente.
 
     > [!NOTE]
     > Você deve entrar com a conta usada para registrar aplicativos para encontrá-los no portal do Azure. Recomendamos que você verifique o usuário conectado na portal do Azure corresponde ao usuário que entrou no portal de registro de aplicativo, comparando o endereço de email do seu perfil.
     > 
     > Em alguns casos, especialmente quando você entra usando contas pessoais da Microsoft (por exemplo, Outlook, Live, Xbox etc.) com um endereço de email do Azure AD, descobrimos que, quando você acessa o portal do Azure da experiência antiga, ele entra em uma conta diferente com a mesma email em seu locatário do Azure AD. Se você ainda acredita que seus aplicativos estão ausentes, saia e entre com a conta certa.
 
--   Os aplicativos do Live SDK criados com contas pessoais da Microsoft ainda não têm suporte no portal do Azure e continuarão a permanecer na experiência antiga em um futuro próximo.
+- Os aplicativos do Live SDK criados com contas pessoais da Microsoft ainda não têm suporte no portal do Azure e continuarão a permanecer na experiência antiga em um futuro próximo.
 
 ## <a name="key-changes"></a>Principais alterações
 

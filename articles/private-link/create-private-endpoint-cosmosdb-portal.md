@@ -1,17 +1,17 @@
 ---
 title: Conectar-se a uma conta do Azure cosmos com o link privado do Azure
 description: Saiba como acessar com segurança a conta do Azure Cosmos de uma VM criando um ponto de extremidade privado.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430309"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
 
@@ -86,7 +86,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Subrede | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-IP**. |
     | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
-    | Selecione as portas de entrada | Selecione **http** e **RDP**.|
+    | Selecionar portas de entrada | Selecione **http** e **RDP**.|
     ||
 
 1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração.

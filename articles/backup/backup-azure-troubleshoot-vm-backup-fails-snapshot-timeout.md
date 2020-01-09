@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391851"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de backup do Azure: problemas com o agente ou extensão
 
@@ -28,6 +28,7 @@ O agente de VM do Azure pode ser interrompido, desatualizado, em um estado incon
 - **Abra o portal do Azure > configurações de > da vm > folha propriedades** > Verifique se o **status** da VM está **em execução** e se o **status do agente** está **pronto**. Se o agente de VM for interrompido ou estiver em um estado inconsistente, reinicie o agente<br>
   - Para VMs do Windows, siga estas [etapas](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar o agente convidado.<br>
   - Para VMs do Linux, siga estas [etapas](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar o agente convidado.
+- **Abra o portal do Azure > configurações de > da VM > extensões** > Verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** . Caso contrário, siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para resolver o problema.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-não foi possível se comunicar com o agente de VM para o status do instantâneo
 
@@ -53,8 +54,8 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 
 Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra o portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** .
 
-- Se a extensão VMSnapshot estiver em estado de falha, clique com o botão direito do mouse na extensão com falha e remova-a. Disparar um backup ad hoc, isso irá reinstalar as extensões e executar o trabalho de backup.  <br>
-- Se qualquer outra extensão estiver em estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.  
+- Se a extensão VMSnapshot estiver em um estado de falha, clique com o botão direito do mouse na extensão com falha e remova-a. Disparar um backup sob demanda, isso reinstalará as extensões e executará o trabalho de backup.  <br>
+- Se qualquer outra extensão estiver em um estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-o limite máximo da coleção de pontos de restauração foi atingido
 
@@ -229,7 +230,7 @@ Para desinstalar a extensão:
 1. Na [portal do Azure](https://portal.azure.com/), vá para a VM que está apresentando falha de backup.
 2. Selecione **definições**.
 3. Selecione **Extensions** (Extensões).
-4. Selecione a **extensão Vmsnapshot**.
+4. Selecione **extensão de instantâneo**.
 5. Selecione **Desinstalar**.
 
 Para a VM do Linux, se a extensão VMSnapshot não for mostrada no portal do Azure, [atualize o agente Linux do Azure](../virtual-machines/linux/update-agent.md)e execute o backup.
@@ -238,7 +239,7 @@ A conclusão dessas etapas faz com que a extensão seja reinstalada durante o pr
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos do ponto de recuperação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Opção ir para **todos os recursos**, selecione o grupo de recursos coleção de pontos de restauração no seguinte formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Na seção **configurações** , selecione **bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **excluir**.
@@ -267,7 +268,7 @@ Depois de remover o bloqueio, dispare um backup sob demanda. Isso garantirá que
 
 Para limpar manualmente a coleção de pontos de restauração, que não é limpa devido ao bloqueio no grupo de recursos, tente as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. No menu **Hub** , clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde a VM está localizada.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)

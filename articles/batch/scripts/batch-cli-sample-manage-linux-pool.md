@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Conjunto do Linux no Batch | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Criar e gerir um conjunto do Linux no Batch
+title: Exemplo de script CLI do Azure-pool do Linux no lote
+description: Esse script demonstra alguns dos comandos disponíveis no CLI do Azure para criar e gerenciar um pool de nós de computação do Linux no lote do Azure.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a0e78ec35ff001b6a4ee59794a002cb3a74e90cb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 33f66da1911bdefee298f3de949937bbc52d8fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390219"
 ---
-# <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerenciar um pool do Linux no lote do Azure
+# <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerir um conjunto do Linux no Azure Batch
 
-Este script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerir um conjunto de nós de computação do Linux no Azure Batch.
+Esse script demonstra alguns dos comandos disponíveis no CLI do Azure para criar e gerenciar um pool de nós de computação do Linux no lote do Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -59,6 +59,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az-batch-node-delete) | Elimina os nós listados do conjunto especificado.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

@@ -1,5 +1,5 @@
 ---
-title: Transferir grandes quantidades de dados aleatórios do Armazenamento do Azure | Microsoft Docs
+title: Baixar grandes quantidades de dados aleatórios do armazenamento do Azure | Microsoft Docs
 description: Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios de uma conta de Armazenamento do Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372096"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Transferir grandes quantidades de dados aleatórios do armazenamento do Azure
 
@@ -27,7 +27,7 @@ Na terceira parte da série, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure][previous-tutorial].
+Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
@@ -198,7 +198,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na terceira parte da série, aprendeu a transferir grandes quantidades de dados aleatórios para uma conta de armazenamento, como:
 

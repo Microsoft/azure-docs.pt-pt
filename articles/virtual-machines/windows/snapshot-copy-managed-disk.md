@@ -1,5 +1,5 @@
 ---
-title: Criar um instantâneo de um VHD no Azure
+title: Criar um instantâneo de um disco rígido virtual no Azure
 description: Saiba como criar uma cópia de uma VM do Azure para usar como um backup ou para solucionar problemas.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370906"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -27,13 +27,14 @@ Um instantâneo é uma cópia completa e somente leitura de um disco rígido vir
 
 Se você pretende usar o instantâneo para criar uma nova VM, recomendamos que você desligue corretamente a VM antes de tirar um instantâneo, para limpar todos os processos em andamento.
 
-## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure 
+## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure 
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione **criar um recurso**e, em seguida, pesquise e selecione **instantâneo**.
+Para criar um instantâneo, conclua as seguintes etapas: 
+1.  Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
+2. Pesquise e selecione **instantâneo**.
 3. Na janela **instantâneo** , selecione **criar**. A janela **criar instantâneo** é exibida.
 4. Insira um **nome** para o instantâneo.
-5. Selecione um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups) existente ou insira o nome de um novo. 
+5. Selecione um [grupo de recursos](../../azure-resource-manager/management/overview.md#resource-groups) existente ou insira o nome de um novo. 
 6. Selecione uma **Localização** para o datacenter do Azure.  
 7. Para **disco de origem**, selecione o disco gerenciado para instantâneo.
 8. Selecione o **tipo de conta** a ser usado para armazenar o instantâneo. Selecione **Standard_HDD**, a menos que você precise que o instantâneo seja armazenado em um disco de alto desempenho.
@@ -41,7 +42,7 @@ Se você pretende usar o instantâneo para criar uma nova VM, recomendamos que v
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-As etapas a seguir mostram como copiar o disco VHD, criar a configuração de instantâneo e tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+As etapas a seguir mostram como copiar o disco VHD e criar a configuração de instantâneo. Em seguida, você pode tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
  
 

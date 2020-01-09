@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392159"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Criar uma instância do Azure SignalR Service
 
@@ -30,11 +30,11 @@ A aplicação irá ligar a uma instância do SignalR Service no Azure.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do recurso** | Nome globalmente exclusivo | Nome que identifica a sua nova instância do SignalR Service. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
     | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova instância do SignalR Service é criada. | 
-    | **[Grupo de Recursos](../../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual irá criar a sua instância do SignalR Service. | 
-    | **Location** | EUA Oeste | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. |
-    | **Escalão de preço** | Livre | Experimente gratuitamente o Azure SignalR Service. |
+    | **[Grupo de Recursos](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual irá criar a sua instância do SignalR Service. | 
+    | **Localização** | Oeste dos E.U.A. | Escolher uma [região](https://azure.microsoft.com/regions/) próxima de si. |
+    | **Escalão de preço** | Gratuito | Experimente gratuitamente o Azure SignalR Service. |
     | **Contagem de unidades** |  Não aplicável | A contagem de unidades especifica quantas ligações a sua instância do SignalR Service pode aceitar. Pode configurar apenas no escalão Standard. |
-    | **Modo de serviço** |  Sem servidor | Para uso com Azure Functions ou a API REST. |
+    | **Modo de serviço** |  Sem Servidor | Para uso com Azure Functions ou a API REST. |
 
     ![Criar o Serviço SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

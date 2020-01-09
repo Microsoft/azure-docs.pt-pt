@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d78ddaaae886a33b4d22e8724ade04ab63508f1
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430009"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando chamadas à API REST
 
@@ -35,8 +35,8 @@ Neste artigo, usando a rotação para fazer chamadas para o ponto de extremidade
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-the-managed-identities-for-azure-resources-work)** atribuída pelo usuário.
-- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se ainda não tem uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
 - [Instale o console local do CLI do Azure](/cli/azure/install-azure-cli), se você usar o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [so de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se você estiver usando CLI do Azure console local, entre no Azure usando `az login` com uma conta que esteja associada à assinatura do Azure que você gostaria de gerenciar as identidades gerenciadas atribuídas pelo usuário ou pelo sistema.
@@ -51,7 +51,7 @@ Nesta seção, você aprenderá a habilitar e desabilitar a identidade gerenciad
 
 Para criar uma VM do Azure com a identidade gerenciada atribuída pelo sistema habilitada, sua conta precisa da atribuição de função de [colaborador da máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Não são necessárias atribuições de função de diretório do Azure AD adicionais.
 
-1. Crie uma [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+1. Crie uma [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contenção e implementação da VM e os respetivos recursos relacionados, utilizando [az group create](/cli/azure/group/#az-group-create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -83,7 +83,7 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída pelo sistema h
    
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
    
    **Corpo da solicitação**
@@ -172,7 +172,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
    
    **Corpo da solicitação**
@@ -204,7 +204,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -239,7 +239,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM que foi
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -282,7 +282,7 @@ Para desabilitar a identidade gerenciada atribuída pelo sistema em uma VM, sua 
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -341,7 +341,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -422,7 +422,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -534,7 +534,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        |
  
    **Corpo da solicitação**
@@ -566,7 +566,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -602,7 +602,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -641,7 +641,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -682,7 +682,7 @@ Para remover uma identidade atribuída pelo usuário a uma VM, sua conta precisa
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.
  
    Se você tiver identidades gerenciadas atribuídas à VM, elas serão listadas na resposta no valor `identity`.
@@ -705,7 +705,7 @@ Para remover uma identidade atribuída pelo usuário a uma VM, sua conta precisa
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -737,7 +737,7 @@ Para remover uma identidade atribuída pelo usuário a uma VM, sua conta precisa
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
-   |*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
    |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.        | 
 
    **Corpo da solicitação**
@@ -767,7 +767,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
-|*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+|*Content-Type*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido. | 
 
 **Corpo da solicitação**
@@ -794,7 +794,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
-|*Tipo de conteúdo*     | Necessário. Definido como `application/json`.        |
+|*Content-Type*     | Necessário. Definido como `application/json`.        |
 |*Autorização*     | Necessário. Defina como um token de acesso de `Bearer` válido.| 
 
 **Corpo da solicitação**

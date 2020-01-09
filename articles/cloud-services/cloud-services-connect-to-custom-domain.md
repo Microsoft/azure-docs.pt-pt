@@ -2,17 +2,17 @@
 title: Conectar um serviço de nuvem a um controlador de domínio personalizado | Microsoft Docs
 description: Saiba como conectar suas funções Web/de trabalho a um domínio do AD personalizado usando o PowerShell e a extensão de domínio do AD
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 97a24720e65539a68745a5a1bb3f13ce1cafb9be
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: d40e392984d2675c748bda00c61cdaeb1c0932da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387025"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conectando funções de serviços de nuvem do Azure a um controlador de domínio do AD personalizado hospedado no Azure
 Primeiro, configuraremos uma VNet (rede virtual) no Azure. Em seguida, adicionaremos um controlador de Domínio do Active Directory (hospedado em uma máquina virtual do Azure) à VNet. Em seguida, adicionaremos funções de serviço de nuvem existentes à VNet criada previamente e as conectaremos ao controlador de domínio.
@@ -26,7 +26,7 @@ Siga este guia passo a passo e, se você encontrar problemas, deixe-nos um comen
 
 A rede que é referenciada pelo serviço de nuvem deve ser uma **rede virtual clássica**.
 
-## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
 Você pode criar um Entrada na Rede virtual do Azure usando o portal do Azure ou o PowerShell. Para este tutorial, o PowerShell é usado. Para criar uma rede virtual usando o portal do Azure, consulte [criar uma rede virtual](../virtual-network/quick-create-portal.md). O artigo aborda a criação de uma rede virtual (Resource Manager), mas você deve criar uma rede virtual (clássica) para serviços de nuvem. Para fazer isso, no portal, selecione **criar um recurso**, digite *rede virtual* na caixa de **pesquisa** e pressione **Enter**. Nos resultados da pesquisa, em **tudo**, selecione **rede virtual**. Em **selecionar um modelo de implantação**, selecione **clássico**e, em seguida, selecione **criar**. Em seguida, você pode seguir as etapas no artigo.
 
 ```powershell
@@ -149,3 +149,6 @@ Seus serviços de nuvem devem ser associados ao seu controlador de domínio pers
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

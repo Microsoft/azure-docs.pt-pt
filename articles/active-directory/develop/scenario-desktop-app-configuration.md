@@ -1,5 +1,5 @@
 ---
-title: Configurar o aplicativo de área de trabalho que chama APIs da Web-plataforma Microsoft Identity | Azure
+title: Configurar aplicativos da área de trabalho que chamam APIs da Web-plataforma Microsoft Identity | Azure
 description: Saiba como configurar o código de um aplicativo de desktop que chama APIs da Web
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423901"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicativo de desktop que chama as APIs da Web-configuração de código
 
@@ -33,8 +33,8 @@ As bibliotecas da Microsoft que dão suporte a aplicativos de área de trabalho 
   Biblioteca MSAL | Descrição
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas – Linux, Windows e MacOS
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas. Desenvolvimento em andamento-em visualização pública
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas. Desenvolvimento em andamento-em visualização pública
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Dá suporte à criação de um aplicativo de área de trabalho em várias plataformas.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Dá suporte a aplicativos de área de trabalho em execução somente no macOS
 
 ## <a name="public-client-application"></a>Aplicativo cliente público
@@ -51,14 +51,14 @@ Você precisará criar e manipular MSAL.NET `IPublicClientApplication`.
 
 O código a seguir instancia um aplicativo cliente público, usuários de entrada na nuvem pública Microsoft Azure, com uma conta corporativa e de estudante, ou um conta Microsoft pessoal.
 
-```CSharp
+```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
 Se você pretende usar a autenticação interativa ou o fluxo de código do dispositivo, como visto acima, você deseja usar o modificador de `.WithRedirectUri`:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -69,7 +69,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 O código a seguir instancia um aplicativo cliente público a partir de um objeto de configuração, que poderia ser preenchido programaticamente ou lido a partir de um arquivo de configuração
 
-```CSharp
+```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
         .WithDefaultRedirectUri()
@@ -80,7 +80,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 Você pode elaborar a criação de aplicativos adicionando vários modificadores. Por exemplo, se você quiser que seu aplicativo seja um aplicativo multilocatário em uma nuvem nacional (aqui, o governo dos EUA), você poderia escrever:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -91,7 +91,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET também contém um modificador para ADFS 2019:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithAdfsAuthority("https://consoso.com/adfs")
@@ -100,7 +100,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Por fim, se você quiser adquirir tokens para um locatário Azure AD B2C, o poderá especificar seu locatário, conforme mostrado no seguinte trecho de código:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
@@ -134,7 +134,7 @@ Imagine um aplicativo de console do .NET Core que tenha o seguinte arquivo de co
 
 Você tem pouco código para ler esse arquivo usando a estrutura de configuração fornecida pelo .NET;
 
-```CSharp
+```csharp
 public class SampleConfiguration
 {
  /// <summary>
@@ -177,7 +177,7 @@ public class SampleConfiguration
 
 Agora, para criar seu aplicativo, você só precisará escrever o código a seguir:
 
-```CSharp
+```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .WithDefaultRedirectUri()

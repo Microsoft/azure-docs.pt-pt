@@ -1,17 +1,17 @@
 ---
-title: Visão geral da autenticação de Azure Active Directory sobre o SMB para arquivos do Azure – armazenamento do Azure
+title: Visão geral-Azure AD Domain Services autorização-arquivos do Azure
 description: Os arquivos do Azure oferecem suporte à autenticação baseada em identidade sobre SMB (protocolo de mensagens do servidor) por meio dos serviços de domínio do Azure Active Directory (AD do Azure). Suas VMs (máquinas virtuais) do Windows ingressadas no domínio podem acessar compartilhamentos de arquivos do Azure usando as credenciais do Azure AD.
 author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 93db726a2cac14109e542972ce851943b290962f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460300"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Visão geral do suporte à autenticação do Azure AD DS (serviço de domínio Azure Active Directory) de arquivos do Azure para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -32,7 +32,7 @@ Para saber como habilitar a autenticação de AD DS do Azure para arquivos do Az
 
 -   **Autenticação Kerberos**
 
-    O Kerberos é um protocolo de autenticação usado para verificar a identidade de um usuário ou host. Para obter mais informações sobre o Kerberos, consulte [visão geral da autenticação Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
+    O Kerberos é um protocolo de autenticação utilizado para confirmar a identidade de um utilizador ou o anfitrião. Para obter mais informações sobre o Kerberos, consulte [visão geral da autenticação Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
 -  **Protocolo SMB (Server Message Block)**  
     O SMB é um protocolo de compartilhamento de arquivos de rede padrão do setor. O SMB também é conhecido como sistema de arquivos da Internet comum ou CIFS. Para obter mais informações sobre o SMB, consulte [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
@@ -78,12 +78,12 @@ Um usuário que possua a chave da conta de armazenamento pode acessar os arquivo
 > Como parte das práticas recomendadas de segurança, evite compartilhar suas chaves de conta de armazenamento e aproveite as permissões do Azure AD sempre que possível.
 
 ### <a name="preserve-directory-and-file-acls-for-data-import-to-azure-file-shares"></a>Preservar ACLs de diretório e arquivo para importação de dados para compartilhamentos de arquivos do Azure
-Os arquivos do Azure agora dão suporte à preservação de ACLs de diretório ou arquivo quando você copia dados para compartilhamentos de arquivos do Azure. Você pode copiar as ACLs em um diretório ou arquivo para os arquivos do Azure. Por exemplo, você pode usar o [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) com `/copy:s` sinalizador para copiar dados e ACLs para um compartilhamento de arquivos do Azure. A preservação da ACL está ativada por padrão e você não precisa habilitar explicitamente o recurso de autenticação do serviço de domínio do Azure AD em sua conta de armazenamento. 
+Os arquivos do Azure agora dão suporte à preservação de ACLs de diretório ou arquivo quando você copia dados para compartilhamentos de arquivos do Azure. Você pode copiar as ACLs em um diretório ou arquivo para os arquivos do Azure. Por exemplo, você pode usar o [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) com sinalizador `/copy:s` para copiar dados e ACLs para um compartilhamento de arquivos do Azure. A preservação da ACL está ativada por padrão e você não precisa habilitar explicitamente o recurso de autenticação do serviço de domínio do Azure AD em sua conta de armazenamento. 
 
 ## <a name="pricing"></a>Preços
 Não há nenhum encargo de serviço adicional para habilitar a autenticação do Azure AD sobre SMB em sua conta de armazenamento. Para obter mais informações sobre preços, consulte [preços de arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/) e Azure AD Domain Services páginas de [preços](https://azure.microsoft.com/pricing/details/active-directory-ds/) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os arquivos do Azure e a autenticação do Azure AD sobre o SMB, consulte estes recursos:
 
 - [Introdução aos arquivos do Azure](storage-files-introduction.md)

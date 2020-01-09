@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423801"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Aplicativo móvel que chama as APIs da Web-configuração de código
 
@@ -77,7 +77,7 @@ O parágrafo a seguir explica como instanciar o aplicativo para aplicativos Xama
 
 No Xamarin, ou UWP, a maneira mais simples de instanciar o aplicativo é a seguinte, em que o `ClientId` é o GUID do seu aplicativo registrado.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,7 +88,7 @@ Há outros métodos de*parâmetro* que definem o pai da interface do usuário, s
 
 No Android, você precisa passar a atividade pai antes de fazer a autenticação interativa. No iOS, ao usar um agente, você precisa passar o ViewController. Da mesma forma no UWP, talvez você queira passar a janela pai. Isso é possível quando você adquire o token, mas também é possível especificar um retorno de chamada no momento da criação do aplicativo um delegado que retorna o UIParent.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
@@ -96,7 +96,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
 
 No Android, recomendamos que você use o `CurrentActivityPlugin` [aqui](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Em seguida, o código do construtor de `PublicClientApplication` ficaria assim:
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -135,7 +135,7 @@ Aqui estão as especificações do Xamarin Android:
 - [Garantindo que o controle volte para MSAL depois que a parte interativa do fluxo de autenticação for encerrada](msal-net-xamarin-android-considerations.md#ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends)
 - [Atualizar o manifesto do Android](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
 - [Usar a exibição da Web inserida (opcional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
-- [Resolução de problemas](msal-net-xamarin-android-considerations.md#troubleshooting)
+- [Resolução de Problemas](msal-net-xamarin-android-considerations.md#troubleshooting)
 
 Os detalhes são fornecidos em [Considerações sobre o Xamarin Android](msal-net-xamarin-android-considerations.md)
 
@@ -175,7 +175,7 @@ Siga as etapas abaixo para habilitar seu aplicativo Xamarin. iOS para conversar 
 
 O suporte do Broker é habilitado por`PublicClientApplication`. Ele é desabilitado por padrão. Você deve usar o parâmetro `WithBroker()` (definido como true por padrão) ao criar o `PublicClientApplication` por meio do `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -187,7 +187,7 @@ var app = PublicClientApplicationBuilder
 
 Quando o MSAL.NET chama o agente, o agente, por sua vez, retorna a chamada para seu aplicativo por meio do método `AppDelegate.OpenUrl`. Como o MSAL aguardará a resposta do agente, seu aplicativo precisará cooperar para chamar MSAL.NET de volta. Faça isso atualizando o arquivo de `AppDelegate.cs` para substituir o método abaixo.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -219,16 +219,16 @@ Faça o seguinte para definir a janela de objeto:
 **Por exemplo:**
 
 Em `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 Em `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 Na chamada de aquisição de token:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354822"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analisar dados em Azure Data Lake Storage Gen2 usando Power BI
 
@@ -27,7 +27,8 @@ Antes de começar este tutorial, tem de ter o seguinte:
 > * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento que tem um namespace hierárquico. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
 > Este artigo pressupõe que você criou uma conta chamada `myadlsg2`.
-> * Um arquivo de dados de `Drivers.txt` exemplo chamado localizado na sua conta de armazenamento.
+> * Você recebe uma das seguintes funções para a conta de armazenamento: **leitor de dados de blob**, colaborador de dados de **blob**ou proprietário de **dados de blob**.
+> * Um arquivo de dados de exemplo chamado `Drivers.txt` localizado em sua conta de armazenamento.
 > Você pode baixar esse exemplo de [Azure data Lake repositório git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)e, em seguida, carregar esse arquivo em sua conta de armazenamento.
 > * **Power bi desktop**. Você pode baixá-lo no [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=45331). 
 
@@ -39,7 +40,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
     ![Página obter dados](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. Na caixa de diálogo **Azure data Lake Storage Gen2** , você pode fornecer a URL para sua conta de Azure data Lake Storage Gen2, sistema de arquivos ou subpasta usando o formato de ponto de extremidade do contêiner. As URLs para data Lake Storage Gen2 têm o seguinte `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` padrão e, em seguida, clicam em **OK**.
+4. Na caixa de diálogo **Azure data Lake Storage Gen2** , você pode fornecer a URL para sua conta de Azure data Lake Storage Gen2, sistema de arquivos ou subpasta usando o formato de ponto de extremidade do contêiner. As URLs para Data Lake Storage Gen2 têm o seguinte padrão `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` e, em seguida, clicam em **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 
@@ -53,7 +54,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
 7. A próxima caixa de diálogo mostra todos os arquivos sob a URL fornecida na etapa 4 acima, incluindo o arquivo que você carregou em sua conta de armazenamento. Verifique as informações e clique em **carregar**.
 
-    ![Sistemas de arquivos](media/data-lake-storage-use-power-bi/file-systems.png)
+    ![Sistemas de ficheiros](media/data-lake-storage-use-power-bi/file-systems.png)
 
 8. Depois que os dados tiverem sido carregados com êxito no Power BI, você verá os campos a seguir na guia **campos** .
 
@@ -71,7 +72,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
 10. No **Editor de consultas**, na coluna **conteúdo** , clique em **binário**. O arquivo será detectado automaticamente como CSV e você deverá ver uma saída, conforme mostrado abaixo. Seus dados agora estão disponíveis em um formato que você pode usar para criar visualizações.
 
-    ![Output](media/data-lake-storage-use-power-bi/binary.png)
+    ![Saída](media/data-lake-storage-use-power-bi/binary.png)
 
 11. Na guia **início** da faixa de opções, clique em **fechar** e **aplicar**e, em seguida, clique em **fechar** e **aplicar**.
 

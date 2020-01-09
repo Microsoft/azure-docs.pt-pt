@@ -3,17 +3,17 @@ title: Monitorar a conectividade do dispositivo usando o Gerenciador de IoT Cent
 description: Monitore mensagens do dispositivo e observe as alterações do dispositivo com a CLI do IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434957"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>Monitorar a conectividade do dispositivo usando o CLI do Azure (recursos de visualização)
 
@@ -49,7 +49,7 @@ az extension update --name azure-cli-iot-ext
 
 As seções a seguir descrevem comandos e opções comuns que você pode usar ao executar o `az iot central`. Para exibir o conjunto completo de comandos e opções, passe `--help` para `az iot central` ou qualquer um de seus subcomandos.
 
-### <a name="login"></a>Iniciar sessão
+### <a name="login"></a>Início de Sessão
 
 Comece entrando no CLI do Azure. 
 

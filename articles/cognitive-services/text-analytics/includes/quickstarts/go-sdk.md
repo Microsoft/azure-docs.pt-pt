@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9b148e413bc7dc6af7eff064e5ff3ec6385cfef4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75d32cc038d3dbf0f06a844d35a3e626ffaa67f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446265"
 ---
 [Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code) do GitHub ( [código-fonte](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [do pacote) | de](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) biblioteca
 
@@ -82,7 +82,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 Esses trechos de código mostram como fazer o seguinte com a biblioteca de cliente Análise de Texto para Python:
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Análise de Sentimento](#sentiment-analysis)
+* [Análise de sentimentos](#sentiment-analysis)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade](#entity-recognition)
 * [Extração de frases-chave](#key-phrase-extraction)
@@ -90,13 +90,23 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 
-Em uma nova função, crie variáveis para a chave de assinatura e o ponto de extremidade do Azure do recurso. Obtenha esses valores das variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT`. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+Em uma nova função, crie variáveis para a chave de assinatura e o ponto de extremidade do Azure do recurso.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 Crie um novo objeto [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) . Passe sua chave para o [REST. A função NewCognitiveServicesAuthorizer ()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) , que será passada para a propriedade de `authorizer` do cliente.
 
-[!code-go[Client creation ](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=client)]
+```go
+func GetTextAnalyticsClient() textanalytics.BaseClient {
+    var key string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
+
+    textAnalyticsClient := textanalytics.New(endpoint)
+    textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(key)
+
+    return textAnalyticsClient
+}
+```
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
@@ -175,7 +185,7 @@ Document ID: 2
     Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
-## <a name="key-phrase-extraction"></a>Extração de expressões-chave
+## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
 Crie uma nova função chamada `ExtractKeyPhrases()` e crie um cliente usando o método `GetTextAnalyticsClient()` criado anteriormente. Crie uma lista de objetos [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) , contendo os documentos que você deseja analisar. Cada objeto conterá um `id`, `language`e um atributo `text`. O atributo `text` armazena o texto a ser analisado, `language` é o idioma do documento e o `id` pode ser qualquer valor.
 

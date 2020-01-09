@@ -1,17 +1,17 @@
 ---
-title: Configurar e ler logs ao usar o gatilho Azure Functions para Cosmos DB
+title: Configurar e ler logs com Azure Functions gatilho para Cosmos DB
 description: Saiba como expor os logs para o pipeline de log de Azure Functions ao usar o gatilho Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441835"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Como configurar e ler os logs ao usar o gatilho Azure Functions para Cosmos DB
 
@@ -25,7 +25,7 @@ Os logs de integridade descrevem como o gatilho de Azure Functions para Cosmos D
 
 ## <a name="enabling-logging"></a>Habilitando o log
 
-Para habilitar o log ao usar o gatilho de Azure Functions para Cosmos DB `host.json` , localize o arquivo em seu projeto de Azure Functions ou aplicativo de Azure Functions e [Configure o nível de registro em log necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Você precisa habilitar os rastreamentos para `Host.Triggers.CosmosDB` , conforme mostrado no exemplo a seguir:
+Para habilitar o registro em log ao usar o gatilho Azure Functions para Cosmos DB, localize o arquivo `host.json` em seu projeto Azure Functions ou Azure Functions aplicativo e [Configure o nível de registro em log necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Você precisa habilitar os rastreamentos para `Host.Triggers.CosmosDB`, conforme mostrado no exemplo a seguir:
 
 ```js
 {
@@ -43,7 +43,7 @@ Depois que a função do Azure for implantada com a configuração atualizada, v
 
 ## <a name="query-the-logs"></a>Consultar os logs
 
-Execute a consulta a seguir para consultar os logs gerados pelo gatilho Azure Functions para Cosmos DB na [análise do aplicativo Azure](../azure-monitor/app/analytics.md)insights:
+Execute a consulta a seguir para consultar os logs gerados pelo gatilho Azure Functions para Cosmos DB na [análise do aplicativo Azure insights](../azure-monitor/app/analytics.md):
 
 ```sql
 traces

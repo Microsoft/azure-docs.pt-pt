@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 7f5fdd625eb49bfcac0bd58bca7a8415ac877517
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 643d4b918dd8677e8ed02a7def383efa77e71fce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035999"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430297"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM do Linux
 
@@ -215,7 +215,7 @@ Nesses exemplos, você se conecta à instância do MongoDB localmente a partir d
 
 Esses exemplos implantam o ambiente do MongoDB principal para fins de desenvolvimento. Aplique as opções de configuração de segurança necessárias para seu ambiente. Para obter mais informações, consulte os [documentos de segurança do MongoDB](https://docs.mongodb.com/manual/security/).
 
-Para obter mais informações sobre como criar usando modelos, consulte a [visão geral de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Para obter mais informações sobre como criar usando modelos, consulte a [visão geral de Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 Os modelos de Azure Resource Manager usam a extensão de script personalizado para baixar e executar scripts em suas VMs. Para obter mais informações, consulte [usando a extensão de script personalizado do Azure com máquinas virtuais do Linux](extensions-customscript.md).
 

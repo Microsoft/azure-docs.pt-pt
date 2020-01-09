@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429781"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -57,9 +57,15 @@ O relatório de entradas do usuário fornece respostas para as seguintes pergunt
 * Quantos utilizadores iniciaram sessão ao longo de uma semana?
 * Qual é o estado destes inícios de sessão?
 
-Comece com [portal do Azure](https://portal.azure.com). Para acessar o relatório de entradas, selecione **entradas**, continue para o **monitoramento.** Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
+No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Atividade de entrada](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Atividade de início de sessão")
+![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Atividade de entrada](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de início de sessão")
+
+Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
 
 > [!IMPORTANT]
 > O relatório de entradas exibe apenas as entradas **interativas** , ou seja, entradas em que um usuário faz logon manualmente usando seu nome de usuários e senha. As entradas não interativas, como a autenticação serviço a serviço, não são exibidas no relatório de entradas. 
@@ -79,7 +85,7 @@ Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramen
 
 ![Atividade de entrada](./media/concept-sign-ins/19.png "Atividade de início de sessão")
 
-A caixa de diálogo **colunas** fornece acesso aos atributos selecionáveis. Em um relatório de entrada, você só pode ter atributos que não tenham uma relação um-para-muitos com outros atributos como coluna.
+A caixa de diálogo **colunas** fornece acesso aos atributos selecionáveis. Em um relatório de entrada, você não pode ter campos que tenham mais de um valor para uma determinada solicitação de entrada como coluna. Isso é, por exemplo, verdadeiro para detalhes de autenticação, dados de acesso condicional e local de rede.   
 
 ![Atividade de entrada](./media/concept-sign-ins/columns.png "Atividade de início de sessão")
 
@@ -166,7 +172,7 @@ O Azure AD e o portal do Azure fornecem pontos de entrada adicionais para os dad
 - Visão geral da proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações empresariais
+- Aplicações Empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Os usuários entram em dados na proteção de segurança de identidade
 

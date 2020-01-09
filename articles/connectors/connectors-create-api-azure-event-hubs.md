@@ -1,18 +1,18 @@
 ---
 title: Conectar-se aos hubs de eventos do Azure
-description: Gerenciar e monitorar eventos com hubs de eventos do Azure e aplicativos lógicos do Azure
+description: Criar tarefas e fluxos de trabalho automatizados que monitoram e gerenciam eventos usando os hubs de eventos do Azure e os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a0ba747fcc3015df961aa40de794071828d73a33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446173"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com hubs de eventos do Azure e aplicativos lógicos do Azure
 
@@ -33,7 +33,7 @@ Se você for novo em aplicativos lógicos, examine [o que é o início rápido e
 
 Para garantir que seu aplicativo lógico possa acessar seu hub de eventos, verifique suas permissões e obtenha a cadeia de conexão para seu namespace de hubs de eventos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Vá para seu *namespace*de hubs de eventos, não para um hub de eventos específico. 
 
@@ -76,7 +76,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome do hub de eventos** | Sim | O nome do hub de eventos que você deseja monitorar |
+   | **Nome do Hub de eventos** | Sim | O nome do hub de eventos que você deseja monitorar |
    | **Tipo de Conteúdo** | Não | O tipo de conteúdo do evento. A predefinição é `application/octet-stream`. |
    | **Nome do grupo de consumidores** | Não | O [nome do grupo de consumidores do hub de eventos](../event-hubs/event-hubs-features.md#consumer-groups) a ser usado para ler eventos. Se não for especificado, o grupo de consumidores padrão será usado. |
    | **Contagem máxima de eventos** | Não | O número máximo de eventos. O gatilho retorna entre um e o número de eventos especificados por essa propriedade. |
@@ -132,9 +132,9 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome do hub de eventos** | Sim | O Hub de eventos para o qual você deseja enviar o evento |
+   | **Nome do Hub de eventos** | Sim | O Hub de eventos para o qual você deseja enviar o evento |
    | **Conteúdo** | Não | O conteúdo do evento que você deseja enviar |
-   | **Properties** | Não | As propriedades e os valores do aplicativo a serem enviados |
+   | **Propriedades** | Não | As propriedades e os valores do aplicativo a serem enviados |
    | **Chave de partição** | Não | A ID da [partição](../event-hubs/event-hubs-features.md#partitions) para onde enviar o evento |
    ||||
 
@@ -155,7 +155,7 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da Ligação** | Sim | <*nome da conexão*> | O nome a ser criado para a conexão |
-   | **Namespace de hubs de eventos** | Sim | <o *namespace de hubs de eventos*> | Selecione o namespace de hubs de eventos que você deseja usar. |
+   | **Namespace de hubs de eventos** | Sim | <*event-hubs-namespace*> | Selecione o namespace de hubs de eventos que você deseja usar. |
    |||||  
 
    Por exemplo:

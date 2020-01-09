@@ -1,26 +1,16 @@
 ---
-title: Criar uma aplicação de contentor do Linux no Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo de contêiner do Linux em Service Fabric no Azure
 description: Neste início rápido, irá criar uma imagem do Docker com a sua aplicação, enviá-la para um registo de contentor e, em seguida, implementar o contentor para um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372691"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 
@@ -40,14 +30,14 @@ Para concluir este guia de início rápido:
 
 3. Instalar o [SDK e a CLI do Service Fabric](service-fabric-get-started-linux.md#installation-methods)
 
-4. Instalar o [git](https://git-scm.com/)
+4. Instalar o [Git](https://git-scm.com/)
 
 
 ## <a name="get-the-application-package"></a>Obter o pacote de aplicação
 
 Para implementar contentores no Service Fabric, precisa de um conjunto de ficheiros de manifesto (a definição da aplicação), que descrevem os contentores individuais e a aplicação.
 
-Em um console do, use o Git para clonar uma cópia da definição do aplicativo; em seguida, altere os `Voting` diretórios para o diretório em seu clone.
+Em um console do, use o Git para clonar uma cópia da definição do aplicativo; em seguida, altere os diretórios para o diretório `Voting` em seu clone.
 
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
@@ -189,11 +179,11 @@ az group delete --name $ResourceGroupName
 ```
 
 Se tiver terminado de trabalhar com o cluster, pode remover o certificado do arquivo de certificados. Por exemplo:
-- No Windows: Use o [snap-in do MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Certifique-se de que seleciona **A minha conta de utilizador** ao adicionar o snap-in. Navegue para `Certificates - Current User\Personal\Certificates` e remova o certificado.
-- No Mac: Use o aplicativo de conjunto de chaves.
-- No Ubuntu: Siga as etapas usadas para exibir certificados e remover o certificado.
+- No Windows: utilize o [Snap-in da MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Certifique-se de que seleciona **A minha conta de utilizador** ao adicionar o snap-in. Navegue para `Certificates - Current User\Personal\Certificates` e remova o certificado.
+- No Mac: utilize a aplicação Keychain.
+- No Ubuntu: siga os passos utilizados para ver os certificados e remova o certificado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, implementou uma aplicação de contentor do Linux num cluster do Service Fabric do Azure, efetuou a ativação pós-falha na aplicação e dimensionou a aplicação no cluster. Para saber mais sobre como trabalhar com contentores do Linux no Service Fabric, avance para o tutorial para aplicações de contentor do Linux.
 
