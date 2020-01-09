@@ -1,18 +1,18 @@
 ---
 title: Entenda o tratamento de tempo no Azure Stream Analytics
 description: Saiba como a manipulação de tempo funciona em Azure Stream Analytics, como escolher a melhor hora de início, como lidar com eventos atrasados e antigos e métricas de tratamento de tempo.
-author: jasonwhowell
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: ae53663f78b684d41c36607760e30db9e48a6434
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354654"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Entenda o tratamento de tempo no Azure Stream Analytics
 
@@ -171,7 +171,7 @@ As imagens a seguir ilustram como as marcas d' água são progredidas em diferen
 
 Esta tabela mostra os dados de exemplo que estão no gráfico abaixo. Observe que a hora do evento e a hora da chegada variam, às vezes, correspondendo e, às vezes, não.
 
-| Hora do evento | Hora de chegada | deviceId |
+| Hora do evento | Hora de chegada | DeviceId |
 | --- | --- | --- |
 | 12:07 | 12:07 | device1
 | 12:08 | 12:08 | device2

@@ -3,23 +3,23 @@ title: Usar o Visual Studio e o Visual Studio Code para criar dispositivos de vi
 description: Use o Visual Studio e Visual Studio Code para acelerar a criação de modelos de dispositivos IoT Plug and Play e implementar o código do dispositivo.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748032"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531331"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Usar o Visual Studio e Visual Studio Code para criar dispositivos de Plug and Play IoT
 
 As ferramentas do Azure IoT para Visual Studio Code fornecem um ambiente integrado para criar modelos de recursos de dispositivo (DCM) e interfaces, publicar em repositórios de modelo e gerar código de esqueleto C para implementar o aplicativo do dispositivo.
 
-Este artigo mostra como:
+Este artigo mostra-lhe como:
 
 - Gere o código do dispositivo e o projeto do aplicativo.
 - Use o código gerado em seu projeto de dispositivo.
@@ -29,7 +29,7 @@ Para saber mais sobre como usar o VS Code para desenvolver dispositivos IoT, con
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale o [Visual Studio Code](https://code.visualstudio.com/).
+Instalar o [Visual Studio Code](https://code.visualstudio.com/).
 
 Use as etapas a seguir para instalar o pacote de extensão no VS Code.
 
@@ -150,13 +150,13 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg usand
 
 ### <a name="windows"></a>Windows
 
-Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows usando o CMake e os compiladores C/C++ do Visual Studio na linha de comando, consulte o [início rápido do IOT plug and Play](./quickstart-create-pnp-device.md). As etapas a seguir mostram como criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg como projeto CMake no Visual Studio.
+Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows usando o CMake e os compiladores C/C++ do Visual Studio na linha de comando, consulte o [início rápido do IOT plug and Play](./quickstart-create-pnp-device-windows.md). As etapas a seguir mostram como criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg como projeto CMake no Visual Studio.
 
-1. Siga as etapas no guia de [início rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) para instalar o SDK do dispositivo IOT do Azure para C via Vcpkg.
+1. Siga as etapas no guia de [início rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) para instalar o SDK do dispositivo IOT do Azure para C via Vcpkg.
 
 1. Instalar o [Visual Studio 2019 (Comunidade, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – certifique-se de incluir o componente **Gerenciador de pacotes NuGet** e o desenvolvimento de **desktop com C++**  carga de trabalho.
 
-1. Abra o Visual Studio, escolha **arquivo > abrir > CMake..** para abrir o `CMakeLists.txt` na pasta contém o código gerado.
+1. Abra o Visual Studio, escolha **arquivo > abrir > CMake...** para abrir o `CMakeLists.txt` na pasta contém o código gerado.
 
 1. Na barra de ferramentas **geral** , localize o menu suspenso **configurações** . Selecione **gerenciar configuração** para adicionar a configuração CMake para seu projeto.
 

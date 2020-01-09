@@ -1,5 +1,5 @@
 ---
-title: Obter um token em aplicativos de página única-plataforma Microsoft Identity | Azure
+title: Adquirir um token para chamar uma API Web (aplicativos de página única)-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de página única (adquirir um token para chamar uma API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9723e9a58704a583c7332db11bae7da6b045a5f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17c11b8cb4c1d7f4eef22903b81f38d93b54b41b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423682"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: adquirir um token para chamar uma API
 
@@ -43,7 +43,7 @@ Você pode definir os escopos de API que deseja que o token de acesso inclua ao 
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquirir um token com uma janela pop-up
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 O código a seguir combina o padrão descrito anteriormente com os métodos para uma experiência de pop-up:
 
@@ -114,7 +114,7 @@ Como alternativa, você pode adquirir tokens explicitamente usando os métodos d
 
 ## <a name="acquire-a-token-with-a-redirect"></a>Adquirir um token com um redirecionamento
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 O padrão a seguir é conforme descrito anteriormente, mas mostrado com um método de redirecionamento para adquirir tokens interativamente. Você precisará registrar o retorno de chamada de redirecionamento, conforme mencionado anteriormente.
 
@@ -151,7 +151,7 @@ Você pode usar declarações opcionais para as seguintes finalidades:
 
 Para solicitar declarações opcionais em `IdToken`, você pode enviar um objeto de declarações em cadeias para o campo `claimsRequest` da classe `AuthenticationParameters.ts`.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 ```javascript
 "optionalClaims":  
    {

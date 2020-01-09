@@ -1,26 +1,17 @@
 ---
-title: Tutorial – Implementar uma aplicação no Azure Service Fabric Mesh | Microsoft Docs
+title: Tutorial – implantar um aplicativo na malha de Service Fabric do Azure
 description: Neste tutorial, saiba como implementar uma aplicação no Service Fabric Mesh com um modelo.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306940"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494933"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -53,13 +44,13 @@ Antes de começar este tutorial:
 
 * [Instale a CLI do Azure e a CLI do Service Fabric Mesh localmente](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
 
 As imagens de contentor associadas aos serviços na sua aplicação Service Fabric Mesh têm de ser armazenadas num registo de contentor.  Este tutorial utiliza uma instância privada do Azure Container Registry (ACR). 
 
 Utilize os seguintes passos para criar uma instância do ACR.  Se já tiver uma configuração de uma instância do ACR, pode avançar.
 
-### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Azure e defina a subscrição ativa.
 
@@ -109,7 +100,7 @@ Quando o registo é criado, o resultado é semelhante ao seguinte:
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Enviar as imagens para o Azure Container Registry
 
-Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  O contentor de imagens para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontrados no Hub do Docker. Ver [criar uma aplicação de web Service Fabric em malha](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como criar a aplicação no Visual Studio. O Service Fabric Mesh pode executar contentores do Docker do Windows ou Linux.  Se estiver a trabalhar com contentores do Linux, selecione **Mudar para contentores do Linux** no Docker.  Se estiver a trabalhar com contentores do Windows, selecione **Mudar para contentores do Windows** no Docker.
+Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  O contentor de imagens para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontrados no Hub do Docker. Consulte [criar um aplicativo Web de malha Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como criar o aplicativo no Visual Studio. O Service Fabric Mesh pode executar contentores do Docker do Windows ou Linux.  Se estiver a trabalhar com contentores do Linux, selecione **Mudar para contentores do Linux** no Docker.  Se estiver a trabalhar com contentores do Windows, selecione **Mudar para contentores do Windows** no Docker.
 
 Para enviar uma imagem para uma instância do ACR, primeiro tem de ter uma imagem de contentor. Se ainda não tiver quaisquer imagens de contentor locais, utilize o comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extrair as imagens do [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) do Hub do Docker.
 
@@ -139,7 +130,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Inicie sessão no Azure Container Registry.
+Entre no registro de contêiner do Azure.
 
 ```azurecli
 az acr login -n myContainerRegistry
@@ -264,7 +255,7 @@ Os serviços são especificados no modelo como propriedades do recurso de aplica
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -345,9 +336,9 @@ Crie a aplicação e os recursos relacionados com o seguinte comando e indique a
 
 No ficheiro de parâmetros, atualize os valores dos parâmetros seguintes:
 
-|Parâmetro|Value|
+|Parâmetro|Valor|
 |---|---|
-|location|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
+|localização|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
 |registryPassword|A palavra-passe que obteve anteriormente em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry). Este parâmetro no modelo é uma cadeia segura e não será apresentado no estado de implementação nem nos comandos `az mesh service show`.|
 |registryUserName|O nome de utilizador que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|
 |registryServer|O nome do servidor do registo que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|
@@ -405,7 +396,7 @@ Examine os registos da aplicação implementada com o comando `az mesh code-pack
 az mesh code-package-log get --resource-group myResourceGroup --application-name todolistapp --service-name WebFrontEnd --replica-name 0 --code-package-name WebFrontEnd
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

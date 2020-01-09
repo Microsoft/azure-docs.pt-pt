@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424975"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no Azure Active Directory acesso condicional?
 
@@ -51,7 +51,7 @@ Com os controles de concessão, você pode bloquear o acesso completamente ou pe
 
 ![Controlo](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticação multifator
 
 Você pode usar esse controle para exigir a autenticação multifator para acessar o aplicativo de nuvem especificado. Esse controle dá suporte aos seguintes provedores multifator:
 
@@ -76,7 +76,7 @@ Para obter mais informações, consulte [como exigir dispositivos gerenciados pa
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo ingressado no Azure AD híbrido
 
-Exigir um dispositivo ingressado no Azure AD híbrido é outra opção que você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a áreas de trabalho do Windows, laptops e tablets corporativos que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram em seu Active Directory local e seu Azure Active Directory.  
+Exigir um dispositivo ingressado no Azure AD híbrido é outra opção que você precisa configurar políticas de acesso condicional com base no dispositivo. Esse requisito se refere a áreas de trabalho do Windows, laptops e tablets corporativos que ingressaram em um Active Directory local. Se essa opção for selecionada, sua política de acesso condicional concederá acesso a tentativas de acesso feitas com dispositivos que ingressaram em seu Active Directory local e seu Azure Active Directory. Os dispositivos Mac não dão suporte à junção híbrida do Azure AD.
 
 Para obter mais informações, consulte [configurar Azure Active Directory políticas de acesso condicional com base no dispositivo](require-managed-devices.md).
 
@@ -114,7 +114,7 @@ Os provedores que atualmente oferecem um serviço compatível incluem:
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Identidade de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [VIP da Symantec](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: 0e826442c816f83c875b907bbf3054793ebb382a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358280"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerenciar uma máquina virtual do Windows que tenha várias NICs
 As VMs (máquinas virtuais) no Azure podem ter várias NICs (placas de interface de rede) virtuais conectadas a elas. Um cenário comum é ter diferentes sub-redes para conectividade de front-end e back-end. Você pode associar várias NICs em uma VM a várias sub-redes, mas essas sub-redes devem residir na mesma rede virtual (vNet). Este artigo fornece detalhes sobre como criar uma VM que tenha várias NICs anexadas a ela. Você também aprenderá a adicionar ou remover NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, portanto, dimensione sua VM adequadamente.
@@ -218,7 +218,7 @@ Para remover uma NIC virtual de uma VM existente, Desaloque a VM, remova a NIC v
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>Criar várias NICs com modelos
-Os modelos de Azure Resource Manager fornecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Os modelos do Resource Manager usam arquivos JSON declarativos para definir seu ambiente. Para obter mais informações, consulte [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Você pode usar *copiar* para especificar o número de instâncias a serem criadas:
+Os modelos de Azure Resource Manager fornecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Os modelos do Resource Manager usam arquivos JSON declarativos para definir seu ambiente. Para obter mais informações, consulte [visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md). Você pode usar *copiar* para especificar o número de instâncias a serem criadas:
 
 ```json
 "copy": {

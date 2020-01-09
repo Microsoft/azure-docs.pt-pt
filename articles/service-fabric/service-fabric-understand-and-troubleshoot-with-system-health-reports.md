@@ -1,93 +1,84 @@
 ---
-title: Resolver problemas com relatórios de estado de funcionamento do sistema | Documentos da Microsoft
-description: Descreve os relatórios de estado de funcionamento enviados por componentes do Azure Service Fabric e seu uso para resolução de problemas de cluster ou problemas de aplicativos
-services: service-fabric
-documentationcenter: .net
+title: Resolução de problemas com relatórios de estado de funcionamento do sistema
+description: Descreve os relatórios de integridade enviados pelos componentes de Service Fabric do Azure e seu uso para solucionar problemas de cluster ou de aplicativo
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370380"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
-Componentes do Service Fabric do Azure fornecem reporta o estado de funcionamento do sistema de todas as entidades no cluster prontos a utilizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) cria e elimina as entidades com base em relatórios do sistema. Ele também organiza numa hierarquia que captura as interações de entidade.
+Os componentes do Service Fabric do Azure fornecem relatórios de integridade do sistema em todas as entidades no cluster imediatamente. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades com base nos relatórios do sistema. Ele também as organiza em uma hierarquia que captura interações de entidade.
 
 > [!NOTE]
-> Para compreender conceitos relacionados com o estado de funcionamento, leia mais sobre [modelo de estado de funcionamento do Service Fabric](service-fabric-health-introduction.md).
+> Para entender os conceitos relacionados à integridade, leia mais em [Service Fabric modelo de integridade](service-fabric-health-introduction.md).
 > 
 > 
 
-Relatórios de estado de funcionamento do sistema proporcionam visibilidade para o cluster e funcionalidade do aplicativo e problemas de sinalizador. Para aplicações e serviços, relatórios de estado de funcionamento do sistema Certifique-se de que as entidades são implementadas e se comportam corretamente a partir da perspetiva do Service Fabric. Os relatórios não fornecem qualquer monitorização de estado de funcionamento de lógica de negócios do serviço ou a deteção de processos que não estão a responder. Serviços de utilizador podem enriquecer os dados de estado de funcionamento com informações específicas para sua lógica.
+Os relatórios de integridade do sistema fornecem visibilidade da funcionalidade do cluster e do aplicativo e sinalizam problemas. Para aplicativos e serviços, os relatórios de integridade do sistema verificam se as entidades estão implementadas e se comportando corretamente da perspectiva Service Fabric. Os relatórios não fornecem nenhum monitoramento de integridade da lógica de negócios do serviço ou detecção de processos que não estão respondendo. Os serviços de usuário podem enriquecer os dados de integridade com informações específicas para sua lógica.
 
 > [!NOTE]
-> Relatórios de estado de funcionamento enviados por watchdogs de utilizador são visíveis apenas *depois de* os componentes de sistema criar uma entidade. Quando uma entidade é eliminada, o arquivo de estado de funcionamento exclui automaticamente todos os relatórios de estado de funcionamento associados ao mesmo. O mesmo acontece quando é criada uma nova instância da entidade. Um exemplo é quando é criada uma nova instância da réplica de serviço persistidas com monitoração de estado. Todos os relatórios associados à instância antiga são eliminados e removidos da loja.
+> Os relatórios de integridade enviados pelos Watchdogs do usuário são visíveis somente *depois* que os componentes do sistema criam uma entidade. Quando uma entidade é excluída, o repositório de integridade exclui automaticamente todos os relatórios de integridade associados a ele. O mesmo é verdadeiro quando uma nova instância da entidade é criada. Um exemplo é quando uma nova instância de réplica de serviço persistente com estado é criada. Todos os relatórios associados à instância antiga são excluídos e limpos da loja.
 > 
 > 
 
-O componente do sistema relatórios são identificados pela origem, que começa com a "**System.** " prefixo. Watchdogs não é possível utilizar o mesmo prefixo para suas origens, como relatórios com parâmetros inválidos são rejeitados.
+Os relatórios do componente do sistema são identificados pela origem, que começa com o "**sistema".** . Os Watchdogs não podem usar o mesmo prefixo para suas origens, pois os relatórios com parâmetros inválidos são rejeitados.
 
-Vamos examinar alguns relatórios de sistema para compreender o que aciona-los e para saber como corrigir os problemas potenciais que elas representam.
+Vamos examinar alguns relatórios do sistema para entender o que os dispara e saber como corrigir os possíveis problemas que eles representam.
 
 > [!NOTE]
-> Service Fabric continua a adicionar relatórios em condições de interesse que aumentar a visibilidade, o que acontece no cluster e as aplicações. Os relatórios existentes podem ser aprimorados com mais detalhes para ajudar a resolver o problema mais rapidamente.
+> Service Fabric continua a adicionar relatórios sobre condições de interesse que melhoram a visibilidade do que está acontecendo no cluster e nos aplicativos. Os relatórios existentes podem ser aprimorados com mais detalhes para ajudar a solucionar o problema mais rapidamente.
 > 
 > 
 
-## <a name="cluster-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de cluster
-A entidade de estado de funcionamento do cluster é criada automaticamente no arquivo de estado de funcionamento. Se tudo funcionar adequadamente, ele não tem um relatório do sistema.
+## <a name="cluster-system-health-reports"></a>Relatórios de integridade do sistema de cluster
+A entidade de integridade do cluster é criada automaticamente no repositório de integridade. Se tudo funcionar corretamente, ele não terá um relatório do sistema.
 
-### <a name="neighborhood-loss"></a>Perda de proximidade
-**System.Federation** relata um erro quando Deteta uma perda de proximidade. O relatório é nós individuais e o ID de nó que está incluído no nome da propriedade. Se uma vizinhança é perdida no anel de Service Fabric todo, normalmente, pode esperar dois eventos que representam os dois lados do relatório lacuna. Se perdem-se mais vizinhanças, existem mais eventos.
+### <a name="neighborhood-loss"></a>Perda de vizinhança
+**System. Federation** relata um erro ao detectar uma perda de vizinhança. O relatório é de nós individuais e a ID do nó é incluída no nome da propriedade. Se uma vizinhança for perdida em todo o Service Fabric anel, você normalmente pode esperar dois eventos que representam os dois lados do relatório de lacunas. Se mais vizinhanças forem perdidos, haverá mais eventos.
 
-O relatório Especifica o tempo limite global concessão como o time-to-live (TTL). O relatório é reenviado a duração do TTL para a cada meia, desde que a condição permanece ativa. O evento é removido automaticamente quando este expirar. Expirou em remove-quando o comportamento garante que o relatório é limpo do arquivo de estado de funcionamento corretamente, mesmo que o nó de geração de relatórios está inativo.
+O relatório especifica o tempo limite de concessão global como tempo de vida (TTL). O relatório é reenviado a cada metade da duração da TTL, desde que a condição permaneça ativa. O evento é removido automaticamente quando expira. O comportamento de remover quando expirado garante que o relatório seja limpo do repositório de integridade corretamente, mesmo que o nó de relatório esteja inoperante.
 
-* **SourceId**: System.Federation
-* **Propriedade**: Começa com **Vizinhança** e inclui informações do nó.
-* **Próximos passos**: Investigar por que toda a Vizinhança é perdida. Por exemplo, verificar a comunicação entre nós de cluster.
+* **SourceID**: System. Federation
+* **Propriedade**: começa com **ambiente** e inclui informações de nó.
+* **Próximas etapas**: investigue por que a vizinhança foi perdida. Por exemplo, verifique a comunicação entre os nós de cluster.
 
 ### <a name="rebuild"></a>Reconstruir
 
-O serviço de Gestor de ativação pós-falha (FM) gere informações sobre os nós do cluster. Quando FM perde os seus dados e entra em perda de dados, não pode garantir que tem as informações mais atualizadas sobre os nós do cluster. Neste caso, o sistema passa através de uma reconstrução e System.FM reúne dados de todos os nós do cluster para recriar o seu estado. Às vezes, devido a problemas de nó ou de sistema de rede, recompilação pode obter preso ou parada. O mesmo pode acontecer com o serviço de mestre de Gestor de ativação pós-falha (FMM). O FMM é um serviço de sistema sem monitoração de estado que controla onde todos os FMs estão no cluster. Principal de FMM está sempre o nó com o ID mais próximo de 0. Se esse nó é removido, é acionada uma reconstrução.
-Quando uma das condições anteriores acontece, **System.FM** ou **System.FMM** sinaliza-lo por meio de um relatório de erros. A recriação de poderão estar bloqueada em uma de duas fases:
+O serviço de Gerenciador de Failover (FM) gerencia informações sobre os nós de cluster. Quando a FM perde seus dados e entra em perda de dados, ela não pode garantir que ele tenha as informações mais atualizadas sobre os nós de cluster. Nesse caso, o sistema passa por uma recompilação e o System.FM coleta dados de todos os nós no cluster para recompilar seu estado. Às vezes, devido a problemas de rede ou nó, a recompilação pode ficar presa ou paralisada. O mesmo pode ocorrer com o serviço de Gerenciador de Failover mestre (FMM). O FMM é um serviço de sistema sem estado que controla onde todos os FMs estão no cluster. O primário do FMM é sempre o nó com a ID mais próxima de 0. Se esse nó for descartado, uma recompilação será disparada.
+Quando uma das condições anteriores acontece, **System.FM** ou **System. FMM** os sinaliza por meio de um relatório de erro. A recompilação pode estar presa em uma das duas fases:
 
-* **A aguardar para difusão**: FM/FMM aguarda a resposta de mensagem de difusão de outros nós.
+* **Aguardando difusão**: FM/FMM aguarda a resposta da mensagem de difusão dos outros nós.
 
-  * **Próximos passos**: Investigar se há um problema de ligação de rede entre os nós.
-* **A aguardar por nós**: FM/FMM já recebeu uma resposta de difusão de outros nós e está a aguardar uma resposta de nós específicos. O relatório de estado de funcionamento indica os nós para os quais o FM/FMM está a aguardar uma resposta.
-   * **Próximos passos**: Investigue a ligação de rede entre o FM/FMM e os nós listados. Investigue cada nó listada para outros problemas possíveis.
+  * **Próximas etapas**: investigue se há um problema de conexão de rede entre os nós.
+* **Aguardando nós**: FM/FMM já recebeu uma resposta de difusão dos outros nós e está aguardando uma resposta de nós específicos. O relatório de integridade lista os nós para os quais o FM/FMM está aguardando uma resposta.
+   * **Próximas etapas**: investigue a conexão de rede entre o FM/FMM e os nós listados. Investigue cada nó listado para outros possíveis problemas.
 
-* **SourceID**: System.FM ou System.FMM
-* **Propriedade**: Reconstrução.
-* **Próximos passos**: Investigue a ligação de rede entre os nós, bem como o estado de quaisquer nós específicos que estão listados na descrição do relatório de estado de funcionamento.
+* **SourceID**: System.FM ou System. FMM
+* **Propriedade**: recompilar.
+* **Próximas etapas**: investigue a conexão de rede entre os nós, bem como o estado de quaisquer nós específicos listados na descrição do relatório de integridade.
 
-### <a name="seed-node-status"></a>Estado do nó seed
-**System.FM** produz um aviso de nível de cluster se alguns nós de semente estão danificados. Nós de semente são os nós que manter a disponibilidade do cluster subjacente. Estes nós ajudam a garantir que o cluster permanecer cópia de segurança, estabelecendo concessões com outros nós e atuando como tiebreakers durante determinados tipos de falhas de rede. Se a maioria de nós de semente estão indisponíveis no cluster e não são encaminhados back, o cluster é automaticamente desligado. 
+### <a name="seed-node-status"></a>Status do nó de semente
+O **System.FM** relatará um aviso de nível de cluster se alguns nós de propagação não estiverem íntegros. Os nós de semente são os nós que mantêm a disponibilidade do cluster subjacente. Esses nós ajudam a garantir que o cluster permaneça ativo estabelecendo concessões com outros nós e servindo como desempates durante determinados tipos de falhas de rede. Se a maioria dos nós de semente estiver inoperante no cluster e eles não forem trazidos de volta, o cluster será desligado automaticamente. 
 
-Um nó de semente é mau estado de funcionamento se o respetivo estado de nó é baixo, foi removido ou desconhecido.
-O relatório de aviso para o estado do nó seed listará todos os nós de semente mau estado de funcionamento com informações detalhadas.
+Um nó de semente não estará íntegro se o status do nó for inoperante, removido ou desconhecido.
+O relatório de aviso para o status do nó de semente listará todos os nós de semente não íntegros com informações detalhadas.
 
 * **SourceID**: System.FM
 * **Propriedade**: SeedNodeStatus
-* **Próximos passos**: Se este aviso se mostra no cluster, siga instruções para corrigi-lo abaixo: Para o cluster com o Service Fabric versão 6.5 ou superior: Para o cluster do Service Fabric no Azure, depois do nó seed ficar inativo, Service Fabric irá tentar altere-o automaticamente para um nó não seed. Para que isso aconteça, certifique-se de que o número de nós não seed no tipo de nó primário é maior ou igual ao número de para baixo de nós de semente. Se necessário, adicione mais nós para o tipo de nó primário para atingir esse objetivo.
-Consoante o estado de cluster, pode demorar algum tempo para corrigir o problema. Depois de o fazer, o relatório de aviso é automaticamente eliminado.
+* **Próximas etapas**: se este aviso aparecer no cluster, siga as instruções abaixo para corrigi-lo: para cluster em execução Service Fabric versão 6,5 ou superior: para Service Fabric cluster no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós que não são de semente no tipo de nó primário é maior ou igual ao número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso.
+Dependendo do status do cluster, pode levar algum tempo para corrigir o problema. Quando isso for feito, o relatório de aviso será limpo automaticamente.
 
-Para cluster autónomo do Service Fabric, para limpar o relatório de aviso, todos os nós de seed tem de se tornar íntegros. Dependendo do motivo pelo qual nós de semente estão danificados, diferentes ações precisam ser levadas: se o nó seed for baixo, a necessidade dos utilizadores para abrir esse nó seed; Se o nó seed for foi removido ou desconhecido, este nó seed [tem de ser removido do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
-O relatório de aviso é automaticamente eliminado quando todos os nós de semente se tornar íntegros.
+Para Service Fabric cluster autônomo, para limpar o relatório de aviso, todos os nós de semente precisam se tornar íntegros. Dependendo de por que os nós de semente não estão íntegros, ações diferentes precisam ser tomadas: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; Se o nó de semente for removido ou desconhecido, esse nó semente [precisará ser removido do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+O relatório de aviso é limpo automaticamente quando todos os nós de propagação se tornam íntegros.
 
-Para o cluster a executar a versão do Service Fabric com mais de 6.5: Neste caso, o relatório de aviso necessita de ser eliminado manualmente. **Os utilizadores devem certificar-se de que todos os nós de semente se tornar íntegros antes de apagar o relatório**: se o nó seed estiver desativado, os utilizadores precisam abrir esse nó seed; se o nó seed foi removido ou desconhecido, esse nó seed tem de ser removida do cluster.
-Depois de todos os nós de semente se tornar íntegros, utilize o seguinte comando do Powershell para [limpar o relatório de aviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Para o cluster que executa a versão Service Fabric mais antiga que 6,5: nesse caso, o relatório de aviso precisa ser limpo manualmente. **Os usuários devem garantir que todos os nós de semente se tornem íntegros antes de limpar o relatório**: se o nó semente estiver inativo, os usuários precisarão trazer esse nó de semente para cima; se o nó semente for removido ou desconhecido, esse nó semente precisará ser removido do cluster.
+Depois que todos os nós de semente se tornarem íntegros, use o comando a seguir do PowerShell para [limpar o relatório de aviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
@@ -125,37 +116,37 @@ HealthEvents          :
 
 
 ### <a name="certificate-expiration"></a>Expiração do certificado
-**System.FabricNode** produz um aviso quando os certificados utilizados pelo nó de estão prestes a expirar. Existem três certificados por nó: **Certificate_cluster**, **Certificate_server**, e **Certificate_default_client**. Quando a expiração é, pelo menos, duas semanas de distância, o estado de funcionamento do relatório está OK. Quando a expiração é em duas semanas, o tipo de relatório é um aviso. TTL desses eventos é infinita e removidas quando um nó deixa o cluster.
+**System. FabricNode** relata um aviso quando os certificados usados pelo nó estão prestes a expirar. Há três certificados por nó: **Certificate_cluster**, **Certificate_server**e **Certificate_default_client**. Quando a expiração tiver pelo menos duas semanas de distância, o estado de integridade do relatório será OK. Quando a expiração estiver dentro de duas semanas, o tipo de relatório será um aviso. O TTL desses eventos é infinito e eles são removidos quando um nó sai do cluster.
 
-* **SourceId**: System.FabricNode
-* **Propriedade**: Começa com **certificado** e contém mais informações sobre o tipo de certificado.
-* **Próximos passos**: Atualize os certificados se eles estiverem prestes a expirar.
+* **SourceID**: System. FabricNode
+* **Propriedade**: começa com **certificado** e contém mais informações sobre o tipo de certificado.
+* **Próximas etapas**: atualize os certificados se eles estiverem próximos da expiração.
 
 ### <a name="load-capacity-violation"></a>Violação de capacidade de carga
-O Balanceador de carga do Service Fabric produz um aviso quando Deteta uma violação de capacidade do nó.
+O Service Fabric Load Balancer relata um aviso quando detecta uma violação de capacidade de nó.
 
-* **SourceId**: System.PLB
-* **Propriedade**: Começa com **capacidade**.
-* **Próximos passos**: Verifique as métricas fornecidas e ver a capacidade atual no nó.
+* **SourceID**: System. PLB
+* **Propriedade**: começa com a **capacidade**.
+* **Próximas etapas**: Verifique as métricas fornecidas e exiba a capacidade atual no nó.
 
-### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Erro de correspondência de capacidade de nó de métricas de governação de recursos
-System.Hosting comunica um aviso se definido as capacidades de nós no manifesto do cluster são maiores do que as capacidades reais de nós para métricas de governação de recursos (memória e núcleos de CPU). Um relatório de estado de funcionamento é apresentado quando o primeiro pacote de serviço que utiliza [governação de recursos](service-fabric-resource-governance.md) registra num nó especificado.
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Incompatibilidade de capacidade de nó para métricas de governança de recursos
+System. Hosting relatará um aviso se as capacidades de nó definidas no manifesto do cluster forem maiores do que as capacidades de nó real para métricas de governança de recursos (núcleos de CPU e memória). Um relatório de integridade é exibido quando o primeiro pacote de serviço que usa a [governança de recursos](service-fabric-resource-governance.md) é registrado em um nó especificado.
 
-* **SourceId**: System.Hosting
+* **SourceID**: sistema. Hosting
 * **Propriedade**: **ResourceGovernance**.
-* **Próximos passos**: Este problema pode ser um problema porque governação pacotes de serviço não são impostas conforme esperado e [governação de recursos](service-fabric-resource-governance.md) não funciona corretamente. Atualizar manifesto do cluster com as capacidades de nó corretos para estas métricas, ou não especificá-los e permitir que o Service Fabric detetar automaticamente recursos disponíveis.
+* **Próximas etapas**: esse problema pode ser um problema porque o controle de pacotes de serviço não é imposto conforme o esperado e a [governança de recursos](service-fabric-resource-governance.md) não funciona corretamente. Atualize o manifesto do cluster com as capacidades de nó corretas para essas métricas ou não especifique-as e permita que Service Fabric detectar automaticamente os recursos disponíveis.
 
-## <a name="application-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de aplicação
-System.CM, que representa o serviço de Gestor de clusters, é a autoridade que gere informações sobre uma aplicação.
+## <a name="application-system-health-reports"></a>Relatórios de integridade do sistema de aplicativos
+System.CM, que representa o serviço Gerenciador de cluster, é a autoridade que gerencia informações sobre um aplicativo.
 
 ### <a name="state"></a>Estado
-System.CM relatórios como OK quando a aplicação foi criada ou atualizada. Ele informa o arquivo de estado de funcionamento quando a aplicação for eliminada, de modo a que pode ser removido da loja.
+System.CM relata como OK quando o aplicativo foi criado ou atualizado. Ele informa o repositório de integridade quando o aplicativo é excluído para que ele possa ser removido do repositório.
 
-* **SourceId**: System.CM
-* **Propriedade**: Estado.
-* **Próximos passos**: Se a aplicação foi criada ou atualizada, deve incluir o relatório de estado de funcionamento do Gestor de clusters. Caso contrário, verifique o estado da aplicação através da emissão de uma consulta. Por exemplo, utilize o cmdlet do PowerShell **Get ServiceFabricApplication - ApplicationName** *applicationName*.
+* **SourceID**: System.cm
+* **Propriedade**: estado.
+* **Próximas etapas**: se o aplicativo tiver sido criado ou atualizado, ele deverá incluir o relatório de integridade do Gerenciador de cluster. Caso contrário, verifique o estado do aplicativo emitindo uma consulta. Por exemplo, use o cmdlet do PowerShell **Get-ServiceFabricApplication-ApplicationName** *ApplicationName*.
 
-O exemplo seguinte mostra o evento de estado sobre o **fabric: / WordCount** aplicação:
+O exemplo a seguir mostra o evento de estado no aplicativo **Fabric:/WordCount** :
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -178,16 +169,16 @@ HealthEvents                    :
                                   Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="service-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de serviço
-System.FM, que representa o serviço do Gestor de ativação pós-falha, é a autoridade que gere informações sobre os serviços.
+## <a name="service-system-health-reports"></a>Relatórios de integridade do sistema de serviço
+System.FM, que representa o serviço Gerenciador de Failover, é a autoridade que gerencia informações sobre serviços.
 
 ### <a name="state"></a>Estado
-System.FM relatórios como OK quando o serviço tiver sido criado. Elimina a entidade do arquivo de estado de funcionamento quando o serviço for eliminado.
+System.FM relata como OK quando o serviço foi criado. Ele exclui a entidade do repositório de integridade quando o serviço é excluído.
 
-* **SourceId**: System.FM
-* **Propriedade**: Estado.
+* **SourceID**: System.FM
+* **Propriedade**: estado.
 
-O exemplo seguinte mostra o evento de estado do serviço **fabric: / WordCount/WordCountWebService**:
+O exemplo a seguir mostra o evento de estado no Service **Fabric:/WordCount/WordCountWebService**:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
@@ -213,36 +204,36 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="service-correlation-error"></a>Erro de serviço de correlação
-**System** relata um erro quando Deteta que um serviço de atualização está correlacionado com outro serviço que cria uma cadeia de afinidade. O relatório será eliminado quando ocorre uma atualização efetuada com êxito.
+### <a name="service-correlation-error"></a>Erro de correlação de serviço
+**System. PLB** relata um erro ao detectar que a atualização de um serviço está correlacionada a outro serviço que cria uma cadeia de afinidade. O relatório é limpo quando ocorre uma atualização bem-sucedida.
 
-* **SourceId**: System.PLB
+* **SourceID**: System. PLB
 * **Propriedade**: **ServiceDescription**.
-* **Próximos passos**: Consulte as descrições de serviço correlacionados.
+* **Próximas etapas**: Verifique as descrições de serviço correlacionadas.
 
-## <a name="partition-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de partição
-System.FM, que representa o serviço do Gestor de ativação pós-falha, é a autoridade que gere informações sobre as partições do serviço.
+## <a name="partition-system-health-reports"></a>Relatórios de integridade do sistema de partição
+System.FM, que representa o serviço Gerenciador de Failover, é a autoridade que gerencia as informações sobre as partições de serviço.
 
 ### <a name="state"></a>Estado
-System.FM relatórios como OK quando a partição tiver sido criada e está em bom estada. Elimina a entidade do arquivo de estado de funcionamento quando a partição é eliminada.
+System.FM relata como OK quando a partição foi criada e está íntegra. Ele exclui a entidade do repositório de integridade quando a partição é excluída.
 
-Se a partição for inferior a contagem mínima de réplica, relata um erro. Se a partição não está abaixo a contagem mínima de réplica, mas que fique abaixo da contagem de réplicas de destino, produz um aviso. Se a partição está em perda de quórum, System.FM relata um erro.
+Se a partição estiver abaixo da contagem mínima de réplica, ela relatará um erro. Se a partição não estiver abaixo da contagem mínima de réplicas, mas estiver abaixo da contagem de réplica de destino, ela relatará um aviso. Se a partição estiver em perda de quorum, System.FM relatará um erro.
 
-Outros eventos notáveis incluem um aviso quando a reconfiguração demora mais tempo do que o esperado e quando a compilação demora mais tempo do que o esperado. A esperada tempos para a compilação e a reconfiguração são configuráveis com base em cenários de serviço. Por exemplo, se um serviço tem um terabyte de estado, como a base de dados SQL do Azure, a compilação exige mais tempo para um serviço com uma pequena quantidade de estado.
+Outros eventos notáveis incluem um aviso quando a reconfiguração demora mais do que o esperado e quando a compilação demora mais do que o esperado. Os tempos esperados para a compilação e reconfiguração são configuráveis com base nos cenários de serviço. Por exemplo, se um serviço tiver um terabyte de estado, como o banco de dados SQL do Azure, a compilação levará mais tempo do que um serviço com uma pequena quantidade de estado.
 
-* **SourceId**: System.FM
-* **Propriedade**: Estado.
-* **Próximos passos**: Se o estado de funcionamento não está OK, é possível que algumas réplicas não foram criadas, abrir ou promovidas a primária ou secundária corretamente. 
+* **SourceID**: System.FM
+* **Propriedade**: estado.
+* **Próximas etapas**: se o estado de integridade não for Ok, é possível que algumas réplicas não tenham sido criadas, abertas ou promovidas para o primário ou secundário corretamente. 
 
-Se a descrição descreve a perda de quórum, em seguida, examinando o relatório de estado de funcionamento detalhadas para réplicas que estão indisponíveis e colocando-as cópia de segurança ajuda a colocar a partição novamente online.
+Se a descrição descrever a perda de quorum, examinar o relatório de integridade detalhado para réplicas que estão inativas e colocá-las novamente ajuda a colocar a partição online novamente.
 
-Se a descrição descreve uma partição bloqueada num [reconfiguração](service-fabric-concepts-reconfiguration.md), em seguida, o relatório de estado de funcionamento na réplica primária fornece informações adicionais.
+Se a descrição descrever uma partição presa na [reconfiguração](service-fabric-concepts-reconfiguration.md), o relatório de integridade na réplica primária fornecerá informações adicionais.
 
-Para outros relatórios de estado de funcionamento de System.FM, haveria relatórios sobre as réplicas ou a partição ou o serviço a partir de outros componentes do sistema. 
+Para outros relatórios de integridade do System.FM, haveria relatórios sobre as réplicas ou a partição ou o serviço de outros componentes do sistema. 
 
-Os exemplos seguintes descrevem algumas desses relatórios. 
+Os exemplos a seguir descrevem alguns desses relatórios. 
 
-O exemplo seguinte mostra uma partição de bom estado de funcionamento:
+O exemplo a seguir mostra uma partição íntegra:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
@@ -264,7 +255,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-O exemplo seguinte mostra o estado de funcionamento de uma partição que é inferior a contagem de réplicas de destino. A próxima etapa é obter a descrição de partição, que mostra a configuração: **MinReplicaSetSize** é a terceira e **TargetReplicaSetSize** é sete. Em seguida, obter o número de nós do cluster, que neste caso é cinco. Então, neste caso, duas réplicas não não possível colocar, porque o número de destino de réplicas é maior do que o número de nós disponíveis.
+O exemplo a seguir mostra a integridade de uma partição que está abaixo da contagem de réplica de destino. A próxima etapa é obter a descrição da partição, que mostra como ela está configurada: **MinReplicaSetSize** é três e **TargetReplicaSetSize** é sete. Em seguida, obtenha o número de nós no cluster, que nesse caso é cinco. Portanto, nesse caso, duas réplicas não podem ser colocadas, pois o número de destino de réplicas é maior do que o número de nós disponíveis.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
@@ -342,7 +333,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
-O exemplo seguinte mostra o estado de funcionamento de uma partição que está parada na reconfiguração devido ao utilizador não respeitar o cancelamento o token do **RunAsync** método. Investigar o relatório de estado de funcionamento de qualquer réplica marcado como primário (P) pode ajudar a analisar para baixo mais detalhadamente o problema.
+O exemplo a seguir mostra a integridade de uma partição que está presa na reconfiguração porque o usuário não está respeitando o token de cancelamento no método **RunAsync** . Investigar o relatório de integridade de qualquer réplica marcada como primária (P) pode ajudar a detalhar ainda mais o problema.
 
 ```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
@@ -374,7 +365,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
 ```
-Este relatório de estado de funcionamento mostra o estado das réplicas da partição em reconfiguração: 
+Este relatório de integridade mostra o estado das réplicas da partição que está passando pela reconfiguração: 
 
 ```
   P/S Ready Node1 131482789658160654
@@ -382,31 +373,31 @@ Este relatório de estado de funcionamento mostra o estado das réplicas da part
   S/S Ready Node3 131482789688598468
 ```
 
-Para cada réplica, o relatório de estado de funcionamento contém:
+Para cada réplica, o relatório de integridade contém:
 - Função de configuração anterior
 - Função de configuração atual
 - [Estado da réplica](service-fabric-concepts-replica-lifecycle.md)
-- Nó em que a réplica está em execução
+- Nó no qual a réplica está em execução
 - ID de réplica
 
-Ainda mais o caso, como o exemplo, é necessário investigação. Investigar o estado de funcionamento de cada réplica individual a partir das réplicas marcadas como `Primary` e `Secondary` (131482789658160654 e 131482789688598467) no exemplo anterior.
+Em um caso como o exemplo, uma investigação adicional é necessária. Investigue a integridade de cada réplica individual começando com as réplicas marcadas como `Primary` e `Secondary` (131482789658160654 e 131482789688598467) no exemplo anterior.
 
 ### <a name="replica-constraint-violation"></a>Violação de restrição de réplica
-**System** produz um aviso se Deteta uma violação de restrição de réplica e não é possível colocar todas as réplicas de partição. Os detalhes do relatório mostram quais restrições e propriedades de impedem a colocação de réplica.
+**System. PLB** relata um aviso se detectar uma violação de restrição de réplica e não puder posicionar todas as réplicas de partição. Os detalhes do relatório mostram quais restrições e propriedades impedem o posicionamento da réplica.
 
-* **SourceId**: System.PLB
-* **Propriedade**: Começa com **ReplicaConstraintViolation**.
+* **SourceID**: System. PLB
+* **Propriedade**: começa com **ReplicaConstraintViolation**.
 
-## <a name="replica-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de réplica
-**System.RA**, que representa o componente do agente de reconfiguração, é a autoridade para o estado da réplica.
+## <a name="replica-system-health-reports"></a>Relatórios de integridade do sistema de réplica
+**System. ra**, que representa o componente do agente de reconfiguração, é a autoridade para o estado da réplica.
 
 ### <a name="state"></a>Estado
-System.RA relatórios OK quando tiver sido criada a réplica.
+System. RA relata OK quando a réplica foi criada.
 
-* **SourceId**: System.RA
-* **Propriedade**: Estado.
+* **SourceID**: System. ra
+* **Propriedade**: estado.
 
-O exemplo seguinte mostra uma réplica de bom estado de funcionamento:
+O exemplo a seguir mostra uma réplica íntegra:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -429,15 +420,15 @@ HealthEvents          :
 ```
 
 ### <a name="replicaopenstatus-replicaclosestatus-replicachangerolestatus"></a>ReplicaOpenStatus, ReplicaCloseStatus, ReplicaChangeRoleStatus
-Esta propriedade é utilizada para indicar os avisos ou falhas durante a tentativa de abrir uma réplica, fechar uma réplica ou fazer a transição de uma réplica de uma função para outro. Para obter mais informações, consulte [ciclo de vida de réplica](service-fabric-concepts-replica-lifecycle.md). As falhas podem ser exceções acionadas a partir de chamadas de API ou falhas do processo de anfitrião do serviço durante este período. Para falhas devido a API chama de C# código, recursos de infraestrutura do serviço adiciona o rastreio de pilha de exceção e para o relatório de estado de funcionamento.
+Essa propriedade é usada para indicar avisos ou falhas ao tentar abrir uma réplica, fechar uma réplica ou fazer a transição de uma réplica de uma função para outra. Para obter mais informações, consulte [ciclo de vida da réplica](service-fabric-concepts-replica-lifecycle.md). As falhas podem ser exceções geradas das chamadas à API ou falhas do processo de host do serviço durante esse tempo. Para falhas devido a chamadas de API C# do código, Service Fabric adiciona a exceção e o rastreamento de pilha ao relatório de integridade.
 
-Esses avisos de estado de funcionamento são gerados depois de repetir a ação localmente um número de vezes (dependendo da política). O Service Fabric repete a ação até um limite máximo. Após ter sido atingido o limite máximo, ele poderá tentar agir para corrigir a situação. Esta tentativa pode fazer com que estes avisos para será desmarcada quando desistir na ação neste nó. Por exemplo, se uma réplica está a conseguir abrir num nó, o Service Fabric gera um aviso do Estado de funcionamento. Se a réplica continuar a falhar abrir, Service Fabric funciona ao reparo automático. Esta ação pode envolver a tentar a mesma operação noutro nó. Esta tentativa faz com que o aviso gerado para esta réplica ser limpo. 
+Esses avisos de integridade são gerados depois de repetir a ação localmente, certo número de vezes (dependendo da política). Service Fabric tenta novamente a ação até um limite máximo. Depois que o limite máximo for atingido, ele poderá tentar agir para corrigir a situação. Essa tentativa pode fazer com que esses avisos sejam apagados, pois eles aparecem na ação neste nó. Por exemplo, se uma réplica estiver falhando em abrir em um nó, Service Fabric gerará um aviso de integridade. Se a réplica continuar a ser aberta, Service Fabric agirá para o reparo automático. Essa ação pode envolver a tentativa da mesma operação em outro nó. Essa tentativa faz com que o aviso gerado para esta réplica seja limpo. 
 
-* **SourceId**: System.RA
-* **Propriedade**: **ReplicaOpenStatus**, **ReplicaCloseStatus**, e **ReplicaChangeRoleStatus**.
-* **Próximos passos**: Investigar o código de serviço ou informações de falhas para identificar o motivo pelo qual a operação está a falhar.
+* **SourceID**: System. ra
+* **Propriedade**: **ReplicaOpenStatus**, **ReplicaCloseStatus**e **ReplicaChangeRoleStatus**.
+* **Próximas etapas**: investigue o código de serviço ou os despejos de memória para identificar por que a operação está falhando.
 
-O exemplo seguinte mostra o estado de funcionamento de uma réplica que está a lançar `TargetInvocationException` do seu método open. A descrição contém o ponto de falha, **IStatefulServiceReplica.Open**, o tipo de exceção **TargetInvocationException**e o rastreio de pilha.
+O exemplo a seguir mostra a integridade de uma réplica que está lançando `TargetInvocationException` de seu método Open. A descrição contém o ponto de falha, **IStatefulServiceReplica. Open**, o tipo de exceção **TargetInvocationException**e o rastreamento de pilha.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
@@ -488,7 +479,7 @@ Exception has been thrown by the target of an invocation.
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
 ```
 
-O exemplo seguinte mostra uma réplica que está constantemente a falhar durante o encerramento:
+O exemplo a seguir mostra uma réplica que está falhando constantemente durante o fechamento:
 
 ```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
@@ -519,21 +510,21 @@ HealthEvents          :
 ```
 
 ### <a name="reconfiguration"></a>Reconfiguração
-Esta propriedade é utilizada para indicar quando uma réplica a efetuar uma [reconfiguração](service-fabric-concepts-reconfiguration.md) Deteta que a reconfiguração está bloqueada ou preso. Este relatório de estado de funcionamento poderá ser na réplica cuja função atual é primária, exceto no caso de uma reconfiguração de principais de comutação, onde poderá ser na réplica que está a ser despromovida a partir do secundário do primário para o Active Directory.
+Essa propriedade é usada para indicar quando uma réplica que executa uma [reconfiguração](service-fabric-concepts-reconfiguration.md) detecta que a reconfiguração está parada ou travada. Esse relatório de integridade pode estar na réplica cuja função atual é primária, exceto nos casos de uma reconfiguração primária de permuta, em que ela pode estar na réplica que está sendo rebaixada do primário para o secundário ativo.
 
-A reconfiguração pode estar bloqueada por um dos seguintes motivos:
+A reconfiguração pode ser paralisada por um dos seguintes motivos:
 
-- Uma ação na réplica local, a réplica mesmo que o desempenho a reconfiguração não está a concluir. Neste caso, investigar os relatórios de estado de funcionamento nesta réplica de outros componentes, System ou meio, pode fornecer informações adicionais.
+- Uma ação na réplica local, a mesma réplica que está executando a reconfiguração, não está sendo concluída. Nesse caso, investigar os relatórios de integridade nessa réplica de outros componentes, System. RAP ou System.RE, pode fornecer informações adicionais.
 
-- Não está a concluir uma ação numa réplica remota. Para os quais ações estão pendentes de réplicas estão listadas no relatório de estado de funcionamento. Investigação adicional deve ser feita em relatórios de estado de funcionamento para essas réplicas remotos. Também pode haver problemas de comunicação entre este nó e o nó remoto.
+- Uma ação não está sendo concluída em uma réplica remota. As réplicas para as quais as ações estão pendentes são listadas no relatório de integridade. Uma investigação adicional deve ser feita em relatórios de integridade para essas réplicas remotas. Também pode haver problemas de comunicação entre este nó e o nó remoto.
 
-Em casos raros, a reconfiguração pode estar bloqueada devido a comunicação ou outros problemas entre este nó e o serviço de Gestor de ativação pós-falha.
+Em casos raros, a reconfiguração pode estar paralisada devido à comunicação ou a outros problemas entre esse nó e o serviço de Gerenciador de Failover.
 
-* **SourceId**: System.RA
-* **Propriedade**: Reconfiguração.
-* **Próximos passos**: Investigar réplicas locais ou remotas, consoante a descrição do relatório de estado de funcionamento.
+* **SourceID**: System. ra
+* **Propriedade**: reconfiguração.
+* **Próximas etapas**: investigue as réplicas locais ou remotas dependendo da descrição do relatório de integridade.
 
-O exemplo seguinte mostra um relatório de estado de funcionamento em que uma reconfiguração está bloqueada na réplica local. Neste exemplo, ele é devido a um serviço não respeitar o token de cancelamento.
+O exemplo a seguir mostra um relatório de integridade em que uma reconfiguração está presa na réplica local. Neste exemplo, é devido a um serviço não respeitar o token de cancelamento.
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
@@ -562,7 +553,7 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-A exemplo a seguir mostra um Estado de funcionamento de relatórios sempre que uma reconfiguração está bloqueada a aguardar uma resposta de duas réplicas remotas. Neste exemplo, há três réplicas na partição, incluindo o principal atual. 
+O exemplo a seguir mostra um relatório de integridade em que uma reconfiguração está presa aguardando uma resposta de duas réplicas remotas. Neste exemplo, há três réplicas na partição, incluindo a primária atual. 
 
 ```Powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId  579d50c6-d670-4d25-af70-d706e4bc19a2 -ReplicaOrInstanceId 131483956274977415
@@ -594,32 +585,32 @@ HealthEvents          :
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-Este relatório de estado de funcionamento mostra que a reconfiguração está bloqueada a aguardar uma resposta de duas réplicas: 
+Este relatório de integridade mostra que a reconfiguração está presa aguardando uma resposta de duas réplicas: 
 
 ```
     P/I Down 40 131483956244554282
     S/S Down 20 131483956274972403
 ```
 
-Para cada réplica, é dado as seguintes informações:
+Para cada réplica, as seguintes informações são fornecidas:
 - Função de configuração anterior
 - Função de configuração atual
 - [Estado da réplica](service-fabric-concepts-replica-lifecycle.md)
-- ID de nó
+- ID do nó
 - ID de réplica
 
 Para desbloquear a reconfiguração:
-- O **baixo** réplicas devem ser recuperadas. 
-- O **inbuild** réplicas devem concluir a compilação e faça a transição para pronto.
+- As réplicas **abaixo** devem ser ativadas. 
+- As réplicas de **incompilação** devem concluir a compilação e a transição para pronto.
 
-### <a name="slow-service-api-call"></a>Chamada de API do serviço lenta
-**System** e **System.Replicator** reportar um aviso se a uma chamada para o código do serviço de utilizador demora mais do que o tempo configurado. O aviso será eliminado quando a chamada é concluída.
+### <a name="slow-service-api-call"></a>Chamada à API de serviço lenta
+**System. rap** e **System. Replicator** relatarão um aviso se uma chamada para o código do serviço de usuário demorar mais do que o tempo configurado. O aviso é apagado quando a chamada é concluída.
 
-* **SourceId**: System ou System.Replicator
-* **Propriedade**: O nome da API lenta. A descrição apresenta mais detalhes sobre o tempo que a API está no estado pendente.
-* **Próximos passos**: Investigar por que a chamada demora mais tempo do que o esperado.
+* **SourceID**: System. rap ou System. Replicator
+* **Propriedade**: o nome da API lenta. A descrição fornece mais detalhes sobre a hora em que a API está pendente.
+* **Próximas etapas**: investigue por que a chamada demora mais do que o esperado.
 
-O exemplo seguinte mostra o evento de estado de funcionamento do System para um serviço fiável que não está a respeitar o cancelamento o token **RunAsync**:
+O exemplo a seguir mostra o evento de integridade de System. RAP para um serviço confiável que não está respeitando o token de cancelamento em **RunAsync**:
 
 ```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
@@ -646,58 +637,58 @@ HealthEvents          :
                         
 ```
 
-A propriedade e o texto indicam qual API parou. Os passos seguintes a efetuar para diferentes APIs bloqueadas são diferentes. Qualquer API na *IStatefulServiceReplica* ou *IStatelessServiceInstance* costuma ser um bug no código de serviço. A seguinte secção descreve como eles traduzir para o [modelo de Reliable Services](service-fabric-reliable-services-lifecycle.md):
+A propriedade e o texto indicam qual API ficou paralisada. As próximas etapas a serem tomadas para diferentes APIs presas são diferentes. Qualquer API no *IStatefulServiceReplica* ou *no istatelessserviceinstance* geralmente é um bug no código do serviço. A seção a seguir descreve como eles são convertidos para o [modelo de Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica.Open**: Este aviso indica que uma chamada para `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`, ou se tiverem sido substituídas, `OnOpenAsync` está bloqueada.
+- **IStatefulServiceReplica. Open**: esse aviso indica que uma chamada para `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`ou, se substituída, `OnOpenAsync` está paralisada.
 
-- **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: O caso mais comum é um serviço não respeitar o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync`, ou se tiverem sido substituídas, `OnCloseAsync` está bloqueada.
+- **IStatefulServiceReplica. Close** e **IStatefulServiceReplica. Abort**: o caso mais comum é um serviço que não respeita o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync`ou, se substituído, `OnCloseAsync` esteja preso.
 
-- **(S) de IStatefulServiceReplica.ChangeRole** e **IStatefulServiceReplica.ChangeRole(N)** : O caso mais comum é um serviço não respeitar o token de cancelamento passado para `RunAsync`. Neste cenário, a melhor solução é reiniciar a réplica.
+- **IStatefulServiceReplica. ChangeRole (S)** e **IStatefulServiceReplica. ChangeRole (N)** : o caso mais comum é um serviço que não respeita o token de cancelamento passado para `RunAsync`. Nesse cenário, a melhor solução é reiniciar a réplica.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : O caso mais comum é que o serviço não devolveu uma tarefa de `RunAsync`.
+- **IStatefulServiceReplica. ChangeRole (P)** : o caso mais comum é que o serviço não retornou uma tarefa de `RunAsync`.
 
-Outras chamadas de API que podem ficar preso são sobre o **IReplicator** interface. Por exemplo:
+Outras chamadas à API que podem ficar presas estão na interface **IReplicator** . Por exemplo:
 
-- **IReplicator.CatchupReplicaSet**: Este aviso indica uma das duas coisas. Existem insuficiente segurança de réplicas. Para ver se for este o caso, ver o estado da réplica das réplicas na partição ou o relatório de estado de funcionamento System.FM para uma reconfiguração paralisado. Ou as réplicas não são ter consciência de operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser utilizado para determinar o progresso de todas as réplicas. O problema está com réplicas cujos `LastAppliedReplicationSequenceNumber` valor está por trás da primária `CommittedSequenceNumber` valor.
+- **IReplicator. CatchupReplicaSet**: esse aviso indica uma das duas coisas. Há réplicas insuficientes. Para ver se esse é o caso, examine o status da réplica das réplicas na partição ou no relatório de integridade System.FM para uma reconfiguração presa. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser usado para determinar o progresso de todas as réplicas. O problema está em réplicas cujo valor de `LastAppliedReplicationSequenceNumber` está atrás do valor de `CommittedSequenceNumber` primário.
 
-- **IReplicator.BuildReplica(\<Remote ReplicaId>)** : Este aviso indica um problema no processo de compilação. Para obter mais informações, consulte [ciclo de vida de réplica](service-fabric-concepts-replica-lifecycle.md). Tal poderá dever-se uma configuração incorreta do endereço replicador. Para obter mais informações, consulte [configurar a Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [especificar recursos num manifesto do serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
+- **IReplicator. BuildReplica (\<> de replicaId remota)** : esse aviso indica um problema no processo de compilação. Para obter mais informações, consulte [ciclo de vida da réplica](service-fabric-concepts-replica-lifecycle.md). Pode ser devido a uma configuração incorreta do endereço do replicador. Para obter mais informações, consulte [configurar Reliable Services com estado](service-fabric-reliable-services-configuration.md) e [especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md). Também pode ser um problema no nó remoto.
 
-### <a name="replicator-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de replicador
-**Total de fila de replicação:** 
-**System.Replicator** produz um aviso quando a fila de replicação está cheia. Principal, a fila de replicação geralmente fica cheio porque um ou mais réplicas secundárias são lentas reconhecer operações. Secundário, normalmente, isto acontece quando o serviço está lento aplicar as operações. O aviso será eliminado quando a fila já não está cheia.
+### <a name="replicator-system-health-reports"></a>Relatórios de integridade do sistema replicador
+**Fila de replicação cheia:** 
+**System. Replicator** relata um aviso quando a fila de replicação está cheia. No primário, a fila de replicação geralmente fica cheia porque uma ou mais réplicas secundárias estão lentas para confirmar as operações. No secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso é apagado quando a fila não está mais cheia.
 
-* **SourceId**: System.Replicator
-* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, consoante a função de réplica.
-* **Próximos passos**: Se o relatório principal, verifique a ligação entre os nós do cluster. Se todas as ligações estão em bom estadas, poderá haver, pelo menos, uma secundária lenta com uma latência de disco elevados para aplicar as operações. Se o relatório no secundário, verifique primeiro a utilização do disco e o desempenho no nó. Em seguida, verifique a ligação de saída do nó lento para o primário.
+* **SourceID**: System. Replicator
+* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função de réplica.
+* **Próximas etapas**: se o relatório estiver no primário, verifique a conexão entre os nós no cluster. Se todas as conexões estiverem íntegras, pode haver pelo menos um secundário lento com uma alta latência de disco para aplicar operações. Se o relatório estiver no secundário, verifique o uso do disco e o desempenho no nó primeiro. Em seguida, verifique a conexão de saída do nó lento para o primário.
 
 **RemoteReplicatorConnectionStatus:** 
-**System.Replicator** na réplica primária produz um aviso quando a ligação para um secundário replicador (remoto) não está em bom estada. Endereço do replicador remoto é mostrado na mensagem do relatório, o que torna mais conveniente para detetar se a configuração incorreta foi passada ou se existirem problemas de rede entre os replicators.
+**System. Replicator** na réplica primária relata um aviso quando a conexão com um replicador secundário (remoto) não está íntegra. O endereço do replicador remoto é mostrado na mensagem do relatório, o que torna mais conveniente detectar se a configuração errada foi passada ou se há problemas de rede entre os replicadores.
 
-* **SourceId**: System.Replicator
+* **SourceID**: System. Replicator
 * **Propriedade**: **RemoteReplicatorConnectionStatus**.
-* **Próximos passos**: Verifique a mensagem de erro e certifique-se de que o endereço do replicador remoto está configurado corretamente. Por exemplo, se o replicador remoto é aberto com o endereço de escuta "localhost", não é acessível de fora. Se o endereço parecer correto, verifique a ligação entre o nó principal e o endereço remoto para localizar outros possíveis problemas de rede.
+* **Próximas etapas**: Verifique a mensagem de erro e verifique se o endereço do replicador remoto está configurado corretamente. Por exemplo, se o replicador remoto for aberto com o endereço de escuta "localhost", ele não será acessível de fora. Se o endereço parecer correto, verifique a conexão entre o nó primário e o endereço remoto para encontrar possíveis problemas de rede.
 
-### <a name="replication-queue-full"></a>Total de fila de replicação
-**System.Replicator** produz um aviso quando a fila de replicação está cheia. Principal, a fila de replicação geralmente fica cheio porque um ou mais réplicas secundárias são lentas reconhecer operações. Secundário, normalmente, isto acontece quando o serviço está lento aplicar as operações. O aviso será eliminado quando a fila já não está cheia.
+### <a name="replication-queue-full"></a>Fila de replicação cheia
+**System. Replicator** relata um aviso quando a fila de replicação está cheia. No primário, a fila de replicação geralmente fica cheia porque uma ou mais réplicas secundárias estão lentas para confirmar as operações. No secundário, isso geralmente acontece quando o serviço está lento para aplicar as operações. O aviso é apagado quando a fila não está mais cheia.
 
-* **SourceId**: System.Replicator
-* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, consoante a função de réplica.
+* **SourceID**: System. Replicator
+* **Propriedade**: **PrimaryReplicationQueueStatus** ou **SecondaryReplicationQueueStatus**, dependendo da função de réplica.
 
 ### <a name="slow-naming-operations"></a>Operações de nomenclatura lentas
-**System.NamingService** reporta o estado de funcionamento na respetiva réplica primária quando uma operação de nomenclatura exige mais tempo aceitável. São exemplos de operações de nomenclatura [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados em FabricClient. Por exemplo, pode ser encontrados na [métodos de gestão do serviço](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou [métodos de gestão de propriedade](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System. NamingService** relata a integridade em sua réplica primária quando uma operação de nomenclatura demora mais do que o aceitável. Exemplos de operações de nomenclatura são [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) ou [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Mais métodos podem ser encontrados em FabricClient. Por exemplo, eles podem ser encontrados em métodos de [Gerenciamento de serviços](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) ou métodos de [Gerenciamento de propriedade](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
-> No serviço de nomes resolva nomes de serviço para uma localização do cluster. Os utilizadores podem utilizá-lo para gerir os nomes de serviço e propriedades. É um serviço do Service Fabric persistente particionados. Uma das partições representa a *Authority Owner*, que contém metadados sobre todos os nomes do Service Fabric e serviços. Os nomes do Service Fabric são mapeados para diferentes partições, chamadas *Name Owner* partição, para que o serviço é extensível. Leia mais sobre o [serviço de cadastramento](service-fabric-architecture.md).
+> O serviço de nomenclatura resolve nomes de serviço para um local no cluster. Os usuários podem usá-lo para gerenciar nomes e propriedades de serviço. É um Service Fabric serviço com persistência particionado. Uma das partições representa o *proprietário da autoridade*, que contém metadados sobre todos os nomes de Service Fabric e serviços. Os nomes de Service Fabric são mapeados para partições diferentes, chamadas de partições de *proprietário de nome* , para que o serviço seja extensível. Leia mais sobre o [serviço de nomenclatura](service-fabric-architecture.md).
 > 
 > 
 
-Quando uma operação de nomenclatura demora mais tempo do que o esperado, a operação é sinalizada com um relatório de aviso na réplica primária da partição de serviço de nomenclatura que serve a operação. Se a operação for concluída com êxito, o aviso está desmarcado. Se a operação for concluída com um erro, o relatório de estado de funcionamento inclui detalhes sobre o erro.
+Quando uma operação de nomenclatura leva mais tempo do que o esperado, a operação é sinalizada com um relatório de aviso na réplica primária da partição do serviço de nomenclatura que atende à operação. Se a operação for concluída com êxito, o aviso será apagado. Se a operação for concluída com um erro, o relatório de integridade incluirá detalhes sobre o erro.
 
 * **SourceId**: System.NamingService
-* **Propriedade**: Começa com o prefixo "**Duration_** " e identifica a operação lenta e o nome do Service Fabric no qual é aplicada a operação. Por exemplo, se criar o serviço em nome **fabric: / MyApp/Meuserviço** demora demasiado tempo, a propriedade é **Duration_AOCreateService.fabric:/MyApp/MyService**. "Pedidos" aponta para a função de partição de nomenclatura para este nome e a operação.
-* **Próximos passos**: Certifique-se de por que a operação de nomenclatura de falha. Cada operação pode ter diferentes causas. Por exemplo, o serviço de eliminação pode estar bloqueado. O serviço pode estar bloqueado porque o anfitrião de aplicação mantém a falhar num nó devido a um erro de utilizador com o código do serviço.
+* **Propriedade**: começa com o prefixo "**Duration_** " e identifica a operação lenta e o nome de Service Fabric no qual a operação é aplicada. Por exemplo, se criar serviço em nome **Fabric:/MyApp/MyService** demorar muito, a propriedade será **Duration_AOCreateService. Fabric:/MyApp/MyService**. "Ao" aponta para a função da partição de nomenclatura para esse nome e operação.
+* **Próximas etapas**: Verifique por que a operação de nomenclatura falha. Cada operação pode ter causas raiz diferentes. Por exemplo, o serviço de exclusão pode estar paralisado. O serviço pode estar paralisado porque o host do aplicativo continua falhando em um nó devido a um bug do usuário no código do serviço.
 
-O exemplo seguinte mostra uma operação de serviço de criação. A operação demorou mais do que a duração configurada. "Pedidos" repetirá e envia o trabalho para "não". A última operação com o tempo limite "Não" concluída. Neste caso, a mesma réplica é primária para o "pedidos" e "Não" funções.
+O exemplo a seguir mostra uma operação de criação de serviço. A operação demorou mais do que a duração configurada. O "ao" tenta novamente e envia o trabalho para "não". "Não" concluiu a última operação com tempo limite. Nesse caso, a mesma réplica é primária para as funções "ao" e "não".
 
 ```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
@@ -744,17 +735,17 @@ HealthEvents          :
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="deployedapplication-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de DeployedApplication
-**System.Hosting** é a autoridade em entidades implementadas.
+## <a name="deployedapplication-system-health-reports"></a>Relatórios de integridade do sistema DeployedApplication
+**System. Hosting** é a autoridade nas entidades implantadas.
 
 ### <a name="activation"></a>Ativação
-System.Hosting relatórios como OK quando um aplicativo foi ativado com êxito no nó. Caso contrário, ele relata um erro.
+System. Hosting relata como OK quando um aplicativo é ativado com êxito no nó. Caso contrário, ele relatará um erro.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: **Ativação**, incluindo a versão de implementação.
-* **Próximos passos**: Se a aplicação está em mau estado de funcionamento, investigue o motivo pelo qual a ativação falhou.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: **ativação**, incluindo a versão de distribuição.
+* **Próximas etapas**: se o aplicativo não estiver íntegro, investigue por que a ativação falhou.
 
-O exemplo seguinte mostra uma ativação com êxito:
+O exemplo a seguir mostra uma ativação bem-sucedida:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
@@ -782,36 +773,36 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Transferência
-System.Hosting relata um erro se o download do pacote de aplicação falhar.
+### <a name="download"></a>Transferir
+System. Hosting relatará um erro se o download do pacote de aplicativos falhar.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: **Transferir**, incluindo a versão de implementação.
-* **Próximos passos**: Investigar por que a transferência falhou no nó.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: **Download**, incluindo a versão de distribuição.
+* **Próximas etapas**: investigue por que o download falhou no nó.
 
-## <a name="deployedservicepackage-system-health-reports"></a>Relatórios de estado de funcionamento do sistema de DeployedServicePackage
-**System.Hosting** é a autoridade em entidades implementadas.
+## <a name="deployedservicepackage-system-health-reports"></a>Relatórios de integridade do sistema DeployedServicePackage
+**System. Hosting** é a autoridade nas entidades implantadas.
 
 ### <a name="service-package-activation"></a>Ativação do pacote de serviço
-System.Hosting relatórios como OK se a ativação do pacote de serviço no nó é efetuada com êxito. Caso contrário, ele relata um erro.
+System. Hosting relata como OK se a ativação do pacote de serviço no nó for bem-sucedida. Caso contrário, ele relatará um erro.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: Ativação.
-* **Próximos passos**: Investigue o motivo pelo qual a ativação falhou.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: ativação.
+* **Próximas etapas**: investigue por que a ativação falhou.
 
-### <a name="code-package-activation"></a>Ativação do pacote de código
-System.Hosting relatórios como OK para cada pacote de código se a ativação é efetuada com êxito. Se a ativação falhar, ele produz um aviso, conforme configurado. Se **CodePackage** falhar a ativação ou termina com um erro superior configurada **CodePackageHealthErrorThreshold**, alojamento relata um erro. Se um pacote de serviço contém vários pacotes de código, é gerado um relatório de ativação para cada um deles.
+### <a name="code-package-activation"></a>Ativação do pacote de códigos
+System. Hosting relata como OK para cada pacote de código se a ativação for bem-sucedida. Se a ativação falhar, ela relatará um aviso como configurado. Se **CodePackage** falhar em ativar ou terminar com um erro maior do que o **CodePackageHealthErrorThreshold**configurado, a hospedagem relatará um erro. Se um pacote de serviço contiver vários pacotes de código, um relatório de ativação será gerado para cada um deles.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: Utiliza o prefixo **CodePackageActivation** e contém o nome do pacote de código e o ponto de entrada como *CodePackageActivation:CodePackageName:SetupEntryPoint / EntryPoint*. Por exemplo, **CodePackageActivation:Code:SetupEntryPoint**.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: usa o prefixo **CodePackageActivation** e contém o nome do pacote de códigos e o ponto de entrada como *CodePackageActivation: CodePackageName: SetupEntryPoint/EntryPoint*. Por exemplo, **CodePackageActivation: Code: SetupEntryPoint**.
 
-### <a name="service-type-registration"></a>Registo do tipo de serviço
-System.Hosting relatórios como OK se o tipo de serviço foi registado com êxito. Ele relata um erro se o registo não foi concluído no tempo, conforme configurado através da utilização **ServiceTypeRegistrationTimeout**. Se o tempo de execução estiver fechado, o tipo de serviço é anulado o registo do nó e de alojamento produz um aviso.
+### <a name="service-type-registration"></a>Registro de tipo de serviço
+System. Hosting relatará como OK se o tipo de serviço tiver sido registrado com êxito. Ele relatará um erro se o registro não tiver sido feito no tempo, conforme configurado usando **ServiceTypeRegistrationTimeout**. Se o tempo de execução estiver fechado, o tipo de serviço será cancelado no registro do nó e a hospedagem relatará um aviso.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: Utiliza o prefixo **ServiceTypeRegistration** e contém o nome do tipo de serviço. Por exemplo, **ServiceTypeRegistration:FileStoreServiceType**.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: usa o prefixo **ServiceTypeRegistration** e contém o nome do tipo de serviço. Por exemplo, **ServiceTypeRegistration: FileStoreServiceType**.
 
-O exemplo seguinte mostra um pacote de serviço implementado bom estado de funcionamento:
+O exemplo a seguir mostra um pacote de serviço íntegro implantado:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
@@ -860,33 +851,33 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Transferência
-System.Hosting relata um erro se o download do pacote de serviço falhar.
+### <a name="download"></a>Transferir
+System. Hosting relatará um erro se o download do pacote de serviço falhar.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: **Transferir**, incluindo a versão de implementação.
-* **Próximos passos**: Investigar por que a transferência falhou no nó.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: **Download**, incluindo a versão de distribuição.
+* **Próximas etapas**: investigue por que o download falhou no nó.
 
 ### <a name="upgrade-validation"></a>Validação da atualização
-System.Hosting relata um erro se a validação durante a atualização falhar ou se a atualização falhar no nó.
+System. Hosting relatará um erro se a validação durante a atualização falhar ou se a atualização falhar no nó.
 
-* **SourceId**: System.Hosting
-* **Propriedade**: Utiliza o prefixo **FabricUpgradeValidation** e contém a versão de atualização.
-* **Descrição**: Aponta para o erro encontrado.
+* **SourceID**: sistema. Hosting
+* **Propriedade**: usa o prefixo **FabricUpgradeValidation** e contém a versão de atualização.
+* **Descrição**: aponta para o erro encontrado.
 
-### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidade de nó não definido para métricas de governação de recursos
-System.Hosting produz um aviso se as capacidades de nós não são definidas no manifesto do cluster e a configuração para a deteção automática está desativada. Service Fabric gera um aviso de estado de funcionamento sempre que o pacote de serviço que utiliza [governação de recursos](service-fabric-resource-governance.md) registra num nó especificado.
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidade de nó indefinida para métricas de governança de recursos
+System. Hosting relatará um aviso se as capacidades do nó não estiverem definidas no manifesto do cluster e a configuração para detecção automática estiver desativada. Service Fabric gera um aviso de integridade sempre que o pacote de serviço que usa a [governança de recursos](service-fabric-resource-governance.md) é registrado em um nó especificado.
 
-* **SourceId**: System.Hosting
+* **SourceID**: sistema. Hosting
 * **Propriedade**: **ResourceGovernance**.
-* **Próximos passos**: A maneira preferencial de solucionar esse problema é alterar o manifesto do cluster para ativar a deteção automática de recursos disponíveis. Outra forma é atualizar o manifesto do cluster com as capacidades de nó especificado corretamente para estas métricas.
+* **Próximas etapas**: a maneira preferida de superar esse problema é alterar o manifesto do cluster para habilitar a detecção automática de recursos disponíveis. Outra maneira é atualizar o manifesto do cluster com as capacidades de nó especificadas corretamente para essas métricas.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Ver relatórios de estado de funcionamento do Service Fabric](service-fabric-view-entities-aggregated-health.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Exibir Service Fabric relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
 
-* [Como comunicar e verificar o estado de funcionamento do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+* [Como relatar e verificar a integridade do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-* [Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+* [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-* [Atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md)
+* [Atualização do aplicativo Service Fabric](service-fabric-application-upgrade.md)
 

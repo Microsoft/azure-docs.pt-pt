@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
+title: Solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441123"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
@@ -78,12 +78,12 @@ Quando sua função do Azure recebe as alterações, ele geralmente as processa 
 
 Se algumas alterações estiverem ausentes no destino, isso pode significar que o erro ocorre durante a execução da função do Azure depois que as alterações foram recebidas.
 
-Nesse cenário, o melhor curso de ação é adicionar blocos de `try/catch` em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha de um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para mais análise ou tentar novamente). 
+Nesse cenário, o melhor curso de ação é adicionar blocos de `try/catch` em seu código e dentro dos loops que podem estar processando as alterações, para detectar qualquer falha de um determinado subconjunto de itens e tratá-los de forma adequada (enviá-los para outro armazenamento para análise ou repetição posterior). 
 
 > [!NOTE]
 > Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
-Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure fosse processada.
+Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure processasse.
 
 Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores distintos da propriedade `Owner` neles contidos deverão ser iguais ao número de instâncias do seu Aplicativo de funções. Se houver mais Proprietários do que as instâncias conhecidas da Aplicação de Funções do Azure, tal significa que estes proprietários adicionais serão os responsáveis pelo “roubo” das alterações.
 

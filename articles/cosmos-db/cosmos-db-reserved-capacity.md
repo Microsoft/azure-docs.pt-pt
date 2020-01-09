@@ -1,5 +1,5 @@
 ---
-title: Otimize o custo de Azure Cosmos DB recursos com capacidade reservada
+title: Capacidade reservada no Azure Cosmos DB para otimizar o custo
 description: Saiba como comprar Azure Cosmos DB capacidade reservada para economizar em seus custos de computação.
 author: bandersmsft
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0ee43fe0996c05f4e59f6107ba52fac19b83cdef
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441937"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimize o custo com capacidade reservada no Azure Cosmos DB
 
@@ -40,7 +40,7 @@ O tamanho da reserva deve ser baseado na quantidade total de taxa de transferên
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Comprar Azure Cosmos DB capacidade reservada
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  
 
 2. Selecione **todos os serviços** > **reservas** > **Adicionar**.  
 
@@ -55,7 +55,7 @@ O tamanho da reserva deve ser baseado na quantidade total de taxa de transferên
    |Âmbito   |   Opção que controla quantas assinaturas podem usar o benefício de cobrança associado à reserva. Ele também controla como a reserva é aplicada a assinaturas específicas. <br/><br/>  Se você selecionar **compartilhado**, o desconto de reserva será aplicado a Azure Cosmos DB instâncias executadas em qualquer assinatura em seu contexto de cobrança. O contexto de cobrança é baseado em como você se inscreveu no Azure. Para clientes corporativos, o escopo compartilhado é o registro e inclui todas as assinaturas dentro do registro. Para clientes pagos conforme o uso, o escopo compartilhado é todas as assinaturas individuais com tarifas pagas conforme o uso criadas pelo administrador da conta.  <br/><br/>  Se você selecionar **assinatura única**, o desconto de reserva será aplicado a Azure Cosmos DB instâncias na assinatura selecionada. <br/><br/> Se você selecionar **um único grupo de recursos**, o desconto de reserva será aplicado a Azure Cosmos DB instâncias na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura. <br/><br/> Você pode alterar o escopo de reserva depois de comprar a capacidade reservada.  |
    |Subscrição  |   A assinatura que é usada para pagar pelo Azure Cosmos DB capacidade reservada. O método de pagamento na assinatura selecionada é usado para cobrar os custos. A assinatura deve ser um dos seguintes tipos: <br/><br/>  Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P): para uma assinatura corporativa, os encargos são deduzidos do saldo de compromisso monetário do registro ou cobrados como excedentes. <br/><br/> Assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P): para uma assinatura individual com tarifas pagas conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.    |
    | Grupo de Recursos | Grupo de recursos ao qual o desconto de capacidade reservada é aplicado. |
-   |Termo  |   Um ano ou três anos.   |
+   |Duração  |   Um ano ou três anos.   |
    |Tipo de taxa de transferência   |  A taxa de transferência é provisionada como unidades de solicitação. Você pode comprar uma reserva para a taxa de transferência provisionada para as duas configurações – gravações de região única, bem como várias gravações de região. O tipo de taxa de transferência tem dois valores a serem escolhidos: 100 RU/s por hora e 100 vários mestres RU/s por hora.|
    | Unidades de capacidade reservadas| A quantidade de taxa de transferência que você deseja reservar. Você pode calcular esse valor determinando a taxa de transferência necessária para todos os seus Cosmos DB recursos (por exemplo, bancos de dados ou contêineres) por região. Em seguida, você o multiplica pelo número de regiões que você associará ao banco de dados Cosmos. Por exemplo: se você tiver cinco regiões com 1 milhão RU/s em todas as regiões, selecione 5 milhões RU/seg para a compra de capacidade de reserva. |
 

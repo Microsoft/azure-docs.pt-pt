@@ -1,6 +1,6 @@
 ---
-title: Eliminar operações de API de Cassandra do Azure Cosmos DB do Spark
-description: Este artigo fornece detalhes sobre como eliminar os dados em tabelas na API de Cassandra do Azure Cosmos DB do Spark
+title: Operações Delete no Azure Cosmos DB API do Cassandra do Spark
+description: Este artigo fornece detalhes sobre como excluir dados em tabelas no Azure Cosmos DB API do Cassandra do Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fc9e0dabd226952bea3bd14da0747c5b6292c2e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442091"
 ---
-# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminar dados nas tabelas Cassandra API do Azure Cosmos DB do Spark
+# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Excluir dados em Azure Cosmos DB tabelas de API do Cassandra do Spark
 
-Este artigo descreve como eliminar os dados nas tabelas Cassandra API do Azure Cosmos DB do Spark.
+Este artigo descreve como excluir dados em Azure Cosmos DB API do Cassandra tabelas do Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
 
@@ -47,7 +47,7 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
 ## <a name="sample-data-generator"></a>Gerador de dados de exemplo
-Utilizaremos este fragmento de código para gerar dados de exemplo:
+Usaremos este fragmento de código para gerar dados de exemplo:
 
 ```scala
 //Create dataframe
@@ -69,7 +69,7 @@ booksDF.write
 
 ## <a name="dataframe-api"></a>Pacote de API de dados
 
-### <a name="delete-rows-that-match-a-condition"></a>Eliminar linhas que correspondem a uma condição
+### <a name="delete-rows-that-match-a-condition"></a>Excluir linhas que correspondem a uma condição
 
 ```scala
 //1) Create dataframe
@@ -153,7 +153,7 @@ deleteBooksDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [book_id
 cdbConnector: com.datastax.spark.connector.cql.CassandraConnector = com.datastax.spark.connector.cql.CassandraConnector@187deb43
 ```
 
-### <a name="delete-all-the-rows-in-the-table"></a>Eliminar todas as linhas da tabela
+### <a name="delete-all-the-rows-in-the-table"></a>Excluir todas as linhas da tabela
 
 ```scala
 //1) Create dataframe
@@ -233,7 +233,7 @@ ReadSchema: struct<book_id:string,book_author:string,book_name:string,book_price
 
 ## <a name="rdd-api"></a>API DE RDD
 
-### <a name="delete-all-the-rows-in-the-table"></a>Eliminar todas as linhas da tabela
+### <a name="delete-all-the-rows-in-the-table"></a>Excluir todas as linhas da tabela
 ```scala
 //1) Create RDD with all rows
 val deleteBooksRDD = 
@@ -300,7 +300,7 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 cdbConnector: com.datastax.spark.connector.cql.CassandraConnector = com.datastax.spark.connector.cql.CassandraConnector@317927
 ```
 
-### <a name="delete-specific-columns"></a>Eliminar colunas específicas
+### <a name="delete-specific-columns"></a>Excluir colunas específicas
 
 ```scala
 //1) Create RDD 
@@ -356,9 +356,9 @@ CassandraRow{book_id: b00501, book_author: Arthur Conan Doyle, book_name: The me
 deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datastax.spark.connector.CassandraRow] = CassandraTableScanRDD[145] at RDD at CassandraRDD.scala:19
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para executar a agregação e de operações de cópia de dados, consulte-
+Para executar operações de agregação e de cópia de dados, consulte-
  
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia da tabela](cassandra-spark-table-copy-ops.md)

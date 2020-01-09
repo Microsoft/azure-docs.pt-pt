@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427370"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
-Este artigo mostra como mover dados de uma base de dados do servidor de SQL no local para uma base de dados do SQL Azure através do armazenamento de Blobs do Azure com o Azure Data Factory (ADF).
+Este artigo mostra como mover dados de um SQL Server local de um banco de dados para um banco de SQL Azure do armazenamento de BLOBs do Azure usando o Azure Data Factory (ADF): esse método é uma abordagem herdada com suporte que tem as vantagens de uma cópia de preparo replicada, embora [sugerimos examinar nossa página datamigration para obter as opções mais recentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Para uma tabela que resume as várias opções para mover dados para uma base de dados do SQL do Azure, consulte [mover dados para uma base de dados do SQL do Azure para o Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Introdução: O que é o ADF e quando deve, ser utilizado para migrar os dados?
+## <a name="intro"></a>Introdução: Qual é o ADF e quando deve, ser utilizado para migrar os dados?
 O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud que orquestra e automatiza o movimento e transformação de dados. O conceito-chave no modelo do ADF é o pipeline. Os pipelines são agrupamentos lógicos de atividades, cada um deles define as ações a efetuar nos dados contidos em conjuntos de dados. Serviços ligados são utilizados para definir as informações necessárias para o Data Factory se ligue aos recursos de dados.
 
 Com o ADF, serviços de processamento de dados existentes podem ser compostos em pipelines de dados que são de elevada disponibilidade e gerido na cloud. Esses pipelines de dados podem ser agendados para ingerir, preparar, transformar, analisar e publicar os dados e o ADF gere e orquestra as dependências de processamento e dados complexos. Soluções podem ser criadas e implementadas na cloud, ligar um número cada vez maior de locais rapidamente e origens de dados na cloud.
@@ -43,7 +43,7 @@ Configuramos um pipeline do ADF que compõe a duas atividades de migração de d
 * copiar dados da conta de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure.
 
 > [!NOTE]
-> As etapas mostradas aqui tem sido adaptadas a partir do tutorial mais detalhado fornecido pela equipe do ADF: [Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referências para as secções relevantes desse tópico são fornecidas quando apropriado.
+> As etapas mostradas aqui foram adaptadas do tutorial mais detalhado fornecido pela equipe do ADF: [copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referências para as secções relevantes desse tópico são fornecidas quando apropriado.
 >
 >
 
@@ -51,8 +51,8 @@ Configuramos um pipeline do ADF que compõe a duas atividades de migração de d
 Este tutorial parte do princípio de que tem:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Utilize uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Ver [gerir as chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
-* Acesso a uma **base de dados SQL do Azure**. Se tem de configurar uma SQL Database do Azure, o tópico [introdução ao Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fornece informações sobre como aprovisionar uma nova instância de uma base de dados do SQL do Azure.
+* Uma **conta de armazenamento do Azure**. Utilize uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
+* Acesso a uma **base de dados SQL do Azure**. Se você precisar configurar um banco de dados SQL do Azure, o tópico [introdução com Banco de dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornecerá informações sobre como provisionar uma nova instância de um banco de dados SQL do Azure.
 * Instalou e configurou **do Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]

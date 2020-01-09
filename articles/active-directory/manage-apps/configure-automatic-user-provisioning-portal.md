@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430183"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciando o provisionamento de conta de usuário para aplicativos empresariais no portal do Azure
 
-Este artigo descreve como usar o [portal do Azure](https://portal.azure.com) para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. Para saber mais sobre o provisionamento automático de conta de usuário e como ela funciona, confira [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](user-provisioning.md).
+Este artigo descreve as etapas gerais para gerenciar o provisionamento e desprovisionamento de conta de usuário automático para aplicativos que dão suporte a ele. O *provisionamento de conta de usuário* é o ato de criar, atualizar e/ou desabilitar registros de conta de usuário no armazenamento de perfil de usuário local de um aplicativo. A maioria dos aplicativos de nuvem e SaaS armazenam a função de usuários e as permissões no próprio armazenamento de perfil de usuário local do usuário e a presença desse registro de usuário no armazenamento local do usuário é *necessária* para o logon único e o acesso ao trabalho. Para saber mais sobre o provisionamento automático de conta de usuário, confira [automatizar o provisionamento e desprovisionamento de usuário para aplicativos SaaS com Azure Active Directory](user-provisioning.md).
+
+> [!IMPORTANT]
+> O Azure Active Directory (AD do Azure) tem uma galeria que contém milhares de aplicativos previamente integrados que são habilitados para provisionamento automático com o Azure AD. Você deve começar encontrando o tutorial de configuração de provisionamento específico para seu aplicativo na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Você provavelmente encontrará orientações passo a passo para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizando seus aplicativos no portal
 

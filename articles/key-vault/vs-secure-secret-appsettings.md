@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: MT
+ms.openlocfilehash: 2b4893ab804d7e3394320284399626437e5e78dc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639472"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645129"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações do aplicativo secreto para um aplicativo Web
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como salvar com segurança as definições de configuração do aplicativo secreto para aplicativos do Azure.
 
 Tradicionalmente, todas as definições de configuração de aplicativos Web são salvas em arquivos de configuração, como Web. config. Essa prática leva a verificar as configurações secretas, como credenciais de nuvem, para sistemas de controle do código-fonte público, como o GitHub. Enquanto isso, pode ser difícil seguir a prática recomendada de segurança devido à sobrecarga necessária para alterar o código-fonte e reconfigurar as definições de desenvolvimento.
@@ -41,7 +41,8 @@ Se você estiver desenvolvendo um projeto e precisar compartilhar o código-font
 
     ![Criar Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Conceda a você e aos membros da sua equipe acesso ao Key Vault. Se você tiver uma equipe grande, poderá criar um [grupo de Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) e adicionar esse acesso ao grupo de segurança ao key Vault. No menu suspenso *permissões de segredo* , marque *obter* e *listar* em operações de gerenciamento de *segredo*.
+2. Conceda a você e aos membros da sua equipe acesso ao Key Vault. Se você tiver uma equipe grande, poderá criar um [grupo de Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) e adicionar esse acesso ao grupo de segurança ao key Vault. No menu *suspenso permissões de segredo* , marque *obter* e *listar* em *operações de gerenciamento de segredo*.
+Se você já tiver criado seu aplicativo Web, conceda ao aplicativo Web acesso ao Key Vault para que ele possa acessar o cofre de chaves sem armazenar a configuração secreta em arquivos ou configurações do aplicativo. Pesquise seu aplicativo Web por seu nome e adicione-o da mesma maneira que você concede acesso aos usuários.
 
     ![Adicionar política de acesso de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -49,10 +50,10 @@ Se você estiver desenvolvendo um projeto e precisar compartilhar o código-font
 
     ![Adicionar Key Vault segredo](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Antes do Visual Studio 2017 V 15.6, nós usamos para recomendar a instalação da extensão de autenticação dos serviços do Azure para Visual Studio. Mas ele foi preterido agora, já que a funcionalidade está integrada no Visual Studio. Portanto, se você estiver em uma versão mais antiga do Visual Studio 2017, sugerimos que você atualize para pelo menos VS 2017 15,6 ou superior para que você possa usar essa funcionalidade nativamente e acessar o cofre de chaves usando a própria identidade de entrada do Visual Studio.
     >
- 
+
 4. Adicione os seguintes pacotes NuGet ao seu projeto:
 
     ```
@@ -111,7 +112,7 @@ Se você estiver escrevendo um protótipo rápido e não quiser provisionar recu
     </root>
     ```
 
-3. Defina o arquivo secreto para ser um construtor de configuração em seu arquivo Web. config. Coloque esta seção antes da seção appSettings.
+3. Defina o arquivo secreto para ser um construtor de configuração em seu arquivo Web. config. Coloque esta seção antes da seção *appSettings* .
 
     ```xml
     <configBuilders>
@@ -145,7 +146,7 @@ Siga as instruções da seção ASP.NET Core para configurar um Key Vault para o
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Defina Key Vault Construtor de configuração em Web. config. Coloque esta seção antes da seção appSettings. Substitua *vaultname* para ser o nome do Key Vault se seu Key Vault estiver no Azure público ou URI completo se você estiver usando o soberanas Cloud.
+2. Defina Key Vault Construtor de configuração em Web. config. Coloque esta seção antes da seção *appSettings* . Substitua *vaultname* para ser o nome do Key Vault se seu Key Vault estiver no Azure público ou URI completo se você estiver usando o soberanas Cloud.
 
     ```xml
     <configSections>

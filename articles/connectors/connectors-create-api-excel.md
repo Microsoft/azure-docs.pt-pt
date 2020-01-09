@@ -1,22 +1,22 @@
 ---
-title: Conectar-se ao Excel online
-description: Gerenciar dados com APIs REST do Excel online e aplicativos lógicos do Azure
+title: Gerenciar dados, planilhas e tabelas no Excel online
+description: Gerenciar dados em planilhas e tabelas no Excel online for Business ou Excel online para OneDrive usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445871"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerenciar dados do Excel online com aplicativos lógicos do Azure
 
-Com os aplicativos lógicos do Azure e o conector do Excel online, você pode criar tarefas e fluxos de trabalho automatizados com base em seus dados no Excel online for Business ou OneDrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector do [Excel online for Business](/connectors/excelonlinebusiness/) ou [Excel online para onedrive](/connectors/excelonline/) , você pode criar tarefas e fluxos de trabalho automatizados com base em seus dados no Excel online para empresas ou onedrive. Esse conector fornece ações que ajudam você a trabalhar com seus dados e gerenciar planilhas, por exemplo:
 
 * Crie novas planilhas e tabelas.
 * Obtenha e gerencie planilhas, tabelas e linhas.

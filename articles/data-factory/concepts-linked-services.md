@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 9dd81484d8afab66fcb76f8fccdea348ef6a34c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 90e51e8b56bd3fb63d56c630d47770e97f439796
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681490"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563548"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Serviços vinculados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-create-datasets.md)
-> * [Versão atual](concepts-datasets-linked-services.md)
+> * [Versão atual](concepts-linked-services.md)
 
 Este artigo descreve quais serviços vinculados são, como eles são definidos no formato JSON e como eles são usados em pipelines de Azure Data Factory.
 
 Se você for novo no Data Factory, consulte [introdução ao Azure data Factory](introduction.md) para obter uma visão geral.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntos executam uma tarefa. As atividades num pipeline definem as ações a efetuar nos seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um SQL Server local para o armazenamento de BLOBs do Azure. Em seguida, você pode usar uma atividade do hive que executa um script do hive em um cluster do Azure HDInsight para processar dados do armazenamento de BLOBs para produzir dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure SQL Data Warehouse, sobre quais soluções de relatório de business intelligence (BI) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades](concepts-pipelines-activities.md) em Azure data Factory.
 
 Agora, um **DataSet** é uma exibição nomeada de dados que simplesmente aponta ou faz referência aos dados que você deseja usar em suas **atividades** como entradas e saídas.
@@ -61,12 +61,12 @@ Um serviço vinculado no Data Factory é definido no formato JSON da seguinte ma
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Necessário |
+Propriedade | Descrição | Obrigatório |
 -------- | ----------- | -------- |
 nome | Nome do serviço vinculado. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
 tipo | Tipo do serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição para typeproperties. | Sim |
 typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou computação. <br/><br/> Para os tipos de armazenamento de dados com suporte e suas propriedades de tipo, consulte a tabela de [tipos de conjunto](concepts-datasets-linked-services.md#dataset-type) de dado neste artigo. Navegue até o artigo conector do repositório de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação com suporte e suas propriedades de tipo, consulte [Serviços vinculados de computação](compute-linked-services.md). | Sim |
-connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar os Integration Runtime Azure Integration Runtime ou auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não
+connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Você pode usar os Integration Runtime Azure Integration Runtime ou auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não
 
 ## <a name="linked-service-example"></a>Exemplo de serviço vinculado
 O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução.
@@ -77,10 +77,7 @@ O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -95,7 +92,7 @@ O serviço vinculado a seguir é um serviço vinculado do armazenamento do Azure
 Você pode criar serviços vinculados usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
 
 ## <a name="data-store-linked-services"></a>Serviços vinculados do repositório de dados
-Você pode encontrar a lista de dados armazenados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
+Você pode encontrar a lista de armazenamentos de dados com suporte pelo Data Factory do artigo [visão geral do conector](copy-activity-overview.md#supported-data-stores-and-formats) . Clique em um armazenamento de dados para aprender as propriedades de conexão com suporte.
 
 ## <a name="compute-linked-services"></a>Serviços ligados de computação
 Faça referência a [ambientes de computação com suporte](compute-linked-services.md) para obter detalhes sobre diferentes ambientes de computação aos quais você pode se conectar do data Factory, bem como as diferentes configurações.

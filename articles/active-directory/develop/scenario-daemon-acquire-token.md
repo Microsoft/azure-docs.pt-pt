@@ -1,5 +1,5 @@
 ---
-title: Obter tokens em aplicativos daemon que chamam APIs da Web-plataforma Microsoft Identity | Azure
+title: Adquirir tokens para chamar uma API Web (aplicativo daemon)-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo daemon que chama APIs da Web (adquirindo Tokens)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 58952bdb58619693b31ee4705b6f9f704431657d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920298"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423943"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
@@ -33,7 +33,7 @@ O escopo a ser solicitado para um fluxo de credenciais de cliente é o nome do r
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -70,7 +70,7 @@ Para adquirir um token para o aplicativo, você usará `AcquireTokenForClient` o
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the

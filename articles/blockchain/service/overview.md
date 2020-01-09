@@ -4,12 +4,12 @@ description: Visão geral do serviço Blockchain do Azure
 ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
-ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455910"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387382"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ O serviço Blockchain do Azure é um serviço de razão totalmente gerenciado qu
 * Gestão de consórcios incorporada
 * Desenvolva contratos inteligentes com ferramentas de desenvolvimento familiares
 
-O serviço Blockchain do Azure foi projetado para dar suporte a vários protocolos contábeis. Atualmente, ele fornece suporte para o razão de [Quorum](https://www.jpmorgan.com/Quorum) Ethereum usando o mecanismo de consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) .
+O serviço Blockchain do Azure foi projetado para dar suporte a vários protocolos contábeis. Atualmente, ele fornece suporte para o razão de [Quorum](https://www.goquorum.com/) Ethereum usando o mecanismo de consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) .
 
 Estas funcionalidades não exigem praticamente qualquer ação de administração e são todas fornecidas sem custos adicionais. Você pode se concentrar no desenvolvimento de aplicativos e na lógica de negócios, em vez de alocar tempo e recursos para gerenciar máquinas virtuais e infraestrutura. Além disso, você pode continuar a desenvolver seu aplicativo com as ferramentas de software livre e a plataforma de sua escolha para fornecer suas soluções sem precisar aprender novas habilidades.
 
@@ -41,7 +41,7 @@ Depois de provisionar seu primeiro membro blockchain, você tem a capacidade de 
 
 Como um serviço gerenciado, o serviço Blockchain do Azure garante que os nós de seus membros do Blockchain sejam corrigidos com as atualizações mais recentes do sistema operacional do host e da pilha de software do razão, configurados para alta disponibilidade (somente camada Standard), eliminando grande parte do DevOps necessário para nós blockchain de IaaS tradicionais.  Para obter mais informações sobre patches e atualizações, consulte [versões do razão do serviço Blockchain do Azure com suporte](ledger-versions.md).
 
-### <a name="monitoring-and-logging"></a>Monitorização e registos
+### <a name="monitoring-and-logging"></a>Monitorização e registo
 
 Além disso, o serviço Blockchain do Azure fornece métricas avançadas por meio do serviço de Azure Monitor fornecendo informações sobre a CPU, memória e uso de armazenamento dos nós.  Azure Monitor também fornece informações úteis sobre a atividade de rede blockchain, como transações e blocos minados, profundidade da fila de transações e conexões ativas.  As métricas podem ser personalizadas para fornecer exibições para as informações que são importantes para seu aplicativo blockchain.  Além disso, os limites podem ser definidos por meio de alertas, permitindo que os usuários disparem ações como enviar um email ou mensagem de texto, executar um aplicativo lógico, o Azure Function ou enviar para um webhook definido pelo personalizado.
 
@@ -67,12 +67,19 @@ O Blockchain Gerenciador de Dados para o serviço Blockchain do Azure captura, t
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
-Precisa de ajuda ou tem comentários?
+Para o Azure Blockchain News, visite o [blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/) para se manter atualizado sobre as ofertas de serviço Blockchain e informações da equipe de engenharia do Azure Blockchain.
 
-* Visite o [blog do Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), a [comunidade técnica da Microsoft e o](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) [Fórum do Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
-* Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service).
+Para fornecer comentários sobre o produto ou solicitar novos recursos, poste uma ideia por meio do [Fórum de comentários do Azure para blockchain](https://aka.ms/blockchainuservoice).
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="community-support"></a>Suporte da comunidade
+
+Entre em contato com engenheiros da Microsoft e especialistas da Comunidade do Azure Blockchain.
+
+* [Fórum do MSDN Blockchain do Azure](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, experimente um início rápido ou descubra mais detalhes desses recursos.
 * [Criar um membro do blockchain usando o portal do Azure](create-member.md) ou [criar um membro do blockchain usando CLI do Azure](create-member-cli.md)

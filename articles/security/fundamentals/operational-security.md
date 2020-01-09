@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 69b25f22d448436db5e906a3b56b5e50ec412b40
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
-ms.translationtype: MT
+ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459651"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Visão geral
 Sabemos que a segurança é o trabalho um na nuvem e como é importante que você encontre informações precisas e oportunas sobre a segurança do Azure. Um dos melhores motivos para usar o Azure para seus aplicativos e serviços é aproveitar a ampla variedade de ferramentas de segurança e recursos disponíveis. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure. O Windows Azure deve fornecer confidencialidade, integridade e disponibilidade dos dados do cliente, ao mesmo tempo em que também permite a responsabilidade transparente.
 
 Para ajudar os clientes a entender melhor a matriz de controles de segurança implementada em Microsoft Azure das perspectivas operacionais do cliente e da Microsoft, essa white paper, "segurança operacional do Azure", é escrita e fornece uma solução completa Examine a segurança operacional disponível com o Windows Azure.
@@ -37,8 +37,8 @@ Ao se basear ou migrar ativos de ti para um provedor de serviços de nuvem públ
 
 A infraestrutura do Azure foi projetada desde a instalação até os aplicativos para hospedar milhões de clientes simultaneamente, além de fornecer uma base confiável sobre a qual as empresas podem atender aos seus requisitos de segurança. Além disso, o Azure fornece uma ampla gama de opções de segurança configuráveis e a capacidade de controlá-las para que você possa personalizar a segurança para atender aos requisitos exclusivos das implantações de sua organização. Este documento ajudará você a entender como os recursos de segurança do Azure podem ajudá-lo a atender a esses requisitos.
 
-### <a name="abstract"></a>Abstrato
-A segurança operacional do Azure refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. A segurança operacional do Azure é criada em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o SDL (Microsoft Security Development Lifecycle), o programa Microsoft Security Response Center, e conscientização profunda do panorama de ameaças do segurança cibernética.
+### <a name="abstract"></a>Abstract
+A segurança operacional do Azure refere-se aos serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros ativos no Microsoft Azure. A segurança operacional do Azure é criada em uma estrutura que incorpora o conhecimento obtido por meio de vários recursos que são exclusivos à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center, e conscientização profunda do panorama de ameaças do segurança cibernética.
 
 Esta white paper descreve a abordagem da Microsoft para a segurança operacional do Azure na plataforma Microsoft Azure cloud e aborda os seguintes serviços:
 1.  [Azure Monitor](../../azure-monitor/index.yml)
@@ -70,8 +70,8 @@ A principal funcionalidade dos logs de Azure Monitor é fornecida por um conjunt
 | :------------- | :-------------|
 | Registos do Azure Monitor | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
 |Automatização | Automatizar processos manuais e impor configurações para computadores e máquinas virtuais. |
-| Criar cópia de segurança | Faça backup e restaure dados críticos. |
-| Site Recovery | Providenciar elevada disponibilidade para aplicações críticas. |
+| Backup | Faça backup e restaure dados críticos. |
+| Recuperação de Site | Providenciar elevada disponibilidade para aplicações críticas. |
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
@@ -103,7 +103,7 @@ Os dados protegidos no Azure Backup são armazenados num cofre de cópias de seg
 [Azure monitor](../../security-center/security-center-intro.md) é a solução de gerenciamento de ti baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e na nuvem.
 
 
-As [soluções de gerenciamento](../../monitoring/monitoring-solutions.md) são conjuntos predefinidos de lógicas que implementam um cenário de gerenciamento específico usando um ou mais serviços de Azure monitor. Diferentes soluções estão disponíveis da Microsoft e de parceiros que você pode adicionar facilmente à sua assinatura do Azure para aumentar o valor de seu investimento em Azure Monitor. Como parceiro, você pode criar suas próprias soluções para dar suporte aos seus aplicativos e serviços e fornecê-los aos usuários por meio dos modelos do Azure Marketplace ou Início Rápido.
+As [soluções de gerenciamento](../../monitoring/monitoring-solutions.md) são conjuntos predefinidos de lógicas que implementam um cenário de gerenciamento específico usando um ou mais serviços de Azure monitor. Diferentes soluções estão disponíveis da Microsoft e de parceiros que você pode adicionar facilmente à sua assinatura do Azure para aumentar o valor de seu investimento em Azure Monitor. Como parceiro, você pode criar suas próprias soluções para dar suporte aos seus aplicativos e serviços e fornecê-los aos usuários por meio dos modelos do Azure Marketplace ou do guia de início rápido.
 
 
 ![Soluções de Gestão](./media/operational-security/azure-operational-security-fig4.png)
@@ -114,7 +114,7 @@ Quando você cria uma implantação, os runbooks na [automação do Azure](../..
 
 ## <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-A central de segurança do Azure ajuda a proteger seus recursos do Azure. Ele fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Dentro do serviço, é possível definir políticas não apenas em relação às assinaturas do Azure, mas também a [grupos de recursos](../../azure-resource-manager/resource-group-overview.md#resource-groups), para que você possa ser mais granular.
+A central de segurança do Azure ajuda a proteger seus recursos do Azure. Ele fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Dentro do serviço, é possível definir políticas não apenas em relação às assinaturas do Azure, mas também a [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups), para que você possa ser mais granular.
 
 ### <a name="security-policies-and-recommendations"></a>Recomendações e políticas de segurança
 
@@ -136,56 +136,56 @@ O Centro de Segurança recolhe dados das suas máquinas virtuais (VMs) para aval
 
 - O Centro de Segurança do Azure analisa dados das origens seguintes para proporcionar visibilidade para o estado da segurança, identificar vulnerabilidades e recomendar mitigações e detetar ameaças ativas:
 
--   Serviços do Azure: Usa informações sobre a configuração dos serviços do Azure que você implantou comunicando-se com o provedor de recursos do serviço.
+-   Serviços do Azure: utiliza informações sobre a configuração dos serviços do Azure que implementou através da comunicação com o fornecedor de recursos desses serviços.
 
-- Tráfego de rede: Usa metadados de exemplo de tráfego de rede da infraestrutura da Microsoft, como IP/porta de origem/destino, tamanho do pacote e protocolo de rede.
+- Tráfego de Rede: utiliza metadados de tráfego de rede de amostragem da infraestrutura da Microsoft, tais como porta/IP de origem/destino, tamanho do pacote e protocolo de rede.
 
--   Soluções de parceiros: O usa alertas de segurança de soluções de parceiros integradas, como firewalls e soluções antimalware.
+-   Soluções de Parceiros: utiliza alertas de segurança das soluções de parceiros integradas, tais como firewalls e soluções antimalware.
 
--   Suas máquinas virtuais: O usa informações de configuração e informações sobre eventos de segurança, como logs de eventos e auditoria do Windows, logs do IIS, mensagens de syslog e arquivos de despejo de memória de suas máquinas virtuais.
+-   As suas Máquinas Virtuais: utiliza informações de configuração e informações sobre eventos de segurança, tais como eventos do Windows e registos de auditoria, registos do IIS, mensagens do syslog e ficheiros de informação de falha de sistema das suas máquinas virtuais.
 
 ### <a name="data-protection"></a>Proteção de dados
 
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
 
--   Segregação de **dados**: Os dados são mantidos separados logicamente em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
+-   **Segregação de dados**: os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
--   **Acesso a dados**: Para fornecer recomendações de segurança e investigar possíveis ameaças de segurança, o pessoal da Microsoft pode acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo arquivos de despejo de memória, eventos de criação de processos, instantâneos de disco de VM e artefatos, que pode incluir involuntariamente dados do cliente ou dados pessoais de suas máquinas virtuais. Seguimos os [termos e a política de privacidade do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que informam que a Microsoft não usa dados do cliente nem Obtém informações sobre ele para anúncios ou para fins comerciais semelhantes.
+-   **Acesso a dados**: para fornecer recomendações de segurança e investigar possíveis ameaças de segurança, o pessoal da Microsoft pode acessar as informações coletadas ou analisadas pelos serviços do Azure, incluindo arquivos de despejo de memória, eventos de criação de processos, instantâneos de disco da VM e artefatos, que podem incluir involuntariamente dados do cliente ou dados pessoais de suas máquinas virtuais. Seguimos os [termos e a política de privacidade do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que informam que a Microsoft não usa dados do cliente nem Obtém informações sobre ele para anúncios ou para fins comerciais semelhantes.
 
--   **Uso de dados**: A Microsoft usa padrões e inteligência contra ameaças vistos em vários locatários para aprimorar nossos recursos de prevenção e detecção; fazemos isso de acordo com os compromissos de privacidade descritos em nossa [política de privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Utilização de dados**: a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
-### <a name="data-location"></a>Localização de dados
+### <a name="data-location"></a>Localização dos dados
 
 O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de informação de falha de sistema e analisa-as para encontrar sinais de tentativas de exploração e casos em que a segurança tenha sido comprometida. O Centro de Segurança do Azure faz esta análise na mesma Geografia que a área de trabalho e elimina as cópias efémeras quando a análise estiver concluída. Os artefactos das máquinas são armazenados centralmente na mesma região que as VMs.
 
--   **Suas contas de armazenamento**: Uma conta de armazenamento é especificada para cada região em que as máquinas virtuais estão em execução. Isto permite-lhe armazenar dados na mesma região que a máquina virtual a partir da qual os dados são recolhidos.
+-   **Suas contas de armazenamento**: uma conta de armazenamento é especificada para cada região em que as máquinas virtuais estão em execução. Isto permite-lhe armazenar dados na mesma região que a máquina virtual a partir da qual os dados são recolhidos.
 
--   **Armazenamento da central de segurança do Azure**: As informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e status de integridade de segurança são armazenadas centralmente, atualmente no Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
+-   **Armazenamento do Centro de Segurança do Azure**: as informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e estado de funcionamento da segurança, são armazenadas de forma central, atualmente nos Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
 
 
-## <a name="azure-monitor"></a>Azure Monitor
+## <a name="azure-monitor"></a>Monitor do Azure
 
 A solução [Azure monitor logs de segurança](../../security-center/security-center-monitoring.md) e auditoria permite que a ti monitore ativamente todos os recursos, o que pode ajudar a minimizar o impacto dos incidentes de segurança. Azure Monitor logs Segurança e Auditoria têm domínios de segurança que podem ser usados para monitorar recursos. O domínio de segurança fornece acesso rápido às opções, para monitoramento de segurança os seguintes domínios são abordados em mais detalhes:
 
 -   Avaliação de software maligno
--   Avaliação de atualizações
+-   Avaliação de atualização
 -   Identidade e acesso.
 
 Azure Monitor fornece ponteiros para informações sobre tipos específicos de recursos. Ele oferece visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure (log de atividades) e de cada recurso individual do Azure (logs de diagnóstico).
 
-![Azure Monitor](./media/operational-security/azure-operational-security-fig6.png)
+![Monitor do Azure](./media/operational-security/azure-operational-security-fig6.png)
 
 
 Os aplicativos de nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça em funcionamento em um estado íntegro. Ele também ajuda a afastarr problemas em potencial ou a solucionar problemas anteriores.
 
 Além disso, você pode usar dados de monitoramento para obter informações aprofundadas sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a manutenção do aplicativo, ou automatizar ações que, caso contrário, exigirão intervenção manual.
 
-### <a name="azure-activity-log"></a>Registo de atividades do Azure
+### <a name="azure-activity-log"></a>Registo de Atividades do Azure
 
 
 É um log que fornece informações sobre as operações que foram realizadas em recursos em sua assinatura. O log de atividades era conhecido anteriormente como "logs de auditoria" ou "logs operacionais", pois ele relata eventos de plano de controle para suas assinaturas.
 
-![Registo de atividades do Azure](./media/operational-security/azure-operational-security-fig7.png)
+![Registo de Atividades do Azure](./media/operational-security/azure-operational-security-fig7.png)
 
 Usando o log de atividades, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) tomada nos recursos em sua assinatura. Também é possível compreender o estado da operação e outras propriedades relevantes. O log de atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo clássico.
 
@@ -199,7 +199,7 @@ Os logs de diagnóstico são diferentes do [log de atividades (anteriormente con
 
 ### <a name="metrics"></a>Métricas
 
-Azure Monitor permite que você consuma a telemetria para obter visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria do Azure são as métricas (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir [](../../monitoring/monitoring-data-collection.md) essas métricas para monitoramento e solução de problemas. As métricas são uma fonte valiosa de telemetria e permitem que você realize as seguintes tarefas:
+Azure Monitor permite que você consuma a telemetria para obter visibilidade do desempenho e da integridade de suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria do Azure são as métricas (também chamadas de contadores de desempenho) emitidas pela maioria dos recursos do Azure. O Azure Monitor fornece várias maneiras de configurar e consumir essas [métricas](../../monitoring/monitoring-data-collection.md) para monitoramento e solução de problemas. As métricas são uma fonte valiosa de telemetria e permitem que você realize as seguintes tarefas:
 
 -   **Acompanhe o desempenho** do recurso (como uma VM, um site ou um aplicativo lógico) plotando suas métricas em um gráfico do portal e fixando esse gráfico a um painel.
 
@@ -215,13 +215,13 @@ Azure Monitor permite que você consuma a telemetria para obter visibilidade do 
 
 É o recurso no Azure que permite a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. Atualmente, há suporte para [funções Web e de trabalho do serviço de nuvem do Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [máquinas virtuais do Azure](../../virtual-machines/windows/overview.md) executando o Microsoft Windows e [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Outros serviços do Azure têm seu próprio diagnóstico separado.
 
-## <a name="azure-network-watcher"></a>Observador de rede do Azure
+## <a name="azure-network-watcher"></a>Observador de Rede do Azure
 
 A auditoria da segurança de rede é vital para detectar vulnerabilidades de rede e garantir a conformidade com a segurança de ti e o modelo de governança regulatória. Com a exibição de grupo de segurança, você pode recuperar o grupo de segurança de rede e as regras de segurança configuradas e as regras de segurança em vigor. Com a lista de regras aplicadas, você pode determinar as portas que estão abertas e avaliar a vulnerabilidade da rede.
 
-O observador de [rede](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional que permite monitorar e diagnosticar condições em um nível de rede em, para e do Azure. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
+O [observador de rede](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço regional que permite monitorar e diagnosticar condições em um nível de rede em, para e do Azure. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. Esse serviço inclui captura de pacote, próximo salto, verificação de fluxo de IP, exibição de grupo de segurança, logs de fluxo de NSG. O monitoramento em nível de cenário fornece uma exibição de ponta a ponta dos recursos de rede em contraste com o monitoramento de recursos de rede individual.
 
-![Observador de rede do Azure](./media/operational-security/azure-operational-security-fig8.png)
+![Observador de Rede do Azure](./media/operational-security/azure-operational-security-fig8.png)
 
 O observador de rede atualmente tem os seguintes recursos:
 
@@ -236,19 +236,19 @@ O observador de rede atualmente tem os seguintes recursos:
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Log de fluxo do NSG</a>** – logs de fluxo para grupos de segurança de rede permitem capturar logs relacionados ao tráfego permitido ou negado pelas regras de segurança no grupo. O fluxo é definido por informações de 5 tuplas – IP de origem, IP de destino, porta de origem, porta de destino e protocolo.
 
-## <a name="azure-storage-analytics"></a>Análise do Armazenamento do Azure
+## <a name="azure-storage-analytics"></a>Análise de Armazenamento do Azure
 
 [Análise de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) pode armazenar métricas que incluem estatísticas de transação agregadas e dados de capacidade sobre solicitações para um serviço de armazenamento. As transações são relatadas no nível de operação da API e no nível do serviço de armazenamento, e a capacidade é relatada no nível do serviço de armazenamento. Os dados de métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com solicitações feitas no serviço de armazenamento e melhorar o desempenho de aplicativos que usam um serviço.
 
-[Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) executa o registro em log e fornece dados de métrica para uma conta de armazenamento. Pode utilizar estes dados para rastrear pedidos, analisar tendências de utilização e diagnosticar problemas relacionados com a sua conta de armazenamento. Análise de Armazenamento log está disponível para os [Serviços BLOB, fila e tabela](../../storage/common/storage-introduction.md). Análise de Armazenamento registra informações detalhadas sobre solicitações bem-sucedidas e com falha em um serviço de armazenamento.
+[Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) executa o registro em log e fornece dados de métrica para uma conta de armazenamento. Pode utilizar estes dados para rastrear pedidos, analisar tendências de utilização e diagnosticar problemas relacionados com a sua conta de armazenamento. Análise de Armazenamento log está disponível para os [Serviços BLOB, fila e tabela](../../storage/common/storage-introduction.md). A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento.
 
-Essas informações podem ser usadas para monitorar solicitações individuais e diagnosticar problemas com um serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço. As entradas de log serão criadas somente se houver solicitações feitas no ponto de extremidade de serviço. Por exemplo, se uma conta de armazenamento tiver atividade em seu ponto de extremidade de BLOB, mas não em seus pontos de extremidades de tabela ou fila, somente os logs pertencentes ao serviço blob serão criados.
+Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. As solicitações são registradas em uma base de melhor esforço. As entradas de log serão criadas somente se houver solicitações feitas no ponto de extremidade de serviço. Por exemplo, se uma conta de armazenamento tiver atividade em seu ponto de extremidade de BLOB, mas não em seus pontos de extremidades de tabela ou fila, somente os logs pertencentes ao serviço blob serão criados.
 
 Para usar Análise de Armazenamento, você deve habilitá-lo individualmente para cada serviço que deseja monitorar. Você pode habilitá-lo no [portal do Azure](https://portal.azure.com/); para obter detalhes, consulte [monitorar uma conta de armazenamento no portal do Azure](../../storage/common/storage-monitor-storage-account.md). Você também pode habilitar Análise de Armazenamento programaticamente por meio da API REST ou da biblioteca de cliente. Use a operação definir propriedades do serviço para habilitar Análise de Armazenamento individualmente para cada serviço.
 
 Os dados agregados são armazenados em um blob conhecido (para registro em log) e em tabelas conhecidas (para métricas), que podem ser acessados usando as APIs serviço de BLOB e serviço de tabela.
 
-Análise de Armazenamento tem um limite de 20 TB na quantidade de dados armazenados que é independente do limite total para sua conta de armazenamento. Todos os logs são armazenados em blobs de [blocos](../../storage/common/storage-analytics.md) em um contêiner chamado $logs, que são criados automaticamente quando análise de armazenamento está habilitado para uma conta de armazenamento.
+Análise de Armazenamento tem um limite de 20 TB na quantidade de dados armazenados que é independente do limite total para sua conta de armazenamento. Todos os logs são armazenados em [blobs de blocos](../../storage/common/storage-analytics.md) em um contêiner chamado $logs, que são criados automaticamente quando análise de armazenamento está habilitado para uma conta de armazenamento.
 
 As seguintes ações executadas por Análise de Armazenamento são faturáveis:
 
@@ -260,17 +260,17 @@ As seguintes ações executadas por Análise de Armazenamento são faturáveis:
 > Para obter um desempenho ideal, você deseja limitar o número de discos altamente utilizados anexados à máquina virtual para evitar uma limitação possível. Se todos os discos não estiverem sendo altamente utilizados ao mesmo tempo, a conta de armazenamento poderá dar suporte a um disco de número maior.
 
 > [!Note]
-> Para obter mais informações sobre limites de conta de armazenamento, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../../storage/common/storage-scalability-targets.md).
+> Para obter mais informações sobre limites de conta de armazenamento, consulte [metas de escalabilidade para contas de armazenamento padrão](../../storage/common/scalability-targets-standard-account.md).
 
 
 Os seguintes tipos de solicitações autenticadas e anônimas são registrados.
 
-| Autenticados  | Anónimo|
+| Autenticado  | Anónimo|
 | :------------- | :-------------|
 | Pedidos com êxito | Pedidos com êxito |
-|Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros | Solicitações que usam uma SAS (assinatura de acesso compartilhado), incluindo solicitações com falha e bem-sucedidas |
+|Pedidos falhados, incluindo tempo limite, limitação, rede, autorização e outros erros | Solicitações que usam uma SAS (assinatura de acesso compartilhado), incluindo solicitações com falha e bem-sucedidas |
 | Solicitações que usam uma SAS (assinatura de acesso compartilhado), incluindo solicitações com falha e bem-sucedidas |Erros de tempo limite para o cliente e o servidor |
-|   Solicitações para dados de análise |    Solicitações GET com falha com o código de erro 304 (não modificado) |
+|   Pedidos de dados de análise |    Solicitações GET com falha com o código de erro 304 (não modificado) |
 | As solicitações feitas por Análise de Armazenamento em si, como criação ou exclusão de log, não são registradas. Uma lista completa dos dados registrados em log está documentada na [análise de armazenamento operações registradas e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e tópicos de [análise de armazenamento formato de log](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) . | Todas as outras solicitações anônimas com falha não são registradas. Uma lista completa dos dados registrados em log está documentada na [análise de armazenamento operações registradas e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [análise de armazenamento formato de log](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ## <a name="azure-active-directory"></a>Azure Active Directory

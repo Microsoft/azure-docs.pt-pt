@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427611"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Serviços Web Azure Machine Learning Studio (clássico): implantação e consumo
 
@@ -23,7 +23,7 @@ Você pode usar Azure Machine Learning Studio (clássico) para implantar fluxos 
 
 As secções seguintes fornecem ligações para instruções passo a passo, código e documentação para ajudar a começar.
 
-## <a name="deploy-a-web-service"></a>Implementar serviços Web
+## <a name="deploy-a-web-service"></a>Implementar um serviço Web
 
 ### <a name="with-azure-machine-learning-studio-classic"></a>Com Azure Machine Learning Studio (clássico)
 
@@ -31,27 +31,27 @@ O portal Studio (clássico) e o Microsoft Azure Machine Learning Portal de servi
 
 As ligações seguintes fornecem informações gerais sobre como implementar um novo serviço web:
 
-* Para obter uma visão geral sobre como implantar um novo serviço Web baseado em Azure Resource Manager, consulte [implantar um novo serviço Web](deploy-a-machine-learning-web-service.md).
-* Para obter instruções sobre como implantar um serviço Web, consulte [implantar um serviço web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
+* Para uma descrição geral sobre como implementar um novo serviço web baseado no Azure Resource Manager, consulte [implementar um novo serviço web](deploy-a-machine-learning-web-service.md).
+* Para obter instruções sobre como implementar um serviço da web, consulte [implementar um serviço web do Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 * Para obter uma explicação completa sobre como criar e implantar um serviço Web, comece com o [tutorial 1: prever o risco de crédito](tutorial-part1-credit-risk.md).
 * Para obter exemplos específicos que implementa um serviço web, consulte:
 
   * [Tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
-  * [Como implantar um serviço Web em várias regiões](deploy-a-machine-learning-web-service.md#multi-region)
+  * [Como implementar um serviço web em várias regiões](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com o fornecedor de recursos de serviços de web APIs (APIs do Azure Resource Manager)
 
-A versão clássica do provedor de recursos Azure Machine Learning Studio para serviços Web permite a implantação e o gerenciamento de serviços Web usando chamadas à API REST. Para obter mais informações, consulte a referência do [serviço Web do Machine Learning (REST)](/rest/api/machinelearning/index) .
+O provedor de recursos Azure Machine Learning Studio (clássico) para serviços Web permite a implantação e o gerenciamento de serviços Web usando chamadas à API REST. Para obter mais informações, consulte a referência do [serviço Web do Machine Learning (REST)](/rest/api/machinelearning/index) .
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Com os cmdlets do PowerShell
 
-A versão clássica do provedor de recursos Azure Machine Learning Studio para serviços Web permite a implantação e o gerenciamento de serviços Web usando cmdlets do PowerShell.
+O provedor de recursos Azure Machine Learning Studio (clássico) para serviços Web permite a implantação e o gerenciamento de serviços Web usando cmdlets do PowerShell.
 
-Para usar os cmdlets, primeiro você deve entrar em sua conta do Azure de dentro do ambiente do PowerShell usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Se você não estiver familiarizado com como chamar comandos do PowerShell baseados no Resource Manager, consulte [usando Azure PowerShell com Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Para usar os cmdlets, primeiro você deve entrar em sua conta do Azure de dentro do ambiente do PowerShell usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Se não estiver familiarizado com como chamar comandos do PowerShell que são baseados no Resource Manager, veja [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
-Para exportar seu experimento de previsão, use [este código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o ficheiro de .exe do código, pode digitar:
+Para exportar a sua experimentação preditiva, utilize [este código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o ficheiro de .exe do código, pode digitar:
 
     C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
@@ -59,12 +59,12 @@ Executar a aplicação cria um modelo de JSON do serviço web. Para utilizar o m
 
 * Nome da conta de armazenamento e a chave
 
-    Você pode obter o nome da conta de armazenamento e a chave do [portal do Azure](https://portal.azure.com/).
+    Pode obter o nome de conta de armazenamento e da chave do [portal do Azure](https://portal.azure.com/).
 * ID do plano de compromisso
 
-    Você pode obter a ID do plano do [Azure Machine Learning Portal de serviços Web](https://services.azureml.net) entrando e clicando em um nome de plano.
+    Pode obter o ID do plano do [serviços da Web do Azure Machine Learning](https://services.azureml.net) portal a iniciar sessão e clicando num nome de plano.
 
-Adicione-os ao modelo JSON como filhos do nó *Propriedades* no mesmo nível que o nó *MachineLearningWorkspace* .
+Adicioná-los para o modelo JSON como filhos do *propriedades* nó de mesmo nível, como o *MachineLearningWorkspace* nó.
 
 Segue-se um exemplo:
 
@@ -79,7 +79,7 @@ Segue-se um exemplo:
 Consulte os seguintes artigos e o código de exemplo para obter detalhes adicionais:
 
 * Referência de [cmdlets do Azure Machine Learning Studio (clássico)](https://docs.microsoft.com/powershell/module/az.machinelearning) no MSDN
-* Exemplo de [explicação](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) no github
+* Exemplo [passo a passo](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) no GitHub
 
 ## <a name="consume-the-web-services"></a>Consumir os serviços web
 
@@ -88,15 +88,15 @@ Consulte os seguintes artigos e o código de exemplo para obter detalhes adicion
 Pode testar o seu serviço web a partir do portal do Azure Machine Learning Web Services. Isto inclui o teste do serviço de solicitação-resposta (RRS) e interfaces de serviço de execução de lotes (BES).
 
 * [Implementar um serviço Web novo](deploy-a-machine-learning-web-service.md)
-* [Implantar um serviço Web Azure Machine Learning](deploy-a-machine-learning-web-service.md)
+* [Implementar um serviço web do Azure Machine Learning](deploy-a-machine-learning-web-service.md)
 * [Tutorial 3: implantar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>A partir do Excel
 
 Pode transferir um modelo do Excel que consome o serviço web:
 
-* [Consumindo um serviço Web Azure Machine Learning do Excel](consuming-from-excel.md)
-* [Suplemento do Excel para serviços Web do Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Consumir um serviço web do Azure Machine Learning a partir do Excel](consuming-from-excel.md)
+* [Suplemento do Excel para serviços da Web do Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>De um cliente baseado em REST
 

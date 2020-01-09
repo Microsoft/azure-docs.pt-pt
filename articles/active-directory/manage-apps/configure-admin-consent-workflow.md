@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430206"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
 
@@ -42,7 +42,7 @@ Para habilitar o fluxo de trabalho de consentimento do administrador e escolher 
 
    ![Definir configurações de fluxo de trabalho de consentimento do administrador](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
-6. Defina as seguintes configurações:
+6. Configure as seguintes definições:
 
    * **Selecione os usuários para examinar as solicitações de consentimento do administrador**. Selecione revisores para este fluxo de trabalho de um conjunto de usuários que têm as funções administrador global, administrador de aplicativos de nuvem e administrador de aplicativos.
    * **Os usuários selecionados receberão notificações por email para solicitações**. Habilitar ou desabilitar notificações por email para os revisores quando uma solicitação for feita.  
@@ -153,8 +153,10 @@ Se você estiver preocupado em conceder consentimento de administrador e permiti
 
 Para obter mais informações sobre como conferir a aplicativos, consulte [Azure Active Directory estrutura de consentimento](../develop/consent-framework.md).
 
-[Consentir e integrar aplicativos ao AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configurar como os usuários finais concordam com os aplicativos](configure-user-consent.md)
 
-[Consentimento e permissão para aplicativos convergidos do AzureAD v 2.0](../develop/active-directory-v2-scopes.md)
+[Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Permissões e consentimento na plataforma Microsoft Identity](../develop/active-directory-v2-scopes.md)
+
+[Azure AD no StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

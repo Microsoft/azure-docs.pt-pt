@@ -1,28 +1,19 @@
 ---
-title: Tutorial – Criar, depurar, implementar e monitorizar uma aplicação para vários serviços no Service Fabric Mesh | Microsoft Docs
+title: Criar, implantar um aplicativo de vários serviços para Service Fabric malha
 description: Neste tutorial, vai criar uma aplicação do Azure Service Fabric Mesh com vários serviços, que consiste num site ASP.NET Core que comunica com um serviço Web de back-end, depurá-lo localmente e publicá-lo no Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810809"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495199"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação de malha de recursos de infraestrutura do serviço de mensagens em fila múltiplos serviço
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação para vários serviços do Service Fabric Mesh
 
 Este tutorial é a primeira parte de uma série. Ficará a saber como utilizar o Visual Studio para criar uma aplicação do Azure Service Fabric Mesh com um serviço de front-end Web ASP.NET e um serviço de back-end de API Web ASP.NET Core. Em seguida, vai depurar a aplicação no cluster de desenvolvimento local. Vai publicar a aplicação no Azure e, em seguida, fazer alterações na configuração e no código e atualizar a aplicação. Por fim, vai limpar os recursos do Azure não utilizados, para não lhe serem cobrados.
 
@@ -80,7 +71,7 @@ Defina o **Nome do Serviço** como **WebFrontEnd**. Prima **OK** para criar o se
 
 ![Caixa de diálogo de novo projeto do Service Fabric Mesh do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-Em seguida, verá a caixa de diálogo de aplicação Web ASP.NET Core. Selecione **Web Application** (Aplicação Web) e clique em **OK**.
+Em seguida, você verá a caixa de diálogo ASP.NET Core aplicativo Web. Selecione **Web Application** (Aplicação Web) e clique em **OK**.
 
 ![Nova aplicação ASP.NET Core do Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -88,13 +79,13 @@ Tem agora uma aplicação do Service Fabric Mesh. Em seguida, crie o modelo para
 
 ## <a name="create-the-to-do-items-model"></a>Criar o modelo de itens a fazer
 
-Para simplificar, os itens a fazer são armazenados numa lista na memória. Crie uma biblioteca de classes para os itens a fazer e uma lista para armazená-los. No Visual Studio, que tem atualmente o **todolistapp** solução carregada, selecione **ficheiro** > **adicionar** > **novo projeto** .
+Para simplificar, os itens a fazer são armazenados numa lista na memória. Crie uma biblioteca de classes para os itens a fazer e uma lista para armazená-los. No Visual Studio, que atualmente tem a solução **apldelistadetarefas** carregada, selecione **arquivo** > **Adicionar** > **novo projeto**.
 
-Na **adicionar novo projeto** caixa de diálogo **pesquisa** caixa na parte superior, tipo `C# .net core class`. Selecione o modelo **Biblioteca de Classes (.NET Core)**.
+Na caixa de **pesquisa** de diálogo **Adicionar novo projeto** na parte superior, digite `C# .net core class`. Selecione o modelo **Biblioteca de Classes (.NET Core)** .
 
 Na caixa **Nome**, escreva `Model`. Clique em **OK** para criar a biblioteca de classes.
 
-No Explorador de Soluções, em **Modelo**, clique com o botão direito do rato em **Class1.cs** e escolha **Mudar o nome**. Mude o nome da classe para **ToDoItem.cs**. Quando aparecer um aviso, perguntando se pode mudar o nome de todas as referências, clique em **Sim**.
+No Explorador de Soluções, em **Modelo**, clique com o botão direito do rato em **Class1.cs** e escolha **Mudar o nome**. Mude o nome da classe para **ToDoItem.cs**. Quando aparecer um prompt perguntando se deseja renomear todas as referências, clique em **Sim**.
 
 Substitua os conteúdos do `class ToDoItem` vazio por:
 
@@ -124,7 +115,7 @@ public class ToDoItem
 }
 ```
 
-Esta classe representa os itens a fazer.
+Essa classe representa itens de tarefas pendentes.
 
 No Visual Studio, clique com o botão direito do rato na biblioteca de classes **Modelo** e selecione **Adicionar** > **Classe...** , de modo a criar uma lista para conter os itens a fazer. A caixa de diálogo **Adicionar Novo Item** será apresentada. Defina o **Nome** como `ToDoList.cs` e clique em **Adicionar**.
 
@@ -194,7 +185,7 @@ Em seguida, a caixa de diálogo **Nova Aplicação Web do ASP.NET Core** será a
 
 Uma vez que o serviço de back-end não fornece qualquer IU, desative a inicialização do browser quando o serviço é iniciado. No **Explorador de Soluções**, clique com o botão direito do rato em **ToDoService** e selecione **Propriedades**. Na janela de propriedades que é apresentada, selecione o separador **Depurar** no lado esquerdo e desmarque **Iniciar browser**. Prima **Ctrl+S** para guardar a alteração.
 
-Como este serviço mantém as informações de tarefas pendentes, adicione uma referência para a biblioteca de classes Modelo. No Explorador de Soluções, clique com o botão direito do rato em **ToDoService** e, em seguida, selecione **Adicionar** > **Referência...**. A caixa de diálogo **Gestor de Referências** será apresentada.
+Como este serviço mantém as informações de tarefas pendentes, adicione uma referência para a biblioteca de classes Modelo. Na Gerenciador de Soluções, clique com o botão direito do mouse em **ToDoService** e selecione **adicionar** referência de >  **...** . A caixa de diálogo **Gerenciador de referências** será exibida.
 
 No **Gestor de Referências**, selecione a caixa de verificação para **Modelo** e clique em **OK**.
 
@@ -277,7 +268,7 @@ Este tutorial não aborda a adição, eliminação, etc., para manter o foco na 
 Com o serviço de back-end implementado, codifique o site que irá apresentar os itens a fazer que fornece. Os seguintes passos ocorrem dentro do projeto **WebFrontEnd**.
 
 A página Web que apresenta os itens a fazer necessita de acesso à classe e à lista **ToDoItem**.
-No **Explorador de Soluções**, adicione uma referência para o projeto Modelo, ao clicar com o botão direito do rato em **WebFrontEnd** e selecionar **Adicionar** > **Referência...** A caixa de diálogo **Gestor de Referências** será apresentada.
+No **Gerenciador de soluções**, adicione uma referência ao projeto de modelo clicando com o botão direito do mouse em **WebFrontEnd** e selecionando **Adicionar** referência de >  **...** A caixa de diálogo **Gerenciador de referências** será exibida.
 
 No **Gestor de Referências**, clique na caixa de verificação para **Modelo** e clique em **OK**.
 
@@ -313,7 +304,7 @@ Substitua o conteúdo da totalidade do ficheiro pelo seguinte HTML, que define u
 </div>
 ```
 
-Clique no ícone de lista pendente do **Index. cshtml** de ficheiros a **Explorador de soluções** e, em seguida, abra **Index.cshtml.cs**.
+Clique no ícone suspenso do arquivo **index. cshtml** na **Gerenciador de soluções** e, em seguida, abra **index.cshtml.cs**.
 
 Na parte superior do **Index.cshtml.cs**, adicionar `using System.Net.Http;`
 
@@ -354,22 +345,23 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 O URL é composto pelo nome e porta do serviço. Todas estas informações estão no ficheiro service.yaml, que se encontra no projeto **ToDoService**.
 
 > [!IMPORTANT]
-> Nos passos seguintes, arquivos YAML serão modificados.
-> Devem ser utilizados espaços, e não separadores, para avançar as variáveis no ficheiro service.yaml; caso contrário, não será compilado. O Visual Studio pode inserir separadores, à medida que cria as variáveis de ambiente. Substitua todos os separadores por espaços. Embora Vá ver erros na **criar** saída de depuração, a aplicação ainda será iniciado, mas não irá até converter os separadores de espaços e recompilar. Para garantir que não existem separadores no ficheiro service.yaml, pode tornar o espaço em branco visível no editor do Visual Studio com **Editar**  > **Avançado**  > **Ver Espaço em Branco**.
-> Observe que os ficheiros do service.yaml são processados com o idioma inglês. Se precisar de utilizar um separador decimal, utilize um período em vez de uma vírgula, por exemplo.
+> Nas etapas a seguir, os arquivos YAML serão modificados.
+> Devem ser utilizados espaços, e não separadores, para avançar as variáveis no ficheiro service.yaml; caso contrário, não será compilado. O Visual Studio pode inserir separadores, à medida que cria as variáveis de ambiente. Substitua todos os separadores por espaços. Embora você veja erros na saída de depuração de **compilação** , o aplicativo ainda será iniciado, mas não até que você converta as guias em espaços e recompile. Para garantir que não existem separadores no ficheiro service.yaml, pode tornar o espaço em branco visível no editor do Visual Studio com **Editar**  > **Avançado**  > **Ver Espaço em Branco**.
+> Observe que os ficheiros do service.yaml são processados com o idioma inglês. Se você precisar usar um separador decimal, use um ponto em vez de uma vírgula, por exemplo.
 
 Navegue no **Explorador de Soluções** para o projeto **ToDoService** e abra **Recursos do Serviço** > **service.yaml**.
 
 ![Figura 1 – o ficheiro service.yaml de ToDoService](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* O nome do serviço, `ToDoService`, pode ser encontrado em `services:` consulte (1) na figura acima.
-* A porta `80`, pode ser encontrado em `endpoints:` consulte (2) na figura acima. Número de porta de seu projeto provavelmente será diferente.
+ O nome do serviço, `ToDoService`, é encontrado em `services:` consulte (1) na figura acima.
 
-Em seguida, precisamos definir variáveis de ambiente que representa o nome do serviço e a porta número no projeto WebFrontEnd, para que ele possa chamar o serviço de back-end.
+* A porta, `80`, é encontrada em `endpoints:` consulte (2) na figura acima. O número da porta do seu projeto provavelmente será diferente.
+
+Em seguida, precisamos definir as variáveis de ambiente que representam o nome do serviço e o número da porta no projeto do WebFrontEnd para que ele possa chamar o serviço de back-end.
 
 Na **Explorador de Soluções**, navegue até **WebFrontEnd** > **Recursos do Serviço** > **service.yaml** para definir as variáveis que especificam o endereço do serviço de back-end.
 
-No ficheiro service.yaml, adicione as seguintes variáveis sob `environmentVariables:` (primeiro terá de remover o `#` para retirar os comentários `environmentVariables:`) o espaçamento é importante alinhar por isso, as variáveis que adicionar com as outras variáveis em `environmentVariables:`. É muito importante que o valor para ApiHostPort corresponde ao valor de porta para ToDoServiceListener que anteriormente foi visualizado no arquivo service.yaml do ToDoService.
+No arquivo Service. YAML, adicione as seguintes variáveis em `environmentVariables:` (primeiro, você precisará remover o `#` para desmarcar `environmentVariables:`) o espaçamento é importante, portanto, alinhe as variáveis que você adicionar com as outras variáveis em `environmentVariables:`. É muito importante que o valor de ApiHostPort corresponda ao valor da porta para ToDoServiceListener que foi visto anteriormente no arquivo Service. YAML do ToDoService.
 
 ```yaml
 - name: ApiHostPort
@@ -379,10 +371,10 @@ No ficheiro service.yaml, adicione as seguintes variáveis sob `environmentVaria
 ```
 
 > [!Tip]
-> Existem duas formas para especificar o valor para `ToDoServiceName`: 
-> - Apenas o nome do serviço, que irá resolver tanto num cenário de depuração no Windows 10, bem como ao implementar o serviço para o modo de malha do Azure Service Fabric.
-> - Completamente qualificadas como servicename.appname. Isso funcionará apenas durante a depuração no Windows 10.
-> É uma boa prática para utilizar apenas o nome do serviço para a resolução do serviço.
+> Há duas maneiras de especificar o valor para `ToDoServiceName`: 
+> - Apenas o nome do serviço, que será resolvido em um cenário de depuração no Windows 10, bem como na implantação do serviço no Azure Service Fabric malha.
+> - Totalmente qualificado como ServiceName. AppName. Isso só funcionará quando estiver depurando no Windows 10.
+> É uma boa prática usar apenas o nome do serviço para a resolução de serviço.
 
 O ficheiro **service.yaml** do projeto **WebFrontEnd** deve ser semelhante ao seguinte, embora o seu valor `ApiHostPort` possa ser diferente:
 
@@ -391,7 +383,7 @@ O ficheiro **service.yaml** do projeto **WebFrontEnd** deve ser semelhante ao se
 
 Está agora pronto para criar e implementar a imagem da aplicação do Service Fabric Mesh, juntamente com o serviço Web de back-end, no seu cluster local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

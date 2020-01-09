@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460759"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Criar um índice básico no Azure Pesquisa Cognitiva
 
@@ -158,7 +158,7 @@ Na definição do esquema, tem de especificar o nome, o tipo e os atributos de c
 
 Você pode encontrar informações mais detalhadas sobre [os tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types)do Azure pesquisa cognitiva aqui.
 
-### <a name="index-attributes"></a>Atributos de índice
+### <a name="index-attributes"></a>Atributos do índice
 
 Exatamente um campo no índice deve ser designado como um campo de **chave** que identifica exclusivamente cada documento.
 
@@ -175,10 +175,9 @@ As APIs usadas para criar um índice têm comportamentos padrão variados. Para 
 | `facetable` |Permite a um campo ser utilizado numa estrutura de [navegação por facetas](search-faceted-navigation.md) para filtragem do utilizador auto-direcionada. Geralmente os campos com valores repetitivos que pode utilizar para agrupar vários documentos (por exemplo, vários documentos que se inserem numa única marca ou categoria de serviço) funcionam melhor como facetas. |
 | `searchable` |Marca o campo como pesquisável no texto completo. |
 
+## <a name="index-size"></a>Tamanho do índice
 
-## <a name="storage-implications"></a>Implicações de armazenamento
-
-Os atributos selecionados têm um impacto no armazenamento. A captura de tela a seguir ilustra os padrões de armazenamento de índice resultantes de várias combinações de atributos.
+O tamanho de um índice é determinado pelo tamanho dos documentos que você carrega, além da configuração de índice, como se você inclui sugestores e como você define atributos em campos individuais. A captura de tela a seguir ilustra os padrões de armazenamento de índice resultantes de várias combinações de atributos.
 
 O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-get-started-portal.md) , que você pode indexar e consultar no Portal. Embora os esquemas de índice não sejam mostrados, você pode inferir os atributos com base no nome do índice. Por exemplo, *realestate – índice pesquisável* tem o atributo **pesquisável** selecionado e nada mais, o índice *realestate-recuperável* tem o atributo **recuperável** selecionado e nada mais, e assim por diante.
 
@@ -186,13 +185,13 @@ O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-g
 
 Embora essas variantes de índice sejam artificiais, podemos nos referir a elas para comparações amplas de como os atributos afetam o armazenamento. A definição da **recuperação** aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim.
 
-Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores que os índices que dão suporte à pesquisa de texto completo. O motivo é que a consulta de filtro e classificação em correspondências exatas para que os documentos sejam armazenados intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa difusa e de texto completo usam índices invertidos, que são preenchidos com termos com token que consomem menos espaço do que documentos inteiros.
+Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores que aqueles que dão suporte à pesquisa de texto completo. As operações filtrar e classificar verificam correspondências exatas, exigindo a presença de documentos intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa difusa e de texto completo usam índices invertidos, que são preenchidos com termos com token que consomem menos espaço do que documentos inteiros. 
 
 > [!Note]
 > A arquitetura de armazenamento é considerada um detalhe de implementação do Azure Pesquisa Cognitiva e pode ser alterada sem aviso prévio. Não há nenhuma garantia de que o comportamento atual persistirá no futuro.
 
 ## <a name="suggesters"></a>Sugestões
-Um Sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou de tipo antecipado em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de frases sugeridas. 
+Um Sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou de tipo antecipado em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de documentos ou frases sugeridos. 
 
 Os campos adicionados a um Sugestor são usados para criar termos de pesquisa de tipo antecipado. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para obter mais informações sobre como criar uma estrutura de sugestão, consulte [Adicionar sugestores](index-add-suggesters.md).
 
@@ -218,7 +217,7 @@ As seguintes opções podem ser definidas para CORS:
 
 + **maxAgeInSeconds** (opcional): os navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Este deve ser um número inteiro não negativo. Quanto maior esse valor, melhor será o desempenho, mas mais tempo levará para que as alterações da política de CORS entrem em vigor. Se não estiver definido, uma duração padrão de 5 minutos será usada.
 
-## <a name="encryption-key"></a>Chave de criptografia
+## <a name="encryption-key"></a>Chave de Encriptação
 
 Embora todos os índices de Pesquisa Cognitiva do Azure sejam criptografados por padrão usando chaves gerenciadas pela Microsoft, os índices podem ser configurados para serem criptografados com **chaves gerenciadas pelo cliente** no Key Vault. Para saber mais, confira [gerenciar chaves de criptografia no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).
 

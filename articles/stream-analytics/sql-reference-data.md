@@ -1,19 +1,18 @@
 ---
 title: Usar dados de referência de banco de dado SQL em um trabalho Azure Stream Analytics
 description: Este artigo descreve como usar um banco de dados SQL como entrada de dado de referência para um trabalho de Azure Stream Analytics no portal do Azure e no Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426506"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de um banco de dado SQL para um trabalho Azure Stream Analytics
 
@@ -25,7 +24,7 @@ Use as etapas a seguir para adicionar o banco de dados SQL do Azure como uma fon
 
 ### <a name="portal-prerequisites"></a>Pré-requisitos do portal
 
-1. Criar um trabalho de Stream Analytics.
+1. Criar uma tarefa do Stream Analytics.
 
 2. Crie uma conta de armazenamento a ser usada pelo trabalho de Stream Analytics.
 

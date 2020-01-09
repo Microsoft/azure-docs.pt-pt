@@ -10,66 +10,66 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427707"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio (clássico)
 
-Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de aprendizado de máquina tem parâmetros a serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros de modelo que você escolher. O processo de localizar o conjunto ideal de parâmetros é conhecido como *seleção de modelo*.
+Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de machine learning tem parâmetros para definir. Quando preparar um modelo, terá de fornecer valores para esses parâmetros. A eficácia do modelo preparado depende dos parâmetros de modelo que escolher. O processo de localizar o conjunto ótimo de parâmetros é conhecido como *seleção de modelos*.
 
 
 
-Há várias maneiras de fazer a seleção de modelo. No Machine Learning, a validação cruzada é um dos métodos mais amplamente usados para seleção de modelo e é o mecanismo de seleção de modelo padrão na versão clássica do Azure Machine Learning Studio. Como a versão clássica do Azure Machine Learning Studio dá suporte a R e Python, você sempre pode implementar seus próprios mecanismos de seleção de modelo usando o R ou o Python.
+Existem várias formas para modelar a seleção. No Machine Learning, a validação cruzada é um dos métodos mais amplamente usados para seleção de modelo e é o mecanismo de seleção de modelo padrão no Azure Machine Learning Studio (clássico). Como Azure Machine Learning Studio (clássico) dá suporte a R e Python, você sempre pode implementar seus próprios mecanismos de seleção de modelo usando o R ou o Python.
 
-Há quatro etapas no processo de encontrar o melhor conjunto de parâmetros:
+Existem quatro passos no processo de encontrar o melhor conjunto de parâmetro:
 
-1. **Definir o espaço de parâmetro**: para o algoritmo, primeiro decida os valores de parâmetro exatos que você deseja considerar.
-2. **Definir as configurações de validação cruzada**: decida como escolher as dobras de validação cruzada para o conjunto de um.
-3. **Definir a métrica**: decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, Recall ou f-score.
-4. **Treinar, avaliar e comparar**: para cada combinação exclusiva dos valores de parâmetro, a validação cruzada é executada pelo e com base na métrica de erro que você definir. Após a avaliação e a comparação, você pode escolher o modelo de melhor desempenho.
+1. **Definir o espaço de parâmetro**: para o algoritmo, decida primeiro os valores de parâmetros exatos que queira considerar.
+2. **Definir as definições de validação cruzada**: decidir como escolher a subconjuntos de validação cruzada do conjunto de dados.
+3. **Definir a métrica**: decida que métrica a utilizar para determinar o melhor conjunto de parâmetros, como precisão, a média de raiz ao quadrado, erro, precisão, lembre-se ou pontuação de f.
+4. **Treinar, avaliar e comparar**: para cada combinação exclusiva de valores de parâmetros, a validação cruzada é transportada por e com base na métrica de erro que definir. Após a avaliação e comparação, pode escolher o modelo com melhor desempenho.
 
-A imagem a seguir mostra como isso pode ser obtido na versão clássica do Azure Machine Learning Studio.
+A imagem a seguir ilustra como isso pode ser obtido no Azure Machine Learning Studio (clássico).
 
-![Localizar o melhor conjunto de parâmetros](./media/algorithm-parameters-optimize/fig1.png)
+![Encontrar o melhor conjunto de parâmetros](./media/algorithm-parameters-optimize/fig1.png)
 
-## <a name="define-the-parameter-space"></a>Definir o espaço do parâmetro
-Você pode definir o conjunto de parâmetros na etapa de inicialização do modelo. O painel de parâmetros de todos os algoritmos de aprendizado de máquina tem dois modos de instrutor: *parâmetro único* e *intervalo de parâmetro*. Escolha o modo de intervalo de parâmetro. No modo de intervalo de parâmetro, você pode inserir vários valores para cada parâmetro. Você pode inserir valores separados por vírgula na caixa de texto.
+## <a name="define-the-parameter-space"></a>Definir o espaço de parâmetro
+Pode definir o parâmetro definido para o passo de inicialização do modelo. O painel de parâmetro de todos os algoritmos de machine learning tem dois modos de instrutor: *único parâmetro* e *parâmetro intervalo*. Escolha o modo de intervalo de parâmetro. No modo de intervalo de parâmetro, pode introduzir vários valores para cada parâmetro. Pode introduzir valores separados por vírgulas na caixa de texto.
 
-![Árvore de decisão aumentada de duas classes, parâmetro único](./media/algorithm-parameters-optimize/fig2.png)
+![Árvore de decisões elevada de duas classes, o único parâmetro](./media/algorithm-parameters-optimize/fig2.png)
 
- Como alternativa, você pode definir os pontos máximo e mínimo da grade e o número total de pontos a serem gerados com o **uso do construtor de intervalo**. Por padrão, os valores de parâmetro são gerados em uma escala linear. Mas se a opção de **escala de log** estiver marcada, os valores serão gerados na escala de log (ou seja, a taxa dos pontos adjacentes será constante em vez de sua diferença). Para parâmetros de número inteiro, você pode definir um intervalo usando um hífen. Por exemplo, "1-10" significa que todos os inteiros entre 1 e 10 (ambos inclusivos) formam o conjunto de parâmetros. Também há suporte para um modo misto. Por exemplo, o conjunto de parâmetros "1-10, 20, 50" incluiria inteiros 1-10, 20 e 50.
+ Em alternativa, pode definir os pontos máximos e mínimos da grade e o número total de pontos para ser gerada com **Builder do intervalo de utilização**. Por predefinição, os valores de parâmetro são gerados numa escala linear. Mas se **escala logarítmica** estiver marcada, os valores são gerados na escala de registo (ou seja, a proporção dos pontos adjacentes é constante em vez de seus diferença). Para os parâmetros de número inteiro, pode definir um intervalo utilizando um hífen. Por exemplo, "1 a 10" significa que todos os números inteiros entre 1 e 10 (ambos inclusivo) o conjunto de parâmetros de formulário. Também é suportado um modo misto. Por exemplo, defina o parâmetro "-1 a 10, 20, 50" incluiria inteiros 1 a 10, 20 e 50.
 
-![Árvore de decisão aumentada de duas classes, intervalo de parâmetros](./media/algorithm-parameters-optimize/fig3.png)
+![Árvore de decisões elevada de duas classes, intervalo de parâmetro](./media/algorithm-parameters-optimize/fig3.png)
 
-## <a name="define-cross-validation-folds"></a>Definir dobras de validação cruzada
-A [partição e][partition-and-sample] o módulo de exemplo podem ser usados para atribuir aleatoriamente dobras aos dados. No exemplo de configuração a seguir para o módulo, definimos cinco dobras e atribuímos aleatoriamente um número de dobra para as instâncias de exemplo.
+## <a name="define-cross-validation-folds"></a>Definir a subconjuntos de validação cruzada
+A [partição e][partition-and-sample] o módulo de exemplo podem ser usados para atribuir aleatoriamente dobras aos dados. A seguinte configuração de exemplo para o módulo, vamos definir cinco subconjuntos e aleatoriamente, atribua um número de subconjuntos de validação para as instâncias de exemplo.
 
-![Partição e exemplo](./media/algorithm-parameters-optimize/fig4.png)
+![Partição e amostras](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definir a métrica
-O módulo [ajustar hiperparâmetros de modelo][tune-model-hyperparameters] fornece suporte para empiricamente escolhendo o melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. Além de outras informações sobre o treinamento do modelo, o painel **Propriedades** desse módulo inclui a métrica para determinar o melhor conjunto de parâmetros. Ele tem duas caixas de listagem suspensas diferentes para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em questão for um algoritmo de classificação, a métrica de regressão será ignorada e vice-versa. Neste exemplo específico, a métrica é **precisão**.   
+O módulo [ajustar hiperparâmetros de modelo][tune-model-hyperparameters] fornece suporte para empiricamente escolhendo o melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. Além de outras informações relativas ao preparar o modelo, o **propriedades** painel deste módulo inclui a métrica para determinar o melhor conjunto de parâmetros. Ele tem duas caixas de diferentes na lista pendente para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em consideração é um algoritmo de classificação, a métrica de regressão é ignorada e vice-versa. Neste exemplo específico, a métrica é **precisão**.   
 
-![Parâmetros de varredura](./media/algorithm-parameters-optimize/fig5.png)
+![Parâmetros de abertura](./media/algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>Treinar, avaliar e comparar
 O mesmo módulo [ajustar hiperparâmetros de modelo][tune-model-hyperparameters] treina todos os modelos que correspondem ao conjunto de parâmetros, avalia várias métricas e, em seguida, cria o modelo de melhor treinamento com base na métrica escolhida. Este módulo tem duas entradas obrigatórias:
 
-* O aprendiz não treinado
-* O conjunto de
+* O aprendiz destreinado
+* O conjunto de dados
 
-O módulo também tem uma entrada de conjunto de dados opcional. Conecte o conjunto de dados com informações de dobra à entrada obrigatória do conjunto de dados. Se o conjunto de dados não for atribuído a nenhuma informação de dobra, uma validação cruzada de 10 dobras será executada automaticamente por padrão. Se a atribuição de dobra não for feita e um conjunto de testes for fornecido na porta opcional do conjunto de um, um modo de teste de treinamento será escolhido e o primeiro conjunto de um será usado para treinar o modelo para cada combinação de parâmetro.
+O módulo também tem um conjunto de dados opcional de entrada. Ligue-se o conjunto de dados com informações de subconjuntos de validação para a entrada de conjunto de dados obrigatório. Se o conjunto de dados não está atribuído a quaisquer informações de subconjuntos de validação, em seguida, uma 10-fold a validação cruzada é executada automaticamente por predefinição. Se não for efetuada a atribuição de subconjuntos de validação e a porta de conjunto de dados opcional é fornecido um conjunto de dados de validação, em seguida, é escolhido um modo de treinar-testar e o primeiro conjunto de dados é utilizado para preparar o modelo para cada combinação de parâmetro.
 
-![Classificador da árvore de decisão aumentada](./media/algorithm-parameters-optimize/fig6a.png)
+![Classificador de árvore de decisões elevada](./media/algorithm-parameters-optimize/fig6a.png)
 
-O modelo é então avaliado no conjunto de conjuntos de validação. A porta de saída à esquerda do módulo mostra diferentes métricas como funções de valores de parâmetro. A porta de saída à direita fornece o modelo treinado que corresponde ao modelo de melhor desempenho de acordo com a métrica escolhida (**precisão** , nesse caso).  
+O modelo, em seguida, é avaliado no conjunto de dados de validação. A porta de saída à esquerda do módulo mostra diferentes métricas, como funções de valores de parâmetros. A porta de saída certo dá o modelo treinado que corresponde ao modelo com melhor desempenho, de acordo com a métrica escolhido (**precisão** neste caso).  
 
-![Conjunto de validação](./media/algorithm-parameters-optimize/fig6b.png)
+![Conjunto de dados de validação](./media/algorithm-parameters-optimize/fig6b.png)
 
-Você pode ver os parâmetros exatos escolhidos visualizando a porta de saída à direita. Esse modelo pode ser usado na pontuação de um conjunto de testes ou em um serviço Web operacional depois de salvar como um modelo treinado.
+Pode ver os parâmetros exatos escolhidos por visualizar a porta de saída certo. Este modelo pode ser utilizado num conjunto de teste de classificação ou num serviço web operacionalizado depois de guardar como um modelo preparado.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

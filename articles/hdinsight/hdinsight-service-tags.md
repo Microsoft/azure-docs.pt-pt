@@ -4,15 +4,15 @@ description: Use as marcas de serviço do HDInsight para permitir o tráfego de 
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187088"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435448"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight
 
@@ -26,13 +26,23 @@ Você tem duas opções para usar marcas de serviço em seus grupos de seguranç
 
 1. Usar uma única marca de serviço do HDInsight-essa opção abrirá sua rede virtual para todos os endereços IP que o serviço HDInsight está usando para monitorar clusters em todas as regiões. Essa opção é o método mais simples, mas pode não ser apropriada se você tiver requisitos de segurança restritivos.
 
-1. Usar várias marcas de serviço regional – essa opção abrirá sua rede virtual somente para os endereços IP que o HDInsight estiver usando nessa região específica. No entanto, se você estiver usando várias regiões, será necessário adicionar várias marcas de serviço à sua rede virtual.
+1. Usar várias marcas de serviço regional – essa opção abrirá sua rede virtual somente para os endereços IP que o HDInsight estiver usando nessa região específica. No entanto, se você estiver usando várias regiões, precisará adicionar várias marcas de serviço à sua rede virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar uma única marca de serviço do HDInsight global
 
-A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsight é adicionar a marca global `HDInsight` a uma regra de grupo de segurança de rede. Para obter instruções sobre como adicionar marcas de serviço ao seu grupo de segurança de rede, consulte [grupos de segurança: marcas de serviço](../virtual-network/security-overview.md#service-tags).
+A maneira mais fácil de começar a usar marcas de serviço com o cluster HDInsight é adicionar a marca global `HDInsight` a uma regra de grupo de segurança de rede.
 
-Essa marca contém os endereços IP dos serviços de integridade e gerenciamento para todas as regiões em que o HDInsight está disponível e garantirá que o cluster possa se comunicar com os serviços de integridade e gerenciamento necessários, independentemente de onde ele é criado.
+1. No [portal do Azure](https://portal.azure.com/), selecione o grupo de segurança de rede.
+
+1. Em **configurações**, selecione **regras de segurança de entrada**e, em seguida, selecione **+ Adicionar**.
+
+1. Na lista suspensa **origem** , selecione **marca de serviço**.
+
+1. Na lista suspensa **marca de serviço de origem** , selecione **HDInsight**.
+
+    ![portal do Azure adicionar marca de serviço](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+
+Essa marca contém os endereços IP dos serviços de integridade e gerenciamento para todas as regiões em que o HDInsight está disponível e garantirá que o cluster possa se comunicar com os serviços de integridade e gerenciamento necessários, independentemente de onde ele foi criado.
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Usar marcas regionais de serviço do HDInsight
 
@@ -44,32 +54,32 @@ Para descobrir quais marcas de serviço adicionar para sua região, leia as seç
 
 Se você preferir a opção de marca de serviço dois, e o cluster estiver localizado em uma das regiões listadas nesta tabela, você só precisará adicionar uma única marca de serviço regional ao seu grupo de segurança de rede.
 
-| Country | Região | Marca de serviço |
+| País | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 | &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight. AustraliaCentral |
 | China | Leste da China 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Norte da China 2 | HDInsight. ChinaNorth2 |
-| Estados Unidos | EUA Centro-Norte | HDInsight. NorthCentralUS |
-| &nbsp; | EUA Oeste 2 | HDInsight. WestUS2 |
-| &nbsp; | EUA Centro-Oeste | HDInsight. WestCentralUS |
+| Estados Unidos | E.U.A. Centro-Norte | HDInsight. NorthCentralUS |
+| &nbsp; | E.U.A. Oeste 2 | HDInsight. WestUS2 |
+| &nbsp; | E.U.A. Centro-Oeste | HDInsight. WestCentralUS |
 | Canadá | Leste do Canadá | HDInsight. CanadaEast |
 | Brasil | Sul do Brasil | HDInsight. BrazilSouth |
 | Coreia | Coreia do Sul Central | HDInsight. KoreaCentral |
-| &nbsp; | Coreia do Sul | HDInsight. KoreaSouth |
-| Índia | Índia Central | HDInsight. CentralIndia |
+| &nbsp; | Sul da Coreia do Sul | HDInsight. KoreaSouth |
+| Índia | Centro da Índia | HDInsight. CentralIndia |
 | &nbsp; | Sul da Índia | HDInsight. SouthIndia |
 | Japão | Oeste do Japão | HDInsight. JapanWest |
 | França | França Central| HDInsight. FranceCentral |
-| RU | Reino Unido Sul | HDInsight. UKSouth |
-| Azure governamental (Fairfax) | USDoD central   | HDInsight. USDoDCentral |
+| RU | Sul do Reino Unido | HDInsight. UKSouth |
+| Azure Government | USDoD central   | HDInsight. USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight. USGovTexas |
 | &nbsp; | Leste UsDoD | HDInsight. USDoDEast |
 
 ### <a name="use-multiple-regional-service-tags"></a>Usar várias marcas de serviço regional
 
-Se você preferir a opção de marca de serviço dois, e a região em que o cluster foi criado não estiver listada acima, você precisará permitir várias marcas de serviço regional. A necessidade de usar mais de um é devido às diferenças na organização dos provedores de recursos para as várias regiões.
+Se você preferir a opção de marca de serviço dois, e a região em que o cluster é criado não estava listada acima, você precisará permitir várias marcas de serviço regional. A necessidade de usar mais de um é devido às diferenças na organização dos provedores de recursos para as várias regiões.
 
 As regiões restantes são divididas em grupos com base nas marcas de serviço regional que usam.
 
@@ -83,18 +93,18 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Country | Região | Marca de serviço |
+| País | Região | Marca de serviço |
 | ---- | ---- | ---- |
-| Estados Unidos | EUA Leste 2 | HDInsight. EastUS2 |
-| &nbsp; | EUA Central | HDInsight. Centralus |
+| Estados Unidos | Este dos E.U.A. 2 | HDInsight. EastUS2 |
+| &nbsp; | Centro dos E.U.A. | HDInsight. Centralus |
 | &nbsp; | NorthCentral nós | HDInsight. NorthCentralUS |
-| &nbsp; | EUA Centro-Sul | HDInsight. SouthCentralUS |
-| &nbsp; | East US | HDInsight. Eastus |
-| &nbsp; | EUA Oeste | HDInsight. Westus |
-| Japão | Leste do Japão | HDInsight. JapanEast |
+| &nbsp; | E.U.A. Centro-Sul | HDInsight. SouthCentralUS |
+| &nbsp; | Este dos E.U.A. | HDInsight. Eastus |
+| &nbsp; | Oeste dos E.U.A. | HDInsight. Westus |
+| Japão | Este do Japão | HDInsight. JapanEast |
 | Europa | Europa do Norte | HDInsight. NorthEurope |
 | &nbsp; | Europa Ocidental| HDInsight. WestEurope |
-| Ásia | Ásia Oriental | HDInsight. EastAsia |
+| Ásia | Este Asiático | HDInsight. EastAsia |
 | &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 
@@ -110,7 +120,7 @@ Os clusters nas regiões de **US gov Iowa** e **US gov-Virgínia**precisam permi
 
 Os clusters nas regiões da **Alemanha central** e da **Alemanha nordeste**precisam permitir duas marcas de serviço: `HDInsight.GermanyCentral` e `HDInsight.GermanyNorthEast`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Grupos de segurança de rede – marcas de serviço](../virtual-network/security-overview.md#security-rules)
-* [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)
+- [Grupos de segurança de rede – marcas de serviço](../virtual-network/security-overview.md#security-rules)
+- [Criar redes virtuais para clusters do Azure HDInsight](hdinsight-create-virtual-network.md)

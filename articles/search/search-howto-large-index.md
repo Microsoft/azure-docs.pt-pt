@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460735"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados no Azure Pesquisa Cognitiva
 
@@ -74,7 +74,7 @@ O processamento paralelo tem estes elementos:
 + Agendar todos os indexadores para execução ao mesmo tempo.
 
 > [!NOTE]
-> O Azure Pesquisa Cognitiva não dá suporte a réplicas ou partições dedicadas a cargas de trabalho específicas. O risco de uma indexação simultânea pesada é sobrecarregar o sistema para o prejudicial do desempenho da consulta. Se você tiver um ambiente de teste, implemente a indexação paralela primeiro para entender as compensações.
+> No Azure Pesquisa Cognitiva, você não pode atribuir réplicas ou partições individuais para indexação ou processamento de consulta. O sistema determina como os recursos são usados. Para entender o impacto no desempenho da consulta, você pode tentar a indexação paralela em um ambiente de teste antes de distribuí-lo para produção.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>Como configurar a indexação paralela
 

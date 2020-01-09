@@ -1,20 +1,19 @@
 ---
 title: Criar uma solução de IoT com o Azure Stream Analytics
 description: Tutorial de introdução para a solução de IoT do Stream Analytics de um cenário de tollbooth
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426448"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -36,7 +35,7 @@ Depois de concluir esta solução, é possível:
 ## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, incidir!"
 Uma estação de ligação é um fenômeno comuns. Se deparar com elas em muitas expressways, pontes e túneis em todo o mundo. Cada estação de ligação tem vários estandes de ligação. Em estandes manuais, parar para pagar a ligação para um atendedor. Em estandes automatizadas, um sensor na parte superior de cada stand analisa um cartão RFID afixação windshield de sua veículo conforme passa o pedágio. É fácil de visualizar a passagem para dos veículos através destas estações de ligação como um fluxo de eventos através do qual podem ser executadas operações interessantes.
 
-![Imagem de carros em estandes de ligação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
+![Imagem de carros em estandes de Tarifa](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Dados recebidos
 Esta solução funciona com dois fluxos de dados. Instalado na entrada e saída das estações de número de sensores produzem o primeiro fluxo. O fluxo segundo é um conjunto de dados de pesquisa estática que tem dados de registo de veículos.
@@ -55,7 +54,7 @@ O fluxo de dados de entrada contém informações sobre carros à medida que ent
 
 Eis uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Column | Descrição |
 | --- | --- |
 | TollID |O ID de portagens de número que identifica exclusivamente um pedágio |
 | EntryTime |A data e hora de entrada do veículo para o pedágio em UTC |
@@ -73,16 +72,16 @@ O fluxo de dados de saída contém informações sobre carros deixando a estaç�
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000Z |YXZ 1001 |
-| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000Z |XYZ 1003 |
-| 1 |2014-09-10T12:08:00.0000000Z |BNJ 1007 |
-| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000 Z |YXZ 1001 |
+| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000 Z |XYZ 1003 |
+| 1 |2014-09-10T12:08:00.0000000 Z |BNJ 1007 |
+| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
 
 Eis uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Column | Descrição |
 | --- | --- |
 | TollID |O ID de portagens de número que identifica exclusivamente um pedágio |
 | ExitTime |A data e hora de saída do veículo de pedágio em UTC |
@@ -102,7 +101,7 @@ A solução utiliza um instantâneo de uma base de dados de registo de veículos
 
 Eis uma breve descrição das colunas:
 
-| Coluna | Descrição |
+| Column | Descrição |
 | --- | --- |
 | LicensePlate |O número de pratos de licença do veículo |
 | RegistrationId |ID de registo o veículo |
@@ -114,7 +113,7 @@ Para concluir esta solução, precisa de uma subscrição do Microsoft Azure. Se
 Certifique-se de que siga os passos na secção "Limpar a sua conta do Azure" no final deste artigo, para que pode fazer o melhor uso do seu crédito do Azure.
 
 ## <a name="deploy-the-sample"></a>Implementar o exemplo
-Existem vários recursos que podem ser facilmente implementados num grupo de recursos, juntamente com alguns cliques. A definição de solução está alojada no repositório do GitHub na [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+Existem vários recursos que podem ser facilmente implementados num grupo de recursos, juntamente com alguns cliques. A definição da solução é hospedada no repositório do GitHub em [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implementar o modelo de TollApp no portal do Azure
 1. Para implementar o ambiente de TollApp no Azure, utilize esta ligação para [implementar o modelo do Azure TollApp](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -172,7 +171,7 @@ Existem vários recursos que podem ser facilmente implementados num grupo de rec
    - **Registo** entrada é uma ligação de armazenamento de Blobs do Azure, que aponta para um arquivo de registration.json estático, usado para pesquisas, conforme necessário. Esta entrada de dados de referência é utilizada na posteriores variações da sintaxe de consulta.
 
 4. Examine as saídas da tarefa de exemplo TollApp.
-   - **O cosmos DB** saída é um contentor de base de dados do Cosmos que recebe os eventos de sink de saída. Tenha em atenção que esta saída é utilizada na cláusula de consulta de transmissão em fluxo INTO.
+   - **Cosmos DB** saída é um contêiner de banco de dados cosmos que recebe os eventos de coletor de saída. Tenha em atenção que esta saída é utilizada na cláusula de consulta de transmissão em fluxo INTO.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar a tarefa de transmissão em fluxo TollApp
 Siga estes passos para iniciar a tarefa de transmissão em fluxo:
@@ -186,7 +185,7 @@ Siga estes passos para iniciar a tarefa de transmissão em fluxo:
 ## <a name="review-the-cosmosdb-output-data"></a>Reveja os dados de saída do cosmos DB
 1. Localize o grupo de recursos que contém os recursos de TollApp.
 
-2. Selecione a conta do Azure Cosmos DB com o padrão de nome **tollapp\<aleatório\>-cosmos**.
+2. Selecione a conta de Azure Cosmos DB com o nome padrão **tollapp\<random\>-Cosmos**.
 
 3. Selecione o **Data Explorer** cabeçalho para abrir a página de Explorador de dados.
 
@@ -284,7 +283,7 @@ Exemplo de saída:
 ```
 
 ## <a name="scale-out-the-job"></a>Aumentar horizontalmente o trabalho
-O Azure Stream Analytics foi concebido para dimensionar de forma para que ele pode lidar com grandes volumes de dados. A consulta do Azure Stream Analytics pode utilizar um **PARTITION BY** cláusula informar ao sistema que este passo aumenta horizontalmente. **PartitionId** é uma coluna especial que o sistema adiciona a coincide com o ID de partição da entrada (hub de eventos).
+O Azure Stream Analytics foi concebido para dimensionar de forma para que ele pode lidar com grandes volumes de dados. A consulta Azure Stream Analytics pode usar uma cláusula **Partition by** para informar ao sistema que essa etapa escala horizontalmente. **PartitionID** é uma coluna especial que o sistema adiciona para corresponder à ID de partição da entrada (Hub de eventos).
 
 Para aumentar horizontalmente a consulta para partições, edite a sintaxe de consulta para o código a seguir:
 ```sql

@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816455"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608613"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre colaboração B2B Azure Active Directory
 
 Essas perguntas frequentes (FAQs) sobre a colaboração B2B (entre empresas) do Azure Active Directory (Azure AD) são atualizadas periodicamente para incluir novos tópicos.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar nossa página de entrada para que seja mais intuitiva para nossos usuários convidados de colaboração B2B?
-Imprescindíve! Veja nossa [postagem de blog sobre este recurso](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para obter mais informações sobre como personalizar a página de entrada da sua organização, consulte [Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso](../fundamentals/customize-branding.md).
+Totalmente! Veja nossa [postagem de blog sobre este recurso](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para obter mais informações sobre como personalizar a página de entrada da sua organização, consulte [Adicionar identidade visual da empresa às páginas de entrada e do painel de acesso](../fundamentals/customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Os usuários de colaboração B2B podem acessar o SharePoint Online e o OneDrive?
 Sim. No entanto, a capacidade de Pesquisar usuários convidados existentes no SharePoint online usando o seletor de pessoas está **desativada** por padrão. Para ativar a opção para procurar usuários convidados existentes, defina **ShowPeoplePickerSuggestionsForGuestUsers** como **on**. Você pode ativar essa configuração em qualquer nível de locatário ou no nível de conjunto de sites. Você pode alterar essa configuração usando os cmdlets Set-SPOTenant e Set-SPOSite. Com esses cmdlets, os membros podem pesquisar todos os usuários convidados existentes no diretório. As alterações no escopo do locatário não afetam os sites do SharePoint Online que já foram provisionados.
@@ -48,10 +48,10 @@ Não há suporte para este recurso no momento. Se o acesso aos recursos de sua o
 Uma organização pode querer adicionar usuários de colaboração B2B, provisioná-los para aplicativos conforme necessário e, em seguida, enviar convites. Você pode usar a API de convite de colaboração B2B para personalizar o fluxo de trabalho de integração.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os usuários convidados visíveis na lista de endereços global do Exchange?
-Sim. Os objetos convidados não são visíveis na GAL (lista de endereços global) de sua organização por padrão, mas você pode usar Azure Active Directory PowerShell para torná-los visíveis. Veja posso [tornar os objetos convidados visíveis na lista de endereços global?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Sim. Os objetos convidados não são visíveis na GAL (lista de endereços global) de sua organização por padrão, mas você pode usar Azure Active Directory PowerShell para torná-los visíveis. Veja posso [tornar os objetos convidados visíveis na lista de endereços global?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Posso tornar um usuário convidado um administrador limitado?
-Com certeza. Para obter mais informações, consulte [adicionando usuários convidados a uma função](add-guest-to-role.md).
+Claramente. Para obter mais informações, consulte [adicionando usuários convidados a uma função](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>A colaboração B2B do Azure AD permite que usuários B2B acessem o portal do Azure?
 A menos que um usuário receba a função de administrador limitado, os usuários de colaboração B2B não precisarão acessar o portal do Azure. No entanto, os usuários de colaboração B2B que recebem a função de administrador limitado podem acessar o Portal. Além disso, se um usuário convidado ao qual não foi atribuída uma dessas funções de administrador acessar o portal, o usuário poderá acessar determinadas partes da experiência. A função de usuário convidado tem algumas permissões no diretório.
@@ -65,7 +65,7 @@ Sim! Você pode criar uma política de acesso condicional que impede que todos o
 3. Em **gerenciar**, selecione **segurança**.
 4. Em **proteger**, selecione **acesso condicional**. Selecione **nova política**.
 5. Na página **novo** , na caixa de texto **nome** , insira um nome para a política (por exemplo, "bloquear convidados de acessar o portal").
-6. Em **atribuições**, selecione **usuários e grupos**.
+6. Em **Atribuições**, selecione **Utilizadores e grupos**.
 7. Na guia **incluir** , escolha **Selecionar usuários e grupos**e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)** .
 9. Selecione **Done** (Concluído).
 10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações**.

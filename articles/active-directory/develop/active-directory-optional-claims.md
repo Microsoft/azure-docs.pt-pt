@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcaf347eb91f8777b56bb2ea4d26985b2d75f645
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f221ed773677c28094d2e5eaecc10a191e84addb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967248"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638974"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
 
@@ -43,7 +43,7 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 
 ## <a name="v10-and-v20-optional-claims-set"></a>conjunto de declarações opcionais v 1.0 e v 2.0
 
-O conjunto de declarações opcionais disponíveis por padrão para aplicativos a serem usados está listado abaixo. Para adicionar declarações opcionais personalizadas para seu aplicativo, consulte [extensões de diretório](#configuring-directory-extension-optional-claims), abaixo. Ao adicionar declarações ao **token de acesso**, isso se aplicará aos tokens de acesso solicitados *para* o aplicativo (uma API da Web), não aqueles *pelo* aplicativo. Isso garante que, independentemente do cliente que acessa sua API, os dados corretos estejam presentes no token de acesso que usam para se autenticar em sua API.
+O conjunto de declarações opcionais disponíveis por padrão para aplicativos a serem usados está listado abaixo. Para adicionar declarações opcionais personalizadas para seu aplicativo, consulte [extensões de diretório](#configuring-directory-extension-optional-claims), abaixo. Ao adicionar declarações ao **token de acesso**, as declarações se aplicam aos tokens de acesso solicitados *para* o aplicativo (uma API da Web), não as declarações solicitadas *pelo* aplicativo. Não importa como o cliente acessa sua API, os dados corretos estão presentes no token de acesso que é usado para autenticar em sua API.
 
 > [!NOTE]
 > A maioria dessas declarações pode ser incluída no JWTs para tokens v 1.0 e v 2.0, mas não tokens SAML, exceto quando indicado na coluna tipo de token. As contas de consumidor dão suporte a um subconjunto dessas declarações, marcadas na coluna "tipo de usuário".  Muitas das declarações listadas não se aplicam aos usuários do consumidor (não têm locatários, portanto `tenant_ctry` não tem valor).  
@@ -55,7 +55,7 @@ O conjunto de declarações opcionais disponíveis por padrão para aplicativos 
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Consulte especificação do OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
 | `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
-| `sid`                      | ID da sessão, usada para sair do usuário por sessão. | JWT        |  Contas pessoais e do Azure AD.   |         |
+| `sid`                      | ID da sessão, usada para saída do usuário por sessão. | JWT        |  Contas pessoais e do Azure AD.   |         |
 | `platf`                    | Plataforma de dispositivo    | JWT        |           | Restrito a dispositivos gerenciados que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Originado do PrimaryAuthoritativeEmail do usuário      | JWT        |           |         |
 | `verified_secondary_email` | Originado do SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
@@ -64,11 +64,11 @@ O conjunto de declarações opcionais disponíveis por padrão para aplicativos 
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
 | `ctry`                     | País do usuário | JWT |  | O Azure AD retorna a declaração opcional `ctry` se ela estiver presente e o valor da declaração for um código de país de duas letras padrão, como FR, JP, SZ e assim por diante. |
 | `tenant_ctry`              | País do locatário do recurso | JWT | | |
-| `xms_pdl`          | Local de dados preferencial   | JWT | | Para locatários de várias regiões geográficas, esse é o código de três letras que mostra a região geográfica em que o usuário está. Para obter mais informações, consulte a [documentação de Azure ad Connect sobre o local de dados preferencial](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Por exemplo: `APC` para Pacífico Asiático. |
+| `xms_pdl`          | Local de dados preferencial   | JWT | | Para locatários de várias regiões geográficas, o local de dados preferencial é o código de três letras mostrando a região geográfica em que o usuário está. Para obter mais informações, consulte a [documentação de Azure ad Connect sobre o local de dados preferencial](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Por exemplo: `APC` para Pacífico Asiático. |
 | `xms_pl`                   | Idioma preferencial do usuário  | JWT ||O idioma preferencial do usuário, se definido. Originado de seu locatário inicial, em cenários de acesso de convidado. Formatado LL-CC ("en-US"). |
 | `xms_tpl`                  | Idioma preferencial do locatário| JWT | | O idioma preferencial do locatário do recurso, se definido. Format LL ("en"). |
 | `ztdid`                    | ID de implantação de toque zero | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | O email endereçável para esse usuário, se o usuário tiver um.  | JWT, SAML | MSA, Azure AD | Esse valor será incluído por padrão se o usuário for um convidado no locatário.  Para usuários gerenciados (aqueles dentro do locatário), ele deve ser solicitado por essa declaração opcional ou, somente no v 2.0, com o escopo de OpenID.  Para usuários gerenciados, o endereço de email deve ser definido no [portal de administração do Office](https://portal.office.com/adminportal/home#/users).| 
+| `email`                    | O email endereçável para esse usuário, se o usuário tiver um.  | JWT, SAML | MSA, Azure AD | Esse valor será incluído por padrão se o usuário for um convidado no locatário.  Para usuários gerenciados (os usuários dentro do locatário), ele deve ser solicitado por essa declaração opcional ou, somente no v 2.0, com o escopo de OpenID.  Para usuários gerenciados, o endereço de email deve ser definido no [portal de administração do Office](https://portal.office.com/adminportal/home#/users).| 
 | `groups`| Formatação opcional para declarações de grupo |JWT, SAML| |Usado em conjunto com a configuração GroupMembershipClaims no [manifesto do aplicativo](reference-app-manifest.md), que também deve ser definido. Para obter detalhes, consulte [declarações de grupo](#configuring-groups-optional-claims) abaixo. Para obter mais informações sobre declarações de grupo, consulte [como configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | O status da conta de usuários no locatário. | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se forem convidados, o valor será `1`. |
 | `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais para modificar seu comportamento no caso do usuário convidado.  |
@@ -86,7 +86,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 | `pwd_exp`     | Hora de Expiração da Palavra-Passe        | O DateTime no qual a senha expira. |       |
 | `pwd_url`     | Alterar URL da senha             | Uma URL que o usuário pode visitar para alterar sua senha.   |   |
 | `in_corp`     | Dentro da Rede da Empresa        | Sinaliza se o cliente está fazendo logon da rede corporativa. Se não forem, a declaração não será incluída.   |  Com base nas configurações de [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips) no MFA.    |
-| `nickname`    | Alcunha                        | Um nome adicional para o usuário, separado do nome ou sobrenome. | 
+| `nickname`    | Alcunha                        | Um nome adicional para o usuário. O apelido é separado de First ou Last Name. | 
 | `family_name` | Apelido                       | Fornece o sobrenome, sobrenome ou nome de família do usuário, conforme definido no objeto de usuário. <br>"family_name": "Miller" | Com suporte no MSA e no Azure AD   |
 | `given_name`  | Nome próprio                      | Fornece o primeiro ou "dado" nome do usuário, conforme definido no objeto de usuário.<br>"given_name": "Frank"                   | Com suporte no MSA e no Azure AD  |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Consulte [as propriedades adicionais](#additional-properties-of-optional-claims) abaixo para obter a configuração da declaração. |
@@ -118,7 +118,7 @@ Algumas declarações opcionais podem ser configuradas para alterar a maneira co
         }
     ```
 
-Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua outro UPN com as informações adicionais de locatário de recurso e locatário doméstico. Isso só alterará a declaração de `upn` no token se o usuário for um convidado no locatário (que usa um IDP diferente para autenticação). 
+Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua outro UPN com as informações adicionais de locatário de recurso e locatário doméstico. A declaração de `upn` só será alterada no token se o usuário for um convidado no locatário (que usa um IDP diferente para autenticação). 
 
 ## <a name="configuring-optional-claims"></a>Configurando declarações opcionais
 
@@ -127,9 +127,7 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 
 Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Depois de autenticado, escolha seu locatário do Azure AD selecionando-o no canto superior direito da página.
-1. Selecione **Azure Active Directory** no menu à esquerda.
+1. Aceda ao [Portal do Azure](https://portal.azure.com). Procure e selecione **Azure Active Directory**.
 1. Na seção **gerenciar** , selecione **registros de aplicativo**.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
 
@@ -149,7 +147,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 
 1. Na seção **gerenciar** , selecione **manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto. Opcionalmente, pode selecionar **Transferir**, editar o manifesto localmente e, em seguida, utilizar **Carregar** para o reaplicar à aplicação. Para obter mais informações sobre o manifesto do aplicativo, consulte o [artigo noções básicas sobre o manifesto do aplicativo do Azure ad](reference-app-manifest.md).
 
-    A seguinte entrada de manifesto do aplicativo adiciona as declarações opcionais auth_time, IPADDR e UPN aos tokens ID, Access e SAML.
+    A seguinte entrada de manifesto de aplicativo adiciona as declarações opcionais auth_time, IPADDR e UPN aos tokens de ID, acesso e SAML.
 
     ```json
         "optionalClaims":  
@@ -178,89 +176,88 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
                        }
                ]
            }
-       ```
+    ```
 
-2. When finished, click **Save**. Now the specified optional claims will be included in the tokens for your application.    
+2. Quando terminar, clique em **Guardar**. Agora, as declarações opcionais especificadas serão incluídas nos tokens para seu aplicativo.    
 
 
-### OptionalClaims type
+### <a name="optionalclaims-type"></a>Tipo de OptionalClaims
 
-Declares the optional claims requested by an application. An application can configure optional claims to be returned in each of three types of tokens (ID token, access token, SAML 2 token) it can receive from the security token service. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the Application entity is an OptionalClaims object.
+Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo pode configurar declarações opcionais a serem retornadas em cada um dos três tipos de tokens (token de ID, token de acesso, token SAML 2) que pode receber do serviço de token de segurança. O aplicativo pode configurar um conjunto diferente de declarações opcionais a serem retornadas em cada tipo de token. A propriedade OptionalClaims da entidade de aplicativo é um objeto OptionalClaims.
 
-**Table 5: OptionalClaims type properties**
+**Tabela 5: propriedades do tipo OptionalClaims**
 
-| Name        | Type                       | Description                                           |
+| Nome        | Tipo                       | Descrição                                           |
 |-------------|----------------------------|-------------------------------------------------------|
-| `idToken`     | Collection (OptionalClaim) | The optional claims returned in the JWT ID token. |
-| `accessToken` | Collection (OptionalClaim) | The optional claims returned in the JWT access token. |
-| `saml2Token`  | Collection (OptionalClaim) | The optional claims returned in the SAML token.   |
+| `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT. |
+| `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
+| `saml2Token`  | Coleção (OptionalClaim) | As declarações opcionais retornadas no token SAML.   |
 
-### OptionalClaim type
+### <a name="optionalclaim-type"></a>Tipo de OptionalClaim
 
-Contains an optional claim associated with an application or a service principal. The idToken, accessToken, and saml2Token properties of the [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) type is a collection of OptionalClaim.
-If supported by a specific claim, you can also modify the behavior of the OptionalClaim using the AdditionalProperties field.
+Contém uma declaração opcional associada a um aplicativo ou a uma entidade de serviço. As propriedades token, accessToken e saml2Token do tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) é uma coleção de OptionalClaim.
+Se houver suporte para uma declaração específica, você também poderá modificar o comportamento do OptionalClaim usando o campo AdditionalProperties.
 
-**Table 6: OptionalClaim type properties**
+**Tabela 6: propriedades do tipo OptionalClaim**
 
-| Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nome                 | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`                 | Edm.String              | The name of the optional claim.                                                                                                                                                                                                                                                                           |
-| `source`               | Edm.String              | The source (directory object) of the claim. There are predefined claims and user-defined claims from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value is user, the value in the name property is the extension property from the user object. |
-| `essential`            | Edm.Boolean             | If the value is true, the claim specified by the client is necessary to ensure a smooth authorization experience for the specific task requested by the end user. The default value is false.                                                                                                             |
-| `additionalProperties` | Collection (Edm.String) | Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.                                                                                                                                               |
-## Configuring directory extension optional claims
+| `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                           |
+| `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e declarações definidas pelo usuário das propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for User, o valor na propriedade Name será a propriedade de extensão do objeto user. |
+| `essential`            | Edm.Boolean             | Se o valor for true, a declaração especificada pelo cliente será necessária para garantir uma experiência de autorização suave para a tarefa específica solicitada pelo usuário final. O valor predefinido é false.                                                                                                             |
+| `additionalProperties` | Coleção (EDM. String) | Propriedades adicionais da declaração. Se uma propriedade existir nessa coleção, ela modificará o comportamento da declaração opcional especificada na propriedade Name.                                                                                                                                               |
+## <a name="configuring-directory-extension-optional-claims"></a>Configurando declarações opcionais de extensão de diretório
 
-In addition to the standard optional claims set, you can also configure tokens to include directory schema extensions. For more info, see [Directory schema extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. See the bottom of this page for an example.
+Além do conjunto de declarações opcionais padrão, você também pode configurar tokens para incluir extensões. Para obter mais informações, consulte [Adicionar dados personalizados a recursos usando extensões](https://docs.microsoft.com/graph/extensibility-overview). Esse recurso é útil para anexar informações de usuário adicionais que seu aplicativo pode usar, por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário definiu. Consulte a parte inferior desta página para obter um exemplo.
 
 > [!NOTE]
-> - Directory schema extensions are an Azure AD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned.
-> - Azure AD optional claims only work with Azure AD Graph extensions and do not work with Microsoft Graph directory extensions. Both APIs require the `Directory.ReadWriteAll` permission, which can only be consented by admins.
+> - As extensões de esquema de diretório são um recurso somente do Azure AD, portanto, se o manifesto do aplicativo solicitar uma extensão personalizada e um usuário da MSA fizer logon em seu aplicativo, essas extensões não serão retornadas.
 
-### Directory extension formatting
+### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
-When configuring directory extension optional claims using the application manifest, use the full name of the extension (in the format: `extension_<appid>_<attributename>`). The `<appid>` must match the ID of the application requesting the claim. 
+Ao configurar declarações opcionais de extensão de diretório usando o manifesto do aplicativo, use o nome completo da extensão (no formato: `extension_<appid>_<attributename>`). O `<appid>` deve corresponder à ID do aplicativo que está solicitando a declaração. 
 
-Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
+Dentro do JWT, essas declarações serão emitidas com o seguinte formato de nome: `extn.<attributename>`.
 
-Within the SAML tokens, these claims will be emitted with the following URI format: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+Dentro dos tokens SAML, essas declarações serão emitidas com o seguinte formato de URI: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
-## Configuring groups optional claims
+## <a name="configuring-groups-optional-claims"></a>Configurando declarações opcionais de grupos
 
    > [!NOTE]
-   > The ability to emit group names for users and groups synced from on-premises is Public Preview.
+   > A capacidade de emitir nomes de grupo para usuários e grupos sincronizados a partir do local é visualização pública.
 
-This section covers the configuration options under optional claims for changing the group attributes used in group claims from the default group objectID to attributes synced from on-premises Windows Active Directory. You can configure groups optional claims for your application through the UI or application manifest.
+Esta seção aborda as opções de configuração em declarações opcionais para alterar os atributos de grupo usados em declarações de grupo do objectID do grupo padrão para atributos sincronizados do Windows Active Directory local. Você pode configurar declarações opcionais de grupos para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
 > [!IMPORTANT]
-> See [Configure group claims for applications with Azure AD](../hybrid/how-to-connect-fed-group-claims.md) for more details including important caveats for the public preview of group claims from on-premises attributes.
+> Para obter mais detalhes, incluindo advertências importantes para a visualização pública de declarações de grupo de atributos locais, consulte [Configurar declarações de grupo para aplicativos com o Azure ad](../hybrid/how-to-connect-fed-group-claims.md).
 
-**Configuring groups optional claims through the UI:**
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page
-1. Select **Azure Active Directory** from the left hand menu
-1. Under the **Manage** section, select **App registrations**
-1. Select the application you want to configure optional claims for in the list
-1. Under the **Manage** section, select **Token configuration (preview)**
-2. Select **Add groups claim**
-3. Select the group types to return (**All Groups**, **SecurityGroup** or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole** and **DistributionList**
-4. Optional: click on the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
-5. Click **Save**
+**Configurar declarações opcionais de grupos por meio da interface do usuário:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Depois de autenticado, escolha seu locatário do Azure AD selecionando-o no canto superior direito da página
+1. Selecione **Azure Active Directory** no menu à esquerda
+1. Na seção **gerenciar** , selecione **registros de aplicativo**
+1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista
+1. Na seção **gerenciar** , selecione **configuração de token (versão prévia)**
+2. Selecione **Adicionar declaração de grupos**
+3. Selecione os tipos de grupo a serem retornados (**todos os grupos, grupo**de **segurança**ou **DirectoryRole**). A opção **todos os grupos** inclui o grupo de **segurança**, **DirectoryRole**e **DistributionList**
+4. Opcional: clique nas propriedades do tipo de token específico para modificar o valor da declaração grupos para conter os atributos do grupo local ou para alterar o tipo de declaração para uma função
+5. Clicar em **Guardar**
 
-**Configuring groups optional claims through the application manifest:**
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. After you've authenticated, choose your Azure AD tenant by selecting it from the top right corner of the page
-1. Select **Azure Active Directory** from the left hand menu
-1. Select the application you want to configure optional claims for in the list
-1. Under the **Manage** section, select **Manifest**
-3. Add the following entry using the manifest editor:
+**Configurar declarações opcionais de grupos por meio do manifesto do aplicativo:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
+1. Depois de autenticado, escolha seu locatário do Azure AD selecionando-o no canto superior direito da página
+1. Selecione **Azure Active Directory** no menu à esquerda
+1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista
+1. Na seção **gerenciar** , selecione **manifesto**
+3. Adicione a seguinte entrada usando o editor de manifesto:
 
-   The valid values are:
+   Os valores válidos são:
 
-   - "All" (this option includes SecurityGroup, DirectoryRole and DistributionList)
-   - "SecurityGroup"
-   - "DirectoryRole"
+   - "All" (essa opção inclui o The Securitylist, DirectoryRole e DistributionList)
+   - SecurityGroup
+   - DirectoryRole
 
-   For example:
+   Por exemplo:
 
     ```json
         "groupMembershipClaims": "SecurityGroup"
@@ -353,7 +350,7 @@ Nesta seção, você pode percorrer um cenário para ver como você pode usar o 
 Há várias opções disponíveis para atualizar as propriedades na configuração de identidade de um aplicativo para habilitar e configurar declarações opcionais:
 -    Você pode usar a interface do usuário de **configuração de token (versão prévia)** (Veja o exemplo abaixo)
 -    Você pode usar o **manifesto** (Veja o exemplo abaixo). Leia o [documento noções básicas sobre o manifesto do aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para obter uma introdução ao manifesto.
--   Também é possível escrever um aplicativo que usa o [API do Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar seu aplicativo. A [entidade e a referência de tipo complexo](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) no guia de referência de API do Graph podem ajudá-lo a configurar as declarações opcionais.
+-   Também é possível escrever um aplicativo que usa o [API do Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar seu aplicativo. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência API do Graph pode ajudá-lo a configurar as declarações opcionais.
 
 **Exemplo:** No exemplo a seguir, você usará a interface do usuário de **configuração do token (versão prévia)** e o **manifesto** para adicionar declarações opcionais aos tokens de acesso, ID e SAML destinados ao seu aplicativo. Diferentes declarações opcionais serão adicionadas a cada tipo de token que o aplicativo pode receber:
 -    Agora, os tokens de ID conterão o UPN para usuários federados no formato completo (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
@@ -385,12 +382,12 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
     [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuração do manifesto:**
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Depois de autenticado, escolha seu locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e clique nele.
 1. Na seção **gerenciar** , clique em **manifesto** para abrir o editor de manifesto embutido.
-1. Você pode editar o manifesto diretamente usando este editor. O manifesto segue o esquema para a [entidade de aplicativo]. (https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) e formata automaticamente o manifesto depois de salvo. Novos elementos serão adicionados à propriedade `OptionalClaims`.
+1. Você pode editar o manifesto diretamente usando este editor. O manifesto segue o esquema para a [entidade de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e formata automaticamente o manifesto depois de salvo. Novos elementos serão adicionados à propriedade `OptionalClaims`.
 
     ```json
             "optionalClaims": {

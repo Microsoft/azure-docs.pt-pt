@@ -1,33 +1,35 @@
 ---
 title: Usar CLI do Azure para criar uma SAS de delegação de usuário para um contêiner ou BLOB
 titleSuffix: Azure Storage
-description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com Azure Active Directory credenciais usando CLI do Azure.
+description: Saiba como criar uma SAS de delegação de usuário com credenciais de Azure Active Directory usando CLI do Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371994"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como usar as credenciais do Azure Active Directory (AD do Azure) para criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia).
+Este artigo mostra como usar as credenciais do Azure Active Directory (AD do Azure) para criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Instale a versão mais recente do CLI do Azure
 
 Para usar o CLI do Azure para proteger uma SAS com as credenciais do Azure AD, primeiro verifique se você instalou a versão mais recente do CLI do Azure. Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
+
+Para criar uma SAS de delegação de usuário usando o CLI do Azure, verifique se você instalou a versão 2.0.78 ou posterior. Para verificar a versão instalada, use o comando `az --version`.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Entrar com as credenciais do Azure AD
 

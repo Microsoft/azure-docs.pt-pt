@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76d5aabc30d0375185130b9781caeaf4d5457455
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423728"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -43,7 +43,7 @@ As informações sobre a identidade do aplicativo e sobre o usuário (a menos qu
 
 Aqui está um C# exemplo de código que mostra um cliente que chama a API depois de adquirir um token com a biblioteca de autenticação da Microsoft para .net (MSAL.net):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -96,19 +96,19 @@ Quando um aplicativo é chamado em uma ação do controlador que contém um atri
 
 Em ASP.NET Core, esse middleware é inicializado no arquivo Startup.cs:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 O middleware é adicionado à API Web por esta instrução:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização, não com contas pessoais. Mas você pode alterá-las facilmente para usar o ponto de extremidade da plataforma de identidade da Microsoft adicionando esse código ao arquivo Startup.cs:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.

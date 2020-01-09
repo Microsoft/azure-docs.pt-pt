@@ -10,7 +10,7 @@ ms.author: jmartens
 ms.date: 10/29/2019
 ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
 ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/28/2019
 ms.locfileid: "75529559"

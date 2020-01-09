@@ -2,21 +2,19 @@
 author: dlepow
 ms.service: container-instances
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 10/17/2019
 ms.author: danlep
-ms.openlocfilehash: 26fe98f5c34e7a3cf7c6336792d7d3341529a5f2
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: aebfedd23ba206ea2ce24f952809121b9d08fd1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442233"
 ---
 ### <a name="regions-and-resource-availability"></a>Regiões e disponibilidade de recursos
 
-| Location | OS | CPU | Memória (GB) |
+| Regiões | SO | Máx. da CPU | Memória máxima (GB) |
 | -------- | :---: | :---: | :-----------: |
-| Europa Setentrional, Sudeste Asiático, EUA Central, leste dos EUA, leste dos EUA 2, Sul EUA Central, oeste dos EUA 2 | Linux | 4 | 16 |
-| Europa Ocidental | Linux | 4 | 14 |
-| Leste do Japão | Linux | 2 | 8 |
-| EUA Oeste | Linux | 2 | 3.5 |
-| Leste da Austrália, Oeste EUA Central | Linux | 1 | 1.5 |
+| Leste da Austrália, Canadá central, EUA Central, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Europa Ocidental, oeste dos EUA 2 | Linux | 4 | 16 |
+| Este do Japão | Linux | 2 | 8 |
+| Norte EUA Central, sul da Índia, oeste dos EUA | Linux | 2 | 3.5 |

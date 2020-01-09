@@ -1,75 +1,66 @@
 ---
-title: Cópia de segurança do Service Fabric e restauro | Documentos da Microsoft
-description: Documentação conceptual para o restauro e cópia de segurança do Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Backup e restauração de Service Fabric
+description: Documentação conceitual para Service Fabric backup e restauração, um serviço para configurar o backup de serviços confiáveis com estado e Reliable Actors.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723872"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645553"
 ---
-# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Cópia de segurança e restaurar Reliable Services e Reliable Actors
-O Azure Service Fabric é uma plataforma de elevada disponibilidade que replica o estado em vários nós para manter este elevada disponibilidade.  Assim, mesmo que um nó no cluster falhar, os serviços continuam disponíveis. Embora esta redundância incorporados fornecida pela plataforma pode ser suficiente para alguns, em certos casos é desejável para o serviço de cópia de segurança de dados (para um repositório externo).
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Backup e restauração Reliable Services e Reliable Actors
+O Azure Service Fabric é uma plataforma de alta disponibilidade que Replica o estado em vários nós para manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para alguns, em alguns casos, é desejável que o serviço faça backup de dados (em um repositório externo).
 
 > [!NOTE]
-> É fundamental para criar cópias de segurança e restauro dos dados (e testar se funciona conforme esperado) para que possa recuperar a partir de cenários de perda de dados.
+> É essencial fazer backup e restaurar seus dados (e testar se ele funciona conforme o esperado) para que você possa se recuperar de cenários de perda de dados.
 > 
 
 > [!NOTE]
-> A Microsoft recomenda usar [periódica backup e restauração](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar a cópia de segurança de dados de com monitoração de estado de Reliable services e Reliable Actors. 
+> A Microsoft recomenda usar [backup e restauração periódicos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de dados de serviços confiáveis com estado e Reliable Actors. 
 > 
 
 
-Por exemplo, um serviço pode querer criar cópias de segurança para proteger contra os seguintes cenários:
+Por exemplo, um serviço pode querer fazer backup de dados para proteger os seguintes cenários:
 
-- Em caso de perda permanente de um cluster do Service Fabric inteiro.
-- Perda permanente de a maioria das réplicas de uma partição de serviço
-- Erros administrativos no qual o estado acidentalmente obtém excluído ou danificado. Por exemplo, isto pode acontecer se um administrador com privilégios suficientes erroneamente elimina o serviço.
-- Bugs no serviço que danificar os dados. Por exemplo, isto pode acontecer quando uma atualização do código de serviço é iniciado a escrita de dados com falhas para uma coleção fiável. Nesse caso, o código e os dados podem ter a ser revertida para um estado anterior.
-- Processamento de dados offline. Pode ser conveniente ter um processamento offline de dados para business intelligence que acontece em separado do serviço que gera os dados.
+- No caso de perda permanente de um cluster de Service Fabric inteiro.
+- Perda permanente de uma maioria das réplicas de uma partição de serviço
+- Erros administrativos nos quais o estado é acidentalmente excluído ou corrompido. Por exemplo, isso pode acontecer se um administrador com privilégios suficientes excluir erroneamente o serviço.
+- Bugs no serviço que causam corrupção de dados. Por exemplo, isso pode acontecer quando uma atualização de código de serviço começa a gravar dados com falha em uma coleção confiável. Nesse caso, o código e os dados podem precisar ser revertidos para um estado anterior.
+- Processamento de dados offline. Pode ser conveniente ter o processamento offline de dados para business intelligence que aconteça separadamente do serviço que gera os dados.
 
-A funcionalidade de cópia de segurança/restauro permite que os serviços criados sobre a API de serviços fiáveis para criar e restaurar cópias de segurança. As APIs de cópia de segurança fornecidas pela plataforma permitem que um ou mais backups de estado de uma partição de serviço, sem bloqueio de leitura ou operações de escrita. O restauro APIs permitem que o estado de uma partição de serviço para ser restaurado a partir de uma cópia de segurança escolhida.
+O recurso de backup/restauração permite que os serviços criados na API de Reliable Services criem e restaurem backups. As APIs de backup fornecidas pela plataforma permitem backups do estado de uma partição de serviço, sem bloquear operações de leitura ou gravação. As APIs de restauração permitem que o estado de uma partição de serviço seja restaurado a partir de um backup escolhido.
 
-## <a name="types-of-backup"></a>Tipos de cópia de segurança
-Existem duas opções de cópia de segurança: Completas e incrementais.
-Um backup completo é uma cópia de segurança que contém todos os dados necessários para recriar o estado da réplica: os pontos de verificação e todos os registros de log.
-Uma vez que tem os pontos de verificação e o registo, uma cópia de segurança completa pode ser restaurada por si só.
+## <a name="types-of-backup"></a>Tipos de backup
+Há duas opções de backup: completa e incremental.
+Um backup completo é um backup que contém todos os dados necessários para recriar o estado da réplica: pontos de verificação e todos os registros de log.
+Como ele tem os pontos de verificação e o log, um backup completo pode ser restaurado por si só.
 
-O problema com cópias de segurança completas surge quando os pontos de verificação são grandes.
-Por exemplo, uma réplica que tenha 16 GB de estado irá ter pontos de verificação que adicionam até aproximadamente 16 GB.
-Se tivermos um objetivo de ponto de recuperação de cinco minutos, a réplica tem de ser copiadas a cada cinco minutos.
-Sempre que ele faz o backup tem de copiar 16 GB de pontos de verificação, além de 50 MB (usando configuráveis `CheckpointThresholdInMB`) valor de registos.
+O problema com backups completos surge quando os pontos de verificação são grandes.
+Por exemplo, uma réplica que tem 16 GB de estado terá pontos de verificação que somam aproximadamente 16 GB.
+Se tivermos um objetivo de ponto de recuperação de cinco minutos, a réplica precisará ser submetida a backup a cada cinco minutos.
+Cada vez que ele faz backup, ele precisa copiar 16 GB de pontos de verificação, além de 50 MB (configuráveis usando `CheckpointThresholdInMB`) de logs.
 
-![Exemplo de cópia de segurança completa.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
+![Exemplo de backup completo.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
-A solução para esse problema é cópias de segurança incrementais, em que o cópia de segurança contém apenas os registros de log alterados desde a última cópia de segurança.
+A solução para esse problema é backups incrementais, em que o backup contém apenas os registros de log alterados desde o último backup.
 
-![Exemplo de cópia de segurança incremental.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
+![Exemplo de backup incremental.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
-Uma vez que as cópias de segurança incrementais são apenas as alterações desde a última cópia de segurança (não inclui os pontos de verificação), eles tendem a ser mais rápida, mas não é possível restaurar por conta própria.
-Para restaurar uma cópia de segurança incremental, toda a cadeia de cópia de segurança é necessária.
-Uma cadeia de cópia de segurança é uma cadeia de cópias de segurança começando com uma cópia de segurança completa e seguida por um número de cópias de segurança incrementais contíguos.
+Como os backups incrementais são apenas alterações desde o último backup (não inclui os pontos de verificação), eles tendem a ser mais rápidos, mas não podem ser restaurados por conta própria.
+Para restaurar um backup incremental, a cadeia de backup inteira é necessária.
+Uma cadeia de backup é uma cadeia de backups que começa com um backup completo e seguida por um número de backups incrementais contíguos.
 
-## <a name="backup-reliable-services"></a>Cópia de segurança do Reliable Services
-O autor de serviço tem total controle sobre quando efetuar cópias de segurança e onde serão armazenadas as cópias de segurança.
+## <a name="backup-reliable-services"></a>Reliable Services de backup
+O autor do serviço tem controle total de quando fazer backups e onde os backups serão armazenados.
 
-Para iniciar uma cópia de segurança, o serviço tem de invocar a função de membro herdado `BackupAsync`.  
-As cópias de segurança podem ser feitas apenas a partir de réplicas primárias e necessitam que o estado de escrita para ser concedida.
+Para iniciar um backup, o serviço precisa invocar a função membro herdada `BackupAsync`.  
+Os backups só podem ser feitos de réplicas primárias e exigem o status de gravação para serem concedidos.
 
-Conforme mostrado abaixo, `BackupAsync` aceita um `BackupDescription` objeto, onde um pode especificar uma cópia de segurança completa ou incremental, bem como uma função de retorno de chamada, `Func<< BackupInfo, CancellationToken, Task<bool>>>` que é invocado quando a pasta de cópia de segurança tiver sido criada localmente e está pronta para ser movido para algumas armazenamento externo.
+Como mostrado abaixo, `BackupAsync` usa um objeto `BackupDescription`, onde um pode especificar um backup completo ou incremental, bem como uma função de retorno de chamada, `Func<< BackupInfo, CancellationToken, Task<bool>>>` invocado quando a pasta de backup foi criada localmente e está pronta para ser movida para algum armazenamento externo.
 
 ```csharp
 
@@ -79,19 +70,19 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Pedido para efetuar uma cópia de segurança incremental pode falhar com `FabricMissingFullBackupException`. Esta exceção indica que está acontecendo uma das seguintes ações:
+A solicitação para fazer um backup incremental pode falhar com `FabricMissingFullBackupException`. Essa exceção indica que um dos seguintes itens está ocorrendo:
 
-- a réplica nunca apresentou uma cópia de segurança completa, uma vez que ele se tornou primário,
-- Alguns dos registros de log, uma vez que a última cópia de segurança foi truncada ou
-- réplica transmitida a `MaxAccumulatedBackupLogSizeInMB` limite.
+- a réplica nunca fez um backup completo, pois se tornou primária,
+- alguns dos registros de log desde o último backup foram truncados ou
+- a réplica ultrapassou o limite de `MaxAccumulatedBackupLogSizeInMB`.
 
-Os utilizadores podem aumentar a probabilidade de ser capaz de fazer cópias de segurança incrementais configurando `MinLogSizeInMB` ou `TruncationThresholdFactor`.
-Aumentar estes valores aumenta a por utilização do disco de réplica.
-Para obter mais informações, consulte [fiável de serviços de configuração](service-fabric-reliable-services-configuration.md)
+Os usuários podem aumentar a probabilidade de poder fazer backups incrementais Configurando `MinLogSizeInMB` ou `TruncationThresholdFactor`.
+Aumentar esses valores aumenta o uso de disco por réplica.
+Para obter mais informações, consulte [configuração de Reliable Services](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo` Fornece informações sobre a cópia de segurança, incluindo a localização da pasta onde o tempo de execução guardado a cópia de segurança (`BackupInfo.Directory`). A função de retorno de chamada pode mover o `BackupInfo.Directory` para um repositório externo ou noutro local.  Esta função também retorna um booleano que indica se foi consegue mover com êxito a pasta de cópia de segurança para a localização de destino.
+`BackupInfo` fornece informações sobre o backup, incluindo o local da pasta em que o tempo de execução salvou o backup (`BackupInfo.Directory`). A função de retorno de chamada pode mover o `BackupInfo.Directory` para um repositório externo ou outro local.  Essa função também retorna um bool que indica se foi possível mover com êxito a pasta de backup para seu local de destino.
 
-O código a seguir demonstra como o `BackupCallbackAsync` método pode ser utilizado para carregar a cópia de segurança para o armazenamento do Azure:
+O código a seguir demonstra como o método `BackupCallbackAsync` pode ser usado para carregar o backup no armazenamento do Azure:
 
 ```csharp
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
@@ -104,34 +95,34 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-No exemplo anterior, `ExternalBackupStore` é a classe de exemplo que é utilizada para a interface com o armazenamento de Blobs do Azure, e `UploadBackupFolderAsync` é o método que compacta a pasta e o coloca no armazenamento de Blobs do Azure.
+No exemplo anterior, `ExternalBackupStore` é a classe de exemplo usada para a interface com o armazenamento de BLOBs do Azure e `UploadBackupFolderAsync` é o método que compacta a pasta e a coloca no repositório de blob do Azure.
 
 Tenha em atenção que:
 
-  - Pode haver apenas uma operação de cópia de segurança em trânsito por réplica num determinado momento. Mais do que uma `BackupAsync` chamada por vez lançará `FabricBackupInProgressException` para limitar as cópias de segurança em utilização para um.
-  - Se uma réplica falhar enquanto uma cópia de segurança está em curso, a cópia de segurança já não tenha sido concluída. Assim, quando concluir a ativação pós-falha, é responsabilidade do serviço para reiniciar a cópia de segurança invocando `BackupAsync` conforme necessário.
+  - Pode haver apenas uma operação de backup em trânsito por réplica em um determinado momento. Mais de uma chamada de `BackupAsync` de cada vez gerará `FabricBackupInProgressException` para limitar os backups de em andamento a um.
+  - Se uma réplica falhar enquanto um backup estiver em andamento, talvez o backup não tenha sido concluído. Assim, após a conclusão do failover, é responsabilidade do serviço reiniciar o backup invocando `BackupAsync` conforme necessário.
 
 ## <a name="restore-reliable-services"></a>Restaurar Reliable Services
-Em geral, os casos, quando poderá ter de efetuar uma operação de restauro enquadram-se em uma destas categorias:
+Em geral, os casos em que talvez você precise executar uma operação de restauração se enquadram em uma destas categorias:
 
-  - O serviço de perda de dados de partição. Por exemplo, o disco para duas de três réplicas para uma partição (incluindo a réplica primária) obtém danificado ou eliminado. A nova principal poderá ter de restaurar dados a partir de uma cópia de segurança.
-  - Todo o serviço é perdido. Por exemplo, um administrador remove todo o serviço e, portanto, o serviço e os dados precisam ser restaurados.
-  - O serviço de aplicativo danificado os dados replicados (por exemplo, devido a um erro de aplicação). Neste caso, o serviço tem de ser atualizado ou revertida para remover a causa dos danos e não corromper dados devem ser restaurados.
+  - A partição de serviço perdeu os dados. Por exemplo, o disco de duas de três réplicas para uma partição (incluindo a réplica primária) é corrompido ou apagado. O novo primário pode precisar restaurar dados de um backup.
+  - O serviço inteiro é perdido. Por exemplo, um administrador remove todo o serviço e, portanto, o serviço e os dados precisam ser restaurados.
+  - O serviço replicou os dados de aplicativo corrompidos (por exemplo, devido a um bug de aplicativo). Nesse caso, o serviço precisa ser atualizado ou revertido para remover a causa do dano, e os dados não corrompidos têm que ser restaurados.
 
-Embora muitas abordagens são possíveis, oferecemos alguns exemplos sobre como utilizar `RestoreAsync` para recuperar a partir de cenários acima.
+Embora muitas abordagens sejam possíveis, oferecemos alguns exemplos de como usar `RestoreAsync` para se recuperar dos cenários acima.
 
 ## <a name="partition-data-loss-in-reliable-services"></a>Perda de dados de partição no Reliable Services
-Neste caso, o tempo de execução seria detectar a perda de dados e invocar automaticamente o `OnDataLossAsync` API.
+Nesse caso, o tempo de execução detectará automaticamente a perda de dados e invocará a API `OnDataLossAsync`.
 
-O autor de serviço tem de efetuar o seguinte para recuperar:
+O autor do serviço precisa executar o seguinte para recuperar:
 
-  - Substituir o método de classe base virtual `OnDataLossAsync`.
-  - Localize a cópia de segurança mais recente na localização externa que contém cópias de segurança do serviço.
-  - Transferir a cópia de segurança mais recente (e descomprimir a cópia de segurança para a pasta de cópia de segurança se tenha sido compactada).
-  - O `OnDataLossAsync` método fornece uma `RestoreContext`. Chamar o `RestoreAsync` API fornecido no `RestoreContext`.
-  - Devolve true se o restauro foi um sucesso.
+  - Substitua o método de classe base virtual `OnDataLossAsync`.
+  - Localize o backup mais recente no local externo que contém os backups do serviço.
+  - Baixe o backup mais recente (e descompacte o backup na pasta de backup se ele tiver sido compactado).
+  - O método `OnDataLossAsync` fornece um `RestoreContext`. Chame a API de `RestoreAsync` no `RestoreContext`fornecido.
+  - Retorna true se a restauração foi um sucesso.
 
-Segue-se um exemplo de implementação do `OnDataLossAsync` método:
+Veja a seguir um exemplo de implementação do método `OnDataLossAsync`:
 
 ```csharp
 protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
@@ -146,44 +137,44 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-`RestoreDescription` transmitido para o `RestoreContext.RestoreAsync` chamada contém um membro chamado `BackupFolderPath`.
-Ao restaurar uma única cópia de segurança completa, isso `BackupFolderPath` deve ser definido como o caminho local da pasta que contém a cópia de segurança completa.
-Ao restaurar uma cópia de segurança completa e um número de cópias de segurança incrementais, `BackupFolderPath` deve ser definido como o caminho local da pasta que contém não apenas a cópia de segurança completa, mas também todas as cópias de segurança incrementais.
-`RestoreAsync` chamada pode emitir `FabricMissingFullBackupException` se o `BackupFolderPath` fornecido não contém uma cópia de segurança completa.
-Ele também pode emitir `ArgumentException` se `BackupFolderPath` tem uma cadeia quebrada de cópias de segurança incrementais.
-Por exemplo, se ele contém a cópia de segurança completa, a primeira incremental e a terceira cópia de segurança incremental, mas não a segunda cópia de segurança incremental.
+`RestoreDescription` passado para a chamada `RestoreContext.RestoreAsync` contém um membro chamado `BackupFolderPath`.
+Ao restaurar um único backup completo, esse `BackupFolderPath` deve ser definido como o caminho local da pasta que contém o backup completo.
+Ao restaurar um backup completo e vários backups incrementais, `BackupFolderPath` deve ser definido como o caminho local da pasta que não só contém o backup completo, mas também todos os backups incrementais.
+`RestoreAsync` chamada poderá gerar `FabricMissingFullBackupException` se a `BackupFolderPath` fornecida não contiver um backup completo.
+Ele também pode gerar `ArgumentException` se `BackupFolderPath` tiver uma cadeia quebrada de backups incrementais.
+Por exemplo, se ele contiver o backup completo, o primeiro incremental e o terceiro backup incremental, mas não o segundo backup incremental.
 
 > [!NOTE]
-> Por predefinição, o RestorePolicy é definida para Safe.  Isso significa que o `RestoreAsync` API irá falhar com ArgumentException se detetar que a pasta de cópia de segurança contém um Estado que é mais antigo do que ou igual ao estado contido nesta réplica.  `RestorePolicy.Force` pode ser usado para ignorar esta verificação de segurança. Isto é especificado como parte do `RestoreDescription`.
+> O RestorePolicy é definido como seguro por padrão.  Isso significa que a API de `RestoreAsync` falhará com ArgumentException se detectar que a pasta de backup contém um estado que é mais antigo ou igual ao estado contido nesta réplica.  `RestorePolicy.Force` pode ser usado para ignorar essa verificação de segurança. Isso é especificado como parte de `RestoreDescription`.
 > 
 
-## <a name="deleted-or-lost-service"></a>Serviço perdido ou excluído
-Se um serviço for removido, tem primeiro de recriar o serviço antes dos dados podem ser restaurados.  É importante criar o serviço com a mesma configuração, por exemplo, a criação de partições de esquema, para que os dados podem ser restaurados de forma totalmente integrada.  Assim que o serviço estiver em execução, a API para restaurar os dados (`OnDataLossAsync` acima) tem de ser invocado em cada partição deste serviço. Uma forma de conseguir isso é através de [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) em cada partição.  
+## <a name="deleted-or-lost-service"></a>Serviço excluído ou perdido
+Se um serviço for removido, você deverá primeiro recriar o serviço antes que os dados possam ser restaurados.  É importante criar o serviço com a mesma configuração, por exemplo, o esquema de particionamento, para que os dados possam ser restaurados diretamente.  Depois que o serviço estiver ativo, a API para restaurar dados (`OnDataLossAsync` acima) precisará ser invocada em cada partição desse serviço. Uma maneira de conseguir isso é usando [FabricClient. TestManagementClient. StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) em todas as partições.  
 
-A partir deste ponto, a implementação é o mesmo cenário acima. Cada partição tem de restaurar o backup de relevante mais recentes a partir da loja externa. Uma limitação é que o ID de partição pode agora alterado, uma vez que o tempo de execução cria partição IDs dinamicamente. Portanto, o serviço precisa armazenar o nome de serviço e informações de partição adequado para identificar a cópia de segurança mais recente correta para restaurar a partir de cada partição.
+A partir desse ponto, a implementação é a mesma do cenário acima. Cada partição precisa restaurar o backup mais recente relevante do armazenamento externo. Uma limitação é que a ID da partição pode ter sido alterada, já que o tempo de execução cria IDs de partição dinamicamente. Portanto, o serviço precisa armazenar as informações de partição e o nome do serviço apropriados para identificar o backup mais recente a ser restaurado de cada partição.
 
 > [!NOTE]
-> Não é recomendado utilizar `FabricClient.ServiceManager.InvokeDataLossAsync` em cada partição para restaurar todo o serviço, uma vez que o que pode corromper o estado do cluster.
+> Não é recomendável usar `FabricClient.ServiceManager.InvokeDataLossAsync` em cada partição para restaurar o serviço inteiro, já que isso pode corromper o estado do cluster.
 > 
 
-## <a name="replication-of-corrupt-application-data"></a>Replicação de dados de aplicativo danificado
-Se a atualização da aplicação recentemente implementado tem um bug, o que pode causar danos em dados. Por exemplo, uma atualização da aplicação pode começar a atualizar todos os registos de número de telefone num dicionário fiável com um código de área inválido.  Neste caso, os números de telefone inválido serão replicados, uma vez que o Service Fabric não está ciente da natureza dos dados que estão a ser armazenados.
+## <a name="replication-of-corrupt-application-data"></a>Replicação de dados de aplicativo corrompidos
+Se a atualização do aplicativo implantado recentemente tiver um bug, isso poderá causar a corrupção dos dados. Por exemplo, uma atualização de aplicativo pode começar a atualizar cada registro de número de telefone em um dicionário confiável com um código de área inválido.  Nesse caso, os números de telefone inválidos serão replicados, pois Service Fabric não está ciente da natureza dos dados que estão sendo armazenados.
 
-A primeira coisa a fazer depois de detectar esse um bug sérios que faz com que a Corrupção de dados é fixar o serviço ao nível da aplicação e, se possível, atualize para a versão do código da aplicação que não tenha o bug.  No entanto, mesmo depois do código do serviço é fixa, os dados ainda poderão estar danificados e, portanto, os dados poderão ter de ser restaurada.  Nesses casos, podem não ser suficiente restaurar a cópia de segurança mais recente, uma vez que as cópias de segurança mais recente também poderão estar danificadas.  Assim, precisa localizar a última cópia de segurança que foi efetuada antes dos dados de obteve danificados.
+A primeira coisa a fazer depois de detectar um bug flagrantes que causa corrupção de dados é congelar o serviço no nível do aplicativo e, se possível, atualizar para a versão do código do aplicativo que não tem o bug.  No entanto, mesmo depois que o código do serviço é corrigido, os dados ainda podem estar corrompidos e, portanto, talvez seja necessário restaurar os dados.  Nesses casos, pode não ser suficiente restaurar o backup mais recente, já que os backups mais recentes também podem estar corrompidos.  Portanto, você precisa localizar o último backup feito antes que os dados tenham sido corrompidos.
 
-Se não tiver a certeza de que as cópias de segurança estão danificadas, poderia implementar um novo cluster do Service Fabric e restaurar as cópias de segurança de partições afetadas fiquem apenas como o anterior "Eliminadas ou perdido de serviço" cenário.  Para cada partição, comece a restaurar as cópias de segurança da mais recente para o menos. Depois de localizar uma cópia de segurança que não tenha a existência de danos, mover/excluir todas as cópias de segurança desta partição que foram mais recentes (que essa cópia de segurança). Repita este processo para cada partição. Agora, quando `OnDataLossAsync` denomina-se na partição do cluster de produção, a última cópia de segurança encontrada no arquivo externo que vai ser escolhido pelo processo de acima.
+Se não tiver certeza de quais backups estão corrompidos, você poderá implantar um novo cluster de Service Fabric e restaurar os backups de partições afetadas, assim como o cenário de "serviço excluído ou perdido" acima.  Para cada partição, comece a restaurar os backups do mais recente para o menos. Depois de encontrar um backup que não tenha a corrupção, mova/exclua todos os backups desta partição que foram mais recentes (do que esse backup). Repita esse processo para cada partição. Agora, quando `OnDataLossAsync` for chamado na partição no cluster de produção, o último backup encontrado no repositório externo será aquele escolhido pelo processo acima.
 
-Agora, os passos em "eliminadas ou perdido de serviço" seção pode ser usada para restaurar o estado do serviço para o estado antes do código com bugs danificado o estado.
+Agora, as etapas na seção "serviço excluído ou perdido" podem ser usadas para restaurar o estado do serviço para o estado anterior à corrupção do estado do código de bugs.
 
 Tenha em atenção que:
 
-  - Ao restaurar, é provável que a cópia de segurança a ser restaurada é mais antiga do que o estado da partição antes dos dados foram perdidos. Por este motivo, deve restaurar apenas como último recurso para recuperar o máximo possível dos dados.
-  - A cadeia de caracteres que representa o caminho da pasta de cópia de segurança e os caminhos de ficheiros dentro da pasta de cópia de segurança pode ser superior a 255 caracteres, consoante o caminho de FabricDataRoot e extensão do nome do tipo de aplicação. Isso pode causar alguns métodos de .NET, como `Directory.Move`, para lançar o `PathTooLongException` exceção. Uma solução alternativa é chamar diretamente kernel32 APIs, como `CopyFile`.
+  - Quando você restaura, há uma chance de que o backup que está sendo restaurado seja mais antigo do que o estado da partição antes que os dados sejam perdidos. Por isso, você deve restaurar apenas como último recurso para recuperar o máximo de dados possível.
+  - A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup pode ter mais de 255 caracteres, dependendo do caminho do FabricDataRoot e do comprimento do nome do tipo de aplicativo. Isso pode causar alguns métodos .NET, como `Directory.Move`, para gerar a exceção `PathTooLongException`. Uma solução alternativa é chamar diretamente as APIs do Kernel32, como `CopyFile`.
 
-## <a name="back-up-and-restore-reliable-actors"></a>Criar cópias de segurança e restaurar Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>Fazer backup e restaurar Reliable Actors
 
 
-Reliable Actors Framework se baseia no Reliable Services. ActorService, que hospeda o actor(s) é um serviço fiável com estado. Por este motivo, todas as cópias de segurança e restauro funcionalidades disponíveis no Reliable Services também estão disponível para Reliable Actors (exceto os comportamentos que são específico do fornecedor de estado). Uma vez que as cópias de segurança serão executadas numa base por partição, Estados de todos os atores nessa partição será uma cópia de segurança (e o restauro é semelhante e irá ocorrer numa base por partição). Para efetuar a cópia de segurança/restauro, o proprietário do serviço deve criar uma classe de serviço de ator personalizado que é derivada da classe ActorService e, em seguida, fazer cópia de segurança/restauro semelhante a Reliable Services conforme descrito acima em secções anteriores.
+O Reliable Actors Framework é criado sobre Reliable Services. O ActorService, que hospeda os atores, é um serviço confiável com estado. Portanto, todas as funcionalidades de backup e restauração disponíveis no Reliable Services também estão disponíveis para Reliable Actors (exceto comportamentos que são específicos do provedor de estado). Como os backups serão feitos por partição, os Estados de todos os atores nessa partição serão submetidos a backup (e a restauração será semelhante e acontecerá em uma base por partição). Para executar backup/restauração, o proprietário do serviço deve criar uma classe de serviço de ator personalizada que derive da classe ActorService e, em seguida, faça backup/restauração semelhante a Reliable Services conforme descrito acima nas seções anteriores.
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -199,14 +190,14 @@ class MyCustomActorService : ActorService
 }
 ```
 
-Quando cria uma classe de serviço de ator personalizado, terá de registar que também ao registar o ator.
+Ao criar uma classe de serviço de ator personalizada, você precisa registrá-la também ao registrar o ator.
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
     (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
-O fornecedor de estado predefinido dos Reliable Actors é `KvsActorStateProvider`. Cópia de segurança incremental não está ativada por predefinição para `KvsActorStateProvider`. Pode ativar a cópia de segurança incremental através da criação de `KvsActorStateProvider` com a definição adequada em seu construtor e, em seguida, passa ao construtor ActorService, conforme mostrado no seguinte fragmento de código:
+O provedor de estado padrão para Reliable Actors é `KvsActorStateProvider`. O backup incremental não está habilitado por padrão para `KvsActorStateProvider`. Você pode habilitar o backup incremental criando `KvsActorStateProvider` com a configuração apropriada em seu construtor e, em seguida, passando-o para o Construtor ActorService, conforme mostrado no seguinte trecho de código:
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -222,51 +213,51 @@ class MyCustomActorService : ActorService
 }
 ```
 
-Depois que tiver sido ativada a cópia de segurança incremental, fazer uma cópia de segurança incremental pode falhar com FabricMissingFullBackupException por um dos seguintes motivos e terá de realizar um backup completo antes de colocar um ou mais backups incremental:
+Após a habilitação do backup incremental, fazer um backup incremental pode falhar com o FabricMissingFullBackupException por um dos seguintes motivos e você precisará fazer um backup completo antes de fazer backups incrementais:
 
-  - A réplica nunca apresentou uma cópia de segurança completa, uma vez que se tornaram primária.
-  - Alguns dos registros de logs foram truncados, uma vez que a última cópia de segurança.
+  - A réplica nunca fez um backup completo desde que se tornou primária.
+  - Alguns dos registros de log foram truncados desde que o último backup foi feito.
 
-Quando a cópia de segurança incremental é ativada, `KvsActorStateProvider` não utiliza o circular buffer para gerenciar seus registros de log e a trunca periodicamente. Se nenhuma cópia de segurança for retirada por utilizador durante um período de 45 minutos, o sistema trunca automaticamente os registros de log. Esse intervalo pode ser configurado com a especificação `logTruncationIntervalInMinutes` em `KvsActorStateProvider` construtor (similar ao ativar a cópia de segurança incremental). Os registros de log também podem obter truncados se a réplica primária tem de criar outra réplica com o envio de todos os seus dados.
+Quando o backup incremental está habilitado, o `KvsActorStateProvider` não usa o buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema truncará automaticamente os registros de log. Esse intervalo pode ser configurado especificando `logTruncationIntervalInMinutes` no Construtor `KvsActorStateProvider` (semelhante ao de habilitar o backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar criar outra réplica enviando todos os seus dados.
 
-Ao efetuar o restauro a partir de uma cadeia de cópia de segurança, semelhante a Reliable Services, o BackupFolderPath deve conter subdiretórios com um subdiretório contendo a cópia de segurança completa e outros subdiretórios que contém um ou mais backups incremental. A API de restauro irá gerar FabricException com mensagem de erro apropriada se a validação da cadeia de cópia de segurança falhar. 
-
-> [!NOTE]
-> `KvsActorStateProvider` Atualmente, ignora a opção RestorePolicy.Safe. Suporte para esta funcionalidade está previsto numa versão futura.
-> 
-
-## <a name="testing-back-up-and-restore"></a>Teste de cópia de segurança e restauro
-É importante garantir que os dados críticos é a cópia de segurança e podem ser restaurados a partir. Isso pode ser feito invocando o `Start-ServiceFabricPartitionDataLoss` cmdlet do PowerShell que pode induzi-las a perda de dados numa partição específica para testar se os dados de cópia de segurança e restaurar a funcionalidade para o seu serviço está a funcionar conforme esperado.  Também é possível invocar a perda de dados e restaurar a partir de que o evento também através de programação.
+Ao fazer a restauração de uma cadeia de backup, semelhante à Reliable Services, o BackupFolderPath deve conter subdiretórios com um subdiretório contendo backup completo e outros subdiretórios contendo backups incrementais. A API de restauração gerará Fabricexception com a mensagem de erro apropriada se a validação da cadeia de backup falhar. 
 
 > [!NOTE]
-> Pode encontrar uma implementação de exemplo da cópia de segurança e restaurar a funcionalidade na aplicação Web de referência no GitHub. Examine o `Inventory.Service` serviço para obter mais detalhes.
+> Atualmente, `KvsActorStateProvider` ignora a opção RestorePolicy. Safe. O suporte para esse recurso está planejado em uma versão futura.
+> 
+
+## <a name="testing-back-up-and-restore"></a>Testando o backup e a restauração
+É importante garantir que os dados críticos sejam submetidos a backup e possam ser restaurados do. Isso pode ser feito invocando o cmdlet `Start-ServiceFabricPartitionDataLoss` no PowerShell que pode induzir a perda de dados em uma determinada partição para testar se a funcionalidade de backup e restauração de dados do serviço está funcionando conforme o esperado.  Também é possível invocar a perda de dados e restaurá-las por meio de programação a partir desse evento também.
+
+> [!NOTE]
+> Você pode encontrar uma implementação de exemplo de funcionalidade de backup e restauração no aplicativo Web Reference no GitHub. Consulte o serviço de `Inventory.Service` para obter mais detalhes.
 > 
 > 
 
-## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Nos bastidores: obter mais detalhes sobre a cópia de segurança e restauro
-Eis mais alguns detalhes sobre a cópia de segurança e restauro.
+## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Nos bastidores: mais detalhes sobre backup e restauração
+Veja mais alguns detalhes sobre backup e restauração.
 
-### <a name="backup"></a>Cópia de segurança
-O Reliable State Manager fornece a capacidade de criar cópias de segurança sem bloquear qualquer leitura ou operações de escrita. Para fazer isso, ele utiliza um mecanismo de persistência de registo e ponto de verificação.  O Gestor de estado de Reliable demora difusas pontos de verificação (leves) em determinados pontos para liberar a pressão do registo transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de estado fiável instruirá todos os objetos confiáveis para copiar seus arquivos de ponto de verificação mais recente para uma pasta de cópia de segurança local.  Em seguida, o Gestor de estado de Reliable copia todos os registros de log, começando com o ponteiro"start" para o registro de log mais recente para a pasta de cópia de segurança.  Uma vez que todos os registros de log até o registo mais recente do registo estão incluídos na cópia de segurança e o Gestor de estado de Reliable preserva o registo de escrita-ahead, o Gestor de estado confiável garante que todas as transações que são confirmadas (`CommitAsync` devolveu com êxito ) estão incluídas na cópia de segurança.
+### <a name="backup"></a>Backup
+O Gerenciador de estado confiável fornece a capacidade de criar backups consistentes sem bloquear nenhuma operação de leitura ou gravação. Para fazer isso, ele utiliza um mecanismo de ponto de verificação e de persistência de log.  O Gerenciador de estado confiável usa pontos de verificação difuso (leves) em determinados pontos para aliviar a pressão do log transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de estado confiável instrui todos os objetos confiáveis a copiarem seus arquivos de ponto de verificação mais recentes para uma pasta de backup local.  Em seguida, o Gerenciador de estado confiável copia todos os registros de log, começando do "ponteiro de início" para o registro de log mais recente na pasta de backup.  Como todos os registros de log até o registro de log mais recente estão incluídos no backup e o Gerenciador de estado confiável preserva o registro em log write-ahead, o Gerenciador de estado confiável garante que todas as transações confirmadas (`CommitAsync` retornados com êxito) sejam incluídas no backup.
 
-Qualquer transação que se compromete após `BackupAsync` foi chamado Maio ou não estar na cópia de segurança.  Assim que a pasta de cópia de segurança local que tiverem sido povoada pela plataforma (ou seja, cópia de segurança local é concluída pelo tempo de execução), retorno de chamada de cópia de segurança do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de cópia de segurança para uma localização externa, como o armazenamento do Azure.
+Qualquer transação que confirma após `BackupAsync` foi chamada pode ou não estar no backup.  Depois que a pasta de backup local tiver sido populada pela plataforma (ou seja, o backup local será concluído pelo tempo de execução), o retorno de chamada de backup do serviço será invocado.  Esse retorno de chamada é responsável por mover a pasta de backup para um local externo, como o armazenamento do Azure.
 
 ### <a name="restore"></a>Restauro
-O Reliable State Manager fornece a capacidade de restaurar a partir de uma cópia de segurança utilizando o `RestoreAsync` API.  
-O `RestoreAsync` método no `RestoreContext` pode ser chamado apenas dentro do `OnDataLossAsync` método.
-Bool devolvido pelo `OnDataLossAsync` indica se o serviço restaurada seu estado de uma origem externa.
-Se o `OnDataLossAsync` retorna true, o Service Fabric irá reconstruir a todas as outras réplicas deste primário. Service Fabric garante que as réplicas que irão receber `OnDataLossAsync` chamar primeiro transição para a função primária, mas não são concedidos a ler Estado ou gravar status.
-Isso implica que para implementadores de StatefulService `RunAsync` não será chamado até `OnDataLossAsync` concluir com êxito.
-Em seguida, `OnDataLossAsync` serão chamados na nova principal.
-Até que um serviço é concluída esta API com êxito (retornando true ou false) e termina a reconfiguração relevante, a API irá manter a ser chamada uma de cada vez.
+O Gerenciador de estado confiável fornece a capacidade de restaurar a partir de um backup usando a API `RestoreAsync`.  
+O método `RestoreAsync` em `RestoreContext` pode ser chamado somente dentro do método `OnDataLossAsync`.
+O bool retornado por `OnDataLossAsync` indica se o serviço restaurou seu estado a partir de uma fonte externa.
+Se o `OnDataLossAsync` retornar true, Service Fabric recriará todas as outras réplicas a partir desse primário. Service Fabric garante que as réplicas que receberão `OnDataLossAsync` chamar a primeira transição para a função primária, mas não receberão o status de leitura ou de gravação.
+Isso implica que, para os implementadores de StatefulService, `RunAsync` não será chamado até que `OnDataLossAsync` seja concluído com êxito.
+Em seguida, `OnDataLossAsync` será invocado no novo primário.
+Até que um serviço Conclua essa API com êxito (retornando true ou false) e conclui a reconfiguração relevante, a API continuará sendo chamada uma de cada vez.
 
-`RestoreAsync` primeiro ignora todos os Estados existente em que ele foi chamado na réplica primária. Em seguida, o Gerenciador de estado fiável cria todos os objetos confiáveis que existe na pasta de cópia de segurança. Em seguida, os objetos confiáveis são instruídos para restaurar a partir dos pontos de verificação na pasta de cópia de segurança. Por fim, o Gestor de estado de Reliable recupera o seu próprio Estado dos registros de log na pasta de cópia de segurança e efetua a recuperação. Como parte do processo de recuperação, as operações a partir de "ponto de partida" que realizaram registros de log na pasta de cópia de segurança são reproduzidas aos objetos fiáveis. Este passo garante que o estado recuperado é consistente.
+`RestoreAsync` primeiro descarta todos os Estados existentes na réplica primária em que ele foi chamado. Em seguida, o Gerenciador de estado confiável cria todos os objetos confiáveis que existem na pasta de backup. Em seguida, os objetos confiáveis são instruídos a restaurar de seus pontos de verificação na pasta de backup. Por fim, o Gerenciador de estado confiável recupera seu próprio estado dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começam do "ponto de partida" que têm registros de log confirmados na pasta de backup são reproduzidas para os objetos confiáveis. Essa etapa garante que o estado recuperado seja consistente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
-  - [Guia de introdução de serviços fiável](service-fabric-reliable-services-quick-start.md)
-  - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
+  - [Guia de início rápido Reliable Services](service-fabric-reliable-services-quick-start.md)
+  - [Notificações de Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuração de Reliable Services](service-fabric-reliable-services-configuration.md)
-  - [Referência do desenvolvedor do Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Referência do desenvolvedor para coleções confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
   - [Cópia de segurança e restauro periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

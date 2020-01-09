@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425938"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -77,7 +77,7 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
     - Convenções de nomenclatura para VMs e outros componentes de infraestrutura e/ou nomes lógicos.
 5.  Contrato do Microsoft Suporte Premier. Identifique o TAM (gerente técnico de contas) da Microsoft. Para obter os requisitos de suporte do SAP, consulte [#2015553 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/2015553).
 6.  O número de assinaturas do Azure e a cota de núcleo para as assinaturas. [Abra solicitações de suporte para aumentar as cotas de assinaturas do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) , conforme necessário.
-7.  Data de redução de dados e plano de migração de dados para migrar dados SAP para o Azure. Para sistemas SAP NetWeaver, a SAP tem diretrizes sobre como limitar o volume de grandes quantidades de dados. Consulte [este guia SAP sobre o](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) gerenciamento de dados em sistemas SAP ERP. Parte do conteúdo também se aplica aos sistemas NetWeaver e S/4HANA em geral.
+7.  Data de redução de dados e plano de migração de dados para migrar dados SAP para o Azure. Para sistemas SAP NetWeaver, a SAP tem diretrizes sobre como limitar o volume de grandes quantidades de dados. Consulte [este guia SAP sobre o](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) gerenciamento de dados em sistemas SAP ERP. Parte do conteúdo também se aplica aos sistemas NetWeaver e S/4HANA em geral.
 8.  Uma abordagem de implantação automatizada. O objetivo da automação de implantações de infraestrutura no Azure é implantar de forma determinística e obter resultados determinísticos. Muitos clientes usam scripts baseados no PowerShell ou na CLI. Mas há várias tecnologias de código-fonte aberto que você pode usar para implantar a infraestrutura do Azure para SAP e até mesmo instalar o software SAP. Você pode encontrar exemplos no GitHub:
     - [Implantações automatizadas do SAP na nuvem do Azure](https://github.com/Azure/sap-hana)
     - [Instalação do SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -111,7 +111,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Para os diferentes tipos de DBMS, verifique a [documentação genérica do DBMS relacionada ao SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e a documentação específica do DBMS para a qual o documento genérico aponta.
         - Para obter mais informações sobre SAP HANA, consulte [SAP Hana configurações de infraestrutura e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
         - Nunca monte os discos de dados do Azure em uma VM Linux do Azure usando a ID do dispositivo. Em vez disso, use o UUID (identificador universal exclusivo). Tenha cuidado ao usar ferramentas gráficas para montar discos de dados do Azure, por exemplo. Verifique as entradas em/etc/fstab para certificar-se de que o UUID é usado para montar os discos. Você pode encontrar mais detalhes neste [artigo](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
-   3. Rede.
+   3. Sistema de Rede.
         - Teste e avalie sua infraestrutura de rede virtual e a distribuição de seus aplicativos SAP entre ou dentro das diferentes redes virtuais do Azure.
         -  Avalie a abordagem da arquitetura de rede virtual Hub e spoke ou a abordagem de microsegmentação em uma única rede virtual do Azure. Base desta avaliação em:
                1. Custos de troca de dados entre [redes virtuais emparelhadas do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Para obter informações sobre os custos, consulte [preços de rede virtual](https://azure.microsoft.com/pricing/details/virtual-network/).

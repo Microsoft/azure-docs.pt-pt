@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355633"
 ---
-# <a name="alert-confidence-score"></a>Pontuação de confiança de alerta 
+# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (visualização)
 
 A central de segurança do Azure fornece visibilidade sobre os recursos que você executa no Azure e o alerta quando detecta problemas em potencial. O volume de alertas pode ser desafiador para uma equipe de operações de segurança para endereçar individualmente e é necessário priorizar quais alertas investigar. A investigação de alertas pode ser complexa e demorada e, consequentemente, alguns alertas são ignorados.
 
-A pontuação de confiança na central de segurança pode ajudar sua equipe a fazer a triagem e priorizar alertas. A central de segurança aplica automaticamente práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece informações significativas na forma de uma pontuação de confiança.
+A pontuação de confiança (atualmente em visualização) na central de segurança pode ajudar sua equipe a fazer a triagem e priorizar alertas. A central de segurança aplica automaticamente práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece informações significativas na forma de uma pontuação de confiança.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é disparada
 

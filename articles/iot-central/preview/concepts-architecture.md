@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e921059caa0d34c9ba1e303ff7f4a8de027a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895756"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434989"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Arquitetura de IoT Central do Azure (recursos de visualização)
 
@@ -142,7 +142,7 @@ Em um modelo de dispositivo de aplicativo IoT Central Preview:
 
 Um aplicativo pode ter um ou mais dispositivos simulados e reais com base em cada modelo de dispositivo.
 
-## <a name="data-export"></a>Exportação de dados
+## <a name="data-export"></a>Exportar dados
 
 Em um aplicativo IoT Central do Azure, você pode [Exportar continuamente seus dados](howto-export-data.md) para seus próprios hubs de eventos do Azure e instâncias do barramento de serviço do Azure. Você também pode exportar periodicamente seus dados para sua conta de armazenamento de BLOBs do Azure. IoT Central pode exportar medidas, dispositivos e modelos de dispositivo.
 
@@ -152,7 +152,7 @@ Em um aplicativo IoT Central do Azure, você pode [criar e executar trabalhos](.
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de acesso baseado em funções (RBAC)
 
-Um [administrador pode definir regras de acesso](howto-administer.md) para um aplicativo de IOT central do Azure usando as funções predefinidas. Um administrador pode atribuir usuários a funções que determinam quais áreas do aplicativo o usuário tem acesso.
+Um [administrador pode definir regras de acesso](howto-manage-users-roles.md) para um aplicativo de IOT central do Azure usando uma das funções predefinidas ou criando uma função personalizada. As funções determinam quais áreas do aplicativo um usuário tem acesso e quais ações eles podem executar.
 
 ## <a name="security"></a>Segurança
 

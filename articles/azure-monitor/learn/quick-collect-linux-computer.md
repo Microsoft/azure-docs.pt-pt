@@ -3,7 +3,7 @@ title: 'Início rápido: coletar dados de um computador Linux híbrido com Azure
 description: Neste guia de início rápido, você aprenderá a implantar o agente de Log Analytics para computadores Linux em execução fora do Azure e habilitar a coleta de dados com logs de Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677956"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530022"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início rápido: coletar dados de um computador Linux em um ambiente híbrido com Azure Monitor
 
@@ -55,7 +55,7 @@ Enquanto as informações são confirmadas e a área de trabalho criada, pode ac
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 
-Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave da área de trabalho do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor.
+Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave da área de trabalho do Log Analytics. Essas informações são exigidas pelo script de wrapper de agente para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -88,7 +88,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Este comando inclui o parâmetro de proxy `-p` e sintaxe de exemplo.
+    O comando a seguir inclui o `-p` parâmetro de proxy e a sintaxe de exemplo quando a autenticação é exigida pelo servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Este comando inclui o parâmetro de proxy `-p` e sintaxe de exemplo.
+    O comando a seguir inclui o `-p` parâmetro de proxy e a sintaxe de exemplo quando a autenticação é exigida pelo servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Reinicie o agente ao executar o seguinte comando: 
+
+3. Reinicie o agente ao executar o seguinte comando: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]

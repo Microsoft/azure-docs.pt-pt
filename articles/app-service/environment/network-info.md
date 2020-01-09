@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375020"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um Ambiente do Serviço de Aplicativo #
 
@@ -108,9 +108,9 @@ Se você alterar a configuração de DNS da VNet em que seu ASE está, será nec
 
 Além das dependências funcionais do ASE, há alguns itens extras relacionados à experiência do Portal. Alguns dos recursos do portal do Azure dependem do acesso direto ao site do _SCM_. Para cada aplicativo no serviço Azure App, há duas URLs. A primeira URL é acessar seu aplicativo. A segunda URL é acessar o site do SCM, que também é chamado de _console do kudu_. Os recursos que usam o site do SCM incluem:
 
--   Trabalhos da Web
+-   WebJobs
 -   Funções
--   Streaming de log
+-   Registo de transmissão em fluxo
 -   Kudu
 -   Extensões
 -   Explorador de Processos
@@ -244,7 +244,7 @@ Quando estão ativados Pontos Finais de Serviço numa sub-rede com uma instânci
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

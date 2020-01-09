@@ -3,19 +3,21 @@ title: Criar um dispositivo de visualização do Azure IoT Plug and Play (Linux)
 description: Use um modelo de funcionalidade de dispositivo para gerar o código do dispositivo. Em seguida, execute o código do dispositivo e veja o dispositivo conectar-se ao Hub IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ff8303b6af73605aae82bae4d70f9648154f9744
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: d2cc440572d6f33480972c15f5c498cc384cb2e3
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406240"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550490"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>Início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo de visualização de Plug and Play IoT (Linux)
+
+[!INCLUDE [iot-pnp-quickstarts-1-selector.md](../../includes/iot-pnp-quickstarts-1-selector.md)]
 
 Um DCM ( _modelo de funcionalidade de dispositivo_ ) descreve os recursos de um dispositivo de plug and Play IOT. Um DCM geralmente é associado a um SKU de produto. Os recursos definidos no DCM são organizados em interfaces reutilizáveis. Você pode gerar um esqueleto de código de dispositivo de um DCM. Este guia de início rápido mostra como usar VS Code em Ubuntu Linux para criar um dispositivo de Plug and Play de IoT usando um DCM.
 
@@ -55,44 +57,7 @@ Você pode encontrar a _cadeia de conexão do repositório de modelos da empresa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparar um hub IoT
-
-Você também precisa de um hub IoT do Azure em sua assinatura do Azure para concluir este guia de início rápido. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Se você ainda não tiver um hub IoT para usar, siga o restante desta seção para criar uma.
-
-Se você estiver usando o CLI do Azure localmente, a versão `az` deverá ser **2.0.75** ou posterior, a Azure cloud Shell usará a versão mais recente. Use o comando `az --version` para verificar a versão instalada em seu computador.
-
-Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-As etapas neste início rápido exigem a versão **0.8.5** ou posterior da extensão. Use o comando `az extension list` para verificar a versão que você instalou e o comando `az extension update` para atualizar, se necessário.
-
-Se não tiver um hub IoT, crie um usando os comandos a seguir, substituindo `<YourIoTHubName>` por um nome exclusivo de sua escolha. Se você estiver executando esses comandos localmente, primeiro entre na sua assinatura do Azure usando `az login`. Se você estiver executando esses comandos no Azure cloud Shell, você estará conectado automaticamente:
-
-  ```azurecli-interactive
-  az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name <YourIoTHubName> \
-    --resource-group pnpquickstarts_rg --sku S1
-  ```
-
-Os comandos anteriores criam um grupo de recursos chamado `pnpquickstarts_rg` e um hub IoT na região central dos EUA.
-
-> [!IMPORTANT]
-> Durante a visualização pública, os recursos de Plug and Play de IoT só estão disponíveis em hubs IoT criados nas regiões **EUA Central**, **Europa setentrional**e **leste do Japão** .
-
-Execute o comando a seguir para criar uma identidade de dispositivo no Hub IoT. Substitua os espaços reservados **nomedoseuhubiot** e **iddoseudispositivo** por seu próprio _nome de Hub IOT_ e uma _ID de dispositivo_ de sua escolha.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Execute os comandos a seguir para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar (observação para uso posterior).
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -216,18 +181,18 @@ Depois que o exemplo de cliente do dispositivo for iniciado, você poderá verif
 Use o comando a seguir para exibir a telemetria que o dispositivo de exemplo está enviando. Talvez seja necessário aguardar um ou dois minutos antes de ver qualquer telemetria na saída:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDeviceID>
 ```
 
 Use o seguinte comando para exibir todas as propriedades enviadas pelo dispositivo:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
+az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a criar um dispositivo de Plug and Play de IoT usando um DCM.
 

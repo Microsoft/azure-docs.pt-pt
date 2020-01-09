@@ -1,23 +1,24 @@
 ---
-title: Rastrear o fluxo em um aplicativo de serviços de nuvem com Diagnóstico do Azure | Microsoft Docs
+title: Rastrear o fluxo no aplicativo de serviços de nuvem com Diagnóstico do Azure
+titleSuffix: Azure Cloud Services
 description: Adicione mensagens de rastreamento a um aplicativo do Azure para ajudar a depurar, medir o desempenho, o monitoramento, a análise de tráfego e muito mais.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: gwallace
-ms.openlocfilehash: b8d195fba934ceae98af383b96a8c0d9a9b88c5f
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.author: tagore
+ms.openlocfilehash: 47a33ba27dd6d2df626d93695c421303bace6a0b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386515"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de serviços de nuvem com Diagnóstico do Azure
-O rastreamento é uma maneira de monitorar a execução do seu aplicativo enquanto ele está em execução. Você pode usar as classes [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace), [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug)e [System. Diagnostics. traceexception](/dotnet/api/system.diagnostics.tracesource) para registrar informações sobre erros e a execução de aplicativos em logs, arquivos de texto ou outros dispositivos para mais tarde analisa. Para obter mais informações sobre rastreamento, consulte [rastreamento e instrumentação de aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
+O rastreamento é uma maneira de monitorar a execução do seu aplicativo enquanto ele está em execução. Você pode usar as classes [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace), [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug)e [System. Diagnostics. traceexception](/dotnet/api/system.diagnostics.tracesource) para registrar informações sobre erros e a execução de aplicativos em logs, arquivos de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre rastreamento, consulte [rastreamento e instrumentação de aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
 ## <a name="use-trace-statements-and-trace-switches"></a>Usar instruções de rastreamento e opções de rastreamento
 Implemente o rastreamento em seu aplicativo de serviços de nuvem adicionando o [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à configuração do aplicativo e fazendo chamadas para System. Diagnostics. Trace ou System. Diagnostics. Debug no código do aplicativo. Use o arquivo de configuração *app. config* para funções de trabalho e o *Web. config* para funções Web. Quando você cria um novo serviço hospedado usando um modelo do Visual Studio, Diagnóstico do Azure é automaticamente adicionado ao projeto e o DiagnosticMonitorTraceListener é adicionado ao arquivo de configuração apropriado para as funções que você adiciona.
@@ -71,4 +72,7 @@ Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar inst
     ```
 3. Adicione instruções de rastreamento em que você deseja capturar informações sobre o estado do seu aplicativo. Você pode usar uma variedade de métodos para formatar a saída da instrução trace. Para obter mais informações, consulte [como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Salve o arquivo de origem.
+
+
+
 

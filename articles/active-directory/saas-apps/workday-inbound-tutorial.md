@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849344"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613772"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: configurar o WORKDAY para provisionamento automático de usuário
 
@@ -120,7 +120,7 @@ Para facilitar o provisionamento de fluxos de trabalho entre o workday e o Activ
 > O aplicativo "workday" regular é usado para configurar o logon único entre o workday e o Azure Active Directory.
 
 Use o gráfico de fluxo de decisão abaixo para identificar quais aplicativos de provisionamento do workday são relevantes para seu cenário.
-    ![Fluxograma de decisão](./media/workday-inbound-tutorial/wday_app_flowchart.png "DecisFluxograma de íon ")
+    ![Fluxograma de decisão](./media/workday-inbound-tutorial/wday_app_flowchart.png "Fluxograma de decisão")
 
 Use o Sumário para ir para a seção relevante deste tutorial.
 
@@ -165,7 +165,7 @@ Esse cenário envolve o provisionamento de usuários do WORKDAY para vários dom
 |   |   |
 | - | - |
 | Não. de provisionamento de agentes para implantação local | 3 (para alta disponibilidade e failover) |
-| Não. do WORKDAY para os aplicativos de provisionamento de usuário do AD a serem configurados no portal do Azure | um aplicativo por domínio filho |
+| Não. do WORKDAY para os aplicativos de provisionamento de usuário do AD a serem configurados no portal do Azure | Um aplicativo por domínio filho |
 
   ![Cenário 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -176,7 +176,7 @@ Esse cenário envolve o provisionamento de usuários do WORKDAY para domínios e
 |   |   |
 | - | - |
 | Não. de provisionamento de agentes para implantação local | 3 por floresta de AD não contíguo |
-| Não. do WORKDAY para os aplicativos de provisionamento de usuário do AD a serem configurados no portal do Azure | um aplicativo por domínio filho |
+| Não. do WORKDAY para os aplicativos de provisionamento de usuário do AD a serem configurados no portal do Azure | Um aplicativo por domínio filho |
 
   ![Cenário 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -366,9 +366,9 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do WORK
 
 **Para configurar o WORKDAY para Active Directory provisionamento:**
 
-1. Ir para <https://portal.azure.com>
+1. Aceda a <https://portal.azure.com>.
 
-2. Na barra de navegação à esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **aplicativos empresariais**e **todos os aplicativos**.
 
@@ -376,9 +376,9 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do WORK
 
 5. Pesquise o **provisionamento do WORKDAY para Active Directory**e adicione esse aplicativo da galeria.
 
-6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Alterar o **modo** de provisionamento para **automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Clique na faixa de informações exibida para baixar o agente de provisionamento. 
 
@@ -468,7 +468,7 @@ Nesta etapa, estabelecemos a conectividade com o workday e o Active Directory no
    * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
 
      > [!NOTE]
-     > O serviço de provisionamento do Azure AD enviará uma notificação por email se o trabalho de provisionamento entrar em um estado de [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) .
+     > O serviço de provisionamento do Azure AD enviará uma notificação por email se o trabalho de provisionamento entrar em um estado de [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
    * Clique no botão **testar conexão** . Se o teste de conexão tiver sucesso, clique no botão **salvar** na parte superior. Se ele falhar, verifique se as credenciais do workday e as credenciais do AD configuradas na instalação do agente são válidas.
 
@@ -593,7 +593,7 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 1. Aceda a <https://portal.azure.com>.
 
-2. Na barra de navegação à esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **aplicativos empresariais**e **todos os aplicativos**.
 
@@ -601,9 +601,9 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 5. Pesquise por **workday no provisionamento do Azure ad**e adicione esse aplicativo da galeria.
 
-6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Alterar o **modo** de provisionamento para **automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Conclua a seção de **credenciais de administrador** da seguinte maneira:
 
@@ -688,9 +688,9 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
 **Para configurar o conector de write-back do workday:**
 
-1. Ir para <https://portal.azure.com>
+1. Aceda a <https://portal.azure.com>.
 
-2. Na barra de navegação à esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **aplicativos empresariais**e **todos os aplicativos**.
 
@@ -698,9 +698,9 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
 5. Pesquise por **write-back do workday**e adicione esse aplicativo da galeria.
 
-6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Alterar o **modo** de provisionamento para **automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Conclua a seção de **credenciais de administrador** da seguinte maneira:
 
@@ -905,7 +905,7 @@ Sim, um agente de provisionamento pode ser configurado para lidar com vários do
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* Na lista de agentes que aparecem – Copie o valor do campo "ID" desse recurso cujo *resourceName* é igual ao seu nome de domínio do AD.
+* Na lista de agentes que aparecem – Copie o valor do campo `id` do recurso cujo *resourceName* é igual ao seu nome de domínio do AD.
 * Cole o valor de ID nesse comando e execute o comando no PowerShell.
 
   ```powershell
@@ -1191,7 +1191,7 @@ Esta seção aborda erros comumente vistos com o provisionamento de usuário do 
 |#|Cenário de erro |Causas prováveis|Resolução recomendada|
 |--|---|---|---|
 |1.| Erro ao instalar o agente de provisionamento com a mensagem de erro: o *serviço ' Microsoft Azure ad conectar o agente de provisionamento ' (AADConnectProvisioningAgent) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar o sistema.* | Esse erro geralmente aparece se você estiver tentando instalar o agente de provisionamento em um controlador de domínio e a diretiva de grupo impedir que o serviço seja iniciado.  Ele também será visto se você tiver uma versão anterior do agente em execução e não tiver desinstalado antes de iniciar uma nova instalação.| Instale o agente de provisionamento em um servidor não DC. Verifique se as versões anteriores do agente foram desinstaladas antes de instalar o novo agente.|
-|2.| O agente de provisionamento do serviço Windows ' Microsoft Azure AD Connect ' está em estado *inicial* e não muda para o estado de *execução* . | Como parte da instalação, o assistente de agente cria uma conta local (**NT Service\\AADConnectProvisioningAgent**) no servidor e essa é a conta de **logon** usada para iniciar o serviço. Se uma política de segurança no seu Windows Server impedir que contas locais executem os serviços, você encontrará esse erro. | Abra o *console de serviços*. Clique com o botão direito do mouse no serviço do Windows ' Microsoft Azure AD conectar agente de provisionamento ' e, na guia fazer logon, especifique a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
+|2.| O agente de provisionamento do serviço Windows ' Microsoft Azure AD Connect ' está em estado *inicial* e não muda para o estado de *execução* . | Como parte da instalação, o assistente do agente cria uma conta local (**NT Service\\AADConnectProvisioningAgent**) no servidor e essa é a conta de logon usada para iniciar o serviço. Se uma política de segurança no seu Windows Server impedir que contas locais executem os serviços, você encontrará esse erro. | Abra o *console de serviços*. Clique com o botão direito do mouse no serviço do Windows ' Microsoft Azure AD conectar agente de provisionamento ' e, na guia logon, especifique a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
 |3.| Ao configurar o agente de provisionamento com seu domínio do AD na etapa *conectar Active Directory*, o assistente levará muito tempo tentando carregar o esquema do AD e eventualmente atingirá o tempo limite. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | Na tela do assistente *conectar Active Directory* , ao fornecer as credenciais para o domínio do AD, há uma opção chamada *selecionar prioridade do controlador de domínio*. Use esta opção para selecionar um controlador de domínio que esteja no mesmo site que o servidor do agente e verifique se não há nenhuma regra de firewall bloqueando a comunicação. |
 
 #### <a name="connectivity-errors"></a>Erros de conectividade

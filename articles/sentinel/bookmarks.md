@@ -1,27 +1,21 @@
 ---
-title: Manter o controle dos dados ao buscar no Azure Sentinel usando indicadores de busca | Microsoft Docs
+title: Usar indicadores de busca para investigações de dados no Azure Sentinel
 description: Este artigo descreve como usar os indicadores de busca do Azure Sentinel para manter o controle dos dados.
-services: sentinel
-documentationcenter: na
 author: cabailey
+ms.author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2019
-ms.author: cabailey
-ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935286"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563739"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Manter o controle dos dados durante a busca com o Azure Sentinel
 
@@ -40,7 +34,7 @@ Atualmente em visualização, se você encontrar algo que precisa ser resolvido 
 
 Também na visualização, você pode visualizar seus dados marcados, clicando em **investigar** nos detalhes do indicador. Isso inicia a experiência de investigação na qual você pode exibir, investigar e comunicar visualmente suas descobertas usando um diagrama de entidade-grafo e uma linha do tempo interativos.
 
-## <a name="add-a-bookmark"></a>Adicionar um indicador
+## <a name="add-a-bookmark"></a>Adicionar um marcador
 
 1. No portal do Azure, navegue até **sentinela** > **gerenciamento de ameaças** > **busca** para executar consultas para comportamento suspeito e anormal.
 
@@ -124,7 +118,7 @@ Para obter instruções sobre como usar o grafo de investigação, consulte [usa
 Para exibir o indicador dentro do incidente: Navegue até **sentinela** > **gerenciamento de ameaças** > **incidentes** e selecione o incidente com seu indicador. Selecione **Exibir detalhes completos**e, em seguida, selecione a guia **indicadores** .
 
 > [!TIP]
-> Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto ( **...** ) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente**e **remover de incidente**. 
+> Como alternativa à opção de **ações de incidente (versão prévia)** na barra de comandos, você pode usar o menu de contexto ( **...** ) para um ou mais indicadores para selecionar opções para **criar um novo incidente**, **Adicionar a um incidente existente**e **remover do incidente**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Exibir dados marcados em logs
 

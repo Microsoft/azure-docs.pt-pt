@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448976"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -56,7 +56,7 @@ Para executar o bloco de anotações, conclua as seguintes etapas:
 1. Altere a variável `endpoint` para seu ponto de extremidade. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Na barra de menus superior, clique em **célula**e em **executar tudo**.
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 A API do detector de anomalias é um serviço Web RESTful, facilitando a chamada de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON.
 
@@ -72,8 +72,12 @@ Após a inscrição:
 
 ## <a name="algorithms"></a>Algoritmos
 
-* Veja os Blogs técnicos [apresentando a API do detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) e [visão geral do algoritmo Sr-CNN no detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) sobre os algoritmos nos bastidores.
-* Consulte este artigo [serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para os algoritmos Sr-CNN de ponta desenvolvidos pela Microsoft.
+* Consulte os seguintes Blogs técnicos para obter informações sobre os algoritmos usados:
+    * [Apresentando a API do detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Visão geral do algoritmo SR-CNN no detector de anomalias do Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Você pode ler o [serviço de detecção de anomalias da série temporal da Microsoft](https://arxiv.org/abs/1906.03821) (aceito pelo KDD 2019) para saber mais sobre os algoritmos do Sr-CNN desenvolvidos pela Microsoft.
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 

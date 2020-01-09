@@ -1,5 +1,6 @@
 ---
-title: Criar uma SAS de conta com o .NET-armazenamento do Azure
+title: Criar uma SAS de conta com .NET
+titleSuffix: Azure Storage
 description: Saiba como criar uma assinatura de acesso compartilhado de conta (SAS) usando a biblioteca de cliente .NET.
 services: storage
 author: tamram
@@ -9,12 +10,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aa93ee292ab95c68034ad595d6cda608d1886c0a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460600"
 ---
 # <a name="create-an-account-sas-with-net"></a>Criar uma SAS de conta com .NET
 
@@ -97,4 +98,4 @@ static void UseAccountSAS(string sasToken)
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md)
-- [Criar uma SAS de conta](/rest/api/storageservices/create-account-sas)
+- [Create an account SAS](/rest/api/storageservices/create-account-sas) (Criar uma SAS de conta)

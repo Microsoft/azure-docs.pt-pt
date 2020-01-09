@@ -1,17 +1,17 @@
 ---
 title: Usar máquinas virtuais de ciência de dados do Azure
-description: Conecte-se a uma Máquina Virtual de Ciência de Dados do Azure (DSVM) para estender a capacidade de computação disponível para Azure Notebooks.
+description: Saiba como se conectar a uma Máquina Virtual de Ciência de Dados do Azure (DSVM) para estender a capacidade de computação disponível para Azure Notebooks visualização.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277409"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646999"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usar máquinas virtuais de ciência de dados do Azure
 
@@ -19,6 +19,8 @@ Por padrão, os projetos são executados na camada de **computação gratuita** 
 
 > [!Note]
 > Só há suporte para Azure Notebooks no DSVMs criado com a imagem do Linux Ubuntu. Não há suporte para blocos de anotações em imagens do Windows 2012, do Windows 2016 ou do Linux CentOS.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Criar uma instância do DSVM
 
@@ -56,11 +58,11 @@ Quando um projeto é executado em uma VM, os arquivos são montados no diretóri
 
 Se vários usuários compartilharem um DSVM, você poderá evitar o bloqueio uns aos outros criando e usando um usuário do DSVM para cada usuário do notebook:
 
-1. No [portal do Azure](https://portal.azure.com), navegue até sua máquina virtual.
+1. Na [portal do Azure](https://portal.azure.com), navegue até sua máquina virtual.
 1. Em **suporte + solução de problemas** na margem esquerda, selecione **Redefinir senha**.
 1. Insira um novo nome de usuário e senha e selecione **Atualizar**. (Nomes de já existentes não são afetados.)
 1. Repita a etapa anterior para quaisquer usuários adicionais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](/azure/machine-learning/data-science-virtual-machine/overview).

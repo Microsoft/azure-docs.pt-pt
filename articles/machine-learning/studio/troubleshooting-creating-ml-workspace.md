@@ -1,7 +1,7 @@
 ---
 title: Solucionando problemas de um espaço de trabalho
 titleSuffix: ML Studio (classic) - Azure
-description: Este guia fornece soluções para alguns desafios frequentemente encontrados quando você está configurando a versão clássica dos espaços de trabalho do Azure Machine Learning Studio.
+description: Este guia fornece soluções para alguns desafios frequentemente encontrados quando você está configurando espaços de trabalho do Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 88f4e1edae84892892d1a8a9e76499d71d551abf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3f2cc3dcc5c9e34590d1cb2d0d3747fd1255f0e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427472"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guia de solução de problemas: criar e conectar-se a um espaço de trabalho Azure Machine Learning Studio (clássico)
 Este guia fornece soluções para alguns desafios frequentemente encontrados quando você está configurando espaços de trabalho do Azure Machine Learning Studio (clássico).
@@ -49,11 +49,11 @@ Depois que o novo espaço de trabalho de Machine Learning Studio (clássico) for
 
 2. Na guia **geral** , clique em **excluir...**
 
-   ![Guia geral](media/troubleshooting-creating-ml-workspace/screen5.png)
+   ![Separador Geral](media/troubleshooting-creating-ml-workspace/screen5.png)
 
 3. Na caixa de diálogo **Excluir Histórico de navegação** , verifique se **cookies e dados do site** estão selecionados e clique em **excluir**.
 
-   ![Excluir cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
+   ![Eliminar cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
 Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Microsoft Azure Machine Learning Studio (clássica)](https://studio.azureml.net) . Quando for solicitado um nome de usuário e uma senha, insira o mesmo conta Microsoft usado para criar o espaço de trabalho.
 

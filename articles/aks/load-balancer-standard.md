@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43a2c64560b145531e15a35deb9321b6553782a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430811"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -54,6 +54,10 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * Definir o SKU do balanceador de carga só pode ser feito quando você cria um cluster AKS. Você não pode alterar o SKU do balanceador de carga depois que um cluster AKS tiver sido criado.
 * Você só pode usar um tipo de SKU do balanceador de carga (básico ou padrão) em um único cluster.
 * *Padrão* Os balanceadores de carga de SKU oferecem suporte apenas a endereços IP de SKU *padrão* .
+
+## <a name="use-the-standard-sku-load-balancer"></a>Usar o balanceador de carga SKU *padrão*
+
+Quando você cria um cluster AKS, por padrão, o balanceador de carga SKU *padrão* é usado quando você executa os serviços nesse cluster. Por exemplo, [o início rápido usando o CLI do Azure][aks-quickstart-cli] implanta um aplicativo de exemplo que usa o balanceador de carga SKU *padrão* . 
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>Configurar o balanceador de carga para ser interno
 
@@ -177,12 +181,34 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 Na saída de exemplo, *AllocatedOutboundPorts* é 0. O valor de *AllocatedOutboundPorts* significa que a alocação de porta SNAT é revertida para atribuição automática com base no tamanho do pool de back-end. Consulte [Load Balancer regras de saída][azure-lb-outbound-rules] e [conexões de saída no Azure][azure-lb-outbound-connections] para obter mais detalhes.
 
+## <a name="restrict-access-to-specific-ip-ranges"></a>Restringir o acesso a intervalos de IP específicos
+
+Por padrão, o NSG (grupo de segurança de rede) associado à rede virtual para o balanceador de carga tem uma regra para permitir todo o tráfego externo de entrada. Você pode atualizar essa regra para permitir apenas intervalos de IP específicos para o tráfego de entrada. O manifesto a seguir usa *loadBalancerSourceRanges* para especificar um novo intervalo de IP para o tráfego externo de entrada:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - MY_EXTERNAL_IP_RANGE
+```
+
+O exemplo acima atualiza a regra para permitir somente o tráfego externo de entrada do intervalo de *MY_EXTERNAL_IP_RANGE* . Mais informações sobre como usar esse método para restringir o acesso ao serviço de balanceador de carga estão disponíveis na [documentação do kubernetes][kubernetes-cloud-provider-firewall].
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os serviços Kubernetess na [documentação dos serviços Kubernetess][kubernetes-services].
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

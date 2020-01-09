@@ -3,23 +3,23 @@ title: Instalar e usar o Azure IoT Explorer | Microsoft Docs
 description: Instale a ferramenta do Azure IoT Explorer e use-a para interagir com os dispositivos de visualização de Plug and Play de IoT conectados ao meu Hub IoT.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679856"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529631"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
 O Azure IoT Explorer é uma ferramenta gráfica para interagir com e testar seus dispositivos IoT Plug and Play Preview. Depois de instalar a ferramenta em seu computador local, você pode usá-la para se conectar a um dispositivo. Você pode usar a ferramenta para exibir a telemetria que o dispositivo está enviando, trabalhar com propriedades de dispositivo e chamar comandos.
 
-Este artigo mostra como:
+Este artigo mostra-lhe como:
 
 - Instale e configure a ferramenta do Azure IoT Explorer.
 - Use a ferramenta para interagir com e testar seus dispositivos.
@@ -51,13 +51,13 @@ A definição de modelo para um dispositivo de Plug and Play IoT é armazenada n
 
 Para adicionar uma fonte:
 
-1. Vá para **configurações**.
+1. Aceda a **definições**.
 1. Selecione **novo** e escolha sua fonte.
 1. Se você estiver adicionando o repositório de modelos da empresa, forneça a cadeia de conexão.
 
 Para remover uma fonte:
 
-1. Vá para **configurações**.
+1. Aceda a **definições**.
 1. Localize a origem que você deseja remover.
 1. Selecione **X** para removê-lo. Não é possível remover o repositório de modelos públicos porque as definições de interface comuns são provenientes desse repositório.
 

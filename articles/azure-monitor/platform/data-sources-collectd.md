@@ -4,15 +4,15 @@ description: Coletado é um daemon Linux de software livre que coleta periodicam
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 4bf58a7e446cb13366a230a35c83e6bf0acaa09a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395876"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Coletar dados de coletados em agentes do Linux no Azure Monitor
 [Coletado](https://collectd.org/) é um daemon Linux de software livre que coleta periodicamente métricas de desempenho de aplicativos e informações de nível do sistema. Aplicativos de exemplo incluem o Máquina Virtual Java (JVM), MySQL Server e Nginx. Este artigo fornece informações sobre como coletar dados de desempenho de coletados no Azure Monitor.
@@ -110,7 +110,7 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 |:--|:--|
 | `host` | Computador |
 | `plugin` | Nenhuma |
-| `plugin_instance` | Nome da instância<br>Se **plugin_instance** for *NULL* , InstanceName = " *_ total*" |
+| `plugin_instance` | Nome da Instância<br>Se **plugin_instance** for *NULL* , InstanceName = " *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>Se **type_instance** for *NULL* , então CounterName =**Blank** |
 | `dsnames[]` | CounterName |
@@ -118,5 +118,5 @@ Para manter um modelo familiar entre as métricas de infraestrutura já coletada
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções. 
-* Use [campos personalizados](custom-fields.md) para analisar dados de registros de syslog em campos individuais.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Uso [campos personalizados](custom-fields.md) para analisar dados de registos de syslog em campos individuais.

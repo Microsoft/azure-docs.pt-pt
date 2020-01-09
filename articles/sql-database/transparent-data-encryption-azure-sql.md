@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354898"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para o banco de dados SQL e data warehouse
 
@@ -79,7 +79,7 @@ Para configurar a Transparent Data Encryption por meio do portal do Azure, você
 
 Você ativa e desativa a Transparent Data Encryption no nível do banco de dados. Para habilitar a Transparent Data Encryption em um banco de dados, acesse o [portal do Azure](https://portal.azure.com) e entre com sua conta de administrador ou colaborador do Azure. Localize as configurações de Transparent Data Encryption no seu banco de dados de usuário. Por padrão, a criptografia de dados transparente gerenciada por serviço é usada. Um certificado de Transparent Data Encryption é gerado automaticamente para o servidor que contém o banco de dados. Para o Azure SQL Instância Gerenciada use o T-SQL para ativar e desativar a Transparent Data Encryption em um banco de dados.
 
-![Criptografia de dados transparente gerenciada por serviço](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![Criptografia de dados transparente gerenciada por serviço](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
 
 Você define a chave mestra de Transparent Data Encryption, também conhecida como o protetor de Transparent Data Encryption, no nível do servidor. Para usar a Transparent Data Encryption com suporte a Bring Your Own Key e proteger seus bancos de dados com uma chave de Key Vault, abra as configurações de Transparent Data Encryption em seu servidor.
 

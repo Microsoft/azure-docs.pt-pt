@@ -3,12 +3,12 @@ title: Recuperar arquivos e pastas do backup de VM do Azure
 description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392553"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos do backup de máquina virtual do Azure
 
@@ -174,7 +174,7 @@ Se o disco RAID tiver outro LVM configurado, use o procedimento anterior para pa
 
 A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de servidor e computador. Ao recuperar arquivos, você não pode restaurar arquivos para uma versão anterior ou futura do sistema operacional. Por exemplo, você não pode restaurar um arquivo de uma VM do Windows Server 2016 para o Windows Server 2012 ou um computador com Windows 8. Você pode restaurar arquivos de uma VM para o mesmo sistema operacional do servidor ou para o sistema operacional do cliente compatível.
 
-|Sistema operacional do servidor | Sistema operacional cliente compatível  |
+|SO Servidor | Sistema operacional cliente compatível  |
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
@@ -205,15 +205,15 @@ O script também requer componentes Python e bash para executar e conectar-se co
 
 |Componente | Versão  |
 | --------------- | ---- |
-| raso | 4 e acima |
+| bash | 4 e acima |
 | python | 2.6.6 e acima  |
 | TLS | 1,2 deve ter suporte  |
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de arquivos de backups de máquina virtual com discos grandes
 
-Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 4 TB.
+Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 32 TB.
 
-Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (> 16) ou discos grandes (> 4 TB cada) são usados, os seguintes pontos de ação são recomendados:
+Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (> 16) ou discos grandes (> 32 TB cada) são usados, os seguintes pontos de ação são recomendados:
 
 - Mantenha um servidor de restauração separado (VMs de D2v3 de VM do Azure) para recuperação de arquivos. Você pode usar essa recuperação de arquivo somente e desligar quando não for necessário. Não é recomendável restaurar no computador original, pois ele terá um impacto significativo na própria VM.
 - Em seguida, execute o script uma vez para verificar se a operação de recuperação de arquivo foi concluída com sucesso.

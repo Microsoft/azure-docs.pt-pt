@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374009"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs SQL Server
 
@@ -110,7 +110,6 @@ Você pode modificar as configurações de disco para as unidades que foram conf
 ![Configurar o armazenamento para a VM de SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
 ## <a name="storage-configuration"></a>Configuração do armazenamento
 
 Esta seção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante o provisionamento ou configuração de VM do SQL no portal do Azure.
@@ -145,7 +144,7 @@ A tabela a seguir descreve as três opções de tipo de carga de trabalho dispon
 | --- | --- | --- |
 | **Geral** |Configuração padrão que dá suporte à maioria das cargas de trabalho |Nenhuma |
 | **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados |Sinalizador de rastreamento 1117<br/>Sinalizador de rastreamento 1118 |
-| **Data Warehousing** |Otimiza o armazenamento para cargas de trabalho de análise e relatórios |Sinalizador de rastreamento 610<br/>Sinalizador de rastreamento 1117 |
+| **Armazém de dados** |Otimiza o armazenamento para cargas de trabalho de análise e relatórios |Sinalizador de rastreamento 610<br/>Sinalizador de rastreamento 1117 |
 
 > [!NOTE]
 > Você só pode especificar o tipo de carga de trabalho ao provisionar uma máquina virtual SQL selecionando-a na etapa de configuração de armazenamento.

@@ -4,24 +4,24 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: ee368b58195d61a1c6792a3a3655122af7104d58
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469490"
 ---
 ### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 O **serviço vinculado do armazenamento do Azure** permite vincular uma conta de armazenamento do Azure a uma data Factory do Azure usando a **chave de conta**, que fornece o data Factory com acesso global ao armazenamento do Azure. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do armazenamento do Azure.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade Type deve ser definida como: **AzureStorage** |Sim |
+| tipo |A propriedade Type deve ser definida como: **AzureStorage** |Sim |
 | connectionString |Especifique as informações necessárias para se conectar ao armazenamento do Azure para a propriedade connectionString. |Sim |
 
-Consulte a seção a seguir para ver as etapas para exibir/copiar a chave de conta para um armazenamento do Azure: [Chaves de acesso](../articles/storage/common/storage-account-manage.md#access-keys).
+Para obter informações sobre como recuperar as chaves de acesso da conta de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../articles/storage/common/storage-account-keys-manage.md).
 
-**Example:**  
+**Exemplo:**  
 
 ```json
 {
@@ -42,17 +42,17 @@ Uma SAS (assinatura de acesso compartilhado) fornece acesso delegado aos recurso
 > Azure Data Factory agora só dá suporte à **SAS do serviço** , mas não à SAS da conta. Observe que a URL SAS generable de portal do Azure ou Gerenciador de Armazenamento é uma SAS de conta, que não tem suporte.
 
 > [!TIP]
-> Você pode executar os comandos do PowerShell abaixo para gerar uma SAS de serviço para sua conta de armazenamento (substituir os locais e conceder a permissão necessária):`$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> Você pode executar os comandos do PowerShell abaixo para gerar uma SAS de serviço para sua conta de armazenamento (substituir os locais e conceder a permissão necessária): `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 O serviço vinculado de SAS do armazenamento do Azure permite vincular uma conta de armazenamento do Azure a uma data factory do Azure usando uma SAS (assinatura de acesso compartilhado). Ele fornece o data factory com acesso restrito/com limite de tempo a todos/recursos específicos (blob/contêiner) no armazenamento. A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado de SAS do armazenamento do Azure. 
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade Type deve ser definida como: **AzureStorageSas** |Sim |
+| tipo |A propriedade Type deve ser definida como: **AzureStorageSas** |Sim |
 | sasUri |Especifique o URI da assinatura de acesso compartilhado para os recursos de armazenamento do Azure, como BLOB, contêiner ou tabela.  |Sim |
 
-**Example:**
+**Exemplo:**
 
 ```json
 {

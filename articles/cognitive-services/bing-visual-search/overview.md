@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446660"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
@@ -26,11 +26,11 @@ Se você usar o [API de pesquisa de imagem do Bing](../bing-image-search/overvie
 > [!IMPORTANT]
 > Se você receber informações de imagem usando o API de Pesquisa de Imagem do Bing, considere alternar para o API da Pesquisa Visual do Bing, que fornece informações mais abrangentes.
 
-## <a name="insights"></a>Informações
+## <a name="insights"></a>Insights
 
 Você pode descobrir as seguintes informações usando Pesquisa Visual do Bing:
 
-| Recomendações personalizadas                              | Descrição |
+| Informações                              | Descrição |
 |--------------------------------------|-------------|
 | Imagens visualmente semelhantes              | Uma lista de imagens que são visualmente semelhantes à imagem de entrada. |
 | Produtos visualmente semelhantes            | Produtos que são visualmente semelhantes ao produto mostrado.            |
@@ -44,7 +44,7 @@ Além de informações, Pesquisa Visual do Bing retorna uma variedade de termos 
 
 Pesquisa Visual do Bing resultados também incluem caixas delimitadoras para regiões de interesse na imagem. Por exemplo, se a imagem contiver vários celebridades, os resultados poderão incluir caixas delimitadoras para cada um dos celebridades reconhecidos. Ou, se o Bing reconhecer um produto ou roupas na imagem, o resultado poderá incluir uma caixa delimitadora para o item reconhecido.
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 O API da Pesquisa Visual do Bing é um serviço Web RESTful, facilitando a chamada de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON. Você pode usar a API REST ou o SDK para o serviço.
 
@@ -52,15 +52,17 @@ O API da Pesquisa Visual do Bing é um serviço Web RESTful, facilitando a chama
 2. Envie uma solicitação para a API com uma consulta de pesquisa válida.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/)API da pesquisa visual do Bing.
 A demonstração mostra como você pode personalizar rapidamente uma consulta de pesquisa e pesquisar a Web para imagens.
 
-Para começar rapidamente com sua primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para começar a trabalhar rapidamente com o seu primeiro pedido, veja os inícios rápidos: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * A referência de [pesquisa visual de imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve as definições e informações sobre os pontos de extremidade, os cabeçalhos de solicitação, as respostas e os parâmetros de consulta que você pode usar para solicitar resultados de pesquisa baseados em imagem.
 
 * O [pesquisa do Bing uso da API e os requisitos de exibição](../bing-web-search/use-display-requirements.md) especificam usos aceitáveis do conteúdo e das informações obtidas por meio das APIs de pesquisa do Bing.
+
+* Visite a [página do hub de API pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.

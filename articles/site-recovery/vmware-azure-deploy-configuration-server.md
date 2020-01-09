@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376295"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -132,7 +132,7 @@ Se você quiser adicionar uma NIC adicional ao servidor de configuração, adici
 7. Introduza as credenciais que o servidor de configuração irá utilizar para ligar ao servidor VMware. O Site Recovery utiliza estas credenciais para detetar automaticamente as VMs VMware que estão disponíveis para replicação. Selecione **adicionar** > **continuar**. As credenciais inseridas aqui são salvas localmente.
 8. Em **configurar credenciais da máquina virtual**, insira o nome de usuário e a senha das máquinas virtuais para instalar automaticamente o serviço de mobilidade durante a replicação. Para computadores **Windows** , a conta precisa de privilégios de administrador local nos computadores que você deseja replicar. Para o **Linux**, forneça detalhes para a conta raiz.
 9. Selecione **Finalizar configuração** para concluir o registo.
-10. Após a conclusão do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados no **cofre dos serviços de recuperação** > **gerenciar** > **infraestrutura de site Recovery** >  **Servidores de configuração**.
+10. Após a conclusão do registro, abra o portal do Azure e verifique se o servidor de configuração e o servidor VMware estão listados no **cofre dos serviços de recuperação** > **gerenciar** > **infraestrutura de site Recovery** > servidores de **configuração**.
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
@@ -142,7 +142,11 @@ Para atualizar o servidor de configuração para a versão mais recente, consult
 
 Para evitar interrupções na replicação em andamento, verifique se o endereço IP do servidor de configuração não é alterado depois que o servidor de configuração é registrado em um cofre. Para saber mais sobre as tarefas comuns de gerenciamento do servidor de configuração, consulte [gerenciar o servidor de configuração para a recuperação de desastre de VM do VMware](vmware-azure-manage-configuration-server.md).
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
+
+Consulte nosso [artigo de solução de problemas](vmware-azure-troubleshoot-configuration-server.md) para resolver problemas de conectividade & a implantação.
+
+## <a name="faqs"></a>FAQ
 
 * Por quanto tempo a licença fornecida em um servidor de configuração implantado por meio de OVF é válida? O que acontecerá se eu não reativar a licença?
 
@@ -183,13 +187,11 @@ Para evitar interrupções na replicação em andamento, verifique se o endereç
 
     Configure um servidor de configuração em um ambiente local com uma linha de visão direta com o v-Center e para minimizar as latências de transferência de dados. Você pode fazer backups agendados do servidor de configuração para [fins de failback](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* Posso alterar o driver de cache em um servidor de configuração ou em um servidor de processo de expansão?
+
+    Não, o driver de cache não pode ser alterado após a conclusão da configuração.
+
 Para obter mais perguntas frequentes sobre servidores de configuração, consulte [perguntas comuns do servidor de configuração](vmware-azure-common-questions.md#configuration-server).
-
-## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

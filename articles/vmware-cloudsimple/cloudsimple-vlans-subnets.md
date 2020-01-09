@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372742"
 ---
 # <a name="vlans-and-subnets-overview"></a>Visão geral de VLANs e sub-redes
 
@@ -38,7 +38,7 @@ Uma nuvem privada é criada como um ambiente isolado do VMware Stack (hosts ESXi
 * Prefixo de intervalo CIDR de sub-redes vSphere/vSAN mínima: **/24**
 * Prefixo de intervalo CIDR de sub-redes vSphere/vSAN máxima: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>limites de intervalo CIDR de sub-redes vSphere/vSAN
@@ -80,6 +80,6 @@ Exemplo:
 | NSX-T Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
 | NSX-T Edge uplink2 | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerenciar VLANs e sub-redes](create-vlan-subnet.md)

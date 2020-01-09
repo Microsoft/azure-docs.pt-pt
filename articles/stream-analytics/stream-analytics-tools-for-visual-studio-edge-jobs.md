@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics trabalhos do Edge no Visual Studio
 description: Este artigo descreve como criar e depurar o Stream Analytics em trabalhos IoT Edge usando as ferramentas do Stream Analytics para Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec4a4041378ce94ae70ba7a88b3fef80f7dcd193
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354555"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desenvolver Stream Analytics trabalhos do Edge usando as ferramentas do Visual Studio
 
@@ -68,7 +67,7 @@ Stream Analytics trabalhos implantados no Stream Analytics IoT Edge ambientes d�
 
 |**Categoria**  | **Comando**  |
 |---------|---------|
-|Outros operadores | <ul><li>PARTICIONAR POR</li><li>CARIMBO DE DATA/HORA EM</li><li>UDF do JavaScript</li><li>Agregações definidas pelo usuário (UDA)</li><li>GetMetadataPropertyValue</li><li>Usando mais de 14 agregações em uma única etapa</li></ul>   |
+|Outros operadores | <ul><li>PARTIÇÃO POR</li><li>CARIMBO DE DATA/HORA EM</li><li>UDF do JavaScript</li><li>Agregações definidas pelo usuário (UDA)</li><li>GetMetadataPropertyValue</li><li>Usando mais de 14 agregações em uma única etapa</li></ul>   |
 
 Quando você cria um trabalho de borda Stream Analytics no portal, o compilador avisará automaticamente se você não estiver usando um operador com suporte.
 
@@ -123,5 +122,5 @@ A janela de exibição de trabalho fornece operações como atualizar o trabalho
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Mais informações sobre o Azure IoT Edge](../iot-edge/about-iot-edge.md)
-* [Tutorial do ASA no IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Enviar comentários para a equipe usando esta pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [ASA do tutorial do IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Enviar comentários para o agrupamento com este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

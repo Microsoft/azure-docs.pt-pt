@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425153"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Habilitar o registro de informações de segurança combinadas (versão prévia)
 
@@ -39,10 +39,10 @@ Antes de habilitar a nova experiência, examine o artigo [registro combinado de 
 Conclua estas etapas para habilitar o registro combinado:
 
 1. Entre no portal do Azure como um administrador de usuário ou administrador global.
-2. Vá para **Azure Active Directory** > **configurações de usuário** > **gerenciar configurações para recursos de visualização do painel de acesso**.
-3. Em **usuários podem usar recursos de visualização para registrar e gerenciar informações de segurança – atualização**, escolha habilitar para um grupo de usuários **selecionado** ou para **todos** os usuários.
+2. Vá para **Azure Active Directory** > **configurações do usuário** > **gerenciar configurações da visualização de recursos do usuário**.
+3. Em **os usuários podem usar os recursos de visualização para registrar e gerenciar informações de segurança**, escolha habilitar para um grupo de usuários **selecionado** ou para **todos** os usuários.
 
-   ![Habilitar a experiência de visualização de informações de segurança combinadas para todos os usuários](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Habilitar a experiência de visualização de informações de segurança combinadas para todos os usuários](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > A partir de março de 2019, as opções de chamada telefônica não estarão disponíveis para autenticação multifator e usuários SSPR em locatários gratuitos/de avaliação do Azure AD. As mensagens SMS não são afetadas por essa alteração. As opções de chamada telefônica ainda estarão disponíveis para os usuários em locatários pagos do Azure AD.
@@ -64,9 +64,9 @@ A proteção de quando e como os usuários se registram para a autenticação mu
 
 A política a seguir se aplica a todos os usuários selecionados, que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que eles estejam se conectando de um local marcado como rede confiável.
 
-![Criar uma política de autoridade de certificação para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Criar uma política de autoridade de certificação para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. Na **portal do Azure**, navegue até **Azure Active Directory** > **acesso condicional**
+1. Na **portal do Azure**, navegue até **Azure Active Directory** > **segurança** > **acesso condicional**
 1. Selecione **Nova política**
 1. Em nome, insira um nome para essa política. Por exemplo, o **registro de informações de segurança combinadas em redes confiáveis**
 1. Em **atribuições**, clique em **usuários e grupos**e selecione os usuários e grupos aos quais você deseja que essa política se aplique

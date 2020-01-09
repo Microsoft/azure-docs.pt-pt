@@ -1,5 +1,5 @@
 ---
-title: Carregar grandes quantidades de dados aleatórios em paralelo para o Armazenamento do Azure | Microsoft Docs
+title: Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 description: Saiba como usar a biblioteca de cliente de armazenamento do Azure para carregar grandes quantidades de dados aleatórios em paralelo a uma conta de armazenamento do Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371943"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
 
@@ -26,7 +26,7 @@ Na segunda parte da série, saiba como:
 > * Executar a aplicação
 > * Validar o número de ligações
 
-O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites dos blobs do Azure é importante. Para obter mais informações sobre estes limites, visite: [objetivos de escalabilidade do armazenamento de blobs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites dos BLOBs do Azure é importante, para saber mais sobre esses limites, visite: [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../blobs/scalability-targets.md).
 
 A [nomenclatura de partição](../blobs/storage-performance-checklist.md#partitioning) é outro fator potencialmente importante ao criar um aplicativo de alto desempenho usando BLOBs. Para tamanhos de bloco maiores ou iguais a 4 MiB, [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura de partição não afetará o desempenho. Para tamanhos de bloco inferiores a 4 MiB, o armazenamento do Azure usa um esquema de particionamento baseado em intervalo para dimensionar e balancear a carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
 
@@ -71,7 +71,7 @@ Além de configurar as definições de threading e de ligação, as [BlobRequest
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A definição divide o blob em blocos ao carregar. Para obter o melhor desempenho, esse valor deve ser oito vezes o número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Esta propriedade determina se um hash MD5 é calculado e armazenado com o ficheiro.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Término de 2 segundos com máximo de 10 repetições |Determina a política de repetição dos pedidos. As falhas de ligação são repetidas, neste exemplo, uma política[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) é configurada com um término de 2 segundos e uma contagem de repetições máxima de 10. Esta definição é importante quando a aplicação está próxima de atingir os [objetivos de escalabilidade do armazenamento de blobs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Término de 2 segundos com máximo de 10 repetições |Determina a política de repetição dos pedidos. As falhas de ligação são repetidas, neste exemplo, uma política[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) é configurada com um término de 2 segundos e uma contagem de repetições máxima de 10. Essa configuração é importante quando seu aplicativo fica perto de atingir as metas de escalabilidade para o armazenamento de BLOBs. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../blobs/scalability-targets.md).  |
 
 A tarefa `UploadFilesAsync` é mostrada no exemplo seguinte:
 

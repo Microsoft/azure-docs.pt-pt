@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: verificar a ortografia com a API REST e o Ruby-Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448420"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby
 
@@ -32,13 +32,13 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 
 1. Crie um novo arquivo Ruby em seu editor favorito ou IDE e adicione os requisitos a seguir. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Crie variáveis para sua chave de assinatura, URI de ponto de extremidade e caminho. Crie seus parâmetros de solicitação acrescentando o parâmetro `mkt=` ao mercado e `&mode` ao modo de prova de `proof`.
+2. Crie variáveis para sua chave de assinatura, URI de ponto de extremidade e caminho. Crie seus parâmetros de solicitação acrescentando o parâmetro `mkt=` ao mercado e `&mode` ao modo de prova de `proof`. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -82,9 +82,19 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     puts result
     ```
 
+## <a name="run-the-application"></a>Executar a aplicação
+
+Compile e execute seu projeto.
+
+Se você estiver usando a linha de comando, use o comando a seguir para executar o aplicativo.
+
+```bash
+ruby <FILE_NAME>.rb
+```
+
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {

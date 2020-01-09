@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448838"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
@@ -27,7 +27,7 @@ Se seu aplicativo enviar consultas para qualquer um dos APIs de Pesquisa do Bing
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Sugerir termos de pesquisa em tempo real](concepts/get-suggestions.md) | Aprimore sua experiência de aplicativo usando a API de sugestão automática para exibir os termos de pesquisa sugeridos conforme eles são digitados. |
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 O API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de chamar de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON. 
 
@@ -49,6 +49,9 @@ Para começar a trabalhar rapidamente com o seu primeiro pedido, veja [Fazer a P
 
 Familiarize-se com a referência da [API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). A referência contém a lista de pontos finais, cabeçalhos e parâmetros de consulta que teria de utilizar para pedir termos de consulta sugeridos e as definições dos objetos de resposta.
 
-Saiba como procurar na Web com a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md).
+Visite a [página do hub de API pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+
+
+Saiba como Pesquisar na Web usando o [API de pesquisa na Web do Bing](../bing-web-search/search-the-web.md)e explorar os outros[APIs de pesquisa do Bing](../bing-web-search/index.yml).
 
 Não se esqueça de ler o artigo [Requisitos de Utilização e Apresentação do Bing](./useanddisplayrequirements.md) para que não infrinja nenhuma das regras relativas à utilização dos resultados da pesquisa.

@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4a5d61d9434a73556d81010da7c7b3e96139a9e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 831da237c06657981e402fc1f8fd09ccd67f85fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427218"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guia de publicação do Office 365, Dynamics 365, Power apps e Power BI offer
 
 A vitrine de AppSource inclui ofertas que criam ou estendem o Dynamics 365, o Office 365, o Power BI e o Power apps. Cada um desses produtos tem documentação específica para orientá-lo no processo de publicação. Veja abaixo os links para obter mais detalhes para cada tipo de oferta. 
 
-O AppSource tem ofertas de lista e avaliação, com o plano de ação "entre em contato comigo" ou "Experimente agora". No momento, não há nenhuma funcionalidade de transação no AppSource.
+O AppSource conta com ofertas de avaliação, listas e avaliações, com o plano de ação "Obtenha agora", "entre em contato comigo" e "Experimente agora". 
 
 ## <a name="product-specific-guides"></a>Guias específicos do produto
 
@@ -37,7 +37,7 @@ Examine o [processo e as diretrizes de publicação.](https://docs.microsoft.com
 
 ### <a name="dynamics-365"></a>Dynamics 365
 
-#### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 para finanças e operações
+#### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 para Finanças e Operações
 Ao compilar para o Enterprise Edition, examine o [processo e as diretrizes de publicação](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 Consulte a [oferta do Dynamics 365 for Finance and Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) para saber como publicar a oferta no portal do Cloud Partner.

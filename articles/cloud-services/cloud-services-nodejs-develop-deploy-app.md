@@ -3,18 +3,18 @@ title: Guia de Introdução do Node.js
 description: Saiba como criar uma aplicação Web Node.js simples e implementá-la num serviço em nuvem do Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386192"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -55,8 +55,8 @@ Execute as seguintes tarefas para criar um novo projeto do Serviço em Nuvem do 
 
     O cmdlet cria os seguintes ficheiros:
 
-   * Não **configuração. Cloud. cscfg**, **inconfiguration. local. cscfg** e o indefinition **. csdef**: Arquivos específicos do Azure necessários para publicar seu aplicativo. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
-   * **deploymentSettings.json**: Armazena configurações locais que são usadas pelos cmdlets de implantação Azure PowerShell.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** e **ServiceDefinition.csdef**: ficheiros específicos do Azure necessários para publicar a aplicação. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
+   * **deploymentSettings.json**: armazena as definições locais que são utilizadas pelos cmdlets de implementação do Azure PowerShell.
 4. Introduza o comando seguinte para adicionar uma nova função da Web:
 
        Add-AzureNodeWebRole
@@ -177,3 +177,6 @@ Para obter mais informações, consulte o [Centro de Programadores do Node.js].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+
+
+

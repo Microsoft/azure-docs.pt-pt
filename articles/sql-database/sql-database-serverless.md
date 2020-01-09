@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372335"
 ---
 # <a name="azure-sql-database-serverless"></a>Base de Dados SQL do Azure sem servidor
 
@@ -177,30 +177,27 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Criar novo banco de dados na camada de computação sem servidor 
 
+Os exemplos a seguir criam um novo banco de dados na camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
+
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
 Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
+
 #### <a name="use-powershell"></a>Utilizar o PowerShell
-
-O exemplo a seguir cria um novo banco de dados na camada de computação sem servidor.  Este exemplo especifica explicitamente o mínimo de vCores, máximo de vCores e atraso de autopausa.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
 
@@ -215,11 +212,10 @@ Para obter detalhes, consulte [criar banco de dados](/sql/t-sql/statements/creat
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover o banco de dados da camada de computação provisionada para a camada de computação sem servidor
 
+Os exemplos a seguir movem um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
+
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
-O exemplo a seguir move um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o mínimo de vCores, máximo de vCores e atraso de autopausa.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
 
@@ -253,15 +248,14 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 ## <a name="modifying-serverless-configuration"></a>Modificando a configuração sem servidor
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>Utilizar o PowerShell
 
 Modificar o máximo ou o mínimo de vCores e o atraso de autopausa é realizado usando o comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando os argumentos `MaxVcore`, `MinVcore`e `AutoPauseDelayInMinutes`.
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
 Modificar o vCores máximo ou mínimo e o atraso de pausa automática, é executado usando o comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) em CLI do Azure usando os argumentos `capacity`, `min-capacity`e `auto-pause-delay`.
 
-* * *
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -269,7 +263,7 @@ Modificar o vCores máximo ou mínimo e o atraso de pausa automática, é execut
 
 Os recursos de um banco de dados sem servidor são encapsulados por pacote do aplicativo, instância do SQL e entidades do pool de recursos do usuário.
 
-#### <a name="app-package"></a>Pacote de aplicações
+#### <a name="app-package"></a>Pacote da aplicação
 
 O pacote do aplicativo é o limite mais externo de gerenciamento de recursos para um banco de dados, independentemente se o banco de dados está em uma camada de computação sem servidor ou provisionada. O pacote do aplicativo contém a instância do SQL e os serviços externos que, juntos, abrangem todos os recursos de usuário e sistema usados por um banco de dados no banco de dados SQL. Exemplos de serviços externos incluem R e pesquisa de texto completo. A instância do SQL geralmente domina a utilização geral de recursos no pacote do aplicativo.
 
@@ -283,9 +277,9 @@ As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool 
 
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
-|Pacote de aplicações|app_cpu_percent|Percentual de vCores usado pelo aplicativo em relação ao Max vCores permitido para o aplicativo.|Percentagem|
-|Pacote de aplicações|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período de relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo o máximo de CPU usado e a memória usada a cada segundo. Se o valor usado for menor que o valor mínimo provisionado conforme definido pelo mínimo de vCores e mín de memória, o valor mínimo provisionado será cobrado. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
-|Pacote de aplicações|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Percentagem|
+|Pacote da aplicação|app_cpu_percent|Percentual de vCores usado pelo aplicativo em relação ao Max vCores permitido para o aplicativo.|Percentagem|
+|Pacote da aplicação|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período de relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo o máximo de CPU usado e a memória usada a cada segundo. Se o valor usado for menor que o valor mínimo provisionado conforme definido pelo mínimo de vCores e mín de memória, o valor mínimo provisionado será cobrado. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
+|Pacote da aplicação|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Percentagem|
 |Pool de usuários|cpu_percent|Percentual de vCores usado pela carga de trabalho do usuário em relação ao Max vCores permitido para a carga de trabalho do usuário.|Percentagem|
 |Pool de usuários|data_IO_percent|Porcentagem de IOPS de dados usada pela carga de trabalho do usuário em relação ao IOPS de dados máximo permitido para a carga de trabalho do usuário.|Percentagem|
 |Pool de usuários|log_IO_percent|Percentual de MB/s de log usado pela carga de trabalho do usuário em relação ao número máximo de MB/s de log permitido para a carga de trabalho do usuário.|Percentagem|
@@ -296,22 +290,21 @@ As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool 
 
 No portal do Azure, o status do banco de dados é exibido no painel de visão geral do servidor que lista os bancos que ele contém. O status do banco de dados também é exibido no painel Visão geral do banco de dados.
 
-Usando o seguinte comando do PowerShell para consultar o status de pausa e retomada de um banco de dados:
+Usando os seguintes comandos para consultar o status de pausa e retomada de um banco de dados:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>Utilizar o PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>Limites de recursos
 

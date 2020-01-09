@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182269"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564809"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -25,7 +25,7 @@ Nesta seção, discutiremos os indicadores comuns de desempenho no contexto do a
 
 IOPS, ou operações de entrada/saída por segundo, é o número de solicitações que seu aplicativo está enviando para os discos de armazenamento em um segundo. Uma operação de entrada/saída pode ser de leitura ou gravação, sequencial ou aleatória. Aplicativos OLTP (processamento de transações online) como um site de varejo online precisam processar muitas solicitações de usuário simultâneas imediatamente. As solicitações de usuário são as transações de banco de dados de inserção e atualização intensivas, que o aplicativo deve processar rapidamente. Portanto, os aplicativos OLTP exigem IOPS muito alta. Esses aplicativos lidam com milhões de solicitações de e/s pequenas e aleatórias. Se você tiver um aplicativo desse tipo, deverá projetar a infraestrutura do aplicativo para otimizar o IOPS. Na seção mais adiante, *otimizando o desempenho do aplicativo*, discutiremos em detalhes todos os fatores que você deve considerar para obter IOPS alto.
 
-Quando você anexa um disco de armazenamento Premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite de IOPS específico que pode sustentar. Por exemplo, uma VM GS5 padrão tem um limite de 80.000 IOPS.
+Quando anexa um disco de armazenamento premium à sua VM de grande escala, o Azure aprovisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de grande escala tem também um limite de IOPS específico que pode sustentar. Por exemplo, uma VM GS5 padrão tem um limite de 80.000 IOPS.
 
 ## <a name="throughput"></a>Débito
 
@@ -53,7 +53,7 @@ As operações de plano de controle a seguir em Managed Disks podem envolver a m
 - Crie um disco gerenciado com base em um instantâneo.
 - Converter discos não gerenciados em discos gerenciados.
 
-# <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
+## <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
 
 A primeira etapa na criação de aplicativos de alto desempenho em execução no armazenamento Premium do Azure está compreendendo os requisitos de desempenho do seu aplicativo. Depois de ter coletado os requisitos de desempenho, você pode otimizar seu aplicativo para obter o melhor desempenho.
 
@@ -92,15 +92,15 @@ A melhor maneira de medir os requisitos de desempenho do seu aplicativo é usar 
 
 Os contadores PerfMon estão disponíveis para processador, memória e, cada disco lógico e disco físico do servidor. Quando você usa discos de armazenamento Premium com uma VM, os contadores de disco físico são para cada disco de armazenamento Premium, e os contadores de disco lógico são para cada volume criado nos discos de armazenamento Premium. Você deve capturar os valores para os discos que hospedam a carga de trabalho do aplicativo. Se houver um mapeamento de um para um entre discos lógicos e físicos, você poderá consultar contadores de disco físico; caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização de CPU e disco. O relatório de utilização de disco fornece estatísticas por dispositivo físico ou partição. Se você tiver um servidor de banco de dados com seu log e seus logs em discos separados, colete esses dados para ambos os discos. A tabela abaixo descreve os contadores para discos, processadores e memória:
 
-| Neutraliza | Descrição | PerfMon | Iostat |
+| Contador | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS ou transações por segundo** |Número de solicitações de e/s emitidas para o disco de armazenamento por segundo. |Leituras de disco/s <br> Gravações de disco/s |TPS <br> r/s <br> w/s |
+| **IOPS ou transações por segundo** |Número de solicitações de e/s emitidas para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |TPS <br> r/s <br> w/s |
 | **Leituras e gravações de disco** |% de leituras e operações de gravação executadas no disco. |% De tempo de leitura de disco <br> % De tempo de gravação de disco |r/s <br> w/s |
-| **Débito** |Quantidade de dados lidos ou gravados no disco por segundo. |Bytes de leitura de disco/s <br> Bytes de gravação no disco/s |kB_read/s <br> kB_wrtn/s |
-| **Latência** |Tempo total para concluir uma solicitação de e/s de disco. |Média de disco s/leitura <br> Média de disco s/gravação |expressões <br> svctm |
+| **Débito** |Quantidade de dados lidos ou gravados no disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
+| **Latência** |Tempo total para concluir uma solicitação de e/s de disco. |Média de disco s/leitura <br> Média de disco s/gravação |await <br> svctm |
 | **Tamanho de e/s** |O tamanho dos problemas de solicitações de e/s para os discos de armazenamento. |Média de bytes de disco/leitura <br> Média de bytes de disco/gravação |avgrq-sz |
 | **Profundidade da fila** |Número de solicitações de e/s pendentes aguardando para serem lidas ou gravadas no disco de armazenamento. |Comprimento da fila de disco atual |avgqu-sz |
-| **Maximizar. Memória** |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
+| **Maximizar. Memória** |Quantidade de memória necessária para executar o aplicativo sem problemas |% dos Bytes Consolidados em Utilização |Usar vmstat |
 | **Maximizar. CPUs** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
 
 Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [Perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
@@ -156,9 +156,9 @@ Aqui está um exemplo de como você pode calcular a IOPS e a taxa de transferên
 
 | Requisito de aplicativo | Tamanho de e/s | IOPS | Taxa de transferência/largura de banda |
 | --- | --- | --- | --- |
-| IOPS máxima |8 KB |5000 |40 MB por segundo |
+| IOPS Máximo |8 KB |5000 |40 MB por segundo |
 | Taxa de transferência máxima |1024 KB |200 |200 MB por segundo |
-| Taxa de transferência máxima + IOPS alto |64 KB |3\.200 |200 MB por segundo |
+| Taxa de transferência máxima + IOPS alto |64 KB |3,200 |200 MB por segundo |
 | IOPS máxima + alta taxa de transferência |32 KB |5000 |160 MB por segundo |
 
 Para obter IOPS e largura de banda maiores que o valor máximo de um único disco de armazenamento Premium, use vários discos Premium distribuídos juntos. Por exemplo, distribua dois discos p30 para obter um IOPS combinado de 10.000 IOPS ou uma taxa de transferência combinada de 400 MB por segundo. Conforme explicado na próxima seção, você deve usar um tamanho de VM que dá suporte à taxa de transferência e IOPS de disco combinados.
@@ -170,14 +170,14 @@ Para testemunhar os efeitos do tamanho de e/s no desempenho do aplicativo, você
 
 ## <a name="high-scale-vm-sizes"></a>Tamanhos de VM de alta escala
 
-Quando você começa a criar um aplicativo, uma das primeiras coisas a fazer é escolher uma VM para hospedar seu aplicativo. O armazenamento Premium vem com tamanhos de VM de alta escala que podem executar aplicativos que exigem maior capacidade de computação e um alto desempenho de e/s de disco local. Essas VMs fornecem processadores mais rápidos, uma taxa maior de memória para núcleo e uma unidade de estado sólido (SSD) para o disco local. Exemplos de VMs de alta escala que dão suporte ao armazenamento Premium são as VMs da série DS, DSv2 e GS.
+Quando você começa a criar um aplicativo, uma das primeiras coisas a fazer é escolher uma VM para hospedar seu aplicativo. O armazenamento Premium vem com tamanhos de VM de alta escala que podem executar aplicativos que exigem maior capacidade de computação e um alto desempenho de e/s de disco local. Essas VMs fornecem processadores mais rápidos, uma taxa maior de memória para núcleo e uma unidade de estado sólido (SSD) para o disco local. Exemplos de VMs de alta escala que dão suporte ao armazenamento Premium são as VMs da série DS e GS.
 
-As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem o número máximo de discos de dados que você pode anexar à VM. Portanto, o tamanho escolhido da VM afetará a quantidade de capacidade de processamento, memória e armazenamento disponível para seu aplicativo. Ele também afeta o custo de computação e armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS, DSv2 Series e GS:
+As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem o número máximo de discos de dados que você pode anexar à VM. Portanto, o tamanho escolhido da VM afetará a quantidade de capacidade de processamento, memória e armazenamento disponível para seu aplicativo. Ele também afeta o custo de computação e armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS e uma da GS:
 
-| Tamanhos de VM | Núcleos de CPU | Memória | Tamanhos de disco de VM | Um máximo de discos de dados | Tamanho do cache | IOPS | Limites de es de cache de largura de banda |
+| Tamanhos de VM | Núcleos de CPU | Memória | Tamanhos de disco de VM | Um máximo de discos de dados | Tamanho da cache | IOPS | Limites de es de cache de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |SISTEMA OPERACIONAL = 1023 GB <br> SSD local = 224 GB |32 |576 GB |IOPS DE 50.000 <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |SISTEMA OPERACIONAL = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |IOPS DE 80.000 <br> 2\.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> SSD local = 224 GB |32 |576 GB |IOPS DE 50.000 <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |IOPS DE 80.000 <br> 2\.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
 
 Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou tamanhos de VM do [Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que possa atender e dimensionar seus requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
@@ -199,7 +199,7 @@ A tabela a seguir resume a divisão de custo desse cenário para o armazenamento
 | --- | --- | --- |
 | **Custo da VM por mês** |$1570.58 (padrão\_D14) |$1003.66 (Standard\_DS13) |
 | **Custo de discos por mês** |$1638.40 (32 x 1 TB de discos) |$544.34 (4 x p30 discos) |
-| **Custo geral por mês** |$3208.98 |$1544.34 |
+| **Custo geral por mês** |$3,208.98 |$1,544.34 |
 
 *Distribuições Linux*  
 
@@ -230,14 +230,14 @@ Determine o número de discos que você precisará avaliando os requisitos do ap
 
 Lembre-se de que os discos de armazenamento Premium têm recursos de desempenho mais altos em comparação com os discos de armazenamento padrão. Portanto, se você estiver migrando seu aplicativo da VM IaaS do Azure usando o armazenamento Standard para o armazenamento Premium, provavelmente precisará de menos discos Premium para obter o mesmo desempenho ou mais alto para seu aplicativo.
 
-## <a name="disk-caching"></a>Cache de disco
+## <a name="disk-caching"></a>Colocação em cache do disco
 
 As VMs de alta escala que aproveitam o armazenamento Premium do Azure têm uma tecnologia de cache de várias camadas chamada BlobCache. O BlobCache usa uma combinação da RAM da máquina virtual e do SSD local para cache. Esse cache está disponível para os discos persistentes de armazenamento Premium e os discos locais da VM. Por padrão, essa configuração de cache é definida como leitura/gravação para discos do sistema operacional e ReadOnly para discos de dados hospedados no armazenamento Premium. Com o cache de disco habilitado nos discos do armazenamento Premium, as VMs de alta escala podem atingir níveis extremamente altos de desempenho que excedem o desempenho de disco subjacente.
 
 > [!WARNING]
 > O cache de disco não tem suporte para discos 4 TiB e maiores. Se vários discos estiverem anexados à sua VM, cada disco com menos de 4 TiB dará suporte a cache.
 >
-> A alteração da configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Interrompa todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache de disco.
+> Alterar a definição de cache de um disco do Azure desanexa e anexa o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todas as aplicações/serviços que possam ser afetados por esta interrupção antes de alterar a definição da cache do disco.
 
 Para saber mais sobre como o BlobCache funciona, consulte a postagem no blog do [armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -256,7 +256,7 @@ A seguir estão as configurações de cache de disco recomendadas para discos de
 | ReadOnly |Configure o cache do host como ReadOnly para discos somente leitura e de leitura/gravação. |
 | ReadWrite |Configure o cache do host como ReadWrite somente se seu aplicativo manipula corretamente a gravação de dados armazenados em cache em discos persistentes quando necessário. |
 
-*Leitura*  
+*ReadOnly*  
 Ao configurar o cache somente leitura em discos de dados de armazenamento Premium, você pode obter baixa latência de leitura e obter IOPS de leitura e taxa de transferência muito altas para seu aplicativo. Isso é devido a dois motivos,
 
 1. As leituras realizadas do cache, que estão na memória da VM e no SSD local, são muito mais rápidas do que as leituras do disco de dados, que está no armazenamento de BLOBs do Azure.  
@@ -265,7 +265,7 @@ Ao configurar o cache somente leitura em discos de dados de armazenamento Premiu
 *ReadWrite*  
 Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte para cache ReadWrite em discos de dados. Se você estiver usando o cache ReadWrite, deverá ter uma maneira adequada de gravar os dados do cache em discos persistentes. Por exemplo, SQL Server lida com a gravação de dados armazenados em cache nos discos de armazenamento persistentes por conta própria. O uso do cache ReadWrite com um aplicativo que não lida com a persistência dos dados necessários pode levar à perda de dados, se a VM falhar.
 
-*None*  
+*Nenhum*  
 No momento, **nenhum** só tem suporte em discos de dados. Não há suporte para ele em discos do sistema operacional. Se você definir **nenhum** em um disco do sistema operacional, ele substituirá isso internamente e o definirá como **ReadOnly**.
 
 Por exemplo, você pode aplicar essas diretrizes para SQL Server em execução no armazenamento Premium fazendo o seguinte:
@@ -292,29 +292,31 @@ Algumas das versões exigem o mais recente Integration Services do Linux (LIS), 
 
 | Distribuição | Versão | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
-| Ubuntu | 12, 4 ou mais recente| 3.2.0-75.110 + | Ubuntu-12_04_5-LTS-AMD64-Server-20150119-en-US-30 GB |
-| Ubuntu | 14, 4 ou mais recente| 3.13.0-44.73 +  | Ubuntu-14_04_1-LTS-AMD64-Server-20150123-en-US-30 GB |
-| Debian | 7. x, 8. x ou mais recente| 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12 ou mais recente| 3.12.36-38.1 + | SuSE-SLES-12-Priority-v20150213 <br> SuSE-SLES-12-v20150213 |
-| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1 + | &nbsp; |
-| CoreOS | 584.0.0 + ou mais recente| 3.18.4 + | CoreOS 584.0.0 |
-| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 necessário](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consulte a observação na próxima seção* |
-| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2. EL7 + | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consulte a observação na próxima seção* |
+| Ubuntu | 12, 4 ou mais recente| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14, 4 ou mais recente| 3.13.0-44.73+  | &nbsp; |
+| Debian | 7. x, 8. x ou mais recente| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | &nbsp; |
+| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0 + ou mais recente| 3.18.4+ | &nbsp; |
+| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 necessário](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Consulte a observação na próxima seção* |
+| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Consulte a observação na próxima seção* |
 | Red Hat Enterprise Linux (RHEL) | 6.8 +, 7.2 + ou mais recente | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7.2 + ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para OpenLogic CentOS
 
 Se você estiver executando VMs OpenLogic CentOS, execute o seguinte comando para instalar os drivers mais recentes:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Para ativar os novos drivers, reinicie a VM.
+Em alguns casos, o comando acima também atualizará o kernel. Se uma atualização de kernel for necessária, talvez seja necessário executar os comandos acima novamente após a reinicialização para instalar completamente o pacote Microsoft-Hyper-v.
+
 
 ## <a name="disk-striping"></a>Distribuição de disco
 
@@ -382,4 +384,3 @@ Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente
 O armazenamento Premium do Azure provisiona o número especificado de IOPS e taxa de transferência, dependendo dos tamanhos de VM e tamanhos de disco que você escolher. Sempre que seu aplicativo tentar gerar IOPS ou taxa de transferência acima desses limites do que a VM ou o disco pode lidar, o armazenamento Premium o reduzirá. Isso se manifesta na forma de degradação do desempenho em seu aplicativo. Isso pode significar maior latência, taxa de transferência mais baixa ou IOPS menor. Se o armazenamento Premium não for limitado, o aplicativo poderá falhar completamente, excedendo o que seus recursos são capazes de alcançar. Portanto, para evitar problemas de desempenho devido à limitação, sempre provisione recursos suficientes para seu aplicativo. Leve em consideração o que discutimos nas seções tamanhos de VM e tamanhos de disco acima. O parâmetro de comparação é a melhor maneira de descobrir quais recursos serão necessários para hospedar seu aplicativo.
 
 ## <a name="next-steps"></a>Passos seguintes
-

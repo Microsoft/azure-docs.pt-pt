@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392380"
 ---
 **Retenção e volume de coleta de dados** 
 
@@ -51,7 +51,7 @@ ms.locfileid: "72302338"
 
 | Categoria | Limites | Comentários |
 |:---|:---|:---|
-| Máximo de registros retornados em uma única consulta | 500.000 | |
+| Máximo de registros retornados em uma única consulta | 500,000 | |
 | Tamanho máximo dos dados retornados | 64 milhões bytes (~ 61 MiB)| |
 | Tempo de execução máximo da consulta | 10 minutos | Consulte [tempos limite](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obter detalhes.  |
 | Taxa de solicitação máxima | 200 solicitações por 30 segundos por usuário do AAD ou endereço IP do cliente | Consulte [limites de taxa](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obter detalhes. |
@@ -62,8 +62,7 @@ ms.locfileid: "72302338"
 |:---|:---|:---|
 | Máximo de colunas em uma tabela         | 500 | |
 | Máximo de caracteres para o nome da coluna | 500 | |
-| Regiões em capacidade | E.U.A. Centro-Oeste | No momento, não é possível criar um novo espaço de trabalho nesta região, pois ele está em um limite de capacidade temporário. Esse limite está planejado para ser resolvido até o final de novembro de 2019. |
-| Exportação de dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
+| Exportar dados | Não disponível no momento | Use o Azure Function ou o aplicativo lógico para agregar e exportar dados. | 
 
 **Taxa de volume de ingestão de dados**
 

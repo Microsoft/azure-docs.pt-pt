@@ -1,5 +1,5 @@
 ---
-title: Autenticação do Azure AD e códigos de erro de autorização | Azure
+title: Autenticação do Azure AD & códigos de erro de autorização
 description: Saiba mais sobre os códigos de erro AADSTS retornados do STS (serviço de token de segurança) do Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423971"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
@@ -133,6 +133,8 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50178 | Não há suporte para o controle SessionControlNotSupportedForPassthroughUsers-Session para usuários de passagem. |
 | AADSTS50180 | A autenticação WindowsIntegratedAuthMissing integrada do Windows é necessária. Ativar o inquilino para SSO Totalmente Integrado. |
 | AADSTS50187 | DeviceInformationNotProvided-o serviço não pôde executar a autenticação do dispositivo. |
+| AADSTS50196 | LoopDetected-um loop de cliente foi detectado. Verifique a lógica do aplicativo para garantir que o cache de token seja implementado e que as condições de erro sejam tratadas corretamente.  O aplicativo fez muitas da mesma solicitação em um período muito curto, indicando que ela está em um estado de falha ou está solicitando os tokens de forma abusiva. |
+| AADSTS50199 | CmsiInterrupt-a interação do usuário é necessária para essa autenticação.  Como esse é um erro "interaction_required", o cliente deve fazer a autenticação interativa.  Isso ocorre porque uma WebView do sistema foi usada para solicitar um token para um aplicativo nativo-o usuário deve ser solicitado a perguntar se isso foi, na verdade, o aplicativo para o qual pretendia entrar.|
 | AADSTS51000 | RequiredFeatureNotEnabled-o recurso está desabilitado. |
 | AADSTS51001 | DomainHintMustbePresent-a dica de domínio deve estar presente com o identificador de segurança local ou com o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory-a conta de usuário não existe no diretório. |

@@ -1,5 +1,5 @@
 ---
-title: Visão geral do hiperescala
+title: Visão geral do hiperescala do banco de dados SQL do Azure | Microsoft Docs
 description: Este artigo descreve a camada de serviço de hiperescala no modelo de compra baseado em vCore no banco de dados SQL do Azure e explica como ele é diferente das camadas de serviço Uso Geral e Comercialmente Crítico.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: dimitri-furman
-ms.author: dfurman
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978633"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614934"
 ---
 # <a name="hyperscale-service-tier"></a>Camada de serviços do Hyperscale
 
@@ -38,7 +38,7 @@ A camada de serviço de hiperescala no banco de dados SQL do Azure fornece os se
 
 - Suporte para até 100 TB de tamanho de banco de dados
 - Backups de banco de dados quase instantâneos (com base em instantâneos de arquivo armazenados no armazenamento de BLOBs do Azure), independentemente do tamanho, sem nenhum impacto de e/s  
-- Restaurações pontuais rápidas do banco de dados (com base em instantâneos de arquivo) em minutos, em vez de horas ou dias (não é um tamanho de operação de dados)
+- Restaurações rápidas de banco de dados (com base em instantâneos de arquivo) em minutos, em vez de horas ou dias (não um tamanho de operação de dados)
 - Maior desempenho geral devido à maior taxa de transferência de log e tempos de confirmação de transação mais rápidos, independentemente dos volumes de dados
 - Expansão rápida-você pode provisionar um ou mais nós somente leitura para descarregar sua carga de trabalho de leitura e usá-las como Hot-standbys
 - Dimensionamento rápido – você pode, em constante tempo, escalar verticalmente seus recursos de computação para acomodar cargas de trabalho pesadas quando necessário e, em seguida, dimensionar os recursos de computação de volta quando não for necessário.
@@ -82,7 +82,7 @@ Ao contrário dos mecanismos de banco de dados tradicionais que centralizaram to
 
 O diagrama a seguir ilustra os diferentes tipos de nós em um banco de dados de hiperescala:
 
-![arquitetura](./media/sql-database-hyperscale/hyperscale-architecture2.png)
+![arquitetura](./media/sql-database-hyperscale/hyperscale-architecture.png)
 
 Um banco de dados de hiperescala contém os seguintes tipos diferentes de componentes:
 
@@ -104,7 +104,7 @@ O armazenamento do Azure contém todos os arquivos de dados em um banco de dado.
 
 ## <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
-Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário; da mesma forma, restaurações são feitas revertendo para instantâneos de arquivo e, como tal, não são um tamanho de operação de dados. Restore é uma operação em tempo constante e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias no mesmo servidor lógico para fins de desenvolvimento ou teste, mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
+Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário; da mesma forma, restaurações são feitas revertendo para instantâneos de arquivo e, como tal, não são um tamanho de operação de dados. Restore é uma operação em tempo constante e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias para fins de desenvolvimento ou teste, até mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
 
 ## <a name="scale-and-performance-advantages"></a>Vantagens de escala e desempenho
 
@@ -114,7 +114,7 @@ Com a capacidade de acelerar/reduzir rapidamente os nós de computação somente
 
 Um banco de dados de hiperescala pode ser criado usando o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Os bancos de dados de hiperescala estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-O comando T-SQL a seguir cria um banco de dados de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `CREATE DATABASE`. Consulte os [limites de recurso](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) para obter uma lista de objetivos de serviço válidos.
+O comando T-SQL a seguir cria um banco de dados de hiperescala. Você deve especificar a edição e o objetivo de serviço na instrução `CREATE DATABASE`. Consulte os [limites de recurso](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) para obter uma lista de objetivos de serviço válidos.
 
 ```sql
 -- Create a HyperScale Database
@@ -196,25 +196,25 @@ Se desejar criar um banco de dados de hiperescala em uma região que não esteja
 
 Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões não listadas:
 
-1. No menu portal do Azure, selecione **ajuda + suporte**ou procure e selecione **ajuda + suporte** em qualquer página.
+1. Navegue até a [folha de ajuda e suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-2. Em [ajuda e suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), selecione [**nova solicitação de suporte**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+2. Clique em [ **nova solicitação de suporte**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-3. Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
+    ![Folha de ajuda e suporte do Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
-4. Escolha a assinatura que você usaria para criar os bancos de dados.
+3. Para **tipo de problema**, selecione **limites de serviço e assinatura (cotas)**
 
-5. Para **tipo de cota**, selecione **banco de dados SQL**.
+4. Escolha a assinatura que você usaria para criar os bancos de dados
 
-    ![Folha de ajuda e suporte do Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
+5. Para **tipo de cota**, selecione **banco de dados SQL**
 
-6. Clique em **Avançar: soluções**.
+6. Clique em **Avançar: soluções**
 
-7. Clique em **fornecer detalhes**.
+1. Clique em **fornecer detalhes**
 
     ![Detalhes do problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Escolha o **tipo de cota do banco de dados SQL**: **outra solicitação de cota**.
+8. Escolher **tipo de cota do banco de dados SQL**: **outra solicitação de cota**
 
 9. Preencha o seguinte modelo:
 
@@ -227,11 +227,11 @@ Para solicitar a capacidade de criar bancos de dados de hiperescala em regiões 
     > Número de TB estimado 
     >
 
-10. Escolha **severidade C**.
+10. Escolher **Gravidade C**
 
 11. Escolha o método de contato apropriado e preencha os detalhes.
 
-12. Clique em **salvar** e **continuar**.
+12. Clique em **salvar** e **continuar**
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Essas são as limitações atuais da camada de serviço de hiperescala a partir do GA.  Estamos trabalhando ativamente para remover o máximo possível de limitações.
@@ -245,7 +245,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Instância Gerida | No momento, não há suporte para Instância Gerenciada do Banco de Dados SQL do Azure com bancos de dados de hiperescala. |
 | Conjuntos Elásticos |  Atualmente, não há suporte para pools elásticos com a hiperescala do banco de dados SQL.|
 | A migração para o hiperescala é uma operação unidirecional no momento | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo BACPAC ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.)|
-| Migração de bancos de dados com objetos OLTP na memória | O hiperscale dá suporte apenas a um subconjunto de tipos de objeto OLTP em memória, incluindo tipos de tabela com otimização de memória, procedimentos armazenados compilados nativamente e funções. No entanto, quando qualquer objeto OLTP na memória estiver presente no banco de dados, a migração direta das camadas de serviço Premium e Comercialmente Crítico para hiperescala não terá suporte. A migração desse banco de dados para o hiperescala requer três etapas: (1) descartar todos os objetos OLTP na memória e suas dependências. Para preservar os dados em tabelas duráveis com otimização de memória, converta-os em tabelas de disco. (2) altere a camada de serviço do banco de dados para hiperescala. (3) recriar objetos anteriormente descartados. Tabelas duráveis e não duráveis com otimização de memória não têm suporte no momento em hiperescala e devem permanecer tabelas de disco. Há suporte para variáveis de tabela com otimização de memória. |
+| Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
 | Monitorização de Alterações | O Controle de Alterações está atualmente em visualização pública e pode ser habilitado em bancos de dados de hiperescala novos ou existentes. |
 | Georreplicação  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
 | Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |

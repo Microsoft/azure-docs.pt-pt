@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes-Citus (hiperescala)-banco de dados do Azure para PostgreSQL
+title: FAQ de hiperescala do banco de dados SQL do Azure
 description: Respostas a perguntas comuns que os clientes perguntam sobre um banco de dados SQL do Azure na camada de serviço de hiperescala – normalmente chamado de banco de dados de hiperescala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974024"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614995"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 
@@ -157,7 +157,7 @@ O log de transações com hiperescala é praticamente infinito. Você não preci
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>O meu `tempdb` escala conforme o meu banco de dados cresce
 
-O banco de dados do `tempdb` está localizado no armazenamento SSD local e é configurado com base no tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. o tamanho do `tempdb` não é configurável e é gerenciado para você.
+Seu banco de dados `tempdb` está localizado no armazenamento SSD local e é dimensionado proporcionalmente ao tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. o tamanho do `tempdb` não é configurável e é gerenciado para você.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>O tamanho do meu banco de dados aumenta automaticamente ou preciso gerenciar o tamanho dos arquivos
 
@@ -165,7 +165,7 @@ O tamanho do banco de dados aumenta automaticamente à medida que você insere/i
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Qual é o menor tamanho de banco de dados que o hiperscale dá suporte ou começa com
 
-10 GB.
+40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB. Em seguida, ele começa crescendo 10 GB a cada 10 minutos até atingir o tamanho de 40 GB. Cada um desses 10 GB Chuck é alocado em um servidor de página diferente para fornecer mais IOPS e um paralelismo de e/s maior. Por causa dessa otimização, mesmo se você escolher o tamanho inicial do banco de dados menor que 40 GB, o banco de dados aumentará para pelo menos 40 GB automaticamente.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>Em que incrementos o tamanho do banco de dados aumenta
 
@@ -268,13 +268,13 @@ Sim.
 
 O RPO é de 0 min. A meta de RTO é menor que 10 minutos, independentemente do tamanho do banco de dados. 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>Os backups de grandes bancos de dados afetam o desempenho de computação no meu primário
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>O backup de banco de dados afeta o desempenho de computação em minhas réplicas primárias ou secundárias
 
-Não. Os backups são gerenciados pelo subsistema de armazenamento e aproveitam os instantâneos de armazenamento. Eles não afetam a carga de trabalho do usuário no primário.
+Não. Os backups são gerenciados pelo subsistema de armazenamento e aproveitam os instantâneos de armazenamento. Eles não afetam as cargas de trabalho do usuário.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Posso executar a restauração geográfica com um banco de dados de hiperescala
 
-Sim.  A restauração geográfica tem suporte total.
+Sim.  A restauração geográfica tem suporte total. Diferentemente da restauração pontual, a restauração geográfica pode exigir uma operação de tamanho de dados de execução longa.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a replicação geográfica com o banco de dados de hiperescala
 
@@ -296,7 +296,7 @@ Não. O polybase não tem suporte no banco de dados SQL do Azure.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>O Multiscale tem suporte para R e Python
 
-Não. R e Python não têm suporte no banco de dados SQL do Azure.
+Neste momento, não.
 
 ### <a name="are-compute-nodes-containerized"></a>Nós de computação são em contêineres
 
@@ -306,11 +306,11 @@ Não. Os processos de hiperescala são executados em um [Service Fabric](https:/
 
 ### <a name="how-much-write-throughput-can-i-push-in-a-hyperscale-database"></a>Quanto taxa de transferência de gravação posso enviar por push em um banco de dados de hiperescala
 
-O limite de taxa de transferência do log de transações é definido como 100 MB/s para qualquer tamanho de computação de hiperescala. A capacidade de atingir essa taxa depende de vários fatores, incluindo, entre outros, o tipo de carga de trabalho, a configuração do cliente e a existência de capacidade de computação suficiente na réplica de computação primária para produzir o log a essa taxa.
+O limite de produtividade do log de transações é definido como 100 MB/s para qualquer tamanho de computação de hiperescala. A capacidade de atingir essa taxa depende de vários fatores, incluindo, entre outros, o tipo de carga de trabalho, a configuração do cliente e a existência de capacidade de computação suficiente na réplica de computação primária para produzir o log a essa taxa.
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>Quantos IOPS eu obtenho na maior computação
 
-O IOPS e a latência de e/s variam dependendo dos padrões de carga de trabalho. Se os dados que estão sendo acessados forem armazenados em cache na réplica de computação, você verá o mesmo desempenho de e/s como com o SSD local.
+O IOPS e a latência de e/s variam dependendo dos padrões de carga de trabalho. Se os dados que estão sendo acessados forem armazenados em cache na réplica de computação, você verá o desempenho de e/s semelhante ao SSD local.
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>Minha taxa de transferência é afetada pelos backups
 
@@ -318,7 +318,11 @@ Não. A computação é dissociada da camada de armazenamento. Isso elimina o im
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>Minha taxa de transferência é afetada ao provisionar réplicas de computação adicionais
 
-Como o armazenamento é compartilhado e não há nenhuma replicação física direta acontecendo entre réplicas de computação primárias e secundárias, tecnicamente, a taxa de transferência na réplica primária não será afetada pela adição de réplicas secundárias. No entanto, poderemos limitar a carga de trabalho de forma agressiva e contínua para permitir que o log seja aplicado em réplicas secundárias e servidores de página para acompanhar e evitar um baixo desempenho de leitura em réplicas secundárias.
+Como o armazenamento é compartilhado e não há nenhuma replicação física direta acontecendo entre réplicas de computação primárias e secundárias, a taxa de transferência na réplica primária não será diretamente afetada pela adição de réplicas secundárias. No entanto, podemos limitar a carga de trabalho de forma agressiva no primário para permitir que o log seja aplicado em réplicas secundárias e servidores de página para acompanhar, para evitar um baixo desempenho de leitura em réplicas secundárias.
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>Como fazer diagnosticar e solucionar problemas de desempenho em um banco de dados de hiperescala
+
+Para a maioria dos problemas de desempenho, particularmente aqueles que não têm raiz no desempenho do armazenamento, as etapas de diagnóstico e solução de problemas SQL Server comuns são aplicáveis. Para diagnóstico de armazenamento específico de hiperescala, consulte [diagnóstico de solução de problemas de desempenho de hiperescala do SQL](sql-database-hyperscale-performance-diagnostics.md).
 
 ## <a name="scalability-questions"></a>Perguntas sobre escalabilidade
 
@@ -367,7 +371,7 @@ Não. Você só pode se conectar a réplicas de expansão de leitura especifican
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>O sistema realiza o balanceamento de carga inteligente da carga de trabalho de leitura
 
-Não. Uma conexão com a intenção somente leitura é redirecionada para uma réplica de expansão de leitura arbitrária.
+Não. Uma nova conexão com a intenção somente leitura é redirecionada para uma réplica de expansão de leitura arbitrária.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>Posso escalar/reduzir verticalmente as réplicas de computação secundárias independentemente da réplica primária
 
@@ -383,7 +387,7 @@ Não. Os bancos de dados de hiperescala têm armazenamento compartilhado, o que 
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quanto atraso haverá entre as réplicas de computação primárias e secundárias
 
-A partir do momento em que uma transação é confirmada no primário, dependendo da taxa de geração de log atual, ela pode ser instantânea ou em milissegundos baixos.
+Latência de dados do momento em que uma transação é confirmada no primário até o momento em que ela é visível em um secundário depende da taxa de geração de log atual. A latência de dados típica é de poucos milissegundos.
 
 ## <a name="next-steps"></a>Próximos Passos
 

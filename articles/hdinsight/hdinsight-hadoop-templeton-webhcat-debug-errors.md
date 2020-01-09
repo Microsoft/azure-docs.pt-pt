@@ -2,18 +2,18 @@
 title: Entender e resolver erros do WebHCat no HDInsight – Azure
 description: Saiba mais sobre os erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555003"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638855"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender e resolver erros recebidos do WebHCat no HDInsight
 
@@ -21,17 +21,11 @@ Saiba mais sobre os erros recebidos ao usar o WebHCat com o HDInsight e como res
 
 ## <a name="what-is-webhcat"></a>O que é WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e uma camada de gerenciamento de armazenamento para Apache Hadoop. O WebHCat é habilitado por padrão em clusters HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho etc. sem fazer logon no cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e uma camada de gerenciamento de armazenamento para Apache Hadoop. O WebHCat é habilitado por padrão em clusters HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho e assim por diante, sem fazer logon no cluster.
 
 ## <a name="modifying-configuration"></a>Modificando configuração
 
-> [!IMPORTANT]  
-> Vários dos erros listados neste documento ocorrem porque um máximo configurado foi excedido. Quando a etapa de resolução menciona que você pode alterar um valor, você deve usar um dos seguintes para executar a alteração:
-
-* Para clusters do **Windows** : Use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
-
-* Para clusters do **Linux** : Use o Apache Ambari (Web ou API REST) para modificar o valor. Para obter mais informações, consulte [gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
+Vários dos erros listados neste documento ocorrem porque um máximo configurado foi excedido. Quando a etapa de resolução mencionar que você pode alterar um valor, use o Apache Ambari (Web ou API REST) para modificar o valor. Para obter mais informações, consulte [gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Configuração padrão
 

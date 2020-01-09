@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122139"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530923"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ ou
 
 Para criar um cache na nuvem do Azure governamental, use um dos locais a seguir.
 
-* Virgínia de USGov
+* USGov Virginia
 * USGov Iowa
 
 Para obter mais informações sobre a nuvem do Azure governamental, consulte [Guia do desenvolvedor](../azure-government-developer-guide.md)de [Microsoft Azure governamental](https://azure.microsoft.com/features/gov/) e Microsoft Azure governamental.
@@ -95,7 +95,7 @@ Para criar um cache na nuvem do Azure na China, use um dos locais a seguir.
 * Norte da China
 * China Norte
 
-Para obter mais informações sobre a nuvem do Azure na China, consulte [AzureChinaCloud for Azure operado pela 21vianet na China](http://www.windowsazure.cn/).
+Para obter mais informações sobre a nuvem do Azure na China, consulte [AzureChinaCloud for Azure operado pela 21vianet na China](https://www.windowsazure.cn/).
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Para se conectar ao Microsoft Azure Alemanha
 Para se conectar ao Microsoft Azure Alemanha, use um dos comandos a seguir.
@@ -109,7 +109,7 @@ ou
 
 Para criar um cache no Microsoft Azure Alemanha, use um dos seguintes locais.
 
-* Alemanha Central
+* Nordeste da Alemanha
 * Alemanha Nordeste
 
 Para obter mais informações sobre Microsoft Azure Alemanha, consulte [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/).
@@ -124,7 +124,7 @@ A tabela a seguir contém propriedades e descrições para parâmetros usados co
 | ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
 | Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |O número de fragmentos a serem criados ao criar um cache Premium com clustering habilitado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Especifica a SKU do cache. Os valores válidos são: básico, Standard, Premium |Standard |
+| SKU |Especifica a SKU do cache. Os valores válidos são: básico, Standard, Premium |Padrão |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, consulte a tabela de [Propriedades RedisConfiguration](#redisconfiguration-properties) a seguir. | |
 | EnableNonSslPort |Indica se a porta não SSL está habilitada. |Falso |
 | MaxMemoryPolicy |Este parâmetro foi preterido-use RedisConfiguration em vez disso. | |
@@ -147,7 +147,7 @@ A tabela a seguir contém propriedades e descrições para parâmetros usados co
 | set-max-intset-entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
 | zset-max-ziplist-entries |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
 | zset-max-ziplist-value |Configura a [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados agregados pequenos |Standard e Premium |
-| bases de dados |Configura o número de bancos de dados. Essa propriedade pode ser configurada somente na criação do cache. |Standard e Premium |
+| databases |Configura o número de bancos de dados. Essa propriedade pode ser configurada somente na criação do cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Para criar um cache do Azure para Redis
 O novo cache do Azure para instâncias Redis são criados usando o cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .

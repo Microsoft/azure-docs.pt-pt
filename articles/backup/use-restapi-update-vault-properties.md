@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390541"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -85,14 +85,14 @@ Para obter mais detalhes, consulte [a documentação da API REST](https://docs.m
 
 |Nome  |Obrigatório  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  ETag opcional       |
-|localização     |  true       |String         |   Local do recurso      |
+|eTag     |         |   Cadeia      |  ETag opcional       |
+|localização     |  true       |Cadeia         |   Local do recurso      |
 |propriedades     |         | [Cofreproperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
-|etiquetas     |         | Object        |     Etiquetas de recursos    |
+|etiquetas     |         | Objeto        |     Etiquetas de recursos    |
 
 #### <a name="example-request-body"></a>Corpo da solicitação de exemplo
 
-O exemplo a seguir é usado para atualizar a exclusão reversível de estado para ' disabled '.
+O exemplo a seguir é usado para atualizar o estado de exclusão reversível para ' disabled '.
 
 ```json
 {

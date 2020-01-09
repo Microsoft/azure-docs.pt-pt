@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: fd3d53dce398c445d309a19f1f58a8d298080c45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ea526648b1b37919eb41953937d3afa72f7f39e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446307"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [amostras](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) do NuGet ( [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [do pacote) | de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [do NuGet ( do pacote)de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [amostras biblioteca](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 > [!NOTE]
 > O código neste artigo usa os métodos síncronos do SDK do .NET Análise de Texto para simplificar. Para cenários de produção, é recomendável usar os métodos assíncronos em lote para desempenho e escalabilidade. Por exemplo, chamar [SentimentBatchAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) em vez de [sentimentos ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
@@ -21,7 +21,7 @@ ms.locfileid: "73750240"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* O [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="setting-up"></a>Configurando
 
@@ -31,49 +31,26 @@ ms.locfileid: "73750240"
 
 ### <a name="create-a-new-net-core-application"></a>Criar um novo aplicativo .NET Core
 
-Em uma janela de console (como cmd, PowerShell ou bash), use o comando `dotnet new` para criar um novo aplicativo de console com o nome `text-analytics quickstart`. Este comando cria um projeto simples de "Olá, Mundo" com um C# único arquivo de origem: *Program.cs*. 
+Usando o IDE do Visual Studio, crie um novo aplicativo de console .NET Core. Isso criará um projeto simples de "Olá, Mundo" com um C# único arquivo de origem: *Program.cs*.
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução na **Gerenciador de soluções** e selecionando **gerenciar pacotes NuGet**. No Gerenciador de pacotes que é aberto, selecione **procurar** e procure `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e, em seguida, em **instalar**. Você também pode usar o [console do Gerenciador de pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-Altere o diretório para a pasta de aplicativos recém-criada. Você pode criar o aplicativo com:
-
-```console
-dotnet build
-```
-
-A saída da compilação não deve conter nenhum aviso ou erro. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-No diretório do projeto, abra o arquivo *Program.cs* e adicione as seguintes diretivas de `using`:
+Abra o arquivo *Program.cs* e adicione as seguintes diretivas de `using`:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-Na classe `Program` do aplicativo, crie variáveis para a chave e o ponto de extremidade do recurso a partir das variáveis de ambiente criadas anteriormente. Se você criou essas variáveis de ambiente depois de começar a editar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que você está usando para acessar as variáveis.
+Na classe de `Program` do aplicativo, crie variáveis para a chave e o ponto de extremidade do recurso. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 Substitua o método de `Main` do aplicativo. Você irá definir os métodos chamados aqui mais tarde.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
-
-### <a name="install-the-client-library"></a>Instalar a biblioteca de cliente
-
-No diretório do aplicativo, instale a biblioteca de cliente do Análise de Texto para .NET com o seguinte comando:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -82,7 +59,7 @@ O cliente do Análise de Texto é um objeto [TextAnalyticsClient](https://docs.m
 ## <a name="code-examples"></a>Exemplos de código
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Análise de Sentimento](#sentiment-analysis)
+* [Análise de sentimentos](#sentiment-analysis)
 * [Detecção de idioma](#language-detection)
 * [Reconhecimento de entidade](#entity-recognition)
 * [Extração de frases-chave](#key-phrase-extraction)
@@ -155,7 +132,7 @@ Entities:
         Offset: 116,    Length: 11,     Score: 0.800
 ```
 
-## <a name="key-phrase-extraction"></a>Extração de expressões-chave
+## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
 Crie uma nova função chamada `KeyPhraseExtractionExample()` que usa o cliente que você criou anteriormente e chame sua função [keyfrases ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) . O resultado conterá a lista de frases-chave detectadas em `KeyPhrases` se for bem-sucedido e um `errorMessage` se não for. Imprima as frases-chave detectadas.
 

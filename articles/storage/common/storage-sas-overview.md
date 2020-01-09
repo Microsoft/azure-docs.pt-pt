@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371824"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -25,7 +25,7 @@ Uma SAS (assinatura de acesso compartilhado) fornece acesso delegado seguro aos 
 
 O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso compartilhado:
 
-- **SAS de delegação de usuário (visualização).** Uma SAS de delegação de usuário é protegida com as credenciais do Azure Active Directory (AD do Azure) e também pelas permissões especificadas para a SAS. Uma SAS de delegação de usuário se aplica somente ao armazenamento de BLOB.
+- **SAS de delegação de usuário.** Uma SAS de delegação de usuário é protegida com as credenciais do Azure Active Directory (AD do Azure) e também pelas permissões especificadas para a SAS. Uma SAS de delegação de usuário se aplica somente ao armazenamento de BLOB.
 
     Para obter mais informações sobre a SAS de delegação de usuário, consulte [criar uma delegação de usuário de SAS (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -122,9 +122,9 @@ Para começar a usar as assinaturas de acesso compartilhado, consulte os artigos
 
 ### <a name="user-delegation-sas"></a>SAS de delegação de usuário
 
-- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com a CLI do Azure (versão prévia)](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET (versão prévia)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Criar uma SAS de delegação de usuário para um contêiner ou BLOB com .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>SAS do serviço
 

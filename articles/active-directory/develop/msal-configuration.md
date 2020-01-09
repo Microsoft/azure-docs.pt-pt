@@ -1,5 +1,5 @@
 ---
-title: Arquivo de configuração da biblioteca de autenticação da Microsoft para Android | Azure
+title: Arquivo de configuração do Android MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Uma visão geral do arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android, que representa a configuração de um aplicativo no Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424396"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
@@ -33,8 +33,8 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 
 | Propriedade | Tipo de Dados | Obrigatório | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | Cadeia | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | Cadeia | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Listar > de autoridade de\< | Não | A lista de autoridades que seu aplicativo precisa |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e `read_timeout` |
@@ -104,17 +104,17 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 | Propriedade | Data type  | Obrigatório | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
-| `audience` | Object | Não | Aplica-se somente quando Type =`AAD`. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
-| `authority_url` | String | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
+| `type` | Cadeia | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
+| `audience` | Objeto | Não | Aplica-se somente quando Type =`AAD`. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
+| `authority_url` | Cadeia | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
 | `default` | boolean | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
 | Propriedade | Tipo de Dados  | Obrigatório | Notas |
 |-----------|-------------|------------|-------|
-| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
-| `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores de `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `type` | Cadeia | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
+| `tenant_id` | Cadeia | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores de `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 

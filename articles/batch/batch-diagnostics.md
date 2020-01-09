@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
-ms.translationtype: MT
+ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261662"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530821"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -28,7 +28,7 @@ Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades
 
 ## <a name="batch-metrics"></a>Métricas de batch
 
-As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. As métricas de exemplo em uma conta do lote incluem: Eventos de criação de pool, contagem de nós de baixa prioridade e eventos de tarefa concluída. 
+As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. Métricas de exemplo numa conta do Batch incluem: agrupamento de eventos de criar, contagem de nós de baixa prioridade e eventos de conclusão de tarefas. 
 
 Consulte a [lista de métricas suportadas do Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -130,15 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada `PT1H.json` arquivo de BLOB contém eventos formatados em JSON que ocorreram dentro da hora especificada na URL do blob ( `h=12`por exemplo,). Durante a hora atual, os eventos são anexados ao `PT1H.json` arquivo conforme eles ocorrem. O valor de minuto`m=00`() é `00`sempre, pois os eventos de log de diagnóstico são divididos em BLOBs individuais por hora. (Todas as horas são em formato UTC).
+Cada arquivo de blob `PT1H.json` contém eventos formatados em JSON que ocorreram dentro da hora especificada na URL do blob (por exemplo, `h=12`). Durante a hora atual, os eventos são anexados ao arquivo de `PT1H.json` conforme eles ocorrem. O valor de minuto (`m=00`) sempre é `00`, já que os eventos de log de diagnóstico são divididos em BLOBs individuais por hora. (Todas as horas são em formato UTC).
 
-Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada em um `PT1H.json` arquivo de log. Ele inclui informações sobre o número atual e o destino de nós dedicados e de baixa prioridade, bem como a hora de início e de término da operação:
+Abaixo está um exemplo de uma entrada de `PoolResizeCompleteEvent` em um arquivo de log `PT1H.json`. Ele inclui informações sobre o número atual e o destino de nós dedicados e de baixa prioridade, bem como a hora de início e de término da operação:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [registos de diagnóstico do Azure de arquivo](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). Para aceder programaticamente aos registos na sua conta de armazenamento, utilize as APIs de armazenamento. 
+Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [registos de diagnóstico do Azure de arquivo](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Para aceder programaticamente aos registos na sua conta de armazenamento, utilize as APIs de armazenamento. 
 
 ### <a name="service-log-events"></a>Eventos de registo do serviço
 O Azure Batch registos do serviço, se recolhidos, conter eventos emitidos pelo serviço Azure Batch durante a duração de um recurso individual do Batch, como um conjunto ou tarefas. Cada evento emitido pelo Batch é registado no formato JSON. Por exemplo, este é o corpo de uma amostra **eventos de criação de conjunto**:
@@ -180,7 +180,7 @@ O serviço Batch emite atualmente os seguintes eventos de registo do serviço. E
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.
 * Saiba mais sobre [monitorizar soluções de Batch](monitoring-overview.md).

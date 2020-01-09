@@ -3,18 +3,18 @@ title: Habilitar o diagnóstico nos serviços de nuvem do Azure usando o PowerSh
 description: Saiba como habilitar o diagnóstico para serviços de nuvem usando o PowerShell
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: gwallace
-ms.openlocfilehash: f2b7e51971cc2e540ee7745b3b44571c58359613
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.author: tagore
+ms.openlocfilehash: 76cdffed813fd182980b36f848e0ae42f3226539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386549"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Habilitar o diagnóstico nos serviços de nuvem do Azure usando o PowerShell
 Você pode coletar dados de diagnóstico como logs de aplicativo, contadores de desempenho, etc. de um serviço de nuvem usando a extensão Diagnóstico do Azure. Este artigo descreve como habilitar a extensão de Diagnóstico do Azure para um serviço de nuvem usando o PowerShell.  Consulte [como instalar e configurar Azure PowerShell](/powershell/azure/overview) para os pré-requisitos necessários para este artigo.
@@ -37,7 +37,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig)
 ```
 
-Se o arquivo de configuração de diagnóstico `StorageAccount` especificar um elemento com um nome de conta de `New-AzureServiceDiagnosticsExtensionConfig` armazenamento, o cmdlet usará automaticamente essa conta de armazenamento. Para que isso funcione, a conta de armazenamento precisa estar na mesma assinatura que o serviço de nuvem que está sendo implantado.
+Se o arquivo de configuração de diagnóstico especificar um elemento `StorageAccount` com um nome de conta de armazenamento, o cmdlet `New-AzureServiceDiagnosticsExtensionConfig` usará automaticamente essa conta de armazenamento. Para que isso funcione, a conta de armazenamento precisa estar na mesma assinatura que o serviço de nuvem que está sendo implantado.
 
 Do SDK do Azure 2,6 em diante, os arquivos de configuração de extensão gerados pela saída de destino de publicação do MSBuild incluirão o nome da conta de armazenamento com base na cadeia de configuração de diagnóstico especificada no arquivo de configuração de serviço (. cscfg). O script a seguir mostra como analisar os arquivos de configuração de extensão da saída de destino de publicação e configurar a extensão de diagnóstico para cada função ao implantar o serviço de nuvem.
 
@@ -121,7 +121,7 @@ Para desativar o diagnóstico em um serviço de nuvem, você pode usar o cmdlet 
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Se você habilitou a extensão de diagnóstico usando *set-AzureServiceDiagnosticsExtension* ou *New-AzureServiceDiagnosticsExtensionConfig* sem o parâmetro *role* , poderá remover a extensão usando  *Remove-AzureServiceDiagnosticsExtension* sem o parâmetro *role* . Se o parâmetro de *função* foi usado ao habilitar a extensão, ele também deve ser usado ao remover a extensão.
+Se você habilitou a extensão de diagnóstico usando *set-AzureServiceDiagnosticsExtension* ou *New-AzureServiceDiagnosticsExtensionConfig* sem o parâmetro *role* , poderá remover a extensão usando *Remove-AzureServiceDiagnosticsExtension* sem o parâmetro *role* . Se o parâmetro de *função* foi usado ao habilitar a extensão, ele também deve ser usado ao remover a extensão.
 
 Para remover a extensão de diagnóstico de cada função individual:
 
@@ -133,3 +133,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 * Para obter orientações adicionais sobre como usar o diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md).
 * O [esquema de configuração de diagnóstico](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 * Para saber como habilitar a extensão de diagnóstico para máquinas virtuais, consulte [criar uma máquina virtual do Windows com monitoramento e diagnóstico usando Azure Resource Manager modelo](../virtual-machines/windows/extensions-diagnostics-template.md)
+
+
+

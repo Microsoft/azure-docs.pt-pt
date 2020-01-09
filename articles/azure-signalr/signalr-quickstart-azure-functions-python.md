@@ -5,14 +5,14 @@ author: anthonychu
 ms.service: signalr
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/14/2019
 ms.author: antchu
-ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392129"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início rápido: criar uma sala de chat com Azure Functions e o serviço de Signalr usando o Python
 
@@ -24,11 +24,9 @@ Este início rápido pode ser executado no macOS, Windows ou Linux.
 
 Certifique-se de que tem um editor de código como o [Visual Studio Code](https://code.visualstudio.com/) instalado.
 
-Instale o [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2.7.1505 ou superior) para executar aplicativos do Azure function do Python localmente.
+Instale o [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2.7.1505 ou superior) para executar aplicativos do Azure function do Python localmente.
 
-Azure Functions requer [Python 3,6](https://www.python.org/downloads/).
-
-Para instalar as extensões, o Azure Functions Core Tools necessita que o [.NET Core SDK](https://www.microsoft.com/net/download) esteja instalado. No entanto, nenhum conhecimento do .NET é necessário para criar aplicativos de funções do Azure no Python.
+Azure Functions requer [Python 3,6 ou 3,7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,19 +52,19 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. No editor de código, abra a pasta *src/chat/Python* no repositório clonado.
 
-1. Para desenvolver e testar localmente funções Python, você deve trabalhar em um ambiente Python 3,6. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
+1. Para desenvolver e testar localmente funções Python, você deve trabalhar em um ambiente Python 3,6 ou 3,7. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
 
     **Linux ou macOS:**
 
     ```bash
-    python3.6 -m venv .venv
+    python3.7 -m venv .venv
     source .venv/bin/activate
     ```
 
     **Windows:**
 
     ```powershell
-    py -3.6 -m venv .venv
+    py -3.7 -m venv .venv
     .venv\scripts\activate
     ```
 
@@ -79,10 +77,10 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
 
-1. No terminal, verifique se você está na pasta *src/chat/Python* . Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
+1. No terminal com o ambiente virtual ativado, verifique se você está na pasta *src/chat/Python* . Instale os pacotes python necessários usando PIP.
 
     ```bash
-    func extensions install
+    python -m pip install -r requirements.txt
     ```
 
 1. Execute a aplicação de funções.

@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f643d26e48dce0d2ee8718ac54bbd4bc8a248ab
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4111945d11fd9b42ae8a7daba9ec993a875a5fd0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423720"
 ---
 # <a name="protected-web-api---move-to-production"></a>API Web protegida-mover para produção
 
@@ -36,7 +36,12 @@ Saiba como chamar APIs downstream:
 > [!div class="nextstepaction"]
 > [Cenário-API da Web chama APIS downstream](scenario-web-api-call-api-overview.md)
 
+
 Saiba mais com tutoriais e exemplos:
+
+
+> [!div class="nextstepaction"]
+> [Chamando uma API protegida usando o daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
 > [Tutorial da API Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)

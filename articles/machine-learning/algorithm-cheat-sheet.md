@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516295"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530787"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Roteiro de Machine Learning de algoritmo para Azure Machine Learning designer
 
@@ -56,10 +56,10 @@ No reforço Learning, o algoritmo Obtém a escolha de uma ação em resposta a c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre o estúdio em Azure Machine Learning e o portal do Azure](service/overview-what-is-azure-ml.md).
+* [Saiba mais sobre o estúdio em Azure Machine Learning e o portal do Azure](overview-what-is-azure-ml.md).
 
 * Consulte uma lista de algoritmos e módulos no [algoritmo e referência de módulo](algorithm-module-reference/module-reference.md).
 
 * [Tutorial: criar um modelo de previsão no designer de Azure Machine Learning](service/ui-tutorial-automobile-price-train-score.md).
 
-* [Saiba mais sobre aprendizado profundo versus aprendizado de máquina](service/concept-deep-learning-vs-machine-learning.md).
+* [Saiba mais sobre aprendizado profundo versus aprendizado de máquina](concept-deep-learning-vs-machine-learning.md).

@@ -11,7 +11,7 @@ author: FrancescaLazzeri
 ms.date: 11/04/2019
 ms.openlocfilehash: cfcf63274fc4bd77e7cb8fd792ed7d2782b36003
 ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/28/2019
 ms.locfileid: "75541247"

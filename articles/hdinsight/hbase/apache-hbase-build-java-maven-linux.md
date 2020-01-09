@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311702"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495793"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para o Apache HBase
 
@@ -36,6 +36,7 @@ As etapas neste documento usam o [Apache Maven](https://maven.apache.org/) para 
 * Um editor de texto. Este artigo usa o bloco de notas da Microsoft.
 
 ## <a name="test-environment"></a>Ambiente de teste
+
 O ambiente usado para este artigo foi um computador que executa o Windows 10.  Os comandos foram executados em um prompt de comando e os vários arquivos foram editados com o bloco de notas. Modifique de acordo com o seu ambiente.
 
 Em um prompt de comando, insira os comandos abaixo para criar um ambiente de trabalho:
@@ -56,13 +57,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    Esse comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho para `hbaseapp`. O terceiro comando cria um novo diretório, `conf`, que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
+    Este comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho para `hbaseapp`. O terceiro comando cria um novo diretório, `conf`, que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
 
-    * `pom.xml`: o[POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(modelo de objeto de projeto) contém informações e detalhes de configuração usados para compilar o projeto.
+    * `pom.xml`: o modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém informações e detalhes de configuração usados para compilar o projeto.
     * `src\main\java\com\microsoft\examples`: contém o código do aplicativo.
     * `src\test\java\com\microsoft\examples`: contém testes para seu aplicativo.
 
-2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java` e `App.java` inserindo os comandos abaixo:
+2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java`e `App.java` inserindo os comandos abaixo:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -71,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Atualizar o modelo de objeto do projeto
 
-Para obter uma referência completa do arquivo pom. xml, consulte https://maven.apache.org/pom.html.  Abra `pom.xml` digitando o comando a seguir:
+Para obter uma referência completa do arquivo pom. xml, consulte https://maven.apache.org/pom.html.  Abra `pom.xml` inserindo o comando abaixo:
 
 ```cmd
 notepad pom.xml
@@ -79,12 +80,12 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Adicionar dependências
 
-No `pom.xml`, adicione o seguinte texto na seção `<dependencies>`:
+Em `pom.xml`, adicione o seguinte texto na seção `<dependencies>`:
 
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -101,8 +102,8 @@ Esta seção indica que o projeto precisa dos componentes **HBase-Client** e **P
 
 | Versão do cluster HDInsight | Versão do Apache HBase a ser usada |
 | --- | --- |
-| 3,6 | 1.1.2 |
-| 4,0 | 2.0.0 |
+| 3.6 | 1.1.2 |
+| 4.0 | 2.0.0 |
 
 Para obter mais informações sobre versões e componentes do HDInsight, consulte [quais são os diferentes Apache Hadoop componentes disponíveis com o HDInsight](../hdinsight-component-versioning.md).
 
@@ -110,7 +111,7 @@ Para obter mais informações sobre versões e componentes do HDInsight, consult
 
 Os plug-ins do Maven permitem que você personalize os estágios de Build do projeto. Esta seção é usada para adicionar plug-ins, recursos e outras opções de configuração de compilação.
 
-Adicione o código a seguir ao arquivo `pom.xml` e salve e feche o arquivo. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
+Adicione o seguinte código ao arquivo de `pom.xml` e, em seguida, salve e feche o arquivo. Esse texto deve estar dentro das marcas de `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
 
 ```xml
 <build>
@@ -128,7 +129,7 @@ Adicione o código a seguir ao arquivo `pom.xml` e salve e feche o arquivo. Esse
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -160,9 +161,9 @@ Adicione o código a seguir ao arquivo `pom.xml` e salve e feche o arquivo. Esse
 Esta seção configura um recurso (`conf/hbase-site.xml`) que contém informações de configuração para o HBase.
 
 > [!NOTE]  
-> Você também pode definir valores de configuração por meio de código. Consulte os comentários no exemplo `CreateTable`.
+> Você também pode definir valores de configuração por meio de código. Consulte os comentários no exemplo de `CreateTable`.
 
-Esta seção também configura o [plug-in do compilador Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/) e o [plug-in de sombreamento Apache Maven](https://maven.apache.org/plugins/maven-shade-plugin/). O plug-in do compilador é usado para compilar a topologia. O plug-in de sombreamento é usado para impedir a duplicação de licença no pacote JAR criado pelo Maven. Esse plug-in é usado para impedir um erro de "arquivos de licença duplicados" no tempo de execução no cluster HDInsight. Usar o plug-in Maven-Shad-plugin com a implementação `ApacheLicenseResourceTransformer` impede o erro.
+Esta seção também configura o [plug-in do compilador Apache Maven](https://maven.apache.org/plugins/maven-compiler-plugin/) e o [plug-in de sombreamento Apache Maven](https://maven.apache.org/plugins/maven-shade-plugin/). O plug-in do compilador é usado para compilar a topologia. O plug-in de sombreamento é usado para impedir a duplicação de licença no pacote JAR criado pelo Maven. Esse plug-in é usado para impedir um erro de "arquivos de licença duplicados" no tempo de execução no cluster HDInsight. Usar o plug-in Maven-Shad-plugin com a implementação de `ApacheLicenseResourceTransformer` impede o erro.
 
 O plug-in do Maven-Shad-plugin também produz um jar Uber que contém todas as dependências exigidas pelo aplicativo.
 
@@ -390,7 +391,7 @@ A classe `DeleteTable` limpa as tabelas do HBase criadas neste exemplo desabilit
 2. Quando o comando for concluído, o diretório `hbaseapp/target` conterá um arquivo chamado `hbaseapp-1.0-SNAPSHOT.jar`.
 
    > [!NOTE]  
-   > O arquivo `hbaseapp-1.0-SNAPSHOT.jar` é um jar Uber. Ele contém todas as dependências necessárias para executar o aplicativo.
+   > O arquivo de `hbaseapp-1.0-SNAPSHOT.jar` é um jar Uber. Ele contém todas as dependências necessárias para executar o aplicativo.
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Carregar o JAR e executar trabalhos (SSH)
 
@@ -408,7 +409,7 @@ As etapas a seguir usam `scp` para copiar o JAR para o nó principal primário d
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Para criar uma tabela do HBase usando o aplicativo Java, use o seguinte comando em sua conexão SSH aberta:
+3. Para criar uma tabela do HBase usando o aplicativo Java, use o seguinte comando em sua conexão SSH aberta:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -645,7 +646,7 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
    * **Add-HDInsightFile** -usado para carregar arquivos no cluster
    * **Start-HBaseExample** -usado para executar as classes criadas anteriormente
 
-2. Salve o arquivo `hbase-runner.psm1` no diretório `hbaseapp`.
+2. Salve o arquivo de `hbase-runner.psm1` no diretório `hbaseapp`.
 
 3. Registre os módulos com Azure PowerShell. Abra uma nova janela de Azure PowerShell e edite o comando abaixo, substituindo `CLUSTERNAME` pelo nome do cluster. Em seguida, insira os seguintes comandos:
 
@@ -655,13 +656,13 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
     Import-Module .\hbase-runner.psm1
     ```
 
-4. Use o comando a seguir para carregar o `hbaseapp-1.0-SNAPSHOT.jar` em seu cluster.
+4. Use o comando a seguir para carregar o `hbaseapp-1.0-SNAPSHOT.jar` para o cluster.
 
     ```powershell
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName $myCluster
     ```
 
-    Quando solicitado, insira o nome de logon do cluster (admin) e a senha. O comando carrega o `hbaseapp-1.0-SNAPSHOT.jar` no local `example/jars` no armazenamento primário para o cluster.
+    Quando solicitado, insira o nome de logon do cluster (admin) e a senha. O comando carrega o `hbaseapp-1.0-SNAPSHOT.jar` para o local de `example/jars` no armazenamento primário do cluster.
 
 5. Para criar uma tabela usando o `hbaseapp`, use o seguinte comando:
 
@@ -681,7 +682,7 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
 
     Quando solicitado, insira o nome de logon do cluster (admin) e a senha.
 
-    Esse comando usa a classe `SearchByEmail` para pesquisar quaisquer linhas em que a família de colunas `contactinformation` e a coluna `email` contenham a cadeia de caracteres `contoso.com`. Você deve receber os seguintes resultados:
+    Esse comando usa a classe `SearchByEmail` para pesquisar quaisquer linhas em que a família de colunas `contactinformation` e a coluna `email`, contenham a cadeia de caracteres `contoso.com`. Você deve receber os seguintes resultados:
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2

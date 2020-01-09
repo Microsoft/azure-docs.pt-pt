@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 3577c97b55baebe08ca4020b0c570160d551dfd3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371212"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -95,7 +95,7 @@ Para aplicativos Web altamente disponíveis, você deve posicionar suas VMs por 
 ## <a name="next-steps"></a>Passos seguintes
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre como criar ambientes mais detalhados nos seguintes artigos:
 
-* [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+* [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
 * [Visão geral de Azure Resource Manager para balanceadores de carga](../../load-balancer/load-balancer-arm.md)
 

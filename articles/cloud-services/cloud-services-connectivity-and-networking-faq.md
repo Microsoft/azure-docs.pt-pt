@@ -1,5 +1,6 @@
 ---
-title: Problemas de conectividade e rede para Serviços de Nuvem do Microsoft Azure perguntas frequentes | Microsoft Docs
+title: Problemas de conectividade e rede
+titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre conectividade e rede para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386753"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividade e rede para serviços de nuvem do Azure: Perguntas frequentes (FAQs)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividade e rede para serviços de nuvem do Azure: perguntas frequentes (FAQs)
 
 Este artigo inclui perguntas frequentes sobre problemas de conectividade e rede para os [serviços de nuvem do Azure](https://azure.microsoft.com/services/cloud-services). Para obter informações de tamanho, consulte a [página tamanho da VM dos serviços de nuvem](cloud-services-sizes-specs.md).
 
@@ -64,14 +65,14 @@ O algoritmo de distribuição usado é um hash de 5 tuplas (IP de origem, porta 
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Como posso redirecionar o tráfego de entrada para a URL padrão do meu serviço de nuvem para uma URL personalizada?
 
-O módulo de reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega à URL padrão para o serviço de \*nuvem (por exemplo,. cloudapp.net) para algum nome/URL personalizado. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no Web. config do aplicativo, ela está sempre disponível na VM, independentemente das reinicializações/recriações de imagem. Para obter mais informações, consulte:
+O módulo de reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega à URL padrão para o serviço de nuvem (por exemplo, \*. cloudapp.net) para algum nome/URL personalizado. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no Web. config do aplicativo, ela está sempre disponível na VM, independentemente das reinicializações/recriações de imagem. Para obter mais informações, consulte:
 
 - [Criar regras de reescrita para o módulo de reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remover um link padrão](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem?
 
-Você pode impedir o tráfego de entrada para a URL/nome padrão do seu serviço de nuvem ( \*por exemplo,. cloudapp.net). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo,\.www MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
+Você pode impedir o tráfego de entrada para a URL/nome padrão do seu serviço de nuvem (por exemplo, \*. cloudapp.net). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo, www\.MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

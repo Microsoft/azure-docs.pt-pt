@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registro do Docker privado no regist
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455213"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611241"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: criar um registro de contêiner privado usando o portal do Azure
 
@@ -23,7 +23,7 @@ Também tem de ter o Docker instalado localmente. O Docker disponibiliza pacotes
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
 
 Selecione **Criar um recurso** > **Contentores** > **Container Registry**.
 
@@ -43,7 +43,7 @@ Anote o valor do **servidor de logon**. Você usa esse valor nas etapas a seguir
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
-Antes de emitir e solicitar imagens de contentor, tem de iniciar sessão na instância do ACR. Abra um shell de comando em seu sistema operacional e use o comando [AZ ACR login][az-acr-login] no CLI do Azure.
+Antes de emitir e solicitar imagens de contentor, tem de iniciar sessão na instância do ACR. Abra um shell de comando em seu sistema operacional e use o comando [AZ ACR login][az-acr-login] no CLI do Azure. (Especifique somente o nome do contêiner. Não incluir ' azurecr.io ')
 
 ```azurecli
 az acr login --name <acrName>

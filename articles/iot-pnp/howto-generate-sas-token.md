@@ -3,17 +3,17 @@ title: Gerar token de segurança para acessar o repositório do IoT Plug and Pla
 description: Gere um token de assinatura de acesso compartilhado para usar ao acessar um repositório de modelo de visualização de Plug and Play de IoT programaticamente.
 author: Philmea
 ms.author: philmea
-ms.date: 08/06/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2530c5b3561ad90eac0556770a8a356cfaa6a52c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976031"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531292"
 ---
 # <a name="generate-sas-token"></a>Gerar token SAS
 

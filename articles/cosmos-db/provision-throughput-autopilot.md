@@ -6,21 +6,21 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2259343d2c7bca1f60a5256efcd572e6cc21b565
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a744ac2574f54b0c2934d440ddf5c48e54304595
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445119"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Criar contêineres e bancos de dados do Azure Cosmos no modo de piloto automático (versão prévia)
 
-Azure Cosmos DB permite provisionar a taxa de transferência em seus contêineres no modo manual ou automático. Este artigo descreve os benefícios e casos de uso do modo AutoPilot.
+O Azure Cosmos DB permite-lhe aprovisionar o débito nos contentores no modo manual ou Autopilot. Este artigo descreve os benefícios e casos de utilização do modo Autopilot.
 
 > [!NOTE]
-> O modo AutoPilot está disponível atualmente na visualização pública. Para habilitar o recurso de piloto automático para sua conta do Azure Cosmos, consulte a seção [habilitar AutoPilot](#enable-autopilot) deste artigo. Você pode habilitar o AutoPilot somente para novos bancos de dados e contêineres, ele não está disponível para contêineres e bancos de dados existentes.
+> O modo AutoPilot está disponível atualmente na visualização pública. Você pode [habilitar o AutoPilot somente para novos bancos de dados e contêineres](#create-a-database-or-a-container-with-autopilot-mode) . Ele não está disponível para contêineres e bancos de dados existentes.
 
-Além do provisionamento manual da taxa de transferência, agora você pode configurar contêineres do cosmos do Azure no modo AutoPilot. Os contêineres de Cosmos do Azure e os bancos de dados configurados no modo de piloto automático irão **dimensionar automaticamente e de forma instantânea a taxa de transferência provisionada com base nas necessidades do seu aplicativo sem comprometer os SLAs.**
+Além do aprovisionamento manual do débito, agora pode configurar os contentores do Azure Cosmos no modo Autopilot. Os contêineres de Cosmos do Azure e os bancos de dados configurados no modo de piloto automático irão **dimensionar automaticamente e de forma instantânea a taxa de transferência provisionada com base nas necessidades do seu aplicativo sem comprometer os SLAs.**
 
 Você não precisa mais gerenciar manualmente a taxa de transferência provisionada ou manipular problemas de limitação de taxa. Os contêineres de Cosmos do Azure configurados no modo AutoPilot podem ser redimensionados instantaneamente em resposta à carga de trabalho sem afetar a disponibilidade, a latência, a taxa de transferência ou o desempenho da carga de trabalho globalmente. Sob alta utilização, os contêineres de Cosmos do Azure configurados no modo de piloto automático podem ser escalados ou reduzidos verticalmente sem afetar as operações em andamento.
 
@@ -68,31 +68,21 @@ As soluções para os problemas anteriores não só exigem uma enorme quantidade
 | **Preços** | O provisionamento manual de RU/s por hora. | Para contas de região de gravação única, você paga pela taxa de transferência usada por hora, usando o AutoPilot RU/s por hora. <br/><br/>Para contas com várias regiões de gravação, não há nenhum custo adicional para o piloto automático. Você paga pela taxa de transferência usada por hora usando a mesma tarifa de RU/s de vários mestres por hora. |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a id="enable-autopilot"></a>Habilitar o AutoPilot de portal do Azure
-
-Você pode experimentar o AutoPilot em suas contas do Azure Cosmos habilitando o no portal do Azure. Use as etapas a seguir para habilitar a opção AutoPilot:
-
-1. Entre no [portal do Azure.](https://portal.azure.com)
-
-2. Navegue até sua conta do Azure Cosmos e abra a guia **novos recursos** . Selecione **piloto automático** e **registrar** conforme mostrado na seguinte captura de tela:
-
-![Criar um contêiner no modo AutoPilot](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
-
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Criar um banco de dados ou um contêiner com o modo de piloto automático
 
-Você pode configurar o AutoPilot para bancos de dados ou contêineres ao criá-los. Use as etapas a seguir para um novo banco de dados ou contêiner, habilite o AutoPilot e especifique a taxa de transferência máxima.
+Você pode configurar o AutoPilot para novos bancos de dados ou contêineres ao criá-los por meio do portal do Azure. Use as etapas a seguir para criar um novo banco de dados ou contêiner, habilitar o AutoPilot e especificar a taxa de transferência máxima (RU/s).
 
 1. Entre no [portal do Azure](https://portal.azure.com) ou no [Azure Cosmos Explorer.](https://cosmos.azure.com/)
 
 1. Navegue até sua conta do Azure Cosmos e abra a guia **Data Explorer** .
 
-1. Selecione **novo contêiner**, insira um nome para o contêiner, uma chave de partição. Selecione a opção **AutoPilot** e escolha a taxa de transferência máxima que o contêiner não pode exceder ao usar a opção AutoPilot.
+1. Selecione **novo contêiner.** Insira um nome para seu banco de dados, contêiner e uma chave de partição. Selecione a opção **AutoPilot** e escolha a taxa de transferência máxima (ru/s) que o banco de dados ou o contêiner não pode exceder ao usar a opção AutoPilot.
 
    ![Criar um contêiner no modo AutoPilot](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
-1. Selecione **OK**
+1. Selecione **OK**.
 
-Com etapas semelhantes, você também pode criar um banco de dados com taxa de transferência provisionada no modo AutoPilot.
+Você pode criar um banco de dados de produtividade compartilhado com o modo AutoPilot selecionando a opção **provisionar taxa de transferência de banco de dados** .
 
 ## <a id="autopilot-limits"></a>Taxa de transferência e limites de armazenamento para o piloto automático
 
@@ -107,6 +97,7 @@ A tabela a seguir mostra o máximo em todo e os limites de armazenamento para di
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Examine as [perguntas frequentes do AutoPilot](autopilot-faq.md).
 * Saiba mais sobre [partições lógicas](partition-data.md).
 * Saiba como [provisionar a taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
 * Saiba como [provisionar a taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).

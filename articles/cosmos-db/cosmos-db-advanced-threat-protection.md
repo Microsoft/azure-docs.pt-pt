@@ -3,19 +3,19 @@ title: Proteção avançada contra ameaças para Azure Cosmos DB
 description: Saiba como Azure Cosmos DB fornece criptografia de dados em repouso e como ele é implementado.
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445536"
 ---
-# <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
+# <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada contra ameaças para Azure Cosmos DB (versão prévia)
 
 A proteção avançada contra ameaças para Azure Cosmos DB fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de Azure Cosmos DB. Essa camada de proteção permite que você resolva as ameaças, mesmo sem ser um especialista em segurança, e integre-as aos sistemas de monitoramento de segurança central.
 
@@ -27,6 +27,14 @@ Os alertas de segurança são disparados quando ocorrem anomalias na atividade. 
 > * A proteção avançada contra ameaças para Azure Cosmos DB não está disponível no momento nas regiões do Azure governamental e soberanas Cloud.
 
 Para uma experiência de investigação completa dos alertas de segurança, recomendamos habilitar o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), que registra as operações no próprio banco de dados, incluindo operações CRUD em todos os documentos, contêineres e bancos de dados.
+
+## <a name="threat-types"></a>Tipos de ameaças
+
+A proteção avançada contra ameaças para Azure Cosmos DB detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados. Atualmente, ele pode disparar os seguintes alertas:
+
+- **Acesso de locais incomuns**: esse alerta é disparado quando há uma alteração no padrão de acesso para uma conta do Azure Cosmos, em que alguém se conectou ao ponto de extremidade de Azure Cosmos DB de uma localização geográfica incomum. Em alguns casos, o alerta detecta uma ação legítima, o que significa uma nova operação de manutenção do aplicativo ou do desenvolvedor. Em outros casos, o alerta detecta uma ação mal-intencionada de um funcionário antigo, invasor externo, etc.
+
+- **Extração de dados incomum**: esse alerta é disparado quando um cliente está extraindo uma quantidade incomum de dados de uma conta de Azure Cosmos DB. Isso pode ser o sintoma de alguns dados vazamento executados para transferir todos os dados armazenados na conta para um repositório de dados externo.
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurar a proteção avançada contra ameaças
 
@@ -41,7 +49,7 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 3. Na folha configuração de **segurança avançada** :
 
     * Clique na opção **proteção avançada contra ameaças** para defini-la como **ativada**.
-    * Clique em **salvar** para salvar a política de proteção avançada contra ameaças nova ou atualizada.   
+    * Clique em **Guardar** para guardar a política do Advanced Threat Protection nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP usando a API REST
 
@@ -101,5 +109,5 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
+* Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
 * Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

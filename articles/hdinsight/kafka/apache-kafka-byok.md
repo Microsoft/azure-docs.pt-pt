@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 12/09/2019
+ms.openlocfilehash: b4a6ef4a8559276ea1f74e133055a613ddcbcab4
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71122689"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495150"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Traga sua própria chave para Apache Kafka no Azure HDInsight
 
@@ -27,7 +27,9 @@ Todas as mensagens para o cluster Kafka (incluindo réplicas mantidas por Kafka)
 Você pode usar o portal do Azure ou CLI do Azure para girar com segurança as chaves no cofre de chaves. Quando uma tecla gira, o cluster HDInsight Kafka começa a usar a nova chave em minutos. Habilite os recursos de proteção de chave de "exclusão reversível" para proteger contra cenários de ransomware e exclusão acidental. Não há suporte para cofres de chaves sem esse recurso de proteção.
 
 ## <a name="get-started-with-byok"></a>Introdução ao BYOK
+
 Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes etapas:
+
 1. Criar identidades gerenciadas para recursos do Azure
 2. Configurar Azure Key Vault e chaves
 3. Criar cluster HDInsight Kafka com BYOK habilitado
@@ -35,116 +37,117 @@ Para criar um cluster Kafka habilitado para BYOK, vamos percorrer as seguintes e
 
 ## <a name="create-managed-identities-for-azure-resources"></a>Criar identidades gerenciadas para recursos do Azure
 
-   Para autenticar no Key Vault, crie uma identidade gerenciada atribuída pelo usuário usando o [portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)ou [CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obter mais informações sobre como as identidades gerenciadas funcionam no Azure HDInsight, consulte [identidades gerenciadas no Azure hdinsight](../hdinsight-managed-identities.md). Embora o Azure Active Directory seja necessário para identidades gerenciadas e BYOK para Kafka, a Enterprise Security Package (ESP) não é um requisito. Certifique-se de salvar a ID de recurso de identidade gerenciada para quando adicioná-la à política de acesso de Key Vault.
+Para autenticar no Key Vault, crie uma identidade gerenciada atribuída pelo usuário usando o [portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)ou [CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Para obter mais informações sobre como as identidades gerenciadas funcionam no Azure HDInsight, consulte [identidades gerenciadas no Azure hdinsight](../hdinsight-managed-identities.md). Embora o Azure Active Directory seja necessário para identidades gerenciadas e BYOK para Kafka, a Enterprise Security Package (ESP) não é um requisito. Certifique-se de salvar a ID de recurso de identidade gerenciada para quando adicioná-la à política de acesso de Key Vault.
 
-   ![Criar identidade gerenciada atribuída pelo usuário no portal do Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
+![Criar identidade gerenciada atribuída pelo usuário no portal do Azure](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-## <a name="setup-the-key-vault-and-keys"></a>Configurar o Key Vault e as chaves
+## <a name="set-up-the-key-vault-and-keys"></a>Configurar o Key Vault e as chaves
 
-   O HDInsight só dá suporte a Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para Azure Key Vault. Lembre-se de que as chaves devem ter "exclusão reversível". O recurso de "exclusão reversível" está disponível por meio das interfacesC#REST, .net/, PowerShell e CLI do Azure.
+O HDInsight só dá suporte a Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para Azure Key Vault. Lembre-se de que as chaves devem ter "exclusão reversível". O recurso de "exclusão reversível" está disponível por meio das interfacesC#REST, .net/, PowerShell e CLI do Azure.
 
-   1. Para criar um novo cofre de chaves, siga o guia de início rápido do [Azure Key Vault](../../key-vault/key-vault-overview.md) . Para obter mais informações sobre como importar chaves existentes, visite [sobre chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md).
+1. Para criar um novo cofre de chaves, siga o guia de início rápido do [Azure Key Vault](../../key-vault/key-vault-overview.md) . Para obter mais informações sobre como importar chaves existentes, visite [sobre chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md).
 
-   2. Habilite a "exclusão reversível" no cofre de chaves usando o comando [AZ keyvault Update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) CLI.
+1. Habilite a "exclusão reversível" no cofre de chaves usando o comando [AZ keyvault Update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) CLI.
 
-        ```Azure CLI
-        az keyvault update --name <Key Vault Name> --enable-soft-delete
-        ```
+    ```azurecli
+    az keyvault update --name <Key Vault Name> --enable-soft-delete
+    ```
 
-   3. Criar chaves
+1. Criar chaves.
 
-        a. Para criar uma nova chave, selecione **gerar/importar** no menu **chaves** em **configurações**.
+    a. Para criar uma nova chave, selecione **gerar/importar** no menu **chaves** em **configurações**.
 
-        ![Gerar uma nova chave no Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Gerar uma nova chave no Azure Key Vault")
+    ![Gerar uma nova chave no Azure Key Vault](./media/apache-kafka-byok/kafka-create-new-key.png "Gerar uma nova chave no Azure Key Vault")
 
-        b. Defina **as opções** para **gerar** e dar um nome à chave.
+    b. Defina **as opções** para **gerar** e dar um nome à chave.
 
-        ![Apache Kafka gerar nome da chave](./media/apache-kafka-byok/apache-kafka-create-key.png "Gerar nome da chave")
+    ![O Apache Kafka gera o nome da chave](./media/apache-kafka-byok/apache-kafka-create-key.png "Gerar nome da chave")
 
-        c. Selecione a chave que você criou na lista de chaves.
+    c. Selecione a chave que você criou na lista de chaves.
 
-        ![Lista de chaves do Apache Kafka Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+    ![Lista de chaves do Apache Kafka Key Vault](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
-        d. Ao usar sua própria chave para a criptografia de cluster Kafka, você precisa fornecer o URI de chave. Copie o **identificador de chave** e salve-o em algum lugar até que você esteja pronto para criar o cluster.
+    d. Ao usar sua própria chave para a criptografia de cluster Kafka, você precisa fornecer o URI de chave. Copie o **identificador de chave** e salve-o em algum lugar até que você esteja pronto para criar o cluster.
 
-        ![Identificador de chave Get do Apache Kafka](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+    ![Identificador de chave Get do Apache Kafka](./media/apache-kafka-byok/kafka-get-key-identifier.png)
 
-    4. Adicione identidade gerenciada à política de acesso do cofre de chaves.
+1. Adicione identidade gerenciada à política de acesso do cofre de chaves.
 
-        a. Crie uma nova política de acesso de Azure Key Vault.
+    a. Crie uma nova política de acesso de Azure Key Vault.
 
-        ![Criar nova política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+    ![Criar nova política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy.png)
 
-        b. Em **selecionar entidade de segurança**, escolha a identidade gerenciada atribuída pelo usuário que você criou.
+    b. Em **selecionar entidade de segurança**, escolha a identidade gerenciada atribuída pelo usuário que você criou.
 
-        ![Defina selecionar entidade de segurança para política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
+    ![Defina selecionar entidade de segurança para política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
-        c. Defina **as permissões de chave** para **obter**, **desencapsular chave**e **encapsular chave**.
+    c. Defina **as permissões de chave** para **obter**, **desencapsular chave**e **encapsular chave**.
 
-        ![Definir permissões de chave para Azure Key Vault acesso Policy1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Definir permissões de chave para Azure Key Vault acesso Policy1")
+    ![Definir permissões de chave para Azure Key Vault acesso Policy1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Definir permissões de chave para Azure Key Vault acesso Policy1")
 
-        d. Defina **as permissões secretas** para **obter**, **definir**e **excluir**.
+    d. Defina **as permissões secretas** para **obter**, **definir**e **excluir**.
 
-        ![Definir permissões de chave para policy2 acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Definir permissões de chave para policy2 acesso de Azure Key Vault")
+    ![Definir permissões de chave para policy2 acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Definir permissões de chave para policy2 acesso de Azure Key Vault")
 
-        e. Clique em **Guardar**. 
+    e. Selecione **Guardar**.
 
-        ![Salvar política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
+    ![Salvar política de acesso de Azure Key Vault](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
 ## <a name="create-hdinsight-cluster"></a>Criar cluster HDInsight
 
-   Agora você está pronto para criar um novo cluster HDInsight. BYOK só pode ser aplicado a novos clusters durante a criação do cluster. A criptografia não pode ser removida dos clusters BYOK e BYOK não pode ser adicionado a clusters existentes.
+Agora você está pronto para criar um novo cluster HDInsight. BYOK só pode ser aplicado a novos clusters durante a criação do cluster. A criptografia não pode ser removida dos clusters BYOK e BYOK não pode ser adicionado a clusters existentes.
 
-   ![Kafka a criptografia de disco no portal do Azure](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
+![Kafka a criptografia de disco no portal do Azure](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
-   Durante a criação do cluster, forneça a URL de chave completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
+Durante a criação do cluster, forneça a URL de chave completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
 
 ## <a name="rotating-the-encryption-key"></a>Girando a chave de criptografia
 
-   Pode haver cenários em que você talvez queira alterar as chaves de criptografia usadas pelo cluster Kafka depois que ele tiver sido criado. Isso pode ser facilmente por meio do Portal. Para essa operação, o cluster deve ter acesso à chave atual e à nova chave pretendida, caso contrário, a operação de rotação de teclas falhará.
+Pode haver cenários em que você talvez queira alterar as chaves de criptografia usadas pelo cluster Kafka depois que ele tiver sido criado. Isso pode ser facilmente por meio do Portal. Para essa operação, o cluster deve ter acesso à chave atual e à nova chave pretendida, caso contrário, a operação de rotação de teclas falhará.
 
-   Para girar a chave, você deve ter a URL completa da nova chave (consulte a etapa 3 de [Configurar o Key Vault e as chaves](#setup-the-key-vault-and-keys)). Depois de fazer isso, vá para a seção Propriedades do cluster Kafka no portal e clique em **alterar chave** em **URL da chave de criptografia do disco**. Insira na nova URL de chave e envie para girar a chave.
+Para girar a chave, você deve ter a URL completa da nova chave (consulte a etapa 3 de [Configurar o Key Vault e as chaves](#set-up-the-key-vault-and-keys)). Depois disso, vá para a seção Propriedades do cluster Kafka no portal e clique em **alterar chave** em URL da **chave de criptografia do disco**. Insira na nova URL de chave e envie para girar a chave.
 
-   ![Kafka girar a chave de criptografia de disco](./media/apache-kafka-byok/apache-kafka-change-key.png)
+![Kafka girar a chave de criptografia de disco](./media/apache-kafka-byok/apache-kafka-change-key.png)
 
 ## <a name="faq-for-byok-to-apache-kafka"></a>Perguntas frequentes sobre BYOK para Apache Kafka
 
 **Como o cluster Kafka acessa meu cofre de chaves?**
 
-   Associe uma identidade gerenciada ao cluster HDInsight Kafka durante a criação do cluster. Essa identidade gerenciada pode ser criada antes ou durante a criação do cluster. Você também precisa conceder o acesso de identidade gerenciada ao cofre de chaves em que a chave está armazenada.
+Associe uma identidade gerenciada ao cluster HDInsight Kafka durante a criação do cluster. Essa identidade gerenciada pode ser criada antes ou durante a criação do cluster. Você também precisa conceder o acesso de identidade gerenciada ao cofre de chaves em que a chave está armazenada.
 
 **Esse recurso está disponível para todos os clusters do Kafka no HDInsight?**
 
-   A criptografia BYOK só é possível para clusters Kafka 1,1 e superiores.
+A criptografia BYOK só é possível para clusters Kafka 1,1 e superiores.
 
 **Posso ter chaves diferentes para diferentes tópicos/partições?**
 
-   Não, todos os discos gerenciados no cluster são criptografados pela mesma chave.
+Não, todos os discos gerenciados no cluster são criptografados pela mesma chave.
 
 **O que acontecerá se o cluster perder o acesso ao cofre de chaves ou à chave?**
+
 Se o cluster perder o acesso à chave, os avisos serão mostrados no portal do Apache Ambari. Nesse estado, a operação de **alteração da chave** falhará. Depois que o acesso à chave for restaurado, os avisos Ambaris desaparecerão e as operações como a rotação de chaves poderão ser executadas com êxito.
 
-   ![Alerta de Ambari de acesso à chave Apache Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+![Alerta de Ambari de acesso à chave Apache Kafka](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **Como posso recuperar o cluster se as chaves forem excluídas?**
 
-   Como apenas as chaves habilitadas para "exclusão reversível" têm suporte, se as chaves forem recuperadas no cofre de chaves, o cluster deverá recuperar o acesso às chaves. Para recuperar uma chave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) ou [AZ-keyvault-Key-Recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Como apenas as chaves habilitadas para "exclusão reversível" têm suporte, se as chaves forem recuperadas no cofre de chaves, o cluster deverá recuperar o acesso às chaves. Para recuperar uma chave de Azure Key Vault, consulte [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) ou [AZ-keyvault-Key-Recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
 
 **Posso ter aplicativos produtor/consumidor trabalhando com um cluster BYOK e um cluster não BYOK simultaneamente?**
 
-   Sim. O uso de BYOK é transparente para aplicativos de produtor/consumidor. A criptografia ocorre na camada do sistema operacional. Não é necessário fazer alterações em aplicativos Kafka de produtor/consumidor existentes.
+Sim. O uso de BYOK é transparente para aplicativos de produtor/consumidor. A criptografia ocorre na camada do sistema operacional. Não é necessário fazer alterações em aplicativos Kafka de produtor/consumidor existentes.
 
 **OS discos de recursos/discos do sistema operacional também são criptografados?**
 
-   Não. Discos do sistema operacional e discos de recursos não são criptografados.
+Não. Discos do sistema operacional e discos de recursos não são criptografados.
 
 **Se um cluster for escalado verticalmente, os novos agentes terão suporte do BYOK diretamente?**
 
-   Sim. O cluster precisa de acesso à chave no cofre de chaves durante a expansão. A mesma chave é usada para criptografar todos os discos gerenciados no cluster.
+Sim. O cluster precisa de acesso à chave no cofre de chaves durante a expansão. A mesma chave é usada para criptografar todos os discos gerenciados no cluster.
 
 **O BYOK está disponível em meu local?**
 
-   Kafka BYOK está disponível em todas as nuvens públicas.
+Kafka BYOK está disponível em todas as nuvens públicas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

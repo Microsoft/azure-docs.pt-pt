@@ -1,26 +1,15 @@
 ---
-title: Adicionar um ponto final de HTTPS com o Kestrel a uma aplicação do Service Fabric no Azure | Microsoft Docs
+title: Adicionar um ponto de extremidade HTTPS usando Kestrel
 description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a um serviço Web de front-end de ASP.NET Core com o Kestrel e implementar a aplicação num cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: e38822e1d774cc32590a13239edb34d7a15e2d02
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545769"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614082"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 

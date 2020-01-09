@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895357"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526367"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Recuperação de desastres e failover de conta (versão prévia)
 
@@ -174,10 +174,11 @@ Tenha em mente que todos os dados armazenados em um disco temporário são perdi
 ### <a name="unsupported-features-or-services"></a>Recursos ou serviços sem suporte
 Os seguintes recursos ou serviços não têm suporte para failover de conta para a versão de visualização:
 
-- Sincronização de Arquivos do Azure não dá suporte ao failover da conta de armazenamento. As contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estão sendo usados como pontos de extremidade de nuvem no Sincronização de Arquivos do Azure não devem passar pelo failover. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas.  
+- Sincronização de Arquivos do Azure não dá suporte ao failover da conta de armazenamento. As contas de armazenamento que contêm partilhas de ficheiros do Azure e estão a ser utilizadas como pontos finais da cloud no Azure File Sync não devem efetuar a ativação pós-falha. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão.  
 - Não é possível fazer failover de uma conta de armazenamento contendo BLOBs arquivados. Manter BLOBs arquivados em uma conta de armazenamento separada que você não planeja fazer failover.
 - Não é possível fazer failover de uma conta de armazenamento contendo blobs de blocos Premium. As contas de armazenamento que dão suporte a blobs de blocos Premium atualmente não dão suporte à redundância geográfica.
-- Após a conclusão do failover, os seguintes recursos deixarão de funcionar se originalmente habilitados: [assinaturas de evento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), políticas de [ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) [análise de armazenamento log](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Não é possível fazer failover de uma conta de armazenamento contendo contêineres habilitados da [política de imutabilidade do worm](../blobs/storage-blob-immutable-storage.md) . A retenção baseada em tempo desbloqueada/bloqueada ou as políticas de manutenção legal impedem o failover para manter a conformidade.
+- Após a conclusão do failover, os recursos a seguir podem parar de funcionar se originalmente habilitados: [assinaturas de evento](../blobs/storage-blob-event-overview.md), [feed de alterações](../blobs/storage-blob-change-feed.md), políticas de ciclo de [vida](../blobs/storage-lifecycle-management-concepts.md)e [log de análise de armazenamento](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiando dados como uma alternativa ao failover
 

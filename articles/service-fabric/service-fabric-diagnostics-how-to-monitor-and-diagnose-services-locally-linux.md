@@ -1,27 +1,16 @@
 ---
-title: Depurar aplicativos Service Fabric do Azure no Linux | Microsoft Docs
+title: Depurar aplicativos Service Fabric do Azure no Linux
 description: Saiba como monitorar e diagnosticar seus serviços de Service Fabric em uma máquina de desenvolvimento local do Linux.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 017b359f4c6da438f5179813fa3ed1ad2c536834
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168867"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526299"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador local
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento de computador Linux local
 
 
 > [!div class="op_single_selector"]
@@ -35,9 +24,9 @@ O monitoramento, a detecção, o diagnóstico e a solução de problemas permite
 
 ## <a name="debugging-service-fabric-java-applications"></a>Depurando Service Fabric aplicativos Java
 
-Para aplicativos Java, [várias estruturas de log](https://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Como `java.util.logging` é a opção padrão com o JRE, ele também é usado para os [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão a seguir explica como configurar a estrutura `java.util.logging`.
+Para aplicativos Java, [várias estruturas de log](https://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Como `java.util.logging` é a opção padrão com o JRE, ele também é usado para os [exemplos de código no GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão a seguir explica como configurar o `java.util.logging` Framework.
 
-Usando Java. util. Logging, você pode redirecionar os logs do aplicativo para memória, fluxos de saída, arquivos de console ou soquetes. Para cada uma dessas opções, há manipuladores padrão já fornecidos na estrutura. Você pode criar um arquivo `app.properties` para configurar o manipulador de arquivo para seu aplicativo para redirecionar todos os logs para um arquivo local.
+Usando Java. util. Logging, você pode redirecionar os logs do aplicativo para memória, fluxos de saída, arquivos de console ou soquetes. Para cada uma dessas opções, há manipuladores padrão já fornecidos na estrutura. Você pode criar um arquivo de `app.properties` para configurar o manipulador de arquivo para seu aplicativo para redirecionar todos os logs para um arquivo local.
 
 O trecho de código a seguir contém uma configuração de exemplo:
 
@@ -51,14 +40,14 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-A pasta apontada pelo arquivo `app.properties` deve existir. Depois que o arquivo `app.properties` for criado, você também precisará modificar o script de ponto de entrada, `entrypoint.sh` na pasta `<applicationfolder>/<servicePkg>/Code/` para definir a propriedade `java.util.logging.config.file` para o arquivo `app.properties`. A entrada deve ser semelhante ao trecho a seguir:
+A pasta apontada pelo arquivo de `app.properties` deve existir. Depois que o arquivo de `app.properties` for criado, você também precisará modificar o script de ponto de entrada, `entrypoint.sh` na pasta `<applicationfolder>/<servicePkg>/Code/` para definir a propriedade `java.util.logging.config.file` para `app.properties` arquivo. A entrada deve ser semelhante ao trecho a seguir:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
 
-Essa configuração resulta em logs sendo coletados de modo rotativo em `/tmp/servicefabric/logs/`. Nesse caso, o arquivo de log é denominado mysfapp% u.% g. log, em que:
+Essa configuração resulta em logs sendo coletados de modo rotativo em `/tmp/servicefabric/logs/`. Nesse caso, o arquivo de log é denominado mysfapp% u .% g. log, em que:
 * **% u** é um número exclusivo para resolver conflitos entre processos Java simultâneos.
 * **% g** é o número de geração para distinguir entre logs de rotação.
 

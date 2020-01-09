@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489201"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494519"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -32,11 +32,11 @@ A visualização de dependências ajuda você a entender as dependências entre 
 
 Há duas opções para implantar a visualização de dependência:
 
-- **Visualização de dependência sem agente**: essa opção está atualmente em visualização. Ele não exige a instalação de agentes em computadores. 
+- **Visualização de dependência sem agente**: essa opção está atualmente em visualização e está disponível somente para VMs VMware. Ele não exige a instalação de agentes em computadores. 
     - Ele funciona capturando os dados de conexão TCP de computadores para os quais está habilitado. [Saiba mais](how-to-create-group-machine-dependencies-agentless.md).
 Depois que a descoberta de dependência é iniciada, o dispositivo reúne dados de computadores em um intervalo de sondagem de cinco minutos.
     - Os seguintes dados são coletados:
-        - Conexões TCP
+        - Ligações TCP
         - Nomes de processos que têm conexões ativas
         - Nomes de aplicativos instalados que executam os processos acima
         - Não. de conexões detectadas em cada intervalo de sondagem

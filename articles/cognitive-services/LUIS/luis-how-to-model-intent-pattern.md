@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448018"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
@@ -26,7 +26,27 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
 > [!CAUTION]
 > Os padrões incluem apenas pais de entidade aprendidas por computador, não subcomponentes.
 
-## <a name="add-template-utterance-to-create-pattern"></a>Adicionar a expressão de modelo para criar padrão
+## <a name="adding-example-utterances-as-pattern"></a>Adicionando declarações de exemplo como padrão
+
+Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ é criar o padrão na página de detalhes da intenção. Isso garante que a sintaxe corresponda ao exemplo expressão.
+
+1. No [portal do Luis de visualização](https://preview.luis.ai), selecione o aplicativo na página **meus aplicativos** .
+1. Na página lista de **tentativas** , selecione o nome da intenção do exemplo expressão para o qual você deseja criar um modelo expressão.
+1. Na página detalhes da intenção, selecione a linha do exemplo expressão que você deseja usar como o modelo expressão e, em seguida, selecione **+ Adicionar como padrão** na barra de ferramentas de contexto.
+
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela da seleção de exemplo expressão como um padrão de modelo na página de detalhes da intenção.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. Na caixa pop-up, selecione **concluído** na página **confirmar padrões** . Você não precisa definir os subcomponentes, restrições ou descritores das entidades. Você só precisa listar a entidade aprendida por computador.
+
+    > [!div class="mx-imgBorder"]
+    > ![captura de tela de confirmando o exemplo expressão como um padrão de modelo na página de detalhes da intenção.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. Se você precisar editar o modelo, como a seleção de texto como opcional, com os colchetes `[]` (quadrado), será necessário tornar essa edição de formulário a página **padrões** .
+
+1. Na barra de navegação, selecione **treinar** para treinar o aplicativo com o novo padrão.
+
+## <a name="add-template-utterance-using-correct-syntax"></a>Adicionar modelo expressão usando a sintaxe correta
 
 1. Abra a sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página e, em seguida, selecione **padrões** no painel esquerdo, em **melhorar o desempenho da aplicação**.
 

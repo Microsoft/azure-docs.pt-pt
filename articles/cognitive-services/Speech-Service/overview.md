@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c366beb80eda7087f1f74fffbcfbf8b143676f32
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ee8b32634c92b873e82f540f04b53429de93d808
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995903"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611099"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
-O serviço de fala é a Unificação de fala a texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
+O serviço de fala é a Unificação de fala para texto, conversão de texto em fala e tradução de fala em uma única assinatura do Azure. É fácil de fazer a fala habilitar seus aplicativos, ferramentas e dispositivos com o [SDK de fala](speech-sdk-reference.md), o [SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart)ou as [APIs REST](rest-apis.md).
 
 > [!IMPORTANT]
 > O serviço de fala substituiu API de Fala do Bing, Tradução de Fala e Fala Personalizada. Confira os guias de instruções _> migração_ para obter informações de migração.
@@ -32,7 +32,7 @@ Esses recursos compõem o serviço de fala. Use os links nesta tabela para saber
 |         | [Transcrição do lote](batch-transcription.md) | A transcrição em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados. Esse é um serviço baseado em REST, que usa o mesmo ponto de extremidade como personalização e gerenciamento de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
 |         | [Transcrição de conversa](conversation-transcription-service.md) | Habilita o reconhecimento de fala em tempo real, a identificação do orador e o diarization. É perfeito para transcrever reuniões presenciais com a capacidade de diferenciar os alto-falantes. | Sim | Não |
 |         | [Criar modelos de Fala Personalizada](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
-| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em voz | Conversão de texto em fala converte o texto de entrada em fala sintetizada por humanos usando a [linguagem de marcação de síntese de fala (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Escolha entre vozes padrão e vozes neurais (consulte [suporte a idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em voz | Conversão de texto em fala converte o texto de entrada em fala sintetizada por humanos usando a [linguagem de marcação de síntese de fala (SSML)](text-to-speech.md#core-features). Escolha entre vozes padrão e vozes neurais (consulte [suporte a idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 |         | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | A conversão de fala permite tradução de fala em tempo real em vários idiomas para seus aplicativos, ferramentas e dispositivos. Use este serviço para tradução de fala a fala e conversão de fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço de fala capacitam os desenvolvedores a criarem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados (versão prévia) integrado para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
@@ -41,6 +41,8 @@ Esses recursos compõem o serviço de fala. Use os links nesta tabela para saber
 
 Saiba o que há de novo no serviço de fala.
 
+- Novembro de 2019
+  - Foram adicionados dois novos estilos de fala, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) e [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) para a voz de `en-US-JessaNeural`.
 - Setembro de 2019
   - Lançada a 1.7.0 do SDK de fala. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 - Agosto de 2019

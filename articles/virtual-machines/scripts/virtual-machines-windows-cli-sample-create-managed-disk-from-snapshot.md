@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo
+title: Criar um disco gerenciado com base em um instantâneo-exemplo da CLI
 description: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um instantâneo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5060dc81196acec65001910751498fbd8513936e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2d415a12ceaf2cda0172d806d5a621b1297a74be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375858"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerido a partir de um instantâneo com a CLI
 

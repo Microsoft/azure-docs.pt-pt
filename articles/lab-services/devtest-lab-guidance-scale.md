@@ -1,6 +1,6 @@
 ---
-title: Dimensionar a sua infraestrutura do Azure DevTest Labs
-description: Este artigo fornece orientações para dimensionar a sua infraestrutura do Azure DevTest Labs.
+title: Escalar verticalmente sua infraestrutura de Azure DevTest Labs
+description: Este artigo fornece diretrizes para escalar verticalmente sua infraestrutura de Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,58 +13,58 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561494"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644839"
 ---
-# <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Dimensionar a sua infraestrutura do Azure DevTest Labs
-Antes de implementar o DevTest Labs em dimensão empresarial, existem vários pontos de decisão principais. Noções básicas sobre esses pontos de decisão num alto nível ajuda uma organização com decisões de design no futuro. No entanto, esses pontos devem não conter uma organização de iniciar uma prova de conceito. As áreas de três principais para o planeamento de dimensionamento inicial são:
+# <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalar verticalmente sua infraestrutura de Azure DevTest Labs
+Antes de implementar o DevTest Labs em escala empresarial, há vários pontos de decisão importantes. Entender esses pontos de decisão em um nível alto ajuda uma organização com decisões de design no futuro. No entanto, esses pontos não devem refazer uma organização de iniciar uma prova de conceito. As três principais áreas para o planejamento de expansão inicial são:
 
-- Funcionamento em rede e segurança
-- Topologia de subscrição
+- Rede e segurança
+- Topologia de assinatura
 - Funções e responsabilidades
 
-## <a name="networking-and-security"></a>Funcionamento em rede e segurança
-Funcionamento em rede e segurança são os fundamentos para todas as organizações. Uma implementação de toda a empresa exige muito uma análise mais aprofundada, há um número reduzido de requisitos para realizar com êxito uma prova de conceito. Algumas áreas principais de foco incluem:
+## <a name="networking-and-security"></a>Rede e segurança
+Rede e segurança são as bases para todas as organizações. Embora uma implantação em toda a empresa exija uma análise muito mais profunda, há um número reduzido de requisitos para realizar uma prova de conceito com êxito. Algumas áreas-chave de foco incluem:
 
-- **Subscrição do Azure** – para implementar o DevTest Labs, tem de ter acesso a uma subscrição do Azure com os direitos adequados para criar recursos. Existem várias formas de obter acesso a subscrições do Azure, incluindo um contrato Enterprise e Pay As You Go. Para obter mais informações sobre a obtenção de acesso a uma subscrição do Azure, consulte [licenciamento Azure nas empresas](https://azure.microsoft.com/pricing/enterprise-agreement/).
-- **Acesso a recursos no local** – algumas organizações exigem que seus recursos no DevTest Labs tem acesso a recursos no local. É necessária uma ligação segura do seu ambiente no local para o Azure. Por conseguinte, é importante que defina up/configurar a ligação de uma VPN ou Expressroute antes de começar. Para obter mais informações, consulte [descrição geral de redes virtuais](../virtual-network/virtual-networks-overview.md).
-- **Requisitos de segurança adicionais** – outros requisitos de segurança, tais como as políticas de máquina, acesso a endereços IP públicos, conexão com a internet são cenários que poderão ter de ser revisto antes de implementar uma prova de conceito. 
+- **Assinatura do Azure** – para implantar o DevTest Labs, você deve ter acesso a uma assinatura do Azure com direitos apropriados para criar recursos. Há várias maneiras de obter acesso às assinaturas do Azure, incluindo um Enterprise Agreement e pré-pago. Para obter mais informações sobre como obter acesso a uma assinatura do Azure, consulte [Licenciamento do Azure para empresas](https://azure.microsoft.com/pricing/enterprise-agreement/).
+- **Acesso a recursos locais** – algumas organizações exigem seus recursos no DevTest Labs têm acesso a recursos locais. É necessária uma conexão segura do seu ambiente local para o Azure. Portanto, é importante que você configure/configure uma conexão VPN ou de rota expressa antes de começar. Para obter mais informações, consulte [visão geral de redes virtuais](../virtual-network/virtual-networks-overview.md).
+- **Requisitos de segurança adicionais** – outros requisitos de segurança, como políticas de computador, acesso a endereços IP públicos, conexão à Internet são cenários que talvez precisem ser revisados antes de implementar uma prova de conceito. 
 
-## <a name="subscription-topology"></a>Topologia de subscrição
-Topologia de subscrição é uma consideração de design importantes ao implementar o DevTest Labs para a empresa. No entanto, não é necessário para se consolidar todas as decisões até depois de uma prova de conceito foi concluída. Ao avaliar o número de subscrições necessários para uma implementação empresarial, existem dois extremos: 
+## <a name="subscription-topology"></a>Topologia de assinatura
+A topologia de assinatura é uma consideração de design crítica ao implantar o DevTest Labs na empresa. No entanto, não é necessário solidificar todas as decisões até que uma prova de conceito tenha sido concluída. Ao avaliar o número de assinaturas necessárias para uma implementação empresarial, há dois extremos: 
 
-- Uma subscrição para toda a organização
-- Subscrição por utilizador
+- Uma assinatura para toda a organização
+- Assinatura por usuário
 
-Em seguida, podemos destacar os profissionais de TI de cada abordagem.
+Em seguida, destacamos os prós de cada abordagem.
 
-### <a name="one-subscription"></a>Uma subscrição
-Muitas vezes, a abordagem de uma subscrição não é gerenciável numa grande empresa. No entanto, a limitar o número de subscrições fornece as seguintes vantagens:
+### <a name="one-subscription"></a>Uma assinatura
+Geralmente, a abordagem de uma assinatura não é gerenciável em uma grande empresa. No entanto, limitar o número de assinaturas oferece os seguintes benefícios:
 
-- **Previsão** custos para a empresa.  Orçamento torna-se muito mais fácil numa única subscrição porque todos os recursos estão num único pool. Esta abordagem permite a mais simples de tomada de decisão em quando exercer controlo de custos mede a qualquer momento num ciclo de faturação.
-- **Capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, as políticas, etc. é mais fácil, uma vez que todas as atualizações apenas são necessárias numa subscrição em vez de fazer atualizações entre várias subscrições.
-- **Funcionamento em rede** esforço foi bastante simplificado numa única subscrição para as empresas em que a conectividade no local é um requisito. Ligar redes virtuais entre subscrições (modelo de hub-and-spoke) é necessário com as assinaturas adicionais, que requer configuração adicional, gestão, espaços de endereços IP, etc.
-- **Colaboração da Equipe** é mais fácil quando todas as pessoas está a funcionar na mesma subscrição – por exemplo, é mais fácil reatribuir uma VM para um colega de trabalho, partilhar da equipe de recursos, etc.
+- **Previsão** de custos para empresas.  O orçamento torna-se muito mais fácil em uma única assinatura, pois todos os recursos estão em um único pool. Essa abordagem possibilita a tomada de decisões mais simples sobre quando exercitar medidas de controle de custo em um determinado momento em um ciclo de cobrança.
+- A **capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, políticas etc. é mais fácil, já que todas as atualizações só são necessárias em uma assinatura em vez de fazer atualizações em várias assinaturas.
+- O esforço de **rede** é bastante simplificado em uma única assinatura para empresas em que a conectividade local é um requisito. A conexão de redes virtuais entre assinaturas (modelo de hub spoke) é necessária com assinaturas adicionais, o que exige configuração adicional, gerenciamento, espaços de endereço IP, etc.
+- A **colaboração em equipe** é mais fácil quando todos estão trabalhando na mesma assinatura – por exemplo, é mais fácil reatribuir uma VM a um colega de trabalho, compartilhar recursos da equipe, etc.
 
-### <a name="subscription-per-user"></a>Subscrição por utilizador
-Uma subscrição separada por utilizador fornece oportunidades de igual à gama alternativa. As vantagens de ter o número de subscrições incluem:
+### <a name="subscription-per-user"></a>Assinatura por usuário
+Uma assinatura separada por usuário fornece oportunidades iguais ao espectro alternativo. Os benefícios de ter várias assinaturas incluem:
 
-- **Azure dimensionamento quotas** não vão impedir a adoção. Por exemplo, no momento da elaboração deste artigo, que o Azure permite-200 contas de armazenamento por subscrição. Existem quotas operacionais para a maioria dos serviços do Azure (muitos podem ser personalizados, algumas não seja possível). Neste modelo de uma subscrição por utilizador, é bastante improvável que a maioria das quotas são atingidas. Para obter mais informações sobre quotas de dimensionamento do Azure atuais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
-- **Estornos** a grupos ou individuais que os desenvolvedores se tornam muito mais fácil que permitem às organizações para levar em conta os custos com o modelo atual.
-- **Propriedade & permissões** dos laboratórios DevTest ambientes são simples. Dar aos desenvolvedores o acesso de nível de assinatura e são 100% responsável por tudo, incluindo a configuração de rede, políticas de laboratório e gerenciamento de VM.
+- As **cotas de dimensionamento do Azure** não vão impedir a adoção. Por exemplo, no momento da elaboração deste artigo, o Azure permite contas de armazenamento 200 por assinatura. Há cotas operacionais para a maioria dos serviços no Azure (muitos podem ser personalizados, alguns não podem). Nesse modelo de uma assinatura por usuário, é altamente improvável que a maioria das cotas seja atingida. Para saber mais sobre as cotas de dimensionamento atuais do Azure, confira [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Os **estorno** para grupos ou desenvolvedores individuais tornam-se muito mais fáceis, permitindo que as organizações preparam custos usando seu modelo atual.
+- A **propriedade & permissões** dos ambientes do DevTest Labs é simples. Você dá aos desenvolvedores o acesso em nível de assinatura e ele é de 100% responsável por tudo, incluindo a configuração de rede, as políticas de laboratório e o gerenciamento de VM.
 
-Na empresa, pode ser suficiente restrições em extremos do espectro. Por conseguinte, terá de configurar subscrições de forma que se situe no meio esses extremos. Como melhor prática, o objetivo de uma organização deve ser a utilizar o número mínimo de subscrições como possíveis tendo em mente as funções de imposição que aumentam o número total de subscrições. Para reiterar, topologia de subscrição é fundamental para uma implementação empresarial do DevTest Labs, mas não deve atrasar uma prova de conceito. Existem detalhes adicionais no [governação](devtest-lab-guidance-governance-policy-compliance.md) artigo sobre como decidir qual a granularidade de subscrição e laboratório na organização.
+Na empresa, pode haver restrições suficientes nos extremos do espectro. Portanto, talvez seja necessário configurar assinaturas de uma maneira que se enquadrar no meio desses extremos. Como prática recomendada, o objetivo de uma organização deve ser usar o número mínimo de assinaturas possível tendo em mente as funções que aumentam o número total de assinaturas. Para reiterar, a topologia de assinatura é essencial para uma implantação empresarial do DevTest Labs, mas não deve atrasar uma prova de conceito. Há detalhes adicionais no artigo de [governança](devtest-lab-guidance-governance-policy-compliance.md) sobre como decidir sobre a granularidade da assinatura e do laboratório na organização.
 
 ## <a name="roles-and-responsibilities"></a>Funções e responsabilidades
-Uma prova de conceito do DevTest Labs tem três funções principais com responsabilidades definidas – proprietário da subscrição, proprietário de DevTest Labs, utilizador de DevTest Labs e, opcionalmente, um contribuinte.
+Uma prova de conceito do DevTest Labs tem três funções principais com responsabilidades definidas – proprietário da assinatura, proprietário do DevTest Labs, usuário do DevTest Labs e, opcionalmente, um colaborador.
 
-- **Proprietário da subscrição** – o proprietário da subscrição tem direitos para administrar uma subscrição do Azure incluindo atribuir utilizadores, gestão de políticas, criar e gerir a topologia de redes, pedir aumentos de quota, etc. Para obter mais informações, consulte [este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
-- **Proprietário do DevTest Labs** – proprietário o DevTest Labs tem acesso administrativo total ao laboratório. Essa pessoa é responsável por adicionar/remover utilizadores, gestão de definições de custo, definições gerais de laboratório e outras tarefas baseadas em VM/artefacto. Proprietário de um laboratório também tem todos os direitos de um utilizador de DevTest Labs.
-- **Utilizador de DevTest Labs** – utilizador o DevTest Labs, pode criar e consumir as máquinas virtuais no laboratório. Estas pessoas tem alguns recursos de administrativos mínimos em VMs que criaram (iniciar/parar/delete/configurar as respetivas VMs). Os utilizadores não podem gerir as VMs de outros utilizadores.
+- **Proprietário da assinatura** – o proprietário da assinatura tem direitos para administrar uma assinatura do Azure, incluindo a atribuição de usuários, o gerenciamento de políticas, a criação de & o gerenciamento de topologia de rede, a solicitação de aumento de cota, etc. Para obter mais informações, consulte [Este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
+- **Proprietário do DevTest Labs** – o proprietário do DevTest Labs tem acesso administrativo total ao laboratório. Essa pessoa é responsável por adicionar/remover usuários, gerenciar configurações de custo, configurações de laboratório gerais e outras tarefas baseadas em VM/artefato. Um proprietário de laboratório também tem todos os direitos de um usuário do DevTest Labs.
+- **Usuário do DevTest Labs** – o usuário do DevTest Labs pode criar e consumir as máquinas virtuais no laboratório. Esses indivíduos têm alguns recursos administrativos mínimos em VMs que eles criam (iniciar/parar/excluir/configurar suas VMs). Os usuários não podem gerenciar VMs de outros usuários.
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte o artigo seguinte nesta série: [Orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+## <a name="next-steps"></a>Passos seguintes
+Veja o próximo artigo desta série: [orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

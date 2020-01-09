@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497804"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529614"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -23,14 +23,14 @@ Este artigo descreve um módulo no designer de Azure Machine Learning (versão p
 Use este módulo para carregar dados em um pipeline de Machine Learning dos serviços de dados de nuvem existentes. 
 
 > [!Note]
-> Toda a funcionalidade fornecida por esse módulo pode ser feita pelo **armazenamento de datastore** e por **conjuntos de valores** na página de aterrissagem espaço. É recomendável que você use o **armazenamento** de dados e o **DataSet** , que inclui recursos adicionais, como o monitoramento de dados. Para obter mais informações, consulte [o artigo como acessar dados](../service/how-to-access-data.md) e [como registrar os DataSets](../service/how-to-create-register-datasets.md) .
+> Toda a funcionalidade fornecida por esse módulo pode ser feita pelo **armazenamento de datastore** e por **conjuntos de valores** na página de aterrissagem espaço. É recomendável que você use o **armazenamento** de dados e o **DataSet** , que inclui recursos adicionais, como o monitoramento de dados. Para obter mais informações, consulte [o artigo como acessar dados](../how-to-access-data.md) e [como registrar os DataSets](../how-to-create-register-datasets.md) .
 > Depois de registrar um conjunto de registros, você pode encontrá-lo nos **conjuntos** de -> categoria **meus conjuntos de valores** na interface do designer. Este módulo é reservado para usuários do Studio (clássicos) para uma experiência familiar. 
 >
 
 Primeiro, escolha a origem da qual você está lendo e conclua as configurações adicionais. O módulo **importar dados** dá suporte à leitura de dados das seguintes fontes:
 
 - URL via HTTP
-- Armazenamentos em nuvem do Azure por meio de [**repositórios de armazenamento**](../service/how-to-access-data.md))
+- Armazenamentos em nuvem do Azure por meio de [**repositórios de armazenamento**](../how-to-access-data.md))
     - Contêiner de blob do Azure
     - Partilha de Ficheiros do Azure
     - Azure Data Lake
@@ -38,7 +38,7 @@ Primeiro, escolha a origem da qual você está lendo e conclua as configuraçõe
     - Base de Dados SQL do Azure
     - PostgreSQL do Azure    
 
-Antes de usar o armazenamento em nuvem, você precisa registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning primeiro. Para obter mais informações, consulte [como acessar dados](../service/how-to-access-data.md). 
+Antes de usar o armazenamento em nuvem, você precisa registrar um repositório de armazenamento em seu espaço de trabalho Azure Machine Learning primeiro. Para obter mais informações, consulte [como acessar dados](../how-to-access-data.md). 
 
 Depois de definir os dados desejados e conectar-se à origem, **[importar dados](./import-data.md)** infere o tipo de dados de cada coluna com base nos valores que ele contém e carrega os dados em seu pipeline de designer. A saída de **Import data** é um conjunto de dados que pode ser usado com qualquer pipeline de designer.
 

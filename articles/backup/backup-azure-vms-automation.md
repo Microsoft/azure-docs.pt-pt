@@ -3,18 +3,18 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172553"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527999"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
 Este artigo explica como fazer backup e restaurar uma VM do Azure em um cofre de serviços de recuperação de [backup do Azure](backup-overview.md) usando cmdlets do PowerShell.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -367,9 +367,9 @@ WorkloadName     Operation            Status               StartTime            
 TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="stop-protection"></a>Interromper proteção
+### <a name="stop-protection"></a>Parar proteção
 
-#### <a name="retain-data"></a>Reter dados
+#### <a name="retain-data"></a>Manter dados
 
 Se o usuário quiser interromper a proteção, ele poderá usar o cmdlet [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) do PS. Isso interromperá os backups agendados, mas os dados submetidos a backup até agora são mantidos para sempre.
 
@@ -513,25 +513,45 @@ Para substituir os discos e as informações de configuração, execute as etapa
 Depois de restaurar os discos, use as etapas a seguir para criar e configurar a máquina virtual do disco.
 
 > [!NOTE]
-> Para criar VMs criptografadas a partir de discos restaurados, sua função do Azure deve ter permissão para executar a ação, **Microsoft. keyvault/cofres/implantar/ação**. Se sua função não tiver essa permissão, crie uma função personalizada com essa ação. Para obter mais informações, consulte [funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md).
 >
->
+> 1. O módulo AzureAz 3.0.0 ou superior é necessário. <br>
+> 2. Para criar VMs criptografadas a partir de discos restaurados, sua função do Azure deve ter permissão para executar a ação, **Microsoft. keyvault/cofres/implantar/ação**. Se sua função não tiver essa permissão, crie uma função personalizada com essa ação. Para obter mais informações, consulte [funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md). <br>
+> 3. Depois de restaurar os discos, agora você pode obter um modelo de implantação que pode ser usado diretamente para criar uma nova VM. Não há mais cmdlets de PS diferentes para criar VMs gerenciadas/não gerenciadas que são criptografadas/descriptografadas.<br>
+> <br>
 
-> [!NOTE]
-> Depois de restaurar os discos, agora você pode obter um modelo de implantação que pode ser usado diretamente para criar uma nova VM. Não há mais cmdlets de PS diferentes para criar VMs gerenciadas/não gerenciadas que são criptografadas/descriptografadas.
+### <a name="create-a-vm-using-the-deployment-template"></a>Criar uma VM usando o modelo de implantação
 
 Os detalhes do trabalho resultante fornecem o URI do modelo que pode ser consultado e implantado.
 
 ```powershell
    $properties = $details.properties
+   $storageAccountName = $properties["Target Storage Account Name"]
+   $containerName = $properties["Config Blob Container Name"]
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-Basta implantar o modelo para criar uma nova VM, conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+O modelo não é acessível diretamente, pois está sob a conta de armazenamento de um cliente e o contêiner fornecido. Precisamos da URL completa (junto com um token SAS temporário) para acessar esse modelo.
+
+1. Primeiro extraia o nome do modelo do templateBlobURI. O formato é mencionado abaixo. Você pode usar a operação Split no PowerShell para extrair o nome do modelo final desta URL.
+
+```http
+https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
+```
+
+2. Em seguida, a URL completa pode ser gerada conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-powershell#provide-sas-token-during-deployment).
 
 ```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+Set-AzCurrentStorageAccount -Name $storageAccountName -ResourceGroupName <StorageAccount RG name>
+$templateBlobFullURI = New-AzStorageBlobSASToken -Container $containerName -Blob <templateName> -Permission r -FullUri
 ```
+
+3. Implante o modelo para criar uma nova VM, conforme explicado [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+
+```powershell
+New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
+```
+
+### <a name="create-a-vm-using-the-config-file"></a>Criar uma VM usando o arquivo de configuração
 
 A seção a seguir lista as etapas necessárias para criar uma VM usando o arquivo "VMConfig".
 
@@ -564,20 +584,20 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
 4. Anexe o disco do sistema operacional e os discos de dados. Esta etapa fornece exemplos para várias configurações de VM gerenciadas e criptografadas. Use o exemplo que atenda à sua configuração de VM.
 
-   * **VMs não gerenciadas e não criptografadas** – use o exemplo a seguir para VMs não gerenciadas e não criptografadas.
+* **VMs não gerenciadas e não criptografadas** – use o exemplo a seguir para VMs não gerenciadas e não criptografadas.
 
-       ```powershell
+```powershell
        Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
        $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
        foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
        {
         $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
        }
-       ```
+```
 
-   * **VMs não gerenciadas e criptografadas com o Azure AD (somente Bek)** – para VMs criptografadas não gerenciadas com o Azure AD (criptografado usando apenas Bek), você precisa restaurar o segredo para o cofre de chaves antes de poder anexar discos. Para obter mais informações, consulte [restaurar uma máquina virtual criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar o sistema operacional e discos de dados para VMs criptografadas. Ao definir o disco do sistema operacional, certifique-se de mencionar o tipo de sistema operacional relevante.
+* **VMs não gerenciadas e criptografadas com o Azure AD (somente Bek)** – para VMs criptografadas não gerenciadas com o Azure AD (criptografado usando apenas Bek), você precisa restaurar o segredo para o cofre de chaves antes de poder anexar discos. Para obter mais informações, consulte [restaurar uma máquina virtual criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar o sistema operacional e discos de dados para VMs criptografadas. Ao definir o disco do sistema operacional, certifique-se de mencionar o tipo de sistema operacional relevante.
 
-      ```powershell
+```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $dekUrl = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
       Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
@@ -586,11 +606,11 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
       {
        $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
-      ```
+```
 
-   * **VMs não gerenciadas e criptografadas com o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas com o Azure AD (criptografado usando Bek e Kek), restaure a chave e o segredo para o cofre de chaves antes de anexar os discos. Para obter mais informações, consulte [restaurar uma máquina virtual criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar o sistema operacional e discos de dados para VMs criptografadas.
+* **VMs não gerenciadas e criptografadas com o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas com o Azure AD (criptografado usando Bek e Kek), restaure a chave e o segredo para o cofre de chaves antes de anexar os discos. Para obter mais informações, consulte [restaurar uma máquina virtual criptografada de um ponto de recuperação do backup do Azure](backup-azure-restore-key-secret.md). O exemplo a seguir mostra como anexar o sistema operacional e discos de dados para VMs criptografadas.
 
-      ```powershell
+```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $kekUrl = "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
@@ -600,13 +620,13 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
      {
      $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
-      ```
+```
 
-   * **VMs não gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.<br>
+* **VMs não gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.
 
-   O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
+O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
 
-      ```powershell
+```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
       $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""}}]}"
@@ -614,26 +634,26 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
       $osBlob = Get-AzStorageBlob -Container $containerName -Blob $osBlobName
       $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
       $osBlob.ICloudBlob.SetMetadata()
-      ```
+```
 
-    Depois que os **segredos estiverem disponíveis** e os detalhes de criptografia também estiverem definidos no blob do sistema operacional, anexe os discos usando o script fornecido abaixo.<br>
+Depois que os **segredos estiverem disponíveis** e os detalhes de criptografia também estiverem definidos no blob do sistema operacional, anexe os discos usando o script fornecido abaixo.
 
-    Se o keyvault/segredos de origem já estiverem disponíveis, o script acima não precisará ser executado.
+Se o keyvault/segredos de origem já estiverem disponíveis, o script acima não precisará ser executado.
 
-      ```powershell
+```powershell
       Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
       foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
       {
       $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
-      ```
+```
 
-   * **VMs não gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault/chave/segredo de origem não estiver disponível** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
+* **VMs não gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault/chave/segredo de origem não estiver disponível** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para o blob de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
 
-   O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
+O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 
-    ```powershell
+```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
@@ -642,56 +662,73 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
       $osBlob = Get-AzStorageBlob -Container $containerName -Blob $osBlobName
       $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
       $osBlob.ICloudBlob.SetMetadata()
-      ```
+```
 
-   Depois que a **chave/os segredos estiverem disponíveis** e os detalhes de criptografia estiverem definidos no blob do sistema operacional, anexe os discos usando o script fornecido abaixo.
+Depois que a **chave/os segredos estiverem disponíveis** e os detalhes de criptografia estiverem definidos no blob do sistema operacional, anexe os discos usando o script fornecido abaixo.
 
-    Se o keyvault/chave/segredos de origem estiverem disponíveis, o script acima não precisará ser executado.
+Se o keyvault/chave/segredos de origem estiverem disponíveis, o script acima não precisará ser executado.
 
-    ```powershell
+```powershell
       Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
       foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
       {
       $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
-      ```
+```
 
-   * **VMs gerenciadas e não criptografadas** – para VMs não criptografadas gerenciadas, anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+* **VMs gerenciadas e não criptografadas** – para VMs não criptografadas gerenciadas, anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas com o Azure AD (somente Bek)** – para VMs criptografadas gerenciadas com o Azure AD (criptografado usando apenas Bek), anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+* **VMs gerenciadas e criptografadas com o Azure AD (somente Bek)** – para VMs criptografadas gerenciadas com o Azure AD (criptografado usando apenas Bek), anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas com o Azure AD (Bek e Kek)** – para VMs criptografadas gerenciadas com o Azure AD (criptografado usando Bek e Kek), anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+* **VMs gerenciadas e criptografadas com o Azure AD (Bek e Kek)** – para VMs criptografadas gerenciadas com o Azure AD (criptografado usando Bek e Kek), anexe os Managed disks restaurados. Para obter informações detalhadas, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.
+* **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl pode ser obtido a partir do keyvault restaurado.
 
-     O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.  
+O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.  
 
-     ```powershell
-      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
-      $diskupdateconfig = Set-AzDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
-      Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
-      ```
+```powershell
+$dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+$keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+$diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
+$encryptionSettingsElement = New-Object Microsoft.Azure.Management.Compute.Models.EncryptionSettingsElement
+$encryptionSettingsElement.DiskEncryptionKey = New-Object Microsoft.Azure.Management.Compute.Models.KeyVaultAndSecretReference
+$encryptionSettingsElement.DiskEncryptionKey.SourceVault = New-Object Microsoft.Azure.Management.Compute.Models.SourceVault
+$encryptionSettingsElement.DiskEncryptionKey.SourceVault.Id = $keyVaultId
+$encryptionSettingsElement.DiskEncryptionKey.SecretUrl = $dekUrl
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettings = New-Object System.Collections.Generic.List[Microsoft.Azure.Management.Compute.Models.EncryptionSettingsElement]
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettings.Add($encryptionSettingsElement)
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettingsVersion = "1.1"
+Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+```
 
-     Depois que os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+Depois que os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault de origem/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
+* **VMs gerenciadas e criptografadas sem o Azure AD (Bek e Kek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando Bek & Kek), se o **keyvault de origem/chave/segredo não estiverem disponíveis** , restaure a chave e os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação do backup](backup-azure-restore-key-secret.md) Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para discos de dados). O $dekurl e $kekurl podem ser obtidos do cofre de chaves restaurado.
 
-   O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
+O script abaixo precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 
-   ```powershell
-     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-     $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
-     $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-     $diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
-     $diskupdateconfig = Set-AzDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
-     $diskupdateconfig = Set-AzDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
-     Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
-    ```
+```powershell
+$dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+$kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+$keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+$diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
+$encryptionSettingsElement = New-Object Microsoft.Azure.Management.Compute.Models.EncryptionSettingsElement
+$encryptionSettingsElement.DiskEncryptionKey = New-Object Microsoft.Azure.Management.Compute.Models.KeyVaultAndSecretReference
+$encryptionSettingsElement.DiskEncryptionKey.SourceVault = New-Object Microsoft.Azure.Management.Compute.Models.SourceVault
+$encryptionSettingsElement.DiskEncryptionKey.SourceVault.Id = $keyVaultId
+$encryptionSettingsElement.DiskEncryptionKey.SecretUrl = $dekUrl
+$encryptionSettingsElement.KeyEncryptionKey = New-Object Microsoft.Azure.Management.Compute.Models.KeyVaultAndKeyReference
+$encryptionSettingsElement.KeyEncryptionKey.SourceVault = New-Object Microsoft.Azure.Management.Compute.Models.SourceVault
+$encryptionSettingsElement.KeyEncryptionKey.SourceVault.Id = $keyVaultId
+$encryptionSettingsElement.KeyEncryptionKey.KeyUrl = $kekUrl
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettings = New-Object System.Collections.Generic.List[Microsoft.Azure.Management.Compute.Models.EncryptionSettingsElement]
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettings.Add($encryptionSettingsElement)
+$diskupdateconfig.EncryptionSettingsCollection.EncryptionSettingsVersion = "1.1"
+Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+```
 
-    Depois que a chave/os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+Depois que a chave/os segredos estiverem disponíveis e os detalhes de criptografia estiverem definidos no disco do sistema operacional, para anexar os discos gerenciados restaurados, consulte [anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
 5. Defina as configurações de rede.
 
@@ -720,13 +757,13 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
      **Somente BEK**
 
       ```powershell  
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
      **BEK e KEK**
 
       ```powershell  
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
    * **Para VM sem Azure ad** -use o seguinte comando para habilitar manualmente a criptografia para os discos de dados.
@@ -736,13 +773,13 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
      **Somente BEK**
 
       ```powershell  
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
 
       **BEK e KEK**
 
       ```powershell  
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm.Name -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
 
 > [!NOTE]

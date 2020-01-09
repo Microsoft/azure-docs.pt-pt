@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: biblioteca de cliente facial para Python | Microsoft Docs'
-description: Este artigo o ajudará a começar a usar a biblioteca de cliente facial para Python a fim de detectar, localizar semelhante, identificar, verificar e muito mais.
+title: 'Início rápido: biblioteca de cliente facial para Python'
+description: Este guia de início rápido ajudará você a começar a usar a biblioteca de cliente facial para Python a fim de detectar, localizar semelhante, identificar, verificar e muito mais.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.openlocfilehash: e41817e3409f79aab3fbb3d57195b6b7ff13e7af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448229"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 

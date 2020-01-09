@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c4e820867e22d23135f9c50255902447e6063ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424479"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como entrar em qualquer Azure Active Directory usuário usando o padrão de aplicativo multilocatário
 
@@ -38,7 +38,7 @@ Há quatro etapas simples para converter seu aplicativo em um aplicativo multilo
 3. [Atualizar seu código para lidar com vários valores de emissor](#update-your-code-to-handle-multiple-issuer-values)
 4. [Entender o consentimento do usuário e do administrador e fazer as alterações de código apropriadas](#understand-user-and-admin-consent)
 
-Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatários][AAD-Samples-MT].
+Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatários](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registro para ser multilocatário
 
@@ -175,9 +175,9 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 
 Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Isso permite que você ofereça uma experiência personalizada em seu aplicativo, como mostrar informações contextuais para os usuários, como sua imagem de perfil ou seu próximo compromisso de calendário. Para saber mais sobre como fazer chamadas à API para os serviços do Azure AD e do Office 365, como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
-## <a name="related-content"></a>Related content (Conteúdos relacionados)
+## <a name="related-content"></a>Conteúdo relacionado
 
-* [Exemplos de aplicativos multilocatários][AAD-Samples-MT]
+* [Exemplos de aplicativos multilocatários](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
 * [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
 * [Objetos de aplicativo e objetos de entidade de serviço][AAD-App-SP-Objects]
 * [Integração de aplicações com o Azure Active Directory][AAD-Integrating-Apps]
@@ -196,7 +196,7 @@ Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
+[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview

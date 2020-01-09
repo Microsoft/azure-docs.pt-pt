@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961383"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495866"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
@@ -112,7 +112,7 @@ Com base nesta análise, pode decidir se o número de violações de RPO de todo
 
 ![Análise de hipóteses no Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/what-if-analysis-v2a.png)
 
-### <a name="recommended-vm-batch-size-for-initial-replication"></a>Tamanho de lote de VMs recomendado para a replicação inicial (Tamanho de lote de VMs recomendado para a replicação inicial)
+### <a name="recommended-vm-batch-size-for-initial-replication"></a>Recommended VM batch size for initial replication (Tamanho de lote de VMs recomendado para a replicação inicial)
 Nesta secção, recomendamos definir o número de VMs que podem ser protegidas em paralelo, para concluir a replicação inicial em 72 horas com a largura de banda sugerida, de modo a cumprir o RPO pretendido durante 100 por cento. Este valor é configurável. Para alterá-lo durante a geração de relatórios, utilize o parâmetro *GoalToCompleteIR*.
 
 Este gráfico mostra um intervalo de valores de largura de banda e a contagem do tamanho de lotes de VMs calculado para concluir a replicação inicial em 72 horas, com base no tamanho médio das VMs detetado em todas as VMs compatíveis.
@@ -178,7 +178,7 @@ Poderá haver casos em que sabe que não pode definir uma largura de banda com m
 
 **VM Name (Nome da VM)** : o nome ou o endereço IP da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VMDKs) que estão ligados às VMs. Para distinguir VMs do vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome de anfitrião ESXi. O anfitrião ESXi listado é aquele em que a VM foi colocada quando a ferramenta detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)** \*. **Sim**\* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
+**VM Compatibility (Compatibilidade de VMs)** : os valores são **Yes (Sim)** e **Yes (Não)\*** . **Sim**\* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, o disco de alterações a dados ou IOPS elevados com perfis criados enquadra-se na categoria P20 ou P30, mas o tamanho do mesmo faz com que seja mapeado para P10 ou P20. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho destes. Por exemplo:
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15
 * 256 GB a 512 GB é P20.
@@ -221,10 +221,7 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **VM Compatibility (Compatibilidade de VM)** : indica a razão pela qual a VM especificada é incompatível para utilização com o Site Recovery. São descritas as razões para todos os discos incompatíveis da VM, que, com base nos [limites do armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser as seguintes:
 
-* O tamanho do disco é >4095 GB. Atualmente, o Armazenamento do Azure não suporta tamanhos de discos superiores a 4095 GB.
-
-* O disco do SO é >2048 GB. Atualmente, o Armazenamento do Azure não suporta tamanhos de discos de SO superiores a 2048 GB.
-
+* Tamanho incorreto do disco de dados ou tamanho de disco do so incorreto. [Examine](vmware-physical-azure-support-matrix.md#azure-vm-requirements) os limites de suporte. 
 * O tamanho total da VM (replicação + ativação pós-falha de teste) excede o limite de tamanho da conta de armazenamento suportado (35 TB). Geralmente, esta incompatibilidade ocorre quando um disco individual na VM tem uma característica de desempenho que excede os limites máximos suportados pelo Azure ou o Site Recovery relativamente ao armazenamento standard. Uma instância deste género envia a VM para a zona de armazenamento premium. No entanto, o tamanho máximo suportado das contas de armazenamento premium são 35 TB e não é possível proteger VMs protegidas individuais em várias contas de armazenamento. Tenha também em atenção que, quando é executada uma ativação pós-falha de teste numa VM protegida, esta é executada na mesma conta de armazenamento na qual a replicação está em curso. Neste caso, configure duas vezes o tamanho do disco para que a replicação progrida e a ativação pós-falha de teste seja concluída em paralelo.
 
 * O IOPS de origem excede o limite de IOPS de armazenamento suportado de 7500 por disco.

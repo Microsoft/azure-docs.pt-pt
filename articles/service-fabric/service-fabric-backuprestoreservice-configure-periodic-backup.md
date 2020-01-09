@@ -1,25 +1,16 @@
 ---
-title: Compreendendo a configuração de backup periódico no Azure Service Fabric | Microsoft Docs
+title: Compreender a configuração da cópia de segurança periódica
 description: Use o recurso de backup e restauração periódicos do Service Fabric para habilitar o backup de dados periódicos dos dados do seu aplicativo.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA45B4A-0258-4CB3-A825-7E8F70F28401
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232504"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610153"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compreendendo a configuração de backup periódico no Azure Service Fabric
 
@@ -142,7 +133,7 @@ Uma política de backup consiste nas seguintes configurações:
 Depois de definir a política de backup para atender aos requisitos de backup de dados, a política de backup deve ser apropriadamente associada a um _aplicativo_ou _serviço_ou uma _partição_.
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Propagação hierárquica da política de backup
-No Service Fabric, a relação entre o aplicativo, o serviço e as partições é hierárquica, conforme explicado no [modelo de aplicativo](./service-fabric-application-model.md). A política de backup pode ser associada a um _aplicativo_, _serviço_ou uma _partição_ na hierarquia. A política de backup propaga hierarquicamente para o próximo nível. Supondo que haja apenas uma política de backup criada e associada a um _aplicativo_, todas as partições com estado que pertencem a todos os _serviços confiáveis com estado_ e _Reliable Actors_ do _aplicativo_ serão submetidas a backup usando o política de backup. Ou, se a política de backup estiver associada a um _serviço com estado confiável_, todas as suas partições serão submetidas a backup usando a política de backup.
+No Service Fabric, a relação entre o aplicativo, o serviço e as partições é hierárquica, conforme explicado no [modelo de aplicativo](./service-fabric-application-model.md). A política de backup pode ser associada a um _aplicativo_, _serviço_ou uma _partição_ na hierarquia. A política de backup propaga hierarquicamente para o próximo nível. Supondo que haja apenas uma política de backup criada e associada a um _aplicativo_, todas as partições com estado que pertencem a todos os _serviços confiáveis com estado_ e _Reliable Actors_ do _aplicativo_ serão submetidas a backup usando a política de backup. Ou, se a política de backup estiver associada a um _serviço com estado confiável_, todas as suas partições serão submetidas a backup usando a política de backup.
 
 ### <a name="overriding-backup-policy"></a>Substituindo política de backup
 Pode haver um cenário em que o backup de dados com o mesmo agendamento de backup é necessário para todos os serviços do aplicativo, exceto para serviços específicos em que a necessidade é fazer o backup de dados usando uma agenda de frequência mais alta ou fazer backup em uma conta de armazenamento diferente ou FileShare. Para resolver esses cenários, o serviço de restauração de backup fornece recursos para substituir a política propagada no escopo do serviço e da partição. Quando a política de backup está associada ao _serviço_ ou à _partição_, ela substitui a política de backup propagada, se houver.
@@ -183,7 +174,7 @@ O diagrama a seguir ilustra as políticas de backup habilitadas explicitamente e
 ![Hierarquia de aplicativo Service Fabric][0]
 
 ## <a name="disable-backup"></a>Desabilitar backup
-As políticas de backup podem ser desabilitadas quando não há necessidade de fazer backup de dados. A política de backup habilitada em um _aplicativo_ só pode ser desabilitada no mesmo _aplicativo_ usando a API de [backup do aplicativo](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) de desabilitação, a política de backup habilitada em um _serviço_ pode ser desabilitada no mesmo _serviço_ usando [desabilitar ](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)A API de backup do serviço e a política de backup habilitada em uma _partição_ podem ser desabilitadas na mesma _partição_ usando desabilitar API de [backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) .
+As políticas de backup podem ser desabilitadas quando não há necessidade de fazer backup de dados. A política de backup habilitada em um _aplicativo_ só pode ser desabilitada no mesmo _aplicativo_ usando a API de [backup do aplicativo de desabilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) , a política de backup habilitada em um _serviço_ pode ser desabilitada no mesmo _serviço_ usando a API de backup do [serviço de desabilitação](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) e a política de backup habilitada em uma _partição_ pode ser desabilitada na mesma _partição_ usando desabilitar API de [backup de partição](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)
 
 * A desabilitação da política de backup para um _aplicativo_ interrompe todos os backups de dados periódicos que ocorrem como resultado da propagação da política de backup para partições de serviço confiáveis ou partições de ator confiáveis.
 

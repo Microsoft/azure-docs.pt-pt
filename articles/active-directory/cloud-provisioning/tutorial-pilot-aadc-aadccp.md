@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425087"
 ---
-# <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionamento de nuvem piloto para uma floresta do AD sincronizada existente 
+# <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 
 Este tutorial orienta você pelo provisionamento de nuvem piloto para um teste Active Directory floresta já sincronizada usando a sincronização do Azure Active Directory (Azure AD) Connect.
 
@@ -119,21 +119,6 @@ As mesmas etapas precisam ser seguidas para todos os tipos de objeto (usuário, 
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalar o agente de provisionamento do Azure AD Connect
 1. Entre no servidor que será usado com as permissões de administrador corporativo.  Se você estiver usando o tutorial [básico do ambiente do AD e do Azure](tutorial-basic-ad-azure.md) , seria CP1.
-2. Baixe o agente de provisionamento de nuvem Azure AD Connect [aqui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Executar o provisionamento Azure AD Connect Cloud (AADConnectProvisioningAgent. Installer)
-3. Na tela inicial, **aceite** os termos de licenciamento e clique em **instalar**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install1.png)</br>
-
-4. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.
-5. Na tela **conectar Active Directory** , clique em **Adicionar diretório** e entre com sua conta de administrador do Active Directory.  Esta operação adicionará seu diretório local.  Clique em **Seguinte**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install3.png)</br>
-
-6. Na tela **configuração concluída** , clique em **confirmar**.  Esta operação registrará e reiniciará o agente.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install4.png)</br>
-
-7. Após a conclusão dessa operação, você deverá ver um aviso **de que seu foi verificado com êxito.**  Você pode clicar em **sair**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install5.png)</br>
-8. Se você ainda vir a tela de abertura inicial, clique em **fechar**. 1. Entre no servidor que será usado com as permissões de administrador corporativo.
 2. Baixe o agente de provisionamento de nuvem Azure AD Connect [aqui](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Executar o provisionamento Azure AD Connect Cloud (AADConnectProvisioningAgent. Installer)
 3. Na tela inicial, **aceite** os termos de licenciamento e clique em **instalar**.</br>

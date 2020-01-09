@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351467"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -24,7 +24,7 @@ Você pode seguir e assinar Site Recovery notificações de atualização no can
 
 ## <a name="supported-updates"></a>Atualizações com suporte
 
-Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Eles são resumidos na tabela a seguir.
+Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a versão mais recente lançada. Estes estão resumidos na tabela seguinte.
 
 **Atualização** |  **Configuração unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Site Recovery** | **Agente dos serviços de recuperação**
 --- | --- | --- | --- | --- | ---
@@ -75,7 +75,7 @@ Para a recuperação de desastre de VMs do Azure para uma região secundária ou
 
 - Da versão 9.30.5407.1 da extensão do serviço de mobilidade (para VMs do Azure) e do agente de serviço de mobilidade (para VMware/máquinas físicas), alguns sistemas operacionais de máquina devem estar executando a atualização da pilha de manutenção e o SHA-2. Os detalhes são mostrados na tabela a seguir.
 - Instale a atualização e o SHA-2 de acordo com a base de conhecimento vinculada. O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.
-- Obtenha mais informações sobre a [atualização e os requisitos do SHA-2](https://aka.ms/SHA-2KB).
+- Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 
 **Sistema operativo** | **VM do Azure** | **VM VMware/computador físico**
 --- | --- | ---
@@ -348,7 +348,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
  
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Suporte para Linux** | Foi adicionado suporte para RedHat Enterprise Linux 7,6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6 e novas versões de kernel para Ubuntu, Debian e SUSE.
+**Suporte para Linux** | Foi adicionado suporte para RedHat Enterprise Linux 7,6, RedHat Workstation 6/7, Oracle Linux 6,10 e Oracle Linux 7,6, e novas versões de kernel para Ubuntu, Debian e SUSE.
 
 
 ### <a name="update-rollup-31"></a>Pacote cumulativo de atualizações 31 
@@ -364,7 +364,7 @@ O [pacote cumulativo](https://support.microsoft.com/help/4478871/update-rollup-3
 Os recursos adicionados neste mês são resumidos na tabela.
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Suporte para Linux** | Foi adicionado suporte para Oracle Linux 6,8 e 6,9/7.0 e para o kernel UEK5.
+**Suporte para Linux** |  Foi adicionado suporte para Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 com kernel compatível com Red Hat e para o UEK (inbreakable Enterprise kernel) versão 5.
 **LVM** | Suporte adicionado para volumes LVM e LVM2.<br/><br/> Agora há suporte para o diretório/boot em uma partição de disco e em volumes LVM.
 **Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Suporte adicionado para discos dinâmicos.
@@ -376,7 +376,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Suporte para Linux** | Foi adicionado suporte para Oracle Linux 6,8 e 6,9/7.0; e para o kernel UEK5.
+**Suporte para Linux** | Foi adicionado suporte para Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 com kernel compatível com Red Hat e para o UEK (inbreakable Enterprise kernel) versão 5.
 **Sistema de arquivos BRTFS do Linux** | Com suporte para VMs do Azure.
 **VMs do Azure em zonas de disponibilidade** | Você pode habilitar a replicação para outra região para VMs do Azure implantadas em zonas de disponibilidade. Agora você pode habilitar a replicação para uma VM do Azure e definir o destino para failover para uma única instância de VM, uma VM em um conjunto de disponibilidade ou uma VM em uma zona de disponibilidade. A configuração não afeta a replicação. [Leia](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) o comunicado.
 **Armazenamento habilitado para firewall (Portal/PowerShell)** | Suporte adicionado para [contas de armazenamento habilitadas para firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Você pode replicar VMs do Azure com discos não gerenciados em contas de armazenamento habilitadas para firewall para outra região do Azure para recuperação de desastre.<br/><br/> Você pode usar contas de armazenamento habilitadas para firewall como contas de armazenamento de destino para discos não gerenciados.<br/><br/> Com suporte no portal e usando o PowerShell.

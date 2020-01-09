@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479380"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530957"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -27,7 +27,7 @@ Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de
 > Um subconjunto de soluções de segurança foi desativado em 31 de julho de 2019. Para obter mais informações e serviços alternativos, consulte [aposentadoria dos recursos da central de segurança (julho de 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança do Azure integradas
-O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. As vantagens incluem:
+O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. Os benefícios incluem:
 
 - **Implementação simplificada**: o Centro de Segurança oferece aprovisionamento integrado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidade, a central de segurança pode provisionar o agente em suas máquinas virtuais. Para dispositivos de firewall, a central de segurança pode cuidar de grande parte da configuração de rede necessária.
 - **Deteções integradas**: os eventos de segurança das soluções de parceiros são automaticamente recolhidos, agregados e apresentados como parte dos alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
@@ -135,7 +135,7 @@ Consulte o artigo [fluxo de atividades do Stream a seguir para os hubs de evento
 
 O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monitor permite que você se integre facilmente às ferramentas de monitoramento e SIEM do parceiro.
 
-Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exemplo para consultar dados 
 
@@ -143,7 +143,7 @@ Aqui estão algumas consultas Splunk que você pode usar para efetuar pull de da
 
 | **Descrição da consulta** | **Consulta** |
 |----|----|
-| Todos os alertas| index = Microsoft. Security/Locations/alertas principais|
+| Todos os Alertas| index = Microsoft. Security/Locations/alertas principais|
 | Resumir contagem de operações por seu nome| index = Main SourceType = "Amal: Security" \| tabela operationName \| a contagem de estatísticas por operationName|
 | Obter informações de alertas: hora, nome, estado, ID e assinatura | index = Main Microsoft. Security/Locations/Alerts \| tabela \_time, Properties. EventName, estado, Properties. operationId, am_subscriptionId |
 

@@ -3,18 +3,18 @@ title: Comunicação para funções nos serviços de nuvem | Microsoft Docs
 description: As instâncias de função nos serviços de nuvem podem ter pontos de extremidade (http, HTTPS, TCP, UDP) definidos para eles que se comunicam com o exterior ou entre outras instâncias de função.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386345"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções do serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada** enquanto as conexões internas são chamadas de pontos de **extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
@@ -73,7 +73,7 @@ Você também pode usar um intervalo de portas.
 ```
 
 
-## <a name="worker-roles-vs-web-roles"></a>Funções de trabalho vs. Funções da Web
+## <a name="worker-roles-vs-web-roles"></a>Funções de trabalho versus funções Web
 Há uma pequena diferença com pontos de extremidade ao trabalhar com funções de trabalho e Web. A função Web deve ter, no mínimo, um único ponto de extremidade de entrada usando o protocolo **http** .
 
 ```xml
@@ -91,7 +91,7 @@ A biblioteca gerenciada do Azure fornece métodos para que as instâncias de fun
 > 
 > 
 
-Você pode usar a [](/previous-versions/azure/reference/ee741904(v=azure.100)) Propriedade instances para recuperar instâncias de uma função. Primeiro, use o [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) para retornar uma referência à instância de função atual e, em seguida, use a propriedade [role](/previous-versions/azure/reference/ee741918(v=azure.100)) para retornar uma referência à função em si.
+Você pode usar a propriedade [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) para recuperar instâncias de uma função. Primeiro, use o [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) para retornar uma referência à instância de função atual e, em seguida, use a propriedade [role](/previous-versions/azure/reference/ee741918(v=azure.100)) para retornar uma referência à função em si.
 
 Quando você se conecta a uma instância de função programaticamente por meio do SDK do .NET, é relativamente fácil acessar as informações do ponto de extremidade. Por exemplo, depois que você já tiver se conectado a um ambiente de função específico, poderá obter a porta de um ponto de extremidade específico com este código:
 
@@ -99,7 +99,7 @@ Quando você se conecta a uma instância de função programaticamente por meio 
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-A  Propriedade instances retorna uma coleção de objetos **RoleInstance** . Essa coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas não outras instâncias. O número de instâncias de função na coleção sempre será 1 no caso em que nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão detectáveis em tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificado para a função no arquivo de configuração de serviço.
+A propriedade **Instances** retorna uma coleção de objetos **RoleInstance** . Essa coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas não outras instâncias. O número de instâncias de função na coleção sempre será 1 no caso em que nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão detectáveis em tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificado para a função no arquivo de configuração de serviço.
 
 > [!NOTE]
 > A biblioteca gerenciada do Azure não fornece um meio de determinar a integridade de outras instâncias de função, mas você mesmo pode implementar essas avaliações de integridade se o seu serviço precisar dessa funcionalidade. Você pode usar [diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre a execução de instâncias de função.
@@ -365,6 +365,9 @@ Permite apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, **WebRol
 
 Uma referência de esquema XML para os elementos usados acima pode ser encontrada [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)de serviço de nuvem.
+
+
+
 

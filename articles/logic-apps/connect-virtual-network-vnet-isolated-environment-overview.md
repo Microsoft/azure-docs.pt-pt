@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792726"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527863"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
 Às vezes, seus aplicativos lógicos e contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) , no qual você pode executar seus aplicativos lógicos e criar suas contas de integração.
 
-Quando você cria um ISE, o Azure *injeta* esse ISE em sua rede virtual do Azure, que implanta uma instância privada e isolada do serviço de aplicativos lógicos em sua rede virtual do Azure. Essa instância privada usa recursos dedicados, como armazenamento, e é executada separadamente do serviço de aplicativos lógicos "globais" públicos. Separar sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto que outros locatários do Azure podem ter no desempenho de seus aplicativos, que também é conhecido como [efeito "vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Quando você cria um ISE, o Azure *injeta* esse ISE em sua rede virtual do Azure, que implanta uma instância privada e isolada do serviço de aplicativos lógicos em sua rede virtual do Azure. Essa instância privada usa recursos dedicados, como armazenamento, e é executada separadamente do serviço de aplicativos lógicos de vários locatários público, "global". Separar sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto que outros locatários do Azure podem ter no desempenho de seus aplicativos, que também é conhecido como [efeito "vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Um ISE também fornece seus próprios endereços IP estáticos. Esses endereços IP são separados dos endereços IP estáticos que são compartilhados pelos aplicativos lógicos no serviço público e de vários locatários.
 
 Depois de criar o ISE, quando você for criar seu aplicativo lógico ou conta de integração, poderá selecionar o ISE como o seu aplicativo lógico ou o local da conta de integração:
 
@@ -47,7 +47,7 @@ Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e
 
 * Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
 * Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
-* Sistema de arquivos, FTP e SFTP-SSH
+* FTP e SFTP-SSH
 * SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 
@@ -86,11 +86,13 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ## <a name="ise-endpoint-access"></a>Acesso ao ponto de extremidade do ISE
 
-Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. Esses pontos de extremidade também afetam o acesso a entradas e saídas no histórico de execução do aplicativo lógico.
+Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Sua seleção determina se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual.
 
-* **Interno**: pontos de extremidade privados que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico de execução somente *de dentro de sua rede virtual*
+Esses pontos de extremidade também afetam a maneira como você pode acessar entradas e saídas no histórico de execução de seus aplicativos lógicos.
 
-* **Externo**: pontos de extremidade públicos que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico *de execução de fora de sua rede virtual*
+* **Interno**: pontos de extremidade privados que permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar as entradas e saídas dos seus aplicativos lógicos no histórico *de execução somente de dentro de sua rede virtual*
+
+* **External**: pontos de extremidade públicos que permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar as entradas e saídas dos seus aplicativos lógicos no histórico *de execução de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 > [!IMPORTANT]
 > A opção de ponto de extremidade de acesso só está disponível na criação do ISE e não pode ser alterada posteriormente.

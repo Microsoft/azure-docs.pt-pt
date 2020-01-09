@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar base de dados de conhecimento-REST, Python-QnA Maker'
+title: 'Início Rápido: criar base de dados de conhecimento - REST, Python - Criador de FAQ'
 titleSuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST do Python descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 9114d491be1ae11623264c3beaf7c26f1fa143de
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 4aeee7ebf2c96166392d49d218f8ac5de6fe2709
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447569"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker usando o Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Python
 
-Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
+Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API.
 
-Este início rápido chama as APIs do Criador de FAQ:
-* [Criar KB](https://go.microsoft.com/fwlink/?linkid=2092179)
+Este início rápido chama as API do Criador de FAQ:
+* [Criar KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Obter Detalhes da Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [exemplo de Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 3.7](https://www.python.org/downloads/)
-* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **início rápido** para seu recurso no portal do Azure. 
-
-[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **início rápido** para seu recurso no portal do Azure.
 
 ## <a name="create-a-knowledge-base-python-file"></a>Criar um ficheiro do Python de base de dados de conhecimento
 
@@ -40,12 +40,19 @@ Crie um ficheiro com o nome `create-new-knowledge-base-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Na parte superior do `create-new-knowledge-base-3x.py`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
+Na parte superior de `create-new-knowledge-base-3x.py`, adicione as linhas seguintes para adicionar as dependências necessárias ao projeto:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
-Depois das dependências necessárias anteriores, adicione as constantes necessárias para aceder ao Criador de FAQ. Substitua o valor do `<your-qna-maker-subscription-key>` e do `<your-resource-name>` pelo seu próprio QnA Maker chave e nome do recurso.
+Depois das dependências necessárias anteriores, adicione as constantes necessárias para aceder ao Criador de FAQ. Substitua o valor do `<your-qna-maker-subscription-key>` e `<your-resource-name>` com sua própria chave de QnA Maker e nome do recurso.
+
+Na parte superior da classe Program, adicione as constantes necessárias para acessar QnA Maker.
+
+Defina os seguintes valores:
+
+* `<your-qna-maker-subscription-key>`-a **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal do Azure, no recurso de QnA Maker, na página início rápido. Isso não é o mesmo que a chave de ponto de extremidade de previsão.
+* `<your-resource-name>`-o **nome do recurso** é usado para construir a URL do ponto de extremidade de criação para criação, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Essa não é a mesma URL usada para consultar o ponto de extremidade de previsão.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
@@ -63,11 +70,12 @@ Adicione a função seguinte para imprimir JSON num formato legível:
 
 ## <a name="add-function-to-create-kb"></a>Adicionar função para criar KB
 
-Adicione a seguinte função para fazer um pedido POST de HTTP para criar a base de dados de conhecimento. Esta chamada à API devolve uma resposta JSON, que inclui o ID da operação no campo do cabeçalho **Localização**. Utilize o ID da operação para determinar se a KB for criada com êxito. A `Ocp-Apim-Subscription-Key` é a chave de serviço do Criador de FAQ utilizada para autenticação. 
+Adicione a seguinte função para fazer um pedido POST de HTTP para criar a base de dados de conhecimento.
+Esta chamada à API devolve uma resposta JSON, que inclui o ID da operação no campo do cabeçalho **Localização**. Utilize o ID da operação para determinar se a KB for criada com êxito. A `Ocp-Apim-Subscription-Key` é a chave de serviço do Criador de FAQ utilizada para autenticação.
 
 [!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-Esta chamada à API devolve uma resposta JSON, que inclui o ID da operação. Utilize o ID da operação para determinar se a KB for criada com êxito. 
+Esta chamada à API devolve uma resposta JSON, que inclui o ID da operação. Utilize o ID da operação para determinar se a KB for criada com êxito.
 
 ```JSON
 {
@@ -85,7 +93,7 @@ A seguinte função verifica o estado de criação a enviar no ID de operação 
 
 [!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
 
-Esta chamada à API devolve uma resposta JSON que inclui o estado da operação: 
+Esta chamada à API devolve uma resposta JSON que inclui o estado da operação:
 
 ```JSON
 {
@@ -97,7 +105,7 @@ Esta chamada à API devolve uma resposta JSON que inclui o estado da operação:
 }
 ```
 
-Repita a chamada até ter êxito ou falhar: 
+Repita a chamada até obter êxito ou falhar:
 
 ```JSON
 {
@@ -111,7 +119,7 @@ Repita a chamada até ter êxito ou falhar:
 ```
 
 ## <a name="add-main-code-block"></a>Adicionar bloco de código principal
-O seguinte ciclo consulta o estado da operação de criação periodicamente até a operação estar concluída. 
+O seguinte ciclo consulta o estado da operação de criação periodicamente até a operação estar concluída.
 
 [!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
 
@@ -125,7 +133,7 @@ python create-new-knowledge-base-3x.py
 
 Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Selecione o nome da sua base de dados de conhecimento, por exemplo, FAQ do Criador de FAQ, para a visualizar.
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

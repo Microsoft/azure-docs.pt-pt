@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435008"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -41,14 +41,14 @@ Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager
 | Definição | Valor |
 | ------- | ----- |
 | Plano de pagamento | "Pay-As-You-Go" |
-| Modelo de aplicação | Exemplo da Contoso |
+| Modelo de aplicação | Aplicativo herdado |
 | Nome da aplicação | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | Este dos E.U.A. |
+| Região | Estados Unidos |
 
-Os exemplos e capturas de tela neste artigo usam a região **leste dos EUA** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
+Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
 
 ### <a name="resource-group"></a>Grupo de recursos
 
@@ -67,7 +67,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Localização | Este dos E.U.A. |
 | Unidades de Débito | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics trabalho
+### <a name="stream-analytics-job"></a>Tarefa do Stream Analytics
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 
@@ -90,9 +90,9 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | SO | Windows |
-| Plano de hospedagem | Plano de Consumo |
+| Hosting Plan | Plano de Consumo |
 | Localização | Este dos E.U.A. |
-| Pilha de tempo de execução | .NET |
+| Pilha de Runtime | .NET |
 | Armazenamento | Criar novo |
 
 ### <a name="sendgrid-account"></a>Conta do SendGrid
@@ -318,7 +318,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Hub de eventos | centralexport |
     | Medições | Ativado |
     | Dispositivos | Desativado |
-    | Modelos de dispositivo | Desativado |
+    | Modelos de Dispositivos | Desativado |
 
 ![Configuração de exportação de dados contínuas](media/howto-create-custom-rules/cde-configuration.png)
 

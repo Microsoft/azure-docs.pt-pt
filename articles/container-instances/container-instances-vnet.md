@@ -2,13 +2,14 @@
 title: Implantar grupo de contêineres na rede virtual do Azure
 description: Saiba como implantar grupos de contêineres em uma rede virtual do Azure nova ou existente.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442258"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -45,8 +46,8 @@ Os limites de recursos do contêiner podem ser diferentes dos limites para inst�
 ### <a name="unsupported-networking-scenarios"></a>Cenários de rede sem suporte 
 
 * Não há suporte para **Azure Load Balancer** colocar uma Azure Load Balancer na frente das instâncias de contêiner em um grupo de contêineres de rede
-* **Emparelhamento de rede virtual** -você não pode emparelhar uma rede virtual contendo uma sub-rede delegada a instâncias de contêiner do Azure para outra rede virtual
-* **Tabelas de rotas** – as rotas definidas pelo usuário não podem ser configuradas em uma sub-rede delegada para instâncias de contêiner do Azure
+* **Emparelhamento de rede virtual** -o emparelhamento VNet não funcionará para ACI se a rede à qual a VNet ACI está sendo emparelhada usar um espaço IP público. A rede emparelhada precisa de um espaço IP privado RFC1918 para que o emparelhamento funcione. Além disso, atualmente, você só pode emparelhar sua VNet com uma outra VNet
+* **Roteamento de tráfego de rede virtual** -as rotas do cliente não podem ser configuradas em lugar de IPS públicos. As rotas podem ser configuradas no espaço IP privado da sub-rede delegada na qual os recursos de ACI são implantados 
 * **Grupos de segurança de rede** – as regras de segurança de saída no NSGs aplicadas a uma sub-rede delegada para instâncias de contêiner do Azure não são impostas no momento 
 * **Rótulo de IP público ou DNS** -grupos de contêineres implantados em uma rede virtual atualmente não dão suporte à exposição de contêineres diretamente à Internet com um endereço IP público ou um nome de domínio totalmente qualificado
 * **Resolução de nome interno** -a resolução de nomes para recursos do Azure na rede virtual por meio do DNS do Azure interno não é suportada
@@ -63,7 +64,7 @@ Uma rede virtual define o espaço de endereço no qual você cria uma ou mais su
 
 ### <a name="subnet-delegated"></a>Sub-rede (delegada)
 
-As sub-redes segmentam a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que você coloca neles. Você cria uma ou várias sub-redes em uma rede virtual.
+Sub-redes segmentar a rede virtual em espaços de endereço separados utilizáveis pelos recursos do Azure que coloca nos mesmos. Você cria uma ou várias sub-redes em uma rede virtual.
 
 A sub-rede que você usa para grupos de contêineres pode conter apenas grupos de contêineres. Quando você implanta um grupo de contêineres em uma sub-rede pela primeira vez, o Azure Delega essa sub-rede para as instâncias de contêiner do Azure. Depois de delegada, a sub-rede pode ser usada somente para grupos de contêineres. Se você tentar implantar recursos que não sejam grupos de contêineres em uma sub-rede delegada, a operação falhará.
 

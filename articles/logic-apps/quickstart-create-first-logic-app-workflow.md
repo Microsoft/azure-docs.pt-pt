@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428768"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Início rápido: criar seu primeiro fluxo de trabalho usando os aplicativos lógicos do Azure-portal do Azure
 
@@ -44,9 +44,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Nome** | <*lógica-nome do aplicativo*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
+   | **Nome** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
    | **Subscrição** | <*Azure-subscription-name*> | O nome da sua assinatura do Azure |
-   | **Grupo de recursos** | <*Azure-Resource-Group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
    | **Localização** | <*do Azure-region*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
@@ -116,7 +116,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 1. Se o seu conector de email selecionado solicitar que você autentique sua identidade, conclua essa etapa agora para criar uma conexão entre seu aplicativo lógico e seu serviço de email.
 
    > [!NOTE]
-   > Neste exemplo específico, você autentica manualmente sua identidade. No entanto, os conectores que exigem autenticação diferem nos tipos de autenticação aos quais dão suporte. Você também tem opções para configurar a maneira como deseja lidar com a autenticação. Por exemplo, ao usar modelos de Azure Resource Manager para implantação, você pode parametrizar e proteger as entradas que você deseja alterar com frequência ou facilidade, como informações de conexão. Para obter mais informações, consulte estes tópicos:
+   > Neste exemplo específico, você autentica manualmente sua identidade. No entanto, os conectores que exigem autenticação diferem nos tipos de autenticação aos quais dão suporte. Você também tem opções para configurar a maneira como deseja lidar com a autenticação. Por exemplo, ao usar modelos de Azure Resource Manager para implantação, você pode parametrizar e proteger as entradas que você deseja alterar com frequência ou facilidade, como informações de conexão. Para obter mais informações, veja estes tópicos:
    >
    > * [Parâmetros de modelo para implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Autorizar conexões OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
@@ -160,7 +160,7 @@ Em seguida, teste a aplicação lógica.
 
 ## <a name="run-your-logic-app"></a>Executar a aplicação lógica
 
-Para iniciar manualmente seu aplicativo lógico, na barra da barra de ferramentas do designer, selecione **executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de realizar uma nova consulta. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
+Para iniciar manualmente seu aplicativo lógico, na barra da barra de ferramentas do designer, selecione **executar**. Em alternativa, aguarde que a aplicação lógica verifique o feed RSS de acordo com o agendamento especificado (a cada minuto). Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de verificar novamente. Se não receber nenhum e-mail, veja a pasta de e-mail de lixo.
 
 Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicação lógica.
 

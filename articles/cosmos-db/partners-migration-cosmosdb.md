@@ -1,17 +1,17 @@
 ---
-title: Parceiros do Azure Cosmos DB NoSQL migração e aplicação de desenvolvimento
+title: Parceiros de desenvolvimento de aplicativos e migração para Azure Cosmos DB
 description: Apresenta uma lista de parceiros da Microsoft com soluções de migração que suportam o Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 2ba6b04efbce5b7911037fbc5f14373cc962035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257347"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530702"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros do Azure Cosmos DB NoSQL migração e aplicação de desenvolvimento
 
@@ -19,14 +19,14 @@ Da migração do NoSQL para desenvolvimento de aplicativos, pode escolher entre 
 
 ## <a name="migration-tools"></a>Ferramentas de migração
 
-|**Parceiro**  |**Capacidades e experiência**  |**Países/regiões suportados**  |**Contact**  |
+|**Parceiro**  |**Capacidades e experiência**  |**Países/regiões com suporte**  |**Contact**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | [Migração de dados](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) do MongoDB ao Azure Cosmos DB. <br/> Dados Imanis permite às empresas globais rápida e facilmente migrar suas instalações ou na cloud bases de dados do MongoDB ao Azure Cosmos DB. Dados de Imanis fornece uma abordagem de migração da cloud sem agente e incremental sempre para arquivos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Web site](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de origens de dados. <br/> Striim simplifica a coleção em tempo real e o movimento de dados a partir de uma grande variedade de origens no local, incluindo o documento de enterprise e bases de dados relacionais, sensores e ficheiros de registo para o Azure Cosmos DB. |   EUA   |  [Web site](https://www.striim.com/)       |
+|![ImanisData][1]   | Migração de dados do MongoDB para Azure Cosmos DB. <br/> Dados Imanis permite às empresas globais rápida e facilmente migrar suas instalações ou na cloud bases de dados do MongoDB ao Azure Cosmos DB. Dados de Imanis fornece uma abordagem de migração da cloud sem agente e incremental sempre para arquivos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Web site](https://www.cohesity.com/products/imanis-data/)      |
+|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de origens de dados. <br/> O Striim simplifica a coleta em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log em Azure Cosmos DB. |   EUA   |  [Web site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros integradores de sistemas
 
-|**Parceiro**  |**Capacidades e experiência**  |**Países/regiões suportados**  |**Contact**  |
+|**Parceiro**  |**Capacidades e experiência**  |**Países/regiões com suporte**  |**Contact**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | Migração de NoSQL; Desenvolver novos aplicativos | EUA | [Web site](https://www.10thmagnitude.com/)|
 |![Desenvolvimento de Altoros LLC][3]    |  Migração de NoSQL, <br/> Inovação das aplicações (aplicações existentes), <br/> Desenvolver novos aplicativos |   Dos E.U.A., Noruega, Finlândia, Bielorrússia, Argentina |  [Web site](https://www.altoros.com/)     |
@@ -54,7 +54,7 @@ Da migração do NoSQL para desenvolvimento de aplicativos, pode escolher entre 
 | ![Expandir IT][25] | Desenvolver novos aplicativos | Portugal, Reino Unido| [Web site](https://www.xpand-it.com/)|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre alguns dos outros parceiros da Microsoft, consulte a [site do Microsoft Partner](https://partner.microsoft.com/en-US/).
 

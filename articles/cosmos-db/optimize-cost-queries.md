@@ -1,21 +1,21 @@
 ---
-title: Otimizar as unidades de solicitação e o custo para executar consultas no Azure Cosmos DB
+title: Otimizar o custo e RU/s para executar consultas no Azure Cosmos DB
 description: Saiba como avaliar encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445137"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo da consulta no Azure Cosmos DB
 
-O Azure Cosmos DB oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas que operam nos itens de um contêiner. O custo associado a cada uma dessas operações varia de acordo com a CPU, a e/s e a memória necessária para concluir a operação. Em vez de pensar e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários para executar várias operações de banco de dados para atender a uma solicitação. Este artigo descreve como avaliar encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo. 
+O Azure Cosmos DB oferece um conjunto de operações de bases de dados, incluindo consultas relacionais e hierárquicas que operam nos itens de um contentor. O custo associado a cada uma destas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar nos recursos de hardware e na sua gestão, pode pensar numa Unidade de Pedido (RU) como medida única para os recursos necessários para executar várias operações de bases de dados para servir um pedido. Este artigo descreve como avaliar os custos das unidades de pedidos de uma consulta e como otimizar a consulta em termos de desempenho e custo. 
 
 As consultas em Azure Cosmos DB normalmente são ordenadas de forma mais rápida/mais eficiente para mais lenta/menos eficiente em termos de taxa de transferência da seguinte maneira:  
 
@@ -27,7 +27,7 @@ As consultas em Azure Cosmos DB normalmente são ordenadas de forma mais rápida
 
 * Consulta sem filtros.
 
-As consultas que lêem dados de uma ou mais partições incorrem em latência mais alta e consomem um número maior de unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida com eficiência do índice. Você pode fazer consultas que usam várias partições mais rápido usando as opções de paralelismo. Para saber mais sobre particionamento e chaves de partição, confira [particionamento no Azure Cosmos DB](partitioning-overview.md).
+As consultas que lêem dados de uma ou mais partições incorrem em latência mais alta e consomem um número maior de unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida com eficiência do índice. Você pode fazer consultas que usam várias partições mais rápido usando as opções de paralelismo. Para saber mais sobre a criação de partições e chaves de partição, veja [criação de partições no Azure Cosmos DB](partitioning-overview.md).
 
 ## <a name="evaluate-request-unit-charge-for-a-query"></a>Avaliar o encargo de unidade de solicitação para uma consulta
 

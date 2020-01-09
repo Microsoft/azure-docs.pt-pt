@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461135"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
 
-Os algoritmos de ia orientam os [pipelines de enriquecimento](cognitive-search-concept-intro.md) usados para a transformação de conteúdo no Azure pesquisa cognitiva. Esses algoritmos são baseados nos recursos de serviços cognitivas do Azure, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres) e [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconhecimento de entidade, extração de frases-chave e outros aprimoramentos. Conforme usado pelo Azure Pesquisa Cognitiva para fins de enriquecimento de documentos, os algoritmos são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
+Ao configurar um pipeline de enriquecimento no Azure Pesquisa Cognitiva, você pode enriquecer um número limitado de documentos gratuitamente. Para cargas de trabalho maiores e mais frequentes, você deve anexar um recurso de serviços cognitivas cobráveis.
 
-Você pode enriquecer um número limitado de documentos gratuitamente. Ou então, você pode anexar um recurso de serviços de cognitiva Faturável a um *conconhecimento* para cargas de trabalho maiores e mais frequentes. Neste artigo, você aprenderá a anexar um recurso de serviços de cognitiva Faturável para enriquecer documentos durante a [indexação](search-what-is-an-index.md)de pesquisa cognitiva do Azure.
+Neste artigo, você aprenderá a anexar um recurso atribuindo uma chave a um configurador de habilidades que define um pipeline de enriquecimento.
 
-> [!NOTE]
-> Os eventos faturáveis incluem chamadas para API de Serviços Cognitivos e extração de imagem como parte do estágio de quebra de documento no Pesquisa Cognitiva do Azure. Não há nenhum encargo para a extração de texto de documentos ou para habilidades que não chamam serviços cognitivas.
->
-> A execução de habilidades faturáveis é o [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/). Para obter os preços de extração de imagem, consulte a [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+## <a name="resources-used-during-enrichment"></a>Recursos usados durante o enriquecimento
+
+O Azure Pesquisa Cognitiva tem uma dependência de serviços cognitivas, incluindo [Pesquisa Visual computacional](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análise de imagem e OCR (reconhecimento óptico de caracteres), [análise de texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para processamento de linguagem natural e outros aprimoramentos como [tradução de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). No contexto de enriquecimento no Azure Pesquisa Cognitiva, esses algoritmos de ia são encapsulados dentro de uma *habilidade*, colocados em um configurador de *qualificações*e referenciados por um *indexador* durante a indexação.
+
+## <a name="how-billing-works"></a>Como funciona a faturação
+
++ O Azure Pesquisa Cognitiva usa a chave de recurso de serviços cognitivas que você fornece em um contextset para cobrar da imagem e do enriquecimento de texto. A execução de habilidades faturáveis é o [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
++ A extração de imagem é uma operação de Pesquisa Cognitiva do Azure que ocorre quando os documentos são rachados antes do enriquecimento. A extração de imagem é faturável. Para obter os preços de extração de imagem, consulte a [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+
++ A extração de texto também ocorre durante a frase de quebra de documento. Não é faturável.
+
++ As habilidades que não chamam serviços cognitivas, incluindo habilidades condicionais, de forma condicional, de mesclagem de texto e de divisão de texto, não são faturáveis.
 
 ## <a name="same-region-requirement"></a>Requisito de mesma região
 
@@ -33,7 +42,7 @@ Exigimos que o Azure Pesquisa Cognitiva e os serviços cognitivas do Azure exist
 Não é possível mover um serviço entre regiões. Se você receber esse erro, deverá criar um novo recurso de serviços cognitivas na mesma região que o Azure Pesquisa Cognitiva.
 
 > [!NOTE]
-> Algumas habilidades internas se baseiam em serviços cognitivas não regionais (por exemplo, a [habilidade de tradução de texto](cognitive-search-skill-text-translation.md)). Lembre-se de que se você adicionar qualquer uma dessas habilidades ao seu skillr de que seus dados não têm garantia de permanecer na mesma região que o seu Pesquisa Cognitiva do Azure ou recurso de serviços cognitivas. Consulte a [página status do serviço](https://aka.ms/allinoneregioninfo) para obter mais detalhes.
+> Algumas habilidades internas se baseiam em serviços cognitivas não regionais (por exemplo, a [habilidade de tradução de texto](cognitive-search-skill-text-translation.md)). Usar uma habilidade não regional significa que sua solicitação pode ser atendida em uma região diferente da região de Pesquisa Cognitiva do Azure. Para obter mais informações sobre serviços não regionais, consulte a página [produtos de serviços cognitivas por região](https://aka.ms/allinoneregioninfo) .
 
 ## <a name="use-free-resources"></a>Usar recursos gratuitos
 

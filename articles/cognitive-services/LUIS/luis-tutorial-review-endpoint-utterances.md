@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: revisando o ponto de extremidade declarações-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTP que o LUIS não pode assegurar. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
+description: Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo declarações recebidas por meio do ponto de extremidade HTTP LUIS que LUIS não tem certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447807"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: corrigir previsões inseguras examinando o ponto de extremidade declarações
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo declarações, recebidos por meio do ponto de extremidade HTTPS LUIS, que LUIS não tem certeza de. Você deve examinar o ponto de extremidade declarações como uma parte normal da manutenção agendada do LUIS.
@@ -28,8 +28,6 @@ Esse processo de revisão permite que o LUIS Aprenda seu domínio de aplicativo.
 * Deve ser revista periodicamente.
 
 Ao rever as expressões de ponto final, está a validar ou corrigir a intenção prevista da expressão.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Neste tutorial, vai aprender a:**
 
@@ -46,7 +44,7 @@ Ao rever as expressões de ponto final, está a validar ou corrigir a intenção
 
 Use as etapas a seguir para importar um aplicativo.
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. No [portal do Luis de visualização](https://preview.luis-ai), importe o arquivo. JSON para um novo aplicativo.
 

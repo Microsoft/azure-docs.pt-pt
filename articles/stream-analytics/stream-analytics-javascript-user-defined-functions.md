@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics funções definidas pelo usuário do JavaScript
 description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426052"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
  
@@ -100,27 +99,27 @@ As funções definidas pelo utilizador do JavaScript do Stream Analytics suporta
 
 Existem diferenças nos tipos que a linguagem de consulta do Stream Analytics e do JavaScript suportam. Esta tabela lista os mapeamentos de conversão entre os dois:
 
-Stream Analytics | JavaScript
+Stream Analytics | Javascript
 --- | ---
 bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
 DateTime | Date (o JavaScript só suporta milissegundos)
-double | Number
-nvarchar(MAX) | String
-Record | Object
-Array | Array
+double | Número
+nvarchar(MAX) | Cadeia
+Record | Objeto
+Matriz | Matriz
 NULL | Null
 
 
 Seguem-se conversões do JavaScript para o Stream Analytics:
 
 
-JavaScript | Stream Analytics
+Javascript | Stream Analytics
 --- | ---
-Number | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
+Número | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
 Date | DateTime
-String | nvarchar(MAX)
-Object | Record
-Array | Array
+Cadeia | nvarchar(MAX)
+Objeto | Record
+Matriz | Matriz
 Null, Undefined | NULL
 Qualquer outro tipo (por exemplo, uma função ou erro) | Não suportado (resultados num erro de runtime)
 

@@ -1,28 +1,19 @@
 ---
-title: 'Gerenciador de recursos de Cluster Service Fabric: custo de movimento | Microsoft Docs'
-description: Visão geral do custo de movimento para serviços de Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: 'Gerenciador de recursos de Cluster Service Fabric: custo de movimento'
+description: Saiba mais sobre o custo de movimento para serviços de Service Fabric e como ele pode ser especificado para se adequar a qualquer necessidade de arquitetura, incluindo configuração dinâmica.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243007"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563348"
 ---
 # <a name="service-movement-cost"></a>Custo de movimentação de serviço
-Um fator que o Service Fabric Gerenciador de recursos de cluster considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é compensada em relação ao quanto o cluster pode ser melhorado. O custo é fatorado no ao mover serviços para balanceamento, desfragmentação e outros requisitos. O objetivo é atender aos requisitos da maneira menos prejudicial ou cara. 
+Um fator que o Service Fabric Gerenciador de recursos de cluster considera ao tentar determinar quais alterações fazer em um cluster é o custo dessas alterações. A noção de "custo" é compensada em relação ao quanto o cluster pode ser melhorado. O custo é fatorado no ao mover serviços para balanceamento, desfragmentação e outros requisitos. O objetivo é atender aos requisitos da maneira menos prejudicial ou cara.
 
 A movimentação de serviços custa tempo de CPU e largura de banda de rede no mínimo. Para serviços com estado, é necessário copiar o estado desses serviços, consumindo memória e disco adicionais. Minimizar o custo das soluções que o Gerenciador de recursos de Cluster Service Fabric do Azure apresenta ajuda a garantir que os recursos do cluster não sejam gastos desnecessariamente. No entanto, você também não quer ignorar soluções que melhoram significativamente a alocação de recursos no cluster.
 
@@ -103,7 +94,7 @@ O MoveCost ajuda você a encontrar as soluções que causam o mínimo de interru
 Para que o MoveCosts mais granular seja levado em conta, MoveCost deve ser habilitado em seu cluster. Sem essa configuração, o modo padrão de contagem de movimentações é usado para calcular MoveCost e os relatórios MoveCost são ignorados.
 
 
-ClusterManifest. xml:
+ClusterManifest.xml:
 
 ``` xml
         <Section Name="PlacementAndLoadBalancing">

@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: conectar-se ao serviço de Análise de Texto com serviços conectados no Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Este artigo e os respetivos artigos complementares fornecem detalhes para utilizar a funcionalidade de Serviço Ligado do Visual Studio para o Serviço de Análise de Texto.
+description: Saiba como usar o recurso de serviço conectado do Visual Studio para o serviço de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446148"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: conectar-se ao serviço de Análise de Texto com serviços conectados no Visual Studio
 
@@ -43,7 +43,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
    ![Captura do ecrã Connected Services (Serviços Ligados)](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
-   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, é apresentada uma página com uma lista pendente com as suas subscrições.
+   Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições.
 
    ![Captura do ecrã Connected Service (Serviço Ligado) da Análise de Texto](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
@@ -69,7 +69,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
  
 ## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Utilize o Serviço de Análise de Texto para detetar o idioma para um exemplo de texto.
 
-1. Adicione as instruções de utilização seguintes a Startup.cs.
+1. Adicione as seguintes instruções using a Startup.cs.
  
    ```csharp
    using System.IO;
@@ -259,7 +259,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando já não necessitar, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste tutorial nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.

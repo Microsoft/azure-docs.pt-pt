@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f0f83234cca880dd41f9c06bb4ddb3c2913cf3c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 1021355d214dc1fabba9914919449fe6ddbe3ff0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469355"
 ---
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Java no GitHub](https://aka.ms/speech/github-java)

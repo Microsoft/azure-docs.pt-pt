@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 12/17/2019
 ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
 ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/28/2019
 ms.locfileid: "75541169"

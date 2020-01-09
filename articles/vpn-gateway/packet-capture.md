@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353505"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurar capturas de pacote para gateways de VPN
 
@@ -24,11 +24,13 @@ Há algumas ferramentas disponíveis para a captura de pacotes. No entanto, obte
 
 As capturas de pacotes do gateway de VPN podem ser executadas no gateway ou em uma conexão específica, dependendo das necessidades do cliente. Você também pode executar capturas de pacote em vários túneis ao mesmo tempo. Você pode capturar o tráfego único ou de bi-direction, tráfego IKE e ESP e pacotes internos, juntamente com a filtragem em um gateway de VPN.
 
-Usar filtros de 5 tuplas (sub-rede de origem, sub-rede de destino, porta de origem, porta de destino, protocolo) e sinalizadores TCP (SYN, ACK, FIN, URG, PSH, RST) é útil ao isolar problemas em um tráfego de alto volume.
+Usar o filtro de 5 tuplas (sub-rede de origem, sub-rede de destino, porta de origem, porta de destino, protocolo) e sinalizadores TCP (SYN, ACK, FIN, URG, PSH, RST) é útil ao isolar problemas em um tráfego de alto volume.
+
+Você pode usar apenas uma opção por Propriedade ao executar a captura de pacote.
 
 ## <a name="setup-packet-capture-using-powershell"></a>Configurar a captura de pacotes usando o PowerShell
 
-Consulte os exemplos abaixo para obter os comandos do PowerShell para iniciar e parar as capturas de pacotes. Para obter mais informações sobre as opções de parâmetro (como criar filtros), consulte este [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)do PowerShell.
+Consulte os exemplos abaixo para obter os comandos do PowerShell para iniciar e parar as capturas de pacotes. Para obter mais informações sobre as opções de parâmetro (como criar filtro), consulte este [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)do PowerShell.
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Iniciar captura de pacote para um gateway de VPN
 
@@ -36,7 +38,7 @@ Consulte os exemplos abaixo para obter os comandos do PowerShell para iniciar e 
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-O parâmetro opcional **-FilterData** pode ser usado para aplicar filtros.
+O parâmetro opcional **-FilterData** pode ser usado para aplicar o filtro.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Parar captura de pacote para um gateway de VPN
 
@@ -50,7 +52,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-O parâmetro opcional **-FilterData** pode ser usado para aplicar filtros.
+O parâmetro opcional **-FilterData** pode ser usado para aplicar o filtro.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Parar captura de pacote em uma conexão de gateway de VPN
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - A execução de capturas de pacote pode afetar o desempenho. Lembre-se de interromper a captura de pacotes quando ela não for necessária.
 - A duração mínima da captura de pacotes sugerida é de 600 segundos. Ter uma duração de captura de pacotes mais curta pode não fornecer dados completos devido à sincronização de problemas entre vários componentes no caminho.
-- Os arquivos de dados de captura de pacote são gerados nos formatos PCAP ou ETL. Talvez você precise do analisador de Netmon para entender os dados.
+- Os arquivos de dados de captura de pacote são gerados no formato PCAP. Use o Wireshark ou outros aplicativos comumente disponíveis para abrir arquivos PCAP.
 
 ## <a name="next-steps"></a>Passos seguintes
 

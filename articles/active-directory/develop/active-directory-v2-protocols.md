@@ -1,5 +1,5 @@
 ---
-title: Protocolos de autorização com suporte na plataforma Microsoft Identity | Azure
+title: Protocolos OAuth 2,0 e OpenID Connect-plataforma Microsoft Identity | Azure
 description: Um guia para os protocolos OAuth 2,0 e OpenID Connect que são suportados pelo ponto de extremidade da plataforma Microsoft Identity.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918293"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424738"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade da Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft
 
 O ponto de extremidade da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão do setor, OpenID Connect e OAuth 2,0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre duas implementações desses protocolos. As informações aqui serão úteis se você optar por escrever seu código enviando e manipulando diretamente as solicitações HTTP ou usar uma biblioteca de software livre de terceiros, em vez de usar uma das nossas [bibliotecas de código aberto](reference-v2-libraries.md).
 

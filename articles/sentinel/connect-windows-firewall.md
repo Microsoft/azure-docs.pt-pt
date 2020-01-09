@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: feb7fa0b3f820c3f918fc8a5c817e7fe5fb15fc9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240633"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610408"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 
@@ -30,7 +30,8 @@ O conector do firewall do Windows permite que você conecte seus logs do firewal
 
 
 > [!NOTE]
-> Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
+> - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
+> - Se o Azure Sentinel e a central de segurança do Azure forem coletados para o mesmo espaço de trabalho, não será necessário habilitar a solução de firewall do Windows por meio desse conector. Se você habilitá-lo mesmo assim, ele não causará dados duplicados. 
 
 ## <a name="enable-the-connector"></a>Habilitar o conector 
 

@@ -2,18 +2,18 @@
 title: Criar clusters Apache Hadoop usando o CLI do Azure-Azure HDInsight
 description: Saiba como criar clusters do Azure HDInsight usando o CLI do Azure de plataforma cruzada.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: hrasheed
-ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494798"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495115"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight usando o CLI do Azure
 
@@ -33,7 +33,7 @@ CLI do Azure. Se você ainda não instalou o CLI do Azure, consulte [instalar o 
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-1. Faça logon na sua assinatura do Azure. Se você planeja usar Azure Cloud Shell, basta selecionar **experimentar** no canto superior direito do bloco de código. Caso contrário, digite o comando a seguir:
+1. Faça logon na sua assinatura do Azure. Se você planeja usar Azure Cloud Shell, selecione **Experimente** no canto superior direito do bloco de código. Caso contrário, digite o comando a seguir:
 
     ```azurecli-interactive
     az login
@@ -60,7 +60,7 @@ CLI do Azure. Se você ainda não instalou o CLI do Azure, consulte [instalar o 
     export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
     export httpCredential='PASSWORD'
     export sshCredentials='PASSWORD'
-    
+
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
     export clusterVersion=3.6
@@ -136,7 +136,7 @@ CLI do Azure. Se você ainda não instalou o CLI do Azure, consulte [instalar o 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, seus dados são armazenados no armazenamento do Azure, para que você possa excluir um cluster com segurança quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes mais do que os encargos de armazenamento, ele faz sentido econômico excluir clusters quando eles não estiverem em uso.
 
 Insira todos ou alguns dos comandos a seguir para remover os recursos:
 
