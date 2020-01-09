@@ -1,7 +1,7 @@
 ---
-title: Credenciais de certificado do Azure AD
+title: Credenciais de certificado da plataforma de identidade da Microsoft
 titleSuffix: Microsoft identity platform
-description: Este artigo discute o registro e o uso de credenciais de certificado para autenticação de aplicativo
+description: Este artigo discute o registro e o uso de credenciais de certificado para autenticação de aplicativo.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,27 +10,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a44d89e19a1efc54e2c3c49053ec9badc91ba97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424709"
 ---
-# <a name="azure-ad-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação de aplicativo do Azure AD
+# <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais do certificado de autenticação de aplicativo da plataforma de identidade da Microsoft
 
-O Azure Active Directory (AD do Azure) permite que um aplicativo use suas próprias credenciais para autenticação, por exemplo, no fluxo de concessão de credenciais de cliente do OAuth 2,0 ([v 1.0](v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) e no fluxo em nome de ([v 1.0](v1-oauth2-on-behalf-of-flow.md), [v 2.0](v2-oauth2-on-behalf-of-flow.md)).
+A plataforma de identidade da Microsoft permite que um aplicativo use suas próprias credenciais para autenticação, por exemplo, nas [credenciais de cliente do OAuth 2,0 conceder flowv 2.0](v2-oauth2-client-creds-grant-flow.md) e o [fluxo em nome de](v2-oauth2-on-behalf-of-flow.md)).
 
 Uma forma de credencial que um aplicativo pode usar para autenticação é uma asserção JWT (token Web JSON) assinada com um certificado que o aplicativo possui.
 
 ## <a name="assertion-format"></a>Formato de asserção
-
-Para computar a asserção, você pode usar uma das muitas bibliotecas de [token Web JSON](https://jwt.ms/) no idioma de sua escolha. As informações transportadas pelo token são as seguintes:
+Plataforma de identidade da Microsoft para computar a asserção, você pode usar uma das muitas bibliotecas de [token Web JSON](https://jwt.ms/) na linguagem de sua escolha. As informações transportadas pelo token são as seguintes:
 
 ### <a name="header"></a>Cabeçalho
 
@@ -89,9 +88,9 @@ A cadeia de caracteres a seguir é um exemplo de asserção codificada. Se olhar
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
-## <a name="register-your-certificate-with-azure-ad"></a>Registrar seu certificado com o Azure AD
+## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrar seu certificado com a plataforma de identidade da Microsoft
 
-Você pode associar a credencial do certificado ao aplicativo cliente no Azure AD por meio do portal do Azure usando qualquer um dos seguintes métodos:
+Você pode associar a credencial do certificado ao aplicativo cliente na plataforma de identidade da Microsoft por meio do portal do Azure usando qualquer um dos seguintes métodos:
 
 ### <a name="uploading-the-certificate-file"></a>Carregando o arquivo de certificado
 
@@ -125,7 +124,7 @@ No registro do aplicativo do Azure para o aplicativo cliente:
        }
    ]
    ```
-3. Salve as edições no manifesto do aplicativo e, em seguida, carregue o manifesto no Azure AD. 
+3. Salve as edições no manifesto do aplicativo e, em seguida, carregue o manifesto para a plataforma de identidade da Microsoft. 
 
    A propriedade `keyCredentials` tem valores múltiplos, portanto, você pode carregar vários certificados para um gerenciamento mais avançado de chaves.
    
@@ -134,4 +133,4 @@ No registro do aplicativo do Azure para o aplicativo cliente:
 > [!NOTE]
 > Você deve calcular o cabeçalho X5T usando o hash do certificado e convertê-lo em uma cadeia de caracteres base64. C# Ele seria algo semelhante ao de: `System.Convert.ToBase64String(cert.GetCertHash());`
 
-O exemplo de código sobre [autenticação no Azure AD em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Ele também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` PowerShell. Você também pode tirar proveito e usar os [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, computar a impressão digital e assim por diante.
+O exemplo de código sobre [autenticação na plataforma Microsoft Identity em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Ele também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` PowerShell. Você também pode tirar proveito e usar os [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, computar a impressão digital e assim por diante.

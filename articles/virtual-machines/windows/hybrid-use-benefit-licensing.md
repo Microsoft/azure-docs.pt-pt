@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461155"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Benefício Híbrido do Azure para Windows Server permite que você use suas licenças locais do Windows Server e execute máquinas virtuais do Windows no Azure a um custo reduzido. Você pode usar Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com o sistema operacional Windows. Este artigo apresenta as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para o Windows Server e como você pode atualizar as VMs em execução existentes. Para obter mais informações sobre Benefício Híbrido do Azure para licenciamento e economia de custo do Windows Server, consulte a [página benefício híbrido do Azure para licenciamento do Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -201,4 +201,4 @@ Você também pode aprender mais sobre como [modificar um conjunto de dimensiona
 - Saiba mais sobre o [benefício híbrido do Azure para obter orientações detalhadas sobre licenciamento do Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Saiba mais sobre o [benefício híbrido do Azure para o Windows Server e Azure site Recovery tornar a migração de aplicativos para o Azure ainda mais](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) econômica
 - Saiba mais sobre o [Windows 10 no Azure com o direito de hospedagem multilocatário](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Saiba mais sobre como [usar modelos do Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- Saiba mais sobre como [usar modelos do Resource Manager](../../azure-resource-manager/management/overview.md)

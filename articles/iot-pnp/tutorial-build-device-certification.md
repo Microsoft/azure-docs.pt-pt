@@ -3,18 +3,18 @@ title: Criar um dispositivo de visualização de Plug and Play IoT pronto para c
 description: Como desenvolvedor de dispositivos, saiba como você pode criar um dispositivo de visualização de IoT Plug and Play que está pronto para a certificação.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569643"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550271"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Criar um dispositivo de visualização de Plug and Play IoT pronto para certificação
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, precisa de:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Ferramentas de IOT do Azure para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o pacote de extensão vs Code
 
-Você também precisa do dispositivo de Plug and Play de IoT criado no [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device.md).
+Você também precisa do dispositivo de Plug and Play de IoT criado no [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device-windows.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Armazenar um modelo de funcionalidade e interfaces
 
@@ -58,7 +58,7 @@ Para passar o processo de certificação, você deve incluir e implementar a int
 ```
 
 > [!NOTE]
-> Se você concluiu o [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device.md), você já incluiu a interface de **informações do dispositivo** em seu modelo.
+> Se você concluiu o [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device-windows.md), você já incluiu a interface de **informações do dispositivo** em seu modelo.
 
 Para incluir a interface de **informações do dispositivo** em seu modelo de dispositivo, adicione a ID da interface à propriedade `implements` do modelo de funcionalidade:
 

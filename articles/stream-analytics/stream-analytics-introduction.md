@@ -3,17 +3,17 @@ title: Descrição geral do Azure Stream Analytics
 description: Saiba mais sobre o Stream Analytics, um serviço gerido que o ajuda a analisar os dados de transmissão a partir da Internet de Coisas (IoT) em tempo real.
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3399cc47af20df05d6315a4bd77965f799eaf5f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426176"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é Azure Stream Analytics?
 
@@ -39,7 +39,7 @@ Cada trabalho tem uma saída para os dados transformados e você pode controlar 
 
 A imagem a seguir mostra como os dados são enviados para Stream Analytics, analisados e enviados para outras ações, como armazenamento ou apresentação:
 
-![Pipeline de introdução Stream Analytics](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
+![Pipeline de introdução do Stream Analytics](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Principais capacidades e vantagens
 
@@ -61,9 +61,9 @@ O Azure Stream Analytics usa uma linguagem de consulta simples baseada em SQL qu
 
 A linguagem de consulta Stream Analytics oferece uma ampla gama de funções para analisar e processar dados de streaming. Essa linguagem de consulta dá suporte à manipulação simples de dados, funções de agregação e funções geoespaciais complexas. Você pode editar consultas no portal e testá-las usando dados de exemplo que são extraídos de uma transmissão ao vivo.
 
-Pode definir e invocar funções adicionais para alargar as capacidades da linguagem de consultas. Você pode definir chamadas de função no Azure Machine Learning para aproveitar as soluções de Azure Machine Learning e integrar o JavaScript ou C# as UDFs (funções definidas pelo usuário) ou as agregações definidas pelo usuário para executar cálculos complexos como parte de um fluxo Consulta de análise.
+Pode definir e invocar funções adicionais para alargar as capacidades da linguagem de consultas. Você pode definir chamadas de função no Azure Machine Learning para aproveitar as soluções de Azure Machine Learning e integrar o JavaScript ou C# as UDFs (funções definidas pelo usuário) ou as agregações definidas pelo usuário para executar cálculos complexos como parte de uma Stream Analytics consulta.
 
-## <a name="fully-managed"></a>Totalmente gerido
+## <a name="fully-managed"></a>Totalmente gerida
 
 O Azure Stream Analytics é uma oferta sem servidor totalmente gerida (PaaS) no Azure. Você não precisa provisionar nenhum hardware ou gerenciar clusters para executar seus trabalhos. Azure Stream Analytics gerencia totalmente seu trabalho configurando clusters de computação complexos na nuvem e tomando cuidado com o ajuste de desempenho necessário para executar o trabalho. A integração com os hubs de eventos do Azure e o Hub IoT do Azure permite que seu trabalho ingerir milhões de eventos por segundo, provenientes de várias fontes, para incluir dispositivos conectados, cliques e arquivos de log. Usando o recurso de particionamento dos hubs de eventos, você pode particionar cálculos em etapas lógicas, cada um com a capacidade de ser mais particionado para aumentar a escalabilidade.
 

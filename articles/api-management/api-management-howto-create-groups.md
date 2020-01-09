@@ -1,5 +1,6 @@
 ---
-title: Gerenciar contas de desenvolvedor usando grupos no gerenciamento de API do Azure | Microsoft Docs
+title: Gerenciar contas de desenvolvedor usando grupos no gerenciamento de API do Azure
+titleSuffix: Azure API Management
 description: Saiba como gerenciar contas de desenvolvedor usando grupos no gerenciamento de API do Azure
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430715"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Como criar e usar grupos para gerenciar contas de desenvolvedor no gerenciamento de API do Azure
 
@@ -39,7 +40,7 @@ Além de criar e gerenciar grupos no portal do Publicador, você pode criar e ge
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as tarefas neste artigo: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
+Conclua as tarefas neste artigo: [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -94,7 +95,7 @@ Esta seção mostra como associar grupos a membros.
 
 Depois que a associação for adicionada entre o desenvolvedor e o grupo, você poderá exibi-lo na guia **usuários** .
 
-## <a name="next-steps"> </a>Passos seguintes
+## <a name="next-steps"> </a>Próximas etapas
 
 * Depois que um desenvolvedor é adicionado a um grupo, ele pode exibir e assinar os produtos associados a esse grupo. Para obter mais informações, consulte [como criar e publicar um produto no gerenciamento de API do Azure][How create and publish a product in Azure API Management],
 * Além de criar e gerenciar grupos no portal do Publicador, você pode criar e gerenciar seus grupos usando a entidade de [grupo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) API REST de gerenciamento de API.

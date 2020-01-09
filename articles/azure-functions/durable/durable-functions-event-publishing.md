@@ -3,12 +3,12 @@ title: Durable Functions publicação na grade de eventos do Azure (visualizaç�
 description: Saiba como configurar a publicação automática da grade de eventos do Azure para Durable Functions.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231454"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613130"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicação na grade de eventos do Azure (visualização)
 
@@ -37,7 +37,7 @@ Crie um tópico de grade de eventos para enviar eventos de Durable Functions. As
 * [EventGrid início rápido: criar evento personalizado-PowerShell](../../event-grid/custom-event-quickstart-powershell.md)
 * [Início rápido do EventGrid: criar evento personalizado-portal do Azure](../../event-grid/custom-event-quickstart-portal.md)
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando `az group create`. Atualmente, a grade de eventos do Azure não dá suporte a todas as regiões. Para obter informações sobre quais regiões têm suporte, consulte [visão geral da grade de eventos do Azure](../../event-grid/overview.md).
 
@@ -86,7 +86,7 @@ Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` em uma propriedade
 
 As propriedades de configuração da grade de eventos do Azure possíveis podem ser encontradas na [documentação do host. JSON](../functions-host-json.md#durabletask). Depois de configurar o arquivo de `host.json`, seu aplicativo de funções envia eventos de ciclo de vida para o tópico da grade de eventos. Isso funciona quando você executa seu aplicativo de funções localmente e no Azure. ' ' '
 
-Defina a configuração do aplicativo para a chave de tópico no Aplicativo de funções e `local.setting.json`. O JSON a seguir é um exemplo de `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
+Defina a configuração do aplicativo para a chave de tópico no Aplicativo de funções e `local.settings.json`. O JSON a seguir é um exemplo de `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
 
 ```json
 {

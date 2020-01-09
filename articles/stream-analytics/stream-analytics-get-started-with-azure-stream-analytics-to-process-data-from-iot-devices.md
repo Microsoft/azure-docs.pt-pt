@@ -1,19 +1,18 @@
 ---
 title: Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 description: Etiquetas do sensor da IoT e transmissão de dados com análises de transmissão e processamento de dados em tempo real
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426250"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Processar fluxos de dados IoT em tempo real com Azure Stream Analytics
 
@@ -63,7 +62,7 @@ Baixe o [HelloWorldASA-InputStream. JSON](https://github.com/Azure/azure-stream-
 
 Selecione **consulta** em **topologia do trabalho** no menu à esquerda. Em seguida, selecione **carregar entrada de exemplo**. Carregue o arquivo de `HelloWorldASA-InputStream.json` e selecione **OK**.
 
-![Bloco de consulta do painel de Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Mosaico de consulta do Stream Analytics dashboard](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 Observe que uma visualização dos dados é preenchida automaticamente na tabela de **visualização de entrada** .
 
@@ -84,11 +83,11 @@ FROM
 
 Selecione **testar consulta** e exibir os resultados na tabela de **resultados de teste** .
 
-![Resultados de teste para consulta de Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![Resultados do teste para a consulta do Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>Consulta: Filtrar os dados com base numa condição
 
-Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar os resultados somente para os eventos que vêm do "sensora".
+Vamos tentar filtrar os resultados com base em uma condição. Gostaríamos de mostrar os resultados apenas dos eventos provenientes do "sensorA".
 
 ```sql
 SELECT 

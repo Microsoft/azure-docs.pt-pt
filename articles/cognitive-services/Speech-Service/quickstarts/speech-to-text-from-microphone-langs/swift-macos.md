@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/28/2019
+ms.date: 12/23/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 083ac49919bcf60fdd0b34a5007e03d215c23280
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7c5611a142087cff06eefb0277b12ff786074e1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446837"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início rápido: reconhecer a fala no Swift no macOS usando o SDK de fala
 

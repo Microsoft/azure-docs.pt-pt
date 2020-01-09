@@ -1,29 +1,20 @@
 ---
-title: Cenários comuns do Azure Service Fabric diagnosticar | Microsoft Docs
-description: Saiba como solucionar problemas de cenários comuns com o Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Cenários comuns do Azure Service Fabric diagnosticar
+description: Saiba mais sobre como solucionar problemas comuns de monitoramento e diagnóstico nos aplicativos Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394256"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645791"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
-Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as três camadas do Service Fabric: Aplicativo, cluster e infraestrutura. Cada solução usa logs de Application Insights e Azure Monitor, ferramentas de monitoramento do Azure, para concluir cada cenário. As etapas em cada solução fornecem aos usuários uma introdução sobre como usar os logs Application Insights e Azure Monitor no contexto de Service Fabric.
+Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as três camadas do Service Fabric: aplicativo, cluster e infraestrutura. Cada solução usa logs de Application Insights e Azure Monitor, ferramentas de monitoramento do Azure, para concluir cada cenário. As etapas em cada solução fornecem aos usuários uma introdução sobre como usar os logs Application Insights e Azure Monitor no contexto de Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -56,7 +47,7 @@ As soluções neste artigo usarão as ferramentas a seguir. Recomendamos que voc
 1. No mesmo Application Insights recurso, você pode filtrar "solicitações" em vez de exceções e exibir todas as solicitações feitas
 2. Se você estiver usando o SDK do Application Insights Service Fabric, poderá ver uma representação visual de seus serviços conectados entre si e o número de solicitações bem-sucedidas e com falha. À esquerda, clique em "mapa do aplicativo"
 
-    ![Mapa de aplicativos de](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ia da folha ![mapa do aplicativo ai](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    Folha de mapa de aplicativo ![AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mapa de aplicativos de AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Para obter mais informações sobre o mapa do aplicativo, visite a [documentação do mapa do aplicativo](../azure-monitor/app/app-map.md)
 
@@ -92,7 +83,7 @@ As soluções neste artigo usarão as ferramentas a seguir. Recomendamos que voc
 
 ## <a name="how-do-i-see-container-metrics"></a>Como fazer ver métricas de contêiner?
 
-Na mesma exibição com todos os grafos, você verá alguns blocos para o desempenho de seus contêineres. Você precisa do agente de Log Analytics e da [solução de monitoramento](service-fabric-diagnostics-oms-containers.md) de contêineres para que esses blocos sejam preenchidos.
+Na mesma exibição com todos os grafos, você verá alguns blocos para o desempenho de seus contêineres. Você precisa do agente de Log Analytics e da [solução de monitoramento de contêineres](service-fabric-diagnostics-oms-containers.md) para que esses blocos sejam preenchidos.
 
 ![Métricas de contêiner Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
@@ -141,7 +132,7 @@ Para acompanhar o desempenho de Reliable Services ou atores em seus aplicativos,
 
 Verifique esses links para obter a lista completa de contadores de desempenho em Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) and [atores](service-fabric-reliable-actors-diagnostics.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar alertas no ia](../azure-monitor/app/alerts.md) para ser notificado sobre alterações no desempenho ou no uso
 * A [detecção inteligente no Application insights](../azure-monitor/app/proactive-diagnostics.md) executa uma análise proativa da telemetria que está sendo enviada ao ia para avisá-lo sobre possíveis problemas de desempenho

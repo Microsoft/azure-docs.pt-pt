@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842412"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561155"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -36,6 +36,9 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
    - Autenticação multifator
    - Verificação de risco de entrada
 - Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
+
+> [!NOTE]
+> Depois de habilitar esse recurso, suas VMs do Windows no Azure serão ingressadas no Azure AD. Você não pode associá-lo a outro domínio, como no AD local ou no Azure AD DS. Se você precisar fazer isso, será necessário desconectar a VM do seu locatário do Azure AD desinstalando a extensão.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -200,7 +203,7 @@ Você pode impor políticas de acesso condicional, como a autenticação multifa
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 
 > [!IMPORTANT]
-> A conexão remota com VMs Unidas ao Azure AD é permitida somente em computadores Windows 10 que são ingressados no Azure ad ou Azure AD híbrido ingressado no **mesmo** diretório que a VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções RBAC, logon de administrador de máquina virtual ou logon de usuário de máquina virtual.
+> A conexão remota com VMs Unidas ao Azure AD é permitida somente em computadores Windows 10 que são ingressados no Azure ad ou Azure AD híbrido ingressado no **mesmo** diretório que a VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções RBAC, logon de administrador de máquina virtual ou logon de usuário de máquina virtual. Neste momento, a bastiões do Azure não pode ser usada para fazer logon usando Azure Active Directory autenticação com a extensão AADLoginForWindows. Somente o RDP direto tem suporte.
 
 Para fazer logon na sua máquina virtual do Windows Server 2019 usando o Azure AD: 
 

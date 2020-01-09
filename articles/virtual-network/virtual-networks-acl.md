@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056682"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647769"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controle de acesso de ponto de extremidade?
 
 > [!IMPORTANT]
-> O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: Resource Manager e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o modelo de implantação do Gerenciador de recursos. 
+> O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para criar e trabalhar com recursos: Gerenciador de recursos e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que a maioria das implantações novas usem o modelo de implantação do Gerenciador de recursos. 
 
 Uma ACL (lista de controle de acesso) de ponto de extremidade é um aprimoramento de segurança disponível para sua implantação do Azure. Uma ACL fornece a capacidade de permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Esse recurso de filtragem de pacotes fornece uma camada adicional de segurança. Você pode especificar ACLs de rede somente para pontos de extremidade. Você não pode especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual. É recomendável usar NSGs (grupos de segurança de rede) em vez de ACLs, sempre que possível. Ao usar NSGs, a lista de controle de acesso do ponto de extremidade será substituída e não mais imposta. Para saber mais sobre o NSGs, consulte [visão geral do grupo de segurança de rede](security-overview.md)
 
@@ -39,7 +39,7 @@ Usando ACLs de rede, você pode fazer o seguinte:
 * Usar a ordenação de regra para garantir que o conjunto correto de regras seja aplicado em um determinado ponto de extremidade da máquina virtual (mais baixo ao mais alto)
 * Especifique uma ACL para um endereço IPv4 de sub-rede remota específica.
 
-Consulte o artigo [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter limites de ACL.
+Consulte o artigo [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter limites de ACL.
 
 ## <a name="how-acls-work"></a>Como as ACLs funcionam
 Uma ACL é um objeto que contém uma lista de regras. Quando você cria uma ACL e a aplica a um ponto de extremidade de máquina virtual, a filtragem de pacotes ocorre no nó de host da VM. Isso significa que o tráfego de endereços IP remotos é filtrado pelo nó de host para as regras de ACL correspondentes em vez de em sua VM. Isso impede que sua VM gaste os preciosos ciclos de CPU na filtragem de pacotes.
@@ -76,7 +76,7 @@ No exemplo a seguir, se você quiser permitir o acesso ao ponto de extremidade R
 | 200 |159.0.0.0/8 |3389 |Oferecem |
 
 ### <a name="rule-order"></a>Ordem da regra
-Como várias regras podem ser especificadas para um ponto de extremidade, deve haver uma maneira de organizar regras para determinar qual regra tem precedência. A ordem da regra especifica a precedência. As ACLs de rede seguem uma ordem de regra de *precedência mais baixa* . No exemplo abaixo, o ponto de extremidade na porta 80 recebe acesso seletivo somente a determinados intervalos de endereços IP. Para configurar isso, temos uma regra de negação ( \# regra 100) para endereços no espaço espaço 175.1.0.1/24. Uma segunda regra é especificada com a precedência 200 que permite o acesso a todos os outros endereços em 175.0.0.0/8.
+Como várias regras podem ser especificadas para um ponto de extremidade, deve haver uma maneira de organizar regras para determinar qual regra tem precedência. A ordem da regra especifica a precedência. As ACLs de rede seguem uma ordem de regra de *precedência mais baixa* . No exemplo abaixo, o ponto de extremidade na porta 80 recebe acesso seletivo somente a determinados intervalos de endereços IP. Para configurar isso, temos uma regra Deny (regra \# 100) para endereços no espaço espaço 175.1.0.1/24. Uma segunda regra é especificada com a precedência 200 que permite o acesso a todos os outros endereços em 175.0.0.0/8.
 
 **Exemplo – precedência de regra**
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446675"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Início rápido: obter informações de imagem usando a API REST do Pesquisa Visual do Bing eC#
 
@@ -41,7 +41,7 @@ Este guia de início rápido demonstra como carregar uma imagem no API da Pesqui
     using System.Collections.Generic;
     ```
 
-2. Adicione variáveis para sua chave de assinatura, ponto de extremidade e caminho para a imagem que você deseja carregar:
+2. Adicione variáveis para sua chave de assinatura, ponto de extremidade e caminho para a imagem que você deseja carregar. `uriBase` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

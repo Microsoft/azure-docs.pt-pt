@@ -3,12 +3,12 @@ title: Bloquear imagens
 description: Defina atributos para uma imagem de contêiner ou repositório para que ele não possa ser excluído ou substituído em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442223"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contêiner em um registro de contêiner do Azure
 
@@ -23,7 +23,11 @@ Este artigo requer que você execute o CLI do Azure no Azure Cloud Shell ou loca
 
 Por padrão, uma imagem marcada no registro de contêiner do Azure é *mutável*, portanto, com as permissões apropriadas, você pode atualizar repetidamente e enviar por push uma imagem com a mesma marca para um registro. As imagens de contêiner também podem ser [excluídas](container-registry-delete.md) conforme necessário. Esse comportamento é útil quando você desenvolve imagens e precisa manter um tamanho para o registro.
 
-No entanto, ao implantar uma imagem de contêiner na produção, talvez você precise de uma imagem de contêiner *imutável* . Uma imagem imutável é aquela que você não pode excluir ou substituir acidentalmente. Use o comando [AZ ACR Repository Update][az-acr-repository-update] para definir atributos de repositório para que você possa:
+No entanto, ao implantar uma imagem de contêiner na produção, talvez você precise de uma imagem de contêiner *imutável* . Uma imagem imutável é aquela que você não pode excluir ou substituir acidentalmente.
+
+Confira [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para estratégias para marcas e imagens de versão no registro.
+
+Use o comando [AZ ACR Repository Update][az-acr-repository-update] para definir atributos de repositório para que você possa:
 
 * Bloquear uma versão de imagem ou um repositório inteiro
 
@@ -31,7 +35,7 @@ No entanto, ao implantar uma imagem de contêiner na produção, talvez você pr
 
 * Impedir operações de leitura (pull) em uma versão de imagem ou um repositório inteiro
 
-Consulte as seções a seguir para obter exemplos.
+Consulte as seções a seguir para obter exemplos. 
 
 ## <a name="lock-an-image-or-repository"></a>Bloquear uma imagem ou um repositório 
 

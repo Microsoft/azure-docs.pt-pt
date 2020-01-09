@@ -1,25 +1,14 @@
 ---
-title: Executar um serviço de Service Fabric do Azure em contas de segurança local e do sistema | Microsoft Docs
+title: Executar um serviço em contas de segurança local e do sistema
 description: Saiba como executar um aplicativo Service Fabric em contas de segurança do sistema e locais.  Crie entidades de segurança e aplique a política executar como para executar seus serviços com segurança.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8b0ddc619a7e840b0379a790bd21e7beae812109
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600047"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610131"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de usuário local ou uma conta de sistema local
 Usando o Azure Service Fabric, você pode proteger aplicativos que estão em execução no cluster em contas de usuário diferentes. Por padrão, Service Fabric aplicativos são executados sob a conta sob a qual o processo Fabric. exe é executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de sistema ou usuário local. Os tipos de conta do sistema local com suporte são **LocalUser**, **NetworkService**, **LocalService**e **LocalSystem**.  Se você estiver executando Service Fabric em um cluster autônomo do Windows, poderá executar um serviço em [Active Directory contas de domínio](service-fabric-run-service-as-ad-user-or-group.md) ou [contas de serviço gerenciado de grupo](service-fabric-run-service-as-gmsa.md).
@@ -183,7 +172,7 @@ O exemplo de manifesto de serviço a seguir mostra como habilitar o redirecionam
 ```
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Entender o modelo de aplicativo](service-fabric-application-model.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)

@@ -1,17 +1,17 @@
 ---
-title: Trabalhar com dados geoespaciais na conta do Azure Cosmos DB SQL API
+title: Usar dados geoespaciais em Azure Cosmos DB conta da API do SQL
 description: Aprenda a criar, indexar e consultar objetos espaciais com o Azure Cosmos DB e a API de SQL.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e48f6c52aa2d633ea20fd0dae70c7aa1380bb50d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441889"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utilizar dados de localização Geoespacial e GeoJSON com a conta do Azure Cosmos DB SQL API
 
@@ -94,7 +94,7 @@ Além de ponto, LineString e Polygon, GeoJSON também especifica a representaç�
 ### <a name="coordinate-reference-systems"></a>Coordenar a sistemas de referência
 Como a forma da terra é irregular, as coordenadas dos dados geoespaciais são representadas em muitos sistemas de coordenadas de referência (CRS), cada qual com seus próprios quadros de referência e unidades de medida. Por exemplo, o "nacionais grelha da Grã-Bretanha" é um sistema de referência é preciso para o Reino Unido, mas não fora. 
 
-O CRS mais populares em uso atualmente é o sistema geodésico de mundo [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivos GPS e muitos serviços de mapeamento, incluindo Google Maps e as APIs do Bing Maps utilizam WGS 84. O Azure Cosmos DB oferece suporte a indexação e consulta de dados geoespaciais com o CRS WGS 84 apenas. 
+O CRS mais populares em uso atualmente é o sistema geodésico de mundo [WGS 84](https://earth-info.nga.mil/GandG/update/index.php). Dispositivos GPS e muitos serviços de mapeamento, incluindo Google Maps e as APIs do Bing Maps utilizam WGS 84. O Azure Cosmos DB oferece suporte a indexação e consulta de dados geoespaciais com o CRS WGS 84 apenas. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Criar documentos com dados geográficos
 Ao criar documentos que contenham valores GeoJSON, eles são automaticamente indexados com um índice geográfico de acordo com a política de indexação do contentor. Se estiver trabalhando com um SDK do Azure Cosmos DB numa linguagem de tipada dinâmico como Python ou node. js, tem de criar GeoJSON válido.
@@ -365,7 +365,7 @@ E aqui está como modificar uma coleção existente para tirar partido da indexa
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu como começar com o suporte geoespacial no Azure Cosmos DB, em seguida, pode:
 
 * Começar a codificar a [exemplos de código .NET Geoespaciais no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)

@@ -12,7 +12,7 @@ author: aashishb
 ms.date: 11/06/2019
 ms.openlocfilehash: adfcd79d209f98b664f18b89ceea65bdc84f36dc
 ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/28/2019
 ms.locfileid: "75541494"

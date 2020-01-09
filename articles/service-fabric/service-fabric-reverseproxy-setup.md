@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric configurar proxy reverso | Microsoft Docs
-description: Entenda como configurar e configurar o proxy reverso do Service Fabric.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Service Fabric do Azure configurar o proxy reverso
+description: Entenda como configurar e configurar o serviço de proxy reverso para um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933904"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645451"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Configurar e configurar o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço de Service Fabric do Azure opcional que ajuda os microserviços em execução em uma descoberta de Cluster Service Fabric e se comunicam com outros serviços que têm pontos de extremidade http. Para saber mais, confira [proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como configurar e configurar o proxy reverso no cluster. 
@@ -50,7 +41,7 @@ Para um cluster existente, você pode exportar o modelo do Resource Manager para
 
 Depois de ter um modelo do Resource Manager, você pode habilitar o proxy reverso com as seguintes etapas:
 
-1. Defina uma porta para o proxy reverso na [seção de parâmetros](../azure-resource-manager/resource-group-authoring-templates.md) do modelo.
+1. Defina uma porta para o proxy reverso na [seção de parâmetros](../azure-resource-manager/templates/template-syntax.md) do modelo.
 
     ```json
     "SFReverseProxyPort": {
@@ -61,7 +52,7 @@ Depois de ter um modelo do Resource Manager, você pode habilitar o proxy revers
         }
     },
     ```
-2. Especifique a porta para cada um dos objetos NodeType na [seção tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md) [**Microsoft. ServicePortal/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
+2. Especifique a porta para cada um dos objetos NodeType na [seção tipo de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. ServicePortal/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
 
     A porta é identificada pelo nome do parâmetro, reverseProxyEndpointPort.
 

@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 400273d107c0b077fe59391673361c531f726641
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2f7399909f02d6c87efaf7d5f2a7772d3a716baf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468828"
 ---
 ## <a name="additional-language-and-platform-support"></a>Suporte a idiomas e plataformas adicionais
 

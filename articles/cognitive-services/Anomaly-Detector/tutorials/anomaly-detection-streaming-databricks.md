@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: detecção de anomalias em dados de streaming usando Azure Databricks'
 titleSuffix: Azure Cognitive Services
-description: Use a API do detector de anomalias e Azure Databricks para monitorar anomalias em seus dados.
+description: Saiba como usar a API do detector de anomalias e Azure Databricks para monitorar anomalias em seus dados.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71837754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448904"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: detecção de anomalias em dados de streaming usando Azure Databricks
 
@@ -24,7 +24,7 @@ ms.locfileid: "71837754"
 
 A ilustração seguinte mostra o fluxo da aplicação:
 
-![Azure Databricks com Hubs de Eventos e Serviços Cognitivos](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks com Hubs de Eventos e Serviços Cognitivos")
+![Azure Databricks com hubs de eventos e serviços cognitivas](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks com hubs de eventos e serviços cognitivas")
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -74,7 +74,7 @@ Nesta seção, você cria um espaço de trabalho Azure Databricks usando o [port
     |---------|---------|
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
-    |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/resource-group-overview.md). |
+    |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/management/overview.md). |
     |**Localização**     | Selecione **leste dos EUA 2** ou uma das outras regiões disponíveis. Consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade de região.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Não escolha **avaliação**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -92,7 +92,7 @@ Nesta seção, você cria um espaço de trabalho Azure Databricks usando o [port
 
 3. Na página **novo cluster** , forneça os valores para criar um cluster.
 
-    ![Criar um cluster Databricks Spark no Azure](../media/tutorials/create-databricks-spark-cluster.png "Criar um cluster Databricks Spark no Azure")
+    ![Criar um cluster Spark do databricks no Azure](../media/tutorials/create-databricks-spark-cluster.png "Criar um cluster Spark do databricks no Azure")
 
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
@@ -109,15 +109,15 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
 1. A partir de um browser, aceda a [Gestão de Aplicações do Twitter](https://apps.twitter.com/) e selecione **Criar Nova Aplicação**.
 
-    ![Criar aplicação do Twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicação do Twitter")
+    ![Criar aplicativo do Twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicativo do Twitter")
 
 2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
-    ![Detalhes da aplicação no Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalhes da aplicação no Twitter")
+    ![Detalhes do aplicativo do Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalhes do aplicativo do Twitter")
 
 3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumidor** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
-    ![Detalhes da aplicação no Twitter](../media/tutorials/twitter-app-key-secret.png "Detalhes da aplicação no Twitter")
+    ![Detalhes do aplicativo do Twitter](../media/tutorials/twitter-app-key-secret.png "Detalhes do aplicativo do Twitter")
 
 Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores mais tarde no tutorial.
 
@@ -140,12 +140,12 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 4. Selecione a pasta onde adicionou a biblioteca e, em seguida, selecione o nome da biblioteca.
 
-    ![Selecionar biblioteca a adicionar](../media/tutorials/select-library.png "Selecionar biblioteca a adicionar")
+    ![Selecionar biblioteca para adicionar](../media/tutorials/select-library.png "Selecionar biblioteca para adicionar")
 
 5. Se não houver nenhum cluster na página biblioteca, selecione **clusters** e execute o cluster que você criou. Aguarde até que o estado mostre "Running" e, em seguida, volte para a página da biblioteca.
 Na página biblioteca, selecione o cluster no qual você deseja usar a biblioteca e, em seguida, selecione **instalar**. Depois que a biblioteca for associada com êxito ao cluster, o status será alterado imediatamente para **instalado**.
 
-    ![Instalar biblioteca na](../media/tutorials/databricks-library-attached.png "biblioteca de instalação de cluster no cluster")
+    ![Instalar biblioteca no cluster](../media/tutorials/databricks-library-attached.png "Instalar biblioteca no cluster")
 
 6. Repita estes passos para o pacote do Twitter, `twitter4j-core:4.0.7`.
 
@@ -153,13 +153,13 @@ Na página biblioteca, selecione o cluster no qual você deseja usar a bibliotec
 
 Neste tutorial, você usa as [APIs do detector de anomalias dos serviços cognitivas do Azure](../overview.md) para executar a detecção de anomalias em um fluxo de tweets quase em tempo real. Antes de usar as APIs, você deve criar um recurso de detector de anomalias no Azure e recuperar uma chave de acesso para usar as APIs do detector de anomalias.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
 3. Em Azure Marketplace, selecione **ia + Machine Learning** > **ver todos os** > **Serviços cognitivas – Detector de** **anomalias**mais > . Ou você pode usar [esse link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente para a caixa de diálogo **criar** .
 
-    Criar recurso do detector de ![anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "criar recurso de detector de anomalias")
+    ![Criar recurso de detector de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso de detector de anomalias")
 
 4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
 
@@ -191,11 +191,11 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 
 1. No espaço de trabalho Azure Databricks, selecione **espaço de trabalho** no painel esquerdo. No menu pendente **Área de Trabalho**, selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
 
-    ![Criar um bloco de notas no Databricks](../media/tutorials/databricks-create-notebook.png "Criar um bloco de notas no Databricks")
+    ![Criar bloco de anotações no databricks](../media/tutorials/databricks-create-notebook.png "Criar bloco de anotações no databricks")
 
 2. Na caixa de diálogo **criar bloco de anotações** , digite **SendTweetsToEventHub** como nome, selecione **escalabilidade** como o idioma e selecione o cluster Spark que você criou anteriormente.
 
-    ![Criar um bloco de notas no Databricks](../media/tutorials/databricks-notebook-details.png "Criar um bloco de notas no Databricks")
+    ![Criar bloco de anotações no databricks](../media/tutorials/databricks-notebook-details.png "Criar bloco de anotações no databricks")
 
     Selecione **Criar**.
 
@@ -542,7 +542,7 @@ display(msgStream)
 ```
 
 A saída agora é semelhante à imagem a seguir. Observe que sua data na tabela pode ser diferente da data neste tutorial, pois os dados são em tempo real.
-![Carregar dados do hub de eventos](../media/tutorials/load-data-from-eventhub.png "carregar dados do hub de eventos")
+![Carregar dados do hub de eventos](../media/tutorials/load-data-from-eventhub.png "Carregar dados do hub de eventos")
 
 Agora transmitiu os dados dos Hubs de eventos do Azure para o Azure Databricks em tempo real com o conector de Hubs de eventos para o Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
@@ -680,7 +680,7 @@ Embora, neste tutorial, a granularidade seja por hora, você sempre pode alterar
 
 Depois de executar o tutorial, pode terminar o cluster. Para fazer isso, no espaço de trabalho Azure Databricks, selecione **clusters** no painel esquerdo. Para o cluster que você deseja encerrar, mova o cursor sobre as reticências na coluna **ações** e selecione o ícone **terminar** e, em seguida, selecione **confirmar**.
 
-![Parar um cluster do Databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Parar um cluster do databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
 Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 

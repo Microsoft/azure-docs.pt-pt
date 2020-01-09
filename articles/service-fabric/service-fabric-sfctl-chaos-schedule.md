@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric – agendamento de caos sfctl | Microsoft Docs
-description: Descreve os comandos de agendamento de sfctl da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-agenda de caos sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o agendamento de caos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897547"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639178"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir o cronograma de caos.
@@ -28,7 +19,7 @@ Obter e definir o cronograma de caos.
 
 |Comando|Descrição|
 | --- | --- |
-| Obter | Obtenha o cronograma de caos definindo quando e como executar o caos. |
+| Get | Obtenha o cronograma de caos definindo quando e como executar o caos. |
 | set | Defina o agendamento usado pelo caos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>Get da agenda de caos sfctl
@@ -62,9 +53,9 @@ O caos agendará automaticamente as execuções com base na programação de cao
 |Argumento|Descrição|
 | --- | --- |
 | --caos-Parameters-Dictionary | Lista codificada JSON que representa um mapeamento de nomes de cadeia de caracteres para os Caosparameters a serem usados pelos trabalhos. |
-| --Data de expiração-UTC | A data e a hora de quando parar de usar a agenda para agendar caos.  Padrão\: 9999-12-31T23\:59\:59.999 Z. |
+| --expiry-date-utc | A data e a hora de quando parar de usar a agenda para agendar caos.  Default\: 9999-12-31T23\:59\:59.999Z. |
 | --trabalhos | Lista codificada em JSON de ChaosScheduleJobs que representa quando executar o caos e com com quais parâmetros executar o caos. |
-| --Data de início-UTC | A data e a hora de quando começar a usar a agenda para agendar caos.  Padrão\: 1601-01-01T00\:00\:00.000 Z. |
+| --start-date-utc | A data e a hora de quando começar a usar a agenda para agendar caos.  Padrão\: 1601-01-01T00\:00\:00.000 Z. |
 | --Timeout-t | Padrão\: 60. |
 | --versão | O número de versão do agendamento. |
 

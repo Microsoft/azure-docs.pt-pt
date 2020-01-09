@@ -3,16 +3,16 @@ title: Guia do desenvolvedor-visualização de Plug and Play de IoT | Microsoft 
 description: Descrição da modelagem de dispositivo para desenvolvedores de Plug and Play IoT
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581614"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531399"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guia do desenvolvedor de modelagem da visualização do IoT Plug and Play
 
@@ -231,5 +231,5 @@ Em geral, os comandos podem ser chamados por meio desse modelo de API REST:
 Agora que você aprendeu sobre a modelagem de dispositivo, aqui estão alguns recursos adicionais:
 
 - [DTDL (digital treme Definition Language)](https://aka.ms/DTDL)
-- [SDK de dispositivo para C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [SDK de dispositivo C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](https://docs.microsoft.com/rest/api/iothub/device)

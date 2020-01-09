@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: f39355613382bd5d02b7ef6918598f38737e850f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b907b1ed945cd72d51d0b1acd037dbfc93be4873
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448648"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Início rápido: Enviar uma solicitação de pesquisa com o SDK do Pesquisa de Entidade do Bing para Java
 
@@ -67,7 +67,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
 
 ## <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-1. Implemente o `dominantEntityLookup` Client, que exige o ponto de extremidade da API e uma instância da classe `ServiceClientCredentials`.
+1. Implemente o `dominantEntityLookup` Client, que exige o ponto de extremidade da API e uma instância da classe `ServiceClientCredentials`. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {

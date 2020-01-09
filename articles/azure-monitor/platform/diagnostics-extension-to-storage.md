@@ -1,19 +1,19 @@
 ---
-title: Armazenar e Ver Dados de Diagnósticos no Armazenamento do Azure
+title: Armazene e Visualize Dados de Diagnósticos no Armazenamento do Azure
 description: Saiba como coletar dados de diagnóstico do Azure em uma conta de armazenamento do Azure para que você possa exibi-los com uma das várias ferramentas disponíveis.
 services: azure-monitor
-author: jpconnock
+author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: c9d751a7e3d01860b3b5860f1e75fa3767cd4f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395002"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure
 Os dados de diagnóstico não são armazenados permanentemente, a menos que você o transfira para o emulador de armazenamento Microsoft Azure ou para o armazenamento do Azure. Uma vez no armazenamento, ele pode ser exibido com uma das várias ferramentas disponíveis.
@@ -33,14 +33,14 @@ Dependendo do tipo de dados de diagnóstico que está sendo coletado, Diagnósti
 
 | Origem de dados | Formato de armazenamento |
 | --- | --- |
-| Logs do Azure |Tabela |
-| Logs do IIS 7,0 |Blobs |
-| Registos da infraestrutura do Diagnóstico do Azure |Tabela |
-| Logs de rastreamento de solicitação com falha |Blobs |
-| Registos de Eventos do Windows |Tabela |
-| Contadores de desempenho |Tabela |
-| Informações de falha de sistema |Blobs |
-| Registos de erros personalizados |Blobs |
+| Logs do Azure |Tabelas |
+| Logs do IIS 7.0 |Blob |
+| Registos da infraestrutura do Diagnóstico do Azure |Tabelas |
+| Logs de rastreamento de solicitação com falha |Blob |
+| Registos de Eventos do Windows |Tabelas |
+| Contadores de desempenho |Tabelas |
+| Informações de falha de sistema |Blob |
+| Registos de erros personalizados |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>Transferir dados de diagnóstico
 Para o SDK 2,5 e posterior, a solicitação para transferir dados de diagnóstico pode ocorrer por meio do arquivo de configuração. Você pode transferir dados de diagnóstico em intervalos agendados, conforme especificado na configuração.
@@ -77,7 +77,7 @@ Várias ferramentas estão disponíveis para exibir os dados depois que eles sã
 * [Gerenciador de armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com os dados do armazenamento do Azure no Windows, no OSX e no Linux.
 * O [Management Studio do Azure](https://www.cerebrata.com/products/azure-management-studio/introduction) inclui o diagnóstico do Azure Manager, que permite exibir, baixar e gerenciar os dados de diagnóstico coletados pelos aplicativos em execução no Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 [Rastrear o fluxo em um aplicativo de serviços de nuvem com Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
 

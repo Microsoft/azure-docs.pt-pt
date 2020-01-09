@@ -1,5 +1,6 @@
 ---
-title: Tutorial para configurar Azure App configuração para enviar eventos para um ponto de extremidade da Web | Microsoft Docs
+title: 'Tutorial: usar a configuração de Azure App para enviar eventos para um ponto de extremidade da Web'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433694"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: rotear Azure App eventos de configuração para um ponto de extremidade da Web com CLI do Azure
 
@@ -134,7 +135,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sobre os eventos de valor-chave e qual grade de eventos pode ajudá-lo:
 

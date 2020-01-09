@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428778"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: automatizar tarefas para processar emails usando aplicativos lógicos do Azure, Azure Functions e armazenamento do Azure
 
@@ -57,7 +57,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
    | Definição | Valor | Descrição |
    |---------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | O nome para a subscrição do Azure |  
-   | **Grupo de recursos** | <*Azure-Resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar e gerir os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Nota:** os grupos de recursos existem dentro de regiões específicas. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. |
+   | **Grupo de recursos** | <*Azure-resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) utilizado para organizar e gerir os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Nota:** os grupos de recursos existem dentro de regiões específicas. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. |
    | **Nome da conta de armazenamento** | <*Azure-Storage-Account-name*> | O nome da conta de armazenamento, que deve ter de 3-24 caracteres e pode conter apenas letras minúsculas e números. Este exemplo usa "attachmentstorageacct". |
    | **Localização** | <*do Azure-region*> | A região onde armazenar informações sobre sua conta de armazenamento. Este exemplo usa "oeste dos EUA". |
    | **Performance** (Desempenho) | Padrão | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -109,7 +109,7 @@ Depois, ligue o Explorador de Armazenamento à conta de armazenamento.
 
 Agora, ligue o Explorador de Armazenamento à conta de armazenamento, de modo a verificar que a sua aplicação lógica consegue guardar corretamente os anexos como blobs no contentor.
 
-1. Iniciar Gerenciador de Armazenamento do Microsoft Azure.
+1. Inicie o Explorador de armazenamento do Microsoft Azure.
 
    O Explorador de Armazenamento pede-lhe uma ligação à sua conta de armazenamento.
 
@@ -140,13 +140,13 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    | Definição | Valor | Descrição |
    | ------- | ----- | ----------- |
-   | **Nome da aplicação** | <*Function-nome do aplicativo*> | O nome do aplicativo de funções, que deve ser globalmente exclusivo no Azure. Este exemplo já usa "CleanTextFunctionApp", portanto, forneça um nome diferente, como "MyCleanTextFunctionApp-<*your-name*>" |
+   | **Nome da aplicação** | <*function-app-name*> | O nome do aplicativo de funções, que deve ser globalmente exclusivo no Azure. Este exemplo já usa "CleanTextFunctionApp", portanto, forneça um nome diferente, como "MyCleanTextFunctionApp-<*your-name*>" |
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente |
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
    | **OS** | <*seu sistema operacional*> | Selecione o sistema operacional que dá suporte à sua linguagem de programação de função favorita. Para este exemplo, selecione **Windows**. |
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). |
    | **Localização** | Oeste dos E.U.A. | A mesma região que utilizou anteriormente |
-   | **Pilha de tempo de execução** | Linguagem preferencial | Selecione um tempo de execução que ofereça suporte à sua linguagem de programação de função favorita. Selecione **.net** para C# e F# funções. |
+   | **Pilha de Runtime** | Linguagem preferencial | Selecione um tempo de execução que ofereça suporte à sua linguagem de programação de função favorita. Selecione **.net** para C# e F# funções. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Observação:** Essa conta de armazenamento contém seus aplicativos de funções e difere de sua conta de armazenamento criada anteriormente para anexos de email. |
    | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com [Application insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, selecione **desabilitar** > **aplicar**. |
    ||||
@@ -177,7 +177,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
 1. Quando o editor estiver aberto, substitua o código do modelo por este código de exemplo, que remove o HTML e devolve ps resultados ao chamador:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -600,8 +600,8 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    | Definição | Valor | Notas |
    | ------- | ----- | ----- |
    | **Para** | <*recipient-email-address*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
-   | **Assunto**  | ```ASAP - Review applicant for position:``` **Subject** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
+   | **Assunto**  | ```ASAP - Review applicant for position:``` **assunto** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **de** <p>```Application file location:``` **caminho** <p>**corpo** do ```Application email content:``` | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
    ||||
 
    > [!NOTE]

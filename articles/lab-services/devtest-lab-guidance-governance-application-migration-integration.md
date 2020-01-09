@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560637"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644891"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança de Azure DevTest Labs infraestrutura – migração de aplicativos e integração
 Depois que o ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar nas seguintes perguntas:
@@ -93,7 +93,7 @@ Quando devo criar uma nova rede virtual para meu ambiente do DevTest Labs versus
 ### <a name="answer"></a>Resposta
 Se suas VMs precisarem interagir com a infraestrutura existente, você deve considerar o uso de uma rede virtual existente dentro do ambiente do DevTest Labs. Além disso, se você usar o ExpressRoute, talvez queira minimizar a quantidade de VNets/sub-redes para não fragmentar o espaço de endereço IP que é atribuído para uso nas assinaturas. Você também deve considerar o uso do padrão de emparelhamento VNet aqui (modelo hub-spoke). Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas em uma determinada região, embora o emparelhamento entre regiões seja um recurso ativo na rede do Azure.
 
-Caso contrário, cada ambiente do DevTest Labs poderia ter sua própria rede virtual. No entanto, observe que há [limites](../azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser gerado para 100.
+Caso contrário, cada ambiente do DevTest Labs poderia ter sua própria rede virtual. No entanto, observe que há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser gerado para 100.
 
 ## <a name="shared-public-or-private-ip"></a>IP compartilhado, público ou privado
 
@@ -117,7 +117,7 @@ Há uma regra em termos de quantas máquinas virtuais devo definir por usuário 
 Ao considerar o número de máquinas virtuais por usuário ou por laboratório, há três preocupações principais:
 
 - O **custo geral** que a equipe pode gastar em recursos no laboratório. É fácil criar vários computadores. Para controlar os custos, um mecanismo é limitar o número de VMs por usuário e/ou por laboratório
-- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é de 800 grupos de recursos por assinatura. Atualmente, o DevTest Labs cria um novo grupo de recursos para cada VM (a menos que IPs públicos compartilhados sejam usados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
+- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é de 800 grupos de recursos por assinatura. Atualmente, o DevTest Labs cria um novo grupo de recursos para cada VM (a menos que IPs públicos compartilhados sejam usados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
 - Se o laboratório estiver conectado ao local via rota expressa (por exemplo,), há espaços de **endereço IP definidos disponíveis** para a VNet/sub-rede. Para garantir que as VMs no laboratório não sejam criadas (erro: não é possível obter o endereço IP), os proprietários do laboratório podem especificar o máximo de VMs por laboratório alinhado com o espaço de endereço IP disponível.
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Gestor de Recursos

@@ -1,6 +1,5 @@
 ---
-title: Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar uma aplicação node. js Express
-titleSuffix: Azure Cosmos DB
+title: Criar um aplicativo node. js Express com a API do Azure Cosmos DB para MongoDB (parte 2)
 description: Parte 2 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441134"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar uma aplicação node. js Express
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-criar um aplicativo node. js Express
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada com a API do Cosmos DB para o MongoDB](mongodb-introduction.md).
+Este tutorial de várias partes demonstra como criar um novo aplicativo escrito em node. js com o Express e o angular e, em seguida, conectá-lo à sua [conta do cosmos configurada com a API do cosmos DB para MongoDB](mongodb-introduction.md).
 
 A Parte 2 do tutorial é a continuação da [introdução](tutorial-develop-mongodb-nodejs.md) e abrange as seguintes tarefas:
 
@@ -103,7 +102,7 @@ Este tutorial também requer:
     * Serve tudo o que está na pasta dist, que será o conteúdo estático
     * Serve a aplicação e index.html para os pedidos GET que não forem encontrados no servidor (para ligações avançadas)
     * Inicia o servidor com app.listen
-    * Utiliza uma função de seta para iniciar sessão a que a porta está ativada
+    * Usa uma função de seta para registrar que a porta está ativa
     
    ```node
    const express = require('express');
@@ -148,11 +147,11 @@ Este tutorial também requer:
 
 7. Guarde todos os seus ficheiros modificados. 
 
-8. No Visual Studio Code, clique no botão **Depurar** ![Ícone depurar no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). O novo ficheiro launch.json é aberto no Visual Studio Code.
+8. No Visual Studio Code, clique no botão **Depurar**![Ícone depurar no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), clique no botão de engrenagem ![Botão de engrenagem no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). O novo ficheiro launch.json é aberto no Visual Studio Code.
 
 8. Na linha 11 do ficheiro launch.json, altere `"${workspaceFolder}\\server"` para `"program": "${workspaceRoot}/src/server/index.js"` e guarde-o.
 
-9. Clique no botão **Iniciar Depuração** ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para executar a aplicação.
+9. Clique no botão **Iniciar Depuração**![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para executar a aplicação.
 
     A aplicação deverá ser executada sem erros.
 
@@ -167,7 +166,7 @@ Este tutorial também requer:
     ![O Postman mostra o pedido e a resposta](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, fez o seguinte:
 

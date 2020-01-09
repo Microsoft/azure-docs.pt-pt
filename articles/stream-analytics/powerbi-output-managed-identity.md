@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693556"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459687"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
 
@@ -170,6 +170,29 @@ Agora que o trabalho de Stream Analytics foi criado, ele pode receber acesso a u
 
    ![Adicionar Stream Analytics trabalho ao Power BI espaço de trabalho](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
 
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Usar os cmdlets do Power BI PowerShell
+
+1. Instale o Power BI `MicrosoftPowerBIMgmt` cmdlets do PowerShell.
+
+   > [!Important]
+   > Verifique se você está usando a versão 1.0.821 ou posterior dos cmdlets.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Faça logon no Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Adicione seu trabalho de Stream Analytics como um colaborador ao espaço de trabalho.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
+
 ### <a name="use-the-power-bi-rest-api"></a>Usar a API REST do Power BI
 
 O trabalho de Stream Analytics também pode ser adicionado como um colaborador ao espaço de trabalho usando a API REST "Adicionar usuário de grupo" diretamente. A documentação completa para essa API pode ser encontrada aqui: [grupos-Adicionar usuário do grupo](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
@@ -201,4 +224,4 @@ Abaixo estão as limitações desse recurso:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Integração do painel do Power BI com o Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
-* [Entender as saídas de Azure Stream Analytics](./stream-analytics-define-outputs.md)
+* [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)

@@ -1,19 +1,19 @@
 ---
 title: Enviar Apache Hadoop trabalhos no HDInsight
 description: Enviar Apache Hadoop trabalhos no Azure HDInsight usando o SDK Microsoft .NET, a rotação ou o PowerShell
-ms.reviewer: jasonh
-ms.author: hrasheed
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: a595d002ebeecee1a8fd62a52f47cab487474494
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.custom: hdinsightactive
+ms.date: 12/16/2019
+ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435701"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Enviar Apache Hadoop trabalhos no HDInsight
 
@@ -21,7 +21,7 @@ Você pode enviar Apache Hadoop trabalhos no Azure HDInsight usando o SDK do Mic
 
 ## <a name="resources"></a>Recursos
 
-- **SDK DO .NET**:
+- **SDK do .net**:
 
   - [Criar aplicativos .NET de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Executar Apache Hive consultas usando o SDK do .NET do HDInsight](apache-hadoop-use-hive-dotnet-sdk.md)
@@ -40,6 +40,6 @@ Você pode enviar Apache Hadoop trabalhos no Azure HDInsight usando o SDK do Mic
   - [Usar o Apache Sqoop com o Apache Hadoop no HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Executar trabalhos MapReduce com Apache Hadoop no HDInsight usando o PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Documentação do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

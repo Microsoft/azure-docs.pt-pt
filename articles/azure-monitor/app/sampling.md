@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d88df0c7e17d297162a1921021b89f02077c2ac7
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893370"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560390"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -361,7 +361,7 @@ Use esse tipo de amostragem se seu aplicativo costuma passar por sua cota mensal
 
 Defina a taxa de amostragem na página uso e custos estimados:
 
-![Na folha visão geral do aplicativo, clique em configurações, cota, exemplos, selecione uma taxa de amostragem e clique em atualizar.](./media/sampling/04.png)
+![Na folha visão geral do aplicativo, clique em configurações, cota, exemplos, selecione uma taxa de amostragem e clique em atualizar.](./media/sampling/data-sampling.png)
 
 Como outros tipos de amostragem, o algoritmo retém os itens de telemetria relacionados. Por exemplo, quando você estiver inspecionando a telemetria na pesquisa, poderá encontrar a solicitação relacionada a uma exceção específica. Contagens de métricas, como taxa de solicitação e taxa de exceção, são retidas corretamente.
 
@@ -543,7 +543,7 @@ Siga as instruções [deste para configurar a amostragem para aplicativos](https
         {
             if(somecondition)
             {
-                ((ISupportSampling)item).SamplingPercentage = 100;
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
             }
         }
       }

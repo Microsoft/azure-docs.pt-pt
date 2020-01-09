@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688283"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658445"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no serviço Azure App
-O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, back-ends móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
+O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
 
-No portal do Azure, você pode examinar *cotas* e *métricas* para um aplicativo e um plano do serviço de aplicativo, bem como configurar *alertas* e *dimensionamento automático* que são métricas baseadas.
+No portal do Azure, você pode examinar *cotas* e *métricas* para um aplicativo e um plano do serviço de aplicativo, bem como configurar *alertas* e *dimensionamento* automático que são métricas baseadas.
 
 ## <a name="understand-quotas"></a>Entender as cotas
 
@@ -36,12 +36,12 @@ As cotas para aplicativos livres ou compartilhados são:
 | **CPU (curta)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de 5 minutos. Essa cota é redefinida a cada cinco minutos. |
 | **CPU (dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **Memória** | A quantidade total de memória permitida para este aplicativo. |
-| **Larga** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
+| **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é redefinida a cada 24 horas à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitido. |
 
 A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.
 
-Para obter mais informações sobre cotas, limites e recursos específicos disponíveis para as várias SKUs do serviço de aplicativo, consulte [limites de serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para obter mais informações sobre cotas, limites e recursos específicos disponíveis para as várias SKUs do serviço de aplicativo, consulte [limites de serviço de assinatura do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Imposição de cota
 
@@ -88,13 +88,13 @@ Para um aplicativo, as métricas disponíveis são:
 | **4xx http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
 | **Erros do servidor http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
 | **E/s outros bytes por segundo** | A taxa na qual o processo do aplicativo está emitindo bytes para operações de e/s que não envolvem dados, como operações de controle.|
-| **E/s outras operações por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s que não são operações de leitura ou de gravação.|
+| **E/s outras operações por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s que não são operações de leitura ou gravação.|
 | **Bytes de leitura de e/s por segundo** | A taxa na qual o processo do aplicativo está lendo bytes de operações de e/s.|
 | **Operações de leitura de e/s por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s de leitura.|
 | **Bytes de gravação de e/s por segundo** | A taxa na qual o processo do aplicativo está gravando bytes em operações de e/s.|
 | **Operações de gravação de e/s por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s de gravação.|
 | **Conjunto de trabalho de memória** | A quantidade atual de memória usada pelo aplicativo, na MiB. |
-| **Bytes particulares** | Bytes privados é o tamanho atual, em bytes, da memória alocada pelo processo do aplicativo que não pode ser compartilhada com outros processos.|
+| **Bytes particulares** | Bytes privados é o tamanho atual, em bytes, da memória que o processo do aplicativo alocou que não pode ser compartilhado com outros processos.|
 | **Pedido** | O número total de solicitações, independentemente do código de status HTTP resultante. |
 | **Solicitações na fila de aplicativos** | O número de solicitações na fila de solicitações do aplicativo.|
 | **Contagem de threads** | O número de threads atualmente ativos no processo do aplicativo.|
@@ -114,7 +114,7 @@ Para um plano do serviço de aplicativo, as métricas disponíveis são:
 | **Porcentagem de memória** | A média de memória usada em todas as instâncias do plano. |
 | **Dados em** | A largura de banda de entrada média usada em todas as instâncias do plano. |
 | **Saída de dados** | A largura de banda de saída média usada em todas as instâncias do plano. |
-| **Comprimento da fila de disco** | O número médio de solicitações de leitura e gravação que foram enfileiradas no armazenamento. Um comprimento de fila de disco alto é uma indicação de um aplicativo que pode estar causando lentidão devido a uma e/s excessiva de disco. |
+| **Comprimento da fila de disco** | O número médio de solicitações de leitura e gravação que foram enfileiradas no armazenamento. Um comprimento de fila de disco alto é uma indicação de um aplicativo que pode estar causando lentidão devido à e/s excessiva de disco. |
 | **Comprimento da fila http** | O número médio de solicitações HTTP que tinham que ficar na fila antes de serem atendidas. Um comprimento de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tempo de CPU versus percentual de CPU
@@ -130,8 +130,8 @@ Há duas métricas que refletem o uso da CPU:
 As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço, com as seguintes granularidades e políticas de retenção:
 
 * As métricas de granularidade de **minuto** são mantidas por 30 horas.
-* As métricas de granularidade de **hora** são retidas por 30 dias.
-* As métricas de granularidade de **dia** são retidas por 30 dias.
+* As métricas de granularidade de **hora** são mantidas por 30 dias.
+* As métricas de granularidade de **dia** são mantidas por 30 dias.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no portal do Azure
 Para examinar o status das várias cotas e métricas que afetam um aplicativo, acesse o [portal do Azure](https://portal.azure.com).
@@ -144,19 +144,16 @@ Para localizar cotas, selecione **configurações** > **cotas**. No gráfico, vo
 1. Seu limite atual.
 1. Seu valor atual.
 
-![gráfico de métricas no portal do Azure][metrics] você pode acessar as métricas diretamente da página de **recursos** . Para personalizar o gráfico: 
-1. Selecione o gráfico.
-1. Selecione **Editar gráfico**.
-1. Edite o **intervalo de tempo**.
-1. Edite o **tipo de gráfico**.
-1. Edite as métricas que você deseja exibir.  
+![gráfico de métricas no portal do Azure][metrics] você pode acessar as métricas diretamente na página **visão geral** do recurso. Aqui você verá gráficos que representam algumas das métricas de aplicativos.
+
+Clicar em qualquer um desses gráficos levará você para a exibição de métricas, na qual você pode criar gráficos personalizados, consultar diferentes métricas e muito mais. 
 
 Para saber mais sobre métricas, consulte [monitorar métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
 As métricas para um aplicativo ou um plano do serviço de aplicativo podem ser conectadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Os aplicativos do serviço de aplicativo hospedados nos planos do serviço de aplicativo básico, Standard ou Premium oferecem suporte a autoescala. Com o dimensionamento automático, você pode configurar regras que monitoram as métricas do plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias, o que pode fornecer recursos adicionais, conforme necessário. As regras também podem ajudá-lo a economizar dinheiro quando o aplicativo estiver excessivamente provisionado.
+Os aplicativos do serviço de aplicativo hospedados em planos do serviço de aplicativo básico ou superior dão suporte a autoescala. Com o dimensionamento automático, você pode configurar regras que monitoram as métricas do plano do serviço de aplicativo. As regras podem aumentar ou diminuir a contagem de instâncias, o que pode fornecer recursos adicionais, conforme necessário. As regras também podem ajudá-lo a economizar dinheiro quando o aplicativo estiver excessivamente provisionado.
 
 Para obter mais informações sobre o dimensionamento automático, consulte [como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e [as práticas recomendadas para Azure monitor autoescala](../azure-monitor/platform/autoscale-best-practices.md).
 

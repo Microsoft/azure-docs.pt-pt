@@ -1,6 +1,6 @@
 ---
-title: Criar e partilhar dashboards de portais do Azure | Documentos da Microsoft
-description: Este artigo descreve como criar, personalizar, publicar e partilhar dashboards no portal do Azure.
+title: Criar e compartilhar painéis de portal do Azure | Microsoft Docs
+description: Este artigo descreve como criar, personalizar, publicar e compartilhar painéis no portal do Azure.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
@@ -13,164 +13,164 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/01/2019
-ms.author: kfollis
-ms.openlocfilehash: 8dd1349ca9ab62484eb6693291e3b869ff079dc1
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.author: mblythe
+ms.openlocfilehash: a3b4d7cb33bf0da0c4431d76a54644208ea6468f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537215"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640461"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
 
-Dashboards fornecem uma forma de criar uma vista focada e organizada no portal do Azure dos seus recursos na cloud. Utilize dashboards como uma área de trabalho onde pode rapidamente iniciar tarefas das operações diárias e monitorizar os recursos.  Crie dashboards personalizados com base em projetos, tarefas ou funções de utilizador, por exemplo.  O portal do Azure fornece um dashboard predefinido, como um ponto de partida. Pode editar o dashboard predefinido, crie e personalize dashboards adicionais e publicar e partilhar dashboards para que fiquem disponíveis para outros utilizadores. Este artigo descreve como criar um novo dashboard, personalizar a interface e publicar e partilhar dashboards.
+Os painéis fornecem uma maneira de criar uma exibição focalizada e organizada na portal do Azure de seus recursos de nuvem. Use painéis como um espaço de trabalho onde você pode iniciar tarefas rapidamente para operações diárias e monitorar recursos.  Crie painéis personalizados com base em projetos, tarefas ou funções de usuário, por exemplo.  O portal do Azure fornece um painel padrão como um ponto de partida. Você pode editar o painel padrão, criar e personalizar painéis adicionais e publicar e compartilhar painéis para torná-los disponíveis para outros usuários. Este artigo descreve como criar um novo painel, personalizar a interface e publicar e compartilhar painéis.
 
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
 
-Neste exemplo, vamos criar um dashboard novo, privado e atribuir um nome. Siga estes passos para começar a utilizar:
+Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estes passos para começar:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione **Dashboard** da seção superior da barra lateral esquerda. Já que sua exibição padrão pode ser definida para o dashboard.
-1. Selecione **+ novo dashboard**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione **painel** na seção superior da barra lateral esquerda. O modo de exibição padrão já pode estar definido como Dashboard.
+1. Selecione **+ novo painel**.
 
-    ![Captura de ecrã do dashboard predefinido](./media/azure-portal-dashboards/dashboard-new.png)
+    ![Captura de tela do painel padrão](./media/azure-portal-dashboards/dashboard-new.png)
 
-4. Esta ação abre o **Galeria de mosaicos**, do qual irá selecionar mosaicos e uma grade vazia onde irá dispor os mosaicos.
+4. Essa ação abre a **Galeria**de blocos, na qual você selecionará blocos e uma grade vazia na qual você organizará os blocos.
 
-    ![Captura de ecrã da Galeria de mosaicos e grelha vazia](./media/azure-portal-dashboards/dashboard-name.png)
+    ![Captura de tela da Galeria de blocos e da grade vazia](./media/azure-portal-dashboards/dashboard-name.png)
 
-5. Selecione o **meu painel** texto no dashboard de etiqueta e introduza um nome que irá ajudá-lo a identificar facilmente o dashboard personalizado.
+5. Selecione o texto **meu painel** no rótulo do painel e insira um nome que o ajudará a identificar facilmente o painel personalizado.
 1. Selecione **personalização concluída** no cabeçalho da página para sair do modo de edição.
 
-A vista do dashboard mostra agora o seu dashboard vazia. Selecione o menu pendente junto ao nome do dashboard para ver os dashboards disponíveis para – a lista pode incluir os dashboards que outros usuários tenham criados e partilhados.
+Agora, o modo de exibição de painel mostra o painel vazio. Selecione o menu suspenso ao lado do nome do painel para ver os painéis disponíveis para você – a lista pode incluir painéis que outros usuários criaram e compartilharam.
 
 ## <a name="edit-a-dashboard"></a>Editar um dashboard
 
-Agora, vamos editar dashboard para adicionar, redimensionar e organizar os mosaicos que representam os recursos do Azure.
+Agora, vamos editar o painel para adicionar, redimensionar e organizar os blocos que representam os recursos do Azure.
 
 ### <a name="add-tiles"></a>Adicionar mosaicos
 
-Para adicionar mosaicos a um dashboard, siga estes passos:
-1. Selecione ![ícone editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** do cabeçalho da página.
+Para adicionar blocos a um painel, siga estas etapas:
+1. Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
 
-    ![Captura de ecrã do dashboard, realce de edição](./media/azure-portal-dashboards/dashboard-edit.png)
+    ![Captura de tela do realce de painel Editar](./media/azure-portal-dashboards/dashboard-edit.png)
 
-2. Procurar os **Galeria de mosaicos** ou utilize o campo de pesquisa para encontrar o mosaico que pretende.
-1. Selecione **adicionar** para adicionar automaticamente o mosaico no dashboard com um tamanho predefinido e localização. Ou, arraste o mosaico para a grade e coloque-o onde quiser.
+2. Navegue pela **Galeria de blocos** ou use o campo de pesquisa para localizar o bloco desejado.
+1. Selecione **Adicionar** para adicionar automaticamente o bloco ao painel com um tamanho e um local padrão. Ou arraste o bloco até a grade e coloque-o onde desejar.
 
-Várias páginas de recursos (também conhecido como "painéis") incluem um ícone de alfinete na barra de comandos. Se selecionar o ícone, um mosaico que representa a página de origem está afixado ao dashboard atualmente ativo. Esse método é uma forma alternativa de adicionar mosaicos ao dashboard.
+Muitas páginas de recursos (também conhecidas como "lâminas") incluem um ícone de pino na barra de comandos. Se você selecionar o ícone, um bloco que representa a página de origem será fixado no painel ativo no momento. Esse método é uma maneira alternativa de adicionar blocos ao seu painel.
 
-![Captura de ecrã da barra de comandos de página com o ícone de pin](./media/azure-portal-dashboards/dashboard-pin-blade.png)
+![Captura de tela da barra de comandos da página com ícone de fixação](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
 > [!TIP]
-> Se trabalha com mais do que uma organização, adicione a **identidade da organização** mosaico ao dashboard para mostrar claramente organização da qual os recursos pertencem a.
+> Se você trabalhar com mais de uma organização, adicione o bloco **identidade da organização** ao seu painel para mostrar claramente a qual organização os recursos pertencem.
 >
 >
-### <a name="resize-or-rearrange-tiles"></a>Redimensionar ou reorganizar os mosaicos
-Para alterar o tamanho de um mosaico ou reorganizar os mosaicos num dashboard, siga estes passos:
+### <a name="resize-or-rearrange-tiles"></a>Redimensionar ou reorganizar blocos
+Para alterar o tamanho de um bloco ou reorganizar os blocos em um painel, siga estas etapas:
 
-1. Selecione ![ícone editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** do cabeçalho da página.
-1. Selecione o menu de contexto no canto superior direito de um mosaico. Em seguida, escolha um tamanho de bloco. Mosaicos que suportam qualquer tamanho incluem também um "identificador" no canto inferior direito que permite arrastar o mosaico para o tamanho pretendido.
+1. Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** no cabeçalho da página.
+1. Selecione o menu de contexto no canto superior direito de um bloco. Em seguida, escolha um tamanho de bloco. Blocos que dão suporte a qualquer tamanho também incluem um "identificador" no canto inferior direito que permite que você arraste o bloco para o tamanho desejado.
 
-   ![Captura de ecrã do dashboard com o menu de tamanho de mosaico aberto](./media/azure-portal-dashboards/dashboard-tile-resize.png)
+   ![Captura de tela do painel com o menu tamanho do bloco aberto](./media/azure-portal-dashboards/dashboard-tile-resize.png)
 
-3. Selecione um mosaico e arraste-o para uma nova localização na grade para organizar o seu dashboard.
+3. Selecione um bloco e arraste-o para um novo local na grade para organizar seu painel.
 
-### <a name="additional-tile-configuration"></a>Configuração de mosaico adicionais
+### <a name="additional-tile-configuration"></a>Configuração de bloco adicional
 
-Alguns mosaicos, poderão ter mais de configuração para mostrar as informações que pretende. Por exemplo, o **gráfico de métricas** tem de ser configurados para exibir uma métrica de mosaico **Azure Monitor**. Também pode personalizar os dados de mosaico para substituir definições de hora padrão do dashboard.
+Alguns blocos podem precisar de mais configurações para mostrar as informações desejadas. Por exemplo, o bloco de **gráfico de métricas** precisa ser configurado para exibir uma métrica de **Azure monitor**. Você também pode personalizar os dados do bloco para substituir as configurações de tempo padrão do painel.
 
-Qualquer mosaico que tem de ser configurado apresenta um **configurar mosaico** faixa até que personalizar o mosaico. Selecione essa faixa e, em seguida, a configuração necessária.
+Qualquer bloco que precise ser configurado exibe uma faixa de **blocos de configuração** até que você personalize o bloco. Selecione essa faixa e, em seguida, faça a configuração necessária.
 
-![Captura de ecrã do mosaico que requer configuração](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+![Captura de tela do bloco que requer configuração](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
 > [!NOTE]
-> Um mosaico markdown permite-lhe apresentar conteúdo personalizado, estático no seu dashboard. Isto pode ser instruções básicas, uma imagem, um conjunto de hiperlinks ou até mesmo informações de contacto. Para obter mais informações sobre a utilização de um mosaico de markdown, veja [utilize um mosaico markdown personalizada](azure-portal-markdown-tile.md).
+> Um bloco de redução permite que você exiba conteúdo estático e personalizado em seu painel. Isso pode ser instruções básicas, uma imagem, um conjunto de hiperlinks ou até mesmo informações de contato. Para obter mais informações sobre como usar um bloco de redução, consulte [usar um bloco de redução personalizado](azure-portal-markdown-tile.md).
 >
 >
-### <a name="customize-tile-data"></a>Personalizar os dados de mosaico
+### <a name="customize-tile-data"></a>Personalizar dados de bloco
 
-Dados no dashboard mostram automaticamente a atividade para as últimas 24 horas. Para mostrar um intervalo de tempo diferente para apenas este mosaico, siga estes passos:
+Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Para mostrar um período de tempo diferente apenas para este bloco, siga estas etapas:
 
-1. Selecione o ![ícone de filtro](./media/azure-portal-dashboards/dashboard-filter.png) ícone de filtro no canto superior esquerdo do mosaico ou selecione **dados do mosaico personalizar** no menu de contexto.
+1. Selecione o ícone de filtro de ![](./media/azure-portal-dashboards/dashboard-filter.png) ícone de filtro no canto superior esquerdo do bloco ou selecione **personalizar dados de bloco** no menu de contexto.
 
-   ![Captura de ecrã do menu de contexto do mosaico](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+   ![Captura de tela do menu de contexto do bloco](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-2. Selecione a caixa de verificação **substituir as definições de hora do dashboard ao nível do mosaico**.
+2. Marque a caixa de seleção para **substituir as configurações de hora do painel no nível do bloco**.
 
-   ![Captura de ecrã da caixa de diálogo para configurar as definições de hora do mosaico](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+   ![Captura de tela da caixa de diálogo para definir as configurações de tempo do bloco](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
-3. Escolha o intervalo de tempo para mostrar para este mosaico. Pode escolher entre os últimos 30 minutos para nos últimos 30 dias ou definir um intervalo personalizado.
-1. Escolha a granularidade de tempo para apresentar. Pode mostrar em qualquer lugar de incrementos de um minuto para um mês.
+3. Escolha o período de tempo a ser mostrado para este bloco. Você pode escolher entre os últimos 30 minutos até os últimos 30 dias ou definir um intervalo personalizado.
+1. Escolha a granularidade de tempo a ser exibida. Você pode mostrar qualquer lugar de incrementos de um minuto para um mês.
 1. Selecione **Aplicar**.
 
-## <a name="delete-a-tile"></a>Eliminar um mosaico
+## <a name="delete-a-tile"></a>Excluir um bloco
 
-Para remover um mosaico a partir de um dashboard, siga estes passos:
+Para remover um bloco de um painel, siga estas etapas:
 
-* Selecione o menu de contexto no canto superior direito do mosaico, em seguida, selecione **remover do dashboard**. Ou,
-* Selecione ![ícone editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** para entrar no modo de personalização. Coloque o cursor no canto superior direito do mosaico, em seguida, selecione o ![ícone Eliminar](./media/azure-portal-dashboards/dashboard-delete-icon.png) eliminar ícone para remover o mosaico de dashboard.
+* Selecione o menu de contexto no canto superior direito do bloco e, em seguida, selecione **remover do painel**. Ou,
+* Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Editar** para entrar no modo de personalização. Focalize o canto superior direito do bloco e, em seguida, selecione o ícone ![excluir](./media/azure-portal-dashboards/dashboard-delete-icon.png) ícone Excluir para remover o bloco do painel.
 
-   ![Captura de ecrã que mostra como remover o mosaico do dashboard](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+   ![Captura de tela mostrando como remover bloco do painel](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
 ## <a name="clone-a-dashboard"></a>Clonar um dashboard
 
-Para utilizar um dashboard existente como modelo para um novo dashboard, siga estes passos:
+Para usar um painel existente como modelo para um novo painel, siga estas etapas:
 
-1. Certifique-se de que a vista do dashboard está a mostrar o dashboard que pretende copiar.
-1. No cabeçalho da página, selecione ![ícone de clone](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
-1. Uma cópia do dashboard, com o nome "clonar dos *seu nome de dashboard*" é aberto no modo de edição. Utilize os passos anteriores neste artigo para mudar o nome e personalizar o dashboard.
+1. Verifique se o modo de exibição de painel está mostrando o painel que você deseja copiar.
+1. No cabeçalho da página, selecione ![ícone de clonagem](./media/azure-portal-dashboards/dashboard-clone.png) **clone**.
+1. Uma cópia do painel, chamada "clone do *seu nome do painel*", é aberta no modo de edição. Use as etapas anteriores neste artigo para renomear e personalizar o painel.
 
-## <a name="publish-and-share-a-dashboard"></a>Publicar e partilhar um dashboard
+## <a name="publish-and-share-a-dashboard"></a>Publicar e compartilhar um painel
 
-Quando cria um dashboard, é privado por predefinição, o que significa que é o único que o pode ver. Para disponibilizar a outros dashboards, pode partilhá-los com outros utilizadores. Em primeiro lugar, terá de publicar o dashboard como um recurso do Azure. Para publicar e partilhar um dashboard personalizado, siga estes passos:
+Quando você cria um painel, ele é privado por padrão, o que significa que você é o único que pode vê-lo. Para disponibilizar os painéis para outras pessoas, você pode compartilhá-los com outros usuários. Primeiro, você precisa publicar o painel como um recurso do Azure. Para publicar e compartilhar um painel personalizado, siga estas etapas:
 
-1. Selecione ![ícone partilhar](./media/azure-portal-dashboards/dashboard-share-icon.png) **partilhar** do cabeçalho da página. O **partilha + de controle de acesso** formulário seja apresentado.
-1. Certifique-se de que o nome do dashboard correto é mostrado.
-1. Selecione um **nome da subscrição**. Os utilizadores com acesso à subscrição podem utilizar o dashboard partilhado. Acesso aos recursos representado pelos mosaicos individuais é determinado pelo controlo de acesso baseado em funções do Azure.
-1. Selecione a caixa de verificação para publicar este dashboard para o grupo de recursos 'dashboards' para a subscrição selecionada. Ou, desmarque a caixa de verificação e optar por publicar a um grupo de recursos existente em vez disso.
-1. Escolha uma localização para o recurso de dashboard. Recomendamos que localize o dashboard com outros recursos. Nota: Se escolher entre grupos de recursos existentes, o dashboard é automaticamente localizado com o grupo de recursos.
+1. Selecione o ícone de compartilhamento de ![](./media/azure-portal-dashboards/dashboard-share-icon.png) **compartilhamento** no cabeçalho da página. O formulário **compartilhamento + controle de acesso** é exibido.
+1. Verifique se o nome correto do painel é mostrado.
+1. Selecione um **nome de assinatura**. Os usuários com acesso à assinatura podem usar o painel compartilhado. O acesso aos recursos representados pelos blocos individuais é determinado pelo controle de acesso baseado em função do Azure.
+1. Marque a caixa de seleção para publicar este painel no grupo de recursos ' painéis ' da assinatura selecionada. Ou então, desmarque a caixa de seleção e escolha publicar em um grupo de recursos existente.
+1. Escolha um local para o recurso de painel. Recomendamos que você localize o painel com outros recursos. Observação: se você escolher um dos grupos de recursos existentes, o painel será localizado automaticamente com esse grupo de recursos.
 1. Selecione **Publicar**.
 
-   ![Captura de ecrã da caixa de diálogo publicação do dashboard](./media/azure-portal-dashboards/dashboard-publish.png)
+   ![Captura de tela da caixa de diálogo de publicação do Dashboard](./media/azure-portal-dashboards/dashboard-publish.png)
 
-### <a name="set-access-control-on-a-shared-dashboard"></a>Definir o controlo de acesso num dashboard partilhado
+### <a name="set-access-control-on-a-shared-dashboard"></a>Definir o controle de acesso em um painel compartilhado
 
-Depois do dashboard é publicado, geri quem tem acesso ao dashboard ao seguir estes passos:
+Depois que o painel for publicado, gerencie quem tem acesso ao painel seguindo estas etapas:
 
-1. Na **partilha + de controle de acesso** painel, selecione **gerir utilizadores**.
+1. No painel **compartilhamento + controle de acesso** , selecione **gerenciar usuários**.
 
-   ![Caixa de diálogo de controlar a captura de ecrã da partilha de dashboards + acesso](./media/azure-portal-dashboards/dashboard-share-access-control.png)
+   ![Captura de tela da caixa de diálogo compartilhamento de painel + controle de acesso](./media/azure-portal-dashboards/dashboard-share-access-control.png)
 
-2. O **controlo de acesso** é aberta a página. Nesta página, pode rever o nível de acesso para alguém ou adicionar uma nova atribuição de função. Quando adiciona uma atribuição de função aqui, está concedendo permissões ao dashboard.
+2. A página **controle de acesso** é aberta. Nessa página, você pode examinar o nível de acesso de alguém ou adicionar uma nova atribuição de função. Ao adicionar uma atribuição de função aqui, você está concedendo permissões ao painel.
 
 > [!NOTE]
-> Blocos são vistas representativas de recursos na sua organização. Acesso a recursos é gerenciado por meio de atribuição de controlo de acesso baseado em funções e permissões são herdadas da subscrição para baixo para o recurso. Que lhe dá acesso a um dashboard não atribui automaticamente permissões para os recursos mostrados no dashboard. Para obter mais informações sobre as permissões de controlo de acesso baseado em funções para recursos e dashboards partilhados, consulte [partilhar dashboards com controlo de acesso baseado em funções](azure-portal-dashboard-share-access.md).
+> Os blocos são exibições representativas de recursos em sua organização. O acesso a recursos é gerenciado por meio da atribuição de controle de acesso baseado em função e as permissões são herdadas da assinatura para o recurso. Conceder acesso a um painel não atribui automaticamente permissões aos recursos mostrados no painel. Para obter mais informações sobre permissões para painéis compartilhados e controle de acesso baseado em função para recursos, consulte [compartilhar painéis com o controle de acesso baseado em função](azure-portal-dashboard-share-access.md).
 
-### <a name="open-a-shared-dashboard"></a>Abra um dashboard partilhado
+### <a name="open-a-shared-dashboard"></a>Abrir um painel compartilhado
 
-Para encontrar e abrir um dashboard partilhado, siga estes passos:
+Para localizar e abrir um painel compartilhado, siga estas etapas:
 
-1. Selecione a menu pendente junto ao nome do dashboard.
-1. Selecione entre a lista apresentada de dashboards ou **procurar todos os dashboards** se não estiver listado o dashboard que pretende abrir.
+1. Selecione a lista suspensa ao lado do nome do painel.
+1. Selecione na lista exibida de painéis ou **procure todos os painéis** se o painel que você deseja abrir não estiver listado.
 
-   ![Captura de ecrã do menu de seleção do dashboard](./media/azure-portal-dashboards/dashboard-browse.png)
+   ![Captura de tela do menu de seleção do painel](./media/azure-portal-dashboards/dashboard-browse.png)
 
-3. Na **tipo** campo, selecione **dashboards partilhados**.
-1. Selecione uma ou mais subscrições. Também pode introduzir texto para filtrar dashboards por nome.
-1. Selecione um dashboard a partir da lista de dashboards partilhados.
+3. No campo **tipo** , selecione **painéis compartilhados**.
+1. Selecione uma ou mais assinaturas. Você também pode inserir texto para filtrar os painéis por nome.
+1. Selecione um painel na lista de painéis compartilhados.
 
 ## <a name="delete-a-dashboard"></a>Eliminar um dashboard
 
-Para eliminar permanentemente um dashboard partilhado ou privado, siga estes passos:
+Para excluir permanentemente um painel particular ou compartilhado, siga estas etapas:
 
-1. Selecione o dashboard que pretende eliminar a partir da lista pendente junto ao nome do dashboard.
-1. Selecione ![ícone Eliminar](./media/azure-portal-dashboards/dashboard-delete-icon.png) **eliminar** do cabeçalho da página.
-1. Para um dashboard privado, selecione **OK** da caixa de diálogo de confirmação para remover o dashboard. Para um dashboard partilhado, na caixa de diálogo de confirmação, selecione a caixa de verificação para confirmar que o dashboard publicado deixará de estar visto por outros utilizadores. Em seguida, selecione **OK**.
+1. Selecione o painel que você deseja excluir na lista suspensa ao lado do nome do painel.
+1. Selecione ![ícone Excluir](./media/azure-portal-dashboards/dashboard-delete-icon.png) **excluir** do cabeçalho da página.
+1. Para um painel particular, selecione **OK** na caixa de diálogo de confirmação para remover o painel. Para um painel compartilhado, na caixa de diálogo de confirmação, marque a caixa de seleção para confirmar se o painel publicado não será mais visível para outras pessoas. Em seguida, selecione **OK**.
 
-   ![Captura de ecrã de confirmação de eliminação](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+   ![Captura de tela da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Partilhar dashboards com controlo de acesso baseado em funções](azure-portal-dashboard-share-access.md)
-* [Criar programaticamente dashboards do Azure](azure-portal-dashboards-create-programmatically.md)
+* [Compartilhar painéis com o controle de acesso baseado em função](azure-portal-dashboard-share-access.md)
+* [Criar programaticamente painéis do Azure](azure-portal-dashboards-create-programmatically.md)

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706960"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612875"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: configurar um dispositivo IoT Edge
 
@@ -26,9 +26,9 @@ As etapas neste artigo normalmente são executadas por um desenvolvedor de nuvem
 
 ## <a name="generate-certificates"></a>Gerar certificados
 
-Para que um dispositivo funcione como um gateway, ele precisa ser capaz de se conectar com segurança a dispositivos downstream. Azure IoT Edge permite que você use uma PKI (infraestrutura de chave pública) para configurar conexões seguras entre dispositivos. Nesse caso, estamos permitindo que um dispositivo downstream se conecte a um dispositivo IoT Edge atuando como um gateway transparente. Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo de IoT Edge. Para obter mais informações sobre como IoT Edge dispositivos usam certificados, consulte [Azure IOT Edge detalhes de uso do certificado](iot-edge-certs.md).
+Para que um dispositivo funcione como um gateway, ele precisa ser capaz de se conectar com segurança a dispositivos downstream. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para configurar ligações seguras entre dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente. Para manter a segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo de IoT Edge. Para obter mais informações sobre como IoT Edge dispositivos usam certificados, consulte [Azure IOT Edge detalhes de uso do certificado](iot-edge-certs.md).
 
-Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker que criamos e executamos. Optamos por usar uma imagem do Docker para concluir esta etapa, pois ela reduziu significativamente o número de etapas necessárias para criar os certificados no computador de desenvolvimento do Windows. Consulte [gerar certificados com o Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) para obter os detalhes sobre como produzir os certificados sem usar um contêiner. [Gerar certificados com o Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) tem o conjunto de instruções que automatizamos com a imagem do Docker.
+Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker que criamos e executamos. Optamos por usar uma imagem do Docker para concluir esta etapa, pois ela reduziu significativamente o número de etapas necessárias para criar os certificados no computador de desenvolvimento do Windows. Consulte [criar certificados de demonstração para testar IOT Edge recursos de dispositivo](how-to-create-test-certificates.md) para entender o que nós automatizamos com a imagem do Docker.
 
 1. Entre em sua máquina virtual de desenvolvimento.
 
@@ -65,11 +65,11 @@ Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker
 
 12. Quando o contêiner terminar a execução, verifique os seguintes arquivos em **c:\\edgeCertificates**:
 
-    * c:\\edgeCertificates\\certificados\\Azure-IOT-Test-only. root. ca. cert. pem
-    * c:\\edgeCertificates\\certificados\\New-Edge-Device-Full-Chain. cert. pem
-    * c:\\edgeCertificates\\certificados\\New-Edge-Device. cert. pem
-    * c:\\edgeCertificates\\certificados\\New-Edge-Device. cert. pfx
-    * c:\\edgeCertificates\\Private\\New-Edge-Device. Key. pem
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\private\\new-edge-device.key.pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Carregar certificados para Azure Key Vault
 
@@ -174,7 +174,7 @@ Em seguida, execute o script para criar a máquina virtual para seu dispositivo 
 
     ![Copiar cadeia de conexão SSH para VM](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
 
-## <a name="connect-to-your-iot-edge-device"></a>Conectar-se ao seu dispositivo IoT Edge
+## <a name="connect-to-your-iot-edge-device"></a>Ligar ao seu dispositivo IoT Edge
 
 As várias seções a seguir configuram a máquina virtual do Azure que criamos. A primeira etapa é conectar-se à máquina virtual.
 
@@ -204,7 +204,7 @@ Anteriormente neste artigo, carregamos certificados para Key Vault para disponib
 
 1. Quando você se autentica com êxito, a VM do Linux entrará e listará suas assinaturas do Azure.
 
-1. ASet a assinatura do Azure que você deseja usar para CLI do Azure comandos.
+1. Defina a assinatura do Azure que você deseja usar para CLI do Azure comandos.
 
     ```bash
     az account set --subscription <subscriptionId>

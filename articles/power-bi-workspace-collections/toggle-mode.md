@@ -1,6 +1,6 @@
 ---
-title: Alternar entre ver e editar o modo para relatórios nas coleções de área de trabalho do Power BI | Documentos da Microsoft
-description: Saiba como alternar entre ver e editar o modo para os relatórios de coleções de área de trabalho do Power BI.
+title: Alternar entre modo de exibição e modo de edição para relatórios
+description: Saiba como alternar entre a exibição e o modo de edição para seus relatórios em Power BI coleções de espaço de trabalho.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
 author: rkarlin
@@ -8,26 +8,26 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 327f2fdcd4d1bc9e71e3aabb3541c6fd30f02811
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b2696560b5d5013fe337b51ec61cbfac9e512610
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357669"
 ---
-# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre ver e editar o modo para relatórios nas coleções de área de trabalho do Power BI
+# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternar entre modo de exibição e modo de edição para relatórios em Power BI coleções de espaço de trabalho
 
-Saiba como alternar entre ver e editar o modo para os relatórios de coleções de área de trabalho do Power BI.
+Saiba como alternar entre a exibição e o modo de edição para seus relatórios em Power BI coleções de espaço de trabalho.
 
 > [!IMPORTANT]
 > As Coleções de Áreas de Trabalho do Power BI foram preteridas e estão disponíveis até junho de 2018 ou até quando indicar o contrato. Recomendamos que planeie a migração para o Power BI Embedded para evitar interrupções na sua aplicação. Para obter informações sobre como migrar os dados para o Power BI Embedded, veja [How to migrate Power BI Workspace Collections content to Power BI Embedded (Como migrar o conteúdo das Coleções de Áreas de Trabalho do Power BI para o Power BI Embedded)](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-## <a name="creating-an-access-token"></a>Criar um token de acesso
+## <a name="creating-an-access-token"></a>Criando um token de acesso
 
-Tem de criar um token de acesso que lhe dá a capacidade de ver e editar um relatório. Para editar e guardar um relatório, terá do **Report.ReadWrite** permissão do token. Para obter mais informações, consulte [autenticação e autorização nas coleções de área de trabalho do Power BI](app-token-flow.md).
+Você precisa criar um token de acesso que ofereça a capacidade de exibir e editar um relatório. Para editar e salvar um relatório, você precisa da permissão de token **Report. ReadWrite** . Para obter mais informações, consulte [Autenticando e autorizando em coleções de espaço de trabalho Power bi](app-token-flow.md).
 
 > [!NOTE]
-> Isto permite-lhe editar e guardar as alterações a um relatório existente. Se gostaria de ter também a função de suportar **guardar como**, precisa fornecer permissões adicionais. Para obter mais informações, consulte [âmbitos](app-token-flow.md#scopes).
+> Isso permite que você edite e salve as alterações em um relatório existente. Se você também gostar da função de suporte para **salvar como**, precisará fornecer permissões adicionais. Para obter mais informações, consulte [escopos](app-token-flow.md#scopes).
 
 ```csharp
 using Microsoft.PowerBI.Security;
@@ -39,11 +39,11 @@ PowerBIToken embedToken = PowerBIToken.CreateReportEmbedTokenForCreation(workspa
 var token = embedToken.Generate("{access key}");
 ```
 
-## <a name="embed-configuration"></a>Configuração de incorporação
+## <a name="embed-configuration"></a>Configuração de inserção
 
-Tem de fornecer um viewMode e permissões para ver a botão quando no modo de edição. Para obter mais informações, consulte [detalhes de configuração de incorporação](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Você precisa fornecer permissões e um ViewMode para ver o botão salvar no modo de edição. Para obter mais informações, consulte [Inserir detalhes de configuração](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
-Por exemplo, no JavaScript:
+Por exemplo, em JavaScript:
 
 ```html
    <div id="reportContainer"></div>
@@ -77,11 +77,11 @@ Por exemplo, no JavaScript:
     </script>
 ```
 
-Isto indica ao incorporar o relatório no modo de exibição com base nas **viewMode** sendo definido como **modelos. ViewMode.View**.
+Isso indica que o relatório deve ser inserido no modo de exibição com base em **ViewMode** definido como **modelos. ViewMode. View**.
 
 ## <a name="view-mode"></a>Modo de exibição
 
-Pode utilizar o seguinte JavaScript para alternar para modo de exibição, se estiver no modo de edição.
+Você pode usar o JavaScript a seguir para alternar para o modo de exibição, se você estiver no modo de edição.
 
 ```javascript
 // Get a reference to the embedded report HTML element
@@ -97,7 +97,7 @@ report.switchMode("view");
 
 ## <a name="edit-mode"></a>Modo de edição
 
-Pode utilizar o seguinte JavaScript alternar para modo de edição, se estiver na vista de modo.
+Você pode usar o JavaScript a seguir para alternar para o modo de edição, se você estiver no modo de exibição.
 
 ```javascript
 // Get a reference to the embedded report HTML element
@@ -111,14 +111,14 @@ report.switchMode("edit");
 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Incorporar um relatório](embed-report.md)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Exemplo de Incorporação de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Repositório de Git do Power BI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
-[Repositório de Git de nó do Power BI](https://github.com/Microsoft/PowerBI-Node)  
+[Repositório de git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
+[Repositório de git do PowerBI-node](https://github.com/Microsoft/PowerBI-Node)  
 
 Mais perguntas? [Tente a Comunidade do Power BI](https://community.powerbi.com/)

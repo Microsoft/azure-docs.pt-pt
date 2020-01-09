@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-sfctl SA-cluster | Microsoft Docs
-description: Descreve os comandos de Cluster Service Fabric CLI sfctl autônomos.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl SA-cluster
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar clusters autônomos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 765d7d76cb13758417bb3927ff9620026ca763b1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901023"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646029"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gerenciar clusters Service Fabric autônomos.
@@ -29,8 +20,8 @@ Gerenciar clusters Service Fabric autônomos.
 |Comando|Descrição|
 | --- | --- |
 | configuração | Obtenha a configuração de Cluster Service Fabric autônomo. |
-| configuração-atualização | Comece a atualizar a configuração de um Cluster Service Fabric autônomo. |
-| atualização-status | Obtenha o status de atualização da configuração do cluster de um Cluster Service Fabric autônomo. |
+| config-upgrade | Comece a atualizar a configuração de um Cluster Service Fabric autônomo. |
+| upgrade-status | Obtenha o status de atualização da configuração do cluster de um Cluster Service Fabric autônomo. |
 
 ## <a name="sfctl-sa-cluster-config"></a>sfctl SA – configuração de cluster
 Obtenha a configuração de Cluster Service Fabric autônomo.
@@ -65,16 +56,16 @@ Valide os parâmetros de atualização de configuração fornecidos e comece a a
 | --- | --- |
 | --cluster-config [obrigatório] | A configuração do cluster. |
 | --Application-Health-Policies | Dicionário codificado em JSON de pares de nome do tipo de aplicativo e percentual máximo não íntegro antes de gerar erro. |
-| --Delta-não íntegro-nós | A porcentagem máxima permitida de degradação da integridade Delta durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| – repetição de verificação de integridade | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro.  Padrão\: PT0H0M0S. |
-| --Health-Check-estável | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização.  Padrão\: PT0H0M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --verificação de integridade-espera | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade.  Padrão\: PT0H0M0S. |
+| --delta-unhealthy-nodes | A porcentagem máxima permitida de degradação da integridade Delta durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --health-check-retry | O período de tempo entre as tentativas de realizar verificações de integridade se o aplicativo ou o cluster não estiver íntegro.  Padrão\: PT0H0M0S. |
+| --health-check-stable | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização prossiga para o próximo domínio de atualização.  Padrão\: PT0H0M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --health-check-wait | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o processo de verificações de integridade.  Padrão\: PT0H0M0S. |
 | --Timeout-t | Padrão\: 60. |
 | --aplicativos não íntegros | A porcentagem máxima permitida de aplicativos não íntegros durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
 | --Nós não íntegros | A porcentagem máxima permitida de nós não íntegros durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
-| --nós de atualização-domínio-Delta-não íntegros | A porcentagem máxima permitida da degradação da integridade Delta do domínio de atualização durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
+| --upgrade-domain-delta-unhealthy-nodes | A porcentagem máxima permitida da degradação da integridade Delta do domínio de atualização durante a atualização. Os valores permitidos são valores inteiros de zero a 100. |
 | --tempo limite do domínio de atualização | A quantidade de tempo que cada domínio de atualização precisa concluir antes que a falha seja executada.  Padrão\: PT0H0M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
-| --tempo limite de atualização | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada.  Padrão\: PT0H0M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
+| --upgrade-timeout | O tempo durante o qual a atualização geral deve ser concluída antes de FailureAction ser executada.  Padrão\: PT0H0M0S. <br><br> Ele é primeiro interpretado como uma cadeia de caracteres que representa uma duração de ISO 8601. Se isso falhar, ele será interpretado como um número que representa o número total de milissegundos. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

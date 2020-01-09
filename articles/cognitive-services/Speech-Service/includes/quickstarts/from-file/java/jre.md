@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 0dbfab9b1886b39f166b94447fed8dc6707404bd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0f8d0c0b1f65cdbb9ae456d134696f6564078080
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468361"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

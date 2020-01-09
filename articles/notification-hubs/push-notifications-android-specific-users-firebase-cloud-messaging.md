@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações por push para aplicativos Android específicos usando hubs de notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para aplicativos Android específicos usando os hubs de notificação do Azure
 description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
 documentationcenter: android
 services: notification-hubs
@@ -17,18 +17,18 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387427"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531127"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para aplicativos Android específicos usando hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial mostra-lhe como pode utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador da aplicação específico num dispositivo específico. Um back-end WebAPI de ASP.NET é utilizado para autenticar clientes e gerar notificações, conforme mostrado no artigo de documentação de orientação [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial se baseia no Hub de notificação que você criou no [tutorial: notificações por push para dispositivos Android usando os hubs de notificação do Azure e o firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end WebAPI de ASP.NET é utilizado para autenticar clientes e gerar notificações, conforme mostrado no artigo de documentação de orientação [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Este tutorial se baseia no Hub de notificação que você criou no [tutorial: notificações por push para dispositivos Android usando os hubs de notificação do Azure e o firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 Neste tutorial, siga os seguintes passos:
 
@@ -47,7 +47,7 @@ Conclua o [tutorial: notificações por push para dispositivos Android usando os
 
 A próxima etapa é atualizar o aplicativo Android criado no [tutorial: notificações por push para dispositivos Android usando os hubs de notificação do Azure e o firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
-1. Abra o arquivo `res/layout/activity_main.xml`, substitua as seguintes definições de conteúdo:
+1. Abra o arquivo de `res/layout/activity_main.xml`, substitua as seguintes definições de conteúdo:
 
     Adiciona novos controlos EditText para iniciar sessão como um utilizador. Também é adicionado um campo para uma etiqueta username que irá fazer parte de notificações que enviar:
 
@@ -138,7 +138,7 @@ A próxima etapa é atualizar o aplicativo Android criado no [tutorial: notifica
         />
     </RelativeLayout>
     ```
-2. Abra o arquivo `res/values/strings.xml` e substitua a definição de `send_button` pelas linhas a seguir que redefinem a cadeia de caracteres para o `send_button` e adicione cadeias para os outros controles:
+2. Abra o arquivo de `res/values/strings.xml` e substitua a definição de `send_button` pelas seguintes linhas que redefinem a cadeia de caracteres para o `send_button` e adicione cadeias para os outros controles:
 
     ```xml
     <string name="usernameHint">Username</string>
@@ -152,7 +152,7 @@ A próxima etapa é atualizar o aplicativo Android criado no [tutorial: notifica
     O layout gráfico do `main_activity.xml` agora deve ser semelhante à imagem a seguir:
 
     ![][A1]
-3. Crie uma nova classe chamada `RegisterClient` no mesmo pacote que a classe `MainActivity`. Utilize o código abaixo para o ficheiro da nova classe.
+3. Crie uma nova classe chamada `RegisterClient` no mesmo pacote que a sua classe `MainActivity`. Utilize o código abaixo para o ficheiro da nova classe.
 
     ```java
   
@@ -261,7 +261,7 @@ A próxima etapa é atualizar o aplicativo Android criado no [tutorial: notifica
     ```
 
     Esse componente implementa as chamadas REST necessárias para entrar em contato com o back-end do aplicativo para registrar notificações por push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ele usa um token de autorização armazenado no armazenamento local quando você clica no botão **entrar** .
-4. Na classe `MainActivity`, adicione um campo para a classe `RegisterClient` e uma cadeia de caracteres para o ponto de extremidade do ASP.NET back-end. Certifique-se de que substitui `<Enter Your Backend Endpoint>` pelo ponto final do back-end propriamente dito que obteve antes. Por exemplo, `http://mybackend.azurewebsites.net`.
+4. Em sua classe de `MainActivity`, adicione um campo para a classe `RegisterClient` e uma cadeia de caracteres para o ponto de extremidade do ASP.NET back-end. Certifique-se de que substitui o `<Enter Your Backend Endpoint>` pelo ponto final de back-end real obtido anteriormente. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```java
     private RegisterClient registerClient;
@@ -412,7 +412,7 @@ A próxima etapa é atualizar o aplicativo Android criado no [tutorial: notifica
     }
     ```
 
-    O manipulador `login` para o botão **entrar** gera um token de autenticação básico usando o nome de usuário de entrada e a senha (ele representa qualquer token usado pelo esquema de autenticação) e, em seguida, usa `RegisterClient` para chamar o back-end para o registro.
+    O manipulador de `login` para o botão **entrar** gera um token de autenticação básico usando o nome de usuário de entrada e a senha (ele representa qualquer token usado pelo esquema de autenticação) e, em seguida, usa `RegisterClient` para chamar o back-end para o registro.
 
     O método `sendPush` chama o back-end para acionar uma notificação segura para o utilizador com base na etiqueta do mesmo. O serviço de notificação de plataforma visado por `sendPush` depende da cadeia `pns` transmitida.
 

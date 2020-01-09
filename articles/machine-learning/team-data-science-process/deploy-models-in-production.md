@@ -1,6 +1,6 @@
 ---
-title: Implantar modelos em produção – processo de ciência de dados da equipe
-description: Como implantar modelos para produção, permitindo que eles joguem um papel ativo para tomar decisões de negócios.
+title: Implementar modelos na produção - Team Data Science Process
+description: Como implementar modelos para produção, permitindo-lhes desempenhar um papel ativo na tomada de decisões de negócios.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,37 +10,37 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f371d07fdf09aae6ce4396f0916758f8588506b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670312"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526775"
 ---
-# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implante modelos na produção para desempenhar uma função ativa ao tomar decisões de negócios
+# <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implementar modelos para produção para desempenhar um papel ativo na tomada de decisões de negócios
 
-A implantação de produção permite que um modelo reproduza uma função ativa em uma empresa. As previsões de um modelo implantado podem ser usadas para decisões de negócios.
+Implantação de produção permite que um modelo para desempenhar um papel ativo numa empresa. Predições a partir de um modelo implementado podem ser utilizadas para a tomada de decisões comerciais.
 
 ## <a name="production-platforms"></a>Plataformas de produção
 
-Há várias abordagens e plataformas para colocar os modelos em produção. Aqui estão algumas opções:
+Existem várias abordagens e plataformas para colocar os modelos em produção. Aqui estão algumas opções:
 
-- [Onde implantar modelos com Azure Machine Learning](../service/how-to-deploy-and-where.md)
-- [Implantação de um modelo no SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Onde implantar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Implementação de um modelo no SQL server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
->Antes da implantação, é necessário garantir que a latência da Pontuação do modelo seja baixa o suficiente para uso na produção.
+>Antes da implantação, é necessário assegurar que a latência de modelo de classificação é baixa o suficiente para utilizar na produção.
 >
 
 >[!NOTE]
->Para a implantação usando o Azure Machine Learning Studio, consulte [implantar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+>Para ver a implementação com o Azure Machine Learning Studio, consulte [implementar um serviço web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 
-## <a name="ab-testing"></a>Teste A/B
+## <a name="ab-testing"></a>Testes A/B
 
-Quando vários modelos estão em produção, pode ser útil executar testes a [/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
+Quando vários modelos na produção, pode ser útil realizar [A testes a / B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
  
 ## <a name="next-steps"></a>Passos seguintes
 
-Os passo a passos que demonstram todas as etapas do processo para **cenários específicos** também são fornecidos. Eles são listados e vinculados a descrições em miniatura no artigo [passo a passos de exemplo](walkthroughs.md) . Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+Orientações passo a passo que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) artigo. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 

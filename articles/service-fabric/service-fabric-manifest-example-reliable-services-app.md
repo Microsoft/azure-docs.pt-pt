@@ -1,24 +1,16 @@
 ---
-title: Exemplos de manifesto de aplicativo dos Reliable Services do Azure Service Fabric
+title: Exemplos de manifesto de aplicativo de Reliable Services
 description: Saiba como definir configurações de manifesto de aplicativo e serviço para um aplicativo de Service Fabric de serviços confiáveis.
-services: service-fabric
-documentationcenter: na
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d5a03629a134a0b2c7d6ee95dba9ea3ad06e99ba
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013232"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609830"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemplos de manifesto e aplicação e serviço do Reliable Services
 Veja a seguir exemplos de manifestos de aplicativo e serviço para um aplicativo Service Fabric com um front-end da Web ASP.NET Core e um back-end com estado. A finalidade desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos de aplicativo e serviço são baseados nos manifestos de [início rápido Service Fabric .net](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) .

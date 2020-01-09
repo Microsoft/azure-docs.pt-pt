@@ -3,18 +3,18 @@ title: O que é o Azure IoT Central | Microsoft Docs
 description: O Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções de IoT e ajuda a reduzir a carga e o custo das operações de gerenciamento de IoT e do desenvolvimento. Este artigo disponibiliza uma descrição geral do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434851"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>O que é o Azure IoT Central (recursos de visualização)?
 
@@ -41,15 +41,11 @@ Este artigo descreve IoT Central:
 > [!Note]
 > Esses problemas conhecidos só se aplicam aos aplicativos de visualização IoT Central.
 
-- As regras não dão suporte a todas as ações (somente email).
-- Para tipos complexos – regras, análise e grupos de dispositivos não têm suporte.
 - A exportação de dados contínua não dá suporte ao formato Avro (incompatibilidade).
-- Os dispositivos simulados não dão suporte a todos os tipos complexos.
 - Não há suporte para geojson no momento.
 - O bloco de mapa não tem suporte no momento.
 - Os trabalhos não dão suporte a tipos complexos.
 - Não há suporte para tipos de esquema de matriz.
-- Não há suporte para exportação de modelo de aplicativo e cópia de aplicativo.
 - Somente o SDK do dispositivo C e os SDKs do dispositivo e do serviço node. js têm suporte.
 - Ele só está disponível nos locais Estados Unidos e Europa.
 - Os modelos de funcionalidade do dispositivo devem ter todas as interfaces definidas embutidas no mesmo arquivo.
@@ -145,11 +141,11 @@ Os administradores gerenciam o acesso ao seu aplicativo com [funções e permiss
 
 Cada assinatura do Azure tem cotas padrão que podem afetar o escopo da sua solução de IoT. Atualmente, IoT Central limita o número de aplicativos que você pode implantar em uma assinatura para 10. Se você precisar aumentar esse limite, entre em contato com o [suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você tem uma visão geral de IoT Central, aqui estão as próximas etapas sugeridas:
 
-- Entenda as diferenças entre [IOT central e os aceleradores de solução de IOT do Azure](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Entenda as [tecnologias e os serviços do Azure disponíveis para a criação de soluções de IOT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarizar-se com a [IU do Azure IoT Central](overview-iot-central-tour.md).
 - Começar por [criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md).
 - Saiba mais sobre [plug and Play de IOT](../../iot-pnp/overview-iot-plug-and-play.md)

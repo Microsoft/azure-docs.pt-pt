@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406422"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563280"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: criar um pipeline de enriquecimento de ia usando REST e Python
 
@@ -87,7 +87,7 @@ Existem outras formas de especificar a cadeia de ligação, por exemplo, fornece
 ## <a name="create-a-jupyter-notebook"></a>Criar um bloco de notas do Jupyter
 
 > [!Note]
-> Este artigo mostra como criar uma fonte de dados, um índice, um indexador e um conjunto de qualificações usando uma série de scripts do Python. Para baixar o exemplo de notebook completo, vá para o [repositório Azure-Search-Python-Samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> Este artigo mostra como criar uma fonte de dados, um índice, um indexador e um conjunto de qualificações usando uma série de scripts do Python. Para baixar o exemplo de notebook completo, vá para o [repositório Azure-Search-Python-Samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Use o Anaconda Navigator para iniciar o Jupyter Notebook e criar um novo notebook Python 3.
 
@@ -169,7 +169,7 @@ Nesta etapa, você definirá um conjunto de etapas de enriquecimento para aplica
 
 + [Extração de Expressões-Chave](cognitive-search-skill-keyphrases.md) para solicitar as principais expressões-chaves. 
 
-### <a name="python-script"></a>Script Python
+### <a name="python-script"></a>Script de Python
 Execute o script a seguir para criar um conseqüência de qualificações chamado `cogsrch-py-skillset`.
 
 ```python
@@ -512,7 +512,7 @@ Por fim, você aprendeu como testar os resultados e redefinir o sistema para ite
 
 A maneira mais rápida de limpar após um tutorial é excluindo o grupo de recursos que contém o serviço de Pesquisa Cognitiva do Azure e o serviço blob do Azure. Supondo que você coloque os dois serviços no mesmo grupo, exclua o grupo de recursos para excluir permanentemente tudo nele, incluindo os serviços e qualquer conteúdo armazenado que você criou para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu.
 

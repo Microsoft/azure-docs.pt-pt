@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445274"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contêineres não particionados para contêineres particionados
 
@@ -118,11 +118,19 @@ A versão mais antiga dos SDKs de Azure Cosmos DB como v2. x. x e v1. x. x não 
 
 Se um contêiner migrado for consumido pela versão mais recente/V3 do SDK e você começar a popular a chave de partição definida pelo sistema nos novos documentos, você não poderá mais acessar (ler, atualizar, excluir, consultar) esses documentos a partir dos SDKs mais antigos.
 
+## <a name="known-issues"></a>Problemas conhecidos
+
+**Consultar a contagem de itens que foram inseridos sem uma chave de partição usando o SDK v3 pode envolver um consumo de taxa de transferência maior**
+
+Se você consultar o SDK V3 para os itens que são inseridos usando o SDK do v2 ou os itens inseridos usando o SDK v3 com `PartitionKey.None` parâmetro, a consulta de contagem poderá consumir mais RU/s se o parâmetro `PartitionKey.None` for fornecido no Feedoptions. Recomendamos que você não forneça o parâmetro `PartitionKey.None` se nenhum outro item for inserido com uma chave de partição.
+
+Se novos itens forem inseridos com valores diferentes para a chave de partição, a consulta para essas contagens de itens passando a chave apropriada no `FeedOptions` não terá nenhum problema. Depois de inserir novos documentos com a chave de partição, se você precisar consultar apenas a contagem de documentos sem o valor de chave de partição, essa consulta poderá, novamente, ocorrer mais de RU/s semelhante às coleções particionadas regulares.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
-* [Unidades de Pedido no Azure Cosmos DB](request-units.md)
-* [Aprovisionar débito em contentores e bases de dados](set-throughput.md)
+* [Request Units in Azure Cosmos DB](request-units.md) (Unidades de Pedido no Azure Cosmos DB)
+* [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
 * [Trabalhar com a conta do Azure Cosmos](account-overview.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

@@ -4,22 +4,22 @@ description: Azure Monitor pode ler os logs dos serviços do Azure que gravam di
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
-ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3e8968f544e347b7b4cfe6db484c2ce8bd404820
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395999"
 ---
 # <a name="collect-azure-resource-logs-from-azure-storage"></a>Coletar logs de recursos do Azure do armazenamento do Azure
 
 Azure Monitor pode ler os logs para os seguintes serviços que gravam diagnósticos em armazenamento de tabela ou logs do IIS gravados no armazenamento de BLOBs:
 
 * Clusters do Service Fabric (pré-visualização)
-* Máquinas Virtuais
+* Virtual Machines
 * Funções de trabalho/Web
 
 Antes que Azure Monitor possa coletar dados em um espaço de trabalho Log Analytics para esses recursos, o diagnóstico do Azure deve ser habilitado.
@@ -32,13 +32,13 @@ Para Azure Monitor coletar esses logs de Diagnóstico do Azure, os logs devem es
 
 | Tipo de registo | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WAD-iis-logfiles (armazenamento de BLOBs) |
-| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (armazenamento de tabelas) |
+| Registos IIS |Virtual Machines <br> Funções da Web <br> Funções de trabalho |WAD-iis-logfiles (armazenamento de BLOBs) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (armazenamento de tabelas) |
 | Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos de Reliable Actor do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
 | Eventos de Reliable Services do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |
-| Registos de Eventos do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
-| Registos ETW do Windows |Nós do Service Fabric <br> Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
+| Registos de Eventos do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADWindowsEventLogsTable (armazenamento de tabelas) |
+| Registos ETW do Windows |Nós do Service Fabric <br> Virtual Machines <br> Funções da Web <br> Funções de trabalho |WADETWEventTable (armazenamento de tabelas) |
 
 > [!NOTE]
 > Registos do IIS de Web sites do Azure não são atualmente suportados.
@@ -121,7 +121,7 @@ Depois que a configuração de diagnóstico atualizada for aplicada ao serviço 
 Você pode usar o portal do Azure para configurar um espaço de trabalho do Log Analytics no Azure Monitor para coletar os logs para os seguintes serviços do Azure:
 
 * Clusters do Service Fabric
-* Máquinas Virtuais
+* Virtual Machines
 * Funções de trabalho/Web
 
 No portal do Azure, navegue até à sua área de trabalho do Log Analytics e realizar as seguintes tarefas:

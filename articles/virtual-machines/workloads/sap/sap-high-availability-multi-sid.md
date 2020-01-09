@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078156"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647497"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de vários SID do SAP NetWeaver
 
@@ -33,7 +33,7 @@ ms.locfileid: "70078156"
 [sap-ha-guide-figure-6004]:./media/virtual-machines-shared-sap-high-availability-guide/6004-sap-multi-sid-dns.png
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
-[networking-limits-azure-resource-manager]:../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
 [sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
 [sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
@@ -72,7 +72,7 @@ O objetivo é instalar várias instâncias de cluster SAP ABAP ASCS ou SAP Java 
 >O número máximo de instâncias do SAP ASCS/SCS em um Cluster WSFC é igual ao número máximo de IPs de front-end privado para cada balanceador de carga interno do Azure.
 >
 
-Para obter mais informações sobre limites de balanceador de carga, consulte "IP de front-end privado por balanceador de carga" em limites de [rede: Azure Resource Manager][networking-limits-azure-resource-manager].
+Para obter mais informações sobre limites de balanceador de carga, consulte "IP de front-end privado por balanceador de carga" em [limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 O cenário completo com dois sistemas SAP de alta disponibilidade ficaria assim:
 
@@ -88,7 +88,7 @@ O cenário completo com dois sistemas SAP de alta disponibilidade ficaria assim:
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 Para preparar sua infraestrutura, você pode instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
-| Nome do parâmetro | Value |
+| Nome do parâmetro | Valor |
 | --- | --- |
 | SID DO SAP ASCS/SCS |pr1-lb-ascs |
 | Balanceador de carga interno do DBMS SAP | PR5 |
@@ -267,7 +267,7 @@ O procedimento de alto nível é o seguinte:
 
 10. [Teste o failover da instância do SAP ASCS/SCS e a replicação sios][sap-ha-guide-10].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Limites de rede: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Vários VIPs para Azure Load Balancer][load-balancer-multivip-overview]

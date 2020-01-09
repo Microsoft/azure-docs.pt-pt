@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449008"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 Azure Cloud Shell é um shell interativo, autenticado e acessível por navegador para gerenciar recursos do Azure.
-Ele fornece a flexibilidade de escolher a experiência de shell que melhor se adapta à maneira como você trabalha, seja bash ou PowerShell.
+Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho, quer seja baseada em Bash ou no PowerShell.
 
 Tente shell.azure.com clicando abaixo.
 
-[![Lançamento de inserção](https://shell.azure.com/images/launchcloudshell.png "Iniciar Azure cloud Shell")](https://shell.azure.com)
+[![Lançamento de inserção](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)
 
 Tente portal do Azure usando o ícone de Cloud Shell.
 
@@ -70,9 +70,12 @@ Cloud Shell é uma ferramenta flexível que pode ser usada em:
 * [Visual Studio Code extensão de conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Conectar o armazenamento de arquivos de Microsoft Azure
-Cloud Shell computadores são temporários, mas os arquivos são persistidos de duas maneiras: por meio de uma imagem de disco e por meio de `clouddrive`um compartilhamento de arquivos montado chamado.  Na primeira inicialização, Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos do Azure em seu nome. Essa é uma etapa única e será automaticamente anexada a todas as sessões. Um único compartilhamento de arquivos pode ser mapeado e será usado pelo bash e pelo PowerShell em Cloud Shell.
+Cloud Shell computadores são temporários, mas os arquivos são persistidos de duas maneiras: por meio de uma imagem de disco e por meio de um compartilhamento de arquivos montado chamado `clouddrive`.  Na primeira execução, o Cloud Shell pede para criar um grupo de recursos, a conta de armazenamento e a partilha de ficheiros do Azure em seu nome. Essa é uma etapa única e será automaticamente anexada a todas as sessões. Um único compartilhamento de arquivos pode ser mapeado e será usado pelo bash e pelo PowerShell em Cloud Shell.
 
 Leia mais para saber como montar uma [conta de armazenamento nova ou existente](persisting-shell-storage.md) ou para saber mais sobre os [mecanismos de persistência usados no Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+
+> [!NOTE]
+> O Firewall do armazenamento do Azure não tem suporte para contas de armazenamento do Cloud Shell.
 
 ## <a name="concepts"></a>Conceitos
 * Cloud Shell é executado em um host temporário fornecido em uma base por sessão, por usuário
@@ -88,6 +91,6 @@ Saiba mais sobre os recursos do [bash no Cloud Shell](features.md) e [no PowerSh
 ## <a name="pricing"></a>Preços
 O computador que hospeda o Cloud Shell é gratuito, com um pré-requisito de um compartilhamento de arquivos do Azure montado. Os custos de armazenamento regulares se aplicam.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Bash no guia de início rápido Cloud Shell](quickstart.md) <br>
 [PowerShell no guia de início rápido Cloud Shell](quickstart-powershell.md)

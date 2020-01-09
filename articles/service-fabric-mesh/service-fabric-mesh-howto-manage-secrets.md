@@ -1,20 +1,14 @@
 ---
-title: Gerenciar segredos do aplicativo de malha de Service Fabric do Azure | Microsoft Docs
+title: Gerenciar segredos do aplicativo de malha de Service Fabric do Azure
 description: Gerencie os segredos do aplicativo para que você possa criar e implantar com segurança um aplicativo de malha Service Fabric.
-services: service-fabric-mesh
-keywords: segredos
-author: athinanthny
-ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
-ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461930"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerenciar segredos do aplicativo de malha Service Fabric
 A malha Service Fabric dá suporte a segredos como recursos do Azure. Um segredo de malha Service Fabric pode ser qualquer informação de texto confidencial, como cadeias de conexão de armazenamento, senhas ou outros valores que devem ser armazenados e transmitidos com segurança. Este artigo mostra como usar o Service Fabric Serviço de Repositório Seguro para implantar e manter segredos.
@@ -101,7 +95,7 @@ Veja a seguir um exemplo de como declarar recursos de segredos de malha em um ar
 ## <a name="declare-mesh-secretsvalues-resources"></a>Declarar recursos de valores/segredos de malha
 Os recursos de segredos/valores de malha têm uma dependência dos recursos de segredos de malha definidos na etapa anterior.
 
-Sobre a relação entre os campos "value:" e "Name:" da seção "Resources": a segunda parte da cadeia de caracteres "Name:" delimitada por dois-pontos é o número de versão usado para um segredo e o nome antes dos dois-pontos precisa corresponder ao valor de segredo de malha para o qual ele tem um Estados. Por exemplo, para elemento ```name: mysecret:1.0```, o número de versão é 1,0 e o ```mysecret``` nome deve corresponder ao definido ```"value": "mysecret"```anteriormente.
+Sobre a relação entre os campos "value:" e "Name:" da seção "Resources": a segunda parte da cadeia de caracteres "Name:" delimitada por dois-pontos é o número de versão usado para um segredo e o nome antes dos dois-pontos precisa corresponder ao valor de segredo de malha para o qual ele tem um Estados. Por exemplo, para o elemento ```name: mysecret:1.0```, o número de versão é 1,0 e o nome ```mysecret``` deve corresponder ao ```"value": "mysecret"```definido anteriormente.
 
 >
 Veja a seguir um exemplo de como declarar recursos de valores/segredos de malha em um arquivo JSON:
@@ -189,7 +183,7 @@ Veja a seguir um exemplo de como declarar recursos de valores/segredos de malha 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Modificar o aplicativo de malha para referenciar valores secretos de malha
 Service Fabric aplicativos de malha precisam estar cientes das duas cadeias de caracteres a seguir para consumir Serviço de Repositório Seguro valores secretos:
 1. Microsoft. ServiceFabricMesh/segredos. Name contém o nome do arquivo e conterá o valor dos segredos em texto não criptografado.
-2. A variável de ambiente Windows ou Linux "Fabric_SettingPath" contém o caminho de diretório para onde os arquivos que contêm Serviço de Repositório Seguro valores de segredos estarão acessíveis. Isso é "C:\Settings" para Windows – hospedado e "/var/Settings" para aplicativos de malha hospedados em Linux, respectivamente.
+2. A variável de ambiente Windows ou Linux "Fabric_SettingPath" contém o caminho de diretório para onde os arquivos que contêm Serviço de Repositório Seguro valores de segredos poderão ser acessados. Isso é "C:\Settings" para Windows – hospedado e "/var/Settings" para aplicativos de malha hospedados em Linux, respectivamente.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Implantar ou usar uma atualização sem interrupção para o aplicativo de malha consumir valores secretos
 A criação de segredos e/ou valores/segredos com controle de versão é limitada a implantações declaradas do modelo de recurso. A única maneira de criar esses recursos é passando um arquivo de modelo de recurso JSON ou YAML usando o comando **AZ mesh Deployment** da seguinte maneira:
@@ -247,6 +241,6 @@ az mesh secretvalue show --Resource-group <myResourceGroup> --secret-name <mySec
 az mesh secretvalue delete --Resource-group <myResourceGroup> --secret-name <mySecret> --version <N>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 Para saber mais sobre a malha de Service Fabric, leia a visão geral:
 - [Visão geral da malha de Service Fabric](service-fabric-mesh-overview.md)

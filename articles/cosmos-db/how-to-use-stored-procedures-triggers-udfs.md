@@ -1,21 +1,21 @@
 ---
-title: Como chamar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando SDKs de Azure Cosmos DB
+title: Registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário em SDKs de Azure Cosmos DB
 description: Saiba como registrar e chamar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando os SDKs de Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 5aea7c0b6b2008724a4a84bca7a63ae745f2dd1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441740"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como registrar e usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
-A API do SQL no Azure Cosmos DB dá suporte ao registro e à invocação de procedimentos armazenados, gatilhos e UDFs (funções definidas pelo usuário) escritas em JavaScript. Você pode usar o [.net](sql-api-sdk-dotnet.md)da API do SQL, [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [node. js](sql-api-sdk-node.md)ou SDKs do [Python](sql-api-sdk-python.md) para registrar e invocar os procedimentos armazenados. Depois de definir um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregá-los e exibi-los no [portal do Azure](https://portal.azure.com/) usando data Explorer.
+A API de SQL no Azure Cosmos DB suporta o registo e a invocação de procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs) escritos em linguagem JavaScript. Você pode usar o [.net](sql-api-sdk-dotnet.md)da API do SQL, [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [node. js](sql-api-sdk-node.md)ou SDKs do [Python](sql-api-sdk-python.md) para registrar e invocar os procedimentos armazenados. Depois de definir um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregá-los e exibi-los no [portal do Azure](https://portal.azure.com/) usando data Explorer.
 
 ## <a id="stored-procedures"></a>Como executar procedimentos armazenados
 
@@ -144,7 +144,7 @@ O exemplo a seguir mostra como registrar um procedimento armazenado usando o SDK
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-await container.storedProcedures.create({
+await container.scripts.storedProcedures.create({
     id: sprocId,
     body: require(`../js/${sprocId}`)
 });
@@ -161,7 +161,7 @@ const newItem = [{
 }];
 const container = client.database("myDatabase").container("myContainer");
 const sprocId = "spCreateToDoItem";
-const {body: result} = await container.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
+const {body: result} = await container.scripts.storedProcedure(sprocId).execute(newItem, {partitionKey: newItem[0].category});
 ```
 
 ### <a name="stored-procedures---python-sdk"></a>Procedimentos armazenados-SDK do Python
@@ -194,9 +194,9 @@ client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 
 ## <a id="pre-triggers"></a>Como executar pré-gatilhos
 
-Os exemplos a seguir mostram como registrar e chamar um pré-gatilho usando os SDKs de Azure Cosmos DB. Consulte o [exemplo de pré-disparo](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) , pois a origem para esse pré-gatilho é salva `trgPreValidateToDoItemTimestamp.js`como.
+Os exemplos a seguir mostram como registrar e chamar um pré-gatilho usando os SDKs de Azure Cosmos DB. Consulte o [exemplo de pré-disparo](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) , pois a origem para esse pré-gatilho é salva como `trgPreValidateToDoItemTimestamp.js`.
 
-Durante a execução, os pré-gatilhos são passados no objeto requestoptions especificando `PreTriggerInclude` e, em seguida, passando o nome do gatilho em um objeto List.
+Durante a execução, os pré-gatilhos são passados no objeto requestoptions especificando `PreTriggerInclude` e, em seguida, passando o nome do gatilho em um objeto de lista.
 
 > [!NOTE]
 > Embora o nome do gatilho seja passado como uma lista, você ainda pode executar apenas um gatilho por operação.
@@ -352,7 +352,7 @@ client.CreateItem(container_link, item, {
 
 ## <a id="post-triggers"></a>Como executar pós-gatilhos
 
-Os exemplos a seguir mostram como registrar um post-Trigger usando o Azure Cosmos DB SDKs. Consulte o [exemplo de pós-gatilho](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) , pois a origem para esse pós-gatilho é salva `trgPostUpdateMetadata.js`como.
+Os exemplos a seguir mostram como registrar um post-Trigger usando o Azure Cosmos DB SDKs. Consulte o [exemplo de pós-gatilho](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) , pois a origem para esse pós-gatilho é salva como `trgPostUpdateMetadata.js`.
 
 ### <a name="post-triggers---net-sdk-v2"></a>Pós-gatilhos-SDK do .NET v2
 
@@ -499,7 +499,7 @@ client.CreateItem(container_link, item, {
 
 ## <a id="udfs"></a>Como trabalhar com funções definidas pelo usuário
 
-Os exemplos a seguir mostram como registrar uma função definida pelo usuário usando os SDKs de Azure Cosmos DB. Consulte este [exemplo de função definida pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs) , pois a origem para esse pós-gatilho é salva `udfTax.js`como.
+Os exemplos a seguir mostram como registrar uma função definida pelo usuário usando os SDKs de Azure Cosmos DB. Consulte este [exemplo de função definida pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs) , pois a origem para esse pós-gatilho é salva como `udfTax.js`.
 
 ### <a name="user-defined-functions---net-sdk-v2"></a>Funções definidas pelo usuário – SDK do .NET v2
 
@@ -637,7 +637,7 @@ results = list(client.QueryItems(
     container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os conceitos e como escrever ou usar procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

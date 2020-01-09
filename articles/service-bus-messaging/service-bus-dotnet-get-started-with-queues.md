@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561606"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563399"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -74,7 +74,7 @@ Inicie o Visual Studio e crie um novo projeto de **aplicativo de console (.NET C
 
     Insira sua cadeia de conexão para o namespace como a variável `ServiceBusConnectionString`. Insira o nome da fila.
 
-1. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método SendMessagesAsync que será adicionado na próxima etapa para enviar mensagens para a fila. 
+1. Substitua o método `Main()` pelo seguinte método **async** `Main`. Ele chama o método `SendMessagesAsync()` que será adicionado na próxima etapa para enviar mensagens para a fila. 
 
     ```csharp
     public static async Task Main(string[] args)

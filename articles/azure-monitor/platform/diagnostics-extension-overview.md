@@ -4,15 +4,15 @@ description: Use o diagnóstico do Azure para depuração, medição de desempen
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d1721411b57fc3542af48fc5f48eca7e4a2d06c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1bdefc6b61e4e5cc5b8648880c5fdd8662af1bc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395359"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é Diagnóstico do Azure extensão
 A extensão de Diagnóstico do Azure é um agente no Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. Atualmente, há suporte para funções Web e de trabalho do serviço de nuvem do Azure (clássico), máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Consulte [visão geral do monitoramento no Azure](../../azure-monitor/overview.md).
@@ -23,11 +23,11 @@ Uma [versão do Linux da extensão](../../virtual-machines/extensions/diagnostic
 ## <a name="data-you-can-collect"></a>Dados que você pode coletar
 A extensão Diagnóstico do Azure pode coletar os seguintes tipos de dados:
 
-| Fonte de dados | Descrição |
+| Origem de Dados | Descrição |
 | --- | --- |
 | Métricas do contador de desempenho |Sistema operacional e contadores de desempenho personalizados |
 | Logs de aplicativo |Rastrear mensagens gravadas pelo seu aplicativo |
-| Logs de eventos do Windows |Informações enviadas ao sistema de log de eventos do Windows |
+| Registos de Eventos do Windows |Informações enviadas ao sistema de log de eventos do Windows |
 | Logs de EventSource do .NET |Eventos de gravação de código usando a classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) do .net |
 | Registos do IIS |Informações sobre sites do IIS |
 | [Logs ETW baseados em manifesto](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |Rastreamento de eventos para eventos do Windows gerados por qualquer processo. uma |
@@ -72,7 +72,7 @@ Para obter tópicos mais avançados, consulte
 * [Rastrear o fluxo de um aplicativo de serviços de nuvem com Diagnóstico do Azure](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Usar o PowerShell para configurar o diagnóstico nos serviços de nuvem](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 * Se estiver usando o Visual Studio, consulte [usar o Visual Studio para rastrear as máquinas virtuais do Azure](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) para começar. Caso contrário, consulte
 * [Configurar Diagnóstico do Azure em uma máquina virtual do Azure](/azure/virtual-machines/extensions/diagnostics-windows)
 

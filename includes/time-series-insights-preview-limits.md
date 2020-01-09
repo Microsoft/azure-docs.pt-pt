@@ -4,17 +4,17 @@ description: incluir ficheiro
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980910"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616195"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Disponibilidade geral e comparação de visualização
 
@@ -49,6 +49,8 @@ Há suporte para no máximo duas origens de evento por instância.
 
 * Saiba como [Adicionar uma origem do hub de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurar [uma origem do Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+
+Por padrão, os [ambientes de visualização dão suporte a tarifas de entrada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) de até **1 megabyte por segundo (MB/s) por ambiente**. Os clientes podem dimensionar seus ambientes de visualização de até **16 MB/s** de taxa de transferência, se necessário. Também há um limite por partição de **0,5 MB/s**. 
 
 ### <a name="api-limits"></a>Limites de API
 

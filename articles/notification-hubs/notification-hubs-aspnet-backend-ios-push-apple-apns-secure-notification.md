@@ -1,5 +1,5 @@
 ---
-title: Push seguro dos hubs de notificação do Azure
+title: Push seguro de hubs de notificação do Azure para iOS
 description: Saiba como enviar notificações por push seguras para um aplicativo iOS do Azure. Exemplos de código escritos em Objective- C#C e.
 documentationcenter: ios
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a175b14d44ef7ba019c28fbd03bac98ada7a2a3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 96d1dd514f6fb9c11d7194714337583d6b4387cf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212144"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530753"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push seguro dos hubs de notificação do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212144"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio fácil de usar, multiplataforma e escalável, que simplifica bastante a implementação de notificações por push para aplicativos de consumidor e empresariais para dispositivos móveis compatíveis.
 
@@ -60,12 +60,12 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *ID* de 
 
 Para atingir esse objetivo, precisamos escrever a lógica para recuperar o conteúdo seguro do back-end do aplicativo.
 
-1. No `AppDelegate.m`, verifique se o aplicativo é registrado para notificações silenciosas para que ele processe a ID de notificação enviada do back-end. Adicione a `UIRemoteNotificationTypeNewsstandContentAvailability` opção em didFinishLaunchingWithOptions:
+1. No `AppDelegate.m`, verifique se o aplicativo se registra para notificações silenciosas para que ele processe a ID de notificação enviada do back-end. Adicione a opção `UIRemoteNotificationTypeNewsstandContentAvailability` em didFinishLaunchingWithOptions:
 
     ```objc
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
     ```
-2. Na seção `AppDelegate.m` adicionar uma implementação na parte superior, com a seguinte declaração:
+2. Em seu `AppDelegate.m` adicione uma seção de implementação na parte superior com a seguinte declaração:
 
     ```objc
     @interface AppDelegate ()
@@ -126,7 +126,7 @@ Para atingir esse objetivo, precisamos escrever a lógica para recuperar o conte
 
     ![][IOS1]
 
-6. Em `AppDelegate.m` adicionar o seguinte método para lidar com notificações por push:
+6. Em `AppDelegate.m` adicione o seguinte método para lidar com notificações por push:
 
     ```objc
     -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

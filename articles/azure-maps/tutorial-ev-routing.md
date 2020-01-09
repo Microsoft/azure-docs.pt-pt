@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109599"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613691"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: rotear veículos elétricos usando o Azure Notebooks (Python)
 
@@ -39,9 +39,11 @@ Neste tutorial, irá:
 
 Para concluir este tutorial, primeiro você precisa criar uma conta do Azure Maps e obter sua chave primária (chave de assinatura). 
 
-Para criar uma assinatura de conta do Azure Maps no tipo de preço S1, siga as instruções em [gerenciar sua conta do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+Para criar uma assinatura de conta do Azure Maps no tipo de preço S1, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1. 
 
-Para obter a chave de assinatura primária para sua conta, siga as instruções em [criar uma conta e obter sua chave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+Para obter a chave de assinatura primária para sua conta, siga as instruções em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Criar um bloco de anotações do Azure
 
@@ -111,7 +113,7 @@ Como a empresa prefere usar rotas que exigem um equilíbrio de economia e veloci
 Para determinar os limites do intervalo alcançável do veículo elétrico, execute o script na seguinte célula:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -398,6 +400,6 @@ Para explorar as APIs do Azure Maps que são usadas neste tutorial, consulte:
 * [Lançar matriz de rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter direções de rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-Para obter uma lista completa de APIs REST do Azure Maps, consulte [APIs REST do Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).
+Para obter uma lista completa de APIs REST do Azure Maps, consulte [APIs REST do Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Para saber mais sobre Azure Notebooks, consulte [Azure notebooks](https://docs.microsoft.com/azure/notebooks).

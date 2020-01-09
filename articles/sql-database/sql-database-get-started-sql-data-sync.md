@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461588"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar Sincronização de Dados SQL entre o banco de dados SQL do Azure e o SQL Server local
 
@@ -33,14 +33,20 @@ Para obter exemplos do PowerShell sobre como configurar Sincronização de Dados
 
 ## <a name="create-sync-group"></a>Criar grupo de sincronização
 
-1. No navegador, navegue até a portal do Azure. Localize o banco de dados SQL no painel ou selecione o ícone bancos de dados **SQL** na barra de ferramentas e, na página bancos de dados **SQL** , selecione o banco que você deseja usar como o banco de dado de Hub para sincronização.
+1. Vá para a [portal do Azure](https://portal.azure.com) para localizar o banco de dados SQL. Pesquise e selecione **bancos de dados SQL**.
+
+    ![Pesquisar bancos de dados SQL, portal do Microsoft Azure](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Selecione o banco de dados que você deseja usar como o banco de dado de Hub para sincronização.
+
+    ![Selecione na lista de banco de dados SQL portal do Microsoft Azure](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > O banco de dados de Hub um ponto de extremidade central da topologia de sincronização, no qual um grupo de sincronização tem vários pontos de extremidade de banco de dados. Todos os outros bancos de dados de membros com pontos de extremidade no grupo de sincronização, sincronizam com o banco de dados Hub.
+    > O banco de dados Hub é um ponto de extremidade central da topologia de sincronização, no qual um grupo de sincronização tem vários pontos de extremidades de banco de dados. Todos os outros bancos de dados de membros com pontos de extremidade no grupo de sincronização, sincronizam com o banco de dados Hub.
 
-1. Na página do **banco de dados SQL** para o banco de dados selecionado, selecione **sincronizar com outros bancos**.
+1. No menu do **banco de dados SQL** para o banco de dados selecionado, selecione **sincronizar com outros bancos**.
 
-    ![Opção sincronizar com outros bancos de dados](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Sincronizar com outros bancos de dados do, o SQL Database portal do Microsoft Azure](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. Na página **sincronizar com outros bancos de dados** , selecione **novo grupo de sincronização**. A página **novo grupo de sincronização** é aberta com a **criação de grupo de sincronização (etapa 1)** realçada.
 

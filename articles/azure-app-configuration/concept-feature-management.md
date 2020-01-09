@@ -1,56 +1,50 @@
 ---
-title: Gestão de recursos de configuração de aplicações do Azure | Documentos da Microsoft
-description: Uma visão geral de como a configuração de aplicações do Azure pode ser utilizada para ativar e desativar funcionalidades de aplicação a pedido.
-services: azure-app-configuration
-documentationcenter: ''
+title: Gerenciamento de recursos de configuração do Azure App
+description: Uma visão geral de como Azure App configuração pode ser usada para ativar e desativar recursos de aplicativo sob demanda.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 46f39e87e4e4cf115cbc1fceeabf0dab38fade28
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 48aebfe1ba6af348e98e5600075f3a9e9dce1a8e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393368"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495768"
 ---
-# <a name="feature-management-overview"></a>Descrição geral da gestão de funcionalidade
+# <a name="feature-management-overview"></a>Visão geral do gerenciamento de recursos
 
-Tradicionalmente, uma nova funcionalidade de aplicativo de envio requer uma reimplantação completa do aplicativo em si. Para testar uma funcionalidade, é provável que deve implementar a aplicação muitas vezes para controlo quando o recurso se torna visível ou que obtém para vê-lo.
+Tradicionalmente, o envio de um novo recurso de aplicativo requer uma reimplantação completa do próprio aplicativo. Para testar um recurso, você provavelmente deve implantar seu aplicativo muitas vezes para controlar quando o recurso se torna visível ou quem consegue vê-lo.
 
-Gestão de recursos é uma prática de desenvolvimento de software moderno que dissocia o lançamento da funcionalidade da implementação de código e permite que as alterações rápidas a disponibilidade de funcionalidades a pedido. Ele usa uma técnica chamada *sinalizadores de recursos* (também conhecido como *funcionalidade Ativa/desativa*, *parâmetros de funcionalidade*e assim por diante) para administrar dinamicamente o ciclo de vida de um recurso.
+O gerenciamento de recursos é uma prática moderna de desenvolvimento de software que separa o lançamento de recursos da implantação de código e permite alterações rápidas na disponibilidade de recursos sob demanda. Ele usa uma técnica chamada *sinalizadores de recursos* (também conhecidos como *alternâncias de recursos*, opções de *recursos*e assim por diante) para administrar dinamicamente o ciclo de vida de um recurso.
 
-Gestão de recursos ajuda os desenvolvedores a lidar com os seguintes problemas:
+O gerenciamento de recursos ajuda os desenvolvedores a lidar com os seguintes problemas:
 
-* **Gestão de ramo de código**: Sinalizadores de recurso são frequentemente utilizadas para encapsular a nova funcionalidade do aplicativo que está em desenvolvimento. Essa funcionalidade é "oculto" por predefinição. Pode enviar em segurança a funcionalidade, muito embora tenha que ache, e ele permanecerá inativo em produção. Ao utilizar esta abordagem, chamado *implementação escura*, pode libertar todo o seu código no final de cada ciclo de desenvolvimento. Não precisa manter qualquer ramo do código em vários ciclos de devido a um recurso a demorar mais do que um ciclo para serem concluídas.
-* **Teste em produção**: Pode usar os sinalizadores de recurso para conceder acesso atempado à funcionalidade nova em produção. Por exemplo, pode limitar este acesso a apenas os membros da Equipe ou a testers beta interno. Estes utilizadores irão receber a experiência de produção de fidelidade total, em vez de uma experiência simulada ou parcial num ambiente de teste.
-* **Distribuição de pacotes piloto**: Também pode utilizar os sinalizadores de recurso de forma incremental distribuir nova funcionalidade para os utilizadores finais. Pode direcionar uma pequena porcentagem da população do utilizador pela primeira vez e aumentar esse percentual gradualmente ao longo do tempo, depois de ter obtido mais confiança na implementação.
-* **Comutador de eliminação instantânea**: Sinalizadores de recurso fornecem uma rede de segurança inerente para lançar a nova funcionalidade. Com os mesmos, prontamente pode ativar funcionalidades de aplicações e desativar. Se necessário, pode desativar rapidamente um recurso sem a reconstruir e Reimplementar a sua aplicação.
-* **Ativação seletiva**: Embora a maioria dos sinalizadores de recurso existam apenas até que as suas funcionalidades associadas foram lançadas com êxito, alguns podem sobreviver por muito tempo. Pode usar os sinalizadores de recurso para segmentar os utilizadores e fornecer um conjunto específico de recursos para cada grupo. Por exemplo, pode ter um recurso que funciona apenas num determinado navegador da web. Pode definir um sinalizador de funcionalidade para que apenas os utilizadores desse navegador possam ver e utilizar a funcionalidade. Com esta abordagem, pode expandir facilmente a lista de browser suportado mais tarde sem ter de fazer quaisquer alterações de código.
+* **Gerenciamento de ramificação de código**: os sinalizadores de recursos são usados frequentemente para encapsular a nova funcionalidade do aplicativo que está em desenvolvimento. Essa funcionalidade é "oculta" por padrão. Você pode enviar o recurso com segurança, embora ele não seja concluído, e ele permanecerá inativo na produção. Ao usar essa abordagem, chamada *implantação escura*, você pode liberar todo o seu código ao final de cada ciclo de desenvolvimento. Você não precisa mais manter qualquer ramificação de código entre vários ciclos devido a um recurso que leva mais de um ciclo para ser concluído.
+* **Teste em produção**: você pode usar sinalizadores de recurso para conceder acesso antecipado a novas funcionalidades na produção. Por exemplo, você pode limitar esse acesso apenas a membros da equipe ou a testadores beta internos. Esses usuários receberão a experiência de produção de fidelidade total, em vez de uma experiência simulada ou parcial em um ambiente de teste.
+* **Comprovando**: você também pode usar sinalizadores de recurso para distribuir incrementalmente novas funcionalidades para os usuários finais. Você pode direcionar uma pequena porcentagem da população do usuário primeiro e aumentar essa porcentagem gradualmente ao longo do tempo, depois de ter obtido mais confiança na implementação.
+* **Interruptor de eliminação instantânea**: os sinalizadores de recursos fornecem uma rede de segurança inerente para liberar novas funcionalidades. Com eles, você pode rapidamente ativar e desativar recursos do aplicativo. Se necessário, você pode desabilitar rapidamente um recurso sem recompilar e reimplantar seu aplicativo.
+* **Ativação seletiva**: embora a maioria dos sinalizadores de recurso existam somente até que suas funcionalidades associadas tenham sido liberadas com êxito, alguns podem durar muito tempo. Você pode usar os sinalizadores de recurso para segmentar seus usuários e fornecer um conjunto específico de recursos para cada grupo. Por exemplo, você pode ter um recurso que funciona apenas em um determinado navegador da Web. Você pode definir um sinalizador de recurso para que somente os usuários desse navegador possam ver e usar o recurso. Com essa abordagem, você pode expandir facilmente a lista de navegadores com suporte mais tarde sem precisar fazer nenhuma alteração de código.
 
 ## <a name="basic-concepts"></a>Conceitos básicos
 
-Seguem-se vários novos termos relacionados com a gestão de recursos:
+Aqui estão vários novos termos relacionados ao gerenciamento de recursos:
 
-* **Sinalizador de funcionalidade**: Um sinalizador de funcionalidade é uma variável com o estado de binário *nos* ou *desativar*. O sinalizador de funcionalidade também tem um bloco de código associado. O estado do sinalizador de funcionalidade aciona se o bloco de código é executado ou não.
-* **Gestor de recursos**: Um Gestor de recursos é um pacote de aplicação que processa o ciclo de vida de todos os sinalizadores de recurso num aplicativo. O Gestor de recursos, normalmente, fornece funcionalidades adicionais, como a colocação em cache os sinalizadores de recurso e atualizar seus Estados.
-* **Filtro**: Um filtro é uma regra para avaliar o estado de um sinalizador de funcionalidade. Um grupo de utilizadores, um tipo de dispositivo ou um browser, uma localização geográfica e uma janela de tempo são todos os exemplos do que pode representar um filtro.
+* **Sinalizador de recurso**: um sinalizador de recurso é uma variável com um estado binário de *ativado* ou *desativado*. O sinalizador de recurso também tem um bloco de código associado. O estado do sinalizador de recurso dispara se o bloco de código é executado ou não.
+* **Gerenciador de recursos**: um Gerenciador de recursos é um pacote de aplicativos que manipula o ciclo de vida de todos os sinalizadores de recurso em um aplicativo. Normalmente, o Gerenciador de recursos fornece funcionalidade adicional, como sinalizadores de recurso de cache e atualização de seus Estados.
+* **Filtro**: um filtro é uma regra para avaliar o estado de um sinalizador de recurso. Um grupo de usuários, um tipo de dispositivo ou navegador, uma localização geográfica e uma janela de tempo são exemplos do que um filtro pode representar.
 
-Uma implementação eficaz da gestão de recursos é composta por, pelo menos, dois componentes que funcionam em conjunto:
+Uma implementação eficaz do gerenciamento de recursos consiste em pelo menos dois componentes trabalhando em conjunto:
 
-* Um aplicativo que faz com que a utilização de sinalizadores de recurso.
+* Um aplicativo que usa sinalizadores de recurso.
 * Um repositório separado que armazena os sinalizadores de recurso e seus Estados atuais.
 
-Como esses componentes interagem está ilustrado nos exemplos a seguir.
+A maneira como esses componentes interagem é ilustrada nos exemplos a seguir.
 
-## <a name="feature-flag-usage-in-code"></a>Utilização do sinalizador de funcionalidade no código
+## <a name="feature-flag-usage-in-code"></a>Uso do sinalizador de recurso no código
 
-O padrão básico para a implementação de sinalizadores de recurso num aplicativo é simples. Pode considerar um sinalizador de funcionalidade como uma variável booleana estado utilizada com um `if` instrução condicional em seu código:
+O padrão básico para a implementação de sinalizadores de recursos em um aplicativo é simples. Você pode considerar um sinalizador de recurso como uma variável de estado booliana usada com uma `if` instrução condicional em seu código:
 
 ```csharp
 if (featureFlag) {
@@ -58,19 +52,19 @@ if (featureFlag) {
 }
 ```
 
-Neste caso, se `featureFlag` está definido como `True`, o bloco de código incluídos é executada; caso contrário, é ignorada. Pode definir o valor de `featureFlag` estaticamente, como no seguinte exemplo de código:
+Nesse caso, se `featureFlag` for definido como `True`, o bloco de código incluído será executado; caso contrário, ele será ignorado. Você pode definir o valor de `featureFlag` estaticamente, como no exemplo de código a seguir:
 
 ```csharp
 bool featureFlag = true;
 ```
 
-Também pode avaliar o estado do sinalizador com base em determinadas regras:
+Você também pode avaliar o estado do sinalizador com base em determinadas regras:
 
 ```csharp
 bool featureFlag = isBetaUser();
 ```
 
-Um padrão de sinalizador de funcionalidade um pouco mais complicado inclui um `else` também a instrução:
+Um padrão de sinalizador de recurso um pouco mais complicado também inclui uma instrução `else`:
 
 ```csharp
 if (featureFlag) {
@@ -80,7 +74,7 @@ if (featureFlag) {
 }
 ```
 
-Pode reescrever esse comportamento no padrão básico, no entanto. [Utilizar os sinalizadores de recurso numa aplicação ASP.NET Core](./use-feature-flags-dotnet-core.md) mostra as vantagens de padronização num padrão de código simples. Por exemplo:
+No entanto, é possível reescrever esse comportamento no padrão básico. [Usar sinalizadores de recurso em um aplicativo ASP.NET Core](./use-feature-flags-dotnet-core.md) mostra as vantagens de padronizar em um padrão de código simples. Por exemplo:
 
 ```csharp
 if (featureFlag) {
@@ -92,15 +86,15 @@ if (!featureFlag) {
 }
 ```
 
-## <a name="feature-flag-repository"></a>Repositório do sinalizador de funcionalidade
+## <a name="feature-flag-repository"></a>Repositório de sinalizador de recurso
 
-Para usar os sinalizadores de recurso com eficiência, terá de externalizar a todos os sinalizadores de recurso usados num aplicativo. Esta abordagem permite-lhe alterar Estados de sinalizador de funcionalidade sem modificação e Reimplementar a aplicação em si.
+Para usar sinalizadores de recurso com eficiência, você precisa externalizar todos os sinalizadores de recurso usados em um aplicativo. Essa abordagem permite alterar os Estados de sinalizador de recursos sem modificar e reimplantar o próprio aplicativo.
 
-Configuração de aplicações do Azure foi concebida para ser um repositório centralizado de sinalizadores de recurso. Pode usá-lo para definir tipos diferentes de sinalizadores de recurso e manipular seus Estados com rapidez e confiança. Em seguida, pode utilizar as bibliotecas de configuração de aplicações para várias arquiteturas de linguagem de programação para aceder facilmente esses sinalizadores de recurso a partir da sua aplicação.
+Azure App configuração foi projetada para ser um repositório centralizado para sinalizadores de recursos. Você pode usá-lo para definir diferentes tipos de sinalizadores de recursos e manipular seus Estados de forma rápida e confiável. Você pode usar as bibliotecas de configuração de aplicativo para várias estruturas de linguagem de programação para acessar facilmente esses sinalizadores de recursos do seu aplicativo.
 
-[Utilizar os sinalizadores de recurso numa aplicação ASP.NET Core](./use-feature-flags-dotnet-core.md) mostra como o fornecedor de configuração de aplicações do .NET Core e bibliotecas de gestão de recursos são utilizadas em conjunto para implementar os sinalizadores de recurso para a sua aplicação web do ASP.NET.
+[Usar sinalizadores de recurso em um aplicativo ASP.NET Core](./use-feature-flags-dotnet-core.md) mostra como as bibliotecas de gerenciamento de recursos e o provedor de configuração de aplicativo .NET Core são usadas em conjunto para implementar sinalizadores de recurso para seu aplicativo Web ASP.net.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar sinalizadores de recurso para uma aplicação web ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)  
+> [Adicionar sinalizadores de recurso a um aplicativo Web ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)  

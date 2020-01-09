@@ -1,5 +1,5 @@
 ---
-title: Como utilizar o armazenamento de tabelas do Azure ou a API de tabela do Azure Cosmos DB do node. js
+title: Usar o armazenamento de tabelas do Azure ou Azure Cosmos DB API de Tabela do node. js
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,25 +8,25 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 7611af5f4d5b79ddb2abb7546f2e3ea6c0d4c4c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a5246ed4018fd4d5bc38649d6a476bc82bcbbf7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441209"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo mostra como executar cenários comuns utilizando o serviço Armazenamento de tabelas do Azure ou o Azure Cosmos DB numa aplicação Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -67,7 +67,7 @@ O módulo do Azure lê as variáveis de ambiente AZURE_STORAGE_ACCOUNT e AZURE_S
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação do Azure Cosmos DB
+## <a name="add-an-azure-cosmos-db-connection"></a>Adicionar uma ligação ao Azure Cosmos DB
 Para adicionar uma ligação ao Azure Cosmos DB, crie um objeto **TableService** e especifique o nome da conta, a chave primária e o ponto final. Pode copiar estes valores a partir de **Definições** > **Cadeia de Ligação** no portal do Azure para a sua conta do Cosmos DB. Por exemplo:
 
 ```javascript
@@ -94,7 +94,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 `result.created` é `true` se for criada uma nova tabela e `false` se a tabela já existir. `response` contém informações sobre o pedido.
 
 ### <a name="filters"></a>Filtros
-Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir o registo, tentativas automáticas, etc. Os filtros são objetos que implementam um método com a assinatura:
+Pode aplicar a filtragem opcional a operações executadas utilizando **TableService**. As operações de filtragem podem incluir registro em log, repetições automáticas, etc. Filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)
@@ -210,7 +210,7 @@ Com **replaceEntity** e **mergeEntity**, se a entidade que está a ser atualizad
 O `result` para operações de atualização com êxito contém o **Etag** da entidade atualizada.
 
 ## <a name="work-with-groups-of-entities"></a>Trabalhar com grupos de entidades
-Por vezes, é útil submeter várias operações em conjunto num batch para garantir um processamento atómico pelo servidor. Para o fazer, utilize a classe **TableBatch** para criar um batch e, em seguida, utilize o método **executeBatch** de **TableService** para efetuar as operações em batch.
+Por vezes, é útil submeter várias operações em conjunto num batch, para garantir um processamento atómico pelo servidor. Para o fazer, utilize a classe **TableBatch** para criar um batch e, em seguida, utilize o método **executeBatch** de **TableService** para efetuar as operações em batch.
 
  O exemplo seguinte demonstra como submeter duas entidades num batch:
 
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Se inspecionar o objeto `continuationToken`, encontrará propriedades como `nextPartitionKey`, `nextRowKey` e `targetLocation`, que podem ser utilizadas para iterar todos os resultados.
 
-Você também pode usar `top` o junto `continuationToken` com o para definir o tamanho da página. 
+Você também pode usar `top` junto com `continuationToken` para definir o tamanho da página. 
 
 ## <a name="work-with-shared-access-signatures"></a>Trabalhar com assinaturas de acesso partilhado
 As assinaturas de acesso partilhado (SAS) são uma forma segura de fornecer acesso granular às tabelas sem fornecer o nome ou a chaves da sua conta de Armazenamento. As SAS são frequentemente utilizadas para fornecer acesso limitado aos seus dados, tal como permitir que uma aplicação móvel consulte registos.
@@ -454,7 +454,7 @@ Depois de definir a ACL, pode criar uma SAS com base no ID de uma política. O e
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte os seguintes recursos.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

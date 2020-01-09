@@ -1,49 +1,49 @@
 ---
-title: Utilize um mosaico de markdown personalizadas nos dashboards do Azure
-description: Saiba como adicionar um mosaico de markdown para um dashboard do Azure para exibir o conteúdo estático
+title: Usar um bloco de redução personalizada nos painéis do Azure
+description: Saiba como adicionar um bloco de redução a um painel do Azure para exibir conteúdo estático
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d2e6d2d0bde76a35a18373fabf64ce36c6c320e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551609"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640147"
 ---
-# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utilize um mosaico de markdown no dashboards do Azure para mostrar o conteúdo personalizado
+# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um bloco de redução nos painéis do Azure para mostrar conteúdo personalizado
 
-Pode adicionar um mosaico de markdown para os seus dashboards do Azure para exibir conteúdo personalizado, estático. Por exemplo, pode mostrar instruções básicas, uma imagem ou um conjunto de hiperlinks com um mosaico de markdown.
+Você pode adicionar um bloco de redução aos painéis do Azure para exibir conteúdo estático e personalizado. Por exemplo, você pode mostrar instruções básicas, uma imagem ou um conjunto de hiperlinks com um bloco de redução.
 
-## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicionar um mosaico markdown ao seu dashboard
+## <a name="add-a-markdown-tile-to-your-dashboard"></a>Adicionar um bloco de redução ao seu painel
 
-1. Selecione **Dashboard** na barra lateral portal do Azure. Se tiver criado quaisquer dashboards personalizados, na vista do dashboard, utilize a lista pendente para selecionar o dashboard onde deve aparecer no mosaico markdown personalizada. Selecione o ícone de edição para abrir o **Galeria de mosaicos**.
+1. Selecione **painel** na barra lateral portal do Azure. Se você criou painéis personalizados, na exibição painel, use a lista suspensa para selecionar o painel em que o bloco de redução personalizada deve aparecer. Selecione o ícone Editar para abrir a **Galeria de blocos**.
 
-   ![Captura de ecrã a mostrar exibição de edição dashboard](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Captura de tela mostrando exibição de edição do painel](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-2. Na **Galeria de mosaicos**, localize o mosaico chamado **Markdown** e clique em **Add**. O mosaico é adicionado ao dashboard e o **editar Markdown** painel abre-se.
+2. Na **Galeria de blocos**, localize o bloco chamado **redução** e clique em **Adicionar**. O bloco é adicionado ao painel e o painel **Editar redução** é aberto.
 
-1. Editar a **Title**, **subtítulo**, e **conteúdo** campos para personalizar o mosaico. No exemplo mostrado aqui, o mosaico markdown foi editado para apresentar informações de suporte técnico de ajuda personalizada.
+1. Edite os campos **título**, **subtítulo**e **conteúdo** para personalizar o bloco. No exemplo mostrado aqui, o bloco de redução foi editado para exibir informações personalizadas sobre o suporte técnico.
 
-   ![Captura de ecrã que mostra a exibição de edição de mosaico markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Captura de tela mostrando exibição de bloco de redução](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
-4. Selecione **feito** para descartar a **editar Markdown** painel. Seu conteúdo será apresentado no mosaico Markdown, o que pode ser redimensionado, em seguida, arrastando o identificador no canto inferior direito.
+4. Selecione **concluído** para ignorar o painel de **redução de edição** . Seu conteúdo será exibido no bloco de redução, que pode ser redimensionado arrastando a alça no canto inferior direito.
 
-   ![Mosaico de markdown personalizada captura de ecrã a mostrar](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Captura de tela mostrando o bloco de redução personalizada](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
-## <a name="markdown-content-capabilities-and-limitations"></a>Recursos de conteúdo de markdown e limitações
+## <a name="markdown-content-capabilities-and-limitations"></a>Redução de limitações e recursos de conteúdo
 
-Pode utilizar qualquer combinação de texto sem formatação, sintaxe de Markdown e conteúdo HTML no mosaico markdown. O portal do Azure utiliza uma biblioteca de código aberto chamada _marcado_ para transformar o seu conteúdo em HTML que é apresentado no mosaico. O HTML produzido pelo _marcado_ previamente é processado pelo portal antes que ele é renderizado. Este passo ajuda a tornar-se de que sua personalização não afeta a segurança ou o layout do portal. Durante esse processamento prévio de, qualquer parte do HTML que constitui uma potencial ameaça é removido. Os seguintes tipos de conteúdo não são permitidos pelo portal:
+Você pode usar qualquer combinação de texto sem formatação, sintaxe de redução e conteúdo HTML no bloco de redução. O portal do Azure usa uma biblioteca de software livre chamada _marcada_ para transformar o conteúdo em HTML que é mostrado no bloco. O HTML produzido por _marcado_ é previamente processado pelo portal antes de ser renderizado. Essa etapa ajuda a garantir que sua personalização não afetará a segurança ou o layout do Portal. Durante esse pré-processamento, qualquer parte do HTML que representa uma possível ameaça é removida. Os seguintes tipos de conteúdo não são permitidos pelo portal:
 
-* JavaScript – `<script>` etiquetas e avaliações de JavaScript inline serão removidas.
-* IFrames - `<iframe>` etiquetas serão removidas.
-* Guia de estilo – `<style>` etiquetas serão removidas. Atributos de estilo embutidas em elementos HTML oficialmente não são suportados. Pode achar que alguns elementos de estilo inline trabalharem por si, mas se eles interferem com o layout do portal, podem parar de funcionar em qualquer altura. O mosaico Markdown destina-se para o conteúdo básico, estático que usa os estilos predefinidos do portal do.
+* As marcas JavaScript – `<script>` e as avaliações de JavaScript embutidas serão removidas.
+* iframes-`<iframe>` marcações serão removidas.
+* As marcas de `<style>` de estilo serão removidas. Atributos de estilo embutidos em elementos HTML não são oficialmente suportados. Você pode achar que alguns elementos de estilo embutidos funcionam para você, mas se interferem no layout do portal, eles podem parar de funcionar a qualquer momento. O bloco de redução destina-se a conteúdo básico e estático que usa os estilos padrão do Portal.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para criar um dashboard personalizado, consulte [criar e partilhar dashboards no portal do Azure](../azure-portal/azure-portal-dashboards.md)
+* Para criar um painel personalizado, consulte [criar e compartilhar painéis no portal do Azure](../azure-portal/azure-portal-dashboards.md)

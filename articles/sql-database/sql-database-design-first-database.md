@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459623"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: criar um banco de dados relacional em um banco de dados individual no banco de dados SQL do Azure usando o SSMS
 
@@ -33,7 +33,7 @@ O banco de dados SQL do Azure é um DBaaS (banco de dados como serviço) relacio
 > [!TIP]
 > O módulo Microsoft Learn a seguir ajuda você a aprender gratuitamente como [desenvolver e configurar um aplicativo ASP.NET que consulta um banco de dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
 > [!NOTE]
-> Para fins deste tutorial, estamos usando um único banco de dados. Você também pode usar um banco de dados em pool em um pool elástico ou um banco de dados de instância em uma instância gerenciada. Para obter conectividade com uma instância gerenciada, consulte estes guias de início rápido da instância gerenciada: [início rápido: configurar a VM do Azure para se conectar a um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [início rápido: configurar uma conexão ponto a site com um banco de dados SQL do Azure Instância Gerenciada do local](sql-database-managed-instance-configure-p2s.md).
+> Para fins deste tutorial, estamos usando um único banco de dados. Você também pode usar um banco de dados em pool em um pool elástico ou um banco de dados de instância em uma instância gerenciada. Para obter conectividade com uma instância gerenciada, consulte estes guias de início rápido da instância gerenciada: [início rápido: configurar a VM do Azure para se conectar a um instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-configure-vm.md) e [início rápido: configurar uma conexão ponto a site com um instância gerenciada do banco de dados SQL do Azure do local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,15 +44,15 @@ Para concluir este tutorial, verifique se você instalou o:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Criar uma base de dados única em branco
 
-Um banco de dados individual no banco de dados SQL do Azure é criado com um conjunto definido de recursos de computação e armazenamento. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
+Um banco de dados individual no banco de dados SQL do Azure é criado com um conjunto definido de recursos de computação e armazenamento. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
 
 Siga estas etapas para criar um banco de dados individual em branco.
 
-1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 2. Na página **Nova**, selecione **Bases de Dados** na secção de Microsoft Azure Marketplace e, em seguida, clique em **Base de Dados SQL** na secção **Em Destaque**.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
@@ -63,7 +63,7 @@ Siga estas etapas para criar um banco de dados individual em branco.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nome da base de dados** | *yourDatabase* | Para obter nomes de banco de dados válidos, consulte [identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
     | **Subscrição** | *yourSubscription*  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
-    | **Grupo de recursos** | *Seugruporecursos* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
+    | **Grupo de recursos** | *yourResourceGroup* | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Atribuição de nomes de regras e restrições). |
     | **Selecionar origem** | Base de dados vazia | Especifica que deve ser criada uma base de dados vazia. |
 
 4. Clique em **servidor** para usar um servidor de banco de dados existente ou criar e configurar um novo servidor de banco de dados. Selecione um servidor existente ou clique em **criar um novo servidor** e preencha o formulário **novo servidor** com as seguintes informações:
@@ -268,7 +268,7 @@ Execute as seguintes consultas para obter informações das tabelas de base de d
        AND person.LastName = 'Coleman'
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu muitas tarefas básicas de banco de dados. Aprendeu a:
 

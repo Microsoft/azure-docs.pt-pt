@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621444"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646698"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall
 
@@ -35,7 +35,7 @@ Um resumo das etapas para bloquear a saída do HDInsight existente com o Firewal
 1. Crie um firewall.
 1. Adicionar regras de aplicativo ao firewall
 1. Adicione regras de rede ao firewall.
-1. Crie uma tabela de roteamento.
+1. Crie uma tabela de encaminhamento.
 
 ### <a name="create-new-subnet"></a>Criar nova sub-rede
 
@@ -75,8 +75,8 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
 
     | Nome | Endereços de origem | Protocolo: porta | FQDNS de destino | Notas |
     | --- | --- | --- | --- | --- |
-    | Rule_2 | * | https: 443 | login.windows.net | Permite a atividade de logon do Windows |
-    | Rule_3 | * | https: 443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
+    | Rule_2 | * | https:443 | login.windows.net | Permite a atividade de logon do Windows |
+    | Rule_3 | * | https:443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
     | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Substitua `storage_account_name` pelo nome da conta de armazenamento real. Se o seu cluster tiver o suporte de WASB, adicione uma regra para WASB. Para usar somente conexões HTTPS, certifique-se de que ["transferência segura necessária"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esteja habilitada na conta de armazenamento. |
 
    ![Título: inserir detalhes da coleção de regras de aplicativo](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -110,7 +110,7 @@ Crie as regras de rede para configurar corretamente o cluster HDInsight.
 
     **Seção de marcas de serviço**
 
-    | Nome | Protocolo | Endereços de Origem | Marcas de serviço | Portas de destino | Notas |
+    | Nome | Protocolo | Endereços de Origem | Etiquetas de Serviço | Portas de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na seção de marcas de serviço para SQL que permitirá que você registre e audite o tráfego do SQL, a menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, o que irá ignorar o firewall. |
 
@@ -138,12 +138,12 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | ND |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | ND |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | ND |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | ND |
-| 13.82.225.233 | 13.82.225.233/32 | Internet | ND |
-| 40.71.175.99 | 40.71.175.99/32 | Internet | ND |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | N/D |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | N/D |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
+| 13.82.225.233 | 13.82.225.233/32 | Internet | N/D |
+| 40.71.175.99 | 40.71.175.99/32 | Internet | N/D |
 | 0.0.0.0 | 0.0.0.0/0 | Aplicação virtual | 10.0.2.4 |
 
 Conclua a configuração da tabela de rotas:
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 A integração do firewall do Azure com logs de Azure Monitor é útil ao obter um aplicativo funcionando quando você não está ciente de todas as dependências do aplicativo. Você pode saber mais sobre os logs de Azure Monitor de [analisar dados de log em Azure monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Para saber mais sobre os limites de escala do firewall do Azure e a solicitação aumenta, consulte [este](../azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [perguntas frequentes](../firewall/firewall-faq.md).
+Para saber mais sobre os limites de escala do firewall do Azure e a solicitação aumenta, consulte [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [perguntas frequentes](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Acesso ao cluster
 
@@ -201,17 +201,17 @@ As instruções anteriores ajudam você a configurar o Firewall do Azure para re
 
 ### <a name="service-endpoint-capable-dependencies"></a>Dependências compatíveis com ponto de extremidade de serviço
 
-| **Extremidade** |
+| **Endpoint** |
 |---|
 | SQL do Azure |
-| Storage do Azure |
+| Armazenamento do Azure |
 | Azure Active Directory |
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereço IP
 
-| **Extremidade** | **Detalhes** |
+| **Endpoint** | **Detalhes** |
 |---|---|
-| \*: 123 | Verificação do relógio de NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
+| \*:123 | Verificação do relógio de NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
 | IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Estes são serviços do HDInsight |
 | Os IPs privados do AAD-DS para clusters ESP |
 | \*: 16800 para ativação do Windows KMS |
@@ -222,7 +222,7 @@ As instruções anteriores ajudam você a configurar o Firewall do Azure para re
 > [!Important]
 > A lista a seguir fornece apenas alguns dos FQDNs mais importantes. Você pode obter a lista completa de FQDNs para configurar seu NVA [neste arquivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
-| **Extremidade**                                                          |
+| **Endpoint**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |

@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561926"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608742"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -74,7 +74,7 @@ Siga estas etapas para adicionar um diretório ou domínio externo do Azure AD c
 1. Clique em **Adicionar** para adicionar o diretório ou domínio do Azure AD. No momento, você só pode adicionar um diretório ou domínio do Azure AD por organização conectada.
 
     > [!NOTE]
-    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites para usuários B2B de organizações específicas](../b2b/allow-deny-list.md).
+    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios sejam bloqueados pela lista de permissão ou negação B2B do Azure. Para obter mais informações, consulte [permitir ou bloquear convites aos utilizadores B2B de organizações específicos](../b2b/allow-deny-list.md).
 
 1. Depois de adicionar o diretório ou domínio do Azure AD, clique em **selecionar**.
 
@@ -112,5 +112,5 @@ Se você não tiver mais uma relação com um diretório ou domínio do Azure AD
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Controlar o acesso para usuários externos](entitlement-management-organization.md)
+- [Controlar o acesso para usuários externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

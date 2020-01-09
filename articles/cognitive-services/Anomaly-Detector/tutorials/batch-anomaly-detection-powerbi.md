@@ -1,23 +1,23 @@
 ---
-title: Visualizar anomalias utilizando a deteção de lote e o Power BI
+title: 'Tutorial: Visualizar anomalias usando a detecção de lote e Power BI'
 titleSuffix: Azure Cognitive Services
-description: Use a API do detector de anomalias e Power BI para visualizar anomalias em seus dados de série temporal.
+description: Saiba como usar a API do detector de anomalias e Power BI para visualizar anomalias em todos os dados de série temporal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448860"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias utilizando a deteção de lote e o Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção de lote e Power BI
 
 Use este tutorial para localizar anomalias dentro de um conjunto de dados de série temporal como um lote. Usando Power BI área de trabalho, você usará um arquivo do Excel, preparará os dados para a API do detector de anomalias e visualizará anomalias estatísticas em todo o uso.
 
@@ -68,7 +68,7 @@ Verifique se a nova consulta está selecionada e clique em **Editor avançado**.
 
 ![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
 
-No Editor Avançado, use o seguinte trecho de Power Query M para extrair as colunas da tabela e enviá-las para a API. Posteriormente, a consulta criará uma tabela a partir da resposta JSON e a retornará. Substitua a variável `apiKey` pela chave de API do detector de anomalias válida e `endpoint` pelo ponto de extremidade. Depois de inserir a consulta na Editor Avançado, clique em **concluído**.
+No Editor Avançado, use o seguinte trecho de Power Query M para extrair as colunas da tabela e enviá-las para a API. Posteriormente, a consulta criará uma tabela a partir da resposta JSON e a retornará. Substitua a variável `apiKey` pela sua chave de API do detector de anomalias válida e `endpoint` com seu ponto de extremidade. Depois de inserir a consulta na Editor Avançado, clique em **concluído**.
 
 ```M
 (table as table) => let
@@ -143,7 +143,7 @@ Na tela principal do Power BI, comece a usar as consultas criadas acima para vis
 
 Adicione os campos a seguir da **função invocada** ao campo **valores** do gráfico. Use a captura de tela abaixo para ajudar a criar seu gráfico.
 
-    * Value
+    * Valor
     * UpperMargins
     * LowerMargins
     * ExpectedValues
@@ -160,7 +160,7 @@ No lado direito da janela Power BI, abaixo do painel **campos** , clique com o b
 
 ![Uma imagem da nova tela de medida rápida](../media/tutorials/new-quick-measure.png)
 
-Na tela que é exibida, selecione **valor filtrado** como o cálculo. Defina o **valor de base** como `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos de **função invocados** para **Filtrar**. Selecione `True` no menu suspenso **filtro** .
+Na tela que é exibida, selecione **valor filtrado** como o cálculo. Defina **valor de base** como `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos de **função invocados** para **Filtrar**. Selecione `True` no menu suspenso **filtro** .
 
 ![Uma imagem da nova tela de medida rápida](../media/tutorials/new-quick-measure-2.png)
 

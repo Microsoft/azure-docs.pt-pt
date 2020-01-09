@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876791"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561648"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como um destino de backup com o Backup Exec
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O Azure StorSimple é uma solução de armazenamento de nuvem híbrida da Microsoft. O StorSimple aborda as complexidades do crescimento exponencial de dados usando uma conta de armazenamento do Azure como uma extensão da solução local e os dados em camadas automaticamente no armazenamento local e no armazenamento em nuvem.
 
@@ -37,7 +37,7 @@ As informações neste artigo serão mais úteis para administradores de backup,
 
 ## <a name="supported-versions"></a>Versões suportadas
 
--   [Backup Exec 16 e versões posteriores](http://backupexec.com/compatibility)
+-   [Backup Exec 16 e versões posteriores](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple atualização 3 e versões posteriores](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -79,7 +79,7 @@ O StorSimple oferece estes benefícios:
 
 Embora o StorSimple apresente dois cenários de implantação principais (destino de backup primário e destino de backup secundário), fundamentalmente, é um dispositivo de armazenamento de blocos simples e em bloco. O StorSimple faz toda a compactação e eliminação de duplicação. Ele envia e recupera diretamente os dados entre a nuvem e o aplicativo e o sistema de arquivos.
 
-Para obter mais informações sobre o storsimple [, consulte série 8000 do storsimple: Solução](storsimple-overview.md)de armazenamento de nuvem híbrida. Além disso, você pode examinar as [especificações técnicas da série 8000 do StorSimple](storsimple-technical-specifications-and-compliance.md).
+Para obter mais informações sobre o StorSimple, consulte [storsimple 8000 Series: solução de armazenamento em nuvem híbrida](storsimple-overview.md). Além disso, você pode examinar as [especificações técnicas da série 8000 do StorSimple](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > O uso de um dispositivo StorSimple como destino de backup só tem suporte para o StorSimple 8000 atualização 3 e versões posteriores.
@@ -95,7 +95,7 @@ As tabelas a seguir mostram as diretrizes iniciais de modelo para arquitetura do
 | Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Capacidade de armazenamento em nuvem | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*O tamanho do armazenamento não assume nenhuma eliminação de duplicação ou compactação.
+\* tamanho do armazenamento não assume nenhuma eliminação de duplicação ou compactação.
 
 **Capacidades do StorSimple para backups primários e secundários**
 
@@ -184,8 +184,8 @@ Nesta seção, demonstramos alguns exemplos de configuração. Os exemplos e as 
 
 | Tarefas de implantação do StorSimple  | Comentários adicionais |
 |---|---|
-| Implante seu dispositivo StorSimple local. | Versões com suporte: Atualização 3 e versões posteriores. |
-| Ative o destino de backup. | Use estes comandos para ativar ou desativar o modo de destino de backup e para obter o status. Para obter mais informações, consulte [conectar-se remotamente a um dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ativar o modo de backup `Set-HCSBackupApplianceMode -enable`:. </br> Para desligar o modo de backup `Set-HCSBackupApplianceMode -disable`:. </br> Para obter o estado atual das configurações do modo de `Get-HCSBackupApplianceMode`backup:. |
+| Implante seu dispositivo StorSimple local. | Versões com suporte: atualização 3 e versões posteriores. |
+| Ative o destino de backup. | Use estes comandos para ativar ou desativar o modo de destino de backup e para obter o status. Para obter mais informações, consulte [conectar-se remotamente a um dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ativar o modo de backup: `Set-HCSBackupApplianceMode -enable`. </br> Para desligar o modo de backup: `Set-HCSBackupApplianceMode -disable`. </br> Para obter o estado atual das configurações do modo de backup: `Get-HCSBackupApplianceMode`. |
 | Crie um contêiner de volume comum para o volume que armazena os dados de backup. Todos os dados em um contêiner de volume têm eliminação de duplicação. | Os contêineres de volume do StorSimple definem domínios de eliminação de duplicação.  |
 | Crie volumes do StorSimple. | Crie volumes com tamanhos o mais próximo possível do uso antecipado, pois o tamanho do volume afeta o tempo de duração do instantâneo de nuvem. Para obter informações sobre como dimensionar um volume, leia sobre [as políticas de retenção](#retention-policies).</br> </br> Use os volumes em camadas do StorSimple e marque a caixa de seleção **usar este volume para dados de arquivamento acessados com menos frequência** . </br> Não há suporte para o uso somente de volumes fixados localmente. |
 | Crie uma política exclusiva de backup do StorSimple para todos os volumes de destino de backup. | Uma política de backup do StorSimple define o grupo de consistência de volume. |
@@ -233,7 +233,7 @@ Configure sua solução de acordo com as diretrizes nas seções a seguir.
 -   O StorSimple dá suporte aos backups completos e incrementais do Backup Exec. Recomendamos que você não use backups sintéticos e diferenciais.
 -   Os arquivos de dados de backup devem conter dados somente para um trabalho específico. Por exemplo, nenhum acréscimo de mídia entre trabalhos diferentes é permitido.
 -   Desabilitar a verificação de trabalho. Se necessário, a verificação deve ser agendada após o trabalho de backup mais recente. É importante entender que esse trabalho afeta a janela de backup.
--   Selecione **armazenamento** > suas**Propriedades** **de** > detalhesdo > disco. Desligue o **espaço em disco de alocação prévia**.
+-   Selecione **armazenamento** > **seu disco** > **detalhes** > **Propriedades**. Desligue o **espaço em disco de alocação prévia**.
 
 Para obter as configurações mais recentes de Backup Exec e as práticas recomendadas para implementar esses requisitos, consulte [o site da Veritas](https://www.veritas.com).
 
@@ -252,7 +252,7 @@ No exemplo a seguir, usamos uma rotação do GFS. O exemplo pressupõe o seguint
 
 Com base nas suposições anteriores, crie um volume em camadas StorSimple de 26 TiB para os backups completos mensais e anuais. Crie um volume em camadas StorSimple de 5 TiB para cada um dos backups diários incrementais.
 
-| Retenção de tipo de backup | Tamanho (TiB) | Multiplicador GFS\* | Capacidade total (TiB)  |
+| Retenção de tipo de backup | Tamanho (TiB) | Multiplicador do GFS\* | Capacidade total (TiB)  |
 |---|---|---|---|
 | Semana completa | 1 | 4  | 4 |
 | Incremental diária | 0,5 | 20 (ciclos de número igual de semanas por mês) | 12 (2 para cota adicional) |
@@ -261,13 +261,13 @@ Com base nas suposições anteriores, crie um volume em camadas StorSimple de 26
 | Requisito do GFS |   | 38 |   |
 | Cota adicional  | 4  |   | requisito total de GFS 42  |
 
-\*O multiplicador GFS é o número de cópias que você precisa proteger e manter para atender aos seus requisitos de política de backup.
+\* o multiplicador do GFS é o número de cópias que você precisa proteger e manter para atender aos seus requisitos de política de backup.
 
 ## <a name="set-up-backup-exec-storage"></a>Configurar o armazenamento do Backup Exec
 
 ### <a name="to-set-up-backup-exec-storage"></a>Para configurar o armazenamento do Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, selecione **armazenamento** > **Configurar** > armazenamento**baseado em** > disco de armazenamento**Avançar**.
+1.  No console de gerenciamento do Backup Exec, selecione **armazenamento** > **Configurar** armazenamento > **armazenamento baseado em disco** > **Avançar**.
 
     ![Console de gerenciamento do Backup Exec, página Configurar armazenamento](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -323,7 +323,7 @@ A sequência a seguir pressupõe que o Backup Exec e o host de destino são conf
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Para atribuir volumes do StorSimple a um trabalho Backup Exec Backup
 
-1.  No console de gerenciamento do Backup Exec, selecione **host** >  > backup**backup to Disk**.
+1.  No console de gerenciamento do Backup Exec, selecione **Host** > **backup** > **backup em disco**.
 
     ![Console de gerenciamento do Backup Exec, selecione host, backup e backup em disco](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
@@ -340,7 +340,7 @@ A sequência a seguir pressupõe que o Backup Exec e o host de destino são conf
 5.  Atribua volumes do StorSimple correspondentes ao seu agendamento de backup.
 
     > [!NOTE]
-    > A compactação e o **tipo de criptografia** são definidos como **nenhum**.
+    > A **compactação** e o **tipo de criptografia** são definidos como **nenhum**.
 
 6.  Em **verificar**, marque a caixa de seleção não **verificar dados para este trabalho** . O uso dessa opção pode afetar a camada do StorSimple.
 
@@ -368,7 +368,7 @@ A tabela a seguir mostra como configurar backups para execução nos discos loca
 
 ### <a name="backup-configuration-and-capacity-requirements"></a>Requisitos de configuração e capacidade de backup
 
-| Tipo e retenção de backup | Armazenamento configurado | Tamanho (TiB) | Multiplicador GFS | Capacidade\* total (TIB) |
+| Tipo e retenção de backup | Armazenamento configurado | Tamanho (TiB) | Multiplicador GFS | \* de capacidade total (TiB) |
 |---|---|---|---|---|
 | Semana 1 (completa e incremental) |Disco local (curto prazo)| 1 | 1 | 1 |
 | StorSimple Weeks 2-4 |Disco StorSimple (longo prazo) | 1 | 4 | 4 |
@@ -376,10 +376,10 @@ A tabela a seguir mostra como configurar backups para execução nos discos loca
 | Anual completo |Disco StorSimple (longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho dos volumes do GFS |  |  |  | 18*|
 
-\*A capacidade total inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
+\* capacidade total inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo do GFS: Agendamento semanal, mensal e anual de rotação do GFS
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agendamento de exemplo do GFS: agendamento de rodízio semanal, mensal e anual
 
 | Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
@@ -395,11 +395,11 @@ A tabela a seguir mostra como configurar backups para execução nos discos loca
 
 #### <a name="to-assign-storsimple-volumes-to-a-backup-exec-archive-and-duplication-job"></a>Para atribuir volumes do StorSimple a um trabalho de arquivamento e duplicação do Backup Exec
 
-1.  No console de gerenciamento do Backup Exec, clique com o botão direito do mouse no trabalho que você deseja arquivar em um volume do StorSimple e selecione **Propriedades** > de definição de backup**Editar**.
+1.  No console de gerenciamento do Backup Exec, clique com o botão direito do mouse no trabalho que você deseja arquivar em um volume do StorSimple e selecione **Propriedades de definição de Backup** > **Editar**.
 
     ![Console de gerenciamento do Backup Exec, guia Propriedades de definição de backup](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Selecione **Adicionar estágio** > **duplicado para** > **Editar**disco.
+2.  Selecione **Adicionar estágio** > **duplicar no disco** > **Editar**.
 
     ![Console de gerenciamento do Backup Exec, adicionar estágio](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
@@ -450,7 +450,7 @@ A seção a seguir descreve como criar um script curto para iniciar e excluir in
 
 1. [Instalar o Azure PowerShell](/powershell/azure/overview).
 2. Baixe e configure o script do PowerShell [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. No servidor que executa o script, execute o PowerShell como administrador. Certifique-se de executar o script `-WhatIf $true` com para ver as alterações que o script fará. Quando a validação for concluída, passe `-WhatIf $false`. Execute o comando abaixo:
+3. No servidor que executa o script, execute o PowerShell como administrador. Certifique-se de executar o script com `-WhatIf $true` para ver as alterações que o script fará. Quando a validação for concluída, passe `-WhatIf $false`. Execute o comando abaixo:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```
@@ -483,11 +483,11 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram referenciados neste artigo:
 
 - [Configuração de e/s de vários caminhos do StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: Provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Saiba mais sobre como executar [failover de dispositivo e recuperação de desastre](storsimple-device-failover-disaster-recovery.md).

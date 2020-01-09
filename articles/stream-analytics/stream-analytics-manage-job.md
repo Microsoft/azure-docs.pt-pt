@@ -1,20 +1,18 @@
 ---
 title: Tutorial – criar e gerenciar um trabalho de Stream Analytics usando portal do Azure
 description: Este tutorial fornece uma demonstração ponto a ponto de como utilizar o Azure Stream Analytics para analisar chamadas fraudulentas num fluxo de chamadas telefónica.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459567"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: analisar dados de chamada telefônica com Stream Analytics e Visualizar resultados no painel Power BI
 
@@ -35,7 +33,7 @@ Neste tutorial, ficará a saber como:
 Antes de começar, execute as seguintes ações:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
-* Inicie sessão no [portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 * Transfira a aplicação geradora de eventos de chamadas telefónicas [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) no Centro de Transferências da Microsoft ou obtenha o código fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Irá precisar de uma conta do Power BI.
 
@@ -45,10 +43,10 @@ Para que o Stream Analytics possa analisar o fluxo de dados de chamadas fraudule
 
 Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chamadas para esse Hub de Eventos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hubs de Eventos**.
 
-   ![Criar um hub de eventos do Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
+   ![Criar um Hub de eventos do Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
 3. Preencha o painel **Criar Espaço de Nomes** com os seguintes valores:
 
    |**Definição**  |**Valor sugerido** |**Descrição**  |
@@ -60,12 +58,12 @@ Utilize os passos seguintes para criar um Hub de Eventos e enviar dados de chama
 
 4. Utilize as opções predefinidas nas restantes definições e selecione **Criar**.
 
-   ![Criar namespace do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
+   ![Criar o espaço de nomes de hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando a implementação do espaço de nomes terminar, aceda a **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Selecione *myEventHubsNS* para abri-lo.
 6. Em seguida, selecione **+ Hub de Eventos** e introduza o **Nome** como *MyEventHub* ou outro nome à sua escolha. Utilize as opções predefinidas nas restantes definições e selecione **Criar**. Em seguida, aguarde até que a implementação seja executada com êxito.
 
-   ![Configuração do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
+   ![Configuração do Hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Conceder acesso ao hub de eventos e obter uma cadeia de ligação
 
@@ -167,7 +165,7 @@ A próxima etapa consiste em definir uma origem de entrada para a tarefa ler dad
 
 4. Utilize as opções predefinidas nas restantes definições e selecione **Guardar**.
 
-   ![Configurar entrada de Azure Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
+   ![Configurar a entrada do Azure Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-input.png)
 
 ## <a name="configure-job-output"></a>Configurar a saída da tarefa
 
@@ -185,7 +183,7 @@ O último passo consiste em definir um sink de saída para a tarefa, onde possa 
    |Nome do conjunto de dados  |   ASAdataset  |
    |Nome da tabela |  ASATable  |
 
-   ![Configurar a saída de Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
+   ![Configurar a saída do Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
 4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
@@ -218,7 +216,7 @@ Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo utilizador num in
 
 4. **Guarde** a consulta.
 
-   ![Definir Stream Analytics consulta no portal](media/stream-analytics-manage-job/define-stream-analytics-query.png)
+   ![Definir a consulta do Stream Analytics no portal](media/stream-analytics-manage-job/define-stream-analytics-query.png)
 
 ## <a name="test-your-query"></a>Testar a consulta
 
@@ -232,7 +230,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
    Os dados de exemplo são temporariamente armazenados e estão disponíveis enquanto a janela de consulta estiver aberta. Se fechar a janela de consulta, os dados de exemplo são eliminados e terá de criar um novo conjunto de dados de exemplo se quiser testar. Em alternativa, pode utilizar um ficheiro JSON de dados de exemplo a partir do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) e, em seguida, carregar esse ficheiro JSON para utilizar como dados de exemplo para a entrada *CallStream*.
 
-   ![Visual de como obter amostras de dados de entrada para Stream Analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
+   ![Elemento visual de como os dados de entrada de exemplo para o Stream Analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
 
 4. Selecione **Testar** para testar a consulta. Deverá ver os seguintes resultados:
 
@@ -250,7 +248,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 5. Na parte superior da janela, selecione **Adicionar mosaico**. Em seguida, selecione **Dados de Transmissão em Fluxo Personalizados** e **Seguinte**. Escolha o conjunto de dados **ASAdataset** em **Conjuntos de dados**. Selecione **cartão** na lista suspensa **tipo de visualização** e adicione **chamadas fraudulentas** a **campos**. Selecione **Seguinte** para introduzir um nome para o mosaico e, em seguida, selecione **Aplicar** para criar o mosaico.
 
-   ![Criar Power BI blocos de painel](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
+   ![Criar mosaicos de dashboard do Power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
 6. Execute o passo 5 novamente, com as seguintes opções:
    * Quando chegar a Tipo de Visualização, selecione Gráfico de linhas.
@@ -260,7 +258,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 7. O dashboard deve ter um aspeto semelhante ao seguinte depois de ambos os mosaicos serem adicionados. Observe que, se o aplicativo de remetente do hub de eventos e o aplicativo do Stream Analytics estiverem em execução, seu Power BI Dashboard será atualizado periodicamente à medida que novos dados chegarem.
 
-   ![Exibir resultados no painel de Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
+   ![Ver os resultados num dashboard do Power BI](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
 ## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Inserindo seu painel de Power BI em um aplicativo Web
 

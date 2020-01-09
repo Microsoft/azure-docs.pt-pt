@@ -1,18 +1,14 @@
 ---
-title: Service Fabric do Azure – implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema | Microsoft Docs
+title: Implantar um aplicativo Service Fabric com MI atribuído pelo sistema
 description: Este artigo mostra como atribuir uma identidade gerenciada atribuída pelo sistema a um aplicativo de Service Fabric do Azure
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973412"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614830"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implantar Service Fabric aplicativo com identidade gerenciada atribuída pelo sistema (versão prévia)
 
@@ -47,7 +43,7 @@ Para habilitar o aplicativo com uma identidade gerenciada atribuída pelo sistem
       }
     }
 ```
-Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada e os provedores de recursos de Service Fabric, respectivamente, que esse recurso deve ter uma identidade gerenciada (`system assigned`) implícita.
+Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada e os provedores de recursos de Service Fabric, respectivamente, que esse recurso deve ter uma identidade gerenciada implícita (`system assigned`).
 
 ### <a name="application-and-service-package"></a>Pacote de aplicativo e serviço
 
@@ -76,9 +72,9 @@ Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada 
         </ServiceManifestImport>
       ```
 
-    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não será capaz de acessar a identidade do aplicativo. No trecho acima, a identidade `SystemAssigned` (que é uma palavra-chave reservada) é mapeada para a definição do serviço sob o nome amigável `WebAdmin`.
+    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não será capaz de acessar a identidade do aplicativo. No trecho acima, a identidade de `SystemAssigned` (que é uma palavra-chave reservada) é mapeada para a definição do serviço sob o nome amigável `WebAdmin`.
 
-3. Atualize o manifesto do serviço para adicionar um elemento **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao valor da configuração `ServiceIdentityRef` da definição de `IdentityBindingPolicy` no manifesto do aplicativo:
+3. Atualize o manifesto do serviço para adicionar um elemento **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao valor da configuração de `ServiceIdentityRef` da definição de `IdentityBindingPolicy` no manifesto do aplicativo:
 
     **Manifesto. xml**
 

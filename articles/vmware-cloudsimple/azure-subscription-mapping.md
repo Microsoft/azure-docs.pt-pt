@@ -1,5 +1,6 @@
 ---
 title: Criar pools de recursos com o mapeamento de assinatura do Azure
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve como criar pools de recursos para sua nuvem privada por meio do mapeamento de assinatura do Azure
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ea102ad8377da70b88a0e59834ebe3a09866632
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 474ef03d482288b6bf7b5a8b1c224349a8e2d3a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425806"
 ---
 # <a name="create-resource-pools-for-your-private-cloud-with-azure-subscription-mapping"></a>Criar pools de recursos para sua nuvem privada com o mapeamento de assinatura do Azure
 O mapeamento de assinatura do Azure permite que você crie pools de recursos para sua nuvem privada dos pools de recursos do vSphere disponíveis. No portal do CloudSimple, você pode exibir e gerenciar a assinatura do Azure para suas nuvens privadas.

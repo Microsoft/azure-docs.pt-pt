@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429108"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: configurar e usar logs de diagnóstico e métricas com um hub IoT
 
@@ -44,13 +44,13 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="set-up-resources"></a>Configurar os recursos
+## <a name="set-up-resources"></a>Configurar recursos
 
 Para este tutorial, você precisa de um hub IoT, uma conta de armazenamento e um dispositivo IoT simulado. Pode criar estes recursos com a CLI do Azure ou o Azure PowerShell. Utilize o mesmo grupo de recursos e a mesma localização para todos os recursos. Em seguida, no final, pode remover tudo num único passo ao eliminar o grupo de recursos.
 
 Essas são as etapas necessárias.
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Criar um [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Crie um hub IoT.
 
@@ -259,7 +259,7 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure monitor](/azure/azu
 
    **Destinatários do email de notificação**: Coloque seu endereço de email aqui. 
 
-   Clique em **OK** para salvar a regra. 
+   Clique em **OK** para guardar a regra. 
 
 5. Agora você deve ver dois alertas no painel alertas clássicos: 
 

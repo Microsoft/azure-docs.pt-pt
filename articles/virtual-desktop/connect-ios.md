@@ -5,31 +5,24 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 472b8800a09cb12bc3e703ef53d0aab2b578e0d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460232"
 ---
 # <a name="connect-with-the-ios-client"></a>Ligar ao cliente de iOS
 
-> Aplica-se a: iOS 8,0 ou posterior. Compatível com iPhone, iPad e iPod Touch.
-
->[!NOTE]
-> O cliente iOS ainda está em visualização no momento.
+> Aplica-se a: iOS 13,0 ou posterior. Compatível com iPhone, iPad e iPod Touch.
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo iOS com nosso cliente baixável. Este guia lhe dirá como configurar o cliente iOS.
 
-## <a name="install-the-ios-beta-client"></a>Instalar o cliente iOS beta
-Para instalar o cliente iOS beta:
+## <a name="install-the-ios-client"></a>Instalar o cliente iOS
 
-1. Instale o aplicativo [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) em seu dispositivo IOS.
-2. Em seu dispositivo iOS, abra um navegador e navegue até [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. No rótulo **etapa 2: ingressar na versão beta**, selecione **Iniciar teste**.
-4. Quando você for Redirecionado para o aplicativo TestFlight, selecione **aceitar**e, em seguida, selecione **instalar**.
+Para começar, [Baixe](https://aka.ms/rdios) e instale o cliente em seu dispositivo IOS.
 
 ## <a name="subscribe-to-a-feed"></a>Assinar um feed
 
@@ -41,12 +34,12 @@ Para assinar um feed:
 2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
    - Se você usar uma URL, use aquela que o administrador lhe forneceu. Normalmente, a URL é <https://rdweb.wvd.microsoft.com>.
    - Para usar o email, insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
-3. Toque **em Avançar**.
+3. Toque em **Seguinte**.
 4. Forneça suas credenciais quando solicitado.
    - Para **nome de usuário**, dê ao nome de usuário permissão para acessar recursos.
    - Para **senha**, forneça a senha associada ao nome de usuário.
    - Você também poderá ser solicitado a fornecer fatores adicionais se o administrador configurou a autenticação dessa maneira.
-5. Toque em **salvar**.
+5. Toque em **Guardar**.
 
 Depois disso, a central de conexões deve exibir os recursos remotos.
 

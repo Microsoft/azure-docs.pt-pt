@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: criar aplicativo-LUIS'
 titleSuffix: Azure Cognitive Services
-description: Crie uma aplicação LUIS que utilize o domínio pré-concebido `HomeAutomation` para ligar e desligar as luzes e os eletrodomésticos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
+description: Este guia de início rápido mostra como criar um aplicativo LUIS que usa o domínio predefinido `HomeAutomation` para ativar e desativar as luzes e os dispositivos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -9,42 +9,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73613740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448106"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
-
 Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-concebido `HomeAutomation` para ligar e desligar as luzes e os eletrodomésticos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para este artigo, precisa de uma conta de LUIS gratuita criada no portal do LUIS em [https://www.luis.ai](https://www.luis.ai). 
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
-Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações). 
+Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações).
 
 1. No portal do LUIS, na lista meus aplicativos, selecione **+ criar**.
 
     ![No portal do LUIS, na lista meus aplicativos, selecione ' + criar.](./media/create-app-in-portal.png)
 
-1. Na caixa de diálogo, nomeie seu aplicativo `Home Automation`, em seguida, selecione **concluído**. LUIS cria o aplicativo. A descrição é opcional e não é usada para criação ou previsão. O recurso de previsão também é opcional ao criar um aplicativo LUIS. Ao publicar seu aplicativo para produção, você deve atribuir um recurso de previsão para que seu aplicativo possa lidar com muitas solicitações.  
+1. Na caixa de diálogo, nomeie seu aplicativo `Home Automation`, em seguida, selecione **concluído**. LUIS cria o aplicativo. A descrição é opcional e não é usada para criação ou previsão. O recurso de previsão também é opcional ao criar um aplicativo LUIS. Ao publicar seu aplicativo para produção, você deve atribuir um recurso de previsão para que seu aplicativo possa lidar com muitas solicitações.
 
     ![Na caixa de diálogo, nomeie o aplicativo ' Home Automation '](./media/create-new-app-details.png)
 
     >[!NOTE]
-    >A cultura não pode ser alterada assim que a aplicação for criada. 
+    >A cultura não pode ser alterada assim que a aplicação for criada.
 
 ## <a name="add-prebuilt-domain"></a>Adicionar um domínio pré-concebido
 
@@ -61,7 +55,7 @@ Selecione **tentativas** para revisar as tentativas de domínio HomeAutomation. 
 ![Captura de tela da lista de tentativas de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de tentativas de HomeAutomation")
 
 > [!NOTE]
-> **None** (Nenhuma) é uma intenção fornecida por todas as aplicações LUIS. Pode utilizá-la para processar expressões que não correspondem à funcionalidade que a sua aplicação fornece. 
+> **None** (Nenhuma) é uma intenção fornecida por todas as aplicações LUIS. Pode utilizá-la para processar expressões que não correspondem à funcionalidade que a sua aplicação fornece.
 
 Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção contém uma lista de expressões que têm etiquetas de entidades.
 
@@ -72,7 +66,7 @@ Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção con
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Testar a aplicação
-Assim que preparar a sua aplicação, pode testá-la. Selecione **testar**. Digite um expressão de teste como `Turn off the lights` no painel de teste interativo e pressione Enter. 
+Assim que preparar a sua aplicação, pode testá-la. Selecione **testar**. Digite um expressão de teste como `Turn off the lights` no painel de teste interativo e pressione Enter.
 
 ```
 Turn off the lights
@@ -88,7 +82,7 @@ Selecione **inspecionar** para examinar mais informações sobre a previsão.
 
 ![Captura de tela do painel de teste com informações de inspeção](media/luis-quickstart-new-app/test.png)
 
-Selecione **Test** (Testar) novamente para fechar o painel de teste. 
+Selecione **Test** (Testar) novamente para fechar o painel de teste.
 
 <a name="publish-your-app"></a>
 
@@ -100,7 +94,7 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
 
 ## <a name="query-the-v3-api-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão da API v3
 
-[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
 1. Na barra de endereços do navegador, para a cadeia de caracteres de consulta, verifique se as barras de nome e valor a seguir estão na URL. Se eles não estiverem na cadeia de caracteres de consulta, adicione-os:
 
@@ -201,7 +195,7 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
     ```
 
     Saiba mais sobre o [ponto de extremidade de previsão v3](luis-migration-api-v3.md).
-    
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -3,18 +3,18 @@ title: Glossário de termos – IoT Plug and Play Preview | Microsoft Docs
 description: Conceitos – um glossário de termos comuns relacionados à visualização da IoT Plug and Play.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890349"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531206"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -64,14 +64,14 @@ O Azure IoT Explorer é uma ferramenta gráfica que você pode usar para interag
 - Trabalhar com [as propriedades](#properties)do dispositivo.
 - Chame os [comandos](#commands)do dispositivo.
 
-## <a name="azure-iot-hub"></a>Azure IoT Hub
+## <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de mensagens para assegurar a comunicação bidirecional entre a aplicação IoT e os dispositivos que esta gere. Os [dispositivos IoT plug and Play](#iot-plug-and-play-device) podem se conectar a um hub IOT. Uma solução de IoT usa um hub IoT para habilitar:
 
 - Dispositivos para enviar telemetria a uma solução baseada em nuvem.
 - Uma solução baseada em nuvem para gerenciar dispositivos conectados.
 
-## <a name="azure-iot-device-sdk"></a>SDK do dispositivo IoT do Azure
+## <a name="azure-iot-device-sdk"></a>Azure IoT Device SDK
 
 Há SDKs de dispositivo para vários idiomas que você pode usar para criar aplicativos cliente de dispositivo de Plug and Play de IoT. Um dos requisitos para a [certificação do dispositivo](#device-certification) é que o código do cliente do dispositivo usa um dos SDKs do dispositivo IOT do Azure.
 
@@ -105,7 +105,7 @@ Um modelo de funcionalidade de dispositivo descreve um [dispositivo de plug and 
 
 ## <a name="device-certification"></a>Certificação de dispositivo
 
-A certificação de dispositivo é o processo de certificação de um [dispositivo de plug and Play IOT](#iot-plug-and-play-device) para que ele possa ser adicionado ao [Catálogo de dispositivos certificado para IOT](#certified-for-iot-device-catalog) e seu [modelo de funcionalidade de dispositivo](#device-capability-model) e [interfaces](#interface) adicionados ao [modelo público repositório](#public-model-repository).
+A certificação de dispositivo é o processo de certificação de um [dispositivo de plug and Play IOT](#iot-plug-and-play-device) para que ele possa ser adicionado ao [Catálogo de dispositivos certificado para IOT](#certified-for-iot-device-catalog) e seu [modelo de funcionalidade de dispositivo](#device-capability-model) e [interfaces](#interface) adicionados ao [repositório de modelo público](#public-model-repository).
 
 ## <a name="device-developer"></a>Programador de dispositivo
 
@@ -115,7 +115,7 @@ Um desenvolvedor de dispositivo usa um [modelo de funcionalidade de dispositivo]
 
 Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital de definição de entrelaçamento](#digital-twin-definition-language) para modelar os recursos de um [dispositivo de plug and Play IOT](#iot-plug-and-play-device). O modelo pode ser compartilhado usando um repositório de modelo. Um desenvolvedor de dispositivos pode gerar um esqueleto do código de dispositivo do modelo. Um [desenvolvedor de soluções](#solution-developer) pode configurar uma solução de IOT do modelo.
 
-## <a name="device-provisioning-service"></a>Serviço de provisionamento de dispositivos
+## <a name="device-provisioning-service"></a>Serviço de Aprovisionamento de Dispositivos
 
 O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/preview/overview-iot-central-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
@@ -155,7 +155,7 @@ A linguagem de consulta do Hub IoT é usada para várias finalidades. Por exempl
 
 Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de capacidade de dispositivo](#device-capability-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação inteligente do agricultura. Você pode escrever uma solução de IoT hospedada na nuvem para comando, controlar e receber dados de dispositivos de Plug and Play de IoT. O [Catálogo de dispositivos Azure Certified para IOT](#certified-for-iot-device-catalog) lista os dispositivos plug and Play IOT disponíveis. Cada dispositivo de Plug and Play IoT no catálogo foi validado e tem um [modelo de funcionalidade de dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Centro de parceiros da Microsoft
+## <a name="microsoft-partner-center"></a>Centro de Parceiros da Microsoft
 
 O [Microsoft Partner Center](https://docs.microsoft.com/partner-center/) é onde sua organização gerencia sua relação de ponta a ponta com a Microsoft. Você precisa de uma conta do Microsoft Partner Center para poder certificar seu [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) no portal do [Azure Certified para IOT](#azure-certified-for-iot-portal).
 
@@ -179,15 +179,15 @@ As propriedades são campos de dados definidos em uma [interface](#interface) qu
 
 Há um único repositório de modelo público que armazena [modelos de recursos de dispositivo](#device-capability-model) e [interfaces](#interface) para [dispositivos certificados](#device-certification). O repositório de modelo público também armazena definições de [interface comuns](#common-interface) .
 
-## <a name="registration-id"></a>ID de registro
+## <a name="registration-id"></a>ID de Registo
 
 Uma ID de registro identifica exclusivamente um dispositivo no [serviço de provisionamento de dispositivos](#device-provisioning-service). Essa ID não é igual à ID do dispositivo que é um identificador exclusivo para um dispositivo em um [Hub IOT](#azure-iot-hub).
 
-## <a name="scope-id"></a>ID do escopo
+## <a name="scope-id"></a>ID de Âmbito
 
 O escopo da ID de escopo identifica exclusivamente uma instância do [serviço de provisionamento de dispositivos](#device-provisioning-service) .
 
-## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
+## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
 
 As assinaturas de acesso compartilhado são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. A autenticação de assinatura de acesso compartilhado tem dois componentes: uma política de acesso compartilhado e uma assinatura de acesso compartilhado (geralmente chamada de token). Um [dispositivo de plug and Play IOT](#iot-plug-and-play-device) usa uma assinatura de acesso compartilhado para autenticar com um [Hub IOT](#azure-iot-hub).
 

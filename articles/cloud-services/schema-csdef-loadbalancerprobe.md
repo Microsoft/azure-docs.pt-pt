@@ -1,5 +1,5 @@
 ---
-title: Def. de serviços de nuvem do Azure. Esquema LoadBalancerProbe | Microsoft Docs
+title: Esquema de Def. LoadBalancerProbe do Azure Cloud Services | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -7,16 +7,16 @@ ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449060"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição de serviços de nuvem do Azure
-A investigação do balanceador de carga é uma investigação de integridade definida pelo cliente de pontos de extremidade UDP e pontos de extremidade em instâncias de função. O `LoadBalancerProbe` não é um elemento autônomo; ele é combinado com a função Web ou função de trabalho em um arquivo de definição de serviço. Um `LoadBalancerProbe` pode ser usado por mais de uma função.
+A investigação do balanceador de carga é uma investigação de integridade definida pelo cliente de pontos de extremidade UDP e pontos de extremidade em instâncias de função. O `LoadBalancerProbe` não é um elemento autônomo; Ele é combinado com a função Web ou função de trabalho em um arquivo de definição de serviço. Uma `LoadBalancerProbe` pode ser usada por mais de uma função.
 
 A extensão padrão para o arquivo de definição de serviço é. csdef.
 
@@ -41,27 +41,27 @@ Se você usar uma investigação personalizada do balanceador de carga, deverá 
 ```
 
 ## <a name="schema-elements"></a>Elementos de esquema
-O `LoadBalancerProbes` elemento do arquivo de definição de serviço inclui os seguintes elementos:
+O elemento `LoadBalancerProbes` do arquivo de definição de serviço inclui os seguintes elementos:
 
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
 ##  <a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
-O `LoadBalancerProbes` elemento descreve a coleção de investigações do balanceador de carga. Esse é o elemento pai do [elemento LoadBalancerProbe](#LoadBalancerProbe). 
+O elemento `LoadBalancerProbes` descreve a coleção de investigações do balanceador de carga. Esse é o elemento pai do [elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
 ##  <a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
-O `LoadBalancerProbe` elemento define a investigação de integridade para um modelo. Você pode definir várias investigações do balanceador de carga. 
+O elemento `LoadBalancerProbe` define a investigação de integridade para um modelo. Você pode definir várias investigações do balanceador de carga. 
 
-A tabela a seguir descreve os atributos do `LoadBalancerProbe` elemento:
+A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 
-|Atributo|Type|Descrição|
+|Atributo|Tipo|Descrição|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Necessário. O nome da investigação do balanceador de carga. O nome tem de ser exclusivo.|
+| `name`              | `string` | Necessário. O nome da investigação do balanceador de carga. O nome deve ser exclusivo.|
 | `protocol`          | `string` | Necessário. Especifica o protocolo do ponto de extremidade. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, uma confirmação recebida será necessária para que a investigação seja bem-sucedida. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a investigação seja bem-sucedida.|
-| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path`será obrigatório se `protocol` for definido como `http`. Caso contrário, isso não é permitido.<br /><br /> Não há valor padrão.|
+| `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` estiver definido como `http`. Caso contrário, isso não é permitido.<br /><br /> Não há valor padrão.|
 | `port`              | `integer` | Opcional. A porta para comunicar a investigação. Isso é opcional para qualquer ponto de extremidade, pois a mesma porta será usada para a investigação. Você também pode configurar uma porta diferente para sua investigação. Os valores possíveis variam de 1 a 65535, inclusive.<br /><br /> O valor padrão é definido pelo ponto de extremidade.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade do ponto de extremidade. Normalmente, o intervalo é um pouco menor que metade do período de tempo limite alocado (em segundos) que permite duas investigações completas antes de tirar a instância da rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à investigação em que nenhuma resposta resultará na interrupção do tráfego adicional de ser entregue ao ponto de extremidade. Esse valor permite que os pontos de extremidade sejam retirados da rotação de forma mais rápida ou mais lenta do que os horários típicos usados no Azure (que são os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Veja também
 [Esquema de definição do serviço de nuvem (clássico)](schema-csdef-file.md)

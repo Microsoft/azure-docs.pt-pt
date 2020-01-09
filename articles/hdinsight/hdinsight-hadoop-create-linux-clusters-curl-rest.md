@@ -2,18 +2,18 @@
 title: Criar clusters de Apache Hadoop usando a API REST do Azure-Azure
 description: Saiba como criar clusters HDInsight enviando Azure Resource Manager modelos para a API REST do Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: hrasheed
-ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435533"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters Apache Hadoop usando a API REST do Azure
 
@@ -306,7 +306,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Se essa solicitação for bem-sucedida, você receberá uma resposta da série 200 e o corpo da resposta conterá um documento JSON que contém informações sobre o grupo. O elemento `"provisioningState"` contém um valor de `"Succeeded"`.
 
-## <a name="create-a-deployment"></a>Criar uma implantação
+## <a name="create-a-deployment"></a>Criar uma implementação
 
 Use o comando a seguir para implantar o modelo no grupo de recursos.
 
@@ -343,7 +343,7 @@ Esse comando retorna um documento JSON que contém informações sobre a operaç
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](hdinsight-hadoop-create-linux-clusters-portal.md).
+Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -352,7 +352,6 @@ Agora que você criou um cluster HDInsight com êxito, use o seguinte para apren
 ### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
 
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase

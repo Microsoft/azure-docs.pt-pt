@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371399"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -56,16 +56,21 @@ Use o comando a seguir para executar um teste de benchmark de desempenho.
 | **Sintaxe** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> Este exemplo inclui argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 Esse comando executa um parâmetro de comparação de desempenho carregando dados de teste para um destino especificado. Os dados de teste são gerados na memória, carregados no destino e, em seguida, excluídos do destino após a conclusão do teste. Você pode especificar quantos arquivos serão gerados e qual tamanho você gostaria que eles estivéssemos usando parâmetros de comando opcionais.
+
+Para obter documentos de referência detalhados, consulte [bancada de azcopy](storage-ref-azcopy-bench.md).
 
 Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy bench -h` e pressione a tecla ENTER.
 
 ### <a name="optimize-throughput"></a>Otimizar taxa de transferência
 
-Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados da taxa de transferência. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
+Você pode usar o sinalizador `cap-mbps` em seus comandos para inserir um teto na taxa de dados de produtividade. Por exemplo, o comando a seguir retoma um trabalho e a taxa de transferência de Caps para `10` megabits (MB) por segundo. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
@@ -146,6 +151,9 @@ Use o comando a seguir para retomar um trabalho com falha/cancelado. Esse comand
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> Coloque argumentos de caminho, como o token SAS com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabalho. O arquivo de plano lista todos os arquivos que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando você retomar um trabalho, o AzCopy tentará transferir todos os arquivos listados no arquivo de plano que ainda não foram transferidos.
 

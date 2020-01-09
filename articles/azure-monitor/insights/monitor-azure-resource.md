@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888789"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529699"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorando recursos do Azure com o Azure Monitor
 Quando você tem aplicativos críticos e processos de negócios que dependem de recursos do Azure, você deseja monitorar esses recursos para sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitoramento gerados pelos recursos do Azure e como você pode usar os recursos do Azure Monitor para analisar e alertar sobre esses dados.
@@ -127,7 +127,7 @@ Os logs de Azure Monitor consolida os logs e as métricas de vários serviços e
 
 - Consulte Introdução [às consultas de log no Azure monitor](../log-query/get-started-queries.md) para obter um tutorial sobre como usar a linguagem de consulta usada para gravar consultas de log.
 - Consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](../platform/resource-logs-collect-workspace.md) para obter informações sobre como os logs de recursos são coletados nos logs de Azure monitor e detalhes sobre como acessá-los em uma consulta.
-- Consulte [modo de coleta](../platform/resource-logs-collect-workspace.md#collection-mode) para obter uma explicação de como os dados de log de recursos são estruturados em Logs de Azure monitor.
+- Consulte [modo de coleta](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) para obter uma explicação de como os dados de log de recursos são estruturados em Logs de Azure monitor.
 - Consulte a documentação de cada serviço do Azure para obter detalhes sobre sua tabela em logs de Azure Monitor.
 
 ![Registos](media/monitor-azure-resource/logs.png)

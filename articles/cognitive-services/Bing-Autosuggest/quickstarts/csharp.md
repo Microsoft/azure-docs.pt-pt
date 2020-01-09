@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Sugira consultas de pesquisa com a API REST do Sugestão Automática do Bing eC#'
+title: 'Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing eC#'
 titleSuffix: Azure Cognitive Services
 description: Saiba como começar a sugerir rapidamente os termos de pesquisa em tempo real com o API de Sugestão Automática do Bing.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: bf5322b64b46854d2652c6edf264e25ce0be3d0f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 281286eb497e52d4553ac539d647625e49f3df9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448822"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Início rápido: Sugira consultas de pesquisa com a API REST do Sugestão Automática do Bing eC#
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing eC#
 
 Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo C# simples envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
@@ -40,7 +40,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
     using System.Text;
     ```
 
-2. Em uma nova classe, crie variáveis para o host e o caminho da API, o [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial.
+2. Em uma nova classe, crie variáveis para o host e o caminho da API, o [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -54,7 +54,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar uma solicitação de API
 
-1. Crie uma função chamada `Autosuggest()` para enviar uma solicitação à API. Crie um novo `HttpClient()`e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
+1. Crie uma função chamada `Autosuggest()` para enviar uma solicitação à API. Crie um novo `HttpClient()`e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
     ```csharp
     async static void Autosuggest()
@@ -65,7 +65,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
     }
     ```
 
-2. Na mesma função acima, crie um URI de solicitação combinando o caminho e o host da API. Acrescente seu mercado ao `?mkt=` parâmetro e sua consulta para o `&query=` parâmetro. Certifique-se de codificar por URL sua consulta. 
+2. Na mesma função acima, crie um URI de solicitação combinando o caminho e o host da API. Acrescente seu mercado ao parâmetro `?mkt=` e sua consulta ao parâmetro `&query=`. Certifique-se de codificar por URL sua consulta. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
@@ -163,7 +163,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

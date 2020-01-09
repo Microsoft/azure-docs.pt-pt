@@ -1,5 +1,6 @@
 ---
-title: Tutorial para a integração com um pipeline de integração e entrega contínua usando a configuração do Azure App | Microsoft Docs
+title: 'Tutorial: integrar com um pipeline de integração e entrega contínua'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a gerar um arquivo de configuração usando dados na configuração Azure App durante a integração e a entrega contínuas
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433642"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -98,7 +99,7 @@ Para fazer uma compilação em nuvem, com o Azure DevOps, por exemplo, verifique
 
     ![Local de inicialização do aplicativo de início rápido](./media/quickstarts/aspnet-core-app-launch-local.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você exportou Azure App dados de configuração a serem usados em um pipeline de implantação. Para saber mais sobre como usar a configuração de aplicativo, prossiga para os exemplos de CLI do Azure.
 

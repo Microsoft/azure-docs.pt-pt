@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424500"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -36,7 +36,7 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e, em seguida, **Alterne o diretório**.
 1. Depois que o painel **diretório + assinatura** for aberto, escolha o Active Directory locatário no qual você deseja registrar seu aplicativo, na lista **favoritos** ou **todos os diretórios** .
 1. Selecione **todos os serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
@@ -125,7 +125,7 @@ Depois de adicionar funções de aplicativo em seu aplicativo, você pode atribu
 
 - [Autorização em um aplicativo Web usando funções de aplicativo do Azure AD &amp; declarações de função (exemplo)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto do aplicativo Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Tokens de acesso do AAD](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

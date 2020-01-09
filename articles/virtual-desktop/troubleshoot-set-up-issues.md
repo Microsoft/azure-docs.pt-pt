@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
-ms.translationtype: MT
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459488"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -59,7 +59,7 @@ Exemplo de erro bruto:
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Criando VMs do host de sessão de área de trabalho virtual do Windows
 
-As VMs de host de sessão podem ser criadas de várias maneiras, mas as equipes de área de trabalho virtual Serviços de Área de Trabalho Remota/Windows só dão suporte a problemas de provisionamento de VM relacionados ao modelo de Azure Resource Manager. O modelo de Azure Resource Manager está disponível no [Azure Marketplace](https://azuremarketplace.microsoft.com/) e no [GitHub](https://github.com/).
+As VMs de host de sessão podem ser criadas de várias maneiras, mas a equipe de área de trabalho virtual do Windows dá suporte apenas a problemas de provisionamento de VM relacionados à oferta do [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Para obter mais detalhes, consulte [problemas usando a área de trabalho virtual do Windows-provisionar uma oferta do Azure Marketplace no pool de hosts](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemas ao usar a área de trabalho virtual do Windows – provisionar uma oferta do Azure Marketplace no pool
 
@@ -87,6 +87,27 @@ O modelo de área de trabalho virtual do Windows – provisionar um pool de host
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Erro: você recebe o erro "a implantação do modelo não é válida"
+
+![Captura de tela de "implantação de modelo... erro inválido "](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Antes de tomar uma ação específica, você precisará verificar o log de atividades para ver o erro detalhado da validação de implantação com falha.
+
+Para exibir o erro no log de atividades:
+
+1. Saia da oferta de implantação atual do Azure Marketplace.
+2. Na barra de pesquisa superior, procure e selecione **log de atividades**.
+3. Localize uma atividade denominada **validar implantação** que tenha um status de **falha** e selecione a atividade.
+   ![captura de tela de atividade individual * * validar a implantação * * com um * * status * * Falha](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Selecione JSON e role para baixo até a parte inferior da tela até ver o campo "statusMessage".
+   ![captura de tela da atividade com falha, com uma caixa vermelha em torno da propriedade statusMessage do texto JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+Se o modelo de operação passar pelo limite de cota, você poderá executar uma das seguintes ações para corrigi-lo:
+
+ - Execute o Azure Marketplace com os parâmetros que você usou na primeira vez, mas desta vez use menos VMs e núcleos de VM.
+ - Abra o link que você vê no campo **statusMessage** em um navegador para enviar uma solicitação para aumentar a cota de sua assinatura do Azure para a SKU de VM especificada.
 
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager modelo e erros de DSC (configuração de estado desejado) do PowerShell
 
@@ -346,9 +367,10 @@ Se você estiver executando o modelo de Azure Resource Manager do GitHub, forne�
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
-- Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [área de trabalho remota conexões de cliente](troubleshoot-client-connection.md).
+- Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
+- Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
-- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho virtual do Windows](environment-setup.md).
+- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](../azure-resource-manager/resource-group-audit.md).
+- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](../azure-resource-manager/resource-manager-deployment-operations.md).

@@ -1,26 +1,20 @@
 ---
-title: Conectando dados de Azure AD Identity Protection ao Azure Sentinel | Microsoft Docs
+title: Conectar Azure AD Identity Protection dados ao Azure Sentinel
 description: Saiba como conectar Azure AD Identity Protection dados ao Azure Sentinel.
-services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d73ce12d509b2ccc534e19a27124980f3b60044
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8d916606913b19a9eb15cb280defbeb0440565e4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158898"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563722"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar dados de Azure AD Identity Protection
 

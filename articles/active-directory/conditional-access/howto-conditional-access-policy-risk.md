@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dcdd89ba7741257443cf5e7567c59a6986e43c20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424835"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Acesso condicional: acesso condicional com base em risco
 
@@ -30,7 +30,7 @@ Organizações com licenças Azure AD Premium P2 podem criar políticas de acess
 
 Habilitar essa política exigirá que todos os usuários se registrem para a autenticação multifator do Azure dentro de 14 dias. 
 
-1. Inicie sessão no **portal do Azure**.
+1. Inicie sessão no **Portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique em **Registo na MFA**.
 1. Em **atribuições**, selecione **usuários**.
@@ -44,7 +44,7 @@ Habilitar essa política exigirá que todos os usuários se registrem para a aut
 
 A Microsoft trabalha com investigadores, entidades responsáveis pela aplicação da lei, várias equipas de segurança da Microsoft e outras origens fidedignas para localizar os pares de nome de utilizador e palavra-passe. Quando um destes pares corresponde a uma conta no seu ambiente, pode ser acionada uma alteração de palavra-passe baseada em risco, com a política seguinte.
 
-1. Inicie sessão no **portal do Azure**.
+1. Inicie sessão no **Portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique em **política de risco do usuário**.
 1. Em **atribuições**, selecione **usuários**
@@ -62,7 +62,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
 
 A maioria dos utilizadores tem um comportamento normal que pode ser controlado. Quando fugirem a esta norma, pode ser arriscado permitir-lhes iniciar sessão. Talvez você queira bloquear esse usuário ou talvez apenas pedir que eles executem a autenticação multifator para provar que eles são realmente quem dizem que estão. Para ativar uma política que exija a MFA quando é detetado um risco de início de sessão, ative a política seguinte.
 
-1. Inicie sessão no **portal do Azure**.
+1. Inicie sessão no **Portal do Azure**.
 1. Clique em **Todos os serviços** e, em seguida, procure **Azure AD Identity Protection**.
 1. Clique na **política de risco de entrada**
 1. Em **atribuições**, selecione **usuários**
@@ -79,6 +79,8 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
 ## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
+
+[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
 
 [Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)
 

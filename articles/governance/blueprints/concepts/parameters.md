@@ -3,12 +3,12 @@ title: Usar parâmetros para criar plantas dinâmicas
 description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los para criar plantas dinâmicas e seguras.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128931"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644975"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando plantas dinâmicas por meio de parâmetros
 
@@ -40,7 +40,7 @@ Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo sis
 Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo usuário**, o Key Vault referenciado _poderá_ existir em uma assinatura centralizada. A identidade gerenciada deve receber os direitos apropriados no Key Vault antes da atribuição de Blueprint.
 
 > [!IMPORTANT]
-> Em ambos os casos, o Key Vault deve ter **habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **políticas de acesso** . Para obter instruções sobre como habilitar esse recurso, consulte [Key Vault-habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> Em ambos os casos, o Key Vault deve ter **habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **políticas de acesso** . Para obter instruções sobre como habilitar esse recurso, consulte [Key Vault-habilitar implantação de modelo](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para obter mais informações sobre Azure Key Vault, consulte [Key Vault visão geral](../../../key-vault/key-vault-overview.md).
 
@@ -52,7 +52,7 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado d
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Configurando parâmetros estáticos no portal
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione **definições de plantas** na página à esquerda.
 
@@ -169,7 +169,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Configurando parâmetros dinâmicos no portal
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione **definições de plantas** na página à esquerda.
 

@@ -1,33 +1,33 @@
 ---
 title: Usar o PowerShell para criar uma SAS de delegação de usuário para um contêiner ou BLOB
 titleSuffix: Azure Storage
-description: Saiba como criar uma SAS de delegação de usuário (versão prévia) com credenciais de Azure Active Directory usando o PowerShell.
+description: Saiba como criar uma SAS de delegação de usuário com credenciais de Azure Active Directory usando o PowerShell.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892520"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371785"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell (versão prévia)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Este artigo mostra como usar as credenciais do Azure Active Directory (AD do Azure) para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell (versão prévia).
+Este artigo mostra como usar as credenciais do Azure Active Directory (AD do Azure) para criar uma SAS de delegação de usuário para um contêiner ou BLOB com Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Instalar o módulo de visualização
+## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
-Para usar o PowerShell para criar uma SAS de delegação de usuário, você deve primeiro instalar o módulo AZ. Storage 1.3.1-Preview. Siga estas etapas para instalar o módulo:
+Para criar uma SAS de delegação de usuário com o PowerShell, instale a versão 1.10.0 ou posterior do módulo AZ. Storage. Siga estas etapas para instalar a versão mais recente do módulo:
 
 1. Desinstale todas as instalações anteriores do Azure PowerShell:
 
@@ -48,23 +48,18 @@ Para usar o PowerShell para criar uma SAS de delegação de usuário, você deve
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Instalar um módulo de visualização do armazenamento do Azure que dá suporte à SAS de delegação de usuário:
+1. Certifique-se de ter instalado Azure PowerShell versão 3.2.0 ou posterior. Execute o seguinte comando para instalar a versão mais recente do módulo do Azure Storage PowerShell:
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Feche e reabra a janela do PowerShell.
 
-Como o PowerShell carrega o módulo AZ. Storage mais recente por padrão, talvez seja necessário carregar explicitamente o módulo 1.3.1-Preview ao iniciar o console. Para carregar explicitamente o módulo de visualização, execute o comando [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
+Para verificar qual versão do módulo AZ. Storage está instalada, execute o seguinte comando:
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Para obter mais informações sobre como instalar Azure PowerShell, consulte [instalar Azure PowerShell com PowerShellGet](/powershell/azure/install-az-ps).

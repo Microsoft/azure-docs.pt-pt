@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460183"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -26,7 +26,7 @@ Crie uma nova VM anexando um disco gerenciado especializado como o disco do sist
 
 Quando você usa um VHD especializado para criar uma nova VM, a nova VM retém o nome do computador da VM original. Outras informações específicas do computador também são mantidas e, em alguns casos, essas informações duplicadas podem causar problemas. Ao copiar uma VM, lembre-se de quais tipos de informações específicas do computador seus aplicativos dependem.
 
-Você tem várias opções:
+Tem várias opções:
 * [Use um disco gerenciado existente](#option-1-use-an-existing-disk). Essa opção será útil se você tiver uma VM que não está funcionando corretamente. Você pode excluir a VM e, em seguida, reutilizar o disco gerenciado para criar uma nova VM. 
 * [Carregar um VHD](#option-2-upload-a-specialized-vhd) 
 * [Copiar uma VM do Azure existente usando instantâneos](#option-3-copy-an-existing-azure-vm)
@@ -70,7 +70,7 @@ Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter 
 
 Você pode criar uma cópia de uma VM que usa discos gerenciados tirando um instantâneo da VM e, em seguida, usando esse instantâneo para criar um novo disco gerenciado e uma nova VM.
 
-Se você quiser copiar uma VM existente para outra região, talvez queira usar azcopy para criar [uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Se você quiser copiar uma VM existente para outra região, talvez queira usar o azcopy para [criar uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Tirar um instantâneo do disco do sistema operacional
 

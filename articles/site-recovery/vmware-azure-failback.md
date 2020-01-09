@@ -7,99 +7,60 @@ ms.service: site-recovery
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 2ec2a4a91f4de0761f631bec393bb90c3feb82b9
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084065"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495321"
 ---
-# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Realizar failback de VMs VMware e servidores físicos do Azure para um site local
+# <a name="fail-back-vmware-vms-to-on-premises-site"></a>Failback de VMs do VMware para o site local
 
-Este artigo descreve como fazer failback de máquinas virtuais de máquinas virtuais do Azure para um ambiente VMware local. Siga as instruções neste artigo para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure usando o [Azure site Recovery](site-recovery-failover.md) tutorial do.
+Este artigo descreve como fazer failback de VMs do Azure para um site local, seguindo o [failover](site-recovery-failover.md) de VMs locais para o Azure com [Azure site Recovery](site-recovery-overview.md). Após o failback para o local, você habilita a replicação para que as VMs locais iniciem a replicação no Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
-- Verifique se você leu os detalhes sobre os [diferentes tipos de failback](concepts-types-of-failback.md) e as advertências correspondentes.
+## <a name="before-you-start"></a>Antes de começar
 
-> [!WARNING]
-> Não é possível realizar o failback depois de [concluir a migração](migrate-overview.md#what-do-we-mean-by-migration), mover uma máquina virtual para outro grupo de recursos ou excluir a máquina virtual do Azure. Se você desabilitar a proteção da máquina virtual, não poderá fazer failback.
+1. Saiba mais sobre o [failback do VMware](failover-failback-overview.md#vmwarephysical-reprotectionfailback). 
+2. Verifique se você analisou e concluiu as etapas para [se preparar para o failback](vmware-azure-prepare-failback.md)e se todos os componentes necessários foram implantados. Os componentes incluem um servidor de processo no Azure, um servidor de destino mestre local e uma conexão VPN site a site (ou emparelhamento privado do ExpressRoute) para failback.
+3. Verifique se você concluiu os [requisitos](vmware-azure-reprotect.md#before-you-begin) de nova proteção e failback e se [habilitou](vmware-azure-reprotect.md#enable-reprotection) a nova proteção de VMs do Azure, para que elas estejam replicando do Azure para o site local. As VMs devem estar em um estado replicado para fazer failback.
 
-> [!WARNING]
-> Um servidor físico do Windows Server 2008 R2 SP1, se protegido e com failover no Azure, não poderá ser reprovado.
+
+
+
+## <a name="run-a-failover-to-fail-back"></a>Executar um failover para failback
+
+1. Verifique se as VMs do Azure são protegidas novamente e replicando para o site local. 
+    - Uma VM precisa de pelo menos um ponto de recuperação para realizar o failback.
+    - Se você fizer failback de um plano de recuperação, todos os computadores no plano deverão ter pelo menos um ponto de recuperação.
+2. No cofre > **itens replicados**, selecione a VM. Clique com o botão direito do mouse na VM > **failover não planejado**.
+3. Em **confirmar failover**, verifique a direção do failover (do Azure).
+4. Selecione o ponto de recuperação que pretende utilizar para a ativação pós-falha.
+    - Recomendamos que você use o ponto de recuperação **mais recente** . O ponto consistente com o aplicativo está atrás do último ponto no tempo e causa perda de dados.
+    - O **mais recente** é um ponto de recuperação consistente com falhas.
+    - Com o **mais recente**, uma VM faz failover para seu ponto no tempo mais recente disponível. Se você tiver um grupo de replicação para consistência de várias VMs em um plano de recuperação, cada VM no grupo passará por failover para seu último ponto independente no tempo.
+    - Se você usar um ponto de recuperação consistente com o aplicativo, cada VM fará failback para o último ponto disponível. Se um plano de recuperação tiver um grupo de replicação, cada grupo será recuperado para seu ponto de recuperação disponível comum.
+5. O failover começa. Site Recovery desliga as VMs do Azure.
+6. Após a conclusão do failover, verifique se tudo está funcionando conforme o esperado. Verifique se as VMs do Azure estão desligadas. 
+7. Com tudo verificado, clique com o botão direito do mouse na VM > **confirmar**para concluir o processo de failover. A confirmação remove a VM do Azure com failover. 
 
 > [!NOTE]
-> Se você tiver feito failover de máquinas virtuais VMware, não poderá fazer failback para um host Hyper-V.
+> Para VMs do Windows, Site Recovery desabilita as ferramentas do VMware durante o failover. Durante o failback da VM do Windows, as ferramentas do VMware são habilitadas novamente. 
 
 
-- Antes de continuar, conclua as etapas de nova proteção para que as máquinas virtuais estejam em um estado replicado e você possa iniciar um failover de volta para um site local. Para obter mais informações, consulte [como proteger novamente do Azure para o local](vmware-azure-reprotect.md).
-
-- Verifique se o vCenter está em um estado conectado antes de fazer um failback. Caso contrário, desconectar os discos e anexá-los de volta à máquina virtual falhará.
-
-- Durante o failover para o Azure, o site local pode não estar acessível e o servidor de configuração pode estar indisponível ou desligado. Durante a nova proteção e o failback, o servidor de configuração local deve estar em execução e em um estado OK conectado. 
-
-- Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração ou o failback não terá sucesso. Certifique-se de fazer backups agendados regularmente do seu servidor. Se ocorrer um desastre, você precisará restaurar o servidor com o endereço IP original para que o failback funcione.
-
-- O servidor de destino mestre não deve ter nenhum instantâneo antes de disparar a nova proteção/failback.
-
-## <a name="overview-of-failback"></a>Visão geral do failback
-Depois de realizar o failover no Azure, você pode fazer failback para o site local executando as seguintes etapas:
-
-1. [Proteja](vmware-azure-reprotect.md) novamente as máquinas virtuais no Azure para que elas comecem a ser replicadas para máquinas virtuais VMware em seu site local. Como parte desse processo, você também precisa:
-
-    * Configure um destino mestre local. Use um destino mestre do Windows para máquinas virtuais do Windows e um [destino mestre do Linux](vmware-azure-install-linux-master-target.md) para máquinas virtuais do Linux.
-    * Configurar um [servidor de processo](vmware-azure-set-up-process-server-azure.md).
-    * Inicie a nova [proteção](vmware-azure-reprotect.md) para desligar a máquina virtual local e sincronizar os dados da máquina virtual do Azure com os discos locais.
-
-2. Depois que as máquinas virtuais no Azure são replicadas para seu site local, você inicia um failover do Azure para o site local.
-
-3. Após a realização do failback dos dados, você protege novamente as máquinas virtuais locais novamente para que elas comecem a replicar no Azure.
-
-Para obter uma visão geral rápida, Assista ao vídeo a seguir sobre como fazer failback para um site local:
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
-
-
-## <a name="steps-to-fail-back"></a>Etapas para failback
-
-> [!IMPORTANT]
-> Antes de iniciar o failback, certifique-se de que você terminou a nova proteção das máquinas virtuais. As máquinas virtuais devem estar em um estado protegido e sua integridade deve estar **OK**. Para proteger novamente as máquinas virtuais, leia [como proteger](vmware-azure-reprotect.md)novamente.
-
-1. Na página itens replicados, selecione a máquina virtual. Clique com o botão direito do mouse para selecionar **failover não planejado**.
-2. Em **confirmar failover**, verifique a direção do failover (do Azure). Em seguida, selecione o ponto de recuperação (mais recente ou o aplicativo mais recente consistente) que você deseja usar para o failover. O ponto consistente do aplicativo está atrás do último ponto no tempo e causa perda de dados.
-3. Durante o failover, Site Recovery desliga as máquinas virtuais no Azure. Depois de verificar se o failback foi concluído conforme o esperado, você pode verificar se as máquinas virtuais no Azure foram desligadas.
-4. A **confirmação** é necessária para remover a máquina virtual com failover do Azure. Clique com o botão direito do mouse no item protegido e selecione **confirmar**. Um trabalho remove as máquinas virtuais com failover no Azure.
-
-
-## <a name="to-what-recovery-point-can-i-fail-back-the-virtual-machines"></a>Para qual ponto de recuperação posso fazer failback das máquinas virtuais?
-
-Durante o failback, você tem duas opções para fazer failback do plano de recuperação/máquina virtual.
-
-- Se você selecionar o último ponto processado no tempo, todas as máquinas virtuais passarão por failover para o ponto no tempo mais recente disponível. Se houver um grupo de replicação no plano de recuperação, cada máquina virtual do grupo de replicação passará por failover para seu último ponto no tempo independente.
-
-  Não é possível fazer failback de uma máquina virtual até que ela tenha pelo menos um ponto de recuperação. Não é possível executar failback de um plano de recuperação até que todas as suas máquinas virtuais tenham pelo menos um ponto de recuperação.
-
-  > [!NOTE]
-  > Um ponto de recuperação mais recente é um ponto de recuperação consistente com falhas.
-
-- Se você selecionar o ponto de recuperação consistente com o aplicativo, um único failback de máquina virtual será recuperado para seu ponto de recuperação consistente com o aplicativo disponível mais recente. No caso de um plano de recuperação com um grupo de replicação, cada grupo de replicação é recuperado para seu ponto de recuperação disponível comum.
-Os pontos de recuperação consistentes com o aplicativo podem ser atrasados no tempo e pode haver perda de dados.
-
-## <a name="what-happens-to-vmware-tools-post-failback"></a>O que acontece com as ferramentas do VMware após o failback?
-
-No caso de uma máquina virtual do Windows, Site Recovery desabilita as ferramentas do VMware durante o failover. Durante o failback da máquina virtual do Windows, as ferramentas do VMware são reabilitadas. 
 
 
 ## <a name="reprotect-from-on-premises-to-azure"></a>Proteger novamente do local para o Azure
-Depois que o failback for concluído e você tiver iniciado a confirmação, as máquinas virtuais recuperadas no Azure serão excluídas. Agora, a máquina virtual está de volta no site local, mas não será protegida. Para começar a replicar para o Azure novamente, faça o seguinte:
 
-1. Selecione > **configuração** do **cofre** > **itens replicados**, selecione as máquinas virtuais que realizaram failback e, em seguida, selecione **proteger novamente**.
-2. Insira o valor do servidor de processo que precisa ser usado para enviar dados de volta ao Azure.
+Depois de confirmar o failback, as VMs do Azure são excluídas. A VM está de volta no site local, mas não está protegida. Para iniciar a replicação de VMs para o Azure novamente, da seguinte maneira:
+
+1. No cofre > **itens replicados**, selecione VMs com failback e, em seguida, selecione **proteger novamente**.
+2. Especifique o servidor de processo que é usado para enviar dados de volta ao Azure.
 3. Selecione **OK** para iniciar o trabalho de nova proteção.
 
 > [!NOTE]
-> Depois que uma máquina virtual local é inicializada, leva algum tempo para que o agente seja registrado no servidor de configuração (até 15 minutos). Durante esse tempo, a nova proteção falhará e retornará uma mensagem de erro informando que o agente não está instalado. Aguarde alguns minutos e tente proteger novamente.
+> Depois que uma VM local é iniciada, leva até 15 minutos para que o agente seja registrado novamente no servidor de configuração. Durante esse tempo, a nova proteção falhará e retornará uma mensagem de erro informando que o agente não está instalado. Se isso ocorrer, aguarde alguns minutos e proteja novamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Após a conclusão do trabalho de nova proteção, a máquina virtual é replicada de volta para o Azure e você pode fazer um [failover](site-recovery-failover.md) para mover suas máquinas virtuais para o Azure novamente.
-
+Após a conclusão do trabalho de nova proteção, a VM local está replicando para o Azure. Conforme necessário, você pode [executar outro failover](site-recovery-failover.md) no Azure.
 

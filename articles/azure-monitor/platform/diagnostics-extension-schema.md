@@ -4,15 +4,15 @@ description: Relevante para coletar contadores de desempenho em máquinas virtua
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/04/2019
-ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe1c1018768c81248640521ae278bfb571934601
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552130"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395132"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração da extensão de Diagnóstico do Azure
 Esta página indexa Diagnóstico do Azure versões de esquema de extensão fornecidas como parte do SDK do Microsoft Azure.  
@@ -34,17 +34,17 @@ A extensão de Diagnóstico do Azure é usada com outros produtos de diagnóstic
 |Versão do SDK do Azure | Versão da extensão de diagnóstico | Modelo|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |plug-in|  
-|2,0-2,4         |1.0                            |plug-in|  
-|2,5               |1.2                            |extensão|  
+|2.0 - 2.4         |1.0                            |plug-in|  
+|2.5               |1.2                            |extensão|  
 |2,6               |1.3                            |"|  
-|2,7               |1,4                            |"|  
-|2,8               |1.5                            |"|  
-|2,9               |1,6                            |"|
-|2,96              |1,7                            |"|
-|2,96              |1,8                            |"|
-|2,96              |1.8.1                          |"|
-|2,96              |1,9                            |"|
-|2,96              |1,11                           |"|
+|2.7               |1.4                            |"|  
+|2.8               |1.5                            |"|  
+|2.9               |1.6                            |"|
+|2.96              |1.7                            |"|
+|2.96              |1.8                            |"|
+|2.96              |1.8.1                          |"|
+|2.96              |1.9                            |"|
+|2.96              |1,11                           |"|
 
 
  Diagnóstico do Azure versão 1,0 fornecida primeiro em um modelo de plug-in – ou seja, quando você instalou o SDK do Azure, você obteve a versão do diagnóstico do Azure fornecida com ele.  
@@ -191,7 +191,7 @@ Ao migrar do SDK do Azure 2,5 para o SDK do Azure 2,6 ou posterior, se você tiv
 * A cadeia de conexão de diagnóstico no arquivo. cscfg tem precedência sobre a conta de armazenamento no arquivo. wadcfgx. Se uma cadeia de conexão de diagnóstico for especificada no arquivo. cscfg, o Visual Studio o usará e ignorará a conta de armazenamento em. wadcfgx.
 
 #### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>O que faz o "atualizar cadeias de conexão de armazenamento de desenvolvimento..." a caixa de seleção faz?
-A caixa de seleção para **Atualizar cadeias de conexão de armazenamento de desenvolvimento para diagnóstico e cache com Microsoft Azure credenciais de conta de armazenamento ao publicar no Microsoft Azure** oferece uma maneira conveniente de atualizar qualquer conta de armazenamento de desenvolvimento cadeias de conexão com a conta de armazenamento do Azure especificada durante a publicação.
+A caixa de seleção para **Atualizar cadeias de conexão de armazenamento de desenvolvimento para diagnóstico e cache com Microsoft Azure credenciais de conta de armazenamento ao publicar no Microsoft Azure** fornece uma maneira conveniente de atualizar qualquer cadeia de conexão de conta de armazenamento de desenvolvimento com a conta de armazenamento do Azure especificada durante a publicação.
 
 Por exemplo, suponha que você marque essa caixa de seleção e a cadeia de conexão de diagnóstico especifique `UseDevelopmentStorage=true`. Quando você publicar o projeto no Azure, o Visual Studio atualizará automaticamente a cadeia de conexão de diagnóstico com a conta de armazenamento especificada no assistente de publicação. No entanto, se uma conta de armazenamento real tiver sido especificada como a cadeia de conexão de diagnóstico, essa conta será usada em seu lugar.
 
@@ -201,5 +201,5 @@ Se você estiver atualizando seu projeto do SDK do Azure 2,4 para o SDK do Azure
 * As **APIs de configuração foram preteridas** – a configuração programática do diagnóstico está disponível no SDK do Azure 2,4 ou versões anteriores, mas foi preterida no SDK do Azure 2,5 e posterior. Se sua configuração de diagnóstico estiver atualmente definida no código, você precisará reconfigurar essas configurações do zero no projeto migrado para que o diagnóstico continue funcionando. O arquivo de configuração de diagnóstico para o SDK 2,4 do Azure é Diagnostics. wadcfg e Diagnostics. wadcfgx para o SDK do Azure 2,5 e posterior.
 * **O diagnóstico para aplicativos de serviço de nuvem só pode ser configurado no nível de função, não no nível de instância.**
 * **Sempre que você implantar seu aplicativo, a configuração de diagnóstico será atualizada** – isso poderá causar problemas de paridade se você alterar a configuração de diagnóstico de Gerenciador de servidores e, em seguida, reimplantar o aplicativo.
-* **No SDK do Azure 2,5 e posteriores, os despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, será necessário transferir manualmente a configuração do código para o arquivo de configuração, pois a falha os despejos não são transferidos durante a migração para o SDK do Azure 2,6.
+* **No SDK do Azure 2,5 e posteriores, os despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, será necessário transferir manualmente a configuração do código para o arquivo de configuração, pois os despejos de memória não são transferidos durante a migração para o SDK do Azure 2,6.
 

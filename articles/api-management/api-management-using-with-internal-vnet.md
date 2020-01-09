@@ -1,5 +1,6 @@
 ---
-title: Como usar o gerenciamento de API do Azure com redes virtuais internas | Microsoft Docs
+title: Usar o gerenciamento de API do Azure com redes virtuais internas
+titleSuffix: Azure API Management
 description: Saiba como configurar e configurar o gerenciamento de API do Azure em uma rede virtual interna
 services: api-management
 documentationcenter: ''
@@ -13,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430601"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usando o serviço de gerenciamento de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, o gerenciamento de API do Azure pode gerenciar APIs não acessíveis na Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
 * Externo
-* Interna
+* Interno
 
 Quando o gerenciamento de API é implantado no modo de rede virtual interna, todos os pontos de extremidade de serviço (o gateway de proxy, o portal do desenvolvedor, o gerenciamento direto e o git) só são visíveis em uma rede virtual com a qual você controla o acesso. Nenhum dos pontos de extremidade de serviço está registrado no servidor DNS público.
 
@@ -50,7 +51,7 @@ Para executar as etapas descritas neste artigo, você deve ter:
 + Quando um serviço de gerenciamento de API é implantado em uma rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) é usada e precisa ser aberta. 
 
 ## <a name="enable-vpn"> </a>Criando um gerenciamento de API em uma rede virtual interna
-O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um balanceador de [carga interno (clássico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
+O serviço de gerenciamento de API em uma rede virtual interna é hospedado atrás de um [balanceador de carga interno (clássico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Essa é a única opção disponível e não pode ser alterada.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilitar uma conexão de rede virtual usando o portal do Azure
 
@@ -62,7 +63,7 @@ O serviço de gerenciamento de API em uma rede virtual interna é hospedado atr�
 
 4. Selecione **Guardar**.
 
-Depois que a implantação for realizada com sucesso, você deverá ver o endereço IP virtual **privado** e o endereço IP virtual **público** do seu serviço de gerenciamento de API na folha visão geral. O endereço IP virtual **privado** é um endereço IP com balanceamento de carga de dentro da sub-rede delegada do gerenciamento `gateway`de `portal`API em que os pontos de extremidade, `management` e `scm` podem ser acessados. O endereço IP virtual **público** é usado **somente** para o tráfego do plano `management` de controle para o ponto de extremidade pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
+Depois que a implantação for realizada com sucesso, você deverá ver o endereço IP virtual **privado** e o endereço IP virtual **público** do seu serviço de gerenciamento de API na folha visão geral. O endereço IP virtual **privado** é um endereço IP com balanceamento de carga de dentro da sub-rede delegada do gerenciamento de API sobre a qual `gateway`, `portal`, `management` e `scm` pontos de extremidade podem ser acessados. O endereço IP virtual **público** é usado **somente** para o tráfego do plano de controle para `management` ponto de extremidade pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
 
 ![Painel de gerenciamento de API com uma rede virtual interna configurada][api-management-internal-vnet-dashboard]
 
@@ -124,7 +125,7 @@ Se você usar um servidor DNS personalizado em uma rede virtual, também poderá
 ## <a name="routing"></a> Roteamento do
 
 * Um endereço IP virtual *privado* com balanceamento de carga do intervalo de sub-rede será reservado e usado para acessar os pontos de extremidade do serviço de gerenciamento de API de dentro da rede virtual. Esse endereço IP *privado* pode ser encontrado na folha de visão geral do serviço no portal do Azure. Esse endereço deve ser registrado com os servidores DNS usados pela rede virtual.
-* Um endereço IP *público* com balanceamento de carga (VIP) também será reservado para fornecer acesso ao ponto de extremidade do serviço de gerenciamento pela porta 3443. Esse endereço IP *público* pode ser encontrado na folha de visão geral do serviço no portal do Azure. O endereço IP *público* é usado somente para o tráfego do plano de `management` controle para o ponto de extremidade pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
+* Um endereço IP *público* com balanceamento de carga (VIP) também será reservado para fornecer acesso ao ponto de extremidade do serviço de gerenciamento pela porta 3443. Esse endereço IP *público* pode ser encontrado na folha de visão geral do serviço no portal do Azure. O endereço IP *público* é usado somente para o tráfego do plano de controle para o ponto de extremidade `management` pela porta 3443 e pode ser bloqueado para o [ApiManagement][ServiceTags] servicetag.
 * Os endereços IP do intervalo de IPS de sub-rede (DIP) serão atribuídos a cada VM no serviço e serão usados para acessar recursos na rede virtual. Um endereço IP público (VIP) será usado para acessar recursos fora da rede virtual. Se as listas de restrição de IP forem usadas para proteger os recursos na rede virtual, todo o intervalo para a sub-rede em que o serviço de gerenciamento de API é implantado deverá ser especificado para conceder ou restringir o acesso do serviço.
 * Os endereços IP públicos e privados com balanceamento de carga podem ser encontrados na folha visão geral do portal do Azure.
 * Os endereços IP atribuídos para acesso público e privado poderão ser alterados se o serviço for removido do e, em seguida, adicionado novamente à rede virtual. Se isso acontecer, pode ser necessário atualizar os registros de DNS, as regras de roteamento e as listas de restrição de IP dentro da rede virtual.

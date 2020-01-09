@@ -1,5 +1,6 @@
 ---
-title: Configurar um nome de domínio personalizado para sua instância do gerenciamento de API do Azure | Microsoft Docs
+title: Configurar o nome de domínio personalizado para a instância do gerenciamento de API do Azure
+titleSuffix: Azure API Management
 description: Este tópico descreve como configurar um nome de domínio personalizado para sua instância do gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -11,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442550"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -73,7 +74,7 @@ Para executar as etapas descritas neste artigo, você deve ter:
     >
     > Se o certificado for definido para rotação automática, o gerenciamento de API selecionará a versão mais recente automaticamente sem nenhum tempo de inatividade para o serviço (se sua camada de gerenciamento de API tiver SLA-i. e. em todas as camadas, exceto a camada de desenvolvedor).
 
-1. Clique em aplicar.
+1. Clique em Aplicar.
 
     > [!NOTE]
     > O processo de atribuição do certificado pode levar 15 minutos ou mais, dependendo do tamanho da implantação. A SKU do desenvolvedor tem tempo de inatividade, os SKUs básico e superior não têm tempo de inatividade.

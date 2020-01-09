@@ -3,12 +3,12 @@ title: Endereços IP no Azure Functions
 description: Saiba como localizar endereços IP de entrada e saída para aplicativos de funções e o que os faz alterar.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230332"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612892"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure Functions
 
@@ -27,7 +27,7 @@ Cada aplicativo de funções tem um único endereço IP de entrada. Para encontr
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de funções.
-3. Selecione **recursos de plataforma**.
+3. Selecione **Funcionalidades de plataforma**.
 4. Selecione **Propriedades**e o endereço IP de entrada aparece em **endereço IP virtual**.
 
 ## <a name="find-outbound-ip-addresses"></a>Endereços IP de saída do aplicativo de funções
@@ -86,9 +86,9 @@ O endereço IP de entrada **pode ser** alterado quando você:
 
 - Exclua um aplicativo de funções e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo de funções em uma combinação de grupo de recursos e região e recrie-o.
-- Excluir uma associação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Exclua uma associação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado quando você não executou nenhuma ação como aquelas listadas.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado mesmo quando você não executou nenhuma ação, como aquelas [listadas acima](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Alterações de endereço IP de saída
 
@@ -97,7 +97,7 @@ O conjunto de endereços IP de saída disponíveis para um aplicativo de funçõ
 * Execute qualquer ação que possa alterar o endereço IP de entrada.
 * Altere o tipo de preço do plano do serviço de aplicativo. A lista de todos os endereços IP de saída possíveis que seu aplicativo pode usar, para todos os tipos de preço, está na propriedade `possibleOutboundIPAddresses`. Consulte [Localizar IPS de saída](#find-outbound-ip-addresses).
 
-Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado quando você não executou nenhuma ação como aquelas listadas.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado mesmo quando você não executou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
 Para forçar deliberadamente uma alteração de endereço IP de saída:
 
@@ -105,7 +105,7 @@ Para forçar deliberadamente uma alteração de endereço IP de saída:
 2. Aguarde 10 minutos.
 3. Dimensione de volta para onde você começou.
 
-## <a name="ip-address-restrictions"></a>Restrições de endereço IP
+## <a name="ip-address-restrictions"></a>restrições de endereços IP
 
 Você pode configurar uma lista de endereços IP que deseja permitir ou negar acesso a um aplicativo de funções. Para obter mais informações, consulte [Azure app restrições de IP estático do serviço](../app-service/app-service-ip-restrictions.md).
 
@@ -117,7 +117,7 @@ Para descobrir se seu aplicativo de funções é executado em um Ambiente do Ser
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de funções.
-3. Selecione a guia **visão geral** .
+3. Selecione o separador **Descrição geral**.
 4. A camada de plano do serviço de aplicativo aparece em **plano do serviço de aplicativo/tipo de preço**. O tipo de preço Ambiente do Serviço de Aplicativo é **isolado**.
  
 Como alternativa, você pode usar o [Cloud Shell](../cloud-shell/quickstart.md):

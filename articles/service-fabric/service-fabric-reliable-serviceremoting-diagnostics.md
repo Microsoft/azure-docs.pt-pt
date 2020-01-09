@@ -1,25 +1,16 @@
 ---
-title: Diagnóstico e monitoramento do Azure infabric | Microsoft Docs
+title: Diagnóstico e monitoramento do Azure infabric
 description: Este artigo descreve os recursos de monitoramento de desempenho no Service Fabric tempo de execução confiável do Reliable, como contadores de desempenho emitidos por ele.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: suchiagicha
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426704"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para comunicação remota do serviço confiável
 O tempo de execução confiável do reremoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Eles fornecem informações sobre como a imcomunicação remota está operando e ajudam na solução de problemas e no monitoramento de desempenho.
@@ -45,17 +36,17 @@ Para a categoria `Service Fabric Service`, os nomes de instância do contador es
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia de caracteres do Service Fabric ID de réplica/instância à qual a instância do contador de desempenho está associada.
 
 *ServiceRuntimeInternalID* é a representação de cadeia de caracteres de um inteiro de 64 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria `Service Fabric Service`:
+Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria de `Service Fabric Service`:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-No exemplo anterior, `2740af29-78aa-44bc-a20b-7e60fb783264` é a representação de cadeia de caracteres da ID de partição de Service Fabric, `635650083799324046` é a representação de cadeia de caracteres de Replica/InstanceId e `5008379932` é a ID de 64 bits que é gerada para uso interno do tempo de execução.
+No exemplo anterior, `2740af29-78aa-44bc-a20b-7e60fb783264` é a representação de cadeia de caracteres da ID de partição Service Fabric, `635650083799324046` é representação de cadeia de caracteres de réplica/InstanceId e `5008379932` é a ID de 64 bits que é gerada para uso interno do tempo de execução.
 
 #### <a name="service-fabric-service-method-category"></a>Categoria do método de serviço Service Fabric
 Para a categoria `Service Fabric Service Method`, os nomes de instância do contador estão no seguinte formato:
@@ -66,17 +57,17 @@ Para a categoria `Service Fabric Service Method`, os nomes de instância do cont
 
 *ServiceRuntimeMethodId* é a representação de cadeia de caracteres de um inteiro de 32 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia de caracteres do Service Fabric ID de réplica/instância à qual a instância do contador de desempenho está associada.
 
 *ServiceRuntimeInternalID* é a representação de cadeia de caracteres de um inteiro de 64 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria `Service Fabric Service Method`:
+Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria de `Service Fabric Service Method`:
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do método, `2` é a ID de 32 bits gerada para uso interno do tempo de execução, `89383d32-e57e-4a9b-a6ad-57c6792aa521` é a representação de cadeia de caracteres da ID de partição Service Fabric, `635650083804480486` é a representação de cadeia de caracteres da Service Fabric réplica/ ID de instância e `5008380` é a ID de 64 bits gerada para uso interno do tempo de execução.
+No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do método, `2` é a ID de 32 bits gerada para o uso interno do tempo de execução, `89383d32-e57e-4a9b-a6ad-57c6792aa521` é a representação de cadeia de caracteres da ID de partição Service Fabric,`635650083804480486` é a representação de cadeia de caracteres do Service Fabric ID de réplica/instância e `5008380` é a ID de 64 bits gerada para uso interno do tempo de execução.
 
 ## <a name="list-of-performance-counters"></a>Lista de contadores de desempenho
 ### <a name="service-method-performance-counters"></a>Contadores de desempenho do método de serviço

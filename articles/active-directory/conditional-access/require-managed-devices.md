@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424824"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -41,7 +41,7 @@ Com o acesso condicional do Azure AD, você pode atender a esse requisito com um
 - Para usuários e grupos selecionados
 - Exigindo um dispositivo gerenciado
 
-## <a name="managed-devices"></a>Dispositivos gerenciados  
+## <a name="managed-devices"></a>Dispositivos geridos  
 
 Em termos simples, os dispositivos gerenciados são dispositivos que estão sob *algum tipo* de controle organizacional. No Azure AD, o pré-requisito para um dispositivo gerenciado é que ele foi registrado no Azure AD. O registro de um dispositivo cria uma identidade para o dispositivo na forma de um objeto de dispositivo. Esse objeto é usado pelo Azure para acompanhar informações de status sobre um dispositivo. Como administrador do Azure AD, você já pode usar esse objeto para ativar/desativar (habilitar/desabilitar) o estado de um dispositivo.
   
@@ -91,8 +91,9 @@ Para um dispositivo marcado como compatível, você pode pressupor que:
 - As informações da sua empresa são protegidas ajudando-o a controlar a maneira como sua força de seus acessa e compartilha
 - O dispositivo e seus aplicativos estão em conformidade com os requisitos de segurança da empresa
 
-> [!NOTE]
-> Se você configurar uma política para exigir dispositivos em conformidade, os usuários poderão ser solicitados em Mac, iOS e Android para selecionar um certificado de dispositivo durante a avaliação da política. Esse é um comportamento conhecido.
+### <a name="known-behavior"></a>Comportamento conhecido
+
+No Windows 7, iOS, Android, macOS e alguns navegadores da Web de terceiros, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD. Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário final deve selecionar esse certificado antes que possa continuar a usar o navegador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

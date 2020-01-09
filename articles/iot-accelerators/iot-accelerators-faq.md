@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826261"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647718"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução de IoT
 
@@ -23,10 +23,10 @@ Consulte também as [perguntas frequentes específicas de fábrica conectadas](i
 
 O código-fonte é armazenado nos seguintes repositórios GitHub:
 
-* [Acelerador de soluções Monitorização Remota (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Acelerador de soluções Monitorização Remota (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [Acelerador de soluções Manutenção Preditiva](https://github.com/Azure/azure-iot-predictive-maintenance)
-* [Acelerador de soluções Fábrica Ligada](https://github.com/Azure/azure-iot-connected-factory)
+* [Acelerador de solução de monitoramento remoto (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Acelerador de solução de monitoramento remoto (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Acelerador de solução de manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance)
+* [Solution Accelerator da fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>Que SDKs posso utilizar para desenvolver clientes de dispositivo para os aceleradores de soluções?
 
@@ -82,7 +82,7 @@ Sim. Qualquer solução que exista hoje continuará a funcionar em sua assinatur
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT é possível aprovisionar numa subscrição?
 
-Por padrão, você pode provisionar [10 hubs IOT por assinatura](../azure-subscription-service-limits.md#iot-hub-limits). Você pode criar um [tíquete de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar esse limite. Como resultado, como cada Solution Accelerator provisiona um novo hub IoT, você só pode provisionar até 10 Solution Accelerators em uma determinada assinatura.
+Por padrão, você pode provisionar [10 hubs IOT por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). Você pode criar um [tíquete de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar esse limite. Como resultado, como cada Solution Accelerator provisiona um novo hub IoT, você só pode provisionar até 10 Solution Accelerators em uma determinada assinatura.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias de Azure Cosmos DB posso provisionar em uma assinatura?
 

@@ -1,7 +1,6 @@
 ---
 title: Testar dados em direto com o Azure Stream Analytics para Visual Studio
 description: Saiba como testar a tarefa do Azure Stream Analytics localmente, utilizando dados de transmissão em fluxo em direto.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426042"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Dados em direto de teste localmente, utilizando ferramentas do Azure Stream Analytics para Visual Studio (pré-visualização)
 
@@ -63,7 +62,7 @@ São suportadas as seguintes opções de testes locais:
 
 * Apenas as opções de entrada nuvem têm [políticas de tempo](stream-analytics-out-of-order-and-late-events.md) suportar, ao contrário opções de entrada locais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)
 * [Instalar as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md)

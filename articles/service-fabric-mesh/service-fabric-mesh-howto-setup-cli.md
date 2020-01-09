@@ -1,20 +1,16 @@
 ---
-title: Configurar a CLI do Azure Service Fabric Mesh | Microsoft Docs
+title: Configurar a CLI da malha de Service Fabric do Azure
 description: A CLI (interface de linha de comando) de malha Service Fabric é necessária para implantar e gerenciar recursos localmente e na malha de Service Fabric do Azure. Veja como configurá-lo.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5c9733a5fc5aec337a326fe39e78c3e5c0b8ca4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0fb65ceeabca9331130083f8ec5b3fe8acce13b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461883"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
 A CLI (interface de linha de comando) de malha Service Fabric é necessária para implantar e gerenciar recursos localmente e na malha de Service Fabric do Azure. Veja como configurá-lo.

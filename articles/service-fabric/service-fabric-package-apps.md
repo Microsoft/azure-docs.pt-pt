@@ -1,33 +1,22 @@
 ---
-title: Empacotar um serviço do Azure dos recursos de infraestrutura aplicação | Documentos da Microsoft
-description: Como empacotar uma aplicação do Service Fabric antes de implementar um cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Empacotar um aplicativo de Service Fabric do Azure
+description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718384"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639688"
 ---
 # <a name="package-an-application"></a>Criar pacote de uma aplicação
 
-Este artigo descreve como empacotar uma aplicação do Service Fabric e torná-lo pronto para implantação.
+Este artigo descreve como empacotar um aplicativo Service Fabric e deixá-lo pronto para implantação.
 
 ## <a name="package-layout"></a>Layout do pacote
 
-O manifesto do aplicativo, um ou mais manifestos de serviço e outros ficheiros de pacote necessário devem ser organizados num layout específico para a implantação num cluster do Service Fabric. Os manifestos de exemplo neste artigo precisaria ser organizados na seguinte estrutura de diretório:
+O manifesto do aplicativo, um ou mais manifestos do serviço e outros arquivos de pacote necessários devem ser organizados em um layout específico para implantação em um Cluster Service Fabric. Os manifestos de exemplo neste artigo precisariam ser organizados na seguinte estrutura de diretório:
 
 ```
 tree /f .\MyApplicationType
@@ -50,16 +39,16 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ```
 
-As pastas são nomeadas de acordo com o **nome** atributos de cada elemento correspondente. Por exemplo, se o manifesto do serviço continha dois pacotes de código com os nomes **MyCodeA** e **MyCodeB**, em seguida, duas pastas com os mesmos nomes iria conter os binários necessários para cada pacote do código.
+As pastas são nomeadas para corresponder aos atributos de **nome** de cada elemento correspondente. Por exemplo, se o manifesto do serviço contivesse dois pacotes de código com os nomes **Mycódigoa** e **MyCodeB**, duas pastas com os mesmos nomes conteriam os binários necessários para cada pacote de código.
 
-## <a name="use-setupentrypoint"></a>Utilizar SetupEntryPoint
+## <a name="use-setupentrypoint"></a>Usar SetupEntryPoint
 
-Cenários típicos para usar **SetupEntryPoint** quando tiver de executar um executável antes de iniciar o serviço ou tiver de realizar uma operação com privilégios elevados. Por exemplo:
+Cenários típicos para usar **SetupEntryPoint** são quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo:
 
-* Como configurar e inicializar variáveis de ambiente que tem do executável do serviço. Não se limita a apenas os executáveis gravados via os modelos de programação do Service Fabric. Por exemplo, npm.exe tem algumas variáveis de ambiente configurados para implementar uma aplicação node. js.
-* Configuração do controlo de acesso através da instalação de certificados de segurança.
+* Configurar e inicializar variáveis de ambiente que o executável de serviço precisa. Ele não está limitado a apenas executáveis escritos por meio dos modelos de programação de Service Fabric. Por exemplo, NPM. exe precisa de algumas variáveis de ambiente configuradas para implantar um aplicativo node. js.
+* Configurando o controle de acesso instalando certificados de segurança.
 
-Para obter mais informações sobre como configurar o **SetupEntryPoint**, consulte [configurar a política para um ponto de entrada de configuração de serviço](service-fabric-application-runas-security.md)
+Para obter mais informações sobre como configurar o **SetupEntryPoint**, consulte [Configurar a política para um ponto de entrada de instalação de serviço](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 
@@ -67,17 +56,17 @@ Para obter mais informações sobre como configurar o **SetupEntryPoint**, consu
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Criar um pacote usando o Visual Studio
 
-Se utilizar o Visual Studio 2015 para criar a sua aplicação, pode utilizar o comando de pacote para criar automaticamente um pacote que corresponda ao esquema descrito acima.
+Se você usar o Visual Studio 2015 para criar seu aplicativo, poderá usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, com o botão direito do projeto de aplicativo no Explorador de soluções e escolha o comando de pacote, conforme mostrado abaixo:
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo em Gerenciador de Soluções e escolha o comando de pacote, conforme mostrado abaixo:
 
-![Empacotar um aplicativo com o Visual Studio][vs-package-command]
+![Empacotando um aplicativo com o Visual Studio][vs-package-command]
 
-Quando o empacotamento estiver concluído, pode encontrar a localização do pacote no **saída** janela. A etapa de empacotamento ocorre automaticamente quando implementar ou depurar a sua aplicação no Visual Studio.
+Quando o empacotamento for concluído, você poderá encontrar o local do pacote na janela de **saída** . A etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
 
-### <a name="build-a-package-by-command-line"></a>Criar um pacote através da linha de comandos
+### <a name="build-a-package-by-command-line"></a>Compilar um pacote por linha de comando
 
-Também é possível por meio de programação empacotar a sua aplicação utilizando `msbuild.exe`. Nos bastidores, Visual Studio é executá-lo para que a saída é a mesma.
+Também é possível empacotar programaticamente seu aplicativo usando `msbuild.exe`. Nos bastidores, o Visual Studio está executando-o para que a saída seja a mesma.
 
 ```shell
 D:\Temp> msbuild HelloWorld.sfproj /t:Package
@@ -85,9 +74,9 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Testar o pacote
 
-Pode verificar a estrutura do pacote localmente através do PowerShell com o [teste ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) comando.
-Este comando verifica a existência de manifesto da análise de problemas e verifique se todas as referências. Este comando só verifica se a correção estrutural dos diretórios e ficheiros no pacote.
-Ele não verifica a qualquer um do conteúdo do pacote de código ou dados para além de verificar se todos os arquivos necessários estão presentes.
+Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Esse comando verifica se há problemas de análise de manifesto e verifica todas as referências. Esse comando só verifica a exatidão estrutural dos diretórios e arquivos no pacote.
+Ele não verifica qualquer conteúdo do pacote de dados ou código além de verificar se todos os arquivos necessários estão presentes.
 
 ```powershell
 Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -99,7 +88,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ```
 
-Este erro mostra que o *MySetup.bat* referenciado no manifesto do serviço de arquivo **SetupEntryPoint** está em falta no pacote do código. Depois do ficheiro em falta é adicionado, passa a verificação de aplicação:
+Esse erro mostra que o arquivo *mySetup. bat* referenciado no manifesto do serviço **SetupEntryPoint** está faltando no pacote de códigos. Depois que o arquivo ausente é adicionado, a verificação do aplicativo passa:
 
 ```
 tree /f .\MyApplicationType
@@ -131,24 +120,24 @@ Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 ```
 
-Se seu aplicativo tiver [parâmetros de aplicação](service-fabric-manage-multiple-environment-app-configuration.md) definida, poderá passá-los na [teste ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para validação adequada.
+Se seu aplicativo tiver [parâmetros de aplicativo](service-fabric-manage-multiple-environment-app-configuration.md) definidos, você poderá passá-los em [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para validação adequada.
 
-Se sabe o cluster onde o aplicativo será implantado, recomenda-se passar o `ImageStoreConnectionString` parâmetro. Neste caso, o pacote também é validado em relação a versões anteriores da aplicação que já estão em execução no cluster. Por exemplo, a validação pode detetar se um pacote com a mesma versão, mas conteúdo diferente já foi implementado.  
+Se você souber o cluster em que o aplicativo será implantado, é recomendável passar o parâmetro `ImageStoreConnectionString`. Nesse caso, o pacote também é validado em relação às versões anteriores do aplicativo que já estão em execução no cluster. Por exemplo, a validação pode detectar se um pacote com a mesma versão, mas conteúdo diferente, já foi implantado.  
 
-Depois do aplicativo é empacotado corretamente e passa na validação, considere a compressão do pacote para as operações de implementação mais rápidos.
+Depois que o aplicativo for empacotado corretamente e passar na validação, considere compactar o pacote para operações de implantação mais rápidas.
 
-## <a name="compress-a-package"></a>Comprimir um pacote
+## <a name="compress-a-package"></a>Compactar um pacote
 
-Quando um pacote é grande ou tem muitos ficheiros, é possível compactar para implantação mais rápida. Compressão reduz o número de ficheiros e o tamanho do pacote.
-Para um pacote de aplicação comprimido [carregar o pacote de aplicação](service-fabric-deploy-remove-applications.md#upload-the-application-package) podem demorar mais tempo em comparação com a carregar o pacote não comprimido, especialmente se a compressão é feita como parte da cópia. Com a compressão, [registar](service-fabric-deploy-remove-applications.md#register-the-application-package) e [anular o registo do tipo de aplicação](service-fabric-deploy-remove-applications.md#unregister-an-application-type) são mais rápidos.
+Quando um pacote é grande ou tem muitos arquivos, você pode compactá-lo para uma implantação mais rápida. A compactação reduz o número de arquivos e o tamanho do pacote.
+Para um pacote de aplicativos compactados, [carregar o pacote de aplicativos](service-fabric-deploy-remove-applications.md#upload-the-application-package) pode levar mais tempo em comparação com o carregamento do pacote descompactado, especialmente se a compactação for feita como parte da cópia. Com a compactação, o [registro](service-fabric-deploy-remove-applications.md#register-the-application-package) e o cancelamento [do registro do tipo de aplicativo](service-fabric-deploy-remove-applications.md#unregister-an-application-type) são mais rápidos.
 
-O mecanismo de implantação é a mesmo para pacotes comprimidos e descomprimidos. Se o pacote é compactado, ele é armazenado como tal no armazenamento de imagens do cluster e descomprimido no nó antes do aplicativo é executado.
-A compressão substitui o pacote válido do Service Fabric com a versão compactada. A pasta tem de permitir permissões de escrita. Em execução a compressão num pacote já comprimido produz sem alterações.
+O mecanismo de implantação é o mesmo para pacotes compactados e descompactados. Se o pacote for compactado, ele será armazenado como tal no repositório de imagens de cluster e será descompactado no nó antes da execução do aplicativo.
+A compactação substitui o pacote de Service Fabric válido pela versão compactada. A pasta deve permitir permissões de gravação. A execução da compactação em um pacote já compactado não produz nenhuma alteração.
 
-É possível compactar um pacote ao executar o comando do Powershell [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com `CompressPackage` mudar. Pode descomprimir o pacote com o mesmo comando com `UncompressPackage` mudar.
+Você pode compactar um pacote executando o comando do PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com a opção `CompressPackage`. Você pode descompactar o pacote com o mesmo comando, usando `UncompressPackage` opção.
 
-O seguinte comando compacta o pacote sem copiá-lo para o arquivo de imagem. Pode copiar um pacote comprimido para uma ou mais clusters do Service Fabric, conforme necessário, usando [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o `SkipCopy` sinalizador.
-Agora, o pacote inclui arquivos compactados para o `code`, `config`, e `data` pacotes. O manifesto da aplicação e manifestos de serviço não são comprimidos, porque eles são necessários para várias operações internas. Por exemplo, a partilha de pacote, extração de nome e a versão do tipo de aplicação para determinados validações todos precisam de aceder os manifestos. Comprimir os manifestos seria tornar essas operações ineficiente.
+O comando a seguir compacta o pacote sem copiá-lo para o repositório de imagens. Você pode copiar um pacote compactado para um ou mais clusters Service Fabric, conforme necessário, usando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o sinalizador `SkipCopy`.
+O pacote agora inclui arquivos compactados para os pacotes `code`, `config`e `data`. O manifesto do aplicativo e os manifestos do serviço não são compactados, pois eles são necessários para muitas operações internas. Por exemplo, compartilhamento de pacote, extração de nome e versão de tipo de aplicativo para determinadas validações, todos precisam acessar os manifestos. O descompactar os manifestos tornaria essas operações ineficientes.
 
 ```
 tree /f .\MyApplicationType
@@ -189,22 +178,22 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Em alternativa, pode comprimir e copiar o pacote com [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) num único passo.
-Se o pacote é grande, fornece um tempo limite alto o suficiente para dar tempo para a compressão do pacote e o carregamento para o cluster.
+Como alternativa, você pode compactar e copiar o pacote com [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) em uma única etapa.
+Se o pacote for grande, forneça um tempo limite suficientemente alto para dar tempo tanto para a compactação do pacote quanto para o upload para o cluster.
 
 ```powershell
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Internamente, o Service Fabric calcula as somas de verificação para os pacotes de aplicativos para a validação. Quando utilizar compressão, as somas de verificação são calculadas nas versões de cada pacote zipadas. Gerar um novo zip a partir do mesmo pacote de aplicação cria as somas de verificação diferentes. Para evitar erros de validação, utilize [diff aprovisionamento](service-fabric-application-upgrade-advanced.md). Com esta opção, não inclua os pacotes sem alterações na nova versão. Em vez disso, referenciá-los diretamente a partir do manifesto do serviço novo.
+Internamente, o Service Fabric computa somas de verificação para os pacotes de aplicativos para validação. Ao usar a compactação, as somas de verificação são computadas nas versões compactadas de cada pacote. A geração de um novo zip do mesmo pacote de aplicativos cria somas de verificação diferentes. Para evitar erros de validação, use o [provisionamento diff](service-fabric-application-upgrade-advanced.md). Com essa opção, não inclua os pacotes inalterados na nova versão. Em vez disso, referencie-os diretamente do novo manifesto do serviço.
 
-Se diff aprovisionamento não é uma opção e tem de incluir os pacotes, gerar novas versões para o `code`, `config`, e `data` pacotes para evitar o erro de correspondência de soma de verificação. A gerar novas versões de pacotes inalterados é necessária quando é utilizado um pacote comprimido, independentemente se a versão anterior utiliza compressão ou não.
+Se o provisionamento de comparação não for uma opção e você precisar incluir os pacotes, gere novas versões para os pacotes `code`, `config`e `data` para evitar a incompatibilidade de soma de verificação. A geração de novas versões para pacotes inalterados é necessária quando um pacote compactado é usado, independentemente de a versão anterior usar compactação ou não.
 
-O pacote é agora empacotado corretamente, validado e comprimido (se necessário), para que fique pronta para [implementação](service-fabric-deploy-remove-applications.md) para um ou mais clusters do Service Fabric.
+O pacote agora está empacotado corretamente, validado e compactado (se necessário), portanto, está pronto para [implantação](service-fabric-deploy-remove-applications.md) em um ou mais clusters de Service Fabric.
 
-### <a name="compress-packages-when-deploying-using-visual-studio"></a>Comprimir pacotes durante a implantação usando o Visual Studio
+### <a name="compress-packages-when-deploying-using-visual-studio"></a>Compactar pacotes ao implantar usando o Visual Studio
 
-Pode instruir o Visual Studio para comprimir os pacotes de implantação, adicionando a `CopyPackageParameters` elemento para o seu perfil de publicação e o conjunto a `CompressPackage` atributo para `true`.
+Você pode instruir o Visual Studio a compactar pacotes na implantação, adicionando o elemento `CopyPackageParameters` ao seu perfil de publicação e definir o atributo `CompressPackage` como `true`.
 
 ``` xml
     <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
@@ -216,32 +205,32 @@ Pode instruir o Visual Studio para comprimir os pacotes de implantação, adicio
 
 ## <a name="create-an-sfpkg"></a>Criar um sfpkg
 
-A partir da versão 6.1, Service Fabric permite o aprovisionamento de um arquivo externo.
-Com esta opção, o pacote de aplicação não tem de ser copiados para o armazenamento de imagens. Em vez disso, pode criar um `sfpkg` e carregá-lo para um armazenamento externo, em seguida, forneça o URI de transferência para o Service Fabric quando são aprovisionados. O mesmo pacote pode ser aprovisionado para vários clusters. Aprovisionamento a partir da loja externa economiza o tempo necessário para copiar o pacote para cada cluster.
+A partir da versão 6,1, Service Fabric permite o provisionamento de um repositório externo.
+Com essa opção, o pacote de aplicativos não precisa ser copiado para o repositório de imagens. Em vez disso, você pode criar um `sfpkg` e carregá-lo em um repositório externo e, em seguida, fornecer o URI de download para Service Fabric ao provisionar. O mesmo pacote pode ser provisionado em vários clusters. O provisionamento do repositório externo salva o tempo necessário para copiar o pacote para cada cluster.
 
-O `sfpkg` ficheiro é um zip que contém o pacote de aplicação inicial e tem a extensão ". sfpkg".
-Dentro do zip, o pacote de aplicação pode ser compactado ou descomprimido. A compressão do pacote de aplicação no interior do zip é feita no código, configuração e níveis de pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
+O arquivo de `sfpkg` é um zip que contém o pacote de aplicativo inicial e tem a extensão ". sfpkg".
+Dentro do zip, o pacote de aplicativos pode ser compactado ou descompactado. A compactação do pacote de aplicativos dentro do zip é feita nos níveis de código, configuração e pacote de dados, conforme [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
 
-Para criar um `sfpkg`, começar com uma pasta que contém o pacote de aplicação original, ou não comprimido. Em seguida, utilize qualquer utilitário zip na pasta com a extensão ". sfpkg". Por exemplo, usar [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+Para criar um `sfpkg`, comece com uma pasta que contém o pacote de aplicativo original, compactado ou não. Em seguida, use qualquer utilitário para compactar a pasta com a extensão ". sfpkg". Por exemplo, use [zipfile. CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 ```
 
-O `sfpkg` tem de ser carregado para o arquivo externo fora de banda, fora do Service Fabric. O arquivo externo pode ser qualquer armazenamento que expõe um ponto final de http ou https REST. Durante o aprovisionamento, o Service Fabric executa uma operação de obtenção de transferir o `sfpkg` pacote de aplicação, para que o arquivo tem de permitir o acesso de leitura para o pacote.
+O `sfpkg` deve ser carregado para o repositório externo fora da banda, fora do Service Fabric. O repositório externo pode ser qualquer armazenamento que expõe um ponto de extremidade http ou HTTPS REST. Durante o provisionamento, Service Fabric executa uma operação GET para baixar o pacote de aplicativos `sfpkg`, de modo que o repositório deve permitir acesso de leitura para o pacote.
 
-Para aprovisionar o pacote, utilize aprovisionar externo, o que requer o URI de transferência e as informações de tipo de aplicação.
+Para provisionar o pacote, use o provisionamento externo, que requer o URI de download e as informações de tipo de aplicativo.
 
 >[!NOTE]
-> Atualmente não suporta o aprovisionamento com base no caminho relativo do arquivo de imagem `sfpkg` ficheiros. Por conseguinte, o `sfpkg` não deve ser copiado para o armazenamento de imagens.
+> O provisionamento baseado no caminho relativo do repositório de imagens atualmente não dá suporte a arquivos `sfpkg`. Portanto, o `sfpkg` não deve ser copiado para o repositório de imagens.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Implantar e remover aplicativos] [ 10] descreve como utilizar o PowerShell para gerenciar as instâncias da aplicação
+[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias de aplicativo
 
-[Gerir parâmetros da aplicação para vários ambientes] [ 11] descreve como configurar parâmetros e variáveis de ambiente para diferentes instâncias da aplicação.
+[Gerenciar parâmetros de aplicativo para vários ambientes][11] descreve como configurar parâmetros e variáveis de ambiente para diferentes instâncias de aplicativo.
 
-[Configurar políticas de segurança para o seu aplicativo] [ 12] descreve como executar serviços nas políticas de segurança para restringir o acesso.
+[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços em políticas de segurança para restringir o acesso.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

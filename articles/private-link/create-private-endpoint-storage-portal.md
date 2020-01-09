@@ -2,23 +2,25 @@
 title: Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 description: Saiba como conectar-se de forma privada a uma conta de armazenamento no Azure usando um ponto de extremidade privado.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357571"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
 
 Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, uma conta de armazenamento com um ponto de extremidade privado usando o portal do Azure. Em seguida, você pode acessar com segurança a conta de armazenamento da VM.
 
+> [!NOTE]
+> Não são permitidos pontos de extremidade particulares em conjunto com pontos de extremidades de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -87,7 +89,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
     | Subrede | Deixe o padrão **mysubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-IP**. |
     | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
-    | Selecione as portas de entrada | Selecione **http** e **RDP**.|
+    | Selecionar portas de entrada | Selecione **http** e **RDP**.|
     ||
 
 1. Selecione **Rever + criar**. Você é levado para a página **revisar + criar** , na qual o Azure valida sua configuração.

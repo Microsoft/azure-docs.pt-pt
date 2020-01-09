@@ -5,22 +5,22 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894520"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530855"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs de recursos do Azure no espaço de trabalho Log Analytics no Azure Monitor
-[Os logs de recursos](resource-logs-overview.md) no Azure fornecem dados avançados e frequentes sobre a operação interna de um recurso do Azure. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs da plataforma Azure no espaço de trabalho Log Analytics no Azure Monitor
+[Os logs de plataforma](resource-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>O que você pode fazer com os logs de recursos em um espaço de trabalho
-Coletar logs de recursos em um espaço de trabalho Log Analytics permite que você analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](data-platform-logs.md) que incluem o seguinte:
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>O que você pode fazer com os logs da plataforma em um espaço de trabalho
+Coletar os logs de plataforma em um espaço de trabalho Log Analytics permite que você analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](data-platform-logs.md) que incluem o seguinte:
 
 * **Consultas de log** – crie [consultas de log](../log-query/log-query-overview.md) usando uma linguagem de consulta avançada para analisar rapidamente e obter informações sobre seus dados de diagnóstico e analisá-los com os dados coletados de outras fontes no Azure monitor.
 * **Alertas** -obtenha notificações proativas de condições críticas e padrões identificados em seus logs de recursos usando [alertas de log no Azure monitor](alerts-log.md).
@@ -30,10 +30,14 @@ Coletar logs de recursos em um espaço de trabalho Log Analytics permite que voc
 Você precisará [criar um novo espaço de trabalho](../learn/quick-create-workspace.md) se ainda não tiver um. O espaço de trabalho não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="create-a-diagnostic-setting"></a>Criar uma configuração de diagnóstico
-Os logs de recursos não são coletados por padrão. Colete-os em um espaço de trabalho Log Analytics e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
+Envie os logs da plataforma para um espaço de trabalho Log Analytics e outros destinos criando uma configuração de diagnóstico para um recurso do Azure. Consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md) para obter detalhes.
 
-## <a name="collection-mode"></a>Modo de coleta
-Os dados coletados em um espaço de trabalho Log Analytics são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../log-query/logs-structure.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
+
+## <a name="activity-log-collection"></a>Coleção de logs de atividades
+Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho do Log Analytics. Os dados de log de recursos coletados em um espaço de trabalho Log Analytics são armazenados na tabela **AzureActivity** . 
+
+## <a name="resource-log-collection-mode"></a>Modo de coleta do log de recursos
+Os dados de log de recursos coletados em um espaço de trabalho Log Analytics são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../log-query/logs-structure.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
 
 - Diagnóstico do Azure-todos os dados gravados estão na tabela _AzureDiagnostics_ .
 - Dados específicos do recurso são gravados em uma tabela individual para cada categoria do recurso.
@@ -120,5 +124,5 @@ Você deve migrar seus logs para usar o modo específico do recurso assim que po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre os logs de recursos do Azure, consulte [visão geral dos logs de recursos do Azure](resource-logs-overview.md).
-* Para criar uma configuração de diagnóstico para coletar logs de recursos para um espaço de trabalho Log Analytics, consulte [criar configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
+* [Leia mais sobre os logs de recursos](resource-logs-overview.md).
+* [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).

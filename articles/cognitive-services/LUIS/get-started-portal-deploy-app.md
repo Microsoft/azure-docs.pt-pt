@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448077"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início rápido: implantar um aplicativo no portal do LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Quando seu aplicativo LUIS estiver pronto para retornar previsões de expressão para um aplicativo cliente (por exemplo, um bot de chat), você precisará implantar o aplicativo no ponto de extremidade de previsão.
 
@@ -39,7 +37,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 1. Configure a assinatura com as seguintes configurações:
 
-   |Definição|Valor|Objetivo|
+   |Definição|Valor|Finalidade|
    |--|--|--|
    |Nome|`my-luis-resource`|O nome do recurso do Azure. Você precisará desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
    |Subscrição|A sua subscrição|Selecione uma das assinaturas associadas à sua conta.|
@@ -61,7 +59,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 Sempre que você criar um novo recurso para LUIS, será necessário atribuir o recurso ao aplicativo LUIS. Depois de atribuído, você não precisará executar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
-1. Entre no portal do [Luis](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
+1. Entre no portal do [Luis de visualização](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 
 1. Selecione **gerenciar** no menu superior direito e, em seguida, selecione **recursos do Azure**.
 
@@ -69,7 +67,7 @@ Sempre que você criar um novo recurso para LUIS, será necessário atribuir o r
 
     ![Para adicionar o recurso de previsão LUIS, selecione Adicionar recurso de previsão](./media/get-started-portal-deploy-app/azure-resources-add-prediction-resource.png)
 
-1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recurso**.
+1. Selecione seu locatário, assinatura e nome do recurso. Selecione **atribuir recursos**.
 
    ![Atribuir um recurso à sua aplicação](./media/get-started-portal-deploy-app/assign-resource.png)
 

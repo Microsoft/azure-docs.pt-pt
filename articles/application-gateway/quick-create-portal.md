@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442343"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -29,9 +29,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do Azure.
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. A **nova** janela é exibida.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela é exibida.
 
 2. Selecione **rede** e, em seguida, selecione **Gateway de aplicativo** na lista em **destaque** .
 
@@ -66,7 +66,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 1. Na guia **front-ends** , verifique se **tipo de endereço IP de front-end** está definido como **público**. <br>Você pode configurar o IP de front-end para ser público ou privado de acordo com seu caso de uso. Neste exemplo, você escolherá um IP de front-end público.
    > [!NOTE]
-   > Para o SKU do gateway de aplicativo v2, você só pode escolher a configuração de IP de front-end **público** . Somente a configuração de IP de front-end privado não está habilitada no momento para este SKU v2. Você pode ter a configuração de IP de front-end pública e privada.
+   > Para o SKU do gateway de aplicativo v2, você só pode escolher a configuração de IP de front-end **público** . Somente a configuração de IP de front-end privado (somente modo ILB) não está habilitada para este SKU V2 no momento. Você pode ter a configuração de IP de front-end pública e privada.
 
 2. Escolha **criar novo** para o **endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
@@ -91,7 +91,7 @@ O pool de back-end é usado para rotear solicitações para os servidores de bac
 
 4. Na guia **back-ends** , selecione **Avançar: configuração**.
 
-### <a name="configuration-tab"></a>Guia de configuração
+### <a name="configuration-tab"></a>Separador Configuração
 
 Na guia **configuração** , você conectará o front-end e o pool de back-end que você criou usando uma regra de roteamento.
 
@@ -134,9 +134,9 @@ Para fazer isso, você vai:
 2. Instale o IIS nas máquinas virtuais para verificar se o gateway de aplicativo foi criado com êxito.
 3. Adicione os servidores de back-end ao pool de back-end.
 
-### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+### <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
-1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. A **nova** janela é exibida.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela é exibida.
 2. Selecione **computação** e, em seguida, selecione **Windows Server 2016 datacenter** na lista **popular** . A página **criar uma máquina virtual** é exibida.<br>O gateway de aplicativo pode rotear o tráfego para qualquer tipo de máquina virtual usada em seu pool de back-end. Neste exemplo, você usa um datacenter do Windows Server 2016.
 3. Insira esses valores na guia **noções básicas** para as seguintes configurações de máquina virtual:
 

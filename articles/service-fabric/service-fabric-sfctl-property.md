@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-Propriedade sfctl | Microsoft Docs
-description: Descreve os comandos de Propriedade do Service Fabric CLI sfctl.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-Propriedade sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para propriedades de texto e consulta.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901059"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639110"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Armazenar e consultar Propriedades em nomes de Service Fabric.
@@ -29,7 +20,7 @@ Armazenar e consultar Propriedades em nomes de Service Fabric.
 |Comando|Descrição|
 | --- | --- |
 | delete | Exclui a propriedade de Service Fabric especificada. |
-| Obter | Obtém a propriedade de Service Fabric especificada. |
+| Get | Obtém a propriedade de Service Fabric especificada. |
 | list | Obtém informações sobre todas as propriedades de Service Fabric em um determinado nome. |
 | Posicione | Cria ou atualiza uma propriedade Service Fabric. |
 
@@ -115,7 +106,7 @@ Cria ou atualiza a propriedade de Service Fabric especificada em um determinado 
 | --Name-ID [obrigatório] | O nome do Service Fabric, sem o esquema de URI ' Fabric\:'. |
 | --property-name [obrigatório] | O nome da propriedade de Service Fabric. |
 | --valor [obrigatório] | Descreve um valor de Propriedade Service Fabric. Esta é uma cadeia de caracteres JSON. <br><br> A cadeia de caracteres JSON tem dois campos, o ' tipo ' dos dados e o ' valor ' dos dados. O valor ' Kind ' deve ser o primeiro item a ser exibido na cadeia de caracteres JSON e pode ser os valores ' binary ', ' Int64 ', ' Double ', ' String ' ou ' GUID '. O valor deve ser serializado para os tipos especificados. Os valores ' Kind ' e ' data ' devem ser fornecidos como cadeias de caracteres. |
-| --ID-personalizada-tipo | A ID de tipo personalizado da propriedade. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
+| --custom-id-type | A ID de tipo personalizado da propriedade. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
 | --Timeout-t | Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais

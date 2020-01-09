@@ -1,18 +1,17 @@
 ---
-title: Tutorial sobre a instalação de um dispositivo físico do Filer do Azure FXT Edge | Microsoft Docs
+title: 'Tutorial: instalar um dispositivo físico do Filer do Azure FXT Edge'
 description: Como desempacotar, colocar em rack e conectar o componente do dispositivo físico do Microsoft Azure o cache de armazenamento híbrido do Filer do FXT Edge
-services: ''
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 0f3c7b01ee9d4a62ec0d563af55f2086894081be
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 7c77e25d0dcabc49f2e6672645c6bc41e8662ec8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256042"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551034"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: instalar o filer do Azure FXT Edge 
 
@@ -97,7 +96,7 @@ Para racks com orifícios quadrados ou redondos, siga este procedimento para mon
 
 1. Posicione as peças de extremidade do trilho esquerda e direita rotuladas como **front** face para dentro. Posicione cada peça final para que ela se encaixe nos orifícios no lado frontal dos flanges verticais do rack. uma
 
-2. Alinhe cada parte final nos orifícios inferior e superior do rack no espaço em que você deseja montá-lo. 2
+2. Alinhe cada parte final nos orifícios inferior e superior do rack no espaço em que você deseja montá-lo. (2)
 
 3. Envolva o back-end do trilho até que ele se encaixe totalmente no flange vertical do rack e que os cliques da trava estejam no lugar. Repita essas etapas para posicionar e colocar a peça de front-end no flange vertical do rack. Beta
 
@@ -111,9 +110,9 @@ Para racks com orifícios quadrados ou redondos, siga este procedimento para mon
 Para racks com buracos threaded, siga este procedimento para montar e instalar os trilhos.
 
 1. Remova os PINs dos colchetes de montagem frontal e traseira por uma chave de fenda inclinada simples. uma
-1. Puxe e gire os subconjuntos de travas do trilho para removê-los dos colchetes de montagem. 2
+1. Puxe e gire os subconjuntos de travas do trilho para removê-los dos colchetes de montagem. (2)
 1. Anexe os trilhos de montagem esquerdo e direito aos flangeos do rack vertical frontal usando dois pares de parafusos. Beta
-1. Deslize os colchetes à esquerda e à direita para frente nos flanges verticais do rack traseiro e anexe-os usando dois pares de parafusos. quatro
+1. Deslize os colchetes à esquerda e à direita para frente nos flanges verticais do rack traseiro e anexe-os usando dois pares de parafusos. (4)
 
 ![Diagrama de instalação e remoção de trilhos de ferramentas, com etapas numeradas](media/fxt-install/installing-removing-tooled-rails-400.png)
 
@@ -122,7 +121,7 @@ Para racks com buracos threaded, siga este procedimento para montar e instalar o
 Siga estas etapas para montar o dispositivo de filer do Azure FXT Edge no rack.
 
 1. Puxe os trilhos do slide interno para fora do rack até que eles travem no local. uma
-1. Localize o ressalto do trilho traseiro em cada lado do dispositivo e abaixe-o nos slots J traseiros nos assemblies do slide. 2 
+1. Localize o ressalto do trilho traseiro em cada lado do dispositivo e abaixe-o nos slots J traseiros nos assemblies do slide. (2) 
 1. Gire o dispositivo para baixo até que todos os espaçadores do trilho estejam encaixados nos slots J. Beta
 1. Envie o dispositivo por push para dentro até que as alavancas de bloqueio cliquem no lugar.
 1. Pressione os botões de bloqueio de liberação de slide em ambos os trilhos (4) e deslize o dispositivo para o rack.

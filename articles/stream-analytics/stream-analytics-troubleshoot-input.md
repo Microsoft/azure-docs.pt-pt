@@ -1,7 +1,6 @@
 ---
 title: Entradas de resolução de problemas para o Azure Stream Analytics
 description: Este artigo descreve técnicas para resolver problemas de suas ligações de entrada em tarefas do Azure Stream Analytics.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354289"
 ---
-# <a name="troubleshoot-input-connections"></a>Resolver problemas de ligações de entrada
+# <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
 Esta página descreve problemas comuns com ligações de entrada e como resolvê-los.
 
@@ -31,7 +30,7 @@ Esta página descreve problemas comuns com ligações de entrada e como resolvê
         
     Inspecionar os dados de exemplo para compreender a forma dos dados: o esquema e o [tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="malformed-input-events-causes-deserialization-errors"></a>Erros de desserialização de causas de eventos de entrada com formato incorreto 
+## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventos de entrada mal formados provocam erros de desserialização 
 Desserialização problemas causados quando o fluxo de entrada da sua tarefa do Stream Analytics contém mensagens com formato incorreto. Por exemplo, pode dever-se uma mensagem incorretamente formada por um parêntesis de em falta ou uma chave num objeto JSON ou tem um formato de timestamp incorreto no campo de tempo. 
  
 Quando uma tarefa do Stream Analytics recebe uma mensagem incorretamente formada de entrada, ele ignora a mensagem e notifica-o com um aviso. Um símbolo de aviso é apresentado no **entradas** mosaico da sua tarefa do Stream Analytics. Este início de sessão de aviso existe, desde que a tarefa está no estado de execução:
@@ -50,7 +49,7 @@ Pode realizar os passos seguintes para analisar os eventos de entrada em detalhe
 
 2. O mosaico de detalhes de entrada apresenta uma lista de avisos com detalhes sobre cada problema. A mensagem de aviso de exemplo abaixo inclui a partição, o deslocamento e a números de sequência em que há dados JSON com formato incorreto. 
 
-   ![Mensagem de aviso do Stream Analytics com o deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Stream Analytics mensagem de aviso com deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Para encontrar os dados JSON com formato incorreto, execute o código de CheckMalformedEvents.cs disponível na [repositório de exemplos do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
 
@@ -61,7 +60,7 @@ Pode realizar os passos seguintes para analisar os eventos de entrada em detalhe
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Tarefa excede o máximo Recetores do Hub de eventos
 Uma melhor prática para utilizar os Hubs de eventos é usar vários grupos de consumidores para assegurar a escalabilidade de tarefa. O número de leitores da tarefa do Stream Analytics para uma introdução específica afeta o número de leitores num grupo de consumidor. O número exato de recetores baseia-se nos detalhes da implementação interna para a lógica de topologia de escalamento horizontal e não está exposto externamente. O número de leitores pode alterar quando é iniciada uma tarefa ou durante atualizações de tarefa.
 
-O erro mostrado quando o número de destinatários excede o máximo é: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+O erro mostrado quando o número de recetores excede o máximo é `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > Quando o número de leitores são alterados durante uma atualização da tarefa, transitórios avisos são escritos para registos de auditoria. Tarefas do Stream Analytics recuperar automaticamente a partir desses problemas transitórios.
@@ -93,8 +92,8 @@ Se a sintaxe de consulta de transmissão em fluxo referencia o mesmo recurso de 
 Cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco incluem o seguinte:
 
 * Múltiplas instruções SELECIONADAS: Se utilizar várias instruções SELECT que fazem referência a **mesmo** hub de eventos de entrada, cada instrução SELECIONADA faz com que um novo recetor a ser criada.
-* UNIÃO: Quando utiliza uma União, é possível ter várias entradas que consulte o **mesmo** grupo de hub e o consumidor de eventos.
-* ASSOCIAÇÃO AUTOMÁTICA: Quando utiliza uma operação de associação de SELF, é possível fazer referência a **mesmo** hub de eventos várias vezes.
+* União: Quando utiliza uma União, é possível ter várias entradas que consulte o **mesmo** grupo de hub e o consumidor de eventos.
+* ASSOCIAÇÃO automática: Quando utiliza uma operação de associação de SELF, é possível fazer referência a **mesmo** hub de eventos várias vezes.
 
 As seguintes práticas recomendadas podem ajudar a atenuar os cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco.
 
@@ -140,7 +139,7 @@ Para consultas em que os três ou mais entradas estão ligadas ao mesmo grupo de
 
 Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

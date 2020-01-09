@@ -1,25 +1,16 @@
 ---
-title: Simular falhas nos aplicativos Service Fabric do Azure | Microsoft Docs
-description: Como proteger seus serviços contra falhas normais e não-cortesia.
-services: service-fabric
-documentationcenter: .net
+title: Simular falhas nos aplicativos Service Fabric do Azure
+description: Saiba mais sobre como proteger seus serviços de Service Fabric do Azure contra falhas normais e não-cortesia.
 author: anmolah
-manager: chackdan
-editor: ''
-ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: d3d9f6478336c59adb875bf21438d5ffa457b1d4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348715"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645995"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
 Os cenários de possibilidade de teste no Azure Service Fabric permitem aos desenvolvedores não se preocupar em lidar com falhas individuais. No entanto, há cenários em que uma intercalação explícita de carga de trabalho e falhas de cliente pode ser necessária. A intercalação de carga de trabalho e falhas do cliente garante que o serviço esteja, na verdade, executando alguma ação quando ocorrer falha. Considerando o nível de controle que a capacidade de teste fornece, eles podem estar em pontos precisos da execução da carga de trabalho. Essa indução de falhas em Estados diferentes no aplicativo pode encontrar bugs e melhorar a qualidade.
@@ -27,12 +18,12 @@ Os cenários de possibilidade de teste no Azure Service Fabric permitem aos dese
 ## <a name="sample-custom-scenario"></a>Cenário personalizado de exemplo
 Esse teste mostra um cenário que intercala a carga de trabalho de negócios com [falhas normais e sem carência](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas no meio de operações de serviço ou de computação para obter melhores resultados.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou combinação. Por questões de simplicidade, abstrairemos as cargas de trabalho em nosso exemplo. As diferentes falhas executadas neste exemplo são:
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. cada uma corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou uma combinação. Por questões de simplicidade, abstrairemos as cargas de trabalho em nosso exemplo. As diferentes falhas executadas neste exemplo são:
 
-* RestartNode Falha de cortesia para simular uma reinicialização do computador.
-* RestartDeployedCodePackage: Falha incortesia para simular falhas de processo de host de serviço.
-* RemoveReplica: Falha normal para simular a remoção da réplica.
-* MovePrimary: Falha normal para simular as movimentações de réplica disparadas pelo balanceador de carga Service Fabric.
+* RestartNode: falha de cortesia para simular uma reinicialização do computador.
+* RestartDeployedCodePackage: falha de cortesia para simular falhas de processo de host de serviço.
+* RemoveReplica: falha normal para simular a remoção da réplica.
+* MovePrimary: falha normal para simular as movimentações de réplica disparadas pelo balanceador de carga Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

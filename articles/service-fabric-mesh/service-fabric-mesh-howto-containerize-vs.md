@@ -1,22 +1,18 @@
 ---
-title: Colocar um aplicativo .NET existente em contêiner para Service Fabric malha | Microsoft Docs
+title: Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 description: Adicione Service Fabric suporte de orquestração de contêiner de malha a projetos de console e ASP.NET que usam o .NET Framework completo.
-services: service-fabric-mesh
-keywords: colocar em contêiner a malha do Service Fabric
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462044"
 ---
-# <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em contêiner para Service Fabric malha
+# <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 
 Este artigo mostra como adicionar Service Fabric suporte à orquestração de contêiner de malha a um aplicativo .NET existente.
 

@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
-ms.topic: overview
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448568"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisar notícias com o API de Pesquisa de Notícias do Bing
 
@@ -107,7 +107,7 @@ Se o Bing conseguir determinar a categoria do artigo, este incluirá o campo `ca
 
 ## <a name="get-todays-top-news"></a>Obtenha as principais notícias de hoje
 
-Para obter os principais artigos de notícias de hoje, você pode enviar a mesma solicitação de notícias geral como antes, `q` deixando a desdefinição do parâmetro.
+Para obter os principais artigos de notícias de hoje, você pode enviar a mesma solicitação de notícias geral como antes, deixando a desdefinição do parâmetro `q`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-A resposta para obter as notícias mais importantes é quase igual à de obter notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar `provider` o campo para atributo do artigo.
+A resposta para obter as notícias mais importantes é quase igual à de obter notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar o campo `provider` para atribuir o artigo.
 
 ## <a name="get-news-by-category"></a>Obter notícias por categoria
 
@@ -257,11 +257,11 @@ Se existirem outros artigos relacionados com uma notícia, esta pode incluir o c
     },
 ```
 
-## <a name="throttling-requests"></a>Limitar pedidos
+## <a name="throttling-requests"></a>Pedidos de limitação
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como paginar os resultados de Pesquisa de Notícias do Bing](../paging-news.md)

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
-ms.translationtype: MT
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539051"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529716"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Azure (versão prévia)
 
@@ -89,7 +89,7 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
     ![Criar aplicativo](media/solution-office-365/create-application.png)
 1. Clique em **registrar** e validar as informações do aplicativo.
 
-    ![Aplicativo registrado](media/solution-office-365/registered-app.png)
+    ![Aplicação registada](media/solution-office-365/registered-app.png)
 
 1. Salve a ID do aplicativo (cliente) junto com o restante das informações coletadas antes.
 
@@ -546,22 +546,22 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez princ
 
 Todos os registros criados no espaço de trabalho Log Analytics no Azure Monitor pela solução do Office 365 têm um **tipo** de **OfficeActivity**.  A propriedade **OfficeWorkload** determina qual serviço do Office 365 o registro se refere a-Exchange, AzureActiveDirectory, SharePoint ou onedrive.  A propriedade **RecordType** especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são mostradas nas tabelas a seguir.
 
-### <a name="common-properties"></a>Propriedades comuns
+### <a name="common-properties"></a>Common properties (Propriedades comuns)
 
 As propriedades a seguir são comuns a todos os registros do Office 365.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo | *OfficeActivity* |
-| ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
+| ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado no formato de endereço IPv4 ou IPv6. |
 | OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Trocar<br>SharePoint|
-| Operação | O nome da atividade de usuário ou administrador.  |
+| Operação | O nome da atividade do utilizador ou administrador.  |
 | OrganizationId | O GUID do locatário do Office 365 da sua organização. Esse valor será sempre o mesmo para sua organização, independentemente do serviço do Office 365 no qual ele ocorre. |
 | RecordType | Tipo de operação executada. |
-| ResultStatus | Indica se a ação (especificada na Propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é true ou false. |
-| ID | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| ResultStatus | Indica se a ação (especificada na propriedade Operação) foi concluída com êxito ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é true ou false. |
+| UserId | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é populada com a PUID (ID exclusiva) do Passport para eventos executados por usuários no SharePoint, OneDrive for Business e Exchange. Essa propriedade também pode especificar o mesmo valor que a Propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| userType | O tipo de usuário que realizou a operação.<br><br>ADM<br>Candidatura<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>administrador<br>Candidatura<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Azure Active Directory
@@ -573,7 +573,7 @@ As propriedades a seguir são comuns a todos os registros de Azure Active Direct
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | O tipo de evento do Azure AD. |
-| extendedProperties | As propriedades estendidas do evento do Azure AD. |
+| ExtendedProperties | As propriedades estendidas do evento do Azure AD. |
 
 
 ### <a name="azure-active-directory-account-logon"></a>Logon da conta do Azure Active Directory
@@ -602,7 +602,7 @@ Esses registros são criados quando alterações ou adições são feitas em obj
 | Ator | O usuário ou a entidade de serviço que realizou a ação. |
 | ActorContextId | O GUID da organização ao qual o ator pertence. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
-| Intersystemid | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
+| InterSystemsId | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
 | IntraSystemId |   O GUID gerado por Azure Active Directory para rastrear a ação. |
 | SupportTicketId | A ID do tíquete de suporte ao cliente para a ação em situações "agir em nome de". |
 | TargetContextId | O GUID da organização ao qual o usuário de destino pertence. |
@@ -639,7 +639,7 @@ Esses registros são criados quando são feitas alterações na configuração d
 | Parâmetros | O nome e o valor de todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
 
 
-### <a name="exchange-mailbox"></a>Caixa de correio do Exchange
+### <a name="exchange-mailbox"></a>Caixa de Correio do Exchange
 
 Esses registros são criados quando alterações ou adições são feitas nas caixas de correio do Exchange.
 
@@ -648,11 +648,11 @@ Esses registros são criados quando alterações ou adições são feitas nas ca
 | OfficeWorkload | Trocar |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de email que foi usado para executar a operação, como uma versão do navegador, versão do Outlook e informações de dispositivo móvel. |
-| Client_IPAddress | O endereço IP do dispositivo que foi usado quando a operação foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
+| Client_IPAddress | O endereço IP do dispositivo que foi usado quando a operação foi registrada. O endereço IP é apresentado no formato de endereço IPv4 ou IPv6. |
 | ClientMachineName | O nome do computador que hospeda o cliente do Outlook. |
 | ClientProcessName | O cliente de email que foi usado para acessar a caixa de correio. |
 | ClientVersion | A versão do cliente de email. |
-| InternalLogonType | Reservado para uso interno. |
+| InternalLogonType | Reservado para utilização interna. |
 | Logon_Type | Indica o tipo de usuário que acessou a caixa de correio e executou a operação que foi registrada. |
 | LogonUserDisplayName |    O nome amigável do usuário que realizou a operação. |
 | LogonUserSid | O SID do usuário que realizou a operação. |
@@ -705,7 +705,7 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | EventSource | Identifica que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
-| itemType | O tipo de objeto que foi acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
+| TipoItem | O tipo de objeto que foi acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
 | MachineDomainInfo | Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
 | MachineId |   Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
 | Site_ | O GUID do site em que o arquivo ou pasta acessado pelo usuário está localizado. |

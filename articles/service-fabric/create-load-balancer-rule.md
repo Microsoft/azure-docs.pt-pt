@@ -1,24 +1,14 @@
 ---
 title: Criar uma regra de Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para o cluster de Service Fabric do Azure.
-services: service-fabric
-documentationcenter: na
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351486"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um Cluster Service Fabric
 
@@ -33,7 +23,7 @@ Quando você implantou o Cluster Service Fabric no Azure, um balanceador de carg
 
 Seu arquivo de configuração do Service Fabric Application **inmanifest. xml** define os pontos de extremidade que seu aplicativo espera usar. Depois que o arquivo de configuração tiver sido atualizado para definir um ponto de extremidade, o balanceador de carga deverá ser atualizado para expor essa porta (ou outra). Para obter mais informações sobre como criar o ponto de extremidade do Service Fabric, consulte [configurar um ponto de extremidade](service-fabric-service-manifest-resources.md).
 
-## <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
+## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
 Uma regra de Load Balancer abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interno usada pelo seu aplicativo. Se você não tiver um balanceador de carga, consulte [configurar um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
@@ -103,7 +93,7 @@ $lb.LoadBalancingRules.Add($lbrule)
 $lb | Set-AzLoadBalancer
 ```
 
-Em relação `New-AzLoadBalancerRuleConfig` ao comando, `-FrontendPort` o representa a porta que o balanceador de carga expõe para conexões `-BackendPort` externas e representa a porta que o aplicativo do Service Fabric está ouvindo.
+Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta que o aplicativo do Service Fabric está ouvindo.
 
 >[!NOTE]
 >Para obter mais informações sobre como criar um balanceador de carga com o PowerShell, consulte [criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).

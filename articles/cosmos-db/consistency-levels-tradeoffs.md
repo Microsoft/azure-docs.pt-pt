@@ -1,5 +1,5 @@
 ---
-title: Compensações de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB
+title: Azure Cosmos DB compensações de consistência, disponibilidade e desempenho
 description: Compensações de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445555"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
-Os bancos de dados distribuídos que dependem da replicação para alta disponibilidade, baixa latência ou ambos devem fazer compensações. As compensações estão entre consistência de leitura versus disponibilidade, latência e taxa de transferência.
+As bases de dados distribuídas que dependem da replicação para elevada disponibilidade, baixa latência ou ambos, têm vantagens e desvantagens. As vantagens e desvantagens estão entre a consistência da leitura vs disponibilidade, latência e débito.
 
 Azure Cosmos DB se aproxima da consistência de dados como um espectro de opções. Essa abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Você pode escolher entre cinco modelos bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são:
 
-- *Tipa*
-- *Desatualização limitada*
+- *Forte*
+- *Estagnação limitada*
 - *Sessão*
 - *Prefixo consistente*
-- *Iminente*
+- *Eventual*
 
 Cada modelo fornece compensações de desempenho e disponibilidade e é apoiado por SLAs abrangentes.
 
@@ -53,11 +53,11 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 |**Região (ões)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< de 240 minutos|< 1 semana|
-|> 1|Mestre único|Sessão, prefixo consistente, eventual|< 15 minutos|< 15 minutos|
-|> 1|Mestre único|Estagnação Limitada|*K*  & *t*|< 15 minutos|
-|> 1|Mestre único|Segura|0|< 15 minutos|
-|> 1|Vários mestres|Sessão, prefixo consistente, eventual|< 15 minutos|0|
-|> 1|Vários mestres|Estagnação Limitada|*K*  & *t*|0|
+|>1|Mestre único|Sessão, prefixo consistente, eventual|< 15 minutos|< 15 minutos|
+|>1|Mestre único|Estagnação Limitada|*K* & *T*|< 15 minutos|
+|>1|Mestre único|Segura|0|< 15 minutos|
+|>1|Vários mestres|Sessão, prefixo consistente, eventual|< 15 minutos|0|
+|>1|Vários mestres|Estagnação Limitada|*K* & *T*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 

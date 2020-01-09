@@ -1,20 +1,15 @@
 ---
-title: Perguntas comuns sobre a malha de Service Fabric do Azure | Microsoft Docs
+title: Perguntas comuns sobre a malha de Service Fabric do Azure
 description: Saiba mais sobre perguntas e respostas frequentes para a malha de Service Fabric do Azure.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461988"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre a malha Service Fabric
 
@@ -47,7 +42,7 @@ Sim. As cotas para cada assinatura são:
 
 No momento, limitamos o tempo de vida de um aplicativo a dois dias. Isso é para maximizar o uso dos núcleos gratuitos alocados para a versão prévia. Como resultado, você só tem permissão para executar uma determinada implantação continuamente por 48 horas, após o momento em que ela será desligada.
 
-Se você vir isso acontecer, poderá validar que o sistema o desliga executando o comando `az mesh app show` na CLI do Azure. Verifique se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Se você vir isso acontecer, poderá validar que o sistema o desliga executando o comando `az mesh app show` no CLI do Azure. Verifique para ver se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Por exemplo: 
 
@@ -86,10 +81,9 @@ Se você estiver desenvolvendo em uma máquina de atualização do Windows Outon
 Se você estiver desenvolvendo em uma máquina de atualização do Windows 10 de abril de 2018 (versão 1803), poderá usar as imagens do Windows versão 1709 ou do Windows versão 1803.
 
 As imagens do sistema operacional do contêiner a seguir podem ser usadas para implantar serviços:
-
 - Windows-windowsservercore e coserver
     - Windows Server 1709
-    - Windows Server 1803
+    - Windows Server versão 1803
     - Windows Server 1809
     - Windows Server 2019 LTSC
 - Linux
@@ -110,7 +104,7 @@ As consultas de DNS de saída de um contêiner para o serviço DNS Service Fabri
 
 - Use a atualização do Windows Outono Creators (versão 1709) ou superior como sua imagem de contêiner base.
 - Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName. ApplicationName.
-- No arquivo do Docker para seu serviço, adicione `EXPOSE <port>`, em que porta é a porta na qual você está expondo seu serviço. Por exemplo:
+- No arquivo do Docker para seu serviço, adicione `EXPOSE <port>` onde porta é a porta na qual você está expondo seu serviço. Por exemplo:
 
 ```Dockerfile
 EXPOSE 80

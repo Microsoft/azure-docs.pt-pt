@@ -1,17 +1,14 @@
 ---
-title: Visão geral de Azure Resource Health | Microsoft Docs
+title: Visão geral de Azure Resource Health
 description: Visão geral do Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356800"
 ---
 # <a name="resource-health-overview"></a>Visão geral de Resource Health
  
@@ -25,7 +22,7 @@ Um *recurso* é uma instância específica de um serviço do Azure, como uma má
 
 Para obter mais informações sobre como a integridade é avaliada, consulte a lista de tipos de recursos e verificações de integridade em [Azure Resource Health](resource-health-checks-resource-types.md).
 
-## <a name="health-status"></a>Status de integridade
+## <a name="health-status"></a>Estado de funcionamento
 
 A integridade de um recurso é exibida como um dos status a seguir.
 
@@ -35,7 +32,7 @@ A integridade de um recurso é exibida como um dos status a seguir.
 
 ![Status de * disponível * para uma máquina virtual que tenha uma notificação "recentemente resolvida"](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Não disponível
+### <a name="unavailable"></a>Indisponível
 
 *Indisponível* significa que o serviço detectou um evento de plataforma ou não plataforma em andamento que afeta a integridade do recurso.
 
@@ -83,7 +80,7 @@ Você pode acessar 14 dias de histórico na seção **histórico de integridade*
 
 ![Lista de eventos de Resource Health nas últimas duas semanas](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 Para abrir Resource Health para um recurso:
 
@@ -97,7 +94,7 @@ Você também pode acessar Resource Health selecionando **todos os serviços** e
 
 ![Abrindo Resource Health de "todos os serviços"](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira estas referências para saber mais sobre Resource Health:
 -  [Tipos de recursos e verificações de integridade no Azure Resource Health](resource-health-checks-resource-types.md)

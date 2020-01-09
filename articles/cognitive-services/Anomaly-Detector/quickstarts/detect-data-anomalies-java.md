@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias e o Java'
 titleSuffix: Azure Cognitive Services
-description: Use a API do detector de anomalias para detectar anormalidades em sua série de dados, seja como um lote ou em dados de streaming.
+description: Neste guia de início rápido, saiba como usar a API do detector de anomalias para detectar anormalidades em sua série de dados como um lote ou sobre streaming de dados.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 6b79470194c5e8dc9b8d51f8b528cb4e51f7daf2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3bc406b22b7e8a684713385dfd15daed99bcf977
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448929"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias e o Java
 
@@ -50,7 +50,7 @@ Use este guia de início rápido para começar a usar os dois modos de detecçã
 
 2. Crie variáveis para sua chave de assinatura e seu ponto de extremidade. Abaixo estão os URIs que você pode usar para detecção de anomalias. Eles serão anexados ao ponto de extremidade de serviço posteriormente para criar as URLs de solicitação de API.
 
-    |Método de detecção  |URI  |
+    |Método de deteção  |URI  |
     |---------|---------|
     |Detecção de lote    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detecção no último ponto de dados     | `/anomalydetector/v1.0/timeseries/last/detect`        |

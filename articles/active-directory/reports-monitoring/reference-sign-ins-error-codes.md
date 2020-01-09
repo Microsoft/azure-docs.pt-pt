@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429452"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -36,9 +36,13 @@ Quando uma entrada falhar, você verá um código de erro correspondente à falh
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Como posso apresentar inícios de sessão com falha? 
 
-Navegue até o [relatório de entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) no [portal do Azure](https://portal.azure.com).
+No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Atividade de entrada](./media/reference-sign-ins-error-codes/61.png "Atividade de início de sessão")
+![Selecionar Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Atividade de entrada](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Atividade de início de sessão")
 
 Filtre o relatório para exibir todas as entradas com falha selecionando **falha** na caixa suspensa **status de entrada** .
 
@@ -132,7 +136,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |51001|A dica de domínio não está presente no identificador de segurança local-UPN local.|
 |51004|A conta de utilizador não existe no diretório.|
 |51006|É necessária a Autenticação Integrada do Windows Usuário conectado usando o token de sessão que está faltando por meio de declaração. Pedir ao utilizador que volte a iniciar sessão.|
-|52004|O utilizador não deu consentimento para acesso a recursos do LinkedIn. |
+|52004|O utilizador não deu consentimento de acesso a recursos do LinkedIn. |
 |53000|A política de acesso condicional requer um dispositivo em conformidade e o dispositivo não está em conformidade. Faça com que o usuário registre seu dispositivo com um provedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo associado a um domínio, o que não é o caso deste dispositivo. Fazer com que o usuário use um dispositivo ingressado no domínio.|
 |53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
@@ -179,7 +183,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação sem suporte (há suporte apenas para o método POST) ou o algoritmo de assinatura de token que foi solicitado não tem suporte. Contacte o programador da aplicação.|
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente, contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se você tem todos os parâmetros necessários para a solicitação de logon. |
 |90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
-|90072| A conta precisa ser adicionada primeiro como um usuário externo no locatário. Saia e entre novamente com uma conta diferente do Azure AD.|
+|90072| É necessário adicionar primeiro a conta como um utilizador externo no inquilino. Saia e entre novamente com uma conta diferente do Azure AD.|
 |90094| A concessão requer permissões de administrador. Peça ao seu administrador de locatários para fornecer consentimento para este aplicativo.|
 |500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou consentido por qualquer usuário no locatário. Poderá ter enviado o pedido de autenticação para o inquilino errado.|
 |500021| O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|

@@ -1,24 +1,16 @@
 ---
-title: Diagnóstico de proxy reverso do Azure Service Fabric | Microsoft Docs
-description: Saiba como monitorar e diagnosticar o processamento de solicitações no proxy reverso.
-services: service-fabric
-documentationcenter: .net
+title: Diagnóstico de proxy reverso do Azure Service Fabric
+description: Saiba como monitorar e diagnosticar o processamento de solicitações no proxy reverso para um aplicativo de Service Fabric do Azure.
 author: kavyako
-manager: vipulm
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933969"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645468"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitações no proxy reverso
 
@@ -104,7 +96,7 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que um p
      }
      }
      ```
-     Outro exemplo em que o proxy reverso pode retornar 404 não encontrado é: o parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como true com o proxy reverso escutando em **https**, mas todos os pontos de extremidade de réplica não são seguros ( escutando em HTTP).
+     Outro exemplo em que o proxy reverso pode retornar 404 não encontrado é: ApplicationGateway\Http parâmetro de configuração **SecureOnlyMode** está definido como true com o proxy reverso ouvindo em **https**, no entanto, todos os pontos de extremidade de réplica não são seguros (escutando em http).
      O proxy reverso retorna 404, pois não consegue encontrar um ponto de extremidade ouvindo em HTTPS para encaminhar a solicitação. A análise dos parâmetros no conteúdo do evento ajuda a restringir o problema:
     
      ```
@@ -183,7 +175,7 @@ Aqui estão alguns exemplos de como interpretar os logs de falha comuns que um p
     ```
 5. O proxy reverso retorna 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
 
-    O erro FABRIC_E_SERVICE_DOES_NOT_EXIST será retornado se o esquema de URI não for especificado para o ponto de extremidade de serviço no manifesto do serviço.
+    FABRIC_E_SERVICE_DOES_NOT_EXIST erro será retornado se o esquema de URI não for especificado para o ponto de extremidade de serviço no manifesto do serviço.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>

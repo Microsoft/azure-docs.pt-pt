@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 02297a45c9560f867e97d7024862ea0de5d3f7b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469444"
 ---
 Pode criar uma VNet com o modelo de implementação do Resource Manager e o portal do Azure ao seguir estes passos. Para obter mais informações sobre as redes virtuais, consulte [descrição geral da rede Virtual](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Pode criar uma VNet com o modelo de implementação do Resource Manager e o port
 >
 >
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).  No menu portal do Azure ou na **Home** Page do e selecione **criar um recurso**. O **New** é aberta a página.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).  No menu portal do Azure ou na **Home** Page do e selecione **criar um recurso**. O **New** é aberta a página.
 
 2. Em **Pesquisar no Marketplace**, insira *rede virtual* e selecione **rede virtual** nos resultados.
 
@@ -42,7 +42,7 @@ Pode criar uma VNet com o modelo de implementação do Resource Manager e o port
 
    - **Subscrição**: Verifique se a subscrição listada é a correta. Pode utilizar o menu pendente para mudar de subscrição.
 
-   - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo ao introduzir um nome para o novo grupo de recursos. Se estiver a criar um novo grupo, dê um nome de acordo com os valores de configuração planeados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo ao introduzir um nome para o novo grupo de recursos. Se estiver a criar um novo grupo, dê um nome de acordo com os valores de configuração planeados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
 
    - **Localização**: selecione a localização da VNet. A localização determina onde os recursos que implementar nesta vnet vão viver.
 

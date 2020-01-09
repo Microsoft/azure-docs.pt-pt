@@ -1,5 +1,5 @@
 ---
-title: Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em Node | Microsoft Docs
+title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no nó
 description: Escreva uma aplicação de consola Node.js para pedidos HTTP das Ligações Híbridas do Azure Relay em Node.
 services: service-bus-relay
 documentationcenter: node
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462019"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introdução aos pedidos HTTP das Ligações Híbridas do Azure Relay em Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Neste início rápido, vai criar aplicações de remetente e o receptor de node. js que enviar e recebem mensagens utilizando o protocolo HTTP. Os aplicativos utilizam a funcionalidade ligações híbridas do reencaminhamento do Azure. Para saber mais sobre o reencaminhamento do Azure em geral, veja [reencaminhamento do Azure](relay-what-is-it.md). 
+Neste guia de início rápido, você cria aplicativos de remetente e receptor do node. js que enviam e recebem mensagens usando o protocolo HTTP. Os aplicativos usam Conexões Híbridas recurso da retransmissão do Azure. Para saber mais sobre a retransmissão do Azure em geral, consulte [retransmissão do Azure](relay-what-is-it.md). 
 
-Neste início rápido, siga os passos seguintes:
+Neste guia de início rápido, você executará as seguintes etapas:
 
 1. Crie um espaço de nomes de Reencaminhamento com o Portal do Azure.
 2. Crie uma ligação híbrida nesse espaço de nomes, com o portal do Azure.
 3. Escrever uma aplicação de consola (serviço de escuta) de servidor para receber mensagens.
 4. Escrever uma aplicação de consola (remetente) de cliente para enviar mensagens.
-5. Execute aplicações.
+5. Executar aplicativos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Node.js](https://nodejs.org/en/).
@@ -64,7 +64,7 @@ Para enviar mensagens para o Reencaminhamento, pode utilizar qualquer cliente HT
 
 Parabéns, criou uma aplicação de Ligações Híbridas ponto a ponto com o Node.js!
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste início rápido, criou aplicações de cliente e servidor node. js que utilizado HTTP para enviar e receber mensagens. A funcionalidade ligações híbridas do reencaminhamento do Azure também suporta o uso de WebSockets para enviar e receber mensagens. Para saber como utilizar WebSockets com ligações híbridas do reencaminhamento do Azure, veja a [guia de introdução de WebSockets](relay-hybrid-connections-node-get-started.md).
+## <a name="next-steps"></a>Passos seguintes
+Neste guia de início rápido, você criou aplicativos de cliente e servidor do node. js que usavam HTTP para enviar e receber mensagens. O recurso Conexões Híbridas da retransmissão do Azure também dá suporte ao uso de Websockets para enviar e receber mensagens. Para saber como usar Websockets com o Conexões Híbridas de retransmissão do Azure, consulte o guia de [início rápido do WebSockets](relay-hybrid-connections-node-get-started.md).
 
-Neste início rápido, utilizou node. js para criar aplicações de cliente e servidor. Para saber como escrever aplicativos de cliente e servidor usando o .NET Framework, consulte a [guia de introdução do .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md) ou o [guia de introdução do .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+Neste guia de início rápido, você usou o Node. js para criar aplicativos de cliente e servidor. Para saber como gravar aplicativos de cliente e servidor usando .NET Framework, consulte o [início rápido do .net WebSockets](relay-hybrid-connections-dotnet-get-started.md) ou o [início rápido do .net http](relay-hybrid-connections-http-requests-dotnet-get-started.md).
