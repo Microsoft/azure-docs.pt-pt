@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706267"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644601"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -114,7 +114,7 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo cluster HD
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Como fazer alterar o fuso horário em Ambari?
 
-1. Abra a interface do usuário da Web do amAmbari em https://CLUSTERNAME.azurehdinsight.net, em que CLUSTERname é o nome do cluster.
+1. Abra a interface do usuário da Web do amAmbari em `https://CLUSTERNAME.azurehdinsight.net`, em que CLUSTERname é o nome do cluster.
 2. No canto superior direito, selecione Admin | Configurações. 
 
    ![Configurações de Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -165,7 +165,7 @@ Sim, você pode compartilhar o metastore personalizado em vários clusters, desd
 
 Se você bloquear as portas 22 e 23, não terá acesso SSH ao cluster. Essas portas não são usadas pelo serviço HDInsight.
 
-Para obter mais informações, consulte os seguintes documentos:
+Para obter mais informações, consulte os documentos seguintes:
 
 - [Controlando o tráfego de rede](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
 
@@ -263,7 +263,7 @@ Você pode encontrar suas configurações em **Data Lake Storage Gen1 acesso** e
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>Como calcular o uso de contas de armazenamento e contêineres de BLOB para meus clusters HDInsight?
 
-Siga um destes procedimentos:
+Efetue uma das seguintes ações:
 
 - [Utilizar o PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 

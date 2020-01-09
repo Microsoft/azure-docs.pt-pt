@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 076fad8c1fc6fdd4bccf07f5eb3223800eddd4a0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385784"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido da API de Pesquisa de Entidades do Bing com Ruby
 
@@ -39,7 +39,7 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
     require 'json'
     ```
 
-2. Crie variáveis para seu ponto de extremidade de API, URL de pesquisa de notícias, sua chave de assinatura e uma consulta de pesquisa.
+2. Crie variáveis para seu ponto de extremidade de API, URL de pesquisa de notícias, sua chave de assinatura e uma consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -77,7 +77,7 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
-O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {

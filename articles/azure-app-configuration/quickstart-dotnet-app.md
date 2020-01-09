@@ -4,22 +4,16 @@ description: Um guia de início rápido para usar a configuração de Azure App 
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: .NET
-ms.workload: tbd
-ms.date: 10/09/2019
+ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8190265753bddb3038c5403411c4be193dd8075c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433628"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo .NET Framework com a configuração Azure App
 
@@ -35,7 +29,7 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Configuration Explorer** > **criar** para adicionar os seguintes pares de chave-valor:
 
     | Chave | Valor |
     |---|---|
@@ -47,9 +41,9 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 1. Inicie o Visual Studio e selecione **arquivo** > **novo** **projeto**de > .
 
-1. Em **criar um novo projeto**, filtre o tipo de projeto de **console** e clique em **aplicativo de console (.NET Framework)** . Clique em **Seguinte**.
+1. Em **criar um novo projeto**, filtre o tipo de projeto de **console** e clique em **aplicativo de console (.NET Framework)** . Selecione **Seguinte**.
 
-1. Em **configurar seu novo projeto**, insira um nome de projeto. Em **estrutura**, selecione **.NET Framework 4.7.1** ou superior. Clique em **Criar**.
+1. Em **configurar seu novo projeto**, insira um nome de projeto. Em **estrutura**, selecione **.NET Framework 4.7.1** ou superior. Selecione **Criar**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
@@ -98,12 +92,15 @@ Neste guia de início rápido, você incorpora Azure App configuração em um ap
 
 1. Defina uma variável de ambiente chamada **ConnectionString** para a cadeia de conexão de seu repositório de configurações de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando:
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     Se você usar o Windows PowerShell, execute o seguinte comando:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
 1. Reinicie o Visual Studio para permitir que a alteração entre em vigor. Pressione CTRL + F5 para compilar e executar o aplicativo de console.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

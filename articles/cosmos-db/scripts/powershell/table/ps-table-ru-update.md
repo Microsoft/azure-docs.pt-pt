@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script – Azure Cosmos DB atualização RU/s para API de Tabela
+title: Script do PowerShell para atualizar RU/s para Azure Cosmos DB API de Tabela
 description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência de um banco de dados ou de um contêiner na conta Azure Cosmos DB API de Tabela
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8188089f216fa33ba958cf670bb321816387f5c9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444912"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Atualizar RU/s para uma tabela para Azure Cosmos DB-API de Tabela
 

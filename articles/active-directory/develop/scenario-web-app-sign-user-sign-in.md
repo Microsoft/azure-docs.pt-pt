@@ -1,6 +1,6 @@
 ---
-title: Gravar um aplicativo Web que conecta usuários-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo Web que faz logon em usuários (entrada)
+title: Gravar um aplicativo Web que entra/sai de usuários-plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo Web que entra/sai de usuários
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423495"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
 
@@ -118,7 +118,7 @@ O código para `AccountController` está disponível no repositório de ASP.NET 
 
 No ASP.NET, a saída é disparada a partir do método `SignOut()` em um controlador (por exemplo, [AccountController. cs # L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). Esse método não faz parte da estrutura ASP.NET (ao contrário do que acontece em ASP.NET Core). Ele envia um desafio de logon de OpenID depois de propor um URI de redirecionamento.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ No ASP.NET, a saída é disparada a partir do método `SignOut()` em um controla
 - Limpa o cache.
 - Redireciona para a página que deseja.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ O URI de pós-logout permite que os aplicativos participem da saída global.
 
 O middleware ASP.NET Core OpenID Connect permite que seu aplicativo intercepte a chamada para o ponto de extremidade `logout` da plataforma Microsoft Identity fornecendo um evento OpenID Connect chamado `OnRedirectToIdentityProviderForSignOut`. Para obter um exemplo de como assinar esse evento (para limpar o cache de token), consulte [Microsoft. Identity. Web/WebAppServiceCollectionExtensions. cs # L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ O middleware ASP.NET Core OpenID Connect permite que seu aplicativo intercepte a
 
 No ASP.NET, você delega ao middleware para executar a saída, limpando o cookie de sessão:
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

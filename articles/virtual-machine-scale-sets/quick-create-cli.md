@@ -1,6 +1,6 @@
 ---
-title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure| Microsoft Docs
-description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais com a CLI do Azure.
+title: Início rápido-criar um conjunto de dimensionamento de máquinas virtuais com CLI do Azure
+description: Comece com suas implantações aprendendo a criar rapidamente um conjunto de dimensionamento de máquinas virtuais com CLI do Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 414ed5ea34c6f59a980e57ae0056782760b2e87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60120f145ad4bbf11605321603382237fc34cf54
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66149255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351158"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -111,7 +111,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, criou um conjunto de dimensionamento básico e utilizou a Extensão de Script Personalizado para instalar um servidor Web de NGINX básico nas instâncias de VM. Para obter mais informações, avance para o tutorial para saber como criar e gerir conjuntos de dimensionamento de máquinas virtuais do Azure.
 
 > [!div class="nextstepaction"]

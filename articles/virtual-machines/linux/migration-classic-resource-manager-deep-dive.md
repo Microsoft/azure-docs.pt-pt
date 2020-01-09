@@ -1,6 +1,6 @@
 ---
-title: Análise detalhada técnica sobre a migração suportada por plataforma de clássico para o Azure Resource Manager
-description: Este artigo faz uma análise técnica aprofundada sobre a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager
+title: Detalhes técnicos da migração clássica para Azure Resource Manager
+description: Aprofundamento técnico sobre a migração de recursos com suporte da plataforma do modelo de implantação clássico para Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: bf077758b24da4d4a80f1fed7eab2a0711d201ef
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9e2774d8b45432ead621cef09af797effc86d73b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369121"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise detalhada técnica sobre a migração suportada por plataforma de clássico para o Azure Resource Manager
 

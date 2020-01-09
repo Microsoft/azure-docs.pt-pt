@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 00fdeb71cec5995a229c5408429a0369d4317b66
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 20e84b584fa4d654500efc47786fa8db0cd9c238
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440792"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar dados do banco de dados do Azure para MariaDB usando Azure Data Factory 
 
@@ -46,7 +46,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do banco de dado
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **AzureMariaDB** | Sim |
-| connectionString | Uma cadeia de conexão para se conectar ao banco de dados do Azure para MariaDB. Você pode encontrá-lo no portal do Azure-> seu banco de dados do Azure para MariaDB-> cadeias de conexão-> ADO.NET um. <br/>Marque este campo como uma SecureString para armazená-lo com segurança em Data Factory. Você também pode colocar a senha em Azure Key Vault e extrair a configuração de `pwd` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
+| connectionString | Uma cadeia de conexão para se conectar ao banco de dados do Azure para MariaDB. Você pode encontrá-lo no portal do Azure-> seu banco de dados do Azure para MariaDB-> cadeias de conexão-> ADO.NET um. <br/> Você também pode colocar a senha em Azure Key Vault e extrair a configuração de `pwd` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -57,10 +57,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do banco de dado
     "properties": {
         "type": "AzureMariaDB",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
-            }
+            "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,10 +75,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do banco de dado
     "properties": {
         "type": "AzureMariaDB",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
-            },
+            "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;",
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

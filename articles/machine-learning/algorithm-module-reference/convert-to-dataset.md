@@ -1,7 +1,7 @@
 ---
 title: 'Converter em DataSet: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo converter em conjunto de dados no serviço de Azure Machine Learning para converter a entrada de dados para o formato de DataSet interno usado pelo Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo converter para conjunto de dados em Azure Machine Learning para converter a entrada de dados para o formato de DataSet interno usado pelo Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 81eb71da43623f6478e267f55d6576789d494f9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717249"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428579"
 ---
-# <a name="convert-to-dataset"></a>Converter em conjunto de um
+# <a name="convert-to-dataset"></a>Converter em Conjunto de Dados
 
 Este artigo descreve como usar o módulo converter para conjunto de dados no designer de Azure Machine Learning (versão prévia) para converter todos os dados de um pipeline para o formato interno do designer.
   
@@ -70,4 +70,4 @@ Recomendamos que você use o módulo [Editar metadados](edit-metadata.md) para p
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

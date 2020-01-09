@@ -1,5 +1,5 @@
 ---
-title: Guia de aplicativo de página única do JavaScript da plataforma de identidade da Microsoft | Azure
+title: Tutorial de aplicativo de página única JavaScript – plataforma Microsoft Identity | Azure
 description: Como os aplicativos JavaScript SPA podem chamar uma API que exige tokens de acesso por Azure Active Directory ponto de extremidade v 2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919397"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423376"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API de Microsoft Graph de um aplicativo de página única do JavaScript (SPA)
 
@@ -326,7 +326,7 @@ Adicione o código a seguir ao arquivo de `index.html` dentro das marcas de `<sc
 
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Se sua conta fornece acesso a mais de um locatário, selecione a conta no canto superior direito e, em seguida, defina a sessão do portal para o locatário do Azure AD que você deseja usar.
 1. Acesse a página da plataforma de identidade da Microsoft para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .

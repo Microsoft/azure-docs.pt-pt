@@ -1,18 +1,17 @@
 ---
 title: Exemplos da Cache do Azure para Redis
-description: Aprenda a utilizar a Cache do Azure para Redis
+description: 'Saiba como usar o cache do Azure para Redis com estes exemplos de código: conectando a um cache, lendo e gravando dados em um cache, ASP.NET do cache do Azure para provedores de Redis.'
 author: yegu-ms
-ms.service: cache
-ms.devlang: multiple
-ms.topic: conceptual
-ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 9097a25c0223faebd91fe3c01ff3edea6c4e6f9f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: sample
+ms.date: 01/23/2017
+ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433410"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemplos da Cache do Azure para Redis
 Este tópico fornece uma lista de exemplos do cache do Azure para Redis, abrangendo cenários como conectar-se a um cache, ler e gravar dados de e para um cache e usar o cache do Azure ASP.NET para provedores de Redis. Alguns dos exemplos são projetos que podem ser baixados e alguns fornecem orientações passo a passo e incluem trechos de código, mas não são vinculados a um projeto que pode ser baixado.
@@ -62,4 +61,3 @@ O exemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) é o Redis Olá, mun
 
 ## <a name="bandwidth-monitor"></a>Monitor de largura de banda
 O exemplo de [Monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite monitorar a largura de banda usada no cliente. Para medir a largura de banda, execute o exemplo no computador cliente de cache, faça chamadas para o cache e observe a largura de banda relatada pelo exemplo de monitor de largura de banda.
-

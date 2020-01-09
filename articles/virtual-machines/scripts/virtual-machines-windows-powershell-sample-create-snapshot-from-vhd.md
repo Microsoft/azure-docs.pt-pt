@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script do Azure PowerShell - Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo
+title: Criar um instantâneo de um VHD para criar vários discos gerenciados idênticos-exemplo do PowerShell
 description: Exemplo de Script do Azure PowerShell - Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 1104cd762fb054c13d4bd1ebb5f49afef670bcc3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de89ff77d09124449b64f664c60c72f870319b93
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039040"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613810"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>Criar um instantâneo de um VHD para criar vários discos geridos idênticos num pequeno período de tempo com o PowerShell
 
@@ -34,15 +34,6 @@ Este script cria um instantâneo a partir de um ficheiro VHD numa conta de armaz
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-snapshots-from-vhd-in-different-subscription/create-snapshots-from-vhd-in-different-subscription.ps1 "Create snapshot from VHD")]
 
-
-## <a name="script-explanation"></a>Explicação do script
-
-Este script utiliza os seguintes comandos para criar um disco gerido a partir de um VHD numa subscrição diferente. Cada comando na tabela liga à documentação específica do comando.
-
-| Comando | Notas |
-|---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Cria a configuração de disco que é utilizada para a criação do disco. Inclui o tipo de armazenamento, localização, Id de recurso da conta de armazenamento onde o VHD principal está armazenado e o URI de VHD do VHD principal. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Cria um disco com a configuração de disco, o nome do disco e o nome do grupo de recursos transmitidos como parâmetros. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

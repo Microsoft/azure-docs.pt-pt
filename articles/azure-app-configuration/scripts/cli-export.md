@@ -1,5 +1,6 @@
 ---
-title: Exemplo de script de CLI do Azure – exportar de um repositório de configuração de Azure App | Microsoft Docs
+title: Exemplo de script de CLI do Azure – exportar de um repositório de configuração de Azure App
+titleSuffix: Azure App Configuration
 description: Fornece informações e scripts de exemplo para exportar de um repositório de configuração Azure App
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 28066fcea50180189cff7f9af790908c52a4a261
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433606"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportar de um repositório de configuração Azure App
 

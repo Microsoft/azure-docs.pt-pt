@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell
+description: Uma tabela que inclui links para scripts de bash de exemplo criados usando Azure PowerShell, como criar e gerenciar um conjunto de dimensionamento.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 23110fb3fc395c3a3a1107ef9ab0d5a93ec8e3f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0a5939d1b64d93d4dbcc40b2639e3f3ac1a33be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369138"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de exemplos do Azure PowerShell para a máquina virtual.
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemplos de Azure PowerShell para conjuntos de dimensionamento de máquinas virtuais.
 
 A tabela seguinte inclui ligações para scripts bash criados com o Azure PowerShell.
 

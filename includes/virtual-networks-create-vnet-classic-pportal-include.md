@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8d13d5d93dba66fa0dce08ffbf569164fb03398d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467897"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Como criar uma VNet clássica no portal do Azure
 Para criar uma VNet clássica com base no cenário anterior, siga estas etapas.
@@ -25,7 +25,7 @@ Para criar uma VNet clássica com base no cenário anterior, siga estas etapas.
 4. No painel **rede virtual** , digite o **nome** da VNet e clique em **espaço de endereço**. Defina as configurações de espaço de endereço para a VNet e sua primeira sub-rede e clique em **OK**. A figura a seguir mostra as configurações de bloco CIDR para nosso cenário.
    
     ![Painel de espaço de endereço](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-5. Clique em **grupo de recursos** e selecione um grupo de recursos ao qual adicionar a vnet ou clique em **criar novo grupo de recursos** para adicionar a vnet a um novo grupo de recursos. A figura a seguir mostra as configurações do grupo de recursos para um novo grupo de recursos chamado **TestRG**. Para obter mais informações sobre os grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+5. Clique em **grupo de recursos** e selecione um grupo de recursos ao qual adicionar a vnet ou clique em **criar novo grupo de recursos** para adicionar a vnet a um novo grupo de recursos. A figura a seguir mostra as configurações do grupo de recursos para um novo grupo de recursos chamado **TestRG**. Para obter mais informações sobre os grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
    
     ![Painel Criar grupo de recursos](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. Se necessário, altere as definições da **Subscrição** e da **Localização** para a sua VNet. 

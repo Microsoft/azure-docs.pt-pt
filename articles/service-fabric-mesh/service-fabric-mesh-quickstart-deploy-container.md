@@ -1,22 +1,18 @@
 ---
-title: Início Rápido - Implementar o Hello World no Azure Service Fabric Mesh | Microsoft Docs
+title: Início rápido – implantar Olá, Mundo na malha de Service Fabric do Azure
 description: Este início rápido mostra como implementar uma aplicação do Service Fabric Mesh no Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: Não adicione nem edite as palavras-chave sem consultar o perito em SEO.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458971"
 ---
-# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início rápido: Implementar o Hello World no Service Fabric mesh
+# <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implementar o Hello World no Service Fabric Mesh
 
 O [Service Fabric Mesh](service-fabric-mesh-overview.md) facilita a criação e a gestão de aplicações de microsserviços no Azure, sem ter de aprovisionar máquinas virtuais. Neste início rápido, vai criar uma aplicação Hello World no Azure e expô-la na internet. Esta operação é concluída com um único comando. Em apenas alguns minutos, verá esta vista no seu browser:
 
@@ -97,13 +93,13 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando estiver pronto para eliminar a aplicação, execute o comando [az group delete][az-group-delete] para remover o grupo de recursos, a aplicação e os recursos de rede que contém.
+Quando você estiver pronto para excluir o aplicativo, execute o comando [AZ Group Delete][az-group-delete] para remover o grupo de recursos e os recursos de aplicativo e rede que ele contém.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como criar e implementar aplicações do Service Fabric Mesh, avance para o tutorial.
 > [!div class="nextstepaction"]

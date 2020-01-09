@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: MT
+ms.openlocfilehash: d75f12953c0ec767dba8a49b3ed76c176223b30c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382045"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613895"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
 
@@ -25,7 +25,7 @@ O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidad
 
 Este artigo organiza as práticas comprovadas de desempenho em uma lista de verificação que você pode seguir ao desenvolver seu aplicativo de armazenamento de BLOBs.
 
-| Concluído | Categoria | Consideração de design |
+| Concluído | Categoria | Considerações de design |
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Você pode projetar seu aplicativo para não usar mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Você está evitando a abordagem de limites de capacidade e transação?](#capacity-and-transaction-targets) |
@@ -52,13 +52,13 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Usar metadados |[Você está armazenando metadados usados com frequência sobre BLOBs em seus metadados?](#use-metadata) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar um blob rapidamente, você está carregando blocos em paralelo?](#upload-one-large-blob-quickly) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar vários BLOBs rapidamente, você está carregando BLOBs em paralelo?](#upload-many-blobs-quickly) |
-| &nbsp; |Tipo de BLOB |[Você está usando blobs de página ou BLOBs de blocos quando apropriado?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Tipo de blob |[Você está usando blobs de página ou BLOBs de blocos quando apropriado?](#choose-the-correct-type-of-blob) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
 Se seu aplicativo se aproximar ou exceder qualquer um dos destinos de escalabilidade, ele poderá encontrar maiores latências ou limitação de transação. Quando o armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (servidor ocupado) ou 500 (tempo limite da operação). Evitar esses erros ao permanecer dentro dos limites das metas de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço Fila, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Para obter mais informações sobre metas de escalabilidade para o serviço Fila, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -99,7 +99,7 @@ Entender como o armazenamento do Azure particiona seus dados de blob é útil pa
 
 O armazenamento de BLOBs usa um esquema de particionamento baseado em intervalo para dimensionamento e balanceamento de carga. Cada blob tem uma chave de partição composta pelo nome completo do blob (conta + contêiner + BLOB). A chave de partição é usada para particionar dados de BLOB em intervalos. Os intervalos são então balanceados por carga no armazenamento de BLOBs.
 
-O particionamento baseado em intervalo significa que as convenções de nomenclatura que usam a ordenação lexical (por exemplo, *mypayroll*, *myperformance*, *MyEmployees*etc.) ou carimbos de data/hora (*log20160101*, *log20160102*, *log20160102* , etc.) são mais prováveis de resultar nas partições que estão sendo colocalizadas no mesmo servidor de partição. , até que o aumento da carga exija que eles sejam divididos em intervalos menores. A colocalização de BLOBs no mesmo servidor de partição melhora o desempenho, portanto, uma parte importante do aprimoramento de desempenho envolve nomear blobs de forma a organizá-los com mais eficiência.
+O particionamento baseado em intervalo significa que as convenções de nomenclatura que usam a ordenação lexical (por exemplo, *mypayroll*, *myperformance*, *MyEmployees*etc.) ou carimbos de data/hora (*log20160101*, *log20160102*, *log20160102*, etc.) têm mais probabilidade de resultar nas partições que estão sendo colocalizadas no mesmo servidor de partição. , até que o aumento da carga exija que eles sejam divididos em intervalos menores. A colocalização de BLOBs no mesmo servidor de partição melhora o desempenho, portanto, uma parte importante do aprimoramento de desempenho envolve nomear blobs de forma a organizá-los com mais eficiência.
 
 Por exemplo, todos os BLOBs dentro de um contêiner podem ser servidos por um único servidor até que a carga nesses BLOBs exija um rebalanceamento adicional dos intervalos de partição. Da mesma forma, um grupo de contas levemente carregadas com seus nomes organizados em ordem lexical pode ser servido por um único servidor até que a carga em uma ou todas essas contas exija que eles sejam divididos em vários servidores de partição.
 
@@ -236,7 +236,7 @@ O armazenamento do Azure fornece uma série de soluções para copiar e mover BL
 
 ### <a name="blob-copy-apis"></a>APIs de cópia de BLOB
 
-Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso da operação `Put Block from URL` pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
+Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso da operação de `Put Block from URL` pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
 
 Para copiar dados dentro da mesma conta de armazenamento, use a operação de [cópia de blob](/rest/api/storageservices/Copy-Blob) . A cópia de dados dentro da mesma conta de armazenamento normalmente é concluída rapidamente.  
 
@@ -285,5 +285,5 @@ Os blobs de páginas são apropriados se o aplicativo precisar executar gravaç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Metas de desempenho e escalabilidade do Armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

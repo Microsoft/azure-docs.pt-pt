@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: 5d090add7bdb2c3ee08f4c186bd57d63f14ab113
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: bc4a573ed81657eb39c27c5f2df68d12daf4009f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351381"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o modelo de Azure Resource Manager
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Um banco de dados individual tem um conjunto definido de recursos de computação, memória, e/s e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md). Ao criar um banco de dados individual, você também define um [servidor de banco de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
+Um banco de dados individual tem um conjunto definido de recursos de computação, memória, e/s e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md). Ao criar um banco de dados individual, você também define um [servidor de banco de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) em uma região especificada.
 
 O arquivo JSON a seguir é o modelo usado neste artigo. O modelo é armazenado no [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Mais exemplos de modelo de banco de dados SQL do Azure podem ser encontrados em [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
@@ -80,7 +80,7 @@ Para consultar o banco de dados, consulte [consultar o banco de dados](./sql-dat
 
 Mantenha este grupo de recursos, servidor de banco de dados e banco de dados individual se desejar ir para as [próximas etapas](#next-steps). As próximas etapas mostram como se conectar e consultar seu banco de dados usando métodos diferentes.
 
-Para excluir o grupo de recursos:
+Para eliminar o grupo de recursos:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

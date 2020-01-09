@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bfa8982fb49b31540d1926bdeb75a96dc1d79cf0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b82001b8bceac620dec9f1fe6ef47f4aa81b1011
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425610"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico autodeclarado em uma política personalizada de Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ O exemplo a seguir mostra um perfil técnico autodeclarado para inscrição de e
 
 ## <a name="input-claims"></a>Declarações de entrada
 
-Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims** e **InputClaimsTransformations** para pré-popular o valor das declarações que aparecem na página autodeclarada (declarações de saída). Por exemplo, na política Editar perfil, o percurso do usuário lê primeiro o perfil do usuário do serviço de diretório Azure AD B2C, então o perfil técnico autodeclarado define as declarações de entrada com os dados do usuário armazenados no perfil do usuário. Essas declarações são coletadas do perfil do usuário e, em seguida, apresentadas ao usuário que pode editar os dados existentes.
+Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims** e **InputClaimsTransformations** para pré-popular o valor das declarações que aparecem na página autodeclarada (Exibir declarações). Por exemplo, na política Editar perfil, o percurso do usuário lê primeiro o perfil do usuário do serviço de diretório Azure AD B2C, então o perfil técnico autodeclarado define as declarações de entrada com os dados do usuário armazenados no perfil do usuário. Essas declarações são coletadas do perfil do usuário e, em seguida, apresentadas ao usuário que pode editar os dados existentes.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -51,31 +51,92 @@ Em um perfil técnico autodeclarado, você pode usar os elementos **InputClaims*
   </InputClaims>
 ```
 
+## <a name="display-claims"></a>Exibir declarações
+
+O recurso Exibir declarações está em **Visualização**no momento.
+
+O elemento **DisplayClaims** contém uma lista de declarações a serem apresentadas na tela para coletar dados do usuário. Para preencher previamente os valores das declarações de saída, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão.
+
+A ordem das declarações em **DisplayClaims** especifica a ordem na qual Azure ad B2C renderiza as declarações na tela. Para forçar o usuário a fornecer um valor para uma declaração específica, defina o atributo **Required** do elemento **DisplayClaim** como `true`.
+
+O elemento **ClaimType** na coleção **DisplayClaims** precisa definir o elemento **userinputtype** como qualquer tipo de entrada de usuário com suporte pelo Azure ad B2C. Por exemplo, `TextBox` ou `DropdownSingleSelect`.
+
+### <a name="add-a-reference-to-a-displaycontrol"></a>Adicionar uma referência a um DisplayControl
+
+Na coleção exibir declarações, você pode incluir uma referência a um [DisplayControl](display-controls.md) que você criou. Um controle de exibição é um elemento de interface do usuário que tem funcionalidade especial e interage com o serviço de back-end Azure AD B2C. Ele permite que o usuário execute ações na página que invocam um perfil técnico de validação no back-end. Por exemplo, verificar um endereço de email, número de telefone ou número de fidelidade do cliente.
+
+O exemplo a seguir `TechnicalProfile` ilustra o uso de declarações de exibição com controles de exibição.
+
+* A primeira declaração de exibição faz uma referência para o `emailVerificationControl` controle de exibição que coleta e verifica o endereço de email.
+* A quinta declaração de exibição faz uma referência para o `phoneVerificationControl` controle de exibição que coleta e verifica um número de telefone.
+* As outras declarações de exibição são ClaimTypes a serem coletadas do usuário.
+
+```XML
+<TechnicalProfile Id="Id">
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
+</TechnicalProfile>
+```
+
+Como mencionado, uma declaração de exibição com uma referência a um controle de exibição pode executar sua própria validação, por exemplo, verificar o endereço de email. Além disso, a página autodeclarada dá suporte ao uso de um perfil técnico de validação para validar a página inteira, incluindo qualquer entrada do usuário (tipos de declaração ou controles de exibição), antes de passar para a próxima etapa de orquestração.
+
+### <a name="combine-usage-of-display-claims-and-output-claims-carefully"></a>Combine o uso de declarações de exibição e declarações de saída com cuidado
+
+Se você especificar um ou mais elementos **DisplayClaim** em um perfil técnico autodeclarado, deverá usar um DisplayClaim para *cada* declaração que você deseja exibir na tela e coletar do usuário. Nenhuma declaração de saída é exibida por um perfil técnico autodeclarado que contém pelo menos uma declaração de exibição.
+
+Considere o exemplo a seguir no qual uma declaração de `age` é definida como uma declaração de **saída** em uma política de base. Antes de adicionar qualquer declaração de exibição ao perfil técnico autodeclarado, a declaração de `age` é exibida na tela para coleta de dados do usuário:
+
+```XML
+<TechnicalProfile Id="id">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="age" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+Se uma política de folha que herda essa base subsequentemente especificar `officeNumber` como uma declaração de **exibição** :
+
+```XML
+<TechnicalProfile Id="id">
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="officeNumber" />
+  </DisplayClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="officeNumber" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+A declaração de `age` na política de base não é mais apresentada na tela ao usuário; ela é efetivamente "oculta". Para exibir a declaração de `age` e coletar o valor de idade do usuário, você deve adicionar um `age` **DisplayClaim**.
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações a serem apresentadas para coletar dados do usuário. Para preencher previamente as declarações de saída com alguns valores, use as declarações de entrada que foram descritas anteriormente. O elemento também pode conter um valor padrão. A ordem das declarações no **OutputClaims** controla a ordem em que Azure ad B2C renderiza as declarações na tela. O atributo **DefaultValue** entrará em vigor somente se a declaração nunca tiver sido definida antes. Mas, se ele tiver sido definido antes em uma etapa de orquestração anterior, mesmo que o usuário deixe o valor vazio, o valor padrão não terá efeito. Para forçar o uso de um valor padrão, defina o atributo **AlwaysUseDefaultValue** como `true`. Para forçar o usuário a fornecer um valor para uma declaração de saída específica, defina o atributo **Required** do elemento **OutputClaims** como `true`.
+O elemento **OutputClaims** contém uma lista de declarações a serem retornadas para a próxima etapa de orquestração. O atributo **DefaultValue** terá efeito somente se a declaração nunca tiver sido definida. Se ele foi definido em uma etapa de orquestração anterior, o valor padrão não terá efeito mesmo que o usuário deixe o valor vazio. Para forçar o uso de um valor padrão, defina o atributo **AlwaysUseDefaultValue** como `true`.
 
-O elemento **ClaimType** na coleção **OutputClaims** precisa definir o elemento **userinputtype** como qualquer tipo de entrada de usuário com suporte pelo Azure ad B2C, como `TextBox` ou `DropdownSingleSelect`. Ou o elemento **OutputClaim** deve definir um **DefaultValue**.
+> [!NOTE]
+> Em versões anteriores do IEF (Identity Experience Framework), as declarações de saída eram usadas para coletar dados do usuário. Para coletar dados do usuário, use uma coleção **DisplayClaims** em vez disso.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** que são usados para modificar as declarações de saída ou gerar novas.
 
-A seguinte declaração de saída é sempre definida como `live.com`:
+### <a name="when-you-should-use-output-claims"></a>Quando você deve usar declarações de saída
 
-```XML
-<OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" AlwaysUseDefaultValue="true" />
-```
+Em um perfil técnico autodeclarado, a coleção de declarações de saída retorna as declarações para a próxima etapa de orquestração.
 
-### <a name="use-case"></a>Caso de utilização
+Você deve usar declarações de saída quando:
 
-Há quatro cenários para as declarações de saída:
-
-- **Coletando as declarações de saída do usuário** -quando precisar coletar informações do usuário, como data de nascimento, você deve adicionar a declaração à coleção **OutputClaims** . As declarações que são apresentadas ao usuário devem especificar o **Userinputtype**, como `TextBox` ou `DropdownSingleSelect`. Se o perfil técnico autodeclarado contiver um perfil técnico de validação que produza a mesma declaração, Azure AD B2C não apresentará a declaração ao usuário. Se não houver nenhuma declaração de saída para apresentar ao usuário, Azure AD B2C ignorará o perfil técnico.
-- **Definindo um valor padrão em uma declaração de saída** -sem coletar dados do usuário ou retornar os dados do perfil técnico de validação. O perfil técnico `LocalAccountSignUpWithLogonEmail` autodeclarado define a Declaração **SelfAsserted-Input executada** para `true`.
+- As **declarações são saídas pela transformação declarações de saída**.
+- **Definir um valor padrão em uma declaração de saída** sem coletar dados do usuário ou retornar os dados do perfil técnico de validação. O perfil técnico `LocalAccountSignUpWithLogonEmail` autodeclarado define a Declaração **SelfAsserted-Input executada** para `true`.
 - **Um perfil técnico de validação retorna as declarações de saída** – seu perfil técnico pode chamar um perfil técnico de validação que retorna algumas declarações. Talvez você queira emergir as declarações e retorná-las às próximas etapas de orquestração no percurso do usuário. Por exemplo, ao entrar com uma conta local, o perfil técnico autodeclarado chamado `SelfAsserted-LocalAccountSignin-Email` chama o perfil técnico de validação chamado `login-NonInteractive`. Este perfil técnico valida as credenciais do usuário e também retorna o perfil do usuário. Como ' userPrincipalName ', ' displayName ', ' excerto ' e ' sobrenome '.
-- **Gerar as declarações por meio da transformação de declarações de saída**
+- **Um controle de exibição retorna as declarações de saída** – seu perfil técnico pode ter uma referência a um [controle de exibição](display-controls.md). O controle de exibição retorna algumas declarações, como o endereço de email verificado. Talvez você queira emergir as declarações e retorná-las às próximas etapas de orquestração no percurso do usuário. O recurso de controle de exibição está atualmente em **Visualização**.
 
-No exemplo a seguir, o `LocalAccountSignUpWithLogonEmail` perfil técnico autodeclarado demonstra o uso de declarações de saída e conjuntos **Executed-SelfAsserted-Input** para `true`. As declarações `objectId`, `authenticationSource`, `newUser` são saídas do perfil técnico de validação de `AAD-UserWriteUsingLogonEmail` e não são mostradas ao usuário.
+O exemplo a seguir demonstra o uso de um perfil técnico autodeclarado que usa declarações de exibição e declarações de saída.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -86,32 +147,30 @@ No exemplo a seguir, o `LocalAccountSignUpWithLogonEmail` perfil técnico autode
     <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
     <Item Key="language.button_continue">Create</Item>
   </Metadata>
-  <CryptographicKeys>
-    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-  </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
   <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" Required="true" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
     <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
     <OutputClaim ClaimTypeReferenceId="authenticationSource" />
     <OutputClaim ClaimTypeReferenceId="newUser" />
-
-    <!-- Optional claims, to be collected from the user -->
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="givenName" />
-    <OutputClaim ClaimTypeReferenceId="surName" />
   </OutputClaims>
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
   </ValidationTechnicalProfiles>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
-
 ```
 
 ## <a name="persist-claims"></a>Persistir declarações
@@ -142,16 +201,3 @@ Você também pode chamar um perfil técnico da API REST com sua lógica de neg�
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 O elemento **CryptographicKeys** não é usado.
-
-
-
-
-
-
-
-
-
-
-
-
-

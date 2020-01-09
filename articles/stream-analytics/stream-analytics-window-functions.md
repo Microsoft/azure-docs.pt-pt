@@ -1,55 +1,54 @@
 ---
-title: Introdução às funções do Azure Stream Analytics windowing
-description: Este artigo descreve quatro modos (em cascata, saltos, deslizante, sessão) que são usados em tarefas do Azure Stream Analytics.
-services: stream-analytics
+title: Introdução às funções de janelas de Azure Stream Analytics
+description: Este artigo descreve quatro funções de janela (em cascata, salto, deslizante, sessão) que são usadas em trabalhos de Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 530ff8d09d6c580a31ae26929fafcec5bb5b471b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a0547243ddf114d5c9f7034f182a5e76d8c3e016
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369427"
 ---
-# <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janelas do Stream Analytics
+# <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janelas de Stream Analytics
 
-Em cenários de transmissão em fluxo de tempo, a realização de operações nos dados contidos no windows temporais é um padrão comum. Stream Analytics tem suporte nativo para funções de janelas, permitindo que os desenvolvedores às tarefas de processamento de fluxo complexos de autor com um mínimo de esforço.
+Em cenários de streaming de tempo, a execução de operações nos dados contidos em janelas temporais é um padrão comum. Stream Analytics tem suporte nativo para funções de janelas, permitindo que os desenvolvedores às tarefas de processamento de fluxo complexos de autor com um mínimo de esforço.
 
-Existem quatro tipos de temporal windows à sua escolha: [**Em cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [ **saltos**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [ **deslizante**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), e [ **sessão**  ](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) windows.  Utilizar as funções de janela no [ **Agrupar por** ](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) cláusula da sintaxe de consulta nas suas tarefas do Stream Analytics. Também pode agregar eventos ao longo de várias janelas com o [ **Windows()** função](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Há quatro tipos de janelas temporais para escolher: [**em cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizante**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)e janelas de [**sessão**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) .  Você usa as funções de janela na cláusula [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos de Stream Analytics. Você também pode agregar eventos em várias janelas usando a [função **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Todas as a [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) operações produz resultados no **final** da janela. A saída da janela será o único evento com base na função de agregação utilizada. O evento de saída terá o carimbo de hora de fim da janela e todas as funções de janela são definidas com um comprimento fixo. 
+Todas as operações de [janela](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) de saída resultam no **final** da janela. A saída da janela será um evento único com base na função de agregação usada. O evento de saída terá o carimbo de data/hora do final da janela e todas as funções de janela serão definidas com um comprimento fixo. 
 
 ![Conceitos de funções de janela do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>Janela em cascata
-Em cascata janela funções são usadas para segmentar um fluxo de dados em segmentos distintos de tempo e realizar uma função contra eles, como o exemplo abaixo. Os principais diferenciais de uma janela em cascata são que eles repetir, fazerem não se sobrepõem e um evento não podem pertencer a mais do que uma janela de em cascata.
+As funções de janela em cascata são usadas para segmentar um fluxo de dados em segmentos de tempo distintos e executar uma função em relação a eles, como o exemplo a seguir. Os principais diferenciadores de uma Janela em cascata são que se repetem, não se sobrepõem e um evento não pode pertencer a mais do que uma janela em cascata.
 
-![Janela em cascata do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
+![Janela do Stream Analytics em cascata](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Janela de salto
-Saltos salto de funções de janela para a frente no tempo por um período fixo. Pode ser fácil de considerá-los como as janelas em cascata que podem sobrepor-se, pelo que os eventos podem pertencer a mais do que um conjunto de resultados de janela Hopping. Para criar uma janela de Hopping os mesmos como uma janela em cascata, especifique o tamanho de salto para ser o mesmo que o tamanho da janela. 
+As funções de janela de salto avançam um período fixo no tempo. Pode ser mais fácil pensar que são Janelas em cascata que podem sobrepor-se, de forma a que os eventos possam pertencer a mais do que um conjunto de resultados de Janela de salto. Para fazer uma janela de salto igual a uma janela em cascata, especifique o tamanho do salto como o mesmo que o tamanho da janela. 
 
-![Janela de salto do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
+![Stream Analytics janela de salto](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Janela deslizante
-Funções de janela deslizante, ao contrário em cascata ou saltos windows, produzem um resultado **apenas** quando ocorre um evento. Cada janela terá pelo menos um evento e a janela continuamente avança por um € (épsilon). Como saltos windows, os eventos podem pertencer a mais do que uma janela deslizante.
+As funções de janela deslizantes, ao contrário das janelas em cascata ou de salto, produzem uma saída **somente** quando ocorre um evento. Cada janela terá pelo menos um evento e a janela avança continuamente por um € (épsilon). Tal como as janelas de salto, os eventos podem pertencer a mais do que uma janela deslizante.
 
-![Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Stream Analytics janela deslizante](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="session-window"></a>Janela de sessão
-As funções de janela de sessão agrupar os eventos que chegam em alturas semelhante, filtram de períodos de tempo em que não existe nenhum dado. Ele tem três parâmetros de principais: tempo limite, duração máxima e a chave de particionamento (opcional).
+As funções da janela de sessões agrupam eventos que chegam em momentos semelhantes, filtrando períodos de tempo em que não há dados. Tem três parâmetros principais: tempo limite, duração máxima e chave de criação de partições (opcional).
 
-![Janela de sessão do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
+![Janela sessão Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
 
-Uma janela de sessão começa quando o primeiro evento ocorre. Se outro evento ocorre dentro do tempo limite especificado a partir do último evento ingerido, a janela se estende a incluir o novo evento. Caso contrário, se não existem eventos ocorrem no tempo limite, a janela é fechada no tempo limite.
+Uma janela de sessão começa quando o primeiro evento ocorre. Se outro evento ocorrer dentro do tempo limite especificado do último evento ingerido, a janela se estenderá para incluir o novo evento. Caso contrário, se nenhum evento ocorrer dentro do tempo limite, a janela será fechada no tempo limite.
 
-Se os eventos manterem ocorra de acordo com o tempo limite especificado, manter alargar a janela de sessão até que a duração máxima é atingida. Os intervalos de verificação de duração máxima estão definidos para ser o mesmo tamanho que a duração máxima especificada. Por exemplo, se a duração máxima é de 10, em seguida, as verificações de se a janela de exceder o máximo duração irá acontecer em t = 0, 10, 20, 30, etc.
+Se os eventos continuarem ocorrendo dentro do tempo limite especificado, a janela de sessão continuará sendo estendida até que a duração máxima seja atingida. Os intervalos de verificação de duração máxima são definidos para serem do mesmo tamanho que a duração máxima especificada. Por exemplo, se a duração máxima for 10, o verificará se a janela exceder a duração máxima ocorrerá em t = 0, 10, 20, 30, etc.
 
-Quando uma chave de partição é fornecida, os eventos são agrupados em conjunto pela chave e a janela da sessão é aplicada a cada grupo de forma independente. Essa divisão é útil para casos em que precisa windows de sessão diferente para diferentes utilizadores ou dispositivos.
+Quando uma chave de partição é fornecida, os eventos são agrupados em conjunto pela chave e a janela de sessão é aplicada a cada grupo de forma independente. Esse particionamento é útil para casos em que você precisa de janelas de sessão diferentes para usuários ou dispositivos diferentes.
 
 
 ## <a name="next-steps"></a>Passos seguintes

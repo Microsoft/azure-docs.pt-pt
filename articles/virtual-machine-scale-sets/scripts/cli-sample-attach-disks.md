@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – Anexar e utilizar discos de dados | Microsoft Docs
-description: Exemplos da CLI do Azure
+title: Exemplos de CLI do Azure – anexar e usar discos de dados
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara discos de dados com CLI do Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d0c557dcca3ca0acd736d3013cf9119490af52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351060"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anexar e utilizat discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara discos de dados.
@@ -51,7 +51,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az vmss extension set](/cli/azure/vmss/extension) | Instala a Extensão do Script Personalizado do Azure para executar um script que prepara os discos de dados em cada instância da VM. |
 | [az group delete](/cli/azure/ad/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Pode encontrar exemplos adicionais de scripts da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

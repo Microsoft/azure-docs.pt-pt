@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802715"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646494"
 ---
-# <a name="plan-virtual-networks"></a>Planejar redes virtuais
+# <a name="plan-virtual-networks"></a>Planear redes virtuais
 
 A criação de uma rede virtual para experimentar é fácil o suficiente, mas é provável que você implante várias redes virtuais ao longo do tempo para dar suporte às necessidades de produção de sua organização. Com algum planejamento, você poderá implantar redes virtuais e conectar os recursos necessários com mais eficiência. As informações neste artigo serão mais úteis se você já estiver familiarizado com redes virtuais e tiver alguma experiência para trabalhar com elas. Se você não estiver familiarizado com redes virtuais, é recomendável ler [visão geral da rede virtual](virtual-networks-overview.md).
 
@@ -39,7 +39,7 @@ Todos os recursos do Azure são criados em uma região e uma assinatura do Azure
 
 ## <a name="subscriptions"></a>Subscrições
 
-Você pode implantar quantas redes virtuais forem necessárias em cada assinatura, até o [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações sobre assinaturas, consulte [governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Você pode implantar quantas redes virtuais forem necessárias em cada assinatura, até o [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações sobre assinaturas, consulte [governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentação
 
@@ -51,14 +51,14 @@ Uma rede virtual é uma parte virtual e isolada da rede pública do Azure. Cada 
 
 - Existem requisitos de segurança organizacional para isolar o tráfego em redes virtuais separadas? Você pode optar por conectar redes virtuais ou não. Se você conectar redes virtuais, poderá implementar uma solução de virtualização de rede, como um firewall, para controlar o fluxo de tráfego entre as redes virtuais. Para obter mais informações, consulte [segurança](#security) e [conectividade](#connectivity).
 - Existem requisitos organizacionais para isolar redes virtuais em [assinaturas](#subscriptions) ou [regiões](#regions)separadas?
-- Uma [interface de rede](virtual-network-network-interface.md) permite que uma VM se comunique com outros recursos. Cada interface de rede tem um ou mais endereços IP privados atribuídos a ele. Quantas interfaces de rede e [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) você precisa em uma rede virtual? Há [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para o número de interfaces de rede e endereços IP privados que você pode ter em uma rede virtual.
+- Uma [interface de rede](virtual-network-network-interface.md) permite que uma VM se comunique com outros recursos. Cada interface de rede tem um ou mais endereços IP privados atribuídos a ele. Quantas interfaces de rede e [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) você precisa em uma rede virtual? Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para o número de interfaces de rede e endereços IP privados que você pode ter em uma rede virtual.
 - Deseja conectar a rede virtual a outra rede virtual ou rede local? Você pode optar por conectar algumas redes virtuais entre si ou redes locais, mas não outras. Para obter mais informações, consulte [conectividade](#connectivity). Cada rede virtual que você conecta a outra rede virtual ou rede local deve ter um espaço de endereço exclusivo. Cada rede virtual tem um ou mais intervalos de endereços públicos ou privados atribuídos a seu espaço de endereço. Um intervalo de endereços é especificado em formato CIDR (roteamento de domínio de Internet sem classe), como 10.0.0.0/16. Saiba mais sobre [intervalos de endereços](manage-virtual-network.md#add-or-remove-an-address-range) para redes virtuais.
 - Você tem algum requisito de administração organizacional para recursos em diferentes redes virtuais? Nesse caso, você pode separar recursos em uma rede virtual separada para simplificar a [atribuição de permissão](#permissions) para indivíduos em sua organização ou para atribuir políticas diferentes a diferentes redes virtuais.
 - Quando você implanta alguns recursos de serviço do Azure em uma rede virtual, eles criam sua própria rede virtual. Para determinar se um serviço do Azure cria sua própria rede virtual, confira informações para cada [serviço do Azure que pode ser implantado em uma rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### <a name="subnets"></a>Sub-redes
 
-Uma rede virtual pode ser segmentada em uma ou mais sub-redes até os [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Itens a serem considerados ao decidir se deseja criar uma sub-rede ou várias redes virtuais em uma assinatura:
+Uma rede virtual pode ser segmentada em uma ou mais sub-redes até os [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Itens a serem considerados ao decidir se deseja criar uma sub-rede ou várias redes virtuais em uma assinatura:
 
 - Cada sub-rede deve ter um intervalo de endereços exclusivo, especificado no formato CIDR, dentro do espaço de endereço da rede virtual. O intervalo de endereços não pode se sobrepor a outras sub-redes na rede virtual.
 - Se você planeja implantar alguns recursos de serviço do Azure em uma rede virtual, eles podem exigir ou criar sua própria sub-rede, portanto, deve haver espaço não alocado suficiente para que eles o façam. Para determinar se um serviço do Azure cria sua própria sub-rede, consulte informações para cada [serviço do Azure que pode ser implantado em uma rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Por exemplo, se você conectar uma rede virtual a uma rede local usando um gateway de VPN do Azure, a rede virtual deverá ter uma sub-rede dedicada para o gateway. Saiba mais sobre as [sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
@@ -87,7 +87,7 @@ O Azure cria várias rotas padrão para o tráfego de saída de uma sub-rede. Vo
 
 Se você precisar implementar o roteamento personalizado, é recomendável que você se familiarize com o [Roteamento no Azure](virtual-networks-udr-overview.md).
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Ligação
 
 Você pode conectar uma rede virtual a outras redes virtuais usando o emparelhamento de rede virtual ou a sua rede local usando um gateway de VPN do Azure.
 
@@ -107,7 +107,7 @@ Os recursos em uma rede virtual não podem resolver os nomes de recursos em uma 
 
 ## <a name="permissions"></a>Permissões
 
-O Azure utiliza o RBAC ( [controle de acesso baseado em função](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ) para recursos. As permissões são atribuídas a um [escopo](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: grupo de gerenciamento, assinatura, grupo de recursos e recurso individual. Para saber mais sobre a hierarquia, consulte [organizar seus recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todos os seus recursos relacionados, como emparelhamento, grupos de segurança de rede, pontos de extremidade de serviço e tabelas de rotas, você pode atribuir membros da sua organização ao [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)interno, [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou [ ](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)Funções de colaborador de rede e, em seguida, atribui a função ao escopo apropriado. Se você quiser atribuir permissões específicas para um subconjunto de recursos de rede virtual, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias para [redes virtuais](manage-virtual-network.md#permissions), [sub-redes e pontos de extremidade de serviço](virtual-network-manage-subnet.md#permissions), interfaces de [rede ](virtual-network-network-interface.md#permissions), [emparelhamento](virtual-network-manage-peering.md#permissions), [grupos de segurança de aplicativos e de rede](manage-network-security-group.md#permissions)ou tabelas de [rotas](manage-route-table.md#permissions) para a função.
+O Azure utiliza o RBAC ( [controle de acesso baseado em função](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ) para recursos. As permissões são atribuídas a um [escopo](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: grupo de gerenciamento, assinatura, grupo de recursos e recurso individual. Para saber mais sobre a hierarquia, consulte [organizar seus recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todos os seus recursos relacionados, como emparelhamento, grupos de segurança de rede, pontos de extremidade de serviço e tabelas de rotas, você pode atribuir membros da sua organização ao [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)interno, [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou funções de [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e, em seguida, atribuir a função ao escopo apropriado. Se você quiser atribuir permissões específicas para um subconjunto de recursos de rede virtual, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias [para redes virtuais](manage-virtual-network.md#permissions), [sub-redes e pontos de extremidade de serviço](virtual-network-manage-subnet.md#permissions), [adaptadores de rede](virtual-network-network-interface.md#permissions), [emparelhamento](virtual-network-manage-peering.md#permissions), grupos de segurança de [aplicativo e de rede](manage-network-security-group.md#permissions)ou tabelas de [rota](manage-route-table.md#permissions) para a função.
 
 ## <a name="policy"></a>Política
 

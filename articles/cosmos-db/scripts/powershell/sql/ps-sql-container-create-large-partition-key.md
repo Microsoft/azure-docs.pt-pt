@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script – criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos
+title: Script do PowerShell para criar um contêiner Cosmos do Azure com uma chave de partição grande
 description: Azure PowerShell exemplo de script – criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8c4d117a77afe140ba2bc803f0ac146d4c6a8182
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ecc5e7c13d898f89bbd6b542faf69834de26e0e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444970"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>Criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos usando o PowerShell
 

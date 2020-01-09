@@ -1,17 +1,17 @@
 ---
-title: Azure PowerShell script – criar uma conta do Azure cosmos com o firewall de IP
+title: Script do PowerShell para criar uma conta do Azure cosmos com o firewall de IP
 description: Azure PowerShell exemplo de script – criar uma conta do Azure cosmos com o firewall de IP
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: c0e7d2b4fe1e63b468a4ef8c88310c5d7e115ebe
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445079"
 ---
 # <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Criar uma conta do Azure cosmos com o firewall de IP
 

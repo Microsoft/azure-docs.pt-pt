@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459098"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre retransmissão do Azure
 
-Este artigo responde a algumas perguntas frequentes (FAQs) sobre a [retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para obter informações gerais sobre preços e suporte do Azure, consulte perguntas frequentes sobre o [suporte do Azure](https://azure.microsoft.com/support/faq/).
+Este artigo responde a algumas perguntas frequentes (FAQs) sobre a [retransmissão do Azure](https://azure.microsoft.com/services/service-bus/). Para obter informações gerais sobre preços e suporte do Azure, consulte [perguntas frequentes](https://azure.microsoft.com/support/faq/)sobre o suporte do Azure.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -65,7 +65,7 @@ Observe que os preços usados nos exemplos são aplicáveis somente durante o pe
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para retransmissão?
 
-Retransmissão do WCF está disponível somente em namespaces de camada Standard. Os preços e as cotas de [conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões, caso contrário, não foram alteradas. Isso significa que as retransmissões continuam a ser cobradas com base no número de mensagens (não operações) e horas de retransmissão. Para obter mais informações, consulte a tabela ["retransmissões do conexões híbridas e do WCF"](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
+Retransmissão do WCF está disponível somente em namespaces de camada Standard. Os preços e as [cotas de conexão](../service-bus-messaging/service-bus-quotas.md) para retransmissões, caso contrário, não foram alteradas. Isso significa que as retransmissões continuam a ser cobradas com base no número de mensagens (não operações) e horas de retransmissão. Para obter mais informações, consulte a tabela ["retransmissões do conexões híbridas e do WCF"](https://azure.microsoft.com/pricing/details/service-bus/) na página de detalhes de preços.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>E se eu tiver mais de um ouvinte conectado a uma retransmissão específica?
 Em alguns casos, uma única retransmissão pode ter vários ouvintes conectados. Uma retransmissão é considerada aberta quando pelo menos um ouvinte de retransmissão está conectado a ela. Adicionar ouvintes a uma retransmissão aberta resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que chamam ou enviam mensagens para retransmissões) que estão conectados a uma retransmissão não afeta o cálculo de horas de retransmissão.
@@ -80,10 +80,10 @@ O envio de uma mensagem para uma retransmissão do barramento de serviço é tra
 As retransmissões que são abertas usando a associação do WCF **netTCPRelay** tratam mensagens não como mensagens individuais, mas como um fluxo de dados que fluem pelo sistema. Quando você usa essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay** , todos os dados são tratados como um fluxo para calcular mensagens faturáveis. Nesse caso, o barramento de serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual em uma base de 5 minutos. Em seguida, ele divide a quantidade total de dados de 64 KB para determinar o número de mensagens faturáveis para essa retransmissão durante esse período de tempo.
 
 ## <a name="quotas"></a>Quotas
-| Nome da quota | Scope |  Notas | Value |
+| Nome da cota | Âmbito |  Notas | Valor |
 | --- | --- | --- | --- |
 | Ouvintes simultâneos em uma retransmissão |Entidade |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
-| Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Espaço de Nomes |- |5,000 |
+| Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Espaço de Nomes |- |5000 |
 | Pontos de extremidade de retransmissão por namespace de serviço |Espaço de Nomes |- |10,000 |
 | Tamanho da mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espaço de Nomes |Mensagens de entrada que excedem essas cotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
 | Tamanho da mensagem para retransmissões [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Espaço de Nomes |Sem limite para o tamanho da mensagem. |Ilimitado |
@@ -106,7 +106,7 @@ Para mover um namespace de uma assinatura do Azure para outra assinatura, você 
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Para usar o portal do Azure para migrar namespaces de retransmissão do Azure de uma assinatura para outra, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Para usar o portal do Azure para migrar namespaces de retransmissão do Azure de uma assinatura para outra, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -125,18 +125,18 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quais são algumas das exceções geradas pelas APIs de retransmissão do Azure e as ações sugeridas que você pode tomar?
-Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções][Relay exceptions]de retransmissão.
+Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções de retransmissão][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
 As SAS (assinaturas de acesso compartilhado) são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Python, Java, C e C#, consulte Autenticação do [barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível para os pontos de extremidade de retransmissão da lista de permissões?
-Sim. O cliente de retransmissão faz conexões com o serviço de retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada `*.servicebus.windows.net` para os firewalls que dão suporte à lista de permissões de DNS.
+Sim. O cliente de retransmissão faz conexões com o serviço de retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` em firewalls que dão suporte à lista de permissões de DNS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
+* [Introdução ao Nó](relay-hybrid-connections-node-get-started.md)
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md

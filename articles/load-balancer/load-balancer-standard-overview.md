@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.openlocfilehash: ce60062a49f08bb3409c8445e0aaf79c0d361865
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894413"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552819"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -182,14 +182,6 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 3. Remova os recursos básicos de SKU (Load Balancer e IPs públicos, conforme aplicável) de todas as instâncias de VM. Certifique-se também de remover todas as instâncias de VM de um conjunto de disponibilidade.
 
 4. Anexe todas as instâncias de VM aos novos recursos de SKU padrão.
-
-### <a name="migrate-from-standard-to-basic-sku"></a>Migrar do SKU Standard para o básico
-
-1. Crie um novo recurso básico (Load Balancer e IPs públicos, conforme necessário). Recrie suas regras e definições de investigação.  Altere uma investigação de HTTPS para uma investigação TCP para 443/TCP. 
-
-2. Remova os recursos de SKU padrão (Load Balancer e IPs públicos, conforme aplicável) de todas as instâncias de VM. Certifique-se também de remover todas as instâncias de VM de um conjunto de disponibilidade.
-
-3. Anexe todas as instâncias de VM aos novos recursos básicos de SKU.
 
 >[!IMPORTANT]
 >

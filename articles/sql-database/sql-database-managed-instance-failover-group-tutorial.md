@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286767"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552768"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adicionar uma instância gerenciada do banco de dados SQL a um grupo de failover
 
@@ -31,6 +31,7 @@ Adicione uma instância gerenciada do banco de dados SQL a um grupo de failover.
   > [!NOTE]
   > - Ao percorrer este tutorial, verifique se você está configurando seus recursos com os [pré-requisitos para configurar grupos de failover para instância gerenciada](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - A criação de uma instância gerenciada pode levar uma quantidade significativa de tempo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [operações gerenciadas de gerenciamento de instância](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - As instâncias gerenciadas que participam de um grupo de failover exigem o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways de VPN conectados. Este tutorial fornece etapas para criar e conectar os gateways de VPN. Ignore estas etapas se você já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,7 +46,7 @@ Para concluir este tutorial, confirme que tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [O Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 ---
 
@@ -728,7 +729,9 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ---
 
 ## <a name="4---create-primary-gateway"></a>4-criar gateway primário 
-Para que duas instâncias gerenciadas participem de um grupo de failover, deve haver um gateway configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Você pode criar o gateway para a instância gerenciada primária usando o portal do Azure. 
+Para que duas instâncias gerenciadas participem de um grupo de failover, deve haver o ExpressRoute ou um gateway configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Se você optar por configurar o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) em vez de conectar dois gateways de VPN, pule para a [etapa 7](#7---create-a-failover-group).  
+
+Este artigo fornece etapas para criar os dois gateways de VPN e conectá-los, mas você pode pular para criar o grupo de failover se tiver configurado o ExpressRoute em vez disso. 
 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -1075,7 +1078,7 @@ Limpe os recursos excluindo primeiro a instância gerenciada, depois o cluster v
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Navegue até o grupo de recursos na [portal do Azure](https://portal.azure.com). 
-1. Selecione as instâncias gerenciadas e, em seguida, selecione **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. Esse processo pode levar algum tempo para ser concluído em segundo plano e até que ele seja concluído, você não poderá excluir o *cluster virtual* nem outros recursos dependentes. Monitore a exclusão na guia atividade para confirmar se a instância gerenciada foi excluída. 
+1. Selecione as instâncias gerenciadas e, em seguida, selecione **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. Esse processo pode levar algum tempo para ser concluído em segundo plano e, até que seja concluído, você não poderá excluir o *cluster virtual* nem outros recursos dependentes. Monitore a exclusão na guia atividade para confirmar se a instância gerenciada foi excluída. 
 1. Depois que a instância gerenciada for excluída, exclua o *cluster virtual* selecionando-o em seu grupo de recursos e, em seguida, escolhendo **excluir**. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
 1. Exclua todos os recursos restantes. Digite `yes` na caixa de texto para confirmar que deseja excluir o recurso e, em seguida, selecione **excluir**. 
 1. Exclua o grupo de recursos selecionando **excluir grupo de recursos**, digitando o nome do grupo de recursos, `myResourceGroup`e, em seguida, selecionando **excluir**. 
@@ -1139,7 +1142,7 @@ Não há nenhum script disponível para o portal do Azure.
 
 ---
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você configurou um grupo de failover entre duas instâncias gerenciadas. Aprendeu a:
 

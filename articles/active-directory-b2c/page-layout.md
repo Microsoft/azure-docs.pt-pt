@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425644"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selecionar um layout de página em Azure Active Directory B2C usando políticas personalizadas
 
@@ -30,9 +30,9 @@ Este artigo discute como selecionar um layout de página em Azure AD B2C Configu
 > [!NOTE]
 > Se você quiser habilitar o JavaScript para fluxos de usuário, consulte [JavaScript e versões de layout de página em Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="replace-datauri-values"></a>Substituir valores de DataUri
+## <a name="replace-datauri-values"></a>Substitua os valores de URI de dados
 
-Em suas políticas personalizadas, você pode ter [ContentDefinitions](contentdefinitions.md) que definem os modelos HTML usados no percurso do usuário. O **ContentDefinition** contém um **DataUri** que se refere aos elementos da página fornecidos pelo Azure ad B2C. O **LoadUri** é o caminho relativo para o conteúdo HTML e CSS que você fornece.
+Em suas políticas personalizadas, talvez tenha [ContentDefinitions](contentdefinitions.md) que definem os modelos HTML utilizados no percurso do utilizador. O **ContentDefinition** contém uma **URI de dados** que se refere a elementos da página fornecidos pelo Azure AD B2C. O **LoadUri** é o caminho relativo para o conteúdo HTML e CSS que fornecer.
 
 ```XML
 <ContentDefinition Id="api.idpselections">
@@ -46,11 +46,11 @@ Em suas políticas personalizadas, você pode ter [ContentDefinitions](contentde
 </ContentDefinition>
 ```
 
-Para selecionar um layout de página, você altera os valores de **DataUri** em seu [ContentDefinitions](contentdefinitions.md) em suas políticas. Alternando os valores antigos do **DataUri** para os novos valores, você está selecionando um pacote imutável. O benefício de usar esse pacote é que você saberá que ele não será alterado e causará um comportamento inesperado na página.
+Para selecionar um layout de página, você altera os valores de **DataUri** em seu [ContentDefinitions](contentdefinitions.md) em suas políticas. Alternando a partir do antigo **URI de dados** valores para os novos valores, selecionar um pacote imutável. O benefício de usar esse pacote é que você sabe que ele não será alterado e causará um comportamento inesperado na página.
 
-Para configurar um layout de página, use a tabela a seguir para localizar os valores de **DataUri** .
+Para especificar um layout de página em suas políticas personalizadas que usam um valor antigo de **DataUri** , insira `contract` entre `elements` e o tipo de página (por exemplo, `selfasserted`) e especifique o número de versão. Por exemplo:
 
-| Antigo valor de DataUri | Novo valor de DataUri |
+| Valor do URI de dados antigo | Novo valor de URI de dados |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0` |
@@ -68,17 +68,23 @@ Para configurar um layout de página, use a tabela a seguir para localizar os va
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- Página autodeclarada (`selfasserted`)
+  - Adicionado suporte para [controles de exibição](display-controls.md) em políticas personalizadas.
+
+### <a name="120"></a>1.2.0
+
 - Todas as páginas
   - Correções de acessibilidade
   - Agora você pode adicionar o atributo `data-preload="true"` em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Os cenários incluem:
-      - Use isso em seu link do CSS para carregar o CSS ao mesmo tempo que o HTML para que ele não fique piscando entre o carregamento dos arquivos
-      - Esse atributo permite que você controle a ordem na qual as marcas de script são buscadas e executadas antes do carregamento da página
+    - Use isso em seu link do CSS para carregar o CSS ao mesmo tempo que o HTML para que ele não fique piscando entre o carregamento dos arquivos
+    - Esse atributo permite que você controle a ordem na qual as marcas de script são buscadas e executadas antes do carregamento da página
   - O campo de email agora é `type=email` e teclados móveis fornecerão as sugestões corretas
   - Suporte para tradução do Chrome
 - Página unificada e autodeclarada
   - Os campos nome de usuário/email e senha agora usam o elemento HTML do formulário.  Agora, isso permitirá que o Edge e o IE salvem essas informações corretamente
-  
+
 ### <a name="110"></a>1.1.0
 
 - Página de exceção (globalexception)
@@ -107,4 +113,4 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Encontre mais informações sobre como você pode personalizar a interface do usuário de seus aplicativos em [Personalizar a interface do usuário do seu aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Encontrar mais informações sobre como pode personalizar a interface do usuário das suas aplicações na [personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

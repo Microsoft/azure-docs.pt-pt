@@ -1,7 +1,7 @@
 ---
 title: 'Modelo de validação cruzada: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo modelo de validação cruzada no serviço de Azure Machine Learning para validação cruzada de estimativas de parâmetros para classificação ou modelos de regressão Particionando os dados.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo modelo de validação cruzada em Azure Machine Learning para validar as estimativas de parâmetro de classificação ou regressão cruzada, Particionando os dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717235"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428550"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
@@ -90,7 +90,7 @@ Para exibir esses resultados, no pipeline, clique com o botão direito do mouse 
 
 | Nome da nova coluna      | Descrição                              |
 | -------------------- | ---------------------------------------- |
-| Rótulos pontuados        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
+| Etiquetas Classificadas        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
 | Probabilidades pontuadas | Essa coluna é adicionada ao final do conjunto de uma. Indica a probabilidade estimada do valor em **Rótulos pontuados**. |
 | Número de dobra          | Indica o índice de base zero do dobramento ao qual cada linha de dados foi atribuída durante a validação cruzada. |
 
@@ -127,5 +127,5 @@ O módulo também inclui as seguintes métricas para cada dobra, dependendo do t
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

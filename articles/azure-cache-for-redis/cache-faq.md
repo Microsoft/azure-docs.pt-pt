@@ -2,16 +2,16 @@
 title: FAQ da Cache do Azure para Redis
 description: Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.author: yegu
-ms.openlocfilehash: e497a5c54a80dbed2ea94f8251d198c1c8bc5043
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433454"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Conheça as respostas a perguntas comuns, padrões e práticas recomendadas para o cache do Azure para Redis.
@@ -74,7 +74,7 @@ As perguntas frequentes nesta seção abordam perguntas comuns de monitoramento 
 ## <a name="prior-cache-offering-faqs"></a>Perguntas frequentes sobre a oferta de cache anterior
 * [Qual oferta de cache do Azure é adequada para mim?](#which-azure-cache-offering-is-right-for-me)
 
-### <a name="what-is-azure-cache-for-redis"></a>O que é o cache do Azure para Redis?
+### <a name="what-is-azure-cache-for-redis"></a>O que é a Cache do Azure para Redis?
 O cache do Azure para Redis é baseado no popular [Redis](https://redis.io/)de software livre. Ele fornece acesso a um cache do Azure seguro e dedicado para Redis, gerenciado pela Microsoft e acessível de qualquer aplicativo no Azure. Para obter uma visão geral mais detalhada, consulte a página de produto [cache do Azure para Redis](https://azure.microsoft.com/services/cache/) no Azure.com.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Como posso começar a usar o cache do Azure para Redis?
@@ -98,7 +98,7 @@ Veja a seguir as considerações para escolher uma oferta de cache.
 
 * **Memória**: as camadas básica e Standard oferecem 250 MB a 53 GB. A camada Premium oferece até 1,2 TB (como um cluster) ou 120 GB (não clusterizado). Para obter mais informações, consulte [Azure cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Desempenho de rede**: se você tiver uma carga de trabalho que exija alta taxa de transferência, a camada Premium oferecerá mais largura de banda em comparação com o Standard ou Basic. Além disso, dentro de cada camada, caches de tamanho maior têm mais largura de banda devido à VM subjacente que hospeda o cache. Para obter mais informações, consulte a [tabela a seguir](#cache-performance).
-* **Taxa de transferência**: a camada Premium oferece a taxa de transferência máxima disponível. Se o servidor de cache ou o cliente atingir os limites de largura de banda, você poderá receber tempos limite no lado do cliente. Para obter mais informações, consulte a tabela a seguir.
+* **Taxa de transferência**: a camada Premium oferece a taxa de transferência máxima disponível. Se o servidor de cache ou o cliente atingir os limites de largura de banda, você poderá receber tempos limite no lado do cliente. Para mais informações, consulte a tabela a seguir.
 * **Alta disponibilidade/SLA**: o cache do Azure para Redis garante que um cache Standard/Premium esteja disponível em pelo menos 99,9% do tempo. Para saber mais sobre nosso SLA, veja [preços do cache do Azure para Redis](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA cobre apenas a conectividade com os pontos de extremidade do cache. O SLA não engloba a proteção contra perda de dados. É recomendável usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra perda de dados.
 * **Persistência de dados Redis**: a camada Premium permite que você persista os dados de cache em uma conta de armazenamento do Azure. Em um cache básico/Standard, todos os dados são armazenados apenas na memória. Problemas de infraestrutura subjacentes podem resultar em potencial perda de dados. É recomendável usar o recurso de persistência de dados do Redis na camada Premium para aumentar a resiliência contra perda de dados. O cache do Azure para Redis oferece opções de RDB e AOF (em breve) no Redis persistence. Para obter mais informações, consulte [como configurar a persistência para um cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 * **Cluster Redis**: para criar caches maiores que 120 GB ou para fragmentar dados entre vários nós do Redis, você pode usar o clustering Redis, que está disponível na camada Premium. Cada nó consiste em um par de cache primário/de réplica para alta disponibilidade. Para obter mais informações, consulte [como configurar o clustering para um cache Premium do Azure para Redis](cache-how-to-premium-clustering.md).
@@ -131,7 +131,7 @@ A partir desta tabela, podemos desenhar as seguintes conclusões:
 | C0 | 250 MB | Partilhado | 100 / 12.5  |  15 000 |   7\.500 |
 | C1 |   1 GB | 1      | 500 / 62.5  |  38.000 |  20.720 |
 | C2 | 2,5 GB | 2      | 500 / 62.5  |  41.000 |  37.000 |
-| C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100.000 |  90,000 |
 | C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55.000 |
 | C5 |  26 GB | 4      | 1,000 / 125 | 102.000 |  93.000 |
 | C6 |  53 GB | 8      | 2,000 / 250 | 126.000 | 120,000 |
@@ -307,7 +307,7 @@ Para obter instruções sobre como baixar as ferramentas do Redis, consulte a se
 * Esteja atento aos custos de desempenho associados a diferentes operações que você está executando. Por exemplo, o comando `KEYS` é uma operação O (n) e deve ser evitado. O [site do Redis.Io](https://redis.io/commands/) tem detalhes sobre a complexidade do tempo para cada operação que ele suporta. Clique em cada comando para ver a complexidade de cada operação.
 
 #### <a name="configuration-and-concepts"></a>Configuração e conceitos
-* Use a camada Standard ou Premium para sistemas de produção. A camada básica é um sistema de nó único sem replicação de dados e nenhum SLA. Além disso, use pelo menos um cache C1. Caches C0 normalmente são usados para cenários simples de desenvolvimento/teste.
+* Use a camada Standard ou Premium para sistemas de produção. O Escalão Básico é um sistema de nó único sem replicação de dados e sem SLA. Além disso, utilize pelo menos uma cache C1. Caches C0 normalmente são usados para cenários simples de desenvolvimento/teste.
 * Lembre-se de que Redis é um armazenamento **de dados na memória** . Leia [Este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para que você esteja ciente dos cenários em que podem ocorrer perda de dados.
 * Desenvolva seu sistema de modo que ele possa lidar com blips de conexão [devido a patches e failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
@@ -471,7 +471,7 @@ Ao contrário dos caches tradicionais que lidam apenas com os pares chave-valor,
 
 Outro aspecto fundamental do sucesso do Redis é o ecossistema íntegro e vibrante de software livre criado em relação a ele. Isso se reflete no conjunto variado de clientes Redis disponíveis em vários idiomas. Esse ecossistema e uma ampla variedade de clientes permitem que o cache do Azure para Redis seja usado por praticamente qualquer carga de trabalho que você criar dentro do Azure.
 
-Para obter mais informações sobre a introdução ao cache do Azure para Redis, consulte [como usar o cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do cache do Azure para Redis](index.md).
+Para obter mais informações sobre a introdução ao cache do Azure para Redis, consulte [como usar o cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do cache do Azure para Redis](index.yml).
 
 ### <a name="managed-cache-service"></a>Serviço de cache gerenciado
 [O serviço de cache gerenciado foi desativado em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

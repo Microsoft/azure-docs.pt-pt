@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674720"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644703"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes Azure Data Factory
 Este artigo fornece respostas para perguntas frequentes sobre Azure Data Factory.  
@@ -82,7 +82,7 @@ Desde a versão prévia pública inicial em 2017, Data Factory adicionou os segu
 -   Banco de dados SQL com pontos de extremidade de serviço de rede virtual
 -   Instância gerida
 -   Conjunto elástico
--   Suporte para uma rede virtual Azure Resource Manager sobre uma rede virtual clássica a ser preterida no futuro, o que permite injetar/unir seu tempo de execução de integração do Azure-SSIS a uma rede virtual configurada para o banco de dados SQL com o serviço de rede virtual acesso a dados de pontos de extremidade/MI/local. Para obter mais informações, consulte também [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+-   O suporte para uma rede virtual Azure Resource Manager sobre uma rede virtual clássica será preterido no futuro, o que permite injetar/unir seu tempo de execução de integração do Azure-SSIS a uma rede virtual configurada para banco de dados SQL com pontos de extremidade de serviço de rede virtual/acesso a dados de MI/local. Para obter mais informações, consulte também [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 -   Suporte para autenticação do Azure Active Directory (Azure AD) e autenticação do SQL para se conectar ao SSISDB, permitindo a autenticação do Azure AD com sua identidade Data Factory gerenciada para recursos do Azure
 -   Suporte para trazer sua própria licença de SQL Server local para obter economias de custo substanciais da opção Benefício Híbrido do Azure
 -   Suporte para Enterprise Edition do tempo de execução de integração do Azure-SSIS que permite usar recursos avançados/Premium, uma interface de instalação personalizada para instalar componentes/extensões adicionais e um ecossistema de parceiros. Para obter mais informações, consulte também [Enterprise Edition, instalação personalizada e extensibilidade de terceiros para SSIS no ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
@@ -101,7 +101,7 @@ Você pode implantar uma ou várias instâncias do tempo de execução de integr
 Para obter mais informações, veja [Integration runtime no Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Qual é o limite do número de tempos de execução de integração?
-Não há nenhum limite rígido no número de instâncias do Integration Runtime que você pode ter em um data factory. No entanto, há um limite no número de núcleos de VM que o tempo de execução de integração pode usar por assinatura para a execução do pacote SSIS. Para obter mais informações, consulte [limites de data Factory](../azure-subscription-service-limits.md#data-factory-limits).
+Não há nenhum limite rígido no número de instâncias do Integration Runtime que você pode ter em um data factory. No entanto, há um limite no número de núcleos de VM que o tempo de execução de integração pode usar por assinatura para a execução do pacote SSIS. Para obter mais informações, consulte [limites de data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Quais são os conceitos de nível superior do Azure Data Factory?
 Uma subscrição do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory contém quatro componentes principais que funcionam juntos como uma plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para mover e transformar dados.
@@ -203,19 +203,19 @@ Atualmente, há suporte para o fluxo de dados Wrangling em data factories criada
 
 * Leste da Austrália
 * Canadá Central
-* Índia Central
-* EUA Central
-* EUA Leste
-* EUA Leste 2
-* Leste do Japão
+* Centro da Índia
+* Centro dos E.U.A.
+* Este dos E.U.A.
+* Este dos E.U.A. 2
+* Este do Japão
 * Europa do Norte
 * Sudeste Asiático
-* EUA Centro-Sul
+* E.U.A. Centro-Sul
 * Sul do Reino Unido
-* EUA Centro-Oeste
+* E.U.A. Centro-Oeste
 * Europa Ocidental
 * Oeste dos E.U.A.
-* EUA Oeste 2
+* E.U.A. Oeste 2
 
 ### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quais são as limitações e restrições com o fluxo de dados do Wrangling?
 
@@ -246,20 +246,20 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 
 * baixo
 * double
-* foto
+* real
 * float
-* º
+* char
 * nchar
 * varchar
 * nvarchar
 * número inteiro
 * int
-* parte
+* bit
 * boolean
 * smallint
 * tinyint
 * bigint
-* Longas
+* longa
 * texto
 * date
 * datetime

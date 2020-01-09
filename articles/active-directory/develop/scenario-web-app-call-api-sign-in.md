@@ -1,5 +1,5 @@
 ---
-title: Remover contas do cache ao sair – plataforma de identidade da Microsoft | Azure
+title: Remover contas do cache de token na saída-plataforma de identidade da Microsoft | Azure
 description: Saiba como remover uma conta do cache de token ao sair
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5472b424f7d2b44b62e6e4495afaf7bdfbbc8439
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423512"
 ---
 # <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Remover contas do cache na saída global
 
@@ -38,7 +38,7 @@ Esse mecanismo é ilustrado no método `AddMsal()` de [WebAppServiceCollectionEx
 
 A **URL de logout** que você registrou para seu aplicativo permite que você implemente o logout único. O ponto de extremidade `logout` da plataforma de identidade da Microsoft chamará a **URL de logout** registrada com seu aplicativo. Essa chamada ocorrerá se a saída tiver sido iniciada por meio de seu aplicativo Web ou de outro aplicativo Web ou navegador. Para obter mais informações, consulte [logout único](v2-protocols-oidc.md#single-sign-out).
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")

@@ -3,12 +3,12 @@ title: Tutorial-criar um conjunto de dimensionamento de máquinas virtuais do Az
 description: Saiba como usar o Terraform para configurar e fazer a versão de um conjunto de dimensionamento de máquinas virtuais do Azure.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159071"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369478"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Azure usando Terraform
 
@@ -38,11 +38,11 @@ Neste tutorial, você aprenderá a usar [Azure cloud Shell](/azure/cloud-shell/o
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -424,7 +424,7 @@ Um *JUMPBOX* SSH é um único servidor que você "salta" para acessar outros ser
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

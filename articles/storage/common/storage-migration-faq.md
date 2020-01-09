@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351285"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração de armazenamento do Azure
 
@@ -47,7 +47,7 @@ Não há nenhuma opção para fazer backup de uma conta de armazenamento inteira
 
 1.  Instale a ferramenta de linha de comando [AzCopy](storage-use-azcopy.md) . Essa ferramenta ajuda a mover o arquivo VHD entre contas de armazenamento.
 
-2.  Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela do prompt de comando e, em seguida, navegue até a pasta de instalação do AzCopy em seu computador. Por padrão, o AzCopy é instalado em **% ProgramFiles (x86)% \ Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+2.  Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela do prompt de comando e, em seguida, navegue até a pasta de instalação do AzCopy em seu computador. Por predefinição, o AzCopy é instalado para **% ProgramFiles (x86) %\Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Execute o comando a seguir para mover o contêiner. Você deve substituir o texto pelos valores reais.   
      
@@ -259,7 +259,7 @@ Para conceder a outras pessoas acesso aos recursos de armazenamento:
 
 -   Use um token SAS (assinatura de acesso compartilhado) para fornecer acesso a um recurso. 
 
--   Forneça um usuário com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerenciar sua conta de armazenamento](storage-account-manage.md#access-keys).
+-   Forneça um usuário com a chave primária ou secundária para a conta de armazenamento. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](storage-account-keys-manage.md).
 
 -   Altere a política de acesso para permitir acesso anônimo. Para obter mais informações, consulte [conceder permissões de usuários anônimos a contêineres e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,7 +275,7 @@ Para conceder a outras pessoas acesso aos recursos de armazenamento:
 
 -   Se você estiver usando armazenamento com redundância de zona ou armazenamento com redundância geográfica, não será possível acessar dados da região secundária, a menos que você inicie um failover para essa região. Para obter mais informações sobre o processo de failover, consulte [recuperação de desastre e failover de conta de armazenamento (versão prévia) no armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
--   Se você estiver usando o armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer momento. Use um dos seguintes métodos:  
+-   Se você estiver usando o armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer momento. Utilize um dos métodos seguintes:  
       
     - **AzCopy**: acrescente **-Secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
      

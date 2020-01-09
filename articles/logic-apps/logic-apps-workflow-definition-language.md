@@ -1,17 +1,17 @@
 ---
-title: Esquema para linguagem de definição de fluxo de trabalho
-description: Referência de esquema para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
+title: Referência de esquema de linguagem de definição de fluxo de trabalho
+description: Guia de referência para o esquema JSON e a sintaxe para a linguagem de definição de fluxo de trabalho que descreve os fluxos de trabalho nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 9c235c76e3d96ce02efc113c65c62081fcba20ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428652"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Guia de referência de esquema para a linguagem de definição de fluxo de trabalho em aplicativos lógicos do Azure
 
@@ -76,14 +76,14 @@ Aqui está a estrutura geral para uma definição de parâmetro:
 
 | Atributo | Obrigatório | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| *nome do parâmetro de* <> | Sim | String | O nome do parâmetro que você deseja definir |
-| > *de <do tipo de parâmetro* | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os tipos `securestring` ou `secureobject` porque a operação de `GET` não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo para o parâmetro |
-| <*valor de parâmetro-padrão*> | Sim | O mesmo que `type` | O valor de parâmetro padrão a ser usado se nenhum valor for especificado quando o fluxo de trabalho for instanciado. O atributo `defaultValue` é necessário para que o designer do aplicativo lógico possa mostrar corretamente o parâmetro, mas você pode especificar um valor vazio. |
-| <*matriz com os valores de parâmetro-com-permitido*> | Não | Array | Uma matriz com valores que o parâmetro pode aceitar |
-| *parâmetro de <-descrição*> | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, como uma descrição para o parâmetro |
+| <*parameter-name*> | Sim | Cadeia | O nome do parâmetro que você deseja definir |
+| <*parameter-type*> | Sim | int, float, String, bool, array, Object, SecureString, secureobject <p><p>**Observação**: para todas as senhas, chaves e segredos, use os tipos `securestring` ou `secureobject` porque a operação de `GET` não retorna esses tipos. Para obter mais informações sobre como proteger os parâmetros, consulte [recomendações de segurança para parâmetros de ação e de entrada](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | O tipo para o parâmetro |
+| <*default-parameter-value*> | Sim | O mesmo que `type` | O valor de parâmetro padrão a ser usado se nenhum valor for especificado quando o fluxo de trabalho for instanciado. O atributo `defaultValue` é necessário para que o designer do aplicativo lógico possa mostrar corretamente o parâmetro, mas você pode especificar um valor vazio. |
+| <*array-with-permitted-parameter-values*> | Não | Matriz | Uma matriz com valores que o parâmetro pode aceitar |
+| <*parameter-description*> | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, como uma descrição para o parâmetro |
 ||||
 
-Em seguida, crie um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para sua definição de fluxo de trabalho, defina os parâmetros de modelo que aceitam os valores desejados na implantação, substitua os valores codificados por referências aos parâmetros de definição de modelo ou de fluxo de trabalho, conforme apropriado, e armazene os valores a serem usados na implantação em um arquivo de [parâmetro](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)separado. Dessa forma, você pode alterar esses valores mais facilmente por meio do arquivo de parâmetro sem precisar atualizar e reimplantar seu aplicativo lógico. Para obter informações confidenciais ou que devem ser protegidas, como nomes de usuários, senhas e segredos, você pode armazenar esses valores em Azure Key Vault e fazer com que o arquivo de parâmetros recupere esses valores do cofre de chaves. Para obter mais informações e exemplos sobre como definir parâmetros nos níveis de definição de modelo e de fluxo de trabalho, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Em seguida, crie um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para sua definição de fluxo de trabalho, defina os parâmetros de modelo que aceitam os valores desejados na implantação, substitua os valores codificados por referências aos parâmetros de definição de modelo ou de fluxo de trabalho, conforme apropriado, e armazene os valores a serem usados na implantação em um arquivo de [parâmetro](../azure-resource-manager/templates/parameter-files.md)separado. Dessa forma, você pode alterar esses valores mais facilmente por meio do arquivo de parâmetro sem precisar atualizar e reimplantar seu aplicativo lógico. Para obter informações confidenciais ou que devem ser protegidas, como nomes de usuários, senhas e segredos, você pode armazenar esses valores em Azure Key Vault e fazer com que o arquivo de parâmetros recupere esses valores do cofre de chaves. Para obter mais informações e exemplos sobre como definir parâmetros nos níveis de definição de modelo e de fluxo de trabalho, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -114,11 +114,11 @@ No atributo `staticResults`, defina a simulação de uma ação `outputs` e `sta
 
 | Atributo | Obrigatório | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*estático-Result-Definition-name*> | Sim | String | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um objeto `runtimeConfiguration.staticResult`. Para obter mais informações, consulte [definições de configuração de tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
-| <*output-Attributes-and-Values-retornou*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded`, o atributo `outputs` inclui atributos e valores retornados como saídas de imitação pela ação. Se o `status` for `Failed`, o atributo `outputs` incluirá o atributo `errors`, que é uma matriz com um ou mais objetos de `message` de erro que têm informações de erro. |
+| <*estático-Result-Definition-name*> | Sim | Cadeia | O nome de uma definição de resultado estático que uma definição de ação pode referenciar por meio de um objeto `runtimeConfiguration.staticResult`. Para obter mais informações, consulte [definições de configuração de tempo de execução](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Você pode usar qualquer nome exclusivo que desejar. Por padrão, esse nome exclusivo é acrescentado com um número, que é incrementado conforme necessário. |
+| <*output-attributes-and-values-returned*> | Sim | Varia | Os requisitos para esses atributos variam de acordo com as diferentes condições. Por exemplo, quando o `status` é `Succeeded`, o atributo `outputs` inclui atributos e valores retornados como saídas de imitação pela ação. Se o `status` for `Failed`, o atributo `outputs` incluirá o atributo `errors`, que é uma matriz com um ou mais objetos de `message` de erro que têm informações de erro. |
 | <*valores de cabeçalho*> | Não | JSON | Todos os valores de cabeçalho retornados pela ação |
-| *status de <-código retornado*> | Sim | String | O código de status retornado pela ação |
-| *ação de <-> de status* | Sim | String | O status da ação, por exemplo, `Succeeded` ou `Failed` |
+| <*status-code-returned*> | Sim | Cadeia | O código de status retornado pela ação |
+| <*action-status*> | Sim | Cadeia | O status da ação, por exemplo, `Succeeded` ou `Failed` |
 |||||
 
 Por exemplo, nessa definição de ação HTTP, o atributo `runtimeConfiguration.staticResult.name` faz referência `HTTP0` dentro do atributo `staticResults` em que as saídas de simulação para a ação são definidas. O atributo `runtimeConfiguration.staticResult.staticResultOptions` especifica que a configuração de resultado estático é `Enabled` na ação HTTP.
@@ -208,7 +208,7 @@ Estes exemplos mostram como as expressões são avaliadas:
 | "Sophia Owen" | Retornar estes caracteres: ' Sophia Owen ' |
 | "matriz [1]" | Retornar estes caracteres: ' array [1] ' |
 | "\@\@" | Retornar estes caracteres como uma cadeia de caracteres de um caractere: '\@' |
-| "\@" | Retornar estes caracteres como uma cadeia de dois caracteres: ' \@' |
+| " \@" | Retornar estes caracteres como uma cadeia de dois caracteres: ' \@' |
 |||
 
 Para esses exemplos, suponha que você defina "myBirthMonth" igual a "janeiro" e "myAge" igual ao número 42:
@@ -224,8 +224,8 @@ Estes exemplos mostram como as seguintes expressões são avaliadas:
 |-----------------|--------|
 | "parâmetros de\@(' myBirthMonth ')" | Retornar esta cadeia de caracteres: "janeiro" |
 | "\@{Parameters (' myBirthMonth ')}" | Retornar esta cadeia de caracteres: "janeiro" |
-| "parâmetros de\@(' myAge ')" | Retornar este número: 42 |
-| "\@{Parameters (' myAge ')}" | Retornar este número como uma cadeia de caracteres: "42" |
+| "\@parameters('myAge')" | Retornar este número: 42 |
+| "\@{parameters('myAge')}" | Retornar este número como uma cadeia de caracteres: "42" |
 | "Minha idade é \@{Parameters (' myAge ')}" | Retornar esta cadeia de caracteres: "minha idade é 42" |
 | "\@Concat (' my age is ', String (Parameters (' myAge '))" | Retornar esta cadeia de caracteres: "minha idade é 42" |
 | "Minha idade é \@\@{Parameters (' myAge ')}" | Retornar esta cadeia de caracteres, que inclui a expressão: "minha idade é \@{Parameters (' myAge ')} ' |
@@ -277,9 +277,9 @@ Aqui está a estrutura geral para uma definição de saída:
 
 | Atributo | Obrigatório | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*nome da chave*> | Sim | String | O nome da chave para o valor de retorno de saída |
-| <*tipo de chave*> | Sim | int, float, String, SecureString, bool, matriz, objeto JSON | O tipo para o valor de retorno de saída |
-| <*chave-valor*> | Sim | O mesmo que <*tipo de chave*> | O valor de retorno de saída |
+| <*key-name*> | Sim | Cadeia | O nome da chave para o valor de retorno de saída |
+| <*key-type*> | Sim | int, float, string, securestring, bool, array, objeto JSON | O tipo para o valor de retorno de saída |
+| <*chave-valor*> | Sim | Mesmo que <*key-type*> | O valor de retorno de saída |
 |||||
 
 Para obter a saída de uma execução de fluxo de trabalho, examine o histórico de execução do aplicativo lógico e os detalhes no portal do Azure ou use a [API REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Você também pode passar a saída para sistemas externos, por exemplo, Power BI para que você possa criar painéis.
@@ -292,7 +292,7 @@ Em [expressões](#expressions) e [funções](#functions), os operadores executam
 
 | Operador | Tarefa |
 |----------|------|
-| ' | Para usar um literal de cadeia de caracteres como entrada ou em expressões e funções, empacote a cadeia de caracteres somente com aspas simples, por exemplo, `'<myString>'`. Não use aspas duplas (""), que entram em conflito com a formatação JSON em uma expressão inteira. Por exemplo: <p>**Sim**: comprimento (' Olá ') </br>**Não**: comprimento ("Olá") <p>Quando você passa matrizes ou números, não precisa de Pontuação de quebra automática. Por exemplo: <p>**Sim**: comprimento ([1, 2, 3]) </br>**Não**: comprimento ("[1, 2, 3]") |
+| ' | Para usar um literal de cadeia de caracteres como entrada ou em expressões e funções, empacote a cadeia de caracteres somente com aspas simples, por exemplo, `'<myString>'`. Não use aspas duplas (""), que entram em conflito com a formatação JSON em uma expressão inteira. Por exemplo: <p>**Yes**: length('Hello') </br>**Não**: comprimento ("Olá") <p>Quando você passa matrizes ou números, não precisa de Pontuação de quebra automática. Por exemplo: <p>**Sim**: comprimento ([1, 2, 3]) </br>**Não**: comprimento ("[1, 2, 3]") |
 | [] | Para fazer referência a um valor em uma posição específica (índice) em uma matriz, use colchetes. Por exemplo, para obter o segundo item em uma matriz: <p>`myArray[1]` |
 | . | Para fazer referência a uma propriedade em um objeto, use o operador ponto. Por exemplo, para obter a propriedade `name` para um objeto JSON `customer`: <p>`"@parameters('customer').name"` |
 | ? | Para fazer referência a Propriedades nulas em um objeto sem um erro de tempo de execução, use o operador de ponto de interrogação. Por exemplo, para tratar saídas nulas de um gatilho, você pode usar esta expressão: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |

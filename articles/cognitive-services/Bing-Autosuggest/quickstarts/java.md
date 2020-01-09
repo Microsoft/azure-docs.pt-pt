@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java'
+title: 'Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java'
 titleSuffix: Azure Cognitive Services
 description: Saiba como começar a sugerir rapidamente os termos de pesquisa em tempo real com o API de Sugestão Automática do Bing.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0a0fb1e8f79587223ae1f25ca8a7e0d6dc7cc5bb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384922"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java
 
 
 Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
@@ -44,7 +44,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
     import com.google.gson.JsonParser;
     ```
 
-2. Crie variáveis para sua chave de assinatura, o host e o caminho da API, seu [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa.
+2. Crie variáveis para sua chave de assinatura, o host e o caminho da API, seu [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -57,7 +57,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Crie um método chamado `prettify()` para formatar a resposta retornada da API de vídeo do Bing. Use a biblioteca `JsonParser` Gson para pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida `GsonBuilder()` , `toJson()` use e para criar a cadeia de caracteres formatada.
+Crie um método chamado `prettify()` para formatar a resposta retornada da API de vídeo do Bing. Use a `JsonParser` da biblioteca Gson para pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida, use `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -73,7 +73,7 @@ public static String prettify(String json_text) {
 
 1. Crie um novo método chamado `get_suggestions()` e execute as seguintes etapas:
 
-   1. Construa a URL para sua solicitação combinando seu host de API, caminho e codificando sua consulta de pesquisa. Certifique-se de codificar a consulta por URL antes de acrescentá-la. Crie uma cadeia de caracteres de parâmetros para a consulta acrescentando o código do `mkt=` mercado ao parâmetro e sua consulta `q=` ao parâmetro.
+   1. Construa a URL para sua solicitação combinando seu host de API, caminho e codificando sua consulta de pesquisa. Certifique-se de codificar a consulta por URL antes de acrescentá-la. Crie uma cadeia de caracteres de parâmetros para a consulta acrescentando o código do mercado ao parâmetro `mkt=` e sua consulta ao parâmetro `q=`.
     
       ```java
   
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Crie um `HttpsURLConnection` objeto e use `openConnection()` para criar uma conexão. Defina o método de solicitação `GET`como e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
+   3. Crie um objeto `HttpsURLConnection` e use `openConnection()` para criar uma conexão. Defina o método de solicitação como `GET`e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
       ```java
        //...
@@ -103,7 +103,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Leia na resposta da API para um `StringBuilder`. Depois que a resposta tiver sido capturada, `InputStreamReader` feche o fluxo e retorne a resposta.
+   4. Leia na resposta da API para um `StringBuilder`. Depois que a resposta tiver sido capturada, feche o `InputStreamReader` fluxo e retorne a resposta.
 
        ```java
        //...
@@ -119,7 +119,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. Na função principal do seu aplicativo, chame `get_suggestions()`e imprima a resposta usando. `prettify()`
+2. Na função principal do seu aplicativo, chame `get_suggestions()`e imprima a resposta usando `prettify()`.
     
     ```java
     public static void main(String[] args) {
@@ -201,7 +201,7 @@ public static String prettify(String json_text) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorials/autosuggest.md)

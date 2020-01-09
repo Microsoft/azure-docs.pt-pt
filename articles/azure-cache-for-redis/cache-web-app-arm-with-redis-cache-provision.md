@@ -7,12 +7,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 8e15d51062993bc6e9913d49d3fe67c1a8b9cd03
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 11c854491ab030394eb61964979cb04a5a4b489b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433386"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Criar um aplicativo Web mais o cache do Azure para Redis usando um modelo
 
@@ -20,7 +20,7 @@ ms.locfileid: "74122629"
 
 Neste tópico, você aprenderá a criar um modelo de Azure Resource Manager que implanta um aplicativo Web do Azure com o cache do Azure para Redis. Você aprenderá como definir quais recursos são implantados e como definir parâmetros que são especificados quando a implantação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
-Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, consulte [tipos de recurso Microsoft. cache](/azure/templates/microsoft.cache/allversions).
+Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos de cache, consulte [tipos de recurso Microsoft. cache](/azure/templates/microsoft.cache/allversions).
 
 Para obter o modelo completo, consulte o [aplicativo Web com o cache do Azure para o modelo Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -40,7 +40,7 @@ Para executar automaticamente a implementação, clique no seguinte botão:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variáveis para nomes
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniquestring](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para construir um valor com base na ID do grupo de recursos.
+Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniquestring](../azure-resource-manager/templates/template-functions-string.md#uniquestring) para construir um valor com base na ID do grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",

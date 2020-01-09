@@ -1,6 +1,6 @@
 ---
-title: Introdução ao iOS & macOS – plataforma de identidade da Microsoft | Azure
-description: Como os aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
+title: Tutorial do MSAL para iOS & macOS – plataforma Microsoft Identity | Azure
+description: Saiba como aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423408"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 

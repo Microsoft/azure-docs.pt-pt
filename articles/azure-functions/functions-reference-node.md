@@ -3,13 +3,13 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226713"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561920"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor do Azure Functions JavaScript
 
@@ -267,10 +267,10 @@ Permite que você grave nos logs da função de streaming no nível de rastreame
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| **erro (_mensagem_)**   | Grava em log de nível de erro ou inferior.   |
-| **aviso (_mensagem_)**    | Grava em log de nível de aviso ou inferior. |
-| **informações (_mensagem_)**    | Grava no log de nível de informações ou inferior.    |
-| **Detalhado (_mensagem_)** | Grava no log de nível detalhado.           |
+| **error(_message_)**   | Grava em log de nível de erro ou inferior.   |
+| **warn(_message_)**    | Grava em log de nível de aviso ou inferior. |
+| **info(_message_)**    | Grava no log de nível de informações ou inferior.    |
+| **verbose(_message_)** | Grava no log de nível detalhado.           |
 
 O exemplo a seguir grava um log no nível de rastreamento de aviso:
 
@@ -346,10 +346,10 @@ O objeto `context.req` (solicitação) tem as seguintes propriedades:
 | ------------- | -------------------------------------------------------------- |
 | _conteúdo_        | Um objeto que contém o corpo da solicitação.               |
 | _conector_     | Um objeto que contém os cabeçalhos de solicitação.                   |
-| _forma_      | O método HTTP da solicitação.                                |
+| _method_      | O método HTTP da solicitação.                                |
 | _originalUrl_ | A URL da solicitação.                                        |
 | _params_      | Um objeto que contém os parâmetros de roteamento da solicitação. |
-| _consultá_       | Um objeto que contém os parâmetros de consulta.                  |
+| _query_       | Um objeto que contém os parâmetros de consulta.                  |
 | _rawBody_     | O corpo da mensagem como uma cadeia de caracteres.                           |
 
 
@@ -362,7 +362,7 @@ O objeto `context.res` (resposta) tem as seguintes propriedades:
 | _conteúdo_    | Um objeto que contém o corpo da resposta.         |
 | _conector_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
-| _Estado_  | O código de status HTTP da resposta.                     |
+| _status_  | O código de status HTTP da resposta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Acessando a solicitação e a resposta 
 
@@ -405,6 +405,16 @@ Ao trabalhar com gatilhos HTTP, você pode acessar os objetos de solicitação e
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+
+## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
+
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para o Node. js, conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, consulte [como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+
+Esse comportamento de dimensionamento é suficiente para muitos aplicativos node. js. Para aplicativos associados à CPU, você pode melhorar ainda mais o desempenho usando vários processos de trabalho de linguagem.
+
+Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. Você pode aumentar o número de processos de trabalho por host (até 10) usando a configuração de aplicativo [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+
+O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
 
 ## <a name="node-version"></a>Versão do nó
 
@@ -477,7 +487,7 @@ Ao executar localmente, as configurações do aplicativo são lidas no arquivo d
 
 As propriedades `function.json` `scriptFile` e `entryPoint` podem ser usadas para configurar o local e o nome da sua função exportada. Essas propriedades podem ser importantes quando o JavaScript é transcompilado.
 
-### <a name="using-scriptfile"></a>Usando `scriptFile`
+### <a name="using-scriptfile"></a>Utilizar `scriptFile`
 
 Por padrão, uma função JavaScript é executada a partir de `index.js`, um arquivo que compartilha o mesmo diretório pai que seu `function.json`correspondente.
 
@@ -506,7 +516,7 @@ O `function.json` para `myNodeFunction` deve incluir uma propriedade `scriptFile
 }
 ```
 
-### <a name="using-entrypoint"></a>Usando `entryPoint`
+### <a name="using-entrypoint"></a>Utilizar `entryPoint`
 
 Em `scriptFile` (ou `index.js`), uma função deve ser exportada usando `module.exports` para ser encontrada e executada. Por padrão, a função que é executada quando disparado é a única exportação desse arquivo, a exportação nomeada `run`ou a exportação nomeada `index`.
 

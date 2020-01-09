@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810398"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552785"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são os pools de instâncias do banco de dados SQL (versão prévia)?
 
@@ -61,7 +61,7 @@ A lista a seguir fornece os principais casos de uso em que os pools de instânci
 
 Os pools de instância têm arquitetura semelhante a instâncias gerenciadas regulares (*instâncias únicas*). Para dar suporte a [implantações nas redes virtuais do Azure (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) e fornecer isolamento e segurança para clientes, os pools de instância também dependem de [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede da rede virtual do cliente.
 
-A principal diferença entre os dois modelos de implantação é que os pools de instância permitem várias implantações de processo de SQL Server no mesmo nó de máquina virtual, que são recursos controlados com o uso de [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias únicas sempre são sozinhas um nó de máquina virtual.
+A principal diferença entre os dois modelos de implantação é que os pools de instância permitem várias implantações de processo de SQL Server no mesmo nó de máquina virtual, que são recursos controlados com o uso de [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias únicas sempre são sozinhas em um nó de máquina virtual.
 
 O diagrama a seguir mostra um pool de instâncias e duas instâncias individuais implantadas na mesma sub-rede e ilustra os principais detalhes de arquitetura para os dois modelos de implantação:
 
@@ -126,7 +126,7 @@ Se você estiver tendo problemas relacionados à implantação do pool de instâ
 
 Se você estiver tendo problemas relacionados a instâncias ou bancos de dados individuais em um pool, deverá criar um tíquete de suporte regular para instâncias gerenciadas do banco de dados SQL do Azure.
 
-Para criar implantações de instância gerenciada maiores (com ou sem pools de instância), talvez seja necessário obter uma cota regional maior. Use o [procedimento de instância gerenciada padrão para solicitar uma cota maior](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), mas observe que, se você estiver usando pools de instância, a lógica de implantação comparará o consumo de vCore total *no nível do pool* em relação à sua cota para determinar se você está permissão para criar novos recursos sem aumentar ainda mais sua cota.
+Para criar implantações de instância gerenciada maiores (com ou sem pools de instância), talvez seja necessário obter uma cota regional maior. Use o [procedimento de instância gerenciada padrão para solicitar uma cota maior](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), mas observe que, se você estiver usando pools de instância, a lógica de implantação compara o consumo de vCore total *no nível do pool* em relação à sua cota para determinar se você tem permissão para criar novos recursos sem aumentar ainda mais sua cota.
 
 ## <a name="instance-pool-billing"></a>Cobrança do pool de instâncias
 
@@ -136,7 +136,7 @@ o preço vCore de um pool é cobrado independentemente de quantas instâncias s�
 
 Para o preço de computação (medido em vCores), há duas opções de preço disponíveis:
 
-  1. *Licença incluída*: aplicar licenças de SQL Server existentes com o Software Assurance.
+  1. *Licença incluída*: o preço das licenças do SQL está incluído. Isso é para os clientes que optam por não aplicar as licenças de SQL Server existentes com o Software Assurance.
   2. *Benefício híbrido do Azure*: um preço reduzido que inclui Benefício Híbrido do Azure para SQL Server. Os clientes podem optar por esse preço usando suas licenças de SQL Server existentes com o Software Assurance. Para elegibilidade e outros detalhes, consulte [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 A definição de diferentes opções de preço não é possível para instâncias individuais em um pool. Todas as instâncias no pool pai devem estar no preço ou Benefício Híbrido do Azure preço incluído na licença. O modelo de licença para o pool pode ser alterado após a criação do pool.

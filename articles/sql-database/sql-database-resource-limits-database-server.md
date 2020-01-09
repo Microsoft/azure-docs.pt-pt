@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279311"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638260"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do banco de dados SQL e governança de recursos
 
@@ -60,7 +60,7 @@ Ao encontrar alta utilização de computação, as opções de mitigação inclu
 - Aumentar o tamanho de computação do banco de dados ou do pool elástico para fornecer ao banco de dados mais recursos de computação. Consulte [dimensionar recursos de banco de dados individual](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico](sql-database-elastic-pool-scale.md).
 - Otimização de consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, consulte [ajuste/dicas de consulta](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Armazenamento
 
 Quando o espaço de banco de dados usado atinge o limite de tamanho máximo, as inserções e atualizações de banco de dados que aumentam a falha de tamanho e os clientes recebem uma [mensagem de erro](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). As instruções SELECT e DELETE continuam a ter sucesso.
 
@@ -99,7 +99,9 @@ Os valores mínimo/máximo de IOPS e taxa de transferência retornados pela exib
 
 Para bancos de dados Basic, Standard e Uso Geral, que usam arquivos de dado no armazenamento do Azure, o valor de `primary_group_max_io` pode não ser atingível se um banco de dados não tiver arquivos suficientes para fornecer esse número de IOPS, ou se os dados não forem distribuídos uniformemente entre arquivos ou se o nível de desempenho dos BLOBs subjacentes limitar IOPS/taxa de transferência abaixo do limite de governança de recursos Da mesma forma, com o IOs de log pequeno gerado pela confirmação de transação frequente, o valor `primary_max_log_rate` pode não ser atingível por uma carga de trabalho devido ao limite de IOPS no blob de armazenamento do Azure subjacente.
 
-Valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, relatados nas exibições [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , são calculados como porcentagens de limites máximos de governança de recursos. Portanto, quando fatores diferentes da governança de recursos limitam o IOPS/taxa de transferência, é possível ver o aumento de taxa de transferência e as latências aumentadas à medida que a carga de trabalho aumenta, embora a utilização de recursos relatada permaneça abaixo de 100%. Para ver a leitura e gravação de IOPS, taxa de transferência e latência por arquivo de banco de dados, use a função [Sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Essa função faz a superfície de todas as e/s no banco de dados, incluindo a e/s de plano de fundo que não é contabilizada em `avg_data_io_percent`, mas usa IOPS e taxa de transferência do armazenamento subjacente e pode afetar a latência de armazenamento observada.
+Valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, relatados nas exibições [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , são calculados como porcentagens de limites máximos de governança de recursos. Portanto, quando fatores diferentes da governança de recursos limitam o IOPS/taxa de transferência, é possível ver o aumento de taxa de transferência e as latências aumentadas à medida que a carga de trabalho aumenta, embora a utilização de recursos relatada permaneça abaixo de 100%. 
+
+Para ver a leitura e gravação de IOPS, taxa de transferência e latência por arquivo de banco de dados, use a função [Sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Essa função faz a superfície de todas as e/s no banco de dados, incluindo a e/s de plano de fundo que não é contabilizada em `avg_data_io_percent`, mas usa IOPS e taxa de transferência do armazenamento subjacente e pode afetar a latência de armazenamento observada. A função também apresenta uma latência adicional que pode ser introduzida pela governança de recursos de e/s para leituras e gravações, nas colunas `io_stall_queued_read_ms` e `io_stall_queued_write_ms`, respectivamente.
 
 ### <a name="transaction-log-rate-governance"></a>Governança de taxa de log de transações
 
@@ -132,6 +134,6 @@ Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desej
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
+- Para obter informações sobre limites gerais do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para obter informações sobre DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Para obter informações sobre os limites de tamanho do tempdb, consulte [tempdb no banco de dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

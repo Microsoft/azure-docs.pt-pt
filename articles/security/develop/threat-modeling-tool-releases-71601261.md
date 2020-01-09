@@ -1,26 +1,18 @@
 ---
-title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Versão Microsoft Threat Modeling Tool 1/29/2019 – Azure
 description: Documentando as notas de versão da ferramenta de modelagem de ameaças
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
-ms.author: jegeib
-ms.openlocfilehash: d9c91752a599debcd8fda6c8396141e6a92e0f06
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cec5abe358189184648c5a40a809b570f243fbf4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928090"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548794"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Versão de atualização da Threat Modeling Tool 7.1.60126.1 - 29/01/2019
 
@@ -37,7 +29,7 @@ A versão 7.1.60126.1 do Microsoft Threat Modeling Tool foi lançada em janeiro 
 
 ### <a name="model-validation-option"></a>Opção de validação de modelo
 
-Com base nos comentários do cliente, uma opção foi adicionada à ferramenta para habilitar ou desabilitar a validação do modelo. Anteriormente, se o modelo usava um único fluxo de dados unidirecional entre dois objetos, você pode ter recebido uma mensagem de erro no quadro mensagens informando: ObjectSid requer pelo menos um ' any '. Desabilitar a validação do modelo impedirá que esses avisos sejam mostrados na exibição.
+Com base nos comentários do cliente, uma opção foi adicionada à ferramenta para habilitar ou desabilitar a validação do modelo. Anteriormente, se o modelo usava um único fluxo de dados unidirecional entre dois objetos, você pode ter recebido uma mensagem de erro no quadro mensagens informando: ObjectName requer pelo menos um ' any '. Desabilitar a validação do modelo impedirá que esses avisos sejam mostrados na exibição.
 
 A opção para ativar e desativar a validação do modelo pode ser encontrada no menu > opções configurações de > de arquivo. O valor padrão dessa configuração é desabilitado.
 

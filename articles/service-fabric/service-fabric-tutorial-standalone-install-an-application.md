@@ -1,28 +1,19 @@
 ---
-title: O tutorial instalou uma aplicação no seu cluster autónomo do Service Fabric - Azure Service Fabric | Microsoft Docs
+title: Instalar um aplicativo em um cluster autônomo
 description: Neste tutorial, você aprenderá a instalar um aplicativo em seu cluster Service Fabric autônomo.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384991"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613963"
 ---
-# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implantar um aplicativo em seu Service Fabric cluster autônomo
+# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: implementar uma aplicação no cluster autónomo do Service Fabric
 
 Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, você cria um cluster autônomo hospedado no AWS e implanta um aplicativo nele.
 
@@ -67,7 +58,7 @@ Agora que a aplicação foi transferida, pode implementá-la num cluster diretam
 
     ![Resposta da API a partir do Cluster](./media/service-fabric-tutorial-standalone-cluster/deployed-app.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na terceira parte da série, aprendeu a implementar uma aplicação para o cluster:
 

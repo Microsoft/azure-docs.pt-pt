@@ -1,19 +1,19 @@
 ---
-title: Início rápido para aprender a usar o cache do Azure para Redis com aplicativos .NET
+title: 'Início rápido: usar o cache do Azure para Redis com aplicativos .NET'
 description: Neste guia de início rápido, saiba como acessar o cache do Azure para Redis de seus aplicativos .NET
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2738805043b701d9e116d962f88225a6c6ae3e9b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 05/18/2018
+ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433517"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início rápido: usar o cache do Azure para Redis com um aplicativo .NET Framework
 
@@ -69,7 +69,7 @@ Depois de concluída a instalação, o cliente de cache *StackExchange.Redis* es
 
 ## <a name="connect-to-the-cache"></a>Ligar à cache
 
-No Visual Studio, abra o seu ficheiro *App.config* e atualize-o para incluir um atributo `appSettings` `file` que referencia o ficheiro *CacheSecrets.config*.
+No Visual Studio, abra o arquivo *app. config* e atualize-o para incluir um atributo `appSettings` `file` que faz referência ao arquivo *CacheSecrets. config* .
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -96,7 +96,7 @@ A conexão com o cache do Azure para Redis é gerenciada pela classe `Connection
 
 Nunca guarde as credenciais no código fonte. Para simplificar este exemplo, estou a utilizar apenas um ficheiro de configuração de segredos externo. Uma melhor abordagem seria utilizar o [Azure Key Vault com certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
 
-Em *Program.cs*, adicione os seguintes membros à classe `Program` da sua aplicação de consola:
+Em *Program.cs*, adicione os seguintes membros à classe `Program` da aplicação de consola:
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -160,9 +160,9 @@ Adicione o seguinte código ao procedimento `Main` da classe `Program` para a su
         }
 ```
 
-O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código é ligado à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
-Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
+Os itens de cache podem ser armazenados com os métodos `StringSet` e `StringGet`.
 
 O Redis armazena grande parte dos dados como cadeias de Redis. No entanto, estas cadeias podem conter vários tipos de dados, incluindo dados binários serializados, que podem ser utilizados ao armazenar objetos .NET na cache.
 
@@ -177,7 +177,7 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 O cache do Azure para Redis pode armazenar em cache os objetos .NET e os tipos de dados primitivos, mas antes que um objeto .NET possa ser armazenado em cache, ele deve ser serializado. Esta serialização do objeto .NET é da responsabilidade do programador da aplicação, podendo o programador escolher o serializador pretendido.
 
-Uma forma simples de serializar objetos passa por utilizar os métodos de serialização `JsonConvert` no [Newtonsoft.Json.](https://www.nuget.org/packages/Newtonsoft.Json/) e serializar de e para o JSON. Nesta secção, irá adicionar um objeto de .NET à cache.
+Uma forma simples de serializar objetos passa por utilizar os métodos de serialização `JsonConvert` no [Newtonsoft.Json.](https://www.nuget.org/packages/Newtonsoft.Json/) e serializar de e para o JSON. Nesta secção, vai adicionar um objeto .NET à cache.
 
 No Visual Studio, clique em **Ferramentas** > **Gestor de Pacotes NuGet** > **Consola do Gestor de Pacotes** e execute o seguinte comando a partir da janela Consola do Gestor de Pacotes.
 
@@ -185,7 +185,7 @@ No Visual Studio, clique em **Ferramentas** > **Gestor de Pacotes NuGet** > **Co
 Install-Package Newtonsoft.Json
 ```
 
-Adicione a seguinte declaração `using` na parte superior do ficheiro *Program.cs*:
+Adicione a seguinte instrução `using` na parte superior do ficheiro *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
@@ -234,15 +234,15 @@ Prima **Ctrl+F5** para compilar e executar a aplicação de consola para testar 
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 

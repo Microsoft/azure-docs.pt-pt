@@ -1,25 +1,16 @@
 ---
-title: Proteger as comunicações de comunicação C# remota do serviço com o no Azure Service Fabric | Microsoft Docs
+title: Proteger comunicações remotas do serviço comC#
 description: Saiba como proteger a comunicação baseada em Remoting do C# serviço para Reliable Services que estão em execução em um cluster de Service Fabric do Azure.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: vturecek
-ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: c252ec31a64fa3a11973db7a8de0a440d8eed6f5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ee2f1d70f4094ccc7d80edbfaf16509b5124f607
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166565"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609626"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger comunicações remotas de serviço C# em um serviço
 > [!div class="op_single_selector"]
@@ -195,7 +186,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
 
     Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo client_name. Settings. xml no mesmo local em que o client_name. exe é. Em seguida, crie uma seção TransportSettings nesse arquivo.
 
-    Semelhante ao serviço, se você adicionar uma seção `TransportSettings` em configurações do cliente. xml/client_name. Settings. xml, `FabricTransportRemotingSettings` carregará todas as configurações desta seção por padrão.
+    Semelhante ao serviço, se você adicionar uma seção `TransportSettings` em Client Settings. xml/client_name. Settings. xml, `FabricTransportRemotingSettings` carregará todas as configurações desta seção por padrão.
 
     Nesse caso, o código anterior é ainda mais simplificado:  
 

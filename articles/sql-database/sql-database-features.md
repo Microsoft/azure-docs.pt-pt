@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 8f078bdfa1c6c106bb12116f30dc69abce42baa0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 33ecef4dde3787546afd28e5f5b31e8dd535fc7c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790460"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646369"
 ---
 # <a name="azure-sql-database-features"></a>Recursos do banco de dados SQL do Azure
 
@@ -80,10 +80,10 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|Não|Sim, somente para outros bancos de dados SQL do Azure e SQL Servers. Consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [OPENQUERY](https://docs.microsoft.com/sql/t-sql/functions/openquery-transact-sql)|Não|Sim, somente para outros bancos de dados SQL do Azure e SQL Servers. Consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)|Sim, somente para importar do armazenamento de BLOBs do Azure. |Sim, somente para outros bancos de dados SQL do Azure e servidores SQL e para importar do armazenamento de BLOBs do Azure. Consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md)|
-| [Operações](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Maioria-consulte operadores individuais |Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
+| [Operadores](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Maioria-consulte operadores individuais |Sim-consulte [diferenças de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Não. Você pode consultar dados nos arquivos colocados no armazenamento de BLOBs do Azure usando `OPENROWSET` função. | Não. Você pode consultar dados nos arquivos colocados no armazenamento de BLOBs do Azure usando `OPENROWSET` função. |
 | [Notificações de consulta](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Não | Sim |
-| [Serviços R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sim, em [Visualização pública](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Não |
+| [Serviços de Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)(_anteriormente serviços de R_)| Sim, em [Visualização pública](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Não |
 | [Modelos de recuperação](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | Somente a recuperação completa que garante alta disponibilidade tem suporte. Modelos de recuperação simples e bulk-logged não estão disponíveis. | Somente a recuperação completa que garante alta disponibilidade tem suporte. Modelos de recuperação simples e bulk-logged não estão disponíveis. | 
 | [Administrador de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Não | Sim |
 | [Instruções RESTOre](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Não | Sim, com as opções de `FROM URL` obrigatórias para os arquivos de backups colocados no armazenamento de BLOBs do Azure. Consulte [diferenças de restauração](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
@@ -108,7 +108,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | Autenticação do Windows | Não | Não |
 | [Clustering de failover do Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | Não. Outras técnicas que fornecem [alta disponibilidade](sql-database-high-availability.md) estão incluídas em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) | Não. Outras técnicas que fornecem [alta disponibilidade](sql-database-high-availability.md) estão incluídas em todos os bancos de dados. A recuperação de desastre é discutida em [visão geral da continuidade dos negócios com o banco de dados SQL](sql-database-business-continuity.md) |
 
-## <a name="platform-capabilities"></a>Recursos da plataforma
+## <a name="platform-capabilities"></a>Capacidades da plataforma
 
 A plataforma Azure fornece vários recursos de PaaS que são adicionados como um valor adicional aos recursos de banco de dados padrão. Há vários serviços externos que podem ser usados com o serviço de banco de dados SQL do Azure. 
 
@@ -131,7 +131,7 @@ A plataforma Azure fornece vários recursos de PaaS que são adicionados como um
 | [Gerenciamento baseado em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
 | Endereço IP público | Sim. O acesso pode ser restrito usando pontos de extremidade de firewall ou de serviço.  | Sim. Precisa ser habilitado explicitamente e a porta 3342 deve ser habilitada em regras NSG. O IP público pode ser desabilitado se necessário. Consulte [ponto de extremidade público](sql-database-managed-instance-public-endpoint-securely.md) para obter mais detalhes. | 
 | [Restauração pontual do banco de dados](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sim-todas as camadas de serviço que não sejam de hiperescala-consulte [recuperação de banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sim-consulte [recuperação do banco de dados SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
-| Pools de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Sim. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. Além disso, você pode implantar várias instâncias gerenciadas em [pools de instância (versão prévia)](sql-database-instance-pools.md) que podem compartilhar os recursos. |
+| Agrupamentos de recursos | Sim, como [pools elásticos](sql-database-elastic-pool.md) | Sim. Uma única instância gerenciada pode ter vários bancos de dados que compartilham o mesmo pool de recursos. Além disso, você pode implantar várias instâncias gerenciadas em [pools de instância (versão prévia)](sql-database-instance-pools.md) que podem compartilhar os recursos. |
 | Expansão ou redução (online) | Sim, você pode alterar o DTU ou o vCores reservado ou o armazenamento máximo com o tempo de inatividade mínimo. | Sim, você pode alterar o armazenamento reservado vCores ou Max com o tempo de inatividade mínimo. |
 | [Alias do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | Não, usar [alias DNS](dns-alias-overview.md) | Não, use [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) para configurar o alias nos computadores cliente. |
 | [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sim | Sim |

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: e12fc5d92cfc850e1d049bc11286c0c863e718b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459181"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>Exportar alertas de segurança e recomendações (versão prévia)
 
@@ -51,6 +51,8 @@ Usando essas ferramentas, você pode:
 > [!NOTE]
 > Se você exportou anteriormente alertas da central de segurança para um SIEM usando o log de atividades do Azure, o procedimento a seguir substituirá essa metodologia.
 
+Para exibir os esquemas de eventos dos tipos de dados exportados, visite os [esquemas de eventos do hub de eventos](https://aka.ms/ASCAutomationSchemas).
+
 ### <a name="to-integrate-with-a-siem"></a>Para integrar com um SIEM 
 
 Depois de configurar a exportação contínua dos dados escolhidos da central de segurança para os hubs de eventos do Azure, você pode configurar o conector apropriado em seu SIEM seguindo as instruções abaixo.
@@ -66,13 +68,17 @@ Se você estiver usando o **Azure Sentinel**, use o [conector de dados](https://
 Além disso, se você quiser mover os dados exportados continuamente automaticamente do hub de eventos configurado para o Azure Data Explorer, use as instruções em [ingerir dados do hub de eventos para o data Explorer do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
 
 
-## <a name="continuous-export-to-log-analytics-workspace"></a>Exportação contínua para o espaço de trabalho Log Analytics
+## <a name="continuous-export-to-a-log-analytics-workspace"></a>Exportação contínua para um espaço de trabalho Log Analytics
 
-Para exportar para Log Analytics espaço de trabalho, você deve ter a camada gratuita ou Standard da central de segurança Log Analytics soluções habilitadas no seu espaço de trabalho. Se você estiver usando o portal do Azure, a solução de camada gratuita da central de segurança será habilitada automaticamente quando você habilitar a exportação contínua. No entanto, se você estiver configurando suas configurações de exportação contínua de forma programática, deverá selecionar manualmente o tipo de preço gratuito ou Standard para o espaço de trabalho necessário em **configurações de preço &** .  
+Para exportar para um espaço de trabalho do Log Analytics, você deve ter a camada gratuita ou Standard da central de segurança Log Analytics soluções habilitadas no seu espaço de trabalho. Se você estiver usando o portal do Azure, a solução de camada gratuita da central de segurança será habilitada automaticamente quando você habilitar a exportação contínua. No entanto, se você estiver configurando suas configurações de exportação contínua de forma programática, deverá selecionar manualmente o tipo de preço gratuito ou Standard para o espaço de trabalho necessário em **configurações de preço &** .  
 
-Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. O nome da solução de Log Analytics que contém essas tabelas depende se você está na camada gratuita ou Standard (consulte [preços](security-center-pricing.md)): segurança ou SecurityCenterFree.
+### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabelas e esquemas
+
+Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. O nome da solução de Log Analytics que contém essas tabelas depende se você está na camada gratuita ou Standard (consulte [preços](security-center-pricing.md)): segurança (' segurança e auditoria ') ou SecurityCenterFree.
 
 ![A tabela * SecurityAlert * no Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+Para exibir os esquemas de eventos dos tipos de dados exportados, visite os [esquemas de tabela de log Analytics](https://aka.ms/ASCAutomationSchemas).
 
 ###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Exibir alertas de segurança e recomendações exportadas no Azure Monitor
 
@@ -86,7 +92,7 @@ Para exibir alertas e recomendações da central de segurança no Azure Monitor,
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Na página Criar regra, configure sua nova regra (da mesma maneira que você configurou uma [regra de alerta de log no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log):
+1. Na página Criar regra, configure sua nova regra (da mesma maneira que você configurou uma [regra de alerta de log em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)):
 
     * Para **recurso**, selecione o espaço de trabalho log Analytics para o qual você exportou alertas de segurança e recomendações.
 
@@ -104,7 +110,7 @@ Para baixar um relatório CSV para alertas ou recomendações, abra a página **
 [![baixar dados de alertas como um arquivo CSV](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
-> Esses relatórios contêm alertas e recomendações para recursos das assinaturas atualmente selecionadas no diretório + filtro de assinatura no portal do Azure: ![o filtro para selecionar diretório + assinatura](./media/continuous-export/filter-for-export-csv.png)
+> Esses relatórios contêm alertas e recomendações para recursos das assinaturas atualmente selecionadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -115,3 +121,4 @@ Para obter material relacionado, consulte a seguinte documentação:
 - [Documentação dos hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/)
 - [Documentação do Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Documentação do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Esquemas de automação de fluxo de trabalho e tipos de dados de exportação contínua](https://aka.ms/ASCAutomationSchemas)

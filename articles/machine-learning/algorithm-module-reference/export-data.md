@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 5badcbe2a76c41bdc1431abae617e35b7555eb88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9544d086eb9535af779bf2febe0cc63c180f7fd3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497903"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529597"
 ---
 # <a name="export-data-module"></a>Exportar módulo de dados
 
@@ -29,7 +29,7 @@ Este módulo dá suporte à exportação de dados para os seguintes serviços de
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Antes de exportar seus dados, primeiro você precisa registrar um armazenamento de um datastore em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [como acessar dados](../service/how-to-access-data.md).
+Antes de exportar seus dados, primeiro você precisa registrar um armazenamento de um datastore em seu espaço de trabalho Azure Machine Learning. Para obter mais informações, consulte [como acessar dados](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Como configurar dados de exportação
 
@@ -39,7 +39,7 @@ Antes de exportar seus dados, primeiro você precisa registrar um armazenamento 
 
 1. Selecione **exportar dados** para abrir o painel **Propriedades** .
 
-1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como visitando [o como acessar os dados](../service/how-to-access-data.md)
+1. Para o **repositório de armazenamento**, selecione um repositório de armazenamento existente na lista suspensa. Você também pode criar um novo repositório de armazenamento. Verifique como visitando [o como acessar os dados](../how-to-access-data.md)
 
 1. Defina o caminho no repositório de dados no qual gravar o dado. 
 

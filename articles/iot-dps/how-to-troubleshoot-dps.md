@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974824"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646477"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -23,7 +23,7 @@ Problemas de conectividade para dispositivos IoT podem ser difíceis de solucion
 
 O procedimento a seguir descreve como exibir e configurar o alerta na métrica do serviço de provisionamento de dispositivos no Hub IoT. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Navegue até o serviço de provisionamento de dispositivos do Hub IoT.
 
@@ -48,7 +48,7 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Usando o log analítico para exibir e resolver erros
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Navegue até o Hub IoT.
 
@@ -81,5 +81,5 @@ Use esta tabela para entender e resolver erros comuns.
 | 401 | O token de autorização não pode ser validado; por exemplo, ele está expirado ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | 401 não autorizado|
 | 404 | A instância do serviço de provisionamento de dispositivos ou um recurso (por exemplo, um registro) não existe. |404 Não Encontrado |
 | 412 | A ETag na solicitação não corresponde à ETag do recurso existente, de acordo com o RFC7232. | 412 falha na pré-condição |
-| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
+| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
 | 500 | Ocorreu um erro interno. | 500 Erro de Servidor Interno|

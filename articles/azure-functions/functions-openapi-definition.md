@@ -1,16 +1,16 @@
 ---
-title: Criar uma definição de OpenAPI para uma API sem servidor usando o gerenciamento de API do Azure
+title: Expor suas funções com o OpenAPI usando o gerenciamento de API do Azure
 description: Crie uma definição de OpenAPI que permite que outras aplicações e serviços chamem a sua função no Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226809"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562018"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Criar uma definição de OpenAPI para uma API sem servidor usando o gerenciamento de API do Azure
 
@@ -39,7 +39,7 @@ Este tutorial usa uma função disparada por HTTP que utiliza dois parâmetros:
 * O tempo estimado para fazer um reparo de turbina, em horas.
 * A capacidade da turbina, em quilowatts. 
 
-Em seguida, a função calcula o custo da reparação e a receita que a turbina poderá gerar num período de 24 horas. PARA criar a função disparada por HTTP no [portal do Azure](https://portal.azure.com).
+Em seguida, a função calcula o custo da reparação e a receita que a turbina poderá gerar num período de 24 horas. Para criar a função disparada por HTTP no [portal do Azure](https://portal.azure.com):
 
 1. Expanda a aplicação de funções e selecione o botão **+** junto a **Funções**. Selecione **no portal** > **continuar**.
 
@@ -139,23 +139,23 @@ Agora, está pronto para gerar a definição de OpenAPI.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
     | **Subscrição** | A sua subscrição | A assinatura sob a qual esse novo recurso é criado. |  
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve ser definido para você. |
-    | **Localização** | EUA Oeste | Escolha o local oeste dos EUA. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve ser definido para você. |
+    | **Localização** | Oeste dos E.U.A. | Escolha o local oeste dos EUA. |
     | **Nome da organização** | Contoso | O nome da organização usada no portal do desenvolvedor e para notificações por email. |
     | **E-mail do administrador** | seu email | Email que recebeu notificações do sistema do gerenciamento de API. |
     | **Escalão de preço** | Consumo (visualização) | A camada de consumo está em visualização e não está disponível em todas as regiões. Para obter detalhes completos de preços, consulte a [página de preços do gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/) |
 
-1. Escolha **criar** para criar a instância de gerenciamento de API, que pode levar vários minutos.
+1. Selecione **Criar** para criar a instância da Gestão de API (pode demorar vários minutos).
 
 1. Selecione **habilitar Application insights** para enviar logs para o mesmo local que o aplicativo de funções, em seguida, aceite os padrões restantes e selecione **vincular API**.
 
-1. O **Azure Functions de importação** é aberto com a função **TurbineRepair** realçada. Escolha **selecionar** para continuar.
+1. O **Azure Functions de importação** é aberto com a função **TurbineRepair** realçada. Escolha **Selecionar** para continuar.
 
     ![Importar Azure Functions para o gerenciamento de API](media/functions-openapi-definition/import-function-openapi.png)
 
 1. Na página **criar de aplicativo de funções** , aceite os padrões e selecione **criar**
 
-    ![Criar a partir de Aplicativo de funções](media/functions-openapi-definition/create-function-openapi.png)
+    ![Criar a partir da aplicação de funções](media/functions-openapi-definition/create-function-openapi.png)
 
 Agora, a API é criada para a função.
 

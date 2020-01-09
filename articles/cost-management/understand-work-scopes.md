@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440984"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -45,7 +45,7 @@ O Azure dá suporte a três escopos para gerenciamento de recursos. Cada escopo 
 
     Tipo de recurso: [Microsoft. Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Grupos de recursos**](../azure-resource-manager/resource-group-overview.md#resource-groups) -agrupamentos lógicos de recursos relacionados para uma solução do Azure que compartilham o mesmo ciclo de vida. Por exemplo, recursos que são implantados e excluídos juntos.
+- [**Grupos de recursos**](../azure-resource-manager/management/overview.md#resource-groups) -agrupamentos lógicos de recursos relacionados para uma solução do Azure que compartilham o mesmo ciclo de vida. Por exemplo, recursos que são implantados e excluídos juntos.
 
     Tipo de recurso: [Microsoft. Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -63,7 +63,7 @@ O gerenciamento de custos dá suporte às seguintes funções internas para cada
 - [**Colaborador de gerenciamento de custos**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – pode exibir custos, gerenciar a configuração de custos e exibir recomendações.
 - [**Leitor de gerenciamento de custos**](../role-based-access-control/built-in-roles.md#cost-management-reader) – pode exibir dados de custo, configuração de custo e exibir recomendações.
 
-Colaborador de gerenciamento de custo é a função de privilégio mínimo recomendada. Ele permite que as pessoas acessem criar e gerenciar orçamentos e exportações para monitorar e relatar com mais eficiência os custos. Os colaboradores de gerenciamento de custos também podem exigir funções adicionais para dar suporte a cenários de gerenciamento de custos de ponta a ponta. Considere os seguintes cenários:
+Colaborador de gerenciamento de custo é a função de privilégio mínimo recomendada. Ele permite que as pessoas acessem criar e gerenciar orçamentos e exportações para monitorar e relatar com mais eficiência os custos. Os colaboradores de gerenciamento de custos também podem exigir funções adicionais para dar suporte a cenários de gerenciamento de custos de ponta a ponta. Pondere os seguintes cenários:
 
 - **Agir quando os orçamentos forem excedidos** – os colaboradores de gerenciamento de custos também precisam de acesso para criar e/ou gerenciar grupos de ações para reagir automaticamente a excedentes. Considere a concessão de [colaborador de monitoramento](../role-based-access-control/built-in-roles.md#monitoring-contributor) a um grupo de recursos que contenha o grupo de ações a ser usado quando os limites de orçamento forem excedidos. Automatizar ações específicas requer funções adicionais para os serviços específicos usados, como automação e Azure Functions.
 - **Agendar a exportação de dados de custo – os** colaboradores de gerenciamento de custos também precisam de acesso para gerenciar contas de armazenamento para agendar uma exportação para copiar dados em uma conta de armazenamento. Considere conceder ao [colaborador da conta de armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor) um grupo de recursos que contenha a conta de armazenamento na qual os dados de custo são exportados.
@@ -252,4 +252,4 @@ Atualmente, o gerenciamento de custos tem suporte no [Azure global](https://mana
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se você ainda não tiver concluído o primeiro início rápido para o gerenciamento de custos, leia-o em [comece a analisar os custos](quick-acm-cost-analysis.md).
+- Se ainda não tiver concluído o primeira guia de introdução do Cost Management, leia-a em [começar a analisar os custos](quick-acm-cost-analysis.md).

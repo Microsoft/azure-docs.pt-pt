@@ -1,5 +1,5 @@
 ---
-title: Logon do aplicativo de página única-plataforma de identidade da Microsoft | Azure
+title: Logon do aplicativo de página única & logout-plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de página única (entrada)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b3d7afdc634649ca3baf5f43d5e2376fb5d8b05d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423650"
 ---
-# <a name="single-page-application-sign-in"></a>Aplicativo de página única: entrar
+# <a name="single-page-application-sign-in-and-sign-out"></a>Aplicativo de página única: entrar e sair
 
 Saiba como adicionar entrada ao código para seu aplicativo de página única.
 
@@ -48,7 +48,7 @@ Você não pode usar os métodos pop-up e Redirect em seu aplicativo. A escolha 
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Entrar com uma janela pop-up
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 const loginRequest = {
@@ -93,7 +93,7 @@ Para uma experiência de janela pop-up, habilite a opção de configuração `po
 
 ## <a name="sign-in-with-redirect"></a>Entrar com redirecionamento
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 Os métodos de redirecionamento não retornam uma promessa devido à afastamento do aplicativo principal. Para processar e acessar os tokens retornados, você precisa registrar os retornos de chamada de êxito e erro antes de chamar os métodos de redirecionamento.
 
@@ -124,7 +124,7 @@ A biblioteca MSAL fornece um método `logout` que limpa o cache no armazenamento
 
 Você pode configurar o URI para o qual ele deve ser redirecionado após a saída, definindo `postLogoutRedirectUri`. Esse URI também deve ser registrado como o URI de logout no registro do aplicativo.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 const config = {

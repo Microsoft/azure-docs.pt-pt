@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351358"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -67,9 +67,9 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 #### <a name="azure-portal-list-view"></a>Exibição de lista de portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
+2. Na portal do Azure, procure e selecione sua conta de armazenamento. 
 
 3. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar suas regras.
 
@@ -88,9 +88,9 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 9. Selecione **Adicionar** para adicionar a nova política.
 
 #### <a name="azure-portal-code-view"></a>Exibição de código portal do Azure
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
+2. Na portal do Azure, procure e selecione sua conta de armazenamento.
 
 3. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar sua política.
 
@@ -234,7 +234,7 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
+| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra diferencia maiúsculas de minúsculas.  Ele deve ser exclusivo dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
 | `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | Verdadeiro |
 | `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |

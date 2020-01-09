@@ -1,7 +1,7 @@
 ---
 title: 'Seleção de recursos baseada em filtro: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo seleção de recursos baseada em filtro no serviço de Azure Machine Learning para identificar os recursos em um conjunto de informações com o maior poder de previsão.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning para identificar os recursos em um conjunto de informações com o maior poder de previsão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428516"
 ---
-# <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
+# <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
 Este artigo descreve como usar o módulo seleção de recursos baseada em filtro no designer de Azure Machine Learning (versão prévia). Este módulo ajuda a identificar as colunas em seu conjunto de dados de entrada que têm a maior capacidade de previsão. 
 
@@ -106,7 +106,7 @@ Se o conjunto de um contiver menos colunas do que o esperado, verifique as confi
 
 ##  <a name="technical-notes"></a>Notas técnicas  
 
-### <a name="implementation-details"></a>Detalhes da implementação
+### <a name="implementation-details"></a>Detalhes de implementação
 
 Se você usar a correlação de Pearson em um recurso numérico e um rótulo categórico, a Pontuação do recurso será calculada da seguinte maneira:  
 
@@ -135,5 +135,5 @@ Se você usar a correlação de Pearson em um recurso numérico e um rótulo cat
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

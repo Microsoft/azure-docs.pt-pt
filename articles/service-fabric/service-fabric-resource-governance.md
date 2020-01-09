@@ -1,25 +1,14 @@
 ---
-title: Governança de recursos do Azure Service Fabric para contêineres e serviços | Microsoft Docs
+title: Governação de recursos para contentores e serviços
 description: O Service Fabric do Azure permite que você especifique os limites de recursos para os serviços em execução dentro ou fora dos contêineres.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242912"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609457"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 
@@ -206,7 +195,7 @@ Ao aplicar a governança de recursos aos seus serviços de Service Fabric garant
 * Nós terminando em um estado não íntegro
 * APIs de gerenciamento de Cluster Service Fabric sem resposta
 
-Para evitar que essas situações ocorram, Service Fabric permite que você *aplique os limites de recursos para todos os Service Fabric serviços de usuário em execução no nó* (governados e não controlados) para garantir que os serviços do usuário nunca usarão mais do que o quantidade especificada de recursos. Isso é feito definindo o valor para a configuração EnforceUserServiceMetricCapacities na seção PlacementAndLoadBalancing de ClusterManifest como true. Essa configuração é desativada por padrão.
+Para evitar que essas situações ocorram, Service Fabric permite que você *aplique os limites de recursos para todos os Service Fabric serviços de usuário em execução no nó* (governados e não controlados) para garantir que os serviços de usuário nunca usarão mais do que a quantidade especificada de recursos. Isso é feito definindo o valor para a configuração EnforceUserServiceMetricCapacities na seção PlacementAndLoadBalancing de ClusterManifest como true. Essa configuração é desativada por padrão.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -217,7 +206,7 @@ Para evitar que essas situações ocorram, Service Fabric permite que você *ap
 Comentários adicionais:
 
 * A imposição de limite de recursos se aplica somente às métricas de recurso de `servicefabric:/_CpuCores` e `servicefabric:/_MemoryInMB`
-* A imposição de limite de recursos só funciona se as capacidades de nó para as métricas de recurso estiverem disponíveis para Service Fabric, seja por meio do mecanismo de detecção automática ou por usuários especificando manualmente as capacidades do nó (conforme explicado na [configuração do cluster para habilitar ](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)seção de governança de recursos). Se as capacidades do nó não estiverem configuradas, o recurso de imposição de limite de recursos não poderá ser usado, pois Service Fabric não poderá saber a quantidade de recursos reservados para os serviços do usuário. Service Fabric emitirá um aviso de integridade se "EnforceUserServiceMetricCapacities" for true, mas as capacidades do nó não estiverem configuradas.
+* A imposição de limite de recursos só funciona se as capacidades de nó para as métricas de recurso estiverem disponíveis para Service Fabric, seja por meio do mecanismo de detecção automática ou por usuários especificando manualmente as capacidades do nó (conforme explicado na seção [configuração do cluster para habilitar a governança de recursos](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) ). Se as capacidades do nó não estiverem configuradas, o recurso de imposição de limite de recursos não poderá ser usado, pois Service Fabric não poderá saber a quantidade de recursos reservados para os serviços do usuário. Service Fabric emitirá um aviso de integridade se "EnforceUserServiceMetricCapacities" for true, mas as capacidades do nó não estiverem configuradas.
 
 ## <a name="other-resources-for-containers"></a>Outros recursos para contêineres
 

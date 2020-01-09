@@ -1,7 +1,7 @@
 ---
-title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure| Microsoft Docs
-description: Saiba como criar rapidamente um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
-services: virtual-machine-scale-sets
+title: Início rápido-criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure
+description: Comece com suas implantações aprendendo a criar rapidamente uma escala de máquina virtual portal do Azure.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351148"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -33,7 +33,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 O Azure [Load Balancer](../load-balancer/load-balancer-overview.md) distribui o tráfego de entrada entre instâncias de máquina virtual íntegras. 
 
-Primeiro, crie um Load Balancer básico público usando o Portal. O nome e o endereço IP público que você cria são automaticamente configurados como front-end do balanceador de carga.
+Primeiro, crie um Load Balancer básico público usando o Portal. O nome e endereço IP público que criou são automaticamente configurados como front-end de Balanceador de carga.
 
 1. Na caixa de pesquisa, digite **balanceador de carga**. Em **Marketplace** nos resultados da pesquisa, escolha **balanceador de carga**.
 1. Na guia **noções básicas** da página **criar balanceador de carga** , insira ou selecione as seguintes informações:
@@ -44,11 +44,11 @@ Primeiro, crie um Load Balancer básico público usando o Portal. O nome e o end
     | Grupo de recursos | Selecione **criar novo** e digite *myVMSSResourceGroup* na caixa de texto.|
     | Nome           | *myLoadBalancer*         |
     | Região         | Selecione **E.U.A. Leste**.       |
-    | Tipo          | Selecione **público**.       |
+    | Tipo          | Selecione **Público**.       |
     | SKU           | Selecione **padrão**.       |
     | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público  | *MyPip*   |
-    | Design| Estático |
+    | Atribuição| Estático |
 
 1. Quando terminar, selecione **revisar + criar** 
 1. Depois de passar na validação, selecione **criar**. 

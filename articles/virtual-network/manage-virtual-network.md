@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.openlocfilehash: 10da1c8e1a4516e3346e5a93cb9fffdac12e23ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084704"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638634"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -30,12 +30,12 @@ Saiba como criar e excluir uma rede virtual e alterar as configurações, como s
 Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção deste artigo:
 
 - Se você ainda não tiver uma conta do Azure, Inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se estiver usando o portal, abra https://portal.azure.come faça logon com sua conta do Azure.
+- Se estiver usando o portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
 - Se estiver usando comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se você estiver usando comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure cloud Shell](https://shell.azure.com/bash)ou executando a CLI do seu computador. Este tutorial requer o CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando o CLI do Azure localmente, também precisará executar `az login` para criar uma conexão com o Azure.
 - A conta que você faz logon ou conecta-se ao Azure com o, deve ser atribuída à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações apropriadas listadas em [permissões](#permissions).
 
-## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+## <a name="create-a-virtual-network"></a>Criar rede virtual
 
 1. Selecione **+ criar um recurso** > **rede** > **rede virtual**.
 2. Insira ou selecione valores para as seguintes configurações e, em seguida, selecione **criar**:
@@ -62,7 +62,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
      - **Intervalo de endereços de sub-rede**: o intervalo deve estar dentro do espaço de endereço inserido para a rede virtual. O menor intervalo que você pode especificar é/29, que fornece oito endereços IP para a sub-rede. O Azure reserva o primeiro e o último endereço em cada sub-rede para conformidade com o protocolo. Três endereços adicionais são reservados para o uso do serviço do Azure. Como resultado, uma rede virtual com um intervalo de endereços de sub-rede de/29 tem apenas três endereços IP utilizáveis. Se você planeja conectar uma rede virtual a um gateway de VPN, você deve criar uma sub-rede de gateway. Saiba mais sobre [Considerações específicas de intervalo de endereços para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Você pode alterar o intervalo de endereços depois que a sub-rede é criada, sob condições específicas. Para saber como alterar um intervalo de endereços de sub-rede, consulte [gerenciar sub-redes](virtual-network-manage-subnet.md).
      - **Assinatura**: selecione uma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Você não pode usar a mesma rede virtual em mais de uma assinatura do Azure. No entanto, você pode conectar uma rede virtual em uma assinatura a redes virtuais em outras assinaturas com o [emparelhamento de rede virtual](virtual-network-peering-overview.md). Qualquer recurso do Azure que você conecta à rede virtual deve estar na mesma assinatura que a rede virtual.
-     - **Grupo de recursos**: selecione um [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente ou crie um novo. Um recurso do Azure que você conecta à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou em um grupo de recursos diferente.
+     - **Grupo de recursos**: selecione um [grupo de recursos](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente ou crie um novo. Um recurso do Azure que você conecta à rede virtual pode estar no mesmo grupo de recursos que a rede virtual ou em um grupo de recursos diferente.
      - **Local**: selecione um [local](https://azure.microsoft.com/regions/)do Azure, também conhecido como uma região. Uma rede virtual pode estar em apenas um local do Azure. No entanto, você pode conectar uma rede virtual em um local a uma rede virtual em outro local usando um gateway de VPN. Qualquer recurso do Azure que você conecta à rede virtual deve estar no mesmo local que a rede virtual.
 
 **Comandos**
@@ -92,7 +92,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
      - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
      - [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Bloquea](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Script de automação](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+     - [Script de automação](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**
 
@@ -103,9 +103,9 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 Você pode adicionar e remover intervalos de endereços para uma rede virtual. Um intervalo de endereços deve ser especificado na notação CIDR e não pode se sobrepor a outros intervalos de endereços na mesma rede virtual. Os intervalos de endereços que você definir podem ser públicos ou privados (RFC 1918). Independentemente de você definir o intervalo de endereços como público ou privado, o intervalo de endereços pode ser acessado somente de dentro da rede virtual, de redes virtuais interconectadas e de qualquer rede local que você tenha conectado à rede virtual. 
 
-Você pode diminuir o intervalo de endereços para uma rede virtual se não tiver nenhuma sub-rede associada a ela. Caso contrário, você só poderá estender o intervalo de endereços, por exemplo, alterando um/16 para/8. Você pode começar com um pequeno intervalo de endereços e, em seguida, estendê-lo mais tarde ou adicionar intervalos adicionais.
+Você pode diminuir o intervalo de endereços para uma rede virtual, contanto que ela ainda inclua os intervalos de quaisquer sub-redes associadas. Além disso, você pode estender o intervalo de endereços, por exemplo, alterando um/16 para/8. 
 
-<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 Você não pode adicionar os seguintes intervalos de endereços:
 
@@ -139,7 +139,7 @@ Todas as VMs que estão conectadas à rede virtual se registram com os servidore
 3. Selecione **servidores DNS**, em **configurações**.
 4. Selecione uma das seguintes opções:
    - **Padrão (fornecido pelo Azure)** : todos os nomes de recursos e endereços IP privados são registrados automaticamente nos servidores DNS do Azure. Você pode resolver nomes entre todos os recursos que estão conectados à mesma rede virtual. Você não pode usar essa opção para resolver nomes entre redes virtuais. Para resolver nomes entre redes virtuais, você deve usar um servidor DNS personalizado.
-   - **Personalizado**: você pode adicionar um ou mais servidores, até o limite do Azure para uma rede virtual. Para saber mais sobre os limites do servidor DNS, consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Existem as seguintes opções:
+   - **Personalizado**: você pode adicionar um ou mais servidores, até o limite do Azure para uma rede virtual. Para saber mais sobre os limites do servidor DNS, consulte [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Existem as seguintes opções:
    - **Adicionar um endereço**: Adiciona o servidor à sua lista de servidores DNS da rede virtual. Essa opção também registra o servidor DNS com o Azure. Se você já tiver registrado um servidor DNS com o Azure, poderá selecionar esse servidor DNS na lista.
    - **Remover um endereço**: ao lado do servidor que você deseja remover, selecione **...** e, em seguida, **remover**. A exclusão do servidor remove o servidor somente desta lista de redes virtuais. O servidor DNS permanece registrado no Azure para suas outras redes virtuais usarem.
    - **Reordenar endereços do servidor DNS**: é importante verificar se os servidores DNS estão listados na ordem correta para o seu ambiente. As listas de servidores DNS são usadas na ordem em que são especificadas. Eles não funcionam como uma configuração de Round Robin. Se o primeiro servidor DNS na lista puder ser alcançado, o cliente usará esse servidor DNS, independentemente de o servidor DNS estar funcionando corretamente. Remova todos os servidores DNS listados e, em seguida, adicione-os de volta na ordem desejada.

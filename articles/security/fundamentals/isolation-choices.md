@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459156"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação melhora a eficiência por meio da multiplexação de recursos entre diferentes clientes a baixo custo. Infelizmente, ele também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura para executar seus aplicativos confidenciais e VMs que podem pertencer a um usuário arbitrário e potencialmente mal-intencionado.
@@ -73,7 +73,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 - O **leitor** pode exibir os recursos existentes do Azure.
 
-![Controle de acesso baseado em função do Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controlo de Acesso Baseado em Funções do Azure](./media/isolation-choices/azure-isolation-fig3.png)
 
 O restante das funções de RBAC no Azure permite o gerenciamento de recursos específicos do Azure. Por exemplo, a função colaborador da máquina virtual permite que o usuário crie e gerencie máquinas virtuais. Ele não dá acesso à rede virtual do Azure ou à sub-rede à qual a máquina virtual se conecta.
 
@@ -119,7 +119,7 @@ A plataforma de computação do Azure é baseada na virtualização de máquina,
 ![Hyper-V & isolamento raiz do sistema operacional & VMs convidadas da VM raiz](./media/isolation-choices/azure-isolation-fig4.jpg)
 
 
-Cada nó também tem uma VM de raiz especial, que executa o sistema operacional do host. Um limite crítico é o isolamento da VM raiz das VMs convidadas e das VMs convidadas umas das outras, gerenciadas pelo hipervisor e pelo sistema operacional raiz. O emparelhamento do hipervisor/sistema operacional raiz aproveita as décadas de experiência de segurança de sistema operacional da Microsoft e o aprendizado mais recente do Hyper-V da Microsoft, para fornecer isolamento forte de VMs convidadas.
+Cada nó também tem uma VM de raiz especial, que executa o sistema operacional do host. Um limite crítico é o isolamento da máquina virtual raiz das máquinas virtuais convidadas e das máquinas virtuais convidadas umas das outras, gerenciadas pelo hipervisor e pelo sistema operacional raiz. O emparelhamento do hipervisor/sistema operacional raiz aproveita as décadas de experiência de segurança de sistema operacional da Microsoft e o aprendizado mais recente do Hyper-V da Microsoft, para fornecer isolamento forte de VMs convidadas.
 
 A plataforma Azure utiliza um ambiente virtualizado. As instâncias de usuário operam como máquinas virtuais autônomas que não têm acesso a um servidor de host físico.
 
@@ -149,7 +149,7 @@ A comunicação de um controlador de malha para um agente é unidirecional. O ag
 O isolamento se estende da VM raiz das VMs convidadas e das VMs convidadas umas das outras. Nós de computação também são isolados de nós de armazenamento para maior proteção.
 
 
-O hipervisor e o sistema operacional do host fornecem filtros de pacote de rede para ajudar a garantir que máquinas virtuais não confiáveis não possam gerar tráfego falsificado ou receber tráfego não endereçado a eles, direcionar o tráfego para pontos de extremidade de infraestrutura protegidos ou enviar/receber tráfego de difusão inadequado.
+O hipervisor e o sistema operacional host fornecem filtros de pacotes de rede para ajudar a garantir que máquinas virtuais não confiáveis não possam gerar tráfego falsificado ou receber tráfego não endereçado a eles, direcionar o tráfego para pontos de extremidade de infraestrutura protegidos ou enviar/receber tráfego de difusão inadequado.
 
 
 ### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>Regras adicionais configuradas pelo agente do controlador de malha para isolar a VM
@@ -181,7 +181,7 @@ Como parte de seu design fundamental, Microsoft Azure separa a computação base
 
 Portanto, o armazenamento do Azure é executado em hardware separado sem conectividade de rede para a computação do Azure, exceto logicamente. [Isso](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa que, quando um disco virtual é criado, o espaço em disco não é alocado para sua capacidade inteira. Em vez disso, é criada uma tabela que mapeia endereços no disco virtual para áreas no disco físico e que a tabela está inicialmente vazia. **Na primeira vez que um cliente grava dados no disco virtual, o espaço no disco físico é alocado e um ponteiro para ele é colocado na tabela.**
 ### <a name="isolation-using-storage-access-control"></a>Isolamento usando o controle de acesso de armazenamento
-O **controle de acesso no armazenamento do Azure** tem um modelo de controle de acesso simples. Cada assinatura do Azure pode criar uma ou mais contas de armazenamento. Cada conta de armazenamento tem uma única chave secreta que é usada para controlar o acesso a todos os dados nessa conta de armazenamento.
+O **controle de acesso no armazenamento do Azure** tem um modelo de controle de acesso simples. Cada assinatura do Azure pode criar uma ou mais contas de armazenamento. Cada Conta de Armazenamento tem uma única chave secreta usada para controlar o acesso a todos os dados naquela Conta de Armazenamento.
 
 ![Isolamento usando o controle de acesso de armazenamento](./media/isolation-choices/azure-isolation-fig9.png)
 
@@ -196,7 +196,7 @@ Os dados de armazenamento IP podem ser protegidos contra usuários não autoriza
 
 ### <a name="encryption"></a>Encriptação
 O Azure oferece os seguintes tipos de criptografia para proteger os dados:
--   Criptografia em trânsito
+-   Encriptação de dados em circulação
 
 -   Encriptação inativa
 
@@ -205,7 +205,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 
 -   [Criptografia no nível de transporte](../../storage/common/storage-security-guide.md), como https, quando você transfere dados para dentro ou para fora do armazenamento do Azure.
 
--   [Criptografia de transmissão](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3,0 para compartilhamentos de arquivos do Azure.
+-   [Criptografia de transmissão](../../storage/common/storage-security-guide.md), como a criptografia SMB 3,0 para compartilhamentos de arquivos do Azure.
 
 -   [Criptografia do lado do cliente](../../storage/common/storage-security-guide.md), para criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografar os dados depois que eles forem transferidos para fora do armazenamento.
 

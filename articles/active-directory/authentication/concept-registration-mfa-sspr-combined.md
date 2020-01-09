@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425348"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
@@ -108,7 +108,7 @@ Este fluxograma descreve quais métodos são mostrados para um usuário quando i
 
 Se você tiver a autenticação multifator e a SSPR habilitada, recomendamos que você imponha o registro da autenticação multifator.
 
-Se a política de SSPR exigir que os usuários revisem suas informações de segurança em intervalos regulares, os usuários serão interrompidos durante a entrada e mostrarão todos os seus métodos registrados. Eles podem confirmar as informações atuais se estiverem atualizadas ou poderão fazer alterações se precisarem dela.
+Se a política de SSPR exigir que os usuários revisem suas informações de segurança em intervalos regulares, os usuários serão interrompidos durante a entrada e mostrarão todos os seus métodos registrados. Eles podem confirmar as informações atuais se estiverem atualizadas ou poderão fazer alterações se precisarem dela. Os usuários devem executar a autenticação multifator ao acessar essa página.
 
 ### <a name="manage-mode"></a>Modo de gerenciamento
 

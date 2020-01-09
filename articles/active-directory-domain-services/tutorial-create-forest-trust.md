@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: f861303b7f3bc8d37caf6da0eaf2f4cef4b36ee5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425422"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: criar uma relação de confiança de floresta de saída para um domínio local no Azure Active Directory Domain Services (versão prévia)
 
@@ -43,6 +43,9 @@ Para concluir este tutorial, você precisa dos seguintes recursos e privilégios
     * Se necessário, [crie um locatário Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um Azure Active Directory Domain Services domínio gerenciado criado usando uma floresta de recursos e configurado em seu locatário do Azure AD.
     * Se necessário, [crie e configure uma instância de Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
+    
+    > [!IMPORTANT]
+    > Certifique-se de criar um domínio gerenciado do Azure AD DS usando uma floresta de *recursos* . A opção padrão cria uma floresta de *usuário* . Somente as florestas de recursos podem criar relações de confiança com ambientes AD DS locais.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -82,6 +85,10 @@ Para configurar a relação de confiança de entrada no domínio AD DS local, co
 1. Selecione **Iniciar | Ferramentas administrativas | Domínios e relações de confiança do Active Directory**
 1. Selecione o domínio com o botão direito do mouse, como *OnPrem.contoso.com*, selecione **Propriedades**
 1. Escolha a guia **relações de confiança** e, em seguida, **nova relação de confiança**
+
+   > [!NOTE]
+   > Se você não vir a opção de menu **relações de confiança** , verifique em **Propriedades** para o *tipo de floresta*. Somente as florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *usuário*, você não poderá criar relações de confiança. Atualmente, não há como alterar o tipo de floresta de um domínio gerenciado AD DS do Azure. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
+
 1. Insira o nome no Azure AD DS nome de domínio, como *aadds.contoso.com*, em seguida, selecione **Avançar**
 1. Selecione a opção para criar uma **relação de confiança de floresta**e, em seguida, criar uma **forma:** confiança de entrada.
 1. Opte por criar a relação de confiança **somente para este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado do AD DS do Azure.
@@ -181,7 +188,7 @@ Usando a VM do Windows Server unida à floresta de recursos do Azure AD DS, voc�
 1. Selecione *FileServerAccess* na lista **grupos ou nomes de usuário** . Na lista **permissões para FileServerAccess** , escolha *permitir* para as permissões **Modificar** e **gravar** e, em seguida, selecione **OK**.
 1. Selecione a guia **compartilhamento** e, em seguida, escolha **compartilhamento avançado...**
 1. Escolha **compartilhar esta pasta**e insira um nome fácil de memorizar para o compartilhamento de arquivos em **nome do compartilhamento** , como *CrossForestShare*.
-1. Selecione **permissões**. Na lista **permissões para todos** , escolha **permitir** para a permissão **alterar** .
+1. Selecione **Permissões**. Na lista **permissões para todos** , escolha **permitir** para a permissão **alterar** .
 1. Selecione **OK** duas vezes e, em seguida, **fechar**.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validar a autenticação entre florestas para um recurso
@@ -195,7 +202,7 @@ Usando a VM do Windows Server unida à floresta de recursos do Azure AD DS, voc�
 1. Para validar a permissão Modificar, adicione texto ao arquivo e feche o **bloco de notas**. Quando for solicitado a salvar as alterações, escolha **salvar**.
 1. Para validar a permissão de exclusão, selecione **novo documento de texto** e escolha **excluir**. Escolha **Sim** para confirmar a exclusão do arquivo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

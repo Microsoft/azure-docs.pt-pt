@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532891"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561959"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium das Funções do Azure
 
-O plano Premium Azure Functions é uma opção de hospedagem para aplicativos de funções. O plano Premium fornece recursos como conectividade VNet, sem início frio e hardware Premium.  Vários aplicativos de funções podem ser implantados no mesmo plano Premium e o plano permite que você configure o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para obter uma comparação do plano Premium e outros tipos de plano e hospedagem, consulte [Opções de escala e Hospedagem de função](functions-scale.md).
+O plano Azure Functions Premium (às vezes chamado de plano Premium elástico) é uma opção de hospedagem para aplicativos de funções. O plano Premium fornece recursos como conectividade VNet, sem início frio e hardware Premium.  Vários aplicativos de funções podem ser implantados no mesmo plano Premium e o plano permite que você configure o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para obter uma comparação do plano Premium e outros tipos de plano e hospedagem, consulte [Opções de escala e Hospedagem de função](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Criar um plano Premium
 
@@ -45,7 +45,7 @@ Você pode configurar o número de instâncias pré-configuradas no portal do Az
 
 ![Configurações de escala elástica](./media/functions-premium-plan/scale-out.png)
 
-Você também pode configurar instâncias pré-configuradas para um aplicativo com o CLI do Azure
+Você também pode configurar instâncias pré-configuradas para um aplicativo com o CLI do Azure.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -103,27 +103,28 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
 |Leste da Austrália| ✔ | |
-|Sudeste da Austrália | ✔ | ✔ |
+|Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
 |Centro dos E.U.A.| ✔ |  |
 |Este Asiático| ✔ |  |
-|Este dos E.U.A. | ✔ | ✔ |
+|Este dos E.U.A. | ✔ | ✔<sup>1</sup> |
 |Este dos E.U.A. 2| ✔ |  |
 |França Central| ✔ |  |
-|Este do Japão| ✔ | ✔ |
+|Alemanha Oeste-Central| ✔ | |
+|Este do Japão| ✔ | ✔<sup>1</sup> |
 |Oeste do Japão| ✔ | |
 |Coreia do Sul Central| ✔ |  |
 |E.U.A. Centro-Norte| ✔ |  |
-|Europa do Norte| ✔ | ✔ |
-|E.U.A. Centro-Sul| ✔ |  |
+|Europa do Norte| ✔ | ✔<sup>1</sup> |
+|E.U.A. Centro-Sul| ✔ | ✔<sup>1</sup> |
 |Sul da Índia | ✔ | |
-|Sudeste Asiático| ✔ | ✔ |
+|Sudeste Asiático| ✔ | ✔<sup>1</sup> |
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
-|Europa Ocidental| ✔ | ✔ |
+|Europa Ocidental| ✔ | ✔<sup>1</sup> |
 |Oeste da Índia| ✔ |  |
-|Oeste dos E.U.A.| ✔ | ✔ |
+|Oeste dos E.U.A.| ✔ | ✔<sup>1</sup> |
 |E.U.A. Oeste 2| ✔ |  |
 
 <sup>1</sup> Redução máxima limitada a 20 instâncias.  

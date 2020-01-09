@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428640"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: criar tarefas, processos e fluxos de trabalho automatizados com os aplicativos lógicos do Azure-Visual Studio
 
@@ -61,7 +61,7 @@ Neste guia de início rápido, você cria o mesmo aplicativo lógico com o Visua
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
 
-Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [recursos e grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie o Visual Studio. Entre com sua conta do Azure.
 

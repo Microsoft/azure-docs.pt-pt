@@ -1,20 +1,16 @@
 ---
-title: Escalabilidade de aplicativos de malha de Service Fabric do Azure | Microsoft Docs
+title: Escalabilidade de aplicativos de malha de Service Fabric do Azure
 description: Uma das vantagens de implantar aplicativos em Service Fabric malha é a capacidade de dimensionar facilmente seus serviços, seja manualmente ou com políticas de dimensionamento automático.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458994"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Dimensionamento de aplicativos de malha Service Fabric
 
@@ -27,7 +23,7 @@ No modelo de implementação do recurso da aplicação, cada serviço tem uma pr
 Para obter exemplos de dimensionamento manual de instâncias de serviços, consulte [dimensionar manualmente os serviços para dentro ou para fora](service-fabric-mesh-tutorial-template-scale-services.md).
 
 ## <a name="autoscaling-service-instances"></a>Dimensionamento automático de instâncias de serviço
-O dimensionamento automático é um recurso adicional de Service Fabric para dimensionar dinamicamente o número de suas instâncias de serviço (dimensionamento horizontal). O dimensionamento automático oferece grande elasticidade e permite o provisionamento ou a remoção de instâncias de serviço com base na utilização de CPU ou memória.  O dimensionamento automático permite que você execute o número certo de instâncias de serviço para sua carga de trabalho e otimize o custo.
+O dimensionamento automático é um recurso adicional de Service Fabric para dimensionar dinamicamente o número de suas instâncias de serviço (dimensionamento horizontal). Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento ou remoção de instâncias de serviço com base na utilização de CPU ou memória.  O dimensionamento automático permite que você execute o número certo de instâncias de serviço para sua carga de trabalho e otimize o custo.
 
 Uma política de dimensionamento automático é definida por serviço no arquivo de recurso de serviço. Cada política de dimensionamento consiste em duas partes:
 

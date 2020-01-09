@@ -1,18 +1,18 @@
 ---
-title: O que é o cache do Azure para Redis?
-description: Saiba o que é o cache do Azure para Redis e como ele é comumente usado.
+title: O que é a Cache do Azure para Redis?
+description: Saiba o que é o cache do Azure para Redis e usos comuns, incluindo armazenamento em cache, cache de conteúdo, cache de sessão de usuário, serviço de enfileiramento de trabalhos e mensagens e transações distribuídas.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/26/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 87e7505bddfce431b5e859fbbeee79f75867cfc9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 03/26/2018
+ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433424"
 ---
 # <a name="azure-cache-for-redis-description"></a>Descrição do cache do Azure para Redis
 
@@ -40,8 +40,8 @@ O cache do Azure para Redis está disponível nas seguintes camadas:
 
 | Escalão | Descrição |
 |---|---|
-Básico | Uma cache de nó único. Este escalão suporta vários tamanhos de memória (250 MB a 53 GB). É um escalão ideal para desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
-| Standard | Uma cache replicada numa configuração primária/secundária de dois nós gerida pela Microsoft, com um SLA de elevada disponibilidade (99,9%) |
+Basic | Uma cache de nó único. Este escalão suporta vários tamanhos de memória (250 MB a 53 GB). É um escalão ideal para desenvolvimento/teste e cargas de trabalho não críticas. O escalão Básico não tem nenhum contrato de nível de serviço (SLA) |
+| Padrão | Uma cache replicada numa configuração primária/secundária de dois nós gerida pela Microsoft, com um SLA de elevada disponibilidade (99,9%) |
 | Premium | A camada Premium é a camada pronta para a empresa. As Caches de escalão Premium suportam mais funcionalidades e têm um maior débito com menores latências. As Caches no escalão Premium são implementadas em hardware mais poderoso e fornecem um melhor desempenho comparativamente aos Escalões Básico ou Standard. Essa vantagem significa que a taxa de transferência para um cache do mesmo tamanho será maior em relação ao Premium em comparação com a camada Standard. |
 
 > [!TIP]
@@ -54,13 +54,13 @@ Pode dimensionar a sua cache para um escalão superior depois de esta ter sido c
 
 A página de [preços do cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada camada. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:
 
-| Descrição da Funcionalidade | Premium | Standard | Básico |
+| Descrição da Funcionalidade | Premium | Padrão | Basic |
 | ------------------- | :-----: | :------: | :---: |
 | [Contrato de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistência de dados de Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Cluster de Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Segurança através de regras da Firewall](cache-configure.md#firewall) |✔|✔|✔|
-| Criptografia em trânsito |✔|✔|✔|
+| Encriptação de dados em circulação |✔|✔|✔|
 | [Segurança e isolamento otimizados com VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Importação/Exportação](cache-how-to-import-export-data.md) |✔|-|-|
 | [Atualizações agendadas](cache-administration.md#schedule-updates) |✔|✔|✔|

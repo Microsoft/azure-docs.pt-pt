@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/13/2019
-ms.openlocfilehash: ad802521fe4202b8c5e27a82e0adf142dfa69228
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/13/2019
+ms.openlocfilehash: 7ef28933dc7d10817982690aa3c7bc866c33eb03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440702"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 
@@ -48,7 +48,7 @@ Para a atividade de cópia, este conector do banco de dados SQL do Azure dá sup
 > Se você copiar dados usando o Azure Data Factory Integration Runtime, configure um [Firewall de SQL Server do Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para que os serviços do Azure possam acessar o servidor.
 > Se você copiar dados usando um tempo de execução de integração auto-hospedado, configure o firewall de SQL Server do Azure para permitir o intervalo de IP apropriado. Esse intervalo inclui o IP do computador que é usado para se conectar ao banco de dados SQL do Azure.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -61,7 +61,7 @@ Essas propriedades têm suporte para um serviço vinculado do banco de dados SQL
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **Type** deve ser definida como **AzureSqlDatabase**. | Sim |
-| connectionString | Especifique as informações necessárias para se conectar à instância do banco de dados SQL do Azure para a propriedade **ConnectionString** . <br/>Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory. Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectionString | Especifique as informações necessárias para se conectar à instância do banco de dados SQL do Azure para a propriedade **ConnectionString** . <br/>Você também pode colocar uma senha ou chave de entidade de serviço em Azure Key Vault. Se for a autenticação do SQL, extraia a configuração de `password` da cadeia de conexão. Para obter mais informações, consulte o exemplo de JSON após a tabela e [armazenar as credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo com segurança em Azure data Factory ou [fazer referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
 | tenant | Especifique as informações do locatário, como o nome de domínio ou a ID do locatário, sob a qual seu aplicativo reside. Recupere-o passando o mouse no canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço |
@@ -86,10 +86,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -107,10 +104,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -163,10 +157,7 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada na entid
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -212,10 +203,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -573,7 +561,45 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um Ups
 
 ## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 
-Aprenda detalhes da [transformação de origem](data-flow-source.md) e da [transformação de coletor](data-flow-sink.md) no fluxo de dados de mapeamento.
+Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em tabelas do banco de dados SQL do Azure. Para obter mais informações, consulte a [transformação origem](data-flow-source.md) e a [transformação coletor](data-flow-sink.md) no mapeamento de fluxos de dados.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+As configurações específicas para o banco de dados SQL do Azure estão disponíveis na guia **Opções de origem** da transformação origem. 
+
+**Entrada:** Selecione se você apontar sua fonte em uma tabela (equivalente a ```Select * from <table-name>```) ou inserir uma consulta SQL personalizada.
+
+**Consulta**: se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados. O uso de consultas também é uma ótima maneira de reduzir linhas para teste ou pesquisas. 
+
+* Exemplo de SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+
+**Tamanho do lote**: Insira um tamanho de lote para dividir dados grandes em leituras.
+
+**Nível de isolamento**: o padrão para as fontes SQL no fluxo de dados de mapeamento é leitura não confirmada. Você pode alterar o nível de isolamento aqui para um destes valores:
+* Leitura confirmada
+* Leitura não confirmada
+* Leitura repetida
+* Serializável
+* Nenhum (ignorar nível de isolamento)
+
+![Nível de isolamento](media/data-flow/isolationlevel.png "Nível de isolamento")
+
+### <a name="sink-transformation"></a>Transformação do coletor
+
+As configurações específicas para o banco de dados SQL do Azure estão disponíveis na guia **configurações** da transformação coletor.
+
+**Método de atualização:** Determina quais operações são permitidas no destino do banco de dados. O padrão é permitir apenas inserções. Para atualizar, upsertr ou excluir linhas, uma transformação ALTER-Row é necessária para marcar linhas para essas ações. Para atualizações, upserts e exclusões, uma coluna ou colunas de chave deve ser definida para determinar qual linha alterar.
+
+**Ação da tabela:** Determina se deve-se recriar ou remover todas as linhas da tabela de destino antes da gravação.
+* Nenhum: nenhuma ação será feita para a tabela.
+* Recriar: a tabela será descartada e recriada. Necessário se estiver criando uma nova tabela dinamicamente.
+* Truncar: todas as linhas da tabela de destino serão removidas.
+
+**Tamanho do lote**: controla quantas linhas estão sendo gravadas em cada Bucket. Tamanhos de lote maiores melhoram a compactação e a otimização de memória, mas não têm risco de exceções de memória ao armazenar dados em cache.
+
+**Scripts SQL anteriores e posteriores**: Insira os scripts SQL de várias linhas que serão executados antes (pré-processamento) e após (pós-processamento) os dados são gravados no banco de dado do coletor
+
+![pré e pós-scripts de processamento do SQL](media/data-flow/prepost1.png "Scripts de processamento SQL")
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mapeamento de tipo de dados para o banco de dado SQL do Azure
 
@@ -604,7 +630,7 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Objeto |
 | texto |String, Char[] |
 | hora |TimeSpan |
 | carimbo de data/hora |Byte[] |

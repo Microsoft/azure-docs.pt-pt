@@ -1,19 +1,20 @@
 ---
-title: Usando o PowerShell, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
+title: Usar o PowerShell para habilitar a Área de Trabalho Remota para uma função
+titleSuffix: Azure Cloud Services
 description: Como configurar seu aplicativo de serviço de nuvem do Azure usando o PowerShell para permitir conexões de área de trabalho remota
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: cd36188cba91ad8a97e3f97896cf215a5f0220c2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.author: tagore
+ms.openlocfilehash: e4e8dca6c5359e865e6a17fc47fe47802b0ee9e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386124"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
 
@@ -100,3 +101,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>Recursos adicionais
 
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)
+
+

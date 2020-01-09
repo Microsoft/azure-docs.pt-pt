@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423347"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chamar a API de Microsoft Graph de um aplicativo de área de trabalho do Windows
 
@@ -66,7 +66,7 @@ O aplicativo que você cria com este guia exibe um botão que é usado para cham
 
 Para criar seu aplicativo, faça o seguinte:
 
-1. No Visual Studio, selecione **arquivo** > **novo** > **projeto**.
+1. No Visual Studio, selecione **arquivo** > **novo** **projeto**de > .
 2. Em **modelos**, selecione **Visual C#** .
 3. Selecione **aplicativo WPF (.NET Framework)** , dependendo da versão da versão do Visual Studio que você está usando.
 
@@ -87,14 +87,14 @@ Para criar seu aplicativo, faça o seguinte:
 
 Você pode registrar seu aplicativo de uma das duas maneiras.
 
-### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
+### <a name="option-1-express-mode"></a>Opção 1: modo expresso
 
 Você pode registrar rapidamente seu aplicativo fazendo o seguinte:
 1. Vá para o [registro de aplicativo portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: modo avançado
 
 Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
@@ -105,10 +105,10 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
    - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
    - Selecione **Registar** para criar a aplicação.
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
-   1. Na seção **URIs** de redirecionamento, na lista URIs de redirecionamento:
-   1. Na coluna **tipo** , selecione **cliente público (Mobile & Desktop)** .
-   1. Na coluna **URI** de redirecionamento, insira`urn:ietf:wg:oauth:2.0:oob`
-1. Selecione **Guardar**.
+   1. Na seção **URIs de redirecionamento** , na lista URIs de redirecionamento:
+   1. Na coluna **tipo** , selecione **cliente público/nativo (Mobile & Desktop)** .
+   1. Na coluna **URI de redirecionamento** , insira `https://login.microsoftonline.com/common/oauth2/nativeclient`
+1. Selecione **Registar**.
 1. Vá para o Visual Studio, abra o arquivo *app.XAML.cs* e substitua `Enter_the_Application_Id_here` no trecho de código abaixo pela ID do aplicativo que você acabou de registrar e copiar.
 
     ```csharp
@@ -160,7 +160,7 @@ Nesta etapa, você cria uma classe para lidar com a interação com o MSAL, como
 
 Esta seção mostra como um aplicativo pode consultar um servidor back-end protegido, como Microsoft Graph. 
 
-Um arquivo *MainWindow. XAML* deve ser criado automaticamente como parte do seu modelo de projeto. Abra esse arquivo e substitua a  *\<grade* do seu aplicativo > nó pelo seguinte código:
+Um arquivo *MainWindow. XAML* deve ser criado automaticamente como parte do seu modelo de projeto. Abra esse arquivo e substitua a *grade de\<* do seu aplicativo > nó pelo seguinte código:
 
 ```xml
 <Grid>
@@ -187,7 +187,7 @@ Nesta seção, você usará MSAL para obter um token para a API de Microsoft Gra
     using Microsoft.Identity.Client;
     ```
 
-2. Substitua o `MainWindow` código de classe pelo seguinte:
+2. Substitua o código da classe `MainWindow` pelo seguinte:
 
     ```csharp
     public partial class MainWindow : Window
@@ -260,26 +260,26 @@ Nesta seção, você usará MSAL para obter um token para a API de Microsoft Gra
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Chamar o `AcquireTokenInteractive` método resulta em uma janela que solicita que os usuários entrem. Os aplicativos geralmente exigem que os usuários entrem interativamente na primeira vez que precisam acessar um recurso protegido. Eles também podem precisar entrar quando uma operação silenciosa para adquirir um token falhar (por exemplo, quando a senha de um usuário estiver expirada).
+Chamar o método `AcquireTokenInteractive` resulta em uma janela que solicita que os usuários entrem. Os aplicativos geralmente exigem que os usuários entrem interativamente na primeira vez que precisam acessar um recurso protegido. Eles também podem precisar entrar quando uma operação silenciosa para adquirir um token falhar (por exemplo, quando a senha de um usuário estiver expirada).
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-O `AcquireTokenSilent` método manipula aquisições de tokens e renovações sem nenhuma interação do usuário. Após `AcquireTokenInteractive` ser executado pela primeira vez, `AcquireTokenSilent` é o método usual a ser usado para obter tokens que acessam recursos protegidos para chamadas subsequentes, pois as chamadas para solicitar ou renovar tokens são feitas silenciosamente.
+O método `AcquireTokenSilent` manipula aquisições e renovações de token sem nenhuma interação do usuário. Depois que `AcquireTokenInteractive` é executado pela primeira vez, `AcquireTokenSilent` é o método usual a ser usado para obter tokens que acessam recursos protegidos para chamadas subsequentes, pois as chamadas para solicitar ou renovar tokens são feitas silenciosamente.
 
-Eventualmente, o `AcquireTokenSilent` método falhará. Os motivos para a falha podem ser que o usuário tenha desconectado ou alterado sua senha em outro dispositivo. Quando o MSAL detecta que o problema pode ser resolvido exigindo uma ação interativa, ele dispara uma `MsalUiRequiredException` exceção. Seu aplicativo pode manipular essa exceção de duas maneiras:
+Eventualmente, o método `AcquireTokenSilent` falhará. Os motivos para a falha podem ser que o usuário tenha desconectado ou alterado sua senha em outro dispositivo. Quando o MSAL detecta que o problema pode ser resolvido exigindo uma ação interativa, ele dispara uma exceção de `MsalUiRequiredException`. Seu aplicativo pode manipular essa exceção de duas maneiras:
 
-* Ele pode fazer uma chamada `AcquireTokenInteractive` imediatamente. Essa chamada resulta na solicitação do usuário para entrar. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline disponível para o usuário. O exemplo gerado por essa instalação interativa segue esse padrão, que você pode ver em ação na primeira vez que executar o exemplo. 
+* Ele pode fazer uma chamada contra `AcquireTokenInteractive` imediatamente. Essa chamada resulta na solicitação do usuário para entrar. Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline disponível para o usuário. O exemplo gerado por essa instalação interativa segue esse padrão, que você pode ver em ação na primeira vez que executar o exemplo. 
 
-* Como nenhum usuário usou o aplicativo, `PublicClientApp.Users.FirstOrDefault()` ele contém um valor nulo e uma `MsalUiRequiredException` exceção é lançada. 
+* Como nenhum usuário usou o aplicativo, `PublicClientApp.Users.FirstOrDefault()` contém um valor nulo e uma exceção de `MsalUiRequiredException` é gerada. 
 
-* Em seguida, o código no exemplo manipula a exceção chamando `AcquireTokenInteractive`, o que resulta na solicitação de entrada do usuário.
+* O código no exemplo manipula a exceção chamando `AcquireTokenInteractive`, o que resulta na solicitação do usuário para entrar.
 
-* Em vez disso, ele pode apresentar uma indicação visual para os usuários de que uma entrada interativa é necessária, para que eles possam selecionar o horário certo para entrar. Ou o aplicativo pode tentar `AcquireTokenSilent` novamente mais tarde. Esse padrão é usado frequentemente quando os usuários podem usar outras funcionalidades do aplicativo sem interrupções, por exemplo, quando o conteúdo offline está disponível no aplicativo. Nesse caso, os usuários podem decidir quando desejam entrar para acessar o recurso protegido ou atualizar as informações desatualizadas. Como alternativa, o aplicativo pode decidir tentar novamente `AcquireTokenSilent` quando a rede for restaurada após ter sido temporariamente indisponível.
+* Em vez disso, ele pode apresentar uma indicação visual para os usuários de que uma entrada interativa é necessária, para que eles possam selecionar o horário certo para entrar. Ou o aplicativo pode tentar novamente `AcquireTokenSilent` mais tarde. Esse padrão é usado frequentemente quando os usuários podem usar outras funcionalidades do aplicativo sem interrupções, por exemplo, quando o conteúdo offline está disponível no aplicativo. Nesse caso, os usuários podem decidir quando desejam entrar para acessar o recurso protegido ou atualizar as informações desatualizadas. Como alternativa, o aplicativo pode decidir tentar novamente `AcquireTokenSilent` quando a rede for restaurada depois de ter sido temporariamente indisponível.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Chamar a API de Microsoft Graph usando o token que você acabou de obter
 
-Adicione o novo método a seguir ao `MainWindow.xaml.cs`seu. O método é usado para fazer uma `GET` solicitação em relação a API do Graph usando um cabeçalho de autorização:
+Adicione o novo método a seguir ao seu `MainWindow.xaml.cs`. O método é usado para fazer uma solicitação de `GET` em relação a API do Graph usando um cabeçalho de autorização:
 
 ```csharp
 /// <summary>
@@ -311,12 +311,12 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre como fazer uma chamada REST em uma API protegida
 
-Neste aplicativo de exemplo, você usa o `GetHttpContentWithToken` método para fazer uma solicitação `GET` http em um recurso protegido que requer um token e, em seguida, retorna o conteúdo para o chamador. Esse método adiciona o token adquirido no cabeçalho de autorização HTTP. Para este exemplo, o recurso é o Microsoft Graph ponto de extremidade do API *me* , que exibe as informações de perfil do usuário.
+Neste aplicativo de exemplo, você usa o método `GetHttpContentWithToken` para fazer uma solicitação HTTP `GET` em um recurso protegido que requer um token e, em seguida, retorna o conteúdo para o chamador. Esse método adiciona o token adquirido no cabeçalho de autorização HTTP. Para este exemplo, o recurso é o Microsoft Graph ponto de extremidade do API *me* , que exibe as informações de perfil do usuário.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Adicionar um método para desconectar um usuário
 
-Para sair de um usuário, adicione o seguinte método ao seu `MainWindow.xaml.cs` arquivo:
+Para sair de um usuário, adicione o seguinte método ao seu arquivo de `MainWindow.xaml.cs`:
 
 ```csharp
 /// <summary>
@@ -346,7 +346,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Mais informações sobre a saída do usuário
 
-O `SignOutButton_Click` método remove os usuários do cache de usuário do MSAL, o que faz com que o MSAL esqueça o usuário atual para que uma solicitação futura de aquisição de um token seja bem sucedido somente se for feita para ser interativa.
+O método `SignOutButton_Click` remove os usuários do cache de usuário MSAL, o que instrui efetivamente o MSAL a esquecer o usuário atual para que uma solicitação futura de aquisição de um token seja bem sucedido somente se for feita para ser interativa.
 
 Embora o aplicativo neste exemplo dê suporte a usuários únicos, o MSAL dá suporte a cenários em que várias contas podem ser conectadas ao mesmo tempo. Um exemplo é um aplicativo de email em que um usuário tem várias contas.
 <!--end-collapse-->
@@ -373,7 +373,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
 
-Além do token de acesso usado para chamar a API de Microsoft Graph, depois que o usuário entra, o MSAL também obtém um token de ID. Esse token contém um pequeno subconjunto de informações pertinentes aos usuários. O `DisplayBasicTokenInfo` método exibe as informações básicas contidas no token. Por exemplo, ele exibe o nome de exibição e a ID do usuário, bem como a data de expiração do token e a cadeia de caracteres que representa o token de acesso em si. Você pode selecionar o botão *chamar Microsoft Graph API* várias vezes e ver que o mesmo token foi reutilizado para solicitações subsequentes. Você também pode ver a data de expiração que está sendo estendida quando MSAL decide que é hora de renovar o token.
+Além do token de acesso usado para chamar a API de Microsoft Graph, depois que o usuário entra, o MSAL também obtém um token de ID. Esse token contém um pequeno subconjunto de informações pertinentes aos usuários. O método `DisplayBasicTokenInfo` exibe as informações básicas contidas no token. Por exemplo, ele exibe o nome de exibição e a ID do usuário, bem como a data de expiração do token e a cadeia de caracteres que representa o token de acesso em si. Você pode selecionar o botão *chamar Microsoft Graph API* várias vezes e ver que o mesmo token foi reutilizado para solicitações subsequentes. Você também pode ver a data de expiração que está sendo estendida quando MSAL decide que é hora de renovar o token.
 <!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

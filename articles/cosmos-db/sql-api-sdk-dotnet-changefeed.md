@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API do processador do feed de alterações do .NET, recursos do SDK &'
+title: Azure Cosmos DB API do processador do feed de alterações do .NET, notas de versão do SDK
 description: Saiba tudo sobre a API do processador do feed de alterações e o SDK, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do processador do feed de alterações do .NET.
 author: ealsur
 ms.service: cosmos-db
@@ -8,19 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444861"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
 > [!div class="op_single_selector"]
 >
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
+> * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,10 +34,10 @@ ms.locfileid: "74306767"
 
 |   |   |
 |---|---|
-|**Download do SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentação da API**|[Documentação de referência da API da biblioteca do processador de feed de alterações](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Introdução**|[Introdução ao SDK do .NET do processador do feed de alterações](change-feed.md)|
-|**Estrutura com suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
+|**Estrutura de suporte atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Núcleo de Microsoft .NET](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
 > Se você estiver usando o processador do feed de alterações, consulte a versão mais recente 3. x do [SDK do .net](change-feed-processor.md), que tem o feed de alterações interno do SDK. 
@@ -104,7 +104,7 @@ ms.locfileid: "74306767"
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * SDK DE DISPONIBILIDADE GERAL
 
-### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-pré-lançamento
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * Foram corrigidos os problemas seguintes:
   * Quando a divisão de partição acontece, pode haver processamento duplicado de documentos modificados antes da divisão.
   * A API GetEstimatedRemainingWork retornou 0 quando nenhuma concessão estava presente na coleção de concessão.
@@ -115,11 +115,11 @@ ms.locfileid: "74306767"
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-pré-lançamento
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Alterações secundárias da API:
   * Removeu ChangeFeedProcessorOptions. IsAutoCheckpointEnabled que foi marcado como obsoleto.
 
-### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1 – pré-lançamento
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
 * Aprimoramentos de estabilidade:
   * Melhor manipulação da inicialização do armazenamento de concessão. Quando o repositório de concessão está vazio, apenas uma instância do processador pode inicializá-lo, os outros esperam.
   * Renovação/lançamento de concessão mais estável/eficiente. A renovação e a liberação de uma partição de concessão de uma só é independente da renovação de outras. Em v1, que foi feito sequencialmente para todas as partições.
@@ -172,7 +172,7 @@ ms.locfileid: "74306767"
 
 ## <a name="release--retirement-dates"></a>Datas de lançamento & desativação
 
-A Microsoft fornecerá uma notificação com pelo menos **12 meses** de antecedência para desativar um SDK a fim de suavizar a transição para uma versão mais recente/com suporte.
+A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
 Novos recursos e funcionalidades e otimizações são adicionados somente ao SDK atual, por isso é recomendável que você sempre atualize para a versão mais recente do SDK o mais cedo possível. 
 
@@ -202,6 +202,6 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Para saber mais sobre Cosmos DB, consulte [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página de serviço.
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço.

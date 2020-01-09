@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423382"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: criar um daemon multilocatário que usa o ponto de extremidade da plataforma Microsoft Identity
 
 Neste tutorial, você aprenderá a usar a plataforma de identidade da Microsoft para acessar os dados de clientes de negócios da Microsoft em um processo de execução longa e não interativa. O daemon de exemplo usa a [concessão de credenciais de cliente OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir um token de acesso. Em seguida, o daemon usa o token para chamar [Microsoft Graph](https://graph.microsoft.io) e acessar dados organizacionais.
+
+> [!div class="checklist"]
+> * Integrar um aplicativo daemon com a plataforma de identidade da Microsoft
+> * Conceder permissões de aplicativo diretamente ao aplicativo por um administrador
+> * Obter um token de acesso para chamar a API de Microsoft Graph
+> * Chame a API de Microsoft Graph.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 O aplicativo é criado como um aplicativo MVC ASP.NET. Ele usa o middleware OWIN OpenID Connect para conectar usuários.  
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 Ou [Baixe o exemplo em um arquivo zip](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registrar o aplicativo de exemplo com seu locatário do Azure AD
+## <a name="register-your-application"></a>Registar a sua aplicação
 
-Este exemplo tem um projeto. Para registrá-lo, você pode:
+Este exemplo tem um projeto. Para registrar o aplicativo com seu locatário do Azure AD, você pode:
 
-- Siga as etapas em [registrar o exemplo com seu locatário Azure Active Directory](#register-the-sample-application-with-your-azure-ad-tenant) e [Configure o exemplo para usar seu locatário do Azure ad](#choose-the-azure-ad-tenant).
+- Siga as etapas em [registrar o exemplo com seu locatário Azure Active Directory](#register-your-application) e [Configure o exemplo para usar seu locatário do Azure ad](#choose-the-azure-ad-tenant).
 - Use scripts do PowerShell que:
   - Crie *automaticamente* os aplicativos do Azure AD e os objetos relacionados (senhas, permissões, dependências) para você.
   - Modifique os arquivos de configuração dos projetos do Visual Studio.
@@ -208,7 +216,7 @@ Este projeto tem projetos de aplicativo Web e de API Web. Para implantá-los nos
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Criar e publicar dotnet-Web-daemon-V2 em um site do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso** no canto superior esquerdo.
 1. Selecione **web** > **aplicativo Web**e dê um nome ao seu site. Por exemplo, nomeie-o como **dotnet-Web-daemon-v2-contoso.azurewebsites.net**.
 1. Selecione as informações de **assinatura**, **grupo de recursos**e **plano e local do serviço de aplicativo**. O **sistema operacional** é o **Windows**e **publicar** é o **código**.
@@ -237,7 +245,10 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 1. Guarde a configuração.
 1. Adicione a mesma URL na lista de valores do menu **autenticação** > **redirecionamento de URIs** . Se você tiver várias URLs de redirecionamento, verifique se há uma nova entrada que usa o URI do serviço de aplicativo para cada URL de redirecionamento.
 
-## <a name="community-help-and-support"></a>Ajuda e suporte da Comunidade
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando não for mais necessário, exclua o objeto de aplicativo que você criou na etapa [registrar seu aplicativo](#register-your-application) .  Para remover o aplicativo, siga as instruções em [remover um aplicativo criado por você ou sua organização](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Obter ajuda
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obter suporte da Comunidade.
 Faça suas perguntas em Stack Overflow primeiro e procure problemas existentes para ver se alguém fez sua pergunta antes.

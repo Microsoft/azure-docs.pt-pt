@@ -3,17 +3,17 @@ title: Usar a extensão do Azure IoT para CLI do Azure para interagir com dispos
 description: Instale a extensão do Azure IoT para CLI do Azure e use-a para interagir com os dispositivos IoT Plug and Play conectados ao meu Hub IoT.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571007"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529580"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instalar e usar a extensão do Azure IoT para o CLI do Azure
 
@@ -26,7 +26,7 @@ A extensão do Azure IoT para o CLI do Azure é uma ferramenta de linha de coman
 - Trabalhar com as propriedades do dispositivo.
 - Chame os comandos do dispositivo.
 
-Este artigo mostra como:
+Este artigo mostra-lhe como:
 
 - Instale e configure a extensão do Azure IoT para o CLI do Azure.
 - Use a extensão para interagir com e testar seus dispositivos.

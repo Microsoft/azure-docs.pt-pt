@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184183"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646398"
 ---
 > [!div class="op_single_selector"]
-> * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Portal do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
@@ -29,4 +29,4 @@ Uma Máquina Virtual do Azure (VM) tem uma ou mais interfaces de rede (NIC) liga
 
 Cada NIC anexada a uma VM tem uma ou mais configurações de IP associadas à mesma. A cada configuração é atribuído um endereço IP privado estático ou dinâmico. Cada configuração também pode ter um recurso de endereço IP público associado a si. Um recurso de endereço IP público tem um endereço IP público dinâmico ou estático atribuído. Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP no Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
 
-Existe um limite para quantas endereços IP privados pode ser atribuído a uma NIC. Também existe um limite para quantas endereços IP públicos podem ser usados numa subscrição do Azure. Veja o artigo [Limites do Azure](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.
+Há um limite para quantos endereços IP privados podem ser atribuídos a uma NIC. Também há um limite para quantos endereços IP públicos podem ser usados em uma assinatura do Azure. Veja o artigo [Limites do Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.

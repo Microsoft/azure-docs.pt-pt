@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425474"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: registrar um aplicativo no Azure Active Directory B2C
 
@@ -40,8 +40,9 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
 1. Introduza um nome para a aplicação. Por exemplo, *webapp1*.
 1. Para **incluir aplicativo Web/API Web** e **permitir fluxo implícito**, selecione **Sim**.
@@ -54,13 +55,13 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
     * A URL de resposta deve começar com o esquema `https`.
     * A URL de resposta diferencia maiúsculas de minúsculas. Seu caso deve corresponder ao caso do caminho da URL do seu aplicativo em execução. Por exemplo, se seu aplicativo incluir como parte de seu caminho `.../abc/response-oidc`, não especifique `.../ABC/response-oidc` na URL de resposta. Como o navegador da Web trata os caminhos como diferenciando maiúsculas de minúsculas, os cookies associados a `.../abc/response-oidc` podem ser excluídos se forem redirecionados para a URL de `.../ABC/response-oidc` incompatível com maiúsculas e minúsculas.
 
-1. Clique em **criar** para concluir o registro do aplicativo.
+1. Selecione **criar** para concluir o registro do aplicativo.
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione **novo registro**.
 1. Insira um **nome** para o aplicativo. Por exemplo, *webapp1*.
 1. Selecione **contas em qualquer diretório organizacional ou qualquer provedor de identidade**.

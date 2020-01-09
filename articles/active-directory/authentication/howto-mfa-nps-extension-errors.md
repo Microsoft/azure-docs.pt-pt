@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848328"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425309"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão do NPS para a autenticação multifator do Azure
 
@@ -96,7 +96,11 @@ Se você encontrar um desses erros, recomendamos que [entre em contato com o sup
 
 Se os usuários estiverem [tendo problemas com a verificação em duas etapas](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ajude-os a diagnosticar problemas automaticamente.
 
-### <a name="contact-microsoft-support"></a>Contate o suporte da Microsoft
+### <a name="health-check-script"></a>Script de verificação de integridade
+
+O [script de verificação de integridade da extensão NPS do Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) está disponível na galeria do TechNet para executar uma verificação de integridade básica ao solucionar problemas da extensão NPS. Execute o script e escolha a opção 3.
+
+### <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
 Se precisar de ajuda adicional, entre em contato com um profissional de suporte por meio [do suporte do Azure servidor de autenticação multifator](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, será útil se você puder incluir o máximo possível de informações sobre o seu problema. As informações que você pode fornecer incluem a página em que você viu o erro, o código de erro específico, a ID de sessão específica, a ID do usuário que viu o erro e os logs de depuração.
 

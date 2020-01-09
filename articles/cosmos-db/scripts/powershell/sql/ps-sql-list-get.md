@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script – lista de Azure Cosmos DB e operações get para a API do SQL (Core)
+title: Script do PowerShell para listar e obter operações para a API do Azure Cosmos DB SQL (Core)
 description: Azure PowerShell script – lista de Azure Cosmos DB e operações get para a API do SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4544b1d3346128f8ad88c2b0e123145f4e0632a6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1590136aa000538f6d176364fca22b353d4a48a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445013"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Listar e obter bancos de dados e contêineres para a API Azure Cosmos DB-SQL (Core)
 

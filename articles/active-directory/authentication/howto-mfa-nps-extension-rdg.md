@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22efe84826684e37abee65d64df13d63081aa79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425463"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -120,11 +120,11 @@ Esta secção fornece instruções para configurar a infraestrutura RDS para uti
 Como parte da configuração da extensão NPS, terá de fornecer credenciais de administrador e o ID do Azure AD para o seu inquilino do Azure AD. Os passos seguintes mostram como obter o ID do inquilino.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como administrador global do inquilino do Azure.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** ícone.
+1. No menu portal do Azure, selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 1. Selecione **Propriedades**.
 1. No painel de propriedades, ao lado do ID de diretório, clique nas **cópia** ícone, conforme mostrado abaixo, para copiar o ID de área de transferência.
 
-   ![Obtendo a ID do diretório do portal do Azure](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Obtendo a ID do diretório do portal do Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 

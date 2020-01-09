@@ -1,7 +1,7 @@
 ---
 title: SMOTE
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo SMOTE no serviço de Azure Machine Learning para aumentar o número de exemplos de incidência baixa em um conjunto de informações usando a sobreamostragem.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo SMOTE no Azure Machine Learning para aumentar o número de exemplos de incidência baixa em um conjunto de informações usando a sobreamostragem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428441"
 ---
 # <a name="smote"></a>SMOTE
 
@@ -40,7 +40,7 @@ Se você adicionar o conjunto de registros a um pipeline e selecionar **Visualiz
  
 Para aumentar o número de casos, você pode definir o valor de **SMOTE percentual**, usando múltiplos de 100, da seguinte maneira:
 
-||Classe 0|Classe 1|completa|  
+||Classe 0|Classe 1|total|  
 |-|-------------|-------------|-----------|  
 |Conjunto de um original<br /><br /> (equivalente a **SMOTE percentual** = **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
 |**Percentual de SMOTE** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
@@ -99,5 +99,5 @@ Para aumentar o número de casos, você pode definir o valor de **SMOTE percentu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

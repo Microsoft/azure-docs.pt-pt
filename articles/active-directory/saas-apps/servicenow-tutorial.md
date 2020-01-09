@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 12/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706928"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561995"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o ServiceNow
 
@@ -109,19 +108,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Captura de tela da seção configurar ServiceNow, com URLs realçadas](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste, chamado B. Simon, na portal do Azure.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory** > **usuários** > todos os **usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. Para **nome**, insira `B.Simon`.  
    1. Para **nome de usuário**, insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione **Mostrar senha**e, em seguida, anote o valor mostrado na caixa **senha** .
    1. Selecione **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao ServiceNow.
 
@@ -131,12 +130,12 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
    ![Captura de tela da seção Gerenciar, com usuários e grupos realçados](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário**. Na caixa de diálogo **Adicionar atribuição** , selecione **usuários e grupos**.
+1. Selecione **Adicionar utilizador**. Na caixa de diálogo **Adicionar atribuição** , selecione **usuários e grupos**.
 
     ![Captura de tela de usuários e grupos, com Adicionar usuário realçado](common/add-assign-user.png)
 
 1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e escolha **selecionar**.
-1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista. Em seguida, escolha **selecionar**.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista. Em seguida, selecione **Selecionar**.
 1. Na caixa de diálogo **Adicionar atribuição** , selecione **atribuir**.
 
 ### <a name="configure-azure-ad-sso-for-servicenow-express"></a>Configurar o SSO do Azure AD para o ServiceNow Express
@@ -295,7 +294,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
         1. Insira a **URL de metadados de Federação do aplicativo** que você copiou do portal do Azure.
 
-        1. Selecione **importar**.
+        1. Selecione **Import** (Importar).
 
     1. Ele lê a URL de metadados do IdP e popula todas as informações de campos.
 
@@ -446,7 +445,7 @@ Ao selecionar o bloco do ServiceNow no painel de acesso, você deverá ser conec
 
     *  Selecione **usar logon externo**. Você será redirecionado para a página do Azure AD para entrada.
     
-    *  Insira suas credenciais. Se houver alguma autenticação de terceiros ou qualquer outro recurso de segurança habilitado, o usuário deverá responder de acordo. A **Home Page** do aplicativo é exibida.
+    *  Introduza as suas credenciais. Se houver alguma autenticação de terceiros ou qualquer outro recurso de segurança habilitado, o usuário deverá responder de acordo. A **Home Page** do aplicativo é exibida.
 
         ![Captura de tela do home page do aplicativo](./media/servicenow-tutorial/test02.png)
 

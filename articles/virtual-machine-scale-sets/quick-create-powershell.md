@@ -1,6 +1,6 @@
 ---
-title: Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell | Microsoft Docs
-description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais com o Azure PowerShell
+title: Início rápido-criar um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
+description: Comece com suas implantações aprendendo a criar rapidamente uma escala de máquina virtual com Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f2fc70457a6d36bbbb7d8c37c87a8aa4167ab4a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 52111559ac784e112c4cb3ddbf5ba9e6967385e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351129"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais com Azure PowerShell
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
 
 
@@ -141,7 +141,7 @@ Update-AzVmss `
  ```
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de exemplo num browser. Obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir exibe o endereço IP criado no grupo de recursos MyResource Group:
+Para ver o conjunto de dimensionamento em ação, aceda à aplicação Web de exemplo num browser. Obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo a seguir exibe o endereço IP criado no grupo de recursos *MyResource* Group:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress

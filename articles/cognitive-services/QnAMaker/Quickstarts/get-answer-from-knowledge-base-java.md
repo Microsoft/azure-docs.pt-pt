@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter resposta da base de dados de conhecimento-REST, Java-QnA Maker'
+title: 'Início rápido: obter resposta da base de dados de conhecimento-REST, Java-QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Este guia de início rápido baseado em REST Java orienta você pela obtenção de uma resposta de uma base de dados de conhecimento, programaticamente.
 services: cognitive-services
@@ -8,35 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 813eb624dfab0b88b0e907f86de77ebc0ae35f2c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a354ec62b4ade559664bc51b687b07a5c2f071e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447501"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com Java
 
-Este guia de início rápido orienta você na obtenção de uma resposta de uma base de dados de conhecimento QnA Maker publicada. A base de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/data-sources-supported.md) , como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço de QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta mais prevista. 
+Este guia de início rápido orienta você na obtenção de uma resposta de uma base de dados de conhecimento QnA Maker publicada. A base de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/data-sources-supported.md) , como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço de QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta mais prevista.
+
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [exemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/get-answer/GetAnswer.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de Desenvolvimento do Java, Edição Standard)
-* Este exemplo utiliza o Apache [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) de componentes de HTTP. Terá de adicionar as seguintes bibliotecas de cliente Apache HTTP a seu projeto: 
+* Este exemplo utiliza o Apache [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) de componentes de HTTP. Terá de adicionar as seguintes bibliotecas de cliente Apache HTTP a seu projeto:
     * httpclient 4.5.3.jar
     * httpcore 4.4.6.jar
     * Commons-log-1.2.jar
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **chaves** sob **gestão de recursos** no dashboard do Azure para o seu recurso do QnA Maker. 
-* **Publicar** configurações da página. Se você não tiver uma base de dados de conhecimento publicada, crie uma base de dados de conhecimento vazia, importe uma base de dados de conhecimento na página **configurações** e, em seguida, publique. Você pode baixar e usar [essa base de dados de conhecimento básica](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). 
+* Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **chaves** sob **gestão de recursos** no dashboard do Azure para o seu recurso do QnA Maker.
+* **Publicar** configurações da página. Se você não tiver uma base de dados de conhecimento publicada, crie uma base de dados de conhecimento vazia, importe uma base de dados de conhecimento na página **configurações** e, em seguida, publique. Você pode baixar e usar [essa base de dados de conhecimento básica](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
 
-    As configurações da página de publicação incluem o valor da rota de POST, o valor do host e o valor de EndpointKey. 
+    As configurações da página de publicação incluem o valor da rota de POST, o valor do host e o valor de EndpointKey.
 
     ![Definições de publicação](../media/qnamaker-quickstart-get-answer/publish-settings.png)
-
-O código para este guia de início rápido [https://github.com/Azure-Samples/cognitive-services-qnamaker-java](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/get-answer) está no repositório. 
 
 ## <a name="create-a-java-file"></a>Criar um arquivo Java
 
@@ -45,7 +45,7 @@ Abra VSCode e crie um novo arquivo chamado `GetAnswer.java` e adicione a seguint
 ```Java
 public class GetAnswer {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
 
     }
@@ -54,13 +54,13 @@ public class GetAnswer {
 
 ## <a name="add-the-required-dependencies"></a>Adicionar as dependências necessárias
 
-Este guia de início rápido usa classes Apache para solicitações HTTP. Acima da classe getanswer, na parte superior do `GetAnswer.java` arquivo, adicione as dependências necessárias ao projeto:
+Este guia de início rápido usa classes Apache para solicitações HTTP. Acima da classe getanswer, na parte superior do arquivo de `GetAnswer.java`, adicione as dependências necessárias ao projeto:
 
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=5-13 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
 
-Na parte superior da `GetAnswer.java` classe, adicione as constantes necessárias para acessar QnA Maker. Esses valores estão na página **publicar** depois que você publicar a base de dados de conhecimento.  
+Na parte superior da classe `GetAnswer.java`, adicione as constantes necessárias para acessar QnA Maker. Esses valores estão na página **publicar** depois que você publicar a base de dados de conhecimento.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=26-42 "Add the required constants")]
 
@@ -70,7 +70,7 @@ O código a seguir faz uma solicitação HTTPS para o API de QnA Maker para envi
 
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
-O `Authorization` valor do cabeçalho inclui a cadeia `EndpointKey`de caracteres. 
+O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey`.
 
 Saiba mais sobre a [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e a [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
@@ -90,10 +90,10 @@ Crie e execute o programa a partir da linha de comando. Ele enviará automaticam
     java -cp ".;lib/*" GetAnswer
     ```
 
-[!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
+[!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)]
 
 
-[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

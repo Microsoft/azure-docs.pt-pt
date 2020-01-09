@@ -1,5 +1,5 @@
 ---
-title: SSO entre o ADAL e o MSAL aplicativos iOS/macOS-plataforma Microsoft Identity | Azure
+title: SSO entre o ADAL & aplicativos MSAL (iOS/macOS) – plataforma de identidade da Microsoft | Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 201da533231eea4d597e660931e70e19a497d069
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423430"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Como: SSO entre aplicativos ADAL e MSAL no macOS e iOS
 

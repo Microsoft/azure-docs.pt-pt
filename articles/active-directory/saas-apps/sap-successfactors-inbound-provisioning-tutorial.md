@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 80812d1989e528a5a0f2333e92a068093d7b6b90
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914769"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528220"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../manage-apps/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.
@@ -261,8 +261,8 @@ Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory
         > Essa configuração só entra em cena para criações de conta de usuário se o atributo *parentDistinguishedName* não estiver configurado nos mapeamentos de atributo. Essa configuração não é usada para operações de pesquisa ou atualização de usuário. A subárvore de domínio inteira cai no escopo da operação de pesquisa.
 
    * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > O serviço de provisionamento do Azure AD enviará uma notificação por email se o trabalho de provisionamento entrar em um estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
    * Clique no botão **testar conexão** . Se o teste de conexão tiver sucesso, clique no botão **salvar** na parte superior. Se ele falhar, verifique se as credenciais do SuccessFactors e as credenciais do AD configuradas na instalação do agente são válidas.
     >[!div class="mx-imgBorder"]

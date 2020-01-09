@@ -1,5 +1,6 @@
 ---
-title: Solução Azure VMware por CloudSimple-monitorar a atividade de nuvem privada
+title: Monitorar a atividade de nuvem privada
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve as informações disponíveis sobre a atividade na solução do Azure VMware por ambiente CloudSimple, incluindo alertas, eventos, tarefas e auditoria.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459196"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitorar a solução VMware por atividade de CloudSimple
 
@@ -45,30 +46,30 @@ Para confirmar os alertas e removê-los da lista, selecione um ou mais na lista 
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 ------------ | ------------- |
-| Tipo de alerta | Categoria do alerta.|
-| Time | Hora em que o alerta ocorreu. |
-| Severity | Significância do alerta.|
+| Tipo de Alerta | Categoria do alerta.|
+| Tempo | Hora em que o alerta ocorreu. |
+| Gravidade | Significância do alerta.|
 | Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. |
-| Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
-| ID de recurso | Identificador do recurso. |
+| Tipo de Recurso | Categoria de recurso: nuvem privada, rack de nuvem. |
+| ID do Recurso | Identificador do recurso. |
 | Descrição | Descrição do que disparou o alerta. |
 | Reconhecido | Indica se o alerta é confirmado. |
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 Eventos mostram a atividade de usuário e sistema no portal do CloudSimple. A página eventos lista a atividade associada a um recurso específico e a gravidade do impacto.
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 ------------ | ------------- |
-| Time | Data e hora em que o evento ocorreu. |
-| Tipo de evento | Código numérico que identifica o evento. |
-| Severity | Severidade do evento.|
+| Tempo | Data e hora em que o evento ocorreu. |
+| Tipo de Evento | Código numérico que identifica o evento. |
+| Gravidade | Severidade do evento.|
 | Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada. |
-| Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
+| Tipo de Recurso | Categoria de recurso: nuvem privada, rack de nuvem. |
 | Descrição | Descrição do que disparou o alerta. |
 
 ## <a name="tasks"></a>Tarefas
@@ -77,18 +78,18 @@ As tarefas são atividades de nuvem privada que devem levar 30 segundos ou mais 
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 ------------ | ------------- |
 | ID da tarefa | Identificador exclusivo da tarefa. |
 | Operação | Ação executada pela tarefa. |
 | Utilizador | Usuário atribuído para concluir a tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
-| Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
-| ID de recurso | Identificador do recurso. |
-| Start | Hora de início da tarefa. |
-| fim | Hora de término da tarefa. |
+| Tipo de Recurso | Categoria de recurso: nuvem privada, rack de nuvem. |
+| ID do Recurso | Identificador do recurso. |
+| Iniciar | Hora de início da tarefa. |
+| Terminar | Hora de término da tarefa. |
 | Estado | Status da tarefa atual. |
-| Tempo decorrido | Tempo que a tarefa levou para ser concluída (se estiver concluída) ou que está sendo executada (se em andamento). |
+| Tempo Decorrido | Tempo que a tarefa levou para ser concluída (se estiver concluída) ou que está sendo executada (se em andamento). |
 | Descrição | Descrição da tarefa. |
 
 ## <a name="audit"></a>Auditoria
@@ -97,19 +98,19 @@ Os logs de auditoria controlam a atividade do usuário. Você pode usar os logs 
 
 As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 ------------ | ------------- |
-| Time | Hora da entrada de auditoria. |
+| Tempo | Hora da entrada de auditoria. |
 | Operação | Ação executada pela tarefa. |
 | Utilizador | Usuário atribuído à tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
-| Tipo de Recurso | Categoria do recurso: Nuvem privada, rack em nuvem. |
-| ID de recurso | Identificador do recurso. |
+| Tipo de Recurso | Categoria de recurso: nuvem privada, rack de nuvem. |
+| ID do Recurso | Identificador do recurso. |
 | Resultado | Resultado da atividade, como **êxito**. |
-| Tempo decorrido | Tempo para concluir a tarefa. |
+| Tempo Decorrido | Tempo para concluir a tarefa. |
 | Descrição | Descrição da ação. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

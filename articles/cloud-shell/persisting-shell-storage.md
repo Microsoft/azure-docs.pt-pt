@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385561"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Manter arquivos em Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento de arquivos do Azure para manter arquivos entre sessões. Na inicialização inicial, Cloud Shell solicita que você associe um compartilhamento de arquivos novo ou existente para manter os arquivos entre as sessões.
 
 > [!NOTE]
 > O bash e o PowerShell compartilham o mesmo compartilhamento de arquivos. Somente um compartilhamento de arquivos pode ser associado à montagem automática no Cloud Shell.
+
+> [!NOTE]
+> O Firewall do armazenamento do Azure não tem suporte para contas de armazenamento do Cloud Shell.
 
 ## <a name="create-new-storage"></a>Criar novo armazenamento
 
@@ -136,7 +139,7 @@ O compartilhamento de arquivos continuará a existir, a menos que você o exclua
 ![Executando o ' CloudDrive unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Embora a execução desse comando não exclua nenhum recurso, excluir manualmente um grupo de recursos, uma conta de armazenamento ou um compartilhamento de arquivos que está mapeado para Cloud Shell apaga a imagem de disco do `$Home` Directory e quaisquer arquivos em seu compartilhamento de arquivos. Esta ação não pode ser desfeita.
+> Embora a execução desse comando não exclua nenhum recurso, excluir manualmente um grupo de recursos, uma conta de armazenamento ou um compartilhamento de arquivos que está mapeado para Cloud Shell apaga a imagem de disco do `$Home` Directory e quaisquer arquivos em seu compartilhamento de arquivos. Não é possível desfazer esta ação.
 ## <a name="powershell-specific-commands"></a>Comandos específicos do PowerShell
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Listar `clouddrive` compartilhamentos de arquivos do Azure

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bca3c246db25e86772a7009bf85e7d302b4b17b2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925314"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562073"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure para Azure Functions
 
@@ -531,7 +531,7 @@ A associação de entrada de armazenamento de tabela dá suporte aos seguintes c
 Use uma associação de saída de armazenamento de tabela do Azure para gravar entidades em uma tabela em uma conta de armazenamento do Azure.
 
 > [!NOTE]
-> Esta associação de saída não dá suporte à atualização de entidades existentes. Use a operação `TableOperation.Replace` [do SDK do armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) para atualizar uma entidade existente.   
+> Esta associação de saída não dá suporte à atualização de entidades existentes. Use o [`TableOperation`](/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) apropriado do [SDK do armazenamento do Azure](/azure/cosmos-db/tutorial-develop-table-dotnet#insert-or-merge-an-entity) para atualizar uma entidade existente, conforme necessário.   
 
 ## <a name="output---example"></a>Saída - exemplo
 
@@ -789,7 +789,7 @@ A associação de saída de armazenamento de tabela dá suporte aos seguintes ce
 |---|---|
 | Tabelas | [Códigos de erro de tabela](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | BLOB, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| BLOB, tabela, fila | [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| BLOB, tabela, fila | [Resolução de Problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

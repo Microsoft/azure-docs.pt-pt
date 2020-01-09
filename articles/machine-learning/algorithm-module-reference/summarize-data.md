@@ -1,7 +1,7 @@
 ---
 title: Resumir Dados
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo resumir dados no serviço Azure Machine Learning para gerar um relatório de estatísticas descritivas básico para as colunas em um conjunto de dados.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo resumir dados em Azure Machine Learning para gerar um relatório de estatísticas descritivas básico para as colunas em um conjunto de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428462"
 ---
 # <a name="summarize-data"></a>Resumir Dados
 
@@ -59,7 +59,7 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Primeiro quartil**|Valor no primeiro quartil|
 |**Cuja**|Valor da coluna mediana|
 |**terceiro quartil**|Valor no terceiro quartil|
-|**Moda**|Modo de valores de coluna|
+|**Mode**|Modo de valores de coluna|
 |**Intervalo**|Inteiro que representa o número de valores entre os valores máximo e mínimo|
 |**Variação de amostra**|Variação para a coluna; consulte a observação|
 |**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
@@ -73,4 +73,4 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço.  
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.  

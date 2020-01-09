@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell amostra de script – exportar/copiar instantâneo como VHD para uma conta de armazenamento em uma região diferente
+title: Exportar/copiar instantâneo como VHD para uma conta de armazenamento em uma região diferente – exemplo do PowerShell
 description: Azure PowerShell amostra de script – exportar/copiar instantâneo como VHD para uma conta de armazenamento na mesma região diferente
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 5041261943ef8ff5c0ae64f45ea9008a538dae36
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 12b6c2abc9641f884cf1b90216cc1db0c53d0260
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368730"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em uma região diferente com o PowerShell
 

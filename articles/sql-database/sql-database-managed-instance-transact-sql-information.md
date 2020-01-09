@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707649"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552751"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -61,7 +61,7 @@ As instâncias gerenciadas têm backups automáticos, para que os usuários poss
   - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD`e `NOUNLOAD` não têm suporte.
   - Opções específicas de log: não há suporte para `NORECOVERY`, `STANDBY`e `NO_TRUNCATE`.
 
-Limitações 
+Limitações: 
 
 - Com uma instância gerenciada, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que é criptografado com o TDE (Transparent Data Encryption gerenciado por serviço). O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e restauração pontual ou use o [TDE (BYOK) gerenciado pelo cliente](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
@@ -406,41 +406,12 @@ Não há suporte para tabelas externas que fazem referência aos arquivos no HDF
 - Há suporte para os tipos de replicação de instantâneo e bidirecional. Não há suporte para replicação de mesclagem, replicação ponto a ponto e assinaturas atualizáveis.
 - A [replicação transacional](sql-database-managed-instance-transactional-replication.md) está disponível para visualização pública na instância gerenciada com algumas restrições:
     - Todos os tipos de participantes de replicação (editor, distribuidor, assinante de pull e assinante push) podem ser colocados em instâncias gerenciadas, mas o Publicador e o distribuidor devem estar tanto na nuvem quanto no local.
-    - As instâncias gerenciadas podem se comunicar com as versões recentes do SQL Server. Consulte as versões com suporte [aqui](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - As instâncias gerenciadas podem se comunicar com as versões recentes do SQL Server. Consulte a [matriz de versões com suporte](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) para obter mais informações.
     - A replicação transacional tem alguns [requisitos de rede adicionais](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Para obter informações sobre como configurar a replicação, consulte o [tutorial de replicação](replication-with-sql-database-managed-instance.md).
-
-
-Se a replicação estiver habilitada em um banco de dados em um [grupo de failover](sql-database-auto-failover-group.md), o administrador da instância gerenciada deverá limpar todas as publicações na primária antiga e reconfigurá-las no novo primário após a ocorrência de um failover. As seguintes atividades são necessárias neste cenário:
-
-1. Pare todos os trabalhos de replicação em execução no banco de dados, se houver algum.
-2. Remova os metadados da assinatura do Publicador executando o seguinte script no banco de dados do Publicador:
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Remova os metadados da assinatura do Assinante. Execute o seguinte script no banco de dados de assinatura na instância do Assinante:
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Force a remoção de todos os objetos de replicação do Publicador executando o seguinte script no banco de dados publicado:
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Force a remoção do distribuidor antigo da instância primária original (se estiver fazendo failover novamente para um antigo primário que costumava ter um distribuidor). Execute o seguinte script no banco de dados mestre na instância gerenciada antiga do distribuidor:
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+Para obter mais informações sobre como configurar a replicação transacional, consulte os seguintes tutoriais:
+- [Replicação entre um Publicador e um assinante MI](replication-with-sql-database-managed-instance.md)
+- [Replicação entre um Publicador de MI, um distribuidor de MI e um assinante de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>Instrução RESTOre 
 
@@ -470,7 +441,7 @@ As opções de banco de dados a seguir são definidas ou substituídas e não po
 - Qualquer grupo de arquivos com otimização de memória existente é renomeado para XTP. 
 - as opções `SINGLE_USER` e `RESTRICTED_USER` são convertidas em `MULTI_USER`.
 
-Limitações 
+Limitações: 
 
 - Os backups dos bancos de dados corrompidos podem ser restaurados dependendo do tipo de corrupção, mas os backups automatizados não serão feitos até que a corrupção seja corrigida. Certifique-se de executar `DBCC CHECKDB` na instância de origem e usar `WITH CHECKSUM` de backup para evitar esse problema.
 - A restauração do arquivo de `.BAK` de um banco de dados que contém qualquer limitação descrita neste documento (por exemplo, `FILESTREAM` ou `FILETABLE` objetos) não pode ser restaurada em Instância Gerenciada.
@@ -526,7 +497,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 - O número de vCores e tipos de instâncias que você pode implantar em uma região têm algumas [restrições e limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Há algumas [regras de segurança que devem ser aplicadas na sub-rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-### <a name="vnet"></a>VIRTUAL
+### <a name="vnet"></a>VNET
 - A VNet pode ser implantada usando modelo de recurso-modelo clássico para VNet sem suporte.
 - Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 - Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e instâncias gerenciadas (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não poderão acessar instâncias gerenciadas em regiões diferentes se seus VNets estiverem conectados usando o [emparelhamento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
@@ -535,11 +506,55 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O tamanho máximo de `tempdb` em uma camada de Comercialmente Crítico é limitado pelo tamanho do armazenamento da instância. `Tempdb` tamanho do arquivo de log é limitado a 120 GB na camada Uso Geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 
+### <a name="msdb"></a>MSDB
+
+Os seguintes esquemas MSDB na instância gerenciada devem ser de propriedade de suas respectivas funções predefinidas:
+
+- Funções gerais
+  - TargetServersRole
+- [Funções de banco de dados fixas](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [Funções DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+  - DatabaseMailUserRole
+- [Funções do Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> Alterar os nomes de função predefinidos, nomes de esquema e proprietários de esquema por clientes afetará a operação normal do serviço. Todas as alterações feitas a elas serão revertidas para os valores predefinidos assim que forem detectadas ou na próxima atualização de serviço, na versão mais recente, para garantir a operação normal de serviço.
+
 ### <a name="error-logs"></a>Registos de erros
 
 Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros do. Use um procedimento personalizado para ler logs de erro que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [extensão de instância gerenciada (versão prévia)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
-## <a name="Issues"></a>Problemas conhecidos
+## <a name="Issues"></a> Problemas conhecidos
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>As funções do SQL Agent precisam de permissões de execução explícitas para logons não sysadmin
+
+**Data:** Dec 2019
+
+Se os logons não-sysadmin forem adicionados a qualquer uma das [funções de banco de dados fixas do SQL Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), existe um problema no qual as permissões de execução explícitas precisam ser concedidas aos procedimentos armazenados mestres para que esses logons funcionem. Se esse problema for encontrado, a mensagem de erro "a permissão de execução foi negada no objeto < object_name > (Microsoft SQL Server, erro: 229)" será mostrada.
+
+**Solução alternativa**: depois de adicionar logons a uma das funções de banco de dados fixas do SQL Agent: SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, para cada um dos logons adicionados a essas funções, execute o script T-SQL abaixo para conceder explicitamente permissões de execução aos procedimentos armazenados listados.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente
+
+**Data:** Dec 2019
+
+O SQL Agent cria uma nova sessão toda vez que o trabalho é iniciado, aumentando gradualmente o consumo de memória. Para evitar atingir o limite de memória interna que bloquearia a execução de trabalhos agendados, o processo do agente será reiniciado quando seu consumo de memória atingir o limite. Isso pode resultar na interrupção da execução de trabalhos em execução no momento da reinicialização.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Os limites de memória OLTP na memória não são aplicados
 

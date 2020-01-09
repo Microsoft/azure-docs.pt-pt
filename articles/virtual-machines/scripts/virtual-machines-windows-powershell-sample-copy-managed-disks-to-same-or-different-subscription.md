@@ -1,6 +1,6 @@
 ---
-title: Amostra de script de Azure PowerShell – copiar (mover) discos gerenciados para a mesma assinatura ou outra
-description: Amostra de script de Azure PowerShell – copiar (mover) discos gerenciados para a mesma assinatura ou outra
+title: Copiar discos gerenciados para uma assinatura-exemplo do PowerShell
+description: Exemplo de script Azure PowerShell – copiar ou mover discos gerenciados para a mesma assinatura ou para outra
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: e494770d182a74320237c447e9afc7f7d2665499
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8d0f14c0223667773af4e723acaf503460290194
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368917"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos gerenciados na mesma assinatura ou em uma assinatura diferente com o PowerShell
 

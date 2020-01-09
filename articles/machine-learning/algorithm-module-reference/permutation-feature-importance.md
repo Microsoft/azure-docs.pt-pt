@@ -1,7 +1,7 @@
 ---
 title: 'Importância do recurso de permuta: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de importância do recurso de permuta no serviço de Azure Machine Learning para computar as pontuações de importância do recurso de permuta das variáveis de recurso, dado um modelo treinado e um conjunto de dados de teste.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo importância do recurso de permuta no Azure Machine Learning para computar as pontuações de importância do recurso de permuta das variáveis de recurso, dado um modelo treinado e um conjunto de dados de teste.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428495"
 ---
-# <a name="permutation-feature-importance"></a>Importância do recurso de permuta
+# <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
 
 Este artigo descreve como usar o módulo de importância do recurso de permuta no designer de Azure Machine Learning (versão prévia), para computar um conjunto de pontuações de importância do recurso para seu conjunto de seus. Você usa essas pontuações para ajudá-lo a determinar os melhores recursos a serem usados em um modelo.
 
@@ -69,4 +69,4 @@ O motivo da diferença é que a importância do recurso de permuta não mede a a
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
 title: Multiclasse Um contra Todos
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo Multiclasse Um contra Todos no serviço Azure Machine Learning para criar um modelo de classificação multiclasse a partir de um Ensemble de modelos de classificação binária.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo Multiclasse Um contra Todos no Azure Machine Learning para criar um modelo de classificação multiclasse a partir de um Ensemble de modelos de classificação binária.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428505"
 ---
 # <a name="one-vs-all-multiclass"></a>Multiclasse Um contra Todos
 
@@ -61,4 +61,4 @@ Como alternativa, você pode passar o classificador não treinado para o modelo 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

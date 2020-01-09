@@ -1,7 +1,7 @@
 ---
 title: Aplicar Operação Matemática
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo aplicar operação matemática no serviço Azure Machine Learning para aplicar uma operação matemática a valores de coluna em um pipeline.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo aplicar operação matemática em Azure Machine Learning para aplicar uma operação matemática a valores de coluna em um pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428613"
 ---
 # <a name="apply-math-operation"></a>Aplicar Operação Matemática
 
@@ -92,7 +92,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
 
 Se você gerar os resultados usando as opções **Append** ou **ResultOnly** , os cabeçalhos de coluna do conjunto de resultados retornado indicarão a operação e as colunas que foram usadas. Por exemplo, se você comparar duas colunas usando o operador **Equals** , os resultados teriam a seguinte aparência:  
   
--   **Equals (Col2_Col1)** , indicando que você testou o Col2 em relação a col1.  
+-   **Equals (Col2_Col1)** , indicando que você testou Col2 em col1.  
 -   **Equals (Col2_ $10)** , indicando que você comparou a coluna 2 com a constante 10.  
 
 Mesmo que você use a opção de **local** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível no designer. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
@@ -103,7 +103,7 @@ As funções na categoria **básica** geralmente usam um único valor de uma col
   
  O Azure Machine Learning dá suporte às seguintes funções na categoria **básica** :  
 
-### <a name="abs"></a>ABS
+### <a name="abs"></a>Abs
 
 Retorna o valor absoluto das colunas selecionadas.  
   
@@ -162,7 +162,7 @@ Retorna o logaritmo natural dos valores na coluna selecionada.
 
 Retorna o logaritmo natural mais um para os valores na coluna selecionada.  
 
-### <a name="log"></a>Registar
+### <a name="log"></a>Registo
 
 Retorna o log dos valores na coluna selecionada, dada a base especificada.  
 
@@ -213,7 +213,7 @@ Use as funções de comparação no Azure Machine Learning designer a qualquer m
 - Avaliar uma coluna do modelo de Pontuação de probabilidade em relação a um valor limite.
 - Determine se dois conjuntos de resultados são os mesmos. Para cada linha diferente, adicione um sinalizador falso que pode ser usado para processamento adicional ou filtragem.  
 
-### <a name="equalto"></a>Igual a
+### <a name="equalto"></a>EqualTo
 
 Retornará true se os valores forem iguais.  
 
@@ -253,8 +253,8 @@ A ordem na qual você escolhe as colunas para divisão e subtração pode parece
 
 Operação|Num1|Num2|Coluna de resultado|Valor do resultado|
 ----|----|----|----|----
-|Além|1|5|Adicionar (Num2_Num1)| 4|
-|Multiplicação|1|5|Multiple (Num2_Num1)|5|
+|Adição|1|5|Adicionar (Num2_Num1)| 4|
+|Multiplicação|1|5|Vários (Num2_Num1)|5|
 |Subtração|1|5|Subtrair (Num2_Num1)|4|
 |Subtração|0|1|Subtrair (Num2_Num1)|0|
 |Divisão|1|5|Dividir (Num2_Num1)|5|
@@ -274,7 +274,7 @@ Divide os valores na **coluna definida** por uma constante ou pelos valores de c
 
 Multiplica os valores na **coluna definida** pelos valores de constante ou coluna especificados.  
 
-### <a name="subtract"></a>Subtrair
+### <a name="subtract"></a>Subtract
 
 Especifique a coluna de valores para operar (o *minuendo*), escolhendo uma coluna diferente, usando a opção **conjunto de colunas** . Em seguida, especifique o número a ser subtraído (o *subtraendo*) usando a segunda lista suspensa de **argumentos** . Você pode escolher uma constante ou coluna de valores.
 
@@ -286,7 +286,7 @@ O designer de Azure Machine Learning dá suporte a uma variedade de operações 
 
 - Para usar um valor de precisão diferente para cada linha em seu conjunto de linhas, defina **tipo de precisão** como **ColumnSet**e escolha a coluna que contém os valores de precisão apropriados.  
 
-### <a name="ceiling"></a>Limite
+### <a name="ceiling"></a>Ceiling
 
 Retorna o teto para os valores na **coluna definida**.  
 
@@ -298,7 +298,7 @@ Retorna o teto quadrado para os valores na **coluna definida**.
 
 Retorna o piso para os valores na **coluna definida**, para a precisão especificada.  
 
-### <a name="mod"></a>resto
+### <a name="mod"></a>Mod
 
 Retorna a parte fracionária dos valores na **coluna definida**para a precisão especificada.  
 
@@ -430,7 +430,7 @@ Calcula o arco cosseno dos valores de coluna, em graus.
 
 Calcula o arco cosseno hiperbólico dos valores de coluna.  
 
-### <a name="acot"></a>ACOT
+### <a name="acot"></a>Acot
 
 Calcula o arco cotangente dos valores da coluna.  
 
@@ -461,7 +461,7 @@ Calcula o arcosecante dos valores de coluna, em graus.
 
 Calcula o arcosecante hiperbólico dos valores de coluna.  
 
-### <a name="asin"></a>ASIN
+### <a name="asin"></a>Asin
 
 Calcula o arco seno dos valores da coluna.  
 
@@ -473,7 +473,7 @@ Calcula o arco seno dos valores de coluna, em graus.
 
 Calcula o arco seno hiperbólico para os valores de coluna.  
 
-### <a name="atan"></a>ATAN
+### <a name="atan"></a>Atan
 
 Calcula o arco tangente dos valores de coluna.  
 
@@ -485,7 +485,7 @@ Calcula o arco tangente dos valores de coluna, em graus.
 
 Calcula o arco tangente hiperbólico dos valores de coluna.  
 
-### <a name="cos"></a>Exibi
+### <a name="cos"></a>Cos
 
 Calcula o cosseno dos valores de coluna.  
 
@@ -524,7 +524,7 @@ Calcula a cossecante hiperbólica para os valores de coluna.
 
 Converte graus em radianos.  
 
-### <a name="sec"></a>Seção
+### <a name="sec"></a>Sec.
 
 Calcula a secante dos valores da coluna.  
 
@@ -536,7 +536,7 @@ Calcula a secante para os valores de coluna, em graus.
 
 Calcula a secante Hiperbólica dos valores de coluna.  
 
-### <a name="sign"></a>Assine
+### <a name="sign"></a>Assinar
 
 Retorna o sinal dos valores da coluna.  
 
@@ -556,7 +556,7 @@ Calcula o seno para os valores de coluna, em graus.
 
 Calcula o seno hiperbólico dos valores de coluna.  
 
-### <a name="tan"></a>queimado
+### <a name="tan"></a>Tan
 
 Calcula a tangente dos valores da coluna.  
 
@@ -590,4 +590,4 @@ Como alternativa, use um dos seguintes módulos para fazer todos os cálculos de
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

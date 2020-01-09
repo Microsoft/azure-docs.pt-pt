@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Node. js'
+title: 'Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Node. js'
 titleSuffix: Azure Cognitive Services
 description: Saiba como começar a sugerir rapidamente os termos de pesquisa em tempo real com o API de Sugestão Automática do Bing.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0dd25f5ff3767e65eeb293d6a046da034d5c8879
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9a5cce8102e3a1b3f9beaad8c42b278c56560be9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384939"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Node. js
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Início rápido: sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Node. js
 
 Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do node. js envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
@@ -37,7 +37,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
     let https = require ('https');
     ```
 
-2. Crie variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura, [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e um termo de pesquisa.
+2. Crie variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura, [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e um termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -52,7 +52,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
 
 ## <a name="construct-the-search-request-and-query"></a>Crie a consulta e o pedido de pesquisa.
 
-1. Crie uma cadeia de caracteres de parâmetros para a consulta acrescentando o código do `mkt=` mercado ao parâmetro e sua consulta `q=` ao parâmetro.
+1. Crie uma cadeia de caracteres de parâmetros para a consulta acrescentando o código do mercado ao parâmetro `mkt=` e sua consulta ao parâmetro `q=`.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
@@ -102,7 +102,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
         });
         ```
 
-    3. Quando um sinalizador de **fim** é sinalizado, `JSON.parse()` o `JSON.stringify()` usuário e a resposta são impressos.
+    3. Quando um sinalizador de **fim** é sinalizado, o usuário `JSON.parse()` e `JSON.stringify()` para imprimir a resposta.
     
         ```javascript
         response.on ('end', function () {
@@ -115,7 +115,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
         });
         ```
 
-2. Chame `get_suggestions()` para enviar a solicitação para o API de sugestão automática do Bing.
+2. Chame `get_suggestions()` para enviar a solicitação para o API de Sugestão Automática do Bing.
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 
@@ -185,7 +185,7 @@ Use este guia de início rápido para começar a fazer chamadas para o API de Su
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorials/autosuggest.md)

@@ -1,28 +1,19 @@
 ---
-title: Início rápido - implementar uma aplicação web para o modo de malha do Azure Service Fabric | Documentos da Microsoft
-description: Este guia de introdução mostra-lhe como criar um Web site do ASP.NET Core e publicá-lo para o modo de malha do Azure Service Fabric com o Visual Studio.
-services: service-fabric-mesh
-documentationcenter: .net
+title: Início rápido-implantar um aplicativo Web no Azure Service Fabric malha
+description: Este guia de início rápido mostra como criar um site ASP.NET Core e publicá-lo no Azure Service Fabric malha usando o Visual Studio.
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459061"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Início rápido: Criar e implementar uma aplicação web no Azure Service Fabric Mesh
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guia de Início Rápido: criar e implementar uma aplicação Web no Azure Service Fabric Mesh
 
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes.
 
@@ -80,7 +71,7 @@ Em **Resource group** (Grupo de recursos), selecione **\<Create New Resource Gro
 
 ![Caixa de diálogo do novo grupo de recursos do Service Fabric Mesh do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-De volta à caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric), em **Azure Container Registry**, selecione  **\<Create New Container Registry...>** (Criar Novo Registo de Contentor). Na caixa de diálogo **Create Container Registry** (Criar Registo de Contentor), utilize um nome exclusivo para o **Container registry name** (Nome do registo de contentor). Especifique uma **Location** (Localização) (este guia de início rápido utiliza **E.U.A. Leste**). Selecione o **Grupo de recursos** que criou no passo anterior na lista pendente, por exemplo, **sfmeshTutorial1RG**. Defina o **SKU** como **Basic** (Básico) e, em seguida, clique em **Create** (Criar) para voltar à caixa de diálogo de publicação.
+De volta à caixa de diálogo **Publish Service Fabric Application** (Publicar Aplicação do Service Fabric), em **Azure Container Registry**, selecione **\<Create New Container Registry...>** (Criar Novo Registo de Contentor). Na caixa de diálogo **Create Container Registry** (Criar Registo de Contentor), utilize um nome exclusivo para o **Container registry name** (Nome do registo de contentor). Especifique uma **Location** (Localização) (este guia de início rápido utiliza **E.U.A. Leste**). Selecione o **Grupo de recursos** que criou no passo anterior na lista pendente, por exemplo, **sfmeshTutorial1RG**. Defina o **SKU** como **Basic** (Básico) e, em seguida, clique em **Create** (Criar) para voltar à caixa de diálogo de publicação.
 
 ![Caixa de diálogo do novo grupo de recursos do Service Fabric Mesh do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -116,7 +107,7 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 Em alternativa, pode eliminar o grupo de recursos [do portal do Azure](https://portal.azure.com).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como criar e implementar aplicações do Service Fabric Mesh, avance para o tutorial.
 > [!div class="nextstepaction"]

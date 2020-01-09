@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226803"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561937"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -31,10 +31,10 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 |                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração da rede virtual](#virtual-network-integration)|❌não|✅Sim (regional)|✅Sim (regional e gateway)|✅Sim|
-|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌não| ❌não|✅Sim|✅Sim|
-|[Ligações híbridas](#hybrid-connections)|❌não|✅Sim|✅Sim|✅Sim|
-|[Restrições de IP de saída](#outbound-ip-restrictions)|❌não| ❌não|❌não|✅Sim|
+|[Integração da rede virtual](#virtual-network-integration)|❌Não|✅Sim (regional)|✅Sim (regional e gateway)|✅Sim|
+|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
+|[Conexões híbridas](#hybrid-connections) (somente Windows)|❌Não|✅Sim|✅Sim|✅Sim|
+|[Restrições de IP de saída](#outbound-ip-restrictions)|❌Não| ❌Não|❌Não|✅Sim|
 
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
 
@@ -79,7 +79,7 @@ Nenhum recurso permite que você alcance endereços não RFC 1918 no ExpressRout
 
 O uso da integração de rede virtual regional não conecta sua rede virtual a pontos de extremidade locais ou configura pontos de extremidade de serviço. Essa é uma configuração de rede separada. A integração de rede virtual regional apenas permite que seu aplicativo faça chamadas entre esses tipos de conexão.
 
-Independentemente da versão usada, a integração de rede virtual dá ao seu aplicativo de funções acesso aos recursos em sua rede virtual, mas não concede acesso de site privado ao seu aplicativo de funções da rede virtual. Acesso ao site privado significa tornar seu aplicativo acessível somente de uma rede privada como uma rede virtual do Azure. a integração de rede virtual é apenas para fazer chamadas de saída de seu aplicativo para sua rede virtual.
+Independentemente da versão usada, a integração de rede virtual dá ao seu aplicativo de funções acesso aos recursos em sua rede virtual, mas não concede acesso de site privado ao seu aplicativo de funções da rede virtual. Acesso ao site privado significa tornar seu aplicativo acessível somente de uma rede privada como uma rede virtual do Azure. A integração de rede virtual é apenas para fazer chamadas de saída de seu aplicativo para sua rede virtual.
 
 O recurso de integração de rede virtual:
 
@@ -91,7 +91,7 @@ Há algumas coisas para as quais a integração de rede virtual não dá suporte
 
 * A montagem de drives
 * Integração com o Active Directory
-* Output
+* NetBIOS
 
 A integração de rede virtual no Azure Functions usa a infraestrutura compartilhada com aplicativos Web do serviço de aplicativo. Para saber mais sobre os dois tipos de integração de rede virtual, consulte:
 
@@ -123,19 +123,51 @@ No momento, [Key Vault referências](../app-service/app-service-key-vault-refere
 
 ## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtual (não HTTP)
 
-Atualmente, para usar gatilhos de função diferentes de HTTP de dentro de uma rede virtual, você deve executar seu aplicativo de funções em um plano do serviço de aplicativo ou em um Ambiente do Serviço de Aplicativo.
+No momento, você pode usar funções de gatilho não HTTP de dentro de uma rede virtual de uma das duas maneiras: 
++ Execute seu aplicativo de funções em um plano Premium e habilite o suporte ao gatilho de rede virtual.
++ Execute seu aplicativo de funções em um plano do serviço de aplicativo ou Ambiente do Serviço de Aplicativo.
 
-Por exemplo, suponha que você deseja configurar Azure Cosmos DB para aceitar o tráfego somente de uma rede virtual. Você precisaria implantar seu aplicativo de funções em um plano do serviço de aplicativo que fornece integração de rede virtual com essa rede virtual para configurar Azure Cosmos DB gatilhos desse recurso. Durante a visualização, a configuração da integração de rede virtual não permite que o plano Premium dispare que Azure Cosmos DB recurso.
+### <a name="premium-plan-with-virtual-network-triggers"></a>Plano Premium com gatilhos de rede virtual
 
-Consulte [esta lista para todos os gatilhos não-http](./functions-triggers-bindings.md#supported-bindings) para verificar o que tem suporte.
+Ao executar em um plano Premium, você pode conectar funções de gatilho não HTTP a serviços em execução dentro de uma rede virtual. Para fazer isso, você deve habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração de **suporte do gatilho de rede virtual** é encontrada no [portal do Azure](https://portal.azure.com) em configurações do **aplicativo de funções**.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+Você também pode habilitar gatilhos de rede virtual usando o seguinte comando de CLI do Azure:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+Os gatilhos de rede virtual têm suporte na versão 2. x e superior do tempo de execução do functions. Há suporte para os seguintes tipos de gatilho não HTTP.
+
+| Extensão | Versão Mínima |
+|-----------|---------| 
+|[Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 ou superior |
+|[Microsoft. Azure. webjobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 ou superior|
+|[Microsoft. Azure. webjobs. Extensions. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 ou superior|
+|[Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 ou superior|
+|[Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 ou superior|
+
+> [!IMPORTANT]
+> Ao habilitar o suporte de gatilho de rede virtual, somente os tipos de gatilho acima são dimensionados dinamicamente com seu aplicativo. Você ainda pode usar gatilhos não listados acima, no entanto, eles não são dimensionados além de sua contagem de instâncias previamente passiva. Consulte [gatilhos e associações](./functions-triggers-bindings.md#supported-bindings) para obter a lista completa de gatilhos.
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plano e Ambiente do Serviço de Aplicativo do serviço de aplicativo com gatilhos de rede virtual
+
+Quando seu aplicativo de funções é executado em um plano do serviço de aplicativo ou em um Ambiente do Serviço de Aplicativo, você pode usar funções de gatilho não HTTP. Para que suas funções sejam disparadas corretamente, você deve estar conectado a uma rede virtual com acesso ao recurso definido na conexão do gatilho. 
+
+Por exemplo, suponha que você deseja configurar Azure Cosmos DB para aceitar o tráfego somente de uma rede virtual. Nesse caso, você deve implantar seu aplicativo de funções em um plano do serviço de aplicativo que fornece integração de rede virtual com essa rede virtual. Isso permite que uma função seja disparada por esse Azure Cosmos DB recurso. 
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-[Conexões híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Você não pode usá-lo para acessar seu aplicativo. Conexões Híbridas está disponível para funções em execução em todos, exceto no plano de consumo.
+[Conexões híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Você não pode usá-lo para acessar seu aplicativo. Conexões Híbridas está disponível para funções em execução no Windows em todos, exceto no plano de consumo.
 
 Conforme usado em Azure Functions, cada conexão híbrida se correlaciona com uma única combinação de host e porta de TCP. Isso significa que o ponto de extremidade da conexão híbrida pode estar em qualquer sistema operacional e qualquer aplicativo, desde que você esteja acessando uma porta de escuta TCP. O recurso Conexões Híbridas não conhece ou se preocupa com o que é o protocolo de aplicativo ou o que você está acessando. Ele apenas fornece acesso à rede.
 
 Para saber mais, confira a [documentação do serviço de aplicativo para conexões híbridas](../app-service/app-service-hybrid-connections.md). Essas mesmas etapas de configuração oferecem suporte a Azure Functions.
+
+>[!IMPORTANT]
+> Só há suporte para Conexões Híbridas em planos do Windows. Não há suporte para Linux
 
 ## <a name="outbound-ip-restrictions"></a>Restrições de IP de saída
 

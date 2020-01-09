@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2251725597e44a15e421f33cc315be3fb1c7846f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485431"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459176"
 ---
 A Computação do Azure oferece tamanhos de máquinas virtuais que são Isolados para um tipo de hardware específico e dedicados a um único cliente.  Estes tamanhos de máquinas virtuais são mais adequados para cargas de trabalho que exigem um elevado grau de isolamento de outros clientes para cargas de trabalho que envolvem elementos como os requisitos de conformidade e regulamentares.  Os clientes também podem optar por subdividir ainda mais os recursos dessas máquinas virtuais isoladas usando o [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -30,7 +30,7 @@ A utilização de um tamanho isolado garante que sua máquina virtual será a ú
 Você pode saber mais sobre cada tamanho isolado disponível [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Desativar o isolamento de D15_v2/DS15_v2 em 15 de fevereiro de 2020
-Anunciamos recentemente a versão prévia do host dedicado do Azure, que permite que você execute as máquinas virtuais Linux e Windows de sua organização em servidores físicos de locatário único. Planejamos substituir totalmente VMs do Azure isoladas pelo host dedicado do Azure. Após **15 de fevereiro de 2020,** as VMs do Azure D15_v2/DS15_v2 podem não estar mais isoladas em hardware.
+O host dedicado do Azure agora é GA, que permite que você execute as máquinas virtuais Linux e Windows de sua organização em servidores físicos de locatário único. Planejamos substituir totalmente VMs do Azure isoladas pelo host dedicado do Azure. Após **15 de fevereiro de 2020,** as VMs do Azure D15_v2/DS15_v2 podem não estar mais isoladas em hardware.
 
 ## <a name="how-does-this-affect-me"></a>Como é que isto me afeta?
 Após 15 de fevereiro de 2020, não forneceremos mais uma garantia de isolamento para suas máquinas virtuais do Azure D15_v2/DS15_v2. 
@@ -40,7 +40,7 @@ Se o isolamento de hardware não for necessário para você, não haverá nenhum
 
 Se o isolamento for necessário para você, antes de 15 de fevereiro de 2020, você precisaria:
 
-• [Migre](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) sua carga de trabalho para a versão prévia do host dedicado do Azure
+• [Migre](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) sua carga de trabalho para o host dedicado do Azure.
 
 • [Solicitar acesso](https://aka.ms/D15iRequestAccess) a uma D15i_v2 e DS15i_v2 VM do Azure para obter o mesmo desempenho de preço. Essa opção só está disponível para cenários de instância reservada pago pelo uso e de um ano.    
 
@@ -76,7 +76,7 @@ Para obter detalhes, veja abaixo:
 ### <a name="q-i-already-purchased-1--or-3-year-reserved-instance-for-d15_v2-or-ds15_v2-how-will-the-discount-be-applied-to-my-vm-usage"></a>P: já comprei uma instância reservada de 1 ou 3 anos para D15_v2 ou Ds15_v2. Como o desconto será aplicado ao meu uso da VM?
 **R: o**RIS adquirido antes de 18 de novembro de 2019 irá estender automaticamente a cobertura para a nova série de VMs isoladas. 
 
-| REFERENCIA |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
+| RI |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
 | --- | --- | --- |
 |   D15_v2  |   Desativado     |   D15_v2 e D15i_v2 |    
 |   D15_v2  |   Ativado  |   D15_v2 série e D15i_v2 receberão o benefício RI. |    
@@ -87,7 +87,7 @@ Da mesma forma para a série Dsv2.
 ### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>P: desejo adquirir instâncias reservadas adicionais para Dv2. Qual devo escolher?
 **R**: todos os RIS adquiridos após 18 de novembro de 2019 têm o seguinte comportamento. 
 
-| REFERENCIA |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
+| RI |  Flexibilidade do tamanho da instância | Elegibilidade do benefício |   
 | --- | --- | --- |
 | D15_v2 |  Desativado |   Somente D15_v2  
 | D15_v2 |  Ativado |    A série D15_v2 receberá o benefício de RI. O novo D15i_v2 não será elegível para o benefício de RI desse tipo de RI. | 

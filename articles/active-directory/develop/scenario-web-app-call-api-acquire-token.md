@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423540"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Aplicativo Web que chama APIs da Web – adquirir um token para o aplicativo
 
@@ -33,7 +33,7 @@ Agora que você criou o objeto de aplicativo cliente, você o usará para adquir
 
 Os métodos do controlador são protegidos por um atributo `[Authorize]` que força os usuários que estão sendo autenticados a usar o aplicativo Web. Aqui está o código que chama Microsoft Graph.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -54,7 +54,7 @@ O serviço `ITokenAcquisition` é injetado por ASP.NET por meio de injeção de 
 
 Aqui está um código simplificado da ação do HomeController, que obtém um token para chamar o Microsoft Graph.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token
@@ -153,7 +153,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 No exemplo de Python, o código que chama o Microsoft Graph está em [app. py # L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-Ele tenta obter um token do cache de token e, em seguida, chama a API EB depois de definir o cabeçalho Authorization. Se não puder, ele assinará novamente o usuário.
+Ele tenta obter um token do cache de token e, em seguida, chama a API da Web depois de definir o cabeçalho Authorization. Se não puder, ele assinará novamente o usuário.
 
 ```python
 @app.route("/graphcall")

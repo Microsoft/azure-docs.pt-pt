@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9358d99c66b3b8e3d6988b1881e51c11848ad97b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300621"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638532"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Mover um balanceador de carga externo para outra região usando o portal do Azure
 
@@ -32,7 +32,7 @@ Em um sentido literal, você não pode mover um balanceador de carga externo do 
 
 - Verifique se sua assinatura do Azure permite criar balanceadores de carga externos na região de destino. Contacte o suporte para ativar a quota necessária.
 
-- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição dos balanceadores de carga. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Verifique se sua assinatura tem recursos suficientes para dar suporte à adição dos balanceadores de carga. Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## <a name="prepare-and-move"></a>Preparar e mover
 Os procedimentos a seguir mostram como preparar o balanceador externo de carga para a movimentação usando um modelo do Resource Manager e mover a configuração do balanceador de carga externo para a região de destino usando o portal do Azure. Primeiro, você deve exportar a configuração de IP público do balanceador de carga externo.
@@ -43,7 +43,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e selecione-o.
-3. Selecione **configurações** > **Exportar modelo**.
+3. Selecione **configurações** > **modelo de exportação**.
 4. Selecione **implantar** em **Exportar modelo**.
 5. Selecione **modelo** > **Editar parâmetros** para abrir o arquivo Parameters. JSON no editor online.
 8. Para editar o parâmetro do nome do IP público, altere a propriedade **Value** em **parâmetros** do nome IP público de origem para o nome do seu IP público de destino. Coloque o nome entre aspas.
@@ -141,11 +141,11 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
  
 13. Selecione **salvar** no editor online.
 
-14. Selecione**assinatura** **básica** > para escolher a assinatura na qual o IP público de destino será implantado.
+14. Selecione **noções básicas** > **assinatura** para escolher a assinatura na qual o IP público de destino será implantado.
 
-15. Selecione**grupo de recursos** **básicos** > para escolher o grupo de recursos no qual o IP público de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o IP público de destino. Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
+15. Selecione **noções básicas** > **grupo de recursos** para escolher o grupo de recursos em que o IP público de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o IP público de destino. Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
 
-16. Verifique se**local** **básico** > está definido como o local de destino onde você deseja que o IP público seja implantado.
+16. Verifique se o **local** **básico** > está definido como o local de destino onde você deseja que o IP público seja implantado.
 
 17. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros.
 
@@ -159,7 +159,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 2. Localize o grupo de recursos que contém o balanceador de carga externo de origem e selecione-o.
-3. Selecione **configurações** > **Exportar modelo**.
+3. Selecione **configurações** > **modelo de exportação**.
 4. Selecione **implantar** em **Exportar modelo**.
 5. Selecione **modelo** > **Editar parâmetros** para abrir o arquivo Parameters. JSON no editor online.
 
@@ -182,7 +182,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
     1. Em outra guia ou janela do navegador, entre no [portal do Azure](https://portal.azure.com) e selecione **grupos de recursos**.
     2. Localize o grupo de recursos de destino que contém o IP público que você moveu nas etapas anteriores. Selecione-o.
-    3. Selecione **configurações** > **Propriedades**.
+    3. Selecione **Configurações** > **Propriedades**.
     4. Na folha à direita, realce a **ID do recurso** e copie-a para a área de transferência. Como alternativa, você pode selecionar **copiar para a área de transferência** à direita do caminho da **ID de recurso** .
     5. Cole a ID do recurso na propriedade **valor** no editor **Editar parâmetros** que está aberto na outra janela do navegador ou na guia:
 
@@ -389,11 +389,11 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 12. Selecione **salvar** no editor online.
 
-13. Selecione**assinatura** **básica** > para escolher a assinatura na qual o balanceador de carga externo de destino será implantado.
+13. Selecione **noções básicas** > **assinatura** para escolher a assinatura em que o balanceador de carga externo de destino será implantado.
 
-15. Selecione**grupo de recursos** **básicos** > para escolher o grupo de recursos no qual o balanceador de carga de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o balanceador de carga externo de destino. Ou você pode escolher o grupo de recursos existente que você criou anteriormente para o IP público. Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador externo de carga de origem existente.
+15. Selecione **noções básicas** > **grupo de recursos** para escolher o grupo de recursos em que o balanceador de carga de destino será implantado. Você pode selecionar **criar novo** para criar um novo grupo de recursos para o balanceador de carga externo de destino. Ou você pode escolher o grupo de recursos existente que você criou anteriormente para o IP público. Verifique se o nome não é o mesmo que o grupo de recursos de origem do balanceador externo de carga de origem existente.
 
-16. Verifique se**local** **básico** > está definido como o local de destino onde você deseja que o balanceador de carga externo seja implantado.
+16. Verifique se o **local** **básico** > está definido como o local de destino onde você deseja que o balanceador de carga externo seja implantado.
 
 17. Em **configurações**, verifique se o nome corresponde ao nome que você inseriu anteriormente no editor de parâmetros. Verifique se as IDs de recurso são populadas para qualquer IPs público na configuração.
 
@@ -401,7 +401,7 @@ Os procedimentos a seguir mostram como preparar o balanceador externo de carga p
 
 19. Selecione **comprar** para implantar o IP público de destino.
 
-## <a name="discard"></a>Rejeitar
+## <a name="discard"></a>Eliminar
 
 Se você quiser descartar o IP público de destino e o balanceador de carga externo, exclua o grupo de recursos que os contém. Para fazer isso, selecione o grupo de recursos no painel no portal e, em seguida, selecione **excluir** na parte superior da página Visão geral.
 

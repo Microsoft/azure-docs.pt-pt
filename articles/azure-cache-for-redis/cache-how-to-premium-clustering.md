@@ -1,17 +1,17 @@
 ---
-title: Como configurar o clustering do Redis para um cache Premium do Azure para Redis
+title: Configurar clustering do Redis-cache Premium do Azure para Redis
 description: Saiba como criar e gerenciar o clustering Redis para o cache do Azure da camada Premium para instâncias do Redis
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: yegu
-ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433437"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o clustering do Redis para um cache Premium do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em um cache do Azure Premium para a instância do Redis.
@@ -122,8 +122,7 @@ O protocolo de clustering Redis requer que cada cliente se conecte a cada fragme
 
 > [!NOTE]
 > Se você estiver usando o StackExchange. Redis como seu cliente, verifique se está usando a versão mais recente do [stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente. Se você tiver problemas com as exceções de movimentação, consulte [mover exceções](#move-exceptions) para obter mais informações.
-> 
-> 
+>
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>Como fazer conectar-se ao meu cache quando o clustering está habilitado?
 Você pode se conectar ao seu cache usando os mesmos [pontos de extremidade](cache-configure.md#properties), [portas](cache-configure.md#properties)e [chaves](cache-configure.md#access-keys) que você usa ao se conectar a um cache que não tem o clustering habilitado. O Redis gerencia o clustering no back-end para que você não precise gerenciá-lo do seu cliente.
@@ -142,7 +141,7 @@ Para não SSL, use os comandos a seguir.
 Para SSL, substitua `1300N` por `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Posso configurar o clustering para um cache criado anteriormente?
-Sim. Primeiro, verifique se o cache é Premium, dimensionando se não for. Em seguida, você deve ser capaz de ver as opções de configuração de cluster, incluindo uma opção para habilitar cluster. Você pode alterar o tamanho do cluster após a criação do cache ou depois de ter habilitado o clustering pela primeira vez.
+Sim. Primeiro, verifique se o cache é Premium, dimensionando se não for. Em seguida, você deve ser capaz de ver as opções de configuração de cluster, incluindo uma opção para habilitar o cluster. Você pode alterar o tamanho do cluster após a criação do cache ou depois de ter habilitado o clustering pela primeira vez.
 
    >[!IMPORTANT]
    >Não é possível desfazer a habilitação do clustering. E um cache com clustering habilitado e apenas um fragmento se comporta de *forma diferente* de um cache do mesmo tamanho *sem* clustering.
@@ -152,7 +151,7 @@ O clustering só está disponível para caches Premium.
 
 ### <a name="can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers"></a>Posso usar clustering com o estado de sessão do Redis ASP.NET e provedores de cache de saída?
 * **Provedor de cache de saída Redis** -nenhuma alteração necessária.
-* **Provedor de estado de sessão do Redis** – para usar o clustering, você deve usar o [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ou superior ou uma exceção é lançada. Essa é uma alteração significativa; para obter mais informações, consulte [detalhes da alteração de 2.0.0 de v](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+* **Provedor de estado de sessão do Redis** – para usar o clustering, você deve usar o [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ou superior ou uma exceção é lançada. Essa é uma alteração significativa; para obter mais informações, consulte [v 2.0.0 de alteração significativa](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 <a name="move-exceptions"></a>
 
@@ -171,10 +170,3 @@ Saiba como usar mais recursos de cache Premium.
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
-
-
-
-
-
-
-

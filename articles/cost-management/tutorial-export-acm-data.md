@@ -1,5 +1,5 @@
 ---
-title: Tutorial-criar e gerenciar dados exportados do gerenciamento de custos do Azure
+title: Tutorial – exportar dados do gerenciamento de custos do Azure
 description: Este artigo mostra como você pode criar e gerenciar dados exportados de gerenciamento de custos do Azure para que você possa usá-los em sistemas externos.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a462b3d165a596673049abbbb8b5b8d346f5fc9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d5f6bc4620d60d3eb776a6229450e02035b8290
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441010"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerir dados exportados
 
@@ -50,7 +50,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 Para criar ou exibir uma exportação de dados ou agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **análise de custo** no menu. Por exemplo, navegue até **assinaturas**, selecione uma assinatura na lista e, em seguida, selecione **análise de custo** no menu. Na parte superior da página análise de custo, clique em **Exportar** e escolha uma opção de exportação. Por exemplo, clique em **agendar exportação**.  
 
 > [!NOTE]
-> - Além das assinaturas, você pode criar exportações em grupos de recursos, contas, departamentos e registros. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
+> - Além de subscrições, pode criar exportações ao nível de grupos de recursos, contas, departamentos e inscrições. Para obter mais informações sobre escopos, consulte [entender e trabalhar com escopos](understand-work-scopes.md).
 >- Quando estiver conectado como um parceiro no escopo da conta de cobrança ou no locatário de um cliente, você poderá exportar dados para uma conta de armazenamento do Azure que esteja vinculada à sua conta de armazenamento do parceiro. No entanto, você deve ter uma assinatura ativa em seu locatário do CSP.
 >
 
@@ -63,27 +63,27 @@ Especifique a subscrição para a sua conta de armazenamento do Azure, em seguid
 
 ![Novo de exportação de exemplo que mostra os detalhes da conta de armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
 
-Examine os detalhes de exportação e clique em **criar**.
+Reveja os detalhes de exportação e clique em **criar**.
 
 A nova exportação é apresentada na lista de exportações. Por predefinição, são ativadas exportações de novo. Se pretender desativar ou eliminar uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desativar** ou **Eliminar**.
 
 Inicialmente, pode demorar uma ou duas horas para que a exportação seja executada. No entanto, pode demorar até quatro horas antes de os dados serem apresentados nos ficheiros exportados.
 
-### <a name="export-schedule"></a>Exportar agenda
+### <a name="export-schedule"></a>Agenda de exportações
 
-As exportações agendadas são afetadas pela hora e dia da semana de quando você cria inicialmente a exportação. Quando você cria uma exportação agendada, a exportação é executada na mesma hora do dia para cada ocorrência de exportação subsequente. Por exemplo, você cria uma exportação diária às 1:00 PM. A próxima exportação é executada às 1:00 no dia seguinte. A hora atual afeta todos os outros tipos de exportação da mesma maneira — eles sempre são executados ao mesmo tempo do dia em que você criou inicialmente a exportação. Em um exemplo diferente, você cria uma exportação semanal às 4:00 PM na segunda-feira. O próximo relatório é executado às 4:00 PM na segunda-feira seguinte. *Os dados exportados estão disponíveis dentro de quatro horas de tempo de execução.*
+As exportações agendadas são afetadas pela hora e pelo dia da semana quando cria inicialmente a exportação. Quando cria uma exportação agendada, a exportação é executada à mesma hora do dia para cada ocorrência de exportação subsequente. Pode, por exemplo, criar uma exportação diária às 13:00. A próxima exportação é executada às 13:00 do dia seguinte. A hora atual afeta todos os outros tipos de exportação da mesma forma, ou seja, estes são sempre executados à mesma hora do dia a que criou inicialmente a exportação. Para dar um exemplo diferente, vamos imaginar que cria uma exportação semanal às 16:00 de segunda-feira. A próxima exportação é executada às 16:00 da segunda-feira seguinte. *Os dados exportados estão disponíveis até quatro horas após o tempo de execução.*
 
-Cada exportação cria um novo arquivo, portanto, as exportações mais antigas não são substituídas.
+Cada exportação cria um novo ficheiro, pelo que as exportações mais antigas não são substituídas.
 
 Há três tipos de opções de exportação:
 
-**Exportação diária de custos acumulados no mês** – a exportação inicial é executada imediatamente. As exportações subsequentes são executadas no dia seguinte ao mesmo tempo que a exportação inicial. Os dados mais recentes são agregados das exportações diárias anteriores.
+**Exportação diária de custos acumulados no mês** – a exportação inicial é executada imediatamente. As exportações subsequentes são executadas no dia seguinte à mesma hora que a exportação inicial. Os dados mais recentes são agregados a partir das exportações diárias anteriores.
 
-**Exportação semanal de custos para os últimos 7 dias** – a exportação inicial é executada imediatamente. Exportações subsequentes são executadas no dia da semana e ao mesmo tempo que a exportação inicial. Os custos são dos últimos sete dias.
+**Exportação semanal de custos para os últimos 7 dias** – a exportação inicial é executada imediatamente. As exportações subsequentes são executadas no dia da semana e à mesma hora que a exportação inicial. Os custos são dos últimos sete dias.
 
 **Personalizado** – permite que você agende exportações semanais e mensais com opções da semana para a data e do mês até a data. *A exportação inicial será executada imediatamente.*
 
-Se você tiver uma assinatura paga conforme o uso, MSDN ou Visual Studio, o período de cobrança da fatura poderá não ser alinhado ao mês do calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar uma exportação alinhada ao seu período de fatura ou a meses de calendário. Para criar uma exportação alinhada ao mês da fatura, navegue até **personalizado**e, em seguida, selecione **cobrança-período-até-data**.  Para criar uma exportação alinhada ao mês do calendário, selecione o **mês até a data**.
+Se tiver uma subscrição do Visual Studio, MSDN ou Pay As You Go, o seu período de faturação poderá não estar alinhado com o mês de calendário. No caso desses tipos de subscrição e grupos de recursos, pode criar uma exportação que esteja alinhada com o seu período de faturação ou com os meses de calendário. Para criar uma exportação alinhada ao mês da fatura, navegue até **personalizado**e, em seguida, selecione **cobrança-período-até-data**.  Para criar uma exportação alinhada ao mês do calendário, selecione o **mês até a data**.
 >
 >
 

@@ -1,19 +1,18 @@
 ---
 title: Usar dados de referência para pesquisas no Azure Stream Analytics
 description: Este artigo descreve como usar dados de referência para pesquisar ou correlacionar dados em um design de consulta de Azure Stream Analytics trabalho.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369569"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usando dados de referência para pesquisas no Stream Analytics
 
@@ -33,13 +32,13 @@ Para configurar seus dados de referência, primeiro você precisa criar uma entr
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento na qual os BLOBs estão localizados. Se estiver na mesma assinatura que seu trabalho de Stream Analytics, você poderá selecioná-lo na lista suspensa.   |
-|Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isso será preenchido automaticamente se a conta de armazenamento estiver na mesma assinatura que o seu trabalho de Stream Analytics.   |
-|Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico para BLOBs armazenados no serviço blob Microsoft Azure. Ao carregar um blob para o serviço BLOB, você deve especificar um contêiner para esse BLOB.   |
-|Padrão do Caminho   | O caminho usado para localizar seus BLOBs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{Date}, {time}<BR>Exemplo 1: Products/{Date}/{Time}/Product-List. csv<BR>Exemplo 2: Products/{Date}/Product-List. csv<BR>Exemplo 3: Product-List. csv<BR><br> Se o BLOB não existir no caminho especificado, o trabalho de Stream Analytics aguardará indefinidamente que o blob se torne disponível.   |
+|Chave da Conta de Armazenamento   | A chave secreta associada à conta de armazenamento. Isso será preenchido automaticamente se a conta de armazenamento estiver na mesma assinatura que o seu trabalho de Stream Analytics.   |
+|Contentor de armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
+|Padrão do Caminho   | O caminho usado para localizar seus BLOBs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{date}, {time}<BR>Exemplo 1: Products/{Date}/{Time}/Product-List. csv<BR>Exemplo 2: Products/{Date}/Product-List. csv<BR>Exemplo 3: Product-List. csv<BR><br> Se o BLOB não existir no caminho especificado, o trabalho de Stream Analytics aguardará indefinidamente que o blob se torne disponível.   |
 |Formato de data [opcional]   | Se você tiver usado {Date} no padrão de caminho que você especificou, poderá selecionar o formato de data no qual os BLOBs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: AAAA/MM/DD, MM/DD/AAAA etc.   |
 |Formato de hora [opcional]   | Se você tiver usado {time} no padrão de caminho que você especificou, poderá selecionar o formato de hora no qual os BLOBs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de serialização de evento   | Para garantir que suas consultas funcionem da maneira esperada, Stream Analytics precisa saber qual formato de serialização você está usando para os fluxos de dados de entrada. Para dados de referência, os formatos com suporte são CSV e JSON.  |
-|Encoding   | UTF-8 é o único formato de codificação com suporte no momento.  |
+|Encoding   | UTF-8 é o único formato de codificação suportado neste momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estática
 
@@ -47,16 +46,16 @@ Se não for esperado que os dados de referência sejam alterados, o suporte para
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Gerar dados de referência em uma agenda
 
-Se os dados de referência forem um conjunto de dados de alteração lenta, o suporte para atualizar os dados de referência será habilitado especificando um padrão de caminho na configuração de entrada usando os tokens de substituição {Date} e {time}. Stream Analytics seleciona as definições de dados de referência atualizadas com base nesse padrão de caminho. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data **"aaaa-mm-dd"** e um formato de hora **"hh-mm"** instrui Stream Analytics a pegar o blob atualizado `sample/2015-04-16/17-30/products.csv` às 5:30 PM em 16 de abril, 2015 fuso horário UTC.
+Se os dados de referência forem um conjunto de dados de alteração lenta, o suporte para atualizar os dados de referência será habilitado especificando um padrão de caminho na configuração de entrada usando os tokens de substituição {Date} e {time}. Stream Analytics seleciona as definições de dados de referência atualizadas com base nesse padrão de caminho. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data **"aaaa-mm-dd"** e um formato de hora **"hh-mm"** instrui Stream Analytics a pegar o `sample/2015-04-16/17-30/products.csv` de blob atualizado às 5:30, em 16 de abril, 2015 fuso horário UTC.
 
 Azure Stream Analytics examina automaticamente os blobs de dados de referência atualizados em um intervalo de um minuto. Se um blob com carimbo de data/hora 10:30:00 for carregado com um pequeno atraso (por exemplo, 10:30:30), você observará um pequeno atraso no trabalho Stream Analytics referenciando esse BLOB. Para evitar esses cenários, é recomendável carregar o blob antes do tempo efetivo de destino (10:30:00 neste exemplo) para permitir que o trabalho de Stream Analytics tempo suficiente para descobri-lo e carregá-lo na memória e executar operações. 
 
 > [!NOTE]
 > Atualmente Stream Analytics trabalhos procuram a atualização do blob somente quando a hora do computador avança para o horário codificado no nome do blob. Por exemplo, o trabalho procurará `sample/2015-04-16/17-30/products.csv` assim que possível, mas não antes de 5:30 PM em 16 de abril, 2015 fuso horário UTC. Ele *nunca* procurará um blob com uma hora codificada anterior à última descoberta.
 > 
-> Por exemplo, quando o trabalho encontrar o blob `sample/2015-04-16/17-30/products.csv`, ele ignorará todos os arquivos com uma data codificada anterior a 5:30 PM 16 de abril de 2015, portanto, se um blob de chega de `sample/2015-04-16/17-25/products.csv` for criado no mesmo contêiner, o trabalho não o usará.
+> Por exemplo, depois que o trabalho encontrar o blob `sample/2015-04-16/17-30/products.csv` ele ignorará todos os arquivos com uma data codificada anterior a 5:30 PM 16 de abril de 2015, portanto, se um blob de chegada de `sample/2015-04-16/17-25/products.csv` for criado no mesmo contêiner, o trabalho não o usará.
 > 
-> Da mesma forma, se `sample/2015-04-16/17-30/products.csv` for produzido apenas às 10:03, 16 de abril de 2015, mas nenhum blob com uma data anterior estiver presente no contêiner, o trabalho usará esse arquivo começando às 10:03 PM, no dia 16 de abril de 2015 e usará os dados de referência anteriores até lá.
+> Da mesma forma, se `sample/2015-04-16/17-30/products.csv` for produzido apenas às 10:03 de abril, 2015, mas nenhum blob com uma data anterior estiver presente no contêiner, o trabalho usará esse arquivo a partir de 10:03 às de abril, 2015 e usará os dados de referência anteriores até lá.
 > 
 > Uma exceção a isso é quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é iniciado pela primeira vez. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora de início do trabalho especificada. Isso é feito para garantir que haja um conjunto de dados de referência **não vazio** quando o trabalho for iniciado. Se não for possível encontrar um, o trabalho exibirá o seguinte diagnóstico: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
@@ -111,11 +110,11 @@ Stream Analytics dá suporte a dados de referência com o **tamanho máximo de 3
 
 O aumento do número de unidades de streaming de um trabalho além de 6 não aumenta o tamanho máximo com suporte dos dados de referência.
 
-O suporte para compactação não está disponível para dados de referência. 
+Suporte para compressão não está disponível para os dados de referência. 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Início rápido: criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

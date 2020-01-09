@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/23/2019
 ms.author: mhopkins
 ms.custom: include file
-ms.openlocfilehash: 7e6bdf8f2cede2d55163932bfe8ab58e9ee96e0f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7dd22886d11c3a35a7a866ff7c9a4f56ea74cab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351233"
 ---
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar as credenciais do Portal do Azure
 
 Quando o aplicativo de exemplo faz uma solicitação para o armazenamento do Azure, ele deve ser autorizado. Para autorizar uma solicitação, adicione as credenciais da conta de armazenamento ao aplicativo como uma cadeia de conexão. Veja as credenciais da conta de armazenamento através dos seguintes passos:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Localize a sua conta de armazenamento.
 3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso**. Aqui, pode ver as chaves de acesso da conta e a cadeia de ligação completa para cada chave.
 4. Encontre o valor da **Cadeia de ligação** em **key1** e selecione o botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
@@ -33,7 +33,7 @@ Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambien
 #### <a name="windows"></a>Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 Depois de adicionar a variável de ambiente no Windows, você deve iniciar uma nova instância da janela de comando.
@@ -41,13 +41,13 @@ Depois de adicionar a variável de ambiente no Windows, você deve iniciar uma n
 #### <a name="linux"></a>Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### <a name="macos"></a>macOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### <a name="restart-programs"></a>Reiniciar programas

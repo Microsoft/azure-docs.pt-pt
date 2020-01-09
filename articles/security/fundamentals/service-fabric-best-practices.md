@@ -1,31 +1,23 @@
 ---
-title: Práticas recomendadas de segurança do Azure Service Fabric | Microsoft Docs
+title: Práticas recomendadas para a segurança de Service Fabric do Azure
 description: Este artigo fornece um conjunto de práticas recomendadas para o Azure Service Fabric Security.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934631"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548824"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo de nuvem em produção, examine nossa lista de práticas recomendadas essenciais e recomendadas para implementar clusters seguros em seu aplicativo.
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis. O Service Fabric também faz face aos desafios significativos no desenvolvimento e na gestão de aplicações na cloud. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis. O Service Fabric também faz face aos desafios significativos no desenvolvimento e na gestão de aplicações na cloud. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e fáceis de gerir.
 
 Para cada prática recomendada, explicamos:
 
@@ -65,10 +57,10 @@ Seus clusters devem ser protegidos para impedir que usuários não autorizados s
 
 Há três [cenários](../../service-fabric/service-fabric-cluster-security.md) para implementar a segurança de cluster usando várias tecnologias:
 
--   Segurança de nó para nó: Esse cenário protege a comunicação entre as VMs e os computadores no cluster. Essa forma de segurança garante que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
+-   Segurança de nó para nó: esse cenário protege a comunicação entre as VMs e os computadores no cluster. Essa forma de segurança garante que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 Nesse cenário, os clusters que são executados no Azure ou clusters autônomos executados no Windows podem usar a segurança do [certificado](../../service-fabric/service-fabric-windows-cluster-x509-security.md) ou a [segurança do Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) para computadores Windows Server.
--   Segurança de cliente para nó: Esse cenário protege a comunicação entre um cliente Service Fabric e os nós individuais no cluster.
--   RBAC (controle de acesso baseado em função): Esse cenário usa identidades separadas (certificados, Azure AD e assim por diante) para cada função de cliente de administrador e usuário que acessa o cluster. Você especifica as identidades de função ao criar o cluster.
+-   Segurança de cliente para nó: esse cenário protege a comunicação entre um cliente Service Fabric e os nós individuais no cluster.
+-   RBAC (controle de acesso baseado em função): esse cenário usa identidades separadas (certificados, Azure AD e assim por diante) para cada função de cliente de administrador e usuário que acessa o cluster. Você especifica as identidades de função ao criar o cluster.
 
 >[!NOTE]
 >**Recomendação de segurança para clusters do Azure:** Use a segurança do Azure AD para autenticar clientes e certificados para a segurança de nó para nó.
@@ -105,7 +97,7 @@ Para saber mais sobre como usar certificados X. 509, consulte [Adicionar ou remo
 ## <a name="configure-security-policies"></a>Configurar políticas de segurança
 O Service Fabric também protege os recursos que são usados por aplicativos. Recursos como arquivos, diretórios e certificados são armazenados nas contas de usuário quando o aplicativo é implantado. Esse recurso torna os aplicativos em execução mais seguros uns dos outros, mesmo em um ambiente hospedado compartilhado.
 
--   Usar um Active Directory grupo de domínio ou usuário: Execute o serviço sob as credenciais para uma conta de usuário ou grupo Active Directory. Certifique-se de usar Active Directory local em seu domínio e não Azure Active Directory. Acesse outros recursos no domínio que receberam permissões usando um usuário ou grupo de domínio. Por exemplo, recursos como compartilhamentos de arquivos.
+-   Usar um Active Directory grupo de domínio ou usuário: execute o serviço sob as credenciais para uma conta de usuário ou grupo de Active Directory. Certifique-se de usar Active Directory local em seu domínio e não Azure Active Directory. Acesse outros recursos no domínio que receberam permissões usando um usuário ou grupo de domínio. Por exemplo, recursos como compartilhamentos de arquivos.
 
 -   Atribuir uma política de acesso de segurança para pontos de extremidade HTTP e HTTPS: Especifique a propriedade **SecurityAccessPolicy** para aplicar uma política **runas** a um serviço quando o manifesto do serviço declarar recursos de ponto de extremidade com http. As portas alocadas aos pontos de extremidade HTTP são listas controladas com acesso correto para a conta de usuário RunAs em que o serviço é executado. Quando a política não está definida, o http. sys não tem acesso ao serviço e você pode obter falhas com chamadas do cliente.
 
@@ -123,7 +115,7 @@ No Service Fabric, os atores são implementados na estrutura do aplicativo Relia
 
 Cada ator é definido como uma instância de um tipo de ator, idêntico ao modo como um objeto .NET é uma instância de um tipo .NET. Por exemplo, um **tipo de ator** que implementa a funcionalidade de uma calculadora pode ter muitos atores desse tipo que são distribuídos em vários nós em um cluster. Cada um dos atores distribuídos é caracterizado exclusivamente por um identificador de ator.
 
-[As configurações de segurança](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) do replicador são usadas para proteger o canal de comunicação usado durante a replicação. Essa configuração impede que os serviços vejam o tráfego de replicação uns dos outros e garantem que dados altamente disponíveis sejam seguros. Por padrão, uma seção de configuração de segurança vazia impede a segurança da replicação.
+[As configurações de segurança do replicador](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) são usadas para proteger o canal de comunicação usado durante a replicação. Essa configuração impede que os serviços vejam o tráfego de replicação uns dos outros e garantem que dados altamente disponíveis sejam seguros. Por padrão, uma seção de configuração de segurança vazia impede a segurança da replicação.
 As configurações do replicador configuram o replicador que é responsável por tornar o estado do provedor de estado do ator altamente confiável.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configurar o SSL para o Azure Service Fabric
@@ -152,7 +144,7 @@ O protocolo HTTP não é seguro e está sujeito a ataques de interceptação. Os
 Para saber mais sobre como usar certificados SSL, confira [Configurar SSL para aplicativos do Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Usar o isolamento de rede e segurança com o Azure Service Fabric
-Configure um cluster seguro de 3 NodeType usando o [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) como um exemplo. Controle o tráfego de rede de entrada e saída usando o modelo e os grupos de segurança de rede.
+Configure um cluster seguro de 3 NodeType usando o [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) como um exemplo. Controle o tráfego de rede de entrada e saída usando o modelo e os grupos de segurança de rede.
 
 O modelo tem um NSG para cada um dos conjuntos de dimensionamento de máquinas virtuais e é usado para controlar o tráfego dentro e fora do conjunto. As regras são configuradas por padrão para permitir todo o tráfego necessário para os serviços do sistema e as portas de aplicativo especificadas no modelo. Examine essas regras e faça as alterações adequadas às suas necessidades, incluindo a adição de novas regras para seus aplicativos.
 

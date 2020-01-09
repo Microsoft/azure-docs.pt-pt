@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227026"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562056"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Visão geral do diagnóstico de Azure Functions
 
@@ -26,11 +26,11 @@ Para acessar o diagnóstico de Azure Functions:
 3. Selecione **diagnosticar e solucionar problemas** no **Gerenciamento de recursos**, que abre o diagnóstico de Azure functions.
 4. Escolha uma categoria que melhor descreva o problema do seu aplicativo de funções usando as palavras-chave no bloco Home Page. Você também pode digitar uma palavra-chave que melhor descreva seu problema na barra de pesquisa. Por exemplo, você pode digitar `execution` para ver uma lista de relatórios de diagnóstico relacionados à sua execução de aplicativo de funções e abri-los diretamente da Home Page.
 
-![Principal](./media/functions-diagnostics/homepage.png)
+![Home Page](./media/functions-diagnostics/homepage.png)
 
 ## <a name="use-the-interactive-interface"></a>Usar a interface interativa
 
-Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do Azure Functions Diagnostics, o gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
+Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do Azure Functions Diagnostics, o gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema em que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
 
 ![Gênio](./media/functions-diagnostics/genie.png)
 
@@ -44,13 +44,13 @@ Depois de escolher um tópico, você pode exibir um relatório de diagnóstico e
 
 ## <a name="find-the-problem-code"></a>Localizar o código do problema 
 
-Para funções baseadas em script, você pode usar a **execução de função** e **erros em aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
+Para funções baseadas em script, você pode usar a **execução de função** e **erros** em **aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
 
 ![Relatório de diagnóstico sobre erros de execução de função](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 
 ![Exceção de função](./media/functions-diagnostics/function-exception.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode fazer perguntas ou fornecer comentários sobre o diagnóstico de Azure Functions no [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Inclua `[Diag]` no título de seus comentários.
 

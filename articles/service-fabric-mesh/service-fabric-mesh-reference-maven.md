@@ -1,65 +1,61 @@
 ---
-title: Referência de Maven de malha de recursos de infraestrutura do serviço do Azure | Documentos da Microsoft
-description: Contém a referência para saber como utilizar o plug-in do Maven para a malha do Service Fabric
-services: service-fabric-mesh
-keywords: maven, java, cli
+title: Referência do Maven da malha de Service Fabric do Azure
+description: Contém a referência sobre como usar o plug-in do Maven para a malha de Service Fabric
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
-ms.service: service-fabric-mesh
-manager: subramar
-ms.openlocfilehash: 27651d19e276571cf49a0aa1a199ef35c87c3ba4
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459015"
 ---
-# <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in do maven para a malha de recursos de infraestrutura do serviço
+# <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in do Maven para malha de Service Fabric
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- SDK Java
+- Java SDK
 - Maven
-- CLI do Azure com a extensão de malha
+- CLI do Azure com extensão de malha
 - CLI do Service Fabric
 
 ## <a name="goals"></a>Objetivos
 
 ### `azure-sfmesh:init`
-- Cria um `servicefabric` pasta que contém um `appresources` pasta que tem o `application.yaml` ficheiro. 
+- Cria uma pasta `servicefabric` que contém uma pasta `appresources` que tem o arquivo `application.yaml`. 
 
 ### `azure-sfmesh:addservice`
-- Cria uma pasta dentro `servicefabric` pasta com o nome do serviço e cria o ficheiro do serviço YAML. 
+- Cria uma pasta dentro de `servicefabric` pasta com o nome do serviço e cria o arquivo YAML do serviço. 
 
 ### `azure-sfmesh:addnetwork`
-- Gera uma `network` YAML com o nome de rede fornecido no `appresources` pasta 
+- Gera um `network` YAML com o nome de rede fornecido na pasta `appresources` 
 
 ### `azure-sfmesh:addgateway`
-- Gera uma `gateway` YAML com o nome de gateway fornecido no `appresources` pasta 
+- Gera um `gateway` YAML com o nome de gateway fornecido na pasta `appresources` 
 
 #### `azure-sfmesh:addvolume`
-- Gera uma `volume` YAML com o nome do volume fornecido no `appresources` pasta.
+- Gera um `volume` YAML com o nome de volume fornecido na pasta `appresources`.
 
 ### `azure-sfmesh:addsecret`
-- Gera uma `secret` YAML com o nome secreto fornecido no `appresources` pasta 
+- Gera um `secret` YAML com o nome de segredo fornecido na pasta `appresources` 
 
 ### `azure-sfmesh:addsecretvalue`
-- Gera uma `secretvalue` YAML com o nome do valor do segredo e secreta fornecido no `appresources` pasta 
+- Gera um `secretvalue` YAML com o segredo fornecido e o nome do valor secreto na pasta `appresources` 
 
 ### `azure-sfmesh:deploy`
-- Intercala yamls do `servicefabric` pasta e cria um modelo do Azure Resource Manager JSON na pasta atual.
-- Implementa todos os recursos no ambiente de malha do Azure Service Fabric 
+- Mescla o yamls da pasta `servicefabric` e cria um Azure Resource Manager modelo JSON na pasta atual.
+- Implanta todos os recursos no ambiente de malha de Service Fabric do Azure 
 
 ### `azure-sfmesh:deploytocluster`
-- Cria uma pasta (`meshDeploy`) que contém a implementação JSONs gerados a partir de yamls que são aplicáveis para clusters do Service Fabric
-- Implementa todos os recursos de cluster do Service Fabric
+- Cria uma pasta (`meshDeploy`) que contém os JSON de implantação gerados de yamls que são aplicáveis para clusters Service Fabric
+- Implanta todos os recursos no Cluster Service Fabric
  
 
 ## <a name="usage"></a>Utilização
 
-Para utilizar o plug-in do Maven na sua aplicação Java do Maven, adicione o fragmento seguinte ao seu ficheiro pom. XML:
+Para usar o plug-in do Maven em seu aplicativo Java do Maven, adicione o seguinte trecho ao arquivo pom. xml:
 
 ```XML
 <project>
@@ -80,103 +76,103 @@ Para utilizar o plug-in do Maven na sua aplicação Java do Maven, adicione o fr
 
 ## <a name="common-configuration"></a>Configuração comum
 
-O plug-in do Maven atualmente não suporta configurações comuns de plug-ins do Maven para o Azure.
+O plug-in do Maven atualmente não dá suporte a configurações comuns de plug-ins do Maven para o Azure.
 
 ## <a name="how-to"></a>Procedimentos
 
-### <a name="initialize-maven-project-for-azure-service-fabric-mesh"></a>Inicializar o projeto Maven para o modo de malha do Azure Service Fabric
-Execute o seguinte comando para criar o ficheiro YAML de recursos do aplicativo.
+### <a name="initialize-maven-project-for-azure-service-fabric-mesh"></a>Inicializar o projeto Maven para a malha de Service Fabric do Azure
+Execute o comando a seguir para criar o arquivo YAML do recurso do aplicativo.
 
 ```cmd
 mvn azure-sfmesh:init -DapplicationName=helloworldserver
 ```
 
-- Cria uma pasta chamada `servicefabric->appresources` na sua pasta de raiz que contém um aplicativo YAML com o nome `app_helloworldserver`
+- Cria uma pasta chamada `servicefabric->appresources` na pasta raiz que contém um aplicativo YAML chamado `app_helloworldserver`
 
-### <a name="add-resource-to-your-application"></a>Adicionar recursos à sua aplicação
+### <a name="add-resource-to-your-application"></a>Adicionar recurso ao seu aplicativo
 
-#### <a name="add-a-new-network-to-your-application"></a>Adicionar uma nova rede à sua aplicação
-Execute o comando abaixo para criar um yaml de recursos de rede. 
+#### <a name="add-a-new-network-to-your-application"></a>Adicionar uma nova rede ao seu aplicativo
+Execute o comando a seguir para criar um recurso de rede YAML. 
 
 ```cmd
 mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
-- Cria uma rede YAML na pasta `servicefabric->appresources` com o nome `network_helloworldservicenetwork`
+- Cria uma YAML de rede na pasta `servicefabric->appresources` chamada `network_helloworldservicenetwork`
 
-#### <a name="add-a-new-service-to-your-application"></a>Adicionar um novo serviço à sua aplicação
-Execute o comando abaixo para criar um yaml de serviço. 
+#### <a name="add-a-new-service-to-your-application"></a>Adicionar um novo serviço ao seu aplicativo
+Execute o comando a seguir para criar um YAML de serviço. 
 
 ```cmd
 mvn azure-sfmesh:addservice -DapplicationName=helloworldserver -DserviceName=helloworldservice -DimageName=helloworldserver:latest -DlistenerPort=8080 -DnetworkRef=helloworldservicenetwork
 ```
 
-- Cria um serviço YAML na pasta `servicefabric->helloworldservice` com o nome `service_helloworldservice` que faz referência `helloworldservicenetwork` & o `helloworldserver` aplicação
-- O serviço deve escutar na porta 8080
-- O serviço usará ***helloworldserver:latest*** como ele é a imagem de contentor.
+- Cria um YAML de serviço na pasta `servicefabric->helloworldservice` chamado `service_helloworldservice` que faz referência `helloworldservicenetwork` & aplicativo `helloworldserver`
+- O serviço escutaria na porta 8080
+- O serviço estaria usando ***helloworldserver: mais recente*** como a imagem de contêiner.
 
-#### <a name="add-a-new-gateway-resource-to-your-application"></a>Adicionar um novo recurso de gateway para a sua aplicação
-Execute o comando abaixo para criar um yaml de recurso de gateway. 
+#### <a name="add-a-new-gateway-resource-to-your-application"></a>Adicionar um novo recurso de gateway ao seu aplicativo
+Execute o comando a seguir para criar um recurso de gateway YAML. 
 
 ```cmd
 mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=80
 ```
 
-- Cria um novo gateway YAML na pasta `servicefabric->appresources` com o nome `gateway_helloworldgateway`
-- Referências `helloworldservicelistener` como o serviço de escuta do serviço está escutando para chamadas a partir deste gateway. Também faz referência a `helloworldservice` como o serviço `helloworldservicenetwork` que a rede e `helloworldserver` que a aplicação. 
-- Está à escuta de pedidos na porta 80
+- Cria um novo YAML de gateway na pasta `servicefabric->appresources` chamada `gateway_helloworldgateway`
+- Faz referência `helloworldservicelistener` como o ouvinte de serviço que está escutando chamadas desse gateway. Também faz referência à `helloworldservice` como o serviço, `helloworldservicenetwork` como a rede e `helloworldserver` como o aplicativo. 
+- Escuta solicitações na porta 80
 
-#### <a name="add-a-new-volume-to-your-application"></a>Adicionar um novo volume à sua aplicação
-Execute o comando abaixo para criar um yaml de recurso de volume. 
+#### <a name="add-a-new-volume-to-your-application"></a>Adicionar um novo volume ao seu aplicativo
+Execute o comando a seguir para criar um recurso de volume YAML. 
 
 ```cmd
 mvn azure-sfmesh:addvolume -DvolumeAccountKey=key -DvolumeAccountName=name -DvolumeName=vol1 -DvolumeShareName=share
 ```
 
-- Cria um volume YAML na pasta `servicefabric->appresources` com o nome `volume_vol1`
-- Define as propriedades para os parâmetros necessários, `volumeAccountKey`, e `volumeShareName` como anteriormente
-- Para obter mais informações sobre como fazer referência criada volume, visite o seguinte, [implementar aplicação com o Volume de ficheiros do Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
+- Cria um volume YAML na pasta `servicefabric->appresources` chamada `volume_vol1`
+- Define propriedades para os parâmetros obrigatórios, `volumeAccountKey`e `volumeShareName` como acima
+- Para obter mais informações sobre como fazer referência a esse volume criado, visite o seguinte, [implantar aplicativo usando o volume de arquivos do Azure](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
 
-#### <a name="add-a-new-secret-resource-to-your-application"></a>Adicionar um novo recurso secreto à sua aplicação
-Execute o comando abaixo para criar um recurso secreta yaml. 
+#### <a name="add-a-new-secret-resource-to-your-application"></a>Adicionar um novo recurso secreto ao seu aplicativo
+Execute o comando a seguir para criar um recurso secreto YAML. 
 
 ```cmd
 mvn azure-sfmesh:addsecret -DsecretName=secret1
 ```
 
-- Cria um YAML secreta na pasta `servicefabric->appresources` com o nome `secret_secret1`
-- Para obter mais informações sobre como fazer referência a este segredo criado, visite o seguinte, [gerir segredos](service-fabric-mesh-howto-manage-secrets.md)
+- Cria um YAML secreto na pasta `servicefabric->appresources` chamada `secret_secret1`
+- Para obter mais informações sobre como fazer referência a esse segredo criado, visite o seguinte, [gerenciar segredos](service-fabric-mesh-howto-manage-secrets.md)
 
-#### <a name="add-a-new-secretvalue-resource-to-your-application"></a>Adicionar um novo recurso de secretvalue à sua aplicação
-Execute o comando abaixo para criar um yaml de recurso secretvalue. 
+#### <a name="add-a-new-secretvalue-resource-to-your-application"></a>Adicionar um novo recurso secretovalue ao seu aplicativo
+Execute o comando a seguir para criar um recurso secretovalue YAML. 
 
 ```cmd
 mvn azure-sfmesh:addsecretvalue -DsecretValue=someVal -DsecretValueName=secret1/v1
 ```
 
-- Criar um secretvalue YAML na pasta `servicefabric->appresources` com o nome `secretvalue_secret1_v1`
+- Criar um nome de segredo YAML na pasta `servicefabric->appresources` chamada `secretvalue_secret1_v1`
 
 ### <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Com a ajuda do objetivo `azure-sfmesh:deploytocluster`, pode executar a aplicação localmente, utilizando o comando abaixo:
+Com a ajuda do `azure-sfmesh:deploytocluster`de metas, você pode executar o aplicativo localmente usando o comando a seguir:
 
 ```cmd
 mvn azure-sfmesh:deploytocluster
 ```
 
-Por predefinição este objetivo implementa recursos no local cluster. Se estiver a implementar no local cluster, parte do princípio que tem um cluster do Service Fabric local em funcionamento. Cluster do Service Fabric local para os recursos é atualmente suportado apenas no [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+Por padrão, essa meta implanta recursos no cluster local. Se você estiver implantando no cluster local, ele pressupõe que você tenha um Cluster Service Fabric local em funcionamento. O cluster de Service Fabric local para recursos atualmente tem suporte apenas no [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 
-- Cria JSONs de yamls que são aplicáveis para clusters do Service Fabric
-- Em seguida, implementa para o ponto final de Cluster
+- Cria JSONs de yamls que se aplicam a clusters Service Fabric
+- Implanta então no ponto de extremidade do cluster
 
-### <a name="deploy-application-to-azure-service-fabric-mesh"></a>Implementar a aplicação para o modo de malha do Azure Service Fabric
+### <a name="deploy-application-to-azure-service-fabric-mesh"></a>Implantar aplicativo na malha de Service Fabric do Azure
 
-Com a ajuda do objetivo `azure-sfmesh:deploy`, pode implementar em ambiente de malha de recursos de infraestrutura do serviço ao executar o comando abaixo:
+Com a ajuda do `azure-sfmesh:deploy`de metas, você pode implantar o em Service Fabric ambiente de malha executando o comando a seguir:
 
 ```cmd
 mvn azure-sfmesh:deploy -DresourceGroup=todoapprg -Dlocation=eastus
 ```
 
-- Cria um grupo de recursos denominado `todoapprg` se não existir.
-- Cria um modelo do Azure Resource Manager JSON, mesclando as YAMLs. 
-- Implementa o JSON para o ambiente de malha do Azure Service Fabric.
+- Cria um grupo de recursos chamado `todoapprg` se ele não existir.
+- Cria um Azure Resource Manager de modelo JSON mesclando o YAMLs. 
+- Implanta o JSON no ambiente de malha de Service Fabric do Azure.

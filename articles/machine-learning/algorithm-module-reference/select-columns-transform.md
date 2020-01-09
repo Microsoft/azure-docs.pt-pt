@@ -1,7 +1,7 @@
 ---
 title: 'Selecionar colunas de transformação: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo selecionar colunas de transformação no serviço de Azure Machine Learning para criar uma transformação que seleciona o mesmo subconjunto de colunas que no conjunto de dados especificado.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo selecionar colunas de transformação em Azure Machine Learning para criar uma transformação que seleciona o mesmo subconjunto de colunas que no conjunto de dados fornecido.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 383adeb2bd081893d4202239cb97c12bf9a5a170
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428476"
 ---
-# <a name="select-columns-transform"></a>Selecionar transformação de colunas
+# <a name="select-columns-transform"></a>Selecionar Transformação de Colunas
 
 Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning (versão prévia). A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
 
@@ -55,4 +55,4 @@ Esse processo de salvar e aplicar uma seleção de coluna garante que o mesmo es
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

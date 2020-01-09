@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5a59e51190fc8309d35445fba7ef4a2dd22b970
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 477f13f58d9b630519faa79424f22cb1bb34918c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351268"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V12 para Java
 
@@ -48,13 +48,13 @@ Esta seção orienta você pela preparação de um projeto para trabalhar com a 
 
 Crie um aplicativo Java chamado *blob-QuickStart-V12*.
 
-1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome *blob-QuickStart-V12*. Digite o seguinte comando **MVN** em uma única linha para criar um "Olá mundo!" simples Projeto Java. O comando é exibido aqui em várias linhas para facilitar a leitura.
+1. Em uma janela de console (como cmd, PowerShell ou bash), use o Maven para criar um novo aplicativo de console com o nome *blob-QuickStart-V12*. Digite o seguinte comando **MVN** para criar um "Hello World!" simples Projeto Java.
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 
@@ -148,11 +148,11 @@ public class App
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento de BLOBs do Azure é otimizado para armazenar grandes quantidades de dados não estruturados. Dados não estruturados são dados que não aderem a um modelo ou definição de dados específico, como texto ou dados binários. O armazenamento de BLOBs oferece três tipos de recursos:
+O armazenamento de BLOBs do Azure é otimizado para armazenar grandes quantidades de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento de BLOBs oferece três tipos de recursos:
 
 * A conta de armazenamento
 * Um contêiner na conta de armazenamento
@@ -192,11 +192,11 @@ System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
 // is created after the application is launched in a console or with
 // Visual Studio, the shell or application needs to be closed and reloaded
 // to take the environment variable into account.
-String connectStr = System.getenv("CONNECT_STR");
+String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### <a name="create-a-container"></a>Criar um contentor

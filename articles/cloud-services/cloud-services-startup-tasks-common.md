@@ -3,17 +3,17 @@ title: Tarefas de inicialização comuns para serviços de nuvem | Microsoft Doc
 description: Fornece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar em sua função Web de serviços de nuvem ou função de trabalho.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385801"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas comuns de inicialização do serviço de nuvem
 Este artigo fornece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar em seu serviço de nuvem. Você pode usar tarefas de inicialização para executar operações antes de uma função ser iniciada. As operações que você pode querer executar incluem a instalação de um componente, o registro de componentes COM, a definição de chaves do registro ou o início de um processo de execução demorada. 
@@ -42,7 +42,7 @@ Se você precisar de variáveis de ambiente definidas para uma tarefa específic
 </ServiceDefinition>
 ```
 
-As variáveis também podem usar um [valor XPath válido do Azure](cloud-services-role-config-xpath.md) para fazer referência a algo sobre a implantação. Em vez de usar `value` o atributo, defina um elemento filho [RoleInstanceValue] .
+As variáveis também podem usar um [valor XPath válido do Azure](cloud-services-role-config-xpath.md) para fazer referência a algo sobre a implantação. Em vez de usar o atributo `value`, defina um elemento filho [RoleInstanceValue] .
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -67,7 +67,7 @@ O ERRORLEVEL retornado por *Appcmd. exe* está listado no arquivo Winerror. h e 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gerenciamento do nível de erro
 Este exemplo adiciona uma seção de compactação e uma entrada de compactação para JSON ao arquivo *Web. config* , com tratamento de erros e registro em log.
 
-As seções relevantes do arquivo de @ [ServiceDefinition.csdef] são mostradas aqui, que incluem a [](/previous-versions/azure/reference/gg557552(v=azure.100)#task) definição do atributo `elevated` ExecutionContext como para dar ao *Appcmd. exe* permissões suficientes para alterar as configurações no  *Arquivo Web. config* :
+As seções relevantes do arquivo @ [ServiceDefinition.csdef] são mostradas aqui, que incluem a definição do atributo [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) como `elevated` para dar ao *Appcmd. exe* permissões suficientes para alterar as configurações no arquivo *Web. config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -119,9 +119,9 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, há efetivamente dois firewalls. O primeiro Firewall controla as conexões entre a máquina virtual e o mundo exterior. Esse firewall é controlado pelo elemento de [Extremidade] no arquivo de imdefinição [ServiceDefinition.csdef] .
+No Azure, há efetivamente dois firewalls. O primeiro Firewall controla as conexões entre a máquina virtual e o mundo exterior. Esse firewall é controlado pelo elemento de [Extremidade] no arquivo de [ServiceDefinition.csdef] .
 
-O segundo Firewall controla as conexões entre a máquina virtual e os processos dentro dessa máquina virtual. Esse firewall pode ser controlado pela ferramenta `netsh advfirewall firewall` de linha de comando.
+O segundo Firewall controla as conexões entre a máquina virtual e os processos dentro dessa máquina virtual. Esse firewall pode ser controlado pela ferramenta de linha de comando `netsh advfirewall firewall`.
 
 O Azure cria regras de firewall para os processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que esse serviço se comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), será necessário criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
@@ -138,7 +138,7 @@ Uma tarefa de inicialização que cria uma regra de firewall deve ter uma[tarefa
 </ServiceDefinition>
 ```
 
-Para adicionar a regra de firewall, você deve usar os `netsh advfirewall firewall` comandos apropriados em seu arquivo em lotes de inicialização. Neste exemplo, a tarefa de inicialização requer segurança e criptografia para a porta TCP 80.
+Para adicionar a regra de firewall, você deve usar os comandos de `netsh advfirewall firewall` apropriados no arquivo em lotes de inicialização. Neste exemplo, a tarefa de inicialização requer segurança e criptografia para a porta TCP 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -300,7 +300,7 @@ Você pode fazer com que sua tarefa de inicialização execute etapas diferentes
 
 Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser realizada criando uma variável de ambiente no arquivo de [ServiceDefinition.csdef] . Em seguida, você testa essa variável de ambiente para um valor em sua tarefa de inicialização.
 
-Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath `/RoleEnvironment/Deployment/@emulated`de. O valor da variável de ambiente **% ComputeEmulatorRunning%** é `true` quando executado no emulador de computação e `false` quando executado na nuvem.
+Para criar a variável de ambiente, adicione a [Variable]/elemento [RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **% ComputeEmulatorRunning%** é `true` ao ser executado no emulador de computação e `false` ao ser executado na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -385,7 +385,7 @@ Para simplificar o XML, você pode criar um arquivo *cmd* do wrapper que chama t
 
 Talvez você ache desagradável usar `>> "%TEMP%\StartupLog.txt" 2>&1` no final de cada tarefa de inicialização. Você pode impor o log de tarefas criando um wrapper que manipula o log para você. Esse wrapper chama o arquivo em lotes real que você deseja executar. Qualquer saída do arquivo em lotes de destino será redirecionada para o arquivo *Startuplog. txt* .
 
-O exemplo a seguir mostra como redirecionar todas as saídas de um arquivo em lotes de inicialização. Neste exemplo, o arquivo arquivo serverdefinition. csdef cria uma tarefa de inicialização que chama *logwrap. cmd*. *logwrap. cmd* chama *Startup2. cmd*, redirecionando todas as saídas para **% temp\\% StartupLog. txt**.
+O exemplo a seguir mostra como redirecionar todas as saídas de um arquivo em lotes de inicialização. Neste exemplo, o arquivo arquivo serverdefinition. csdef cria uma tarefa de inicialização que chama *logwrap. cmd*. *logwrap. cmd* chama *Startup2. cmd*, redirecionando todas as saídas para **% Temp%\\StartupLog. txt**.
 
 ServiceDefinition.cmd:
 
@@ -459,14 +459,14 @@ Exemplo de saída no arquivo **StartupLog. txt** :
 ```
 
 > [!TIP]
-> O arquivo **StartupLog. txt** está localizado na pasta *C:\Resources\temp\\{identificador de função} \RoleTemp*
+> O arquivo **StartupLog. txt** está localizado na pasta *C:\Resources\temp\\{identificador de função} \RoleTemp* .
 > 
 > 
 
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir o executionContext adequadamente para tarefas de inicialização
 Defina os privilégios adequadamente para a tarefa de inicialização. Às vezes, as tarefas de inicialização devem ser executadas com privilégios elevados, embora a função seja executada com privilégios normais.
 
-O atributo de[tarefa] [ExecutionContext]define o nível de privilégio da tarefa de inicialização. O `executionContext="limited"` uso de significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. O `executionContext="elevated"` uso de significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização Execute tarefas de administrador sem conceder privilégios de administrador à sua função.
+O atributo de[tarefa] [ExecutionContext]define o nível de privilégio da tarefa de inicialização. Usando `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. O uso de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização Execute tarefas de administrador sem conceder privilégios de administrador à sua função.
 
 Um exemplo de uma tarefa de inicialização que requer privilégios elevados é uma tarefa de inicialização que usa **Appcmd. exe** para configurar o IIS. **Appcmd. exe** requer `executionContext="elevated"`.
 
@@ -478,12 +478,12 @@ Com tarefas de inicialização **simples** , você pode definir a ordem na qual 
 A diferença entre tarefas de inicialização **em segundo plano** e tarefas de inicialização em **primeiro** plano é que as tarefas em **primeiro plano** mantêm a função em execução até o término da tarefa em **primeiro plano** Isso também significa que, se a tarefa em **primeiro plano** parar ou falhar, a função não será reciclada até que a tarefa em **primeiro plano** seja fechada de forma forçada. Por esse motivo, as tarefas **em segundo plano** são recomendadas para tarefas de inicialização assíncronas, a menos que você precise desse recurso da tarefa em **primeiro plano** .
 
 ### <a name="end-batch-files-with-exit-b-0"></a>Encerrar arquivos em lotes com EXIT/B 0
-A função só será iniciada se o **ERRORLEVEL** de cada uma das tarefas de inicialização simples for zero. Nem todos os programas definem o **ERRORLEVEL** (código de saída) corretamente, portanto, o arquivo em `EXIT /B 0` lotes deve terminar com um se tudo tiver sido executado corretamente.
+A função só será iniciada se o **ERRORLEVEL** de cada uma das tarefas de inicialização simples for zero. Nem todos os programas definem o **ERRORLEVEL** (código de saída) corretamente, portanto, o arquivo em lotes deve terminar com um `EXIT /B 0` se tudo tiver sido executado corretamente.
 
-Um ausente `EXIT /B 0` no final de um arquivo em lotes de inicialização é uma causa comum de funções que não iniciam.
+Uma `EXIT /B 0` ausente no final de um arquivo em lotes de inicialização é uma causa comum de funções que não são iniciadas.
 
 > [!NOTE]
-> Observei que arquivos em lotes aninhados às vezes travam `/B` ao usar o parâmetro. Talvez você queira ter certeza de que esse problema não ocorrerá se outro arquivo em lotes chamar o arquivo em lotes atual, como se você usa o [wrapper de log](#always-log-startup-activities). Você pode omitir `/B` o parâmetro nesse caso.
+> Observei que arquivos em lotes aninhados às vezes travam ao usar o parâmetro `/B`. Talvez você queira ter certeza de que esse problema não ocorrerá se outro arquivo em lotes chamar o arquivo em lotes atual, como se você usa o [wrapper de log](#always-log-startup-activities). Você pode omitir o parâmetro `/B` nesse caso.
 > 
 > 
 
@@ -512,3 +512,6 @@ Saiba mais sobre como [as tarefas](cloud-services-startup-tasks.md) funcionam.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
+
+

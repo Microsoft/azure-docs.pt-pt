@@ -1,18 +1,14 @@
 ---
-title: Visão geral da identidade gerenciada Service Fabric | Microsoft Docs
-description: Este artigo é uma visão geral da identidade gerenciada.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
+title: Visão geral da identidade gerenciada Service Fabric
+description: Este artigo é uma visão geral da identidade gerenciada e seus aplicativos para o Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 12/09/2019
+ms.openlocfilehash: dc7dafa59596537456accde66e878c06f9e5ca23
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243022"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528152"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidade gerenciada para o aplicativo Service Fabric (versão prévia)
 

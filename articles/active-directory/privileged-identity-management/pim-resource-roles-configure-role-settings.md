@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182718"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638685"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Definir configurações de função de recurso do Azure no Privileged Identity Management
 
@@ -58,10 +58,17 @@ Siga estas etapas para abrir as configurações de uma função de recurso do Az
 
 1. Use a guia **notificação** ou o botão **Avançar: ativação** na parte inferior da página para acessar a guia Configuração de notificação para essa função. Essas configurações controlam todas as notificações por email relacionadas a essa função.
 
-    > [!NOTE]
-    > Esta interface do usuário de notificações está sendo revertida em regiões e assinaturas do Azure. Se você não puder configurar essas notificações granulares, verifique novamente em um ou dois dias.
-
     ![Guia notificações de função na página Configurações de função](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    Na guia **notificações** da página Configurações de função, Privileged Identity Management habilita o controle granular sobre quem recebe notificações e quais notificações elas recebem.
+
+    - **Desligando um email**<br>Você pode desativar emails específicos desmarcando a caixa de seleção destinatário padrão e excluindo destinatários adicionais.  
+
+    - **Limitar emails a endereços de email especificados**<br>Você pode desativar os emails enviados aos destinatários padrão desmarcando a caixa de seleção destinatário padrão. Em seguida, você pode adicionar endereços de email adicionais como destinatários adicionais. Se você quiser adicionar mais de um endereço de email, separe-os usando um ponto-e-vírgula (;).
+
+    - **Enviar emails para destinatários padrão e destinatários adicionais**<br>Você pode enviar emails para o destinatário padrão e para o destinatário adicional, marcando a caixa de seleção destinatário padrão e adicionando endereços de email para destinatários adicionais.
+
+    - **Somente emails críticos**<br>Para cada tipo de email, você pode marcar a caixa de seleção para receber emails críticos apenas. Isso significa que Privileged Identity Management continuará a enviar emails para os destinatários configurados somente quando o email exigir uma ação imediata. Por exemplo, emails solicitando que os usuários estendam suas atribuições de função não serão disparados enquanto um email que exigir que os administradores aprovem uma solicitação de extensão será disparado.
 
 1. Selecione o botão **Atualizar** a qualquer momento para atualizar as configurações de função.
 

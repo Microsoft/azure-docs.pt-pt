@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script do Azure PowerShell – Copiar (mover) o instantâneo de um disco gerido para uma subscrição idêntica ou diferente
+title: Copiar instantâneo de um disco gerenciado para uma assinatura-exemplo do PowerShell
 description: Exemplo do Script do Azure PowerShell – Copiar (mover) o instantâneo de um disco gerido para uma subscrição idêntica ou diferente
 services: virtual-machines-windows
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 9f61b2a74639b36ebef4c5af627d5da93de1393c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 4189822e493b8906152e5a73d87cffb1d05f31d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368849"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Copiar o instantâneo de um disco gerido na mesma subscrição ou numa subscrição diferente com a CLI
 

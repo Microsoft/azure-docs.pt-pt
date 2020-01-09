@@ -4,13 +4,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: a8f5fbaf7dbc566490e30fd99dcb078e671a6056
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3f04c763f807acbf038e2bfa3ccbd3a2a5ef91b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351196"
 ---
 > [!TIP]
-> O conteúdo deste artigo aplica-se ao armazenamento de Tabelas do Azure original. Contudo, agora existe uma oferta premium do armazenamento de tabelas, a API de Tabela do Azure Cosmos DB, que oferece tabelas com otimização de débito, distribuição global e índices secundários automáticos. Há alguma funcionalidade [diferenças entre a API de tabela no Azure Cosmos DB e armazenamento de tabelas do Azure](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior), para saber mais e experimentar a experiência premium, veja [API de tabela do Azure Cosmos DB](https://aka.ms/premiumtables). 
+> O conteúdo deste artigo aplica-se ao armazenamento de Tabelas do Azure original. No entanto, agora há uma oferta Premium para o armazenamento de tabelas: o Azure Cosmos DB API de Tabela. Essa API oferece tabelas com otimização de taxa de transferência, distribuição global e índices secundários automáticos. Há algumas [diferenças de recursos entre API de tabela em Azure Cosmos DB e o armazenamento de tabelas do Azure](../articles/cosmos-db/faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior). Para obter mais informações e experimentar a experiência Premium, consulte [Azure Cosmos DB API de tabela](https://aka.ms/premiumtables). 
 >

@@ -1,25 +1,16 @@
 ---
-title: Migrar do Java SDK para Maven - Atualizar Aplicações Java do Azure Service Fabric antigas para utilizar o Maven | Microsoft Docs
+title: Migrar do SDK do Java para o Maven
 description: Atualize as aplicações Java mais antigas que utilizam o Java SDK do Service Fabric, de modo a que obtenham as dependências Java do Service Fabric a partir do Maven. Depois de concluir esta configuração, as aplicações Java mais antigas poderão criar.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718399"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609813"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualizar a sua aplicação Java do Service Fabric anterior para obter as bibliotecas do Java a partir do Maven
 Recentemente, movemos os binários Java do Service Fabric do Java SDK do Service Fabric para o alojamento Maven. Agora, pode utilizar **mavencentral** para obter as mais recentes dependências de Java do Service Fabric. Este início rápido ajuda-o a atualizar as suas aplicações Java existentes, que criou anteriormente para serem utilizadas com o Java SDK do Service Fabric, através de um modelo do Yeoman ou do Eclipse, para compatibilidade com a compilação baseada no Maven.
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-Agora, para obter as dependências do Maven, as partes correspondentes do ``build.gradle`` **atualizado** teriam o aspeto -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-Agora, para obter as dependências do Maven, as partes correspondentes do ``build.gradle`` **atualizado** teriam o aspeto -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-Agora, para obter as dependências do Maven, as partes correspondentes do ``build.gradle`` **atualizado** teriam o aspeto -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-Agora, para obter as dependências do Maven, as partes correspondentes do ``build.gradle`` **atualizado** teriam o aspeto -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -473,7 +464,7 @@ task copyDeps<< {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implementar a sua primeira aplicação Java do Service Fabric no Linux com o Plug-in do Service Fabric para Eclipse](service-fabric-get-started-eclipse.md)

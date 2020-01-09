@@ -4,24 +4,23 @@ description: Saiba como configurar o logon único entre o Azure Active Directory
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 12/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 71521348c5510696add4399d3046833d3b42193c
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970028"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Salesforce
 
@@ -70,17 +69,13 @@ Configure e teste o SSO do Azure AD com o Salesforce usando um usuário de teste
 Para configurar e testar o SSO do Azure AD com o Salesforce, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-2. **[Configurar o SSO do Salesforce](#configure-salesforce-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do Salesforce](#create-salesforce-test-user)** – para ter um equivalente de B. Simon no Salesforce que esteja vinculado à representação de usuário do Azure AD.
-3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do Salesforce](#configure-salesforce-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do Salesforce](#create-salesforce-test-user)** – para ter um equivalente de B. Simon no Salesforce que esteja vinculado à representação de usuário do Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
-
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o Salesforce, execute as seguintes etapas:
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
@@ -90,7 +85,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
     a. Na caixa de texto **URL de logon** , digite o valor usando o seguinte padrão:
 
@@ -107,11 +102,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Salesforce](https://help.salesforce.com/support) para obter esses valores.
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o XML de **metadados de Federação** das opções determinadas de acordo com seu requisito e salvá-lo em seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o Salesforce** , copie as URLs apropriadas de acordo com seu requisito.
+1. Na seção **Configurar o Salesforce** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,9 +121,6 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
-   
-    > [!NOTE]
-    > Os atributos de usuário do Salesforce diferenciam maiúsculas de minúsculas para validação de SAML.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -150,48 +142,56 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-salesforce-sso"></a>Configurar SSO do Salesforce
 
-1. Abra uma nova guia no navegador e entre em sua conta de administrador do Salesforce.
+1. Para automatizar a configuração no Salesforce, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-2. Clique na **configuração** no **ícone configurações** no canto superior direito da página.
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o Salesforce** irá direcioná-lo para o aplicativo de logon único do Salesforce. A partir daí, forneça as credenciais de administrador para entrar no logon único do Salesforce. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-13.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Se você quiser configurar o Salesforce manualmente, abra uma nova janela do navegador da Web e entre no site da sua empresa do Salesforce como administrador e execute as seguintes etapas:
+
+1. Clique na **configuração** no **ícone configurações** no canto superior direito da página.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/configure1.png)
 
-3. Role para baixo até as **configurações** no painel de navegação, clique em **identidade** para expandir a seção correspondente. Em seguida, clique em **configurações de logon único**.
+1. Role para baixo até as **configurações** no painel de navegação, clique em **identidade** para expandir a seção correspondente. Em seguida, clique em **configurações de logon único**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso.png)
 
-4. Na página **configurações de logon único** , clique no botão **Editar** .
+1. Na página **configurações de logon único** , clique no botão **Editar** .
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > Se não for possível habilitar as configurações de logon único para sua conta do Salesforce, talvez seja necessário entrar em contato com a [equipe de suporte ao cliente do Salesforce](https://help.salesforce.com/support).
 
-5. Selecione **SAML habilitado**e, em seguida, clique em **salvar**.
+1. Selecione **SAML habilitado**e, em seguida, clique em **salvar**.
 
-      ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-enable-saml.png)
 
-6. Para configurar suas configurações de logon único do SAML, clique em **novo do arquivo de metadados**.
+1. Para configurar suas configurações de logon único do SAML, clique em **novo do arquivo de metadados**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-7. Clique em **escolher arquivo** para carregar o arquivo XML de metadados que você baixou do portal do Azure e clique em **criar**.
+1. Clique em **escolher arquivo** para carregar o arquivo XML de metadados que você baixou do portal do Azure e clique em **criar**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/xmlchoose.png)
 
-8. Na página **configurações de logon único do SAML** , os campos são preenchidos automaticamente e clique em salvar.
+1. Na página **configurações de logon único do SAML** , os campos são preenchidos automaticamente e clique em salvar.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/salesforcexml.png)
 
-9. No painel de navegação à esquerda no Salesforce, clique em **configurações da empresa** para expandir a seção relacionada e clique em **meu domínio**.
+1. No painel de navegação à esquerda no Salesforce, clique em **configurações da empresa** para expandir a seção relacionada e clique em **meu domínio**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-my-domain.png)
 
-10. Role para baixo até a seção **configuração de autenticação** e clique no botão **Editar** .
+1. Role para baixo até a seção **configuração de autenticação** e clique no botão **Editar** .
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. Na seção **configuração de autenticação** , verifique o **AzureSSO** como **serviço de autenticação** da sua configuração de SSO do SAML e, em seguida, clique em **salvar**.
+1. Na seção **configuração de autenticação** , verifique o **AzureSSO** como **serviço de autenticação** da sua configuração de SSO do SAML e, em seguida, clique em **salvar**.
 
     ![Configurar o início de sessão único](./media/salesforce-tutorial/sf-auth-config.png)
 

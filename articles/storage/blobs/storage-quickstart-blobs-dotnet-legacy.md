@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ee95ccd30d0f2eddcca7327dc4e5b60a3efe7e64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b243d05619642e1dd3ad8dfe2bbe1d0a9661b773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351309"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v11 para .NET
 
@@ -145,7 +145,7 @@ Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambien
 #### <a name="windows"></a>Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 Depois de adicionar a variável de ambiente no Windows, você deve iniciar uma nova instância da janela de comando.
@@ -153,20 +153,20 @@ Depois de adicionar a variável de ambiente no Windows, você deve iniciar uma n
 #### <a name="linux"></a>Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### <a name="macos"></a>MacOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 Depois de adicionar a variável de ambiente, reinicie os programas em execução que precisarão ler a variável de ambiente. Por exemplo, reinicie o seu ambiente ou editor de desenvolvimento antes de continuar.
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O armazenamento de BLOBs do Azure é otimizado para armazenar grandes quantidades de dados não estruturados. Dados não estruturados são dados que não aderem a um modelo ou definição de dados específico, como texto ou dados binários. O armazenamento de BLOBs oferece três tipos de recursos:
+O armazenamento de BLOBs do Azure é otimizado para armazenar grandes quantidades de dados não estruturados. Os dados não estruturados são dados que não seguem uma definição ou um modelo de dados em particular, como por exemplo, texto ou dados binários. O armazenamento de BLOBs oferece três tipos de recursos:
 
 * A conta de armazenamento.
 * Um contêiner na conta de armazenamento
@@ -204,11 +204,11 @@ Adicione este código dentro do método `ProcessAsync`:
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the 
 // environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string storageConnectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
@@ -223,7 +223,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'CONNECT_STR' with your storage " +
+        "Add an environment variable named 'AZURE_STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();

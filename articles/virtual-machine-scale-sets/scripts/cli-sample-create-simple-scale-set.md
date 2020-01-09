@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – Criar um conjunto de dimensionamento de máquinas virtuais | Microsoft Docs
-description: Exemplos da CLI do Azure
+title: Exemplos de CLI do Azure – criar um conjunto de dimensionamento de máquinas virtuais
+description: Este script cria um conjunto de dimensionamento de máquinas virtuais do Azure com um sistema operativo Ubuntu e recursos de rede relacionados, incluindo um balanceador de carga.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4fbefc0c513df8fb300798155c2f8814bc3140b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61388655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351044"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais do Azure com um sistema operativo Ubuntu e recursos de rede relacionados, incluindo um balanceador de carga. Depois de executar o script, pode aceder às instâncias de VMs através de SSH.
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az vmss create](/cli/azure/vmss) | Cria o conjunto de dimensionamento de máquinas virtuais e liga-o à rede virtual, à sub-rede e ao grupo de segurança de rede. É também criado um balanceador de carga para distribuir o tráfego para instâncias de VM individuais. Este comando também especifica a imagem da VM a ser utilizada e as credenciais administrativas.  |
 | [az group delete](/cli/azure/ad/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Pode encontrar exemplos adicionais de scripts da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

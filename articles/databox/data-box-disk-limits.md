@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646970"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613793"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de Disco do Azure Data Box
 
@@ -59,7 +59,7 @@ Para obter as informações mais recentes sobre os limites do serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
-Aqui estão os limites do tamanho dos dados que são copiados na conta de armazenamento. Verifique se os dados carregados estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse destinos de [escala do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [destinos de escala de arquivos do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Aqui estão os limites do tamanho dos dados que são copiados na conta de armazenamento. Verifique se os dados carregados estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse destinos de [escala do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) e [destinos de escala de arquivos do Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite predefinido          |
 |---------------------------------------------------------------------|------------------------|
@@ -72,10 +72,10 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 
 | Tipo de objeto do Azure | Limite predefinido                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de blocos        | ~ 4,75 TiB                                                 |
+| Blob de Blocos        | ~ 4,75 TiB                                                 |
 | Blob de páginas         | 8 TiB <br> (Cada arquivo carregado no formato de blob de páginas deve ter 512 bytes alinhados, caso contrário, o carregamento falhará. <br> O VHD e o VHDX são 512 bytes alinhados.) |
 |Ficheiros do Azure        | 1 TiB <br> Um máximo de o tamanho do compartilhamento é 5 TiB     |
-| Managed disks     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed Disks     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Blob de blocos do Azure, BLOB de páginas e convenções de nomenclatura de arquivo
