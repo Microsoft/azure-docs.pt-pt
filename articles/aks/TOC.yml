@@ -21,18 +21,27 @@
       items:
         - name: Utilizar Rascunho
           href: kubernetes-draft.md
-        - name: Utilizar o Visual Studio Code e o Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore.md
-          maintainContext: true
-        - name: Utilizar o Visual Studio e o Azure Dev Spaces
-          href: ../dev-spaces/quickstart-netcore-visualstudio.md
-          maintainContext: true
-        - name: Utilizar a CLI e o Azure Dev Spaces
-          href: ../dev-spaces/quickstart-cli.md
-          maintainContext: true
-        - name: Utilizar o Azure Dev Spaces para desenvolvimento em equipa
-          href: ../dev-spaces/quickstart-team-development.md
-          maintainContext: true
+        - name: Espaços de Programador do Azure
+          expanded: true
+          items:
+            - name: Utilizar o Azure Dev Spaces para desenvolvimento em equipa
+              href: ../dev-spaces/quickstart-team-development.md
+              maintainContext: true
+            - name: Utilizar o Visual Studio Code
+              href: ../dev-spaces/quickstart-netcore.md
+              maintainContext: true
+            - name: Utilizar o Visual Studio
+              href: ../dev-spaces/quickstart-netcore-visualstudio.md
+              maintainContext: true
+            - name: Utilizar a CLI
+              href: ../dev-spaces/quickstart-cli.md
+              maintainContext: true
+            - name: Utilizar o Azure Dev Spaces com Java
+              href: ../dev-spaces/quickstart-java.md
+              maintainContext: true
+            - name: Utilizar o Node.js do Azure Dev Spaces
+              href: ../dev-spaces/quickstart-nodejs.md
+              maintainContext: true
 - name: Tutoriais
   items:
     - name: 1 - Preparar a aplicação para o AKS

@@ -4,7 +4,7 @@
   items:
     - name: Acerca do Jenkins no Azure
       href: overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um servidor Jenkins
@@ -24,6 +24,10 @@
           href: jenkins-azure-vm-agents.md
     - name: 3. Implementar o CI/CD
       items:
+        - name: Azure Spring Cloud
+          items:
+            - name: Implementar para o Azure Spring Cloud através da CLI do Azure
+              href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
         - name: AKS
           items:
             - name: CI/CD para o Kubernetes

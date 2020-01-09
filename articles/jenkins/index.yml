@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 09/17/2019
-  ms.openlocfilehash: 802be2b69f2a58e39771c7100f30f4ab83f64280
-  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+  ms.openlocfilehash: 10e6c6bcd5f596b56a1c31e62b3a60b3ba573c3f
+  ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/24/2019
-  ms.locfileid: "72882068"
+  ms.lasthandoff: 01/08/2020
+  ms.locfileid: "75732370"
 landingContent:
 - title: Acerca do Jenkins no Azure
   linkLists:
@@ -101,3 +101,9 @@ landingContent:
     links:
     - text: Criar e implementar uma aplicação do Azure Service Fabric
       url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
+- title: CI/CD para o Azure Spring Cloud
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implementar para o Azure Spring Cloud através da CLI do Azure
+      url: tutorial-jenkins-deploy-cli-spring-cloud-service.md

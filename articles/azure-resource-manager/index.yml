@@ -11,23 +11,23 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 12/19/2019
-  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
-  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.openlocfilehash: d094dce17f9f79b37bc5a226d756713f6e57be6a
+  ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/03/2020
-  ms.locfileid: "75642477"
+  ms.lasthandoff: 01/06/2020
+  ms.locfileid: "75680652"
 highlightedContent:
   items:
+  - title: O que é o Resource Manager?
+    itemType: overview
+    url: management/overview.md
   - title: O que são os modelos?
     itemType: overview
     url: templates/overview.md
   - title: Criar o primeiro modelo
     itemType: tutorial
     url: templates/template-tutorial-create-first-template.md
-  - title: O que é o Resource Manager?
-    itemType: overview
-    url: management/overview.md
 conceptualContent:
   items:
   - title: Implementar modelos do Resource Manager
@@ -40,10 +40,13 @@ conceptualContent:
       text: Série de tutoriais para principiantes
     - url: templates/template-syntax.md
       itemType: reference
-      text: Modelo de estrutura de ficheiros
+      text: Sintaxe do modelo
     - url: templates/template-functions.md
       itemType: reference
       text: Funções de modelos
+    - url: /azure/templates/
+      itemType: reference
+      text: Referência de modelo
     - url: templates/deploy-powershell.md
       itemType: how-to-guide
       text: Implementação
@@ -70,6 +73,9 @@ conceptualContent:
     - url: management/resource-providers-and-types.md
       itemType: concept
       text: Fornecedores e tipos de recursos
+    - url: management/azure-subscription-service-limits.md
+      itemType: concept
+      text: Subscrição e limites do serviço
     footerLink:
       url: management/index.yml
       text: Ver mais
@@ -80,13 +86,13 @@ conceptualContent:
       text: Descrição geral
     - url: managed-applications/publish-service-catalog-app.md
       itemType: tutorial
-      text: Publicar a aplicação do catálogo de serviços
+      text: Publicar a aplicação no catálogo de serviços
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
-      text: Criar a definição da IU
+      text: Definir painel do portal para criar a aplicação
     - url: managed-applications/publish-marketplace-app.md
       itemType: tutorial
-      text: Adicionar ao Marketplace
+      text: Adicionar aplicação ao Marketplace
     footerLink:
       url: managed-applications/index.yml
       text: Ver mais

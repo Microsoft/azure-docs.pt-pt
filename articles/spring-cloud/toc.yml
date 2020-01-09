@@ -5,7 +5,7 @@
   items:
     - name: O que é o Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Iniciar a aplicação do Spring Cloud com o portal
@@ -34,6 +34,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Vincular a aplicação ao MySQL do Azure
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Implementar aplicações no Azure Spring Cloud através do Jenkins e da CLI do Azure
+      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Conceitos
   items:
     - name: Compreender os limites e as quotas do Azure Spring Cloud

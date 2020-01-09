@@ -4,7 +4,7 @@
   items:
     - name: O que é o Azure Data Explorer?
       href: data-explorer-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar um cluster e uma base de dados - portal do Azure
@@ -32,6 +32,8 @@
       href: ingest-data-overview.md
     - name: Descrição geral da visualização de dados
       href: viz-overview.md
+    - name: Descrição geral da segurança
+      href: security.md
 - name: Guias de procedimentos
   items:
     - name: Criar um cluster e uma base de dados
@@ -144,6 +146,18 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+    - name: Proteger
+      items:
+        - name: Gerir a segurança do cluster
+          href: manage-cluster-security.md
+        - name: Configurar identidades geridas
+          href: managed-identities.md
+        - name: Configurar chaves geridas pelo cliente
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Modelo Azure Resource Manager
+              href: customer-managed-keys-resource-manager.md
     - name: Gerir
       items:
         - name: Cluster
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: Gerir dimensionamento vertical do cluster
               href: manage-cluster-vertical-scaling.md
-            - name: Gerir a segurança do cluster
-              href: manage-cluster-security.md
             - name: Verificar estado de funcionamento do cluster
               href: check-cluster-health.md
         - name: Base de Dados

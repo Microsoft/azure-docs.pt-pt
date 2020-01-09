@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Key Vault
       href: key-vault-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: CLI
@@ -106,7 +106,7 @@
       items:
         - name: Recomendações
           href: security-recommendations.md
-    - name: Autenticação
+    - name: Autenticar
       items:
         - name: Utilizar uma identidade gerida do Serviço de Aplicações
           href: managed-identity.md
@@ -140,6 +140,8 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Referência
   items:
+    - name: Códigos de erro REST do Key Vault
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: CLI do Azure

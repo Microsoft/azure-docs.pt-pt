@@ -84,6 +84,8 @@
       items:
         - name: Transformar dados com um fluxo de dados de mapeamento
           href: tutorial-data-flow.md
+        - name: Tutoriais de vídeo sobre fluxo de dados de mapeamento
+          href: data-flow-tutorials.md
         - name: Preparar dados com um fluxo de dados wrangling
           href: wrangling-data-flow-tutorial.md
     - name: Transformações externas
