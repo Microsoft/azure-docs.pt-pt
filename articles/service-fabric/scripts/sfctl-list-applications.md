@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script da CLI do Service Fabric - Listar aplicações num cluster
+title: Listar aplicativos em um cluster no sfctl
 description: Exemplo de Script da CLI do Service Fabric - Listar as aplicações aprovisionadas num cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 04/13/2018
 ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: cc101a5cc93d7087bc1dd68cafafaa10a0e270b2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41685e53eb0915f54bdc2d678191e5b767990dde
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035947"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610272"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Listar as aplicações a executar num cluster do Service Fabric
 
@@ -31,7 +31,7 @@ Este script de exemplo liga-se a um cluster do Service Fabric e, em seguida, lis
 
 [!code-sh[main](../../../cli_scripts/service-fabric/list-application/list-application.sh "List provisioned applications from a cluster")]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 

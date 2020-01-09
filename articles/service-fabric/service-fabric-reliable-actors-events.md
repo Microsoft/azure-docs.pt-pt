@@ -1,32 +1,23 @@
 ---
-title: Eventos no baseada em atores actors do Azure Service Fabric | Documentos da Microsoft
-description: Introdução a eventos do Reliable Actors do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Eventos em atores Service Fabric do Azure baseados em ator
+description: Saiba mais sobre eventos para Service Fabric Reliable Actors, uma maneira eficaz de se comunicar entre o ator e o cliente.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73c149a0d0992fecd1acf633891057570285df64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726405"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639671"
 ---
 # <a name="actor-events"></a>Eventos de ator
-Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço de ator para os clientes. Eventos de ator foram concebidos para a comunicação de cliente a ator e não devem ser utilizados para comunicação de ator-ator.
+Os eventos de ator fornecem uma maneira de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator são projetados para comunicação entre ator e cliente e não devem ser usados para comunicação de ator com ator.
 
-Os fragmentos de código seguintes mostram como usar eventos de ator em seu aplicativo.
+Os trechos de código a seguir mostram como usar eventos de ator em seu aplicativo.
 
-Defina uma interface que descreve eventos publicados pelo ator. Esta interface tem de ser derivada do `IActorEvents` interface. Os argumentos dos métodos tem de ser [contrato de dados serializáveis](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar void, como eventos, notificações são uma forma e de melhor esforço.
+Defina uma interface que descreve os eventos publicados pelo ator. Essa interface deve ser derivada da interface `IActorEvents`. Os argumentos dos métodos devem ser [serializáveis de contrato de dados](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Os métodos devem retornar void, pois as notificações de eventos são uma maneira e melhor esforço.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -40,7 +31,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Declare os eventos publicados por ator na interface de ator.
+Declare os eventos publicados pelo ator na interface do ator.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -79,7 +70,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-No cliente, criar um proxy para o ator que publica o evento e subscrever os eventos.
+No cliente, crie um proxy para o ator que publica o evento e assine seus eventos.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -94,9 +85,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-Em caso de ativações pós-falha, o ator pode efetuar a ativação pós-falha para um processo diferente ou um nó. O proxy de ator gerencia as subscrições ativas e automaticamente subscreve-los novamente. Pode controlar o intervalo de reavaliação de subscrição por meio do `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Para anular a subscrição, utilize o `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+No caso de failovers, o ator pode fazer failover para um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as assina automaticamente. Você pode controlar o intervalo de nova assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
-No ator, publicar os eventos à medida que acontecem. Se existirem subscritores ao evento, o tempo de execução de Atores envia a notificação.
+No ator, publique os eventos conforme eles acontecem. Se houver assinantes para o evento, o tempo de execução dos atores enviará a ele a notificação.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -108,10 +99,10 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Reentrada de ator](service-fabric-reliable-actors-reentrancy.md)
-* [Monitorização de desempenho e diagnóstico de ator](service-fabric-reliable-actors-diagnostics.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Reentrância do ator](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnóstico de ator e monitoramento de desempenho](service-fabric-reliable-actors-diagnostics.md)
 * [Documentação de referência da API de ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Código de exemplo de c#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de c# .NET Core exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C#Código de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C#Código de exemplo do .NET Core](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)

@@ -1,60 +1,51 @@
 ---
-title: Saiba como criar e publicar o .net Core aplicações num cluster remoto do Azure Service Fabric do Linux | Documentos da Microsoft
-description: Criar e publicar o .net Core aplicações orientadas para um cluster do Linux remoto a partir do Visual Studio
-services: service-fabric
-documentationcenter: .net
+title: Criar e publicar o aplicativo a.Net Core em um cluster Linux remoto
+description: Criar e publicar .Net Core aplicativos direcionados a um cluster Linux remoto do Visual Studio
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/20/2019
 ms.author: pepogors
-ms.openlocfilehash: 46d76edbe8cede12e8c7811f43c28a65c1ebaed0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078667"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614354"
 ---
-# <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Utilizar o Visual Studio para criar e publicar o .net Core aplicativos destinados um cluster do Service Fabric do Linux remoto
-Com o Visual Studio ferramentas podem desenvolver e publicar .net do Service Fabric principais aplicativos destinados um cluster do Service Fabric do Linux. A versão do SDK tem de ser 3.4 ou superior para implementar um .net clusters do aplicativo principal para o Service Fabric do Linux a partir do Visual Studio.
+# <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Usar o Visual Studio para criar e publicar .Net Core aplicativos direcionados a um cluster remoto de Service Fabric do Linux
+Com as ferramentas do Visual Studio, você pode desenvolver e publicar Service Fabric .Net Core aplicativos direcionados a um cluster de Service Fabric do Linux. A versão do SDK deve ser 3,4 ou superior para implantar um aplicativo .Net Core destinado a clusters do Linux Service Fabric do Visual Studio.
 
 > [!Note]
-> Visual Studio não suporta a depuração aplicações do Service Fabric que Linux de destino.
+> O Visual Studio não dá suporte à depuração de Service Fabric aplicativos que se destinam ao Linux.
 >
 
-## <a name="create-a-service-fabric-application-targeting-net-core"></a>Criar uma aplicação do Service Fabric visando o .net Core
+## <a name="create-a-service-fabric-application-targeting-net-core"></a>Criar um aplicativo Service Fabric direcionamento .Net Core
 1. Inicie o Visual Studio como **administrador**.
-2. Crie um projeto com **ficheiro -> New -> projeto**.
-3. Na **novo projeto** caixa de diálogo, escolha **Cloud -> aplicação do Service Fabric**.
+2. Crie um projeto com **arquivo-> projeto de novo >** .
+3. Na caixa de diálogo **novo projeto** , escolha **nuvem-> aplicativo Service Fabric**.
 ![create-application]
-4. Nome da aplicação e clique em **Ok**.
-5. No **novo serviço do Service Fabric** , selecione o tipo de serviço que pretende criar sob a **.Net Core secção**.
+4. Nomeie o aplicativo e clique em **OK**.
+5. Na página **novo serviço Service Fabric** , selecione o tipo de serviço que você deseja criar na **seção .NET Core**.
 ![create-service]
 
-## <a name="deploy-to-a-remote-linux-cluster"></a>Implementar um cluster do Linux remoto
-1. No Explorador de soluções, clique com botão direito na aplicação e selecione **criar**.
-![build-application]
-2. Depois do processo de compilação para a aplicação concluída, clique com o botão direito do rato no serviço e selecione editar a **ficheiro csproj**.
+## <a name="deploy-to-a-remote-linux-cluster"></a>Implantar em um cluster Linux remoto
+1. No Gerenciador de soluções, clique com o botão direito do mouse no aplicativo e selecione **Compilar**.
+![Build-] de aplicativos
+2. Depois que o processo de compilação para o aplicativo for concluído, clique com o botão direito do mouse no serviço e selecione Editar o **arquivo csproj**.
 ![edit-csproj]
-3. Editar a propriedade UpdateServiceFabricManifestEnabled verdadeiro a partir **False** se o serviço é um **tipo de projeto de ator**. Se seu aplicativo não tiver um serviço de ator, avance para o passo 4.
+3. Edite a propriedade UpdateServiceFabricManifestEnabled de true para **false** se o serviço for um **tipo de projeto de ator**. Se seu aplicativo não tiver um serviço de ator, pule para a etapa 4.
 ```xml
     <UpdateServiceFabricManifestEnabled>False</UpdateServiceFabricManifestEnabled>
 ```
 > [!Note]
-> Definir UpdateServiceFabricManifestEnabled como false, irá desativar as atualizações para o servicemanifest. xml durante uma compilação. Qualquer alteração, tais como adicionar, remover ou mudar o nome para o serviço não será refletida no servicemanifest. XML. Se todas as alterações forem feitas, deve atualizar que o ServiceManifest manualmente ou temporariamente definir UpdateServiceFabricManifestEnabled como true e criar o serviço que irá atualizar o servicemanifest. XML e, em seguida, revertê-lo fazer uma cópia como false.
+> Definir UpdateServiceFabricManifestEnabled como false desativará as atualizações para o manifesto. xml durante uma compilação. Qualquer alteração como adicionar, remover ou renomear para o serviço não será refletida no Service manifest. xml. Se forem feitas alterações, você deverá atualizar o Service manifest manualmente ou temporariamente definir UpdateServiceFabricManifestEnabled como true e criar o serviço que atualizará o manifest. xml e, em seguida, revertê-lo novamente para false.
 >
 
-4. Atualize o RuntimeIndetifier do win7 x64 para a plataforma de destino do projeto de serviço.
+4. Atualize o RuntimeIndetifier do Win7-x64 para a plataforma de destino no projeto de serviço.
 ```xml
     <RuntimeIdentifier>ubuntu.16.04-x64</RuntimeIdentifier>
 ```
-5. O servicemanifest, atualize o programa de ponto de entrada para remover .exe. 
+5. No manifesto, atualize o programa EntryPoint para Remove. exe. 
 ```xml
     <EntryPoint> 
     <ExeHost> 
@@ -62,16 +53,16 @@ Com o Visual Studio ferramentas podem desenvolver e publicar .net do Service Fab
     </ExeHost> 
     </EntryPoint>
 ```
-6. No Solution Explorer, clique com botão direito na aplicação e selecione **publicar**. É apresentada a caixa de diálogo **Publicar**.
-7. Na **ponto final de ligação**, selecione o ponto final para o cluster do Service Fabric do Linux remoto que gostaria de destino.
+6. Em Gerenciador de Soluções, clique com o botão direito do mouse no aplicativo e selecione **publicar**. É apresentada a caixa de diálogo **Publicar**.
+7. Em **ponto de extremidade de conexão**, selecione o ponto de extremidade para o cluster remoto Service Fabric Linux que você deseja direcionar.
 ![publish-application]
 
 <!--Image references-->
 [create-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
 [create-service]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
-[build-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
+[Compilar aplicativo]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [publish-application]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [introdução ao Service Fabric com .net Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre como [começar a usar o Service Fabric com .NET Core](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)

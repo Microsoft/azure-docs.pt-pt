@@ -1,19 +1,19 @@
 ---
 title: SDK do Phoenix Query Server REST-Azure HDInsight
 description: Instale e use o SDK do REST para o Phoenix Query Server no Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311678"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612262"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK REST do servidor de consulta Apache Phoenix
 
@@ -31,7 +31,7 @@ O driver de Microsoft .NET para Apache Phoenix servidor de consultas é fornecid
 
 ## <a name="instantiate-new-phoenixclient-object"></a>Criar instância de novo objeto PhoenixClient
 
-Para começar a usar a biblioteca, crie uma instância de um novo objeto `PhoenixClient`, passando `ClusterCredentials` que contém o `Uri` para o cluster e o nome de usuário e a senha do cluster Apache Hadoop.
+Para começar a usar a biblioteca, crie uma instância de um novo objeto `PhoenixClient`, passando `ClusterCredentials` contendo o `Uri` para o cluster e o nome de usuário e a senha do cluster Apache Hadoop.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -73,14 +73,14 @@ Aqui estão algumas propriedades de interesse:
 
 | Propriedade | Descrição |
 | -- | -- |
-| Confirmação automática | Um booliano que indica se `autoCommit` está habilitado para transações de Phoenix. |
+| Confirmação automática | Um booliano que indica se `autoCommit` está habilitado para transações Phoenix. |
 | ReadOnly | Um booliano indicando se a conexão é somente leitura. |
 | TransactionIsolation | Um inteiro que indica o nível de isolamento da transação por especificação JDBC – consulte a tabela a seguir.|
 | Catálogo | O nome do catálogo a ser usado ao buscar as propriedades de conexão. |
 | Esquema | O nome do esquema a ser usado ao buscar Propriedades de conexão. |
 | IsDirty | Um booliano indicando se as propriedades foram alteradas. |
 
-Estes são os valores `TransactionIsolation`:
+Aqui estão os valores de `TransactionIsolation`:
 
 | Valor de isolamento | Descrição |
 | -- | -- |
@@ -94,7 +94,7 @@ Estes são os valores `TransactionIsolation`:
 
 O HBase, como qualquer outro RDBMS, armazena dados em tabelas. O Phoenix usa consultas SQL padrão para criar novas tabelas, ao mesmo tempo que define os tipos de chave primária e de coluna.
 
-Este exemplo e todos os exemplos subsequentes usam o objeto `PhoenixClient` instanciado, conforme definido em [instanciar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
+Este exemplo e todos os exemplos posteriores usam o objeto de `PhoenixClient` instanciado conforme definido em [instanciar um novo objeto PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -160,17 +160,17 @@ finally
 }
 ```
 
-O exemplo anterior cria uma nova tabela chamada `Customers` usando a opção `IF NOT EXISTS`. A chamada `CreateStatementRequestAsync` cria uma nova instrução no servidor Avitica (PQS). O bloco `finally` fecha os objetos retornados `CreateStatementResponse` e `OpenConnectionResponse`.
+O exemplo anterior cria uma nova tabela chamada `Customers` usando a opção `IF NOT EXISTS`. A chamada `CreateStatementRequestAsync` cria uma nova instrução no servidor Avitica (PQS). O bloco de `finally` fecha o `CreateStatementResponse` retornado e os objetos `OpenConnectionResponse`.
 
 ## <a name="insert-data-individually"></a>Inserir dados individualmente
 
-Este exemplo mostra uma inserção de dados individual, fazendo referência a uma coleção `List<string>` de abreviações de Estados e territórios americanos:
+Este exemplo mostra uma inserção de dados individual, fazendo referência a uma coleção de `List<string>` de abreviações de estado americano e de território:
 
 ```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-O valor da coluna `StateProvince` da tabela será usado em uma operação SELECT subsequente.
+O valor da coluna `StateProvince` da tabela será usado em uma operação de seleção posterior.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-A estrutura para executar uma instrução INSERT é semelhante à criação de uma nova tabela. Observe que no final do bloco `try`, a transação é confirmada explicitamente. Este exemplo repete uma transação de inserção 300 vezes. O exemplo a seguir mostra um processo de inserção de lote mais eficiente.
+A estrutura para executar uma instrução INSERT é semelhante à criação de uma nova tabela. No final do bloco de `try`, a transação é explicitamente confirmada. Este exemplo repete uma transação de inserção 300 vezes. O exemplo a seguir mostra um processo de inserção de lote mais eficiente.
 
 ## <a name="batch-insert-data"></a>Dados de inserção em lote
 
@@ -492,7 +492,7 @@ finally
 }
 ```
 
-A saída das instruções `select` deve ser o seguinte resultado:
+A saída das instruções de `select` deve ser o seguinte resultado:
 
 ```
 id0 first0
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos seguintes
 
 * [Apache Phoenix no HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Usando o SDK REST do Apache HBase](apache-hbase-rest-sdk.md)

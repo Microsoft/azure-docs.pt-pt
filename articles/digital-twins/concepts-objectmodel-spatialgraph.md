@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/30/2019
+ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010093"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562600"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
@@ -58,7 +58,7 @@ Outras categorias de objetos são:
 
 O grafo espacial é o grafo hierárquico de espaços, dispositivos e pessoas definidos no modelo de objeto digital gêmeos. O grafo espacial dá suporte à herança, filtragem, passagem, escalabilidade e extensibilidade. Você pode gerenciar e interagir com o grafo espacial com uma coleção de APIs REST.
 
-Se você implantar um serviço de gêmeos digital em sua assinatura, você se tornará o administrador global do nó raiz. Em seguida, você recebe automaticamente acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de espaço. Provisione serviços usando a API do dispositivo e os sensores usando a API do sensor. As [ferramentas de código-fonte aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
+Se você implantar um serviço de gêmeos digital em sua assinatura, você se tornará o administrador global do nó raiz. Em seguida, você recebe automaticamente acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de espaço. Provisione serviços usando a API do dispositivo e os sensores usando a API do sensor. As [ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
 
 **Herança de grafo**. A herança se aplica às permissões e propriedades que descendem de um nó pai para todos os nós abaixo dela. Por exemplo, quando uma função é atribuída a um usuário em um determinado nó, o usuário tem as permissões dessa função para o nó fornecido e para cada nó abaixo dele. Cada chave de propriedade e tipo estendido definido para um determinado nó é herdado por todos os nós abaixo desse nó.
 

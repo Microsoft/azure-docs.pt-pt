@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219219"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641406"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Mover o IP público do Azure para outra região usando o portal do Azure
 
 Há vários cenários em que você deseja mover seus IPs públicos do Azure existentes de uma região para outra. Por exemplo, talvez você queira criar um IP público com a mesma configuração e SKU para teste. Você também pode querer mover um IP público para outra região como parte do planejamento de recuperação de desastre.
 
-Os IPs públicos do Azure são específicos da região e não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente de um IP público.  Em seguida, você pode preparar o recurso em outra região exportando o IP público para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Resource Manager e modelos [, consulte início rápido: Crie e implante modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Os IPs públicos do Azure são específicos da região e não podem ser movidos de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente de um IP público.  Em seguida, você pode preparar o recurso em outra região exportando o IP público para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região.  Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -32,7 +32,7 @@ Os IPs públicos do Azure são específicos da região e não podem ser movidos 
 
 - Verifique se sua assinatura do Azure permite que você crie IPs públicos na região de destino usada. Contacte o suporte para ativar a quota necessária.
 
-- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de IPs públicos para esse processo.  Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Certifique-se de que sua assinatura tenha recursos suficientes para dar suporte à adição de IPs públicos para esse processo.  Veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparar e mover
@@ -42,10 +42,10 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) > **grupos de recursos**.
 2. Localize o grupo de recursos que contém o IP público de origem e clique nele.
-3. Selecione **configurações** > de >**modelo de exportação**.
+3. Selecione **configurações** de > > **modelo de exportação**.
 4. Escolha **implantar** na folha **Exportar modelo** .
 5. Clique em **modelo** > **Editar parâmetros** para abrir o arquivo **Parameters. JSON** no editor online.
-8. Para editar o parâmetro do nome do IP público, altere a propriedade em**valor** de **parâmetros** > do nome IP público de origem para o nome do seu IP público de destino, verifique se o nome está entre aspas:
+8. Para editar o parâmetro do nome do IP público, altere a propriedade em **parâmetros** > **valor** do nome IP público de origem para o nome do seu IP público de destino, verifique se o nome está entre aspas:
 
     ```json
             {
@@ -93,7 +93,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 12. Você também pode alterar outros parâmetros no modelo se escolher e forem opcionais, dependendo dos seus requisitos:
 
-    * **SKU** -você pode alterar a SKU do IP público na configuração de Standard para básico ou básico para Standard alterando a propriedade**nome** do **SKU** > no arquivo **Template. JSON** :
+    * **SKU** -você pode alterar a SKU do IP público na configuração de Standard para básico ou básico para Standard alterando a propriedade **nome** do **SKU** > no arquivo **Template. JSON** :
 
         ```json
           "resources": [
@@ -110,7 +110,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
         Para obter mais informações sobre as diferenças entre IPS públicos do SKU básico e Standard, consulte [criar, alterar ou excluir um endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
 
-    * **Método de alocação de IP público** e **tempo limite de ociosidade** -você pode alterar ambas as opções no modelo alterando a propriedade **publicIPAllocationMethod** de **dinâmico** para **estático** ou **estático** para **dinâmico** . O tempo limite de ociosidade pode ser alterado alterando a propriedade **idleTimeoutInMinutes** para o valor desejado.  O padrão é **4**:
+    * **Método de alocação de IP público** e **tempo limite de ociosidade** -você pode alterar ambas as opções no modelo alterando a propriedade **publicIPAllocationMethod** de **dinâmico** para **estático** ou **estático** para **dinâmico**. O tempo limite de ociosidade pode ser alterado alterando a propriedade **idleTimeoutInMinutes** para o valor desejado.  O padrão é **4**:
 
         ```json
           "resources": [
@@ -139,11 +139,11 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 13. Clique em **salvar** no editor online.
 
-14. Clique em**assinatura** **básica** > para escolher a assinatura na qual o IP público de destino será implantado.
+14. Clique em **noções básicas** > **assinatura** para escolher a assinatura na qual o IP público de destino será implantado.
 
-15. Clique em**grupo de recursos** **básico** > para escolher o grupo de recursos em que o IP público de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o IP público de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
+15. Clique em **noções básicas** > **grupo de recursos** para escolher o grupo de recursos em que o IP público de destino será implantado.  Você pode clicar em **criar novo** para criar um novo grupo de recursos para o IP público de destino.  Verifique se o nome não é o mesmo que o grupo de recursos de origem do IP público de origem existente.
 
-16. Verifique se o**local** **básico** > está definido como o local de destino onde você deseja que o IP público seja implantado.
+16. Verifique **noções básicas** > **local** está definido como o local de destino onde você deseja que o IP público seja implantado.
 
 17. Verifique em **configurações** que o nome corresponde ao nome que você inseriu no editor de parâmetros acima.
 
@@ -151,7 +151,7 @@ As etapas a seguir mostram como preparar o IP público para a configuração mov
 
 19. Clique no botão **comprar** para implantar o IP público de destino.
 
-## <a name="discard"></a>Rejeitar
+## <a name="discard"></a>Eliminar
 
 Se você quiser descartar o IP público de destino, exclua o grupo de recursos que contém o IP público de destino.  Para fazer isso, selecione o grupo de recursos do seu painel no portal e selecione **excluir** na parte superior da página Visão geral.
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782245"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647633"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Visualização: VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -151,7 +151,7 @@ O exemplo a seguir cria um conjunto de escala de spot do Linux chamado *Myscales
 
 **P:** Como a cota é gerenciada para o ponto?
 
-**R:** Instâncias especiais e instâncias padrão terão pools de cotas separados. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R:** Instâncias especiais e instâncias padrão terão pools de cotas separados. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **P:** Posso solicitar uma cota adicional para o ponto?

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012872"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613334"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicação com HTTP para redirecionamento a HTTPS com o portal do Azure
 
@@ -63,7 +63,7 @@ Export-PfxCertificate `
   -Password $pwd
 ```
 
-## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
+## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
 Uma rede virtual é necessária para a comunicação entre os recursos que criar. Neste exemplo, são criadas duas sub-redes: uma para o gateway de aplicação e a outra para os servidores de back-end. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação.
 
@@ -118,15 +118,15 @@ Primeiro, adicione o serviço de escuta com o nome *myListener* para a porta 80.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Adicionar uma regra de roteamento com uma configuração de redirecionamento
 
-1. No **myAppGateway**, selecione **regras** e, em seguida, selecione **+ básicas**.
-2. Para o **Name**, tipo *Rule2*.
+1. Em **myAppGateway**, selecione **regras** e, em seguida, selecione **+ regra de roteamento de solicitação**.
+2. Para o **nome da regra**, digite *Rule2*.
 3. Certifique-se **MyListener** está selecionada para o serviço de escuta.
-4. Selecione o **configurar o redirecionamento** caixa de verificação.
+4. Clique na guia **destinos de back-end** e selecione **tipo de destino** como *redirecionamento*.
 5. Para **tipo de redirecionamento**, selecione **permanente**.
 6. Para **destino de redirecionamento**, selecione **serviço de escuta**.
 7. Certifique-se a **serviço de escuta de destino** está definida como **appGatewayHttpListener**.
-8. Selecione o **incluem a cadeia de consulta** e **caminho Include** caixas de verificação.
-9. Selecione **OK**.
+8. Para a **cadeia de caracteres de consulta include** e **incluir o caminho** , selecione *Sim*.
+9. Selecione **Adicionar**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 

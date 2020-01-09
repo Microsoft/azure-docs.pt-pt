@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7d4a400681113736c52046fb6aa5c04098ddda
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: fe08f1523b4b61653d89a9b3472355dd3eeaf69f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893234"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o SmartDraw
 
@@ -44,13 +43,8 @@ Para começar, você precisa dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-
-
 * O SmartDraw dá suporte ao **SP e** ao SSO iniciado pelo IDP
 * O SmartDraw dá suporte ao provisionamento **de usuário just in time**
-
-> [!NOTE]
-> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-smartdraw-from-the-gallery"></a>Adicionando o SmartDraw da Galeria
 
@@ -63,7 +57,6 @@ Para configurar a integração do SmartDraw ao Azure AD, você precisará adicio
 1. Na seção **Adicionar da Galeria** , digite **SmartDraw** na caixa de pesquisa.
 1. Selecione **SmartDraw** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-smartdraw"></a>Configurar e testar o logon único do Azure AD para o SmartDraw
 
 Configure e teste o SSO do Azure AD com o SmartDraw usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no SmartDraw.
@@ -71,10 +64,10 @@ Configure e teste o SSO do Azure AD com o SmartDraw usando um usuário de teste 
 Para configurar e testar o SSO do Azure AD com o SmartDraw, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
-    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO do SmartDraw](#configure-smartdraw-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do SmartDraw](#create-smartdraw-test-user)** – para ter um equivalente de B. Simon em SmartDraw que esteja vinculado à representação do usuário no Azure AD.
+    * **[Criar usuário de teste do SmartDraw](#create-smartdraw-test-user)** – para ter um equivalente de B. Simon em SmartDraw que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
@@ -87,7 +80,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração básica do SAML** o aplicativo é pré-configurado no modo de iniciado pelo **IDP** e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure.
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
@@ -96,11 +89,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > O valor da URL de logon não é real. Você atualizará o valor da URL de logon com a URL de logon real, que é explicada posteriormente no tutorial. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
+1. Clique em **Guardar**.
+
 1. O aplicativo SmartDraw espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![imagem](common/edit-attribute.png)
+    ![imagem](common/default-attributes.png)
 
-1. Além de acima, o aplicativo SmartDraw espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
+1. Além de acima, o aplicativo SmartDraw espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
     | Nome | Atributo de origem|
     | ---------------| --------------- |
@@ -116,7 +111,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na seção **Configurar SmartDraw** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -150,20 +144,28 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-smartdraw-sso"></a>Configurar o SSO do SmartDraw
 
-1. Em uma janela diferente do navegador da Web, entre no SmartDraw como um administrador.
+1. Para automatizar a configuração no SmartDraw, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-2. Clique em **logon único** em gerenciar sua licença do SmartDraw.
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o SmartDraw** irá direcioná-lo para o aplicativo SmartDraw. A partir daí, forneça as credenciais de administrador para entrar no SmartDraw. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Se você quiser configurar o SmartDraw manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do SmartDraw como administrador e execute as seguintes etapas:
+
+1. Clique em **logon único** em gerenciar sua licença do SmartDraw.
 
     ![Configuração do SmartDraw](./media/smartdraw-tutorial/configure01.png)
 
-3. Na página configuração, execute as seguintes etapas:
+1. Na página configuração, execute as seguintes etapas:
 
     ![Configuração do SmartDraw](./media/smartdraw-tutorial/configure02.png)
 
     a. Na caixa de texto **seu domínio (como Acme.com)** , digite seu domínio.
 
     b. Copie a **URL de logon iniciada pelo SP será** para sua instância e cole-a na caixa de texto URL de logon na **configuração básica do SAML** no portal do Azure.
-    
+
     c. Na caixa de texto **grupos de segurança para permitir acesso SmartDraw** , digite **todos**.
 
     d. Na caixa de texto **URL do emissor SAML** , Cole o valor do **identificador do Azure ad** que você copiou do portal do Azure.
@@ -174,9 +176,9 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ### <a name="create-smartdraw-test-user"></a>Criar usuário de teste do SmartDraw
 
-Nesta seção, um usuário chamado Brenda Simon é criado em SmartDraw. O SmartDraw dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no SmartDraw, um novo será criado após a autenticação.
+Nesta seção, um usuário chamado B. Simon é criado em SmartDraw. O SmartDraw dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no SmartDraw, um novo será criado após a autenticação.
 
-## <a name="test-sso"></a>Testar SSO 
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -191,4 +193,3 @@ Ao clicar no bloco do SmartDraw no painel de acesso, você deverá ser conectado
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o SmartDraw com o Azure AD](https://aad.portal.azure.com/)
-

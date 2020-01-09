@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406593"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563297"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
@@ -24,17 +24,18 @@ Neste artigo, saiba como se conectar e explorar uma loja de conhecimento usando 
 
 + Siga as etapas em [criar uma loja de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [criar uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passos. Você também precisará do nome da conta de armazenamento do Azure que usou para criar a loja de conhecimento, junto com sua chave de acesso do portal do Azure.
 
-+ [Instalar Power BI Desktop](https://powerbi.microsoft.com/downloads/)
++ [Instalar o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo de Power BI de exemplo – somente portal do Azure
 
-Se você [criou sua loja de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), você pode usar o [exemplo de modelo de Power bi de pesquisa cognitiva do Azure](https://github.com/Azure-Samples/cognitive-search-templates) para exibir e experimentar Power bi visualizações. Esse modelo também está disponível para download quando você percorre o assistente de **importação de dados** .
+Ao criar um [armazenamento de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), você tem a opção de baixar um [modelo de Power bi](https://github.com/Azure-Samples/cognitive-search-templates) na segunda página do assistente de importação de **dados** . Esse modelo fornece várias visualizações, como WordCloud e navegador de rede, para conteúdo baseado em texto. 
 
-O modelo de exemplo executará automaticamente as etapas de configuração descritas no restante deste artigo. No entanto, se você usou a API REST para criar sua loja de conhecimento, ignore o modelo e use as seções restantes neste artigo para conectar sua loja de conhecimento a Power BI. Comece com [conectar com Power bi](#connect-with-power-bi).
-
-O modelo de exemplo inclui várias visualizações, como WordCloud e navegador de rede. Algumas visualizações no modelo, como o mapa de locais e o Visualizador de grafo de entidade, não mostrarão dados para o exemplo de armazenamento de conhecimento criado em [criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md). Isso ocorre porque apenas um subconjunto dos aprimoramentos de ia disponíveis no assistente de **importação de dados** foi usado.
+Clique em **obter Power bi modelo** na página **Adicionar habilidades cognitivas** para recuperar e baixar o modelo de seu local do GitHub público. O assistente modifica o modelo para acomodar a forma de seus dados, conforme capturado nas projeções da loja de conhecimento especificadas no assistente. Por esse motivo, o modelo baixado variará cada vez que você executar o assistente, supondo entradas de dados e seleções de habilidades diferentes.
 
 ![Modelo de Power BI de Pesquisa Cognitiva do Azure de exemplo](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Modelo de Power BI de exemplo")
+
+> [!NOTE]
+> Embora o modelo seja baixado enquanto o assistente estiver em meados de vôo, você terá que aguardar até que a loja de conhecimento seja realmente criada no armazenamento de tabelas do Azure antes de poder usá-lo.
 
 ## <a name="connect-with-power-bi"></a>Ligar com o Power BI
 
@@ -48,16 +49,19 @@ O modelo de exemplo inclui várias visualizações, como WordCloud e navegador d
 
 1. Se solicitado, insira a chave da conta de armazenamento.
 
-1. Selecione as tabelas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*e *hotelReviewsSsPages* . Essas tabelas são projeções de tabela do Azure dos dados de exemplo de revisões de Hotel e incluem os aprimoramentos de ia que foram selecionados quando a loja de conhecimento foi criada.
+1. Selecione as tabelas que contêm os dados de revisões de Hotel criados pelas instruções anteriores. 
 
-1. Clique em **carregar**.
+   + Para o tutorial do portal, os nomes de tabela são *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases*e *hotelReviewsSsPages*. 
+   
+   + Para as instruções REST, os nomes de tabela são *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases*e *hotelReviewsSentiment*.
+
+1. Clique em **Carregar**.
 
 1. Na faixa de lista superior, clique em **editar consultas** para abrir o **Editor de Power Query**.
 
    ![Abrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir Power Query")
 
 1. Selecione *hotelReviewsSsDocument*e, em seguida, remova as colunas *PartitionKey*, *RowKey*e *timestamp* . 
-
    ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tabelas")
 
 1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *conteúdo*. Quando a lista de colunas for exibida, selecione todas as colunas e, em seguida, desmarque as colunas que começam com ' metadados '. Clique em **OK** para mostrar as colunas selecionadas.
@@ -83,6 +87,8 @@ O modelo de exemplo inclui várias visualizações, como WordCloud e navegador d
 
 1. Clique duas vezes em cada relação e verifique se a **direção do filtro cruzado** está definida como **ambas**.  Isso permite que os visuais sejam atualizados quando um filtro é aplicado.
 
+1. Clique no bloco relatório no painel de navegação à esquerda para explorar dados por meio de visualizações. Para campos de texto, tabelas e cartões são visualizações úteis. Você pode escolher os campos de cada uma das três tabelas para preencher a tabela ou o cartão. 
+
 <!-- ## Try with larger data sets
 
 We purposely kept the data set small to avoid charges for a demo walkthrough. For a more realistic experience, you can create and then attach a billable Cognitive Services resource to enable a larger number of transactions against the sentiment analyzer, keyphrase extraction, and language detector skills.
@@ -102,20 +108,15 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](htt
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando você está trabalhando em sua própria assinatura, é uma boa ideia no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como explorar essa loja de conhecimento usando Gerenciador de Armazenamento, consulte o artigo a seguir.
 
 > [!div class="nextstepaction"]
 > [Exibir com Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md)
-
-Para saber como criar uma loja de conhecimento usando as APIs REST e o postmaster, consulte o artigo a seguir.  
-
-> [!div class="nextstepaction"]
-> [Criar um repositório de conhecimento em repouso](knowledge-store-howto.md)

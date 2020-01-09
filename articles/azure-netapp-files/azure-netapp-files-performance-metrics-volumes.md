@@ -1,31 +1,24 @@
 ---
-title: Recomendações de teste de benchmark de desempenho para Azure NetApp Files | Microsoft Docs
-description: Fornece recomendações de teste de benchmark para desempenho e métricas de volume usando Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Testes de benchmark de desempenho recomendados-Azure NetApp Files
+description: Saiba mais sobre as recomendações de teste de benchmark para desempenho e métricas de volume usando Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881738"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551527"
 ---
-# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações de teste de benchmark de desempenho para Azure NetApp Files
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
 Este artigo fornece recomendações de teste de benchmark para desempenho e métricas de volume usando Azure NetApp Files.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Para entender as características de desempenho de um volume Azure NetApp Files, você pode usar a ferramenta de código-fonte aberto [fio](https://github.com/axboe/fio) para executar uma série de benchmarks para simular uma variedade de cargas de trabalho. O FIO pode ser instalado em sistemas operacionais baseados em Linux e Windows.  É uma excelente ferramenta para obter um instantâneo rápido de IOPS e taxa de transferência para um volume.
 
@@ -51,12 +44,12 @@ O FIO está disponível em formato binário para Linux e Windows. Siga a seção
 
 Os exemplos de FIO nesta seção usam a seguinte configuração:
 * Tamanho da instância de VM: D32s_v3
-* Tamanho e nível de serviço do pool de capacidade: Premium/50 TiB
+* Nível de serviço e tamanho do pool de capacidade: Premium/50 TiB
 * Tamanho da cota de volume: 48 TiB
 
 Os exemplos a seguir mostram as leituras e gravações aleatórias do FIO.
 
-### <a name="fio-8k-block-size-100-random-reads"></a>FIO tamanho do bloco de 8K 100% de leituras aleatórias
+### <a name="fio-8k-block-size-100-random-reads"></a>FIO: tamanho do bloco de 8K 100% de leituras aleatórias
 
 `fio --name=8krandomreads --rw=randread --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128 --size=4G --runtime=600 --group_reporting`
 
@@ -65,7 +58,7 @@ Os exemplos a seguir mostram as leituras e gravações aleatórias do FIO.
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
-### <a name="fio-8k-block-size-100-random-writes"></a>FIO tamanho do bloco de 8K 100% de gravações aleatórias
+### <a name="fio-8k-block-size-100-random-writes"></a>FIO: tamanho do bloco de 8K 100% de gravações aleatórias
 
 `fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
@@ -78,7 +71,7 @@ Os exemplos a seguir mostram as leituras e gravações aleatórias do FIO.
 
 Os exemplos nesta seção mostram as leituras e gravações sequenciais do FIO.
 
-### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO tamanho do bloco de 64K 100% de leituras sequenciais
+### <a name="fio-64k-block-size-100-sequential-reads"></a>FIO: tamanho do bloco de 64K 100% de leituras sequenciais
 
 `fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
@@ -87,7 +80,7 @@ Os exemplos nesta seção mostram as leituras e gravações sequenciais do FIO.
 `Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
-### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO tamanho do bloco de 64K 100% de gravações sequenciais
+### <a name="fio-64k-block-size-100-sequential-writes"></a>FIO: tamanho do bloco de 64K 100% de gravações sequenciais
 
 `fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
@@ -128,7 +121,7 @@ O exemplo a seguir mostra uma URL GET para exibição do tamanho do volume lógi
 `curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/ANFPOOLGOESHERE/Volumes/ANFVOLUMEGOESHERE/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=VolumeLogicalSize`
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Níveis de serviço para Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Benchmarks de desempenho para Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0c243d216e00adf49a6425e5b7be0d38caeef043
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929054"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658547"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrar para o serviço kubernetes do Azure (AKS)
 
@@ -35,7 +35,7 @@ Várias ferramentas de código-fonte aberto podem ajudar com sua migração, dep
 
 * [Velero](https://velero.io/) (requer kubernetes 1.7 +)
 * [Extensão da CLI do Azure Kube](https://github.com/yaron2/azure-kube-cli)
-* [Returno](https://github.com/mhausenblas/reshifter)
+* [ReShifter](https://github.com/mhausenblas/reshifter)
 
 Neste artigo, resumiremos os detalhes de migração para:
 
@@ -78,9 +78,9 @@ az aks create \
 
 Ao migrar clusters, você pode ter anexado serviços externos do Azure. Eles não exigem recriação de recursos, mas eles exigirão a atualização de conexões de clusters anteriores para novos para manter a funcionalidade.
 
-* Registo de Contentores do Azure
+* Azure Container Registry
 * Log Analytics
-* Application Insights
+* Estatísticas das Aplicações
 * Gestor de Tráfego
 * Conta de Armazenamento
 * Bancos de dados externos
@@ -91,7 +91,7 @@ Como máquinas virtuais adicionais serão implantadas em sua assinatura durante 
 
 Talvez seja necessário solicitar um aumento nas [cotas de rede](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) para garantir que você não utilize IPS. Consulte [Networking and IP Ranges for AKs](https://docs.microsoft.com/azure/aks/configure-kubenet) para obter informações adicionais.
 
-Para obter mais informações, consulte [limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits). Para verificar suas cotas atuais, na portal do Azure, vá para a [folha assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecione sua assinatura e, em seguida, selecione **uso + cotas**.
+Para obter mais informações, consulte [limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Para verificar suas cotas atuais, na portal do Azure, vá para a [folha assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecione sua assinatura e, em seguida, selecione **uso + cotas**.
 
 ## <a name="high-availability-and-business-continuity"></a>Alta disponibilidade e continuidade dos negócios
 
