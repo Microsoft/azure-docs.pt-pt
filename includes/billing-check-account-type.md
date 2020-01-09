@@ -4,15 +4,13 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: 42589d6843923f84b51488057941a638515cf45d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef2b428eded71de23cae86bca8e29eced78af683
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449279"
 ---
-Verifique o tipo de contrato para determinar o tipo da sua conta de faturação
- 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
  
 2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
@@ -23,9 +21,9 @@ Verifique o tipo de contrato para determinar o tipo da sua conta de faturação
  
     ![Captura de ecrã que mostra o contrato de cliente Microsoft na página de propriedades](./media/billing-check-account-type/billing-mca-property.png)
     
-    O **Tipo de conta de faturação** na página Propriedades determina o tipo da sua conta. Pode ser o Programa do Serviço Online da Microsoft, o Contrato Enterprise, o Contrato de Cliente da Microsoft ou o Contrato de Parceiro da Microsoft. Para saber mais sobre o tipo de contas de faturação, [Veja as suas contas de faturação no portal do Azure](../articles/billing/billing-view-all-accounts.md).  
+    O **Tipo** na página de propriedades determina o tipo da conta. Pode ser o Programa do Serviço Online da Microsoft, o Contrato Enterprise, o Contrato de Cliente da Microsoft ou o Contrato de Parceiro da Microsoft. Para saber mais sobre o tipo de contas de faturação, [Veja as suas contas de faturação no portal do Azure](../articles/billing/billing-view-all-accounts.md).  
  
-4. Se tiver acesso a vários âmbito da faturação, selecione **Conta de faturação** ou **Todos os âmbitos da faturação** do lado esquerdo. Verifique o tipo na coluna **Tipo de conta de faturação**.
+4. Se tiver acesso a vários âmbitos de faturação, verifique o tipo na coluna **Tipo de conta de faturação**.
  
     ![Captura de ecrã que mostra o contrato de cliente Microsoft na página com a lista de contas de faturação](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

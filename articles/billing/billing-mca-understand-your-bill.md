@@ -1,5 +1,5 @@
 ---
-title: Compreender os custos na fatura do Contrato de Cliente da Microsoft – Azure
+title: Custos na fatura do Contrato de Cliente Microsoft – Azure
 description: Saiba como ler e compreender os custos descritos na sua fatura.
 author: jureid
 manager: jureid
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226159"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388997"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Compreender os custos na fatura do Contrato de Cliente da Microsoft
 
 Pode compreender os custos descritos na sua fatura ao analisar cada transação. Na conta de faturação de um Contrato de Cliente da Microsoft, é gerada uma fatura todos os meses para cada perfil de faturação. A fatura inclui todos os custos do mês anterior. Pode ver as suas faturas no portal do Azure. Para obter mais informações, veja [Transferir as faturas para um Contrato de Cliente da Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
-Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verificar se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Ver as transações de uma fatura no portal do Azure
 
@@ -30,7 +30,7 @@ Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da 
 
 2. Escreva **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+    ![Captura de ecrã a mostrar a pesquisa da opção cost management + faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Selecione **Todas as transações** no lado esquerdo da página. Consoante o seu acesso, poderá ter de selecionar uma conta de faturação, um perfil de faturação ou uma secção de fatura e, em seguida, selecionar **Todas as transações**.
 
@@ -75,7 +75,7 @@ Na conta de faturação de um Contrato de Cliente da Microsoft, os custos são e
 
 2. Escreva **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção cost management + faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 
@@ -95,7 +95,7 @@ Ao identificar custos pendentes, conseguirá compreender os custos ao analisar i
 
 2. Escreva **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção cost management + faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 
@@ -111,7 +111,7 @@ Ao identificar custos pendentes, conseguirá compreender os custos ao analisar i
 
 2. Escreva *Gestão de Custos + Faturação*.
 
-   ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa da opção cost management + faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Selecione um perfil de faturação. Dependendo do seu acesso, poderá ter de selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione um perfil de faturação.
 

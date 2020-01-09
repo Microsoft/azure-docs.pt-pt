@@ -1,5 +1,5 @@
 ---
-title: Transferir propriedade da subscrição do Azure para outra conta | Microsoft Docs
+title: Transferir a propriedade de faturação de uma subscrição do Azure
 description: Descreve como transferir a propriedade de faturação de uma subscrição do Azure para outra conta e algumas das perguntas mais frequentes (FAQ) sobre o processo
 keywords: transferir subscrição do azure, subscrição de transferência do azure, mover subscrição do azure para outra conta, alterar proprietário da subscrição do azure, transferir subscrição do azure para outra conta, faturação de transferência do azure
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223570"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388946"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -34,7 +34,7 @@ Se for um cliente do Contrato Enterprise (EA), os administradores de empresa pod
 
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 
 1. Selecione **Subscrições** no painel à esquerda. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições** ou **Subscrições do Azure**.
 
@@ -117,7 +117,7 @@ A transferência de subscrição no portal do Azure está disponível para os ti
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [Através do portal do EA](#EA).
+\*[Através do EA Portal](#EA).
 
 \*\*Só é suportado para contas criadas durante a inscrição no site do Azure.
 
@@ -184,9 +184,9 @@ Sim. Contudo, se a sua conta estiver num inquilino do Azure AD diferente do inqu
 
 Mesmo que as atribuições de [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os utilizadores na conta do proprietário original ainda poderão ter acesso à subscrição por meio de alguns mecanismos de segurança, incluindo:
 
-* Os certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../cloud-services/cloud-services-certs-create.md).
-* As chaves de acesso para serviços, como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
-* As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
+* Certificados de gestão que concedem ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, veja [Criar e carregar um certificado de gestão do Azure](../cloud-services/cloud-services-certs-create.md).
+* Chaves de acesso dos serviços como o Armazenamento. Para obter mais informações, veja [Acerca das contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+* Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
 
 Se o destinatário precisar de restringir o acesso aos seus recursos, deverá considerar a atualização de todos os segredos associados ao serviço. A maioria dos recursos pode ser atualizada com os seguintes passos:
 

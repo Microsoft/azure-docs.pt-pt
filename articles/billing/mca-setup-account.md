@@ -1,5 +1,5 @@
 ---
-title: Configurar a conta de faturação para um Contrato de Cliente da Microsoft – Azure
+title: Configurar a faturação do Contrato de Cliente Microsoft – Azure
 description: Saiba como configurar a conta de faturação para um Contrato de Cliente da Microsoft.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388351"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a conta de faturação para um Contrato de Cliente da Microsoft
 
@@ -187,7 +187,7 @@ Para concluir a instalação, precisa de aceder à nova conta de faturação e �
     - É criada uma hierarquia de faturação correspondente à sua hierarquia do Contrato Enterprise na nova conta de faturação. Para obter mais informações, veja [Compreender as alterações à hierarquia de faturação](#understand-changes-to-your-billing-hierarchy).
     - Os administradores da sua inscrição do Contrato Enterprise obtêm acesso à nova conta de faturação para que possam continuar a gerir a faturação da sua organização.
     - A faturação das suas subscrições do Azure é transferida para a nova conta. **Durante a transição, os seus serviços do Azure não sofrerão qualquer impacto. Continuarão em execução sem qualquer interrupção**.
-    - Se tiver Reservas do Azure, estas serão movidas para a nova conta de faturação sem alterações nos benefícios ou no período. 
+    - Se tiver Reservas do Azure, estas serão movidas para a nova conta de faturação sem alterações nos benefícios ou no período.
 
 4. Pode monitorizar o estado da transição na página **Estado da transição**.
 
@@ -239,7 +239,7 @@ Os administradores do Enterprise são listados como proprietários da conta de f
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/mca-setup-account/search-cmb.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/mca-setup-account/search-cmb.png)
 
 3. Selecione o perfil de faturação criado na inscrição. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação. Na conta de faturação, selecione Perfis de faturação e, em seguida, o perfil de faturação.
 
@@ -255,7 +255,7 @@ Os administradores do Enterprise são listados como proprietários do perfil de 
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/mca-setup-account/search-cmb.png).
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/mca-setup-account/search-cmb.png).
 
 3. Selecione uma secção da fatura. As secções da fatura têm o mesmo nome que os respetivos departamentos nas inscrições do Contrato Enterprise. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação. Na conta de faturação, selecione **Perfis de faturação** e, em seguida, selecione **Secções da fatura**. Na lista de secções da fatura, selecione uma secção da fatura.
 

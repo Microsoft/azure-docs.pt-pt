@@ -1,5 +1,5 @@
 ---
-title: Economize custos para encargos do SQL Data Warehouse com a capacidade de reserva do Azure
+title: Reduzir os custos do SQL Data Warehouse com a capacidade reservada do Azure
 description: Saiba como economizar custos para encargos do SQL Data Warehouse com a capacidade de reserva para poupar dinheiro.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f6a6b37a8250fd794e7810f7da5a567e14c8bc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388725"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economize custos para encargos do SQL Data Warehouse com a capacidade de reserva
 
@@ -63,7 +63,7 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Quer 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md) (Trocas e reembolsos self-service para Reservas do Azure).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 Um desconto de reserva é aplicado automaticamente ao número de instâncias do SQL Data Warehouse que correspondem à região e ao âmbito da capacidade de reserva do SQL Data Warehouse. Pode atualizar o âmbito da capacidade de reserva do SQL Data Warehouse com o [portal do Azure](https://portal.azure.com/), o PowerShell, a CLI ou através da API.
 
@@ -76,7 +76,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 - Para saber mais sobre como os descontos de reservas se aplicam ao Azure SQL Data Warehouse, veja [Como os descontos de reserva se aplicam ao Azure SQL Data Warehouse](billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md).
 
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
   - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
   - [Compreender o desconto das Reservas do Azure](billing-understand-reservation-charges.md)
   - [Compreender a utilização de reservas na sua subscrição Pay As You Go](billing-understand-reserved-instance-usage.md)

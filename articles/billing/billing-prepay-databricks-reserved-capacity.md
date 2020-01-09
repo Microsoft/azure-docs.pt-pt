@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449334"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 
@@ -41,8 +41,8 @@ Antes de comprar, calcule a quantidade total de DBUs consumidas para diferentes 
 
 Pode comprar planos do Databricks no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise.
 
-- Atualmente, a pré-compra está disponível apenas para clientes de Contrato Enterprise.
-- Tem de ter uma função de Proprietário em pelo menos uma subscrição Enterprise.
+- Tem de ter a função de Proprietário em pelo menos um Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um Contrato de Cliente Microsoft ou ter uma subscrição individual com tarifas pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
+- Para subscrições EA, a opção Adicionar Instâncias Reservadas deve ser ativada no EA Portal. Em alternativa, se essa definição estiver desativada, terá de ser o Administrador EA da subscrição.
 - Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Em alternativa, se essa definição estiver desativada, tem ser um Administrador EA da subscrição.
 
 **Para Comprar:**
@@ -78,6 +78,6 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
   - [Compreenda como é aplicado um desconto de DBCU de pré-compra de Azure Databricks](billing-reservation-discount-databricks.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

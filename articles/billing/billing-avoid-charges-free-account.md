@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1b7d08ba25a02334152e661501acf826d6c9bdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449626"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitar custos com a conta gratuita do Azure
 

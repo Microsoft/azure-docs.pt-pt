@@ -1,5 +1,5 @@
 ---
-title: Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
+title: Economizar no Serviço de Aplicações do Azure com a capacidade reservada
 description: Saiba como pode economizar custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 5aafc2288b9e6b7ef217ec386211af7c3739c08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5e2ae705b271f55f8c8888f464c9e73863002c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389133"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
 
@@ -64,7 +64,7 @@ Após a compra, aceda a [Reservas](https://portal.azure.com/#blade/Microsoft_Azu
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md) (Trocas e reembolsos self-service para Reservas do Azure).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Aplicação de desconto mostrada nos dados de utilização
 
@@ -75,6 +75,6 @@ Para obter mais informações sobre como o desconto de reserva é mostrado nos d
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
-  - [O que são as Reservas do Azure?](billing-save-compute-costs-reservations.md)
+  - [O que são as reservas do Azure?](billing-save-compute-costs-reservations.md)
   - [Compreender a forma como é aplicado um desconto de reserva de Selo de Plano Isolado do Serviço de Aplicações do Azure](billing-reservation-discount-app-service-isolated-stamp.md)
   - [Compreender a utilização de reservas na inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)

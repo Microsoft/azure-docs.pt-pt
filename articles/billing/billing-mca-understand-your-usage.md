@@ -1,5 +1,5 @@
 ---
-title: Termos no ficheiro de utilização e custos do Azure para um Contrato de Cliente da Microsoft
+title: Termos do ficheiro de utilização e custos do Contrato de Cliente Microsoft do Azure
 description: Saiba como ler e compreender as secções do CSV de utilização e de custos do Azure para o seu perfil de faturação.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388895"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no ficheiro de utilização e custos do Azure para um Contrato de Cliente da Microsoft
 

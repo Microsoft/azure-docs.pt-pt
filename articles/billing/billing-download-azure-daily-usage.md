@@ -3,21 +3,17 @@ title: Ver e transferir a utilização e os custos do Azure
 description: Descreve como transferir ou ver os custos e a utilização diária do Azure.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
-manager: jureid
+ms.author: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.author: banders
-ms.openlocfilehash: dcf4e3b9d85909c8f1d149c9d1940a6755b431a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/03/2020
+ms.openlocfilehash: dbb7956bf58d6b997f782d8f88e1eeaf19d6ade8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224015"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665087"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a utilização e os custos do Azure
 
@@ -35,8 +31,8 @@ Se tiver um Contrato de Cliente da Microsoft (MCA), terá de ser Proprietário, 
 1. Dependendo do seu acesso, poderá ser preciso selecionar uma Conta de faturação ou um Perfil de faturação.
 1. No menu esquerdo, selecione **Faturas** em **Faturação**.
 1. Na grelha da fatura, localize a linha do período de faturação que corresponde à utilização que quer transferir.
-1. Clique no ícone de transferência ou nas reticências (`...`) à direita.
-1. Selecione **Transferir a utilização e os custos do Azure**  no menu de transferência.
+1. Selecione o **ícone de transferência** ou as reticências (`...`) à direita.
+1. O painel Transferência é apresentado no lado direito. Selecione **Transferir** na secção **Detalhes de Utilização**.
 
 ## <a name="download-usage-for-ea-customers"></a>Transferir a utilização para clientes do EA
 

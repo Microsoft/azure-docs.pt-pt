@@ -4,16 +4,16 @@ description: Este artigo explica como gerir e interpretar a fatura Azure Enterpr
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849892"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644567"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição Azure Enterprise
 
@@ -22,8 +22,6 @@ Este artigo explica como gerir e interpretar a fatura Azure Enterprise. A fatura
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Alterar um número de nota de encomenda de uma fatura de utilização excedida
 
 O Azure EA Portal gera automaticamente um número de nota de encomenda predefinido, a não ser que o administrador EA configure um antes da data da fatura. Um administrador EA pode atualizar o número da nota de encomenda num prazo de sete dias após a receção do e-mail de notificação da fatura.
-
-Um número de Nota de Encomenda também pode ser introduzido para uma conta ou subscrição específica. A predefinição dos relatórios será o número da Nota de Encomenda de nível mais baixo definido na hierarquia, o que significa que se não for introduzido um número da Nota de Encomenda da subscrição, será utilizado o número da Nota de Encomenda da compra e se não for introduzido um número da Nota de Encomenda da compra, será utilizada a Nota de Encomenda do departamento.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Para atualizar o número da nota de encomenda dos serviços do Azure:
 
@@ -184,7 +182,7 @@ Note que também poderá existir uma latência de até cinco dias entre a data d
 ### <a name="to-view-the-report"></a>Para ver o relatório:
 
 1. Inicie sessão no Enterprise Portal.
-1. Clique em **Relatórios** no painel de navegação à esquerda.
+1. Clique em **Relatórios** no painel de navegação esquerdo.
 1. Clique no separador **Resumo de Utilização**.
 1. Clique no intervalo de datas pretendido.
 1. Escolha as contas ou subscrições que pretende ver.
@@ -244,7 +242,7 @@ O Relatório de Saldo e Custo oferece um resumo mensal de informações sobre sa
 
 ### <a name="download-the-balance-and-charge-report"></a>Transferir o relatório de saldo e custo
 
-1. Inicie sessão no Azure EA Portal como administrador do Enterprise.
+1. Inicie sessão no Azure EA Portal como administrador do Enterprise.
 1. Clique em **Relatórios** no painel de navegação à esquerda.
 1. Clique no separador **Transferência de Relatórios**.
 1. Selecione o mês apropriado na coluna _Saldo e Custo_ e clique para transferir o relatório.
@@ -294,7 +292,7 @@ Os Administradores do Enterprise podem ativar o acesso de visualização de cust
 ### <a name="to-enable-access"></a>Para ativar o acesso:
 
  1. Inicie sessão como administrador do Enterprise.
- 1. Clique em **Gerir** no painel de navegação à esquerda.
+ 1. Clique em **Gerir** no painel de navegação esquerdo.
  1. Clique no separador **Inscrição**.
  1. Na seção Detalhes da Inscrição, selecione o ícone de lápis ao lado de:
     - Os Administradores de Departamento podem ver os custos
@@ -559,7 +557,7 @@ Veja estas fontes adicionais de informações para obter mais detalhes. Estes fi
 | [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Fornece uma lista de todos os serviços ativos com a categoria de serviço, nome de serviço amigável, nome da alocação e número de peça, nome de consumo e número de peça, unidades de medida e fatores de conversão entre a utilização reportada e a utilização apresentada no Enterprise Portal. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta folha de cálculo fornece uma lista de todas as combinações possíveis dos campos relacionados com o serviço no Relatório de Transferência de Utilização. | Service\_Download\_Fields.xlsx |
 
-**Table**  **5**  **– Fontes de Informação Adicionais**
+**Tabela**  **5**  **– Fontes de Informações Adicionais**
 
 ## <a name="power-bi-reporting"></a>Relatórios do Power BI
 

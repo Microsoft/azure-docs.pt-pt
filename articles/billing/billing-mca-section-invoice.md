@@ -1,5 +1,5 @@
 ---
-title: Criar secções na fatura para organizar os custos – Azure
+title: Criar secções de faturação para organizar os custos – Azure
 description: Aprenda a organizar os custos com secções de fatura.
 author: amberbhargava
 manager: amberb
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d70460f5a492c9699a6110d5ba164283934c584b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ff8b2da353d623cd9f05c8d0b0317587d7093ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389286"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Crie secções na fatura para organizar os custos
 
 Crie secções na fatura para organizar os custos por departamento, ambiente de desenvolvimento ou com base nas necessidades da sua organização. Em seguida, dê permissão a outras pessoas para criarem subscrições do Azure que são faturadas na secção. Todos os custos de utilização e compras relativos às subscrições são, então, faturados na secção. Pode visualizar o total de custos da secção na sua fatura, no portal do Azure ou revê-los na análise de custos do Azure. Para obter mais informações, veja [visualizar transações por secções de fatura](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
-Este artigo aplica-se à conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="create-an-invoice-section-in-the-azure-portal"></a>Crie uma secção de fatura no portal do Azure
 
@@ -31,7 +31,7 @@ Para criar uma secção de fatura, precisa de ser **proprietário do perfil de f
 
 2. Procure **Cost Management + Faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa no portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+   ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
 3. Selecione **Secções de fatura** no painel do lado esquerdo. Dependendo do seu acesso, pode ser preciso selecionar um perfil de faturação ou uma conta de faturação e, em seguida, selecionar **Secções de fatura**.
 
@@ -39,7 +39,7 @@ Para criar uma secção de fatura, precisa de ser **proprietário do perfil de f
 
 4. Na parte superior da página, selecione **Adicionar**.
 
-5. Introduza um nome para a secção de fatura e selecione um perfil de faturação. Verá que esta secção na fatura do perfil de faturação reflete a utilização de cada subscrição e as compras que atribuiu à mesma. 
+5. Introduza um nome para a secção de fatura e selecione um perfil de faturação. Verá que esta secção na fatura do perfil de faturação reflete a utilização de cada subscrição e as compras que atribuiu à mesma.
 
    ![Captura de ecrã que mostra a página de criação das secções de fatura](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
