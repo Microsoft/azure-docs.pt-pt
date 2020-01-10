@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034572"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778418"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a aplicação em máquinas virtuais do Linux no Azure com o Jenkins e os Serviços de DevOps do Azure
 
@@ -182,9 +182,11 @@ Neste tutorial, automatizou a implementação de uma aplicação no Azure com o 
 > * Criar a aplicação no Jenkins.
 > * Configurar o Jenkins para integração nos Serviços de DevOps do Azure.
 > * Criar um grupo de implementação para as máquinas virtuais do Azure.
-> * Criar um pipeline de versão para configurar as VMs e implementar a aplicação.
+> * Crie um pipeline do Azure que configure as VMs e implante o aplicativo.
 
-Para saber mais sobre como implementar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
+Para saber mais sobre como usar Azure Pipelines para as etapas de compilação e versão, consulte [isso](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Para saber mais sobre como criar um pipeline de CI/CD baseado em YAML para implantar em VMs, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Implementar pilha LAMP](tutorial-lamp-stack.md)
+> [CI/CD usando Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

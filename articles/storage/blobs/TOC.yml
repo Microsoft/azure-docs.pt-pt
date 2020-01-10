@@ -48,9 +48,9 @@
                 - name: JavaScript (SDK v12 para Node.js)
                   href: storage-quickstart-blobs-nodejs.md
                 - name: JavaScript (SDK v10 para Node.js)
-                  href: storage-quickstart-blobs-nodejs-v10.md
+                  href: storage-quickstart-blobs-nodejs-legacy.md
                 - name: JavaScript (SDK v10 para browser)
-                  href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+                  href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
             - name: Ir
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -424,12 +424,6 @@
                   href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
             - name: Xamarin
               href: storage-xamarin-blob-storage.md
-            - name: Versões anteriores do SDK
-              items:
-                - name: JavaScript (Node.js) (SDK de Armazenamento v2)
-                  href: storage-quickstart-blobs-nodejs-legacy.md
-                - name: JavaScript (browser) (SDK de Armazenamento v2)
-                  href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: Gerir blobs
           items:
             - name: CLI do Azure

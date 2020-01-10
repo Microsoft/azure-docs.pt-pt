@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064790"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780271"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -50,7 +50,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Podem ser adicionados mais discos para instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que seja preciso armazenamento de dados duradouro e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos quatro discos de dados.
+Podem ser adicionados mais discos para instalar aplicações e armazenar dados. Os discos de dados devem ser utilizados em qualquer situação em que seja preciso armazenamento de dados duradouro e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
@@ -65,7 +65,7 @@ O Azure oferece dois tipos de discos.
 
 Enquanto a tabela acima identifica o IOPS máximo por disco, um nível mais elevado de desempenho pode ser alcançado ao repartir vários discos de dados. Por exemplo, podem ser anexados 64 discos de dados à VM Standard_GS5. Se cada um destes discos for dimensionado como um P30, pode ser alcançado um máximo de 80.000 IOPS. Para obter informações detalhadas sobre o IOPS máximo por VM, veja [Tipos e tamanhos de VMs](./sizes.md).
 
-## <a name="create-and-attach-disks"></a>Criar e anexar discos
+## <a name="create-and-attach-disks"></a>Criar e expor discos
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, crie uma máquina virtual com os seguintes comandos.
 
@@ -127,7 +127,7 @@ Atualize a máquina virtual com o comando [Update-AzVM](https://docs.microsoft.c
 Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
-## <a name="prepare-data-disks"></a>Preparar discos de dados
+## <a name="prepare-data-disks"></a>Preparar dados de discos
 
 Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de ser configurado para utilizar o disco. O exemplo seguinte mostra como configurar manualmente o primeiro disco adicionado à VM. Também pode utilizar a [extensão de script personalizada](./tutorial-automate-vm-deployment.md) para automatizar este processo.
 

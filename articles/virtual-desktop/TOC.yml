@@ -130,6 +130,10 @@
       href: /rest/api/virtual-desktop/
     - name: Definições de ficheiro RDP suportadas
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
+    - name: Diretrizes para a rede
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context'
+    - name: Diretrizes de dimensionamento de máquinas virtuais
+      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context'
 - name: Recursos
   items:
     - name: Avaliador de experiência

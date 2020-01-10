@@ -1315,6 +1315,8 @@
           href: springerlink-tutorial.md
         - name: Sprinklr
           href: sprinklr-tutorial.md
+        - name: 'Gateway de SSO do Azure AD SSOGEN para Oracle E Business Suite EBS, PeopleSoft e JDE'
+          href: ssogen-tutorial.md
         - name: StatusPage
           href: statuspage-tutorial.md
         - name: Stormboard

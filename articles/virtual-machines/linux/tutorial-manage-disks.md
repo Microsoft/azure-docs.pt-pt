@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034377"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780305"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 
@@ -47,7 +47,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Para instalar aplicações e armazenar dados, podem ser adicionados mais discos de dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados duradouro e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM. Para cada vCPU de VM, podem ser expostos quatro discos de dados.
+Para instalar aplicações e armazenar dados, podem ser adicionados mais discos de dados. Os discos de dados devem ser utilizados em qualquer situação em que se pretenda armazenamento de dados durável e reativo. O tamanho da máquina virtual determina quantos discos de dados podem ser expostos a uma VM.
 
 ## <a name="vm-disk-types"></a>Tipos de disco de VM
 
@@ -59,7 +59,7 @@ O Armazenamento Standard está protegido por HDDs e fornece armazenamento econó
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando selecionar um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
+Os discos Premium são apoiados por um disco de elevado desempenho baseado em SSD e de baixa latência. São perfeitos para as VMs com carga de trabalho de produção. O Armazenamento Premium suporta VMs da série DS, série DSv2, série GS e série FS. Quando seleciona um tamanho de disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for inferior a 128 GB, o tipo de disco é P10. Se o tamanho do disco estiver entre 129 GB e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é P30.
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
@@ -72,7 +72,7 @@ Azure Cloud Shell é um shell interativo gratuito que você pode usar para execu
 
 Para abrir Cloud Shell, selecione **experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-## <a name="create-and-attach-disks"></a>Criar e anexar discos
+## <a name="create-and-attach-disks"></a>Criar e expor discos
 
 Os discos de dados podem ser criados e expostos no momento de criação da VM ou para uma VM existente.
 
@@ -110,7 +110,7 @@ az vm disk attach \
     --new
 ```
 
-## <a name="prepare-data-disks"></a>Preparar discos de dados
+## <a name="prepare-data-disks"></a>Preparar dados de discos
 
 Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de ser configurado para utilizar o disco. O exemplo seguinte mostra como configurar manualmente um disco. Este processo também pode ser automatizado através da inicialização da cloud, que é abordada num [tutorial posterior](./tutorial-automate-vm-deployment.md).
 

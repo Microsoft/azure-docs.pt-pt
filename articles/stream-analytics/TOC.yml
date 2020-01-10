@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Padrões de caminho personalizado de blob
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Otimizar a tarefa do Stream Analytics
+      items:
+        - name: Compreender e ajustar as Unidades de Transmissão em Fluxo
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Melhorar o desempenho das consultas
+          href: stream-analytics-parallelization.md
+        - name: Reparticionar a introdução de dados
+          href: repartition.md
+        - name: Aumentar o débito da tarefa
+          href: stream-analytics-scale-jobs.md
     - name: Estados de uma tarefa
       href: job-states.md
     - name: Funções do Windows
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: Monitorizar tarefas - Visual Studio
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Escala
-      items:
-        - name: Dimensionar com unidades de transmissão em fluxo
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Dimensionar com paralelização
-          items:
-            - name: Paralelização de consultas
-              href: stream-analytics-parallelization.md
-            - name: Aumentar o débito
-              href: stream-analytics-scale-jobs.md
-        - name: Dimensionar com as funções de ML
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Dimensionar com o reparticionamento
-          href: repartition.md
     - name: Automatizar
       items:
         - name: Com o .NET SDK
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Depurar com o diagrama de tarefas
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Dimensionar com as funções de ML
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Linguagem de Consulta do Stream Analytics
   items:
     - name: Funções Incorporadas

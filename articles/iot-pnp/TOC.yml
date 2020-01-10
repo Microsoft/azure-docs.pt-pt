@@ -71,14 +71,18 @@
       href: howto-develop-solution.md
 - name: Referência
   items:
-    - name: Digital Twin
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
-    - name: Serviço Digital Twin
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
-    - name: Repositório de modelos do Digital Twin
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
-    - name: Gerar um token de segurança REST
-      href: howto-generate-sas-token.md
+    - name: Bibliotecas e SDKs
+      href: libraries-sdks.md
+    - name: API REST
+      items:
+        - name: Digital Twin
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+        - name: Serviço Digital Twin
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+        - name: Repositório de modelos do Digital Twin
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
+        - name: Gerar um token de segurança REST
+          href: howto-generate-sas-token.md
 - name: Relacionado
   items:
     - name: Soluções

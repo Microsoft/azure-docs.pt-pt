@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924446"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840708"
 ---
 ## <a name="trigger"></a>Acionador
 
@@ -389,11 +389,10 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o item de evento no código de função. |
 |**path** |**EventHubName** | Somente funções 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
-|**eventHubName** |**EventHubName** | Functions 2. x e superior. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
+|**eventHubName** |**EventHubName** | Functions 2. x e superior. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. Pode ser referenciado por meio das configurações do aplicativo% eventHubName% |
 |**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define o [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) usado para assinar eventos no Hub. Se omitido, o grupo de consumidores `$Default` será usado. |
-|**cardinalidade** | n/d | Para JavaScript. Defina como `many` para habilitar o envio em lote.  Se omitido ou definido como `one`, mensagem única passada para a função. |
+|**cardinalidade** | n/d | Para JavaScript. Defina como `many` para habilitar o envio em lote.  Se omitido ou definido como `one`, uma única mensagem será passada para a função. |
 |**ligação** |**ligação** | O nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **informações de conexão** do [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não no próprio Hub de eventos. Essa cadeia de conexão deve ter pelo menos permissões de leitura para ativar o gatilho.|
-|**path**|**EventHubName**|O nome do hub de eventos. Pode ser referenciado por meio das configurações do aplicativo `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -640,13 +639,13 @@ def main(timer: func.TimerRequest) -> str:
 
 ### <a name="output---java-example"></a>Saída - exemplo de Java
 
-O exemplo a seguir mostra uma função Java que grava uma mensagem contianing a hora atual em um hub de eventos.
+O exemplo a seguir mostra uma função Java que grava uma mensagem que contém a hora atual em um hub de eventos.
 
 ```java
 @FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
-   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 */5 * * * *") String timerInfo)  {
      return LocalDateTime.now().toString();
  }
 ```

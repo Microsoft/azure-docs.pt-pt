@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472668"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834371"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -18,7 +18,7 @@ Saiba como criar um modelo de Azure Resource Manager para implantar vários recu
 
 Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, veja [Definir a ordem para implementar recursos nos Modelos do Azure Resource Manager](./define-resource-dependency.md).
 
-![diagrama de ordem de implantação de recursos dependentes do modelo do Resource Manager](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Diagrama de ordem de implantação de recursos dependentes do modelo do Resource Manager](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -69,11 +69,11 @@ Ao explorar o modelo nesta secção, tente responder a estas perguntas:
 
     Existem cinco recursos definidos pelo modelo:
 
-   * `Microsoft.Storage/storageAccounts`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Veja a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/virtualNetworks`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
      É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
 
@@ -117,7 +117,7 @@ Existem muitos métodos para implementar modelos.  Neste tutorial, vai utilizar 
     ![Carregar ficheiro Cloud Shell do Portal do Azure](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 1. Selecione o modelo que guardou anteriormente no tutorial. O nome predefinido é **azuredeploy.json**.  Se tiver um ficheiro com o mesmo nome de ficheiro, o ficheiro antigo é substituído sem qualquer notificação.
 
-    Opcionalmente, você pode usar o comando **$home LS** e o **Cat $Home comando/azuredeploy.JSON** para verificar se os arquivos areis foram carregados com êxito.
+    Opcionalmente, você pode usar o comando **$home LS** e o **Cat $Home comando/azuredeploy.JSON** para verificar se os arquivos foram carregados com êxito.
 
 1. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 
@@ -161,7 +161,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, desenvolveu e implementou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como implementar recursos do Azure com base em condições, veja:
+Neste tutorial, desenvolveu e implementou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como usar scripts de implantação para executar operações de implantação prévia/pós, consulte:
 
 > [!div class="nextstepaction"]
-> [Condições de utilização](./template-tutorial-use-conditions.md)
+> [Usar script de implantação](./template-tutorial-deployment-script.md)
