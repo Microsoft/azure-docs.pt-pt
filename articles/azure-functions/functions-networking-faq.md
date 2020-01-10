@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409534"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
@@ -51,9 +51,7 @@ Usando a integração de rede virtual, você pode acessar recursos protegidos po
 
 Você pode permitir que gatilhos HTTP sejam chamados de uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). 
 
-Você também pode disparar uma função de um recurso em uma rede virtual implantando seu aplicativo de funções em um Ambiente do Serviço de Aplicativo. Para obter detalhes sobre como usar um Ambiente do Serviço de Aplicativo, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
-
-O plano do serviço de aplicativo e Premium dá suporte a gatilhos HTTP de uma rede virtual, mas apenas um ambiente do serviço de aplicativo dá suporte a todos os outros tipos de gatilho de função por meio de uma rede virtual.
+Você também pode disparar uma função de todos os outros recursos em uma rede virtual implantando seu aplicativo de funções em um plano Premium, plano do serviço de aplicativo ou Ambiente do Serviço de Aplicativo. Consulte [gatilhos de rede virtual não http](./functions-networking-options.md#virtual-network-triggers-non-http) para obter mais informações
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implantar meu aplicativo de funções em uma rede virtual?
 

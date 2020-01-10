@@ -2,24 +2,17 @@
 title: Início rápido para configuração de Azure App com Azure Functions | Microsoft Docs
 description: Um guia de início rápido para usar Azure App configuração com Azure Functions.
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413770"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo Azure Functions com a configuração Azure App
 
@@ -61,7 +54,7 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Adicione uma propriedade de `static` `Configuration` para criar uma instância singleton do `IConfiguration`. Em seguida, adicione um Construtor `static` para se conectar à configuração do aplicativo chamando `AddAzureAppConfiguration()`. Isso carregará a configuração uma vez na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas de funções posteriormente.
+3. Adicione uma propriedade `static` chamada `Configuration` para criar uma instância singleton do `IConfiguration`. Em seguida, adicione um Construtor `static` para se conectar à configuração do aplicativo chamando `AddAzureAppConfiguration()`. Isso carregará a configuração uma vez na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas de funções posteriormente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,17 +87,19 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
 1. Defina uma variável de ambiente chamada **ConnectionString**e defina-a como a chave de acesso para seu repositório de configuração de aplicativo. Se você usar o prompt de comando do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     Se você usar o Windows PowerShell, execute o seguinte comando:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     Se você usar o macOS ou Linux, execute o seguinte comando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Para testar a sua função, prima F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas de **Azure Functions Core (CLI)** . Talvez você também precise habilitar uma exceção de firewall para que as ferramentas possam lidar com solicitações HTTP.
+2. Pressione F5 para testar sua função. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas de **Azure Functions Core (CLI)** . Talvez você também precise habilitar uma exceção de firewall para que as ferramentas possam lidar com solicitações HTTP.
 
 3. Copie o URL da sua função na saída do tempo de execução das funções do Azure.
 
@@ -118,7 +113,7 @@ Neste guia de início rápido, você incorpora o serviço de configuração Azur
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Azure Functions por meio do [provedor de configuração de aplicativo](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber como configurar seu aplicativo Azure Functions para atualizar dinamicamente as definições de configuração, prossiga para o próximo tutorial.
 

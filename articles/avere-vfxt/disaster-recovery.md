@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998774"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414226"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Diretrizes de recuperação de desastre para avere vFXT para Azure
 
@@ -104,7 +104,7 @@ Para acessar o contêiner de backup de um avere vFXT para o cluster do Azure, si
 1. Se necessário, crie um novo avere vFXT para o cluster do Azure em uma região não afetada.
 
    > [!TIP]
-   > Ao criar um avere vFXT para o cluster do Azure, você pode salvar uma cópia de seu modelo de criação e parâmetros. Se você salvar essas informações ao criar o cluster primário, poderá usá-lo para criar um cluster de substituição com as mesmas propriedades. Na página [validação e Resumo](avere-vfxt-deploy.md#validation-and-purchase) , clique no link **baixar modelo e parâmetros** . Salve as informações em um arquivo antes de clicar no botão **OK** para criar o cluster.
+   > Ao criar um avere vFXT para o cluster do Azure, você pode salvar uma cópia de seu modelo de criação e parâmetros. Se você salvar essas informações ao criar o cluster primário, poderá usá-lo para criar um cluster de substituição com as mesmas propriedades. Na página [Resumo](avere-vfxt-deploy.md#validation-and-purchase) , clique no link **baixar modelo e parâmetros** . Salve as informações em um arquivo antes de criar o cluster.
 
 1. Adicione um novo arquivo de nuvem do Cloud Core que aponta para o contêiner de blob duplicado.
 

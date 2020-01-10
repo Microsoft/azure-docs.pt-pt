@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422099"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Orientação sobre a implantação de aplicativos Web usando modelos de Azure Resource Manager
 
@@ -94,7 +94,7 @@ Se o modelo do Resource Manager usar o MSDeploy, as mensagens de erro de implant
 
 ## <a name="choose-a-unique-web-app-name"></a>Escolha um nome de aplicativo Web exclusivo
 
-O nome do seu aplicativo Web deve ser globalmente exclusivo. Você pode usar uma Convenção de nomenclatura que provavelmente seja exclusiva ou pode usar a [função uniquestring](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) para auxiliar na geração de um nome exclusivo.
+O nome do seu aplicativo Web deve ser globalmente exclusivo. Você pode usar uma Convenção de nomenclatura que provavelmente seja exclusiva ou pode usar a [função uniquestring](../azure-resource-manager/templates/template-functions-string.md#uniquestring) para auxiliar na geração de um nome exclusivo.
 
 ```json
 {

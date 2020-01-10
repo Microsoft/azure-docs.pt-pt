@@ -2,20 +2,20 @@
 title: Solucionar problemas de erros de backup com VMs do Azure
 description: Neste artigo, saiba como solucionar problemas de erros encontrados com backup e restauração de máquinas virtuais do Azure.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172469"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664632"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
 Você pode solucionar os erros encontrados ao usar o backup do Azure com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 Esta seção aborda a falha da operação de backup da máquina virtual do Azure.
 
@@ -61,7 +61,6 @@ A operação de backup falhou porque a VM está em estado de falha. Para obter u
 Código de erro: UserErrorFsFreezeFailed <br/>
 Mensagem de erro: falha ao congelar um ou mais pontos de montagem da VM para obter um instantâneo consistente do sistema de arquivos.
 
-* Verifique o estado do sistema de arquivos de todos os dispositivos montados usando o comando **tune2fs** , por exemplo, **tune2fs-l/dev/sdb1 \\** .\| o **estado do sistema de arquivos**grep.
 * Desmonte os dispositivos para os quais o estado do sistema de arquivos não foi limpo, usando o comando **umount** .
 * Execute uma verificação de consistência do sistema de arquivos nesses dispositivos usando o comando **fsck** .
 * Monte os dispositivos novamente e repita a operação de backup.</ol>
@@ -184,7 +183,6 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | Detalhes do erro | Solução |
 | ------ | --- |
 | **Código de erro**: 320001, ResourceNotFound <br/> **Mensagem de erro**: não foi possível executar a operação porque a VM não existe mais. <br/> <br/> **Código de erro**: 400094, BCMV2VMNotFound <br/> **Mensagem de erro**: a máquina virtual não existe <br/> <br/>  Uma máquina virtual do Azure não foi encontrada.  |Esse erro ocorre quando a VM primária é excluída, mas a política de backup ainda procura por uma VM para fazer backup. Para corrigir esse erro, execute as seguintes etapas: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço de nuvem**,<br>**ou**</li><li> Interrompa a proteção da máquina virtual com ou sem excluir os dados de backup. Para obter mais informações, consulte [parar de proteger máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| **Código de erro**: UserErrorVmProvisioningStateFailed<br/> **Mensagem de erro**: a VM está em estado de provisionamento com falha: <br>Reinicie a VM e verifique se a VM está em execução ou desligada. | Esse erro ocorre quando uma das falhas de extensão coloca a VM no estado de provisionamento com falha. Vá para a lista de extensões, verifique se há uma extensão com falha, remova-a e tente reiniciar a máquina virtual. Se todas as extensões estiverem em estado de execução, verifique se o serviço do agente de VM está em execução. Caso contrário, reinicie o serviço do agente de VM. |
 |**Código de erro**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensagem de erro**: não foi possível copiar o instantâneo da máquina virtual devido a espaço livre insuficiente na conta de armazenamento | Para VMs Premium na pilha de backup da VM v1, copiamos o instantâneo para a conta de armazenamento. Essa etapa garante que o tráfego de gerenciamento de backup, que funciona no instantâneo, não limite o número de IOPS disponíveis para o aplicativo usando discos Premium. <br><br>É recomendável que você aloque apenas 50%, 17,5 TB, do espaço total da conta de armazenamento. Em seguida, o serviço de backup do Azure pode copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre. |
 | **Código de erro**: 380008, AzureVmOffline <br/> **Mensagem de erro**: falha ao instalar a extensão dos serviços de recuperação da Microsoft porque a máquina virtual não está em execução | O agente de VM é um pré-requisito para a extensão dos serviços de recuperação do Azure. Instale o agente de máquina virtual do Azure e reinicie a operação de registro. <br> <ol> <li>Verifique se o agente de VM está instalado corretamente. <li>Verifique se o sinalizador na configuração da VM está definido corretamente.</ol> Leia mais sobre como instalar o agente de VM e como validar a instalação do agente de VM. |
 | **Código de erro**: ExtensionSnapshotBitlockerError <br/> **Mensagem de erro**: falha na operação de instantâneo com o erro de operação de serviço de cópias de sombra de volume (VSS) **esta unidade está bloqueada pelo criptografia de unidade de disco BitLocker. Você deve desbloquear esta unidade no painel de controle.** |Desative o BitLocker para todas as unidades na VM e verifique se o problema do VSS foi resolvido. |
@@ -197,10 +195,10 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| O cancelamento não tem suporte para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
+| O cancelamento não tem suporte para este tipo de trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhuma |
 | O trabalho não está em um estado cancelável: <br>Aguarde até que o trabalho seja concluído. <br>**ou**<br> O trabalho selecionado não está em um estado cancelável: <br>Aguarde a conclusão do trabalho. |É provável que o trabalho esteja quase concluído. Aguarde até que o trabalho seja concluído.|
 | O backup não pode cancelar o trabalho porque ele não está em andamento: <br>O cancelamento tem suporte apenas para trabalhos em andamento. Tente cancelar um trabalho em andamento. |Esse erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
-| O backup falhou ao cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
+| O backup falhou ao cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhuma |
 
 ## <a name="restore"></a>Restauro
 
@@ -208,14 +206,14 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | --- | --- |
 | Falha na restauração com um erro interno na nuvem. |<ol><li>O serviço de nuvem ao qual você está tentando restaurar está configurado com as configurações de DNS. Você pode verificar: <br>**$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-slot "produção" Get-AzureDns-DnsSettings $Deployment. DnsSettings**.<br>Se o **endereço** estiver configurado, as configurações de DNS serão configuradas.<br> <li>O serviço de nuvem ao qual você está tentando restaurar está configurado com o **ReservedIP**, e as VMs existentes no serviço de nuvem estão no estado parado. Você pode verificar se um serviço de nuvem reservou um IP usando os seguintes cmdlets do PowerShell: **$Deployment = Get-AzureDeployment-ServiceName "ServiceName"-slot "Production" $Dep. ReservedIPName**. <br><li>Você está tentando restaurar uma máquina virtual com as seguintes configurações de rede especiais no mesmo serviço de nuvem: <ul><li>Máquinas virtuais sob configuração do balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com várias NICs. </ul><li>Selecione um novo serviço de nuvem na interface do usuário ou consulte as [considerações de restauração](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já está em uso: <br>Especifique um nome DNS diferente e tente novamente. |Esse nome DNS se refere ao nome do serviço de nuvem, geralmente terminando com **. cloudapp.net**. Esse nome precisa ser exclusivo. Se você receber esse erro, precisará escolher um nome de VM diferente durante a restauração. <br><br> Esse erro é mostrado somente para os usuários do portal do Azure. A operação de restauração por meio do PowerShell é realizada com sucesso porque restaura apenas os discos e não cria a VM. O erro será enfrentado quando a VM for criada explicitamente por você após a operação de restauração de disco. |
-| A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
-| O serviço de nuvem especificado está usando um IP reservado que não corresponde à configuração da máquina virtual que está sendo restaurada: <br>Especifique um serviço de nuvem diferente que não esteja usando um IP reservado. Ou escolha outro ponto de recuperação do qual restaurar. |Nenhum |
-| O serviço de nuvem atingiu seu limite no número de pontos de extremidade de entrada: <br>Repita a operação especificando um serviço de nuvem diferente ou usando um ponto de extremidade existente. |Nenhum |
-| O cofre dos serviços de recuperação e a conta de armazenamento de destino estão em duas regiões diferentes: <br>Verifique se a conta de armazenamento especificada na operação de restauração está na mesma região do Azure que o cofre dos serviços de recuperação. |Nenhum |
-| Não há suporte para a conta de armazenamento especificada para a operação de restauração: <br>Há suporte apenas para contas de armazenamento básicas ou padrão com configurações de replicação com redundância local ou com redundância geográfica. Selecione uma conta de armazenamento com suporte. |Nenhum |
+| A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
+| O serviço de nuvem especificado está usando um IP reservado que não corresponde à configuração da máquina virtual que está sendo restaurada: <br>Especifique um serviço de nuvem diferente que não esteja usando um IP reservado. Ou escolha outro ponto de recuperação do qual restaurar. |Nenhuma |
+| O serviço de nuvem atingiu seu limite no número de pontos de extremidade de entrada: <br>Repita a operação especificando um serviço de nuvem diferente ou usando um ponto de extremidade existente. |Nenhuma |
+| O cofre dos serviços de recuperação e a conta de armazenamento de destino estão em duas regiões diferentes: <br>Verifique se a conta de armazenamento especificada na operação de restauração está na mesma região do Azure que o cofre dos serviços de recuperação. |Nenhuma |
+| Não há suporte para a conta de armazenamento especificada para a operação de restauração: <br>Há suporte apenas para contas de armazenamento básicas ou padrão com configurações de replicação com redundância local ou com redundância geográfica. Selecione uma conta de armazenamento com suporte. |Nenhuma |
 | O tipo de conta de armazenamento especificado para a operação de restauração não está online: <br>Verifique se a conta de armazenamento especificada na operação de restauração está online. |Esse erro pode ocorrer devido a um erro transitório no armazenamento do Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
-| A cota do grupo de recursos foi atingida: <br>Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhum |
-| A sub-rede selecionada não existe: <br>Selecione uma sub-rede que exista. |Nenhum |
+| A cota do grupo de recursos foi atingida: <br>Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhuma |
+| A sub-rede selecionada não existe: <br>Selecione uma sub-rede que exista. |Nenhuma |
 | O serviço de backup não tem autorização para acessar recursos em sua assinatura. |Para resolver esse erro, primeiro restaure os discos usando as etapas em [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-disks). Em seguida, use as etapas do PowerShell em [criar uma VM de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>O backup ou a restauração leva tempo
@@ -276,7 +274,7 @@ O backup da VM depende de emitir comandos de instantâneo para o armazenamento s
 * **Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, distribua as VMs entre várias políticas de backup**. Escalonar os tempos de backup, portanto, no máximo quatro backups de VM são iniciados ao mesmo tempo. Tente separar as horas de início nas políticas por pelo menos uma hora.
 * **A VM é executada em alta CPU ou memória**. Se a máquina virtual for executada com alta utilização de memória ou CPU, mais de 90%, sua tarefa de instantâneo será enfileirada e atrasada. Eventualmente, ele expira. Se esse problema ocorrer, tente um backup sob demanda.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 
 Assim como todas as extensões, as extensões de backup precisam acessar a Internet pública para funcionar. Não ter acesso à Internet pública pode se manifestar de várias maneiras:
 

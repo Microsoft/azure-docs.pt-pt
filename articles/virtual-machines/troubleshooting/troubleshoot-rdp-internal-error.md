@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451208"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorreu um erro interno ao tentar ligar a uma VM do Azure através do ambiente de trabalho remoto
 
 Este artigo descreve um erro que podem ocorrer ao tentar ligar a uma máquina virtual (VM) no Microsoft Azure.
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -54,7 +54,7 @@ Para resolver este problema, utilize a consola de série ou [Repare a VM offline
 Ligar à [consola de série e a instância do PowerShell aberta](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se a consola de série não estiver ativada na sua VM, vá para o [Repare a VM offline](#repair-the-vm-offline) secção.
 
-#### <a name="step-1-check-the-rdp-port"></a>Etapa 1 verificar a porta RDP
+#### <a name="step-1-check-the-rdp-port"></a>Passo: 1 verificar a porta RDP
 
 1. Numa instância do PowerShell, utilize o [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é utilizada por outras aplicações:
@@ -135,7 +135,7 @@ Ligar à [consola de série e a instância do PowerShell aberta](./serial-consol
 
 4. Reinicie a VM e, em seguida, tente iniciar uma ligação de ambiente de trabalho remoto à VM. Se o erro continuar a ocorrer, vá para o passo seguinte.
 
-Passo 3: Ativar todos com suporte de TLS de versões
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Passo 3: Ativar todas as versões suportadas do TLS
 
 O cliente RDP utiliza o TLS 1.0 como o protocolo predefinido. No entanto, isso pode ser alterado para TLS 1.1, que se tornou o novo padrão. Se o TLS 1.1 está desativado na VM, a ligação irá falhar.
 1.  Numa instância CMD, ative o protocolo TLS:

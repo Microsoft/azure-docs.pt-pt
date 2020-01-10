@@ -4,12 +4,12 @@ description: Saiba como criar, gerenciar e excluir tabelas de rotas do Azure usa
 keywords: Ansible, Azure, DevOps, Bash, manual, rede, rota, tabela de rotas
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156501"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659802"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: configurar tabelas de rotas do Azure usando o Ansible
 
@@ -30,7 +30,7 @@ O Azure roteia automaticamente o tráfego entre as sub-redes do Azure, as redes 
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-O código do guia estratégico nesta seção cria uma tabela de rotas. Para obter informações sobre limites de tabela de rotas, consulte [limites do Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+O código do guia estratégico nesta seção cria uma tabela de rotas. Para obter informações sobre limites de tabela de rotas, consulte [limites do Azure](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Guarde o manual de procedimentos seguinte como `route_table_create.yml`:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad322d9418d81c516b97cd8bd4b039b1640aa9c0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383617"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando Java e a API REST do Pesquisa de Notícias do Bing
 
@@ -35,8 +35,6 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
 1. Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes bibliotecas.
@@ -52,7 +50,7 @@ Consulte também [preço de serviços cognitivas – API de pesquisa do Bing](ht
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma nova classe, com variáveis para o ponto de extremidade da API, sua chave de assinatura e termo de pesquisa.
+2. Crie uma nova classe, com variáveis para o ponto de extremidade da API, sua chave de assinatura e termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

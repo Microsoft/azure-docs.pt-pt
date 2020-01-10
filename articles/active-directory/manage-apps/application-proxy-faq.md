@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443416"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -53,9 +53,9 @@ Para obter recomendações, consulte [alta disponibilidade e balanceamento de ca
 
 Não, esse cenário não tem suporte. Somente o conector e os serviços de atualização podem ser configurados para usar um proxy de encaminhamento para o tráfego de saída para o Azure. Consulte [trabalhar com servidores proxy locais existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>É terminação SSL (inspeção ou aceleração SSL/HHTPS) no tráfego dos servidores de conector para o Azure com suporte?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>A terminação SSL (inspeção ou aceleração SSL/HTTPS) no tráfego dos servidores de conector para o Azure tem suporte?
 
-O conector de proxy de aplicativo executa a autenticação baseada em certificado no Azure. A terminação SSL (inspeção ou aceleração de SSL/HHTPS) interrompe esse método de autenticação e não tem suporte. O tráfego do conector para o Azure deve ignorar todos os dispositivos que estão executando a terminação SSL.  
+O conector de proxy de aplicativo executa a autenticação baseada em certificado no Azure. A terminação SSL (inspeção ou aceleração SSL/HTTPS) interrompe esse método de autenticação e não tem suporte. O tráfego do conector para o Azure deve ignorar todos os dispositivos que estão executando a terminação SSL.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Devo criar uma conta dedicada para registrar o conector com o Proxy de Aplicativo do AD do Azure?
 
@@ -63,7 +63,7 @@ Não há motivo para isso. Qualquer conta de administrador global ou de administ
 
 ### <a name="how-can-i-monitor-the-performance-of-the-azure-ad-application-proxy-connector"></a>Como posso monitorar o desempenho do conector de Proxy de Aplicativo do AD do Azure?
 
-Há contadores do monitor de desempenho que são instalados junto com o conector do. Para exibi-los:  
+Há contadores do monitor de desempenho que são instalados junto com o conector do. Para as visualizar:  
 
 1. Selecione **Iniciar**, digite "Perfmon" e pressione Enter.
 2. Selecione **Monitor de desempenho** e clique no ícone de **+** verde.
@@ -87,7 +87,7 @@ Na página registros do aplicativo, você pode alterar a URL da Home Page para a
 
 Não, não há nenhum requisito do IIS para aplicativos publicados. Você pode publicar aplicativos Web em execução em servidores diferentes do Windows Server. No entanto, talvez você não consiga usar a pré-autenticação com um servidor não Windows, dependendo de se o servidor Web dá suporte a Negotiate (autenticação Kerberos). O IIS não é necessário no servidor onde o conector está instalado.
 
-## <a name="integrated-windows-authentication"></a>Autenticação integrada do Windows
+## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>Quando devo usar o método PrincipalsAllowedToDelegateToAccount ao configurar a delegação restrita de Kerberos (KCD)?
 

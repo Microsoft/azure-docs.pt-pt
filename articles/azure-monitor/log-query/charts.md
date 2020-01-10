@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 34975a1752467c61ea5b329210473eee266c98d1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ca60ed68277486ca5ed7d7d90ad72506a4844936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398072"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Criando gráficos e diagramas de consultas Azure Monitor log
 
@@ -38,7 +38,7 @@ Por padrão, os resultados são exibidos como uma tabela:
 
 Para obter uma exibição melhor, selecione **gráfico**e escolha a opção **pizza** para visualizar os resultados:
 
-![Gráfico de pizza](media/charts/charts-and-diagrams-pie.png)
+![Gráfico circular](media/charts/charts-and-diagrams-pie.png)
 
 
 ## <a name="timecharts"></a>Gráficos de

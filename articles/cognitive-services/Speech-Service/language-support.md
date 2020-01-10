@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381057"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Suporte a idiomas e regiões para o serviço de fala
 
@@ -81,7 +81,7 @@ O texto para fala neural é um novo tipo de síntese de fala equipado por redes 
 
 As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos, em Audiobooks e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando os usuários interagem com sistemas de ia.
 
-Para obter uma lista completa de vozes neurais e da disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
+Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
 Região | Linguagem | Género | Mapeamento de nome de serviço completo | Nome curto da voz
 --------|----------|--------|---------|------------
@@ -90,6 +90,8 @@ Região | Linguagem | Género | Mapeamento de nome de serviço completo | Nome c
 `en-US` | English (US) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italiano (Itália) | Feminino |"Microsoft Server Speech Conversão de Texto em Fala Voice (IT-IT, ElsaNeural)" | "IT-IT-ElsaNeural"
 `zh-CN` | Chinês (continental) | Feminino | "Microsoft Server Speech Conversão de Texto em Fala voz (ZH-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+Para saber como você pode configurar e ajustar as vozes neurais, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.

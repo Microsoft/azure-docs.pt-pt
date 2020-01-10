@@ -5,19 +5,23 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672151"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689609"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo do serviço de aplicativo excluído usando o PowerShell
 
 Se você tiver excluído acidentalmente seu aplicativo no serviço Azure App, poderá restaurá-lo usando os comandos do [módulo AZ PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
+> [!NOTE]
+> Os aplicativos excluídos são limpos do sistema 30 dias após a exclusão inicial. Depois que um aplicativo tiver sido limpo, ele não poderá ser recuperado.
+>
+
 ## <a name="re-register-app-service-resource-provider"></a>Registrar novamente o provedor de recursos do serviço de aplicativo
-Alguns clientes podem encontrar um problema em que a recuperação da lista de aplicativos excluídos falha. Para resolver o problema, execute o seguinte comando:
+Alguns clientes podem chegar a um problema em que a recuperação da lista de aplicativos excluídos falha. Para resolver o problema, execute o seguinte comando:
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"

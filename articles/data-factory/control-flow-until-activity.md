@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440377"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Atividade until no Azure Data Factory
 A atividade until fornece a mesma funcionalidade que uma estrutura de loop do-until fornece em linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
@@ -51,12 +51,12 @@ A atividade until fornece a mesma funcionalidade que uma estrutura de loop do-un
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade de `Until`. | String | Sim
 tipo | Deve ser definido como **até**. | String | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
-tempo limite | O loop do-until atinge o tempo limite após a hora especificada aqui. | Strings. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor padrão é 7 dias. O valor máximo é: 90 dias. | Não
+expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão.  | Sim
+tempo limite | O loop do-until atinge o tempo limite após a hora especificada aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é 7 dias. O valor máximo é: 90 dias. | Não
 Atividades | Conjunto de atividades que são executadas até que a expressão seja avaliada como `true`. | Matriz de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1
@@ -199,10 +199,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

@@ -3,12 +3,12 @@ title: Configurar relatórios do Power BI
 description: Configure Power BI relatórios para o backup do Azure usando um cofre dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450113"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
@@ -88,7 +88,7 @@ Se você quiser personalizar e compartilhar o relatório, crie um espaço de tra
 4. Insira o nome da conta de armazenamento que foi configurada na etapa 5 anterior e selecione **Avançar**.
 
     ![Introduza o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Usando o método de autenticação "chave", insira a chave da conta de armazenamento para esta conta de armazenamento. Para [Exibir e copiar as chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), acesse sua conta de armazenamento no portal do Azure.
+5. Usando o método de autenticação "chave", insira a chave da conta de armazenamento para esta conta de armazenamento. Você pode encontrar as chaves de acesso da conta de armazenamento no portal do Azure. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 
      ![Inserir conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 

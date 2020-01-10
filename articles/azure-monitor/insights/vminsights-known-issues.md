@@ -1,28 +1,28 @@
 ---
-title: Problemas conhecidos do Azure Monitor para VMs (versão prévia) | Microsoft Docs
+title: O Azure Monitor para problemas conhecidos VMs (pré-visualização) | Documentos da Microsoft
 description: Este artigo aborda problemas conhecidos com o Azure Monitor para VMs, uma solução no Azure que combina integridade, descoberta de dependência de aplicativos e monitoramento de desempenho do sistema operacional da VM do Azure.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/02/2019
-ms.openlocfilehash: f6719a8c28571faceb6ebad0567d13a4edc60fe6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b59e2d1897557b47bcfeafbc17141f869e2f192e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450683"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (versão prévia)
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (pré-visualização)
 
 Este artigo aborda problemas conhecidos com o Azure Monitor para VMs, uma solução no Azure que combina integridade, descoberta de componentes de aplicativos e monitoramento de desempenho do sistema operacional da VM do Azure. 
 
 ## <a name="health"></a>Saúde 
 Veja a seguir os problemas conhecidos com a versão atual do recurso de integridade:
 
-- Se uma VM do Azure for removida ou excluída, ela será exibida no modo de exibição de lista de VMs por algum tempo. Além disso, clicar no estado de uma VM removida ou excluída abre a exibição **diagnóstico de integridade** e, em seguida, inicia um loop de carregamento. A seleção do nome da VM excluída abre um painel com uma mensagem informando que a VM foi excluída.
-- Alterações de configuração, como a atualização de um limite, levam até 30 minutos, mesmo que o portal ou a API do monitor de carga de trabalho possa atualizá-los imediatamente. 
+- Se uma VM do Azure for removida ou excluída, ela será exibida no modo de exibição de lista de VMs por algum tempo. Além disso, o estado de uma VM removida ou eliminada de clicar abre o **diagnóstico de estado de funcionamento** ver e, em seguida, inicia um ciclo de carregamento. Selecionar o nome da VM eliminada é aberto um painel com uma mensagem a indicar que a VM tiver sido eliminada.
+- Alterações de configuração, como atualizar um limite, demorar até 30 minutos, mesmo que o portal ou a API de Monitor da carga de trabalho pode atualizá-las imediatamente. 
 - A experiência de diagnóstico de integridade é atualizada mais rapidamente do que as outras exibições. As informações podem ser atrasadas quando você alterna entre elas. 
 - Para VMs do Linux, o título da página que lista os critérios de integridade para uma única exibição de VM tem o nome de domínio inteiro da VM em vez do nome da VM definida pelo usuário. 
 - Depois de desabilitar o monitoramento de uma VM usando um dos métodos com suporte e tentar implantá-lo novamente, você deve implantá-lo no mesmo espaço de trabalho. Se você escolher um espaço de trabalho diferente e tentar exibir o estado de integridade dessa VM, ele poderá mostrar um comportamento inconsistente.

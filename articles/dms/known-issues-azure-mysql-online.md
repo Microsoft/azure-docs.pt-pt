@@ -1,6 +1,7 @@
 ---
-title: Artigo sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL | Microsoft Docs
-description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL.
+title: 'Problemas conhecidos: migrações online para o banco de dados do Azure para MySQL'
+titleSuffix: Azure Database Migration Service
+description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online para o banco de dados do Azure para MySQL ao usar o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,24 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 905a14bd78d120e27ebc4d44ede86e9f0e3783cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437847"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conhecidos/limitações de migração com migrações online para o banco de BD do Azure para MySQL
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure
 
 Os problemas conhecidos e as limitações associadas a migrações online do MySQL para o banco de dados do Azure para MySQL são descritas nas seções a seguir.
 
 ## <a name="online-migration-configuration"></a>Configuração de migração online
+
 
 - A versão do servidor MySQL de origem deve ser a versão 5.6.35, 5.7.18 ou posterior
 - O banco de dados do Azure para MySQL dá suporte a:

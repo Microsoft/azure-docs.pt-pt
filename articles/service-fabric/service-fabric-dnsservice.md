@@ -1,25 +1,14 @@
 ---
-title: Serviço DNS do Azure Service Fabric | Microsoft Docs
+title: Serviço DNS do Azure Service Fabric
 description: Use o serviço DNS do Service Fabric para descobrir os microserviços de dentro do cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 7/20/2018
-ms.author: atsenthi
-ms.openlocfilehash: 707fc9f073e37d60c6c6fca8e9a8392b2550da9f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458023"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O serviço DNS é um serviço de sistema opcional que você pode habilitar em seu cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -181,7 +170,7 @@ As consultas DNS direcionadas a uma partição são formatadas da seguinte manei
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Em que:
+Onde:
 
 - O *primeiro rótulo de-serviço-particionado-Service-DnsName* é a primeira parte do nome DNS do serviço.
 - *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).

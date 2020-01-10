@@ -1,18 +1,14 @@
 ---
 title: Como habilitar o Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como habilitar e configurar Azure Monitor para contêineres para que você possa entender como o contêiner está sendo executado e quais problemas relacionados ao desempenho foram identificados.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fce2699c18f0fe426b85c165656100c097e69598
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404328"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Como habilitar o Azure Monitor para contêineres
 
@@ -28,7 +24,7 @@ Azure Monitor para contêineres podem ser habilitados para novas ou uma ou mais 
 
 - Na portal do Azure, Azure PowerShell ou com CLI do Azure
 
-- Usando [Terraform e AKs](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- Usando [Terraform e AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -40,9 +36,9 @@ Antes de começar, certifique-se de que tem o seguinte:
 
     Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
-    Você pode criar um espaço de trabalho ao habilitar o monitoramento do novo cluster AKS ou permitir que a experiência de integração crie um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster AKS. Se você optar por criá-lo por conta própria, poderá criá-lo por meio de [Azure Resource Manager](../platform/template-workspace-configuration.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md). Para obter uma lista dos pares de mapeamento com suporte usados para o espaço de trabalho padrão, consulte [mapeamento de região para Azure monitor para contêineres](container-insights-region-mapping.md).
+    Você pode criar um espaço de trabalho ao habilitar o monitoramento do novo cluster AKS ou permitir que a experiência de integração crie um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster AKS. Se optar por criá-lo, pode criá-lo através de [do Azure Resource Manager](../platform/template-workspace-configuration.md), da funcionalidade [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), ou no [portal do Azure](../learn/quick-create-workspace.md). Para obter uma lista dos pares de mapeamento com suporte usados para o espaço de trabalho padrão, consulte [mapeamento de região para Azure monitor para contêineres](container-insights-region-mapping.md).
 
-- Você é membro da **função colaborador de log Analytics** para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, consulte [Gerenciar espaços de trabalho](../platform/manage-access.md).
+- Você é membro da **função colaborador de log Analytics** para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../platform/manage-access.md).
 
 - Você é membro da função **[proprietário](../../role-based-access-control/built-in-roles.md#owner)** no recurso de cluster AKs.
 
@@ -93,21 +89,21 @@ As informações na tabela a seguir listam as informações de configuração de
 
 ## <a name="components"></a>Componentes
 
-Sua capacidade de monitorar o desempenho depende de um agente de Log Analytics em contêiner para Linux desenvolvido especificamente para Azure Monitor para contêineres. Este agente especializada recolhe dados de eventos de desempenho e de todos os nós do cluster e o agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada durante a implementação. A versão do agente é Microsoft/OMS: ciprod04202018 ou posterior, e é representada por uma data no seguinte formato: *mmddyyyy*.
+Sua capacidade de monitorar o desempenho depende de um agente de Log Analytics em contêiner para Linux desenvolvido especificamente para Azure Monitor para contêineres. Este agente especializada recolhe dados de eventos de desempenho e de todos os nós do cluster e o agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada durante a implementação. A versão do agente é microsoft / oms:ciprod04202018 ou posterior e é representado por uma data no seguinte formato: *mmddyyyy*.
 
 >[!NOTE]
 >Com a versão de visualização do suporte do Windows Server para AKS, um cluster AKS com nós do Windows Server não tem um agente instalado para coletar dados e encaminhá-los para Azure Monitor. Em vez disso, um nó do Linux implantado automaticamente no cluster como parte da implantação padrão coleta e encaminha os dados para Azure Monitor em nome de todos os nós do Windows no cluster.  
 >
 
-Quando for lançada uma nova versão do agente, é atualizada automaticamente nos seus clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS). Para seguir as versões lançadas, consulte [comunicados de versão do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+Quando for lançada uma nova versão do agente, é atualizada automaticamente nos seus clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS). Para seguir as versões lançadas, consulte [anúncios de lançamentos de agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 >[!NOTE]
->Se já tiver implementado um cluster do AKS, ativa a monitorização com o CLI do Azure ou um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Você não pode usar `kubectl` para atualizar, excluir, implantar novamente ou implantar o agente.
+>Se já tiver implementado um cluster do AKS, ativa a monitorização com o CLI do Azure ou um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente.
 >O modelo precisa ser implantado no mesmo grupo de recursos do cluster.
 
 Habilite Azure Monitor para contêineres usando um dos seguintes métodos descritos na tabela a seguir.
 
-| Estado da implantação | Método | Descrição |
+| Estado de implantação | Método | Descrição |
 |------------------|--------|-------------|
 | Novo cluster kubernetes | [Criar cluster AKS usando o CLI do Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Você pode habilitar o monitoramento de um novo cluster AKS criado com CLI do Azure. |
 | | [Criar cluster AKS usando Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Você pode habilitar o monitoramento de um novo cluster AKS que você cria usando a ferramenta de código-fonte aberto Terraform. |

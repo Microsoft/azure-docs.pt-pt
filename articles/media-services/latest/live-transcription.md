@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431917"
 ---
 # <a name="live-transcription-preview"></a>Transcrição ao vivo (versão prévia)
 
@@ -102,9 +102,9 @@ Na visualização, veja a seguir os problemas conhecidos com a transcrição ao 
 
 * O recurso está disponível apenas no oeste dos EUA 2.
 * Os aplicativos precisam usar as APIs de visualização, descritas na especificação de [especificação openapi dos serviços de mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) .
-* O único idioma com suporte é o inglês.
+* O único idioma com suporte é o inglês (en-US).
 * Em relação à proteção de conteúdo, há suporte apenas para criptografia de envelope AES.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos serviços de mídia](media-services-overview.md)

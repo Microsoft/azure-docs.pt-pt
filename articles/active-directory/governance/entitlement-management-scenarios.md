@@ -1,5 +1,5 @@
 ---
-title: Cenários comuns no gerenciamento de direitos do Azure AD – Azure Active Directory
+title: Cenários comuns no gerenciamento de direitos-Azure AD
 description: Conheça as etapas de alto nível que devem ser seguidas para cenários comuns no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d2dc82d0e81c9ac374d96387677774dc916b8c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422511"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns no gerenciamento de direitos do Azure AD
 
 Há várias maneiras de configurar o gerenciamento de direitos para sua organização. No entanto, se você estiver apenas começando, é útil entender os cenários comuns para administradores, proprietários de catálogo, gerenciadores de pacotes de acesso, Aprovadores e solicitantes.
 
-## <a name="delegate"></a>Delegá
+## <a name="delegate"></a>Delegado
 
 ### <a name="administrator-delegate-management-of-resources"></a>Administrador: delegar o gerenciamento de recursos
 
@@ -61,7 +61,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 
 1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
 1. Localizar pacote de acesso
-1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Pedir acesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Aprovador: aprovar solicitações para recursos
 
@@ -94,7 +94,7 @@ Há várias maneiras de configurar o gerenciamento de direitos para sua organiza
 
 1. Localizar o link do pacote de acesso que você recebeu do seu contato
 1. [Entrar no meu portal de acesso](entitlement-management-request-access.md#sign-in-to-the-my-access-portal)
-1. [Solicitar acesso](entitlement-management-request-access.md#request-an-access-package)
+1. [Pedir acesso](entitlement-management-request-access.md#request-an-access-package)
 
 ### <a name="approver-approve-requests-to-resources"></a>Aprovador: aprovar solicitações para recursos
 

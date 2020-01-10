@@ -3,20 +3,16 @@ title: Descubra que software está instalado nos seus computadores com a Automat
 description: Utilize o Inventário para descobrir que software está instalado nos computadores em todo o ambiente.
 services: automation
 keywords: inventário, automatização,alteração, controlo
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420565"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
 
@@ -61,7 +57,7 @@ A área de trabalho fornece uma localização única para rever e analisar dados
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser.
-Após a solução está ativada, informações sobre alterações e de software instalado na VM são transmitidas para registos do Azure Monitor.
+Depois que a solução é habilitada, as informações sobre o software instalado e as alterações na VM fluem para os logs de Azure Monitor.
 Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 ## <a name="onboard-a-vm"></a>Carregar uma VM
@@ -103,7 +99,7 @@ Por exemplo, a pesquisa de "Contoso" devolve todos os softwares com um nome, edi
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Pesquisar registos de inventário do software instalado
 
-O inventário gera dados de registo que são enviados para os registos do Azure Monitor. Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Inventário**.
+O inventário gera dados de log que são enviados aos logs de Azure Monitor. Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Inventário**.
 
 Os dados do Inventário são armazenados abaixo do tipo **ConfigurationData**.
 A seguinte consulta do Log Analytics de exemplo devolve os resultados de inventário em que o Publicador é igual a "Microsoft Corporation".
@@ -115,11 +111,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre como executar e Pesquisar arquivos de log em logs de Azure Monitor, consulte [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventário de computador único
 
-Para ver o inventário de software para uma única máquina, pode aceder ao inventário a partir da página de recursos de VM do Azure ou utilize registos do Azure Monitor para filtrar apenas a máquina correspondente.
+Para ver o inventário de software de um único computador, você pode acessar o inventário na página de recursos da VM do Azure ou usar logs de Azure Monitor para filtrar até o computador correspondente.
 A consulta do Log Analytics de exemplo seguinte devolve a lista de software de um computador com o nome ContosoVM.
 
 ```loganalytics

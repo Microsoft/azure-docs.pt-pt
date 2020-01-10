@@ -2,14 +2,14 @@
 title: Associações para o Durable Functions-Azure
 description: Como usar gatilhos e associações para a extensão de Durable Functions para Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410237"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Durable Functions (Azure Functions)
 
@@ -36,7 +36,7 @@ Quando você escreve funções de orquestrador em linguagens de script (por exem
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão para o aplicativo de funções. Essas filas são detalhes de implementação interna da extensão, que é o motivo pelo qual elas não são configuradas explicitamente nas propriedades de associação.
 
-### <a name="trigger-behavior"></a>Comportamento do gatilho
+### <a name="trigger-behavior"></a>Comportamento do acionador
 
 Aqui estão algumas observações sobre o gatilho de orquestração:
 
@@ -143,7 +143,7 @@ Se você estiver usando VS Code ou o portal do Azure para desenvolvimento, o gat
 
 Internamente, essa associação de gatilho sonda uma fila na conta de armazenamento padrão para o aplicativo de funções. Essa fila é um detalhe de implementação interna da extensão, que é o motivo pelo qual ela não é configurada explicitamente nas propriedades de associação.
 
-### <a name="trigger-behavior"></a>Comportamento do gatilho
+### <a name="trigger-behavior"></a>Comportamento do acionador
 
 Aqui estão algumas observações sobre o gatilho de atividade:
 
@@ -372,7 +372,7 @@ Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão para o aplicativo de funções. Essas filas são detalhes de implementação interna da extensão, que é o motivo pelo qual elas não são configuradas explicitamente nas propriedades de associação.
 
-### <a name="trigger-behavior"></a>Comportamento do gatilho
+### <a name="trigger-behavior"></a>Comportamento do acionador
 
 Aqui estão algumas observações sobre o gatilho de entidade:
 
@@ -398,7 +398,7 @@ Cada função de entidade tem um tipo de parâmetro de `IDurableEntityContext`, 
 * **Deletestate ()** : exclui o estado da entidade. 
 * **Getinput\<TInput > ()** : Obtém a entrada para a operação atual. O parâmetro de tipo de `TInput` deve ser um tipo primitivo ou serializável por JSON.
 * **Return (ARG)** : retorna um valor para a orquestração que chamou a operação. O parâmetro `arg` deve ser um objeto primitivo ou serializável por JSON.
-* **SignalEntity (EntityId, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula e o parâmetro `input` deve ser um objeto primitivo ou serializável em JSON.
+* **SignalEntity (EntityId, scheduledTimeUtc, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula, o `scheduledTimeUtc` opcional deve ser um DateTime UTC no qual invocar a operação e o parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
 * **CreateNewOrchestration (orchestratorFunctionName, entrada)** : inicia uma nova orquestração. O parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
 
 O objeto `IDurableEntityContext` passado para a função de entidade pode ser acessado usando a propriedade `Entity.Current` Async-local. Essa abordagem é conveniente ao usar o modelo de programação baseado em classe.
@@ -464,7 +464,7 @@ As classes de entidade têm mecanismos especiais para interagir com associaçõe
 
 O código a seguir é um exemplo de uma entidade de *contador* simples implementada como uma função durável escrita em JavaScript. Essa função define três operações, `add`, `reset`e `get`, cada uma operando em um estado de inteiro.
 
-**function. JSON**
+**function.json**
 ```json
 {
   "bindings": [
@@ -478,7 +478,7 @@ O código a seguir é um exemplo de uma entidade de *contador* simples implement
 }
 ```
 
-**index. js**
+**index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -519,7 +519,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ Em funções do .NET, você normalmente se associa a `IDurableEntityClient`, que
 
 * **ReadEntityStateAsync\<t >** : lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda que ela seja enfileirada.
+* **ListEntitiesAsync**: consulta o estado de várias entidades. As entidades podem ser consultadas por *nome* e *pela última hora da operação*.
 
 Não é necessário criar a entidade de destino antes de enviar um sinal-o estado da entidade pode ser criado de dentro da função de entidade que manipula o sinal.
 
@@ -601,7 +602,7 @@ Em particular, não faz sentido sinalizar a operação de `Get`, uma vez que nen
 
 Aqui está um exemplo de função disparada por fila que sinaliza uma entidade "Counter" em JavaScript.
 
-**function. JSON**
+**function.json**
 ```json
 {
     "bindings": [
@@ -621,7 +622,7 @@ Aqui está um exemplo de função disparada por fila que sinaliza uma entidade "
   }
 ```
 
-**index. js**
+**index.js**
 ```javascript
 const df = require("durable-functions");
 

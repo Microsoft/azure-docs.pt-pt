@@ -16,12 +16,13 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a2955a418aa0ce43c030afc588a2840bbb9b50f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8aa8265733128ed3b2ad5ddf16dcebb122b0f054
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443428"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 

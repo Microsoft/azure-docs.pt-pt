@@ -4,15 +4,15 @@ description: Visão geral de Azure Monitor para VMs que monitora a integridade e
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: e9a3df0172f276800a3049675f6e858db7f0370c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 17aa81c626c1bfa8a8a344552b7a0fe61dd85a7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307301"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365789"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (pré-visualização)?
 
@@ -22,7 +22,7 @@ Ele inclui suporte para monitoramento de desempenho e dependências de aplicativ
 
 - **Gráficos de desempenho de tendência predefinidos**: Exibir métricas de desempenho de núcleo do sistema operacional da VM convidada.
 
-- **Mapa de dependências**: exibe os componentes interconectados com a VM de vários grupos de recursos e assinaturas.  
+- **Mapa de dependência**: apresenta os componentes interconectados com a VM a partir de vários grupos de recursos e subscrições.  
 
 >[!NOTE]
 >Recentemente, [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
@@ -38,7 +38,7 @@ Azure Monitor para VMs pode fornecer desempenho previsível e disponibilidade de
 
 ## <a name="data-usage"></a>Utilização de dados
 
-Ao implementar o Azure Monitor para as VMs, os dados recolhidos pelas suas VMs são ingeridos e armazenados no Azure Monitor. Os dados de desempenho e dependência coletados são armazenados em um espaço de trabalho Log Analytics. Com base no preço que é publicado na [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/), Azure monitor para VMs é cobrado por:
+Ao implementar o Azure Monitor para as VMs, os dados recolhidos pelas suas VMs são ingeridos e armazenados no Azure Monitor. Os dados de desempenho e dependência coletados são armazenados em um espaço de trabalho Log Analytics. Com base nos preços publicados na [página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/), do Azure Monitor para VMs é cobrado por:
 
 - Os dados ingeridos e armazenados.
 - As regras de alerta que são criadas.
@@ -48,4 +48,4 @@ O tamanho do log varia de acordo com os comprimentos de cadeia de caracteres de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para entender os requisitos e métodos que ajudam a monitorar suas máquinas virtuais, examine [implantar Azure monitor para VMs](vminsights-enable-overview.md).
+Para compreender os requisitos e métodos que o ajudam a monitorizar as máquinas virtuais, consulte [implementar o Azure Monitor para VMs](vminsights-enable-overview.md).

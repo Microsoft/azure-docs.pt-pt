@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452852"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar Time Series Insights recursos usando modelos de Azure Resource Manager
 
@@ -75,7 +75,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
      | --- | --- |
      | existingEventHubResourceId | Uma ID de recurso opcional de um hub de eventos existente que será conectada ao ambiente de Time Series Insights por meio da origem do evento. **Observação:** O usuário que está implantando o modelo deve ter privilégios para executar a operação listkeys no Hub de eventos. Se nenhum valor for passado, um novo hub de eventos será criado pelo modelo. |
      | environmentDisplayName | Um nome amigável opcional para mostrar em ferramentas ou interfaces do usuário em vez do nome do ambiente. |
-     | environmentSkuName | O nome de SKU. Para obter mais informações, consulte a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+     | environmentSkuName | O nome do SKU. Para obter mais informações, consulte a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | A capacidade da unidade do SKU. Para obter mais informações, consulte a [página de preços do time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
      | environmentDataRetentionTime | O período mínimo em que os eventos do ambiente estarão disponíveis para consulta. O valor deve ser especificado no formato ISO 8601, por exemplo `P30D` para uma política de retenção de 30 dias. |
      | eventSourceDisplayName | Um nome amigável opcional para mostrar em ferramentas ou interfaces do usuário em vez do nome da origem do evento. |
@@ -119,7 +119,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
      }
      ```
   
-    * Para obter mais informações, consulte o artigo [parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) .
+    * Para obter mais informações, consulte o artigo [parâmetros](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implantar o modelo de início rápido localmente usando o PowerShell
 

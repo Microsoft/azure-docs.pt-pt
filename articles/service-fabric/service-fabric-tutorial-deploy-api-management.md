@@ -1,26 +1,15 @@
 ---
-title: Integrar a Gestão de API no Service Fabric no Azure | Microsoft Docs
+title: Integrar o gerenciamento de API com o Service Fabric no Azure
 description: Saiba como começar rapidamente com o gerenciamento de API do Azure e rotear o tráfego para um serviço de back-end no Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465350"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar o gerenciamento de API com o Service Fabric no Azure
 
@@ -47,7 +36,7 @@ Antes de começar:
 
 ## <a name="network-topology"></a>Topologia da rede
 
-Agora que você tem um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure, implante o gerenciamento de API na VNET (rede virtual) na sub-rede e NSG designado para o gerenciamento de API. Neste artigo, o modelo do Resource Manager do gerenciamento de API é pré-configurado para usar os nomes da VNET, da sub-rede e do NSG que você configurou no [tutorial do cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) . este artigo implanta a seguinte topologia no Azure, em que o gerenciamento de API e Service Fabric estão em sub-redes da mesma rede virtual:
+Agora que você tem um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure, implante o gerenciamento de API na VNET (rede virtual) na sub-rede e NSG designado para o gerenciamento de API. Neste artigo, o modelo do Resource Manager do gerenciamento de API é pré-configurado para usar os nomes da VNET, sub-rede e NSG que você configurou no [tutorial do cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) este artigo implanta a seguinte topologia no Azure, na qual o gerenciamento de API e Service Fabric estão em sub-redes da mesma rede virtual:
 
  ![Legenda da imagem][sf-apim-topology-overview]
 
@@ -145,7 +134,7 @@ Introduza um **displayName** (nome a apresentar) e uma **description** (descriç
 
 * **displayName** pode ser qualquer nome para a API. Para este artigo, use "Service Fabric aplicativo".
 * **name** indica um nome exclusivo e descritivo para a API, como "service-fabric-app". É apresentado no portais do programador e do editor.
-* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Para este artigo, por exemplo, "http\/:/servicefabric".
+* **serviceUrl** referencia o serviço HTTP que implementa a API. A API de Gestão reencaminha os pedidos para este endereço. Nos back-ends do Service Fabric, o valor do URL não é utilizado. Pode pôr qualquer valor aqui. Para este artigo, por exemplo, "http:\//servicefabric".
 * **path** é anexado ao URL base do serviço Gestão de API. O URL base é comum a todas as APIs alojadas por uma instância do serviço Gestão de API. A Gestão de API distingue as APIs pelo respetivo sufixo, pelo que cada API tem de ter o seu sufixo exclusivo para um determinado editor.
 * O campo **protocols** determina que protocolos podem ser utilizados para aceder à API. Para este artigo, liste **http** e **https**.
 * **path** é um sufixo para a API. Para este artigo, use "MyApp".
@@ -158,7 +147,7 @@ Para adicionar uma operação de API de front-end, preencha os valores:
 
 * **displayName** e **description** descrevem a operação. Para este artigo, use "Values".
 * **method** especifica o verbo HTTP.  Para este artigo, especifique **Get**.
-* **urlTemplate** é anexado ao URL base da API e identifica uma operação HTTP individual.  Para este artigo, use `/api/values` se você adicionou o serviço de back- `getMessage` end do .net ou se adicionou o serviço de back-end Java.  Por predefinição, o caminho do URL especificado aqui é o caminho do URL enviado para o serviço de back-end do Service Fabric. Se utilizar aqui o mesmo caminho de URL do seu serviço, como, por exemplo, "/api/values", a operação funciona sem mais modificações. Também pode especificar aqui um caminho de URL diferente daquele que o serviço de back-end do Service Fabric utiliza, caso em que também tem de especificar, mais tarde, uma reescrita de caminho na política da operação.
+* **urlTemplate** é anexado ao URL base da API e identifica uma operação HTTP individual.  Para este artigo, use `/api/values` se você adicionou o serviço de back-end .NET ou `getMessage` se adicionou o serviço de back-end Java.  Por predefinição, o caminho do URL especificado aqui é o caminho do URL enviado para o serviço de back-end do Service Fabric. Se utilizar aqui o mesmo caminho de URL do seu serviço, como, por exemplo, "/api/values", a operação funciona sem mais modificações. Também pode especificar aqui um caminho de URL diferente daquele que o serviço de back-end do Service Fabric utiliza, caso em que também tem de especificar, mais tarde, uma reescrita de caminho na política da operação.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -300,7 +289,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como usar o [Gerenciamento de API](/azure/api-management/import-and-publish).
 

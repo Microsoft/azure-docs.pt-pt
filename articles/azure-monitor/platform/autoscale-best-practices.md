@@ -1,24 +1,21 @@
 ---
 title: Práticas recomendadas para dimensionamento automático
 description: Padrões de dimensionamento automático no Azure para aplicativos Web, conjuntos de dimensionamento de máquinas virtuais e serviços de nuvem
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396987"
 ---
-# <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
+# <a name="best-practices-for-autoscale"></a>Melhores práticas da Escala automática
 Azure Monitor dimensionamento automático se aplica somente aos [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/)e [serviços de gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
+
 * Um recurso pode ter apenas *uma* configuração de dimensionamento automático
 * Uma configuração de dimensionamento automático pode ter um ou mais perfis e cada perfil pode ter uma ou mais regras de dimensionamento automático.
 * Uma configuração de dimensionamento automático dimensiona as instâncias horizontalmente, que estão *fora* aumentando as instâncias e *no* diminuindo o número de instâncias.
@@ -29,12 +26,15 @@ Azure Monitor dimensionamento automático se aplica somente aos [conjuntos de di
 * Da mesma forma, todas as ações de dimensionamento bem-sucedidas são postadas no log de atividades. Você pode configurar um alerta do log de atividades para que você possa ser notificado por email, SMS ou webhook sempre que houver uma ação de dimensionamento automático bem-sucedida. Você também pode configurar notificações por email ou webhook para ser notificado para ações de dimensionamento bem-sucedidas por meio da guia notificações na configuração de dimensionamento automático.
 
 ## <a name="autoscale-best-practices"></a>Práticas recomendadas de dimensionamento automático
+
 Use as práticas recomendadas a seguir ao usar o dimensionamento automático.
 
 ### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Verifique se os valores mínimo e máximo são diferentes e têm uma margem adequada entre eles
+
 Se você tiver uma configuração que tenha mínimo = 2, máximo = 2 e a contagem de instâncias atual for 2, nenhuma ação de escala poderá ocorrer. Mantenha uma margem adequada entre as contagens de instância máxima e mínima, que são inclusivas. O dimensionamento automático sempre é dimensionado entre esses limites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>O dimensionamento manual é redefinido por autoescala mín e máx.
+
 Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático será dimensionado automaticamente de volta para o mínimo (se abaixo) ou o máximo (se acima). Por exemplo, você define o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para três instâncias na próxima execução. Da mesma forma, se você definir manualmente a escala para oito instâncias, na próxima execução, o dimensionamento automático o dimensionará de volta para seis instâncias na próxima execução.  O dimensionamento manual é temporário, a menos que você redefina as regras de dimensionamento automático também.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Sempre use uma combinação de regras de redução e redução que executa um aumento e uma diminuição
@@ -46,7 +46,7 @@ Para métricas de diagnóstico, você pode escolher entre *média*, *mínimo*, *
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Escolha os limites cuidadosamente para todos os tipos de métrica
 Recomendamos escolher cuidadosamente limites diferentes para escalar horizontalmente e reduzir horizontalmente com base em situações práticas.
 
-*Não recomendamos* configurações de dimensionamento automático como os exemplos abaixo com os mesmos valores de limite de saída ou muito semelhantes para condições de out e in:
+*Não recomendamos* configurações de dimensionamento automático, como os exemplos abaixo, com valores de limite iguais ou semelhantes para condições de out e in:
 
 * Aumentar as instâncias por contagem de 1 quando a contagem de threads > = 600
 * Diminuir as instâncias por contagem de 1 quando a contagem de threads < = 600
@@ -56,8 +56,8 @@ Vejamos um exemplo do que pode levar a um comportamento que pode parecer confuso
 1. Suponha que haja duas instâncias para começar e, em seguida, o número médio de threads por instância aumenta para 625.
 2. Dimensionamento automático escala horizontalmente adicionando uma terceira instância.
 3. Em seguida, suponha que a contagem média de threads na instância cai para 575.
-4. Antes de reduzir verticalmente, o dimensionamento automático tenta estimar qual será o estado final se ele for dimensionado. Por exemplo, 575 x 3 (contagem de instância atual) = 1.725/2 (número final de instâncias quando reduzido verticalmente) = 862,5 threads. Isso significa que o dimensionamento automático precisaria ser redimensionado imediatamente, mesmo depois de ser dimensionado em, se a contagem média de threads permanecer igual ou até mesmo cair apenas uma pequena quantidade. No entanto, se ele for aumentado novamente, todo o processo se repetiria, levando a um loop infinito.
-5. Para evitar essa situação (com o termo "oscilação"), o dimensionamento automático não reduz horizontalmente. Em vez disso, ele ignora e reavalia a condição novamente na próxima vez que o trabalho do serviço for executado. Isso pode confundir muitas pessoas porque o dimensionamento automático pareceria não funcionar quando a contagem média de threads era 575.
+4. Antes de reduzir verticalmente, o dimensionamento automático tenta estimar qual será o estado final se ele for dimensionado. Por exemplo, 575 x 3 (contagem de instância atual) = 1.725/2 (número final de instâncias quando reduzido verticalmente) = 862,5 threads. Isso significa que o dimensionamento automático precisaria ser redimensionado novamente até mesmo depois de ser dimensionado em, se a contagem média de threads permanecer igual ou até mesmo cair apenas uma pequena quantidade. No entanto, se ele for aumentado novamente, todo o processo se repetiria, levando a um loop infinito.
+5. Para evitar essa situação (com o termo "oscilação"), o dimensionamento automático não reduz horizontalmente. Em vez disso, ele ignora e reavalia a condição novamente na próxima vez que o trabalho do serviço for executado. O estado de oscilação pode confundir muitas pessoas porque o dimensionamento automático pareceria não funcionar quando a contagem média de threads era 575.
 
 A estimativa durante uma redução é destinada a evitar situações de "oscilação", nas quais as ações de reduzir e reduzir continuamente voltam e saem. Tenha esse comportamento em mente ao escolher os mesmos limites de expansão e em.
 
@@ -101,7 +101,7 @@ Quando o serviço de dimensionamento automático os processa, ele sempre verific
 
 Se uma condição de perfil for atendida, o dimensionamento automático não verificará a próxima condição de perfil abaixo dela. O dimensionamento automático processa apenas um perfil de cada vez. Isso significa que, se você quiser incluir também uma condição de processamento de um perfil de camada inferior, deverá incluir essas regras também no perfil atual.
 
-Vamos examinar isso usando um exemplo:
+Vamos examinar usando um exemplo:
 
 A imagem abaixo mostra uma configuração de dimensionamento automático com um perfil padrão de instâncias mínimas = 2 e máximo de instâncias = 10. Neste exemplo, as regras são configuradas para escalar horizontalmente quando a contagem de mensagens na fila for maior que 10 e reduzir quando a contagem de mensagens na fila for menor que três. Agora, o recurso pode ser dimensionado entre duas e dez instâncias.
 
@@ -109,12 +109,13 @@ Além disso, há um perfil recorrente definido para segunda-feira. Ele é defini
 
 Da mesma forma, quando o dimensionamento automático volta para o perfil padrão, ele verifica primeiro se as condições mínimas e máximas foram atendidas. Se o número de instâncias no momento for 12, ele será dimensionado para 10, o máximo permitido para o perfil padrão.
 
-![Configurações de autoescala](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
+![configurações de autoescala](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerações sobre o dimensionamento quando várias regras são configuradas em um perfil
-Há casos em que você pode precisar definir várias regras em um perfil. O conjunto de regras de dimensionamento automático a seguir é usado pelos serviços quando várias regras são definidas.
 
-Em *scale out*, o dimensionamento automático é executado se alguma regra for atendida.
+Há casos em que você pode precisar definir várias regras em um perfil. As seguintes regras de dimensionamento automático são usadas pelos serviços quando várias regras são definidas.
+
+Em *expansão*, o dimensionamento automático é executado se alguma regra for atendida.
 Na *redução horizontal*, o dimensionamento automático exige que todas as regras sejam atendidas.
 
 Para ilustrar, suponha que você tenha as quatro seguintes regras de dimensionamento automático:
@@ -126,7 +127,7 @@ Para ilustrar, suponha que você tenha as quatro seguintes regras de dimensionam
 
 Em seguida, ocorre o seguinte:
 
-* Se a CPU for 76% e a memória for 50%, vamos expandir.
+* Se a CPU for 76% e a memória for 50%, escalaremos horizontalmente.
 * Se a CPU for 50% e a memória for 76%, escalaremos horizontalmente.
 
 Por outro lado, se a CPU for de 25% e a memória for de 51%, o dimensionamento automático **não** reduzirá horizontalmente. Para reduzir, a CPU deve ser 29% e a memória de 49%.
@@ -147,7 +148,7 @@ Você também pode usar um alerta do log de atividades para monitorar a integrid
 
 Além de usar alertas do log de atividades, você também pode configurar notificações por email ou webhook para ser notificado para ações de dimensionamento bem-sucedidas por meio da guia notificações na configuração de dimensionamento automático.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 - [Crie um alerta do log de atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Criar um alerta do log de atividades para monitorar todas as operações com falha na escala de dimensionamento/expansão em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

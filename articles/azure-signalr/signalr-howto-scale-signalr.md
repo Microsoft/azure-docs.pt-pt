@@ -4,14 +4,14 @@ description: Saiba como dimensionar uma instância do serviço de Signaler do Az
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/11/2019
 ms.author: zhshang
-ms.openlocfilehash: 0c4f91ee9cea5e8b13ecfedafffdc1715fc242c2
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464181"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659292"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Como dimensionar uma instância do serviço de Signaler do Azure?
 Este artigo mostra como dimensionar sua instância do serviço de Signaler do Azure. Há dois cenários para dimensionar, escalar verticalmente e escalar horizontalmente.
@@ -19,12 +19,12 @@ Este artigo mostra como dimensionar sua instância do serviço de Signaler do Az
 * [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais unidades, conexões, mensagens e muito mais. Você escala verticalmente alterando o tipo de preço de gratuito para padrão.
 * [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de unidades do signalr. Você pode escalar horizontalmente até 100 unidades.
 
-As configurações de escala levam alguns minutos para serem aplicadas. Eles não exigem que você altere seu código ou reimplante o aplicativo do servidor.
+As configurações de escala levam alguns minutos para serem aplicadas. Em casos raros, pode levar cerca de 30 minutos para ser aplicado. Eles não exigem que você altere seu código ou reimplante o aplicativo do servidor.
 
 Para obter informações sobre os preços e as capacidades do serviço Signalr individual, consulte [detalhes de preços do serviço de signaler do Azure](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Alterar o serviço de Signalr da camada **gratuita** para a camada **Standard** ou vice-versa, o IP do serviço público será alterado e geralmente levará de 3-60 minutos para propagar a alteração para servidores DNS em toda a Internet. Seu serviço pode estar inacessível antes de o DNS ser atualizado. Geralmente, não é recomendável alterar seu tipo de preço com muita frequência.
+> Alterar o serviço de Signalr da camada **gratuita** para a camada **Standard** ou vice-versa, o IP do serviço público será alterado e geralmente levará de 30-60 minutos para propagar a alteração para servidores DNS em toda a Internet. Seu serviço pode estar inacessível antes de o DNS ser atualizado. Geralmente, não é recomendável alterar seu tipo de preço com muita frequência.
 
 
 ## <a name="scale-on-azure-portal"></a>Dimensionar em portal do Azure
@@ -33,7 +33,7 @@ Para obter informações sobre os preços e as capacidades do serviço Signalr i
 
 2. Na página de serviço do Signalr, no menu à esquerda, selecione **escala**.
    
-3. Escolha seu tipo de preço e, em seguida, clique em **selecionar**. Você precisa definir a contagem de unidades para a camada **Standard** .
+3. Escolha seu tipo de preço e, em seguida, clique em **selecionar**. Defina a contagem de unidades para a camada **Standard** .
    
     ![Dimensionar no portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
@@ -81,13 +81,13 @@ Anote o nome real gerado para o novo grupo de recursos. Irá utilizar esse nome 
 
 Para obter informações detalhadas, como mensagens e conexões incluídas para cada tipo de preço, consulte [detalhes de preços do serviço de sinalização](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-Para obter uma tabela de limites de serviço, cotas e restrições em cada camada, consulte [limites de serviço de sinalização](../azure-subscription-service-limits.md#azure-signalr-service-limits).
+Para obter uma tabela de limites de serviço, cotas e restrições em cada camada, consulte [limites de serviço de sinalização](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu sobre como dimensionar a instância de serviço de sinal único.
 
-Vários pontos de extremidade também têm suporte para cenários de dimensionamento, fragmentação e entre regiões.
+Vários pontos de extremidade também têm suporte para dimensionamento, fragmentação e cenários entre regiões.
 
 > [!div class="nextstepaction"]
 > [dimensionar o serviço do Signalr com várias instâncias](./signalr-howto-scale-multi-instances.md)

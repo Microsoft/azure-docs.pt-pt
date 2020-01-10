@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas do lado do cliente do cache do Azure para Redis
-description: Saiba como resolver problemas comuns do lado do cliente com o cache do Azure para Redis
+description: Saiba como resolver problemas comuns do lado do cliente com o cache do Azure para Redis, como pressão de memória do cliente Redis, intermitência de tráfego, alta CPU, largura de banda limitada, solicitações grandes ou tamanho de resposta grande.
 author: yegu-ms
-ms.service: cache
-ms.topic: conceptual
-ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: a4fdbe9c0943e77719a9ee9da7dc358696284d99
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
+ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433361"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solucionar problemas do lado do cliente do cache do Azure para Redis
 
@@ -102,7 +102,7 @@ As resoluções para tamanhos de resposta grandes são variadas, mas incluem:
 1. Aumente o número de objetos de conexão que seu aplicativo usa.
     - Use uma abordagem Round Robin para fazer solicitações em diferentes objetos de conexão.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
-- [Solucionar problemas do servidor de cache do Azure para Redis](cache-troubleshoot-server.md)
+- [Resolver problemas do lado do servidor da Cache do Azure para Redis](cache-troubleshoot-server.md)
 - [Como fazer o benchmark e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

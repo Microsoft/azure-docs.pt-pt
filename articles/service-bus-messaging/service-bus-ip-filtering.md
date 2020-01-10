@@ -9,16 +9,16 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462402"
 ---
-# <a name="use-firewall-rules"></a>Usar regras de firewall
+# <a name="azure-service-bus---use-firewall-rules"></a>Barramento de serviço do Azure-usar regras de firewall
 
 Para cenários nos quais o barramento de serviço do Azure só é acessível de determinados sites conhecidos, as regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
 
@@ -52,7 +52,7 @@ As regras de filtro IP são aplicadas em ordem e a primeira regra que correspond
 > - Device Explorer de IoT do Azure
 >
 > Os serviços da Microsoft a seguir devem estar em uma rede virtual
-> - Serviço de Aplicações do Azure
+> - App Service do Azure
 > - Funções do Azure
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criando uma regra de firewall e rede virtual com modelos de Azure Resource Manager
@@ -70,7 +70,7 @@ Parâmetros do modelo:
 > Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
 > Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
 > 
-> from
+> de
 > ```json
 > "defaultAction": "Allow"
 > ```

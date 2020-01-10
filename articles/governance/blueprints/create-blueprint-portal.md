@@ -3,12 +3,12 @@ title: 'Início rápido: criar um plano gráfico no portal'
 description: Neste guia de início rápido, você usa plantas do Azure para criar, definir e implantar artefatos por meio do portal do Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436622"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: definir e atribuir um plano gráfico no portal
 
@@ -22,7 +22,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, crie um novo plano gráfico chamado **myblueprint** para configurar atribuições de função e política para a assinatura. Em seguida, adicione um novo grupo de recursos e crie um modelo do Resource Manager e uma atribuição de função no novo grupo de recursos.
 
-1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
+1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **plantas**.
 
 1. Selecione **definições de plantas** na página à esquerda e selecione o botão **+ criar Blueprint** na parte superior da página.
 
@@ -268,7 +268,9 @@ Agora que o plano gráfico foi atribuído a uma assinatura, verifique o progress
 
 1. Na página **atribuição de Blueprint** , valide se todos os artefatos foram implantados com êxito e se não houve erros durante a implantação. Se ocorrerem erros, consulte [plantas de solução de problemas](./troubleshoot/general.md) para obter as etapas para determinar o que deu errado.
 
-## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
+## <a name="clean-up-resources"></a>Limpar recursos
+
+### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
 Se você não precisar mais de uma atribuição de plano gráfico, remova-a de uma assinatura. O plano gráfico pode ter sido substituído por um plano gráfico mais recente com padrões, políticas e designs atualizados. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, siga estes passos:
 
@@ -278,7 +280,7 @@ Se você não precisar mais de uma atribuição de plano gráfico, remova-a de u
 
 1. Leia a mensagem de confirmação e selecione **OK**.
 
-## <a name="delete-a-blueprint"></a>Eliminar um esquema
+### <a name="delete-a-blueprint"></a>Eliminar um esquema
 
 1. Selecione **definições de plantas** na página à esquerda.
 

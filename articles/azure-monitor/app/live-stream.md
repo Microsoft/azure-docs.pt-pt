@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406736"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar o diagnóstico de & com latência de 1 segundo
 
@@ -33,9 +33,9 @@ Com Live Metrics Stream, você pode:
 
 Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, ASP.NET Core, Azure Functions, Java e node. js.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
-1. Se você ainda não [instalou Application insights](../../azure-monitor/azure-monitor-app-hub.md) em seu aplicativo Web, faça isso agora.
+1. Se você ainda não [instalou Application insights](../../azure-monitor/azure-monitor-app-hub.yml) em seu aplicativo Web, faça isso agora.
 2. Além dos pacotes de Application Insights padrão, [Microsoft. ApplicationInsights. PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) é necessário para habilitar o Stream de métricas em tempo real.
 3. **Atualize para a versão mais recente** do pacote de Application insights. No Visual Studio, clique com o botão direito do mouse em seu projeto e escolha **gerenciar pacotes NuGet**. Abra a guia **atualizações** e selecione todos os pacotes Microsoft. ApplicationInsights. *.
 
@@ -157,7 +157,7 @@ Para os aplicativos de funções do Azure (v2), a proteção do canal com uma ch
 
 Crie uma chave de API de dentro de seu Application Insights recurso e vá para **configurações de aplicativo** para seu aplicativo de funções. Selecione **Adicionar nova configuração** e insira um nome de `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` e um valor que corresponda à sua chave de API.
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (requer Application Insights SDK do ASP.NET Core 2.3.0-beta ou superior)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (requer Application Insights SDK do ASP.NET Core 2.3.0 ou superior)
 
 Modifique o arquivo startup.cs da seguinte maneira:
 

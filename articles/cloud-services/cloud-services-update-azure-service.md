@@ -2,17 +2,17 @@
 title: Como atualizar um serviço de nuvem | Microsoft Docs
 description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem prossegue para garantir a disponibilidade.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360349"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -101,10 +101,10 @@ Ao atualizar um serviço de uma única instância para várias instâncias, seu 
 
 |Cenário|Unidade C|Unidade D|Unidade E|
 |--------|-------|-------|-------|
-|Reinicialização da VM|Preservação|Preservação|Preservação|
-|Reinicialização do portal|Preservação|Preservação|Destruído|
-|Reimagem do portal|Preservação|Destruído|Destruído|
-|Atualização in-loco|Preservação|Preservação|Destruído|
+|Reinicialização da VM|Preservado|Preservado|Preservado|
+|Reinicialização do portal|Preservado|Preservado|Destruído|
+|Reimagem do portal|Preservado|Destruído|Destruído|
+|Atualização in-loco|Preservado|Preservado|Destruído|
 |Migração de nó|Destruído|Destruído|Destruído|
 
 Observe que, na lista acima, a unidade E: representa a unidade raiz da função e não deve ser embutida em código. Em vez disso, use a variável de ambiente **% RoleRoot%** para representar a unidade.
@@ -124,17 +124,17 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A reversão de uma atualização em andamento tem os seguintes efeitos na implantação:
 
 * Todas as instâncias de função que ainda não foram atualizadas ou atualizadas para a nova versão não são atualizadas ou atualizadas, pois essas instâncias já estão executando a versão de destino do serviço.
-* Todas as instâncias de função que já foram atualizadas ou atualizadas para a nova versão do arquivo\*de pacote de serviço (. cspkg) ou\*do arquivo de configuração de serviço (. cscfg) (ou ambos os arquivos) são revertidas para a versão de pré-atualização desses arquivos.
+* Todas as instâncias de função que já foram atualizadas ou atualizadas para a nova versão do arquivo de pacote de serviço (\*. cspkg) ou do arquivo de configuração de serviço (\*. cscfg) (ou ambos os arquivos) são revertidas para a versão de pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 
-* A operação de reversão de [atualização ou](/previous-versions/azure/reference/hh403977(v=azure.100)) atualização, que pode ser chamada em uma atualização de configuração (disparada chamando a [configuração de implantação de alteração](/previous-versions/azure/reference/ee460809(v=azure.100))) ou uma atualização (disparada chamando a implantação de [atualização](/previous-versions/azure/reference/ee460793(v=azure.100))) contanto que haja pelo menos uma instância no serviço que ainda não foi atualizada para a nova versão.
+* A operação de [reversão de atualização ou](/previous-versions/azure/reference/hh403977(v=azure.100)) atualização, que pode ser chamada em uma atualização de configuração (disparada chamando a [configuração de implantação de alteração](/previous-versions/azure/reference/ee460809(v=azure.100))) ou uma atualização (disparada chamando a implantação de [atualização](/previous-versions/azure/reference/ee460793(v=azure.100))) desde que haja pelo menos uma instância no serviço que ainda não tenha sido atualizada para a nova versão.
 * O elemento bloqueado e o elemento RollbackAllowed, que são retornados como parte do corpo da resposta das operações [obter implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)) :
 
   1. O elemento bloqueado permite detectar quando uma operação de mutação pode ser chamada em uma determinada implantação.
   2. O elemento RollbackAllowed permite detectar quando a operação de [atualização de reversão ou](/previous-versions/azure/reference/hh403977(v=azure.100)) atualização pode ser chamada em uma determinada implantação.
 
-  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. É suficiente confirmar se RollbackAllowed está definido como true. Esses elementos só serão retornados se esses métodos forem invocados usando o cabeçalho de solicitação definido como "x-MS-Version: 2011-10-01 "ou uma versão posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
+  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. É suficiente confirmar se RollbackAllowed está definido como true. Esses elementos só serão retornados se esses métodos forem invocados usando o cabeçalho de solicitação definido como "x-MS-Version: 2011-10-01" ou uma versão posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
 
 Há algumas situações em que não há suporte para a reversão de uma atualização ou atualização, estas são as seguintes:
 
@@ -144,22 +144,22 @@ Há algumas situações em que não há suporte para a reversão de uma atualiza
 
 Um exemplo de quando a reversão de uma atualização pode ser útil é se você estiver usando a operação de [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual para controlar a taxa na qual uma atualização in-loco principal para o serviço hospedado do Azure é distribuída.
 
-Durante a distribuição da atualização, você chama a [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual e começa a percorrer os domínios de atualização. Em algum momento, conforme você monitora a atualização, você observa que algumas instâncias de função nos primeiros domínios de atualização que você examina não respondem, você pode chamar a operação de reversão de [atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)) na implantação, o que deixará de ser inalterado o instâncias que ainda não foram atualizadas e reversão instâncias que foram atualizadas para o pacote de serviço e a configuração anteriores.
+Durante a distribuição da atualização, você chama a [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual e começa a percorrer os domínios de atualização. Em algum momento, conforme você monitora a atualização, você observa que algumas instâncias de função nos primeiros domínios de atualização que você examina não respondem, você pode chamar a operação de [reversão de atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)) na implantação, o que deixará de ser inalterado as instâncias que ainda não foram atualizadas e reverterão as instâncias que foram atualizadas para o pacote de serviço e a configuração anteriores.
 
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Iniciando várias operações de mutação em uma implantação em andamento
-Em alguns casos, talvez você queira iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto essa atualização está sendo distribuída em todo o serviço, você deseja fazer alguma alteração, por exemplo, para reverter a atualização, aplicar uma atualização diferente ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver código de bugs, o que faz com que uma instância de função atualizada falhe repetidamente. Nesse caso, o controlador de malha do Azure não poderá fazer o progresso na aplicação dessa atualização, pois um número insuficiente de instâncias no domínio atualizado será íntegro. Esse estado é conhecido como uma *implantação*paralisada. Você pode desfazer a implantação revertendo a atualização ou aplicando uma atualização atualizada sobre a falha de uma.
+Em alguns casos, talvez você queira iniciar várias operações de mutação simultâneas em uma implantação em andamento. Por exemplo, você pode executar uma atualização de serviço e, enquanto essa atualização está sendo distribuída em todo o serviço, você deseja fazer alguma alteração, por exemplo, para reverter a atualização, aplicar uma atualização diferente ou até mesmo excluir a implantação. Um caso em que isso pode ser necessário é se uma atualização de serviço contiver código de bugs, o que faz com que uma instância de função atualizada falhe repetidamente. Nesse caso, o controlador de malha do Azure não poderá fazer o progresso na aplicação dessa atualização, pois um número insuficiente de instâncias no domínio atualizado será íntegro. Esse estado é conhecido como uma *implantação paralisada*. Você pode desfazer a implantação revertendo a atualização ou aplicando uma atualização atualizada sobre a falha de uma.
 
 Depois que a solicitação inicial para atualizar ou atualizar o serviço tiver sido recebida pelo controlador de malha do Azure, você poderá iniciar as operações de mutação subsequentes. Ou seja, você não precisa aguardar a conclusão da operação inicial antes de poder iniciar outra operação de mutação.
 
 Iniciar uma segunda operação de atualização enquanto a primeira atualização está em andamento será executado de forma semelhante à operação de reversão. Se a segunda atualização estiver no modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente levando a instâncias de vários domínios de atualização estarem offline no mesmo momento.
 
-As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação](/previous-versions/azure/reference/ee460793(v=azure.100))de atualização, status de [implantação de atualização](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100))e [reverter atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
+As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)), [Atualizar status da implantação](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100))e [reverter atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Duas operações, [obter implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), retornam o sinalizador bloqueado que pode ser examinado para determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
 
-Para chamar a versão desses métodos que retorna o sinalizador bloqueado, você deve definir o cabeçalho de solicitação como "x-MS-Version: 2011-10-01 "ou posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
+Para chamar a versão desses métodos que retorna o sinalizador bloqueado, você deve definir o cabeçalho de solicitação como "x-MS-Version: 2011-10-01" ou posterior. Para obter mais informações sobre cabeçalhos de versão, consulte [controle de versão de gerenciamento de serviços](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
@@ -179,7 +179,10 @@ O diagrama a seguir ilustra como um serviço do que contém duas funções são 
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  
+
+
+

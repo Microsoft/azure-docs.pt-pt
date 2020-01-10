@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279057"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681366"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
@@ -29,7 +29,7 @@ Como um usuário final, você pode redefinir sua senha ou desbloqueá-la por con
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registar ou confirmar dados de autenticação com SSPR
 
-1. Abra o navegador da Web em seu dispositivo e vá para a [página de registro de redefinição de senha](https://aka.ms/ssprsetup).
+1. Abra o navegador da Web em seu dispositivo e vá para a [página de registro de redefinição de senha](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Insira seu nome de usuário e a senha que o administrador forneceu.
 3. Dependendo de como sua equipe de ti configurou as coisas, uma ou mais das opções a seguir estão disponíveis para você configurar e verificar. Se o administrador tiver sua permissão para usar suas informações, eles poderão preencher algumas das informações para você.
     * **Telefone comercial**: somente o administrador pode definir essa opção.

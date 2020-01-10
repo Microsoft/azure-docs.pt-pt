@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0610b235d218c24c108e39aeb9bd3b2cf8c9c663
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463428"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máqu
 
 ## <a name="add-a-data-disk"></a>Adicionar um disco de dados
 
-1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **máquinas virtuais**.
+1. Vá para a [portal do Azure](https://portal.azure.com) para adicionar um disco de dados. Pesquise e selecione **máquinas virtuais**.
 2. Selecione uma máquina virtual a partir da lista.
 3. Sobre o **Máquina Virtual** página, selecione **discos**.
 4. Sobre o **discos** página, selecione **adicionar disco de dados**.

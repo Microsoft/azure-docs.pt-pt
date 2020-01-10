@@ -1,67 +1,58 @@
 ---
-title: Recursos de infraestrutura do serviço do Azure automaticamente Dimensionar contentores e serviços | Documentos da Microsoft
-description: O Azure Service Fabric permite-lhe definir políticas para contentores e serviços de dimensionamento automático.
-services: service-fabric
-documentationcenter: .net
+title: Contêineres e serviços de dimensionamento automático do Azure Service Fabric
+description: O Service Fabric do Azure permite que você defina políticas de dimensionamento automático para serviços e contêineres.
 author: radicmilos
-manager: ''
-editor: nipuzovi
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3660ece7add8f279292340aae9ab445b682fe045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452089"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
-Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente os seus serviços com base na carga que serviços estão a enviar relatórios ou com base na respetiva utilização de recursos. Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. O processo de dimensionamento de automático todo é automatizada e transparente e, depois de configurar as políticas num serviço não é necessário para operações de dimensionamento manuais no nível de serviço. Dimensionamento automático pode ser ativado no momento da criação de serviço ou em qualquer altura ao atualizar o serviço.
+O dimensionamento automático é um recurso adicional de Service Fabric para dimensionar dinamicamente seus serviços com base na carga que os serviços estão relatando ou com base no uso de recursos. O dimensionamento automático oferece grande elasticidade e permite o provisionamento de instâncias adicionais ou partições de seu serviço sob demanda. Todo o processo de dimensionamento automático é automatizado e transparente e, depois que você configura suas políticas em um serviço, não há necessidade de operações de dimensionamento manual no nível de serviço. O dimensionamento automático pode ser ativado no momento da criação do serviço ou a qualquer momento, atualizando o serviço.
 
-Um cenário comum em que o dimensionamento automático é útil é quando a carga num determinado serviço varia ao longo do tempo. Por exemplo, um serviço como um gateway pode ser dimensionado com base na quantidade de recursos necessários para processar pedidos de entrada. Vamos dar uma olhada num exemplo de como o que essas regras de dimensionamento deve ser semelhante ao:
-* Se todas as instâncias do meu gateway estiver a utilizar mais de dois núcleos em média, em seguida, dimensione o serviço de gateway horizontalmente ao adicionar uma instância mais. Fazer isso cada hora, mas nunca ter mais de sete instâncias no total.
-* Se todas as instâncias do meu gateway estiver a utilizar inferior a 0,5 núcleos em média, em seguida, dimensione o serviço ao remover uma instância. Fazer isso cada hora, mas nunca tiver menos de três instâncias no total.
+Um cenário comum em que o dimensionamento automático é útil é quando a carga em um serviço específico varia ao longo do tempo. Por exemplo, um serviço como um gateway pode ser dimensionado com base na quantidade de recursos necessários para lidar com solicitações de entrada. Vamos dar uma olhada em um exemplo de como essas regras de dimensionamento poderiam ser:
+* Se todas as instâncias do meu gateway estiverem usando mais de dois núcleos em média, expanda o serviço do gateway adicionando mais uma instância. Faça isso a cada hora, mas nunca tenha mais de sete instâncias no total.
+* Se todas as instâncias do meu gateway estiverem usando menos de 0,5 núcleos em média, dimensione o serviço no removendo uma instância. Faça isso a cada hora, mas nunca tenha menos de três instâncias no total.
 
-Dimensionamento automático é suportado para contentores e serviços do Service Fabric regulares. Para utilizar o dimensionamento automático, terá de estar em execução na versão 6.2 ou acima do runtime do Service Fabric. 
+O dimensionamento automático tem suporte para contêineres e serviços de Service Fabric regulares. Para usar o dimensionamento automático, você precisa estar em execução na versão 6,2 ou superior do tempo de execução de Service Fabric. 
 
-O resto deste artigo descreve as políticas de formas para ativar ou desativar o dimensionamento automático, dimensionamento e fornece exemplos sobre como utilizar esta funcionalidade.
+O restante deste artigo descreve as políticas de dimensionamento, maneiras de habilitar ou desabilitar o dimensionamento automático e fornece exemplos de como usar esse recurso.
 
 ## <a name="describing-auto-scaling"></a>Descrevendo o dimensionamento automático
-Políticas de dimensionamento automático pode ser definido para cada serviço no cluster do Service Fabric. Cada política de dimensionamento consiste em duas partes:
-* **Dimensionamento acionador** descreve quando será executada dimensionamento do serviço. Condições definidas no acionador são verificadas periodicamente para determinar se um serviço deverão ser aumentado ou não.
+As políticas de dimensionamento automático podem ser definidas para cada serviço em um Cluster Service Fabric. Cada política de dimensionamento consiste em duas partes:
+* O **gatilho de dimensionamento** descreve quando o dimensionamento do serviço será executado. As condições definidas no gatilho são verificadas periodicamente para determinar se um serviço deve ser dimensionado ou não.
 
-* **Mecanismo de dimensionamento** descreve como dimensionar será efetuada quando for acionado. Mecanismo só se aplica quando estiverem reunidas as condições do acionador.
+* O **mecanismo de dimensionamento** descreve como o dimensionamento será executado quando for disparado. O mecanismo só é aplicado quando as condições do gatilho são atendidas.
 
-Todos os acionadores que são atualmente suportados funcionará com [métricas de carga lógico](service-fabric-cluster-resource-manager-metrics.md), ou com a métrica física, como a utilização da CPU ou memória. De qualquer forma, o Service Fabric irá monitorizar a carga comunicada para a métrica e avaliará o acionador periodicamente para determinar se a opção dimensionamento é necessário.
+Todos os gatilhos com suporte no momento funcionam com [métricas de carga lógica](service-fabric-cluster-resource-manager-metrics.md)ou com métricas físicas, como uso de CPU ou memória. De qualquer forma, Service Fabric monitorará a carga relatada para a métrica e avaliará o gatilho periodicamente para determinar se o dimensionamento é necessário.
 
-Há dois mecanismos que são atualmente suportados para o dimensionamento automático. Primeiro destina-se para serviços sem estado ou para contentores, dimensionamento automático onde é feita adicionando ou removendo [instâncias](service-fabric-concepts-replica-lifecycle.md). Para os serviços com e sem estado, dimensionamento automático pode também ser executada ao adicionar ou remover nomeados [partições](service-fabric-concepts-partitioning.md) do serviço.
+Há dois mecanismos que atualmente têm suporte para dimensionamento automático. O primeiro é destinado a serviços sem estado ou a contêineres em que o dimensionamento automático é executado adicionando ou removendo [instâncias](service-fabric-concepts-replica-lifecycle.md). Para serviços com e sem estado, o dimensionamento automático também pode ser executado adicionando ou removendo [partições](service-fabric-concepts-partitioning.md) nomeadas do serviço.
 
 > [!NOTE]
-> Atualmente, existe suporte para apenas uma política de dimensionamento por serviço e apenas um acionador de dimensionamento por política de dimensionamento.
+> Atualmente, há suporte para apenas uma política de dimensionamento por serviço e apenas um gatilho de dimensionamento por política de dimensionamento.
 
-## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Acionador de carga de partição média com a instância de dimensionamento com base em
-O primeiro tipo de Acionador baseia-se a carga de instâncias de uma partição de serviço sem estado. Métrica cargas são primeiro suavizadas para obter a carga para cada instância de uma partição e, em seguida, estes valores são transformadas em médias de todas as instâncias da partição. Existem três fatores que determinam quando o serviço será dimensionado:
+## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Gatilho de carga de partição médio com dimensionamento baseado em instância
+O primeiro tipo de gatilho é baseado na carga de instâncias em uma partição de serviço sem estado. As cargas de métricas são primeiro suavizadas para obter a carga de cada instância de uma partição e, em seguida, esses valores são calculados em todas as instâncias da partição. Há três fatores que determinam quando o serviço será dimensionado:
 
-* _Limiar de carregamento inferior_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as instâncias das partições for inferior este valor, em seguida, o serviço irá ser reduzido horizontalmente.
-* _Limiar de carregamento superior_ é um valor que determina quando o serviço será **aumentados horizontalmente**. Se a carga média de todas as instâncias da partição é maior do que este valor, em seguida, o serviço irá ser dimensionado.
-* _Intervalo de dimensionamento_ determina a frequência com que o acionador será verificado. Assim que o acionador for selecionado, se o dimensionamento é necessário o mecanismo será aplicado. Se não for necessário dimensionamento, irá ser efetuada nenhuma ação. Em ambos os casos, acionador não estará marcado novamente antes de intervalo de dimensionamento novamente.
+* _Limite de carga inferior_ é um valor que determina quando o serviço será **dimensionado horizontalmente**. Se a carga média de todas as instâncias das partições for menor que esse valor, o serviço será dimensionado no.
+* _Limite de carga superior_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será escalado horizontalmente.
+* O _intervalo de dimensionamento_ determina a frequência com que o gatilho será verificado. Quando o gatilho for verificado, se for necessário dimensionar, o mecanismo será aplicado. Se o dimensionamento não for necessário, nenhuma ação será executada. Em ambos os casos, o gatilho não será verificado novamente antes de o intervalo de dimensionamento expirar novamente.
 
-Este acionador pode ser utilizado apenas com serviços sem estado (contentores sem monitoração de estado ou serviços do Service Fabric). No caso de quando um serviço tem várias partições, o acionador é avaliado separadamente para cada partição, e cada partição terão o mecanismo especificado aplicado a ele de forma independente. Portanto, neste caso, é possível que algumas das partições do serviço irão ser aumentadas horizontalmente, alguns irão ser reduzido horizontalmente e alguns não ser dimensionados em todos os ao mesmo tempo, com base na carga.
+Esse gatilho pode ser usado somente com serviços sem estado (contêineres sem monitoração de estado ou serviços de Service Fabric). No caso de um serviço ter várias partições, o gatilho é avaliado para cada partição separadamente, e cada partição terá o mecanismo especificado aplicado de forma independente. Portanto, nesse caso, é possível que algumas das partições do serviço sejam escaladas horizontalmente, algumas serão escaladas horizontalmente e outras não serão dimensionadas ao mesmo tempo, com base em sua carga.
 
-O mecanismo único que pode ser utilizado com este acionador é PartitionInstanceCountScaleMechanism. Existem três fatores que determinam a forma como esse mecanismo é aplicado:
-* _Dimensionar o incremento_ determina quantas instâncias serão adicionadas ou removidas quando o mecanismo é acionado.
-* _Número máximo de instâncias_ define o limite superior para dimensionamento. Se o número de instâncias da partição atingir este limite, em seguida, o serviço será não ser aumentado horizontalmente, independentemente da carga. É possível omitir este limite, especificando o valor de -1 e, nesse caso, o serviço será dimensionado fora da melhor forma possível (o limite é o número de nós que estão disponíveis no cluster).
-* _Contagem de instâncias mínima_ define o limite inferior para dimensionamento. Se o número de instâncias da partição atingir este limite, em seguida, serviço será não ser reduzido horizontalmente, independentemente da carga.
+O único mecanismo que pode ser usado com esse gatilho é PartitionInstanceCountScaleMechanism. Há três fatores que determinam como esse mecanismo é aplicado:
+* O _incremento de escala_ determina quantas instâncias serão adicionadas ou removidas quando o mecanismo for disparado.
+* _Contagem máxima de instâncias_ define o limite superior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. É possível omitir esse limite especificando o valor de-1 e, nesse caso, o serviço será escalado horizontalmente o máximo possível (o limite é o número de nós disponíveis no cluster).
+* A _contagem mínima de instâncias_ define o limite inferior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será dimensionado, independentemente da carga.
 
-## <a name="setting-auto-scaling-policy"></a>A definição de política de dimensionamento automático
+## <a name="setting-auto-scaling-policy"></a>Definindo a política de dimensionamento automático
 
-### <a name="using-application-manifest"></a>Usando o manifesto da aplicação
+### <a name="using-application-manifest"></a>Usando o manifesto do aplicativo
 ``` xml
 <LoadMetrics>
 <LoadMetric Name="MetricB" Weight="High"/>
@@ -73,7 +64,7 @@ O mecanismo único que pode ser utilizado com este acionador é PartitionInstanc
 </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
-### <a name="using-c-apis"></a>Com APIs do c#
+### <a name="using-c-apis"></a>Usando C# APIs
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatelessServiceDescription serviceDescription = new StatelessServiceDescription();
@@ -94,7 +85,7 @@ serviceDescription.ScalingPolicies.Add(policy);
 serviceDescription.ServicePackageActivationMode = ServicePackageActivationMode.ExclusiveProcess
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
-### <a name="using-powershell"></a>Com o Powershell
+### <a name="using-powershell"></a>Usando o PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.PartitionInstanceCountScaleMechanism
 $mechanism.MinInstanceCount = 1
@@ -115,35 +106,35 @@ $scalingpolicies.Add($scalingpolicy)
 Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName" -ScalingPolicies $scalingpolicies
 ```
 
-## <a name="average-service-load-trigger-with-partition-based-scaling"></a>Acionador de carga média do serviço com a partição de dimensionamento com base em
-O acionador segundo baseia-se a carga de todas as partições de um serviço. Métrica cargas são primeiro suavizadas para obter a carga para cada réplica ou de uma instância de uma partição. Para serviços com estado, a carga da partição é considerada a carga da réplica primária, enquanto para serviços sem estado, a carga da partição se a carga média de todas as instâncias da partição. Estes valores são uma média de todas as partições do serviço e este valor é utilizado para acionar o dimensionamento automático. Mesmo do mecanismo anterior, existem três fatores que determinam quando o serviço será dimensionado:
+## <a name="average-service-load-trigger-with-partition-based-scaling"></a>Gatilho de carga de serviço médio com dimensionamento baseado em partição
+O segundo gatilho é baseado na carga de todas as partições de um serviço. As cargas de métricas são primeiro suavizadas para obter a carga de cada réplica ou instância de uma partição. Para serviços com estado, a carga da partição é considerada como a carga da réplica primária, enquanto para serviços sem estado a carga da partição é a carga média de todas as instâncias da partição. Esses valores são calculados com média em todas as partições do serviço, e esse valor é usado para disparar o dimensionamento automático. O mesmo que no mecanismo anterior, há três fatores que determinam quando o serviço será dimensionado:
 
-* _Limiar de carregamento inferior_ é um valor que determina quando o serviço será **reduzido horizontalmente**. Se a carga média de todas as partições do serviço for inferior este valor, em seguida, o serviço irá ser reduzido horizontalmente.
-* _Limiar de carregamento superior_ é um valor que determina quando o serviço será **aumentados horizontalmente**. Se a carga média de todas as partições do serviço for superior a este valor, em seguida, o serviço irá ser dimensionado.
-* _Intervalo de dimensionamento_ determina a frequência com que o acionador será verificado. Assim que o acionador for selecionado, se o dimensionamento é necessário o mecanismo será aplicado. Se não for necessário dimensionamento, irá ser efetuada nenhuma ação. Em ambos os casos, acionador não estará marcado novamente antes de intervalo de dimensionamento novamente.
+* _Limite de carga inferior_ é um valor que determina quando o serviço será **dimensionado horizontalmente**. Se a carga média de todas as partições do serviço for menor do que esse valor, o serviço será dimensionado no.
+* _Limite de carga superior_ é um valor que determina quando o serviço será **escalado horizontalmente**. Se a carga média de todas as partições do serviço for maior que esse valor, o serviço será escalado horizontalmente.
+* O _intervalo de dimensionamento_ determina a frequência com que o gatilho será verificado. Quando o gatilho for verificado, se for necessário dimensionar, o mecanismo será aplicado. Se o dimensionamento não for necessário, nenhuma ação será executada. Em ambos os casos, o gatilho não será verificado novamente antes de o intervalo de dimensionamento expirar novamente.
 
-Este acionador pode ser utilizado com serviços com e sem estado. O mecanismo único que pode ser utilizado com este acionador é AddRemoveIncrementalNamedPartitionScalingMechanism. Quando o serviço é aumentado horizontalmente, em seguida, é adicionada uma nova partição, e quando o serviço é dimensionado de uma das partições existentes são removidos. Existem restrições que serão verificadas quando o serviço é criado ou atualizado e o serviço de criação/atualização falhará se estas condições não forem cumpridas:
-* Esquema de partição com o nome tem de ser utilizada para o serviço.
-* Nomes de partição tem de ser números integer consecutivos, como "0", "1",...
-* Nome da primeira partição tem de ser "0".
+Esse gatilho pode ser usado com serviços com e sem estado. O único mecanismo que pode ser usado com esse gatilho é AddRemoveIncrementalNamedPartitionScalingMechanism. Quando o serviço é escalado horizontalmente, uma nova partição é adicionada e quando o serviço é dimensionado em uma das partições existentes é removido. Há restrições que serão verificadas quando o serviço for criado ou atualizado e a criação/atualização de serviço falhará se essas condições não forem atendidas:
+* O esquema de partição nomeado deve ser usado para o serviço.
+* Os nomes de partição devem ser números inteiros consecutivos, como "0", "1",...
+* O nome da primeira partição deve ser "0".
 
-Por exemplo, se um serviço é criado inicialmente com três partições, a possibilidade de só é válida para nomes de partição é "0", "1" e "2".
+Por exemplo, se um serviço for criado inicialmente com três partições, a única possibilidade válida para os nomes de partição é "0", "1" e "2".
 
-O operação é realizada de dimensionamento de automático real irá respeitar este esquema de nomenclatura:
-* Se as partições atuais do serviço são denominadas "0", "1" e "2", em seguida, a partição que será adicionada para aumentar horizontalmente será nomeada "3".
-* Se as partições atuais do serviço são o nome "0", "1" e "2", a partição que será removida para reduzir horizontalmente é a partição com o nome "2".
+A operação de dimensionamento automático real que é executada também respeitará esse esquema de nomenclatura:
+* Se as partições atuais do serviço forem nomeadas como "0", "1" e "2", a partição que será adicionada para expansão será denominada "3".
+* Se as partições atuais do serviço forem nomeadas como "0", "1" e "2", a partição que será removida para o dimensionamento será a partição com o nome "2".
 
-Mesmo assim como acontece com o mecanismo que utiliza o dimensionamento adicionando ou removendo instâncias, há três parâmetros que determinam a forma como esse mecanismo é aplicado:
-* _Dimensionar o incremento_ determina quantas partições serão adicionadas ou removidas quando o mecanismo é acionado.
-* _Número máximo de partição_ define o limite superior para dimensionamento. Se o número de partições do serviço de atingir este limite, em seguida, o serviço será não ser aumentado horizontalmente, independentemente da carga. É possível omitir este limite, especificando o valor de -1 e, nesse caso, o serviço será dimensionado fora da melhor forma possível (o limite é a capacidade real do cluster).
-* _Contagem de instâncias mínima_ define o limite inferior para dimensionamento. Se o número de partições do serviço de atingir este limite, em seguida, serviço será não ser reduzido horizontalmente, independentemente da carga.
+Mesmo que o mecanismo que usa o dimensionamento adicionando ou removendo instâncias, há três parâmetros que determinam como esse mecanismo é aplicado:
+* O _incremento de escala_ determina quantas partições serão adicionadas ou removidas quando o mecanismo for disparado.
+* A _contagem máxima de partições_ define o limite superior para o dimensionamento. Se o número de partições do serviço atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. É possível omitir esse limite especificando o valor de-1 e, nesse caso, o serviço será escalado horizontalmente o máximo possível (o limite é a capacidade real do cluster).
+* A _contagem mínima de instâncias_ define o limite inferior para o dimensionamento. Se o número de partições do serviço atingir esse limite, o serviço não será dimensionado, independentemente da carga.
 
 > [!WARNING] 
-> Quando AddRemoveIncrementalNamedPartitionScalingMechanism é utilizado com serviços com estado, o Service Fabric irá adicionar ou remover partições **sem notificação ou aviso**. Repartição de dados não será executada quando o mecanismo de dimensionamento é acionado. No caso de operação de aumento vertical, novas partições estará vazias e, em caso de operação de dimensionamento **partição será eliminada juntamente com todos os dados que contém**.
+> Quando AddRemoveIncrementalNamedPartitionScalingMechanism é usado com serviços com estado, Service Fabric irá adicionar ou remover partições **sem notificação ou aviso**. O reparticionamento de dados não será executado quando o mecanismo de dimensionamento for disparado. No caso da operação de expansão, as novas partições estarão vazias e, no caso da operação de reduzir verticalmente, **a partição será excluída junto com todos os dados que ela contém**.
 
-## <a name="setting-auto-scaling-policy"></a>A definição de política de dimensionamento automático
+## <a name="setting-auto-scaling-policy"></a>Definindo a política de dimensionamento automático
 
-### <a name="using-application-manifest"></a>Usando o manifesto da aplicação
+### <a name="using-application-manifest"></a>Usando o manifesto do aplicativo
 ``` xml
 <ServiceScalingPolicies>
     <ScalingPolicy>
@@ -152,7 +143,7 @@ Mesmo assim como acontece com o mecanismo que utiliza o dimensionamento adiciona
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
-### <a name="using-c-apis"></a>Com APIs do c#
+### <a name="using-c-apis"></a>Usando C# APIs
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
@@ -171,7 +162,7 @@ serviceUpdate.ScalingPolicies = new List<ScalingPolicyDescription>;
 serviceUpdate.ScalingPolicies.Add(policy);
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/ServiceName"), serviceUpdate);
 ```
-### <a name="using-powershell"></a>Com o Powershell
+### <a name="using-powershell"></a>Usando o PowerShell
 ```posh
 $mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
@@ -192,9 +183,9 @@ $scalingpolicies.Add($scalingpolicy)
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -TargetReplicaSetSize 3 -MinReplicaSetSize 2 -HasPersistedState true -PartitionNames @("0","1") -ServicePackageActivationMode ExclusiveProcess -ScalingPolicies $scalingpolicies
 ```
 
-## <a name="auto-scaling-based-on-resources"></a>Dimensionamento automático com base nos recursos
+## <a name="auto-scaling-based-on-resources"></a>Dimensionamento automático com base em recursos
 
-Para ativar o serviço de monitor de recursos dimensionar com base nos recursos reais
+Para habilitar o serviço de monitor de recursos para dimensionar com base em recursos reais
 
 ``` json
 "fabricSettings": [
@@ -204,8 +195,8 @@ Para ativar o serviço de monitor de recursos dimensionar com base nos recursos 
     "ResourceMonitorService"
 ],
 ```
-Existem duas métricas que representam os recursos físicos reais. Uma delas é servicefabric: / _CpuCores que representam a utilização de cpu real (para que 0,5 representa metade um núcleo) e outra sendo servicefabric: / _MemoryInMB que representa o uso de memória em MB.
-ResourceMonitorService é responsável por controlar a utilização de cpu e memória dos serviços de utilizador. Este serviço irá aplicar uma média móvel ponderada para potenciais picos de curta duração em conta. Monitorização de recursos é suportada para aplicações em contentores e não em contentores no Windows e para aqueles em contentores no Linux. Dimensionamento em recursos automático só está ativado para os serviços ativados [modelo de processo exclusivo](service-fabric-hosting-model.md#exclusive-process-model).
+Há duas métricas que representam os recursos físicos reais. Um deles é o infabric:/_CpuCores que representa o uso real da CPU (portanto, 0,5 representa metade de um núcleo) e o outro é o infabric:/_MemoryInMB que representa o uso de memória em MBs.
+ResourceMonitorService é responsável por controlar o uso de CPU e memória dos serviços do usuário. Esse serviço aplicará a média móvel ponderada para considerar possíveis picos de curta duração. O monitoramento de recursos tem suporte para aplicativos em contêineres e não-contêineres no Windows e para aqueles em contêineres no Linux. O dimensionamento automático em recursos só é habilitado para serviços ativados no [modelo de processo exclusivo](service-fabric-hosting-model.md#exclusive-process-model).
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre a [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).

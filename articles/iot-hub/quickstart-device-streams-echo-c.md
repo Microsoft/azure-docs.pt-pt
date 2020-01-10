@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1d475c8e1f8dd332b60aef04242d2829feba93c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084203"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429211"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: comunicar-se com um aplicativo de dispositivo em C por meio de fluxos de dispositivo do Hub IoT (versão prévia)
 
@@ -56,7 +56,7 @@ Você precisa dos seguintes pré-requisitos:
 
 Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * EUA Central
+  * Centro dos E.U.A.
   * EUA Central EUAP
   * Europa do Norte
   * Sudeste Asiático
@@ -70,18 +70,19 @@ Para este guia de início rápido, você usa o [SDK do dispositivo IOT do Azure 
 
 1. Instale o [sistema de compilação CMake](https://cmake.org/download/) conforme descrito na página de download.
 
-1. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) :
+1. Abra uma linha de comandos ou a shell do Git Bash. Execute os seguintes comandos para clonar o repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) :
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operação deve levar alguns minutos.
 
-1. Crie um diretório *CMake* no diretório raiz do repositório git, conforme mostrado no comando a seguir e vá para essa pasta.
+1. Crie um subdiretório *CMake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *Azure-IOT-SDK-c* :
 
-    ```cmd
-    cd azure-iot-sdk-c
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
@@ -197,7 +198,7 @@ Conforme mencionado anteriormente, o SDK do Hub IoT C dá suporte a fluxos de di
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, estabeleceu um fluxo de dispositivo entre um aplicativo C no dispositivo e outro aplicativo no lado do serviço e usou o fluxo para enviar dados entre os aplicativos.
 

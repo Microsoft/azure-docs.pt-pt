@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364803"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando Azure Monitor  
 
@@ -40,7 +40,7 @@ Você pode usar o portal do Azure para criar e modificar as regras de alerta do 
 
 Use o procedimento a seguir.
 
-1. Na portal do Azure, selecione **monitorar**  > **alertas**.
+1. Na portal do Azure, selecione **monitorar** > **alertas**.
 2. Selecione **nova regra de alerta** no canto superior esquerdo da janela **alertas** .
 
      ![Nova regra de alerta](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -51,11 +51,11 @@ Use o procedimento a seguir.
 
 3. Em **definir condição de alerta**, forneça as seguintes informações e selecione **concluído**:
 
-   - **Destino do alerta:** Para exibir e selecionar o destino do novo alerta, use **Filtrar por assinatura**  / **Filtrar por tipo de recurso**. Selecione o recurso ou grupo de recursos na lista exibida.
+   - **Destino do alerta:** Para exibir e selecionar o destino do novo alerta, use **Filtrar por assinatura** / **Filtrar por tipo de recurso**. Selecione o recurso ou grupo de recursos na lista exibida.
 
      > [!NOTE]
      > 
-     > Você pode selecionar apenas [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) recurso controlado, grupo de recursos ou uma assinatura inteira para um sinal do log de atividades. 
+     > Você pode selecionar apenas [Azure Resource Manager](../../azure-resource-manager/management/overview.md) recurso controlado, grupo de recursos ou uma assinatura inteira para um sinal do log de atividades. 
 
      **Exibição de exemplo de destino de alerta**
 
@@ -92,7 +92,7 @@ Use o procedimento a seguir.
 5. Em **grupo de ações**, no menu suspenso, especifique o grupo de ações que você deseja atribuir a essa nova regra de alerta. Ou [crie um novo grupo de ação](../../azure-monitor/platform/action-groups.md) e atribua-o à nova regra. Para criar um novo grupo, selecione **+ novo grupo**.
 
 6. Para habilitar as regras depois de criá-las, selecione **Sim** para a opção **habilitar regra na criação** .
-7. Selecione **criar regra de alerta**.
+7. Selecione **Criar regra de alerta**.
 
     A nova regra de alerta para o log de atividades é criada e uma mensagem de confirmação é exibida no canto superior direito da janela.
 
@@ -106,9 +106,9 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Exibir e gerenciar no portal do Azure
 
-1. Na portal do Azure, selecione **monitorar**  > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
+1. Na portal do Azure, selecione **monitorar** > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
 
-    ![Gerenciar regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista de regras disponíveis é exibida.
 
@@ -124,7 +124,7 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 3. Selecione a regra e clique duas vezes para editar as opções de regra. Faça as alterações necessárias e, em seguida, selecione **salvar**.
 
-   ![Gerenciar regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Gere regras do alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Você pode habilitar, desabilitar ou excluir uma regra. Selecione a opção apropriada na parte superior da janela depois de selecionar a regra, conforme descrito na etapa 2.
 

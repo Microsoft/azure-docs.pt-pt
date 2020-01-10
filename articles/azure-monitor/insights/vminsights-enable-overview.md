@@ -4,15 +4,15 @@ description: Saiba como implantar e configurar Azure Monitor para VMs. Descubra 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400625"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar a Azure Monitor para VMs (visualização) visão geral
 
@@ -36,22 +36,22 @@ Antes de começar, certifique-se de que compreende as informações nas secçõe
 
 O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics nas seguintes regiões:
 
-- EUA Centro-Oeste
-- EUA Oeste
-- EUA Oeste 2
-- EUA Centro-Sul
-- EUA Leste
+- E.U.A. Centro-Oeste
+- Oeste dos E.U.A.
+- E.U.A. Oeste 2
+- E.U.A. Centro-Sul
+- Este dos E.U.A.
 - E.U.A. Leste 2
-- EUA Central
-- EUA Centro-Norte
+- Centro dos E.U.A.
+- E.U.A. Centro-Norte
 - Canadá Central
-- Reino Unido Sul
+- Sul do Reino Unido
 - Europa do Norte
-- Europa ocidental
-- Ásia Oriental
-- Sudeste asiático
-- Índia Central
-- Leste do Japão
+- Europa Ocidental
+- Este Asiático
+- Sudeste Asiático
+- Centro da Índia
+- Este do Japão
 - Leste da Austrália
 - Sudeste da Austrália
 
@@ -81,7 +81,7 @@ Para configurar seu espaço de trabalho para o cenário em escala, use um dos se
 
 A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure Monitor para VMs dá suporte. Mais adiante nesta seção, você encontrará uma lista completa que detalha a versão principal e secundária do sistema operacional Linux e as versões de kernel com suporte.
 
-|Versão do SO |Desempenho |Maps |
+|Versão do SO |Desempenho |Mapas |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -113,7 +113,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| 7,6 | 3.10.0-957 |
+| 7.6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
@@ -166,7 +166,7 @@ Em um ambiente híbrido, você pode baixar e instalar o agente de dependência m
 
 A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
 | Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
@@ -174,7 +174,7 @@ A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa supor
 
 Você pode baixar o Dependency Agent nestes locais:
 
-| Ficheiro | SO | Versão | SHA-256 |
+| Ficheiros | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |

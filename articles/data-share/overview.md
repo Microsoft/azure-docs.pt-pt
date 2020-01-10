@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499384"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660805"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -21,7 +21,7 @@ Muitas organizações precisam ser contadas para os dados que eles compartilhara
 
 O compartilhamento de dados do Azure permite que as organizações compartilhem dados de forma simples e segura com vários clientes e parceiros. Com apenas alguns cliques, você pode provisionar uma nova conta de compartilhamento de dados, Adicionar conjuntos e convidar seus clientes e parceiros para seu compartilhamento de dados. Os provedores de dados sempre estão no controle dos dados que eles compartilharam. O compartilhamento de dados do Azure torna simples gerenciar e monitorar quais dados foram compartilhados, quando e por quem. 
 
-Um provedor de dados pode manter o controle de como seus dados são manipulados especificando os termos de uso para seu compartilhamento de dados. O consumidor de dados deve aceitar esses termos antes de poder receber os dados. Os provedores de dados podem especificar a frequência em que seus consumidores de dados recebem atualizações. O acesso a novas atualizações pode ser revogado a qualquer momento pelo provedor de dados. 
+Um provedor de dados pode manter o controle de como seus dados são manipulados especificando os termos de uso para seu compartilhamento de dados. O consumidor dos dados tem de aceitar esses termos para os poder receber. Os fornecedores de dados podem especificar a frequência com que os consumidores dos dados recebem atualizações. O acesso a novas atualizações pode ser revogado a qualquer momento pelo fornecedor de dados. 
 
 O compartilhamento de dados do Azure ajuda a aprimorar as ideias, facilitando a combinação de dados de terceiros para enriquecer os cenários de análise e ia. Use facilmente o poder de ferramentas de análise do Azure para preparar, processar e analisar dados compartilhados usando o compartilhamento de dados do Azure. 
 
@@ -47,7 +47,7 @@ Os provedores de dados podem oferecer as atualizações incrementais dos consumi
 
 Quando um consumidor de dados aceita um compartilhamento de dados, eles são capazes de receber os dados em um armazenamento de dados de sua escolha. Por exemplo, se o provedor de dados compartilhar dados usando o armazenamento de BLOBs do Azure, o consumidor de dados poderá receber esses dados em Azure Data Lake Store. Da mesma forma, se o provedor de dados compartilhar dados de um SQL Data Warehouse do Azure, o consumidor de dados poderá escolher se desejam receber os dados em um Azure Data Lake Store, um Azure SQL Database ou um SQL Data Warehouse do Azure. No caso do compartilhamento de fontes baseadas em SQL, o consumidor de dados também pode escolher se eles recebem dados em parquet ou CSV. 
 
-O compartilhamento in-loco está atualmente em versão prévia limitada para o Azure Data Explorer. Os provedores de dados são capazes de compartilhar dados onde eles residem, sem movimentação de dados por meio de um link simbólico. Inscreva-se para a versão prévia limitada do compartilhamento in-loco para o Azure Data Explorer [aqui](https://aka.ms/azuredatasharepreviewsignup). 
+O compartilhamento in-loco está atualmente em versão prévia limitada para o Azure Data Explorer. Os provedores de dados são capazes de compartilhar dados onde eles residem, sem movimentação de dados por meio de um link simbólico. Inscreva-se para a versão prévia limitada do Azure Data Explorer compartilhamento in-loco [aqui](https://aka.ms/azuredatasharepreviewsignup). 
 
 ## <a name="key-capabilities"></a>Principais capacidades
 

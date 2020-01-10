@@ -2,17 +2,17 @@
 title: 'Desabilitar políticas de rede para o endereço IP de origem do serviço de vínculo privado do Azure '
 description: Saiba como desabilitar as políticas de rede para o link privado do Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228109"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452998"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Desabilitar políticas de rede para o IP de origem do serviço de vínculo privado
 
@@ -22,7 +22,7 @@ Ao usar qualquer cliente do Azure (PowerShell, CLI ou modelos), é necessária u
  
 Siga as etapas abaixo para desabilitar as políticas de rede do serviço de vínculo privado para uma rede virtual denominada *myVirtualNetwork* com uma sub-rede *padrão* hospedada em um grupo de recursos chamado *MyResource*Group. 
 
-## <a name="using-azure-powershell"></a>Com o Azure PowerShell
+## <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 Esta seção descreve como desabilitar políticas de ponto de extremidade privadas de sub-rede usando Azure PowerShell.
 
 ```azurepowershell
@@ -70,6 +70,6 @@ Esta seção descreve como desabilitar políticas de ponto de extremidade privad
 } 
  
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o [ponto de extremidade privado do Azure](private-endpoint-overview.md)
  

@@ -1,6 +1,5 @@
 ---
-title: Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar a IU com o Angular
-titleSuffix: Azure Cosmos DB
+title: Criar a interface do usuário do aplicativo angular com a API do Azure Cosmos DB para MongoDB (parte 3)
 description: Parte 3 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,16 +10,16 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444731"
 ---
-# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar a IU com o Angular
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-compilar a interface do usuário com angular
 
-Este tutorial com várias parte demonstra como criar uma nova aplicação escrita em node. js com Express e o Angular e, em seguida, ligá-la à sua [conta do Cosmos configurada com a API do Cosmos DB para o MongoDB](mongodb-introduction.md).
+Este tutorial de várias partes demonstra como criar um novo aplicativo escrito em node. js com o Express e o angular e, em seguida, conectá-lo à sua [conta do cosmos configurada com a API do cosmos DB para MongoDB](mongodb-introduction.md).
 
 A Parte 3 do tutorial é a continuação da [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) e abrange as seguintes tarefas:
 
@@ -417,7 +416,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
 2. No Visual Studio Code, regresse a **heroes.components.ts**. Repare que, na linha `constructor(private heroService: HeroService) {}` (linha 13), `HeroService` tem uma linha vermelha por baixo. Clique em `HeroService` e obterá a lâmpada no lado esquerdo do bloco de código. Clique na lâmpada e, em seguida, clique em **Import HeroService from "./hero.service ".** (Importar HeroService de "./hero.service ".) ou em **(Importar HeroService de "/app/hero.service".**
 
-    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 referenciar a pasta de /app/hero.service, modificá-lo para que referencie o ficheiro hero da pasta local (. / hero.service). A linha 2 deve ter o seguinte aspeto:
+    Clicar na lâmpada insere uma linha de código nova na linha 2. Se a linha 2 fizer referência à pasta/app/Hero.Service, modifique-a para que ela faça referência ao arquivo Hero da pasta local (./Hero.Service). A linha 2 deve ter o seguinte aspeto:
     
     ```javascript
     import { HeroService } from "./hero.service"

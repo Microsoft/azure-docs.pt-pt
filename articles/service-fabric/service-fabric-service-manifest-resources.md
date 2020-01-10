@@ -1,25 +1,14 @@
 ---
-title: Especificando Service Fabric pontos de extremidade de serviço | Microsoft Docs
+title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos do ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidades HTTPS
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464179"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
 ## <a name="overview"></a>Visão geral

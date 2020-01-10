@@ -1,17 +1,17 @@
 ---
-title: Adicionar e executar trechos de código
-description: Adicionar e executar trechos de código com código embutido em aplicativos lógicos do Azure
+title: Adicionar e executar trechos de código usando código embutido
+description: Saiba como criar e executar trechos de código usando ações de código embutido para tarefas e fluxos de trabalho automatizados que você cria com os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453503"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicionar e executar trechos de código usando código embutido em aplicativos lógicos do Azure
 
@@ -131,8 +131,8 @@ Esta tabela contém mais informações sobre essas subpropriedades:
 | Propriedade | Tipo | Descrição |
 |----------|------|-------|
 | `actions` | Coleção de objetos | Objetos de resultado de ações executadas antes do trecho de código ser executado. Cada objeto tem um par *chave-valor* em que a chave é o nome de uma ação e o valor é equivalente a chamar a [função Actions ()](../logic-apps/workflow-definition-language-functions-reference.md#actions) com `@actions('<action-name>')`. O nome da ação usa o mesmo nome de ação usado na definição de fluxo de trabalho subjacente, que substitui os espaços ("") no nome da ação por sublinhados (_). Este objeto fornece acesso aos valores de propriedade de ação da instância de fluxo de trabalho atual executada. |
-| `trigger` | Object | Objeto de resultado do gatilho e equivalente a chamar a [função Trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto fornece acesso para disparar valores de propriedade da execução da instância de fluxo de trabalho atual. |
-| `workflow` | Object | O objeto de fluxo de trabalho e equivalente a chamar a [função de fluxo de trabalho ()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Esse objeto fornece acesso aos valores de propriedade de fluxo de trabalho, como o nome do fluxo de trabalho, a ID de execução e assim por diante, da instância de fluxo de trabalho atual executada. |
+| `trigger` | Objeto | Objeto de resultado do gatilho e equivalente a chamar a [função Trigger ()](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Este objeto fornece acesso para disparar valores de propriedade da execução da instância de fluxo de trabalho atual. |
+| `workflow` | Objeto | O objeto de fluxo de trabalho e equivalente a chamar a [função de fluxo de trabalho ()](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Esse objeto fornece acesso aos valores de propriedade de fluxo de trabalho, como o nome do fluxo de trabalho, a ID de execução e assim por diante, da instância de fluxo de trabalho atual executada. |
 |||
 
 No exemplo deste tópico, o objeto `workflowContext` tem essas propriedades que seu código pode acessar:

@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401754"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionando Log Analytics pesquisas e alertas salvos à solução de gerenciamento (versão prévia)
 
@@ -29,7 +29,7 @@ As [soluções de gerenciamento](solutions.md) normalmente incluirão [pesquisas
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para soluções de gerenciamento e são descritos em [projetar e criar uma solução de gerenciamento no Azure](solutions-creating.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já esteja familiarizado com como [criar uma solução de gerenciamento](solutions-creating.md) e a estrutura de um [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) e um arquivo de solução.
+Este artigo pressupõe que você já esteja familiarizado com como [criar uma solução de gerenciamento](solutions-creating.md) e a estrutura de um [modelo do Resource Manager](../../azure-resource-manager/templates/template-syntax.md) e um arquivo de solução.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
@@ -74,7 +74,7 @@ Cada propriedade de uma pesquisa salva é descrita na tabela a seguir.
 | Propriedade | Descrição |
 |:--- |:--- |
 | categoria | A categoria da pesquisa salva.  As pesquisas salvas na mesma solução muitas vezes compartilharão uma única categoria para que sejam agrupadas no console. |
-| DisplayName | Nome a ser exibido para a pesquisa salva no Portal. |
+| displayName | Nome a ser exibido para a pesquisa salva no Portal. |
 | consulta | Consulta a ser executada. |
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
     }
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | enabled       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
 | intervalo      | Sim | Com que frequência a consulta é executada em minutos. |
@@ -164,25 +164,25 @@ As ações de alerta têm a seguinte estrutura. Isso inclui variáveis e parâme
 
 As propriedades dos recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `type` | Sim | Tipo de ação.  Este é um **alerta** para ações de alerta. |
 | `name` | Sim | Nome a apresentar para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | `description` | Não | Descrição opcional do alerta. |
-| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informativa**
+| `severity` | Sim | Severidade do registro de alerta com os seguintes valores:<br><br> **drasticamente**<br>**alerta**<br>**informational**
 
 #### <a name="threshold"></a>Limiar
 Esta seção é necessária. Ele define as propriedades para o limite de alerta.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | `Value` | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
-Esta seção é opcional. Inclua-o para um alerta de medição de métrica.
+Esta secção é opcional. Inclua-o para um alerta de medição de métrica.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | `TriggerCondition` | Sim | Especifica se o limite é para o número total de violações ou violações consecutivas dos seguintes valores:<br><br>**Total de<br>consecutivas** |
 | `Operator` | Sim | Operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
@@ -190,9 +190,9 @@ Esta seção é opcional. Inclua-o para um alerta de medição de métrica.
 
 
 #### <a name="throttling"></a>Limitação
-Esta seção é opcional. Inclua esta seção se desejar suprimir alertas da mesma regra por algum tempo após a criação de um alerta.
+Esta secção é opcional. Inclua esta seção se desejar suprimir alertas da mesma regra por algum tempo após a criação de um alerta.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | DurationInMinutes | Sim se o elemento de limitação estiver incluído | Número de minutos para suprimir alertas após a criação de um da mesma regra de alerta. |
 
@@ -201,13 +201,13 @@ Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinid
 
 Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de webhook, detalhes de automação do runbook e outras ações, precisam ser definidos no primeiro grupo de ações antes de criar um alerta; é possível criar um [grupo de ações de Azure monitor](../../azure-monitor/platform/action-groups.md) no portal ou usar o [modelo de recurso grupo de ações](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
 | AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associado ao alerta para tomar as ações necessárias quando os critérios de alerta forem atendidos. |
 | CustomEmailSubject | Não | Linha de assunto personalizada do email enviada para todos os endereços especificados no grupo de ações associado. |
 | CustomWebhookPayload | Não | Conteúdo personalizado a ser enviado a todos os pontos de extremidade de webhook definidos no grupo de ações associado. O formato depende do que o webhook está esperando e deve ser um JSON serializado válido. |
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 
 A seguir, um exemplo de uma solução que inclui os seguintes recursos:
 

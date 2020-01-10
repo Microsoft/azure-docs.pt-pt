@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Criar um aplicativo de Pesquisa de Vídeo do Bing de página única'
+title: 'Tutorial: Compilar uma aplicação de página única da Pesquisa de Vídeos do Bing'
 titleSuffix: Azure Cognitive Services
-description: Explica como utilizar a API de Pesquisa de Vídeos do Bing numa aplicação Web de página única.
+description: Este tutorial explica como usar o API de Pesquisa de Vídeo do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382468"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
+# <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
 A API de Pesquisa de Vídeos do Bing permite-lhe pesquisar na Web e obter resultados de vídeos relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -107,7 +107,7 @@ O formulário HTML inclui elementos com os nomes abaixo:
 | `modules` | Caixas de verificação para promover módulos específicos de resultados, todos os resultados ou vídeos relacionados. |
 | `when` | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente. |
 | `safe` | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos. |
-| `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
+| `count` | Campo oculto. O número de resultados de pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
 | `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido, utilizado para paginação. É reposto para `0` nos pedidos novos. |
 
 > [!NOTE]
@@ -141,7 +141,7 @@ function bingSearchOptions(form) {
 Por exemplo, o parâmetro `SafeSearch` numa chamada à API real pode ser `strict`, `moderate` ou `off`, sendo `moderate` a predefinição. Contudo, o formulário utiliza uma caixa de verificação, que só tem dois estados. O código JavaScript converte esta definição em `strict` ou em `off` (`moderate` não é utilizado).
 
 ## <a name="performing-the-request"></a>Fazer o pedido
-Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing.
+Tendo a consulta, a cadeia de opções e a chave de API, a função `BingWebSearch` utiliza um objeto `XMLHttpRequest` para fazer o pedido ao ponto final da Pesquisa do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -259,7 +259,7 @@ function handleOnLoad() {
 > Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
 Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. 
 
-Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Poderão ocorrer erros nas seguintes fases:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
 |Fase|Potenciais erros|Resolvido por|
 |-|-|-|
@@ -373,7 +373,7 @@ A função de compositor:
 > * Cria as tags `<a>` de HTML que ligam à imagem e à página que a contém.
 > * Cria a descrição que apresenta as informações sobre a imagem e o site no qual a imagem se encontra.
 
-O tamanho da miniatura é utilizado na etiqueta `<img>` e nos campos `h` e `w` do respetivo URL. O Bing retornará uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
+O tamanho da miniatura é utilizado na tag `<img>` e nos campos `h` e `w` do respetivo URL. O Bing retornará uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
 
 ## <a name="persisting-client-id"></a>ID de cliente persistente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID`, o qual deve ser reenviado à API com os sucessivos pedidos. Se estiverem a ser utilizadas várias APIs de Pesquisa do Bing, deve ser utilizado o mesmo ID de cliente em todas as APIs, se possível.
@@ -384,12 +384,12 @@ Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto pass
 
 Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` ficará disponível para o JavaScript.
 
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite cabeçalhos de resposta e os torna disponíveis para o JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e os torna disponíveis para o JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 

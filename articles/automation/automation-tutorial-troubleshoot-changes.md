@@ -2,21 +2,17 @@
 title: Resolver problemas relacionados com alterações numa máquina virtual do Azure | Microsoft Docs
 description: Utilize o Controlo de Alterações para resolver problemas relacionados com alterações numa máquina virtual do Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: alterações, controlo, automatização
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420647"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -62,14 +58,14 @@ Durante a inclusão, a VM está aprovisionada com o Microsoft Monitoring Agent (
 Este agente serve para comunicar com a VM e obter informações sobre o software instalado.
 
 A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser.
-Após a solução está ativada, informações sobre alterações e de software instalado na VM são transmitidas para registos do Azure Monitor.
+Depois que a solução é habilitada, as informações sobre o software instalado e as alterações na VM fluem para os logs de Azure Monitor.
 Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilizar o controlo de alterações no registos do Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Usando o controle de alterações em logs de Azure Monitor
 
-Controlo de alterações gera dados de registo que são enviados para os registos do Azure Monitor.
+O controle de alterações gera dados de log que são enviados aos logs de Azure Monitor.
 Para pesquisar os registos através da execução de consultas, selecione **Log Analytics** na parte superior da janela **Controlo de alterações**.
 Os dados de Controlo de alterações são armazenados abaixo do tipo **ConfigurationChange**.
 O exemplo de consulta do Log Analytics que se segue devolve todos os Serviços do Windows que foram parados.
@@ -79,7 +75,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre como executar e Pesquisar arquivos de log em logs de Azure Monitor, consulte [Azure monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o Controlo de alterações
 
@@ -101,7 +97,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Enabled     | Determina se a definição foi aplicada        |
+|Ativado     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Chave do Registo do Windows   | O caminho para verificar o ficheiro, por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -114,12 +110,12 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Enabled     | Determina se a definição foi aplicada        |
+|Ativado     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um ficheiro do Linux
 
@@ -129,7 +125,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Enabled     | Determina se a definição foi aplicada        |
+|Ativado     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "/etc/*.conf"       |
@@ -137,7 +133,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
    > [!NOTE]
    > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
@@ -179,11 +175,11 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 Para adicionar um alerta a um serviço parado, no portal do Azure, aceda a **Monitorizar**. E, em **Serviços Partilhados**, selecione **Alertas** e clique em **+Nova regra de alerta**
 
-Clique em **selecione** para escolher um recurso. Na **selecionar um recurso** , selecione **do Log Analytics** do **filtrar por tipo de recurso** pendente. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
+Clique em **selecionar** para escolher um recurso. Na página **selecionar um recurso** , selecione **log Analytics** na lista suspensa **Filtrar por tipo de recurso** . Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Clique em **adicionar condição**, na **configurar lógica de sinal** página, na tabela, selecione **pesquisa de registos personalizado**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
+Clique em **Adicionar condição**, na página **Configurar lógica de sinal** , na tabela, selecione **pesquisa de logs personalizada**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -195,9 +191,9 @@ Em **Lógica de alerta**, para **Limiar**, introduza **0**. Quando tiver termina
 
 ![Configurar lógica de sinal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+Em **grupos de ações**, selecione **criar novo**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
-Sob **detalhes do alerta**, introduza um nome e descrição do alerta. Defina a **Gravidade** para **Informativa (Grav 2)** , **Aviso (Grav 1)** ou **Crítica (Grav 0)** .
+Em **detalhes do alerta**, insira um nome e uma descrição para o alerta. Defina a **Gravidade** para **Informativa (Grav 2)** , **Aviso (Grav 1)** ou **Crítica (Grav 0)** .
 
 Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 
@@ -211,9 +207,9 @@ Para personalizar o assunto do e-mail de alerta, em **Criar regra**, em **Person
 
 A imagem seguinte é um e-mail de exemplo recebido quando o serviço W3SVC para.
 
-![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+![e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

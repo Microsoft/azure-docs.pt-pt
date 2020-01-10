@@ -1,19 +1,19 @@
 ---
 title: incluir ficheiro
-description: conectores com suporte para atividade de pesquisa
+description: conectores suportados para a atividade de pesquisa
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 527114adbe2422148605fd878723ae74fa7c3304
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440489"
 ---
 | Categoria | Arquivo de dados |
 |:--- |:--- |
@@ -21,14 +21,14 @@ ms.locfileid: "72958728"
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Data Explorer do Azure](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/connector-azure-data-lake-store.md) |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Base de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Instância Gerida da Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
-| &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
+| &nbsp; |[Análise do Azure Synapse (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Armazenamento de tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Base de Dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
@@ -75,12 +75,12 @@ ms.locfileid: "72958728"
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[AdWords do Google](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot (Pré-visualização)](../articles/data-factory/connector-hubspot.md) |
-| &nbsp; |[JIRA](../articles/data-factory/connector-jira.md) |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |
 | &nbsp; |[Magento (Pré-visualização)](../articles/data-factory/connector-magento.md) |
 | &nbsp; |[Marketo (Pré-visualização)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (Pré-visualização)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (Pré-visualização)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Nuvem de serviço Oracle (versão prévia)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[Oracle serviço Cloud (pré-visualização)](../articles/data-factory/connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (versão prévia)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (Pré-visualização)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |

@@ -1,6 +1,5 @@
 ---
-title: Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-use Mongoose para se conectar ao Cosmos DB
-titleSuffix: Azure Cosmos DB
+title: Conectar o aplicativo angular à API do Azure Cosmos DB para MongoDB usando o Mongoose
 description: Este tutorial descreve como criar um aplicativo node. js usando o angular e o Express para gerenciar os dados armazenados no Cosmos DB. Nesta parte, você usa o Mongoose para se conectar ao Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,12 +11,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69616425"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444698"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-use Mongoose para se conectar ao Cosmos DB
 
@@ -88,7 +87,7 @@ Mongoose é uma biblioteca de ODM (modelagem de dados de objeto) para MongoDB e 
     
 1. No painel do Explorer, em **servidor**, crie uma pasta chamada **ambiente**. Na pasta **ambiente** , crie um arquivo chamado **Environment. js**.
 
-1. No arquivo Mongo. js, precisamos incluir valores para o `dbName`, o `key` e os parâmetros de `cosmosPort`. Copie o código a seguir no arquivo **Environment. js** :
+1. No arquivo Mongo. js, precisamos incluir valores para o `dbName`, o `key`e os parâmetros de `cosmosPort`. Copie o código a seguir no arquivo **Environment. js** :
 
     ```javascript
     // TODO: replace if yours are different
@@ -120,7 +119,7 @@ Para conectar seu aplicativo ao Azure Cosmos DB, você precisa atualizar as defi
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    \<cosmosdb-Name > é o nome da conta de Azure Cosmos DB que você criou na [parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
+    \<nome de > cosmosdb é o nome da conta de Azure Cosmos DB que você criou na [parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
 
 1. Copie a chave primária no arquivo **Environment. js** como o valor `key`.
 
@@ -199,7 +198,7 @@ Depois de criar o modelo Hero, você precisa definir um serviço para ler os dad
    };
    ```
 
-## <a name="configure-routes"></a>Configurar rotas
+## <a name="configure-routes"></a>Configurar as rotas
 
 Em seguida, você precisa configurar rotas para lidar com as URLs para solicitações GET, Create, Read e Delete. Os métodos de roteamento especificam funções de retorno de chamada (também chamadas de _funções de manipulador_). Essas funções são chamadas quando o aplicativo recebe uma solicitação para o ponto de extremidade e o método HTTP especificados. Use as etapas a seguir para adicionar o serviço Hero e definir suas rotas:
 
@@ -232,7 +231,7 @@ Vamos revisar um minuto para examinar e percorrer o código anterior. Primeiro, 
 
 Em seguida, execute o aplicativo usando as seguintes etapas:
 
-1. Em Visual Studio Code, salve todas as suas alterações. À esquerda, selecione o botão de **depuração** ![Debug ícone em Visual Studio Code ](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) e, em seguida, selecione o botão **Iniciar Depuração** ![Debug ícone em Visual Studio Code ](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. Em Visual Studio Code, salve todas as suas alterações. À esquerda, selecione o botão de **depuração** ![ícone de depuração em Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)e, em seguida, selecione o botão **Iniciar Depuração** ![ícone Depurar em Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
 1. Agora, alterne para o navegador. Abra as **ferramentas de desenvolvedor** e a **guia rede**. Vá para `http://localhost:3000`, e você verá nosso aplicativo.
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462190"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adicionar atribuições de função usando o Azure RBAC e modelos de Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] além de usar Azure PowerShell ou a CLI do Azure, você pode atribuir funções usando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] além de usar Azure PowerShell ou a CLI do Azure, você pode atribuir funções usando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
 
 ## <a name="get-object-ids"></a>Obter IDs de objeto
 
@@ -362,6 +362,6 @@ Veja a seguir um exemplo da atribuição de função de colaborador para uma nov
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
+- [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Criar grupos de recursos e recursos no nível da assinatura](../azure-resource-manager/deploy-to-subscription.md)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

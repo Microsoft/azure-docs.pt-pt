@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ebf817d80fb1afdd3642f648d8e881b2e9d7de
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44b754d92eb7dc1b84ff1524161a93d3bc1f9eed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423990"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -50,13 +50,12 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 >      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
-> 1. Expanda a seção **Desktop + dispositivos** .  (Se os **dispositivos desktop +** não estiverem visíveis, primeiro clique na faixa superior para exibir a experiência de autenticação de visualização)
-> 1. Na seção **URI de redirecionamento** , selecione **Adicionar URI**.  Digite **urn: IETF: WG: OAuth: 2.0: OOB**.
+> 1. Na seção **redirecionar uris** | **URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
-> Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como **urn: ietf:wg:oauth:2.0:oob**.
+> Para que o exemplo de código para este guia de início rápido funcione, você precisa adicionar uma URL de resposta como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
 >
@@ -123,7 +122,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
-### <a name="requesting-tokens"></a>Pedir tokens
+### <a name="requesting-tokens"></a>Solicitar tokens
 
 A MSAL tem dois métodos para comprar tokens: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
@@ -134,7 +133,7 @@ Algumas situações exigem forçar os usuários a interagir com o ponto de extre
 - A primeira vez que os utilizadores iniciam sessão na aplicação
 - Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
 - Quando a aplicação está a pedir acesso a um recurso para o qual o utilizador tem de dar consentimento
-- Quando é necessária autenticação de dois fatores
+- Quando é precisa a autenticação de dois fatores
 
 ```csharp
 authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
@@ -147,7 +146,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. A maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilent` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenInteractive` inicial:
+Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. Na maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilent` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenInteractive` inicial:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

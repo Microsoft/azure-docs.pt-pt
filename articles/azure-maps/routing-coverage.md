@@ -1,6 +1,6 @@
 ---
-title: Cobertura de encaminhamento no Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre a cobertura de encaminhamento no Azure Maps
+title: Cobertura de roteamento no Azure Maps | Microsoft Docs
+description: Saiba mais sobre a cobertura de roteamento no Azure Maps
 author: jingjing-z
 ms.author: jinzh
 ms.date: 04/04/2019
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ca837d871dc439cadd1ca5b69bf9c7a5d12fddc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408358"
 ---
-# <a name="azure-maps-routing-coverage"></a>O Azure Maps cobertura de encaminhamento
+# <a name="azure-maps-routing-coverage"></a>Cobertura de roteamento do Azure Maps
 
-Este artigo fornece informações sobre a cobertura de encaminhamento do Azure Maps. Quando pesquisar a rota ideal de localização A para B, o Azure Maps pode fornecer tempos de viagens altamente precisos, live instruções de informações e a rota de viagens atualizado. A rota levará em termos de pesquisa adicional de conta, tais como o tráfego atual, o tipo de veículos e condições para evitar. A capacidade de otimizar a rota depende da região do Azure Maps tem vários níveis de informações e precisão para diferentes regiões. A tabela seguinte lista as regiões e que tipo de informações pode pedir para eles.
+Este artigo fornece informações de cobertura para o roteamento do Azure Maps. Quando você pesquisa A rota ideal do local A para o B, o Azure Maps pode fornecer tempos de viagem altamente precisos, informações de viagem atualizadas ao vivo e instruções de rota. A rota levará em conta termos de pesquisa adicionais, como o tráfego atual, o tipo de veículo e as condições a serem evitadas. A capacidade de otimizar a rota depende da região, pois o mapas do Azure tem vários níveis de informações e precisão para regiões diferentes. A tabela a seguir lista as regiões e o tipo de informações que você pode solicitar para elas.
  
-Confira a cobertura para [ **Geocodificação**](geocoding-coverage.md).       
-Confira a cobertura para [ **tráfego**](traffic-coverage.md).  
-Confira a cobertura para [ **compor**](render-coverage.md).
+Confira a cobertura de [**geocodificação**](geocoding-coverage.md).       
+Confira a cobertura do [**tráfego**](traffic-coverage.md).  
+Fazer check-out da cobertura para [**renderização**](render-coverage.md).
 <br>  
-**Legend**
+**Legenda**
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
 | ✓                  | País/região fornecido com dados detalhados.   |
-| Ø                  | País/região fornecido com dados simplificada. |
-| País está em falta | Dados de país/região não foi fornecidos.          |
+| Ø                  | País/região fornecido com dados simplificados. |
+| O país está ausente | Os dados de país/região não são fornecidos.          |
 
 <br>  
 
-A tabela seguinte fornece informações sobre a cobertura de encaminhamento do Azure Maps.
+A tabela a seguir fornece informações de cobertura para o roteamento do Azure Maps.
 <br>  
 
 
 ## <a name="africa"></a>África
 
-| País/Região                 | Encaminhamento         | Encaminhamento de tráfego | Encaminhamento de camião |
+| País/Região                 | Encaminhamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argélia                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -49,8 +49,8 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Burundi                        |        ✓       |                       |             |
 | Camarões                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
-| Congo - Brazzaville Kinshasa    |        ✓       |                       |             |
-| Congo - Kinshasa                |        ✓       |                       |             |
+| Congo-Brazzaville Kinshasa    |        ✓       |                       |             |
+| Congo-Kinshasa                |        ✓       |                       |             |
 | Costa do Marfim (Côte d’Ivoire)                  |        ✓       |                       |             |
 | Egito                          |        ✓       |         ✓            |             |
 | Gabão                          |        ✓       |                       |             |
@@ -61,7 +61,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Malawi                         |        ✓       |                       |              |
 | Mali                           |        ✓       |                       |             |
 | Mauritânia                     |        ✓       |                       |             |
-| Maurícia, reunião e Mayotte, |        ✓      |                       |             |
+| Maurício, Mayotte e Réunion |        ✓      |                       |             |
 | Marrocos                        |        ✓       |                       |             |
 | Moçambique                     |        ✓       |         ✓            |             |
 | Namíbia                        |        ✓       |                       |             |
@@ -82,7 +82,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 
 ## <a name="americas"></a>Américas
 
-| País/Região                 | Encaminhamento         | Encaminhamento de tráfego | Encaminhamento de camião |
+| País/Região                 | Encaminhamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentina                      |        ✓       |         ✓            |     ✓       |
 | Antígua e Barbuda            |        ✓       |                      |             |
@@ -95,7 +95,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Colômbia                       |        ✓       |         ✓            |             |
 | Costa Rica                     |        ✓       |                      |             |
 | Cuba                           |        ✓       |                      |             |
-| Dominica                       |        ✓       |                      |             |
+| Domínica                       |        ✓       |                      |             |
 | República Dominicana             |        ✓       |                      |             |
 | Equador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
@@ -111,33 +111,34 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Panamá                         |        ✓       |                      |             |
 | Paraguai                       |        ✓       |                      |             |
 | Peru                           |        ✓       |         ✓            |             |
-| São Cristóvão e Neves            |        ✓       |                      |             |
+| São Cristóvão e Névis            |        ✓       |                      |             |
 | Santa Lúcia                      |        ✓       |                      |             |
-| São Vicente e Granadinas       |        ✓       |                      |             |
+| São Vicente & Granadinas       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
-| & Trindade e Tobago              |        ✓       |                      |             |
+| Trindade e Tobago              |        ✓       |                      |             |
 | Estados Unidos                  |        ✓       |         ✓            |     ✓      | 
-| \+ Samoa americana '                |        ✓       |                      |             |
+| \+ Samoa Americana                |        ✓       |                      |             |
 | \+ Ilhas Marianas do Norte      |        ✓       |                      |             |
 | \+ Porto Rico                   |        ✓       |                      |             |
-| \+ DOS EUA Ilhas Virgens           |        ✓       |                      |             |
+| \+ Ilhas Virgens dos EUA           |        ✓       |                      |             |
 | Uruguai                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
 
-| País/Região                 | Encaminhamento         | Encaminhamento de tráfego | Encaminhamento de camião |
+| País/Região                 | Encaminhamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Austrália                      |        ✓       |         ✓            |     ✓       |
-| \+ Ilha do Natal              |        ✓       |                      |             |
+| \+ Ilha Christmas              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
-| Guam                           |        ✓       |                      |             |
+| Guame                           |        ✓       |                      |             |
 | RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
+| Cazaquistão                |        ✓       |                     |             |
 | Coreia                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | RAE de Macau                      |        ✓       |         ✓            |             |
@@ -153,7 +154,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 
 ## <a name="europe"></a>Europa
 
-| País/Região                 | Encaminhamento         | Encaminhamento de tráfego | Encaminhamento de camião |
+| País/Região                 | Encaminhamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albânia                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
@@ -167,26 +168,26 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Chipre                         |        ✓       |                      |             |
 | República Checa                 |        ✓       |         ✓            |     ✓      |
 | Dinamarca                        |        ✓       |         ✓            |     ✓      |
-| \+ Ilhas Faroé '                 |        ✓       |                      |             |
+| \+ Ilhas Faroés                 |        ✓       |                      |             |
 | Estónia                        |        ✓       |         ✓            |     ✓      |
 | Finlândia                        |        ✓       |         ✓            |     ✓      |
 | França                         |        ✓       |         ✓            |     ✓      | 
 | \+ Guadalupe                    |        ✓       |                      |             |
 | \+ Martinica                    |        ✓       |                      |             |
-| \+ São Bartolomeu                |        ✓       |                      |             |
+| \+ St. Bartolomeu                |        ✓       |                      |             |
 | \+ St. Martin                    |        ✓       |                      |             |
-| \+ São Pedro e Miquelão         |        ✓       |                      |             |
+| \+ St. Pierre & Miquelon         |        ✓       |                      |             |
 | Geórgia                        |        ✓       |                      |             |
 | Alemanha                        |        ✓       |         ✓            |     ✓      | 
 | Grécia                         |        ✓       |         ✓            |     ✓      |  
-| Guernsey                       |        ✓       |                      |             |
+| Guernesey                       |        ✓       |                      |             |
 | Hungria                        |        ✓       |         ✓            |     ✓      | 
 | Islândia                        |        ✓       |         ✓            |             |
 | Irlanda                        |        ✓       |         ✓            |     ✓      | 
 | Itália                          |        ✓       |         ✓            |     ✓      | 
 | Jersey                         |        ✓       |                      |             |
 | Letónia                         |        ✓       |         ✓            |     ✓      | 
-| Liechtenstein                  |        ✓       |         ✓            |             |
+| Listenstaine                  |        ✓       |         ✓            |             |
 | Lituânia                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
 | Macedónia do Norte                |        ✓       |                      |             |
@@ -195,17 +196,17 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Mónaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Países Baixos                    |        ✓       |         ✓            |     ✓      | 
-| +Aruba                         |        ✓       |                      |             | 
-| \+ Países Baixos Caraíbas         |        ✓       |                      |             |
-| +Curaçao                       |        ✓       |                      |             |
-| \+ Sint Maarten                  |        ✓       |                      |             |
+| \+ Aruba                         |        ✓       |                      |             | 
+| \+ Caribe Países Baixos         |        ✓       |                      |             |
+| \+ Curaçao                       |        ✓       |                      |             |
+| \+ Santo Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polónia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Roménia                        |        ✓       |         ✓            |     ✓      | 
 | Federação Russa             |        ✓       |         ✓            |     ✓      | 
-| San Marino                     |        ✓       |         ✓            |             |
-| \+ Sint Maarten                  |        ✓       |                      |             |
+| São Marinho                     |        ✓       |         ✓            |             |
+| \+ Santo Maarten                  |        ✓       |                      |             |
 | Sérvia                         |        ✓       |                      |     ✓      | 
 | Eslováquia                       |        ✓       |         ✓            |     ✓      | 
 | Eslovénia                       |        ✓       |         ✓            |     ✓      |
@@ -215,22 +216,22 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Turquia                         |        ✓       |         ✓            |     ✓      | 
 | Ucrânia                        |        ✓       |         ✓            |             | 
 | Reino Unido                 |        ✓       |         ✓            |     ✓      | 
-| +Anguilla                      |        ✓       |                      |             |
-| \+ Bermudas                       |        ✓       |                      |             |
+| \+ Anguila                      |        ✓       |                      |             |
+| \+ Bermuda                       |        ✓       |                      |             |
 | \+ Ilhas Virgens Britânicas        |        ✓       |                      |             |
-| \+ Ilhas Caimão '                |        ✓       |                      |             |
+| \+ Ilhas Cayman                |        ✓       |                      |             |
 | +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| \+ Ilhas Turcas e Caicos      |        ✓       |                      |             |
+| \+ Ilhas Turks e Caicos      |        ✓       |                      |             |
 | Cidade do Vaticano                   |        ✓       |         ✓            |             |
 | Ilha de Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Médio Oriente
 
-| País/Região                 | Encaminhamento         | Encaminhamento de tráfego | Encaminhamento de camião |
+| País/Região                 | Encaminhamento         | Roteamento com tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
-| Barém                        |        ✓       |         ✓            |             |
+| Bahrain                        |        ✓       |         ✓            |             |
 | Iraque                           |        ✓       |                      |             |
 | Israel                         |        ✓       |         ✓            |             |
 | Jordânia                         |        ✓       |                      |             |
@@ -243,6 +244,6 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Iémen                          |        ✓       |                      |             |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o encaminhamento do Azure Maps, consulte a [encaminhamento](https://docs.microsoft.com/rest/api/maps/route) páginas de referência.
+Para obter mais informações sobre o roteamento do Azure Maps, consulte as páginas de referência de [Roteamento](https://docs.microsoft.com/rest/api/maps/route) .

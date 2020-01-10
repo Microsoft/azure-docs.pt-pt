@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462608"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente os recursos do banco de dados com tempo de inatividade mínimo
 
 O banco de dados SQL do Azure permite que você adicione dinamicamente mais recursos ao seu banco de dados com [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Quando a demanda de seu aplicativo cresce de alguns dispositivos e clientes para milhões, o banco de dados SQL do Azure é dimensionado rapidamente com tempo de inatividade mínimo. A escalabilidade é uma das características mais importantes do PaaS que permite que você adicione dinamicamente mais recursos ao seu serviço quando necessário. O banco de dados SQL do Azure permite que você altere facilmente os recursos (capacidade de CPU, memória, taxa de transferência de e/s e armazenamento) alocados para seus bancos de dados.
 
@@ -62,7 +62,7 @@ Iniciar a ação escalar verticalmente ou reduzir horizontalmente em qualquer um
 
 ## <a name="alternative-scale-methods"></a>Métodos de escala alternativos
 
-O dimensionamento de recursos é a maneira mais fácil e mais eficiente de melhorar o desempenho do banco de dados sem alterar o código do banco de dados ou do aplicativo. Em alguns casos, até mesmo as mais altas camadas de serviço, tamanhos de computação e otimizações de desempenho podem não lidar com a carga de trabalho de maneira bem-sucedida e econômica. Nesses casos, você tem essas opções adicionais para dimensionar seu banco de dados:
+O dimensionamento de recursos é a maneira mais fácil e mais eficiente de melhorar o desempenho do banco de dados sem alterar o código do banco de dados ou do aplicativo. Em alguns casos, até mesmo as mais altas camadas de serviço, tamanhos de computação e otimizações de desempenho podem não lidar com a carga de trabalho de uma maneira bem-sucedida e econômica. Nesse caso, você tem essas opções adicionais para dimensionar seu banco de dados:
 
 - A [expansão de leitura](sql-database-read-scale-out.md) é um recurso disponível no qual você está obtendo uma réplica somente leitura de seus dados, em que você pode executar consultas somente leitura, como relatórios. A réplica somente leitura tratará sua carga de trabalho somente leitura sem afetar o uso de recursos no banco de dados primário.
 - A [fragmentação de banco](sql-database-elastic-scale-introduction.md) de dados é um conjunto de técnicas que permite que você divida seus dados em vários bancos e os dimensione de forma independente.

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437295"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -71,7 +71,7 @@ Existem cinco conceitos no Azure Event Grid que lhe permitem começar:
 
 Para obter mais informações sobre estes conceitos, veja [Concepts in Azure Event Grid](concepts.md) (Conceitos no Azure Event Grid).
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funções
 
 Seguem-se algumas das principais funcionalidades do Azure Event Grid:
 
@@ -82,7 +82,7 @@ Seguem-se algumas das principais funcionalidades do Azure Event Grid:
 * **Pagar por evento** - pague apenas pela quantidade utilizada no Event Grid.
 * **Débito elevado** - crie cargas de trabalho de elevado volume no Event Grid com suporte para milhões de eventos por segundo.
 * **Eventos incorporados** - comece a executar rapidamente com os eventos incorporados definidos por recursos.
-* **Eventos Personalizados** – utilize a rota e o filtro do Event Grid para entregar, com confiança, eventos personalizados na aplicação.
+* **Eventos personalizados** – use a grade de eventos para rotear, filtrar e fornecer eventos personalizados de forma confiável em seu aplicativo.
 
 Para ver uma comparação entre o Event Grid, os Hubs de Eventos e o Service Bus, veja [Choose between Azure services that deliver messages](compare-messaging-services.md) (Escolher entre serviços do Azure que entregam mensagens).
 

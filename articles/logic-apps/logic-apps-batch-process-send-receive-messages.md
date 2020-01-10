@@ -1,6 +1,6 @@
 ---
 title: Processar mensagens em lote como um grupo
-description: Enviar e receber mensagens como lotes em aplicativos lógicos do Azure
+description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando o processamento em lotes em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791569"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666759"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar mensagens em lote nos aplicativos lógicos do Azure
 

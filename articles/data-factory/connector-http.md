@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7c942661beea34e7a49223f4a8e4a4d6c0eb66e1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: MT
+ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440623"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando Azure Data Factory
 
@@ -54,7 +54,7 @@ Você pode usar este conector HTTP para:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -208,63 +208,6 @@ As propriedades a seguir têm suporte para HTTP em configurações de `location`
 }
 ```
 
-### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
-
->[!NOTE]
->O modelo de conjunto de itens a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado na seção acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
-
-| Propriedade | Descrição | Obrigatório |
-|:--- |:--- |:--- |
-| tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **httpfile**. | Sim |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
-| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
-| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
-| requestBody | O corpo da solicitação HTTP. | Não |
-| format | Se você quiser recuperar dados do ponto de extremidade HTTP como estão sem analisá-los e, em seguida, copiar os dados para um repositório baseado em arquivo, ignore a seção **formato** nas definições do conjunto de dados de entrada e saída.<br/><br/>Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Em **formato**, defina a propriedade **Type** como um desses valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), formato [Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format)e [formato parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
-| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Níveis com suporte: **ideal** e **mais rápido**. |Não |
-
-> [!NOTE]
-> O tamanho da carga de solicitação HTTP com suporte é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para o ponto de extremidade da Web for maior que 500 KB, considere o envio em lote da carga em partes menores.
-
-**Exemplo 1: usando o método Get (padrão)**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        }
-    }
-}
-```
-
-**Exemplo 2: usando o método post**
-
-```json
-{
-    "name": "HttpSourceDataInput",
-    "properties": {
-        "type": "HttpFile",
-        "linkedServiceName": {
-            "referenceName": "<HTTP linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST HTTP request>"
-        }
-    }
-}
-```
-
 ## <a name="copy-activity-properties"></a>Propriedades da atividade copy
 
 Esta seção fornece uma lista das propriedades às quais a origem HTTP dá suporte.
@@ -282,7 +225,7 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
 | tipo                     | A propriedade Type em `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
 | requestMethod            | O método HTTP. <br>Os valores permitidos são **Get** (padrão) e **post**. | Não       |
 | addtionalHeaders         | Cabeçalhos de solicitação HTTP adicionais.                             | Não       |
-| requestBody              | O corpo da solicitação HTTP.                               | Não       |
+| RequestBody              | O corpo da solicitação HTTP.                               | Não       |
 | httpRequestTimeout           | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**. | Não       |
 | maxConcurrentConnections | O número de conexões a serem conectadas ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não       |
 
@@ -327,10 +270,70 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
 ]
 ```
 
-#### <a name="legacy-source-model"></a>Modelo de origem herdado
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
+
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
+
+## <a name="legacy-models"></a>Modelos herdados
 
 >[!NOTE]
->O modelo de origem de cópia a seguir ainda tem suporte como está para compatibilidade com versões anteriores. Você deve usar o novo modelo mencionado acima no futuro, e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+>Os modelos a seguir ainda têm suporte como estão para compatibilidade com versões anteriores. É recomendável usar o novo modelo mencionado nas seções acima no futuro e a interface do usuário de criação do ADF mudou para gerar o novo modelo.
+
+### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| tipo | A propriedade **Type** do conjunto de conjuntos deve ser definida como **httpfile**. | Sim |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando essa propriedade não é especificada, somente a URL especificada na definição de serviço vinculado é usada. | Não |
+| requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
+| additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
+| RequestBody | O corpo da solicitação HTTP. | Não |
+| format | Se você quiser recuperar dados do ponto de extremidade HTTP como estão sem analisá-los e, em seguida, copiar os dados para um repositório baseado em arquivo, ignore a seção **formato** nas definições do conjunto de dados de entrada e saída.<br/><br/>Se você deseja analisar o conteúdo da resposta HTTP durante a cópia, há suporte para os seguintes tipos de formato de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**e **ParquetFormat**. Em **formato**, defina a propriedade **Type** como um desses valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), formato [Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e [formato parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Tipos com suporte: **gzip**, **deflate**, **bzip2**e **ZipDeflate**.<br/>Níveis com suporte: **ideal** e **mais rápido**. |Não |
+
+> [!NOTE]
+> O tamanho da carga de solicitação HTTP com suporte é de cerca de 500 KB. Se o tamanho da carga que você deseja passar para o ponto de extremidade da Web for maior que 500 KB, considere o envio em lote da carga em partes menores.
+
+**Exemplo 1: usando o método Get (padrão)**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        }
+    }
+}
+```
+
+**Exemplo 2: usando o método post**
+
+```json
+{
+    "name": "HttpSourceDataInput",
+    "properties": {
+        "type": "HttpFile",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "relativeUrl": "<relative url>",
+            "requestMethod": "Post",
+            "requestBody": "<body for POST HTTP request>"
+        }
+    }
+}
+```
+
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -368,11 +371,6 @@ As propriedades a seguir têm suporte para HTTP em configurações de `storeSett
     }
 ]
 ```
-
-## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
-
-Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

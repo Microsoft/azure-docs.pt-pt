@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432035"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um Azure Database for MariaDB Server com o portal do Azure
 
@@ -24,9 +24,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 No browser, aceda ao [portal do Azure](https://portal.azure.com/). Introduza as suas credenciais para iniciar sessão no portal. A vista predefinida é o dashboard de serviço.
 
-## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server
+## <a name="create-an-azure-database-for-mariadb-server"></a>Criar uma Azure Database for MariaDB server
 
-Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recursos de armazenamento e computação](concepts-pricing-tiers.md). Irá criar o servidor dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recursos de armazenamento e computação](concepts-pricing-tiers.md). Irá criar o servidor dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 Para criar um Azure Database for MariaDB Server:
 
@@ -42,7 +42,7 @@ Para criar um Azure Database for MariaDB Server:
 
     Definição | Valor sugerido | Descrição
     ---|---|---
-    Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique o seu Azure Database for MariaDB Server. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é anexado ao nome do servidor que introduzir. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+    Nome do servidor | *um nome de servidor exclusivo* | Escolha um nome exclusivo que identifique a sua Azure Database for MariaDB Server. Por exemplo, **mydemoserver**. O nome de domínio *.mariadb.database.azure.com* é anexado ao nome do servidor que introduzir. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
     Subscrição | *a sua subscrição* | Selecione a subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual é cobrado pelo recurso.
     Grupo de recursos | **myresourcegroup** | Introduza um novo nome do grupo de recursos ou selecione um grupo já existente. 
     Selecionar origem | **Em branco** | Selecione **Em branco** para criar um novo servidor de raiz. (Selecione **Cópia de Segurança** se estiver a criar um servidor a partir de uma cópia de segurança de área geográfica de um Azure Database for MariaDB Server existente.)
@@ -213,7 +213,7 @@ Para ligar ao servidor com o MySQL Workbench:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode limpar os recursos que criou neste início rápido de duas formas. Pode eliminar o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md). Esta opção elimina todos os recursos no grupo de recursos. Se pretender manter os outros recursos intactos, elimine apenas o recurso de um servidor.
+Pode limpar os recursos que criou neste início rápido de duas formas. Pode eliminar o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md). Esta opção elimina todos os recursos no grupo de recursos. Se pretender manter os outros recursos intactos, elimine apenas o recurso de um servidor.
 
 > [!TIP]
 > Outros inícios rápidos desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os inícios rápidos do Azure Database for MariaDB, não limpe os recursos que criou neste início rápido. Se não quiser continuar, utilize os passos seguintes para eliminar todos os recursos que criou neste início rápido.

@@ -8,15 +8,15 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 089b37761c11c02e34c35eb378c64862bc4fbc98
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ba5879543d7640993ac834811ec6a82965557755
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432697"
 ---
 # <a name="what-is-application-insights"></a>O que são Informações da Aplicação?
-Application Insights, um recurso do [Azure monitor](../overview.md), é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores da Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado local, híbrido ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
+Application Insights, um recurso do [Azure monitor](../overview.md), é um serviço de gerenciamento de desempenho de aplicativos (APM) extensível para desenvolvedores e profissionais DevOpss. Use-o para monitorar seus aplicativos em tempo real. Ele detectará automaticamente anomalias de desempenho e incluirá ferramentas de análise poderosas para ajudá-lo a diagnosticar problemas e a entender o que os usuários realmente fazem com seu aplicativo.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Ele funciona para aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node. js e Java EE, hospedado local, híbrido ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Como funciona o Application Insights?
 É instalado um pequeno pacote de instrumentação na sua aplicação e configurado um recurso do Application Insights no portal do Microsoft Azure. A instrumentação monitora seu aplicativo e envia dados de telemetria para Azure Monitor. (A aplicação pode ser executada em qualquer local; não tem de estar alojada no Azure.)
@@ -53,8 +53,8 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 |  |  |
 | --- | --- |
-| [**Deteção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Os alertas automáticos adaptam-se aos padrões normais da sua aplicação relativamente a telemetria e são acionados se ocorrer algo fora do padrão habitual. Também pode [definir alertas](../../azure-monitor/app/alerts.md) em níveis específicos de métricas personalizadas ou standard. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
-| [**Application map**](../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)<br/>Os componentes da sua aplicação, com as principais métricas e alertas. |![Mapeamento de aplicações](./media/app-insights-overview/appmap-tn.png)  |
+| [**Deteção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configure alertas automáticos adapte-se aos padrões normais de telemetria do seu aplicativo e dispare quando há algo fora do padrão usual. Também pode [definir alertas](../../azure-monitor/app/alerts.md) em níveis específicos de métricas personalizadas ou standard. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
+| [**Application map**](../../azure-monitor/app/app-map.md) (Mapeamento de aplicações)<br/>Explore os componentes do seu aplicativo, com métricas e principais alertas. |![Mapeamento de aplicações](./media/app-insights-overview/appmap-tn.png)  |
 | [**Gerador de perfis**](../../azure-monitor/app/profiler.md)<br/>Verifique os perfis de execução de amostras de pedidos. |![Gerador de perfis](./media/app-insights-overview/profiler.png) |
 | [**Análise de utilização**](../../azure-monitor/app/usage-overview.md)<br/>Analise a retenção e a segmentação do utilizador.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](../../azure-monitor/app/diagnostic-search.md) (Pesquisa de diagnósticos para dados de instâncias)<br/>Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.  |![Pesquisar telemetria](./media/app-insights-overview/search-tn.png) |
@@ -91,7 +91,7 @@ Quando receber um alerta ou detetar um problema:
 * Escreva telemetria personalizada no seu código.
 * Baseie o próximo ciclo de programação em evidências sólidas a partir da sua telemetria.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 O Application Insights é um dos muitos serviços alojados no Microsoft Azure e a telemetria é enviada para aqui, para análise e apresentação. Assim, antes de fazer mais alguma coisa, vai precisar de uma subscrição do [Microsoft Azure](https://azure.com). A inscrição é gratuita e, se optar pelo [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) básico do Application Insights, não há custos até que a sua aplicação se desenvolva e tenha uma utilização significativa. Se a sua organização já tiver uma subscrição, pode adicionar a sua conta Microsoft à mesma.
 
 Existem várias formas de começar. Comece com a que funcionar melhor para si. Pode acrescentar outras mais tarde.
@@ -122,7 +122,7 @@ Introdução ao tempo de execução com:
 Introdução no momento de programação com:
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 * [Python (versão prévia)](../../azure-monitor/app/opencensus-python.md)
@@ -130,7 +130,7 @@ Introdução no momento de programação com:
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 * Perguntas e Problemas:
-  * [Resolução de problemas][qna]
+  * [Resolução de Problemas][qna]
   * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * As suas sugestões:

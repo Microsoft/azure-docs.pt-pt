@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – Conjunto de dimensionamento com redundância entre zonas | Microsoft Docs
-description: Exemplos da CLI do Azure
+title: Exemplos de CLI do Azure – conjunto de dimensionamento com redundância de zona
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure executando o Ubuntu em vários Zonas de Disponibilidade.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 903a4d1a9864a9ab19df7c453adc002a8bd0f576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 433c49208cdd115c1efdd53258f6e3c6e5721164
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350965"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Criar um conjunto com a CLI do Azure de dimensionamento de máquinas virtuais com redundância de zona
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona com CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu em várias Zonas de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -49,7 +49,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | [az vmss create](/cli/azure/vmss) | Cria o conjunto de dimensionamento de máquinas virtuais e liga-o à rede virtual, à sub-rede e ao grupo de segurança de rede. É também criado um balanceador de carga para distribuir o tráfego para instâncias de VM individuais. Este comando também especifica a imagem da VM a ser utilizada e as credenciais administrativas.  |
 | [az group delete](/cli/azure/ad/group) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Pode encontrar exemplos adicionais de scripts da CLI do Azure para conjuntos de dimensionamento de máquinas virtuais na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

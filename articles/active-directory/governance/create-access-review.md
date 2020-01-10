@@ -1,5 +1,5 @@
 ---
-title: Criar uma revisão de acesso de grupos ou aplicativos-Azure Active Directory | Microsoft Docs
+title: Criar uma revisão de acesso de grupos & aplicativos-Azure AD
 description: Saiba como criar uma revisão de acesso de membros do grupo ou acesso ao aplicativo em Azure Active Directory revisões de acesso.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 230fb40c8e3a100d2fdfa0af6b40c93c3e5b47d2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422679"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos ou aplicativos em revisões de acesso do Azure AD
+# <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
 O acesso a grupos e aplicativos para funcionários e convidados muda ao longo do tempo. Para reduzir o risco associado às atribuições de acesso obsoletas, os administradores podem usar o Azure Active Directory (Azure AD) para criar revisões de acesso para membros do grupo ou acesso ao aplicativo. Se você precisar examinar o acesso rotineiramente, também poderá criar revisões de acesso recorrentes. Para obter mais informações sobre esses cenários, consulte [gerenciar o acesso do usuário](manage-user-access-with-access-reviews.md) e gerenciar o acesso de [convidado](manage-guest-access-with-access-reviews.md).
 
@@ -75,7 +75,7 @@ Para obter mais informações, consulte [quais usuários devem ter licenças?](a
     
     ![Criar uma revisão de acesso-selecionar aplicativo](./media/create-access-review/select-application.png)
 
-1. Na seção  revisores, selecione uma ou mais pessoas para examinar todos os usuários no escopo. Ou você pode optar por fazer com que os membros revisem seu próprio acesso. Se o recurso for um grupo, você poderá solicitar que os proprietários do grupo sejam revisados. Você também pode exigir que os revisores forneçam um motivo ao aprovar o acesso.
+1. Na seção **revisores** , selecione uma ou mais pessoas para examinar todos os usuários no escopo. Ou você pode optar por fazer com que os membros revisem seu próprio acesso. Se o recurso for um grupo, você poderá solicitar que os proprietários do grupo sejam revisados. Você também pode exigir que os revisores forneçam um motivo ao aprovar o acesso.
 
     ![Criar uma revisão de acesso-revisores](./media/create-access-review/reviewers.png)
 
@@ -87,7 +87,7 @@ Para obter mais informações, consulte [quais usuários devem ter licenças?](a
 
     Para ver uma lista de programas, vá para a página revisões de acesso e selecione **programas**. Se você estiver em uma função de administrador global ou de administrador de usuários, poderá criar programas adicionais. Por exemplo, você pode optar por ter um programa para cada iniciativa de conformidade ou meta de negócios. Se você não precisar mais de um programa e ele não tiver nenhum controle vinculado a ele, você poderá excluí-lo.
 
-### <a name="upon-completion-settings"></a>Após as definições de conclusão
+### <a name="upon-completion-settings"></a>Após as configurações de conclusão
 
 1. Para especificar o que acontece após a conclusão de uma revisão, expanda a seção **sobre as configurações de conclusão** .
 
@@ -124,7 +124,7 @@ Depois de especificar as configurações para uma revisão de acesso, clique em 
 
 ![Lista de revisões de acesso e seu status](./media/create-access-review/access-reviews-list.png)
 
-Por padrão, o Azure AD envia um email para os revisores logo após o início da revisão. Se você optar por não fazer o Azure AD enviar o email, certifique-se de informar aos revisores que uma revisão de acesso está aguardando para que eles sejam concluídos. Você pode mostrar a eles as instruções de como revisar o [acesso a grupos ou aplicativos](perform-access-review.md). Se sua análise for para convidados para revisar seu próprio acesso, mostre-lhes as instruções de como [examinar o acesso a grupos ou aplicativos](review-your-access.md).
+Por padrão, o Azure AD envia um email para os revisores logo após o início da revisão. Se você optar por não fazer o Azure AD enviar o email, certifique-se de informar aos revisores que uma revisão de acesso está aguardando para que eles sejam concluídos. Você pode mostrar a eles as instruções de como [revisar o acesso a grupos ou aplicativos](perform-access-review.md). Se sua análise for para convidados para revisar seu próprio acesso, mostre-lhes as instruções de como [examinar o acesso a grupos ou aplicativos](review-your-access.md).
 
 Se você tiver atribuído convidados como revisores e eles não tiverem aceitado o convite, eles não receberão um email das revisões de acesso, pois eles devem primeiro aceitar o convite antes da revisão.
 
@@ -132,7 +132,7 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 
 Você também pode criar revisões de acesso usando APIs. O que você faz para gerenciar revisões de acesso de grupos e usuários de aplicativos no portal do Azure também pode ser feito usando APIs Microsoft Graph. Para obter mais informações, consulte a [referência da API de revisões de acesso do Azure ad](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter um exemplo de código, consulte o [exemplo de recuperação de revisões de acesso do Azure ad via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Examinar o acesso a grupos ou aplicativos](perform-access-review.md)
 - [Examinar o acesso a grupos ou aplicativos](review-your-access.md)

@@ -1,5 +1,5 @@
 ---
-title: Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Criar um novo pacote de acesso no gerenciamento de direitos-Azure AD
 description: Saiba como criar um novo pacote de acesso de recursos que você deseja compartilhar no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422685"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
 Um pacote do Access permite que você faça uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Todos os pacotes de acesso devem ser colocados em um contêiner chamado catálogo. Um catálogo define quais recursos você pode adicionar ao seu pacote de acesso. Se você não especificar um catálogo, seu pacote de acesso será colocado no catálogo geral. No momento, não é possível mover um pacote do Access existente para um catálogo diferente.
 
@@ -119,7 +119,7 @@ Dependendo de quem você deseja poder solicitar esse pacote de acesso, execute a
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Examinar + criar
+## <a name="review--create"></a>Rever + criar
 
 Na guia **revisar + criar** , você pode examinar as configurações e verificar se há erros de validação.
 

@@ -4,15 +4,15 @@ description: Este artigo descreve as diferentes tarefas de gerenciamento que nor
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364786"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente de Log Analytics para Windows e Linux
 
@@ -22,7 +22,7 @@ Após a implantação inicial do agente Log Analytics Windows ou Linux no Azure 
 
 O agente de Log Analytics para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo do cenário de implantação e do ambiente em que a VM está sendo executada. Os métodos a seguir podem ser usados para atualizar o agente.
 
-| Ambiente | Método de instalação | Método de atualização |
+| Ambiente | Método de Instalação | Método de atualização |
 |--------|----------|-------------|
 | VM do Azure | Extensão de VM do agente de Log Analytics para Windows/Linux | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. |
 | Imagens personalizadas de VM do Azure | Instalação manual do agente do Log Analytics para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux.|
@@ -34,7 +34,7 @@ Para atualizar o agente em uma VM do Windows para a versão mais recente não in
 
 Você pode baixar a versão mais recente do agente do Windows do seu espaço de trabalho Log Analytics, executando as etapas a seguir.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 
@@ -58,7 +58,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 4. Na caixa de diálogo **Microsoft Monitoring Agent configuração** , clique em **concordo** para aceitar o contrato de licença.
 
-5. Na caixa de diálogo **Microsoft Monitoring Agent instalação** , clique em **Atualizar**. A página de status exibe o progresso da atualização.
+5. Na caixa de diálogo **Configuração do Microsoft Monitoring Agent**, clique em **Atualizar**. A página de estado apresenta o progresso da atualização.
 
 6. Quando a **configuração de Microsoft Monitoring Agent foi concluída com êxito.** aparecerá, clique em **concluir**.
 
@@ -68,7 +68,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 2. Para extrair os arquivos de instalação do agente, em um prompt de comando com privilégios elevados, execute `MMASetup-<platform>.exe /c` e ele solicitará o caminho para o qual extrair os arquivos. Como alternativa, você pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
-3. Execute o comando a seguir, em que D:\ é o local para o arquivo de log de atualização.
+3. Execute o seguinte comando, onde D:\ é a localização do ficheiro de registo de atualização.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1

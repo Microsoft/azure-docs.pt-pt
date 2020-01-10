@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229309"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552683"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integração do registro de contêiner do Azure com a central de segurança (versão prévia)
 
 O ACR (registro de contêiner do Azure) é um serviço de registro gerenciado e privado do Docker que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. Ele é baseado no registro do Docker 2,0 de código aberto.
 
-Para obter uma visibilidade mais profunda das vulnerabilidades do registro e das imagens, os usuários da camada Standard da central de segurança do Azure podem habilitar o pacote de registros de contêiner opcionais. Para obter mais informações, veja os [preços](security-center-pricing.md). Com o pacote habilitado, a central de segurança examina automaticamente as imagens no registro sempre que uma imagem é enviada por push ao registro.
+Para obter uma visibilidade mais profunda das vulnerabilidades do registro e das imagens, os usuários da camada Standard da central de segurança do Azure podem habilitar o pacote de registros de contêiner opcionais. O custo para usar esse recurso é cobrado por imagem, não por verificação. Para obter mais informações, veja os [preços](security-center-pricing.md). Com o pacote habilitado, a central de segurança examina automaticamente as imagens no registro sempre que uma imagem é enviada por push ao registro.
 
 > [!NOTE]
 > A primeira verificação da central de segurança de um registro só ocorrerá depois que o grupo de registros de contêiner estiver habilitado e uma imagem for enviada por push ao registro.
@@ -42,7 +42,7 @@ A central de segurança identifica registros de ACR em sua assinatura e fornece 
 
 ![Visão geral de alto nível da central de segurança do Azure e do ACR (registro de contêiner do Azure)](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os recursos de segurança do contêiner da central de segurança, confira:
 

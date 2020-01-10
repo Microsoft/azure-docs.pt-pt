@@ -3,17 +3,17 @@ title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
 description: Saiba como gerenciar serviços de nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360910"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar serviços de nuvem no portal do Azure
 Na área **serviços de nuvem** da portal do Azure, você pode:
@@ -98,7 +98,7 @@ Use o procedimento a seguir para excluir uma implantação ou seu serviço de nu
 
     ![Botão de exclusão de serviços de nuvem](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-3. Para excluir o serviço de nuvem inteiro, marque a caixa de seleção **serviço de nuvem e suas** implantações. Ou você pode escolher a caixa de seleção **implantação de produção** ou **implantação de preparo** .
+3. Para excluir o serviço de nuvem inteiro, marque a caixa de seleção **serviço de nuvem e suas implantações** . Ou você pode escolher a caixa de seleção **implantação de produção** ou **implantação de preparo** .
 
     ![Exclusão de serviços de nuvem](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
@@ -119,8 +119,11 @@ A folha de **visão geral** tem uma barra de status na parte superior. Quando vo
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Configuração geral do seu serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

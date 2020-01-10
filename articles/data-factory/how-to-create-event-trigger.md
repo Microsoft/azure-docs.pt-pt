@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443927"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
@@ -30,7 +30,7 @@ Para obter uma introdução e uma demonstração de dez minutos desse recurso, A
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se sua assinatura está registrada com o provedor de recursos da grade de eventos. Para obter mais informações, consulte [provedores de recursos e tipos](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+> A integração descrita neste artigo depende da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se sua assinatura está registrada com o provedor de recursos da grade de eventos. Para obter mais informações, consulte [provedores de recursos e tipos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
@@ -74,14 +74,14 @@ Esta seção mostra como criar um gatilho de evento dentro da interface Azure Da
 
 No exemplo anterior, o gatilho é configurado para ser acionado quando um caminho de blob terminando em. csv é criado na pasta-teste de evento no contêiner de exemplo-dados. As propriedades **FolderPath** e **filename** capturam o local do novo BLOB. Por exemplo, quando MoviesDB. csv é adicionado ao caminho de exemplo-dados/teste de evento, `@triggerBody().folderPath` tem um valor de `sample-data/event-testing` e `@triggerBody().fileName` tem um valor de `moviesDB.csv`. Esses valores são mapeados no exemplo para os parâmetros de pipeline `sourceFolder` e `sourceFile` que podem ser usados em todo o pipeline como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` respectivamente.
 
-## <a name="json-schema"></a>Esquema JSON
+## <a name="json-schema"></a>JSON schema
 
 A tabela a seguir fornece uma visão geral dos elementos de esquema relacionados a gatilhos baseados em evento:
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **com** | A ID de recurso Azure Resource Manager da conta de armazenamento. | String | ID de Azure Resource Manager | Sim |
-| **LostFocus** | O tipo de eventos que fazem com que esse gatilho seja acionado. | Array    | Microsoft. Storage. BlobCreated, Microsoft. Storage. BlobDeleted | Sim, qualquer combinação desses valores. |
+| **scope** | A ID de recurso Azure Resource Manager da conta de armazenamento. | String | ID de Azure Resource Manager | Sim |
+| **LostFocus** | O tipo de eventos que fazem com que esse gatilho seja acionado. | Matriz    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação desses valores. |
 | **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `/records/blobs/december/` só dispara o gatilho para BLOBs na pasta `december` sob o contêiner `records`. | String   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 | **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `december/boxes.csv` só dispara o gatilho para BLOBs nomeados `boxes` em uma pasta `december`. | String   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 | **ignoreEmptyBlobs** | Se os blobs de zero byte dispararão uma execução de pipeline. Por padrão, isso é definido como true. | Booleano | true ou false | Não |

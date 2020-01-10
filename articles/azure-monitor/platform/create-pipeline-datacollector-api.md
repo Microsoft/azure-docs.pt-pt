@@ -4,15 +4,15 @@ description: Você pode usar a API do coletor de dados HTTP Azure Monitor para a
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363970"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do coletor de dados
 
@@ -21,7 +21,7 @@ A [API do coletor de dados Azure monitor](data-collector-api.md) permite importa
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-Para o restante deste artigo, examinaremos os dados de exibição de página em Application Insights. Em nosso cenário hipotético, queremos correlacionar informações geográficas coletadas por padrão pelo SDK Application Insights para dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar a maior parte dos investimentos em marketing. 
+Para o restante deste artigo, examinaremos os dados de exibição de página em Application Insights. Em nosso cenário hipotético, queremos correlacionar as informações geográficas coletadas por padrão pelo SDK do Application Insights a dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar mais os dólares de marketing. 
 
 Usamos uma fonte de dados pública, como os [clientes potenciais de população](https://esa.un.org/unpd/wpp/) sem o mundo para essa finalidade. Os dados terão o seguinte esquema simples:
 

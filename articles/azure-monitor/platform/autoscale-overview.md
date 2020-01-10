@@ -1,18 +1,15 @@
 ---
 title: Visão geral do dimensionamento automático em máquinas virtuais, serviços de nuvem e aplicativos Web
 description: Dimensionamento automático em Microsoft Azure. Aplica-se a máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais, serviços de nuvem e aplicativos Web.
-ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: 2aeb0bc174eb5a94d485f4eafe000ecb3f693e5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364378"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Máquinas Virtuais do Microsoft Azure, serviços de nuvem e aplicativos Web
 Este artigo descreve o que Microsoft Azure o dimensionamento automático é, seus benefícios e como começar a usá-lo.  
@@ -108,7 +105,7 @@ Você pode configurar o dimensionamento automático via
 | Máquinas virtuais: conjuntos de dimensionamento do Windows |[Dimensionamento de conjuntos de dimensionamento de máquinas virtuais no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: conjuntos de dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquinas virtuais no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas virtuais: exemplo do Windows |[Configuração avançada de dimensionamento automático usando modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| Serviço de gerenciamento de API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Serviço da Gestão de API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o dimensionamento automático, use os passo a passos de dimensionamento automático listados anteriormente ou consulte os seguintes recursos:

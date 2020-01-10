@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 27b57477712c61fc97ae31ac353647896cca18af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406326"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights coortes
 
@@ -106,7 +106,7 @@ As duas coortes anteriores foram definidas usando caixas suspensas. Mas você ta
 
    * Uma seção de consulta, onde você define o coorte usando uma consulta de análise.
 
-     Na seção de consulta, você [escreve uma consulta do Analytics](/azure/kusto/query). A consulta seleciona o determinado conjunto de linhas que descreve o coorte que você deseja definir. Em seguida, a ferramenta coortes adiciona implicitamente um "| resumir por user_Id "para a consulta. Esses dados são visualizados abaixo da consulta em uma tabela, para que você possa verificar se a consulta está retornando os resultados.
+     Na seção de consulta, você [escreve uma consulta do Analytics](/azure/kusto/query). A consulta seleciona o determinado conjunto de linhas que descreve o coorte que você deseja definir. Em seguida, a ferramenta coortes adiciona implicitamente um "| resumir por user_Id cláusula "para a consulta. Esses dados são visualizados abaixo da consulta em uma tabela, para que você possa verificar se a consulta está retornando os resultados.
 
      > [!NOTE]
      > Se você não vir a consulta, tente redimensionar a seção para torná-la mais alta e revelar a consulta. O. gif animado no início desta seção ilustra o comportamento de redimensionamento.
@@ -118,7 +118,7 @@ As duas coortes anteriores foram definidas usando caixas suspensas. Mas você ta
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Selecione **Executar consulta**. Se você não vir as IDs de usuário aparecerem na tabela, altere para um país/região em que seu aplicativo tenha usuários.
+3. Selecione **Executar Consulta**. Se você não vir as IDs de usuário aparecerem na tabela, altere para um país/região em que seu aplicativo tenha usuários.
 
 4. Salve e nomeie o coorte.
 

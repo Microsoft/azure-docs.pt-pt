@@ -1,20 +1,21 @@
 ---
 title: Criar e implantar um aplicativo do node. js Express nos serviços de nuvem do Azure
+titleSuffix: Azure Cloud Services
 description: Criar e implantar um aplicativo Express. js no node. js nos serviços de nuvem do Azure
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360757"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar e implantar um aplicativo Web node. js usando o Express em um serviço de nuvem do Azure
 
@@ -33,7 +34,7 @@ Execute as seguintes etapas para criar um novo projeto de serviço de nuvem cham
 1. No **menu iniciar** ou na **tela iniciar**, pesquise pelo **Windows PowerShell**. Por fim, clique com o botão direito do mouse em **Windows PowerShell** e selecione **Executar como administrador**.
    
     ![Ícone de Azure PowerShell](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-2. Altere os diretórios para o diretório **c:\\node** e, em seguida, insira os seguintes comandos para criar uma nova solução chamada **eXpressApp** e uma função Web chamada **WebRole1**:
+2. Altere os diretórios para o diretório do **nó c:\\** e, em seguida, insira os seguintes comandos para criar uma nova solução chamada **eXpressApp** e uma função Web chamada **WebRole1**:
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -93,10 +94,10 @@ Agora, modifique a exibição para exibir a mensagem "bem-vindo ao Express no Az
    
    ![O conteúdo do arquivo index. Jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade é o mecanismo de exibição padrão usado por aplicativos Express. Para obter mais informações sobre o mecanismo de exibição do [http://jade-lang.com][http://jade-lang.com]Jade, consulte.
+   Jade é o mecanismo de exibição padrão usado por aplicativos Express. Para obter mais informações sobre o mecanismo de exibição do jade, consulte [http://jade-lang.com][http://jade-lang.com].
 2. Modifique a última linha de texto acrescentando **no Azure**.
    
-   ![O arquivo index. Jade, a última linha lê: p bem- \#vindo ao {title} no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
+   ![O arquivo index. Jade, a última linha lê: p bem-vindo ao \#{title} no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 3. Salve o arquivo e saia do bloco de notas.
 4. Atualize seu navegador e você verá suas alterações.
    
@@ -119,5 +120,8 @@ Para obter mais informações, consulte o [Centro para Programadores do Node.js]
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

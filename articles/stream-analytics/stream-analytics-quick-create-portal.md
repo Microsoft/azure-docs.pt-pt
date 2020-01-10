@@ -1,19 +1,18 @@
 ---
 title: Início rápido-criar um trabalho de Stream Analytics usando o portal do Azure
 description: Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics, configurar entradas e saídas, e definir uma consulta.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431558"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -23,13 +22,13 @@ Este início rápido mostra como começar ao criar uma tarefa do Stream Analytic
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
-* Inicie sessão no [portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
 Antes de definir o trabalho de Stream Analytics, você deve preparar os dados de entrada. Os dados do sensor em tempo real são ingeridos no Hub IoT, que é configurado posteriormente como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, conclua as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
@@ -165,7 +164,7 @@ Nesta seção, você configurará uma entrada de dispositivo do Hub IoT para o t
 
 3. Clique em **Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão sendo enviadas para o Hub IoT.
 
-   ![Simulador online do Azure IoT do Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+   ![Simulador Online do Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 

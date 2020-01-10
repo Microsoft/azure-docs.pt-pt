@@ -1,18 +1,17 @@
 ---
 title: Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor | Microsoft Docs
 description: Descreve como editar, comparar, Pesquisar e executar uma variedade de outras operações em cadeias de caracteres em Azure Monitor consultas de log.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397473"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor
 
@@ -91,12 +90,12 @@ Conta ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. P
 countof(text, search [, kind])
 ```
 
-### <a name="arguments"></a>Argumentos
+### <a name="arguments"></a>Arguments:
 - `text`-a cadeia de caracteres de entrada 
 - `search`-cadeia de caracteres simples ou expressão regular para correspondência dentro do texto.
 - `kind` - _Regex_ _normal_ | (padrão: normal).
 
-### <a name="returns"></a>Apresenta
+### <a name="returns"></a>Devolução
 
 O número de vezes que a cadeia de caracteres de pesquisa pode ser correspondida no contêiner. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto o Regex faz a correspondência.
 
@@ -138,7 +137,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`-uma cadeia de caracteres a ser pesquisada.
 - `typeLiteral`-um literal de tipo opcional (por exemplo, typeof (Long)). Se fornecido, a subcadeia de caracteres extraída será convertida nesse tipo.
 
-### <a name="returns"></a>Apresenta
+### <a name="returns"></a>Devolução
 A subcadeia de caracteres correspondente ao grupo de captura de grupos de captura indicado, opcionalmente, convertida em typeLiteral.
 Se não houver correspondência ou a conversão de tipo falhar, retornará NULL.
 
@@ -244,7 +243,7 @@ replace(regex, rewrite, input_text)
 - `rewrite`-o Regex de substituição para qualquer correspondência feita pelo Regex correspondente. Use \ 0 para se referir a toda a correspondência, \ 1 para o primeiro grupo de captura, \ 2, e assim por diante para grupos de captura subsequentes.
 - `input_text`-a cadeia de caracteres de entrada para pesquisar.
 
-### <a name="returns"></a>Apresenta
+### <a name="returns"></a>Devolução
 O texto depois de substituir todas as correspondências de Regex por avaliações de reescrita. As correspondências não se sobrepõem.
 
 ### <a name="examples"></a>Exemplos
@@ -272,7 +271,7 @@ Divide uma determinada cadeia de caracteres de acordo com um delimitador especif
 split(source, delimiter [, requestedIndex])
 ```
 
-### <a name="arguments"></a>Argumentos
+### <a name="arguments"></a>Arguments:
 
 - `source`-a cadeia de caracteres a ser dividida de acordo com o delimitador especificado.
 - `delimiter`-o delimitador que será usado para dividir a cadeia de caracteres de origem.
@@ -329,7 +328,7 @@ Extrai uma substring de uma determinada cadeia de caracteres de origem, iniciand
 substring(source, startingIndex [, length])
 ```
 
-### <a name="arguments"></a>Argumentos
+### <a name="arguments"></a>Arguments:
 
 - `source`-a cadeia de caracteres de origem da qual a subcadeia de caracteres será retirada.
 - `startingIndex`-a posição de caractere inicial com base em zero da subcadeia de caracteres solicitada.

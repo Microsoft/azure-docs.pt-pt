@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928984"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432492"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
@@ -26,7 +26,7 @@ O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Criar um recurso de Application Insights no Azure Monitor
 
@@ -353,7 +353,7 @@ Aqui estão os exportadores que o OpenCensus fornece mapeado para os tipos de te
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Exibir seus dados com consultas
 

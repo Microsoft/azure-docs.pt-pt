@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 0628de7c436836a8fdb5b00cac1d8e85963ba48e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a1dc089e1b64ed8d71db4c09405c8cc9a07d8bea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436983"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
@@ -41,6 +41,7 @@ São abrangidos neste artigo os passos para configurar ambos os cenários. Este 
 * **É apenas suportado o Gateway de VPN baseado na rota.** Você deve usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)baseado em rota. Você também pode usar um gateway de VPN baseado em rota com uma conexão VPN configurada para ' seletores de tráfego baseado em políticas ', conforme descrito em [conectar-se a vários dispositivos VPN baseados em políticas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **A rota estática deve ser configurada para o seu Gateway de VPN.** Se a sua rede local estiver ligada ao ExpressRoute e a uma Rede de VPNs, terá de ter uma rota estática configurada na rede local para encaminhar a ligação de Rede de VPNs para a Internet pública.
 * **O gateway de VPN usa como padrão o ASN 65515 se não for especificado.** O gateway de VPN do Azure dá suporte ao protocolo de roteamento BGP. Você pode especificar o ASN (como número) para uma rede virtual adicionando o comutador-ASN. Se você não especificar esse parâmetro, o número padrão de as será 65515. Você pode usar qualquer ASN para a configuração, mas se você selecionar algo diferente de 65515, deverá redefinir o gateway para que a configuração entre em vigor.
+* **A sub-rede de gateway deve ser/27 ou um prefixo mais curto**, (por exemplo,/26,/25), ou você receberá uma mensagem de erro ao adicionar o gateway de rede virtual do ExpressRoute.
 
 ## <a name="configuration-designs"></a>Estruturas de configuração
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurar uma Rede de VPNs como um caminho de ativação pós-falha para o ExpressRoute

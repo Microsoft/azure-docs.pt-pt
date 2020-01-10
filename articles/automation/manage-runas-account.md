@@ -2,19 +2,15 @@
 title: Gerenciar contas Executar como da automação do Azure
 description: Este artigo descreve como gerenciar suas contas Executar como com o PowerShell ou no Portal.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418043"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da automação do Azure
 

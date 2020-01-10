@@ -2,19 +2,15 @@
 title: Saiba como carregar soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário na automação do Azure
 description: Saiba como carregar uma máquina virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário que fazem parte da automação do Azure
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ab934db026b598e80541f98d74df70c893692120
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421882"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções integradas de Gerenciamento de Atualizações, Controle de Alterações e inventário
 

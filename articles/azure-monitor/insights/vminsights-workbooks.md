@@ -4,15 +4,15 @@ description: Simplifique relatórios complexos com pastas de trabalho parametriz
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365925"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos Azure Monitor para VMs com pastas de trabalho
 
@@ -27,7 +27,7 @@ As pastas de trabalho são úteis para cenários como:
 
 O Azure Monitor para VMs inclui várias pastas de trabalho para você começar e a tabela a seguir as resume.
 
-| Pasta | Descrição | Âmbito |
+| Livro | Descrição | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
 | Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
@@ -45,13 +45,13 @@ O Azure Monitor para VMs inclui várias pastas de trabalho para você começar e
 
 Uma pasta de trabalho é composta por seções que consistem em gráficos, tabelas, texto e controles de entrada independentemente de serem editados. Para entender melhor as pastas de trabalho, vamos começar abrindo um modelo e percorrer a criação de uma pasta de trabalho personalizada. 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **máquinas virtuais**.
 
 3. Na lista, selecione uma VM.
 
-4. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
+4. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
 
 5. Na página de informações da VM, selecione a guia **desempenho** ou **mapas** e, em seguida, selecione **exibir pastas de trabalho** no link na página. 
 

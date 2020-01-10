@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 3f7ba22fa8e2a8709fc37a891b3da64b6d83e654
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2fd5867d910d29533eb17a4660039cc7b9610290
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449844"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 
@@ -35,7 +35,7 @@ Para saber mais sobre como usar a biblioteca .NET de gerenciamento do lote e o e
 
 O Adal ( [biblioteca de autenticação do Active Directory][aad_adal] do Azure) fornece uma interface programática para o Azure ad para uso em seus aplicativos. Para chamar a ADAL do seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Ao registrar seu aplicativo, você fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em tempo de execução. Para saber mais sobre a ID do aplicativo, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo de exemplo AccountManagement, siga as etapas na seção [adicionando um aplicativo](../active-directory/develop/quickstart-register-app.md) em [integrando aplicativos com o Azure Active Directory][aad_integrate]. Especifique o **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2,0 padrão do setor para o URI `urn:ietf:wg:oauth:2.0:oob`de redirecionamento é. No entanto, você pode especificar qualquer URI válido ( `http://myaccountmanagementsample`como) para o **URI**de redirecionamento, pois ele não precisa ser um ponto de extremidade real:
+Para registrar o aplicativo de exemplo AccountManagement, siga as etapas na seção [adicionando um aplicativo](../active-directory/develop/quickstart-register-app.md) em [integrando aplicativos com o Azure Active Directory][aad_integrate]. Especifique o **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2,0 padrão do setor para o **URI de redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. No entanto, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -47,7 +47,7 @@ Depois de concluir o processo de registro, você verá a ID do aplicativo e a ID
 
 Em seguida, você precisará delegar o acesso ao seu aplicativo para a API Azure Resource Manager. O identificador do Azure AD para a API do Gerenciador de recursos é o **Windows Azure API de gerenciamento de serviços**.
 
-Siga estas etapas na portal do Azure:
+Siga os passos abaixo no portal do Azure:
 
 1. No painel de navegação à esquerda da portal do Azure, escolha **todos os serviços**, clique em **registros do aplicativo**e clique em **Adicionar**.
 2. Procure o nome do seu aplicativo na lista de registros do aplicativo:
@@ -122,7 +122,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 Depois de fornecer suas credenciais, o aplicativo de exemplo pode continuar a emitir solicitações autenticadas para o serviço de gerenciamento do lote. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como executar o [aplicativo de exemplo AccountManagement][acct_mgmt_sample], consulte [gerenciar contas e cotas do lote com a biblioteca de cliente de gerenciamento do lote para .net](batch-management-dotnet.md).
 
@@ -137,4 +137,4 @@ Para autenticar aplicativos de serviço de lote usando o Azure AD, consulte [aut
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: https://portal.azure.com
-[resman_overview]: ../azure-resource-manager/resource-group-overview.md
+[resman_overview]: ../azure-resource-manager/management/overview.md

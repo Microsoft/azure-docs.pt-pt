@@ -1,6 +1,6 @@
 ---
-title: Utilize ferramentas de linha de comandos para iniciar e parar as VMs do Azure DevTest Labs | Documentos da Microsoft
-description: Saiba como utilizar as ferramentas da linha de comandos para iniciar e parar máquinas virtuais no Azure DevTest Labs.
+title: Use ferramentas de linha de comando para iniciar e parar VMs Azure DevTest Labs | Microsoft Docs
+description: Saiba como usar as ferramentas de linha de comando para iniciar e parar máquinas virtuais no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,29 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e00de295a7f41bf0ff768c4f948a667bc188616
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456946"
 ---
-# <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Utilize ferramentas de linha de comandos para iniciar e parar máquinas de virtuais do Azure DevTest Labs
-Este artigo mostra-lhe como utilizar o Azure PowerShell ou a CLI do Azure para iniciar ou parar máquinas virtuais num laboratório no Azure DevTest Labs. Pode criar scripts do PowerShell/CLI para automatizar essas operações. 
+# <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Usar ferramentas de linha de comando para iniciar e parar Azure DevTest Labs máquinas virtuais
+Este artigo mostra como usar Azure PowerShell ou CLI do Azure para iniciar ou parar máquinas virtuais em um laboratório no Azure DevTest Labs. Você pode criar scripts do PowerShell/CLI para automatizar essas operações. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
-O Azure DevTest Labs é uma forma de criar ambientes de desenvolvimento/teste rápidos, fáceis, rápidos e simples. Ele permite-lhe gerir o custo, rapidamente aprovisionar VMs e minimizar o desperdício.  Existem recursos incorporados no portal do Azure que permitem-lhe configurar as VMs num laboratório automaticamente iniciar e parar em alturas específicas. 
+## <a name="overview"></a>Visão geral
+Azure DevTest Labs é uma maneira de criar ambientes de desenvolvimento/teste rápidos, fáceis e enxutos. Ele permite que você gerencie custos, provisione rapidamente VMs e minimize o desperdício.  Há recursos internos no portal do Azure que permitem que você configure VMs em um laboratório para iniciar e parar automaticamente em horários específicos. 
 
-No entanto, em alguns cenários, talvez queira automatizar iniciar e parar de VMs a partir dos scripts do PowerShell/CLI. Isso permite certa flexibilidade com iniciar e parar máquinas individuais em qualquer altura, em vez de em alturas específicas. Aqui estão algumas das situações em que executar estas tarefas utilizando scripts seria útil.
+No entanto, em alguns cenários, talvez você queira automatizar a inicialização e a interrupção de VMs de scripts do PowerShell/CLI. Ele oferece alguma flexibilidade com a inicialização e a interrupção de máquinas individuais a qualquer momento, em vez de horários específicos. Aqui estão algumas das situações em que a execução dessas tarefas usando scripts seria útil.
 
-- Quando utiliza uma aplicação de 3 camadas como parte de um ambiente de teste, as camadas tem de ser iniciada numa seqüência. 
-- Desative a uma VM quando um critério de personalizados são cumpridos para poupar dinheiro. 
-- Utilize-o como uma tarefa dentro de um fluxo de trabalho de CI/CD para começar do início do fluxo, utilize a VMs como máquinas de compilação, testar máquinas, nem a infraestrutura, em seguida, pare as VMs quando o processo estiver concluído. Um exemplo disso seria a fábrica de imagem personalizada com o Azure DevTest Labs.  
+- Ao usar um aplicativo de três camadas como parte de um ambiente de teste, as camadas precisam ser iniciadas em uma sequência. 
+- Desative uma VM quando um critério personalizado for atendido para economizar dinheiro. 
+- Use-o como uma tarefa em um fluxo de trabalho de CI/CD para começar no início do fluxo, use as VMs como máquinas de compilação, máquinas de teste ou infraestrutura e, em seguida, interrompa as VMs quando o processo for concluído. Um exemplo disso seria a fábrica de imagens personalizada com Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-O seguinte script do PowerShell inicia uma VM num laboratório. [AzResourceAction invocar](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o foco principal deste script. O **ResourceId** parâmetro é o ID de recurso completamente qualificado para a VM no laboratório. O **ação** parâmetro é o local onde o **iniciar** ou **parar** são definidas opções consoante o que é necessário.
+
+> [!NOTE]
+> O script a seguir usa o módulo Azure PowerShell AZ. 
+
+O script do PowerShell a seguir inicia uma VM em um laboratório. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o foco principal para esse script. O parâmetro **ResourceId** é a ID de recurso totalmente qualificada para a VM no laboratório. O parâmetro **Action** é onde as opções **Start** ou **Stop** são definidas dependendo do que é necessário.
 
 ```powershell
 # The id of the subscription
@@ -53,11 +57,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `
@@ -75,7 +75,7 @@ else {
 
 
 ## <a name="azure-cli"></a>CLI do Azure
-O [CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) é outra forma de automatizar a iniciar e parar de VMs de laboratórios DevTest. CLI do Azure pode ser [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) em sistemas operativos diferentes. O script seguinte fornece comandos para iniciar e parar uma VM num laboratório. 
+A [CLI do Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) é outra maneira de automatizar o início e a interrupção das VMs do DevTest Labs. CLI do Azure pode ser [instalado](/cli/azure/install-azure-cli?view=azure-cli-latest) em diferentes sistemas operacionais. O script a seguir fornece comandos para iniciar e parar uma VM em um laboratório. 
 
 ```azurecli
 # Sign in to Azure
@@ -92,5 +92,5 @@ az lab vm stop --lab-name yourlabname --name vmname --resource-group labResource
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Consulte o artigo seguinte para utilizar o portal do Azure para fazer essas operações: [Reiniciar uma VM](devtest-lab-restart-vm.md).
+## <a name="next-steps"></a>Passos seguintes
+Consulte o seguinte artigo para usar o portal do Azure para executar essas operações: [reiniciar uma VM](devtest-lab-restart-vm.md).

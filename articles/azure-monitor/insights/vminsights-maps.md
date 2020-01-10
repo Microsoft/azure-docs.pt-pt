@@ -4,15 +4,15 @@ description: O MAP é um recurso do Azure Monitor para VMs. Ele descobre automat
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450712"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use o recurso de mapa de Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Você pode observar as VMs de duas maneiras. Exiba um mapa diretamente de uma VM ou exiba um mapa de Azure Monitor para ver os componentes em grupos de VMs. Este artigo o ajudará a entender esses dois métodos de exibição e como usar o recurso de mapa. 
@@ -20,7 +20,7 @@ No Azure Monitor para VMs, você pode exibir componentes de aplicativos descober
 Para obter informações sobre como configurar Azure Monitor para VMs, consulte [habilitar Azure monitor para VMs](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="introduction-to-the-map-experience"></a>Introdução à experiência de mapa
 Antes de mergulhar na experiência de mapa, você deve entender como ele apresenta e visualiza informações. Se você selecionar o recurso de mapa diretamente de uma VM ou de Azure Monitor, o recurso de mapa apresentará uma experiência consistente. A única diferença é que, de Azure Monitor, um mapa mostra todos os membros de um aplicativo ou cluster de várias camadas.
@@ -54,7 +54,7 @@ Para obter mais informações sobre alertas do Azure e criar regras de alerta, c
 
 No canto superior direito, a opção **legenda** descreve os símbolos e as funções no mapa. Para uma análise mais detalhada do mapa e para movê-lo, use os controles de zoom no canto inferior direito. Você pode definir o nível de zoom e ajustar o mapa ao tamanho da página.  
 
-## <a name="connection-metrics"></a>Métricas de conexão
+## <a name="connection-metrics"></a>Métricas de ligação
 O painel **conexões** exibe as métricas padrão para a conexão selecionada da VM na porta TCP. As métricas incluem tempo de resposta, solicitações por minuto, taxa de transferência de tráfego e links.  
 
 ![Gráficos de conectividade de rede no painel conexões](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
@@ -115,13 +115,13 @@ Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as d
 ![Visão geral do mapa de VM direto](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias**  > **insights (versão prévia)** .
+>Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias** > **insights (versão prévia)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Exibir um mapa do Azure Monitor
 
 No Azure Monitor, o recurso de mapa fornece uma exibição global de suas VMs e suas dependências. Para acessar o recurso de mapa no Azure Monitor:
 
-1. Na portal do Azure, selecione **Monitor**. 
+1. No portal do Azure, selecione **Monitor**. 
 2. Na seção **insights** , escolha **máquinas virtuais (versão prévia)** .
 3. Selecione a guia **mapa** .
 

@@ -4,36 +4,36 @@ description: Use a solução Capacidade e Desempenho no monitor para ajudá-lo a
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405749"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planejar a capacidade da máquina virtual do Hyper-V com a solução de Capacidade e Desempenho (preterida)
 
-![Símbolo de Capacidade e Desempenho](./media/capacity-performance/capacity-solution.png)
+![Símbolo de capacidade e desempenho](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
-> A solução Capacidade e Desempenho foi preterida.  Os clientes que já instalaram a solução podem continuar a usá-la, mas não é possível adicionar Capacidade e Desempenho a nenhum espaço de trabalho novo.
+> A solução de capacidade e desempenho foi preterida.  Os clientes que já tenham instalado a solução podem continuar a utilizá-lo, mas a capacidade e desempenho não podem ser adicionados a novas áreas de trabalho.
 
-Você pode usar a solução Capacidade e Desempenho no monitor para ajudá-lo a entender a capacidade de seus servidores Hyper-V. A solução fornece informações sobre o ambiente do Hyper-V mostrando a utilização geral (CPU, memória e disco) dos hosts e das VMs em execução nesses hosts Hyper-V. As métricas são coletadas para CPU, memória e discos em todos os seus hosts e nas VMs em execução nelas.
+Você pode usar a solução Capacidade e Desempenho no monitor para ajudá-lo a entender a capacidade de seus servidores Hyper-V. A solução fornece informações sobre o seu ambiente de Hyper-V, mostrando-lhe a utilização geral (CPU, memória e disco) de anfitriões e as VMs em execução nesses anfitriões de Hyper-V. Métricas são recolhidas de CPU, memória e discos em todos os seus anfitriões e as VMs em execução nos mesmos.
 
 A solução:
 
--   Mostra os hosts com mais alta e menor utilização de CPU e memória
--   Mostra as VMs com mais alta e menor utilização de CPU e memória
--   Mostra as VMs com IOPS mais alto e mais baixo e utilização de taxa de transferência
--   Mostra quais VMs estão em execução em quais hosts
--   Mostra os principais discos com alta taxa de transferência, IOPS e latência em volumes compartilhados do cluster
-- Permite personalizar e filtrar com base em grupos
+-   Mostra os anfitriões com maior e mais baixa utilização da CPU e memória
+-   Mostra as VMs com maior e mais baixa utilização da CPU e memória
+-   Mostra as VMs com a utilização de IOPS e débito mais elevada e mais baixa
+-   Mostra que as VMs estão em execução em que anfitriões
+-   Mostra os discos principais com alto débito e latência IOPS em volumes partilhados de cluster
+- Permite-lhe personalizar e filtrar com base em grupos
 
 > [!NOTE]
-> A versão anterior da solução de Capacidade e Desempenho chamada gerenciamento de capacidade exigia System Center Operations Manager e System Center Virtual Machine Manager. Essa solução atualizada não tem essas dependências.
+> A versão anterior da solução de capacidade e desempenho chamada de gerenciamento de capacidade necessária do System Center Operations Manager e o System Center Virtual Machine Manager. Esta solução atualizada não tem essas dependências.
 
 
 ## <a name="connected-sources"></a>Origens ligadas
@@ -42,92 +42,92 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |---|---|---|
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução coleta informações de dados de desempenho e capacidade de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não coleta informações de dados de desempenho e capacidade de agentes diretos do Linux.|
-| [Grupo de gerenciamento do SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução coleta dados de desempenho e capacidade de agentes em um grupo de gerenciamento do SCOM conectado. Não é necessária uma conexão direta do agente do SCOM com o Log Analytics.|
-| [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não inclui dados de desempenho e capacidade.|
+| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de dados de capacidade e desempenho de agentes do Windows. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não    | A solução não recolhe informações de dados de capacidade e desempenho de agentes diretos do Linux.|
+| [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes num grupo de gestão ligado do SCOM. Não é necessária uma conexão direta do agente do SCOM para o Log Analytics.|
+| [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não inclui dados de capacidade e desempenho.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Os agentes do Windows ou Operations Manager devem ser instalados no Windows Server 2012 ou em hosts Hyper-V superiores, não em máquinas virtuais.
+- Windows ou agentes do Operations Manager tem de estar instalados no Windows Server 2012 ou superior anfitriões de Hyper-V, não as máquinas virtuais.
 
 
 ## <a name="configuration"></a>Configuração
 
-Execute a etapa a seguir para adicionar a solução de Capacidade e Desempenho ao seu espaço de trabalho.
+Execute o passo seguinte para adicionar a solução de capacidade e desempenho à sua área de trabalho.
 
-- Adicione a solução Capacidade e Desempenho ao seu espaço de trabalho do Log Analytics usando o processo descrito em [Adicionar soluções de log Analytics do Galeria de soluções](../../azure-monitor/insights/solutions.md).
+- Adicionar a solução de capacidade e desempenho à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
-Se o grupo de gerenciamento do SCOM estiver conectado ao seu espaço de trabalho do Log Analytics, os pacotes de gerenciamento a seguir serão instalados no SCOM quando você adicionar essa solução. Estes pacotes de gestão não precisam de configurações nem de manutenção.
+Se o grupo de gestão do SCOM é ligado à sua área de trabalho do Log Analytics, em seguida, os seguintes pacotes de gestão serão instalados no SCOM quando adicionar esta solução. Estes pacotes de gestão não precisam de configurações nem de manutenção.
 
-- Microsoft. IntelligencePacks. CapacityPerformance
+- Microsoft.IntelligencePacks.CapacityPerformance
 
-O evento 1201 é semelhante a:
+O evento de 1201 é semelhante:
 
 
 ```
 New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", version:"1.10.3190.0" received.
 ```
 
-Quando a solução de Capacidade e Desempenho for atualizada, o número de versão será alterado.
+Quando a solução de capacidade e desempenho é atualizada, o número de versão será alterado.
 
 Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
-Quando você adiciona a solução Capacidade e Desempenho ao seu espaço de trabalho, a Capacidade e Desempenho é adicionada ao painel Visão geral. Esse bloco exibe uma contagem do número de hosts do Hyper-V atualmente ativos e o número de máquinas virtuais ativas que foram monitoradas para o período de tempo selecionado.
+Quando adiciona a solução de capacidade e desempenho para a área de trabalho, é adicionada a capacidade e desempenho para o dashboard de descrição geral. Este mosaico apresenta uma contagem do número de anfitriões de Hyper-V atualmente ativas e o número de máquinas virtuais ativas que foram monitorizados para o período de tempo selecionado.
 
-![Bloco Capacidade e Desempenho](./media/capacity-performance/capacity-tile.png)
+![Mosaico de capacidade e desempenho](./media/capacity-performance/capacity-tile.png)
 
 
-### <a name="review-utilization"></a>Examinar a utilização
+### <a name="review-utilization"></a>Utilização de revisão
 
-Clique no bloco Capacidade e Desempenho para abrir o painel de Capacidade e Desempenho. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta uma lista de até dez itens que correspondem aos critérios dessa coluna para o âmbito e o intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo**, na parte inferior da coluna, ou ao clicar no cabeçalho da coluna.
+Clique no mosaico da capacidade e desempenho para abrir o dashboard de capacidade e desempenho. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta uma lista de até dez itens que correspondem aos critérios dessa coluna para o âmbito e o intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo**, na parte inferior da coluna, ou ao clicar no cabeçalho da coluna.
 
-- **Hospedar**
-    - **Utilização da CPU do host** Mostra uma tendência gráfica da utilização da CPU de computadores host e uma lista de hosts, com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de host para abrir a pesquisa de logs e exibir detalhes do contador de CPU para VMs hospedadas.
-    - **Utilização de memória do host** Mostra uma tendência gráfica da utilização de memória de computadores host e uma lista de hosts, com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de host para abrir a pesquisa de logs e exibir detalhes do contador de memória para VMs hospedadas.
+- **Anfitriões**
+    - **Utilização da CPU do anfitrião** mostra uma tendência gráfica da utilização da CPU de computadores anfitriões e uma lista de anfitriões, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome de anfitrião para abrir a pesquisa de registos e ver detalhes do contador de CPU para as VMs alojadas.
+    - **Utilização da memória do anfitrião** mostra uma tendência gráfica da utilização da memória de computadores anfitriões e uma lista de anfitriões, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome de anfitrião para abrir a pesquisa de registos e ver detalhes do contador de memória para VMs alojadas.
 - **Máquinas Virtuais**
-    - **Utilização da CPU da VM** Mostra uma tendência gráfica da utilização da CPU de máquinas virtuais e de uma lista de máquinas virtuais com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as três principais VMs. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de VM para abrir a pesquisa de logs e exibir detalhes do contador de CPU agregado para a VM.
-    - **Utilização de memória da VM** Mostra uma tendência gráfica da utilização de memória de máquinas virtuais e uma lista de máquinas virtuais, com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as três principais VMs. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de VM para abrir a pesquisa de logs e exibir detalhes do contador de memória agregada para a VM.
-    - **IOPS de disco total da VM** Mostra uma tendência gráfica do IOPS de disco total para máquinas virtuais e uma lista de máquinas virtuais com o IOPS para cada, com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as três principais VMs. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de VM para abrir a pesquisa de logs e exibir detalhes do contador de IOPS de disco agregado para a VM.
-    - **Taxa de transferência total do disco da VM** Mostra uma tendência gráfica da taxa de transferência total do disco para máquinas virtuais e uma lista de máquinas virtuais com a taxa de transferência total do disco para cada, com base no período de tempo selecionado. Passe o mouse sobre o gráfico de linhas para exibir detalhes de um ponto específico no tempo para as três principais VMs. Clique no gráfico para exibir mais detalhes na pesquisa de logs. Clique em qualquer nome de VM para abrir a pesquisa de logs e exibir detalhes de contador de taxa de transferência de disco total agregado para a VM.
-- **Volumes compartilhados clusterizados**
-    - **Taxa de transferência total** Mostra a soma de leituras e gravações em volumes compartilhados clusterizados.
-    - **IOPS total** Mostra a soma das operações de entrada/saída por segundo em volumes compartilhados clusterizados.
-    - **Latência total** Mostra a latência total em volumes compartilhados clusterizados.
-- **Densidade de host** O bloco superior mostra o número total de hosts e máquinas virtuais disponíveis para a solução. Clique no bloco superior para exibir detalhes adicionais na pesquisa de logs. Também lista todos os hosts e o número de máquinas virtuais que são hospedadas. Clique em um host para analisar os resultados da VM em uma pesquisa de log.
+    - **Utilização de CPU VM** mostra uma tendência gráfica da utilização da CPU de máquinas virtuais e uma lista de máquinas virtuais, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo para as VMs de 3 principais. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome VM para abrir a pesquisa de registos e ver os detalhes de contador de CPU agregados para a VM.
+    - **Utilização de memória de VM** mostra uma tendência gráfica da utilização da memória das máquinas virtuais e uma lista de máquinas virtuais, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo para as VMs de 3 principais. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome VM para abrir a pesquisa de registos e ver detalhes do contador de agregados de memória para a VM.
+    - **VM Total de IOPS de disco** mostra uma tendência gráfica do disco total IOPS para máquinas virtuais e uma lista de máquinas virtuais com o IOPS para cada, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo para as VMs de 3 principais. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome VM para abrir a pesquisa de registos e ver detalhes de contador de agregados de IOPS de disco para a VM.
+    - **Débito de disco Total de VM** mostra uma tendência gráfica da taxa de transferência total do disco para máquinas virtuais e uma lista de máquinas virtuais com o débito de disco total para cada, com base no período de tempo selecionado. Paire o rato sobre o gráfico de linhas para ver os detalhes de um ponto específico no tempo para as VMs de 3 principais. Clique no gráfico para ver mais detalhes na pesquisa de registos. Clique em qualquer nome VM para abrir a pesquisa de registos e ver detalhes de contador de débito agregado total do disco para a VM.
+- **Volumes Partilhados de cluster**
+    - **Total de débito** mostra a soma de ambas as leituras e gravações nos volumes partilhados em cluster.
+    - **Total de IOPS** mostra a soma das operações de entrada/saída por segundo em volumes partilhados em cluster.
+    - **Total de latência** mostra a latência total em volumes partilhados de cluster.
+- **Densidade de anfitrião** o mosaico superior mostra o número total de anfitriões e máquinas virtuais disponíveis para a solução. Clique no mosaico superior para ver detalhes adicionais na pesquisa de registos. Também apresenta uma lista de todos os anfitriões e o número de máquinas virtuais que estão alojados. Clique num host para explorar os resultados VM numa pesquisa de registos.
 
 
-![folha de hosts de painel](./media/capacity-performance/dashboard-hosts.png)
+![Painel de anfitriões do dashboard](./media/capacity-performance/dashboard-hosts.png)
 
-![folha de máquinas virtuais do painel](./media/capacity-performance/dashboard-vms.png)
+![Painel de máquinas virtuais de dashboard](./media/capacity-performance/dashboard-vms.png)
 
 
 ### <a name="evaluate-performance"></a>Avaliar o desempenho
 
-Ambientes de computação de produção diferem muito de uma organização para outra. Além disso, as cargas de trabalho de capacidade e desempenho podem depender de como suas VMs estão em execução e o que você considera normal. Os procedimentos específicos para ajudá-lo a medir o desempenho provavelmente não se aplicariam ao seu ambiente. Portanto, diretrizes prescritivas mais generalizadas são mais adequadas para ajudar. A Microsoft publica uma variedade de artigos de diretrizes prescritivas para ajudá-lo a medir o desempenho.
+Ambientes de computação de produção diferir significativamente de uma organização para outra. Além disso, as cargas de trabalho de capacidade e desempenho poderão estar dependentes de como as VMs estão em execução, e o que considere normal. Procedimentos específicos para o ajudar a medir o desempenho seria provavelmente não se aplicam ao seu ambiente. Portanto, mais generalizada prescritivas é mais adequada para o ajudar a documentação de orientação. A Microsoft publica uma variedade de artigos de orientação prescritiva para ajudar a medir o desempenho.
 
-Para resumir, a solução coleta dados de desempenho e capacidade de uma variedade de fontes, incluindo contadores de desempenho. Use esses dados de desempenho e capacidade apresentados em várias superfícies na solução e compare os resultados com eles no artigo [medindo o desempenho no Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) . Embora o artigo tenha sido publicado há algum tempo, as métricas, as considerações e as diretrizes ainda são válidas. O artigo contém links para outros recursos úteis.
+Para resumir, a solução recolhe dados de capacidade e desempenho de uma variedade de origens, incluindo os contadores de desempenho. Utilizar esses dados de capacidade e desempenho apresentado em várias superfícies na solução e comparar os resultados para as à [avaliando o desempenho no Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) artigo. Embora o artigo foi publicado há algum tempo, as métricas, considerações e diretrizes ainda são válidas. O artigo contém links para outros recursos úteis.
 
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 
-A tabela a seguir fornece pesquisas de log de exemplo para dados de desempenho e capacidade coletados e calculados por essa solução.
+A tabela seguinte disponibiliza pesquisas de registo de exemplo para dados de capacidade e desempenho recolhidos e calculado por esta solução.
 
 
 | Consulta | Descrição |
 |:--- |:--- |
-| Todas as configurações de memória do host | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e CounterName = = "host atribuído à &#124; memória MB" resumir MB = Méd (Comvalue) por InstanceName |
-| Todas as configurações de memória da VM | Desempenho &#124; em que ObjectName = = "capacidade e desempenho" e CounterName = = "VM atribuído à memória &#124; MB" resumir MB = Méd (valor máximo) por InstanceName |
-| Divisão do IOPS de disco total em todas as VMs | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e (CounterName = = "VHD reads/s" ou CounterName = = "VHD writes &#124; /s") resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
-| Divisão da taxa de transferência total do disco em todas as VMs | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e (CounterName = = "VHD Read MB/s" ou CounterName = = "VHD Write MB/s &#124; ") resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
-| Divisão do IOPS total em todos os CSVs | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e (CounterName = = "CSV reads/s" ou CounterName = = "CSV writes &#124; /s") resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
-| Divisão da taxa de transferência total em todas as CSVs | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e (CounterName = = "CSV reads/s" ou CounterName = = "CSV writes &#124; /s") resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
-| Divisão da latência total em todas as CSVs | Perf &#124; , em que ObjectName = = "capacidade e desempenho" e (CounterName = = "latência de leitura de CSV" ou CounterName = = "latência &#124; de gravação de CSV") resume AggregatedValue = AVG (comvalue) por bin (TimeGenerated, 1h), CounterName, InstanceName |
+| Todas as configurações de memória do anfitrião | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "Anfitrião MB de memória atribuída" &#124; MB de resumir = avg(CounterValue) por InstanceName |
+| Todas as configurações de memória VM | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e CounterName = = "VM MB de memória atribuída" &#124; MB de resumir = avg(CounterValue) por InstanceName |
+| Divisão do IOPS de disco Total entre todas as VMs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "VHD leituras/s" ou CounterName = = "VHD escritas/s") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), CounterName, InstanceName |
+| Divisão do débito de disco Total entre todas as VMs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "VHD leitura MB/s" ou CounterName = = "MB/s de escrita do VHD") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), CounterName, InstanceName |
+| Divisão do IOPS Total entre todas as CSVs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "Leituras/s CSV" ou CounterName = = "CSV escritas/s") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), CounterName, InstanceName |
+| Divisão do débito Total entre todas as CSVs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "Leituras/s CSV" ou CounterName = = "CSV escritas/s") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), CounterName, InstanceName |
+| Divisão da latência Total entre todas as CSVs | Desempenho &#124; onde ObjectName = = "Capacidade e desempenho" e (CounterName = = "Latência de leitura do CSV" ou CounterName = = "Latência de escrita de CSV") &#124; resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 1 hora), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Use [pesquisas de log no log Analytics](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados de capacidade e desempenho.
+* Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados de capacidade e desempenho.

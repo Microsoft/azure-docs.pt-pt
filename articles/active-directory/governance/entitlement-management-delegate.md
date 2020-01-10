@@ -1,5 +1,5 @@
 ---
-title: Delegação e funções no gerenciamento de direitos do Azure AD – Azure Active Directory
+title: Delegação e funções no gerenciamento de direitos-Azure AD
 description: Saiba como delegar a governança de acesso de administradores de ti a gerentes de departamento e gerentes de projeto para que eles possam gerenciar o acesso.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 86d924860e97b15a0a4af46c5bc35b0e0050292b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422590"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções no gerenciamento de direitos do Azure AD
 
@@ -69,7 +69,7 @@ Após a delegação, o departamento de marketing pode ter funções semelhantes 
 | --- | --- | --- | --- |
 | Hana | Administrador de ti | Administrador global ou administrador de usuários |  |
 | Mamta | Gerente de marketing | Utilizador | Criador do catálogo e proprietário do catálogo |
-| José | Líder de marketing | Utilizador | Proprietário do catálogo |
+| BOB | Líder de marketing | Utilizador | Proprietário do catálogo |
 | Jessica | Gerente de projeto de marketing | Utilizador | Gerenciador de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gerenciamento de direitos
@@ -78,20 +78,20 @@ O gerenciamento de direitos tem as seguintes funções que são específicas par
 
 | Função de gerenciamento de direitos | Descrição |
 | --- | --- |
-| Criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. Um criador de catálogo não pode gerenciar ou Ver os catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar gerenciar outro catálogo ou adicionar recursos que eles não possuem, eles poderão solicitar que sejam um coproprietário desse catálogo ou recurso. |
+| criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. Um criador de catálogo não pode gerenciar ou Ver os catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar gerenciar outro catálogo ou adicionar recursos que eles não possuem, eles poderão solicitar que sejam um coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Edite e gerencie catálogos existentes. Normalmente, um administrador de ti ou proprietários de recursos ou um usuário que o proprietário do catálogo designou. |
 | Gerenciador de pacotes de acesso | Edite e gerencie todos os pacotes do Access existentes em um catálogo. |
 
 Além disso, um Aprovador designado e um solicitante de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Certo | Descrição |
+| Direita | Descrição |
 | --- | --- |
-| Aprovador | Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso. |
-| Solicitante | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
+| Executivo | Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso. |
+| Requerente | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
 
 A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos podem executar.
 
-| Tarefa | ADM | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
+| Tarefa | administrador | criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegar a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
 | [Adicionar uma organização conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |

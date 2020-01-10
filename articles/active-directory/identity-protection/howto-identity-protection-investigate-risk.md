@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382126"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430972"
 ---
 # <a name="how-to-investigate-risk"></a>Como investigar o risco
 
@@ -30,7 +30,7 @@ Os três relatórios são encontrados no **portal do Azure** > **Azure Active Di
 
 ## <a name="navigating-the-reports"></a>Navegando nos relatórios
 
-Cada relatório é iniciado com uma lista de todas as detecções do período mostrado na parte superior do relatório. Cada relatório permite a adição ou remoção de colunas com base na preferência do administrador. Os administradores podem optar por baixar os dados no. Formato CSV. Os relatórios podem ser filtrados usando os filtros na parte superior do relatório.
+Cada relatório é iniciado com uma lista de todas as detecções do período mostrado na parte superior do relatório. Cada relatório permite a adição ou remoção de colunas com base na preferência do administrador. Os administradores podem optar por baixar os dados no. CSV ou. Formato JSON. Os relatórios podem ser filtrados usando os filtros na parte superior do relatório.
 
 A seleção de entradas individuais pode habilitar entradas adicionais na parte superior do relatório, como a capacidade de confirmar uma entrada como comprometida ou segura, confirmar um usuário como comprometido ou ignorar o risco do usuário.
 
@@ -44,7 +44,7 @@ Com as informações fornecidas pelo relatório de usuários arriscados, os admi
 
 - Quais usuários estão em risco, tiveram o risco corrigido ou tiveram o risco ignorado?
 - Detalhes sobre as detecções
-- Histórico de entradas arriscadas
+- Histórico de todas as entradas arriscadas
 - Histórico de risco
  
 Os administradores podem optar por agir nesses eventos. Os administradores podem optar por:
@@ -88,7 +88,7 @@ Com as informações fornecidas pelo relatório de detecções de risco, os admi
 
 Os administradores podem, então, optar por retornar ao relatório de risco ou de entradas do usuário para executar ações com base nas informações coletadas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Políticas disponíveis para mitigar riscos](concept-identity-protection-policies.md)
 

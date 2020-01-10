@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffe71cb80be7795201ab672ca632788f4f18e5c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f057ec6424f72370c48599296452d607107f6c34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406260"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com Application Insights
 

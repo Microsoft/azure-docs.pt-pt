@@ -2,18 +2,16 @@
 title: Criar e gerenciar grupos de ação no portal do Azure
 description: Saiba como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423860"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659836"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ação no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Azure Monitor e alertas de integridade do serviço usam grupos de ação para notificar os usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ações ou grupos de ação diferentes, dependendo dos requisitos do usuário. Você pode configurar até 2.000 grupos de ação em uma assinatura.
@@ -72,17 +70,17 @@ Depois de criar um grupo de ações, ele fica visível na seção **grupos de a�
 ## <a name="action-specific-information"></a>Informações específicas da ação
 
 > [!NOTE]
-> Consulte [limites de serviço de assinatura para o monitoramento](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) de limites numéricos em cada um dos itens abaixo.  
+> Consulte [limites de serviço de assinatura para o monitoramento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) de limites numéricos em cada um dos itens abaixo.  
 
-### <a name="automation-runbook"></a>Runbook de automação
-Consulte os [limites do serviço de assinatura do Azure](../../azure-subscription-service-limits.md) para limites em cargas de runbook.
+### <a name="automation-runbook"></a>Runbook de Automatização
+Consulte os [limites do serviço de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para limites em cargas de runbook.
 
 Você pode ter um número limitado de ações de runbook em um grupo de ações. 
 
-### <a name="azure-app-push-notifications"></a>Notificações por push do aplicativo do Azure
+### <a name="azure-app-push-notifications"></a>Notificações Push da aplicação do Azure
 Você pode ter um número limitado de ações de aplicativo do Azure em um grupo de ação.
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 Os emails serão enviados dos endereços de email a seguir. Verifique se a filtragem de email está configurada corretamente
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -90,7 +88,7 @@ Os emails serão enviados dos endereços de email a seguir. Verifique se a filtr
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>Função de Azure Resource Manager de email
+### <a name="email-azure-resource-manager-role"></a>Enviar e-mail de Função do Azure Resource Manager
 Envie um email para os membros da função da assinatura.
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .

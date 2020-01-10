@@ -1,14 +1,14 @@
 ---
 title: Documentação de orientação para pedidos limitados
-description: Aprenda a colocar em lote, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo grafo de recursos do Azure.
-ms.date: 11/21/2019
+description: Aprenda a agrupar, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo grafo de recursos do Azure.
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436066"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no grafo de recursos do Azure
 
@@ -17,7 +17,7 @@ Ao criar uso programático e frequente de dados do grafo de recursos do Azure, d
 Este artigo aborda quatro áreas e padrões relacionados à criação de consultas no grafo de recursos do Azure:
 
 - Entender os cabeçalhos de limitação
-- Consultas em lote
+- Agrupando consultas
 - Consultas de sobredisposição
 - O impacto da paginação
 
@@ -37,9 +37,9 @@ Para ilustrar como os cabeçalhos funcionam, vamos examinar uma resposta de cons
 
 Para ver um exemplo de como usar os cabeçalhos para _retirada_ em solicitações de consulta, consulte o exemplo em [consulta em paralelo](#query-in-parallel).
 
-## <a name="batching-queries"></a>Consultas em lote
+## <a name="grouping-queries"></a>Agrupando consultas
 
-O envio em lote de consultas por assinatura, grupo de recursos ou recurso individual é mais eficiente do que paralelizar consultas. O custo de cota de uma consulta maior geralmente é menor do que o custo de cota de muitas consultas pequenas e direcionadas. O tamanho do lote é recomendado para ser menor que _300_.
+O agrupamento de consultas pela assinatura, grupo de recursos ou recurso individual é mais eficiente do que paralelizar consultas. O custo de cota de uma consulta maior geralmente é menor do que o custo de cota de muitas consultas pequenas e direcionadas. É recomendável que o tamanho do grupo seja inferior a _300_.
 
 - Exemplo de uma abordagem mal otimizada
 
@@ -62,19 +62,19 @@ O envio em lote de consultas por assinatura, grupo de recursos ou recurso indivi
   }
   ```
 
-- Exemplo #1 de uma abordagem de envio em lote otimizada
+- Exemplo #1 de uma abordagem de agrupamento otimizado
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ O envio em lote de consultas por assinatura, grupo de recursos ou recurso indivi
   }
   ```
 
-- Exemplo #2 de uma abordagem de envio em lote otimizada
+- Exemplo #2 de uma abordagem de agrupamento otimizado para obter vários recursos em uma consulta
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em paralelo
 
-Embora o envio em lote seja recomendado sobre a paralelização, há ocasiões em que as consultas não podem ser facilmente agrupadas em lote. Nesses casos, talvez você queira consultar o grafo de recursos do Azure enviando várias consultas de maneira paralela. Veja abaixo um exemplo de como fazer a _retirada_ com base nos cabeçalhos de limitação em tais cenários:
+Embora o agrupamento seja recomendado sobre a paralelização, há ocasiões em que as consultas não podem ser agrupadas facilmente. Nesses casos, talvez você queira consultar o grafo de recursos do Azure enviando várias consultas de maneira paralela. Veja abaixo um exemplo de como fazer a _retirada_ com base nos cabeçalhos de limitação em tais cenários:
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {
@@ -233,7 +237,7 @@ Forneça estes detalhes:
 - Em que tipos de recursos você está interessado?
 - Qual é seu padrão de consulta? X consultas por Y segundos etc.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md).

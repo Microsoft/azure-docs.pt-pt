@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79ef5a6e4af3e0becc5dbeed9ea377e8ef0eb3d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432164"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
 
@@ -29,17 +29,17 @@ A tabela seguinte resume as opções para mover dados para uma base de dados do 
 | <b>ORIGEM</b> | <b>DESTINO: Base de dados SQL do Azure</b> |
 | --- | --- |
 | <b>Ficheiro simples (CSV ou TSV formatado)</b> |[Consulta SQL de inserção em massa](#bulk-insert-sql-query) |
-| <b>SQL Server no local</b> |1.[exportar para ficheiro simples](#export-flat-file)<br> 2. [Assistente de migração de base de dados SQL](#insert-tables-bcp)<br> 3. [Base de dados back cópia de segurança e restauro](#db-migration)<br> 4. [Azure Data Factory](#adf) |
+| <b>SQL Server no local</b> |1.[exportar para ficheiro simples](#export-flat-file)<br> 2. [Assistente de migração de banco de dados SQL](#insert-tables-bcp)<br> 3. [backup e restauração de banco de dados](#db-migration)<br> 4. [Azure data Factory](#adf) |
 
 ## <a name="prereqs"></a>Pré-requisitos
 Os procedimentos descritos aqui exigem que tenha:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Utilize uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Ver [gerir as chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+* Uma **conta de armazenamento do Azure**. Utilize uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * Acesso a uma **base de dados SQL do Azure**. Se tem de configurar uma base de dados de SQL do Azure, [introdução ao Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fornece informações sobre como aprovisionar uma nova instância de uma base de dados do SQL do Azure.
 * Instalou e configurou **do Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-**Dados**: Os processos de migração são demonstrados a utilizar o [conjunto de dados de táxis de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados de táxis de NYC contém informações sobre dados de viagens e fairs e está disponível no armazenamento de Blobs do Azure: [Dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
+**Dados**: os processos de migração são demonstrados usando o [conjunto de dados de táxis de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/). O conjunto de dados de táxis de NYC contém informações sobre dados de viagens e fairs e está disponível no armazenamento de Blobs do Azure: [dados de táxis de NYC](https://www.andresmh.com/nyctaxitrips/). Um exemplo e uma descrição destes ficheiros são fornecidos na [descrição de conjunto de dados de viagens de táxis de NYC](sql-walkthrough.md#dataset).
 
 Pode adaptar os procedimentos descritos aqui a um conjunto de seus próprios dados ou siga os passos, conforme descrito usando o conjunto de dados de táxis de NYC. Para carregar o conjunto de dados de táxis de NYC para a base de dados do SQL Server no local, siga o procedimento descrito em [dados de importação em massa na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções são para um SQL Server numa máquina Virtual do Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 

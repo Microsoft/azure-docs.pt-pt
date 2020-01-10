@@ -1,6 +1,6 @@
 ---
-title: Detecção inteligente do Aplicativo Azure insights – alterações futuras nos destinatários de notificação padrão | Microsoft Docs
-description: Monitore rastreamentos de aplicativos com Aplicativo Azure insights para padrões incomuns na telemetria de rastreamento.
+title: Alterações de notificação de detecção inteligente-Aplicativo Azure insights
+description: Altere para os destinatários de notificação padrão da detecção inteligente. A detecção inteligente permite monitorar rastreamentos de aplicativos com Aplicativo Azure informações sobre padrões incomuns na telemetria de rastreamento.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1f98b5a9ee592a4c702e87e365eff7941194d4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432458"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração de notificação por email de detecção inteligente
 

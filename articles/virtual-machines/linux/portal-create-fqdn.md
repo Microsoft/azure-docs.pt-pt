@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 256e1e60ec8f50df2faea64f31e88d00370b33c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458714"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Linux
 
@@ -36,5 +36,5 @@ Agora você pode se conectar remotamente à VM usando esse nome DNS, como com `s
 ## <a name="next-steps"></a>Passos seguintes
 Agora que sua VM tem um IP público e um nome DNS, você pode implantar estruturas de aplicativo ou serviços comuns, como Nginx, MongoDB, Docker, etc.
 
-Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/resource-group-overview.md) para obter dicas sobre como criar suas implantações do Azure.
+Você também pode ler mais sobre como [usar o Gerenciador de recursos](../../azure-resource-manager/management/overview.md) para obter dicas sobre como criar suas implantações do Azure.
 

@@ -1,68 +1,64 @@
 ---
-title: Dimensionamento automático avançado com máquinas virtuais do Azure
-description: Utiliza o Gestor de recursos e conjuntos de dimensionamento de VM com várias regras e perfis que enviem e-mail e chamam os URLs de webhook com ações de dimensionamento.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+title: Dimensionamento automático avançado usando máquinas virtuais do Azure
+description: Usa o Gerenciador de recursos e conjuntos de dimensionamento de VM com várias regras e perfis que enviam email e chamam URLs de webhook com ações de escala.
 ms.topic: conceptual
 ms.date: 02/22/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364225"
 ---
-# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração do dimensionamento automático avançado com modelos do Resource Manager para conjuntos de dimensionamento de VM
-Pode reduzir e aumentar horizontalmente em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métricas de desempenho, por uma agenda periódica ou por uma data específica. Também pode configurar notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager num conjunto de dimensionamento de VM.
+# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de dimensionamento automático usando modelos do Resource Manager para conjuntos de dimensionamento de VM
+Você pode escalar horizontalmente e escalar horizontalmente em conjuntos de dimensionamento de máquinas virtuais com base nos limites de métricas de desempenho, por um agendamento recorrente ou por uma data específica. Você também pode configurar notificações por email e webhook para ações de escala. Este tutorial mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um conjunto de dimensionamento de VM.
 
 > [!NOTE]
-> Embora estas instruções explica os passos para conjuntos de dimensionamento de VM, as mesmas informações aplica-se para dimensionamento automático [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para um dimensionamento simples de entrada/saída de definição de um conjunto de dimensionamento de VM com base numa métrica de desempenho simples, tais como CPU, consulte a [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documentos
+> Embora este passo a passos explique as etapas para conjuntos de escala de VM, as mesmas informações se aplicam ao dimensionamento automático de [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/)e [serviços de gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) para uma configuração simples de expansão/saída em um conjunto de dimensionamento de VM baseado em uma métrica de desempenho simples, como a CPU, consulte os documentos do [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e do [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 
 ## <a name="walkthrough"></a>Instruções
-Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resources.azure.com/) para configurar e atualizar a definição de dimensionamento automático para um conjunto de dimensionamento. Explorador de recursos do Azure é uma forma fácil de gerir recursos do Azure através de modelos do Resource Manager. Se estiver familiarizado com a ferramenta do Explorador de recursos do Azure, leia [esta introdução](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
+Neste tutorial, usamos [Azure Resource Explorer](https://resources.azure.com/) para configurar e atualizar a configuração de dimensionamento automático para um conjunto de dimensionamento. Azure Resource Explorer é uma maneira fácil de gerenciar recursos do Azure por meio de modelos do Resource Manager. Se você for novo na ferramenta de Azure Resource Explorer, leia [esta introdução](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Implemente um novo conjunto de dimensionamento com uma definição de dimensionamento automático básicas. Este artigo utiliza um da Galeria de início rápido do Azure, que tem um Windows conjunto de dimensionamento com um modelo de dimensionamento automático básicas. Conjuntos de dimensionamento do Linux funcionam da mesma maneira.
-2. Depois do conjunto de dimensionamento é criado, navegue para o recurso de conjunto de dimensionamento do Azure Resource Explorer. Consulte o seguinte no nó de Microsoft. insights.
+1. Implante um novo conjunto de dimensionamento com uma configuração básica de dimensionamento automático. Este artigo usa um da Galeria de início rápido do Azure, que tem um conjunto de dimensionamento do Windows com um modelo básico de dimensionamento automático. Os conjuntos de dimensionamento do Linux funcionam da mesma maneira.
+2. Depois que o conjunto de dimensionamento for criado, navegue até o recurso de conjunto de dimensionamento de Azure Resource Explorer. Você verá o seguinte no nó Microsoft. insights.
 
-    ![Explorador do Azure](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
+    ![Gerenciador do Azure](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    A execução do modelo tem criado uma definição de dimensionamento automático de padrão com o nome **'autoscalewad'** . No lado direito, pode ver a definição completa desta definição de dimensionamento automático. Neste caso, a predefinição de dimensionamento automático é fornecido com uma regra de aumento horizontal e a redução horizontal da % com base de CPU.  
+    A execução do modelo criou uma configuração padrão de dimensionamento automático com o nome **' autoscalewad '** . No lado direito, você pode exibir a definição completa dessa configuração de dimensionamento automático. Nesse caso, a configuração padrão de dimensionamento automático vem com uma regra de expansão e redução horizontal baseada em% de CPU.  
 
-3. Agora pode adicionar mais regras com base na agenda ou requisitos específicos e perfis. Vamos criar uma definição de dimensionamento automático com três perfis. Para compreender os perfis e regras de dimensionamento automático, reveja [melhores práticas de dimensionamento automático](autoscale-best-practices.md).  
+3. Agora você pode adicionar mais perfis e regras com base no agendamento ou em requisitos específicos. Criamos uma configuração de dimensionamento automático com três perfis. Para entender perfis e regras em dimensionamento automático, examine [as práticas recomendadas de dimensionamento automático](autoscale-best-practices.md).  
 
-    | R & egras de perfis | Descrição |
+    | Perfis & regras | Descrição |
     |--- | --- |
-    | **Perfil** |**/ Métrica de desempenho com base em** |
-    | Regra |Contagem de mensagens da fila de barramento de serviço > x |
-    | Regra |Contagem de mensagens da fila de barramento de serviço < y |
-    | Regra |% De CPU > n |
-    | Regra |CPU% < p |
-    | **Perfil** |**Dia da semana horas da manhã (não há regras)** |
-    | **Perfil** |**Dia de lançamento do produto (não há regras)** |
+    | **Perfil** |**Baseado em desempenho/métrica** |
+    | Regra |Contagem de mensagens da fila do barramento de serviço > x |
+    | Regra |Contagem de mensagens da fila do barramento de serviço < y |
+    | Regra |% > N de CPU |
+    | Regra |% De CPU < p |
+    | **Perfil** |**Horas da manhã da semana (sem regras)** |
+    | **Perfil** |**Dia de lançamento do produto (sem regras)** |
 
-4. Eis um cenário hipotético de dimensionamento que utilizamos para este passo a passo.
+4. Aqui está um cenário de dimensionamento hipotético que usamos para este passo a passo.
 
-   * **Carga com base** -gostaria aumente horizontalmente ou com base na carga no meu aplicativo hospedado em meu set.* de dimensionamento
-   * **O tamanho da fila de mensagens** -posso utilizar uma fila do Service Bus para as mensagens recebidas para meu aplicativo. Uso de contagem de mensagens da fila e a % de CPU e configurar um perfil predefinido para acionar uma ação de dimensionamento se qualquer uma das contagem de mensagens ou CPU atinge o limiar.\*
-   * **Hora do dia e semana** -desejo ter um perfil de "Hora do dia", com base periódica semanal denominado "Horas da manhã de dia da semana". Com base nos dados históricos, eu sei que é melhor ter determinado número de instâncias de VM para processar a carga de meu aplicativo durante este período.\*
-   * **Datas especiais** -, Adicionei um perfil de 'Dia de lançamento de produto'. Eu planeie com antecedência para datas específicas, para que meu aplicativo está pronto para processar a carga devido anúncios de marketing e quando o colocamos um novo produto na aplicação.\*
-   * *Os dois últimos perfis também podem ter outras métricas baseada em regras de desempenho dentro dos mesmos. Neste caso, optei por não ter um e em vez disso, contar com a métrica de desempenho predefinido com base em regras. As regras são opcionais para os perfis de recorrentes e baseado na data.*
+   * **Baseado em carga** – eu gostaria de escalar horizontalmente ou com base na carga no meu aplicativo hospedado no meu conjunto de dimensionamento. *
+   * **Tamanho da fila de mensagens** -eu uso uma fila do barramento de serviço para as mensagens de entrada para o meu aplicativo. Eu uso a contagem de mensagens da fila e a CPU% e configuro um perfil padrão para disparar uma ação de escala se uma contagem de mensagens ou CPU atingir o limite.\*
+   * **Hora da semana e dia** – quero um perfil baseado em ' hora do dia ' recorrente semanal chamado ' dias da manhã da semana '. Com base nos dados históricos, sei que é melhor ter determinado número de instâncias de VM para lidar com a carga do meu aplicativo durante esse tempo.\*
+   * **Datas especiais** -adicionei um perfil de "dia de lançamento do produto". Pretendo em frente as datas específicas para que meu aplicativo esteja pronto para lidar com a carga devido aos comunicados de marketing e quando colocamos um novo produto no aplicativo.\*
+   * *Os dois últimos perfis também podem ter outras regras baseadas em métrica de desempenho dentro deles. Nesse caso, decidi não ter um e, em vez disso, contar com as regras baseadas em métrica de desempenho padrão. As regras são opcionais para os perfis de recorrência e baseados em data.*
 
-     Priorização do mecanismo de dimensionamento automático dos perfis e as regras também é capturada no [melhores práticas de dimensionamento automático](autoscale-best-practices.md) artigo.
-     Para obter uma lista de métricas comuns do dimensionamento automático, consulte [métricas comuns do dimensionamento automático](autoscale-common-metrics.md)
+     A priorização do mecanismo de autoescala dos perfis e das regras também é capturada no artigo [práticas recomendadas de dimensionamento](autoscale-best-practices.md) automático.
+     Para obter uma lista de métricas comuns para dimensionamento automático, consulte [métricas comuns para dimensionamento automático](autoscale-common-metrics.md)
 
-5. Certifique-se estiver a utilizar o **leitura/escrita** modo no Explorador de recursos
+5. Verifique se você está no modo de **leitura/gravação** no Gerenciador de recursos
 
-    ![Autoscalewad, definição de dimensionamento automático predefinidos](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
+    ![Autoscalewad, configuração de dimensionamento automático padrão](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. Clique em Editar. **Substitua** o elemento "perfis" na definição de dimensionamento automático com a seguinte configuração:
+6. Clique em Editar. **Substitua** o elemento ' Profiles ' na configuração de dimensionamento automático pela seguinte configuração:
 
-    ![Perfis](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -194,14 +190,14 @@ Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resour
             }
           }
     ```
-    Para campos suportados e os respetivos valores, consulte [documentação da API de REST de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). Agora sua definição de dimensionamento automático contém três perfis explicados anteriormente.
+    Para obter os campos com suporte e seus valores, consulte [documentação da API REST de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). Agora, a configuração de dimensionamento automático contém os três perfis explicados anteriormente.
 
-7. Por fim, examinaremos a dimensionamento automático **notificação** secção. Notificações de dimensionamento automático permitem-lhe fazer três coisas quando um Escalamento horizontal ou em ação com êxito é acionado.
-   - Notificar o administrador e coadministradores da sua subscrição
-   - Um conjunto de utilizadores de e-mail
-   - Acione uma chamada webhook. Quando acionado, este webhook envia os metadados sobre a condição de dimensionamento automático e o conjunto de dimensionamento recursos. Para saber mais sobre o payload do webhook de dimensionamento automático, veja [configurar o Webhook e notificações de E-Mail do dimensionamento automático](autoscale-webhook-email.md).
+7. Por fim, examine a seção **notificação** de dimensionamento automático. As notificações de dimensionamento automático permitem que você faça três coisas quando uma escala horizontal ou em uma ação é disparada com êxito.
+   - Notifique o administrador e os coadministradores da sua assinatura
+   - Enviar um conjunto de usuários por email
+   - Disparar uma chamada de webhook. Quando acionado, este webhook envia metadados sobre a condição de dimensionamento automático e o recurso de conjunto de dimensionamento. Para saber mais sobre a carga de webhook de dimensionamento automático, consulte [Configurar webhook & notificações por email para dimensionamento automático](autoscale-webhook-email.md).
 
-   Adicione o seguinte ao substituir de definição de dimensionamento automático sua **notificação** elemento cujo valor é nulo
+   Adicione o seguinte à configuração de dimensionamento automático substituindo seu elemento de **notificação** cujo valor é nulo
 
    ```
    "notifications": [
@@ -229,23 +225,23 @@ Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resour
 
    ```
 
-   Pressionar **colocar** botão no Explorador de recursos para atualizar a definição de dimensionamento automático.
+   Pressione o botão **colocar** no Gerenciador de recursos para atualizar a configuração de dimensionamento automático.
 
-Atualizar uma definição de dimensionamento automático num conjunto para incluir vários perfis de dimensionamento e dimensionar as notificações de dimensionamento de VM.
+Você atualizou uma configuração de dimensionamento automático em um conjunto de dimensionamento de VM para incluir vários perfis de escala e notificações de escala.
 
 ## <a name="next-steps"></a>Próximos Passos
-Utilize estas ligações para saber mais sobre dimensionamento automático.
+Use estes links para saber mais sobre o dimensionamento automático.
 
-[Resolver problemas de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+[Solucionar problemas de dimensionamento automático com conjuntos de escala de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-[Métricas comuns do dimensionamento automático](autoscale-common-metrics.md)
+[Métricas comuns para dimensionamento automático](autoscale-common-metrics.md)
 
-[Melhores práticas do dimensionamento automático do Azure](autoscale-best-practices.md)
+[Práticas recomendadas para o dimensionamento automático do Azure](autoscale-best-practices.md)
 
-[Gerir o dimensionamento automático com o PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Gerenciar o dimensionamento automático usando o PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 
-[Gerir o dimensionamento automático com a CLI](cli-samples.md#autoscale)
+[Gerenciar o dimensionamento automático usando a CLI](cli-samples.md#autoscale)
 
-[Configurar o Webhook e notificações de E-Mail do dimensionamento automático](autoscale-webhook-email.md)
+[Configurar webhook & notificações por email para dimensionamento automático](autoscale-webhook-email.md)
 
-[Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings) referência de modelo
+Referência de modelo [Microsoft. insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

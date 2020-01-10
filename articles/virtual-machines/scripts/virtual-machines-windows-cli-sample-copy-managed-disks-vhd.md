@@ -1,6 +1,6 @@
 ---
-title: CLI do Azure de exemplo - copiar os discos geridos para uma conta de armazenamento
-description: CLI do Azure de exemplo - exportação ou copiar os discos geridos para uma conta de armazenamento de s.
+title: Copiar um Managed disks para uma conta de armazenamento – exemplo da CLI
+description: CLI do Azure amostra – exportar ou copiar um Managed disks para uma conta s torage.
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d6009a723297d03dc854d06529315b22b2f4de16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92c752c56c37b854bc793d897c664337cf8bfccd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463629"
 ---
-# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar/copiar um disco gerido para uma conta de armazenamento com a CLI do Azure
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar/copiar um disco gerenciado para uma conta de armazenamento usando o CLI do Azure
 
 Este script exporta o VHD subjacente de um disco gerido para uma conta de armazenamento na mesma região ou numa região diferente. Gera primeiro o URI de SAS do disco gerido e, em seguida, utiliza-o para copiar o VHD para uma conta de armazenamento. Utilize este script para copiar discos geridos para expansão a nível regional.
 
@@ -50,4 +50,4 @@ Este script utiliza os seguintes comandos para gerar o URI de SAS de um disco ge
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Máquina virtual adicionais e exemplos de script da CLI de discos geridos podem ser encontrados no [documentação de VM do Windows Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM do Windows do Azure](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

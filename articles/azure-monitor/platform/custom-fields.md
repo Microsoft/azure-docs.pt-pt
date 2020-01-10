@@ -1,5 +1,5 @@
 ---
-title: Campos personalizados no Azure Monitor | Microsoft Docs
+title: Campos personalizados em Azure Monitor (visualização) | Microsoft Docs
 description: O recurso campos personalizados do Azure Monitor permite que você crie seus próprios campos pesquisáveis de registros em um espaço de trabalho Log Analytics que são adicionados às propriedades de um registro coletado.  Este artigo descreve o processo para criar um campo personalizado e fornece uma explicação detalhada com um evento de exemplo.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396871"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
 > [!NOTE]
 > Este artigo descreve como analisar dados de texto em um espaço de trabalho Log Analytics como ele é coletado. É recomendável analisar dados de texto em um filtro de consulta depois que ele é coletado seguindo as diretrizes descritas em [analisar dados de texto em Azure monitor](../log-query/parse-text.md). Ele fornece várias vantagens em relação ao uso de campos personalizados.

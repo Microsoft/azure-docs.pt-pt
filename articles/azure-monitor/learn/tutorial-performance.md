@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398626"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -72,7 +72,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 
     ![Sugestão de desempenho](media/tutorial-performance/6-perf-tip.png)
 
-8.  Para análise adicional, você pode clicar em **baixar rastreamento** para baixar o rastreamento no Visual Studio.
+8.   Para análise adicional, você pode clicar em **baixar rastreamento** para baixar o rastreamento. Você pode exibir esses dados usando o [Perfview](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Usar dados de logs para o servidor
  Os logs fornecem uma linguagem de consulta avançada que permite analisar todos os dados coletados por Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
@@ -87,7 +87,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 ## <a name="identify-slow-client-operations"></a>Identificar as operações do cliente lentas
 Além de identificar os processos de servidor a otimizar, o Application Insights pode analisar a perspetiva dos browsers cliente.  Isto pode ajudar a identificar possíveis melhorias nos componentes de cliente e até mesmo a identificar problemas em browsers diferentes ou em localizações diferentes.
 
-1. Selecione **navegador** em **investigar** , em seguida, clique em **desempenho do navegador** ou selecione **desempenho** em **investigar** e alterne para a guia **navegador** clicando no botão de alternância servidor/navegador no canto superior direito para Abra o resumo de desempenho do navegador. Esta opção fornece um resumo visual de várias telemetrias da sua aplicação da perspetiva do browser.
+1. Selecione **navegador** em **investigar** e clique em **desempenho do navegador** ou selecione **desempenho** em **investigar** e alterne para a guia **navegador** clicando no botão de alternância servidor/navegador no canto superior direito para abrir o resumo de desempenho do navegador. Esta opção fornece um resumo visual de várias telemetrias da sua aplicação da perspetiva do browser.
 
     ![Resumo do browser](media/tutorial-performance/8-browser.png)
 
@@ -102,7 +102,7 @@ Assim como os dados coletados para o desempenho do servidor, o Application Insig
 
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
-    ![consulta de logs](media/tutorial-performance/10-page-view-logs.png)
+    ![Consulta de logs](media/tutorial-performance/10-page-view-logs.png)
 
 3.  O diagnóstico inteligente é um recurso de logs que identifica padrões exclusivos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
 

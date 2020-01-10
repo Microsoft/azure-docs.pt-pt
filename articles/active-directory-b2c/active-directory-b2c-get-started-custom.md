@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367897"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -31,10 +31,10 @@ ms.locfileid: "74664068"
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e assinatura
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Use o filtro **diretório + assinatura** no menu superior para selecionar o diretório que contém seu locatário Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
-1. Na página Visão geral, selecione **estrutura de experiência de identidade** no painel **políticas** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Na página Visão geral, em **políticas**, selecione **estrutura de experiência de identidade**.
 
 ### <a name="create-the-signing-key"></a>Criar a chave de assinatura
 
@@ -77,10 +77,9 @@ Para registrar um aplicativo em seu locatário Azure AD B2C, você pode usar a e
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
-1. Selecione **todos os serviços** no canto superior esquerdo do portal do Azure.
-1. Na caixa de pesquisa, introduza `Azure Active Directory`.
-1. Selecione **Azure Active Directory** nos resultados da pesquisa.
-1. Em **gerenciar** no menu à esquerda, selecione **registros de aplicativo (Herdado)** .
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do **Azure Active Directory** , em **gerenciar**, selecione **registros de aplicativo (Herdado)** .
 1. Selecione **Novo registo de aplicação**.
 1. Para **nome**, insira `IdentityExperienceFramework`.
 1. Para **tipo de aplicativo**, escolha **aplicativo Web/API**.

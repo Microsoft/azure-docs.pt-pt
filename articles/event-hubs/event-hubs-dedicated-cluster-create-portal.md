@@ -1,5 +1,5 @@
 ---
-title: Início rápido do Azure-criar um cluster de hubs de eventos dedicado usando o portal do Azure
+title: Criar um cluster de hubs de eventos dedicado usando o portal do Azure
 description: Neste guia de início rápido, você aprende a criar um cluster de hubs de eventos do Azure usando portal do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: xurui
-ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dbe34b95652d972a9e75f4ab8f2c208061359ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437216"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Início rápido: criar um cluster de hubs de eventos dedicado usando portal do Azure 
 Os clusters de hubs de eventos oferecem implantações de locatário único para clientes com as necessidades de streaming mais exigentes. Esta oferta tem um SLA de 99,99% garantido e está disponível apenas em nosso tipo de preço dedicado. Um [cluster de hubs de eventos](event-hubs-dedicated-overview.md) pode ingressar milhões de eventos por segundo com a capacidade garantida e a latência de subsegundos. Os namespaces e os hubs de eventos criados em um cluster incluem todos os recursos da oferta padrão e muito mais, mas sem nenhum limite de entrada. A oferta dedicada também inclui o recurso popular de [captura de hubs de eventos](event-hubs-capture-overview.md) sem custo adicional, permitindo que você registre automaticamente os fluxos de dados de lote e de log no armazenamento de [BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -65,10 +65,10 @@ Para criar um cluster em seu grupo de recursos usando o portal do Azure, execute
 2. Na página criar um namespace, execute as seguintes etapas:
     1. Insira um **nome para o namespace**.  O sistema verifica se o nome está disponível.
     2. O namespace herda as seguintes propriedades:
-        1. ID da subscrição
+        1. ID de Subscrição
         2. Grupo de Recursos
         3. Localização
-        4. Nome do Cluster
+        4. Nome do cluster
     3. Selecione **criar** para criar o namespace. Agora você pode gerenciar seu cluster.  
 
         ![Criar namespace na página do cluster](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)

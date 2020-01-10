@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4c53d1c1ffbc80e694a9a7b423b2aaf9c6d38b48
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 5f69bcafbc3abb39b4185e0144ff6029808c0704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432982"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Solicitar dados em tempo real usando o serviço de mobilidade do Azure Maps
 
@@ -29,7 +29,8 @@ Neste artigo, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs de trânsito público do Azure Maps, você precisa de uma conta e chave de mapas. Para obter informações sobre como criar uma conta, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
+Para fazer chamadas para as APIs de trânsito público do Azure Maps, você precisa de uma conta e chave de mapas. Para obter informações sobre como criar uma conta e obter uma chave, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
+
 
 Este artigo usa o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas REST. Você pode usar qualquer ambiente de desenvolvimento de API que preferir.
 
@@ -129,7 +130,7 @@ Para fazer uma solicitação para a API obter informações de encaixe de trâns
 
 Para obter **dockid**, siga as etapas abaixo para fazer uma solicitação para a API Get de trânsito próximo:
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **obter ID de encaixe**.
+1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie-a como **obter ID de encaixe**.
 
 2.  Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir e clique em **Enviar**.
  
@@ -178,7 +179,7 @@ Para obter **dockid**, siga as etapas abaixo para fazer uma solicitação para a
 
 Siga as etapas abaixo para fazer uma solicitação para a API obter informações de encaixe de trânsito para obter dados em tempo real para o Dock selecionado.
 
-1. No postmaster, clique em **nova solicitação** | **obter solicitação** e nomeie-a como **obter dados de encaixe em tempo real**.
+1. No postmaster, clique em **nova solicitação** | **solicitação get** e nomeie- **a como obter dados de encaixe em tempo real**.
 
 2.  Na guia Construtor, selecione o método http **Get** , insira a URL de solicitação a seguir e clique em **Enviar**.
  
@@ -205,7 +206,7 @@ Siga as etapas abaixo para fazer uma solicitação para a API obter informaçõe
     ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como solicitar dados de trânsito usando o serviço de mobilidade:
 

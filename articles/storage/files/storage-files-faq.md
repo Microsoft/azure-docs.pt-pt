@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824278"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665383"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre os arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)padrão do setor. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, Linux e macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -127,20 +127,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades dos arq
 
 * <a id="afs-files-excluded"></a>
   **quais arquivos ou pastas são excluídos automaticamente pelo sincronização de arquivos do Azure?**  
-    Por padrão, Sincronização de Arquivos do Azure exclui os seguintes arquivos:
-  * desktop.ini
-  * thumbs.db
-  * ehthumbs.db
-  * ~$\*.\*
-  * \*.laccdb
-  * \*.tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA.\*
-
-    As seguintes pastas também são excluídas por padrão:
-
-  * Informações de volume de \System
-  * RECICLAGEM de \$. COMPARTIMENTO
-  * \SyncShareState
+  Consulte [arquivos ignorados](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   posso **usar sincronização de arquivos do Azure com o Windows Server 2008 R2, Linux ou meu dispositivo de armazenamento conectado à rede (nas)?**  
@@ -235,7 +222,7 @@ a **quais políticas de conformidade de dados os arquivos do Azure dão suporte?
 
    Os arquivos do Azure são executados na parte superior da mesma arquitetura de armazenamento usada em outros serviços de armazenamento no armazenamento do Azure. Os arquivos do Azure aplicam as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, você pode consultar as [ofertas de conformidade do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e ir para a [central de confiabilidade da Microsoft](https://microsoft.com/trustcenter/default.aspx).
 
-## <a name="on-premises-access"></a>Acesso local
+## <a name="on-premises-access"></a>Acesso no local
 
 * <a id="port-445-blocked"></a>
 **meu ISP ou ele bloqueia a porta 445 que está falhando na montagem de arquivos do Azure. O que devo fazer?**
@@ -252,7 +239,7 @@ preciso **usar o Azure ExpressRoute para se conectar aos arquivos do Azure ou us
 
     Você pode montar o compartilhamento de arquivos usando o protocolo SMB se a porta 445 (TCP de saída) estiver aberta e o cliente der suporte ao protocolo SMB 3,0 (por exemplo, se você estiver usando o Windows 10 ou o Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou por seu ISP, você poderá usar Sincronização de Arquivos do Azure para acessar o compartilhamento de arquivos do Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **como fazer fazer backup do meu compartilhamento de arquivos do Azure?**  
     Você pode usar [instantâneos de compartilhamento](storage-snapshots-files.md) periódicos para proteção contra exclusões acidentais. Você também pode usar o AzCopy, o Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de um compartilhamento de arquivos montado. O backup do Azure oferece backup de arquivos do Azure. Saiba mais sobre como [fazer backup de compartilhamentos de arquivos do Azure pelo backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
@@ -384,7 +371,7 @@ posso **configurar compartilhamentos aninhados? Em outras palavras, um compartil
 **como fazer usar os arquivos do Azure com o IBM MQ?**  
     A IBM lançou um documento que ajuda os clientes do IBM MQ a configurar os arquivos do Azure com o serviço IBM. Para obter mais informações, consulte [como configurar um Gerenciador de filas de várias instâncias do IBM MQ com o serviço de Microsoft Azure arquivos](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas de arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

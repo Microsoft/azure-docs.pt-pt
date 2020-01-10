@@ -2,19 +2,15 @@
 title: Runbooks filho na automação do Azure
 description: Descreve os diferentes métodos para iniciar um runbook na automação do Azure de outro runbook e compartilhar informações entre eles.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e7341a8c270d16497430a70c2a1b21354a775787
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a35ee69e6a167f4907294c88710d0484353d4cb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367014"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filho na automação do Azure
 

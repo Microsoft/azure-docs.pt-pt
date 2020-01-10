@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric com o gerenciamento de API visão geral | Microsoft Docs
+title: Azure Service Fabric com visão geral do gerenciamento de API
 description: Este artigo é uma introdução ao uso do gerenciamento de API do Azure como um gateway para seus aplicativos Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378115"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral do gerenciamento de API do Azure
 
@@ -48,7 +39,7 @@ Nesse cenário, a interface do usuário da Web ainda é servida por meio de um s
 
 ## <a name="application-scenarios"></a>Cenários de aplicações
 
-Os serviços no Service Fabric podem ser com ou sem estado e podem ser particionados usando um dos três esquemas: singleton, intervalo int-64 e nomeado. A resolução de ponto de extremidade de serviço requer a identificação de uma partição específica de uma instância de serviço específica. Ao resolver um ponto de extremidade de um serviço, o nome da instância de serviço (por `fabric:/myapp/myservice`exemplo,), bem como a partição específica do serviço, deve ser especificado, exceto no caso de partição singleton.
+Os serviços no Service Fabric podem ser com ou sem estado e podem ser particionados usando um dos três esquemas: singleton, intervalo int-64 e nomeado. A resolução de ponto de extremidade de serviço requer a identificação de uma partição específica de uma instância de serviço específica. Ao resolver um ponto de extremidade de um serviço, o nome da instância de serviço (por exemplo, `fabric:/myapp/myservice`), bem como a partição específica do serviço, deve ser especificado, exceto no caso de partição singleton.
 
 O gerenciamento de API do Azure pode ser usado com qualquer combinação de serviços sem estado, serviços com estado e qualquer esquema de particionamento.
 
@@ -57,7 +48,7 @@ O gerenciamento de API do Azure pode ser usado com qualquer combinação de serv
 No caso mais simples, o tráfego é encaminhado para uma instância de serviço sem estado. Para fazer isso, uma operação de gerenciamento de API contém uma política de processamento de entrada com um back-end Service Fabric que mapeia para uma instância de serviço sem estado específica no back-end de Service Fabric. As solicitações enviadas para esse serviço são enviadas a uma instância aleatória do serviço.
 
 #### <a name="example"></a>Exemplo
-No cenário a seguir, um aplicativo Service Fabric contém um serviço sem estado `fabric:/app/fooservice`chamado, que expõe uma API http interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API. 
+No cenário a seguir, um aplicativo Service Fabric contém um serviço sem estado chamado `fabric:/app/fooservice`, que expõe uma API HTTP interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API. 
 
 ![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-static-stateless]
 
@@ -67,9 +58,9 @@ Semelhante ao cenário de serviço sem estado, o tráfego pode ser encaminhado p
 
 #### <a name="example"></a>Exemplo
 
-No cenário a seguir, um aplicativo Service Fabric contém um serviço com estado particionado `fabric:/app/userservice` chamado que expõe uma API http interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API.  
+No cenário a seguir, um aplicativo Service Fabric contém um serviço com estado particionado chamado `fabric:/app/userservice` que expõe uma API HTTP interna. O nome da instância de serviço é bem conhecido e pode ser embutido em código diretamente na política de processamento de entrada do gerenciamento de API.  
 
-O serviço é particionado usando o esquema de partição Int64 com duas partições e um intervalo de chaves que `Int64.MinValue` abrange `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
+O serviço é particionado usando o esquema de partição Int64 com duas partições e um intervalo de chaves que abrange `Int64.MinValue` para `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro desse intervalo convertendo o valor de `id` fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
 
 ![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-static-stateful]
 
@@ -85,10 +76,10 @@ Neste exemplo, uma nova instância de serviço sem estado é criada para cada us
  
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end `name` a partir do valor fornecido no caminho de solicitação de URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end do valor `name` fornecido no caminho de solicitação de URL. Por exemplo:
 
-  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço`fabric:/app/users/foo`
-  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço`fabric:/app/users/bar`
+  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
+  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`
 
 ![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-dynamic-stateless]
 
@@ -104,12 +95,12 @@ Neste exemplo, uma nova instância de serviço com estado é criada para cada us
  
 - `fabric:/app/users/<username>`
 
-  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end `name` a partir do valor fornecido o caminho de solicitação de URL. Por exemplo:
+  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos antes porque os serviços são criados em resposta à entrada do usuário ou do administrador e, portanto, não podem ser embutidos em código em políticas de APIM ou regras de roteamento. Em vez disso, o nome do serviço para o qual enviar uma solicitação é gerado na definição de política de back-end do valor `name` forneceu o caminho de solicitação de URL. Por exemplo:
 
-  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço`fabric:/app/users/foo`
-  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço`fabric:/app/users/bar`
+  - Uma solicitação para `/api/users/foo` é roteada para a instância de serviço `fabric:/app/users/foo`
+  - Uma solicitação para `/api/users/bar` é roteada para a instância de serviço `fabric:/app/users/bar`
 
-Cada instância de serviço também é particionada usando o esquema de partição Int64 com duas partições e um intervalo de chaves `Int64.MinValue` que `Int64.MaxValue`abrange. A política de back-end computa uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
+Cada instância de serviço também é particionada usando o esquema de partição Int64 com duas partições e um intervalo de chaves que abrange `Int64.MinValue` para `Int64.MaxValue`. A política de back-end computa uma chave de partição dentro desse intervalo convertendo o valor de `id` fornecido no caminho de solicitação de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para computar a chave de partição. 
 
 ![Service Fabric com visão geral da topologia de gerenciamento de API do Azure][sf-apim-dynamic-stateful]
 

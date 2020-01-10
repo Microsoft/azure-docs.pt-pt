@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364089"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métrica Azure Monitor usando um modelo de Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
@@ -23,7 +23,7 @@ Usando a extensão Azure Monitor [Windows diagnóstico do Azure (wad)](diagnosti
 
 Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para um conjunto de dimensionamento de máquinas virtuais do Windows para o armazenamento de dados do Azure Monitor. A partir do Windows Diagnóstico do Azure versão 1,11, você pode gravar métricas diretamente no repositório de métricas de Azure Monitor, em que as métricas de plataforma padrão já são coletadas. Ao armazená-los nesse local, você pode acessar as mesmas ações que estão disponíveis para métricas de plataforma. As ações incluem alertas em tempo real, criação de gráficos, roteamento, acesso da API REST e muito mais. No passado, a extensão de Diagnóstico do Azure do Windows gravou no armazenamento do Azure, mas não no armazenamento de dados Azure Monitor.  
 
-Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.  
+Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900292"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397844"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Junções em consultas de log de Azure Monitor
 
@@ -80,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipos de junção
 Especifique o tipo de junção com o argumento _Kind_ . Cada tipo executa uma correspondência diferente entre os registros das tabelas determinadas, conforme descrito na tabela a seguir.
 
-| Tipo de junção | Descrição |
+| Tipo de associação | Descrição |
 |:---|:---|
 | innerunique | Esse é o modo de junção padrão. Primeiro, os valores da coluna correspondente na tabela esquerda são encontrados e os valores duplicados são removidos.  Em seguida, o conjunto de valores exclusivos é correspondido na tabela direita. |
 | Inner | Somente os registros correspondentes em ambas as tabelas são incluídos nos resultados. |

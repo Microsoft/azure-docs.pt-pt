@@ -1,23 +1,14 @@
 ---
 title: Azure Monitor para configuração de monitores de integridade de contêineres | Microsoft Docs
 description: Este artigo fornece conteúdo que descreve a configuração detalhada dos monitores de integridade em Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405045"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guia de configuração do monitor de integridade de Azure Monitor para contêineres
 
@@ -29,9 +20,9 @@ Monitores são o elemento principal para medir a integridade e detectar erros em
 
 ## <a name="monitors"></a>Monitores
 
-Um monitor mede a integridade de algum aspecto de um objeto gerenciado. Monitores cada um tem dois ou três Estados de integridade. Um monitor estará em um e apenas um de seus Estados potenciais em um determinado momento. Quando um monitor é carregado pelo agente em contêiner, ele é inicializado para um estado íntegro. O estado será alterado somente se as condições especificadas para outro Estado forem detectadas.
+Um monitor mede o estado de funcionamento de algum aspeto de um objeto gerido. Os monitores têm dois ou três estados de funcionamento. Um monitor estará em um e apenas um dos seus estados potenciais num determinado momento. Quando um monitor é carregado pelo agente em contêiner, ele é inicializado para um estado íntegro. O estado será alterado somente se as condições especificadas para outro Estado forem detectadas.
 
-A integridade geral de um determinado objeto é determinada da integridade de cada um de seus monitores. Essa hierarquia é ilustrada no painel hierarquia de integridade em Azure Monitor para contêineres. A política de como a integridade é acumulada faz parte da configuração dos monitores agregados.
+O estado de funcionamento global de um determinado objeto é determinado a partir do estado de funcionamento de cada um dos seus monitores. Essa hierarquia é ilustrada no painel hierarquia de integridade em Azure Monitor para contêineres. A política de como a integridade é acumulada faz parte da configuração dos monitores agregados.
 
 ## <a name="types-of-monitors"></a>Tipos de monitores
 
@@ -63,7 +54,7 @@ Azure Monitor para contêineres inclui vários cenários de monitoramento princi
 
 ### <a name="unit-monitors"></a>Monitores de unidade
 
-|**Nome do monitor** | Tipo de monitor | **Descrição** | **Meter** | **Valor** |
+|**Nome do monitor** | Tipo de monitor | **Descrição** | **Parâmetro** | **Valor** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Utilização de memória do nó |Monitor de unidade |Esse monitor avalia a utilização de memória de um nó a cada minuto, usando os dados relatados do cadvisor. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |Utilização de CPU do nó |Monitor de unidade |Esse monitor verifica a utilização da CPU do nó a cada minuto, usando os dados relatados do cadvisor. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||

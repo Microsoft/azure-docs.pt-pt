@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432997"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar a autenticação no Azure Maps
 
@@ -21,11 +21,11 @@ Depois de criar uma conta do Azure Maps, uma ID do cliente e as chaves são cria
 
 ## <a name="view-authentication-details"></a>Exibir detalhes de autenticação
 
+Após a criação da conta do Azure Maps, as chaves primária e secundária são geradas. É recomendável usar a chave primária como chave de assinatura ao chamar o Azure Maps usando a [autenticação de chave compartilhada](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). A chave secundária pode ser usada em cenários como alterações de chave sem interrupção. Para saber mais, confira [autenticação com o Azure Maps](https://aka.ms/amauth).
+
 Você pode exibir os detalhes de autenticação no portal do Azure. Vá para sua conta e selecione **autenticação** no menu **configurações** .
 
 ![Detalhes da autenticação](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- Para saber mais, confira [autenticação com o Azure Maps](https://aka.ms/amauth).
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Configurar o registro de aplicativo do Azure AD
@@ -91,11 +91,11 @@ Depois de registrar seu aplicativo e associo-lo ao Azure Maps, você pode solici
 
 * Se seu aplicativo usar a autenticação de token de usuário com o SDK da Web do Azure Maps, você precisará configurar sua página HTML com a ID do cliente do Azure Maps e a ID do aplicativo do Azure AD.
 
-* Se seu aplicativo usar a autenticação de servidor/aplicativo, você precisará solicitar um token do ponto de extremidade de token do Azure AD `https://login.microsoftonline.com` com a ID de recurso do Azure AD `https://atlas.microsoft.com/`, a ID do cliente do Azure Maps, a ID do aplicativo do Azure AD e a senha de registro do aplicativo do Azure AD ou Certificate.
+* Se seu aplicativo usar a autenticação de servidor/aplicativo, você precisará solicitar um token do ponto de extremidade de token do Azure AD `https://login.microsoftonline.com` com a ID de recurso do Azure AD `https://atlas.microsoft.com/`, a ID do cliente do Azure Maps, a ID do aplicativo do Azure AD e a senha ou o certificado de registro do aplicativo do Azure AD.
 
 | Ambiente do Azure   | Ponto de extremidade de token do Azure AD | ID de recurso do Azure |
 | --------------------|-------------------------|-------------------|
-| Público do Azure        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Público        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
 | Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Para obter mais informações sobre como solicitar tokens de acesso do Azure AD para usuários e entidades de serviço, consulte [cenários de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432610"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Localização geográfica e manipulação de endereço IP
 
@@ -154,7 +154,7 @@ namespace MyWebApp
 > [!NOTE]
 > Se não for possível acessar o `ISupportProperties`, verifique e se você está executando a versão estável mais recente do SDK do Application Insights. `ISupportProperties` destinam-se a valores de alta cardinalidade, enquanto `GlobalProperties` são mais apropriadas para valores de cardinalidade baixa, como nome da região, nome do ambiente, etc. 
 
-### <a name="enable-telemetry-initializer-for-aspnet"></a>Habilite o inicializador de telemetria para. ASP.NET
+### <a name="enable-telemetry-initializer-for-aspnet"></a>Habilitar inicializador de telemetria para ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -235,7 +235,7 @@ requests
 
 Endereços IP recentemente coletados devem aparecer na coluna `customDimensions_client-ip`. A coluna de `client-ip` padrão ainda terá quatro octetos zerados ou apenas exibindo os três primeiros octetos, dependendo de como você configurou a coleta de endereços IP no nível do componente. Se você estiver testando localmente após implementar o inicializador de telemetria e o valor que você vê para `customDimensions_client-ip` for `::1` o comportamento é esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4 e é o resultado que você verá ao testar a partir do localhost.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Saiba mais sobre a [coleta de dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) no Application insights.
 

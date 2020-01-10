@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452565"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e solucionar problemas de um ambiente de visualização
 
@@ -25,7 +25,7 @@ Este artigo resume vários problemas comuns que você pode encontrar ao trabalha
 
 Esse problema pode ocorrer se você não tiver permissões para acessar o ambiente de Time Series Insights. Os usuários precisam de uma função de acesso de nível de leitor para exibir seu ambiente de Time Series Insights. Para verificar os níveis de acesso atuais e conceder acesso adicional, acesse a seção **políticas de acesso a dados** no recurso de Time Series Insights no [portal do Azure](https://portal.azure.com/).
 
-  [Ambiente de ![](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![verificar as políticas de acesso a dados.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: nenhum dado é visto no Gerenciador de visualização
 
@@ -35,7 +35,7 @@ Há vários motivos comuns pelos quais você pode não ver seus dados no [Azure 
 
     Verifique se a origem do evento, que é um hub de eventos ou um hub IoT, está recebendo dados de suas marcas ou instâncias. Para verificar, vá para a página Visão geral do recurso na portal do Azure.
 
-    [Painel de ![-ideias](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![revisar visão geral das métricas do painel.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
@@ -45,14 +45,15 @@ Há vários motivos comuns pelos quais você pode não ver seus dados no [Azure 
 
   * Para um hub IoT, você precisa fornecer a chave que tem a permissão de **conexão de serviço** .
 
-    [![Configuração (Configuration)](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![verificar as permissões do Hub IoT.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * Conforme mostrado na imagem anterior, ambas as políticas **iothubowner** e **serviço** funcionam porque têm permissão de **conexão de serviço** .
+    * As políticas **iothubowner** e **serviço** funcionam porque têm permissão de **conexão de serviço** .
+
   * Para um hub de eventos, você precisa fornecer a chave que tem a permissão **escutar** .
   
-    [![permissões](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![examinar as permissões do hub de eventos.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * Conforme mostrado na imagem anterior, as políticas de **leitura** e de **Gerenciamento** funcionam porque têm permissão de **escuta** .
+    * As políticas de **leitura** e de **Gerenciamento** funcionam porque têm permissão de **escuta** .
 
 - Seu grupo de consumidores fornecido não é exclusivo para Time Series Insights.
 
@@ -98,7 +99,7 @@ Se a propriedade timestamp não for especificada explicitamente, o Hub IoT do ev
 
    Os modelos de série temporal têm suporte apenas em ambientes pagos conforme o uso. Para obter mais informações sobre como acessar seu ambiente S1 ou S2 no Time Series Insights Preview Explorer, consulte [Visualizar dados no Gerenciador](./time-series-insights-update-explorer.md).
 
-   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [Não ![nenhum evento no ambiente.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Talvez você não tenha permissões para exibir e editar o modelo.
 
@@ -108,10 +109,12 @@ Se a propriedade timestamp não for especificada explicitamente, o Hub IoT do ev
 
 Esse problema pode ocorrer se o seu ambiente não tiver uma hierarquia de modelo de série temporal definida. Para obter mais informações, consulte [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
 
-  [Modelos de série temporal ![](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![instâncias não pai exibirão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
+
 - Saiba mais sobre [as formas JSON com suporte](./how-to-shape-query-json.md).
+
 - Examine o [planejamento e os limites](./time-series-insights-update-plan.md) na visualização Azure Time Series insights.

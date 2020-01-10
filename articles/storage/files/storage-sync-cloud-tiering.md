@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: efaa1ef4c5b82da9b905f75483daf9eb3536b15a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431729"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral de camadas de nuvem
-A camada de nuvem é um recurso opcional do Sincronização de Arquivos do Azure em que os arquivos acessados com frequência são armazenados em cache localmente no servidor, enquanto todos os outros arquivos estão em camadas para os arquivos do Azure com base nas configurações de política. Quando um arquivo está em camadas, o filtro do sistema de arquivos Sincronização de Arquivos do Azure (StorageSync. sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos no NTFS para que os aplicativos de terceiros possam identificar com segurança os arquivos em camadas.
+A camada de nuvem é um recurso opcional do Sincronização de Arquivos do Azure em que os arquivos acessados com frequência são armazenados em cache localmente no servidor, enquanto todos os outros arquivos estão em camadas para os arquivos do Azure com base nas configurações de política. Quando um arquivo está em camadas, o filtro do sistema de arquivos Sincronização de Arquivos do Azure (StorageSync. sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que os aplicativos de terceiros possam identificar com segurança os arquivos em camadas.
  
 Quando um usuário abre um arquivo em camadas, Sincronização de Arquivos do Azure rechama diretamente os dados de arquivo dos arquivos do Azure sem que o usuário precise saber que o arquivo está realmente armazenado no Azure. 
  
@@ -73,8 +73,9 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas em seu c
         | Letra do atributo | Atributo | Definição |
         |:----------------:|-----------|------------|
         | A | Arquivo | Indica que o backup do arquivo deve ser feito pelo software de backup. Esse atributo é sempre definido, independentemente de o arquivo estar em camadas ou armazenado totalmente no disco. |
-        | P | Arquivo esparso | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo de disco está praticamente vazio. Sincronização de Arquivos do Azure usa arquivos esparsos porque um arquivo é totalmente em camadas ou parcialmente rechamado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo parcialmente rechamado, essa parte do arquivo já está no disco. Se um arquivo for totalmente rechamado para o disco, Sincronização de Arquivos do Azure o converterá de um arquivo esparso em um arquivo regular. |
-        | B | Ponto de nova análise | Indica que o arquivo tem um ponto de nova análise. Um ponto de nova análise é um ponteiro especial para uso por um filtro do sistema de arquivos. Sincronização de Arquivos do Azure usa pontos de nova análise para definir para o filtro do sistema de arquivos Sincronização de Arquivos do Azure (StorageSync. sys) o local da nuvem onde o arquivo está armazenado. Isso dá suporte ao acesso contínuo. Os usuários não precisarão saber que Sincronização de Arquivos do Azure está sendo usado ou como obter acesso ao arquivo em seu compartilhamento de arquivos do Azure. Quando um arquivo é totalmente rechamado, Sincronização de Arquivos do Azure remove o ponto de nova análise do arquivo. |
+        | P | Arquivo esparso | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo de disco está praticamente vazio. Sincronização de Arquivos do Azure usa arquivos esparsos porque um arquivo é totalmente em camadas ou parcialmente rechamado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo parcialmente rechamado, essa parte do arquivo já está no disco. Se um arquivo for totalmente rechamado para o disco, Sincronização de Arquivos do Azure o converterá de um arquivo esparso em um arquivo regular. Esse atributo só é definido no Windows Server 2016 e mais antigo.|
+        | M | Recall no acesso a dados | Indica que os dados do arquivo não estão totalmente presentes no armazenamento local. A leitura do arquivo fará com que pelo menos um conteúdo do arquivo seja obtido de um compartilhamento de arquivos do Azure ao qual o ponto de extremidade do servidor está conectado. Esse atributo só é definido no Windows Server 2019. |
+        | L | Ponto de reanálise | Indica que o arquivo tem um ponto de nova análise. Um ponto de nova análise é um ponteiro especial para uso por um filtro do sistema de arquivos. Sincronização de Arquivos do Azure usa pontos de nova análise para definir para o filtro do sistema de arquivos Sincronização de Arquivos do Azure (StorageSync. sys) o local da nuvem onde o arquivo está armazenado. Isso dá suporte ao acesso contínuo. Os usuários não precisarão saber que Sincronização de Arquivos do Azure está sendo usado ou como obter acesso ao arquivo em seu compartilhamento de arquivos do Azure. Quando um arquivo é totalmente rechamado, Sincronização de Arquivos do Azure remove o ponto de nova análise do arquivo. |
         | O | Offline | Indica que parte ou todo o conteúdo do arquivo não está armazenado no disco. Quando um arquivo é totalmente rechamado, Sincronização de Arquivos do Azure remove esse atributo. |
 
         ![A caixa de diálogo Propriedades de um arquivo, com a guia detalhes selecionada](media/storage-files-faq/azure-file-sync-file-attributes.png)
@@ -82,16 +83,16 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas em seu c
         Você pode ver os atributos de todos os arquivos em uma pasta adicionando o campo **atributos** à exibição de tabela do explorador de arquivos. Para fazer isso, clique com o botão direito do mouse em uma coluna existente (por exemplo, **tamanho**), selecione **mais**e, em seguida, selecione **atributos** na lista suspensa.
         
    * **Use `fsutil` para verificar se há pontos de nova análise em um arquivo.**
-       Conforme descrito na opção anterior, um arquivo em camadas sempre tem um conjunto de pontos de nova análise. Um ponteiro de nova análise é um ponteiro especial para o Sincronização de Arquivos do Azure filtro do sistema de arquivos (StorageSync. sys). Para verificar se um arquivo tem um ponto de nova análise, em um prompt de comando com privilégios elevados ou na janela `fsutil` do PowerShell, execute o utilitário:
+       Conforme descrito na opção anterior, um arquivo em camadas sempre tem um conjunto de pontos de nova análise. Um ponteiro de nova análise é um ponteiro especial para o Sincronização de Arquivos do Azure filtro do sistema de arquivos (StorageSync. sys). Para verificar se um arquivo tem um ponto de nova análise, em um prompt de comando com privilégios elevados ou na janela do PowerShell, execute o utilitário `fsutil`:
     
         ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Se o arquivo tiver um ponto de nova análise, você poderá esperar ver **o valor da marca de nova análise: 0x8000001e**. Esse valor hexadecimal é o valor do ponto de nova análise que pertence ao Sincronização de Arquivos do Azure. A saída também contém os dados de nova análise que representam o caminho para o arquivo no compartilhamento de arquivos do Azure.
+        Se o arquivo tiver um ponto de nova análise, você poderá esperar ver o **valor da marca de nova análise: 0x8000001e**. Esse valor hexadecimal é o valor do ponto de nova análise que pertence ao Sincronização de Arquivos do Azure. A saída também contém os dados de nova análise que representam o caminho para o arquivo no compartilhamento de arquivos do Azure.
 
         > [!WARNING]  
-        > O `fsutil reparsepoint` comando do utilitário também tem a capacidade de excluir um ponto de nova análise. Não execute esse comando a menos que a equipe de engenharia de Sincronização de Arquivos do Azure solicite a você. A execução desse comando pode resultar em perda de dados. 
+        > O comando do utilitário `fsutil reparsepoint` também tem a capacidade de excluir um ponto de nova análise. Não execute esse comando a menos que a equipe de engenharia de Sincronização de Arquivos do Azure solicite a você. A execução desse comando pode resultar em perda de dados. 
 
 <a id="afs-recall-file"></a>
 
@@ -105,18 +106,18 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
 ```
 
-Se `-Order CloudTieringPolicy` você especificar, os arquivos modificados mais recentemente serão relembrados primeiro.
+A especificação de `-Order CloudTieringPolicy` irá lembrar os arquivos modificados mais recentemente primeiro.
 Outros parâmetros opcionais:
-* `-ThreadCount`Determina quantos arquivos podem ser rechamados em paralelo.
+* `-ThreadCount` determina quantos arquivos podem ser rechamados em paralelo.
 * `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
-* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentativas de recuperação e sempre deve ser usado em combinação com o parâmetro anterior.
+* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre as tentativas de repetição para recuperar e deve ser sempre usada em combinação com o parâmetro anterior.
 
 > [!Note]  
-> Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recuperar todos os dados em camadas, o `Invoke-StorageSyncFileRecall` cmdlet falhará.  
+> Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recuperar todos os dados em camadas, o cmdlet `Invoke-StorageSyncFileRecall` falhará.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Por que o *tamanho na* Propriedade do disco para um arquivo corresponde à propriedade *size* depois de usar sincronização de arquivos do Azure? 
-O explorador de arquivos do Windows expõe duas propriedades para representar o tamanho de um arquivo: **Tamanho** e **tamanho em disco**. Essas propriedades diferem sutilmente no significado. **Tamanho** representa o tamanho completo do arquivo. **Tamanho em disco** representa o tamanho do fluxo de arquivos armazenado no disco. Os valores dessas propriedades podem diferir por vários motivos, como compactação, uso de eliminação de duplicação de dados ou camadas de nuvem com Sincronização de Arquivos do Azure. Se um arquivo estiver em camadas para um compartilhamento de arquivos do Azure, o tamanho no disco será zero, pois o fluxo de arquivos será armazenado no compartilhamento de arquivos do Azure e não no disco. Também é possível que um arquivo seja parcialmente em camadas (ou parcialmente rechamado). Em um arquivo parcialmente em camadas, parte do arquivo está no disco. Isso pode ocorrer quando os arquivos são lidos parcialmente por aplicativos como players de multimídia ou utilitários de zip. 
+O explorador de arquivos do Windows expõe duas propriedades para representar o tamanho de um arquivo: **tamanho** e **tamanho em disco**. Essas propriedades diferem sutilmente no significado. **Tamanho** representa o tamanho completo do arquivo. **Tamanho em disco** representa o tamanho do fluxo de arquivos armazenado no disco. Os valores dessas propriedades podem diferir por vários motivos, como compactação, uso de eliminação de duplicação de dados ou camadas de nuvem com Sincronização de Arquivos do Azure. Se um arquivo estiver em camadas para um compartilhamento de arquivos do Azure, o tamanho no disco será zero, pois o fluxo de arquivos será armazenado no compartilhamento de arquivos do Azure e não no disco. Também é possível que um arquivo seja parcialmente em camadas (ou parcialmente rechamado). Em um arquivo parcialmente em camadas, parte do arquivo está no disco. Isso pode ocorrer quando os arquivos são lidos parcialmente por aplicativos como players de multimídia ou utilitários de zip. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Como fazer forçar um arquivo ou diretório a ser colocado em camadas?

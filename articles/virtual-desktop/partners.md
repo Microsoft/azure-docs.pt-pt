@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f503377984a347d85af04d85728c53eaad0c4c74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451369"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -38,7 +38,6 @@ Como um provedor aprovado, os benefícios da área de trabalho virtual do Window
 
 - [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
-
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -82,6 +81,16 @@ deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecn
 
 - [Acesse o site do parceiro](https://devicetrust.com/wvd).
 
+## <a name="hp"></a>HP
+
+![Logotipo da HP](./media/partners/hp.png)
+
+O HP Thin Client é um parceiro aprovado e verificado dos serviços de área de trabalho do Azure e do Windows virtual da Microsoft. Os clientes finos da HP com Windows 10 IoT Enterprise oferecem suporte integrado para cargas de trabalho baseadas no Azure e desktops hospedados na área de trabalho virtual do Windows. O hardware e o sistema operacional são otimizados para fornecer uma experiência de melhor qualidade que proporcione efetivamente cargas de trabalho remotas, reduzindo a superfície do sistema operacional, o hardware e os custos de manutenção.
+
+Como a HP observou as tendências do setor, os desafios dos clientes e a virtualização de soluções oferecida durante o processo de desenvolvimento, elas foram inspiradas para inventar o ponto de extremidade ideal da nuvem usando uma proposta de valor de quatro pilares: design, capacidade de gerenciamento, segurança e versatilidade. Cada HP Thin Client é desenvolvido com os tomadores de decisão de ti em mente. Os clientes finos da HP são de longa duração, seguros, fáceis de implantar e gerenciar e eficientes para que você possa fazer a transição para VDI ou computação em nuvem de forma fácil. O portfólio versátil da HP oferece a você a liberdade de escolher a solução de ponto de extremidade moderna ideal para você.
+
+- [Acesse o site do parceiro](https://hp.com/go/thin).
+
 ## <a name="igel"></a>IGEL
 
 ![Logotipo do IGEL](./media/partners/igel.png)
@@ -90,7 +99,7 @@ IGEL é um parceiro aprovado e verificado de Microsoft Azure e serviços de áre
  
 O sistema operacional IGEL dá suporte a todos os aplicativos virtuais populares, desktops e protocolos de cliente de espaço de trabalho de nuvem da Citrix, da Microsoft e do VMware. Ele inclui tecnologias integradas de 85 periféricos, interface e parceiros de protocolo para ajudar as organizações a adotar rapidamente os serviços de área de trabalho virtual do Windows em seus próprios ambientes de usuário exclusivos. O sistema operacional IGEL é um sistema operacional de ponto de extremidade modular somente leitura, que ajuda a protegê-lo contra violação. Ele agora também inclui uma "cadeia de confiança" completa que verifica a integridade de todos os principais processos de chave em execução no ponto de extremidade, do hardware do ponto de extremidade (alguns modelos selecionados) ou do processo UEFI até os serviços de área de trabalho de nuvem do Azure e Windows virtual. Com o IGEL OS, as empresas podem assinar a área de trabalho virtual do Windows da nuvem do Azure com total confiança na integridade, na segurança e na capacidade de gerenciamento dos dispositivos de ponto de extremidade dos usuários.
 
-- [Acesse o site do parceiro.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Acesse o site do parceiro](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
 

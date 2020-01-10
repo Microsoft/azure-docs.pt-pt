@@ -1,6 +1,6 @@
 ---
 title: Compartilhar exibições personalizadas com URLs parametrizadas-Azure Time Series Insights | Microsoft Docs
-description: Saiba como desenvolver URLs com parâmetros no Azure Time Series Insights para compartilhar facilmente exibições personalizadas.
+description: Saiba como criar URLs parametrizadas para compartilhar facilmente exibições personalizadas do Explorer no Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/18/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fd6de7dfe9509e7f99adeed0e5de3e157335e6bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452763"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -33,7 +33,7 @@ O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É u
 
 Um exemplo de parâmetro de ID de ambiente é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Hora
+## <a name="time"></a>Tempo
 
 Pode especificar valores de hora absolutos ou relativos com URLs parametrizados.
 
@@ -44,11 +44,12 @@ Para valores de hora absolutos, utilize os parâmetros `from=<integer>` e `to=<i
 * `from=<integer>` é um valor em milissegundos de JavaScript da hora de início do intervalo de pesquisa.
 * `to=<integer>` é um valor em milissegundos de JavaScript da hora de fim do intervalo de pesquisa.
 
-Para identificar os milissegundos de JavaScript de uma data, veja [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html) (Conversor de Carimbo de Data/Hora Epoch e Unix).
+> [!TIP]
+> Para traduzir datas facilmente em milissegundos de JavaScript, experimente a [época & o conversor de carimbo de data/hora UNIX](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
 ### <a name="relative-time-values"></a>Valores de hora relativos
 
-Para valores de hora relativos, utilize `relativeMillis=<value>`, em que o *valor* está em milissegundos de JavaScript da data mais recente no back-end.
+Para um valor de tempo relativo, use `relativeMillis=<value>`, onde o *valor* está em milissegundos de JavaScript do carimbo de data/hora mais recente recebido da API.
 
 Por exemplo, `&relativeMillis=3600000` apresenta os 60 segundos de dados mais recentes.
 
@@ -65,7 +66,7 @@ Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insi
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 
-O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma exibição Time Series Insights:
+O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de predicado que aparecerão em uma exibição de Time Series Insights:
 
 | Parâmetro | Item de URL | Descrição |
 | --- | --- | --- |
@@ -73,7 +74,11 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 | **splitBy** | `\<string>` | É o nome da coluna pela qual *dividir*. |
 | **measureName** | `\<string>` | É o nome da coluna da *medida*. |
 | **predicado** | `\<string>` | É a cláusula *where* para a filtragem do lado do servidor. |
-| **useSum** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
+| **useSum** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. |
+
+> [!NOTE]
+> Se `Events` for a medida de **usos** selecionada, Count será selecionado por padrão.  
+> Se `Events` não for selecionado, a média será selecionada por padrão. |
 
 * O par `multiChartStack=<true/false>` chave-valor habilita o empilhamento no gráfico.
 * O par `multiChartSameScale=<true/false>` chave-valor habilita a mesma escala do eixo Y entre os termos dentro de um parâmetro opcional.  
@@ -83,15 +88,19 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 | Par (es) | Descrição |
 | --- | --- |
 | `multiChartStack=false` | o `true` é habilitado por padrão, assim, passe `false` para Stack. |
-| `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  É `false` por padrão, então a passagem de ' true ' habilita essa funcionalidade. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos, milissegundos.  Capitalize sempre a unidade. </br> Defina o número de unidades transferindo o número inteiro pretendido para timeBucketSize.  Tenha em atenção que tem até 7 dias.  |
-| `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. </br> Observe que essa funcionalidade é um pouco diferente do que habilitamos no Time Series Insights Explorer, no qual podemos permitir que você escolha local (horário do navegador) ou UTC. |
+| `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  `false` por padrão, a passagem de `true` habilita essa funcionalidade. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = `days`, `hours`, `minutes`, `seconds`, `milliseconds`.  Capitalize sempre a unidade. </br> Defina o número de unidades passando o inteiro desejado para **timeBucketSize**.  |
+| `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. |
+
+> [!NOTE]
+> os valores de **timeBucketUnit** podem ser suavizados para até 7 dias.
+> os valores de **timezoneOffset** não são UTC nem horário local.
 
 ### <a name="examples"></a>Exemplos
 
 Para adicionar definições de série temporal a um ambiente de Time Series Insights como um parâmetro de URL, acrescente:
 
-```plaintext
+```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -100,24 +109,28 @@ Use as definições de série temporal de exemplo para:
 
 * A ID do ambiente
 * Os últimos 60 minutos de dados
-* Os termos (F1PressureID, F2TempStation e F3VibrationPL) que compõem os parâmetros opcionais
+* Os termos (**F1PressureID**, **F2TempStation**e **F3VibrationPL**) que compõem os parâmetros opcionais
 
 Você pode construir a seguinte URL com parâmetros para uma exibição:
 
-```plaintext
+```URL
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
+[URL parametrizada do ![Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+
 > [!TIP]
-> Consulte o Gerenciador ao vivo [usando a URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
+> Consulte o Gerenciador ao vivo [usando o exemplo de URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) acima.
 
-A URL acima descreve e compila a exibição do Time Series Insights Explorer:
+A URL acima descreve e exibe a exibição parametrizada do Time Series Insights Explorer. 
 
-[![termos do Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+* Os predicados com parâmetros.
 
-A exibição completa (incluindo o gráfico):
+  [![predicados parametrizados do Time Series Insights Explorer.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
-[exibição de gráfico de ![](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+* A exibição de gráfico completo compartilhada.
+
+  [![a exibição de gráfico completo compartilhado.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

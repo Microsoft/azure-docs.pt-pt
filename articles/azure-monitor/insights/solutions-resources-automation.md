@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401809"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionando recursos de automação do Azure a uma solução de gerenciamento (versão prévia)
 > [!NOTE]
@@ -31,7 +31,7 @@ Este artigo pressupõe que você já esteja familiarizado com as informações a
 
 - Como [criar uma solução de gerenciamento]( solutions-creating.md).
 - A estrutura de um [arquivo de solução]( solutions-solution-file.md).
-- Como [criar modelos do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+- Como [criar modelos do Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Conta de automatização
 Todos os recursos na automação do Azure estão contidos em uma [conta de automação](../../automation/automation-security-overview.md#automation-account-overview).  Conforme descrito em [log Analytics espaço de trabalho e conta de automação]( solutions.md#log-analytics-workspace-and-automation-account) , a conta de automação não está incluída na solução de gerenciamento, mas deve existir antes da instalação da solução.  Se não estiver disponível, a instalação da solução falhará.
@@ -71,7 +71,7 @@ As propriedades de runbooks são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Runbooktype necessária |Especifica os tipos do runbook. <br><br> Script-script do PowerShell <br>PowerShell-fluxo de trabalho do PowerShell <br> GraphPowerShell-runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow-runbook de fluxo de trabalho do PowerShell gráfico |
+| runbookType |Especifica os tipos do runbook. <br><br> Script-script do PowerShell <br>PowerShell-fluxo de trabalho do PowerShell <br> GraphPowerShell-runbook de script do PowerShell gráfico <br> GraphPowerShellWorkflow-runbook de fluxo de trabalho do PowerShell gráfico |
 | logProgress |Especifica se os [registros de andamento](../../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
 | logVerbose |Especifica se os [registros detalhados](../../automation/automation-runbook-output-and-messages.md) devem ser gerados para o runbook. |
 | descrição |Descrição opcional para o runbook. |
@@ -139,7 +139,7 @@ As propriedades dos recursos de certificados são descritas na tabela a seguir.
 | Propriedade | Descrição |
 |:--- |:--- |
 | base64Value |Valor base 64 do certificado. |
-| digitais |Impressão digital do certificado. |
+| thumbprint |Impressão digital do certificado. |
 
 
 
@@ -165,7 +165,7 @@ As propriedades de recursos de credencial são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Usu |Nome de usuário da credencial. |
+| userName |Nome de usuário da credencial. |
 | palavra-passe |Senha da credencial. |
 
 
@@ -196,7 +196,7 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 | descrição |Descrição opcional para a agenda. |
 | startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se puder ser convertida em um DateTime válido. |
 | isEnabled |Especifica se a agenda está habilitada. |
-| intervalo |O tipo de intervalo para a agenda.<br><br>diário<br>dia |
+| intervalo |O tipo de intervalo para a agenda.<br><br>dia<br>hour |
 | frequência |Frequência em que a agenda deve ser acionada em número de dias ou horas. |
 
 Os agendamentos devem ter uma hora de início com um valor maior que a hora atual.  Você não pode fornecer esse valor com uma variável, pois não teria como saber quando ele será instalado.
@@ -236,8 +236,8 @@ As propriedades para agendas de trabalho são descritas na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome da agenda |Entidade de **nome** único com o nome da agenda. |
-| nome do runbook  |Entidade de **nome** único com o nome do runbook.  |
+| schedule name |Único **name** entidade com o nome da agenda. |
+| runbook name  |Único **name** entidade com o nome do runbook.  |
 
 
 
@@ -275,10 +275,10 @@ Se você definir o valor inicial para a variável, ela deverá ser configurada c
 
 | Data type | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\" do \"Hello World" | "Olá, mundo" |
+| string   | Coloque o valor entre aspas duplas.  | "\"Hello world\"" | "Olá, mundo" |
 | numeric  | Valor numérico com aspas simples.| "64" | 64 |
-| boolean  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | true | true |
-| datetime | Valor de data serializado.<br>Você pode usar o cmdlet ConvertTo-JSON no PowerShell para gerar esse valor para uma data específica.<br>Exemplo: Get-Date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date (1495656897378) \\/" | 2017-05-24 13:14:57 |
+| boolean  | **true** ou **false** aspas.  Observe que esse valor deve estar em minúsculas. | "verdadeiro" | true |
+| datetime | Valor de data serializado.<br>Você pode usar o cmdlet ConvertTo-JSON no PowerShell para gerar esse valor para uma data específica.<br>Exemplo: Get-Date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 Sua solução de gerenciamento não precisa definir [módulos globais](../../automation/automation-integration-modules.md) usados por seus runbooks porque eles sempre estarão disponíveis em sua conta de automação.  Você precisa incluir um recurso para qualquer outro módulo usado por seus runbooks.

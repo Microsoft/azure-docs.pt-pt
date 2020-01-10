@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: como usar os tópicos e as assinaturas do barramento de serviço do Azure com o Node. js'
+title: Use os tópicos e as assinaturas do Azure/Service Bus com o Node. js
 description: 'Início rápido: saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462127"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Início rápido: como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
-> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 Neste tutorial, você aprenderá a escrever um programa node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Esse pacote usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
 
@@ -137,10 +137,10 @@ O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/se
 ## <a name="subscription-filters-and-actions"></a>Filtros de assinatura e ações
 O barramento de serviço dá suporte a [filtros e ações em assinaturas](topic-filters.md), o que permite filtrar as mensagens de entrada para uma assinatura e editar suas propriedades.
 
-Depois de ter uma instância de um `SubscriptionClient`, você pode usar os métodos abaixo para obter, adicionar e remover regras na assinatura para controlar os filtros e as ações.
+Depois de ter uma instância de um `SubscriptionClient` você pode usar os métodos abaixo para obter, adicionar e remover regras na assinatura para controlar os filtros e as ações.
 
-- getrules
-- addrule
+- getRules
+- addRule
 - removeRule
 
 Cada assinatura tem uma regra padrão que usa o filtro verdadeiro para permitir todas as mensagens de entrada. Ao adicionar uma nova regra, lembre-se de remover o filtro padrão para que o filtro em sua nova regra funcione. Se uma assinatura não tiver regras, ele não receberá mensagens.

@@ -4,15 +4,15 @@ description: O desempenho é um recurso do Azure Monitor para VMs que descobre a
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399287"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como exibir o desempenho de gráficos com Azure Monitor para VMs (versão prévia)
 
@@ -22,13 +22,13 @@ Azure Monitor para VMs inclui um conjunto de gráficos de desempenho que visam v
 
 Do Azure Monitor, o recurso de desempenho fornece uma exibição de todas as VMs monitoradas implantadas em grupos de recursos em suas assinaturas ou em seu ambiente. Para acessar a partir do Azure Monitor, execute as etapas a seguir. 
 
-1. Na portal do Azure, selecione **Monitor**. 
+1. No portal do Azure, selecione **Monitor**. 
 2. Escolha **máquinas virtuais (versão prévia)** na seção **soluções** .
 3. Selecione a guia **desempenho** .
 
 ![Modo de exibição de lista Top N do desempenho de informações da VM](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Na guia **N gráficos superiores** , se você tiver mais de um espaço de trabalho log Analytics, escolha o espaço de trabalho habilitado com a solução no seletor de **espaço de trabalho** na parte superior da página. O seletor de **grupo** retornará assinaturas, grupos de recursos, [grupos](../platform/computer-groups.md)de computadores e conjuntos de dimensionamento de máquinas virtuais de computadores relacionados ao espaço de trabalho selecionado que você pode usar para filtrar ainda mais os resultados apresentados nos gráficos desta página e entre as outras páginas. Sua seleção só se aplica ao recurso de desempenho e não é transferida para a integridade ou o mapa.  
+Na guia **N gráficos superiores** , se você tiver mais de um espaço de trabalho log Analytics, escolha o espaço de trabalho habilitado com a solução no seletor de **espaço de trabalho** na parte superior da página. O seletor de **grupo** retornará assinaturas, grupos de recursos, [grupos](../platform/computer-groups.md)de computadores e conjuntos de dimensionamento de máquinas virtuais de computadores relacionados ao espaço de trabalho selecionado que você pode usar para filtrar ainda mais os resultados apresentados nos gráficos desta página e em todas as outras páginas. Sua seleção só se aplica ao recurso de desempenho e não é transferida para a integridade ou o mapa.  
 
 Por padrão, os gráficos mostram as últimas 24 horas. Usando o seletor de **intervalo** de tempo, você pode consultar intervalos históricos de até 30 dias para mostrar como o desempenho foi examinado no passado.
 
@@ -38,7 +38,7 @@ Os cinco gráficos de utilização de capacidade mostrados na página são:
 * Memória disponível-mostra os cinco principais computadores com a menor quantidade média de memória disponível 
 * % De espaço em disco lógico usado-mostra os cinco principais computadores com o maior espaço em disco médio usado em% em todos os volumes de disco 
 * Taxa de bytes enviados-mostra os cinco principais computadores com a média mais alta de bytes enviados 
-* Taxa de recebimento de bytes-mostra os cinco principais computadores com a média mais alta de bytes enviados 
+* Taxa de recebimento de bytes-mostra os cinco principais computadores com a média mais alta de bytes recebidos 
 
 Clicar no ícone de pino no canto superior direito de qualquer um dos cinco gráficos fixará o gráfico selecionado no último painel do Azure que você exibiu pela última vez.  No painel, você pode redimensionar e reposicionar o gráfico. A seleção do gráfico no painel irá redirecioná-lo para Azure Monitor para VMs e carregar o escopo e a exibição corretos.  
 
@@ -74,7 +74,7 @@ Para exibir a utilização de recursos por VM individual em um modo de exibiçã
 
 Para filtrar os resultados em uma máquina virtual específica na lista, insira o nome do computador na caixa de texto **Pesquisar por nome** .  
 
-Se você preferir exibir a utilização de uma métrica de desempenho diferente, na lista suspensa **métrica** , selecione **memória disponível**, **espaço em disco lógico usado%** , **bytes recebidos**de rede ou **byte/s de rede enviados** e o listar atualizações para mostrar a utilização com escopo para essa métrica.  
+Se você preferir exibir a utilização de uma métrica de desempenho diferente, na lista suspensa **métrica** , selecione **memória disponível**, **espaço em disco lógico usado%** , **bytes recebidos**de rede ou **byte/s de rede enviados** e a lista de atualizações para mostrar o escopo de utilização para essa métrica.  
 
 A seleção de uma máquina virtual na lista abre o painel **Propriedades** no lado direito da página e, aqui, você pode selecionar **detalhes de desempenho**.  A página de **detalhes da máquina virtual** é aberta e tem o escopo definido para essa VM, semelhante em experiência ao acessar o desempenho da VM insights diretamente da VM do Azure.  
 
@@ -123,7 +123,7 @@ Clicar no ícone de pino no canto superior direito de qualquer um dos gráficos 
 
 As métricas de desempenho habilitadas como parte do Azure Monitor para VMs não incluem regras de alerta pré-configuradas. Há [alertas de integridade](vminsights-health.md#alerts) correspondentes aos problemas de desempenho detectados em sua VM do Azure, como alta utilização da CPU, memória insuficiente disponível, pouco espaço em disco, etc.  No entanto, esses alertas de integridade se aplicam somente a todas as VMs habilitadas para Azure Monitor para VMs. 
 
-No entanto, só podemos coletar e armazenar um subconjunto das métricas de desempenho que você precisa no espaço de trabalho Log Analytics. Se sua estratégia de monitoramento exigir análise ou alertas que incluam outras métricas de desempenho para avaliar efetivamente a capacidade ou a integridade da máquina virtual, ou se você precisar da flexibilidade para especificar seus próprios critérios de alerta ou lógica, poderá Configure a [coleta desses contadores de desempenho](../platform/data-sources-performance-counters.md) no log Analytics e defina [alertas de log](../platform/alerts-log.md). Embora Log Analytics permita que você execute uma análise complexa com outros tipos de dados e forneça uma retenção mais longa para dar suporte à análise de tendência, as métricas por outro lado são leves e capazes de dar suporte a cenários quase em tempo real. Eles são coletados pelo [agente de diagnóstico do Azure](../../virtual-machines/windows/monitor.md) e armazenados no repositório de métricas Azure monitor, permitindo que você crie alertas com menor latência e a um custo mais baixo.
+No entanto, só podemos coletar e armazenar um subconjunto das métricas de desempenho que você precisa no espaço de trabalho Log Analytics. Se sua estratégia de monitoramento exigir análise ou alertas que incluam outras métricas de desempenho para avaliar efetivamente a capacidade ou a integridade da máquina virtual, ou se você precisar da flexibilidade para especificar seus próprios critérios de alerta ou lógica, poderá configurar a [coleta desses contadores de desempenho](../platform/data-sources-performance-counters.md) no log Analytics e definir [alertas de log](../platform/alerts-log.md). Embora Log Analytics permita que você execute uma análise complexa com outros tipos de dados e forneça uma retenção mais longa para dar suporte à análise de tendência, as métricas por outro lado são leves e capazes de dar suporte a cenários quase em tempo real. Eles são coletados pelo [agente de diagnóstico do Azure](../../virtual-machines/windows/monitor.md) e armazenados no repositório de métricas Azure monitor, permitindo que você crie alertas com menor latência e a um custo mais baixo.
 
 Examine a visão geral da [coleta de métricas e logs com Azure monitor](../platform/data-platform.md) para entender ainda mais as diferenças fundamentais e outras considerações antes de configurar a coleta dessas métricas adicionais e regras de alerta.  
 

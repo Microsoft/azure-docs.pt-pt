@@ -2,19 +2,15 @@
 title: Integração de controle do código-fonte na automação do Azure-herdado
 description: Este artigo descreve a integração do controle do código-fonte com o GitHub na automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 74d4cb80fbac41294b57bf13f23c2c63babb71ef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 651b97dabfd3cce858ea1f905a39c10bd7d81c41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417445"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração de controle do código-fonte na automação do Azure-herdado
 

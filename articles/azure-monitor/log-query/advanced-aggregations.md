@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398301"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas em consultas de log de Azure Monitor
 
@@ -107,9 +107,9 @@ Heartbeat
 
 |Soluções | list_Computer |
 |--------------|----------------------|
-| segurança | ["Computador1", "Computador2"] |
-| actualiza | ["Computador1", "Computador2"] |
-| ChangeTracking | ["Computador1", "computer3"] |
+| segurança | ["computer1", "computer2"] |
+| actualiza | ["computer1", "computer2"] |
+| ChangeTracking | ["computer1", "computer3"] |
 | AntiMalware | ["computer3"] |
 | ... | ... |
 
@@ -122,7 +122,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Categoria | TimeGenerated | contar |
+| Categoria | TimeGenerated | contagem_ |
 |--------------|----------------------|--------|
 | Agente direto | 2017-06-06T17:00:00Z | 15 |
 | Agente direto | 2017-06-06T18:00:00Z | 60 |
@@ -138,12 +138,12 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Categoria | contar | TimeGenerated |
+| Categoria | contagem_ | TimeGenerated |
 |---|---|---|
-| Agente direto | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000 Z", "2017-06-06T18:00:00.0000000 Z", "2017-06-06T19:00:00.0000000 Z", "2017-06-06T20:00:00.0000000 Z", "2017-06-06T21:00:00.0000000 Z",...] |
+| Agente direto | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
-O terceiro elemento da matriz *count_* é um 0 como esperado e há um carimbo de data/hora correspondente de "2017-06-06T19:00:00.0000000 z" na matriz _TimeGenerated_ . No entanto, esse formato de matriz é difícil de ser lido. Use `mvexpand` para expandir as matrizes e produzir a mesma saída de formato gerada por `summarize`:
+O terceiro elemento da matriz de *count_* é um 0 como esperado e há um carimbo de data/hora correspondente de "2017-06-06T19:00:00.0000000 z" na matriz _TimeGenerated_ . No entanto, esse formato de matriz é difícil de ser lido. Use `mvexpand` para expandir as matrizes e produzir a mesma saída de formato gerada por `summarize`:
 
 ```Kusto
 Heartbeat
@@ -152,7 +152,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Categoria | TimeGenerated | contar |
+| Categoria | TimeGenerated | contagem_ |
 |--------------|----------------------|--------|
 | Agente direto | 2017-06-06T17:00:00Z | 15 |
 | Agente direto | 2017-06-06T18:00:00Z | 60 |

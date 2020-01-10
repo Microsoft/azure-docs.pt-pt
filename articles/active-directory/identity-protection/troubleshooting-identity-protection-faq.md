@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443575"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes sobre a proteção de identidade em Azure Active Directory
 
@@ -42,6 +42,14 @@ A alternância de **Mostrar datas como** oculta a coluna **risco da última atua
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
+### <a name="why-is-a-user-is-at-risk"></a>Por que um usuário está em risco?
+
+Se você for um cliente Azure AD Identity Protection, vá para a exibição [usuários arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique em um usuário de risco. Na gaveta na parte inferior, a guia "histórico de risco" mostrará todos os eventos que levaram a uma alteração de risco do usuário. Para ver todas as entradas arriscadas do usuário, clique em ' entradas arriscadas ' do usuário. Para ver todas as detecções de risco para esse usuário, clique em "detecções de risco do usuário".
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de detecções de um tipo específico?
+
+Vá para a exibição de detecções de risco e filtre por ' tipo de detecção '. Em seguida, você pode baixar esse relatório no. CSV ou. Formato JSON usando o botão **baixar** na parte superior. Para obter mais informações, consulte o artigo [How to: investigue Risk](howto-identity-protection-investigate-risk.md#risk-detections).
+
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Por que não posso definir meus próprios níveis de risco para cada detecção de riscos?
 
 Os níveis de risco na proteção de identidade baseiam-se na precisão da detecção e da plataforma de aprendizado de máquina supervisionado. Para personalizar a experiência que os usuários são apresentados, o administrador pode incluir/excluir determinados usuários/grupos das políticas de risco do usuário e de entrada.
@@ -49,6 +57,20 @@ Os níveis de risco na proteção de identidade baseiam-se na precisão da detec
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Por que o local de uma entrada não corresponde onde o usuário realmente se conectou?
 
 O mapeamento de localização geográfica de IP é um desafio em todo o setor. Se você sentir que o local listado no relatório de entradas não corresponde ao local real, entre em contato com o suporte da Microsoft. 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Como eu posso fechar as detecções de risco específicas como fiz na interface do usuário antiga?
+
+Você pode fornecer comentários sobre as detecções de risco confirmando a entrada vinculada como comprometida ou segura. Os comentários fornecidos nas vazas de entrada para todas as detecções feitas nessa entrada são feitos. Se desejar fechar as detecções que não estão vinculadas a uma entrada, você poderá fornecer esses comentários no nível do usuário. Para obter mais informações, consulte o artigo [como: fornecer comentários de risco em Azure ad Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Até que ponto posso voltar no tempo para entender o que está acontecendo com meu usuário?
+
+- A exibição de [usuários arriscados](howto-identity-protection-investigate-risk.md#risky-users) mostra o risco de um usuário ficar com base em todas as entradas passadas. 
+- A exibição de [entradas arriscadas](howto-identity-protection-investigate-risk.md#risky-sign-ins) mostra os sinais de risco nos últimos 30 dias. 
+- A exibição de [detecções de risco](howto-identity-protection-investigate-risk.md#risk-detections) mostra as detecções de risco feitas nos últimos 90 dias.
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Como posso saber mais sobre uma detecção específica?
+
+Todas as detecções de riscos são documentadas no artigo [o que é risco](concept-identity-protection-risks.md#risk-types-and-detection). Você pode passar o mouse sobre o símbolo (i) ao lado da detecção no portal do Azure para saber mais sobre uma detecção.
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Como funciona o mecanismo de comentários no Identity Protection?
 

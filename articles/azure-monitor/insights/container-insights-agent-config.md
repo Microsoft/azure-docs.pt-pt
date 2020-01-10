@@ -1,18 +1,14 @@
 ---
 title: Configurar Azure Monitor para coleta de dados de agente de contêineres | Microsoft Docs
 description: Este artigo descreve como você pode configurar o Azure Monitor para agente de contêineres para controlar stdout/stderr e a coleção de logs de variáveis de ambiente.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405668"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
 
@@ -40,6 +36,7 @@ A seguir estão as configurações que podem ser definidas para controlar a cole
 |`[log_collection_settings.stderr] enabled =` |Booleano | true ou false |Isso controla se a coleta de log de contêiner stderr está habilitada. Quando definido como `true` e nenhum namespace for excluído para a coleta de log de stdout (configuração de`log_collection_settings.stderr.exclude_namespaces`), os logs de stderr serão coletados de todos os contêineres em todos os pods/nós no cluster. Se não for especificado em ConfigMaps, o valor padrão será `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Matriz separada por vírgulas |Matriz de namespaces kubernetes para os quais os logs de stderr não serão coletados. Essa configuração só será eficaz se `log_collection_settings.stdout.enabled` estiver definida como `true`. Se não for especificado em ConfigMap, o valor padrão será `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` |Booleano | true ou false | Essa configuração controla a coleção de variáveis de ambiente em todos os pods/nós no cluster e usa como padrão `enabled = true` quando não especificado em ConfigMaps. Se a coleção de variáveis de ambiente for habilitada globalmente, você poderá desabilitá-la para um contêiner específico definindo a variável de ambiente `AZMON_COLLECT_ENV` como **false** com uma configuração Dockerfile ou no [arquivo de configuração para o Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) na seção **env:** . Se a coleção de variáveis de ambiente for desabilitada globalmente, você não poderá habilitar a coleta para um contêiner específico (ou seja, a única substituição que pode ser aplicada no nível de contêiner será desabilitar a coleta quando ela já estiver habilitada globalmente.). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Booleano | true ou false | Essa configuração controla o enriquecimento do log de contêiner para popular os valores de propriedade Name e Image para cada registro de log gravado na tabela ContainerLog para todos os logs de contêiner no cluster. O padrão é `enabled = false` quando não especificado em ConfigMap. |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Você não pode ter outro ConfigMaps que se refaça com as coleções.
 

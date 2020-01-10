@@ -1,6 +1,7 @@
 ---
-title: Funções personalizadas para SQL Server para migrações online da instância gerenciada do banco de dados SQL | Microsoft Docs
-description: Aprenda a usar as funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL.
+title: 'Funções personalizadas: SQL Server online para migrações de instância gerenciada do SQL'
+titleSuffix: Azure Database Migration Service
+description: Aprenda a usar as funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 8148e029bf343613a230b20d0397fa7851c96712
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437699"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Funções personalizadas para SQL Server para migrações online de instância gerenciada do banco de dados SQL
 
@@ -31,7 +32,7 @@ No momento, é recomendável criar no mínimo duas funções personalizadas para
 > [!NOTE]
 > O último requisito de função personalizada pode eventualmente ser removido, pois o novo código de instância gerenciada do banco de dados SQL é implantado no Azure.
 
-**Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
+**Função personalizada para a ID do aplicativo**. Essa função é necessária para a migração do serviço de migração de banco de dados do Azure no nível de *recurso* ou *grupo de recursos* (para obter mais informações sobre a ID do aplicativo, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
 ```json
 {

@@ -4,15 +4,15 @@ description: Você pode usar a solução de verificação de integridade Active 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406138"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente de Active Directory com a solução de verificação de integridade Active Directory no Azure Monitor
 
@@ -36,7 +36,7 @@ Depois de adicionar a solução e uma verificação for concluída, as informaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.5.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
+* A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
 * A solução dá suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * Um espaço de trabalho Log Analytics para adicionar a solução de verificação de integridade Active Directory do Azure Marketplace no portal do Azure. Não há nenhuma configuração adicional necessária.
 
@@ -49,7 +49,7 @@ Para executar a verificação de integridade em seus controladores de domínio q
 
 1. Instale o [agente do log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não estiver monitorado pelo System Center 2016-Operations Manager ou Operations Manager 2012 R2.
 2. Se ele for monitorado com o System Center 2016-Operations Manager ou Operations Manager 2012 R2 e o grupo de gerenciamento não estiver integrado com o Azure Monitor, o controlador de domínio poderá ser multihomed com Azure Monitor para coletar dados e encaminhar para o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se o grupo de gerenciamento de Operations Manager estiver integrado ao serviço, você precisará adicionar os controladores de domínio para a coleta de dados pelo serviço seguindo as etapas em [Adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu espaço.  
+3. Caso contrário, se o grupo de gerenciamento de Operations Manager estiver integrado ao serviço, você precisará adicionar os controladores de domínio para coleta de dados pelo serviço seguindo as etapas em [Adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu espaço de trabalho.  
 
 O agente no controlador de domínio que relata para um grupo de gerenciamento de Operations Manager, coleta dados, encaminha para seu servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para Azure Monitor.  Os dados não são gravados nos bancos de dado do Operations Manager.  
 
@@ -60,11 +60,11 @@ Active Directory verificação de integridade coleta dados das seguintes fontes 
 - Registo
 - LDAP
 - .NET Framework
-- Log de eventos
+- Registo de eventos
 - ADSI (interfaces de serviço Active Directory)
 - Windows PowerShell
-- Dados de arquivo
-- Instrumentação de Gerenciamento do Windows (WMI)
+- Dados de ficheiros
+- Windows Management Instrumentation (WMI)
 - API da ferramenta DCDIAG
 - API do serviço de replicação de arquivo (NTFRS)
 - Código C# personalizado
@@ -185,7 +185,7 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 *Qual é o nome do processo que faz a coleta de dados?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Quanto tempo leva para os dados serem coletados?*
 

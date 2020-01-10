@@ -1,29 +1,19 @@
 ---
-title: Criar imagens de contentor no Service Fabric no Azure | Microsoft Docs
+title: Criar imagens de contêiner em Service Fabric no Azure
 description: Neste tutorial, saiba como criar imagens de contentor para uma aplicação do Service Fabric com vários contentores.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Contentores, Microsserviços, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385221"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465431"
 ---
-# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster de Service Fabric do Linux
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
 
 Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Service Fabric do Linux. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
 
@@ -206,7 +196,7 @@ azure-vote-front
 
 Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância privada do Azure Container Registry. Esta imagem é implementada do ACR para um cluster do Service Fabric em tutoriais posteriores.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, um aplicativo foi extraído do GitHub e as imagens de contêiner foram criadas e enviadas por push para um registro. Foram efetuados os seguintes passos:
 

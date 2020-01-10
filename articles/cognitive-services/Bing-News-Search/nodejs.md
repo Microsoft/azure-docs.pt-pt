@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar uma pesquisa de notícias com o Node. js – API REST do Pesquisa de Notícias do Bing'
+title: 'Início rápido: executar uma pesquisa de notícias com o Node. js – API REST do Pesquisa de Notícias do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando o Node. js e receber uma resposta JSON.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 501ae6107232287011388bb67e64a1ae3fe5f7e3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 42ac6cac972374dbd1db42b75742212046d2ce3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383137"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias usando o Node. js e a API REST do Pesquisa de Notícias do Bing
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: executar uma pesquisa de notícias usando o Node. js e a API REST do Pesquisa de Notícias do Bing
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação JavaScript simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 
@@ -34,8 +34,6 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
 1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito e defina os requisitos de exatidão e HTTPS.
@@ -45,7 +43,8 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     let https = require('https');
     ```
 
-2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de imagens, a sua chave de subscrição e o termo de pesquisa.
+2. Crie variáveis para o ponto final da API, o caminho de pesquisa da API de imagens, a sua chave de subscrição e o termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. 
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -88,7 +87,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
 
 ## <a name="json-response"></a>Resposta JSON
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -181,7 +180,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

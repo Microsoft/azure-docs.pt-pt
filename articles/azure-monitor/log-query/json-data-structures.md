@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 82ac27e10a74dc99adb7615d604502e696aa9edb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365313"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhando com estruturas de dados e JSON em Azure Monitor consultas de log
 
@@ -55,7 +55,7 @@ print hosts_report
 ```
 
 
-## <a name="working-with-objects"></a>Trabalhando com objetos
+## <a name="working-with-objects"></a>Trabalhar com objetos
 
 ### <a name="parsejson"></a>parsejson
 Para acessar vários elementos em sua estrutura JSON, é mais fácil acessá-lo como um objeto dinâmico. Use `parsejson` para converter dados de texto em um objeto dinâmico. Depois de convertido em um tipo dinâmico, funções adicionais podem ser usadas para analisar os dados.

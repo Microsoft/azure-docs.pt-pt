@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 02c8bf24d4ddb6408160da7a4c517d6c8c82de5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450909"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: criar uma conexão VPN de usuário usando a WAN virtual do Azure
 
@@ -135,7 +135,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia Configurações de VPN do usuário em portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
 3. Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui [como exportar um certificado para obter a chave pública codificada.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site)
-5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
+5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui [como extrair a chave privada.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows)
 6. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
 7. Copie o ficheiro vpnconfig.ovpn para a pasta C:\Program Files\OpenVPN\config.
 8. Clique com o botão direito do rato no ícone OpenVPN no tabuleiro do sistema e clique em Ligar.

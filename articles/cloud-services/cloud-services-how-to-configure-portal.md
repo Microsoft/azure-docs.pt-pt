@@ -3,17 +3,17 @@ title: Como configurar um serviço de nuvem (Portal) | Microsoft Docs
 description: Saiba como configurar os serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar o acesso remoto a instâncias de função. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361012"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar os serviços de nuvem
 
@@ -29,7 +29,7 @@ Depois de abrir o [portal do Azure](https://portal.azure.com/), navegue até o s
 
 ![Página Configurações](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-As **configurações** ou **todos os** links de configurações abrirão **as configurações** em que você pode alterar as **Propriedades**, alterar a **configuração**, gerenciar os **certificados**, configurar **regras de alerta**e gerenciar os **usuários** quem tem acesso a esse serviço de nuvem.
+As **configurações** ou **todos os** links de configurações abrirão **as configurações** em que você pode alterar as **Propriedades**, alterar a **configuração**, gerenciar os **certificados**, configurar **regras de alerta**e gerenciar os **usuários** que têm acesso a esse serviço de nuvem.
 
 ![Configurações do serviço de nuvem do Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -46,14 +46,14 @@ Se você precisar ter como destino uma versão específica do sistema operaciona
 
 ## <a name="monitoring"></a>Monitorização
 
-Você pode adicionar alertas ao serviço de nuvem. Clique em **configurações** > **regras** > de alerta**adicionar alerta**.
+Você pode adicionar alertas ao serviço de nuvem. Clique em **configurações** > **regras de alerta** > **adicionar alerta**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 A partir daqui, você pode configurar um alerta. Com a caixa suspensa **métrica** , você pode configurar um alerta para os tipos de dados a seguir.
 
 * Leitura de disco
-* Escrita de disco
+* Gravação de disco
 * Entrada na Rede
 * Saída da Rede
 * Percentagem de CPU
@@ -62,7 +62,7 @@ A partir daqui, você pode configurar um alerta. Com a caixa suspensa **métrica
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar o monitoramento de um bloco de métrica
 
-Em vez de usar **as configurações** > **regras de alerta**, você pode clicar em um dos blocos de métrica na seção **monitoramento** do serviço de nuvem.
+Em vez de usar **configurações** > **regras de alerta**, você pode clicar em um dos blocos de métrica na seção **monitoramento** do serviço de nuvem.
 
 ![Monitoramento do serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -92,15 +92,18 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo de 
     ![Folha de configuração](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Clique no botão **Transferir**.
 
-    ![Transferência](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Transferir](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Depois de atualizar o arquivo de configuração de serviço, carregue e aplique as atualizações de configuração:
 
     ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo. cscfg e clique em **OK**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerencie seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

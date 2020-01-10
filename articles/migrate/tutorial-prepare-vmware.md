@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454556"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs VMware para avaliação e migração para o Azure
 
@@ -124,7 +124,7 @@ Verifique os requisitos do dispositivo antes de implantar o dispositivo.
 
 1. [Verifique](migrate-support-matrix-vmware.md#assessment-appliance-requirements) os requisitos e as limitações do dispositivo.
 2. Se você estiver usando um proxy de firewall baseado em URL, [examine](migrate-support-matrix-vmware.md#assessment-url-access-requirements) as URLs do Azure que o dispositivo precisará acessar. Certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
-3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware)] e [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e a avaliação.
+3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware) e [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e a avaliação.
 4. [Observe](migrate-support-matrix-vmware.md#assessment-port-requirements) as portas acessadas pelo dispositivo.
 5. Em vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo migrações para Azure como uma VM VMware, usando um arquivo OVA.
 
@@ -154,7 +154,7 @@ Examine os requisitos para a [migração baseada em agente](server-migrate-overv
 4. Observação: [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
 5. Examine o [acesso de porta](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) que os componentes de migração do Azure precisam para o acesso baseado em agente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

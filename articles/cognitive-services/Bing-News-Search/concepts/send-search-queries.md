@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
-ms.topic: quickstart
-ms.date: 06/27/2019
+ms.topic: conceptual
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 6be3d95c06862529881be2cbf2e4d74b44908e67
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f59c924caca86505e9f1e91bf58095b271475794
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383724"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Enviando consultas para o API de Pesquisa de Notícias do Bing
 
@@ -33,9 +33,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/news/search
 
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:
 

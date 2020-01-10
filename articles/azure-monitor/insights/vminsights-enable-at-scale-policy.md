@@ -4,15 +4,15 @@ description: Este artigo descreve como habilitar Azure Monitor para VMs para vá
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365823"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VMs (versão prévia) usando Azure Policy
 
@@ -113,7 +113,7 @@ Para criar a atribuição de política na página de **cobertura da política de
 
 Quando você atribui a política ou iniciativa, o escopo selecionado na atribuição pode ser o escopo listado aqui ou um subconjunto dele. Por exemplo, você pode ter criado uma atribuição para a assinatura (escopo de política) e não o grupo de gerenciamento (escopo de cobertura). Nesse caso, a porcentagem de cobertura indicaria as VMs no escopo da política ou da iniciativa dividida pelas VMs no escopo de cobertura. Em outro caso, você pode ter excluído algumas VMs ou grupos de recursos ou uma assinatura do escopo da política. Se estiver em branco, indica que a política ou iniciativa não existe ou você não tem permissões. As informações são fornecidas sob o **status da atribuição**.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, selecione **Monitor**. 
 
@@ -145,10 +145,10 @@ A matriz a seguir mapeia cada Estado de conformidade possível para a iniciativa
 
 | Estado de conformidade | Descrição | 
 |------------------|-------------|
-| **Em conformidade** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
+| **Compatibilidade:** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
 | **Não compatível** | Nem todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados e podem exigir correção.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
 | **Em branco** | Nenhuma política foi atribuída. | 
 
 <sup>1</sup> se você não tiver acesso ao grupo de gerenciamento, peça ao proprietário para fornecer acesso. Ou então, exiba a conformidade e gerencie atribuições por meio dos grupos de gerenciamento filho ou assinaturas. 
@@ -158,9 +158,9 @@ A tabela a seguir mapeia cada possível status de atribuição para a iniciativa
 | Status da atribuição | Descrição | 
 |------------------|-------------|
 | **Êxito** | Todas as VMs no escopo têm a Log Analytics e os agentes de dependência implantados nelas.|
-| **Alerta** | A assinatura não está sob um grupo de gerenciamento.|
+| **Aviso** | A assinatura não está sob um grupo de gerenciamento.|
 | **Não iniciado** | Uma nova atribuição foi adicionada. |
-| **Proprietário** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
+| **Bloqueio** | Você não tem privilégios suficientes para o grupo de gerenciamento. <sup>1</sup> | 
 | **Em branco** | Não existem VMs ou uma política não está atribuída. | 
 | **Ação** | Atribua uma política ou edite uma atribuição. | 
 
@@ -197,7 +197,7 @@ A qualquer momento depois de atribuir uma iniciativa a um grupo de gerenciamento
 - Nome da atribuição
 - Descrição
 - Atribuído por
-- Espaço de trabalho Log Analytics
+- Área de trabalho do Log Analytics
 - Exceções
 
 ## <a name="next-steps"></a>Passos seguintes

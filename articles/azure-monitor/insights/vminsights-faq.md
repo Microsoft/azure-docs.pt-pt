@@ -4,15 +4,15 @@ description: Respostas a perguntas comuns para Azure Monitor para VMs que monito
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
-ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fa47606112c562402a42bd5ca503ed2d9a311268
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400386"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Perguntas frequentes sobre Azure Monitor para VMs (versão prévia)
 Esta FAQ da Microsoft é uma lista de perguntas frequentes sobre Azure Monitor para VMs. Se você tiver outras dúvidas sobre a solução, vá para o [Fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -67,7 +67,7 @@ Se você modificar qualquer configuração de uma instância de critério de int
 Não, os critérios de integridade de processador individual e de nível de processador lógico não estão incluídos para um Windows, apenas a utilização total da CPU é monitorada por padrão para avaliar efetivamente a pressão da CPU com base no número total de CPUs lógicas disponíveis para a VM do Azure. 
 
 ## <a name="are-all-health-criteria-thresholds-configurable"></a>Todos os limites de critérios de integridade são configuráveis?  
-Os limites de critérios de integridade direcionados a uma VM do Windows não podem ser modificados, pois seus Estados de integridade estão definidos para *execução* ou *disponível*. Quando você consulta o estado de integridade da [API do monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), ele exibe o valor *comparisonOperator* de **LessThan** ou **GreaterThan** com um valor *limite* de **4** para o serviço ou entidade se:
+Os limites de critérios de estado de funcionamento que se destinam uma VM do Windows não são fáceis de serem modificados, porque os Estados de funcionamento estão definidos como *em execução* ou *disponível*. Quando consulta o estado de funcionamento do [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), ele exibe a *comparisonOperator* valor de **LessThan** ou **GreaterThan** com um *limiar* o valor de **4** para a entidade ou o serviço se:
    - Estado de funcionamento do serviço do cliente DNS – serviço não está em execução. 
    - Estado de funcionamento do serviço do cliente DHCP – serviço não está em execução. 
    - Estado de funcionamento do serviço RPC – serviço não está em execução. 
@@ -77,13 +77,13 @@ Os limites de critérios de integridade direcionados a uma VM do Windows não po
    - Funcionamento de serviço de gestão remota do Windows – serviço não está em execução. 
    - Erro de sistema de ficheiros ou corrupção – disco lógico não está disponível.
 
-Os limites dos seguintes critérios de integridade do Linux não são modificáveis, pois seu estado de integridade já está definido como *true*. O estado de integridade exibe o *comparisonOperator* com um valor **LessThan** e o valor *limite* de **1** quando consultados da API de monitoramento de carga de trabalho para a entidade, dependendo de seu contexto:
+Limiares para os seguintes critérios de estado de funcionamento do Linux não são fáceis de serem modificados, porque o respetivo estado de funcionamento já está definido como *true*. Apresenta o estado de funcionamento a *comparisonOperator* com um valor **LessThan** e *limiar* valor de **1** quando consultados a partir do Carga de trabalho monitorização o API para a entidade, dependendo de seu contexto:
    - Estado do disco lógico – o disco lógico não está online / disponíveis
    - Estado do disco – o disco não está online / disponíveis
    - Estado do adaptador de rede - placa de rede está desativado
 
 ## <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>Como fazer modificar alertas incluídos com o recurso de integridade?
-Regras de alerta que estão definidas para cada critério de estado de funcionamento não são apresentadas no portal do Azure. Você pode habilitar ou desabilitar uma regra de alerta de integridade somente na [API do monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, você não pode atribuir um [grupo de ação Azure monitor](../../azure-monitor/platform/action-groups.md) para alertas de integridade no portal do Azure. Você só pode usar a API de configuração de notificação para configurar um grupo de ações a ser disparado sempre que um alerta de integridade for acionado. No momento, você pode atribuir grupos de ação em uma VM para que todos os *alertas de integridade* acionados na VM disparem os mesmos grupos de ação. Ao contrário dos alertas do Azure tradicionais, não há conceito de um grupo de ação separada para cada regra de alerta de estado de funcionamento. Além disso, apenas os grupos de ação que estão configurados para fornecer e-mail ou notificações por SMS são suportados quando são acionados alertas de estado de funcionamento. 
+Regras de alerta que estão definidas para cada critério de estado de funcionamento não são apresentadas no portal do Azure. Pode ativar ou desativar um alerta de estado de funcionamento apenas na regra a [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, você não pode atribuir um [grupo de ação Azure monitor](../../azure-monitor/platform/action-groups.md) para alertas de integridade no portal do Azure. Você só pode usar a API de configuração de notificação para configurar um grupo de ações a ser disparado sempre que um alerta de integridade for acionado. Atualmente, pode atribuir grupos de ação em relação a uma VM para que todos os *alertas de estado de funcionamento* disparado contra o acionador VM, os mesmos grupos de ação. Ao contrário dos alertas do Azure tradicionais, não há conceito de um grupo de ação separada para cada regra de alerta de estado de funcionamento. Além disso, apenas os grupos de ação que estão configurados para fornecer e-mail ou notificações por SMS são suportados quando são acionados alertas de estado de funcionamento. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo algumas ou quaisquer dados nos gráficos de desempenho para a minha VM
 Se você não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, os contadores de desempenho não poderão ser configurados no espaço de trabalho. Para resolver, execute o seguinte [script do PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell).

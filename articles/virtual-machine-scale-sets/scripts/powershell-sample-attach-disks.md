@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell - Anexar e utilizar discos de dados | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos de Azure PowerShell – anexar e usar discos de dados
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara discos de dados usando o PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf7f86deb71aabfb8e06ce30abac92fc1777aae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7098808837b9fd0206323fca03da4c98096d3c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350946"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anexe e utilize discos de dados com um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara discos de dados.
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss) | Atualiza o modelo do conjunto de dimensionamento de máquinas virtuais para aplicar a extensão da VM. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais do PowerShell na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

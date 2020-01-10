@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439417"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiar dados do Armazenamento de blobs do Azure para uma base de dados SQL com a ferramenta Copiar Dados
 
@@ -94,7 +94,7 @@ Prepare o Armazenamento de blobs e a sua base de dados SQL para o tutorial ao ex
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos.
     
-    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+    Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Em **Versão**, selecione **V2** para indicar a versão.
 1. Em **Localização**, selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados (por exemplo, o Armazenamento do Azure e a Base de Dados SQL) e as computações (por exemplo, o Azure HDInsight) utilizados pela fábrica de dados podem estar noutras localizações e regiões.
@@ -175,7 +175,7 @@ O pipeline deste exemplo copia os dados do Armazenamento de blobs para uma base 
 > * Utilizar a ferramenta Copiar Dados para criar um pipeline.
 > * Monitorizar o pipeline e execuções de atividades.
 
-Avance para o tutorial seguinte, para saber como copiar dados do local para a cloud:
+Avance para o tutorial seguinte para saber como copiar dados do plano local para a cloud:
 
 >[!div class="nextstepaction"]
 >[Copiar dados do plano local para a cloud](tutorial-hybrid-copy-data-tool.md)

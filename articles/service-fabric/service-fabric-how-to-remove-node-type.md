@@ -1,25 +1,14 @@
 ---
-title: Remover um tipo de nó no Azure Service Fabric | Microsoft Docs
+title: Remover um tipo de nó no Azure Service Fabric
 description: Saiba como remover um tipo de nó de um Cluster Service Fabric em execução no Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
-ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f3dc3210fdb436038174bb8d9347424f14d3faa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464504"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Remover um tipo de nó Service Fabric
 Este artigo descreve como dimensionar um cluster de Service Fabric do Azure removendo um tipo de nó existente de um cluster. Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Depois de criar um Cluster Service Fabric, você pode dimensionar horizontalmente um cluster removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os nós.  Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  À medida que o cluster é dimensionado, os aplicativos também são dimensionados automaticamente.
@@ -37,7 +26,7 @@ As três operações que ocorrem quando Remove-AzServiceFabricNodeType é chamad
 > O uso de Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção não é recomendado para ser usado com frequência. É um comando perigoso, pois exclui o recurso do conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
 
 ## <a name="durability-characteristics"></a>Características de durabilidade
-A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType. O tipo de nó deve ser um [nível](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)de durabilidade prata ou ouro, porque:
+A segurança é priorizada em velocidade ao usar remove-AzServiceFabricNodeType. O tipo de nó deve ser um [nível de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)prata ou ouro, porque:
 - Bronze não oferece nenhuma garantia sobre salvar informações de estado.
 - O ajuste de durabilidade prata e ouro faz qualquer alteração no conjunto de dimensionamento.
 - O Gold também lhe dá controle sobre as atualizações do Azure em conjunto de dimensionamento.
@@ -80,7 +69,7 @@ Foreach($node in $nodes)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre as [características](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)de durabilidade do cluster.
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre as [características de durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)do cluster.
 - Saiba mais sobre os [tipos de nó e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md).
-- Saiba mais sobre o dimensionamento de [cluster Service Fabric](service-fabric-cluster-scaling.md).
+- Saiba mais sobre o [dimensionamento de cluster Service Fabric](service-fabric-cluster-scaling.md).

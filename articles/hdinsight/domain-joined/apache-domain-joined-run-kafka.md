@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435845"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: configurar políticas de Apache Kafka no HDInsight com Enterprise Security Package (versão prévia)
 
@@ -93,7 +93,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Substitua `DOMAINADMIN` pelo usuário administrador do cluster configurado durante a [criação do cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)e substitua `CLUSTERNAME` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário administrador. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Substitua `DOMAINADMIN` pelo usuário administrador do cluster configurado durante a [criação do cluster](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)e substitua `CLUSTERNAME` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário administrador. Para obter mais informações sobre como utilizar `SSH` com o HDInsight, veja [Utilizar SSH com o HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilize os comandos seguintes para guardar o nome do cluster numa variável e instalar um utilitário de análise JSON `jq`. Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
@@ -123,7 +123,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
 
 ## <a name="test-the-ranger-policies"></a>Testar as políticas do Ranger
 
-Com base nas políticas de Ranger configuradas, o **sales_user** pode produzir/consumir o tópico `salesevents`, mas não `marketingspend`de tópico. Por outro lado, o **marketing_user** pode produzir/consumir o tópico `marketingspend`, mas não `salesevents`de tópico.
+Com base nas políticas de Ranger configuradas, **sales_user** pode produzir/consumir o tópico `salesevents`, mas não o tópico `marketingspend`. Por outro lado, **marketing_user** pode produzir/consumir o tópico `marketingspend`, mas não o tópico `salesevents`.
 
 1. Abra uma nova ligação SSH ao cluster. Utilize o seguinte comando para iniciar sessão como **sales_user1**:
 
@@ -145,9 +145,9 @@ Com base nas políticas de Ranger configuradas, o **sales_user** pode produzir/c
 
    Exemplo: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Siga a etapa 3 em **criar e implantar o exemplo** no [tutorial: Use o Apache Kafka produtor e as APIs de consumidor](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que o `kafka-producer-consumer.jar` também esteja disponível para **sales_user**.
+4. Siga a etapa 3 em **criar e implantar o exemplo** no [tutorial: Use o Apache Kafka produtor e as APIs de consumidor](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que a `kafka-producer-consumer.jar` também esteja disponível para **sales_user**.
 
-5. Verifique se o **sales_user1** pode produzir para o tópico `salesevents` executando o seguinte comando:
+5. Verifique se **sales_user1** pode produzir para o tópico `salesevents` executando o seguinte comando:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
@@ -161,7 +161,7 @@ Com base nas políticas de Ranger configuradas, o **sales_user** pode produzir/c
 
    Verifique se você é capaz de ler as mensagens.
 
-7. Verifique se o **sales_user1** não pode produzir para o tópico `marketingspend` executando o seguinte na mesma janela SSH:
+7. Verifique se a **sales_user1** não pode produzir para o tópico `marketingspend` executando o seguinte na mesma janela SSH:
 
    ```bash
    java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
@@ -169,7 +169,7 @@ Com base nas políticas de Ranger configuradas, o **sales_user** pode produzir/c
 
    Um erro de autorização ocorre e pode ser ignorado.
 
-8. Observe que o **marketing_user1** não pode consumir do tópico `salesevents`.
+8. Observe que **marketing_user1** não pode consumir do tópico `salesevents`.
 
    Repita as etapas 1-4 acima, mas desta vez como **marketing_user1**.
 
@@ -189,7 +189,7 @@ Com base nas políticas de Ranger configuradas, o **sales_user** pode produzir/c
 
 Se você não for continuar a usar este aplicativo, exclua o cluster Kafka que você criou com as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Na caixa de **pesquisa** na parte superior, digite **HDInsight**.
 1. Selecione **clusters HDInsight** em **Serviços**.
 1. Na lista de clusters HDInsight que aparece, clique em **...** ao lado do cluster que você criou para este tutorial. 

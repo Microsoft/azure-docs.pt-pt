@@ -4,18 +4,18 @@ description: As soluções de monitoramento no Azure Monitor são uma coleção 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402010"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Detalhes de inventário e coleta de dados para soluções de monitoramento no Azure
-As [soluções de monitoramento](solutions.md) aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um determinado aplicativo ou serviço. Soluções de monitoramento normalmente coletam dados de log e fornecem consultas e exibições para analisar os dados coletados. Você pode adicionar soluções de monitoramento para Azure Monitor para quaisquer aplicativos e serviços que você usar. Normalmente, eles estão disponíveis sem custos, mas coletam dados que podem invocar encargos de uso.
+As [soluções de monitoramento](solutions.md) aproveitam os serviços no Azure para fornecer informações adicionais sobre a operação de um determinado aplicativo ou serviço. Soluções de monitoramento normalmente coletam dados de log e fornecem consultas e exibições para analisar os dados coletados. Você pode adicionar soluções de monitoramento para Azure Monitor para quaisquer aplicativos e serviços que você usar. Eles estão normalmente disponíveis em nenhum dado de custo mas recolher invoca os custos de utilização.
 
 Este artigo inclui uma lista de [soluções de montioring](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Ele também fornece informações sobre seu método e a frequência de coleta de dados em Azure Monitor.  Você pode usar as informações neste artigo para identificar as diferentes soluções disponíveis e para entender o fluxo de dados e os requisitos de conexão para diferentes soluções de monitoramento.
 
@@ -40,7 +40,7 @@ As explicações das colunas são as seguintes:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Log Analytics de atividades](../platform/activity-log-collect.md) | Azure | | | | | | na notificação |
 | [Avaliação do AD](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
-| [Estado de Replicação do AD](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dias |
+| [Estado de Replicação do AD](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 days |
 | [Agente de Funcionamento de Agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | um minuto |
 | [Gerenciamento de alertas](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |na chegada |
 | [Gerenciamento de alertas](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |um minuto |
@@ -48,10 +48,10 @@ As explicações das colunas são as seguintes:
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
 | [Conector do Application Insights (preterido)](../platform/app-insights-connector.md) | Azure | | | |  |  | na notificação |
 | [Hybrid Worker de Automação](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
-| [Análise do Gateway de Aplicativo do Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
+| [Análise do Gateway de aplicação do Azure](azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | **Solução de monitoramento** | **Plataforma** | **Agente de monitoramento da Microsoft** | **Agente de Operations Manager** | **Armazenamento do Azure** | **Operations Manager necessário?** | **Operations Manager dados do agente enviados por meio do grupo de gerenciamento** | **Frequência de coleta** |
 | [Análise do Grupo de Segurança de Rede do Azure (preterido)](azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
-| [Análise de SQL do Azure (versão prévia)](azure-sql.md) | Windows | | | | | | um minuto |
+| [Análise SQL do Azure (pré-visualização)](azure-sql.md) | Windows | | | | | | um minuto |
 | [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | na notificação |
 | [Capacidade e Desempenho (versão prévia)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
 | [Monitorização de Alterações](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[consoante](../../automation/change-tracking.md#change-tracking-data-collection-details) |

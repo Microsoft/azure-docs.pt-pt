@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6fd8d6187c86306840c33b3aaf334e71086b20a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452748"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para a escolha de um ID de série de tempo
 
@@ -23,23 +23,28 @@ Este artigo resume a importância da ID da série temporal para seu ambiente de 
 
 ## <a name="choose-a-time-series-id"></a>Escolher um ID de Série de Tempo
 
-Escolher um ID de série de tempo é como escolher uma chave de partição para uma base de dados. Ele precisa ser selecionado enquanto você estiver criando um ambiente de visualização de Time Series Insights. É uma propriedade *imutável* . Ou seja, depois de criar um ambiente de visualização de Time Series Insights com uma ID de série temporal, você não poderá alterá-lo para esse ambiente. 
+A seleção de uma ID de série temporal apropriada é crítica. Escolher um ID de série de tempo é como escolher uma chave de partição para uma base de dados. É necessário quando você cria um ambiente de visualização de Time Series Insights. 
 
 > [!IMPORTANT]
-> A ID da série temporal diferencia maiúsculas de minúsculas.
+> As IDs de série temporal são:
+> * Uma propriedade que *diferencia maiúsculas de minúsculas* : letras e maiúsculas de caracteres são usadas em pesquisas, comparações, atualizações e ao particionar.
+> * Uma propriedade *imutável* : uma vez criada, ela não pode ser alterada.
 
-A seleção de uma ID de série temporal apropriada é crítica. Aqui estão algumas das práticas recomendadas que você pode seguir:
+> [!TIP]
+> Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será ***iothub-Connection-Device-ID***.
+
+As principais práticas recomendadas a serem seguidas incluem:
 
 * Escolha uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Em muitos casos, essa pode ser a ID do dispositivo, ID do sensor ou ID de marca em seu JSON.
 * O ID de série de tempo deve ser exclusivo no nível de nó folha da sua [modelo de série de tempo](./time-series-insights-update-tsm.md).
-* Se a origem do evento for um hub IoT, a ID da série temporal provavelmente será *iothub-Connection-Device-ID*.
 * O limite de caracteres para a cadeia de caracteres do nome da propriedade da ID da série temporal é 128. Para o valor da propriedade da ID da série temporal, o limite de caracteres é 1.024.
 * Se um valor de propriedade exclusivo para a ID da série temporal estiver ausente, ele será tratado como um valor nulo e seguirá a mesma regra da restrição de exclusividade.
 * Você também pode selecionar até *três* Propriedades de chave como sua ID de série temporal. Sua combinação será uma chave composta que representa a ID da série temporal.  
-
   > [!NOTE]
   > Suas propriedades de três chaves devem ser cadeias de caracteres.
   > Você precisaria consultar essa chave composta em vez de uma propriedade de cada vez.
+
+## <a name="select-more-than-one-key-property"></a>Selecionar mais de uma propriedade de chave
 
 Os cenários a seguir descrevem a seleção de mais de uma propriedade de chave como sua ID de série temporal.  
 
@@ -67,9 +72,11 @@ Exemplo de evento bruto:
 }
 ```
 
-Na portal do Azure, você pode inserir essa chave composta como: 
+Na portal do Azure, você pode inserir a chave composta da seguinte maneira: 
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+```JSON
+[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

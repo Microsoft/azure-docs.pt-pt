@@ -3,19 +3,15 @@ title: Controlo de acesso baseado em funções na Automatização do Azure
 description: O controlo de acesso baseado em funções (RBAC) permite uma gestão de acesso para os recursos do Azure. Este artigo descreve como configurar o RBAC na Automatização do Azure.
 keywords: rbac de automatização, controlo de acesso baseado em funções , rbac do azure
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421581"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -265,11 +261,11 @@ O gerenciamento de atualizações atinge vários serviços para fornecer seu ser
 |**Recurso**  |**Função**  |**Âmbito**  |
 |---------|---------|---------|
 |Conta de automatização     | Contribuidor do Log Analytics       | Conta de automatização        |
-|Conta de automatização    | Colaborador da Máquina Virtual        | Grupo de recursos para a conta        |
+|Conta de automatização    | Contribuidor de Máquina Virtual        | Grupo de recursos para a conta        |
 |Área de trabalho do Log Analytics     | Contribuidor do Log Analytics| Área de trabalho do Log Analytics        |
 |Área de trabalho do Log Analytics |Leitor do Log Analytics| Subscrição|
 |Solução     |Contribuidor do Log Analytics         | Solução|
-|Virtual Machine     | Colaborador da Máquina Virtual        | Virtual Machine        |
+|Virtual Machine     | Contribuidor de Máquina Virtual        | Virtual Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para sua conta de automação
 

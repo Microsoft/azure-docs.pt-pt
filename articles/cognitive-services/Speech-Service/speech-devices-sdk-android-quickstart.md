@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380325"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início rápido: executar o aplicativo de exemplo do SDK de dispositivos de fala no Android
 

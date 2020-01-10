@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb415d7434130c6ea2e7c9e2e11daccc657ddbf8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b1f5c837f1912df407960fca41387eb84986381e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207663"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423158"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -40,7 +40,7 @@ Um ambiente federado deve ter um provedor de identidade que dê suporte aos requ
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> O **ADFS/Services/Trust/2005/windowstransport** ou **ADFS/Services/Trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e não devem ser expostos como pontos de extremidade voltados para a extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [desabilitar pontos de extremidade do Windows do WS-Trust no proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Você pode ver quais pontos de extremidade são habilitados por meio do console de gerenciamento de AD FS em **pontos de extremidade**do **serviço** > .
+> O **ADFS/Services/Trust/2005/windowstransport** e o **ADFS/Services/Trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e não devem ser expostos como pontos de extremidade voltados para a extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [desabilitar pontos de extremidade do Windows do WS-Trust no proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Você pode ver quais pontos de extremidade são habilitados por meio do console de gerenciamento de AD FS em **pontos de extremidade**do **serviço** > .
 
 Neste tutorial, você aprenderá a configurar o ingresso do Azure AD híbrido para Active Directory dispositivos de computadores ingressados no domínio em um ambiente federado usando AD FS.
 
@@ -114,7 +114,7 @@ Para configurar uma junção híbrida do Azure AD usando Azure AD Connect, você
 
 1. Na página **visão geral** , selecione **Avançar**.
 
-   ![Descrição geral](./media/hybrid-azuread-join-federated-domains/13.png)
+   ![Visão geral](./media/hybrid-azuread-join-federated-domains/13.png)
 
 1. Na página **conectar ao Azure ad** , insira as credenciais de um administrador global para seu locatário do Azure AD e, em seguida, selecione **Avançar**.
 
@@ -122,7 +122,7 @@ Para configurar uma junção híbrida do Azure AD usando Azure AD Connect, você
 
 1. Na página **Opções do dispositivo** , selecione **Configurar ingresso no Azure ad híbrido**e, em seguida, selecione **Avançar**.
 
-   ![Opções do dispositivo](./media/hybrid-azuread-join-federated-domains/15.png)
+   ![Opções de dispositivo](./media/hybrid-azuread-join-federated-domains/15.png)
 
 1. Na página **SCP** , conclua as etapas a seguir e, em seguida, selecione **Avançar**:
 
@@ -185,7 +185,7 @@ Quando você usa o cmdlet **Get-MSolDevice** para verificar os detalhes do servi
 
 **Para verificar os detalhes do serviço**:
 
-1. Abra o Windows PowerShell como administrador.
+1. Abra o Windows PowerShell Como um administrador.
 1. Insira `Connect-MsolService` para se conectar ao seu locatário do Azure.  
 1. Introduza `get-msoldevice -deviceId <deviceId>`.
 1. Certifique-se de que **Ativado** está definido como **Verdadeiro**.

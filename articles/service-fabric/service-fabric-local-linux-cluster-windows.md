@@ -1,44 +1,35 @@
 ---
-title: Configurar o cluster do Linux do Azure Service Fabric no Windows | Documentos da Microsoft
-description: Este artigo aborda como configurar clusters do Service Fabric do Linux em execução em computadores de desenvolvimento do Windows. Isso é particularmente útil para cruzada de desenvolvimento da plataforma.
-services: service-fabric
-documentationcenter: .net
+title: Configurar o cluster do Azure Service Fabric Linux no Windows
+description: Este artigo aborda como configurar Service Fabric clusters do Linux em execução em computadores de desenvolvimento do Windows. Isso é particularmente útil para o desenvolvimento de plataforma cruzada.
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462987"
 ---
-# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurar um cluster do Service Fabric do Linux no seu computador de desenvolvedor do Windows
+# <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurar um cluster de Service Fabric do Linux no computador do desenvolvedor do Windows
 
-Este documento aborda como configurar um local Service Fabric do Linux em máquinas de desenvolvimento do Windows. Como configurar um cluster do Linux local é útil para testar rapidamente aplicações direcionadas para os clusters do Linux, mas são desenvolvidas num computador Windows.
+Este documento aborda como configurar um Service Fabric Linux local em computadores de desenvolvimento do Windows. A configuração de um cluster local do Linux é útil para testar rapidamente os aplicativos direcionados a clusters do Linux, mas são desenvolvidos em um computador Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Clusters do Service Fabric baseados em Linux não são executados nativamente no Windows. Para executar um cluster do Service Fabric local, é fornecida uma imagem de contentor do Docker pré-configurada. Antes de começar, vai precisar do:
+Os clusters Service Fabric baseados em Linux não são executados nativamente no Windows. Para executar um cluster de Service Fabric local, uma imagem de contêiner pré-configurada do Docker é fornecida. Antes de começar, vai precisar do:
 
 * De, pelo menos, 4 GB de RAM
 * Da versão mais recente do [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker tem de ser executado no modo de Linux
+* O Docker deve estar em execução no modo Linux
 
 >[!TIP]
-> * Pode seguir os passos mencionados na oficial do Docker [documentação](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) para instalar o Docker no seu Windows. 
+> * Você pode seguir as etapas mencionadas na [documentação](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) oficial do Docker para instalar o Docker no Windows. 
 > * Depois de concluída a instalação, execute os passos mencionados [aqui](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine) para confirmar que foi instalada corretamente.
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Criar um contentor local e configurar o Service Fabric
-Para configurar um contentor de Docker local e executar um cluster do service fabric em execução no mesmo, execute os seguintes passos no PowerShell:
+Para configurar um contêiner do Docker local e ter um cluster do Service Fabric em execução, execute as seguintes etapas no PowerShell:
 
 
 1. Atualize a configuração do daemon do Docker no seu anfitrião com o seguinte e reinicie-o: 
@@ -49,7 +40,7 @@ Para configurar um contentor de Docker local e executar um cluster do service fa
       "fixed-cidr-v6": "2001:db8:1::/64"
     }
     ```
-    A forma recomendada de atualizar é ir a ícone do Docker > Definições > Daemon > Avançadas e atualizar aí. Em seguida, reinicie o daemon do Docker para que as alterações entrem em vigor. 
+    A maneira recomendável de atualizar é-ir para o ícone do Docker > Configurações > daemon > avançado e atualizá-lo lá. Em seguida, reinicie o daemon do Docker para que as alterações entrem em vigor. 
 
 2. Num novo diretório, crie um ficheiro com o nome `Dockerfile` para criar a Imagem do Service Fabric:
 
@@ -104,12 +95,12 @@ Para configurar um contentor de Docker local e executar um cluster do service fa
     docker logs sftestcluster
     ```
 
-6. Quando o passo 5 estiver devidamente concluído, pode ir para ``http://localhost:19080`` desde o Windows e seria capaz de ver o Explorador do Service Fabric. Neste momento, pode ligar a este cluster utilizar quaisquer ferramentas a partir do seu computador de desenvolvedor do Windows e implementar a aplicação direcionada para os clusters do Service Fabric do Linux. 
+6. Depois que a etapa 5 for concluída com êxito, você poderá ir para ``http://localhost:19080`` de seu Windows e poderá ver o Service Fabric Explorer. Neste ponto, você pode se conectar a esse cluster usando qualquer ferramenta do seu computador de desenvolvedor do Windows e implantar o aplicativo destinado a clusters do Linux Service Fabric. 
 
     > [!NOTE]
     > O plug-in do Eclipse não é atualmente suportado no Windows. 
 
-7. Quando tiver terminado, parar e limpar o contentor com este comando:
+7. Quando terminar, pare e limpe o contêiner com este comando:
 
     ```powershell 
     docker rm -f sftestcluster
@@ -121,9 +112,9 @@ Para configurar um contentor de Docker local e executar um cluster do service fa
  
  * O serviço DNS não é executado e não é suportado [Problema #132](https://github.com/Microsoft/service-fabric/issues/132)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Introdução ao [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
-* Veja outros [exemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Confira outros [exemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 
 <!-- Image references -->

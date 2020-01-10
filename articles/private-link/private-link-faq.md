@@ -2,17 +2,17 @@
 title: Perguntas frequentes sobre o link privado do Azure
 description: Saiba mais sobre o link privado do Azure.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 53cb9b91d62c65cefb33451c716e677599306e9c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349927"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -28,6 +28,7 @@ O tráfego é enviado de forma privada usando o backbone da Microsoft. Ele não 
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Qual é a diferença entre um ponto de extremidade de serviço e um ponto de extremidade privado?
 - Ao usar pontos de extremidade privados, o acesso à rede é concedido a recursos específicos por trás de um determinado serviço, fornecendo segmentação granular, além disso, o tráfego pode acessar o recurso de serviço no local sem usar pontos de extremidade públicos.
+- Um ponto de extremidade de serviço permanece um endereço IP roteável publicamente.  Um ponto de extremidade privado é um IP privado no espaço de endereço da rede virtual em que o ponto de extremidade privado está configurado.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Qual é a relação entre o serviço de link privado e o ponto de extremidade privado?
 O ponto de extremidade privado fornece acesso a vários tipos de recursos de link privado, incluindo os serviços de PaaS do Azure e seu próprio serviço de vínculo privado. É uma relação um-para-muitos. Um serviço de vínculo privado pode receber conexões de vários pontos de extremidade privados. Por outro lado, um ponto de extremidade privado só pode se conectar a um serviço de vínculo privado.    
@@ -76,6 +77,6 @@ Não. O serviço de vínculo privado não requer uma sub-rede dedicada. Você po
 ### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Sou um provedor de serviços usando o link privado do Azure. É necessário ter certeza de que todos os meus clientes têm espaço IP exclusivo e não se sobrepõem ao meu espaço de IP? 
 Não. O link privado do Azure fornece essa funcionalidade para você. Portanto, não é necessário ter espaço de endereço não sobreposto com o espaço de endereço do seu cliente. 
 
-##  <a name="next-steps"></a>Passos Seguintes
+##  <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [link privado do Azure](private-link-overview.md)

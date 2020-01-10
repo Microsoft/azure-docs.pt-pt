@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432542"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
-Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui estão algumas dicas.
+Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Abaixo temos algumas dicas.
 
 ## <a name="build-errors"></a>Erros de compilação
 **No Eclipse ou no IntelliJ IDEA, ao adicionar o SDK do Application Insights via Maven ou gradle, obtenho erros de validação de compilação ou de soma de verificação.**
@@ -52,7 +52,6 @@ Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui est
 * Você configurou o agente Java seguindo [Configurar o agente Java](java-agent.md) ?
 * Certifique-se de que tanto o JAR do agente Java quanto o arquivo AI-Agent. XML sejam colocados na mesma pasta.
 * Verifique se a dependência que você está tentando coletar automaticamente tem suporte para a coleta automática. Atualmente, há suporte apenas para MySQL, MsSQL, Oracle DB e cache do Azure para coleta de dependência Redis.
-* Você está usando o JDK 1,7 ou o 1,8? No momento, não há suporte para a coleta de dependência no JDK 9.
 
 ## <a name="no-usage-data"></a>Nenhum dado de uso
 **Vejo dados sobre solicitações e tempos de resposta, mas nenhum modo de exibição de página, navegador ou dados de usuário.**
@@ -75,7 +74,7 @@ No código:
     config.setTrackingIsDisabled(true);
 ```
 
-**Or**
+**ou**
 
 Atualize ApplicationInsights. XML (na pasta recursos em seu projeto). Adicione o seguinte sob o nó raiz:
 
@@ -100,7 +99,7 @@ Usando o método XML, é necessário reiniciar o aplicativo quando você altera 
 
 Para obter mais informações sobre o que está acontecendo na API, adicione `<SDKLogger/>` sob o nó raiz do arquivo de configuração ApplicationInsights. xml.
 
-### <a name="applicationinsightsxml"></a>ApplicationInsights. xml
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
 
 Você também pode instruir o agente a gerar uma saída para um arquivo:
 

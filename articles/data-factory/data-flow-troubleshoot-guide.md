@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443939"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solucionar problemas Azure Data Factory fluxos de dados
 
@@ -92,8 +92,18 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 
 - **Causa**: os fluxos que estão sendo ingressados têm nomes de coluna comuns
 
-- **Resolução**: Adicione um SELECT transforamtion seguindo a junção e selecione "remover colunas duplicadas" para a entrada e saída.
+- **Resolução**: Adicione uma transformação selecionar após a junção e selecione "remover colunas duplicadas" para a entrada e saída.
 
+### <a name="error-message-possible-cartesian-product"></a>Mensagem de erro: possível produto cartesiano
+
+- **Sintomas**: a transformação de junção ou pesquisa detectou um possível produto cartesiano na execução do fluxo de dados
+
+- **Causa**: se você não direcionou explicitamente o ADF para usar uma junção cruzada, o fluxo de dados pode falhar
+
+- **Resolução**: altere sua transformação de pesquisa ou junção para uma junção usando junção cruzada personalizada e insira sua condição de pesquisa ou junção no editor de expressão. Se você quiser produzir explicitamente um produto cartesiano completo, use a transformação coluna derivada em cada um dos dois fluxos independentes antes da junção para criar uma chave sintética na qual corresponder. Por exemplo, crie uma nova coluna na coluna derivada em cada fluxo chamado ```SyntheticKey``` e defina-a como ```1```. Em seguida, use ```a.SyntheticKey == b.SyntheticKey``` como sua expressão de junção personalizada.
+
+> [!NOTE]
+> Certifique-se de incluir pelo menos uma coluna de cada lado da relação esquerda e direita em uma junção cruzada personalizada. A execução de Junções cruzadas com valores estáticos em vez de colunas de cada lado resultará em verificações completas de todo o conjunto de dados, fazendo com que o fluxo do seu data de desempenho seja insatisfatório.
 
 ## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas
 

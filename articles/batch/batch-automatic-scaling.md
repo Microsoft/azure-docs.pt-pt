@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933689"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660720"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -34,7 +34,7 @@ Este artigo discute as várias entidades que compõem suas fórmulas de dimensio
 > [!IMPORTANT]
 > Ao criar uma conta do lote, você pode especificar a [configuração da conta](batch-api-basics.md#account), que determina se os pools são alocados em uma assinatura do serviço de lote (o padrão) ou em sua assinatura de usuário. Se você criou sua conta do lote com a configuração padrão do serviço de lote, sua conta será limitada a um número máximo de núcleos que podem ser usados para processamento. O serviço de lote dimensiona os nós de computação somente até esse limite de núcleo. Por esse motivo, o serviço de lote pode não alcançar o número de destino de nós de computação especificado por uma fórmula de dimensionamento automático. Consulte [cotas e limites para o serviço do lote do Azure](batch-quota-limit.md) para obter informações sobre como exibir e aumentar suas cotas de conta.
 >
->Se você criou sua conta com a configuração de assinatura do usuário, sua conta será compartilhada na cota principal da assinatura. Para obter mais informações, veja [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
+>Se você criou sua conta com a configuração de assinatura do usuário, sua conta será compartilhada na cota principal da assinatura. Para obter mais informações, veja [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) (Limites das Máquinas Virtuais), em [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites, quotas e limitações das subscrições e serviços do Azure).
 >
 >
 
@@ -48,7 +48,7 @@ Você pode considerar as fórmulas de dimensionamento automático como um "idiom
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-As fórmulas geralmente contêm várias instruções que executam operações em valores que são obtidos nas instruções anteriores. Por exemplo, primeiro obtemos um valor para `variable1` e, em seguida, o passamos para uma função para popular `variable2`:
+As fórmulas geralmente contêm várias instruções que executam operações em valores que são obtidos nas instruções anteriores. Por exemplo, primeiro obtemos um valor para `variable1`e, em seguida, o passamos para uma função para popular `variable2`:
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
@@ -61,7 +61,7 @@ O número de nós de destino pode ser maior, menor ou igual ao número atual de 
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de autoescala de exemplo
 
-Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` no exemplo de fórmulas podem ser ajustadas às suas necessidades.
+Abaixo estão exemplos de duas fórmulas de dimensionamento automático, que podem ser ajustadas para funcionar na maioria dos cenários. As variáveis `startingNumberOfVMs` e `maxNumberofVMs` nas fórmulas de exemplo podem ser ajustadas às suas necessidades.
 
 #### <a name="pending-tasks"></a>Tarefas pendentes
 
@@ -74,7 +74,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Com essa fórmula de autoescala, o pool é inicialmente criado com uma única VM. A métrica `$PendingTasks` define o número de tarefas que estão em execução ou na fila. A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define a variável `$TargetDedicatedNodes` de acordo. A fórmula garante que o número de destino de nós dedicados nunca exceda 25 VMs. À medida que novas tarefas são enviadas, o pool aumenta automaticamente. À medida que as tarefas são concluídas, as VMs tornam-se gratuitas uma a uma e a fórmula de dimensionamento automático reduz o pool.
+Com essa fórmula de autoescala, o pool é inicialmente criado com uma única VM. A métrica de `$PendingTasks` define o número de tarefas que estão em execução ou na fila. A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define a variável de `$TargetDedicatedNodes` de acordo. A fórmula garante que o número de destino de nós dedicados nunca exceda 25 VMs. À medida que novas tarefas são enviadas, o pool aumenta automaticamente. À medida que as tarefas são concluídas, as VMs tornam-se gratuitas uma a uma e a fórmula de dimensionamento automático reduz o pool.
 
 Essa fórmula dimensiona os nós dedicados, mas pode ser modificada para se aplicar para dimensionar nós de baixa prioridade também.
 
@@ -142,7 +142,7 @@ Você pode obter o valor dessas variáveis definidas pelo serviço para fazer aj
 >
 >
 
-## <a name="types"></a>Digita
+## <a name="types"></a>Tipos
 
 Esses tipos têm suporte em uma fórmula:
 
@@ -188,12 +188,12 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | timeInterval do *operador* timestamp |+ |carimbo de data/hora |
 | carimbo de data/hora do *operador* timestamp |- |timeInterval |
 | duplo de *operador* |-, ! |double |
-| timeInterval do *operador* |- |timeInterval |
-| duplo de *operador* duplo |<, < =, = =, > =, >,! = |double |
-| Cadeia de caracteres do *operador* String |<, < =, = =, > =, >,! = |double |
-| carimbo de data/hora do *operador* timestamp |<, < =, = =, > =, >,! = |double |
-| timeInterval *operador* timeintervalo |<, < =, = =, > =, >,! = |double |
-| duplo de *operador* duplo |& &,&#124;&#124; |double |
+| *operator*timeinterval |- |timeInterval |
+| duplo de *operador* duplo |<, <=, ==, >=, >, != |double |
+| Cadeia de caracteres do *operador* String |<, <=, ==, >=, >, != |double |
+| carimbo de data/hora do *operador* timestamp |<, <=, ==, >=, >, != |double |
+| timeInterval *operador* timeintervalo |<, <=, ==, >=, >, != |double |
+| duplo de *operador* duplo |&&, &#124;&#124; |double |
 
 Ao testar um Double com um operador ternário (`double ? statement1 : statement2`), diferente de zero é **true**e zero é **false**.
 
@@ -202,24 +202,24 @@ Essas **funções** predefinidas estão disponíveis para uso na definição de 
 
 | Função | Tipo de retorno | Descrição |
 | --- | --- | --- |
-| AVG (doubleVecList) |double |Retorna o valor médio de todos os valores no doubleVecList. |
-| Len (doubleVecList) |double |Retorna o comprimento do vetor que é criado a partir de doubleVecList. |
+| avg(doubleVecList) |double |Retorna o valor médio de todos os valores no doubleVecList. |
+| len(doubleVecList) |double |Retorna o comprimento do vetor que é criado a partir de doubleVecList. |
 | LG (duplo) |double |Retorna a base de log 2 do duplo. |
-| LG (doubleVecList) |doubleVec |Retorna a base de log do componente 2 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão de LG dupla (Double) será assumida. |
+| lg(doubleVecList) |doubleVec |Retorna a base de log do componente 2 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão de LG dupla (Double) será assumida. |
 | ln (duplo) |double |Retorna o log natural do duplo. |
-| ln (doubleVecList) |doubleVec |Retorna o log natural do duplo. |
+| ln(doubleVecList) |doubleVec |Retorna o log natural do duplo. |
 | log (duplo) |double |Retorna a base de log 10 do duplo. |
-| log (doubleVecList) |doubleVec |Retorna a base do log do componente 10 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o único parâmetro Double. Caso contrário, a versão de log duplo (Double) é assumida. |
-| Max (doubleVecList) |double |Retorna o valor máximo em doubleVecList. |
-| min (doubleVecList) |double |Retorna o valor mínimo no doubleVecList. |
-| norma (doubleVecList) |double |Retorna a duas normas do vetor que é criado a partir de doubleVecList. |
+| log(doubleVecList) |doubleVec |Retorna a base do log do componente 10 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o único parâmetro Double. Caso contrário, a versão de log duplo (Double) é assumida. |
+| max(doubleVecList) |double |Retorna o valor máximo em doubleVecList. |
+| min(doubleVecList) |double |Retorna o valor mínimo no doubleVecList. |
+| norm(doubleVecList) |double |Retorna a duas normas do vetor que é criado a partir de doubleVecList. |
 | percentil (doubleVec v, duplo p) |double |Retorna o elemento percentil do vetor v. |
 | Rand () |double |Retorna um valor aleatório entre 0,0 e 1,0. |
-| intervalo (doubleVecList) |double |Retorna a diferença entre os valores mínimo e máximo no doubleVecList. |
-| STD (doubleVecList) |double |Retorna o desvio padrão de exemplo dos valores no doubleVecList. |
-| parar () | |Interrompe a avaliação da expressão de dimensionamento automático. |
-| Sum (doubleVecList) |double |Retorna a soma de todos os componentes do doubleVecList. |
-| time (cadeia de caracteres dateTime = "") |carimbo de data/hora |Retorna o carimbo de data/hora da hora atual se nenhum parâmetro for passado ou o carimbo de data/hora da cadeia de caracteres dateTime se ele for passado. Os formatos de data e hora com suporte são W3C-DTF e RFC 1123. |
+| range(doubleVecList) |double |Retorna a diferença entre os valores mínimo e máximo no doubleVecList. |
+| std(doubleVecList) |double |Retorna o desvio padrão de exemplo dos valores no doubleVecList. |
+| stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
+| sum(doubleVecList) |double |Retorna a soma de todos os componentes do doubleVecList. |
+| time(string dateTime="") |carimbo de data/hora |Retorna o carimbo de data/hora da hora atual se nenhum parâmetro for passado ou o carimbo de data/hora da cadeia de caracteres dateTime se ele for passado. Os formatos de data e hora com suporte são W3C-DTF e RFC 1123. |
 | Val (doubleVec v, duplo i) |double |Retorna o valor do elemento que está no local i no vetor v, com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação de *Double* e *doubleVec*. Por exemplo:
@@ -238,11 +238,11 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Método | Descrição |
 | --- | --- |
-| Getsample () |O método `GetSample()` retorna um vetor de amostras de dados.<br/><br/>Um exemplo é de 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme observado abaixo, há um atraso entre o momento em que uma amostra é coletada e quando ela está disponível para uma fórmula. Dessa forma, nem todas as amostras de um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna o último exemplo disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* o exemplo foi coletado. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antiga. Em tais casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornará 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 amostras seriam retornadas. Nesse caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% dos exemplos estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando está disponível para uma fórmula. Considere esse atraso ao usar o método `GetSample`. Consulte `GetSamplePercent` abaixo. |
+| GetSample() |O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Um exemplo é de 30 segundos de dados de métricas. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme observado abaixo, há um atraso entre o momento em que uma amostra é coletada e quando ela está disponível para uma fórmula. Dessa forma, nem todas as amostras de um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna o último exemplo disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* o exemplo foi coletado. Pode ser recente ou, devido a problemas do sistema, pode ser muito mais antiga. Em tais casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para a coleta de dados de exemplo. Opcionalmente, ele também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornará 20 amostras se todas as amostras dos últimos 10 minutos estiverem presentes no histórico de CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 amostras seriam retornadas. Neste caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falharia porque apenas 90% dos exemplos estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria sucesso.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando está disponível para uma fórmula. Considere esse atraso ao usar o método `GetSample`. Consulte `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Retorna o período de amostras que foram executadas em um conjunto de dados de exemplo histórico. |
 | Contagem () |Retorna o número total de amostras no histórico de métricas. |
 | HistoryBeginTime() |Retorna o carimbo de data/hora do exemplo de dados mais antigo disponível para a métrica. |
-| GetSamplePercent() |Retorna a porcentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Como o método `GetSample` falhará se a porcentagem de amostras retornada for menor que o `samplePercent` especificado, você poderá usar o método `GetSamplePercent` para verificar primeiro. Em seguida, você poderá executar uma ação alternativa se houver amostras insuficientes, sem interromper a avaliação automática de dimensionamento. |
+| GetSamplePercent() |Retorna a porcentagem de amostras disponíveis para um determinado intervalo de tempo. Por exemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Como o método `GetSample` falhará se a porcentagem de amostras retornada for menor que a `samplePercent` especificada, você poderá usar o método `GetSamplePercent` para verificar primeiro. Em seguida, você poderá executar uma ação alternativa se houver amostras insuficientes, sem interromper a avaliação automática de dimensionamento. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exemplos, porcentagem de exemplo e o método *getsample ()*
 A principal operação de uma fórmula de dimensionamento automático é obter dados de métrica de tarefa e recurso e, em seguida, ajustar o tamanho do pool com base nesses dados. Assim, é importante ter uma compreensão clara de como as fórmulas de dimensionamento automático interagem com dados de métricas (exemplos).
@@ -253,7 +253,7 @@ Periodicamente, o serviço de lote faz amostras de métricas de tarefas e recurs
 
 **Porcentagem de amostra**
 
-Quando `samplePercent` é passado para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _percent_ se refere a uma comparação entre o número total possível de amostras que são registradas pelo serviço de lote e o número de amostras disponíveis para o dimensionamento automático fórmula.
+Quando `samplePercent` é passado para o método `GetSample()` ou o método `GetSamplePercent()` é chamado, _percent_ se refere a uma comparação entre o número total possível de amostras que são registradas pelo serviço de lote e o número de amostras disponíveis para sua fórmula de dimensionamento automático.
 
 Vamos examinar um período de 10 minutos como exemplo. Como os exemplos são registrados a cada 30 segundos em um período de 10 minutos, o número total máximo de amostras registradas pelo lote seria de 20 amostras (2 por minuto). No entanto, devido à latência inerente do mecanismo de relatório e outros problemas no Azure, pode haver apenas 15 exemplos disponíveis para sua fórmula de dimensionamento automático para leitura. Portanto, por exemplo, para esse período de 10 minutos, somente 75% do número total de amostras gravadas podem estar disponíveis para sua fórmula.
 
@@ -273,9 +273,9 @@ Quando a linha acima é avaliada pelo lote, ela retorna um intervalo de amostras
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-Depois de coletar o vetor de exemplos, você poderá usar funções como `min()`, `max()` e `avg()` para derivar valores significativos do intervalo coletado.
+Depois de coletar o vetor de exemplos, você pode usar funções como `min()`, `max()`e `avg()` para derivar valores significativos do intervalo coletado.
 
-Para obter mais segurança, você pode forçar uma avaliação de fórmula a falhar se menos de um determinado percentual de amostra estiver disponível por um período de tempo específico. Quando você força uma avaliação de fórmula a falhar, você instrui o lote a cessar a avaliação adicional da fórmula se o percentual especificado de amostras não estiver disponível. Nesse caso, nenhuma alteração é feita no tamanho do pool. Para especificar uma porcentagem necessária de amostras para que a avaliação seja bem sucedida, especifique-a como o terceiro parâmetro para `GetSample()`. Aqui, é especificado um requisito de 75% dos exemplos:
+Para obter mais segurança, você pode forçar uma avaliação de fórmula a falhar se menos de um determinado percentual de amostra estiver disponível por um período de tempo específico. Quando você força uma avaliação de fórmula a falhar, você instrui o lote a cessar a avaliação adicional da fórmula se o percentual especificado de amostras não estiver disponível. Nesse caso, nenhuma alteração é feita no tamanho do pool. Para especificar uma porcentagem necessária de amostras para que a avaliação seja bem sucedida, especifique-a como o terceiro parâmetro a `GetSample()`. Aqui, é especificado um requisito de 75% dos exemplos:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
@@ -284,7 +284,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Como pode haver um atraso na disponibilidade de exemplo, é importante sempre especificar um intervalo de tempo com uma hora de início de retirada com mais de um minuto. Leva aproximadamente um minuto para que os exemplos se propaguem pelo sistema, portanto, os exemplos no intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` podem não estar disponíveis. Novamente, você pode usar o parâmetro percentual de `GetSample()` para forçar um requisito de percentual de exemplo específico.
 
 > [!IMPORTANT]
-> É **altamente recomendável** que você **Evite depender *apenas* do `GetSample(1)` em suas fórmulas de dimensionamento automático**. Isso ocorre porque `GetSample(1)` basicamente diz ao serviço de lote, "Dê-me o último exemplo que você tem, não importa por quanto tempo chegou." Como é apenas um exemplo, e pode ser um exemplo mais antigo, ele pode não ser representativo da visão mais recente do estado de tarefa ou recursos recentes. Se você usar `GetSample(1)`, verifique se ele faz parte de uma declaração maior e não o único ponto de dados do qual sua fórmula depende.
+> É **altamente recomendável** que você **Evite confiar *apenas* em `GetSample(1)` em suas fórmulas de dimensionamento automático**. Isso ocorre porque `GetSample(1)` basicamente diz ao serviço de lote, "Dê-me o último exemplo que você tem, não importa por quanto tempo chegou." Como é apenas um exemplo, e pode ser um exemplo mais antigo, ele pode não ser representativo da visão mais recente do estado de tarefa ou recursos recentes. Se você usar `GetSample(1)`, verifique se ele faz parte de uma declaração maior e não o único ponto de dados do qual sua fórmula depende.
 >
 >
 
@@ -346,7 +346,7 @@ Primeiro, vamos definir os requisitos para nossa nova fórmula de autoescala. A 
 1. Sempre restrinja o número máximo de nós dedicados a 400.
 1. Ao reduzir o número de nós, não remova os nós que estão executando tarefas; se necessário, aguarde até que as tarefas tenham sido concluídas para remover os nós.
 
-Para aumentar o número de nós durante o alto uso da CPU, defina a instrução que popula uma variável definida pelo usuário (`$totalDedicatedNodes`) com um valor que seja 110% do número de destino atual de nós dedicados, mas somente se o uso médio mínimo da CPU durante os últimos 10 minutos estava acima de 70 por cento. Caso contrário, use o valor para o número atual de nós dedicados.
+Para aumentar o número de nós durante o alto uso da CPU, defina a instrução que popula uma variável definida pelo usuário (`$totalDedicatedNodes`) com um valor que seja de 110% do número de destino atual de nós dedicados, mas somente se o uso médio mínimo de CPU durante os últimos 10 minutos tiver sido superior a 70%. Caso contrário, use o valor para o número atual de nós dedicados.
 
 ```
 $totalDedicatedNodes =
@@ -354,7 +354,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Para *diminuir* o número de nós dedicados durante o baixo uso da CPU, a próxima instrução em nossa fórmula define a mesma variável `$totalDedicatedNodes` como 90% do número de nós dedicados de destino atual se o uso médio da CPU nos últimos 60 minutos foi inferior a 20%. Caso contrário, use o valor atual de `$totalDedicatedNodes` que populamos na instrução acima.
+Para *diminuir* o número de nós dedicados durante o baixo uso da CPU, a próxima instrução em nossa fórmula define a mesma `$totalDedicatedNodes` variável como 90% do número de nós dedicados de destino atual se o uso médio da CPU nos últimos 60 minutos foi inferior a 20%. Caso contrário, use o valor atual de `$totalDedicatedNodes` que populamos na instrução acima.
 
 ```
 $totalDedicatedNodes =
@@ -486,7 +486,7 @@ Ao habilitar o dimensionamento automático em um pool existente, tenha em mente 
   * Se você omitir a fórmula de dimensionamento automático ou o intervalo de avaliação, o serviço de lote continuará a usar o valor atual dessa configuração.
 
 > [!NOTE]
-> Se você especificou valores para os parâmetros *targetDedicatedNodes* ou *targetLowPriorityNodes* do método **createpool** quando criou o pool no .net ou para os parâmetros comparáveis em outra linguagem, esses valores serão ignorado quando a fórmula de dimensionamento automático é avaliada.
+> Se você especificou valores para os parâmetros *targetDedicatedNodes* ou *targetLowPriorityNodes* do método **createpool** quando criou o pool no .net ou para os parâmetros comparáveis em outra linguagem, esses valores serão ignorados quando a fórmula de dimensionamento automático for avaliada.
 >
 >
 
@@ -621,9 +621,9 @@ Para garantir que sua fórmula esteja sendo executada conforme o esperado, recom
 
 No .NET do lote, a propriedade [CloudPool. AutoScaleRun](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tem várias propriedades que fornecem informações sobre a execução de dimensionamento automático mais recente executada no pool:
 
-* [AutoScaleRun. Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun. Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun. Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+* [AutoScaleRun.Timestamp](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+* [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+* [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
 Na API REST, a solicitação [obter informações sobre um pool](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) retorna informações sobre o pool, que inclui as informações mais recentes de execução de dimensionamento automático na propriedade [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) .
 

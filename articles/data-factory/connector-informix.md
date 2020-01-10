@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5edda76503ab1632c5f48728a3d403555452c711
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 36788f513a44f910e1d8b3f04be654996f23216a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444269"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados IBM Informix usando o Azure Data Factory
 
@@ -51,7 +51,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Informix:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade Type deve ser definida como: **Informix** | Sim |
-| connectionString | A cadeia de conexão ODBC excluindo a parte da credencial. Você pode especificar a cadeia de conexão ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente).<br>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).| Sim |
+| connectionString | A cadeia de conexão ODBC excluindo a parte da credencial. Você pode especificar a cadeia de conexão ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente). <br> Você também pode colocar uma senha em Azure Key Vault e efetuar pull do `password` configuração fora da cadeia de conexão. Consulte [armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados Informix.<br/>Os valores permitidos são: **básico** e **anônimo**. | Sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação básica. | Não |
 | palavra-passe | Especifique a senha para a conta de usuário especificada para o nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
@@ -66,10 +66,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Informix:
     "properties": {
         "type": "Informix",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
+            "connectionString": "<Informix connection string or DSN>",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {

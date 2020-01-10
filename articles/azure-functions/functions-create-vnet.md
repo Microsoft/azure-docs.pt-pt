@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433218"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar funções com uma rede virtual do Azure
 
@@ -61,7 +61,7 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress dentro de uma r
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | **Subscrição** | A sua subscrição | A assinatura sob a qual seus recursos são criados. | 
-    | **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Escolha `myResourceGroup`ou o grupo de recursos que você criou com seu aplicativo de funções. Usar o mesmo grupo de recursos para o aplicativo de funções, a VM do WordPress e o plano de hospedagem facilita a limpeza de recursos quando você concluir este tutorial. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Escolha `myResourceGroup`ou o grupo de recursos que você criou com seu aplicativo de funções. Usar o mesmo grupo de recursos para o aplicativo de funções, a VM do WordPress e o plano de hospedagem facilita a limpeza de recursos quando você concluir este tutorial. |
     | **Nome da máquina virtual** | VNET-WordPress | O nome da VM precisa ser exclusivo no grupo de recursos |
     | **[Regionais](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de você ou perto das funções que acessam a VM. |
     | **Tamanho** | B1s | Escolha **alterar tamanho** e, em seguida, selecione a imagem B1s padrão, que tem 1 vCPU e 1 GB de memória. |
@@ -138,7 +138,7 @@ Com a integração VNet habilitada, você pode criar um proxy em seu aplicativo 
 
     | Definição  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
-    | **Nome** | Plant | O nome pode ser qualquer valor. Ele é usado para identificar o proxy. |
+    | **Nome** | Fábrica | O nome pode ser qualquer valor. Ele é usado para identificar o proxy. |
     | **Modelo de rota** | /plant | Rota que mapeia para um recurso de VM. |
     | **URL de back-end** | http://< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | Substitua `<YOUR_VM_IP>` pelo endereço IP da sua VM do WordPress que você criou anteriormente. Esse mapeamento retorna um único arquivo do site. |
 

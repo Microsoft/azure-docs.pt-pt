@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456618"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: criar fluxos de trabalho recorrentes, baseados em agendamento e automatizados usando aplicativos lógicos do Azure
 
@@ -58,7 +58,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    |----------|-------|-------------|
    | **Nome** | LA-TravelTime | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-Viajatime". |
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome da sua assinatura do Azure |
-   | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-Viagenstime-RG". |
+   | **Grupo de recursos** | LA-TravelTime-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-Viagenstime-RG". |
    | **Localização** | Oeste dos E.U.A. | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||

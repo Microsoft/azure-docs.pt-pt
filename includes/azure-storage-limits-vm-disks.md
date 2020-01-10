@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "68669790"
 ---
 Você pode anexar um número de discos de dados a uma máquina virtual do Azure. Com base nas metas de escalabilidade e desempenho dos discos de dados de uma VM, você pode determinar o número e o tipo de disco necessários para atender aos requisitos de desempenho e capacidade.
@@ -20,14 +20,14 @@ Você pode anexar um número de discos de dados a uma máquina virtual do Azure.
 
 A tabela a seguir ilustra os limites padrão e máximo do número de recursos por região por assinatura. Não há nenhum limite para o número de Managed Disks, instantâneos e imagens por grupo de recursos.  
 
-> | Resource | Limite predefinido  | Limite máximo |
+> | Recurso | Limite predefinido  | Limite máximo |
 > | --- | --- | --- |
-> | Managed disks Standard | 50,000 | 50,000 |
-> | Discos geridos Standard SSD | 50,000 | 50,000 |
-> | Discos geridos Premium | 50,000 | 50,000 |
-> | Instantâneos do Standard_LRS | 50,000 | 50,000 |
-> | Instantâneos do Standard_ZRS | 50,000 | 50,000 |
-> | Imagem gerenciada | 50,000 | 50,000 |
+> | Managed disks Standard | 50 000 | 50 000 |
+> | SSD Standard discos gerenciados | 50 000 | 50 000 |
+> | Discos gerenciados Premium | 50 000 | 50 000 |
+> | Instantâneos de Standard_LRS | 50 000 | 50 000 |
+> | Instantâneos de Standard_ZRS | 50 000 | 50 000 |
+> | Imagem gerenciada | 50 000 | 50 000 |
 
 * **Para contas de armazenamento padrão:** Uma conta de armazenamento Standard tem uma taxa de solicitação total máxima de 20.000 IOPS. O total de IOPS em todos os discos de máquina virtual em uma conta de armazenamento Standard não deve exceder esse limite.
   

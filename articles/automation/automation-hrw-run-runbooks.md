@@ -2,19 +2,15 @@
 title: Executar runbooks na Hybrid Runbook Worker de automação do Azure
 description: Este artigo fornece informações sobre a execução de runbooks em computadores em seu datacenter local ou provedor de nuvem com a função Hybrid Runbook Worker.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452270"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executando runbooks em um Hybrid Runbook Worker
 
@@ -141,7 +137,6 @@ This allows the use of the AzureRunAsConnection to authenticate to Azure and man
 .\Export-RunAsCertificateToHybridWorker
 
 .NOTES
-AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 

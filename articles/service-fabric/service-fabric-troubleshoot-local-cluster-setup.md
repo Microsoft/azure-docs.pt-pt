@@ -1,33 +1,24 @@
 ---
-title: Resolver problemas de sua configuração de cluster do Azure Service Fabric local | Documentos da Microsoft
-description: Este artigo aborda um conjunto de sugestões de resolução de problemas de cluster de desenvolvimento local
-services: service-fabric
-documentationcenter: .net
+title: Solucionar problemas de configuração do Cluster Service Fabric local do Azure
+description: Este artigo aborda um conjunto de sugestões para solucionar problemas de seu cluster de desenvolvimento local
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 8bb32b2bded061bd19bcd7cfda4ef259a75b0626
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea313adb43f8d91ec9e57dd1d0b8d3447a8075f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60864444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465498"
 ---
-# <a name="troubleshoot-your-local-development-cluster-setup"></a>Resolver problemas de sua configuração de cluster de desenvolvimento local
-Caso se depare com um problema ao interagir com o seu cluster de desenvolvimento do Azure Service Fabric local, reveja as seguintes sugestões para possíveis soluções.
+# <a name="troubleshoot-your-local-development-cluster-setup"></a>Solucionar problemas de configuração do cluster de desenvolvimento local
+Se você tiver um problema ao interagir com seu cluster de desenvolvimento Service Fabric do Azure local, examine as sugestões a seguir para obter as possíveis soluções.
 
-## <a name="cluster-setup-failures"></a>Falhas de configuração do cluster
-### <a name="cannot-clean-up-service-fabric-logs"></a>Não é possível limpar registos do Service Fabric
+## <a name="cluster-setup-failures"></a>Falhas na instalação do cluster
+### <a name="cannot-clean-up-service-fabric-logs"></a>Não é possível limpar os logs de Service Fabric
 #### <a name="problem"></a>Problema
-Ao executar o script de DevClusterSetup, verá o seguinte erro:
+Ao executar o script DevClusterSetup, você verá o seguinte erro:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -37,20 +28,20 @@ Ao executar o script de DevClusterSetup, verá o seguinte erro:
 
 
 #### <a name="solution"></a>Solução
-Feche a janela atual do PowerShell e abra uma nova janela do PowerShell como administrador. Agora pode executar o script com êxito.
+Feche a janela atual do PowerShell e abra uma nova janela do PowerShell como administrador. Agora você pode executar o script com êxito.
 
-## <a name="cluster-connection-failures"></a>Falhas de ligação do cluster
+## <a name="cluster-connection-failures"></a>Falhas de conexão do cluster
 
 ### <a name="type-initialization-exception"></a>Exceção de inicialização de tipo
 #### <a name="problem"></a>Problema
-Quando estiver a ligar ao cluster no PowerShell, verá o erro TypeInitializationException para System.Fabric.Common.AppTrace.
+Quando estiver se conectando ao cluster no PowerShell, você verá o erro TypeInitializationException para System. Fabric. Common. AppTrace.
 
 #### <a name="solution"></a>Solução
-A variável de caminho não foi corretamente definida durante a instalação. Terminar sessão do Windows e inicie sessão novamente. Isto atualiza o seu caminho.
+A variável de caminho não foi definida corretamente durante a instalação. Saia do Windows e entre novamente. Isso atualiza seu caminho.
 
-### <a name="cluster-connection-fails-with-object-is-closed"></a>Falha de ligação de cluster com "O objeto está fechado"
+### <a name="cluster-connection-fails-with-object-is-closed"></a>Falha na conexão do cluster com "o objeto está fechado"
 #### <a name="problem"></a>Problema
-Uma chamada para o Connect-ServiceFabricCluster falha com um erro como este:
+Uma chamada para Connect-ServiceFabricCluster falha com um erro como este:
 
     Connect-ServiceFabricCluster : The object is closed.
     At line:1 char:1
@@ -62,21 +53,21 @@ Uma chamada para o Connect-ServiceFabricCluster falha com um erro como este:
 #### <a name="solution"></a>Solução
 Feche a janela atual do PowerShell e abra uma nova janela do PowerShell como administrador.
 
-### <a name="fabric-connection-denied-exception"></a>Exceção de negado de ligação de recursos de infraestrutura
+### <a name="fabric-connection-denied-exception"></a>Exceção de conexão de malha negada
 #### <a name="problem"></a>Problema
-Quando a depuração no Visual Studio, obterá um erro de FabricConnectionDeniedException.
+Ao depurar do Visual Studio, você obtém um erro FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Solução
-Este erro ocorre normalmente quando tentar iniciar um processo de host de serviço manualmente.
+Esse erro geralmente ocorre quando você tenta iniciar um processo de host de serviço manualmente.
 
-Certifique-se de que não tem quaisquer projetos de serviço definido como projetos de arranque na sua solução. Apenas os projetos de aplicativos do Service Fabric devem ser definidos como projetos de arranque.
+Verifique se você não tem projetos de serviço definidos como projetos de inicialização em sua solução. Somente os projetos de aplicativo Service Fabric devem ser definidos como projetos de inicialização.
 
 > [!TIP]
-> Se, a seguir o programa de configuração, o seu cluster local começa a se comportar anormalmente, pode redefini-lo com a aplicação de tabuleiro de sistema de Gestor de local cluster. Esta ação remove o cluster existente e configurar um novo. Tenha em atenção que todos os aplicativos implantados e dados associados são removidos.
+> Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja do sistema gerenciador de cluster local. Isso remove o cluster existente e configura um novo. Observe que todos os aplicativos implantados e os dados associados são removidos.
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Compreender e resolver problemas do seu cluster com relatórios de estado de funcionamento do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Entender e solucionar problemas do cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Visualizar o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 

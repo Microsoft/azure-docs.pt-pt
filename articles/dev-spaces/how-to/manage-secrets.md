@@ -3,111 +3,126 @@ title: Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do
 services: azure-dev-spaces
 ms.date: 12/03/2019
 ms.topic: conceptual
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
+description: Saiba como usar segredos do kubernetes em tempo de execução ou de compilação ao desenvolver aplicativos com Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
-ms.openlocfilehash: b184f72dfbbfe093443ab8a9b79bafbece3a3d51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438467"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um espaço de desenvolvimento do Azure
 
-Seus serviços podem exigir determinadas senhas, cadeias de conexão e outros segredos, como bancos de dados ou outros serviços seguros do Azure. Ao definir os valores desses segredos em arquivos de configuração, você pode torná-los disponíveis em seu código como variáveis de ambiente.  Eles devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
+Seus serviços podem exigir determinadas senhas, cadeias de conexão e outros segredos, como bancos de dados ou outros serviços seguros do Azure. Ao definir os valores desses segredos em arquivos de configuração, você pode torná-los disponíveis em seu código como variáveis de ambiente.  Esses arquivos de configuração devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
 
-O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pelo Azure Dev Spaces ferramentas de cliente: no arquivo `values.dev.yaml` e embutido diretamente no `azds.yaml`. Não é recomendável armazenar segredos em `values.yaml`. Fora das duas abordagens para gráficos Helm gerados pela ferramenta do cliente definida neste artigo, se você criar seu próprio gráfico do Helm, poderá usar o gráfico do Helm diretamente para gerenciar e armazenar segredos.
+## <a name="storing-and-using-runtime-secrets"></a>Armazenando e usando segredos de tempo de execução
 
-## <a name="method-1-valuesdevyaml"></a>Método 1: Values. dev. YAML
-1. Abra VS Code com seu projeto habilitado para Azure Dev Spaces.
-2. Adicione um arquivo chamado _Values. dev. YAML_ na mesma pasta que o _azds. YAML_ existente e defina sua chave secreta e valores, como no exemplo a seguir:
+O Azure Dev Spaces fornece duas opções recomendadas e simplificadas para armazenar segredos em gráficos Helm gerados pelo Azure Dev Spaces ferramentas de cliente: no arquivo `values.dev.yaml` e embutido diretamente no `azds.yaml`. Não é recomendável armazenar segredos em `values.yaml`.
 
-    ```yaml
-    secrets:
-      redis:
-        port: "6380"
-        host: "contosodevredis.redis.cache.windows.net"
-        key: "secretkeyhere"
-    ```
-     
-3. _azds. YAML_ já faz referência ao arquivo _Values. dev. YAML_ , se existir. Se você preferir um nome de arquivo diferente, atualize a seção install. Values:
+> [!NOTE]
+> As abordagens a seguir mostram como armazenar e usar segredos para gráficos Helm gerados pelas ferramentas do cliente. Se você criar seu próprio gráfico Helm, poderá usar o gráfico Helm diretamente para gerenciar e armazenar segredos.
 
-    ```yaml
-    install:
-      values:
-      - values.dev.yaml?
-      - secrets.dev.yaml?
-    ```
- 
-4. Modifique seu código de serviço para se referir a esses segredos como variáveis de ambiente, como no exemplo a seguir:
+### <a name="using-valuesdevyaml"></a>Usando Values. dev. YAML
 
-    ```
-    var redisPort = process.env.REDIS_PORT
-    var host = process.env.REDIS_HOST
-    var theKey = process.env.REDIS_KEY
-    ```
+Em um projeto que você já preparou com Azure Dev Spaces, crie um arquivo de `values.dev.yaml` na mesma pasta que `azds.yaml` para definir suas chaves secretas e valores. Por exemplo:
+
+```yaml
+secrets:
+  redis:
+    port: "6380"
+    host: "contosodevredis.redis.cache.windows.net"
+    key: "secretkeyhere"
+```
+
+Verifique se o arquivo de `azds.yaml` faz referência a `values.dev.yaml` como opcional usando uma `?`. Por exemplo:
+
+```yaml
+install:
+  values:
+  - values.dev.yaml?
+  - secrets.dev.yaml?
+```
+
+Se você tiver arquivos secretos adicionais, também poderá adicioná-los aqui.
+
+Atualize ou verifique se seu serviço faz referência aos seus segredos como variáveis de ambiente. Por exemplo:
+
+```javascript
+var redisPort = process.env.REDIS_PORT
+var host = process.env.REDIS_HOST
+var theKey = process.env.REDIS_KEY
+```
     
-5. Atualize os serviços em execução no cluster com essas alterações. Na linha de comando, execute o comando:
+Execute seus serviços atualizados usando o `azds up`.
 
-    ```
-    azds up
-    ```
+```console
+azds up
+```
  
-6. Adicional Na linha de comando, verifique se esses segredos foram criados:
+Use `kubectl` para verificar se seus segredos foram criados.
 
-      ```
-      kubectl get secret --namespace default -o yaml 
-      ```
+```console
+kubectl get secret --namespace default -o yaml 
+```
 
-7. Certifique-se de adicionar _valores. dev. YAML_ ao arquivo _. gitignore_ para evitar a confirmação de segredos no controle do código-fonte.
- 
- 
-## <a name="method-2-azdsyaml"></a>Método 2: azds. YAML
-1.  Em _azds. YAML_, defina segredos na seção YAML configurações/desenvolver/instalar. Embora você possa inserir valores secretos diretamente ali, isso não é recomendável porque _azds. YAML_ é verificado no controle do código-fonte. Em vez disso, adicione espaços reservados usando a sintaxe "$PLACEHOLDER".
+> [!IMPORTANT]
+> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o Git, adicione `values.dev.yaml` ao arquivo de `.gitignore` para evitar a confirmação de segredos no controle do código-fonte.
 
-    ```yaml
-    configurations:
-      develop:
-        ...
-        install:
-          set:
-            secrets:
-              redis:
-                port: "$REDIS_PORT"
-                host: "$REDIS_HOST"
-                key: "$REDIS_KEY"
-    ```
+### <a name="using-azdsyaml"></a>Usando azds. YAML
+
+Em um projeto que você já preparou com Azure Dev Spaces, adicione chaves secretas e o valor usando a sintaxe *$PlaceHolder* em *configurações. desenvolver. Install. definido* em `azds.yaml`. Por exemplo:
+
+```yaml
+configurations:
+  develop:
+    ...
+    install:
+      set:
+        secrets:
+          redis:
+            port: "$REDIS_PORT"
+            host: "$REDIS_HOST"
+            key: "$REDIS_KEY"
+```
+
+> [!NOTE]
+> Você pode inserir valores secretos diretamente sem usar a sintaxe *$PlaceHolder* em `azds.yaml`. No entanto, essa abordagem não é recomendada, pois `azds.yaml` é armazenada no controle do código-fonte.
      
-2.  Crie um arquivo _. env_ na mesma pasta que _azds. YAML_. Insira segredos usando a notação padrão = valor. Não confirme o arquivo _. env_ para o controle do código-fonte. (Para omitir do controle do código-fonte em sistemas de controle de versão baseados em git, adicione-o ao arquivo _. gitignore_ .) O exemplo a seguir mostra um arquivo _. env_ :
+Crie um arquivo de `.env` na mesma pasta que `azds.yaml` para definir seus valores de *$PlaceHolder* . Por exemplo:
 
-    ```
-    REDIS_PORT=3333
-    REDIS_HOST=myredishost
-    REDIS_KEY=myrediskey
-    ```
-2.  Modifique o código-fonte do serviço para referenciar esses segredos no código, como no exemplo a seguir:
+```
+REDIS_PORT=3333
+REDIS_HOST=myredishost
+REDIS_KEY=myrediskey
+```
 
-    ```
-    var redisPort = process.env.REDIS_PORT
-    var host = process.env.REDIS_HOST
-    var theKey = process.env.REDIS_KEY
-    ```
+> [!IMPORTANT]
+> Não é recomendável armazenar segredos no controle do código-fonte. Se estiver usando o Git, adicione `.env` ao arquivo de `.gitignore` para evitar a confirmação de segredos no controle do código-fonte.
+
+Atualize ou verifique se seu serviço faz referência aos seus segredos como variáveis de ambiente. Por exemplo:
+
+```javascript
+var redisPort = process.env.REDIS_PORT
+var host = process.env.REDIS_HOST
+var theKey = process.env.REDIS_KEY
+```
+    
+Execute seus serviços atualizados usando o `azds up`.
+
+```console
+azds up
+```
  
-3.  Atualize os serviços em execução no cluster com essas alterações. Na linha de comando, execute o comando:
+Use `kubectl` para verificar se seus segredos foram criados.
 
-    ```
-    azds up
-    ```
+```console
+kubectl get secret --namespace default -o yaml 
+```
 
-4.  adicional Exibir segredos do kubectl:
+## <a name="using-secrets-as-build-arguments"></a>Usando segredos como argumentos de compilação
 
-    ```
-    kubectl get secret --namespace default -o yaml
-    ```
-
-## <a name="passing-secrets-as-build-arguments"></a>Passando segredos como argumentos de compilação
-
-As seções anteriores mostraram como passar segredos para uso em tempo de execução do contêiner. Você também pode passar um segredo no momento da compilação do contêiner, como uma senha para um NuGet privado, usando `azds.yaml`.
+A seção anterior mostrou como armazenar e usar segredos para usar em tempo de execução do contêiner. Você também pode usar qualquer segredo no momento da compilação do contêiner, como uma senha para um NuGet privado, usando `azds.yaml`.
 
 Em `azds.yaml`, defina os segredos de tempo de compilação em *configurações. desenvolva. Build. args* usando a sintaxe `<variable name>: ${secret.<secret name>.<secret key>}`. Por exemplo:
 

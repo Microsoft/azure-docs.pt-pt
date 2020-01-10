@@ -1,19 +1,14 @@
 ---
 title: Exibir Azure Monitor para implantações de contêineres (visualização) | Microsoft Docs
 description: Este artigo descreve a exibição em tempo real de implantações do kubernetes sem usar o kubectl no Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514384"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404777"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Como exibir implantações (visualização) em tempo real
 
@@ -69,6 +64,6 @@ Você também pode filtrar por eventos de namespace ou de nível de cluster. Par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para continuar aprendendo a usar Azure Monitor e monitorar outros aspectos do cluster AKS, consulte Exibir a [integridade do serviço kubernetes do Azure](container-insights-analyze.md).
+- Para continuar a aprender a utilizar o Azure Monitor e monitorizar outros aspectos do seu cluster do AKS, veja [estado de funcionamento do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).
 
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para criar alertas, visualizações ou executar análise adicional de seus clusters.

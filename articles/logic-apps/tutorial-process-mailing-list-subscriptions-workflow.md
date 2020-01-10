@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456601"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: criar fluxos de trabalho baseados em aprovação automatizados usando aplicativos lógicos do Azure
 
@@ -59,7 +59,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
    |----------|-------|-------------|
    | **Nome** | LA-MailingList | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-MailingList". |
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome da sua assinatura do Azure |
-   | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-MailingList-RG". |
+   | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que é usado para organizar os recursos relacionados. Este exemplo usa "LA-MailingList-RG". |
    | **Localização** | Oeste dos E.U.A. | Região Tnão em que armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||

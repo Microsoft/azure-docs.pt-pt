@@ -4,15 +4,15 @@ description: Este artigo destina-se a ajudá-lo a entender como usar essa soluç
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2017
-ms.openlocfilehash: 5a48bbff89f0d6a0be9adf2ad242dbca41eec6db
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402434"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
 A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviando dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -86,7 +86,7 @@ A solução cria um tipo de registro no espaço de trabalho Log Analytics.
 | `RemoteIPLongitude` | Longitude da localização geográfica do computador.|
 | `RemoteIPLatitude` | Latitude da localização geográfica do computador.|
 
-Cada agente que se reporta a um servidor de gerenciamento de Operations Manager enviará duas pulsações, e o valor da propriedade SCAgentChannel incluirá **Direct** e **SCManagementServer** dependendo de quais fontes de dados e soluções de monitoramento você tem habilitado em sua assinatura. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento de Operations Manager para Azure Monitor, ou devido ao volume de dados coletados no agente, serão enviados diretamente do agente para Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
+Cada agente que se reporta a um servidor de gerenciamento de Operations Manager enviará duas pulsações e o valor da propriedade SCAgentChannel incluirá **Direct** e **SCManagementServer** dependendo de quais fontes de dados e soluções de monitoramento você habilitou em sua assinatura. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento de Operations Manager para Azure Monitor, ou devido ao volume de dados coletados no agente, serão enviados diretamente do agente para Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.

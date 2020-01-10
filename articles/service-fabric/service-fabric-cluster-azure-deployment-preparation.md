@@ -1,24 +1,14 @@
 ---
-title: Planejar uma implantação de Cluster Service Fabric do Azure | Microsoft Docs
+title: Planejar uma implantação de Cluster Service Fabric do Azure
 description: Saiba mais sobre planejamento e preparação para uma implantação de cluster de Service Fabric de produção no Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463329"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
 
@@ -28,7 +18,7 @@ O planejamento e a preparação para uma implantação de cluster de produção 
 Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há operações que recomendamos que você execute para otimizar a confiabilidade do seu ambiente de produção.  Para obter mais informações, leia [Service Fabric práticas recomendadas de aplicativo e cluster](service-fabric-best-practices-overview.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
-Service Fabric permite a criação de clusters de Service Fabric em qualquer VM ou computadores que executam o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional:  Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
+Service Fabric permite a criação de clusters de Service Fabric em qualquer VM ou computadores que executam o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
 
 ## <a name="capacity-planning"></a>Planeamento de capacidade
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Seguem-se alguns aspetos a considerar como parte do processo.
@@ -43,7 +33,7 @@ Primeiro, você precisa descobrir o que o cluster que está criando será usado 
 ### <a name="select-node-properties-for-each-node-type"></a>Selecionar Propriedades de nó para cada tipo de nó
 Os tipos de nó definem a SKU, o número e as propriedades da VM no conjunto de dimensionamento associado.
 
-O tamanho mínimo das VMs para cada tipo de nó é determinado pela [camada][durability] de durabilidade que você escolhe para o tipo de nó.
+O tamanho mínimo das VMs para cada tipo de nó é determinado pela [camada de durabilidade][durability] que você escolhe para o tipo de nó.
 
 O número mínimo de VMs para o tipo de nó primário é determinado pela [camada de confiabilidade][reliability] que você escolher.
 
@@ -57,7 +47,7 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que su
 A camada de confiabilidade é usada para definir o número de réplicas dos serviços do sistema que você deseja executar neste cluster no tipo de nó primário. Quanto mais o número de réplicas, mais confiável os serviços do sistema estão no cluster.  Para obter as vantagens dos diferentes níveis e recomendações sobre qual nível usar e quando, consulte [as características de confiabilidade do cluster][reliability]. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Habilitar proxy reverso e/ou DNS
-Serviços que se conectam entre si dentro de um cluster geralmente podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós em um cluster estão na mesma rede local. Para facilitar a conexão entre os serviços do, Service Fabric fornece serviços adicionais: Um [serviço DNS](service-fabric-dnsservice.md) e um [serviço de proxy reverso](service-fabric-reverseproxy.md).  Ambos os serviços podem ser habilitados durante a implantação de um cluster.
+Serviços que se conectam entre si dentro de um cluster geralmente podem acessar diretamente os pontos de extremidade de outros serviços, pois os nós em um cluster estão na mesma rede local. Para facilitar a conexão entre os serviços do, Service Fabric fornece serviços adicionais: um [serviço DNS](service-fabric-dnsservice.md) e um [serviço de proxy reverso](service-fabric-reverseproxy.md).  Ambos os serviços podem ser habilitados durante a implantação de um cluster.
 
 Como muitos serviços, especialmente serviços em contêineres, podem ter um nome de URL existente, poder resolvê-los usando o protocolo DNS padrão (em vez do protocolo Serviço de Nomenclatura) é conveniente, especialmente em cenários de "desvio e deslocamento" do aplicativo. Isso é exatamente o que o serviço DNS faz. Ele permite mapear nomes DNS para um nome de serviço e, portanto, resolver endereços IP de ponto de extremidade.
 
@@ -69,7 +59,7 @@ Uma parte crítica da entrega de alta disponibilidade é garantir que os serviç
 ## <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 Seu aplicativo e cluster estão prontos para fazer o tráfego de produção? Antes de implantar o cluster para produção, execute a [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md). Mantenha seu aplicativo e o cluster em execução sem problemas trabalhando nos itens desta lista de verificação. É altamente recomendável que todos esses itens sejam verificados antes de entrar em produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um Cluster Service Fabric executando o Windows](service-fabric-best-practices-overview.md)
 * [Criar um Cluster Service Fabric executando o Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 

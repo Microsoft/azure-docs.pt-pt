@@ -4,16 +4,16 @@ description: Como personalizar canais de telemetria nos SDKs do Aplicativo Azure
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406365"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canais de telemetria no Application Insights
 
@@ -146,7 +146,7 @@ A resposta curta é que nenhum dos canais internos oferece uma garantia de tipo 
 
 1. Os itens na memória são perdidos quando o aplicativo falha.
 
-1. A telemetria é perdida durante períodos estendidos de problemas de rede. A telemetria é armazenada no disco local durante interrupções de rede ou quando ocorrem problemas com o back-end de Application Insights. No entanto, os itens com mais de 24 horas são descartados.
+1. A telemetria é perdida durante períodos estendidos de problemas de rede. A telemetria é armazenada no disco local durante interrupções de rede ou quando ocorrem problemas com o back-end de Application Insights. No entanto, itens com mais de 48 horas são descartados.
 
 1. Os locais de disco padrão para armazenar telemetria no Windows são% LOCALAPPDATA% ou% TEMP%. Esses locais normalmente são locais para o computador. Se o aplicativo migrar fisicamente de um local para outro, qualquer telemetria armazenada no local original será perdida.
 

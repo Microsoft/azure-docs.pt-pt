@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 76ff8a63c2fbda3ddbaed794d24f7adb66a4dd95
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 01/03/2020
+ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930364"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660312"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -97,7 +97,7 @@ Os correspondentes definem um conjunto de condições que avaliam as ações que
 
 Uma função definida pelo usuário é uma função personalizada executada em um ambiente isolado do Azure digital gêmeos. As funções definidas pelo usuário têm acesso à mensagem de telemetria do sensor bruto, pois ela é recebida. As funções definidas pelo usuário também têm acesso ao grafo espacial e ao serviço de Dispatcher. Depois que a função definida pelo usuário é registrada em um grafo, uma correspondência (detalhada [acima](#matchers)) deve ser criada para especificar quando a função é executada. Por exemplo, quando o Azure digital gêmeos recebe uma nova telemetria de um determinado sensor, a função correspondente definida pelo usuário pode calcular uma média móvel das últimas leituras do sensor.
 
-As funções definidas pelo usuário podem ser escritas em JavaScript. Os métodos auxiliares interagem com o grafo no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar trechos de código personalizados em relação a mensagens de telemetria do sensor. Os exemplos incluem:
+As funções definidas pelo usuário podem ser escritas em JavaScript. Os métodos auxiliares interagem com o grafo no ambiente de execução definido pelo usuário. Os desenvolvedores podem executar trechos de código personalizados em relação a mensagens de telemetria do sensor. Alguns exemplos:
 
 - Defina o sensor lendo diretamente no objeto sensor dentro do grafo.
 - Execute uma ação com base em leituras de sensor diferentes dentro de um espaço no grafo.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382672"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início rápido: pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Node. js
 
@@ -39,7 +39,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API de P
     let https = require('https');
     ```
 
-2. Crie variáveis para seu ponto de extremidade de API, chave de assinatura e seu termo de pesquisa.
+2. Crie variáveis para seu ponto de extremidade de API, chave de assinatura e seu termo de pesquisa. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -210,6 +210,6 @@ O JSON devolve uma resposta de êxito, conforme apresentado no exemplo seguinte:
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
  [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)

@@ -1,18 +1,14 @@
 ---
 title: Visão geral do status do Azure | Microsoft Docs
 description: Uma exibição global da integridade dos serviços do Azure
-services: Azure status
 ms.topic: article
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.date: 06/11/2019
-ms.openlocfilehash: 8a902fab7cfea574c9eb2a3e9411d3cca0920f56
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 1257476234709380de3452015313e3a3bf71e04d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463985"
 ---
 # <a name="azure-status-overview"></a>Visão geral do status do Azure
 
@@ -32,7 +28,7 @@ Embora a página de status do Azure sempre mostre as informações de integridad
 
 Lá, você pode ver eventos de até 90 dias no passado, incluindo uma causa raiz preliminar, mitigação e próximas etapas para o Azure.
 
-## <a name="rss-feed"></a>RSS feed
+## <a name="rss-feed"></a>Feed RSS
 
 O status do Azure também fornece [um RSS feed](https://status.azure.com/status/feed/) de alterações para a integridade dos serviços do Azure que você pode assinar.
 

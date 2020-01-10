@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 70b886286980c065379678ba21ab21e02d0e2bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467648"
 ---
 | |
 |--|
-|Se o que você está vendo na tela não corresponde ao que está sendo abordado neste artigo, isso significa que o administrador não ativou a nova experiência **meus aplicativos** (versão prévia). Para usar a experiência antiga, você deve seguir as instruções e informações na seção [portal meus aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview) .|
-| |
+|Se o administrador tiver ativado a nova experiência de visualização **meus aplicativos** para sua organização, agora você verá uma faixa na parte superior da página **meus** aplicativos que diz, **uma experiência atualizada de meus aplicativos está disponível**. Se você selecionar **experimentar**, acessará imediatamente a nova URL (myapplications.Microsoft.com) e a experiência atualizada. Depois disso, sempre que retornar para a página **meus aplicativos** , você irá automaticamente para a nova experiência.<br><br>Para parar de usar a nova experiência, você pode selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página novo **meus aplicativos** . Você retornará imediatamente para a URL antiga (myapps.microsoft.com) e a experiência. Depois disso, sempre que retornar para a página **meus aplicativos** , você irá automaticamente para a experiência antiga.|
+|

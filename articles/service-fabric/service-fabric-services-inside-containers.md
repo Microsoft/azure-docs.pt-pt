@@ -1,29 +1,19 @@
 ---
 title: Colocar em contêineres seus serviços de Service Fabric do Azure no Windows
 description: Saiba como colocar seus Service Fabric em contêineres Reliable Services e Reliable Actors serviços no Windows.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: anmolah
-editor: roroutra
-ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466184"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar seu Service Fabric em contêineres Reliable Services e Reliable Actors no Windows
 
-O Service Fabric dá suporte ao contêiner Service Fabric de microserviços (Reliable Services e serviços confiáveis baseados em ator). Para obter mais informações, consulte contêineres do [Service Fabric](service-fabric-containers-overview.md).
+O Service Fabric dá suporte ao contêiner Service Fabric de microserviços (Reliable Services e serviços confiáveis baseados em ator). Para obter mais informações, consulte [contêineres do Service Fabric](service-fabric-containers-overview.md).
 
 Este documento fornece orientação para colocar seu serviço em execução dentro de um contêiner do Windows.
 
@@ -73,7 +63,7 @@ Este documento fornece orientação para colocar seu serviço em execução dent
         $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
         CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
       ```
-      O script cria uma pasta com artefatos do Docker em $dockerPackageOutputDirectoryPath. Modifique o Dockerfile gerado para `expose` qualquer porta, execute os scripts de instalação e assim por diante. com base em suas necessidades.
+      O script cria uma pasta com artefatos do Docker em $dockerPackageOutputDirectoryPath. Modifique o Dockerfile gerado para `expose` portas, execute os scripts de instalação e assim por diante. com base em suas necessidades.
 
 6. Em seguida, você precisa [criar](service-fabric-get-started-containers.md#Build-Containers) e [enviar por push](service-fabric-get-started-containers.md#Push-Containers) o pacote de contêiner do Docker para o repositório.
 
@@ -147,6 +137,6 @@ Este documento fornece orientação para colocar seu serviço em execução dent
 
 Agora você deve ter um aplicativo de Service Fabric em contêiner em execução no cluster.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-get-started-containers.md).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

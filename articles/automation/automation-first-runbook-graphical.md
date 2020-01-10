@@ -3,19 +3,15 @@ title: Meu primeiro runbook gráfico na automação do Azure
 description: Este tutorial orienta-o ao longo da criação, do teste e da publicação de um runbook gráfico simples.
 keywords: runbook, modelo do runbook, automatização do runbook, runbook do azure
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366537"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 

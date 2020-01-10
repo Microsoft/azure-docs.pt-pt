@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381992"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: criar um novo aplicativo no portal do LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Neste guia de início rápido, você cria um novo aplicativo no portal do LUIS. Primeiro, você cria as partes básicas de um aplicativo, **intenções**e **entidades**. Em seguida, você testa o aplicativo fornecendo um expressão de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
@@ -35,11 +33,11 @@ A criação de um aplicativo é gratuita e não requer uma assinatura do Azure. 
 
 1. Na janela pop-up, configure o aplicativo com as seguintes configurações e, em seguida, selecione **concluído**.
 
-   |Nome da definição| Valor | Objetivo|
+   |Nome da definição| Valor | Finalidade|
    |--|--|--|
-   |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>Necessário|
-   |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>Necessário|
-   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>adicional|
+   |Nome|`myEnglishApp`|Nome do aplicativo LUIS exclusivo<br>required|
+   |Cultura|**Inglês**|Idioma do declarações dos usuários, **en-US**<br>required|
+   |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
    |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave inicial para ser usada gratuitamente para solicitações de criação e de ponto de extremidade de previsão 1.000. |
 
    ![Inserir novas configurações de aplicativo](./media/get-started-portal-build-app/create-new-app-settings.png)

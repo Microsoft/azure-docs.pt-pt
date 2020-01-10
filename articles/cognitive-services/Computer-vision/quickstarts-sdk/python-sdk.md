@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: biblioteca de cliente Pesquisa Visual Computacional para Python | Microsoft Docs'
-description: Introdução à biblioteca de cliente Pesquisa Visual Computacional para Python.
+title: 'Início rápido: biblioteca de cliente Pesquisa Visual Computacional para Python'
+description: Introdução à biblioteca de cliente do Pesquisa Visual Computacional para Python com este guia de início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 1e91b204401033c7c6c47484140720ab8076f9f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c98c64722fa76f96161a92f93c3d984193a7a24
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382213"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Início rápido: biblioteca de cliente Pesquisa Visual Computacional para Python
 

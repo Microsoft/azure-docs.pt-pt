@@ -1,136 +1,130 @@
 ---
-title: Introdução ao Assistente do Azure | Documentos da Microsoft
-description: Introdução ao Assistente do Azure.
-services: advisor
-author: kasparks
-ms.service: advisor
+title: Introdução ao Azure Advisor
+description: Introdução ao Azure Advisor.
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443144"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
-Saiba como acessar o Advisor através do portal do Azure, obtenha recomendações e implemente recomendações.
+Saiba como acessar o Advisor por meio do portal do Azure, obter recomendações e implementar recomendações.
 
 > [!NOTE]
-> O Assistente do Azure é executado automaticamente em segundo plano para recursos de localizar recentemente criado. Pode demorar até 24 horas para fornecer recomendações sobre esses recursos.
+> O Azure Advisor é executado automaticamente em segundo plano para encontrar recursos recém-criados. Pode levar até 24 horas para fornecer recomendações sobre esses recursos.
 
-## <a name="get-recommendations"></a>Obtenha recomendações
+## <a name="get-recommendations"></a>Obter recomendações
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, clique em **Advisor**.  Se não vir o Advisor no painel esquerdo, clique em **todos os serviços**.  No painel de menu de serviço, em **monitorização e gestão**, clique em **Advisor**. O dashboard do assistente é exibido.
+1. No painel esquerdo, clique em **supervisor**.  Se você não vir o Advisor no painel esquerdo, clique em **todos os serviços**.  No painel de menu serviço, em **monitoramento e gerenciamento**, clique em **supervisor**. O painel do Advisor é exibido.
 
-   ![Assistente do acesso do Azure no portal do Azure](./media/advisor-get-started/advisor-portal-menu.png) 
+   ![Acessar o Azure Advisor usando o portal do Azure](./media/advisor-get-started/advisor-portal-menu.png) 
 
-1. O dashboard do assistente será apresentado um resumo das suas recomendações para todas as subscrições selecionadas.  Pode escolher a lista pendente de filtro de subscrições que pretende que as recomendações a apresentar para utilizar a subscrição.
+1. O dashboard do Assistente apresentará um resumo das suas recomendações para todas as subscrições selecionadas.  Pode escolher as subscrições para as quais pretende que sejam apresentadas recomendações para utilizar a lista pendente de filtros de subscrições.
 
-1. Para obter recomendações para uma categoria específica, clique em um dos separadores: **Elevada disponibilidade**, **Security**, **desempenho**, ou **custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **alta disponibilidade**, **segurança**, **desempenho**ou **custo**. 
 
-   ![Dashboard do Assistente do Azure](./media/advisor-overview/advisor-dashboard.png)
+   ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
-## <a name="get-recommendation-details-and-implement-a-solution"></a>Obter os detalhes de recomendação e implementar uma solução
+## <a name="get-recommendation-details-and-implement-a-solution"></a>Obter detalhes de recomendação e implementar uma solução
 
-Pode selecionar uma recomendação no Advisor para ver detalhes adicionais – por exemplo, as ações de recomendação e obter recursos afetados – e para implementar a solução para a recomendação.  
+Você pode selecionar uma recomendação no Advisor para exibir detalhes adicionais – como as ações de recomendação e os recursos afetados – e implementar a solução para a recomendação.  
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Selecione uma categoria de recomendação para apresentar a lista de recomendações dentro dessa categoria, ou selecione o **todos os** separador para ver todas as suas recomendações.
+1. Selecione uma categoria de recomendação para exibir a lista de recomendações dentro dessa categoria ou selecione a guia **tudo** para exibir todas as suas recomendações.
 
-1. Clique numa recomendação que deseja examinar detalhadamente.
+1. Clique em uma recomendação que você deseja examinar detalhadamente.
 
-1. Reveja as informações sobre a recomendação e os recursos que a recomendação aplica-se a.
+1. Examine as informações sobre a recomendação e os recursos aos quais a recomendação se aplica.
 
-1. Clique nas **ação recomendada** para implementar a recomendação.
+1. Clique na **ação recomendada** para implementar a recomendação.
 
-## <a name="filter-recommendations"></a>Recomendações de filtro
+## <a name="filter-recommendations"></a>Filtrar recomendações
 
-Pode filtrar recomendações para descer até o que é mais importante para si.  Pode filtrar por subscrição, tipo de recurso ou o estado da recomendação.  
+Você pode filtrar as recomendações para fazer uma busca detalhada do que é mais importante para você.  Você pode filtrar por assinatura, tipo de recurso ou status de recomendação.  
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Utilize as listas pendentes no dashboard do Advisor para filtrar por subscrição, o tipo de recurso ou o estado da recomendação.
+1. Use os menus suspensos no painel do Advisor para filtrar por assinatura, tipo de recurso ou status de recomendação.
 
-    ![Critérios de filtro de pesquisa do Advisor](./media/advisor-get-started/advisor-filters.png)
+    ![Pesquisa do Advisor-critérios de filtro](./media/advisor-get-started/advisor-filters.png)
 
 ## <a name="postpone-or-dismiss-recommendations"></a>Adiar ou ignorar recomendações
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Navegue para a recomendação de que pretende adiar ou ignorar.
+1. Navegue até a recomendação que você deseja adiar ou ignorar.
 
-1. Clique a recomendação.
+1. Clique na recomendação.
 
 1. Clique em **adiar**. 
 
-1. Especifique um ' Adiar ' período de tempo ou selecione **Never** para dispensar a recomendação.
+1. Especifique um período de tempo adiado ou selecione **nunca** para ignorar a recomendação.
 
-## <a name="exclude-subscriptions-or-resource-groups"></a>Excluir subscrições ou grupos de recursos
+## <a name="exclude-subscriptions-or-resource-groups"></a>Excluir assinaturas ou grupos de recursos
 
-Poderá ter grupos de recursos ou subscrições para que não pretende receber recomendações do assistente, como recursos de "teste".  Pode configurar o Assistente para gerar apenas recomendações para as subscrições específicas e grupos de recursos.
-
-> [!NOTE]
-> Para incluir ou excluir uma subscrição ou grupo de recursos do assistente, tem de ser uma proprietário da subscrição.  Se não tiver as permissões necessárias para uma subscrição ou grupo de recursos, a opção para incluir ou exclui-lo está desativada na interface do usuário.
-
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
-
-1. Clique em **configurar** na barra de ação.
-
-1. Desmarcar quaisquer subscrições ou grupos de recursos que não pretende receber recomendações do Assistente para.
-
-    ![O Assistente configurar o exemplo de recursos](./media/advisor-get-started/advisor-configure-resources.png)
-
-1. Clique nas **aplicar** botão.
-
-## <a name="configure-low-usage-vm-recommendation"></a>Configurar a utilização de baixa recomendação de VM
-
-Este procedimento configura a regra de utilização de CPU média para a recomendação de máquina virtual de baixa utilização.
-
-O assistente monitoriza a utilização da máquina virtual durante sete dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e a utilização de rede é inferior a % de 2 ou se a atual carga de trabalho pode ser atendida por um tamanho mais pequeno da máquina virtual.
-
-Se gostaria de ser mais agressivo na identificação de máquinas virtuais de baixa utilização, pode ajustar a regra de utilização de CPU média numa base por subscrição.  A regra de utilização da CPU pode ser definida como 5%, 10%, % de 15 ou 20%.
+Você pode ter grupos de recursos ou assinaturas para os quais não deseja receber recomendações do Advisor – como recursos de ' teste '.  Você pode configurar o Advisor para gerar apenas recomendações para assinaturas e grupos de recursos específicos.
 
 > [!NOTE]
-> Para ajustar a regra de utilização de CPU média para identificar máquinas de virtuais de baixa utilização, tem de ser uma subscrição *proprietário*.  Se não tiver as permissões necessárias para uma subscrição ou grupo de recursos, a opção para incluir ou exclui-lo será desativada na interface do usuário. 
+> Para incluir ou excluir uma assinatura ou grupo de recursos do Advisor, você deve ser um proprietário de assinatura.  Se você não tiver as permissões necessárias para uma assinatura ou grupo de recursos, a opção para incluí-la ou excluí-la será desabilitada na interface do usuário.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-1. Clique em **configurar** na barra de ação.
+1. Clique em **Configurar** na barra de ação.
 
-1. Clique nas **regras** separador.
+1. Desmarque quaisquer assinaturas ou grupos de recursos para os quais você não deseja receber recomendações do Advisor.
 
-1. Selecione as subscrições que pretende ajustar a regra de utilização de CPU média para e, em seguida, clique em **editar**.
+    ![Exemplo de configuração de recursos do Advisor](./media/advisor-get-started/advisor-configure-resources.png)
 
-1. Selecione o valor de utilização de CPU média desejado e clique em **aplicar**.
+1. Clique no botão **aplicar** .
 
-1. Clique em **atualizar recomendações** para atualizar as suas recomendações existentes para utilizar a nova regra de utilização média da CPU. 
+## <a name="configure-low-usage-vm-recommendation"></a>Configurar a recomendação de VM de uso baixo
 
-   ![O Assistente configurar o exemplo de regras de recomendação](./media/advisor-get-started/advisor-configure-rules.png)
+Este procedimento configura a regra de utilização média da CPU para a recomendação de máquina virtual de baixo uso.
 
-## <a name="download-recommendations"></a>Transferir recomendações
+O Advisor monitora o uso de máquinas virtuais por 7 dias e identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e sua utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
 
-O assistente permite-lhe transferir um resumo das suas recomendações.  Pode transferir as suas recomendações como um ficheiro PDF ou um ficheiro CSV.  Transferir as suas recomendações permite-lhe facilmente compartilhar com seus colegas ou realizar sua própria análise sobre os dados de recomendação.
+Se você quiser ser mais agressivo na identificação de máquinas virtuais de baixo uso, poderá ajustar a regra de utilização média da CPU por assinatura.  A regra de utilização da CPU pode ser definida como 5%, 10%, 15% ou 20%.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+> [!NOTE]
+> Para ajustar a regra de utilização média da CPU para identificar máquinas virtuais de baixo uso, você deve ser um *proprietário*de assinatura.  Se você não tiver as permissões necessárias para uma assinatura ou grupo de recursos, a opção para incluí-la ou excluí-la será desabilitada na interface do usuário. 
 
-1. Clique em **transferir como CSV** ou **transferir como PDF** na barra de ação.
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-A opção de download respeita quaisquer filtros que tiver aplicado para o dashboard do assistente.  Se selecionar a opção de transferência enquanto vê uma categoria de recomendação específica ou a recomendação, o resumo transferido só inclui informações para essa categoria ou a recomendação. 
+1. Clique em **Configurar** na barra de ação.
 
-## <a name="next-steps"></a>Passos Seguintes
+1. Clique na guia **regras** .
+
+1. Selecione as assinaturas para as quais você deseja ajustar a regra de utilização média da CPU e clique em **Editar**.
+
+1. Selecione o valor de utilização média da CPU desejado e clique em **aplicar**.
+
+1. Clique em **Atualizar recomendações** para atualizar suas recomendações existentes para usar a nova regra média de utilização da CPU. 
+
+   ![Exemplo de regras de recomendação para configurar o Advisor](./media/advisor-get-started/advisor-configure-rules.png)
+
+## <a name="download-recommendations"></a>Recomendações de download
+
+O Advisor permite que você baixe um resumo das suas recomendações.  Você pode baixar suas recomendações como um arquivo PDF ou um arquivo CSV.  Baixar suas recomendações permite que você compartilhe facilmente com seus colegas ou realize sua própria análise sobre os dados de recomendação.
+
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
+
+1. Clique em **baixar como CSV** ou **baixar como PDF** na barra de ação.
+
+A opção de download respeita todos os filtros aplicados ao painel do Advisor.  Se você selecionar a opção de download ao exibir uma determinada categoria ou recomendação de recomendação, o resumo baixado só incluirá informações para essa categoria ou recomendação. 
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Advisor, consulte:
 
-- [Introdução ao Assistente do Azure](advisor-overview.md)
-- [Recomendações de elevada disponibilidade do Assistente](advisor-high-availability-recommendations.md)
+- [Introdução ao Azure Advisor](advisor-overview.md)
+- [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 - [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-- [Recomendações de desempenho do Assistente](advisor-performance-recommendations.md)
-- [Recomendações de custos do Assistente](advisor-performance-recommendations.md)
+- [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
+- [Recomendações de custo do Advisor](advisor-performance-recommendations.md)

@@ -1,25 +1,14 @@
 ---
-title: Tutorial de atualização do aplicativo Service Fabric | Microsoft Docs
+title: Tutorial de atualização do aplicativo Service Fabric
 description: Este artigo descreve a experiência de implantar um aplicativo Service Fabric, alterar o código e distribuir uma atualização usando o Visual Studio.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 5e693a219c4a430f742ebd27878518ebb99ce5da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167376"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464820"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização de aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -43,12 +32,12 @@ Selecionar **publicar** abre um pop-up e você pode definir o **perfil de destin
 
 Agora você pode clicar em **publicar** na caixa de diálogo. Você pode usar [Service Fabric Explorer para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que você pode acessar digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereços do seu navegador.  Você deve ver 10 objetos visuais flutuantes passando pela tela.
 
-**Observação:** Se estiver implantando no perfil `Cloud.xml` (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{Perfabricname}. { Região}. cloudapp. Azure. com: 8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado na Load Balancer (Localize o Load Balancer no mesmo grupo de recursos que a instância de Service Fabric).
+**Observação:** Se estiver implantando no `Cloud.xml` Profile (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{Perfabricname}. { Região}. cloudapp. Azure. com: 8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado na Load Balancer (Localize o Load Balancer no mesmo grupo de recursos que a instância de Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de objetos visuais
 Você pode observar que, com a versão que foi implantada na etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais também giram.
 
-Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo **VisualObjectActor.cs** . Dentro desse arquivo, vá para o método `MoveObject`, comente `visualObject.Move(false)` e remova a marca de comentário `visualObject.Move(true)`. Essa alteração de código gira os objetos depois que o serviço é atualizado.  **Agora você pode compilar (não recompilar) a solução**, que cria os projetos modificados. Se você selecionar *Recompilar tudo*, precisará atualizar as versões de todos os projetos.
+Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo **VisualObjectActor.cs** . Dentro desse arquivo, vá para o método `MoveObject`, comente `visualObject.Move(false)`e remova `visualObject.Move(true)`de comentário. Essa alteração de código gira os objetos depois que o serviço é atualizado.  **Agora você pode compilar (não recompilar) a solução**, que cria os projetos modificados. Se você selecionar *Recompilar tudo*, precisará atualizar as versões de todos os projetos.
 
 Também precisamos fazer a versão de nosso aplicativo. Para fazer as alterações de versão depois de clicar com o botão direito do mouse no projeto **VisualObjects** , você pode usar a opção **Editar versões de manifesto** do Visual Studio. A seleção dessa opção abre a caixa de diálogo para as versões de edição da seguinte maneira:
 

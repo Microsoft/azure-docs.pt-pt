@@ -2,19 +2,15 @@
 title: Galerias de runbook e módulo para a automação do Azure
 description: Os Runbooks e os módulos da Microsoft e da Comunidade estão disponíveis para você instalar e usar em seu ambiente de automação do Azure.  Este artigo descreve como você pode acessar esses recursos e contribuir com seus runbooks para a galeria.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52a0ab0a31600c1548283c7d899b17e497811b5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421492"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de runbook e módulo para a automação do Azure
 

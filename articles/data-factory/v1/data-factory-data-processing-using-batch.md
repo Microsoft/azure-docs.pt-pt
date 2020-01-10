@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438894"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de grandes escalas usando Data Factory e lote
 > [!NOTE]
@@ -44,7 +44,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 Opcionalmente, para saber mais sobre o lote, consulte [a documentação do lote](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
-Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Você pode usar Data Factory para criar pipelines de dados gerenciados que movem dados de armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de BLOBs do Azure. Você pode usar Data Factory para processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Você também pode agendar os pipelines de dados para execução de forma programada (por exemplo, por hora, diariamente e semanalmente). Você pode monitorar e gerenciar os pipelines rapidamente para identificar problemas e tomar medidas.
+O Data Factory é um serviço de integração de dados com base na cloud que organiza e automatiza o movimento e a transformação dos dados. Você pode usar Data Factory para criar pipelines de dados gerenciados que movem dados de armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de BLOBs do Azure. Você pode usar Data Factory para processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Você também pode agendar os pipelines de dados para execução de forma programada (por exemplo, por hora, diariamente e semanalmente). Você pode monitorar e gerenciar os pipelines rapidamente para identificar problemas e tomar medidas.
 
   Se você não estiver familiarizado com Data Factory, os artigos a seguir o ajudarão a entender a arquitetura/implementação da solução descrita neste artigo:  
 
@@ -93,7 +93,7 @@ Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliaç
 #### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 Você usa uma conta de armazenamento para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo usa o armazenamento de BLOBs.
 
-#### <a name="azure-batch-account"></a>Conta do lote do Azure
+#### <a name="azure-batch-account"></a>Conta do Azure Batch
 Crie uma conta do lote usando o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [criar e gerenciar uma conta do lote](../../batch/batch-account-create-portal.md). Anote o nome da conta do lote e a chave da conta. Você também pode usar o cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta do lote. Para obter instruções sobre como usar esse cmdlet, consulte Introdução [aos cmdlets do PowerShell do lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo usa o lote (indiretamente por meio de um pipeline data factory) para processar dados de maneira paralela em um pool de nós de computação (uma coleção gerenciada de VMs).
@@ -121,7 +121,7 @@ Crie um pool do lote com pelo menos dois nós de computação.
 
    f. Selecione **OK** para criar o pool.
 
-#### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+#### <a name="azure-storage-explorer"></a>Explorador do Armazenamento do Azure
 Você usa [Gerenciador de armazenamento do Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (do ClumsyLeaf software) para inspecionar e alterar os dados em seus projetos de armazenamento. Você também pode inspecionar e alterar os dados nos logs de seus aplicativos hospedados na nuvem.
 
 1. Crie um contêiner chamado **MyContainer** com acesso privado (sem acesso anônimo).
@@ -169,10 +169,10 @@ O método tem alguns componentes principais que você precisa entender:
 
 * O método usa quatro parâmetros:
 
-  * **linkservices**. Esse parâmetro é uma lista enumerável de serviços vinculados que vinculam fontes de dados de entrada/saída (por exemplo, armazenamento de BLOBs) ao data factory. Neste exemplo, há apenas um serviço vinculado do tipo armazenamento do Azure usado para entrada e saída.
+  * **linkedServices**. Esse parâmetro é uma lista enumerável de serviços vinculados que vinculam fontes de dados de entrada/saída (por exemplo, armazenamento de BLOBs) ao data factory. Neste exemplo, há apenas um serviço vinculado do tipo armazenamento do Azure usado para entrada e saída.
   * **conjuntos**de os. Esse parâmetro é uma lista enumerável de conjuntos de valores. Você pode usar esse parâmetro para obter os locais e esquemas definidos pelos conjuntos de dados de entrada e saída.
   * **atividade**. Esse parâmetro representa a entidade de computação atual. Nesse caso, é um serviço de lote.
-  * **agente de log**. Você pode usar o agente para gravar comentários de depuração que são exibidos como o log de "usuário" para o pipeline.
+  * **logger**. Você pode usar o agente para gravar comentários de depuração que são exibidos como o log de "usuário" para o pipeline.
 * O método retorna um dicionário que pode ser usado para encadear atividades personalizadas em conjunto no futuro. Esse recurso ainda não está implementado, portanto, basta retornar um dicionário vazio do método.
 
 #### <a name="procedure-create-the-custom-activity"></a>Procedimento: criar a atividade personalizada
@@ -192,7 +192,7 @@ O método tem alguns componentes principais que você precisa entender:
 
    g. Selecione **OK** para criar o projeto.
 
-1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 
 1. No console do Gerenciador de pacotes, execute o seguinte comando para importar Microsoft. Azure. Management. datafactorings:
 
@@ -556,11 +556,11 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
    ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
-   ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implementar](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço vinculado do lote do Azure
 Nesta etapa, você cria um serviço vinculado para sua conta do lote que é usado para executar a data factory atividade personalizada.
@@ -667,21 +667,21 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e a saída
 
     | **Slicer** | **Start time** (Hora de início)          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**: 00:00 |
-    | 2         | 2015-11-16T**01**: 00:00 |
-    | 3         | 2015-11-16T**02**: 00:00 |
-    | 4         | 2015-11-16T**03**: 00:00 |
-    | 5         | 2015-11-16T**04**: 00:00 |
+    | 1         | 2015-11-16T**00**:00:00 |
+    | 2         | 2015-11-16T**01**:00:00 |
+    | 3         | 2015-11-16T**02**:00:00 |
+    | 4         | 2015-11-16T**03**:00:00 |
+    | 5         | 2015-11-16T**04**:00:00 |
 
     O **FolderPath** é calculado usando a parte de ano, mês, dia e hora da hora de início da fatia (**SliceStart**). Veja como uma pasta de entrada é mapeada para uma fatia.
 
     | **Slicer** | **Start time** (Hora de início)          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
 1. Selecione **implantar** na barra de ferramentas para criar e implantar a tabela **InputDataset** .
 
@@ -724,11 +724,11 @@ Nesta etapa, você criará outro conjunto de dados do tipo AzureBlob para repres
 
     | **Slicer** | **Start time** (Hora de início)          | **Arquivo de saída**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16-**00. txt** |
-    | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16-**01. txt** |
-    | 3         | 2015-11-16T**02**: 00:00 | 2015-11-16-**02. txt** |
-    | 4         | 2015-11-16T**03**: 00:00 | 2015-11-16-**03. txt** |
-    | 5         | 2015-11-16T**04**: 00:00 | 2015-11-16-**04. txt** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
     Lembre-se de que todos os arquivos em uma pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de uma fatia com a hora de início 2015-11-16-00. Quando essa fatia é processada, a atividade personalizada examina cada arquivo e produz uma linha no arquivo de saída com o número de ocorrências do termo de pesquisa "Microsoft". Se houver três arquivos na pasta 2015-11-16-00, haverá três linhas no arquivo de saída 2015-11-16-00. txt.
 
@@ -913,7 +913,7 @@ A depuração consiste em algumas técnicas básicas.
 
    ![Lista de arquivos zip de atividade personalizada](./media/data-factory-data-processing-using-batch/image20.png)
 
-1. Verifique se **AssemblyName** (MyDotNetActivity. dll), **EntryPoint** (MyDotNetActivityNS. MyDotNetActivity), **PackageFile** (customactivitycontainer/MyDotNetActivity. zip) e **packageLinkedService** (devem apontar para o armazenamento de BLOBs que contém o arquivo zip) é definido com os valores corretos.
+1. Verifique se **AssemblyName** (MyDotNetActivity. dll), **EntryPoint** (MyDotNetActivityNS. MyDotNetActivity), **PackageFile** (customactivitycontainer/MyDotNetActivity. zip) e **packageLinkedService** (devem apontar para o armazenamento de BLOBs que contém o arquivo zip) estão definidos com os valores corretos.
 
 1. Se você corrigiu um erro e deseja reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e selecione **executar**.
 

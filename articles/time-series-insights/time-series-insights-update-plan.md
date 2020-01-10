@@ -1,6 +1,6 @@
 ---
 title: Planejar o ambiente de visualização-Azure Time Series Insights | Microsoft Docs
-description: Saiba como planejar seu ambiente de Azure Time Series Insights Preview.
+description: Práticas recomendadas para configurar, gerenciar, planejar e implantar seu ambiente de Azure Time Series Insights visualização.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452441"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
@@ -48,7 +48,7 @@ Como parte do processo de provisionamento, você especifica se deseja habilitar 
 As consultas na loja a quente são gratuitas, enquanto as consultas em armazenamento frio incorrem em custos. É importante entender seus padrões de consulta e planejar sua configuração de armazenamento quente adequadamente. É recomendável que a análise interativa nos dados mais recentes resida em sua loja e análise de padrões quentes e tendências de longo prazo residam em frio.
 
 > [!NOTE]
-> Atualmente, damos suporte a um máximo de 1.000 propriedades com armazenamento quente.
+> Para ler mais sobre como consultar seus dados quentes, [Consulte aqui](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Para começar, você precisa de três itens adicionais:
 

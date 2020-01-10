@@ -1,26 +1,17 @@
 ---
 title: 'Tutorial: criar um aplicativo Java no Azure Service Fabric'
 description: Neste tutorial, vai aprender a criar uma aplicação Java de serviço fiável com um front-end, a criar um back-end com estado de serviços fiáveis e a implementar a aplicação num cluster.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 019e50057497c9f98d303a93dfa3f905226fa246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465446"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: criar um aplicativo com um serviço de front-end de API Java e um serviço de back-end com estado no Azure Service Fabric
 
@@ -58,7 +49,7 @@ Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. Uma inter
 
 1. Abra o Eclipse.
 
-2. Crie um projeto com **File** (Ficheiro)  > **New** (Novo)  > **Other** (Outro)  > **Service Fabric**  > **Service Fabric Project** (Projeto do Service Fabric).
+2. Crie um projeto com **File** (Ficheiro)  > **New** (Novo)  > **Other** (Outro)  > **Service Fabric** > **Service Fabric Project** (Projeto do Service Fabric).
 
     ![Novo projeto Service Fabric no Eclipse](./media/service-fabric-tutorial-create-java-app/service-fabric-project-wizard.png)
 
@@ -76,7 +67,7 @@ Em primeiro lugar, crie o front-end para a Web da aplicação de Voto. Uma inter
 
 A tabela mostra uma descrição breve de cada item no Package Explorer da captura de ecrã anterior. 
 
-| **Item do Package Explorer** | **Descrição** |
+| **Item do Explorador de Pacotes** | **Descrição** |
 | --- | --- |
 | PublishProfiles | Contém os ficheiros JSON que descrevem os detalhes do perfil de clusters locais e do Azure Service Fabric. O plug-in utiliza o conteúdo destes ficheiros durnte a implementação da aplicação. |
 | Scripts | Contém scripts de programa auxiliar que podem ser utilizados na linha de comandos para gerir rapidamente a sua aplicação com um cluster. |
@@ -91,7 +82,7 @@ Para adicionar uma interface do usuário que pode ser renderizada pelo serviço 
 
 1. Expanda o diretório *VotingApplication* para ver o diretório *VotingApplication/VotingWebPkg/Code*.
 
-2. Clique com o botão direito do mouse no diretório do *código* e selecione **nova** **pasta** > .
+2. Clique com o botão direito do mouse no diretório do *código* e selecione **novo** > **pasta**.
 
 3. Nomeie a pasta *wwwroot* e selecione **concluir**.
 
@@ -228,7 +219,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicionar o ficheiro HTTPCommunicationListener.java
 
-O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione **novo** **arquivo** > .  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
+O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione novo **arquivo**de > .  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
 
 Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Posteriormente, em atualizar o arquivo HttpCommunicationListener. Java, esse arquivo é modificado para renderizar, ler e gravar dados de votação do serviço de back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
 
@@ -418,7 +409,7 @@ O Service Fabric permite-lhe armazenar de forma consistente e fiável os seus da
 
     ![Gerenciador de projetos do eclipse](./media/service-fabric-tutorial-create-java-app/service-fabric-package-explorer-java.png)
 
-### <a name="add-the-votingdataservicejava-file"></a>Adicionar o ficheiro VotingDataService.java
+### <a name="add-the-votingdataservicejava-file"></a>Adicione o ficheiro VotingDataService.java
 
 O ficheiro *VotingDataService.java* inclui os métodos que contêm a lógica para obter, adicionar e remover votos de coleções fiáveis. Adicione os seguintes métodos de classe **VotingDataService** ao ficheiro *VotingDataService/src/statefulservice/VotingDataService.java*.
 
@@ -555,7 +546,7 @@ A estrutura do serviço front-end sem estado e do serviço back-end está agora 
 
  A próxima etapa é conectar o serviço sem estado de front-end e o serviço de back-end. Ambos os serviços utilizam uma interface chamada VotingRPC que define as operações do aplicativo de votação. Esta interface é implementada por ambos os serviços front-end e back-end para ativar as chamadas de procedimento remoto (RPC) entre os dois serviços. Infelizmente, o eclipse não dá suporte à adição de subprojetos gradle, portanto, o pacote que contém essa interface precisa ser adicionado manualmente.
 
-1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **nova** **pasta** > . Dê à pasta o nome **VotingRPC/src/rpcmethods**.
+1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **novo** > **pasta**. Dê à pasta o nome **VotingRPC/src/rpcmethods**.
 
     ![Criar pacote VotingRPC no explorador de pacotes do eclipse](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
@@ -713,7 +704,7 @@ A estrutura do serviço front-end sem estado e do serviço back-end está agora 
     import rpcmethods.VotingRPC; 
     ```
 
-Nesta fase, as funções das interfaces de front-end, back-end e RPC estão concluídas. A fase seguinte é configurar os scripts de Gradle corretamente antes de implementar nm cluster do Service Fabric. 
+Nesta fase, as funções das interfaces de front-end, back-end e RPC estão concluídas. A fase seguinte é configurar os scripts de Gradle corretamente antes de implementar um cluster do Service Fabric. 
 
 ## <a name="walk-through-the-voting-sample-application"></a>Percorrer a aplicação de votação de exemplo
 A aplicação de votação é composta por dois serviços:
@@ -891,7 +882,7 @@ Nesta secção, vai configurar os scripts de Gradle para o projeto.
 
 Neste momento, a aplicação está pronta para ser implementada num cluster do Service Fabric local.
 
-1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **Service Fabric** **aplicativo de Build**  >  para compilar seu aplicativo.
+1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **Service Fabric** > **aplicativo de Build** para compilar seu aplicativo.
 
 2. Execute o seu cluster do Service Fabric local. Este passo depende do seu ambiente de desenvolvimento (Mac ou Linux).
 
@@ -911,7 +902,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 
 4. No Package Explorer para Eclipse, clique com o botão direito do mouse no projeto de **votação** e selecione **Service Fabric** > **publicar aplicativo** 
 5. Na janela **publicar aplicativo** , selecione **local. JSON** na lista suspensa e selecione **publicar**.
-6. Acesse o navegador da Web e acesse http: \//localhost: 8080 para exibir seu aplicativo em execução no cluster de Service Fabric local. 
+6. Acesse o navegador da Web e acesse http:\//localhost: 8080 para exibir o aplicativo em execução no cluster de Service Fabric local. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

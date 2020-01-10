@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415345"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT for Azure
 
@@ -77,7 +77,7 @@ Sim, avere vFXT é executado exclusivamente como uma solução de alta disponibi
 
 Sim, os clientes podem usar mais de um provedor de nuvem com o cluster avere vFXT. Ele dá suporte a buckets padrão AWS S3, os buckets padrão do Google Cloud Services e os contêineres de blob do Azure.
 
-> [!NOTE] 
+> [!NOTE]
 > Uma taxa de software se aplica ao uso do avere vFXT no AWS ou Google Cloud, mas não com o Azure.
 
 ## <a name="technical-compute"></a>Técnico: computação
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>O ambiente avere vFXT é dimensionado?
@@ -130,7 +129,7 @@ Não. O modelo de alta disponibilidade no avere vFXT atualmente não dá suporte
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Posso clonar máquinas virtuais avere vFXT?
 
-Não, você deve usar o script Python com suporte para adicionar ou remover nós no cluster avere vFXT. Para obter mais informações, leia [gerenciar o cluster avere vFXT](avere-vfxt-manage-cluster.md).  
+Não, você deve usar o script Python com suporte para adicionar ou remover nós no cluster avere vFXT. Para obter mais informações, leia [gerenciar o cluster avere vFXT](avere-vfxt-manage-cluster.md).
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>Há uma versão "VM" do software que posso executar em meu próprio ambiente local?
 
@@ -270,7 +269,7 @@ Você pode configurar a criptografia de blob no Azure (preferencial) ou no níve
 
 Por padrão, os dados são criptografados por meio de chaves gerenciadas pela Microsoft para armazenamento de BLOBs, tabelas e filas do Azure, além de arquivos do Azure. Você pode trazer sua própria chave para criptografia para armazenamento de BLOBs e arquivos do Azure. Se você optar por usar a criptografia avere vFXT, deverá usar a chave gerada pelo avere e armazená-la localmente.
 
-## <a name="purchasing"></a>Comprar
+## <a name="purchasing"></a>Compra
 
 ### <a name="how-do-i-get-avere-vfxt-for-azure-licensing"></a>Como fazer obter avere vFXT para o licenciamento do Azure?
 

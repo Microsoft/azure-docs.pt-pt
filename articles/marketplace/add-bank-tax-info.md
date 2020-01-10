@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: blevens
-ms.openlocfilehash: bb6abc616be98f85228c4f84f37b26110b48c2ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ad4841d805b604d0f44a9e0dc08eed15aa9c1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432000"
 ---
 # <a name="add-bank-and-tax-information"></a>Adicionar informações bancárias e de impostos  
 
@@ -22,7 +22,7 @@ As informações bancárias e de impostos são necessárias para todas as oferta
 
 ## <a name="partner-center"></a>Centro de Parceiros
 
-As informações bancárias e de impostos agora são gerenciadas no Partner Center. As instruções para definir essas configurações podem ser encontradas na seção "detalhes financeiros" de [gerenciar sua conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+As informações bancárias e de impostos agora são gerenciadas no Partner Center. As instruções para definir essas configurações podem ser encontradas na página "visão geral do Marketplace comercial" de [gerenciar sua conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
 
 
 ## <a name="next-steps"></a>Passos seguintes

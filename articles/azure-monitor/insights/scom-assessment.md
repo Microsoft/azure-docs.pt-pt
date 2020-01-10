@@ -4,15 +4,15 @@ description: Você pode usar a solução Verificação de Integridade do System 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402856"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimize seu ambiente com a solução de Verificação de Integridade do System Center Operations Manager (versão prévia)
 
@@ -32,9 +32,9 @@ Depois de ter adicionado a solução e uma avaliação é realizada, as informa�
 
 ![Painel do Verificação de Integridade do System Center Operations Manager](./media/scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
+## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 
-A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System Centro Operations Manager 1807
+A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System Central Operations Manager 1807. Uma versão com suporte do .NET Framework 4.6.2 deve ser instalada em cada servidor de gerenciamento.
 
 Utilize as seguintes informações para instalar e configurar a solução.
 
@@ -56,9 +56,9 @@ Utilize as seguintes informações para instalar e configurar a solução.
 A solução Verificação de Integridade do System Center Operations Manager coleta dados das seguintes fontes:
 
 * Registo
-* Instrumentação de Gerenciamento do Windows (WMI)
-* Log de eventos
-* Dados de arquivo
+* Windows Management Instrumentation (WMI)
+* Registo de eventos
+* Dados de ficheiros
 * Diretamente de Operations Manager usando consultas do PowerShell e do SQL, de um servidor de gerenciamento que você especificou.  
 
 Os dados são coletados no servidor de gerenciamento e encaminhados para Log Analytics a cada sete dias.  
@@ -148,7 +148,7 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 O pacote de gerenciamento da solução Verificação de Integridade do System Center Operations Manager inclui uma regra chamada *Microsoft System Center Operations Manager executar regra de verificação de integridade*. Essa regra é responsável por executar a verificação de integridade. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
 
-Por padrão, a regra de verificação de integridade de execução do Microsoft System Center Operations Manager está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
+Por padrão, a regra de verificação de integridade de execução do Microsoft System Center Operations Manager está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Utilize os passos seguintes.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitar a regra para um servidor de gerenciamento específico
 
@@ -273,7 +273,7 @@ Se você tiver recomendações que deseja ignorar, poderá criar um arquivo de t
 
 *Se outro servidor for descoberto após ter adicionado a solução de Verificação de Integridade do System Center Operations Manager, ele será verificado?* Sim, após a descoberta, ela é verificada, por padrão, a cada sete dias.
 
-*Qual é o nome do processo que faz a coleta de dados?* AdvisorAssessment. exe
+*Qual é o nome do processo que faz a coleta de dados?* AdvisorAssessment.exe
 
 *Onde o processo AdvisorAssessment. exe é executado?* O AdvisorAssessment. exe é executado sob o processo HealthService do servidor de gerenciamento em que a regra de verificação de integridade está habilitada. Usando esse processo, a descoberta de todo o ambiente é obtida por meio da coleta de dados remota.
 

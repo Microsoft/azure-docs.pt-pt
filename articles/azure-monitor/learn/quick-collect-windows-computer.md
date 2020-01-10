@@ -3,7 +3,7 @@ title: Coletar dados de um computador Windows híbrido com Azure Monitor
 description: Neste guia de início rápido, você aprenderá a implantar o agente de Log Analytics para computadores Windows em execução fora do Azure e habilitar a coleta de dados com logs de Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
-ms.author: magoedte
+ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 11c51ab702399c73dc93f850d4abde49b45b3775
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398948"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Windows em um ambiente híbrido com Azure Monitor
 
@@ -149,7 +149,7 @@ Você pode remover o agente do seu computador e excluir o Log Analytics espaço 
 
 Para remover o agente, conclua estas etapas:
 
-1. Abra o painel de controle.
+1. Abra o Painel de Controlo.
 
 2. Abra **Programas e Funcionalidades**.
 

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440326"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar Azure-SSIS Integration Runtime em uma agenda
 Este artigo descreve como agendar o início e a interrupção de Azure-SSIS Integration Runtime (IR) usando Azure Data Factory (ADF). Azure-SSIS IR é o recurso de computação do ADF dedicado para executar pacotes do SQL Server Integration Services (SSIS). A execução de Azure-SSIS IR tem um custo associado a ele. Portanto, normalmente você desejará executar o IR somente quando precisar executar pacotes do SSIS no Azure e parar o IR quando não precisar mais dele. Você pode usar a interface do usuário do ADF/app ou Azure PowerShell para [Iniciar ou parar manualmente o ir](manage-azure-ssis-integration-runtime.md)).
@@ -64,7 +64,7 @@ Se você criar um terceiro gatilho agendado para execução diária à meia-noit
    - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
    - Selecione **criar novo**e insira o nome do novo grupo de recursos.   
          
-   Para saber mais sobre grupos de recursos, consulte [o artigo usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md) .
+   Para saber mais sobre grupos de recursos, consulte [o artigo usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md) .
    
 6. Para **versão**, selecione **v2** .
 7. Para **local**, selecione um dos locais com suporte para a criação do ADF na lista suspensa.

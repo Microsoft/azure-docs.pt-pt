@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f43d965e2c1d706097c9cc2c432ca77e16f162c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430953"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o esmesa
 
@@ -107,7 +107,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
@@ -134,7 +134,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-airtable-sso"></a>Configurar SSO do esmesa
 
-Para configurar o logon único no lado do estime da **tabela** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas do portal do Azure para a [equipe de suporte](mailto:azure-ad-marketplace@airtable.com)do para a tabela. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Siga as instruções fornecidas no [link](https://support.airtable.com/hc/articles/360037475234) para configurar o logon único no lado do **esmesa** .
 
 ### <a name="create-airtable-test-user"></a>Criar usuário de teste do esfiler
 

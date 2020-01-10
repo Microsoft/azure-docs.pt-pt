@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674909"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893064"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Visualização – migre Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS) dá suporte a uma única moviment
 
 Este artigo descreve os benefícios e as considerações de migração e as etapas necessárias para migrar com êxito uma instância existente do AD DS do Azure. Esta funcionalidade encontra-se em pré-visualização.
 
-## <a name="overview-of-the-migration-process"></a>Visão geral do processo de migração
+## <a name="overview-of-the-migration-process"></a>Descrição do processo de migração
 
 O processo de migração usa uma instância existente do AD DS do Azure que é executada em uma rede virtual clássica e a move para uma rede virtual do Resource Manager existente. A migração é realizada usando o PowerShell e tem dois estágios principais de *preparação* e *migração*de execução.
 
@@ -112,7 +112,7 @@ No caso da reversão, os endereços IP podem mudar após a reversão.
 
 O Azure AD DS normalmente usa os dois primeiros endereços IP disponíveis no intervalo de endereços, mas isso não é garantido. No momento, não é possível especificar os endereços IP a serem usados após a migração.
 
-### <a name="downtime"></a>Tempo
+### <a name="downtime"></a>Inatividade
 
 O processo de migração envolve os controladores de domínio que estão offline por um período de tempo. Os controladores de domínio ficam inacessíveis enquanto o Azure AD DS é migrado para o modelo de implantação do Gerenciador de recursos e para a rede virtual. Em média, o tempo de inatividade é de cerca de 1 a 3 horas. Esse período de tempo é de quando os controladores de domínio são colocados offline no momento em que o primeiro controlador de domínio volta a ficar online. Essa média não inclui o tempo que leva para o segundo controlador de domínio ser replicado ou o tempo que pode levar para migrar recursos adicionais para o modelo de implantação do Gerenciador de recursos.
 
@@ -151,7 +151,7 @@ Para obter mais informações sobre os requisitos de rede virtual, consulte [con
 
 A migração para o modelo de implantação do Gerenciador de recursos e a rede virtual é dividida em cinco etapas principais:
 
-| Passo    | Executado por meio de  | Tempo estimado  | Tempo  | Reverter/restaurar? |
+| Passo    | Executado por meio de  | Tempo estimado  | Inatividade  | Reverter/restaurar? |
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Etapa 1-atualizar e localizar a nova rede virtual](#update-and-verify-virtual-network-settings) | Portal do Azure | 15 minutos | Nenhum tempo de inatividade necessário | N/A |
 | [Etapa 2 – preparar o domínio gerenciado AD DS do Azure para migração](#prepare-the-managed-domain-for-migration) | PowerShell | 15 a 30 minutos em média | O tempo de inatividade da AD DS do Azure é iniciado após a conclusão desse comando. | Reversão e restauração disponíveis. |
@@ -293,7 +293,7 @@ Se necessário, você pode atualizar a política de senha refinada para ser meno
 1. Use um rastreamento de rede na VM para localizar a origem dos ataques e bloquear esses endereços IP para poder tentar entrar.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha refinada para ser tão restritiva quanto necessário.
 
-#### <a name="creating-a-network-security-group"></a>Criando um grupo de segurança de rede
+#### <a name="creating-a-network-security-group"></a>Criar um grupo de segurança de rede
 
 O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado e não é criado automaticamente. Para criar o grupo de segurança de rede e abrir as portas necessárias, examine as seguintes etapas:
 
@@ -306,12 +306,13 @@ O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas 
 
 Se houver um erro quando você executar o cmdlet do PowerShell para se preparar para a migração na etapa 2 ou para a migração em si na etapa 3, o domínio gerenciado do Azure AD DS poderá reverter para a configuração original. Essa reversão requer a rede virtual clássica original. Observe que os endereços IP ainda podem ser alterados após a reversão.
 
-Execute o cmdlet `Migrate-Aadds` usando o parâmetro *-Abort* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado do Azure AD DS preparado em uma seção anterior, como *contoso.com*:
+Execute o cmdlet `Migrate-Aadds` usando o parâmetro *-Abort* . Forneça o *-ManagedDomainFqdn* para seu próprio domínio gerenciado AD DS do Azure preparado em uma seção anterior, como *contoso.com*e o nome da rede virtual clássica, como *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -360,4 +361,4 @@ Com o domínio gerenciado do Azure AD DS migrado para o modelo de implantação 
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

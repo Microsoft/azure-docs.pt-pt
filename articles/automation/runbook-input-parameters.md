@@ -2,19 +2,15 @@
 title: Parâmetros de entrada no runbook
 description: Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks, permitindo que você passe dados para um runbook quando ele é iniciado. Este artigo descreve diferentes cenários em que os parâmetros de entrada são usados em runbooks.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417593"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada no runbook
 

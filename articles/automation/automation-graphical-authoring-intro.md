@@ -2,19 +2,15 @@
 title: Criação gráfica na automação do Azure
 description: A criação gráfica permite que você crie runbooks para a automação do Azure sem trabalhar com código. Este artigo fornece uma introdução à criação gráfica e todos os detalhes necessários para começar a criar um runbook gráfico.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c1b864eb83a9ffb69c0cb532dc2061636010c60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450754"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na automação do Azure
 

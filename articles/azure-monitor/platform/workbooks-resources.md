@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872813"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363120"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recurso da pasta de trabalho
 

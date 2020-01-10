@@ -11,16 +11,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4d3c74db9a0c4e13ee7c17eb78552d8c11cd7afb
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5669b606d7dc06483641c2bdd6ef27c82e75bf4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431867"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores de banco de dados
 
-*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dados individuais e pool elástico no [banco de dados SQL](sql-database-technical-overview.md) do Azure ou em seus bancos no [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações que são enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com o banco de dados SQL do Azure e SQL Data Warehouse.
+*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dado único e pool elástico no [banco de dados SQL](sql-database-technical-overview.md) do Azure ou em seus bancos de dados no [SQL data warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com o banco de dados SQL do Azure e SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Este artigo aplica-se ao SQL Server do Azure e ao banco de dados SQL e SQL Data Warehouse bancos que são criados no SQL Server do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo não *se aplica* a uma implantação de **instância gerenciada** no banco de dados SQL do Azure porque não tem um ponto de extremidade de serviço associado a ela.
@@ -158,15 +158,15 @@ O polybase é comumente usado para carregar dados no Azure SQL Data Warehouse de
        > - Não é necessário especificar o segredo com a chave de acesso de armazenamento do Azure porque esse mecanismo usa a [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
        > - O nome da identidade deve ser **' identidade de serviço gerenciada '** para que a conectividade polybase funcione com a conta de armazenamento do Azure protegida para VNet.
 
-   1. Crie uma fonte de dados externa com o esquema abfss://para se conectar à sua conta de armazenamento de uso geral v2 usando o polybase:
+   1. Crie uma fonte de dados externa com o esquema `abfss://` para se conectar à sua conta de armazenamento de uso geral v2 usando o polybase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blob v1 ou de uso geral, deverá primeiro descartar essas tabelas externas e, em seguida, remover a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com o esquema abfss://se conectando à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Você pode usar o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar a facilidade de criar scripts para todas as tabelas externas.
-       > - Para obter mais informações sobre o esquema abfss://, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blob v1 ou de uso geral, deverá primeiro descartar essas tabelas externas e, em seguida, remover a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com o esquema de `abfss://` se conectando à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Você pode usar o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar a facilidade de criar scripts para todas as tabelas externas.
+       > - Para obter mais informações sobre o esquema de `abfss://`, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Para obter mais informações sobre como criar uma fonte de dados externa, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Consultar normalmente usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -237,7 +237,7 @@ Você já deve ter uma sub-rede que esteja marcada com o *nome do tipo* de ponto
 
 1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Em seguida, navegue até o portal para **servidores SQL** &gt; **Firewall/redes virtuais**.
+2. Procure e selecione **servidores SQL**e, em seguida, selecione o servidor. Em **segurança**, selecione **firewalls e redes virtuais**.
 
 3. Defina o controle **permitir acesso aos serviços do Azure** como desativado.
 

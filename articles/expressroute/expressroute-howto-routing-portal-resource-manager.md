@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 02/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: 5fb728cccd77d0cefd10c124cb7215dc3b880fe3
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 18d2db18e9880028c60b4b545c3628f4a9cb4703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436962"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar um peering de um circuito do ExpressRoute
 
@@ -22,13 +22,13 @@ Este artigo ajuda você a criar e gerenciar a configuração de roteamento para 
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
+> * [Emparelhamento público](about-public-peering.md)
 > * [Vídeo - peering privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vídeo - peering público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Vídeo - peering da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Você pode configurar o emparelhamento privado e Microsoft do Azure para um circuito do ExpressRoute (o emparelhamento público do Azure é preterido para novos circuitos). Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre os domínios de roteamento e emparelhamentos, consulte [sobre circuitos e emparelhamentos](expressroute-circuit-peerings.md).
+Você pode configurar emparelhamento privado e emparelhamento da Microsoft para um circuito do ExpressRoute (o emparelhamento público do Azure é preterido para novos circuitos). Os emparelhamentos podem ser configurados em qualquer ordem escolhida. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e peerings, consulte [domínios de encaminhamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre o emparelhamento público, consulte [emparelhamento público do ExpressRoute](about-public-peering.md).
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
@@ -172,25 +172,6 @@ Pode remover a configuração do peering selecionando o ícone Eliminar, conform
 
 ![eliminar um peering privado](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
-## <a name="public"></a>Peering público do Azure
-
-Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração do peering público do Azure para um circuito do ExpressRoute.
-
-> [!Note]
-> O emparelhamento público do Azure foi preterido para novos circuitos. Para obter mais informações, consulte [emparelhamento de ExpressRoute](expressroute-circuit-peerings.md).
->
-
-### <a name="getpublic"></a>Para ver os detalhes de peering públicos do Azure
-
-Exiba as propriedades do emparelhamento público do Azure selecionando o emparelhamento.
-
-### <a name="updatepublic"></a>Para atualizar a configuração do peering público do Azure
-
-Selecione a linha para emparelhamento e, em seguida, modifique as propriedades de emparelhamento.
-
-### <a name="deletepublic"></a>Para eliminar o peering público do Azure
-
-Remova a configuração de emparelhamento selecionando o ícone Excluir.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,12 +4,12 @@ description: Neste artigo, saiba como restaurar os dados armazenados no Azure pa
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450031"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação Azure Resource Manager
 
@@ -21,7 +21,7 @@ Este artigo explica como restaurar dados de um cofre de backup. Para restaurar d
 Use o recurso de restauração instantânea para montar um instantâneo de ponto de recuperação gravável como um volume de recuperação. Você pode explorar o volume de recuperação e copiar os arquivos para um computador local, restaurando, assim, os arquivos de forma seletiva.
 
 > [!NOTE]
-> A [atualização de janeiro de 2017 do backup do Azure](https://support.microsoft.com/help/3216528?preview) será necessária se você quiser usar a restauração instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização de janeiro de 2017 do backup do Azure](https://support.microsoft.com/help/3216528?preview) para obter a lista mais recente de localidades que dão suporte à restauração instantânea.
+> A [atualização de janeiro de 2017 do backup do Azure](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) será necessária se você quiser usar a restauração instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização de janeiro de 2017 do backup do Azure](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obter a lista mais recente de localidades que dão suporte à restauração instantânea.
 >
 
 Use a restauração instantânea com cofres dos serviços de recuperação no portal do Azure. Se você armazenou dados em cofres de backup, eles foram convertidos em cofres dos serviços de recuperação. Se você quiser usar a restauração instantânea, baixe a atualização do MARS e siga os procedimentos que mencionam a restauração instantânea.

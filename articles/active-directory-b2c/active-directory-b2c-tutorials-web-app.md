@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367608"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: habilitar a autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 
 #### <a name="applicationstabapplications"></a>[Aplicações](#tab/applications/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **aplicativos**e, em seguida, selecione o aplicativo *webapp1* .
@@ -56,7 +56,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
 1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
 1. Selecione **registros de aplicativo (versão prévia)** , selecione a guia **aplicativos de propriedade** e, em seguida, selecione o aplicativo *webapp1* .
@@ -94,7 +94,7 @@ Atualize as configurações no arquivo Web. config para trabalhar com seu fluxo 
 1. No projeto **TaskWebApp** , abra o arquivo **Web. config** .
     1. Atualize o valor de `ida:Tenant` e `ida:AadInstance` com o nome do locatário Azure AD B2C que você criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
     1. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou.
-    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Você deve codificar o segredo do cliente em XML antes de adicioná-lo ao Web. config.
+    1. Substitua o valor de `ida:ClientSecret` pela chave que registou. Se o segredo do cliente contiver qualquer entidade XML predefinida, por exemplo, menor que (`<`), maior que (`>`), e comercial (`&`) ou aspas duplas (`"`), você deverá escapar esses caracteres por codificação XML do segredo do cliente antes de adicioná-lo ao Web. config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
     1. Substitua o valor de `ida:EditProfilePolicyId` por `b2c_1_profileediting1`.
     1. Substitua o valor de `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.

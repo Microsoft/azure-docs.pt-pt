@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 972b9360fa95b528bd955a07451e7347f3e1791d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456659"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados recorrentes com aplicativos lógicos do Azure
 
@@ -79,6 +79,16 @@ Aqui estão alguns padrões que mostram como você pode controlar a recorrência
 | Hora de início no momento ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p>Executa cargas de trabalho futuras com base em cálculos do último tempo de execução. | Executa a primeira carga de trabalho *não antes* da hora de início, com base na agenda calculada a partir da hora de início. <p>Executa cargas de trabalho futuras com base na agenda especificada. <p>**Observação:** Se você especificar uma recorrência com um agendamento, mas não especificar horas ou minutos para o agendamento, os tempos de execução futuros serão calculados usando as horas ou os minutos, respectivamente, da primeira hora de execução. |
 ||||
 
+> [!IMPORTANT]
+> Quando as recorrências não especificam opções de agendamento avançadas, as recorrências futuras são baseadas na última hora de execução.
+> As horas de início para essas recorrências podem ser desligadas devido a fatores como latência durante chamadas de armazenamento. Para certificar-se de que seu aplicativo lógico não perca uma recorrência, especialmente quando a frequência estiver em dias ou mais, use uma destas opções:
+> 
+> * Forneça uma hora de início para a recorrência.
+> 
+> * Especifique as horas e os minutos para quando executar a recorrência usando as propriedades a **seguir horas** e **em minutos** .
+> 
+> * Use o [gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de recorrência.
+
 *Exemplo de hora de início e recorrência após, mas sem agendamento*
 
 Suponha que a data e a hora atuais sejam 8 de setembro de 2017 às 1:00. Você especifica a data e a hora de início como 7 de setembro de 2017 às 2:00, que está no passado e uma recorrência que é executada a cada dois dias.
@@ -116,29 +126,29 @@ Portanto, não importa o quanto antes você especifica a hora de início, por ex
 
 Aqui estão várias recorrências de exemplo que você pode configurar para os gatilhos que dão suporte às opções:
 
-| Acionador | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A esses minutos | Nota |
+| Acionador | Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Nota |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
-| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | None | indisponível | None | None | Essa agenda é iniciada imediatamente e calcula as recorrências futuras com base na hora da última execução. |
-| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *StartDate* T*StartTime*Z | indisponível | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas e, em seguida, calcula as recorrências futuras com base na hora da última execução. |
-| Recurrence <br>Janela Deslizante | Executar a cada hora, na hora (com data e hora de início) | 1 | Hora | *StartDate* Na: 00:00Z | indisponível | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As recorrências futuras são executadas a cada hora na marca de minuto "00", que é calculada a partir da hora de início. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
-| Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (sem data e hora de início) | 1 | Hora | None | indisponível | None | None | Essa agenda é iniciada imediatamente e calcula as recorrências futuras com base na hora da última execução. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
-| Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (com data e hora de início) | 1 | Hora | *StartDate* T*StartTime*Z | indisponível | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas e, em seguida, calcula as recorrências futuras com base na hora da última execução. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
-| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos após a hora, a cada hora (com data e hora de início) | 1 | Hora | *StartDate* T00:15:00Z | indisponível | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As recorrências futuras são executadas na marca de "15" minutos, que é calculada a partir da hora de início, portanto às 00:15 A.M., 1:15 AM, 2:15 AM e assim por diante. |
-| Recorrência | Executar a cada 15 minutos após a hora, a cada hora (sem data e hora de início) | 1 | Dia | None | indisponível | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Essa agenda é executada às 00:15 A.M., 1:15, 2:15 AM e assim por diante. Além disso, esse agendamento é equivalente a uma frequência de "hora" e uma hora de início com "15" minutos. |
-| Recorrência | Executar a cada 15 minutos nas marcas de minuto especificadas (sem data e hora de início). | 1 | Dia | None | indisponível | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Essa agenda não é iniciada até a próxima marca de 15 minutos especificada. |
-| Recorrência | Execute diariamente às 8:00 *mais* o minuto-Mark de quando você salva seu aplicativo lógico | 1 | Dia | None | indisponível | 8 | None | Sem uma data e hora de início, essa agenda é executada com base no tempo em que você salva o aplicativo lógico (operação PUT). |
-| Recorrência | Executar diariamente às 8:00 (com data e hora de início) | 1 | Dia | *StartDate* T08:00:00Z | indisponível | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As ocorrências futuras são executadas diariamente às 8:00. | 
-| Recorrência | Executar diariamente às 8:30 AM (sem data e hora de início) | 1 | Dia | None | indisponível | 8 | 30 | Essa agenda é executada às 8:30, todos os dias. |
-| Recorrência | Executar diariamente às 8:30 AM e 4:30 PM | 1 | Dia | None | indisponível | 8, 16 | 30 | |
-| Recorrência | Executar diariamente às 8:30, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Dia | None | indisponível | 8, 16 | 30, 45 | |
+| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | None | {unavailable} | None | None | Essa agenda é iniciada imediatamente e calcula as recorrências futuras com base na hora da última execução. |
+| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *startDate*T*startTime*Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas e, em seguida, calcula as recorrências futuras com base na hora da última execução. |
+| Recurrence <br>Janela Deslizante | Executar a cada hora, na hora (com data e hora de início) | 1 | Hora | *startDate*Thh:00:00Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As recorrências futuras são executadas a cada hora na marca de minuto "00", que é calculada a partir da hora de início. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
+| Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (sem data e hora de início) | 1 | Hora | None | {unavailable} | None | None | Essa agenda é iniciada imediatamente e calcula as recorrências futuras com base na hora da última execução. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
+| Recurrence <br>Janela Deslizante | Executar a cada hora, todos os dias (com data e hora de início) | 1 | Hora | *startDate*T*startTime*Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas e, em seguida, calcula as recorrências futuras com base na hora da última execução. <p>Se a frequência for "Week" ou "month", essa agenda, respectivamente, será executada apenas um dia por semana ou um dia por mês. |
+| Recurrence <br>Janela Deslizante | Executar a cada 15 minutos após a hora, a cada hora (com data e hora de início) | 1 | Hora | *startDate*T00:15:00Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As recorrências futuras são executadas na marca de "15" minutos, que é calculada a partir da hora de início, portanto às 00:15 A.M., 1:15 AM, 2:15 AM e assim por diante. |
+| Recorrência | Executar a cada 15 minutos após a hora, a cada hora (sem data e hora de início) | 1 | Dia | None | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Essa agenda é executada às 00:15 A.M., 1:15, 2:15 AM e assim por diante. Além disso, esse agendamento é equivalente a uma frequência de "hora" e uma hora de início com "15" minutos. |
+| Recorrência | Executar a cada 15 minutos nas marcas de minuto especificadas (sem data e hora de início). | 1 | Dia | None | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Essa agenda não é iniciada até a próxima marca de 15 minutos especificada. |
+| Recorrência | Execute diariamente às 8:00 *mais* o minuto-Mark de quando você salva seu aplicativo lógico | 1 | Dia | None | {unavailable} | 8 | None | Sem uma data e hora de início, essa agenda é executada com base no tempo em que você salva o aplicativo lógico (operação PUT). |
+| Recorrência | Executar diariamente às 8:00 (com data e hora de início) | 1 | Dia | *startDate*T08:00:00Z | {unavailable} | None | None | Essa agenda não é iniciada *antes* da data e hora de início especificadas. As ocorrências futuras são executadas diariamente às 8:00. | 
+| Recorrência | Executar diariamente às 8:30 AM (sem data e hora de início) | 1 | Dia | None | {unavailable} | 8 | 30 | Essa agenda é executada às 8:30, todos os dias. |
+| Recorrência | Executar diariamente às 8:30 AM e 4:30 PM | 1 | Dia | None | {unavailable} | 8, 16 | 30 | |
+| Recorrência | Executar diariamente às 8:30, 8:45 AM, 4:30 PM e 4:45 PM | 1 | Dia | None | {unavailable} | 8, 16 | 30, 45 | |
 | Recorrência | Executar a cada sábado às 17h (sem data e hora de início) | 1 | Semana | None | Sábado | 17 | 00 | Essa agenda é executada a cada sábado às 5:00 PM. |
-| Recorrência | Executar todos os sábados às 17h (com data e hora de início) | 1 | Semana | *StartDate* T17:00:00Z | Sábado | None | None | Esse agendamento não é iniciado *antes* da data e hora de início especificadas, neste caso, 9 de setembro de 2017 às 5:00 PM. As recorrências futuras são executadas a cada sábado às 5:00 PM. |
+| Recorrência | Executar todos os sábados às 17h (com data e hora de início) | 1 | Semana | *startDate*T17:00:00Z | Sábado | None | None | Esse agendamento não é iniciado *antes* da data e hora de início especificadas, neste caso, 9 de setembro de 2017 às 5:00 PM. As recorrências futuras são executadas a cada sábado às 5:00 PM. |
 | Recorrência | Execute todas as terças-feiras às 17:00, *mais* o minuto-Mark de quando você salva seu aplicativo lógico| 1 | Semana | None | "Terça-feira", "quinta-feira" | 17 | None | |
 | Recorrência | Executar a cada hora durante o horário de trabalho | 1 | Semana | None | Selecione todos os dias, exceto sábado e domingo. | Selecione as horas do dia que você deseja. | Selecione os minutos da hora que desejar. | Por exemplo, se seu horário de trabalho for de 8:00 a 5:00 PM, selecione "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" como as horas do dia. <p>Se seu horário de trabalho for de 8:30 a 5:30 PM, selecione as horas anteriores do dia mais "30" como minutos da hora. |
 | Recorrência | Executar uma vez todos os dias nos fins de semana | 1 | Semana | None | "Sábado", "domingo" | Selecione as horas do dia que você deseja. | Selecione os minutos da hora conforme apropriado. | Essa agenda é executada a cada sábado e domingo no agendamento especificado. |
 | Recorrência | Executar a cada 15 minutos quinzenalmente apenas nas segundas-feiras | 2 | Semana | None | Segunda-feira | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Essa agenda é executada a cada segunda-feira a cada marca de 15 minutos. |
-| Recorrência | Executar todos os meses | 1 | Mês | *StartDate* T*StartTime*Z | indisponível | indisponível | indisponível | Essa agenda não é iniciada *antes* da data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se você não especificar uma data e hora de início, essa agenda usará a data e a hora de criação. |
-| Recorrência | Executar a cada hora por um dia por mês | 1 | Mês | {Veja a observação} | indisponível | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Veja a observação} | Se você não especificar uma data e hora de início, essa agenda usará a data e a hora de criação. Para controlar os minutos da agenda de recorrência, especifique os minutos da hora, uma hora de início ou use a hora de criação. Por exemplo, se a hora de início ou a hora de criação for 8:25, essa agenda será executada às 8:25, 9:25 AM, 10:25 e assim por diante. |
+| Recorrência | Executar todos os meses | 1 | Mês | *startDate*T*startTime*Z | {unavailable} | {unavailable} | {unavailable} | Essa agenda não é iniciada *antes* da data e hora de início especificadas e calcula as recorrências futuras na data e hora de início. Se você não especificar uma data e hora de início, essa agenda usará a data e a hora de criação. |
+| Recorrência | Executar a cada hora por um dia por mês | 1 | Mês | {Veja a observação} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {Veja a observação} | Se você não especificar uma data e hora de início, essa agenda usará a data e a hora de criação. Para controlar os minutos da agenda de recorrência, especifique os minutos da hora, uma hora de início ou use a hora de criação. Por exemplo, se a hora de início ou a hora de criação for 8:25, essa agenda será executada às 8:25, 9:25 AM, 10:25 e assim por diante. |
 |||||||||
 
 <a name="run-once"></a>

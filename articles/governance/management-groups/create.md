@@ -1,22 +1,24 @@
 ---
 title: Criar grupos de gerenciamento para organizar recursos-governança do Azure
 description: Saiba como criar grupos de gerenciamento do Azure para gerenciar vários recursos usando o portal, Azure PowerShell e CLI do Azure.
-ms.date: 04/05/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 335dd8f7f3a9ec20c2b7740e4ec97454489027f6
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436537"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para organização de recursos e gerenciamento
 
 Os grupos de gerenciamento são contêineres que ajudam a gerenciar o acesso, a política e a conformidade em várias assinaturas. Crie esses contêineres para criar uma hierarquia eficaz e eficiente que pode ser usada com [Azure Policy](../policy/overview.md) e [controles de acesso baseados em função do Azure](../../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](overview.md).
 
-O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minutos para ser concluído. Há processos que são executados na primeira vez para configurar o serviço de grupos de gerenciamento no Azure para seu diretório. Você receberá uma notificação quando o processo for concluído.
+O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minutos para ser concluído. Há processos que são executados na primeira vez para configurar o serviço de grupos de gerenciamento no Azure para seu diretório. Você receberá uma notificação quando o processo for concluído. Para obter mais informações, consulte [configuração inicial dos grupos de gerenciamento](./overview.md#initial-setup-of-management-groups). 
 
 ## <a name="create-a-management-group"></a>Criar um grupo de gestão
+
+Qualquer usuário do Azure AD no locatário pode criar um grupo de gerenciamento sem a permissão de gravação do grupo de gerenciamento atribuída a esse usuário.  Esse novo grupo de gerenciamento será um filho do grupo de gerenciamento raiz e o criador receberá uma atribuição de função de "proprietário". O serviço de grupo de gerenciamento permite essa capacidade para que as atribuições de função não sejam necessárias no nível raiz. Nenhum usuário tem acesso ao grupo de gerenciamento raiz quando ele é criado.  Para evitar o obstáculo de localizar os administradores globais do Azure AD para começar a usar grupos de gerenciamento, permitimos a criação dos grupos de gerenciamento iniciais no nível raiz.      
 
 Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou o CLI do Azure. No momento, não é possível usar modelos do Resource Manager para criar grupos de gerenciamento.
 

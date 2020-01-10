@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439532"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -109,7 +109,7 @@ A tabela a seguir descreve os nomes e as descrições das propriedades que são 
 | resourceLinkedService | Serviço vinculado do armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado está armazenado | Não&#42;       |
 | folderPath            | Caminho para a pasta do aplicativo personalizado e todas as suas dependências<br/><br/>Se você tiver dependências armazenadas em subpastas – ou seja, em uma estrutura de pasta hierárquica em *FolderPath* -a estrutura de pastas é atualmente achatada quando os arquivos são copiados para o lote do Azure. Ou seja, todos os arquivos são copiados em uma única pasta sem subpastas. Para contornar esse comportamento, considere compactar os arquivos, copiar o arquivo compactado e, em seguida, descompactá-los com o código personalizado no local desejado. | Não&#42;       |
 | referenceObjects      | Uma matriz de serviços vinculados e conjuntos de os existentes. Os serviços vinculados e os conjuntos de aplicativos referenciados são passados para o aplicativo personalizado no formato JSON para que seu código personalizado possa referenciar recursos do Data Factory | Não       |
-| extendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que seu código personalizado possa referenciar propriedades adicionais | Não       |
+| ExtendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que seu código personalizado possa referenciar propriedades adicionais | Não       |
 | retentionTimeInDays | O tempo de retenção para os arquivos enviados para a atividade personalizada. O valor padrão é 30 dias. | Não |
 
 &#42;As propriedades `resourceLinkedService` e `folderPath` devem ser especificadas ou ambas como omitidas.
@@ -174,7 +174,7 @@ Este exemplo mostra como você pode usar o referenceObjects e o extendedProperti
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"

@@ -1,17 +1,17 @@
 ---
-title: Usar Python e TensorFlow em Azure Functions para fazer inferências de aprendizado de máquina
+title: Usar Python e TensorFlow para aprendizado de máquina no Azure
 description: Este tutorial demonstra como aplicar modelos de aprendizado de máquina TensorFlow no Azure Functions
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409762"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
 
@@ -274,7 +274,7 @@ Quando você clica em enviar, o aplicativo de funções é chamado e um resultad
 ## <a name="clean-up-resources"></a>Limpar recursos
 A totalidade deste tutorial é executada localmente em seu computador, portanto, não há recursos ou serviços do Azure a serem limpos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar e personalizar uma API HTTP com Azure Functions para fazer previsões usando um modelo TensorFlow. Você também aprendeu como chamar a API de um aplicativo Web.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: 02c4fca42f3d5d7494dc8fd6fe0e33161904ddbe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432426"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Aumento anormal no volume de exceção (versão prévia)
 

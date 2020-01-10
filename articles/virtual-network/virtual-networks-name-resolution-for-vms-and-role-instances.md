@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368040"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -58,7 +58,7 @@ Juntamente com a resolução de nomes DNS públicos, o Azure fornece a resoluç�
 ### <a name="features"></a>Funcionalidades
 
 A resolução de nomes fornecida pelo Azure inclui os seguintes recursos:
-* Facilidade de uso. Nenhuma configuração é necessária.
+* Facilidade de uso. Não é necessária qualquer configuração.
 * Elevada disponibilidade. Você não precisa criar e gerenciar clusters de seus próprios servidores DNS.
 * Você pode usar o serviço em conjunto com seus próprios servidores DNS, para resolver nomes de host locais e do Azure.
 * Você pode usar a resolução de nomes entre VMs e instâncias de função dentro do mesmo serviço de nuvem, sem a necessidade de um FQDN.
@@ -193,22 +193,16 @@ Quando você estiver usando seus próprios servidores DNS, o Azure fornecerá a 
 
 > [!NOTE]
 > As propriedades de conexão de rede, como IPs do servidor DNS, não devem ser editadas diretamente nas VMs. Isso ocorre porque eles podem ser apagados durante a reparo do serviço quando o adaptador de rede virtual é substituído. Isso se aplica a VMs Windows e Linux.
->
->
 
 Ao usar o modelo de implantação Azure Resource Manager, você pode especificar servidores DNS para uma rede virtual e uma interface de rede. Para obter detalhes, consulte [gerenciar uma rede virtual](manage-virtual-network.md) e [gerenciar uma interface de rede](virtual-network-network-interface.md).
 
 > [!NOTE]
 > Se você optar pelo servidor DNS personalizado para sua rede virtual, deverá especificar pelo menos um endereço IP do servidor DNS; caso contrário, a rede virtual ignorará a configuração e usará o DNS fornecido pelo Azure.
->
->
 
 Ao usar o modelo de implantação clássico, você pode especificar servidores DNS para a rede virtual no portal do Azure ou no arquivo de [configuração de rede](https://msdn.microsoft.com/library/azure/jj157100). Para serviços de nuvem, você pode especificar servidores DNS por meio do [arquivo de configuração de serviço](https://msdn.microsoft.com/library/azure/ee758710) ou usando o PowerShell, com [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional. 
->
->
+> Se você alterar as configurações de DNS para uma rede virtual ou máquina virtual que já está implantada, para que as novas configurações de DNS entrem em vigor, você deverá executar uma renovação de concessão DHCP em todas as VMs afetadas na rede virtual. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. As etapas variam dependendo do sistema operacional. Consulte a documentação relevante para seu tipo de sistema operacional.
 
 ## <a name="next-steps"></a>Passos seguintes
 

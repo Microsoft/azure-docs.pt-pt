@@ -3,22 +3,22 @@ title: Implantar Azure Policy em assinaturas delegadas em escala
 description: Saiba como o gerenciamento de recursos delegado do Azure permite implantar uma definição de política e uma atribuição de política em vários locatários.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456853"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar Azure Policy em assinaturas delegadas em escala
 
 Como um provedor de serviços, você pode ter integrado vários locatários de clientes para o gerenciamento de recursos delegado do Azure. O [Azure Lighthouse](../overview.md) permite que os provedores de serviços executem operações em escala em vários locatários de uma vez, tornando as tarefas de gerenciamento mais eficientes.
 
-Este tópico mostra como usar [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) para implantar uma definição de política e uma atribuição de política em vários locatários usando comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento sejam protegidas, permitindo apenas o tráfego HTTPS.
+Este tópico mostra como usar [Azure Policy](../../governance/policy/index.yml) para implantar uma definição de política e uma atribuição de política em vários locatários usando comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento sejam protegidas, permitindo apenas o tráfego HTTPS.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usar o grafo de recursos do Azure para consultar em locatários do cliente
 
-Você pode usar o [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/) para consultar em todas as assinaturas nos locatários do cliente que você gerencia. Neste exemplo, identificaremos todas as contas de armazenamento nessas assinaturas que atualmente não exigem tráfego HTTPS.  
+Você pode usar o [grafo de recursos do Azure](../../governance/resource-graph/index.yml) para consultar em todas as assinaturas nos locatários do cliente que você gerencia. Neste exemplo, identificaremos todas as contas de armazenamento nessas assinaturas que atualmente não exigem tráfego HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -88,7 +88,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Saiba mais sobre [Azure Policy](../../governance/policy/index.yml).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).

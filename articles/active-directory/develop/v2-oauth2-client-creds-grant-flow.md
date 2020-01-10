@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423288"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -65,7 +65,7 @@ Esse tipo de autorização é comum para daemons e contas de serviço que precis
 
 ### <a name="application-permissions"></a>Permissões de aplicativo
 
-Em vez de usar ACLs, você pode usar APIs para expor um conjunto de permissões de aplicativo. Uma permissão de aplicativo é concedida a um aplicativo pelo administrador de uma organização e pode ser usada somente para acessar dados pertencentes a essa organização e a seus funcionários. Por exemplo, Microsoft Graph expõe várias permissões de aplicativo para fazer o seguinte:
+Em vez de usar ACLs, você pode usar APIs para expor um conjunto de **permissões de aplicativo**. Uma permissão de aplicativo é concedida a um aplicativo pelo administrador de uma organização e pode ser usada somente para acessar dados pertencentes a essa organização e a seus funcionários. Por exemplo, Microsoft Graph expõe várias permissões de aplicativo para fazer o seguinte:
 
 * Ler emails em todas as caixas de correio
 * Ler e gravar emails em todas as caixas de correio
@@ -75,6 +75,11 @@ Em vez de usar ACLs, você pode usar APIs para expor um conjunto de permissões 
 Para obter mais informações sobre permissões de aplicativo, acesse [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Para usar permissões de aplicativo em seu aplicativo, siga as etapas discutidas nas próximas seções.
+
+
+> [!NOTE]
+> Ao autenticar como um aplicativo, em oposição a um usuário, você não pode usar "permissões delegadas" (escopos que são concedidos por um usuário).  Você deve usar "permissões de aplicativo", também conhecidas como "funções", que são concedidas por um administrador para o aplicativo (ou via pré-autorização pela API Web).    
+
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro de aplicativo
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3256115821abf5e81d04268ffd2eb310d213ab06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432012"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectar-se à sua máquina virtual baseada no Azure
 
@@ -33,28 +33,29 @@ O artigo a seguir fornece detalhes sobre como usar o suporte interno do Windows 
 
 Para conectar a VM baseada em Linux, você precisa de um cliente SSH (Secure Shell Protocol).  Esta discussão usará o terminal [shh de](https://www.ssh.com/ssh/putty/) saída gratuito.
 
-1. Na folha **máquinas virtuais** da [portal do Azure](https://ms.portal.azure.com), selecione a VM à qual você deseja se conectar.  
-2. **Inicie** a VM se ela ainda não estiver em execução.
-3. Clique no nome da VM para abrir sua página de **visão geral** .
-4. Anote o endereço IP público e o nome DNS da sua VM.  (Se esses valores não estiverem definidos, você deverá [criar uma interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
+1. Aceda ao [Portal do Azure](https://ms.portal.azure.com). Pesquise e selecione **máquinas virtuais**. 
+2. Selecione a VM à qual você deseja se conectar.  
+3. **Inicie** a VM se ela ainda não estiver em execução.
+4. Clique no nome da VM para abrir sua página de **visão geral** .
+5. Anote o endereço IP público e o nome DNS da sua VM.  (Se esses valores não estiverem definidos, você deverá [criar uma interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface)
 
    ![Configurações de visão geral da VM](./media/publishvm_019.png)
  
-5. Abra o aplicativo de saída.  
-6. Na caixa de diálogo configuração de saída, insira o endereço IP ou o nome DNS da sua VM. 
+6. Abra o aplicativo de saída.  
+7. Na caixa de diálogo configuração de saída, insira o endereço IP ou o nome DNS da sua VM. 
 
    ![Configurações de terminal de saída](./media/publishvm_020.png)
  
-7. Clique em **abrir** para abrir um terminal de reemitida.  
-8. Quando solicitado, insira o nome da conta e a senha da sua conta da VM do Linux. 
+8. Clique em **abrir** para abrir um terminal de reemitida.  
+9. Quando for solicitado, insira o nome da conta e a senha da sua conta da VM do Linux. 
 
-   Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo, [capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+Se você estiver tendo problemas de conexão, consulte a documentação do cliente SSH, por exemplo, [capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals).
 
 Para obter mais informações, incluindo como adicionar uma área de trabalho a uma VM do Linux provisionada, consulte [instalar e configurar o área de trabalho remota para se conectar a uma VM do Linux no Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 
 
 ## <a name="stop-unused-vms"></a>Parar VMs não utilizadas
-O Azure cobra pela hospedagem de VM quando uma VM está em execução *ou ociosa*.  Portanto, é uma prática recomendada parar as VMs que não estão sendo usadas no momento.  Por exemplo, as VMs de teste, backup ou desativadas são candidatas para desligamento. Para desligar uma VM, execute as seguintes etapas:
+O Azure cobra pela hospedagem de VM quando uma VM está em execução *ou ociosa*.  Como tal, é uma prática recomendada parar as VMs que não estão sendo usadas no momento.  Por exemplo, as VMs de teste, backup ou desativadas são candidatas para desligamento. Para desligar uma VM, conclua as seguintes etapas:
 
 1. Na folha **máquinas virtuais** , selecione a VM que você deseja parar. 
 2. Na barra de ferramentas próxima à parte superior da página, clique no botão **parar** .
@@ -68,4 +69,4 @@ Se você quiser reativar mais tarde uma VM parada, selecione-a e clique no botã
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de conectar-se remotamente, você estará pronto para [configurar sua VM](./cpp-configure-vm.md).
+Depois que você estiver conectado remotamente, você estará pronto para [configurar sua VM](./cpp-configure-vm.md).

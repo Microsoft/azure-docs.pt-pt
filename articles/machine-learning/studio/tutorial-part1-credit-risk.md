@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 1: prever o risco de crédito'
 titleSuffix: ML Studio (classic) - Azure
-description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito na versão clássica do Azure Machine Learning Studio. Este tutorial é a parte um de uma série de tutoriais de três partes.  Ele mostra como criar um espaço de trabalho, carregar dados e criar um experimento.
+description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a parte um de uma série de tutoriais de três partes.  Ele mostra como criar um espaço de trabalho, carregar dados e criar um experimento.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432251"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: prever o risco de crédito-Azure Machine Learning Studio (clássico)
 
@@ -25,7 +25,7 @@ Neste tutorial, você tem uma visão detalhada do processo de desenvolvimento de
 
 Suponhamos que precisa de prever o risco de crédito de um indivíduo com base nas informações fornecidas sobre uma aplicação de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial vai simplificar um pouco. Você o usará como um exemplo de como é possível criar uma solução de análise preditiva usando Microsoft Azure Machine Learning Studio (clássico). Você usará a versão clássica do Azure Machine Learning Studio e um serviço Web Machine Learning para essa solução.  
+A avaliação de risco de crédito é um problema complexo, mas este tutorial vai simplificar um pouco. Você o usará como um exemplo de como é possível criar uma solução de análise preditiva usando Microsoft Azure Machine Learning Studio (clássico). Você usará Azure Machine Learning Studio (clássico) e um serviço Web Machine Learning para esta solução.  
 
 Neste tutorial de três partes, você começa com dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolve e treina um modelo de previsão.  Por fim, você implanta o modelo como um serviço Web.
 
@@ -56,14 +56,14 @@ Para usar Machine Learning Studio (clássico), você precisa ter um espaço de t
 
 Para criar um espaço de trabalho, consulte [criar e compartilhar um espaço de trabalho Azure Machine Learning Studio (clássico)](create-workspace.md).
 
-Depois que o espaço de trabalho for criado, abra Machine Learning Studio (clássico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se você tiver mais de um espaço de trabalho, poderá selecionar o espaço de trabalho na barra de ferramentas no canto superior direito da janela.
+Depois que o espaço de trabalho for criado, abra Machine Learning Studio (clássico) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Se tiver mais do que uma área de trabalho, pode selecionar a área de trabalho na barra de ferramentas no canto superior direito da janela.
 
 ![Selecionar espaço de trabalho no estúdio (clássico)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Se você for o proprietário do espaço de trabalho, poderá compartilhar os experimentos nos quais está trabalhando convidando outras pessoas para o espaço de trabalho. Você pode fazer isso em Machine Learning Studio (clássico) na página **configurações** . Você só precisa do conta Microsoft ou conta organizacional para cada usuário.
+> Se você for o proprietário do espaço de trabalho, poderá compartilhar os experimentos nos quais está trabalhando convidando outras pessoas para o espaço de trabalho. Você pode fazer isso em Machine Learning Studio (clássico) na página **configurações** . Apenas terá da conta Microsoft ou contas institucionais para cada utilizador.
 > 
-> Na página **configurações** , clique em **usuários**e, em seguida, clique em **convidar mais usuários** na parte inferior da janela.
+> No **definições** página, clique em **utilizadores**, em seguida, clique em **CONVIDAR utilizadores mais** na parte inferior da janela.
 > 
 
 ## <a name="upload"></a>Carregar dados existentes
@@ -95,7 +95,7 @@ Em seguida, se o modelo classificar incorretamente alguém como um risco de cré
 
 ### <a name="convert-the-dataset-format"></a>Converter o formato do conjunto de um
 
-O conjunto de valores original usa um formato separado por espaços em branco. A versão clássica do Machine Learning Studio funciona melhor com um arquivo CSV (valores separados por vírgula), portanto, você converterá o conjunto de os espaços com vírgulas.  
+O conjunto de valores original usa um formato separado por espaços em branco. Machine Learning Studio (clássico) funciona melhor com um arquivo CSV (valores separados por vírgula), portanto, você converterá o conjunto de os espaços com vírgulas.  
 
 Há várias maneiras de converter esses dados. Uma maneira é usar o seguinte comando do Windows PowerShell:   
 
@@ -109,7 +109,7 @@ Em ambos os casos, você criou uma versão separada por vírgula dos dados em um
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Carregar o conjunto de Machine Learning Studio (clássico)
 
-Depois que os dados tiverem sido convertidos no formato CSV, você precisará carregá-los na versão clássica do Machine Learning Studio. 
+Depois que os dados tiverem sido convertidos no formato CSV, você precisará carregá-los no Machine Learning Studio (clássico). 
 
 1. Abra o home page de Machine Learning Studio (clássico) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -139,13 +139,13 @@ Isso carrega os dados em um módulo DataSet que você pode usar em um experiment
 
 Você pode gerenciar conjuntos de os que você carregou no Studio (clássico) clicando na guia **conjuntos de valores** à esquerda da janela Studio (clássico).
 
-![Gerenciar conjuntos de os](./media/tutorial-part1-credit-risk/dataset-list.png)
+![Gerir conjuntos de dados](./media/tutorial-part1-credit-risk/dataset-list.png)
 
 Para obter mais informações sobre como importar outros tipos de dados em um experimento, consulte [importar seus dados de treinamento para Azure Machine Learning Studio (clássico)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Criar uma experimentação
 
-A próxima etapa neste tutorial é criar um experimento na versão clássica do Machine Learning Studio que usa o conjunto de um que você carregou.  
+A próxima etapa neste tutorial é criar um experimento no Machine Learning Studio (clássico) que usa o conjunto de um que você carregou.  
 
 1. No Studio (clássico), clique em **+ novo** na parte inferior da janela.
 1. Selecione **experimento**e, em seguida, selecione "experimento em branco". 
@@ -173,7 +173,7 @@ A próxima etapa neste tutorial é criar um experimento na versão clássica do 
 
 Você pode exibir as primeiras 100 linhas dos dados e algumas informações estatísticas para todo o conjunto: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecione **Visualizar**.  
 
-Como o arquivo de dados não vem com cabeçalhos de coluna, a versão clássica do estúdio forneceu títulos genéricos (Col1, Col2, *etc.* ). Bons títulos não são essenciais para a criação de um modelo, mas facilitam o trabalho com os dados no experimento. Além disso, quando você eventualmente publica esse modelo em um serviço Web, os títulos ajudam a identificar as colunas para o usuário do serviço.  
+Como o arquivo de dados não vem com cabeçalhos de coluna, o estúdio (clássico) forneceu títulos genéricos (Col1, Col2, *etc.* ). Bons títulos não são essenciais para a criação de um modelo, mas facilitam o trabalho com os dados no experimento. Além disso, quando você eventualmente publica esse modelo em um serviço Web, os títulos ajudam a identificar as colunas para o usuário do serviço.  
 
 Você pode adicionar títulos de coluna usando o módulo [Editar metadados][edit-metadata] .
 
@@ -191,7 +191,7 @@ Para usar [Editar metadados][edit-metadata], primeiro você especifica quais col
 
     ![Adicionando editar metadados](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
 
-    O ponto de exclamação vermelho indica que você ainda não definiu as propriedades deste módulo. Você fará isso em seguida.
+    O ponto de exclamação vermelho indica que você ainda não definiu as propriedades deste módulo. Fará isto a seguir.
 
     > [!TIP]
     > Pode adicionar um comentário a um módulo, fazendo duplo clique no módulo e introduzindo o texto. Isto pode ajudá-lo a ver rapidamente o que o módulo está a fazer na sua experimentação. Nesse caso, clique duas vezes no módulo [Editar metadados][edit-metadata] e digite o comentário "adicionar títulos de coluna". Clique em qualquer outro lugar na tela para fechar a caixa de texto. Para exibir o comentário, clique na seta para baixo no módulo.
@@ -290,7 +290,7 @@ Para obter mais informações sobre como usar scripts do R em seus experimentos,
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você concluiu estas etapas: 
  

@@ -2,17 +2,17 @@
 title: Gerenciar uma conexão de ponto de extremidade privado no Azure
 description: Saiba como gerenciar conexões de ponto de extremidade privadas no Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452971"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gerenciar uma conexão de ponto de extremidade privado
 O link privado do Azure funciona em um modelo de fluxo de chamadas de aprovação no qual o consumidor do serviço de vínculo privado pode solicitar uma conexão com o provedor de serviços para consumir o serviço. O provedor de serviços pode decidir se deseja permitir que o consumidor se conecte ou não. O link privado do Azure permite que os provedores de serviços gerenciem a conexão de ponto de extremidade particular em seus recursos. Este artigo fornece instruções sobre como gerenciar as conexões de ponto de extremidade privadas.
@@ -28,9 +28,9 @@ A tabela abaixo mostra as várias ações do provedor de serviços e os Estados 
 
 |Ação do provedor de serviço   |Estado do ponto de extremidade particular do consumidor de serviço   |Descrição   |
 |---------|---------|---------|
-|Nenhum    |    Pendente     |    A conexão é criada manualmente e está pendente para aprovação pelo proprietário do recurso de link privado.       |
+|Nenhuma    |    Pendente     |    A conexão é criada manualmente e está pendente para aprovação pelo proprietário do recurso de link privado.       |
 |Aprovar    |  Aprovado       |  A conexão foi aprovada automaticamente ou manualmente e está pronta para ser usada.     |
-|Rejeitar     | Recusa        | A conexão foi rejeitada pelo proprietário do recurso de link privado.        |
+|Rejeitar     | Rejected        | A conexão foi rejeitada pelo proprietário do recurso de link privado.        |
 |Remover    |  Desligado       | A conexão foi removida pelo proprietário do recurso de link privado, o ponto de extremidade privado torna-se informativo e deve ser excluído para limpeza.        |
 |   |         |         |
    
@@ -86,6 +86,6 @@ az network private-link-service connection update -g myResourceGroup -n myPrivat
 
    
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Saiba mais sobre pontos de extremidade privados](private-endpoint-overview.md)
  

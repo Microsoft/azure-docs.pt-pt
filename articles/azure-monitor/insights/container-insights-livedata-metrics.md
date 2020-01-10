@@ -1,24 +1,14 @@
 ---
 title: Exibir métricas em tempo real com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve a exibição em tempo real de métricas sem usar o kubectl com Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 4608058d347888ab77bd4303600f00b270d6fed5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404938"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como exibir métricas em tempo real
 

@@ -3,12 +3,12 @@ title: Ativar a cópia de segurança quando cria uma VM do Azure
 description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449933"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -48,8 +48,22 @@ Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https
 
       ![Política de backup padrão](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> O serviço de backup do Azure cria um grupo de recursos separado (diferente do grupo de recursos da VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados nesse grupo de recursos serão mantidos durante a duração em dias, conforme especificado na seção *reter instantâneo de recuperação instantânea* da política de backup de máquina virtual do Azure.  A aplicação de um bloqueio a esse grupo de recursos pode causar falhas de backup. <br> Esse grupo de recursos também deve ser excluído de qualquer restrição de nome/marca, uma vez que uma política de restrição bloquearia a criação de coleções de ponto de recurso novamente, causando falhas de backup.
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup do Azure para máquinas virtuais
+
+O serviço de backup cria um grupo de recursos separado (RG), diferente do grupo de recursos da VM para armazenar a coleção de pontos de restauração (RPC). O RPC hospeda os pontos de recuperação instantânea de VMs gerenciadas. O formato de nomenclatura padrão do grupo de recursos criado pelo serviço de backup é: `AzureBackupRG_<Geo>_<number>`. Por exemplo: *AzureBackupRG_northeurope_1*. Agora você pode personalizar o nome do grupo de recursos criado pelo backup do Azure.
+
+Pontos a serem observados:
+
+1. Você pode usar o nome padrão do RG ou editá-lo de acordo com os requisitos da sua empresa.
+2. Você fornece o padrão de nome RG como entrada durante a criação da política de backup da VM. O nome RG deve ter o seguinte formato: `<alpha-numeric string>* n <alpha-numeric string>`. ' n' é substituído por um inteiro (começando em 1) e é usado para escalar horizontalmente se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs atualmente.
+              ![escolher o nome ao criar a política](./media/backup-during-vm-creation/create-policy.png)
+3. O padrão deve seguir as regras de nomenclatura RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido do nome RG.
+    1. Os nomes dos grupos de recursos só permitem caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Eles não podem terminar com um ponto.
+    2. Os nomes de grupos de recursos podem conter até 74 caracteres, incluindo o nome do RG e o sufixo.
+4. O primeiro `<alpha-numeric-string>` é obrigatório enquanto o segundo depois de ' n' é opcional. Isso se aplicará somente se você fornecer um nome personalizado. Se você não inserir nada em nenhuma das caixas de Text, o nome padrão será usado.
+5. Você pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, o novo RPs será criado no novo RG. No entanto, o antigo RPs ainda residirá no RG antigo e não será movido, pois a coleta de RP não oferece suporte à movimentação de recursos. Eventualmente, o RPs receberá o lixo coletado conforme os pontos expirarem.
+![alterar o nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
+6. É aconselhável não bloquear o grupo de recursos criado para uso pelo serviço de backup.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar um backup depois de criar a VM
 

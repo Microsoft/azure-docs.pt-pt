@@ -1,28 +1,17 @@
 ---
-title: Criar uma aplicação .NET no Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo .NET em Service Fabric no Azure
 description: Neste tutorial, irá aprender a criar uma aplicação com um front-end do ASP.NET Core e um back-end com monitorização de estado de Reliable Service, e como implementar a aplicação num cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465466"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado
 
 Este tutorial é a primeira parte de uma série.  Ficará a saber como criar uma aplicação do Azure Service Fabric com um front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado para armazenar dados. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](#walkthrough_anchor).  Se preferir, também pode ver um [vídeo passo a passo](https://channel9.msdn.com/Events/Connect/2017/E100) deste tutorial.
 
@@ -180,7 +169,7 @@ Abra **Views/Home/Index.cshtml**, a vista específica do controlador Home Page. 
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Atualizar o ficheiro _Layout.cshtml
+### <a name="update-the-_layoutcshtml-file"></a>Atualizar o ficheiro _Layout.cshtml
 
 Abra **Views/Shared/_Layout.cshtml**, o esquema predefinido da aplicação ASP.NET.  Substitua o respetivo conteúdo pelo seguinte e, em seguida, guarde as alterações.
 
@@ -466,7 +455,7 @@ Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-servic
         ],
 ```
 Para localizar a porta de proxy reverso usada no seu cluster de desenvolvimento local, exiba o elemento **HttpApplicationGatewayEndpoint** no manifesto do Cluster Service Fabric local:
-1. Abra uma janela do navegador e navegue até http\/:/localhost: 19080 para abrir a ferramenta de Service Fabric Explorer.
+1. Abra uma janela do navegador e navegue até http:\//localhost: 19080 para abrir a ferramenta Service Fabric Explorer.
 2. Selecione **cluster-> manifesto**.
 3. Anote a porta do elemento HttpApplicationGatewayEndpoint. Por predefinição, esta deve ser 19081. Se não for 19081, terá de alterar a porta no método GetProxyAddress do código VotesController.cs seguinte.
 

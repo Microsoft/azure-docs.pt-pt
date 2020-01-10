@@ -1,24 +1,14 @@
 ---
 title: Azure Monitor de instalação para contêineres de dados dinâmicos (visualização) | Microsoft Docs
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
-ms.openlocfilehash: 596c5ad378d471c6c98616a48f44e96c365ee0bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404706"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -26,8 +16,8 @@ Para exibir dados dinâmicos (versão prévia) com Azure Monitor para contêiner
 
 Esse recurso dá suporte a três métodos diferentes para controlar o acesso aos logs, eventos e métricas:
 
-- AKS sem autorização de RBAC kubernetes habilitada
-- AKS habilitado com autorização de RBAC do kubernetes
+- AKS sem autorização Kubernetes RBAC ativada
+- Ativado com autorização RBAC de Kubernetes do AKS
 - AKS habilitado com logon único baseado em SAML do Azure Active Directory (AD)
 
 Essas instruções exigem o acesso administrativo ao cluster kubernetes e, se configurarem para usar o Azure Active Directory (AD) para autenticação de usuário, acesso administrativo ao Azure AD.  
@@ -55,17 +45,17 @@ O portal do Azure solicita que você valide suas credenciais de logon para um cl
 >[!IMPORTANT]
 >Os usuários desses recursos exigem a [função de usuário do cluster kubernetes do Azure](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) para o cluster a fim de baixar o `kubeconfig` e usar esse recurso. Os usuários **não** exigem acesso de colaborador ao cluster para utilizar esse recurso. 
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster kubernetes sem RBAC habilitado
+## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster de Kubernetes sem RBAC ativada
 
-Se você tiver um cluster kubernetes que não esteja configurado com a autorização do RBAC do kubernetes ou integrado ao logon único do Azure AD, não será necessário seguir estas etapas. Isso ocorre porque você tem permissões administrativas por padrão em uma configuração não RBAC.
+Se tiver um cluster do Kubernetes que não está configurado com autorização RBAC de Kubernetes ou integrado com o Azure AD-início de sessão único, não é necessário seguir estes passos. Isso ocorre porque você tem permissões administrativas por padrão em uma configuração não RBAC.
 
 ## <a name="configure-kubernetes-rbac-authentication"></a>Configurar a autenticação RBAC kubernetes
 
 Quando você habilita a autorização do RBAC kubernetes, dois usuários são utilizados: **clusterUser** e **clusterAdmin** para acessar a API do kubernetes. Isso é semelhante à execução de `az aks get-credentials -n {cluster_name} -g {rg_name}` sem a opção administrativa. Isso significa que o **clusterUser** precisa receber acesso aos pontos de extremidade na API do kubernetes.
 
-As etapas de exemplo a seguir demonstram como configurar a associação de função de cluster a partir deste modelo de configuração YAML.
+Os passos de exemplo seguintes demonstram como configurar o enlace de função de cluster partir deste modelo de configuração yaml.
 
-1. Copie e cole o arquivo YAML e salve-o como LogReaderRBAC. YAML.  
+1. Copie e cole o ficheiro yaml e guarde-o como LogReaderRBAC.yaml.  
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1 
@@ -127,7 +117,7 @@ Para obter mais informações sobre a configuração de segurança avançada no 
 4. Depois de registrar as URLs de redirecionamento, em **Configurações avançadas**, selecione as opções **tokens de acesso** e **tokens de ID** e salve as alterações.
 
 >[!NOTE]
->A configuração da autenticação com o Azure Active Directory para logon único só pode ser realizada durante a implantação inicial de um novo cluster AKS. Você não pode configurar o logon único para um cluster AKS já implantado.
+>A configuração da autenticação com o Azure Active Directory para logon único só pode ser realizada durante a implantação inicial de um novo cluster AKS. Não é possível configurar o início de sessão único para um cluster do AKS já implementado.
   
 >[!IMPORTANT]
 >Se você reconfigurou o Azure AD para autenticação de usuário usando o URI atualizado, limpe o cache do navegador para garantir que o token de autenticação atualizado seja baixado e aplicado.

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378216"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
@@ -121,7 +121,7 @@ Syslog, logs do Docker, diário e dmesg são tratados pelo serviço gerenciado e
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Como um cliente pode obter acesso a métricas como CPU/memória no nível do nó para tomar medidas para dimensionar, depurar problemas, etc. Não consigo executar `kubectl top` em um cluster toa.
 
-`kubectl top` não está disponível no Red Hat OpenShift. Ele requer uma fonte de métricas de backup, Heapster (preterido) ou Metrics-Server (incubating ou Alpha), nenhum dos quais estão incluídos na pilha de monitoramento OpenShift.
+Os clientes podem acessar as métricas de CPU/memória no nível do nó usando o comando `oc adm top nodes` ou `kubectl top nodes` com o clusterrole do administrador do cliente.  Os clientes também podem acessar as métricas de CPU/memória de `pods` com o comando `oc adm top pods` ou `kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do Agendador de Pod padrão para toa?
 
@@ -137,7 +137,7 @@ Consulte [escolher o número correto de domínios de falha para o conjunto de di
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>Há uma maneira de gerenciar o posicionamento do pod?
 
-Com a atualização iminente do administrador do cliente, os clientes terão a capacidade de obter nós e exibir rótulos.  Isso fornecerá uma maneira de direcionar qualquer VM no conjunto de dimensionamento.
+Os clientes têm a capacidade de obter nós e exibir rótulos como administrador do cliente.  Isso fornecerá uma maneira de direcionar qualquer VM no conjunto de dimensionamento.
 
 Cuidado deve ser usado ao usar rótulos específicos:
 
@@ -147,7 +147,7 @@ Cuidado deve ser usado ao usar rótulos específicos:
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Qual é o número máximo de pods em um cluster de toa?  Qual é o número máximo de pods por nó na toa?
 
-Consulte [docs OpenShift upstream](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) para obter mais detalhes. O Red Hat OpenShift 3,11 tem um limite de 250-Pod/nó, enquanto [a toa tem um limite de nó de 20 computadores](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), de modo que ele limita o número máximo de pods com suporte em um cluster de toa para 250 * 20 = 5000.
+ O Azure Red Hat OpenShift 3,11 tem um limite de 50 a um pod por nó com [toa com um limite de nó de 20 computadores](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), de modo que a Caps é o número máximo de pods com suporte em um cluster de toa para 50 * 20 = 1000.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Podemos especificar intervalos de IP para implantação na VNET privada, evitando conflitos com outros VNETs corporativos uma vez emparelhados?
 

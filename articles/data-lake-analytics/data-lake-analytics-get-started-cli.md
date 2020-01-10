@@ -7,12 +7,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: c9781165affb1755e73919931d8d158ae9b535ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438770"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics com a CLI do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -49,7 +49,7 @@ az account set --subscription <subscription id>
 ## <a name="create-data-lake-analytics-account"></a>Criar conta de Data Lake Analytics
 Tem de ter uma conta de Data Lake Analytics antes de poder executar quaisquer tarefas. Para criar uma conta de Data Lake Analytics, tem de especificar os seguintes itens:
 
-* **Grupo de Recursos do Azure**. Uma conta do Data Lake Analytics tem de ser criada dentro de um grupo de recursos do Azure. O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos na aplicação como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da aplicação numa operação única e coordenada.  
+* **Grupo de Recursos do Azure**. Uma conta do Data Lake Analytics tem de ser criada dentro de um grupo de recursos do Azure. O [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite trabalhar com os recursos na aplicação como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da aplicação numa operação única e coordenada.  
 
 Para listar os grupos de recursos existentes na sua subscrição:
 
@@ -65,7 +65,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Nome da conta do Data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
 * **Localização**. Utilize um dos centros de dados do Azure que suportem a Data Lake Analytics.
-* **Conta de data Lake Store padrão**: Cada conta de Data Lake Analytics tem uma conta de Data Lake Store padrão.
+* **Conta do Data Lake Store predefinida**: cada conta do Data Lake Analytics tem uma conta do Data Lake Store predefinida.
 
 Para listar a conta existente do Data Lake Store:
 

@@ -1,20 +1,20 @@
 ---
 title: Conectar-se ao Pesquisa do Bing
-description: Encontre notícias com Pesquisa do Bing APIs REST e aplicativos lógicos do Azure
+description: Automatizar tarefas e fluxos de trabalho que localizam resultados em Pesquisa do Bing usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789961"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665892"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com Pesquisa do Bing e aplicativos lógicos do Azure
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
 
 Este artigo mostra como você pode encontrar notícias, vídeos e outros itens por meio de Pesquisa do Bing de dentro de um aplicativo lógico com o conector de Pesquisa do Bing. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para processar resultados da pesquisa e tornar esses itens disponíveis para outras ações. 
 
@@ -52,10 +52,10 @@ Ou, se sua conexão já existir, forneça as informações necessárias para o g
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de pesquisa | Sim | <*Pesquisa-palavras*> | Insira as palavras-chave de pesquisa que você deseja usar. |
-   | Comercializar | Sim | > <*localidade* | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
-   | Pesquisa segura | Sim | > <*no nível de pesquisa* | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Contagem | Não | *resultados de <-contagem*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Search Query | Sim | <*search-words*> | Insira as palavras-chave de pesquisa que você deseja usar. |
+   | Comercializar | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
+   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
    | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
@@ -103,10 +103,10 @@ Na lista ações, selecione a ação desejada.
 
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Insira uma expressão para consultar os resultados do gatilho. Você pode selecionar um dos campos na lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
-   | Comercializar | Sim | > <*localidade* | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
-   | Pesquisa segura | Sim | > <*no nível de pesquisa* | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
-   | Contagem | Não | *resultados de <-contagem*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
+   | Search Query | Sim | <*search-expression*> | Insira uma expressão para consultar os resultados do gatilho. Você pode selecionar um dos campos na lista de conteúdo dinâmico ou criar uma expressão com o construtor de expressões. |
+   | Comercializar | Sim | <*locale*> | A localidade de pesquisa. O padrão é "en-US", mas você pode selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir conteúdo adulto. O padrão é "moderado", mas você seleciona outro nível. |
+   | Contagem | Não | <*results-count*> | Retorna o número de resultados especificado. O padrão é 20, mas você pode especificar outro valor. O número real de resultados retornados pode ser menor que o número especificado. |
    | Desvio | Não | > *de <de ignorar valor* | O número de resultados a serem ignorados antes de retornar os resultados |
    |||||
 
@@ -152,7 +152,7 @@ Na lista ações, selecione a ação desejada.
    |----------|----------|-------|-------------|
    | Nome da Ligação | Sim | <*nome da conexão*> | O nome a ser criado para a conexão |
    | Versão da API | Sim | API <> *de versão* | Por padrão, a versão Pesquisa do Bing API é definida como a versão atual. Você pode selecionar uma versão anterior conforme necessário. |
-   | Chave de API | Sim | <> *de chave de API* | A chave de API Pesquisa do Bing que você obteve anteriormente. Se você não tiver uma chave, obtenha sua [chave de API agora mesmo](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Chave de API | Sim | <*API-key*> | A chave de API Pesquisa do Bing que você obteve anteriormente. Se você não tiver uma chave, obtenha sua [chave de API agora mesmo](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:
@@ -163,7 +163,7 @@ Na lista ações, selecione a ação desejada.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/bingsearch/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

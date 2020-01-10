@@ -1,25 +1,16 @@
 ---
-title: Criar um serviço baseado em ator no Azure Service Fabric | Microsoft Docs
+title: Criar um serviço baseado em ator no Azure Service Fabric
 description: Saiba como criar, depurar e implantar seu primeiro serviço baseado em C# ator usando o Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466249"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução ao Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,13 +45,13 @@ A solução contém três projetos:
 
 * **O projeto de interface (HelloWorld. Interfaces)** . Este projeto contém a definição de interface para o ator. As interfaces de ator podem ser definidas em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é compartilhado pela implementação do ator e os clientes que chamam o ator.  Como os projetos de cliente podem depender dele, normalmente faz sentido defini-lo em um assembly separado da implementação do ator.
 
-* **O projeto de serviço de ator (HelloWorld)** . Esse projeto define o serviço de Service Fabric que vai hospedar o ator. Ele contém a implementação do ator, *HelloWorld.cs*. Uma implementação de ator é uma classe derivada do tipo `Actor` base e implementa as interfaces definidas no projeto MyActor *. interfaces* . Uma classe de ator também deve implementar um construtor que aceite `ActorService` uma instância e `ActorId` um e as passe para a `Actor` classe base.
+* **O projeto de serviço de ator (HelloWorld)** . Esse projeto define o serviço de Service Fabric que vai hospedar o ator. Ele contém a implementação do ator, *HelloWorld.cs*. Uma implementação de ator é uma classe derivada do tipo base `Actor` e implementa as interfaces definidas no projeto *MyActor. interfaces* . Uma classe de ator também deve implementar um construtor que aceite uma instância de `ActorService` e uma `ActorId` e as passe para a classe base `Actor`.
     
-    Esse projeto também contém *Program.cs*, que registra as classes de ator com o tempo `ActorRuntime.RegisterActorAsync<T>()`de execução Service Fabric usando. A `HelloWorld` classe já está registrada. Todas as implementações de ator adicionais adicionadas ao projeto também devem ser `Main()` registradas no método.
+    Esse projeto também contém *Program.cs*, que registra as classes de ator com o tempo de execução Service Fabric usando `ActorRuntime.RegisterActorAsync<T>()`. A classe de `HelloWorld` já está registrada. Todas as implementações de ator adicionais adicionadas ao projeto também devem ser registradas no método `Main()`.
 
 ## <a name="customize-the-helloworld-actor"></a>Personalizar o ator HelloWorld
 
-O modelo de projeto define alguns métodos na `IHelloWorld` interface e os implementa na implementação `HelloWorld` do ator.  Substitua esses métodos para que o serviço de ator retorne uma cadeia de caracteres "Olá, Mundo" simples.
+O modelo de projeto define alguns métodos na interface `IHelloWorld` e os implementa na implementação de ator `HelloWorld`.  Substitua esses métodos para que o serviço de ator retorne uma cadeia de caracteres "Olá, Mundo" simples.
 
 No projeto *HelloWorld. interfaces* , no arquivo *IHelloWorld.cs* , substitua a definição da interface da seguinte maneira:
 
@@ -95,7 +86,7 @@ Pressione **Ctrl-Shift-B** para compilar o projeto e verificar se tudo está com
 
 Crie um aplicativo de console simples para chamar o serviço de ator.
 
-1. Clique com o botão direito do mouse na solução em Gerenciador de soluções > **Adicionar** > **novo projeto...** .
+1. Clique com o botão direito do mouse na solução em Gerenciador de Soluções > **adicionar** > **novo projeto...** .
 
 2. Nos tipos de projeto do **.NET Core** , escolha **aplicativo de console (.NET Core)** .  Nomeie o projeto *ActorClient*.
     
@@ -116,7 +107,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
 
     O pacote NuGet e todas as suas dependências são instalados no projeto ActorClient.
 
-5. O projeto cliente também requer uma referência ao projeto interfaces.  No projeto ActorClient, clique com o botão  direito do mouse em dependências e clique em **Adicionar referência..** ..  Selecione **projetos > solução** (se ainda não estiver selecionada) e, em seguida, marque a caixa de seleção ao lado de **HelloWorld. interfaces**.  Clique em **OK**.
+5. O projeto cliente também requer uma referência ao projeto interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **dependências** e clique em **Adicionar referência..** ..  Selecione **projetos > solução** (se ainda não estiver selecionada) e, em seguida, marque a caixa de seleção ao lado de **HelloWorld. interfaces**.  Clique em **OK**.
     
     ![Caixa de diálogo Adicionar referência][7]
 
@@ -150,14 +141,14 @@ Pressione **F5** para compilar, implantar e executar o aplicativo localmente no 
 
 ![Janela de saída de depuração Service Fabric][3]
 
-Quando a saída contém o texto, *o aplicativo está pronto*, é possível testar o serviço usando o aplicativo ActorClient.  Em Gerenciador de soluções, clique com o botão direito do mouse no projeto **ActorClient** e clique em **depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deve exibir a saída do serviço de ator.
+Quando a saída contém o texto, *o aplicativo está pronto*, é possível testar o serviço usando o aplicativo ActorClient.  Em Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient** e clique em **depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deve exibir a saída do serviço de ator.
 
 ![Saída do aplicativo][9]
 
 > [!TIP]
 > O tempo de execução de Service Fabric atores emite alguns [eventos e contadores de desempenho relacionados aos métodos de ator](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Eles são úteis no diagnóstico e no monitoramento de desempenho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [como Reliable Actors usar a plataforma Service Fabric](service-fabric-reliable-actors-platform.md).
 
 

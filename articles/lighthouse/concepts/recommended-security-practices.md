@@ -3,12 +3,12 @@ title: Práticas de segurança recomendadas
 description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 8972d6548eccb1006d90bfcbb4dba8c01b05a981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456876"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -30,17 +30,17 @@ Por exemplo, talvez você queira usar uma estrutura como esta:
 
 |Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
-|Arquitetos     |Grupo de utilizadores         |\<PrincipalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Avaliação     |Grupo de utilizadores         |\<PrincipalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|Especialistas de VM     |Grupo de utilizadores         |\<PrincipalId\>         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |SPN (nome da entidade de serviço)         |\<PrincipalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Architects     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Especialistas de VM     |Grupo de utilizadores         |\<principalId\>         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Automatização     |Nome principal de serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Depois de criar esses grupos, você pode atribuir usuários conforme necessário. Somente adicione os usuários que realmente precisam ter acesso. Certifique-se de revisar a associação de grupo regularmente e remover os usuários que não são mais apropriados ou necessários para incluir.
 
 Tenha em mente que, quando você integrar [clientes por meio de uma oferta de serviço gerenciado público](../how-to/publish-managed-services-offers.md), qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, você precisará publicar um plano privado separado que seja exclusivo para cada cliente ou integrar clientes individualmente usando modelos de Azure Resource Manager. Por exemplo, você pode publicar um plano público com acesso muito limitado e, em seguida, trabalhar com o cliente diretamente para integrar seus recursos para acesso adicional usando um modelo de recurso personalizado do Azure concedendo acesso adicional, conforme necessário.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implante a autenticação multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

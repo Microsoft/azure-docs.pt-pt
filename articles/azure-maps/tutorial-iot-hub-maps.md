@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432815"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando mapas do Azure
 
@@ -104,10 +104,11 @@ Para concluir as etapas deste tutorial, primeiro você precisa criar um grupo de
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps 
 
-Para implementar a lógica de negócios com base na análise espacial do Azure Maps, precisamos criar uma conta do Azure Maps no grupo de recursos que criamos. Siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
+Para implementar a lógica de negócios com base na análise espacial do Azure Maps, precisamos criar uma conta do Azure Maps no grupo de recursos que criamos. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](how-to-manage-authentication.md).
 
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Para registrar dados de evento, criaremos uma conta de **v2storage** de uso geral no grupo de recursos "ContosoRental" para armazenar dados como BLOBs. Para criar uma conta de armazenamento, siga a instrução em [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Em seguida, precisaremos criar um contêiner para armazenar blobs. Siga as etapas abaixo para fazer isso:
 
@@ -167,7 +168,7 @@ Abra o aplicativo de postmaster e siga as etapas abaixo para carregar a cerca ge
     
     O valor "geojson" em relação ao parâmetro `dataFormat` no caminho da URL representa o formato dos dados que estão sendo carregados.
 
-3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela chave de assinatura primária do Azure Maps.
+3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave do Azure Maps.
    
     ![Chave-valor params do postmaster](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

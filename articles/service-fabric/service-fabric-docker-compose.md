@@ -1,25 +1,14 @@
 ---
 title: Versão prévia da implantação do Azure Service Fabric Docker Compose
-description: O Azure Service Fabric aceita Docker Compose formato para facilitar a orquestração de contêineres existentes usando Service Fabric. No momento, esse suporte está em versão prévia.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
+description: O Azure Service Fabric aceita Docker Compose formato para facilitar a orquestração de contêineres existentes usando Service Fabric. Este suporte está atualmente em pré-visualização.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6dd45e81a0db06cbaa75da3f94b9e7624b0acd69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458042"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (versão prévia)
 
@@ -46,7 +35,7 @@ Crie uma implantação de redação de Service Fabric de um arquivo Docker-Compo
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` e `RegistryPassword` referem-se ao nome de usuário e à senha do registro de contêiner. Depois de concluir a implantação, você pode verificar seu status usando o seguinte comando:
+`RegistryUserName` e `RegistryPassword` consulte o nome de usuário e a senha do registro de contêiner. Depois de concluir a implantação, você pode verificar seu status usando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
@@ -121,9 +110,9 @@ Essa visualização dá suporte a um subconjunto das opções de configuração 
 * Serviços > implantar > réplicas
 * Serviços > implantar restrições de > de posicionamento de >
 * Os serviços > implantar > recursos > limites
-    * -CPU-compartilhamentos
+    * -cpu-shares
     * -memória
-    * -troca de memória
+    * -memory-swap
 * Comandos de > de serviços
 * Ambiente de > de serviços
 * Portas de > de serviços

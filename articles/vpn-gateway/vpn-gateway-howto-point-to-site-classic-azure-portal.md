@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450815"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma conexão ponto a site usando a autenticação de certificado (clássico)
 
@@ -89,11 +89,11 @@ Antes de começar, verifique se você tem uma assinatura do Azure. Se ainda não
 
 Se você ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para criar uma VNet com o portal do Azure, siga os passos abaixo:
 
-1. No menu [portal do Azure](https://portal.azure.com) ou na **Home** Page do, selecione **criar um recurso**. A **nova** página é aberta.
+1. No menu [portal do Azure](https://portal.azure.com) ou na **Home** Page do, selecione **criar um recurso**. O **New** é aberta a página.
 
-2. No campo **Pesquisar no Marketplace** , insira *rede virtual* e selecione **rede virtual** na lista retornada. A página **rede virtual** é aberta.
+2. Na **pesquisar no marketplace** , insira *rede virtual* e selecione **rede Virtual** da lista devolvida. O **rede Virtual** é aberta a página.
 
-3. Na lista **selecionar um modelo de implantação** , selecione **clássico**e, em seguida, selecione **criar**. A página **criar rede virtual** é aberta.
+3. Na lista **selecionar um modelo de implantação** , selecione **clássico**e, em seguida, selecione **criar**. O **criar rede virtual** é aberta a página.
 
 4. Na página **Criar rede virtual**, configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Uma vez concluída a criação da VNet, pode voltar atrás e adicionar sub-redes e espaços de endereços adicionais.
 
@@ -101,7 +101,7 @@ Se você ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecr�
 
 5. Selecione a **assinatura** que você deseja usar na lista suspensa.
 
-6. Selecione um **grupo de recursos**existente. Ou crie um novo grupo de recursos selecionando **criar novo** e inserindo um nome. Se você estiver criando um novo grupo de recursos, nomeie o grupo de recursos de acordo com os valores de configuração planejados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Selecione um **grupo de recursos**existente. Ou crie um novo grupo de recursos selecionando **criar novo** e inserindo um nome. Se você estiver criando um novo grupo de recursos, nomeie o grupo de recursos de acordo com os valores de configuração planejados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Selecione um **local** para sua VNet. Essa configuração determina a localização geográfica dos recursos que você implanta nesta VNet.
 
@@ -132,7 +132,7 @@ Nesta etapa, você cria uma sub-rede de gateway e um gateway de roteamento dinâ
 
    ![Selecione a configuração de gateway opcional](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
-6. Na página **configuração do gateway** , selecione **sub-rede** para adicionar a sub-rede de gateway. É possível criar uma sub-rede de gateway tão pequena quanto/29. No entanto, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos/28 ou/27. Isso permitirá que endereços suficientes acomodem possíveis configurações adicionais que talvez você queira no futuro. Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) à sub-rede do gateway. A associação de um grupo de segurança de rede a essa sub-rede pode fazer com que o gateway de VPN não funcione conforme o esperado. Selecione **OK** para salvar essa configuração.
+6. Na página **configuração do gateway** , selecione **sub-rede** para adicionar a sub-rede de gateway. É possível criar uma sub-rede de gateway tão pequena quanto/29. No entanto, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos/28 ou/27. Isso permitirá que endereços suficientes acomodem possíveis configurações adicionais que talvez você queira no futuro. Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) às mesmas. A associação de um grupo de segurança de rede a essa sub-rede pode fazer com que o gateway de VPN não funcione conforme o esperado. Selecione **OK** para salvar essa configuração.
 
    ![Adicionar GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Selecione o **Tamanho** do gateway. O tamanho é o SKU de gateway para o gateway de rede virtual. No portal do Azure, o SKU padrão é **padrão**. Para obter mais informações sobre as SKUs de gateway, consulte [sobre as configurações de gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).

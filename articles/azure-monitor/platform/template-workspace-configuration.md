@@ -4,33 +4,33 @@ description: Você pode usar modelos de Azure Resource Manager para criar e conf
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363392"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Exemplos das tarefas que você pode executar com modelos incluem:
+Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Exemplos das tarefas que você pode executar com modelos incluem:
 
 * Criar um espaço de trabalho, incluindo a definição do tipo de preço 
 * Adicionar uma solução
 * Criar pesquisas salvas
 * Criar um grupo de computadores
-* Habilitar a coleta de logs do IIS de computadores com o agente do Windows instalado
-* Coletar contadores de desempenho de computadores Linux e Windows
-* Coletar eventos do syslog em computadores Linux 
-* Coletar eventos de logs de eventos do Windows
+* Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
+* Recolher contadores de desempenho de computadores com Linux e Windows
+* Recolher eventos do syslog em computadores com Linux 
+* Recolher eventos de registos de eventos do Windows
 * Coletar logs personalizados do computador com Windows
-* Adicionar o agente do log Analytics a uma máquina virtual do Azure
-* Configurar o log Analytics para indexar dados coletados usando o diagnóstico do Azure
+* Adicionar o log analytics agent para uma máquina virtual do Azure
+* Configurar o log analytics para dados de índice recolhidos através dos diagnósticos do Azure
 
 Este artigo fornece exemplos de modelo que ilustram algumas das configurações que você pode executar com modelos.
 
@@ -40,16 +40,16 @@ A tabela a seguir lista a versão da API para os recursos usados neste exemplo.
 
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
-| Área de trabalho   | espaços    | 2017-03-15-visualização |
-| Procurar      | savedSearches | 2015-03-20 |
-| Fonte de dados | fontes   | 2015-11-01-visualização |
+| Área de trabalho   | áreas de trabalho    | 2017-03-15-visualização |
+| Search      | savedSearches | 2015-03-20 |
+| Origem de dados | fontes   | 2015-11-01-visualização |
 | Solução    | soluções     | 2015-11-01-visualização |
 
-## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho Log Analytics
+## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
 O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON é configurado para exigir apenas o nome e o local do novo espaço de trabalho (usando os valores padrão para os outros parâmetros de espaço de trabalho, como tipo de preço e retenção).  
 
-### <a name="create-and-deploy-template"></a>Criar e implantar modelo
+### <a name="create-and-deploy-template"></a>Criar e implementar modelo
 
 1. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -113,8 +113,8 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
     }
     ```
 
-2. Edite o modelo para atender às suas necessidades. Examine a referência de [modelo Microsoft. OperationalInsights/Workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais são as propriedades e os valores com suporte. 
-3. Salve esse arquivo como **deploylaworkspacetemplate. JSON** em uma pasta local.
+2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
+3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
 4. Está pronto para implementar este modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando. O nome do espaço de trabalho deve ser globalmente exclusivo em todas as assinaturas do Azure.
 
    * Para o PowerShell, use os seguintes comandos da pasta que contém o modelo:
@@ -130,20 +130,20 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
         azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
-A implementação pode demorar alguns minutos a concluir. Quando ele for concluído, você verá uma mensagem semelhante à seguinte que inclui o resultado:<br><br> ![Resultado de exemplo quando a implantação é concluída](./media/template-workspace-configuration/template-output-01.png)
+A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte, que inclui o resultado:<br><br> ![Exemplo de resultado quando a implementação estiver concluída](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Configurar um espaço de trabalho Log Analytics
 
 O exemplo de modelo a seguir ilustra como:
 
-1. Adicionar soluções ao espaço de trabalho
+1. Adicionar soluções para a área de trabalho
 2. Criar pesquisas salvas
 3. Criar um grupo de computadores
-4. Habilitar a coleta de logs do IIS de computadores com o agente do Windows instalado
-5. Coletar contadores de desempenho de disco lógico de computadores Linux (% de inodes usados; Megabytes livres; % De espaço usado; Transferências de disco/s; Leituras de disco/s; Gravações de disco/s)
-6. Coletar eventos de syslog de computadores Linux
-7. Coletar eventos de erro e aviso do log de eventos do aplicativo de computadores com Windows
-8. Coletar o contador de desempenho Mbytes disponíveis de memória de computadores Windows
+4. Ativar a recolha de registos do IIS de computadores com o agente de Windows instalado
+5. Recolher contadores de desempenho disco lógico de computadores Linux (% de Inodes utilizados; Megabytes livres; % De espaço; utilizado Transferências/seg do disco; Leituras de disco/seg; Escritas de disco/seg)
+6. Recolher eventos do syslog de computadores Linux
+7. Recolher eventos de erro e aviso de Log de eventos de computadores Windows
+8. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
 9. Coletar logs do IIS e logs de eventos do Windows gravados pelo diagnóstico do Azure em uma conta de armazenamento
 10. Coletar logs personalizados do computador com Windows
 

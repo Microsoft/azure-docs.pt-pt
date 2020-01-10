@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422139"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar os microserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microservices](https://en.wikipedia.org/wiki/Microservices) no [serviço Azure app](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível usando modelos de grupo de recursos JSON e scripts do PowerShell. 
 
-Ao provisionar e implantar aplicativos de grande escala que são compostos de microserviços altamente desacoplados, a capacidade de repetição e a previsibilidade são cruciais para o sucesso. [Azure app serviço](https://azure.microsoft.com/services/app-service/) permite que você crie microserviços que incluem aplicativos Web, back-ends móveis e aplicativos de API. O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite que você gerencie todos os microserviços como uma unidade, juntamente com as dependências de recursos, como configurações de controle do código-fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell. 
+Ao provisionar e implantar aplicativos de grande escala que são compostos de microserviços altamente desacoplados, a capacidade de repetição e a previsibilidade são cruciais para o sucesso. [Azure app serviço](https://azure.microsoft.com/services/app-service/) permite que você crie microserviços que incluem aplicativos Web, back-ends móveis e aplicativos de API. O [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite que você gerencie todos os microserviços como uma unidade, juntamente com as dependências de recursos, como configurações de controle do código-fonte e banco de dados. Agora, você também pode implantar esse aplicativo usando modelos JSON e scripts simples do PowerShell. 
 
 ## <a name="what-you-will-do"></a>O que você fará
 No tutorial, você implantará um aplicativo que inclui:
@@ -29,7 +29,7 @@ No tutorial, você implantará um aplicativo que inclui:
 Neste tutorial, você usará as ferramentas a seguir. Como não se trata de uma discussão abrangente sobre ferramentas, vou até o cenário de ponta a ponta e simplesmente lhe dá uma breve introdução a cada um deles e onde você pode encontrar mais informações sobre ele. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos de Azure Resource Manager (JSON)
-Sempre que você cria um aplicativo no serviço Azure App, por exemplo, Azure Resource Manager usa um modelo JSON para criar o grupo de recursos inteiro com os recursos do componente. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir o banco de dados, as contas de armazenamento, o plano do serviço de aplicativo, o próprio aplicativo, as regras de alerta, as configurações do aplicativo, as configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter mais informações sobre os modelos de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+Sempre que você cria um aplicativo no serviço Azure App, por exemplo, Azure Resource Manager usa um modelo JSON para criar o grupo de recursos inteiro com os recursos do componente. Um modelo complexo do [Azure Marketplace](/azure/marketplace) pode incluir o banco de dados, as contas de armazenamento, o plano do serviço de aplicativo, o próprio aplicativo, as regras de alerta, as configurações do aplicativo, as configurações de dimensionamento automático e muito mais, e todos esses modelos estão disponíveis para você por meio do PowerShell. Para obter mais informações sobre os modelos de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>SDK do Azure 2,6 para Visual Studio
 O SDK mais recente contém aprimoramentos no suporte ao modelo do Resource Manager no editor de JSON. Você pode usar isso para criar rapidamente um modelo de grupo de recursos do zero ou abrir um modelo JSON existente (como um modelo de galeria baixado) para modificação, preencher o arquivo de parâmetros e até mesmo implantar o grupo de recursos diretamente de um recurso do Azure Solução de grupo.
@@ -117,7 +117,7 @@ Observe o seguinte sobre o código JSON realçado:
 * Os recursos aninhados dentro de `“resources”: […]`, em que o banco de dados e as regras de firewall são definidos, têm um elemento `dependsOn` que especifica a ID de recurso do recurso SQLServer de nível raiz. Isso informa Azure Resource Manager "antes de criar esse recurso, esse outro recurso já deve existir; e se esse outro recurso estiver definido no modelo, crie-o primeiro ".
   
   > [!NOTE]
-  > Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Azure Resource Manager funções de modelo](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > Para obter informações detalhadas sobre como usar a função `resourceId()`, consulte [Azure Resource Manager funções de modelo](../azure-resource-manager/templates/template-functions-resource.md#resourceid).
   > 
   > 
 * O efeito do elemento `dependsOn` é que Azure Resource Manager pode saber quais recursos podem ser criados em paralelo e quais recursos devem ser criados sequencialmente. 
@@ -130,7 +130,7 @@ O aplicativo depende de dois recursos diferentes. Isso significa que Azure Resou
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Configurações do aplicativo
+##### <a name="app-settings"></a>Definições da aplicação
 As configurações do aplicativo também são definidas como um recurso aninhado.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
@@ -220,7 +220,7 @@ O botão **implantar no Azure** é ótimo, mas permite que você implante o mode
     Agora você poderá editar todos os parâmetros definidos no arquivo de modelo em uma boa tabela. Os parâmetros que definem os padrões já terão seus valores padrão, e os parâmetros que definem uma lista de valores permitidos serão mostrados como listas suspensas.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
-15. Preencha todos os parâmetros vazios e use o endereço do [repositório do GitHub para ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) no **rederramal**. Em seguida, clique em **salvar**.
+15. Preencha todos os parâmetros vazios e use o endereço do [repositório do GitHub para ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) no **rederramal**. Em seguida, clique em **Guardar**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
@@ -228,7 +228,7 @@ O botão **implantar no Azure** é ótimo, mas permite que você implante o mode
     > O dimensionamento automático é um recurso oferecido na camada **Standard** ou superior, e os alertas de nível de plano são recursos oferecidos na camada **básica** ou superior. você precisará definir o parâmetro **SKU** como **Standard** ou **Premium** para ver todos os novos recursos do App insights acenderem.
     > 
     > 
-16. Clique em **implantar**. Se você selecionou **salvar senhas**, a senha será salva no arquivo de parâmetro **em texto sem formatação**. Caso contrário, será solicitado que você insira a senha do banco de dados durante o processo de implantação.
+16. Clique em **implementar**. Se você selecionou **salvar senhas**, a senha será salva no arquivo de parâmetro **em texto sem formatação**. Caso contrário, será solicitado que você insira a senha do banco de dados durante o processo de implantação.
 
 Já está! Agora você só precisa acessar o [portal do Azure](https://portal.azure.com/) e a ferramenta de [Azure Resource Explorer](https://resources.azure.com) para ver os novos alertas e as configurações de dimensionamento automático adicionados ao seu aplicativo JSON implantado.
 
@@ -250,8 +250,8 @@ Em DevOps, a capacidade de repetição e a previsibilidade são chaves para qual
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Mais recursos
-* [Idioma do modelo de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Criando modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Idioma do modelo de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager funções de modelo](../azure-resource-manager/resource-group-template-functions.md)
 * [Implantar um aplicativo com Azure Resource Manager modelo](../azure-resource-manager/resource-group-template-deploy.md)
 * [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
@@ -261,10 +261,10 @@ Em DevOps, a capacidade de repetição e a previsibilidade são chaves para qual
 
 Para saber mais sobre a sintaxe JSON e as propriedades para tipos de recursos implantados neste artigo, consulte:
 
-* [Microsoft. SQL/Servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft. SQL/Servers/bancos de dados](/azure/templates/microsoft.sql/servers/databases)
-* [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
-* [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)
-* [Microsoft. Web/sites/Slots](/azure/templates/microsoft.web/sites/slots)
-* [Microsoft. insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
+* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+* [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
+* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

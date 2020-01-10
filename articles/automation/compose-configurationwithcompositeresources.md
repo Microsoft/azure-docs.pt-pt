@@ -3,19 +3,15 @@ title: Compor configurações de DSC na configuração de estado de automação 
 description: Saiba como compor configurações usando recursos de composição na configuração de estado da automação do Azure (DSC)
 keywords: DSC do PowerShell, configuração de estado desejado, Azure DSC do PowerShell, recursos de composição
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418736"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Compor configurações de DSC na configuração de estado de automação do Azure (DSC) usando recursos de composição
 
@@ -28,7 +24,7 @@ Depois que os recursos de composição forem importados para sua conta de automa
 
 Antes de atribuir uma configuração feita dos recursos de composição no portal do Azure, você deve redigi-la. Isso pode ser feito usando **a configuração de composição** na página de configuração de **estado (DSC)** enquanto estiver nas guias **configurações** ou **configurações compiladas** .
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **todos os recursos** e, em seguida, no nome da sua conta de automação.
 1. Na página **conta de automação** , selecione **configuração de estado (DSC)** em **Gerenciamento de configuração**.
 1. Na página **configuração de estado (DSC)** , clique na guia **configurações** ou **configurações compiladas** e, em seguida, clique em **compor configuração** no menu na parte superior da página.

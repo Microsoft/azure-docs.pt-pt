@@ -1,25 +1,14 @@
 ---
-title: Tópicos avançados de atualização de aplicativos | Microsoft Docs
+title: Tópicos avançados de atualização de aplicativos
 description: Este artigo aborda alguns tópicos avançados referentes à atualização de um aplicativo Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: c37ee8177ba31ac8a5da90fef175a6fbd63a6d75
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167592"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457523"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: Tópicos avançados
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Adicionando ou removendo tipos de serviço durante uma atualização de aplicativo
@@ -126,9 +115,9 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="rolling-back-application-upgrades"></a>Revertendo atualizações de aplicativos
 
-Embora as atualizações possam ser roladas para frente em um dos três modos (*monitorado*, *UnmonitoredAuto*ou *UnmonitoredManual*), elas só podem ser revertidas no modo *UnmonitoredAuto* ou *UnmonitoredManual* . A reversão no modo *UnmonitoredAuto* funciona da mesma maneira que o progressivo com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente-consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md). A reversão no modo *UnmonitoredManual* funciona da mesma maneira que o roll forward – a reversão será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com o versão.
+Embora as atualizações possam ser roladas para frente em um dos três modos (*monitorado*, *UnmonitoredAuto*ou *UnmonitoredManual*), elas só podem ser revertidas no modo *UnmonitoredAuto* ou *UnmonitoredManual* . A reversão no modo *UnmonitoredAuto* funciona da mesma maneira que o progressivo com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente-consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md). A reversão no modo *UnmonitoredManual* funciona da mesma maneira que o roll forward – a reversão será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com a reversão.
 
-As reversões podem ser disparadas automaticamente quando as políticas de integridade de uma atualização no modo *monitorado* com uma *falha* de *reversão de rollback* são violadas (consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md)) ou explicitamente usando [ Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+As reversões podem ser disparadas automaticamente quando as políticas de integridade de uma atualização no modo *monitorado* com uma *falhaaction* de *reversão* são violadas (consulte [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md)) ou explicitamente usando [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
 Durante a reversão, o valor de *UpgradeReplicaSetCheckTimeout* e o modo ainda podem ser alterados a qualquer momento usando [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 

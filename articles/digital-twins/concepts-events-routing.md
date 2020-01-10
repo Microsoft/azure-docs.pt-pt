@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 01/03/2020
+ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889697"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660329"
 ---
-# <a name="routing-events-and-messages"></a>Encaminhar eventos e mensagens
+# <a name="routing-iot-events-and-messages"></a>Roteando eventos e mensagens de IoT
 
-As soluções de IoT muitas vezes abrangem vários serviços poderosos que incluem armazenamento, análise e muito mais. Este artigo descreve como conectar aplicativos do Azure digital gêmeos aos serviços de análise, ia e armazenamento do Azure para fornecer informações e funcionalidades mais aprofundadas.
+Internet das Coisas soluções muitas vezes une vários serviços poderosos que incluem armazenamento, análise e muito mais. Este artigo descreve como conectar aplicativos do Azure digital gêmeos aos serviços de análise, ia e armazenamento do Azure para fornecer informações e funcionalidades mais aprofundadas.
 
 ## <a name="route-types"></a>Tipos de rota  
 

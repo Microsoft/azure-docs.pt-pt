@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382970"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing eC#
 
@@ -46,7 +46,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
     using Newtonsoft.Json;
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e o texto a ser marcado para verificação ortográfica.
+2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e o texto a ser marcado para verificação ortográfica. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     namespace SpellCheckSample
@@ -136,6 +136,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Compile e execute seu projeto. Se você estiver usando o Visual Studio, pressione **F5** para depurar o arquivo.
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 

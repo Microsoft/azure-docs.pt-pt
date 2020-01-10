@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: f9036e78934ac14017a0437583109c91732ce4b3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 4c942040a36ae7b103f7dabac62376ea5a4e2890
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323830"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384541"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar uma solicitação de pesquisa com o SDK do Pesquisa de Entidade do Bing paraC#
 
@@ -55,7 +55,7 @@ Para adicionar o SDK do Pesquisa de Entidade do Bing ao seu projeto do Visual St
 1. Crie um novo cliente de pesquisa. Adicione sua chave de assinatura criando um novo `ApiKeyServiceClientCredentials`.
 
     ```csharp
-    var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    var client = new EntitySearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
 1. Use a função `Entities.Search()` do cliente para pesquisar sua consulta:

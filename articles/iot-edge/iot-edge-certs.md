@@ -4,18 +4,18 @@ description: O Azure IoT Edge utiliza o certificado para validar a dispositivos,
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 09/13/2018
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457271"
 ---
-# <a name="azure-iot-edge-certificate-usage-detail"></a>Detalhes de utilização de certificados do Azure IoT Edge
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
 IoT Edge certificados são usados para os módulos e dispositivos IoT downstream para verificar a identidade e a legitimidade do módulo de tempo de execução de [IOT Edge Hub](iot-edge-runtime.md#iot-edge-hub) ao qual se conectam. Estas verificações ativar uma ligação segura TLS (transport layer security) entre o tempo de execução, os módulos e os dispositivos de IoT. Como o IoT Hub em si, IoT Edge requer segura e encriptada ligação a partir do IoT downstream (ou folha) dispositivos e os módulos do IoT Edge. Para estabelecer uma conexão TLS segura, o módulo Hub IoT Edge apresenta uma cadeia de certificados de servidor para conectar clientes para que eles verifiquem sua identidade.
 
@@ -51,7 +51,7 @@ De qualquer forma, o fabricante utiliza um certificado de AC intermediária no f
 
 ### <a name="device-ca-certificate"></a>Certificado de acesso condicional de dispositivo
 
-O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Esse certificado é instalado no próprio dispositivo IoT Edge, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. Por IoT Edge, o certificado de autoridade de certificação do dispositivo pode emitir outros certificados. Por exemplo, o certificado de autoridade de certificação do dispositivo emite certificados de dispositivo folha que são usados para autenticar dispositivos no [serviço de provisionamento de dispositivos IOT do Azure](../iot-dps/about-iot-dps.md).
+O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Esse certificado é instalado no próprio dispositivo IoT Edge, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. O certificado de autoridade de certificação do dispositivo pode assinar outros certificados. 
 
 ### <a name="iot-edge-workload-ca"></a>Carga de trabalho do IoT Edge AC
 
@@ -78,29 +78,7 @@ Como os processos de fabricação e operação são separados, considere as segu
 
 ## <a name="devtest-implications"></a>Implicações de Dev/Test
 
-Para facilitar o desenvolvimento e testar cenários, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como funcionam os scripts, consulte [configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md).
-
-Estes scripts geram certificados que seguem a estrutura de cadeia de certificado explicada neste artigo. Os seguintes comandos geram o "certificado de AC de raiz" e um único "certificado de AC intermediária".
-
-```bash
-./certGen.sh create_root_and_intermediate 
-```
-
-```Powershell
-New-CACertsCertChain rsa 
-```
-
-Da mesma forma, estes comandos geram o "certificado de AC de dispositivo".
-
-```bash
-./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
-```
-
-```Powershell
-New-CACertsEdgeDeviceCA "<gateway device name>"
-```
-
-* O  **\<nome\> do dispositivo de gateway** passado para esses scripts não deve ser o mesmo que o parâmetro "hostname" em config. YAML. Os scripts ajudam a evitar problemas acrescentando uma cadeia de caracteres ". ca" ao  **\<nome\> do dispositivo de gateway** para evitar a colisão de nomes, caso um usuário configure IOT Edge usando o mesmo nome em ambos os locais. No entanto, é uma boa prática evitar o uso do mesmo nome.
+Para facilitar o desenvolvimento e testar cenários, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como os scripts funcionam, consulte [criar certificados de demonstração para testar IOT Edge recursos do dispositivo](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Para ligar os seus dispositivos de "folha" de IoT de dispositivos e aplicações que utilizam o nosso SDK de dispositivo de IoT através do IoT Edge, tem de adicionar o parâmetro GatewayHostName opcional para o fim da cadeia de ligação do dispositivo. Quando o certificado de servidor de Hub do Edge é gerado, baseia-se numa versão em minúsculas do nome de anfitrião do config.yaml, portanto, para os nomes a correspondência e a verificação de certificado TLS com êxito, deve introduzir o parâmetro GatewayHostName em letra minúscula.
@@ -120,8 +98,8 @@ Pode ver a hierarquia de profundidade de certificado representada na captura de 
 | Certificado de AC da carga de trabalho     | AC de carga de trabalho de iotedge                                                                                       |
 | IoT Edge certificado do servidor Hub | iotedgegw.local (corresponde ao nome "anfitrião" de config.yaml)                                                |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Compreender os módulos do Azure IoT Edge](iot-edge-modules.md)
 
-[Configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md)
+[Configurar um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md)

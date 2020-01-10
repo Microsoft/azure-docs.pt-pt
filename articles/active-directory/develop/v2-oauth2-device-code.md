@@ -1,7 +1,7 @@
 ---
-title: Conectar usuários sem um navegador | Azure
+title: Fluxo de código do dispositivo OAuth 2,0 | Azure
 titleSuffix: Microsoft identity platform
-description: Crie fluxos de autenticação incorporados e sem navegador usando a concessão de autorização do dispositivo.
+description: Conectar usuários sem um navegador. Crie fluxos de autenticação incorporados e sem navegador usando a concessão de autorização do dispositivo.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423259"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2,0
 

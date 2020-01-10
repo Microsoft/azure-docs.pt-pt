@@ -2,19 +2,15 @@
 title: Gerir os dados da Automatização do Azure
 description: Este artigo contém vários tópicos para gerenciar um ambiente de automação do Azure.  Atualmente inclui a retenção de dados e o backup da recuperação de desastre da automação do Azure na automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: daa5bab7c8d4cbe98ffe9a8a8a4b66da029fef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421895"
 ---
 # <a name="managing-azure-automation-data"></a>Gerir os dados da Automatização do Azure
 Este artigo contém vários tópicos para gerenciar um ambiente de automação do Azure.

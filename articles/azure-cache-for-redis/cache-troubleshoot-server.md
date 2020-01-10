@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas do servidor de cache do Azure para Redis
-description: Saiba como resolver problemas comuns do servidor com o cache do Azure para Redis
+description: Saiba como resolver problemas comuns do lado do servidor com o cache do Azure para Redis, como pressão de memória, alta utilização de CPU, comandos de longa execução ou limitações de largura de banda.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433359"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solucionar problemas do servidor de cache do Azure para Redis
 
@@ -73,9 +73,9 @@ Para atenuar situações em que o uso de largura de banda de rede está próximo
 - [Crie alertas](cache-how-to-monitor.md#alerts) em métricas como leitura de cache ou gravação de cache para ser notificado antecipadamente sobre possíveis impactos.
 - [Dimensione](cache-how-to-scale.md) para um tamanho de cache maior com mais capacidade de largura de banda de rede.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
-- [Solucionar problemas do lado do cliente do cache do Azure para Redis](cache-troubleshoot-client.md)
+- [Resolver problemas do lado do cliente da Cache do Azure para Redis](cache-troubleshoot-client.md)
 - [Qual o cache do Azure para oferta e tamanho do Redis devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [Como fazer o benchmark e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Como monitorar o cache do Azure para Redis](cache-how-to-monitor.md)

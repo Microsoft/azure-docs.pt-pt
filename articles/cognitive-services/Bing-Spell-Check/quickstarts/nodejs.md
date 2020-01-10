@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: verificar a ortografia com a API REST e o Node. js-Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382864"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início rápido: verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Node. js
 
@@ -30,7 +30,7 @@ Use este guia de início rápido para fazer sua primeira chamada para a API REST
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina a restrição e exija `https`. Em seguida, crie variáveis para o host do seu ponto de extremidade de API, o caminho e sua chave de assinatura.
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina a restrição e exija `https`. Em seguida, crie variáveis para o host do seu ponto de extremidade de API, o caminho e sua chave de assinatura. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Compile e execute seu projeto.
+
+Se você estiver usando a linha de comando, use os comandos a seguir para compilar e executar o aplicativo.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>Exemplo de resposta JSON
 

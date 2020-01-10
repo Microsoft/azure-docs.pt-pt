@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Portal de vértice | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Portal de vértice.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o portal Apex | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o portal Apex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,225 +11,159 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5021425341ed1fcc6d184a4ce072fadfdd39e24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5225262304785cf3dd5a9c2346f338535c797332
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107045"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659666"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de vértice
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apex-portal"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o portal Apex
 
-Neste tutorial, saiba como integrar o Portal de vértice no Azure Active Directory (Azure AD).
-Integrar Portal de vértice no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o portal Apex ao Azure Active Directory (Azure AD). Ao integrar o portal Apex ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Portal do vértice.
-* Pode permitir que os utilizadores ser automaticamente iniciada no Apex Portal (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao portal Apex.
+* Habilite seus usuários a serem automaticamente conectados ao portal Apex com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Portal de vértice, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Vértice Portal logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do portal do Apex.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Portal de vértice suporta **IDP** iniciada SSO
-* Portal de vértice suporta **Just In Time** aprovisionamento de utilizadores
+* O portal Apex dá suporte ao SSO iniciado pelo **IDP**
+* O portal Apex dá suporte ao provisionamento **de usuário just-in-time**
 
-## <a name="adding-apex-portal-from-the-gallery"></a>Adicionando o Portal de Apex da Galeria
+## <a name="adding-apex-portal-from-the-gallery"></a>Adicionando o portal Apex da Galeria
 
-Para configurar a integração do Portal de vértice no Azure AD, terá de adicionar o Portal de vértice a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do portal Apex ao Azure AD, você precisa adicionar o portal Apex da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Portal de vértice a partir da galeria, execute os seguintes passos:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite portal de **Apex** na caixa de pesquisa.
+1. Selecione **portal Apex** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-apex-portal"></a>Configurar e testar o logon único do Azure AD para o portal Apex
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o portal Apex usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no portal Apex.
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Para configurar e testar o SSO do Azure AD com o portal Apex, conclua os seguintes blocos de construção:
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do portal de Apex](#configure-apex-portal-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do portal Apex](#create-apex-portal-test-user)** – para ter um equivalente de B. Simon no portal Apex vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, escreva **Apex Portal**, selecione **Portal de vértice** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **portal Apex** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-    ![Portal de vértice na lista de resultados](common/search-new-app.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+1. Na página **Configurar logon único com SAML** , insira os valores para os seguintes campos:
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Portal de vértice, com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Portal de vértice deve ser estabelecido.
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
-Para configurar e testar o Azure AD início de sessão único com o Portal de vértice, tem de concluir os seguintes blocos de construção:
-
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Apex Portal início de sessão único](#configure-apex-portal-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do Portal de Apex](#create-apex-portal-test-user)**  - para ter um equivalente da Eduarda Almeida no Portal de vértice, que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com o Portal de vértice, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **Portal de vértice** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
-
-    ![Informações de início de sessão de único vértice Portal domínio e URLs](common/idp-intiated.png)
-
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
-
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente do Portal de vértice](mailto:support@apexanalytix.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais. Contate a [equipe de suporte ao cliente do portal Apex](mailto:support@apexanalytix.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. Aplicação do Portal de vértice espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+1. O aplicativo do portal Apex espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/default-attributes.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+1. Além de acima, o aplicativo do portal Apex espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | -------- | --------- |
     | FIRSTNAME | user.givenname |
-    | LASTNAME | user.surname |
-    | CORREIO | user.mail |
+    | LASTNAME | User. sobrenome |
+    | MESCLA | user.mail |
     | | |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
-
-    c. Deixe o **espaço de nomes** em branco.
-
-    d. Selecione a origem de dado **atributo**.
-
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Guardar**.
-
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-8. Sobre o **configurar Portal de vértice** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Na seção **Configurar o portal do Apex** , copie as URLs apropriadas com base em seu requisito.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-    a. URL de início de sessão
-
-    b. Identificador do Azure AD
-
-    c. URL de fim de sessão
-
-### <a name="configure-apex-portal-single-sign-on"></a>Configurar Apex Portal início de sessão único
-
-Para configurar o início de sessão único num **Apex Portal** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte do Portal de vértice](mailto:support@apexanalytix.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao Portal do vértice.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao portal Apex.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Apex Portal**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **portal Apex**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Apex Portal**.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação do Portal de vértice na lista de aplicações](common/all-applications.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="configure-apex-portal-sso"></a>Configurar SSO do portal de Apex
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+Para configurar o logon único no lado do **portal Apex** , é necessário enviar o XML de **metadados de Federação** baixado e URLs copiadas apropriadas do portal do Azure para a [equipe de suporte do portal Apex](mailto:support@apexanalytix.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+### <a name="create-apex-portal-test-user"></a>Criar usuário de teste do portal Apex
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-apex-portal-test-user"></a>Criar utilizador de teste do Portal de vértice
-
-Nesta secção, um usuário chamado Eduarda Almeida é criado no Portal do vértice. Portal de vértice suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existe no Portal de vértice, é criado um novo após a autenticação.
+Nesta seção, um usuário chamado Brenda Simon é criado no portal Apex. O portal Apex dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no portal de Apex, um novo será criado após a autenticação.
 
 > [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte do Portal de vértice](mailto:support@apexanalytix.com).
+> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do portal de Apex](mailto:support@apexanalytix.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-sso"></a>Testar SSO 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do Portal de vértice no painel de acesso, deve ser automaticamente a sessão iniciada Portal do vértice para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do portal Apex no painel de acesso, você deverá ser conectado automaticamente ao portal Apex para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o portal Apex com o Azure AD](https://aad.portal.azure.com/)
+

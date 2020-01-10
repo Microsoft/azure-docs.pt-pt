@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423109"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
 
@@ -38,13 +38,13 @@ Para obter um dispositivo no Azure AD, você tem várias opções:
 
 - **Azure AD registrado**
    - Dispositivos que são registrados no Azure AD normalmente são dispositivos pessoais ou de propriedade pessoal e são conectados a um conta Microsoft pessoal ou a outra conta local.
-      - Windows 10
+      - Windows 10
       - iOS
       - Android
       - MacOS
 - **Ingressado no Azure AD**
    - Os dispositivos que são ingressados no Azure AD são de propriedade de uma organização e são conectados ao com uma conta do Azure AD que pertence a essa organização. Eles existem apenas na nuvem.
-      - Windows 10 
+      - Windows 10 
 - **associado ao Azure AD Híbrido**
    - Os dispositivos que são ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados ao com uma conta do Azure AD que pertence a essa organização. Eles existem na nuvem e no local.
       - Windows 7, 8,1 ou 10
@@ -58,7 +58,10 @@ Os dispositivos no Azure AD podem ser gerenciados usando ferramentas de MDM (ger
 
 ## <a name="resource-access"></a>Acesso a recursos
 
-O registro e a junção dão aos seus usuários logon contínuo (SSO) a recursos de nuvem e administradores a capacidade de aplicar políticas de acesso condicional a esses recursos. 
+Registrar e ingressar dispositivos no Azure AD oferece aos usuários o SSO (logon contínuo) para recursos de nuvem. Esse processo também permite aos administradores a capacidade de aplicar políticas de acesso condicional a recursos com base no dispositivo do qual são acessadas. 
+
+> [!NOTE]
+> As políticas de acesso condicional com base no dispositivo exigem dispositivos ingressados no Azure ad híbridos ou dispositivos registrados no Azure ad ou em conformidade do Azure AD.
 
 Os dispositivos que são ingressados no Azure AD ou híbridos do Azure AD podem se beneficiar do SSO para os recursos locais de sua organização, bem como recursos de nuvem. Mais informações podem ser encontradas no artigo [como o SSO para recursos locais funciona em dispositivos ingressados no Azure ad](azuread-join-sso.md).
 
@@ -66,12 +69,12 @@ Os dispositivos que são ingressados no Azure AD ou híbridos do Azure AD podem 
 
 - Os **dispositivos registrados no Azure ad** utilizam uma conta gerenciada pelo usuário final, essa conta é uma conta Microsoft ou outra credencial gerenciada localmente protegida por uma ou mais das seguintes opções.
    - Palavra-passe
-   - AFIXA
+   - AFIXAR
    - Padrão
    - Windows Hello
 - Os dispositivos ingressados no Azure ad **ingressados ou** não são usados por uma conta institucional no Azure ad protegidos com um ou mais dos itens a seguir.
    - Palavra-passe
-   - Windows Hello para empresas
+   - Windows Hello para Empresas
 
 ## <a name="provisioning"></a>Aprovisionamento
 

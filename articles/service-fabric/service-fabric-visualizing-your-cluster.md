@@ -1,27 +1,18 @@
 ---
-title: Visualizando seu cluster usando o Azure Service Fabric Explorer | Microsoft Docs
+title: Visualizando seu cluster usando o Azure Service Fabric Explorer
 description: Service Fabric Explorer é um aplicativo para inspecionar e gerenciar aplicativos de nuvem e nós em um cluster Microsoft Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 80e3d990b6e8026c57ffff0048d0447a95529564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464110"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o seu cluster com o Explorador do Service Fabric
 
 Service Fabric Explorer (SFX) é uma ferramenta de código-fonte aberto para inspecionar e gerenciar clusters de Service Fabric do Azure. Service Fabric Explorer é um aplicativo de área de trabalho para Windows, macOS e Linux.
 
@@ -128,7 +119,7 @@ O Visualizador de repositório de imagens é um recurso oferecido se o uso de Re
 
 ![Service Fabric Explorer o mapa de cluster][sfx-imagestore]
 
-## <a name="backup-and-restore"></a>Cópia de Segurança e Restauro
+## <a name="backup-and-restore"></a>Backup e Restauro
 O Service Fabric Explorer oferece a capacidade de fazer a interface com [backup e restauração](./service-fabric-reliable-services-backup-restore.md). Para ver os recursos de backup e restauração no SFX, o modo avançado deve ser habilitado.
 
 ![Habilitar o modo avançado][0]

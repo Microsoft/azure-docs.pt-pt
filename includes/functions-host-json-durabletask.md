@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410230"
 ---
 Definições de configuração para [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -52,14 +52,15 @@ Definições de configuração para [Durable Functions](../articles/azure-functi
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,7 +83,8 @@ Definições de configuração para [Durable Functions](../articles/azure-functi
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
@@ -93,6 +95,7 @@ Os nomes de Hub de tarefas devem começar com uma letra e consistir apenas em le
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Nomes de [Hub de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos podem ser usados para isolar vários aplicativos Durable Functions uns dos outros, mesmo se estiverem usando o mesmo back-end de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens a serem extraídas da fila de controle por vez.|
+|controlQueueBufferThreshold|256|O número de mensagens de fila de controle que podem ser armazenadas em buffer na memória por vez; nesse ponto, o Dispatcher aguardará antes de retirar a fila de qualquer mensagem adicional.|
 |partitionCount |4|A contagem de partições para a fila de controle. Pode ser um inteiro positivo entre 1 e 16.|
 |controlQueueVisibilityTimeout |5 minutos|O tempo limite de visibilidade das mensagens da fila de controle removido da fila.|
 |workItemQueueVisibilityTimeout |5 minutos|O tempo limite de visibilidade das mensagens da fila de itens de trabalho da fila.|
@@ -109,5 +112,6 @@ Os nomes de Hub de tarefas devem começar com uma letra e consistir apenas em le
 |eventGridPublishRetryCount|0|O número de vezes para tentar novamente se a publicação no tópico da grade de eventos falhar.|
 |eventGridPublishRetryInterval|5 minutos|A grade de eventos publica o intervalo de repetição no formato *hh: mm: SS* .|
 |eventGridPublishEventTypes||Uma lista de tipos de eventos a serem publicados na grade de eventos. Se não for especificado, todos os tipos de evento serão publicados. Os valores permitidos incluem `Started`, `Completed`, `Failed``Terminated`.|
+|useGracefulShutdown|false|Apresentação Habilite o desligamento normal para reduzir a chance de desligamentos de host falharem em execuções de função em processo.|
 
 Muitas dessas configurações são para otimizar o desempenho. Para obter mais informações, consulte [desempenho e escala](../articles/azure-functions/durable-functions-perf-and-scale.md).

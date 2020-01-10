@@ -1,20 +1,18 @@
 ---
 title: Saída de Azure Stream Analytics para o banco de dados SQL do Azure
 description: Saiba mais sobre a saída de dados para SQL Azure de Azure Stream Analytics e obter taxas de taxa de transferência de gravação maiores.
-services: stream-analytics
 author: chetanmsft
 ms.author: chetang
-manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 7845833a0269514c8fdbd093e18d4516ff9567d9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443609"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída de Azure Stream Analytics para o banco de dados SQL do Azure
 
@@ -29,7 +27,7 @@ Aqui estão algumas configurações em cada serviço que podem ajudar a melhorar
 - **Herdar particionamento** – essa opção de configuração de saída do SQL permite herdar o esquema de particionamento da entrada ou etapa anterior da consulta. Com isso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já ocorre automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). O bloqueio de tabela (TABLOCK) também é desabilitado para inserções em massa feitas com essa opção.
 
 > [!NOTE] 
-> Quando há mais de 8 partições de entrada, a herança do esquema de particionamento de entrada pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma única coluna de identidade e um índice clusterizado. Nesse caso, considere o uso [](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) de 8 em sua consulta para especificar explicitamente o número de gravadores de saída. Com base no esquema e na escolha de índices, suas observações podem variar.
+> Quando há mais de 8 partições de entrada, a herança do esquema de particionamento de entrada pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma única coluna de identidade e um índice clusterizado. Nesse caso, considere o uso [de 8 em sua consulta para especificar](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) explicitamente o número de gravadores de saída. Com base no esquema e na escolha de índices, suas observações podem variar.
 
 - **Tamanho do lote** -a configuração de saída do SQL permite que você especifique o tamanho máximo do lote em uma saída de Azure Stream Analytics SQL com base na natureza da sua tabela/carga de trabalho de destino. Tamanho do lote é o número máximo de registros enviados com cada transação de inserção em massa. Em índices columnstore clusterizados, os tamanhos de lote em volta de [100.000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permitem mais paralelização, registro em log mínimo e otimizações de bloqueio. Em tabelas baseadas em disco, 10K (padrão) ou inferior podem ser ideais para sua solução, já que tamanhos de lote mais altos podem disparar o escalonamento de bloqueios durante inserções em massa.
 
@@ -37,9 +35,9 @@ Aqui estão algumas configurações em cada serviço que podem ajudar a melhorar
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Tabela e índices particionados** – usar uma [](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabela do SQL particionada e índices particionados na tabela com a mesma coluna que sua chave de partição (por exemplo, PartitionID) pode reduzir significativamente as contenções entre partições durante as gravações. Para uma tabela particionada, você precisará criar uma [função de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos primário. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de e/s de log pode ser atingido com base no número de partições, o que pode ser aumentado atualizando a SKU.
+- **Tabela e índices particionados** – usar uma tabela do SQL [particionada](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices particionados na tabela com a mesma coluna que sua chave de partição (por exemplo, PartitionID) pode reduzir significativamente as contenções entre partições durante as gravações. Para uma tabela particionada, você precisará criar uma [função de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de arquivos primário. Isso também aumentará a disponibilidade dos dados existentes enquanto novos dados estiverem sendo carregados. O limite de e/s de log pode ser atingido com base no número de partições, o que pode ser aumentado atualizando a SKU.
 
-- **Evite violações de chave exclusivas** – se você receber [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no log de atividades Azure Stream Analytics, certifique-se de que seu trabalho não seja afetado por violações de restrição exclusivas que provavelmente ocorrerão durante os casos de recuperação. Isso pode ser evitado definindo a [opção\_ignorar\_chave de DUP](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) em seus índices.
+- **Evite violações de chave exclusivas** – se você receber [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no log de atividades Azure Stream Analytics, certifique-se de que seu trabalho não seja afetado por violações de restrição exclusivas que provavelmente ocorrerão durante os casos de recuperação. Isso pode ser evitado definindo a opção [ignorar\_DUP\_chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) em seus índices.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory e tabelas na memória
 

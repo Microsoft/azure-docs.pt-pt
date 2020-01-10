@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Conjunto do Windows no Batch | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Criar e gerir um conjunto do Windows no Batch
+title: Exemplo de script CLI do Azure-pool do Windows no lote
+description: Este script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerir um conjunto de nós de computação do Windows no Azure Batch.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -12,16 +12,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 12/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 429f0545bd909faf86cba39c16f07392115a34b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 662dda0c72cd50a84751ef92236e4e94b45de450
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390153"
 ---
-# <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerenciar um pool do Windows no lote do Azure
+# <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Exemplo da CLI: Criar e gerir um conjunto do Windows no Azure Batch
 
 Este script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerir um conjunto de nós de computação do Windows no Azure Batch. Pode configurar um conjunto do Windows de duas formas, com uma configuração dos Serviços Cloud ou da Máquina Virtual. Este exemplo mostra como criar um conjunto do Windows com a configuração dos Serviços Cloud.
 
@@ -58,6 +58,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

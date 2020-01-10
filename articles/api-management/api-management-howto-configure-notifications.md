@@ -1,5 +1,6 @@
 ---
-title: Configurar notificações e modelos de email no gerenciamento de API do Azure | Microsoft Docs
+title: Configure notificações e modelos de e-mail
+titleSuffix: Azure API Management
 description: Saiba como configurar notificações e modelos de email no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -12,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d49e861a529f3b2265f65c53cc0ee2f6feb151da
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0477b1ba044004eaf95cc138bc2e19f40379566
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442685"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
 O gerenciamento de API fornece a capacidade de configurar notificações para eventos específicos e configurar os modelos de email que são usados para se comunicar com os administradores e desenvolvedores de uma instância de gerenciamento de API. Este artigo mostra como configurar notificações para os eventos disponíveis e fornece uma visão geral da configuração dos modelos de email usados para esses eventos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma instância de serviço de gerenciamento de API, conclua o início rápido a seguir: [Crie uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
+Se você não tiver uma instância de serviço de gerenciamento de API, conclua o início rápido a seguir: [criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -81,7 +82,7 @@ A lista de **parâmetros** contém uma lista de parâmetros, que, quando inserid
 > [!NOTE] 
 > Os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
 
-Para salvar as alterações no modelo de email, clique em **salvar**ou para cancelar as alterações, clique em descartar.
+Para salvar as alterações no modelo de email, clique em **salvar**ou para cancelar as alterações, clique em **descartar**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

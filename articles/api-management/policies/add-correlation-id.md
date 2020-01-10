@@ -1,5 +1,6 @@
 ---
-title: Exemplo de política de gerenciamento de API do Azure – adicionar um cabeçalho contendo uma ID de correlação | Microsoft Docs
+title: Política de gerenciamento de API de exemplo – adicionar um cabeçalho contendo a ID de correlação
+titleSuffix: Azure API Management
 description: Exemplo de política de gerenciamento de API do Azure – demonstra como adicionar um cabeçalho que contém uma ID de correlação à solicitação de entrada.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 9f091345a4eaf174c47959cad3cb4525fd926689
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 79910aa60602a80cbe79c4ce9899f6ff73fbfde9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422243"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Adicionar um cabeçalho que contém uma ID de correlação
 
@@ -29,7 +30,7 @@ Cole o código no bloco de **entrada** .
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Add correlation id to inbound request.policy.xml)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as políticas de APIM:
 

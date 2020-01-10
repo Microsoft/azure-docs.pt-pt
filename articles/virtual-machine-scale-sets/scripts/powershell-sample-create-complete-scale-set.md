@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell – Criar um conjunto de dimensionamento de máquinas virtuais completo | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos de Azure PowerShell – criar um conjunto de dimensionamento de máquinas virtuais completo
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016, onde os recursos individuais são configurados e criados.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b116a6cb4266b5ec05abd2b3210ebc772bac9868
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350945"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais completo com o PowerShell
 
-Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Recursos individuais são configurados e criados, em vez da utilizar o [criação de recursos incorporadas as opções disponíveis aqui em New-AzVmss](powershell-sample-create-simple-scale-set.md). Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
+Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Os recursos individuais são configurados e criados, em vez de usar as [Opções de criação de recurso interno disponíveis aqui em New-AzVmss](powershell-sample-create-simple-scale-set.md). Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -67,7 +67,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | Crie o conjunto de dimensionamento, com base nas informações fornecidas na configuração do conjunto de dimensionamento. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais do PowerShell na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

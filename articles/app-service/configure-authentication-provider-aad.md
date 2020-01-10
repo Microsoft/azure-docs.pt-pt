@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b833604ce18873e22c22990a26dcbae1d9928628
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: b85c68b19a44021710dbc9143e255600b43b2cba
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670893"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666147"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Azure AD
 
@@ -29,9 +29,9 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 
 ## <a name="express"> </a>Configurar com as configurações expressas
 
-1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo.
-1. Selecione **configurações** > **autenticação/autorização** no painel esquerdo e verifique se a autenticação do **serviço de aplicativo** está **ativada**.
-1. Selecione **Azure Active Directory**e, em seguida, selecione **expresso** em **modo de gerenciamento**.
+1. No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo.
+1. No painel esquerdo, em **configurações** , selecione **autenticação/autorização** e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
+1. Selecione **Azure Active Directory**e, em **modo de gerenciamento** , selecione **expresso**.
 1. Selecione **OK** para registrar o aplicativo do serviço de aplicativo em Azure Active Directory. Um novo registro de aplicativo é criado.
 
    Se você quiser escolher um registro de aplicativo existente, em vez disso:
@@ -65,7 +65,7 @@ Você precisará das seguintes informações ao configurar seu aplicativo do ser
 
 Execute as seguintes etapas:
 
-1. Entre no [portal do Azure] e vá para o aplicativo do serviço de aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
+1. Entre no [portal do Azure], procure e selecione **serviços de aplicativos**e, em seguida, selecione seu aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
 1. Selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
 1. Em **URI de redirecionamento**, selecione **Web** e insira a URL do seu aplicativo do serviço de aplicativo e acrescente o caminho `/.auth/login/aad/callback`. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
@@ -86,8 +86,8 @@ Execute as seguintes etapas:
 
 ### <a name="secrets"> </a>Adicionar informações de Azure Active Directory ao seu aplicativo do serviço de aplicativo
 
-1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo. 
-1. Selecione **configurações > autenticação/autorização** no painel esquerdo e verifique se a autenticação do **serviço de aplicativo** está **ativada**.
+1. No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. 
+1. No painel esquerdo, em **configurações**, selecione **autenticação/autorização** e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Adicional Por padrão, a autenticação do serviço de aplicativo permite o acesso não autenticado ao seu aplicativo. Para impor a autenticação de usuário, defina **a ação a ser tomada quando a solicitação não for autenticada** para **fazer logon com Azure Active Directory**.
 1. Em provedores de autenticação, selecione **Azure Active Directory**.
 1. Em **modo de gerenciamento**, selecione **avançado** e configure a autenticação do serviço de aplicativo de acordo com a tabela a seguir:
@@ -123,7 +123,7 @@ Você pode registrar clientes nativos para permitir a autenticação usando uma 
 
 Agora você configurou um aplicativo cliente nativo que pode acessar seu aplicativo do serviço de aplicativo.
 
-## <a name="related-content"> </a>Passos seguintes
+## <a name="related-content"> </a>Próximas etapas
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

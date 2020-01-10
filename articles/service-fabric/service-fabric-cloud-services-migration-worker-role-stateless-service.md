@@ -1,60 +1,51 @@
 ---
-title: Converter o Azure Cloud dos serviços de aplicações para o Service Fabric | Documentos da Microsoft
-description: Este guia compara sem monitoração de estado dos serviços Web de serviços Cloud e funções de trabalho e o Service Fabric para o ajudar a migrar dos serviços Cloud para o Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Converter aplicativos dos serviços de nuvem do Azure para Service Fabric
+description: Este guia compara as funções Web e de trabalho dos serviços de nuvem e Service Fabric serviços sem monitoração de estado para ajudar a migrar dos serviços de nuvem para Service Fabric.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463337"
 ---
-# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric
-Este artigo descreve como migrar a sua Cloud dos serviços Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric. Este é o mais simples caminho de migração dos serviços Cloud para o Service Fabric para aplicativos cuja arquitetura geral vai manter-se mais ou menos o mesmo.
+# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter funções Web e de trabalho para Service Fabric serviços sem estado
+Este artigo descreve como migrar suas funções Web e de trabalho dos serviços de nuvem para Service Fabric serviços sem monitoração de estado. Esse é o caminho de migração mais simples dos serviços de nuvem para Service Fabric para aplicativos cuja arquitetura geral permanecerá aproximadamente o mesmo.
 
-## <a name="cloud-service-project-to-service-fabric-application-project"></a>Projeto de serviço em nuvem ao projeto de aplicação do Service Fabric
- Um projeto de serviço em nuvem e um projeto de aplicação do Service Fabric têm uma estrutura semelhante e ambos representam a unidade de implementação para a sua aplicação - ou seja, eles cada define o pacote completo que é implementado para executar seu aplicativo. Um projeto de serviço Cloud contém um ou mais funções de trabalho ou Web. Da mesma forma, um projeto de aplicação do Service Fabric contém um ou mais serviços. 
+## <a name="cloud-service-project-to-service-fabric-application-project"></a>Projeto de serviço de nuvem para Service Fabric projeto de aplicativo
+ Um projeto de serviço de nuvem e um projeto de aplicativo Service Fabric têm uma estrutura semelhante e ambos representam a unidade de implantação para seu aplicativo, ou seja, cada um deles define o pacote completo que é implantado para executar seu aplicativo. Um projeto de serviço de nuvem contém uma ou mais funções Web ou de trabalho. Da mesma forma, um projeto de aplicativo Service Fabric contém um ou mais serviços. 
 
-A diferença é que o projeto de serviço em nuvem vincula a implementação da aplicação com uma implementação de VM e, portanto, contém definições de configuração de VM, ao passo que o projeto de aplicação do Service Fabric define apenas um aplicativo que será implementado num conjunto de VMs existentes no cluster do Service Fabric. O próprio cluster do Service Fabric apenas é implementado uma vez, por meio de um modelo do Resource Manager ou através do portal do Azure, e várias aplicações do Service Fabric podem ser implementadas no mesmo.
+A diferença é que o projeto de serviço de nuvem associa a implantação do aplicativo a uma implantação de VM e, portanto, contém definições de configuração de VM, enquanto o projeto de aplicativo Service Fabric define apenas um aplicativo que será implantado em um conjunto de VMs existentes em um Cluster Service Fabric. O próprio cluster de Service Fabric é implantado apenas uma vez, seja por meio de um modelo do Resource Manager ou por meio do portal do Azure, e vários aplicativos de Service Fabric podem ser implantados nele.
 
-![Comparação de projeto do Service Fabric e serviços em nuvem][3]
+![Comparação de projetos de Service Fabric e serviços de nuvem][3]
 
-## <a name="worker-role-to-stateless-service"></a>Função de trabalho para o serviço sem estado
-Conceitualmente, uma função de trabalho representa uma carga de trabalho sem monitorização de estado, que significa que todas as instâncias da carga de trabalho é idêntica e pedidos podem ser roteados para qualquer instância em qualquer altura. Cada instância não é esperada que lembre-se o pedido anterior. Estado de que a carga de trabalho opera em é gerido por um armazenamento de estado externo, como o armazenamento de tabelas do Azure ou do Azure Cosmos DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para o Service Fabric pode ser feita ao converter o código de função de trabalho para um serviço sem estado.
+## <a name="worker-role-to-stateless-service"></a>Função de trabalho para serviço sem estado
+Conceitualmente, uma função de trabalhador representa uma carga de trabalho sem monitoração de estado, o que significa que cada instância de Workload é idêntica e as solicitações podem ser roteadas para qualquer instância a qualquer momento. Não se espera que cada instância se lembre da solicitação anterior. Estado em que a carga de trabalho Opera é gerenciada por um armazenamento de estado externo, como o armazenamento de tabelas do Azure ou Azure Cosmos DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para Service Fabric pode ser feita convertendo o código de função de trabalho em um serviço sem estado.
 
-![Função de trabalho para o serviço sem estado][4]
+![Função de trabalho para serviço sem estado][4]
 
-## <a name="web-role-to-stateless-service"></a>Função da Web para o serviço sem estado
-Semelhante à função de trabalho, uma função da Web também representa uma carga de trabalho sem monitorização de estado e, assim, conceitualmente que também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, ao contrário das funções da Web, Service Fabric não suporta o IIS. Para migrar uma web aplicação a partir de uma função da Web para um serviço sem estado necessita de mover primeiro para uma estrutura web que pode ser autoalojada e não depende de IIS ou System. Web, como o ASP.NET Core 1.
+## <a name="web-role-to-stateless-service"></a>Função Web para serviço sem estado
+Da mesma forma que a função de trabalho, uma função Web também representa uma carga sem estado e, portanto, conceitualmente também pode ser mapeada para um serviço sem estado Service Fabric. No entanto, ao contrário das funções Web, Service Fabric não oferece suporte ao IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a movimentação para uma estrutura da Web que pode ser hospedada internamente e não depende do IIS ou System. Web, como ASP.NET Core 1.
 
 | **Aplicação** | **Suportado** | **Caminho de migração** |
 | --- | --- | --- |
-| Web Forms do ASP.NET |Não |Converter em MVC do ASP.NET Core 1 |
-| ASP.NET MVC |Com a migração |Atualização para o ASP.NET Core 1 MVC |
-| API Web ASP.NET |Com a migração |Utilizar o servidor de hospedagem interna ou ASP.NET Core 1 |
+| Web Forms do ASP.NET |Não |Converter em ASP.NET Core 1 MVC |
+| ASP.NET MVC |Com a migração |Atualizar para o ASP.NET Core 1 MVC |
+| ASP.NET Web API |Com a migração |Usar o servidor auto-hospedado ou o ASP.NET Core 1 |
 | ASP.NET Core 1 |Sim |N/A |
 
-## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e o ciclo de vida
-Pontos de entrada de semelhante de oferta APIs do serviço de função de trabalho e o Service Fabric: 
+## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e ciclo de vida
+As APIs de função de trabalho e serviço de Service Fabric oferecem pontos de entrada semelhantes: 
 
-| **Ponto de entrada** | **Função de trabalho** | **Serviço do Service Fabric** |
+| **Ponto de entrada** | **Função de trabalho** | **Serviço de Service Fabric** |
 | --- | --- | --- |
 | Em processamento |`Run()` |`RunAsync()` |
-| Iniciar VM |`OnStart()` |N/A |
-| Parar VM |`OnStop()` |N/A |
-| Serviço de escuta aberto para pedidos de cliente |N/A |<ul><li> `CreateServiceInstanceListener()` para sem monitoração de estado</li><li>`CreateServiceReplicaListener()` para com monitoração de estado</li></ul> |
+| Início da VM |`OnStart()` |N/A |
+| Parada da VM |`OnStop()` |N/A |
+| Abrir o ouvinte para solicitações de cliente |N/A |<ul><li> `CreateServiceInstanceListener()` para sem estado</li><li>`CreateServiceReplicaListener()` para monitoração de estado</li></ul> |
 
 ### <a name="worker-role"></a>Função de trabalho
 ```csharp
@@ -81,7 +72,7 @@ namespace WorkerRole1
 
 ```
 
-### <a name="service-fabric-stateless-service"></a>Serviço sem estado do Service Fabric
+### <a name="service-fabric-stateless-service"></a>Service Fabric serviço sem estado
 ```csharp
 
 using System.Collections.Generic;
@@ -106,38 +97,38 @@ namespace Stateless1
 
 ```
 
-Ambos têm uma substituição de "Executar" principal na qual pretende iniciar o processamento. Combinação de serviços do Service Fabric `Run`, `Start`, e `Stop` num ponto de entrada único, `RunAsync`. O serviço deve começar a trabalhar quando `RunAsync` é iniciado e deve parar de funcionar quando o `RunAsync` CancellationToken do método é sinalizado. 
+Ambos têm uma substituição de "execução" primária na qual começar o processamento. Service Fabric serviços combinam `Run`, `Start`e `Stop` em um único ponto de entrada, `RunAsync`. Seu serviço deve começar a trabalhar quando `RunAsync` é iniciado e deve parar de funcionar quando o CancellationToken do método de `RunAsync` é sinalizado. 
 
-Existem várias diferenças importantes entre o ciclo de vida e o tempo de vida dos serviços de funções de trabalho e o Service Fabric:
+Há várias diferenças importantes entre o ciclo de vida e o tempo de vida de funções de trabalho e serviços de Service Fabric:
 
-* **Ciclo de vida:** A maior diferença é que uma função de trabalho é uma VM e por isso, o seu ciclo de vida é associado à VM, que inclui eventos para quando a VM é iniciada e interrompida. Um serviço do Service Fabric tem um ciclo de vida é diferente do ciclo de vida VM, para que ele não inclui eventos para quando o anfitrião, VM ou máquina é iniciado e para, à medida que eles não estão relacionados.
-* **Tempo de vida:** Uma instância de função de trabalho haverá reciclagem se o `Run` sai do método. O `RunAsync` método num serviço do Service Fabric no entanto pode executar até à conclusão e a instância do serviço irá manter-se. 
+* **Ciclo de vida:** A maior diferença é que uma função de trabalho é uma VM e, portanto, seu ciclo de vida está vinculado à VM, o que inclui eventos para quando a VM é iniciada e interrompida. Um serviço de Service Fabric tem um ciclo de vida separado do ciclo de vida da VM, portanto, não inclui eventos para quando a máquina virtual ou o computador host é iniciado e interrompido, pois eles não estão relacionados.
+* **Tempo de vida:** Uma instância de função de trabalho será reciclada se o método de `Run` sair. O método `RunAsync` em um serviço Service Fabric, no entanto, pode ser executado até a conclusão e a instância do serviço permanecerá ativa. 
 
-O Service Fabric fornece um ponto de entrada de configuração de comunicação opcional para os serviços de escuta de pedidos de cliente. O RunAsync e a comunicação de ponto de entrada são substituições opcionais em serviços do Service Fabric - seu serviço pode optar por apenas escutar para pedidos de cliente ou apenas executar um loop de processamento, ou ambos - razão pela qual o método RunAsync tem permissão para sair sem reiniciar a instância do serviço, porque ele pode continuar a escutar os pedidos de cliente.
+Service Fabric fornece um ponto de entrada de configuração de comunicação opcional para serviços que escutam solicitações de cliente. O ponto de entrada de RunAsync e de comunicação são substituições opcionais em serviços de Service Fabric-seu serviço pode optar por escutar apenas as solicitações do cliente ou apenas executar um loop de processamento, ou ambos, ou seja, por que o método RunAsync tem permissão para sair sem reinicialização a instância do serviço, porque ela pode continuar a escutar solicitações do cliente.
 
-## <a name="application-api-and-environment"></a>Aplicação API e o ambiente
-O ambiente de serviços Cloud API fornece informações e funcionalidades para a instância VM atual, bem como informações sobre outras instâncias de função VM. O Service Fabric fornece informações relacionadas com o seu tempo de execução e algumas informações acerca do nó de um serviço estão em execução. 
+## <a name="application-api-and-environment"></a>API e ambiente de aplicativo
+A API do ambiente de serviços de nuvem fornece informações e funcionalidade para a instância de VM atual, bem como informações sobre outras instâncias de função VM. Service Fabric fornece informações relacionadas ao seu tempo de execução e algumas informações sobre o nó em que um serviço está sendo executado no momento. 
 
-| **Tarefas do ambiente** | **Serviços Cloud** | **Service Fabric** |
+| **Tarefa de ambiente** | **Serviços Cloud** | **Service Fabric** |
 | --- | --- | --- |
-| Definições de configuração e a notificação de alteração |`RoleEnvironment` |`CodePackageActivationContext` |
+| Definições de configuração e notificação de alteração |`RoleEnvironment` |`CodePackageActivationContext` |
 | Armazenamento Local |`RoleEnvironment` |`CodePackageActivationContext` |
-| Informações do ponto final |`RoleInstance` <ul><li>Instância atual: `RoleEnvironment.CurrentRoleInstance`</li><li>Outras funções e a instância: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` para o endereço do nó atual</li><li>`FabricClient` e `ServicePartitionResolver` para deteção de pontos finais de serviço</li> |
+| Informações do ponto de extremidade |`RoleInstance` <ul><li>Instância atual: `RoleEnvironment.CurrentRoleInstance`</li><li>Outras funções e instância: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` para o endereço do nó atual</li><li>`FabricClient` e `ServicePartitionResolver` para descoberta de ponto de extremidade de serviço</li> |
 | Emulação de ambiente |`RoleEnvironment.IsEmulated` |N/A |
-| Evento de alteração simultâneas |`RoleEnvironment` |N/A |
+| Evento de alteração simultânea |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>Definições de configuração
-Definições de configuração nos serviços Cloud são definidas para uma função de VM e aplicam-se a todas as instâncias dessa função de VM. Estas definições são pares chave-valor definidas ServiceConfiguration.*.cscfg ficheiros e podem ser acessadas diretamente por meio de RoleEnvironment. No Service Fabric, as definições aplicam-se individualmente para cada serviço e para cada aplicativo, em vez de para uma VM, uma vez que uma VM pode alojar várias aplicações e serviços. Um serviço é composto por três pacotes:
+As definições de configuração nos serviços de nuvem são definidas para uma função VM e se aplicam a todas as instâncias dessa função VM. Essas configurações são pares chave-valor definidos em arquivos de configuração. *. cscfg e podem ser acessadas diretamente por meio de RoleEnvironment. Em Service Fabric, as configurações se aplicam individualmente a cada serviço e a cada aplicativo, em vez de a uma VM, porque uma VM pode hospedar vários serviços e aplicativos. Um serviço é composto por três pacotes:
 
-* **Código:** contém os executáveis de serviço, binários, DLLs e outros ficheiros de um serviço precisa ser executado.
-* **Configuração:** todos os ficheiros de configuração e definições para um serviço.
-* **Dados:** associados ao serviço de ficheiros de dados estáticos.
+* **Código:** contém os executáveis de serviço, binários, DLLs e quaisquer outros arquivos que um serviço precisa executar.
+* **Configuração:** todos os arquivos de configuração e configurações de um serviço.
+* **Dados:** arquivos de dados estáticos associados ao serviço.
 
-Cada um desses pacotes pode ser uma versão e atualizar independentemente. Semelhante aos serviços em nuvem, um pacote de configuração pode ser acedido através de programação através de uma API e eventos estão disponíveis para notificar o serviço de uma alteração de pacote de configuração. Um arquivo Settings pode ser utilizado para a configuração de chave-valor e o acesso programático semelhante da secção definições da aplicação de um arquivo App. config. No entanto, ao contrário dos serviços Cloud, um pacote de configuração do Service Fabric pode conter quaisquer ficheiros de configuração em qualquer formato, quer se trate de um formato binário personalizado, YAML, JSON ou XML. 
+Cada um desses pacotes pode ser com controle de versão e atualização independentes. Semelhante aos serviços de nuvem, um pacote de configuração pode ser acessado programaticamente por meio de uma API e os eventos estão disponíveis para notificar o serviço de uma alteração de pacote de configuração. Um arquivo Settings. XML pode ser usado para configuração de chave-valor e acesso programático semelhante à seção de configurações do aplicativo de um arquivo app. config. No entanto, diferentemente dos serviços de nuvem, um pacote de configuração Service Fabric pode conter qualquer arquivo de configuração em qualquer formato, seja ele XML, JSON, YAML ou um formato binário personalizado. 
 
-### <a name="accessing-configuration"></a>Aceder à configuração
-#### <a name="cloud-services"></a>Serviços Cloud
-Definições de configuração dos ServiceConfiguration.*.cscfg podem ser acessadas `RoleEnvironment`. Estas definições são globalmente disponíveis para todas as instâncias de função na mesma implementação do serviço em nuvem.
+### <a name="accessing-configuration"></a>Acessando configuração
+#### <a name="cloud-services"></a>Serviços em Nuvem
+As definições de configuração de inconfiguration. *. cscfg podem ser acessadas por meio de `RoleEnvironment`. Essas configurações estão disponíveis globalmente para todas as instâncias de função na mesma implantação de serviço de nuvem.
 
 ```csharp
 
@@ -146,9 +137,9 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Cada serviço tem seu próprio pacote de configuração individuais. Não existe nenhum mecanismo incorporado para definições de configuração global acessível por todos os aplicativos num cluster. Ao utilizar o especial Settings ficheiro de configuração Service Fabric dentro de um pacote de configuração, os valores em Settings podem ser substituídas no nível do aplicativo, possibilitando a definições de configuração de nível de aplicativo.
+Cada serviço tem seu próprio pacote de configuração individual. Não há nenhum mecanismo interno para definições de configuração globais acessíveis por todos os aplicativos em um cluster. Ao usar o arquivo de configuração especial Settings. XML do Service Fabric em um pacote de configuração, os valores em Settings. XML podem ser substituídos no nível do aplicativo, tornando possível as definições de configuração no nível do aplicativo.
 
-Definições de configuração são acessos dentro de cada instância de serviço através do serviço `CodePackageActivationContext`.
+As definições de configuração são acessados em cada instância de serviço por meio do `CodePackageActivationContext`do serviço.
 
 ```csharp
 
@@ -168,8 +159,8 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ```
 
 ### <a name="configuration-update-events"></a>Eventos de atualização de configuração
-#### <a name="cloud-services"></a>Serviços Cloud
-O `RoleEnvironment.Changed` eventos é utilizado para notificar de todas as instâncias de função quando ocorre uma alteração no ambiente, como uma alteração de configuração. Isso é usado para consumir as atualizações de configuração sem reciclar instâncias de função ou reiniciar um processo de trabalho.
+#### <a name="cloud-services"></a>Serviços em Nuvem
+O evento `RoleEnvironment.Changed` é usado para notificar todas as instâncias de função quando ocorre uma alteração no ambiente, como uma alteração de configuração. Isso é usado para consumir atualizações de configuração sem reciclar instâncias de função ou reiniciar um processo de trabalho.
 
 ```csharp
 
@@ -188,9 +179,9 @@ foreach (var settingChange in settingChanges)
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Cada um dos tipos de três pacotes num serviço - código, configuração e dados, tem de eventos que uma instância do serviço de notificar quando um pacote é atualizado, adicionado ou removido. Um serviço pode conter vários pacotes de cada tipo. Por exemplo, um serviço pode ter vários pacotes de configuração, cada um individualmente com versão e é atualizável. 
+Cada um dos três tipos de pacote em um código de serviço, configuração e dados-têm eventos que notificam uma instância de serviço quando um pacote é atualizado, adicionado ou removido. Um serviço pode conter vários pacotes de cada tipo. Por exemplo, um serviço pode ter vários pacotes de configuração, cada um com controle de versão individual e atualizável. 
 
-Estes eventos estão disponíveis para consumir as alterações nos pacotes de serviço sem reiniciar a instância do serviço.
+Esses eventos estão disponíveis para consumir alterações em pacotes de serviço sem reiniciar a instância do serviço.
 
 ```csharp
 
@@ -205,17 +196,17 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ```
 
-## <a name="startup-tasks"></a>Tarefas de arranque
-Tarefas de arranque são ações que são executadas antes de iniciar uma aplicação. Uma tarefa de arranque é normalmente utilizada para executar scripts de configuração utilizando privilégios elevados. Os serviços Cloud e o Service Fabric suportam tarefas de arranque. A principal diferença é que nos serviços Cloud, uma tarefa de arranque está ligada a uma VM porque faz parte de uma instância de função, enquanto que no Service Fabric está associada uma tarefa de arranque para um serviço, que não está associado a qualquer VM específica.
+## <a name="startup-tasks"></a>Tarefas de inicialização
+As tarefas de inicialização são ações executadas antes do início de um aplicativo. Uma tarefa de inicialização normalmente é usada para executar scripts de instalação usando privilégios elevados. Os serviços de nuvem e Service Fabric oferecem suporte a tarefas de inicialização. A principal diferença é que nos serviços de nuvem, uma tarefa de inicialização está vinculada a uma VM porque faz parte de uma instância de função, enquanto que, em Service Fabric uma tarefa de inicialização está vinculada a um serviço, que não está vinculado a nenhuma VM específica.
 
-| Service Fabric | Serviços Cloud |
+| Service Fabric | Serviços em Nuvem |
 | --- | --- |
-| Localização de configuração |ServiceDefinition.csdef |
-| Privilégios |"limitada" ou "elevado" |
-| Sequenciamento |"simple", "background", "foreground" |
+| Local de configuração |ServiceDefinition.csdef |
+| Privilégios |"limitado" ou "elevado" |
+| Sequenciação |"simples", "plano de fundo", "primeiro plano" |
 
-### <a name="cloud-services"></a>Serviços Cloud
-Nos serviços Cloud, um ponto de entrada de arranque está configurado por função no servicedefinition. Csdef. 
+### <a name="cloud-services"></a>Serviços em Nuvem
+Em serviços de nuvem, um ponto de entrada de inicialização é configurado por função em @ Definition. csdef. 
 
 ```xml
 
@@ -233,7 +224,7 @@ Nos serviços Cloud, um ponto de entrada de arranque está configurado por funç
 ```
 
 ### <a name="service-fabric"></a>Service Fabric
-No Service Fabric, um ponto de entrada de arranque está configurado por serviço no servicemanifest. XML:
+No Service Fabric um ponto de entrada de inicialização é configurado por serviço em Service manifest. xml:
 
 ```xml
 
@@ -250,13 +241,13 @@ No Service Fabric, um ponto de entrada de arranque está configurado por serviç
 ``` 
 
 ## <a name="a-note-about-development-environment"></a>Uma observação sobre o ambiente de desenvolvimento
-Os serviços Cloud e o Service Fabric estão integradas com o Visual Studio com modelos de projeto e suporte para depuração, configurar e implementar ambos localmente e para o Azure. Os serviços Cloud e o Service Fabric também fornecem um ambiente de tempo de execução de desenvolvimento local. A diferença é que, enquanto o tempo de execução de desenvolvimento do serviço em nuvem emula o ambiente do Azure no qual é executado, Service Fabric não utiliza um emulador – ele usa o tempo de execução completado do Service Fabric. O ambiente do Service Fabric que executar no seu computador de desenvolvimento local é o mesmo ambiente que é executado na produção.
+Os serviços de nuvem e os Service Fabric são integrados ao Visual Studio com modelos de projeto e suporte para depuração, configuração e implantação tanto localmente quanto no Azure. Os serviços de nuvem e Service Fabric também fornecem um ambiente de tempo de execução de desenvolvimento local. A diferença é que, embora o tempo de execução de desenvolvimento do serviço de nuvem eMule o ambiente do Azure em que ele é executado, Service Fabric não usa um emulador, ele usa o tempo de execução completo Service Fabric. O ambiente de Service Fabric que você executa em seu computador de desenvolvimento local é o mesmo ambiente executado em produção.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre o Service Fabric Reliable Services e as diferenças fundamentais entre serviços Cloud e a arquitetura de aplicação do Service Fabric para compreender como tirar partido do conjunto completo de funcionalidades do Service Fabric.
+## <a name="next-steps"></a>Passos seguintes
+Leia mais sobre Service Fabric Reliable Services e as diferenças fundamentais entre os serviços de nuvem e a arquitetura de aplicativo Service Fabric para entender como aproveitar o conjunto completo de recursos de Service Fabric.
 
 * [Introdução ao Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md)
-* [Guia conceitual para as diferenças entre serviços em nuvem e o Service Fabric](service-fabric-cloud-services-migration-differences.md)
+* [Guia conceitual das diferenças entre os serviços de nuvem e Service Fabric](service-fabric-cloud-services-migration-differences.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png

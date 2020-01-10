@@ -1,5 +1,5 @@
 ---
-title: Adicionar identidade visual à página da sua organização início de sessão - Azure Active Directory | Documentos da Microsoft
+title: Adicionar identidade visual à página de entrada da sua organização-Azure AD
 description: Instruções sobre como adicionar a imagem corporativa da sua organização para a página de início de sessão no Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422826"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -29,7 +29,7 @@ Utilize o logótipo e esquemas de cores personalizada da sua organização para 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de início de sessão do Azure AD
 Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como,\.www Office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada. Depois que o usuário tiver entrado, a identidade visual poderá levar 15 minutos ou mais para aparecer. 
+Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como, www\.office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada. Depois que o usuário tiver entrado, a identidade visual poderá levar 15 minutos ou mais para aparecer. 
 
 > [!NOTE]
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se especificar um logótipo de faixa com nenhuma imagem de fundo, a página de início de sessão irá mostrar o logótipo com uma imagem de fundo predefinido do site de destino (por exemplo, o Office 365).<br><br>Além disso, imagem corporativa a página de início de sessão não passa para contas Microsoft pessoais. Se os usuários ou convidados empresariais iniciar sessão com uma conta Microsoft pessoal, a página de início de sessão não reflete a imagem corporativa da sua organização.
@@ -76,7 +76,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
     
         - **Imagem do logótipo quadrado, tema escuro.** Mesmo que a imagem do logótipo quadrado acima. Esta imagem de logótipo substitui a imagem do logótipo quadrado quando utilizado com um plano de fundo escuro, tal como com Windows 10 do Azure AD associado a um telas durante a experiência de out-of-box (OOBE).  Se o seu logótipo parece bem em fundos branco, escuros azuis e pretas, não precisa de adicionar esta imagem. 
         
-        - **Mostre a opção para manter a sessão iniciada.** Pode optar por permitir que os utilizadores a manterem a sessão iniciada para o Azure AD até explicitamente a terminar a sessão. Se escolher **não**, esta opção está oculto e os utilizadores devem iniciar sessão sempre que o browser é fechado e reaberto.
+        - **Mostre a opção para manter a sessão iniciada.** Você pode optar por permitir que seus usuários permaneçam conectados ao Azure AD até que explicitamente se desconectem. Se você escolher **não**, essa opção será ocultada e os usuários deverão entrar toda vez que o navegador for fechado e reaberto.
         
             >[!Note]
             >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não**, os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.

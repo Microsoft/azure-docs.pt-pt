@@ -4,15 +4,15 @@ description: Este artigo mostra as etapas para se conectar Configuration Manager
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364055"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar Configuration Manager ao Azure Monitor
 Você pode conectar seu ambiente de System Center Configuration Manager para Azure Monitor para sincronizar dados de coleta de dispositivos e fazer referência a essas coleções no Azure Monitor e na automação do Azure.  
@@ -22,13 +22,13 @@ Você pode conectar seu ambiente de System Center Configuration Manager para Azu
 O Azure Monitor dá suporte System Center Configuration Manager Branch atual, versão 1606 e superior.
 
 >[!NOTE]
->O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. Você deve habilitar esse recurso antes de usá-lo. Para obter mais informações, consulte [habilitar recursos opcionais de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
+>O recurso para se conectar Configuration Manager com um espaço de trabalho de Log Analytics é opcional e não é habilitado por padrão. Você deve habilitar esse recurso antes de usá-lo. Para mais informações, consulte [Enable optional features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
 
 ## <a name="configuration-overview"></a>Descrição geral da configuração
 
 As etapas a seguir resumem as etapas para configurar a integração de Configuration Manager com o Azure Monitor.  
 
-1. No Azure Active Directory, registre Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e verifique se você tem a ID do cliente e a chave secreta do cliente do registro de Azure Active Directory. Consulte [usar o portal para criar Active Directory aplicativo e entidade de serviço que pode acessar recursos](../../active-directory/develop/howto-create-service-principal-portal.md) para obter informações detalhadas sobre como realizar essa etapa.
+1. No Azure Active Directory, registre Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e verifique se você tem a ID do cliente e a chave secreta do cliente do registro de Azure Active Directory. Ver [utilize o portal para criar o principal de aplicações e serviço que pode aceder aos recursos do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md) para obter informações detalhadas sobre como realizar este passo.
 
 2. No Azure Active Directory, [conceda Configuration Manager (o aplicativo Web registrado) com permissão para acessar Azure monitor](#grant-configuration-manager-with-permissions-to-log-analytics).
 
@@ -40,27 +40,27 @@ As etapas a seguir resumem as etapas para configurar a integração de Configura
 
 6. Em Azure Monitor, exiba dados de Configuration Manager como [grupos de computadores](computer-groups.md).
 
-## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Conceder Configuration Manager com permissões para Log Analytics
+## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Gestor de configuração de concessão com permissões para o Log Analytics
 
-No procedimento a seguir, você concede a função *colaborador* em seu espaço de trabalho log Analytics ao aplicativo do AD e à entidade de serviço que você criou anteriormente para Configuration Manager. Se você ainda não tiver um espaço de trabalho, consulte [criar um espaço de trabalho no Azure monitor antes de](../../azure-monitor/learn/quick-create-workspace.md) continuar. Isso permite que Configuration Manager se autentiquem e se conectem ao seu espaço de trabalho do Log Analytics.  
+No procedimento seguinte, pode conceder a *contribuinte* função na sua área de trabalho do Log Analytics para a aplicação do AD e principal de serviço que criou anteriormente para o Configuration Manager. Se você ainda não tiver um espaço de trabalho, consulte [criar um espaço de trabalho no Azure monitor antes de](../../azure-monitor/learn/quick-create-workspace.md) continuar. Isso permite que o Configuration Manager para se autenticar e ligar à sua área de trabalho do Log Analytics.  
 
 > [!NOTE]
-> Você deve especificar permissões no espaço de trabalho Log Analytics para Configuration Manager. Caso contrário, você receberá uma mensagem de erro ao usar o assistente de configuração no Configuration Manager.
+> Você deve especificar permissões no espaço de trabalho Log Analytics para Configuration Manager. Caso contrário, receberá uma mensagem de erro quando utiliza o Assistente de configuração no Configuration Manager.
 >
 
 1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 
-2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho a ser modificado.
+2. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho para modificar.
 
-3. No painel esquerdo, selecione **controle de acesso (iam)** .
+3. No painel esquerdo, selecione **controlo de acesso (IAM)** .
 
-4. Na página controle de acesso (IAM), clique em **Adicionar atribuição de função** e o painel **Adicionar atribuição de função** é exibido.
+4. Na página de controle (IAM) de acesso, clique em **adicionar atribuição de função** e o **adicionar atribuição de função** é apresentado o painel.
 
-5. No painel **Adicionar atribuição de função** , na lista suspensa **função** , selecione a função **colaborador** .  
+5. Na **adicionar atribuição de função** painel, no **função** selecione na lista pendente o **contribuinte** função.  
 
-6. Na lista suspensa **atribuir acesso a** , selecione o aplicativo Configuration Manager criado no AD anteriormente e clique em **OK**.  
+6. Sob o **atribuir acesso aos** na lista pendente, selecione a aplicação do Configuration Manager que criou anteriormente no AD e, em seguida, clique em **OK**.  
 
-## <a name="download-and-install-the-agent"></a>Baixar e instalar o agente
+## <a name="download-and-install-the-agent"></a>Transfira e instale o agente
 
 Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent-windows.md) para entender os métodos disponíveis para instalar o agente de log Analytics para Windows no computador que hospeda a função do sistema de sites do ponto de conexão de serviço do Configuration Manager.  
 
@@ -76,7 +76,7 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 
 2. Clique com o botão direito do mouse em **Serviços do Azure** e selecione **Configurar serviços do Azure**. A página **Configurar serviços do Azure** é exibida. 
    
-3. Na tela **geral** , confirme que você fez as seguintes ações e que você tem detalhes para cada item e, em seguida, selecione **Avançar**.
+3. Sobre o **gerais** ecrã, confirme que o tiver feito as seguintes ações e que tiver os detalhes para cada item, em seguida, selecione **próxima**.
 
 4. Na página serviços do Azure do assistente de serviços do Azure:
 
@@ -109,11 +109,11 @@ Examine o artigo [conectar computadores Windows ao Azure monitor no Azure](agent
 
     8. Selecione **verificar** e, à direita, os resultados devem mostrar **verificados com êxito!** .
 
-8. Na página **configuração** , examine as informações para verificar se os campos **assinaturas do Azure**, **grupo de recursos do Azure**e **espaço de trabalho do Operations Management Suite** estão previamente preenchidos, indicando que o aplicativo Azure ad tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que seu aplicativo não tem os direitos necessários. Selecione as coleções de dispositivos a serem coletadas e encaminhadas para o espaço de trabalho e, em seguida, selecione **Adicionar**.
+8. Na página **configuração** , examine as informações para verificar se os campos **assinaturas do Azure**, **grupo de recursos do Azure**e **espaço de trabalho do Operations Management Suite** estão preenchidos previamente, indicando que o aplicativo Azure ad tem permissões suficientes no grupo de recursos. Se os campos estiverem vazios, indica que seu aplicativo não tem os direitos necessários. Selecione as coleções de dispositivos a serem coletadas e encaminhadas para o espaço de trabalho e, em seguida, selecione **Adicionar**.
 
 9. Examine as opções na página **confirmar as configurações** e selecione **Avançar** para começar a criar e configurar a conexão.
 
-10. Quando a configuração for concluída, a página **conclusão** será exibida. Selecione **fechar**. 
+10. Quando a configuração for concluída, a página **conclusão** será exibida. Selecione **Fechar**. 
 
 Depois de vincular Configuration Manager ao Azure Monitor, você pode adicionar ou remover coleções e exibir as propriedades da conexão.
 
@@ -122,32 +122,32 @@ Depois de vincular Configuration Manager ao Azure Monitor, você pode adicionar 
 Se uma senha ou chave secreta do cliente expirar ou for perdida, você precisará atualizar manualmente as propriedades de conexão do Log Analytics.
 
 1. No espaço de trabalho **Administração** do Configuration Manager, selecione **serviços de nuvem** e, em seguida, selecione conector do **OMS** para abrir a página Propriedades de **conexão do OMS** .
-2. Nessa página, clique na guia **Azure Active Directory** para exibir seu **locatário**, **ID do cliente**, **expiração da chave secreta do cliente**. **Verifique** a **chave secreta do cliente** se ela tiver expirado.
+2. Nesta página, clique nas **do Azure Active Directory** separador para ver seu **inquilino**, **ID de cliente**, **expiração da chave secreta do cliente**. **Certifique-se** sua **chave secreta do cliente** se tiver expirado.
 
 ## <a name="import-collections"></a>Importar coleções
 
 Depois de adicionar uma conexão de Log Analytics para Configuration Manager e instalar o agente no computador que executa a função de sistema de site do ponto de conexão de serviço Configuration Manager, a próxima etapa é importar coleções de Configuration Manager no Azure Monitorar como grupos de computadores.
 
-Depois de concluir a configuração inicial para importar coleções de dispositivos de sua hierarquia, as informações de coleção são recuperadas a cada três horas para manter a associação atual. Você pode optar por desabilitar isso a qualquer momento.
+Depois de concluir a configuração inicial para importar coleções de dispositivos de sua hierarquia, as informações de coleção são recuperadas a cada três horas para manter a associação atual. Pode optar por desativar isso em qualquer altura.
 
 1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
-2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho Configuration Manager está registrado com.  
+2. Na sua lista de áreas de trabalho do Log Analytics, selecione a área de trabalho do Configuration Manager está registado.  
 3. Selecione **Definições avançadas**.
 4. Selecione **grupos de computadores** e, em seguida, selecione **SCCM**.  
-5. Selecione **importar Configuration Manager associações de coleção** e, em seguida, clique em **salvar**.  
+5. Selecione **associações de coleção do Gestor de configuração de importação** e, em seguida, clique em **guardar**.  
    
-    ![Grupos de computadores – guia SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Grupos de computadores - separador do SCCM](./media/collect-sccm/sccm-computer-groups01.png)
 
-## <a name="view-data-from-configuration-manager"></a>Exibir dados de Configuration Manager
+## <a name="view-data-from-configuration-manager"></a>Vista de dados do Configuration Manager
 
-Depois de adicionar uma conexão de Log Analytics para Configuration Manager e instalar o agente no computador que executa a função de sistema de site do ponto de conexão de serviço Configuration Manager, os dados do agente serão enviados para o espaço de trabalho Log Analytics no Azure Monitor. Em Azure Monitor, suas coleções de Configuration Manager aparecem como [grupos de computadores](../../azure-monitor/platform/computer-groups.md). Você pode exibir os grupos na página **Configuration Manager** em **grupos de Settings\Computer**.
+Depois de adicionar uma conexão de Log Analytics para Configuration Manager e instalar o agente no computador que executa a função de sistema de site do ponto de conexão de serviço Configuration Manager, os dados do agente serão enviados para o espaço de trabalho Log Analytics no Azure Monitor. Em Azure Monitor, suas coleções de Configuration Manager aparecem como [grupos de computadores](../../azure-monitor/platform/computer-groups.md). Pode ver os grupos do **Configuration Manager** página sob **Settings\Computer grupos**.
 
-Depois que as coleções forem importadas, você poderá ver quantos computadores com associações de coleção foram detectados. Você também pode ver o número de coleções que foram importadas.
+Depois das coleções são importadas, pode ver quantos computadores com associações de coleção foram detetados. Também pode ver o número de coleções que foram importados.
 
-![Grupos de computadores – guia SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Grupos de computadores - separador do SCCM](./media/collect-sccm/sccm-computer-groups02.png)
 
 Quando você clica em qualquer um, o editor de consultas de log é aberto exibindo todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando a [pesquisa de log](../../azure-monitor/log-query/log-query-overview.md), você pode executar uma análise mais detalhada dos dados de associação da coleção.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Use a [pesquisa de logs](../../azure-monitor/log-query/log-query-overview.md) para exibir informações detalhadas sobre seus dados de Configuration Manager.
+Uso [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas sobre os seus dados do Configuration Manager.

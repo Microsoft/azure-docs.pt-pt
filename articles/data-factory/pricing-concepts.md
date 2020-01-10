@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/25/2018
-ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 12/27/2019
+ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684532"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552139"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços Data Factory por meio de exemplos
 
@@ -126,13 +126,13 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
   - Atividade de pipeline = $0.03 (rateado por 1 minuto de tempo de execução. $0,002/hora em Azure Integration Runtime)
   - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Usando a depuração de fluxo de dados de mapeamento para um workday normal (preço de visualização)
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Usando a depuração de fluxo de dados de mapeamento para um workday normal
 
-Como engenheiro de dados, você é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. Faça logon na interface do usuário do ADF na manhã e habilite o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. Você trabalha ao longo do dia por 10 horas, portanto, sua sessão de depuração nunca expira. Portanto, sua cobrança pelo dia será:
+Como engenheiro de dados, você é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. Faça logon na interface do usuário do ADF na manhã e habilite o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. Você trabalha ao longo do dia por 8 horas, portanto, sua sessão de depuração nunca expira. Portanto, sua cobrança pelo dia será:
 
-**10 (horas) x 8 (núcleos) x $0.112 = $8.96**
+**8 (horas) x 8 (núcleos com otimização de computação) x $0.193 = $12.35**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformar dados no repositório de blob com o mapeamento de fluxos de dados (preço de visualização)
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformar dados no repositório de blob com fluxos de dados de mapeamento
 
 Nesse cenário, você deseja transformar os dados no repositório de blob visualmente nos fluxos de dados de mapeamento do ADF em uma agenda por hora.
 
@@ -153,7 +153,7 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | Criar pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 execuções de atividade (1 para execução de gatilho, 1 para execuções de atividade) |
-| Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com TTL de 10 |
+| Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 16 núcleos de computação geral com TTL de 10 |
 | Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Preço do cenário total: $0.3011**
@@ -161,9 +161,9 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 - Operações de Data Factory = **$0.01**
   - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
   - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
-- Execução de &amp; de orquestração de pipeline = **$0.301**
+- Execução de &amp; de orquestração de pipeline = **$1.463**
   - Execuções de atividade = 001\*2 = 0, 2 [1 Run = $1/1000 = 0, 1]
-  - Atividades de fluxo de dados = $0.299 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.112/hora em Azure Integration Runtime com 8 núcleos de computação geral
+  - Atividades de fluxo de dados = $1.461 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.274/hora em Azure Integration Runtime com 16 núcleos de computação geral
 
 ## <a name="next-steps"></a>Passos seguintes
 

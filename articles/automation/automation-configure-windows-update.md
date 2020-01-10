@@ -2,19 +2,15 @@
 title: Definir configurações de Windows Update para trabalhar com o Azure Gerenciamento de Atualizações
 description: Este artigo descreve as configurações de Windows Update que você configura para trabalhar com o Gerenciamento de Atualizações do Azure.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f6377012a2afd0fb36486edf0af0ac3591b5d1f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366860"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Definir configurações de Windows Update para Gerenciamento de Atualizações
 

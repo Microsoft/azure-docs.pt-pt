@@ -1,19 +1,14 @@
 ---
-title: Melhorar o desempenho de aplicativos do Azure com o Azure Advisor | Microsoft Docs
+title: Melhorar o desempenho de aplicativos do Azure com o Azure Advisor
 description: Use o Advisor para otimizar o desempenho de suas implantações do Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183124"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443062"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure com o Azure Advisor
 

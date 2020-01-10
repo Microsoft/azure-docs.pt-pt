@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457153"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -49,19 +49,19 @@ O [portal do Microsoft Azure](https://portal.azure.com) é um local central em q
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. Você pode usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços fornecidos por meio da plataforma Azure.
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite que você trabalhe com os recursos em sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos de sua solução em uma única operação coordenada.
+## <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) permite que você trabalhe com os recursos em sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos de sua solução em uma única operação coordenada.
 
-## <a name="azure-service-bus"></a>Service Bus do Azure
+## <a name="azure-service-bus"></a>Azure Service Bus
 O [barramento de serviço](../service-bus/index.md) fornece comunicação habilitada para nuvem com mensagens corporativas e comunicação retransmitida que ajuda você a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT fazem uso de [filas](../service-bus-messaging/service-bus-messaging-overview.md)do barramento de serviço.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 O [armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento em nuvem. Ele inclui o serviço de armazenamento de BLOBs que você pode usar para armazenar dados de objeto não estruturados. Alguns tutoriais do Hub IoT usam o armazenamento de BLOBs.
 
 ## <a name="back-end-app"></a>Aplicativo de back-end
 No contexto do [Hub IOT](#iot-hub), um aplicativo de back-end é um aplicativo que se conecta a um dos pontos de extremidade voltados para o serviço em um hub IOT. Por exemplo, um aplicativo de back-end pode recuperar mensagens do [dispositivo para a nuvem](#device-to-cloud) ou gerenciar o [registro de identidade](#identity-registry). Normalmente, um aplicativo de back-end é executado na nuvem, mas, em muitos dos tutoriais, os aplicativos de back-end são aplicativos de console em execução no seu computador de desenvolvimento local.
 
-## <a name="built-in-endpoints"></a>Pontos de extremidade internos
+## <a name="built-in-endpoints"></a>Pontos finais incorporados
 Todo Hub IoT inclui um [ponto de extremidade](iot-hub-devguide-endpoints.md) interno que é compatível com o Hub de eventos. Você pode usar qualquer mecanismo que funcione com hubs de eventos para ler mensagens do dispositivo para a nuvem desse ponto de extremidade.
 
 ## <a name="cloud-gateway"></a>Gateway de nuvem
@@ -78,7 +78,7 @@ Você usa cadeias de conexão em seu código de aplicativo para encapsular as in
 - As *cadeias de conexão do dispositivo* permitem que os dispositivos se conectem aos pontos de extremidade voltados para o dispositivo em um hub IOT.
 - As *cadeias de conexão do Hub IOT* permitem que os aplicativos de back-end se conectem aos pontos de extremidade voltados para o serviço em um hub IOT.
 
-## <a name="custom-endpoints"></a>Pontos de extremidade personalizados
+## <a name="custom-endpoints"></a>Pontos finais personalizados
 Você pode criar [pontos de extremidade](iot-hub-devguide-endpoints.md) personalizados em um hub IOT para entregar mensagens expedidas por uma [regra de roteamento](#routing-rules). Os pontos de extremidade personalizados se conectam diretamente a um hub de eventos, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
 ## <a name="custom-gateway"></a>Gateway personalizado
@@ -158,19 +158,19 @@ Uma mensagem interativa é uma mensagem da [nuvem para o dispositivo](#cloud-to-
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-hub"></a>Hub IoT
 O Hub IoT é um serviço do Azure totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de solução. Para obter mais informações, consulte [o que é o Hub IOT do Azure?](about-iot-hub.md) Usando sua [assinatura do Azure](#subscription), você pode criar hubs IOT para lidar com suas cargas de trabalho de mensagens de IOT.
 
 ## <a name="iot-hub-metrics"></a>Métricas do Hub IoT
 As [métricas do Hub IOT](iot-hub-metrics.md) fornecem dados sobre o estado dos hubs IOT em sua [assinatura do Azure](#subscription). As métricas do Hub IoT permitem avaliar a integridade geral do serviço e os dispositivos conectados a ele. As métricas do Hub IoT podem ajudá-lo a ver o que está acontecendo com seu hub IoT e investigar problemas de causa raiz sem precisar contatar o suporte do Azure.
 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do Hub IoT
-A [linguagem de consulta do Hub IOT](iot-hub-devguide-query-language.md) é uma linguagem semelhante a SQL que permite consultar o [](#job) e o dispositivo gêmeos.
+O [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma linguagem de tipo SQL que lhe permite consultar seu [](#job) e dispositivos duplos.
 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de recurso do Hub IoT
 Você pode usar a [API REST de recursos do Hub IOT](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerenciar os hubs IOT em sua [assinatura do Azure](#subscription) executando operações como criar, atualizar e excluir hubs.
 
-## <a name="iot-solution-accelerators"></a>Aceleradores de soluções IoT
+## <a name="iot-solution-accelerators"></a>Aceleradores de soluções do IoT
 Os aceleradores de solução do Azure IoT agrupam vários serviços do Azure em soluções. Essas soluções permitem que você comece rapidamente com implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [o que são aceleradores de solução do Azure IOT?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli"></a>A extensão de IoT para CLI do Azure 
@@ -226,16 +226,16 @@ Você configura [as regras de roteamento](iot-hub-devguide-messages-read-custom.
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN é um protocolo que o protocolo AMQP usa para transferir tokens de segurança.
 
-## <a name="service-rest-api"></a>API REST do serviço
+## <a name="service-rest-api"></a>API REST do Serviço
 Você pode usar a [API REST do serviço](https://docs.microsoft.com/rest/api/iothub/service) do back-end da solução para gerenciar seus dispositivos. A API permite que você recupere e atualize Propriedades de conexão de [dispositivo](#device-twin) , invoque [métodos diretos](#direct-method)e agende [trabalhos](#job). Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível superior, conforme mostrado nos tutoriais do Hub IOT.
 
-## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
+## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
 As SAS (assinaturas de acesso compartilhado) são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. A autenticação SAS tem dois componentes: uma _política de acesso compartilhado_ e uma _assinatura de acesso compartilhado_ (geralmente chamada de token). Um dispositivo usa SAS para autenticar com um hub IoT. Os [aplicativos de back-end](#back-end-app) também usam SAS para autenticar com os pontos de extremidade voltados para o serviço em um hub IOT. Normalmente, você inclui o token SAS na [cadeia de conexão](#connection-string) que um aplicativo usa para estabelecer uma conexão com um hub IOT.
 
 ## <a name="shared-access-policy"></a>Política de acesso compartilhado
 Uma política de acesso compartilhado define as permissões concedidas a qualquer pessoa que tenha uma [chave primária ou secundária](#primary-and-secondary-keys) válida associada a essa política. Você pode gerenciar as políticas de acesso compartilhado e as chaves para o Hub no [portal](#azure-portal).
 
-## <a name="simulated-device"></a>Dispositivo simulado
+## <a name="simulated-device"></a>Dispositivo de simulação
 Para sua conveniência, muitos dos tutoriais do Hub IoT usam dispositivos simulados para permitir que você execute amostras em seu computador local. Por outro lado, um [dispositivo físico](#physical-device) é um dispositivo real, como um Raspberry Pi, que se conecta a um hub IOT.
 
 ## <a name="solution"></a>Solução
@@ -257,7 +257,7 @@ Os dispositivos coletam dados de telemetria, como velocidade do vento ou tempera
 Você pode usar um serviço de token para implementar um mecanismo de autenticação para seus dispositivos. Ele usa uma política de [acesso compartilhado](#shared-access-policy) do Hub IOT com permissões **DeviceConnect** para criar tokens no *escopo do dispositivo* . Esses tokens permitem que um dispositivo se conecte ao Hub IoT. Um dispositivo usa um mecanismo de autenticação personalizado para autenticar com o serviço de token. Se o dispositivo for autenticado com êxito, o serviço de token emitirá um token SAS para o dispositivo usar para acessar o Hub IoT.
 
 ## <a name="twin-queries"></a>Consultas de entrelaçamento
-As [consultas de dispositivo e de módulo de](iot-hub-devguide-query-language.md) pesquisa usam a linguagem de consulta do Hub IOT do tipo SQL para recuperar informações de seu dispositivo gêmeos ou módulo gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar [](#job) informações sobre a execução em seu hub IOT.
+As [consultas de dispositivo e de módulo de](iot-hub-devguide-query-language.md) pesquisa usam a linguagem de consulta do Hub IOT do tipo SQL para recuperar informações de seu dispositivo gêmeos ou módulo gêmeos. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [](#job) em execução no seu hub IoT.
 
 ## <a name="twin-synchronization"></a>Sincronização de entrelaçar
 A sincronização de entrelaçamento usa as [propriedades desejadas](#desired-properties) em seu dispositivo gêmeos ou módulo gêmeos para configurar seus dispositivos ou módulos e recuperar [as propriedades relatadas](#reported-properties) deles para armazenar no.

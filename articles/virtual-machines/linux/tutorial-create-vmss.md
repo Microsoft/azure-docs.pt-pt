@@ -1,6 +1,6 @@
 ---
-title: Tutorial-criar um conjunto de dimensionamento de máquinas virtuais para Linux no Azure
-description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e implementar uma aplicação de elevada disponibilidade em VMs do Linux com um conjunto de dimensionamento de máquinas virtuais
+title: 'Tutorial: criar um conjunto de dimensionamento de máquinas virtuais do Windows'
+description: Saiba como usar o CLI do Azure para criar e implantar um aplicativo altamente disponível em VMs do Linux usando um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b9368da24af3b0fe08045ed869c752eefe3912fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 94e7bac3cbf3842375278a23bc39245425cda4b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458666"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implementar uma aplicação de elevada disponibilidade no Linux com a CLI do Azure
 
@@ -117,7 +117,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos. Existem tarefas em segundo plano que continuam a ser executadas após a CLI do Azure devolver o utilizador à linha de comandos. Pode demorar mais alguns minutos antes de poder aceder à aplicação.
+A criação e configuração de todas as VMs e recursos do conjunto de dimensionamento demora alguns minutos. Existem tarefas em segundo plano que continuam em execução após a CLI do Azure o devolver à linha de comandos. Poderão ser necessários mais alguns minutos antes de poder aceder à aplicação.
 
 
 ## <a name="allow-web-traffic"></a>Permitir tráfego Web

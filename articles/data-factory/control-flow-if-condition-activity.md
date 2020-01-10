@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444158"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade de condição if no Azure Data Factory
 A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
@@ -63,13 +63,13 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade If-Condition. | String | Sim
 tipo | Deve ser definido como **IfCondition** | String | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Array | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Array | Sim
+expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Matriz | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Matriz | Sim
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro de pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. E, se o valor de routeSelection for false, os dados serão copiados para outputPath2. 
@@ -196,10 +196,7 @@ Outro exemplo de expressão é:
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407551"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos do insights Aplicativo Azure com o conector para Microsoft Flow
 
@@ -69,7 +69,7 @@ Se a caixa de conexão não aparecer imediatamente e, em vez disso, chegar diret
 Clique em **Criar**.
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Etapa 5: especificar a consulta de análise e o tipo de gráfico
-Esta consulta de exemplo seleciona as solicitações com falha no último dia e as correlaciona com exceções que ocorreram como parte da operação. O Analytics os correlaciona com base no identificador operation_Id. Em seguida, a consulta segmenta os resultados usando o algoritmo autocluster.
+Esta consulta de exemplo seleciona as solicitações com falha no último dia e as correlaciona com exceções que ocorreram como parte da operação. O Analytics os correlaciona com base no identificador de operation_Id. Em seguida, a consulta segmenta os resultados usando o algoritmo autocluster.
 
 Ao criar suas próprias consultas, verifique se elas estão funcionando corretamente no Analytics antes de adicioná-las ao seu fluxo.
 
@@ -119,7 +119,7 @@ Ao criar suas próprias consultas, verifique se elas estão funcionando corretam
 
 Clique em **Guardar**.
 
-Você pode aguardar até que o gatilho execute esta ação, ou pode clicar no ícone de teste ![beaker ](./media/automate-with-flow/testicon.png) **teste** na parte superior.
+Você pode aguardar o gatilho executar esta ação ou clicar em ![ícone de teste do Beaker](./media/automate-with-flow/testicon.png) **teste** na parte superior.
 
 Depois de selecionar **teste**:
 

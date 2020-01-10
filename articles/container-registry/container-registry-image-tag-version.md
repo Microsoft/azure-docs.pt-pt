@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445741"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendações para marcação e controle de versão de imagens de contêiner
 
@@ -38,6 +38,10 @@ Quando as atualizações da imagem base estão disponíveis ou qualquer tipo de 
 
 Nesse caso, as marcas principal e secundária estão sendo atendidas continuamente. A partir de um cenário de imagem base, isso permite que o proprietário da imagem forneça imagens atendidas.
 
+### <a name="delete-untagged-manifests"></a>Excluir manifestos não marcados
+
+Se uma imagem com uma marca estável for atualizada, a imagem marcada anteriormente será desmarcada, resultando em uma imagem órfã. O manifesto da imagem anterior e os dados da camada exclusiva permanecem no registro. Para manter o tamanho do registro, você pode excluir periodicamente os manifestos não marcados resultantes de atualizações de imagem estáveis. Por exemplo, [limpar automaticamente](container-registry-auto-purge.md) manifestos não marcados com mais de uma duração especificada ou definir uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados.
+
 ## <a name="unique-tags"></a>Marcas exclusivas
 
 **Recomendação**: use marcas exclusivas para **implantações**, especialmente em um ambiente que possa ser dimensionado em vários nós. Você provavelmente desejará implantações deliberadas de uma versão consistente dos componentes. Se o contêiner for reiniciado ou um orquestrador expandir mais instâncias, seus hosts não receberão acidentalmente uma versão mais nova, inconsistente com os outros nós.
@@ -51,7 +55,13 @@ A marcação exclusiva significa simplesmente que cada imagem enviada por push a
 
   Se sua organização tiver vários sistemas de compilação, a prefixação da marca com o nome do sistema de compilação será uma variação nessa opção: `<build-system>-<build-id>`. Por exemplo, você poderia diferenciar as compilações do sistema de compilação Jenkins da equipe de API e do sistema de Build de Azure Pipelines da equipe da Web.
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="lock-deployed-image-tags"></a>Bloquear marcas de imagem implantadas
+
+Como prática recomendada, recomendamos que você [bloqueie](container-registry-image-lock.md) qualquer marca de imagem implantada, definindo seu atributo `write-enabled` como `false`. Essa prática impede que você remova inadvertidamente uma imagem do registro e possivelmente interrompa suas implantações. Você pode incluir a etapa de bloqueio em seu pipeline de liberação.
+
+O bloqueio de uma imagem implantada ainda permite remover outras imagens não implantadas do registro usando recursos do registro de contêiner do Azure para manter o registro. Por exemplo, [limpe automaticamente](container-registry-auto-purge.md) manifestos não marcados ou imagens desbloqueadas com mais de uma duração especificada ou defina uma [política de retenção](container-registry-retention-policy.md) para manifestos não marcados.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma discussão mais detalhada sobre os conceitos deste artigo, consulte a postagem do blog [marcação do Docker: práticas recomendadas para marcação e controle de versão de imagens do Docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 

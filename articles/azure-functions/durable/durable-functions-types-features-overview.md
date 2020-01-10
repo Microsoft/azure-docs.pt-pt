@@ -1,18 +1,18 @@
 ---
-title: Tipos de função na extensão de Durable Functions de Azure Functions
+title: Tipos de função no Azure Durable Functions
 description: Saiba mais sobre os tipos de funções e funções que dão suporte à comunicação de função a função em uma orquestração de Durable Functions no Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433270"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de Durable Functions e recursos (Azure Functions)
+# <a name="durable-functions-types-and-features"></a>Tipos de Durable Functions e recursos
 
 Durable Functions é uma extensão de [Azure Functions](../functions-overview.md). Você pode usar Durable Functions para orquestração com estado da execução da função. Um aplicativo de funções durável é uma solução composta por diferentes funções do Azure. As funções podem reproduzir funções diferentes em uma orquestração de função durável. 
 

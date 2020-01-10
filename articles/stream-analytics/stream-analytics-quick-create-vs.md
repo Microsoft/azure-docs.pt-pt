@@ -1,18 +1,17 @@
 ---
 title: Início rápido-criar um trabalho de Azure Stream Analytics usando o Visual Studio
 description: Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics, configurar entradas e saídas, e definir uma consulta com o Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431532"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início rápido: criar um trabalho de Azure Stream Analytics usando o Visual Studio
 
@@ -22,7 +21,7 @@ Este início rápido mostra como criar e executar uma tarefa do Stream Analytics
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
-* Inicie sessão no [portal do Azure](https://portal.azure.com/).
+* Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 * Instale o Visual Studio 2019, o Visual Studio 2015 ou o Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
 
@@ -32,7 +31,7 @@ Este início rápido mostra como criar e executar uma tarefa do Stream Analytics
 
 Antes de definir o trabalho de Stream Analytics, você deve preparar os dados, que são configurados posteriormente como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, conclua as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
@@ -130,7 +129,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |**Definição**  |**Valor sugerido**  |**Descrição**   |
    |---------|---------|---------|
    |Alias de Saída  |  Saída   |  Introduza um nome para identificar a saída da tarefa.   |
-   |Sink   |  Armazenamento de Blobs |  Escolha o sink adequado.    |
+   |Sink   |  Blob Storage |  Escolha o sink adequado.    |
    |Recurso  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
    |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.   |
@@ -170,7 +169,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
 
 3. Clique em **Executar**. A saída deve mostrar os dados do sensor e as mensagens que estão sendo enviadas para o Hub IoT.
 
-   ![Simulador online do Azure IoT do Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+   ![Simulador Online do Azure IoT Raspberry Pi](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
@@ -205,4 +204,4 @@ Neste início rápido, implementou uma tarefa simples do Stream Analytics com o 
 Para saber mais sobre as ferramentas de Azure Stream Analytics para o Visual Studio, prossiga para o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Usar o Visual Studio para exibir Azure Stream Analytics trabalhos](stream-analytics-vs-tools.md)
+> [Use o Visual Studio para ver tarefas do Azure Stream Analytics](stream-analytics-vs-tools.md)

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453899"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -36,13 +36,11 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. O Azure IoT Central sugere automaticamente um nome de aplicativo com base no modelo de aplicativo que você selecionou. Você pode aceitar esse nome ou inserir seu próprio nome de aplicativo amigável, como o **contoso IOT**. O Azure IoT Central também gera uma URL exclusiva para você, com base no nome do aplicativo. Você está livre para alterar esse prefixo de URL para algo mais fácil de memorizar, se desejar.
 
-1. Selecione um modelo de aplicativo que não use recursos de visualização. Os modelos de aplicação podem conter itens predefinidos, como modelos de dispositivo e dashboards, que o ajudam a começar.
+1. Selecione o modelo de **aplicativo herdado** que não usa recursos de visualização.
 
     | Modelo de aplicação | Descrição |
     | -------------------- | ----------- |
-    | Exemplo da Contoso       | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
-    | Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Se for programador de dispositivos, utilize este modelo para experimentar um destes dispositivos. |
-    | Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
+    | Aplicativo herdado   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
 
 1. Escolha um plano de pagamento.
    - os aplicativos de **avaliação gratuita de 7** dias são gratuitos por sete dias antes de expirarem. Eles podem ser convertidos para **o pré-pago** a qualquer momento antes de expirarem. Se você criar um aplicativo de **avaliação** , precisará inserir suas informações de contato e escolher se deseja receber informações e dicas da Microsoft.
@@ -57,7 +55,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Selecione **criar** na parte inferior da página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 

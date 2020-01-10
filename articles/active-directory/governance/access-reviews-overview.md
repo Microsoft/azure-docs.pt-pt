@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422792"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -66,11 +66,13 @@ Dependendo do que você deseja examinar, você criará sua análise de acesso na
 
 Para carregar as revisões de acesso, siga estas etapas.
 
-1. Como administrador global ou administrador de usuários, entre no [portal do Azure](https://portal.azure.com) em que você deseja usar as revisões de acesso.
+1. Vá para o [portal do Azure](https://portal.azure.com) para gerenciar as revisões de acesso e entre como administrador global ou administrador de usuários.
 
-1. No painel de navegação esquerdo, clique em **Azure Active Directory**.
+1. Procure e selecione **Azure Active Directory**.
 
-1. No menu à esquerda, clique em **governança de identidade**.
+      ![portal do Azure Pesquisar Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. Selecione **governança de identidade**.
 
 1. Clique em **revisões de acesso**.
  
@@ -97,7 +99,7 @@ Se você estiver pronto para implantar revisões de acesso em sua organização,
 
 ### <a name="which-users-must-have-licenses"></a>Quais usuários devem ter licenças?
 
-Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2. Os exemplos incluem:
+Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2. Alguns exemplos:
 
 - Administradores que criam uma revisão de acesso
 - Proprietários de grupo que executam uma revisão de acesso

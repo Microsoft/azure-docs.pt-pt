@@ -1,19 +1,16 @@
 ---
 title: Introdução à CLI do Azure Service Fabric
 description: Saiba como utilizar a CLI do Azure Service Fabric. Saiba como ligar a um cluster e como gerir aplicações.
-services: service-fabric
 author: jeffj6123
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: e0146504bd06a3c56de8113cc59c9eedd375d06f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4c3a41fe4dba351c10ad8488d4d339bc797597ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901370"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463390"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 

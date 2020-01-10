@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: usar filas do barramento de serviço do Azure no node. js'
+title: Usar filas do barramento de serviço do Azure no node. js usando o pacote Azure-SB
 description: 'Início rápido: saiba como usar filas do barramento de serviço no Azure de um aplicativo node. js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462179"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início rápido: usar filas do barramento de serviço no Azure com node. js e o pacote Azure-SB
 
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
-> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens e receber mensagens de uma fila do barramento de serviço do Azure usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente o pacote Azure-SB.
 
@@ -135,7 +135,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo chama o método `sendQueueMessage` no objeto **ServiceBusService** . As mensagens enviadas para (e recebidas de) as filas do barramento de serviço são objetos **BrokeredMessage** e têm um conjunto de propriedades padrão (como **Label** e **TimeToLive**), um dicionário que é usado para manter Propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando uma cadeia de caracteres como a mensagem. Todas as propriedades padrão necessárias são preenchidas com valores padrão.
+Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo chama o método `sendQueueMessage` no objeto **ServiceBusService** . As mensagens enviadas para (e recebidas de) as filas do barramento de serviço são objetos **BrokeredMessage** e têm um conjunto de propriedades padrão (como **Label** e **TimeToLive**), um dicionário usado para manter Propriedades personalizadas específicas do aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando uma cadeia de caracteres como a mensagem. Todas as propriedades padrão necessárias são preenchidas com valores padrão.
 
 O exemplo a seguir demonstra como enviar uma mensagem de teste para a fila chamada `myqueue` usando `sendQueueMessage`:
 
@@ -159,7 +159,7 @@ As mensagens são recebidas de uma fila usando o método `receiveQueueMessage` n
 
 O comportamento padrão de leitura e exclusão da mensagem como parte da operação Receive é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem quando ocorrer uma falha. Para entender esse comportamento, considere um cenário no qual o consumidor emite a solicitação de recebimento e depois falha antes de processá-la. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marca a mensagem como sendo consumida e a remove da fila.
+Se o parâmetro `isPeekLock` for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando `deleteMessage` método e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marca a mensagem como sendo consumida e a remove da fila.
 
 O exemplo a seguir demonstra como receber e processar mensagens usando `receiveQueueMessage`. O exemplo primeiro recebe e exclui uma mensagem e, em seguida, recebe uma mensagem usando `isPeekLock` definido como **true**e, em seguida, exclui a mensagem usando `deleteMessage`:
 

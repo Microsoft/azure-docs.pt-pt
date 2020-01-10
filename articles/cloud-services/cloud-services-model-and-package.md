@@ -2,17 +2,17 @@
 title: O que é um modelo e pacote de serviço de nuvem | Microsoft Docs
 description: Descreve o modelo de serviço de nuvem (. csdef,. cscfg) e o pacote (. cspkg) no Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360706"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)* , a configuração do serviço *(. cscfg)* e um pacote de serviço *(. cspkg)* . Os arquivos Service **Definition. csdef** e **ServiceConfig. cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como ele é configurado; coletivamente chamado de modelo. O **cspkg** é um arquivo zip que é gerado a partir de um **webdefinition. csdef** e entre outras coisas, contém todas as dependências necessárias baseadas em binário. O Azure cria um serviço de nuvem por meio de Service **Package. cspkg** e **ServiceConfig. cscfg**.
@@ -106,7 +106,7 @@ Contém as definições para recursos de armazenamento local. Um recurso de arma
 **Importar**  
 Contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para Conexão de Área de Trabalho Remota e o Azure Connect.
 
-**Inicialização**  
+**Startup**  
 Contém tarefas que são executadas quando a função é iniciada. As tarefas são definidas em um arquivo. cmd ou executável.
 
 <a name="cscfg"></a>
@@ -137,10 +137,10 @@ O arquivo de configuração de serviço não é empacotado com o aplicativo, mas
 Você pode consultar o [esquema de configuração do serviço](/previous-versions/azure/reference/ee758710(v=azure.100)) para entender melhor o esquema XML usado aqui, mas aqui está uma explicação rápida dos elementos:
 
 **Ocasiões**  
-Configura o número de instâncias em execução para a função. Para impedir que o serviço de nuvem fique indisponível durante as atualizações, é recomendável implantar mais de uma instância de suas funções voltadas para a Web. Ao implantar mais de uma instância, você está cumprindo as diretrizes no [SLA (contrato de nível de serviço de computação) do Azure](https://azure.microsoft.com/support/legal/sla/), que garante a 99,95% de conectividade externa para funções voltadas para a Internet quando duas ou mais instâncias de função são implantadas para um serviço .
+Configura o número de instâncias em execução para a função. Para impedir que o serviço de nuvem fique indisponível durante as atualizações, é recomendável implantar mais de uma instância de suas funções voltadas para a Web. Ao implantar mais de uma instância, você está cumprindo as diretrizes no [SLA (contrato de nível de serviço de computação) do Azure](https://azure.microsoft.com/support/legal/sla/), que garante a 99,95% de conectividade externa para funções voltadas para a Internet quando duas ou mais instâncias de função são implantadas para um serviço.
 
 **ConfigurationSettings**  
-Define as configurações para as instâncias em execução para uma função. O nome dos `<Setting>` elementos deve corresponder às definições de configuração no arquivo de definição de serviço.
+Define as configurações para as instâncias em execução para uma função. O nome dos elementos de `<Setting>` deve corresponder às definições de configuração no arquivo de definição de serviço.
 
 **Certificados**  
 Configura os certificados que são usados pelo serviço. O exemplo de código anterior mostra como definir o certificado para o módulo RemoteAccess. O valor do atributo de *impressão digital* deve ser definido como a impressão digital do certificado a ser usado.
@@ -218,7 +218,7 @@ A [biblioteca de tempo de execução do Azure](/previous-versions/azure/referenc
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 Para implantar um aplicativo como um serviço de nuvem no Azure, você deve primeiro empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa ao Visual Studio.
 
-**CSPack** usa o conteúdo do arquivo de definição de serviço e o arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (. cspkg) que você pode carregar no Azure usando o [portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote é nomeado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a `/out` opção de **CSPack**.
+**CSPack** usa o conteúdo do arquivo de definição de serviço e o arquivo de configuração de serviço para definir o conteúdo do pacote. O **CSPack** gera um arquivo de pacote de aplicativos (. cspkg) que você pode carregar no Azure usando o [portal do Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Por padrão, o pacote é nomeado `[ServiceDefinitionFileName].cspkg`, mas você pode especificar um nome diferente usando a opção `/out` de **CSPack**.
 
 **CSPack** está localizado em  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
@@ -259,18 +259,18 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Onde as variáveis são definidas da seguinte maneira:
 
-| Variável | Value |
+| Variável | Valor |
 | --- | --- |
 | \[DirectoryName\] |O subdiretório no diretório do projeto raiz que contém o arquivo. csdef do projeto do Azure. |
 | \[ServiceDefinition\] |O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de userdefinition. csdef. |
-| \[OutputFileName\] |O nome do arquivo de pacote gerado. Normalmente, isso é definido como o nome do aplicativo. Se nenhum nome de arquivo for especificado, o pacote de aplicativo será \[criado\]como ApplicationName. cspkg. |
+| \[OutputFileName\] |O nome do arquivo de pacote gerado. Normalmente, isso é definido como o nome do aplicativo. Se nenhum nome de arquivo for especificado, o pacote de aplicativos será criado como \[ApplicationName\]. cspkg. |
 | \[RoleName\] |O nome da função, conforme definido no arquivo de definição de serviço. |
 | \[RoleBinariesDirectory] |O local dos arquivos binários para a função. |
 | \[VirtualPath\] |Os diretórios físicos de cada caminho virtual definido na seção sites da definição de serviço. |
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo para cada caminho virtual definido no nó do site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Estou criando um pacote de serviço de nuvem e quero...
 
 * [Configurar a área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
@@ -289,3 +289,6 @@ Estou usando o Visual Studio e quero...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

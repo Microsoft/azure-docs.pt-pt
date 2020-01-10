@@ -2,19 +2,15 @@
 title: Gerenciar runbooks na automação do Azure
 description: Este artigo descreve como gerenciar runbooks na automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 42b973ce8a25abff60211afb34ef719d42366175
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 42fbb224981123a7cb0f39f07c144b5d2ffbc587
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417888"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na automação do Azure
 

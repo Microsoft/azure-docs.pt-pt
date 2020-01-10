@@ -4,15 +4,15 @@ description: Você pode usar a solução Análise de Aplicativos Web do Azure pa
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/02/2018
-ms.openlocfilehash: 6b0a4276e27cdcbfaad133a69ac2f4cc3b750805
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 999b461447578fd6273cf5d16c9d354cca4ff985
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406041"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos para métricas em todos os recursos do aplicativo Web do Azure
 

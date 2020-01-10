@@ -1,119 +1,61 @@
 ---
-title: Configurar uma transformação de coletor no fluxo de dados de mapeamento
+title: Transformação do coletor no fluxo de dados de mapeamento
 description: Saiba como configurar uma transformação de coletor no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/03/2019
-ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/12/2019
+ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440275"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
+# <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
-Depois de transformar o fluxo de dados, você pode coletar os dados em um conjunto de dado de destino. Na transformação do coletor, escolha uma definição de conjunto de dados para a saída de destino. Você pode ter tantas transformações de coletor quanto o fluxo de dados exigir.
+Depois de transformar seus dados, você pode coletar os dados em um conjunto de dado de destino. Cada fluxo de dados requer pelo menos uma transformação de coletor, mas você pode gravar tantos coletores quantos forem necessários para concluir o fluxo de transformação. Para gravar em coletores adicionais, crie novos fluxos por meio de novas ramificações e divisões condicionais.
 
-Para considerar a descompasso de esquema e as alterações nos dados de entrada, coletar os dados de saída para uma pasta sem um esquema definido no conjunto de dado de saída. Você também pode considerar as alterações de coluna em suas fontes selecionando **permitir descompasso de esquema** na origem. Em seguida, mapear todos os campos no coletor.
+Cada transformação de coletor é associada a exatamente um conjunto de Data Factory. O DataSet define a forma e o local dos dados que você deseja gravar.
 
-![Opções na guia coletor, incluindo a opção de mapa automático](media/data-flow/sink1.png "coletor 1")
+## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Conectores de coletor com suporte no fluxo de dados de mapeamento
 
-Para coletar todos os campos de entrada, ative o **mapa automático**. Para escolher os campos a serem coletados no destino ou para alterar os nomes dos campos no destino, desative o **mapa automático**. Em seguida, abra a guia **mapeamento** para mapear os campos de saída.
+Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de coletor:
+    
+* [Armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
+* [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
+* [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
+* [Análise de Synapse do Azure](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Base de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [CosmosDB do Azure](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-![Opções na guia mapeamento](media/data-flow/sink2.png "coletor 2")
+As configurações específicas para esses conectores estão localizadas na guia **configurações** . as informações sobre essas configurações estão localizadas na documentação do conector. 
 
-## <a name="output"></a>Saída 
-Para o armazenamento de BLOBs do Azure ou Data Lake Storage tipos de coletor, gere os dados transformados em uma pasta. O Spark gera arquivos de dados de saída particionados com base no esquema de particionamento usado pela transformação do coletor. 
+Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes do fluxo de dados, use a atividade de cópia para carregar esses dados de uma das áreas de preparo com suporte após a conclusão do fluxo de dados.
 
-Você pode definir o esquema de particionamento na guia **otimizar** . Se desejar que Data Factory mescle a saída em um único arquivo, selecione **partição única**. Se você quiser manter ou criar pastas particionadas, use o **particionamento de chave** e defina as chaves que deseja usar para estruturas de pastas particionadas.
+## <a name="sink-settings"></a>Configurações do coletor
 
-![Opções na guia otimizar](media/data-flow/opt001.png "opções de coletor")
+Depois de adicionar um coletor, configure por meio da guia **coletor** . Aqui, você pode escolher ou criar o conjunto de os que seu coletor grava 
+
+![Configurações do coletor](media/data-flow/sink-settings.png "Configurações do coletor")
+
+**Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna. Habilite **permitir descompasso de esquemas** para gravar colunas adicionais sobre o que está definido no esquema de dados do coletor.
+
+**Validar esquema:** Se validar esquema for selecionado, o fluxo de dados falhará se nenhuma coluna no esquema definido do conjunto de dados for encontrada.
 
 ## <a name="field-mapping"></a>Mapeamento de campos
-Na guia **mapeamento** da transformação do coletor, você pode mapear as colunas de entrada à esquerda para os destinos à direita. Quando você coleta fluxos de dados em arquivos, Data Factory sempre irá gravar novos arquivos em uma pasta. Quando você mapear para um conjunto de dados do, você escolherá opções de operação de tabela de banco de dados para inserir, atualizar, Upsert ou excluir.
 
-![A guia mapeamento](media/data-flow/sink2.png "Coletores")
+Semelhante a uma transformação selecionar, na guia **mapeamento** do coletor, você pode decidir quais colunas de entrada serão gravadas. Por padrão, todas as colunas de entrada, incluindo colunas descompassos, são mapeadas. Isso é conhecido como **mapeamento automático**.
 
-Na tabela de mapeamento, você pode selecionar vários para vincular várias colunas, desvincular várias colunas ou mapear várias linhas para o mesmo nome de coluna.
+Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Os mapeamentos baseados em regras permitem escrever expressões com correspondência de padrões, enquanto o mapeamento fixo mapeará nomes de colunas lógicas e físicas. Para obter mais informações sobre mapeamento baseado em regras, consulte [padrões de coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
-Para sempre mapear o conjunto de campos de entrada para um destino como eles são e para aceitar totalmente as definições de esquema flexíveis, selecione **permitir descompasso de esquema**.
+## <a name="data-preview-in-sink"></a>Visualização de dados no coletor
 
-![A guia mapeamento, mostrando os campos mapeados para colunas no conjunto de conjuntos](media/data-flow/multi1.png "várias opções")
-
-Para redefinir os mapeamentos de coluna, selecione **remapear**.
-
-![A guia coletor](media/data-flow/sink1.png "Coletor um")
-
-Selecione **validar esquema** para falhar o coletor se o esquema for alterado.
-
-Selecione **limpar a pasta** para truncar o conteúdo da pasta do coletor antes de gravar os arquivos de destino nessa pasta de destino.
-
-## <a name="fixed-mapping-vs-rule-based-mapping"></a>Mapeamento fixo versus mapeamento baseado em regra
-Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamento baseado em coluna (mapeamento fixo) ou mapeamento baseado em regra. O mapeamento baseado em regras permitirá que você grave expressões com correspondência de padrões enquanto o mapeamento fixo mapeará nomes de coluna física e lógica.
-
-![Mapeamento baseado em regras](media/data-flow/rules4.png "Mapeamento baseado em regras")
-
-Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avaliar sua expressão de correspondência para corresponder às regras de padrão de entrada e definir os nomes de campo de saída. Você pode adicionar qualquer combinação de mapeamentos com base em campo e em regra. Os nomes de campo são então gerados em tempo de execução pelo ADF com base nos metadados de entrada da origem. Você pode exibir os nomes dos campos gerados durante a depuração e usando o painel de visualização de dados.
-
-Os detalhes sobre a correspondência de padrões estão na [documentação do padrão da coluna](concepts-data-flow-column-pattern.md).
-
-Você também pode inserir padrões de expressão regular ao usar a correspondência baseada em regra, expandindo a linha e inserindo uma expressão regular ao lado de "nome corresponde:".
-
-![Mapeamento de Regex](media/data-flow/scdt1g4.png "Mapeamento de Regex")
-
-Um exemplo comum muito básico para um mapeamento baseado em regra versus mapeamento fixo é o caso em que você deseja mapear todos os campos de entrada para o mesmo nome em seu destino. No caso de mapeamentos fixos, você listaria cada coluna individual na tabela. Para o mapeamento baseado em regras, você teria uma única regra que mapeia todos os campos usando ```true()``` para o mesmo nome de campo de entrada representado por ```$$```.
-
-### <a name="sink-association-with-dataset"></a>Associação de coletor com DataSet
-
-O conjunto de os que você selecionar para o coletor pode ou não ter um esquema definido na definição do conjunto de conjuntos. Se não tiver um esquema definido, você deverá permitir descompasso de esquema. Quando você definiu um mapeamento fixo, o mapeamento de nome lógico para físico persistirá na transformação do coletor. Se você alterar a definição de esquema do conjunto de coleta, poderá interromper o mapeamento do coletor. Para evitar isso, use o mapeamento baseado em regras. Os mapeamentos baseados em regras são generalizados, o que significa que as alterações de esquema no conjunto de seus conjuntos de um não interromperão o mapeamento.
-
-## <a name="file-name-options"></a>Opções de nome de arquivo
-
-Configurar a nomenclatura de arquivo: 
-
-   * **Padrão**: permitir que o Spark nomeie arquivos com base em padrões de parte.
-   * **Padrão**: Insira um padrão para os arquivos de saída. Por exemplo, os **empréstimos [n]** criarão loans1. csv, loans2. csv e assim por diante.
-   * **Por partição**: Insira um nome de arquivo por partição.
-   * **Como dados na coluna**: defina o arquivo de saída para o valor de uma coluna.
-   * **Saída para um único arquivo**: com essa opção, o ADF combinará os arquivos de saída particionados em um único arquivo nomeado. Para usar essa opção, seu conjunto de seus conjuntos de seus deve ser resolvido para um nome de pasta. Além disso, lembre-se de que essa operação de mesclagem possivelmente pode falhar com base no tamanho do nó.
-
-> [!NOTE]
-> As operações de arquivo iniciam somente quando você está executando a atividade executar fluxo de dados. Eles não são iniciados no modo de depuração de fluxo de dados.
-
-## <a name="database-options"></a>Opções de banco de dados
-
-Escolha as configurações do banco de dados:
-
-![A guia Configurações, mostrando as opções do coletor SQL](media/data-flow/alter-row2.png "Opções SQL")
-
-* **Método de atualização**: o padrão é permitir inserções. Desmarque **permitir inserção** se quiser parar de inserir novas linhas de sua origem. Para atualizar, upsertr ou excluir linhas, primeiro adicione uma transformação ALTER-Row para marcar linhas para essas ações. 
-* **Recriar tabela**: remova ou crie sua tabela de destino antes de concluir o fluxo de dados.
-* **Truncar tabela**: Remove todas as linhas da tabela de destino antes de o fluxo de dados ser concluído.
-* **Tamanho do lote**: Insira um número para gravações de Bucket em partes. Use esta opção para grandes cargas de dados. 
-* **Habilitar preparo**: Use o polybase ao carregar o data warehouse do Azure como seu conjunto de dados do coletor.
-* **Scripts SQL anteriores e posteriores**: Insira os scripts SQL de várias linhas que serão executados antes (pré-processamento) e após (pós-processamento) os dados são gravados no banco de dado do coletor
-
-![pré e pós-scripts de processamento do SQL](media/data-flow/prepost1.png "Scripts de processamento SQL")
-
-> [!NOTE]
-> No fluxo de dados, você pode direcionar Data Factory para criar uma nova definição de tabela no banco de dados de destino. Para criar a definição de tabela, defina um conjunto de um DataSet na transformação do coletor que tenha um novo nome de tabela. No conjunto de SQL, abaixo do nome da tabela, selecione **Editar** e insira um novo nome de tabela. Em seguida, na transformação do coletor, ative **permitir descompasso de esquema**. Defina **importar esquema** como **nenhum**.
-
-![Configurações do conjunto de configuração do SQL, mostrando onde editar o nome da tabela](media/data-flow/dataset2.png "Esquema SQL")
-
-> [!NOTE]
-> Ao atualizar ou excluir linhas no coletor de banco de dados, você deve definir a coluna de chave. Essa configuração permite que a transformação ALTER-Row determine a linha exclusiva na DML (biblioteca de movimentação de dados).
-
-### <a name="cosmosdb-specific-settings"></a>Configurações específicas do CosmosDB
-
-Quando dados de aterrissagem no CosmosDB, você precisará considerar estas opções adicionais:
-
-* Chave de partição: é um campo obrigatório. Insira uma cadeia de caracteres que represente a chave de partição para sua coleção. Exemplo: ```/movies/title```
-* Taxa de transferência: defina um valor opcional para o número de RUs que você gostaria de aplicar à sua coleção CosmosDB para cada execução desse fluxo de dados. O mínimo é 400.
+Ao buscar uma visualização de dados em um cluster de depuração, nenhum dado será gravado no coletor. Um instantâneo da aparência dos dados será retornado, mas nada será gravado no destino. Para testar a gravação de dados em seu coletor, execute uma depuração de pipeline na tela do pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que você criou o fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

@@ -1,78 +1,76 @@
 ---
-title: Enviar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de webhooks
-description: Obtenha notificações personalizadas sobre eventos de estado de funcionamento de serviço à sua instância de OpsGenie.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
+title: Enviar alertas de integridade do serviço do Azure com OpsGenie usando WebHooks
+description: Obtenha notificações personalizadas sobre eventos de integridade do serviço para sua instância do OpsGenie.
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465227"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Enviar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de webhooks
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com OpsGenie usando WebHooks
 
-Este artigo mostra-lhe como configurar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de um webhook. Usando [OpsGenie](https://www.opsgenie.com/)da integração de estado de funcionamento de serviço do Azure, pode reencaminhar os alertas do Azure Service Health para OpsGenie. OpsGenie pode determinar as pessoas certas para notificar com base em agendas na chamada, usando o email, mensagens de texto (SMS), chamadas telefónicas, iOS e notificações Android push e escalonar alertas até que o alerta seja confirmado ou fechado.
+Este artigo mostra como configurar alertas de integridade do serviço do Azure com o OpsGenie usando um webhook. Usando a integração de integridade do serviço do Azure do [OpsGenie](https://www.opsgenie.com/), você pode encaminhar alertas de integridade do serviço do Azure para o OpsGenie. O OpsGenie pode determinar as pessoas certas para notificar com base em agendas de chamada, usando email, mensagens de texto (SMS), chamadas telefônicas, iOS & notificações por push do Android e encaminhando alertas até que o alerta seja confirmado ou fechado.
 
-## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>Criar um serviço de integração do Estado de funcionamento URL no OpsGenie
-1.  Certifique-se de que se inscreveram cópia de segurança e iniciado sessão na sua [OpsGenie](https://www.opsgenie.com/) conta.
+## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>Criando uma URL de integração de integridade do serviço no OpsGenie
+1.  Verifique se você se inscreveu e entrou em sua conta do [OpsGenie](https://www.opsgenie.com/) .
 
-1.  Navegue para o **integrações** secção OpsGenie.
+1.  Navegue até a seção **integrações** em OpsGenie.
 
-    ![A secção "Integrações" OpsGenie](./media/webhook-alerts/opsgenie-integrations-section.png)
+    ![A seção "integrações" em OpsGenie](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-1.  Selecione o **do Azure Service Health** botão de integração.
+1.  Selecione o botão integração de **integridade do serviço do Azure** .
 
-    !["O Azure Service Health botão" no OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
+    ![O "botão de integridade do serviço do Azure" em OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-1.  **Nome** seu alerta e especifique o **atribuídos à equipe** campo.
+1.  **Nomeie** o alerta e especifique o campo **atribuído ao grupo** .
 
-1.  Preencher os outros campos, como **destinatários**, **ativado**, e **suprimir notificações**.
+1.  Preencha os outros campos, como **destinatários**, **habilitados**e **suprimir notificações**.
 
-1.  Copie e guarde o **URL de integração**, que já deve conter o `apiKey` acrescentado ao fim.
+1.  Copie e salve a **URL de integração**, que já deve conter seu `apiKey` acrescentado ao final.
 
-    ![O "URL de integração" na OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
+    ![A "URL de integração" no OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 
-1.  Selecione **guardar integração**
+1.  Selecione **salvar integração**
 
-## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Criar um alerta com OpsGenie no portal do Azure
+## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Criar um alerta usando o OpsGenie no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 na [criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com o portal do Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Siga as etapas 1 a 8 em [criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-1. Definir na lista de **ações**:
+1. Defina na lista de **ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** O OpsGenie **URL de integração** tinha guardado.
+    b. **Detalhes:** A **URL de integração** do OpsGenie que você salvou anteriormente.
 
-    c. **Nome:** Do Webhook nome, alias ou identificador.
+    c. **Nome:** Nome, alias ou identificador de webhook.
 
-1. Selecione **guardar** quando terminar de criar o alerta.
+1. Selecione **salvar** quando terminar para criar o alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para um grupo de ação existente:
 1. Na [portal do Azure](https://portal.azure.com/), selecione **Monitor**.
 
-1. Na **configurações** secção, selecione **grupos de ação**.
+1. Na seção **configurações** , selecione **grupos de ações**.
 
-1. Localize e selecione o grupo de ação que pretende editar.
+1. Localize e selecione o grupo de ações que deseja editar.
 
-1. Adicionar à lista de **ações**:
+1. Adicione à lista de **ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** O OpsGenie **URL de integração** tinha guardado.
+    b. **Detalhes:** A **URL de integração** do OpsGenie que você salvou anteriormente.
 
-    c. **Nome:** Do Webhook nome, alias ou identificador.
+    c. **Nome:** Nome, alias ou identificador de webhook.
 
-1. Selecione **guardar** quando terminar de atualizar o grupo de ação.
+1. Selecione **salvar** quando terminar de atualizar o grupo de ações.
 
-## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Teste a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo na [alertas de registo de Webhooks para atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
+1. Crie a carga de integridade do serviço que você deseja enviar. Você pode encontrar um conteúdo de webhook de integridade do serviço de exemplo em [WebHooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
-1. Crie um pedido POST de HTTP da seguinte forma:
+1. Crie uma solicitação HTTP POST da seguinte maneira:
 
     ```
     POST        https://api.opsgenie.com/v1/json/azureservicehealth?apiKey=<APIKEY>
@@ -81,12 +79,12 @@ Este artigo mostra-lhe como configurar alertas de estado de funcionamento do ser
 
     BODY        <service health payload>
     ```
-1. Deverá receber um `200 OK` resposta com a mensagem de estado "com êxito".
+1. Você deve receber uma resposta de `200 OK` com a mensagem de status "êxito".
 
-1. Aceda a [OpsGenie](https://www.opsgenie.com/) para confirmar a sua integração foi configurada com êxito.
+1. Vá para [OpsGenie](https://www.opsgenie.com/) para confirmar que sua integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba como [configurar notificações de webhook para sistemas de gestão existentes do problema](service-health-alert-webhook-guide.md).
-- Reveja os [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Saiba mais sobre [notificações de estado de funcionamento de serviço](../azure-monitor/platform/service-notifications.md).
-- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).
+## <a name="next-steps"></a>Passos seguintes
+- Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
+- Examine o [esquema de webhook de alerta do log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).
+- Saiba mais sobre [grupos de ações](../azure-monitor/platform/action-groups.md).

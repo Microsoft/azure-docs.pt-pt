@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6dced7106b59f0e5a05c7ed6ff3e3368978cb083
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407577"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grelha de mosaico
 
-Os mapas do Azure usam o sistema de coordenadas de projeção Mercator esférica (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica Mercator estende o mapa no polos para criar um mapa quadrado. Isso distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam essa distorção:
+Mapas do Azure usam o sistema de coordenadas de projeção Mercator esférica (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica Mercator estende o mapa no polos para criar um mapa quadrado. Isso distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam essa distorção:
 
 - É uma projeção em conformidade, o que significa que preserva a forma de objetos relativamente pequenos. Isso é especialmente importante ao mostrar imagens aéreas, pois queremos evitar distorcer a forma de edifícios. Os edifícios quadrados devem aparecer quadrados, não retangulares.
 - É uma projeção cilíndrica, o que significa que o norte e o sul são sempre retos e inferiores, e o oeste e o leste são sempre retos e à direita. 
@@ -26,15 +26,15 @@ Para otimizar o desempenho da recuperação e exibição do mapa, o mapa é divi
 
 <center>
 
-![Bloco do mundo](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![bloco do mundo](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 O nível de zoom 1 usa quatro blocos para renderizar o mundo: 2 x 2 quadrado
 
 <center>
 
-![layout de bloco do mapa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+![layout de bloco de mapa 2x2](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
 
-Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2 zoom.<sup></sup> O nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>ou 4.194.304 x 4.194.304 blocos (17.592.186.044.416 blocos no total).
+Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom.</sup> O nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>ou 4.194.304 x 4.194.304 blocos (17.592.186.044.416 blocos no total).
 
 Os controles de mapa interativos do Azure Maps para Web e Android dão suporte a níveis de zoom 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
 
@@ -61,8 +61,8 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 |16|2.4|614,4|
 |17|1.2|307,2|
 |18|0.6|152,8|
-|19|0,3|76,4|
-|20|0,15|38,2|
+|19|0.3|76,4|
+|20|0.15|38,2|
 |21|0, 75|19,1|
 |22|0, 375|9,55|
 |23|0, 1875|4,775|
@@ -78,11 +78,11 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Como a largura e a altura do mapa são diferentes em cada nível de zoom, são as coordenadas de pixel. O pixel no canto superior esquerdo do mapa sempre tem coordenadas de pixel (0, 0). O pixel no canto inferior direito do mapa tem coordenadas de pixel *(largura-1, altura-1)* ou referindo-se às equações na seção anterior, *( \* Tiles 2 \* <sup>zoom</sup>– 1, tileize 2<sup>zoom</sup>– 1)* . Por exemplo, ao usar blocos quadrados de 512 no nível 2, as coordenadas de pixel variam de (0, 0) a (2047, 2047), desta forma:
+Como a largura e a altura do mapa são diferentes em cada nível de zoom, são as coordenadas de pixel. O pixel no canto superior esquerdo do mapa sempre tem coordenadas de pixel (0, 0). O pixel no canto inferior direito do mapa tem coordenadas de pixel *(largura-1, altura 1)* ou referindo-se às equações na seção anterior, *(Tilee \* 2<sup>zoom</sup>– 1, Tilee \* 2<sup>zoom</sup>– 1)* . Por exemplo, ao usar blocos quadrados de 512 no nível 2, as coordenadas de pixel variam de (0, 0) a (2047, 2047), desta forma:
 
 <center>
 
-![Mapa mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+Mapa de ![mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
 
 Considerando a latitude e a longitude em graus e o nível de detalhes, as coordenadas XY do pixel podem ser calculadas da seguinte maneira:
 
@@ -110,7 +110,7 @@ Cada bloco recebe coordenadas XY que variam de (0, 0) no canto superior esquerdo
 
 <center>
 
-![Mapa de coordenadas de bloco](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+Mapa de ![de coordenadas de bloco](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
 
 Dada um par de coordenadas XY de pixel, você pode determinar facilmente as coordenadas XY do bloco do bloco que contém o pixel:
 
@@ -126,7 +126,7 @@ Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma
 
 <center>
 
-![Ampliar escala de demonstração](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+![escala de demonstração de zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
 
 Depois que o nível de zoom é determinado, os valores x e y podem ser calculados. O bloco superior esquerdo em cada grade de zoom é x = 0, y = 0; o bloco inferior direito está em x = 2<sup>zoom-1</sup>, y = 2<sup>zoom-1</sup>.
 
@@ -134,16 +134,16 @@ Aqui está a grade de zoom para o nível de zoom 1:
 
 <center>
 
-![Grade de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+![grade de zoom para o nível de zoom 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
 
 ## <a name="quadkey-indices"></a>Índices de Quadkey
 
-Algumas plataformas de mapeamento usam uma Convenção de nomenclatura de indexação quadkey que combina as coordenadas do bloco ZY em uma cadeia de caracteres de uma dimensão chamada quadtree Keys ou "quadkeys" para curto. Cada quadkey identifica exclusivamente um único bloco em um nível específico de detalhes e pode ser usado como uma chave em índices de árvore B de banco de dados comuns. Os SDKs do mapas do Azure dão suporte à sobreposição de camadas de bloco que usam a Convenção de nomenclatura quadkey, além de outras convenções de nomenclatura, conforme documentado no documento [Adicionar uma camada de bloco](map-add-tile-layer.md) .
+Algumas plataformas de mapeamento usam uma `quadkey` Convenção de nomenclatura de indexação que combina as coordenadas do bloco ZY em uma cadeia de caracteres de uma dimensão chamada `quadtree` chaves ou `quadkeys` de forma abreviada. Cada `quadkey` identifica exclusivamente um único bloco em um nível específico de detalhes e pode ser usada como uma chave em índices de árvore B de banco de dados comuns. Os SDKs do mapas do Azure dão suporte à sobreposição de camadas de bloco que usam `quadkey` Convenção de nomenclatura, além de outras convenções de nomenclatura, conforme documentado no documento [Adicionar uma camada de peça](map-add-tile-layer.md) .
 
 > [!NOTE]
-> A Convenção de nomenclatura quadkeys só funciona para níveis de zoom de um ou mais. O SDK do Azure Maps dá suporte ao nível de zoom 0, que é um único bloco de mapa para todo o mundo. 
+> A Convenção de nomenclatura de `quadkeys` só funciona para níveis de zoom de um ou mais. O SDK do Azure Maps dá suporte ao nível de zoom 0, que é um único bloco de mapa para todo o mundo. 
 
-Para converter coordenadas de bloco em um quadkey, os bits das coordenadas Y e X são intercalados e o resultado é interpretado como um número base 4 (com zeros à esquerda mantidos) e convertido em uma cadeia de caracteres. Por exemplo, as coordenadas XY de bloco dadas de (3, 5) no nível 3, o quadkey é determinado da seguinte maneira:
+Para converter coordenadas de bloco em um `quadkey`, os bits das coordenadas Y e X são intercalados e o resultado é interpretado como um número de base 4 (com zeros à esquerda mantidos) e convertido em uma cadeia de caracteres. Por exemplo, as coordenadas XY de bloco dadas de (3, 5) no nível 3, a `quadkey` é determinada da seguinte maneira:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -153,13 +153,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Quadkeys têm várias propriedades interessantes. Primeiro, o comprimento de um quadkey (o número de dígitos) é igual ao nível de zoom do bloco correspondente. Em segundo lugar, o quadkey de qualquer bloco começa com o quadkey de seu bloco pai (o bloco contido no nível anterior). Conforme mostrado no exemplo abaixo, o bloco 2 é o pai dos blocos de 20 a 23:
+`Qquadkeys` tem várias propriedades interessantes. Primeiro, o comprimento de um `quadkey` (o número de dígitos) é igual ao nível de zoom do bloco correspondente. Em segundo lugar, a `quadkey` de qualquer bloco começa com a `quadkey` de seu bloco pai (o bloco contido no nível anterior). Conforme mostrado no exemplo abaixo, o bloco 2 é o pai dos blocos de 20 a 23:
 
 <center>
 
-![Pirâmide do bloco Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+![pirâmide de bloco Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Por fim, o quadkeys fornece uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm quadkeys que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
+Por fim, `quadkeys` fornecer uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm `quadkeys` que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
 
 ## <a name="tile-math-source-code"></a>Código-fonte de matemática do bloco
 
@@ -422,6 +422,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -802,6 +803,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {
@@ -945,9 +947,9 @@ module AzureMaps {
 
 > [!NOTE]
 > Os controles de mapa interativos no SDK do Azure Maps têm funções auxiliares para converter entre posições geoespaciais e pixels de visor. 
-> - [SDK da Web: Mapear cálculos de pixel e posição](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [SDK da Web: mapear os cálculos de pixel e posição](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Acesse diretamente os blocos de mapa dos serviços REST do Azure Maps:
 

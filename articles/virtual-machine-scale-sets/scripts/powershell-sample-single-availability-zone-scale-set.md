@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell - conjunto de dimensionamento de zona única | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos de Azure PowerShell-conjunto de dimensionamento de zona única
+description: Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016 numa única Zona de Disponibilidade.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,19 +16,19 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a26aabd86e989cdd23a8f1b1d47c88812d76786e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9ef39306b18a03e194b94ae24860151462a870f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350796"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016 numa única Zona de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Obtém informações sobre o endereço IP público atribuído, utilizado pelo balanceador de carga. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Pode encontrar exemplos adicionais do script do conjunto de dimensionamento de máquinas virtuais do PowerShell na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

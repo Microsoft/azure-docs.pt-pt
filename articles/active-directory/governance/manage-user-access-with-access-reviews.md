@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o acesso do usuário com revisões de acesso-Azure Active Directory | Microsoft Docs
+title: Gerenciar o acesso do usuário com revisões de acesso-Azure AD
 description: Saiba como gerir o acesso dos utilizadores, como a associação a um grupo ou a atribuição a uma aplicação, com as revisões de acesso do Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70b6d925772548e6703b57c265ebacf6b7f3f4c9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57956573dfe913828fb20db08397fac52528403d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422442"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gerir o acesso de utilizador com as revisões de acesso do Azure AD
 
@@ -48,14 +48,14 @@ Uma revisão de acesso pode ter um ou mais utilizadores como revisores.
 
 4. Crie a revisão de acesso. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md).
 
-5. Quando a revisão de acesso for iniciada, peça que os revisores forneçam a entrada. Por padrão, cada um recebe um email do Azure AD com um link para o painel de acesso, no qual eles revisam o [acesso a grupos ou aplicativos](perform-access-review.md).
+5. Quando a revisão de acesso for iniciada, peça que os revisores forneçam a entrada. Por padrão, cada um recebe um email do Azure AD com um link para o painel de acesso, no qual eles [revisam o acesso a grupos ou aplicativos](perform-access-review.md).
 
 6. Se os revisores não tiverem dado o seu parecer, pode pedir ao Azure AD para lhes enviar um lembrete. Por predefinição, o Azure AD envia automaticamente um lembrete aos revisores que ainda não responderam a meio do prazo para a data de fim.
 
 7. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicativos](complete-access-review.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 

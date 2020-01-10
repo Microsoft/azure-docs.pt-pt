@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: como usar os tópicos e as assinaturas do barramento de serviço do Azure com o Node. js'
+title: Use os tópicos e as assinaturas do barramento de serviço do Azure com o pacote do Azure/Service-Bus node. js
 description: 'Início rápido: saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 80ca9589e7181518874dc26a9a42b57774f60498
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3955b67bd0fd40eb903543a240795ed8bc36b3b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462107"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início rápido: como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure-SB
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
-> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 Neste tutorial, você aprenderá a criar aplicativos node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) . Os exemplos são escritos em JavaScript e usam o [módulo do Azure](https://www.npmjs.com/package/azure) node. js que usa internamente o pacote de `azure-sb`.
 

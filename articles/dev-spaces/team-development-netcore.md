@@ -3,14 +3,14 @@ title: Desenvolvimento de equipe usando o .NET Core e o Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Este tutorial mostra como usar Azure Dev Spaces e Visual Studio Code para fazer o desenvolvimento em equipe em um aplicativo .NET Core no serviço kubernetes do Azure
 keywords: 'Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S '
-ms.openlocfilehash: 30d132b78279e9ae1ca190c0037c962a7cbd8e6f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e864d67e0126edf9138ff0d811331829bc758030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438151"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Desenvolvimento de equipe usando .NET Core e Visual Studio Code com Azure Dev Spaces
 

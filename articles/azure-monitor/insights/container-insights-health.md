@@ -1,25 +1,16 @@
 ---
 title: Monitorar a integridade do cluster kubernetes com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como você pode exibir e analisar a integridade de seus clusters AKS e não AKS com Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405086"
 ---
-# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Entender a integridade do cluster kubernetes com Azure Monitor para contêineres
+# <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Compreender o estado de funcionamento de um cluster do Kubernetes com o Azure Monitor para contentores
 
 Com Azure Monitor para contêineres, ele monitora e relata o status de integridade dos componentes de infraestrutura gerenciada e todos os nós em execução em qualquer cluster kubernetes com suporte de Azure Monitor para contêineres. Essa experiência se estende além do status de integridade do cluster calculado e relatado na [exibição de vários clusters](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), em que agora você pode entender se um ou mais nós no cluster estão com restrição de recursos, ou se um nó ou Pod está indisponível que poderia afetar um aplicativo em execução no cluster com base em métricas organizadas.
 
@@ -35,7 +26,7 @@ Para obter informações sobre como habilitar o Azure Monitor para contêineres,
 >- A versão do agente em contêiner é *Microsoft/OMS: ciprod11012019*. Para atualizar o agente, consulte [atualizando o agente no cluster kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
 >
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Em Azure Monitor para contêineres, o recurso de integridade (versão prévia) fornece monitoramento proativo de integridade do cluster kubernetes para ajudá-lo a identificar e diagnosticar problemas. Ele oferece a capacidade de exibir problemas significativos detectados. Monitora a avaliação da integridade da execução do cluster no agente em contêiner no seu cluster, e os dados de integridade são gravados na tabela **KubeHealth** em seu espaço de trabalho log Analytics. 
 
@@ -57,13 +48,13 @@ Todos os monitores são mostrados em um layout hierárquico no painel hierarquia
 * Avalie a utilização de memória do nó e do contêiner.
 * Status de pods e nós com base no cálculo de seu estado pronto relatado pelo kubernetes.
 
-Os ícones usados para indicar o estado são os seguintes:
+Os ícones utilizados para indicar o estado são os seguintes:
 
 |Ícone|Significado|  
 |--------|-----------|  
-|![Ícone de verificação verde indica íntegro](./media/container-insights-health/healthyicon.png)|Êxito, integridade OK (verde)|  
-|![O triângulo amarelo e o ponto de exclamação são avisos](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
-|![Botão vermelho com X branco indica estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
+|![Ícone em forma de visto a verde indica um bom estado de funcionamento](./media/container-insights-health/healthyicon.png)|Êxito, o estado de funcionamento está OK (verde)|  
+|![Um triângulo amarelo acompanhado de um ponto de exclamação indica um aviso](./media/container-insights-health/warningicon.png)|Aviso (amarelo)|  
+|![Um botão vermelho com um X branco indica um estado crítico](./media/container-insights-health/criticalicon.png)|Crítico (vermelho)|  
 |![Ícone de cinza](./media/container-insights-health/grayicon.png)|Desconhecido (cinza)|  
 
 ## <a name="monitor-configuration"></a>Configuração do monitor
@@ -72,13 +63,13 @@ Para entender o comportamento e a configuração de cada monitor com suporte par
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Iniciar sessão no [portal do Azure](https://portal.azure.com). 
+Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Exibir a integridade de um cluster AKS ou não AKS
 
-O acesso ao recurso de integridade do Azure Monitor para contêineres (versão prévia) está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo na portal do Azure. Na seção **insights** , selecione **contêineres**. 
+O acesso ao recurso de integridade do Azure Monitor para contêineres (versão prévia) está disponível diretamente de um cluster AKS selecionando **insights** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**. 
 
-Para exibir a integridade de um cluster não AKS, que é um cluster do AKS Engine hospedado localmente ou em Azure Stack, selecione **Azure monitor** no painel esquerdo na portal do Azure. Na seção **insights** , selecione **contêineres**.  Na página de vários clusters, selecione o cluster não AKS na lista.
+Para exibir a integridade de um cluster não AKS, que é um cluster do AKS Engine hospedado localmente ou em Azure Stack, selecione **Azure monitor** no painel esquerdo na portal do Azure. Sob o **Insights** secção, selecione **contentores**.  Na página de vários clusters, selecione o cluster não AKS na lista.
 
 Em Azure Monitor para contêineres, na página **cluster** , selecione **integridade**.
 
@@ -109,6 +100,6 @@ No painel de propriedades, você aprende o seguinte:
 
 Os dados de monitoramento nesta página não são atualizados automaticamente e você precisa selecionar **Atualizar** na parte superior da página para ver o estado de integridade mais recente recebido do cluster.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.

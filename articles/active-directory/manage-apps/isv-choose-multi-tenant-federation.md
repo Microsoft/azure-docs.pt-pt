@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443382"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo de Federação correto para seu aplicativo multilocatário
 
@@ -30,7 +30,7 @@ A tabela a seguir compara
 * Security Assertion Markup Language (SAML)
 * Especificação Web Services Federation (WSFed)
 
-| Funcionalidade| OAuth/OIDC| SAML/WSFed |
+| Capacidade| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -44,9 +44,9 @@ A tabela a seguir compara
 
 ## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 e Open ID Connect
 
-O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade [padrão do setor](https://openid.net/connect/) criada com base no protocolo Oath 2,0.
+O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade [padrão do setor](https://openid.net/connect/) criada com base no protocolo OAuth 2,0.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 A Microsoft recomenda o uso do OIDC/OAuth 2,0, pois eles têm autenticação e autorização interna aos protocolos. Com o SAML, você também deve implementar a autorização.
 
@@ -74,7 +74,7 @@ O Security Assertion Markup Language (SAML) geralmente é usado para aplicativos
 
 O especificação Web Services Federation (WSFed) é um [padrão do setor](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) geralmente usado para aplicativos Web desenvolvidos usando a plataforma .net.
 
-### <a name="benefits"></a>Benefícios
+### <a name="benefits"></a>Vantagens
 
 O SAML 2,0 é um padrão maduro e a maioria das plataformas de tecnologia dá suporte a bibliotecas de software livre para SAML 2,0. Você pode fornecer aos seus clientes uma interface de administração para configurar o SSO do SAML. Eles podem configurar o SSO do SAML para Microsoft Azure AD e qualquer outro provedor de identidade que ofereça suporte a SAML 2
 

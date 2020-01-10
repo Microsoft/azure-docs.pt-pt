@@ -1,76 +1,67 @@
 ---
-title: Reliable Actors no Service Fabric | Documentos da Microsoft
-description: Descreve como os Reliable Actors são colocados em camadas no Reliable Services e utilizar as funcionalidades da plataforma do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Reliable Actors no Service Fabric
+description: Descreve como os Reliable Actors são em camadas em Reliable Services e usam os recursos da plataforma Service Fabric.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: bc7569c9f230abb7677a8df9fc0cc0268e57296f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349236"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como os Reliable Actors utilizam a plataforma Service Fabric
-Este artigo explica como funcionam os Reliable Actors na plataforma do Azure Service Fabric. Executar numa estrutura que está hospedada numa implementação de um serviço fiável com monitoração de estado de Reliable Actors chamado os *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerir o ciclo de vida e a mensagem de expedição para seus atores:
+Este artigo explica como Reliable Actors funcionam na plataforma de Service Fabric do Azure. Reliable Actors executado em uma estrutura hospedada em uma implementação de um serviço confiável com estado chamado *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerenciar o ciclo de vida e a expedição de mensagens para seus atores:
 
-* O Runtime de Ator gerencia o ciclo de vida, coleta de lixo e impõe o acesso de thread único.
-* Uma escuta de comunicação remota do serviço de ator aceita chamadas de acesso remoto para atores e envia-os para um dispatcher para encaminhar para a instância apropriada de ator.
-* O fornecedor de estado do Ator encapsula os fornecedores de estado (por exemplo, o provedor de estado de Reliable Collections) e fornece um adaptador para o gerenciamento de estado do ator.
+* O tempo de execução do ator gerencia o ciclo de vida, a coleta de lixo e impõe o acesso de thread único.
+* Um ouvinte de comunicação remota do serviço de ator aceita chamadas de acesso remoto para atores e as envia a um Dispatcher para rotear para a instância de ator apropriada.
+* O provedor de estado do ator encapsula provedores de estado (como o provedor de estado de coleções confiáveis) e fornece um adaptador para o gerenciamento de estado do ator.
 
-Esses componentes juntos formam a estrutura de Reliable Actor.
+Esses componentes formam a estrutura de ator confiável.
 
-## <a name="service-layering"></a>Disposição em camadas de serviço
-Uma vez que o próprio serviço de ator é um serviço fiável, todos os o [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-package-apps.md), [implementação](service-fabric-deploy-remove-applications.md), atualizar e dimensionar os conceitos de fiáveis Serviços aplicam-se da mesma forma para serviços de atores.
+## <a name="service-layering"></a>Camadas de serviço
+Como o próprio serviço de ator é um serviço confiável, todos os conceitos de [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-package-apps.md), [implantação](service-fabric-deploy-remove-applications.md), atualização e dimensionamento de Reliable Services se aplicam da mesma maneira aos serviços de ator.
 
-![Disposição em camadas de serviço de ator][1]
+![Disposição em camadas do serviço de ator][1]
 
-O diagrama anterior mostra a relação entre as estruturas de aplicações do Service Fabric e o código do usuário. Elementos azuis representam a estrutura da aplicação de Reliable Services, laranja representa a estrutura de Reliable Actor e verde representa o código do usuário.
+O diagrama anterior mostra a relação entre as estruturas de aplicativo Service Fabric e o código do usuário. Os elementos azuis representam a estrutura do aplicativo Reliable Services, o laranja representa a estrutura de ator confiável e o verde representa o código do usuário.
 
-No Reliable Services, o seu serviço herda o `StatefulService` classe. Esta classe é derivada de `StatefulServiceBase` (ou `StatelessService` para serviços sem estado). Reliable Actors, vai utilizar o serviço de ator. O serviço de ator é uma implementação diferente a `StatefulServiceBase` classe que implementa o padrão de ator onde executar seus atores. Uma vez que o serviço de ator em si é apenas uma implementação de `StatefulServiceBase`, pode escrever seu próprio serviço, que deriva `ActorService` e implementar recursos de nível de serviço da mesma forma que faria ao herdar `StatefulService`, tais como:
+No Reliable Services, seu serviço herda a classe `StatefulService`. Essa classe é derivada de `StatefulServiceBase` (ou `StatelessService` para serviços sem estado). No Reliable Actors, você usa o serviço de ator. O serviço de ator é uma implementação diferente da classe `StatefulServiceBase` que implementa o padrão de ator em que seus atores são executados. Como o próprio serviço de ator é apenas uma implementação de `StatefulServiceBase`, você pode escrever seu próprio serviço derivado de `ActorService` e implementar recursos de nível de serviço da mesma maneira que faria ao herdar `StatefulService`, como:
 
-* Serviço backup e restauração.
-* Partilhado funcionalidade para todos os atores, por exemplo, um disjuntor automático.
+* Backup e restauração de serviço.
+* Funcionalidade compartilhada para todos os atores, por exemplo, um disjuntor.
 * Chamadas de procedimento remoto no próprio serviço de ator e em cada ator individual.
 
-Para obter mais informações, consulte [implementação de recursos de nível de serviço no seu serviço de ator](service-fabric-reliable-actors-using.md).
+Para obter mais informações, consulte [implementando recursos de nível de serviço em seu serviço de ator](service-fabric-reliable-actors-using.md).
 
 ## <a name="application-model"></a>Modelo de aplicação
-Serviços de atores são Reliable Services, para que o modelo de aplicativo é o mesmo. No entanto, as ferramentas de compilação da estrutura de ator geram alguns dos arquivos de modelo do aplicativo para.
+Os serviços de ator são Reliable Services, portanto, o modelo de aplicativo é o mesmo. No entanto, as ferramentas de Build da estrutura de ator geram alguns dos arquivos de modelo de aplicativo para você.
 
 ### <a name="service-manifest"></a>Manifesto do serviço
-As ferramentas de compilação da estrutura de ator geram automaticamente o conteúdo do arquivo de servicemanifest. XML do seu serviço de ator. Este ficheiro inclui:
+As ferramentas de Build da estrutura de ator geram automaticamente o conteúdo do arquivo Service manifest. XML do serviço de ator. Esse arquivo inclui:
 
-* Tipo de serviço de ator. O nome do tipo é gerado com base no nome do projeto de seu ator. Com base no atributo de persistência no seu ator, o sinalizador de HasPersistedState também é definido em conformidade.
-* Pacote do código.
+* Tipo de serviço de ator. O nome do tipo é gerado com base no nome do projeto do ator. Com base no atributo de persistência em seu ator, o sinalizador HasPersistedState também é definido de acordo.
+* Pacote de códigos.
 * Pacote de configuração.
-* Recursos e os pontos finais.
+* Recursos e pontos de extremidade.
 
 ### <a name="application-manifest"></a>Manifesto de aplicação
-As ferramentas de compilação da estrutura de ator criam automaticamente uma definição de serviço padrão para o seu serviço de ator. As ferramentas de compilação preencher as propriedades do serviço predefinido:
+As ferramentas de Build da estrutura de ator criam automaticamente uma definição de serviço padrão para seu serviço de ator. As ferramentas de compilação preenchem as propriedades padrão do serviço:
 
-* Contagem de conjunto de réplicas é determinada pelo atributo persistência no seu ator. Sempre que o atributo de persistência no seu ator é alterado, a contagem de conjunto de réplica na definição do serviço predefinido é reposta em conformidade.
-* Esquema de partição e o intervalo são definidas como Int64 uniforme com o intervalo completo da chave de Int64.
+* A contagem de conjuntos de réplicas é determinada pelo atributo de persistência em seu ator. Cada vez que o atributo de persistência em seu ator é alterado, a contagem de conjuntos de réplicas na definição de serviço padrão é redefinida de acordo.
+* O esquema de partição e o intervalo são definidos como Int64 uniformes com o intervalo de chave Int64 completo.
 
-## <a name="service-fabric-partition-concepts-for-actors"></a>Conceitos de partição de recursos de infraestrutura do serviço de atores
-Serviços de atores são particionados de serviços com estado. Cada partição de um serviço de ator contém um conjunto de atores. As partições do serviço são automaticamente distribuídas por vários nós do Service Fabric. Instâncias de ator são distribuídas como resultado.
+## <a name="service-fabric-partition-concepts-for-actors"></a>Conceitos de partição de Service Fabric para atores
+Os serviços de ator são serviços com estado particionados. Cada partição de um serviço de ator contém um conjunto de atores. As partições de serviço são distribuídas automaticamente em vários nós no Service Fabric. As instâncias de ator são distribuídas como resultado.
 
-![Criação de partições de ator e distribuição][5]
+![Particionamento e distribuição de ator][5]
 
-Reliable Services podem ser criado com intervalos de chave de partição e esquemas de partição diferentes. O serviço de ator usa o esquema de particionamento de Int64 com o intervalo de chave de Int64 completo para mapear actors para partições.
+Reliable Services pode ser criado com esquemas de partição e intervalos de chave de partição diferentes. O serviço de ator usa o esquema de particionamento Int64 com o intervalo de chaves Int64 completo para mapear atores para partições.
 
-### <a name="actor-id"></a>ID de actor
-Cada ator que é criado no serviço tem um ID exclusivo associado ao mesmo, representado pelo `ActorId` classe. `ActorId` é um valor de ID opaco, que pode ser utilizado para a distribuição uniforme de atores entre as partições de serviço por meio da geração aleatórias IDs:
+### <a name="actor-id"></a>ID do ator
+Cada ator criado no serviço tem uma ID exclusiva associada a ele, representado pela classe `ActorId`. `ActorId` é um valor de ID opaco que pode ser usado para distribuição uniforme de atores entre as partições de serviço gerando IDs aleatórias:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -80,7 +71,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Cada `ActorId` é protegido por hash Int64. É por isso o serviço de ator tem de utilizar um esquema de particionamento de Int64 vasta gama de chave de Int64. No entanto, os valores de ID personalizados podem ser utilizados para um `ActorID`, incluindo GUIDs/UUIDs não, as cadeias de caracteres e Int64s.
+Cada `ActorId` é codificada em hash para um Int64. É por isso que o serviço de ator deve usar um esquema de particionamento Int64 com o intervalo de chave Int64 completo. No entanto, os valores de ID personalizados podem ser usados para um `ActorID`, incluindo GUIDs/UUIDs, cadeias de caracteres e Int64s.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -93,15 +84,15 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-Quando estiver usando GUIDs/UUIDs não e cadeias de caracteres, os valores são codificados para Int64. No entanto, quando estiver explicitamente fornecendo Int64 para um `ActorId`, o Int64 mapeará diretamente para uma partição sem hash ainda mais. Pode usar essa técnica para controlar qual partição são colocados os atores em.
+Quando você está usando GUIDs/UUIDs e cadeias de caracteres, os valores são codificados em hash para um Int64. No entanto, quando você estiver fornecendo explicitamente um Int64 para um `ActorId`, o Int64 será mapeado diretamente para uma partição sem hash adicional. Você pode usar essa técnica para controlar em qual partição os atores são colocados.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
-* [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
-* [Documentação de referência da API de atores](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
+* [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
+* [Documentação de referência da API dos atores](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet)
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

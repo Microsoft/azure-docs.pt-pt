@@ -1,25 +1,16 @@
 ---
-title: Diagnóstico de Reliable Services com estado do Azure Service Fabric | Microsoft Docs
+title: Diagnóstico de Reliable Services com estado do Azure Service Fabric
 description: Funcionalidade de diagnóstico para Reliable Services com estado no Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462926"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
 O Azure Service Fabric com estado Reliable Services classe StatefulServiceBase emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está operando e ajudar na solução de problemas.
@@ -30,12 +21,12 @@ O nome EventSource para a classe StatefulServiceBase com estado Reliable Service
 Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos EventSource são [Perfview](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)e a [biblioteca do Microsoft TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventos
-| Nome do evento | ID do evento | Nível | Descrição do evento |
+| Nome do evento | ID do Evento | Nível | Descrição do evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emitido quando a tarefa RunAsync do serviço é iniciada |
 | StatefulRunAsyncCancellation |2 |Informativo |Emitido quando a tarefa RunAsync do serviço é cancelada |
 | StatefulRunAsyncCompletion |3 |Informativo |Emitido quando a tarefa RunAsync do serviço é concluída |
-| Nos |4 |Aviso |Emitido quando a tarefa RunAsync do serviço leva muito tempo para concluir o cancelamento |
+| StatefulRunAsyncSlowCancellation |4 |Aviso |Emitido quando a tarefa RunAsync do serviço leva muito tempo para concluir o cancelamento |
 | StatefulRunAsyncFailure |5 |Erro |Emitido quando a tarefa RunAsync do serviço gera uma exceção |
 
 ## <a name="interpret-events"></a>Interpretar eventos
@@ -119,7 +110,7 @@ O tempo de execução de Reliable Services emite os seguintes eventos na categor
 
  Nome do contador | Descrição |
 | --- | --- |
-| Contagem de itens | O número de itens no repositório.|
+| Número de itens | O número de itens no repositório.|
 | Tamanho do Disco | O tamanho total do disco, em bytes, dos arquivos de ponto de verificação para o repositório.|
 | Bytes de gravação do arquivo de ponto de verificação/s | O número de bytes gravados por segundo para o arquivo de ponto de verificação mais recente.|
 | Bytes de transferência de disco de cópia/s | O número de bytes de disco lidos (na réplica primária) ou gravados (em uma réplica secundária) por segundo durante uma cópia de armazenamento.|

@@ -1,19 +1,18 @@
 ---
 title: Dimensionar funções de Machine Learning no Azure Stream Analytics
 description: Este artigo descreve como dimensionar Stream Analytics trabalhos que usam Machine Learning funções, configurando o particionamento e as unidades de fluxo.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467871"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458741"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Dimensionar seu trabalho de Stream Analytics com funções Azure Machine Learning Studio (clássicas)
 
@@ -90,11 +89,11 @@ Com a segunda opção, você precisará provisionar mais SUs para ter mais solic
 
 Vamos examinar o dimensionamento usando as seguintes medidas de latência para cada tamanho de lote:
 
-| Latência | Tamanho do lote |
+| Latência | Tamanho do batch |
 | --- | --- |
-| 200 MS | 1000-lotes de eventos ou abaixo |
-| 250 MS | 5\.000-lotes de eventos |
-| 300 MS | 10.000-lotes de eventos |
+| 200 ms | 1000-lotes de eventos ou abaixo |
+| 250 ms | 5\.000-lotes de eventos |
+| 300 ms | 10.000-lotes de eventos |
 | 500 ms | 25.000-lotes de eventos |
 
 1. Usando a primeira opção (**não** Provisionando mais o SUS). O tamanho do lote pode ser aumentado para **25.000**. O aumento do tamanho do lote dessa maneira permitirá que o trabalho processe eventos 1 milhão com 20 conexões simultâneas com o serviço Web Machine Learning (com uma latência de 500 MS por chamada). Portanto, a latência adicional do trabalho de Stream Analytics devido às solicitações de função de sentimentos em relação às solicitações de serviço Web do Machine Learning será aumentada de **200 MS** para **500 MS**. No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, pois os serviços web do Machine Learning exigem que o tamanho da carga de uma solicitação seja de 4 MB ou menor, e o tempo limite das solicitações de serviço web após 100 segundos de operação.
@@ -102,16 +101,16 @@ Vamos examinar o dimensionamento usando as seguintes medidas de latência para c
 
 Abaixo está uma tabela para a taxa de transferência do trabalho de Stream Analytics para diferentes tamanhos de SUs e de lote (em número de eventos por segundo).
 
-| tamanho do lote (latência ML) | 500 (200 MS) | 1\.000 (200 MS) | 5\.000 (250 MS) | 10.000 (300 MS) | 25.000 (500 MS) |
+| tamanho do lote (latência ML) | 500 (200 ms) | 1\.000 (200 MS) | 5\.000 (250 MS) | 10.000 (300 MS) | 25.000 (500 MS) |
 | --- | --- | --- | --- | --- | --- |
-| **1 SU** |2\.500 |5000 |20.000 |30.000 |50 000 |
-| **3 SUs** |2\.500 |5000 |20.000 |30.000 |50 000 |
-| **6 SUs** |2\.500 |5000 |20.000 |30.000 |50 000 |
-| **12 SUs** |5000 |10,000 |40.000 |60.000 |100 000 |
-| **18 SUs** |7\.500 |15 000 |60.000 |90.000 |150.000 |
-| **24 SUs** |10,000 |20.000 |80.000 |120.000 |200,000 |
-| **...** |... |... |... |... |... |
-| **60 SUs** |25.000 |50 000 |200,000 |300.000 |500.000 |
+| **1 SU** |2,500 |5000 |20,000 |30,000 |50 000 |
+| **3 SUs** |2,500 |5000 |20,000 |30,000 |50 000 |
+| **6 SUs** |2,500 |5000 |20,000 |30,000 |50 000 |
+| **12 SUs** |5000 |10,000 |40,000 |60,000 |100.000 |
+| **18 SUs** |7\.500 |15 000 |60,000 |90,000 |150,000 |
+| **24 SUs** |10,000 |20,000 |80,000 |120,000 |200,000 |
+| **…** |… |… |… |… |… |
+| **60 SUs** |25,000 |50 000 |200,000 |300,000 |500,000 |
 
 Agora, você já deve ter uma boa compreensão de como Machine Learning funções no Stream Analytics funcionam. É provável que você também compreenda que os Stream Analytics trabalhos de "pull" de fontes de dados e cada "pull" retorna um lote de eventos para o trabalho de Stream Analytics processar. Como esse modelo de pull afeta o Machine Learning solicitações de serviço Web?
 

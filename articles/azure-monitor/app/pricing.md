@@ -8,14 +8,14 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406541"
 ---
-# <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
+# <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
 > [!NOTE]
 > Este artigo descreve como entender e controlar seus custos para Application Insights.  Um artigo relacionado, [monitoramento de uso e custos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços.
@@ -40,7 +40,7 @@ Há duas abordagens para resolver isso: uso de monitoramento padrão e amostrage
 
 Com a [amostragem adaptável](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)do SDK do ASP.net, o volume de dados é ajustado automaticamente para manter-se dentro de uma taxa máxima de tráfego especificada para o monitoramento de Application insights padrão. Se o aplicativo produzir uma quantidade menor de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde que o volume esteja abaixo do nível de eventos configurados por segundo. Para um aplicativo de alto volume, com o limite padrão de cinco eventos por segundo, a amostragem adaptável limitará o número de eventos diários a 432.000. Usando um tamanho de evento médio típico de 1 KB, isso corresponde a 13,4 GB de telemetria por mês de 31 dias por nó que hospeda seu aplicativo (já que a amostragem é feita de local para cada nó). 
 
-Para SDKs que não dão suporte à amostragem adaptável, você pode empregar a [amostragem de ingestão](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), que obtém amostras quando os dados são recebidos por Application insights com base em uma porcentagem de dados a serem retidos ou [amostragem de taxa fixa para ASP.net, ASP.NET Core e Java sites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
+Para SDKs que não dão suporte à amostragem adaptável, você pode empregar a [amostragem de ingestão](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), que obtém exemplos de quando os dados são recebidos por Application insights com base em uma porcentagem de dados a serem retidos, ou [amostragem de taxa fixa para sites de ASP.net, ASP.NET Core e Java](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Aprenda com o que os clientes semelhantes coletam
 
@@ -157,9 +157,9 @@ Você pode usar o limite de volume diário para limitar os dados coletados. No e
 
 Em vez de usar o limite de volume diário, use a [amostragem](../../azure-monitor/app/sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", caso seu aplicativo comece a enviar volumes de telemetria muito mais altos.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diário a ser definido
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
 
-Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Isso deve ser considerado com cuidado, pois você não poderá monitorar seus recursos depois que o limite for atingido. 
+Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
 
 ### <a name="set-the-daily-cap"></a>Definir o limite diário
 
@@ -187,7 +187,7 @@ Para definir a amostragem de ingestão, vá para o painel de **preços** :
 > O painel **amostragem de dados** controla apenas o valor de amostragem de ingestão. Ele não reflete a taxa de amostragem aplicada pelo SDK do Application Insights em seu aplicativo. Se a telemetria de entrada já tiver sido amostrada no SDK, a amostragem de ingestão não será aplicada.
 >
 
-Para descobrir a taxa de amostragem real, independentemente de onde ela foi aplicada, use uma [consulta de análise](analytics.md). A consulta é parecida com esta:
+Para descobrir a taxa de amostragem real, independentemente de onde ela foi aplicada, use uma [consulta de análise](analytics.md). A consulta é como esta:
 
     requests | where timestamp > ago(1d)
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
@@ -259,7 +259,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 |:---------------------------------------|:----------------:|
 | 1 aplicativo usando 3 Azure App instâncias de serviço e um servidor virtual | 4 |
 | 3 aplicativos em execução em 2 VMs; os recursos de Application Insights para esses aplicativos estão na mesma assinatura e na camada por nó | 2 | 
-| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13,33 | 
+| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13.33 | 
 | Serviços de nuvem com uma função de trabalho e uma função Web, cada uma executando 2 instâncias | 4 | 
 | Um cluster de Service Fabric do Azure de 5 nós executando microserviços 50; cada microserviço executando 3 instâncias | 5|
 

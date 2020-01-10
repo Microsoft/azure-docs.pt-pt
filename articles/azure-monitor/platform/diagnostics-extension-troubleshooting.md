@@ -4,15 +4,15 @@ description: Solucionar problemas ao usar o diagnóstico do Azure em máquinas v
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450565"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas Diagnóstico do Azure
 Este artigo descreve as informações de solução de problemas relevantes para o uso de Diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [diagnóstico do Azure visão geral](diagnostics-extension-overview.md).
@@ -27,28 +27,28 @@ Este artigo descreve as informações de solução de problemas relevantes para 
 ## <a name="logartifact-paths"></a>Caminhos de log/artefato
 A seguir estão os caminhos para alguns logs e artefatos importantes. Nós nos referimos a essas informações em todo o restante do documento.
 
-### <a name="azure-cloud-services"></a>Cloud Services do Azure
+### <a name="azure-cloud-services"></a>Serviços Cloud do Azure
 | Artefacto | Caminho |
 | --- | --- |
-| **Arquivo de configuração Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > \Config.txt |
-| **Arquivos de log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > \ |
-| **Armazenamento local para dados de diagnóstico** | Pasta c:\resources\directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Arquivo de configuração do agente de monitoramento** | Pasta c:\resources\directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Pacote de extensão Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > |
+| **Arquivo de configuração Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Armazenamento local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Arquivo de configuração do agente de monitoramento** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Pacote de extensão Diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho do utilitário de coleta de log** | %SystemDrive%\Packages\GuestAgent\ |
-| **Arquivo de log do MonAgentHost** | Pasta c:\resources\directory\<CloudServiceDeploymentID >.\<RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **Arquivo de log do MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>Máquinas virtuais
+### <a name="virtual-machines"></a>Virtual Machines
 | Artefacto | Caminho |
 | --- | --- |
-| **Arquivo de configuração Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão > \RuntimeSettings |
-| **Arquivos de log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \ |
-| **Armazenamento local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Arquivo de configuração do agente de monitoramento** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão > \Status |
-| **Pacote de extensão Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Arquivo de configuração Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Ficheiros de registo** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
+| **Armazenamento local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Arquivo de configuração do agente de monitoramento** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Arquivo de status** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Pacote de extensão Diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Caminho do utilitário de coleta de log** | C:\WindowsAzure\Logs\WaAppAgent.log |
-| **Arquivo de log do MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **Arquivo de log do MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados da métrica não aparecem no portal do Azure
 Diagnóstico do Azure fornece dados de métrica que podem ser exibidos no portal do Azure. Se você tiver problemas para ver os dados no portal, verifique a tabela de\* de WADMetrics na Diagnóstico do Azure conta de armazenamento para ver se os registros de métrica correspondentes estão lá.

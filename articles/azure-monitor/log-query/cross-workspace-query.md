@@ -4,15 +4,15 @@ description: Este artigo descreve como você pode consultar recursos de vários 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365500"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de log entre recursos no Azure Monitor  
 
@@ -24,7 +24,7 @@ Agora você pode consultar não apenas em vários espaços de trabalho do Log An
 
 * O número de recursos de Application Insights e espaços de trabalho de Log Analytics que você pode incluir em uma única consulta é limitado a 100.
 * Não há suporte para a consulta entre recursos no designer de exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
-* Há suporte para a consulta entre recursos em alertas de log na nova [API do scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, Azure Monitor usa a [API de alerta log Analytics herdada](../platform/api-alerts.md) para criar novas regras de alerta de log de portal do Azure, a menos que você mude da [API de alertas de log herdado](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a opção, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta entre recursos. Você pode criar regras de alerta do log de consultas entre recursos sem fazer a alternância usando o [modelo Azure Resource Manager para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não de portal do Azure .
+* Há suporte para a consulta entre recursos em alertas de log na nova [API do scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por padrão, Azure Monitor usa a [API de alerta log Analytics herdada](../platform/api-alerts.md) para criar novas regras de alerta de log de portal do Azure, a menos que você mude da [API de alertas de log herdado](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a opção, a nova API torna-se o padrão para novas regras de alerta no portal do Azure e permite criar regras de alertas de log de consulta entre recursos. Você pode criar regras de alerta de log de consulta de recurso cruzado sem fazer a alternância usando o [modelo de Azure Resource Manager para a API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas essa regra de alerta é gerenciável, embora a [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não de portal do Azure.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultando em Log Analytics espaços de trabalho e de Application Insights

@@ -4,15 +4,15 @@ description: Saiba o que deve ser considerado ao planejar uma implantação de a
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927867"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665265"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -35,7 +35,7 @@ O objeto de servidor registrado representa uma relação de confiança entre seu
 
 ### <a name="azure-file-sync-agent"></a>Agente de Sincronização de Arquivos do Azure
 O agente do Azure File Sync é um pacote transferível que permite a sincronização do Windows Server com uma partilha de ficheiros do Azure. O agente de Sincronização de Arquivos do Azure tem três componentes principais: 
-- **FileSyncSvc. exe**: o serviço Windows em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e para iniciar sessões de sincronização para o Azure.
+- **FileSyncSvc. exe**: o serviço em segundo plano que é responsável por monitorar alterações nos pontos de extremidade do servidor e para iniciar sessões de sincronização para o Azure.
 - **StorageSync. sys**: o sincronização de arquivos do Azure filtro do sistema de arquivos, que é responsável por enfileirar arquivos para arquivos do Azure (quando a disposição em camadas da nuvem está habilitada).
 - **Cmdlets de gerenciamento do PowerShell**: cmdlets do PowerShell que você usa para interagir com o provedor de recursos do Azure Microsoft. StorageSync. Você pode encontrá-los nos seguintes locais (padrão):
     - C:\Arquivos de Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -69,7 +69,7 @@ A camada de nuvem é um recurso opcional do Sincronização de Arquivos do Azure
 Esta seção aborda Sincronização de Arquivos do Azure requisitos de sistema do agente e a interoperabilidade com recursos e funções do Windows Server e soluções de terceiros.
 
 ### <a name="evaluation-cmdlet"></a>Cmdlet de avaliação
-Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando o cmdlet de avaliação Sincronização de Arquivos do Azure. Esse cmdlet verifica possíveis problemas com o seu sistema de arquivos e conjunto de banco de arquivo, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Observe que suas verificações abordam a maioria dos recursos mencionados abaixo, mas não todos eles. Recomendamos que você leia o restante desta seção com cuidado para garantir que sua implantação seja tranqüila. 
+Antes de implantar Sincronização de Arquivos do Azure, você deve avaliar se ele é compatível com seu sistema usando o cmdlet de avaliação Sincronização de Arquivos do Azure. Esse cmdlet verifica possíveis problemas com o seu sistema de arquivos e conjunto de banco de arquivo, como caracteres sem suporte ou uma versão do sistema operacional sem suporte. Suas verificações abordam a maioria dos recursos mencionados abaixo, mas não todos eles. Recomendamos que você leia o restante desta seção com cuidado para garantir que sua implantação seja tranqüila. 
 
 O cmdlet Evaluation pode ser instalado instalando o módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -141,8 +141,10 @@ Para exibir os resultados em CSV:
 
 | Arquivo/pasta | Nota |
 |-|-|
+| pagefile.sys | Arquivo específico para o sistema |
 | Desktop.ini | Arquivo específico para o sistema |
-| ethumbs.db$ | Arquivo temporário para miniaturas |
+| thumbs.db | Arquivo temporário para miniaturas |
+| ehthumbs.db | Arquivo temporário para miniaturas de mídia |
 | ~$\*.\* | Arquivo temporário do Office |
 | \*.tmp | Arquivo temporário |
 | \*.laccdb | Acessar arquivo de bloqueio do BD|
@@ -177,7 +179,7 @@ Sincronização de Arquivos do Azure não dá suporte à eliminação de duplica
     - A política de espaço livre continuará a hierarquizar arquivos de acordo com o espaço livre no volume usando o calor.
     - A política de data ignorará a camada de arquivos que, de outra forma, podem ter sido elegíveis para camadas devido ao trabalho de otimização de eliminação de duplicação que acessa os arquivos.
 - Para trabalhos de otimização de eliminação de duplicação em andamento, as camadas de nuvem com a política de data serão atrasadas pela configuração [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) de eliminação de duplicação de dados, se o arquivo ainda não estiver em camadas. 
-    - Exemplo: se a configuração de MinimumFileAgeDays for de 7 dias e a política de data de camadas de nuvem for de 30 dias, a política de data fará a camada dos arquivos após 37 dias.
+    - Exemplo: se a configuração MinimumFileAgeDays for de sete dias e a política de data de camadas de nuvem for de 30 dias, a política de data terá os arquivos de camada após 37 dias.
     - Observação: quando um arquivo estiver em camadas por Sincronização de Arquivos do Azure, o trabalho de otimização de eliminação de duplicação ignorará o arquivo.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente de Sincronização de Arquivos do Azure instalado for atualizado para o Windows Server 2016 ou o Windows Server 2019, as etapas a seguir deverão ser executadas para dar suporte à eliminação de duplicação de dados e à camada de nuvem no mesmo volume:  
     - Desinstale o agente de Sincronização de Arquivos do Azure para Windows Server 2012 R2 e reinicie o servidor.
@@ -197,7 +199,7 @@ O Sincronização de Arquivos do Azure dá suporte à interoperabilidade com nam
 - Nem todo servidor local que precisa de uma cópia dos dados do arquivo pode ser conectado diretamente à Internet.
 - Os servidores de ramificação consolidam dados em um único servidor de Hub, para o qual você gostaria de usar Sincronização de Arquivos do Azure.
 
-Para Sincronização de Arquivos do Azure e o DFS-R para trabalhar lado a lado:
+Para Sincronização de Arquivos do Azure e o DFS-R funcionar lado a lado:
 
 1. Sincronização de Arquivos do Azure camada de nuvem deve ser desabilitada em volumes com pastas replicadas DFS-R.
 2. Os pontos de extremidade do servidor não devem ser configurados em pastas de replicação somente leitura do DFS-R.
@@ -205,7 +207,7 @@ Para Sincronização de Arquivos do Azure e o DFS-R para trabalhar lado a lado:
 Para obter mais informações, consulte [replicação do DFS visão geral](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-O uso do Sysprep em um servidor que tem o agente de Sincronização de Arquivos do Azure instalado não tem suporte e pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer após a implantação da imagem do servidor e a conclusão da mini-instalação do Sysprep.
+Não há suporte para o uso do Sysprep em um servidor com o agente de Sincronização de Arquivos do Azure instalado e isso pode levar a resultados inesperados. A instalação do agente e o registro do servidor devem ocorrer após a implantação da imagem do servidor e a conclusão da mini-instalação do Sysprep.
 
 ### <a name="windows-search"></a>Windows Search
 Se a disposição em camadas da nuvem estiver habilitada em um ponto de extremidade do servidor, os arquivos que estiverem em camadas serão ignorados e não indexados pelo Windows Search. Arquivos não em camadas são indexados corretamente.
@@ -227,7 +229,7 @@ Se você estiver usando uma solução de backup local, os backups devem ser exec
 > A restauração de bare-metal (BMR) pode causar resultados inesperados e não tem suporte no momento.
 
 > [!Note]  
-> Com a versão 9 do agente de sincronização de arquivo do Azure, os instantâneos do VSS (incluindo a guia versões anteriores) agora têm suporte em volumes que têm a camada de nuvem habilitada. No entanto, você deve habilitar a compatibilidade de versão anterior por meio do PowerShell. [Saiba como](storage-files-deployment-guide.md).
+> Com a versão 9 do agente de Sincronização de Arquivos do Azure, os instantâneos do VSS (incluindo a guia versões anteriores) agora têm suporte em volumes que têm a camada de nuvem habilitada. No entanto, você deve habilitar a compatibilidade de versão anterior por meio do PowerShell. [Saiba como](storage-files-deployment-guide.md).
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. Sincronização de Arquivos do Azure é conhecido por trabalhar com:
@@ -292,7 +294,7 @@ Para as regiões marcadas com asteriscos, você deve contatar o suporte do Azure
 Para proteger contra a perda de uma região do Azure, o Sincronização de Arquivos do Azure se integra com a opção grs ( [redundância de armazenamento geograficamente redundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) ). O armazenamento GRS funciona usando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual você normalmente interage e armazenamento na região secundária emparelhada. No caso de um desastre que faz com que uma região do Azure fique temporariamente ou permanentemente offline, a Microsoft fará o failover do armazenamento para a região emparelhada. 
 
 > [!Warning]  
-> Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
+> Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
 
 Para dar suporte à integração de failover entre o armazenamento com redundância geográfica e Sincronização de Arquivos do Azure, todas as regiões de Sincronização de Arquivos do Azure são emparelhadas com uma região secundária que corresponde à região secundária usada pelo armazenamento. Esses pares são os seguintes:
 
@@ -334,9 +336,33 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="recommended-azure-file-sync-machine-configuration"></a>Configuração de máquina Sincronização de Arquivos do Azure recomendada
+
+Sincronização de Arquivos do Azure requisitos de máquina são determinados pelo número de objetos no namespace e pela rotatividade no conjunto de espaço. Um único servidor pode ser anexado a vários grupos de sincronização e o número de objetos listados nas contas de tabela a seguir para o namespace completo ao qual um servidor está anexado. Por exemplo, ponto de extremidade do servidor A com 10 milhões objetos + ponto de extremidade do servidor B com 10 milhões objetos = 20 milhões objetos. Para essa implantação de exemplo, recomendamos 8CPU, 16GiB de memória para o estado estável e (se possível) 48GiB de memória para a migração inicial.
+ 
+Os dados de namespace são armazenados na memória por motivos de desempenho. Por causa disso, namespaces maiores exigem mais memória para manter o bom desempenho e mais rotatividade requer mais CPU para processar. 
+ 
+Na tabela a seguir, fornecemos o tamanho do namespace, bem como uma conversão para capacidade para compartilhamentos de arquivos de uso geral típicos, em que o tamanho médio do arquivo é 512KiB. Se os tamanhos de arquivo forem menores, considere adicionar memória adicional para a mesma quantidade de capacidade. Baseie sua configuração de memória no tamanho do namespace.
+
+| Tamanho do namespace-arquivos & diretórios (milhões)  | Capacidade típica (TiB)  | Núcleos de CPU  | Memória recomendada (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (sincronização inicial)/2 (variação típica)      |
+| 5        | 2.3     | 2        | 16 (sincronização inicial)/4 (rotatividade típica)    |
+| 10       | 4.7     | 4        | 32 (sincronização inicial)/8 (variação típica)   |
+| 30       | 14,0    | 8        | 48 (sincronização inicial)/16 (variação típica)   |
+| 50       | 23,3    | 16       | 64 (sincronização inicial)/32 (variação típica)  |
+| 100 *     | 46,6    | 32       | 128 (sincronização inicial)/32 (variação típica)  |
+
+Não há suporte para \*mais de 100 milhões arquivos & diretórios no momento. Esse é um limite flexível.
+
+> [!TIP]
+> A sincronização inicial de um namespace é uma operação intensiva e é recomendável alocar mais memória até que a sincronização inicial seja concluída. Isso não é necessário, mas pode acelerar a sincronização inicial. 
+> 
+> A rotatividade típica é de 0,5% da alteração do namespace por dia. Para níveis mais altos de variação, considere adicionar mais CPU. 
+
 ## <a name="next-steps"></a>Passos seguintes
 * [Considerar as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
-* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 * [Implantar arquivos do Azure](storage-files-deployment-guide.md)
 * [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

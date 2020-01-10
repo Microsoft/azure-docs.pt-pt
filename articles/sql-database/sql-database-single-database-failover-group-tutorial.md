@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6e3b4be836699cc200d30168c14462f81136646b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821086"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552632"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutorial: adicionar um banco de dados SQL do Azure para um grupo de failover
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, confirme que tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma subscrição do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [O Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -220,7 +220,7 @@ Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 | Comando | Notas |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
-| [AZ SQL Server Firewall – regra Create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
 | [AZ SQL failover-Group Create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Cria um grupo de failover. | 
 
 ---
@@ -429,6 +429,10 @@ Esta parte do tutorial usa os seguintes cmdlets do AZ CLI:
 ---
 
 
+> [!IMPORTANT]
+> Se você quiser manter o grupo de recursos, mas excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+
+
 ## <a name="full-scripts"></a>Scripts completos
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -461,7 +465,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [conjunto de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-set) | Define uma assinatura como a assinatura ativa atual. | 
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de banco de dados SQL que hospeda bancos de dados individuais e pools elásticos. |
-| [AZ SQL Server Firewall – regra Create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Cria as regras de firewall de um servidor. | 
 | [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Cria um banco de dados. | 
 | [AZ SQL failover-Group Create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Cria um grupo de failover. | 
 | [AZ SQL failover – lista de grupos](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lista os grupos de failover em um servidor. |

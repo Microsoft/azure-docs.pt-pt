@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422846"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -60,7 +60,7 @@ Tendemos a imaginar que as contas de administrador são as únicas contas que pr
 
 Depois que esses invasores obtiverem acesso, eles poderão solicitar acesso a informações privilegiadas em nome do titular da conta original. Eles podem até mesmo baixar o diretório inteiro para executar um ataque de phishing em toda a sua organização. 
 
-Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta, como a autenticação multifator, para todos. Depois que os usuários terminarem o registro da autenticação multifator, eles serão solicitados a fornecer autenticação adicional sempre que necessário.
+Um método comum para melhorar a proteção para todos os usuários é exigir uma forma mais forte de verificação de conta, como a autenticação multifator, para todos. Depois que os usuários concluírem o registro da autenticação multifator, eles serão solicitados a fornecer autenticação adicional sempre que necessário.
 
 ### <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
 
@@ -72,6 +72,9 @@ Para dar aos usuários acesso fácil aos seus aplicativos de nuvem, o Azure AD d
 Hoje, a maior parte do comprometimento de tentativas de entrada é proveniente da autenticação herdada. A autenticação herdada não dá suporte à autenticação multifator. Mesmo que você tenha uma política de autenticação multifator habilitada em seu diretório, um invasor pode se autenticar usando um protocolo mais antigo e ignorar a autenticação multifator. 
 
 Depois que os padrões de segurança são habilitados em seu locatário, todas as solicitações de autenticação feitas por um protocolo mais antigo serão bloqueadas. Os padrões de segurança não bloqueiam o Exchange ActiveSync.
+
+> [!WARNING]
+> Antes de habilitar os padrões de segurança, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
 
 ### <a name="protecting-privileged-actions"></a>Protegendo ações privilegiadas
 
@@ -89,22 +92,30 @@ Depois de habilitar os padrões de segurança em seu locatário, qualquer usuár
 
 Se o usuário não estiver registrado para autenticação multifator, o usuário será solicitado a se registrar usando o aplicativo Microsoft Authenticator para continuar. Nenhum período de registro de autenticação multifator de 14 dias será fornecido.
 
+> [!NOTE]
+> A conta de sincronização de Azure AD Connect é excluída dos padrões de segurança e não será solicitado a se registrar ou executar a autenticação multifator. As organizações não devem usar essa conta para outros fins.
+
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 
 As considerações adicionais a seguir estão relacionadas à implantação de padrões de segurança para seu locatário.
 
-### <a name="older-protocols"></a>Protocolos mais antigos
+### <a name="authentication-methods"></a>Métodos de autenticação
 
-Os clientes de email usam protocolos de autenticação mais antigos (como IMAP, SMTP e POP3) para fazer solicitações de autenticação. Esses protocolos não dão suporte à autenticação multifator. A maioria dos comprometimentos de conta que a Microsoft vê é de ataques contra protocolos mais antigos que estão tentando ignorar a autenticação multifator. 
+Os padrões de segurança permitem o registro e o uso da autenticação multifator do Azure **usando apenas o aplicativo Microsoft Authenticator usando notificações**. O acesso condicional permite o uso de qualquer método de autenticação que o administrador escolha para habilitar.
 
-Para garantir que a autenticação multifator seja necessária para entrar em uma conta administrativa e que os invasores não possam ignorá-la, os padrões de segurança bloqueiam todas as solicitações de autenticação feitas para contas de administrador de protocolos mais antigos.
+|   | Predefinições de segurança | Acesso Condicional |
+| --- | --- | --- |
+| Notificação através da aplicação para dispositivos móveis | X | X |
+| Código de verificação da aplicação para dispositivos móveis ou token de hardware |   | X |
+| Mensagem de texto para um telefone |   | X |
+| Ligar para telefone |   | X |
+| Palavras-passe de aplicações |   | X * * |
 
-> [!WARNING]
-> Antes de habilitar essa configuração, verifique se os administradores não estão usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [como sair da autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
+\* * As senhas de aplicativo só estarão disponíveis no MFA por usuário com cenários de autenticação herdados somente se habilitadas pelos administradores.
 
 ### <a name="conditional-access"></a>Acesso Condicional
 
-Você pode usar o acesso condicional para configurar políticas que fornecem o mesmo comportamento habilitado por padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional.
+Você pode usar o acesso condicional para configurar políticas semelhantes a padrões de segurança, mas com mais granularidade, incluindo exclusões de usuário, que não estão disponíveis em padrões de segurança. Se você estiver usando o acesso condicional e tiver políticas de acesso condicional habilitadas em seu ambiente, os padrões de segurança não estarão disponíveis para você. Se você tiver uma licença que forneça acesso condicional, mas não tiver políticas de acesso condicional habilitadas em seu ambiente, você poderá usar os padrões de segurança até habilitar as políticas de acesso condicional. Mais informações sobre o licenciamento do Azure AD podem ser encontradas na [página de preços do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Mensagem de aviso de que você pode ter padrões de segurança ou acesso condicional não ambos](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

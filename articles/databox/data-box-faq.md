@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438619"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -38,7 +38,7 @@ R.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Est
 ### <a name="q-what-is-azure-data-box"></a>P. O que é o Azure Data Box?
 R. O Azure Data Box permite uma transferência rápida, barata e segura de terabytes de dados para o Azure. Pode encomendar o dispositivo Data Box no portal do Azure. A Microsoft envia a você um dispositivo de armazenamento de 80 TB de capacidade utilizável por meio de uma operadora regional. 
 
-Quando receber o dispositivo, a configuração do mesmo na IU da Web local é rápida. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento do processo do início ao fim no portal do Azure.
+Quando receber o dispositivo, a configuração do mesmo na IU da Web local é rápida. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento de todo o processo ponto a ponto no portal do Azure.
 
 ### <a name="q-when-should-i-use-data-box"></a>P. Quando devo utilizar o Data Box?
 R. Se tiver entre 40 a 500 TB de dados e quiser transferi-los para o Azure, pode tirar partido do Data Box. Para tamanhos de dados < 40 TB, use Disco do Data Box e para tamanhos de dados > 500 TB, Inscreva-se para [Data Box Heavy](data-box-heavy-overview.md).
@@ -84,12 +84,12 @@ R. Isto quer dizer que o serviço Data Box não está disponível na combinaçã
 R. Quando faz uma encomenda, nós verificamos se há algum dispositivo disponível para a mesma. Se sim, enviamos o mesmo dentro de dez dias. É possível que haja períodos de muita procura. Nesse caso, a encomenda é colocada em fila de espera e pode acompanhar a alteração do estado no portal do Azure. Se a encomenda não for satisfeita em 90 dias, é cancelada automaticamente.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>P. Já enchi o meu dispositivo Data Box com dados e preciso de encomendar outro. Existe alguma forma de fazer a encomenda rapidamente?
-A. Pode clonar a encomenda anterior. A clonagem cria a mesma encomenda e permite-lhe editar os detalhes da mesma, sem ter de voltar a introduzir as informações de morada, contacto e notificação.
+R. Pode clonar a encomenda anterior. A clonagem cria a mesma encomenda e permite-lhe editar os detalhes da mesma, sem ter de voltar a introduzir as informações de morada, contacto e notificação.
 
 ## <a name="configure-and-connect"></a>Configurar e ligar
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>P. Como posso desbloquear o Data Box? 
-R.  No portal do Azure, aceda à encomenda do Data Box e navegue para **Detalhes do dispositivo**. Copie a palavra-passe de bloqueio. Utilize-a para iniciar sessão na IU da Web no seu Data Box. Para obter mais informações, acesse [tutorial: Desembalar, conectar o Azure Data Box](data-box-deploy-set-up.md).
+R.  No portal do Azure, aceda à encomenda do Data Box e navegue para **Detalhes do dispositivo**. Copie a palavra-passe de bloqueio. Utilize-a para iniciar sessão na IU da Web no seu Data Box. Para obter mais informações, aceda a [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md) (Tutorial: Desempacotar, ligar os cabos e ligar o Azure Data Box).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>P. Posso utilizar um computador anfitrião Linux para ligar e copiar os dados para os discos do Data Box?
 R.  Sim. Pode utilizar o Data Box para ligar a clientes SMB e NFS. Para obter mais informações, aceda à lista de [Sistemas operativos suportados](data-box-system-requirements.md) do seu computador anfitrião.
@@ -98,10 +98,10 @@ R.  Sim. Pode utilizar o Data Box para ligar a clientes SMB e NFS. Para obter ma
 R.  Só pode cancelar a encomenda depois de o Data Box ter sido encomendado e antes de a encomenda ser processada. Assim que a encomenda for processada, já não a pode cancelar. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>P. Posso ligar um dispositivo Data Box a vários computadores anfitriões para transferir dados?
-R. Sim. É possível ligar vários computadores anfitriões ao Data Box para transferir dados e podem ser executados múltiplos trabalhos de cópia em paralelo. Para obter mais informações, acesse [tutorial: Copiar dados para Azure Data Box](data-box-deploy-copy-data.md).
+R. Sim. É possível ligar vários computadores anfitriões ao Data Box para transferir dados e podem ser executados múltiplos trabalhos de cópia em paralelo. Para obter mais informações, aceda a [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box).
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>P. Posso me conectar a ambas as interfaces de 10 GbE no Data Box para transferir dados?
-R. Sim. Ambas as interfaces de 10 GbE podem ser conectadas na Data Box para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, acesse [tutorial: Copiar dados para Azure Data Box](data-box-deploy-copy-data.md).
+R. Sim. Ambas as interfaces de 10 GbE podem ser conectadas na Data Box para copiar dados ao mesmo tempo. Para obter mais informações sobre como copiar dados, acesse [tutorial: copiar dados para Azure data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -124,7 +124,7 @@ R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. A configuração do canal de porta é compatível com o Data Box? E quanto ao MPIO?
 R. Não há suporte para configuração de canal de porta, configuração de MPIO (Multipath IO) ou configuração de vLAN em Data Box.
 
-## <a name="track-status"></a>Controlar o estado
+## <a name="track-status"></a>Acompanhar o estado
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>P. Como posso fazer o acompanhamento do Data Box desde o momento em que fiz a encomenda até à devolução do dispositivo? 
 R.  Pode acompanhar o estado da encomenda do Data Box no portal do Azure. Quando cria a encomenda, também lhe é pedido que indique um e-mail para notificações. Se o tiver indicado, todas as alterações ao estado da encomenda são-lhe notificadas por e-mail. Mais informações sobre como [configurar os e-mails de notificações](data-box-portal-ui-admin.md#edit-notification-details).
@@ -141,22 +141,22 @@ R. Pode ver a sua encomenda do Data Box no portal do Azure e aceder a **Descriç
 R.  O Data Box tem uma capacidade de armazenamento utilizável de 80 TB. Pode utilizar um dispositivo Data Box individual para dados que variem entre os 40 TB e os 80 TB. Para tamanhos de dados maiores de até 500 TB, você pode ordenar vários dispositivos Data Box. Para tamanhos que excedam os 500 TB, inscreva-se no Data Box Heavy.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>P. Quais são os tamanhos máximos de blobs de blocos e de blobs de páginas que o Data Box suporta? 
-R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, aceda a [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md) (Metas de Desempenho e Escalabilidade do Armazenamento do Azure). 
+R.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O tamanho máximo dos blobs de blocos é de, aproximadamente, 4,768 TiB e o dos blobs de páginas é de 8 TiB. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>P. Como posso saber que os meus dados estão seguros durante o transporte? 
-R. Foram implementadas múltiplas funcionalidades de segurança para garantir que o seu Data Box está seguro durante o transporte. Algumas dessas funcionalidades incluem selos invioláveis, deteção de adulteração de hardware e software e palavra-passe de desbloqueio do dispositivo. Para obter mais informações, aceda a [Azure Data Box security and data protection](data-box-security.md) (Segurança e proteção de dados do Azure Data Box).
+R. Foram implementadas múltiplas funcionalidades de segurança para garantir que o seu Data Box está seguro durante o transporte. Algumas dessas funcionalidades incluem selos invioláveis, deteção de adulteração de hardware e software e palavra-passe de desbloqueio do dispositivo. Para obter mais informações, aceda a [Proteção de dados e segurança do Azure Data Box](data-box-security.md).
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box"></a>P. Como posso copiar os dados para o Data Box? 
 R.  Se estiver a utilizar um cliente SMB, pode utilizar uma ferramenta de cópia de SMB, como o Robocopy, o Diskboss ou até mesmo o arrastar e largar do Explorador de Ficheiros do Windows, para copiar os dados para o dispositivo. 
 
 Se estiver a utilizar um cliente NFS, pode utilizar [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/). 
 
-Para obter mais informações, acesse [tutorial: Copiar dados para Azure Data Box](data-box-deploy-copy-data.md).
+Para obter mais informações, aceda a [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box).
 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>P. Estão disponíveis sugestões para acelerar a cópia dos dados?
-A.  Para acelerar o processo de cópia:
+R.  Para acelerar o processo de cópia:
 
-- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter mais informações sobre o comando exato usado, acesse [tutorial: Copiar dados para o Azure Data Box e verificar](data-box-deploy-copy-data.md).
+- Utilize vários fluxos de cópia de dados. Por exemplo, com o Robocopy, utilize a opção multithreaded. Para obter informações sobre o comando exato utilizado, aceda a [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md) (Tutorial: Copiar dados para o Azure Data Box e verificar).
 - Utilize várias sessões.
 - Em vez de copiar através de uma partilha de rede (em que pode estar limitado pelas velocidades da rede), certifique-se de que os dados residem localmente no computador ao qual o Data Box vai ser ligado.
 - Compare o desempenho do computador utilizado para copiar os dados. Transfira e utilize a [ferramenta Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) para comparar o desempenho do hardware do servidor. Selecione a compilação mais recente do x86 ou x64, selecione a guia **artefatos** e baixe a MSI.
@@ -213,7 +213,7 @@ R.  Durante o transporte, os dados são protegidos pelas seguintes funcionalidad
  - O dispositivo é bloqueado e exige que seja introduzida uma palavra-passe de desbloqueio para aceder aos dados.
 Para obter mais informações, aceda a [Data Box security features](data-box-security.md) (Funcionalidades de segurança do Data Box).  
 
-### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Concluí a preparação para envio e encerrei o dispositivo. Ainda posso adicionar mais dados ao Data Box?
+### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P. Concluí a preparação para envio e encerrei o dispositivo. Posso continuar a adicionar mais dados ao Data Box?
 R. Sim. Pode ligar o dispositivo e adicionar mais dados. Quando concluir a cópia dos dados, tem de **Preparar o Envio** outra vez.
 
 ### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P. Recebi meu dispositivo e ele não está inicializando? Como fazer enviar o dispositivo de volta?

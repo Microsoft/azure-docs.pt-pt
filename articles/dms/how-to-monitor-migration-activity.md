@@ -1,6 +1,6 @@
 ---
-title: Utilizar o serviço de migração de base de dados do Azure para monitorizar a atividade de migração | Documentos da Microsoft
-description: Saiba como utilizar o serviço de migração de base de dados do Azure para monitorizar a atividade de migração.
+title: Monitorar a atividade de migração-serviço de migração de banco de dados do Azure
+description: Saiba como usar o serviço de migração de banco de dados do Azure para monitorar a atividade de migração.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,62 +8,62 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437938"
 ---
-# <a name="monitor-migration-activity"></a>Monitorizar a atividade de migração
-Neste artigo, saiba como monitorizar o progresso de uma migração num nível de base de dados e um nível de tabela.
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
+Neste artigo, você aprenderá a monitorar o progresso de uma migração no nível de banco de dados e em um nível de tabela.
 
-## <a name="monitor-at-the-database-level"></a>Monitorizar a nível da base de dados
-Para monitorizar a atividade ao nível da base de dados, ver o painel de nível de base de dados:
+## <a name="monitor-at-the-database-level"></a>Monitorar no nível de banco de dados
+Para monitorar a atividade no nível de banco de dados, exiba a folha de nível de banco de dados:
 
-![Painel de nível de base de dados](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
+![Folha de nível de banco de dados](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
-> Selecionar o hiperlink de base de dados irá mostrar a lista de tabelas e o progresso da migração.
+> Selecionar o hiperlink do banco de dados mostrará a lista de tabelas e o andamento da migração.
 
-A tabela seguinte lista os campos no painel de nível de base de dados e descreve os vários valores de estado associados a cada.
+A tabela a seguir lista os campos na folha de nível de banco de dados e descreve os vários valores de status associados a cada um.
 
 <table id='overview' class='overview'>
   <thead>
     <tr>
       <th class="x-hidden-focus"><strong>Nome do campo</strong></th>
-      <th><strong>Subestado do campo</strong></th>
+      <th><strong>Substatus do campo</strong></th>
       <th><strong>Descrição</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus"><strong>Estado da atividade</strong></td>
+      <td rowspan="3" class="ActivityStatus"><strong>Status da atividade</strong></td>
       <td>A executar</td>
-      <td>Atividade de migração está em execução.</td>
+      <td>A atividade de migração está em execução.</td>
     </tr>
     <tr>
       <td>Bem-sucedido</td>
-      <td>Atividade de migração foi concluída com êxito sem problemas.</td>
+      <td>Atividade de migração bem-sucedida sem problemas.</td>
     </tr>
     <tr>
-      <td>Com falhas</td>
-      <td>Falha na migração. Selecione a ligação "Ver detalhes do erro" em detalhes de migração para a mensagem de erro completa.</td>
+      <td>Com falha</td>
+      <td>Falha na migração. Selecione o link ' Ver detalhes do erro ' em detalhes da migração para a mensagem de erro completa.</td>
     </tr>
     <tr>
       <td rowspan="4" class="Status"><strong>Estado</strong></td>
       <td>A inicializar</td>
-      <td>O DMS é configurar o pipeline de migração.</td>
+      <td>DMS está configurando o pipeline de migração.</td>
     </tr>
     <tr>
       <td>A executar</td>
-      <td>O DMS pipeline está em execução e efetuar a migração.</td>
+      <td>O pipeline DMS está em execução e executando a migração.</td>
     </tr>
     <tr>
-      <td>Concluir</td>
+      <td>Completo</td>
       <td>Migração concluída.</td>
     </tr>
     <tr>
@@ -72,74 +72,74 @@ A tabela seguinte lista os campos no painel de nível de base de dados e descrev
     </tr>
     <tr>
       <td rowspan="5" class="migration-details"><strong>Detalhes da migração</strong></td>
-      <td>Iniciar o pipeline de migração</td>
-      <td>O DMS é configurar o pipeline de migração.</td>
+      <td>Iniciando o pipeline de migração</td>
+      <td>DMS está configurando o pipeline de migração.</td>
     </tr>
     <tr>
-      <td>Carregamento de dados completo em curso</td>
-      <td>O DMS está a efetuar o carregamento inicial.</td>
+      <td>Carregamento de dados completo em andamento</td>
+      <td>O DMS está executando a carga inicial.</td>
     </tr>
     <tr>
-      <td>Pronto para Cutover</td>
-      <td>Depois de concluído o carregamento inicial, DMS serão marcadas como base de dados como pronto para transferência. Utilizador deve verificar se dados detetou na sincronização contínua.</td>
+      <td>Pronto para a transferência</td>
+      <td>Após a conclusão do carregamento inicial, o DMS marcará o banco de dados como pronto para a transferência. O usuário deve verificar se os dados foram capturados na sincronização contínua.</td>
     </tr>
     <tr>
       <td>Todas as alterações aplicadas</td>
-      <td>Carga inicial e a sincronização contínua estão completos. Este estado também ocorre depois da base de dados é transferência com êxito.</td>
+      <td>A carga inicial e a sincronização contínua estão concluídas. Esse status também ocorre depois que o banco de dados é transtransferência com êxito.</td>
     </tr>
     <tr>
-      <td>Ver detalhes do erro</td>
-      <td>Clique no link para mostrar detalhes do erro.</td>
+      <td>Consulte os detalhes do erro</td>
+      <td>Clique no link para mostrar os detalhes do erro.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duração</strong></td>
+      <td rowspan="1" class="duration"><strong>Permanência</strong></td>
       <td>N/A</td>
-      <td>Total de tempo de atividade de migração que está a ser inicializada para a migração foi concluída ou falha de migração.</td>
+      <td>Tempo total da atividade de migração que está sendo inicializada para a migração concluída ou falha na migração.</td>
     </tr>
      </tbody>
 </table>
 
-## <a name="monitor-at-table-level--quick-summary"></a>Monitorizar no nível de tabela – resumo rápido
-Para monitorizar a atividade no nível da tabela, ver o painel de nível de tabela. A parte superior do painel mostra o que número de linhas detalhado migrados no carregamento completo e atualizações incrementais. 
+## <a name="monitor-at-table-level--quick-summary"></a>Monitorar no nível de tabela – resumo rápido
+Para monitorar a atividade no nível de tabela, exiba a folha de nível de tabela. A parte superior da folha mostra o número detalhado de linhas migradas em carga completa e atualizações incrementais. 
 
-A parte inferior do painel lista as tabelas e mostra um resumo rápido de progresso da migração.
+A parte inferior da folha lista as tabelas e mostra um resumo rápido do progresso da migração.
 
-![Painel de nível de tabela – resumo rápido](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
+![Folha de nível de tabela-resumo rápido](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
-A tabela seguinte descreve os campos exibidos nos detalhes do nível de tabela.
+A tabela a seguir descreve os campos mostrados nos detalhes de nível de tabela.
 
 | Nome do campo        | Descrição       |
 | ------------- | ------------- |
-| **Carregamento completo concluído**      | Número de tabelas de concluir o carregamento de dados completo. |
-| **Carga completa em fila**      | Número de tabelas em fila para carregamento completo.      |
-| **Carregamento de carga completo** | Falha ao número de tabelas.      |
-| **Atualizações incrementais**      | Número de dados de alteração captura atualizações (CDC) em linhas aplicadas ao destino. |
-| **Inserções de incrementais**      | Número de CDC insere em linhas aplicadas ao destino.      |
-| **Eliminações incrementais** | Número de CDC elimina em linhas aplicadas ao destino.      |
-| **Alterações pendentes**      | Número de CDC nas linhas que ainda estão a aguardar para ser aplicadas ao destino. |
-| **Alterações aplicadas**      | Total de CDC atualizações, inserções e elimina em linhas aplicadas ao destino.      |
-| **Tabelas no Estado com erros** | Número de tabelas que estão no estado "error" durante a migração. Alguns exemplos que tabelas podem entrar em estado de erro são quando existirem duplicatas identificadas no destino ou dados não não compatíveis de carregar a tabela de destino.      |
+| **Carregamento completo concluído**      | O número de tabelas concluiu o carregamento de dados completo. |
+| **Carga total na fila**      | Número de tabelas sendo enfileiradas para carregamento completo.      |
+| **Carregamento de carga completo** | Número de tabelas com falha.      |
+| **Atualizações incrementais**      | Número de atualizações de captura de dados de alteração (CDC) em linhas aplicadas ao destino. |
+| **Inserções incrementais**      | Número de inserções de CDC em linhas aplicadas ao destino.      |
+| **Exclusões incrementais** | Número de exclusões de CDC em linhas aplicadas ao destino.      |
+| **Alterações pendentes**      | Número de CDC em linhas que ainda estão aguardando para serem aplicadas ao destino. |
+| **Alterações aplicadas**      | Total de atualizações, inserções e exclusões de CDC em linhas aplicadas ao destino.      |
+| **Tabelas no estado de erro** | Número de tabelas que estão no estado ' erro ' durante a migração. Alguns exemplos que as tabelas podem entrar em estado de erro são quando há duplicatas identificadas no destino ou os dados não são carregados no carregamento da tabela de destino.      |
 
-## <a name="monitor-at-table-level--detailed-summary"></a>Monitorizar no nível de tabela – Resumo detalhadas
-Há duas guias que mostram o progresso de migração no carregamento completo e sincronização de dados incrementais.
+## <a name="monitor-at-table-level--detailed-summary"></a>Monitorar no nível de tabela – resumo detalhado
+Há duas guias que mostram o progresso da migração na carga completa e na sincronização de dados incremental.
     
-![Separador de carregamento completo](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
+![Guia de carregamento completo](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Separador de sincronização de dados incrementais](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
+![Guia sincronização de dados incremental](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
-A tabela seguinte descreve os campos exibidos em curso de nível de migração de tabela.
+A tabela a seguir descreve os campos mostrados no progresso da migração em nível de tabela.
 
 | Nome do campo        | Descrição       |
 | ------------- | ------------- |
-| **Estado - a sincronizar**      | Sincronização contínua está em execução. |
-| **Inserir**      | Número de CDC insere em linhas aplicadas ao destino.      |
+| **Sincronização de status**      | A sincronização contínua está em execução. |
+| **Inserido**      | Número de inserções de CDC em linhas aplicadas ao destino.      |
 | **Atualização** | Número de atualizações de CDC em linhas aplicadas ao destino.      |
-| **Eliminar**      | Número de CDC elimina em linhas aplicadas ao destino. |
-| **Total aplicado**      | Total de CDC atualizações, inserções e elimina em linhas aplicadas ao destino. |
-| **Erros de dados** | Número de erros de dados ocorreu nesta tabela. Alguns exemplos dos erros são *511: Não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: Tipo de dados de conversão de erro %ls para %ls.*  Cliente deve consultar da tabela de dms_apply_exceptions no destino do Azure para ver os detalhes do erro.    |
+| **Eliminar**      | Número de exclusões de CDC em linhas aplicadas ao destino. |
+| **Total aplicado**      | Total de atualizações, inserções e exclusões de CDC em linhas aplicadas ao destino. |
+| **Erros de dados** | Número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha de tamanho% d que seja maior que o tamanho máximo permitido de% d, 8114: erro ao converter o tipo de dados% ls em% ls.*  O cliente deve consultar dms_apply_exceptions tabela no destino do Azure para ver os detalhes do erro.    |
 
 > [!NOTE]
-> Valores de CDC de Insert, Update e Delete e aplicadas Total podem diminuir quando a base de dados é transferência ou migração é reiniciada.
+> Os valores de CDC de Insert, Update e DELETE e total aplicado podem diminuir quando o banco de dados é de transferência ou a migração é reiniciada.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Reveja as orientações de migração no Microsoft [guia de migração de bases de dados](https://datamigration.microsoft.com/).
+## <a name="next-steps"></a>Passos seguintes
+- Examine as diretrizes de migração no [Guia de migração de banco de dados](https://datamigration.microsoft.com/)da Microsoft.

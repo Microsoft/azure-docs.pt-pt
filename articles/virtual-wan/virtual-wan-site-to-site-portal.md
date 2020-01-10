@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450847"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -75,7 +75,7 @@ Um hub é uma rede virtual que pode conter gateways para a funcionalidade site a
 
 ## <a name="site"></a>Criar um site
 
-Agora você está pronto para criar os sites correspondentes aos seus locais físicos. Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Você pode criar até 1000 sites por Hub virtual em uma WAN virtual. Se você tivesse vários hubs, poderá criar 1000 por cada um desses hubs. Se você tiver um dispositivo CPE de parceiro de WAN virtual (link INSERT), verifique com eles para saber mais sobre sua automação para o Azure. Normalmente, a automação implica uma experiência de clique simples para exportar informações de Branch em larga escala no Azure e configurar a conectividade do CPE para o gateway de VPN de WAN virtual do Azure (aqui está um link para as diretrizes de automação do Azure para parceiros de CPE).
+Agora você está pronto para criar os sites correspondentes aos seus locais físicos. Crie tantos sites qantos necessários para corresponder às suas localizações físicas. Por exemplo, se tiver uma sucursal em Nova Iorque, uma em Londres e outra em Lisboa, tem de criar três sites separados. Esses sites contêm os pontos finais dos seus dispositivos VPN no local. Você pode criar até 1000 sites por Hub virtual em uma WAN virtual. Se você tivesse vários hubs, poderá criar 1000 por cada um desses hubs. Se você tiver um dispositivo CPE de parceiro de WAN virtual (link INSERT), verifique com eles para saber mais sobre sua automação para o Azure. Normalmente, a automação implica uma experiência de clique simples para exportar informações de Branch em grande escala para o Azure e configurar a conectividade de CPE para gateway de VPN de WAN virtual do Azure. Para obter mais informações, consulte [diretrizes de automação do Azure para parceiros de CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

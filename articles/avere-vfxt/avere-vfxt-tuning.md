@@ -6,17 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 274a20f84b978b38a284d1feb315d6621b7d3ccd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414322"
 ---
 # <a name="cluster-tuning"></a>Ajuste de cluster
 
-
-A maioria dos clusters vFXT pode se beneficiar das configurações de desempenho personalizadas. Essas configurações ajudam o cluster a funcionar melhor com seu fluxo de trabalho, conjunto de tarefas e ferramentas específicos. 
+A maioria dos clusters vFXT pode se beneficiar das configurações de desempenho personalizadas. Essas configurações ajudam o cluster a funcionar melhor com seu fluxo de trabalho, conjunto de tarefas e ferramentas específicos.
 
 Essa personalização deve ser feita junto com um representante de suporte, porque geralmente envolve a configuração de recursos que não estão disponíveis no painel de controle do avere.
 
@@ -34,9 +33,9 @@ Esta seção explica alguns dos ajustes personalizados que podem ser feitos.
 
 Essas alterações podem ser recomendadas com base nas qualidades ou no estilo do fluxo de trabalho.
 
-* Se a carga de trabalho for de gravação intensa, aumente o tamanho do cache de gravação do padrão de 20%. 
-* Se o conjunto de conjuntos envolver muitos arquivos pequenos, aumente o limite de contagem de arquivos do cache do cluster. 
-* Se o trabalho envolve copiar ou mover dados entre dois repositórios, ajuste o número de threads usados para mover os dados: 
+* Se a carga de trabalho for de gravação intensa, aumente o tamanho do cache de gravação do padrão de 20%.
+* Se o conjunto de conjuntos envolver muitos arquivos pequenos, aumente o limite de contagem de arquivos do cache do cluster.
+* Se o trabalho envolve copiar ou mover dados entre dois repositórios, ajuste o número de threads usados para mover os dados:
   * Para aumentar a velocidade, você pode aumentar o número de threads paralelos usados.
   * Se o volume de armazenamento de back-end estiver ficando sobrecarregado, talvez seja necessário diminuir o número de threads paralelos usados.
 * Se o cluster armazena dados em cache para um Filer principal que usa ACLs de NFSv4, habilite o cache do modo de acesso para simplificar a autorização de arquivos para clientes específicos.
@@ -58,4 +57,4 @@ Em um cenário de intermitência de nuvem ou cenário de otimização de WAN de 
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ajude a otimizar seu avere vFXT para o Azure
 
-Use o procedimento descrito em [obter ajuda com o sistema](avere-vfxt-open-ticket.md) para entrar em contato com a equipe de suporte sobre essas otimizações. 
+Use o procedimento descrito em [obter ajuda com o sistema](avere-vfxt-open-ticket.md) para entrar em contato com a equipe de suporte sobre essas otimizações.

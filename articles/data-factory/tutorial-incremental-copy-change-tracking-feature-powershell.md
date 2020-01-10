@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: de42acd9cb8ca0520db616237c23b7db9fadb77f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 666bd2f9575019f3bfb77050d27363fef66474bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439290"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 
@@ -151,7 +151,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
-1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`. 
+1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -208,10 +208,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
@@ -235,7 +232,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON chamado **AzureSQLDatabaseLinkedService.json** na pasta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** com o seguinte conteúdo Substituir **&lt;servidor&gt; &lt;nome da base de dados&gt;, &lt;id de utilizador&gt; e a &lt;palavra-passe&gt;** com o nome do seu servidor SQL do Azure, nome da sua base de dados, ID de utilizador e a palavra-passe antes de guardar o ficheiro. 
+1. Crie um arquivo JSON chamado **AzureSQLDatabaseLinkedService. JSON** na pasta **na c:\adftutorials\inccopychangetrackingtutorial** com o seguinte conteúdo: substitua **&lt;Server&gt; &lt;nome do banco de dados&gt;, &lt;id de usuário&gt;e &lt;senha**&gt;com o nome do seu SQL Server do Azure, nome do seu banco de dados, ID de usuário e senha antes de salvar o arquivo. 
 
     ```json
     {
@@ -243,10 +240,7 @@ Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-                    "type": "SecureString"
-                }
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
             }
         }
     }

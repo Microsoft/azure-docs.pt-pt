@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439556"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -144,7 +144,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
       - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
-        Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
@@ -166,7 +166,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 - Ligar uma atividade a outra (após êxito e falha)
 - Utilizar um resultado de uma atividade como entrada para a atividade subsequente
 
-1. Na página **introdução** da IU do Data Factory, clique no mosaico **Criar pipeline**.  
+1. Na página **introdução** da IU do Data Factory , clique no mosaico **Criar pipeline**.  
 
    ![Página Introdução](./media/tutorial-control-flow-portal/get-started-page.png) 
 3. Na janela de propriedades do pipeline, mude para o separador **Parâmetros** e utilize o botão **Novo** para adicionar os três parâmetros seguintes do tipo Cadeia: sourceBlobContainer, sinkBlobContainer e receiver. 

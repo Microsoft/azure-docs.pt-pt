@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365347"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhando com valores de data e hora em consultas de log de Azure Monitor
 
@@ -31,11 +31,11 @@ Os TimeSpans são expressos como um decimal seguido por uma unidade de tempo:
 
 |abreviada   | unidade de tempo    |
 |:---|:---|
-|3D           | diário          |
-|h           | dia         |
-|m           | Demorar       |
-|s           | microssegundo       |
-|Srta          | milésimo  |
+|d           | dia          |
+|h           | hour         |
+|m           | minute       |
+|s           | second       |
+|ms          | milésimo  |
 |microssegundos | microssegundos  |
 |traços        | 100 nanossegundos   |
 
@@ -109,7 +109,7 @@ Event
 
 Essa consulta produz a seguinte tabela:  
 
-|TimeGenerated (UTC)|events_count|
+|TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
 |2018-08-01T09:35:00.000|41|
@@ -128,7 +128,7 @@ Event
 
 Essa consulta produz os seguintes resultados:
 
-|carimbo de data/hora|contar|
+|carimbo de data/hora|contagem_|
 |--|--|
 |2018-07-28T00:00:00.000|7\.136|
 |2018-07-29T00:00:00.000|12.315|
@@ -149,10 +149,10 @@ Event
 
 | Categoria | Função |
 |:---|:---|
-| Converter tipos de dados | [ToDateTime](/azure/kusto/query/todatetimefunction)  [ToTimeSpan](/azure/kusto/query/totimespanfunction)  |
-| Valor arredondado para tamanho do compartimento | [compartimento](/azure/kusto/query/binfunction) |
-| Obter uma data ou hora específica | [há](/azure/kusto/query/agofunction) [agora](/azure/kusto/query/nowfunction)   |
-| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [GetMonth](/azure/kusto/query/getmonthfunction) [MonthOfYear](/azure/kusto/query/monthofyearfunction) [$ year](/azure/kusto/query/getyearfunction) [DayOfMonth](/azure/kusto/query/dayofmonthfunction) [DayOfWeek](/azure/kusto/query/dayofweekfunction) [DayOfYear](/azure/kusto/query/dayofyearfunction) [WeekOfYear](/azure/kusto/query/weekofyearfunction) |
+| Converter tipos de dados | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| Valor arredondado para tamanho do compartimento | [bin](/azure/kusto/query/binfunction) |
+| Obter uma data ou hora específica | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Obter um valor de data relativa  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [ENDOFMONTH](/azure/kusto/query/endofmonthfunction) [ENDOFYEAR](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [STARTOFMONTH](/azure/kusto/query/startofmonthfunction) [STARTOFYEAR](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Passos seguintes

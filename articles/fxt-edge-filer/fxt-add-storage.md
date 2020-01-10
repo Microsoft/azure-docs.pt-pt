@@ -1,17 +1,17 @@
 ---
-title: Adicionar armazenamento de back-end para o Microsoft Azure cluster de filer do FXT Edge
+title: 'Tutorial: Adicionar armazenamento a um cluster de arquivos do Azure FXT Edge'
 description: Como configurar o armazenamento de back-end e o pseudonamespace voltado para o cliente para o filer do Azure FXT Edge
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256074"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551969"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o namespace virtual 
 
@@ -55,7 +55,7 @@ Depois de adicionar um Filer principal, você pode atualizar suas configuraçõe
 
 ## <a name="add-a-core-filer"></a>Adicionar um Filer principal
 
-Defina um Filer central clicando no botão **criar** na página de configurações do **filer Core** > **gerenciar os Filers principais** .
+Defina um Filer principal clicando no botão **criar** na página **principal do Filer** > **gerenciar os principais arquivos** de configurações.
 
 ![Clicando no botão criar acima da lista de principais Filers na página Gerenciar Filers principais](media/fxt-cluster-config/create-core-filer-button.png)
 
@@ -79,7 +79,7 @@ As subtarefas incluem:
 
   ![Informações do Filer Core do clouder no assistente do novo Filer principal](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Se você já tiver adicionado credenciais de acesso à nuvem para esse cluster, elas aparecerão na lista. Atualize e adicione credenciais na página de configurações de**credenciais de nuvem**  >  do **cluster**. 
+  Se você já tiver adicionado credenciais de acesso à nuvem para esse cluster, elas aparecerão na lista. Atualize e adicione credenciais no **Cluster** > página Configurações de **credenciais de nuvem** . 
 
 Depois de preencher todas as configurações necessárias no assistente, clique no botão **Adicionar Filer** para enviar a alteração.
 
@@ -129,7 +129,7 @@ Para criar um novo vServer, você precisará das seguintes informações:
 
 * Se sua rede tiver VLANs, qual VLAN usar para este vserver
 
-Use a página **VServer** >  gerenciar configurações do**VServers** para criar um novo vserver. Para obter detalhes, leia [criando um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no guia de configuração do cluster. 
+Use a página **VServer** > gerenciar configurações do **VServers** para criar um novo vserver. Para obter detalhes, leia [criando um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no guia de configuração do cluster. 
 
 ![janela pop-up para criar um novo vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -141,7 +141,7 @@ Você pode usar esse sistema para simplificar o caminho usado em pontos de monta
 
 ![Página de assistente Adicionar nova junção com as configurações preenchidas](media/fxt-cluster-config/add-junction-full.png)
 
-Consulte o [**namespace** do **vserver** > ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no guia de configuração do cluster para obter detalhes completos sobre como criar uma junção de namespace.
+Consulte [ **vserver** > **namespace** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no guia de configuração do cluster para obter detalhes completos sobre como criar uma junção de namespace.
 
 ![A página de configurações do namespace > VServer mostrando detalhes de uma junção](media/fxt-cluster-config/namespace-populated.png)
 
@@ -149,9 +149,9 @@ Consulte o [**namespace** do **vserver** > ](https://azure.github.io/Avere/legac
 
 Depois de ter um vserver e um Filer principal, você deve personalizar as regras de exportação e exportar políticas que controlam como os clientes podem acessar arquivos nas exportações do Filer principal.
 
-Primeiro, use a página **VServer** > **Export Rules** para adicionar novas regras, para modificar a política padrão ou para criar sua própria política de exportação personalizada.
+Primeiro, use a página **VServer** > **exportar regras** para adicionar novas regras, para modificar a política padrão ou para criar sua própria política de exportação personalizada.
 
-Em segundo lugar, use a página **VServer** > **Export Policies** para aplicar a política personalizada às exportações do seu Filer principal quando acessadas por meio desse vserver.
+Em segundo lugar, use a página **VServer** > **Exportar políticas** para aplicar a política personalizada às exportações do seu Filer principal quando acessadas por meio desse vserver.
 
 Leia o artigo guia de configuração do cluster [controlando o acesso às exportações do principal Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) para obter detalhes.
 

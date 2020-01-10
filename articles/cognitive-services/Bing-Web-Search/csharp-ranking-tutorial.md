@@ -1,7 +1,7 @@
 ---
-title: Utilizar a classificação para apresentar os resultados da pesquisa
+title: Usando a classificação para exibir os resultados da pesquisa
 titleSuffix: Azure Cognitive Services
-description: Mostra como usar a resposta do Bing RankingResponse para exibir os resultados da pesquisa na ordem de classificação.
+description: Mostra como usar a resposta do Bing RankingResponse para exibir resultados da pesquisa em ordem de classificação.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,68 +9,68 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382332"
 ---
-# <a name="build-a-console-app-search-client-in-c"></a>Criar um cliente de pesquisa de aplicação de consola em c#
+# <a name="build-a-console-app-search-client-in-c"></a>Criar um cliente de pesquisa de aplicativo de console noC#
 
-Este tutorial mostra como criar uma aplicação de consola .NET Core simple que permite aos utilizadores consultar a API de pesquisa Web Bing e exibir resultados classificados.
+Este tutorial mostra como criar um aplicativo de console simples do .NET Core que permite aos usuários consultar os API de Pesquisa na Web do Bing e exibir os resultados classificados.
 
 Este tutorial mostra como:
 
-- Fazer uma consulta simples para a API de pesquisa Web Bing
-- Apresentar os resultados da consulta em ordem classificada
+- Faça uma consulta simples para o API de Pesquisa na Web do Bing
+- Exibir resultados da consulta em ordem classificada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acompanhar o tutorial, terá de:
+Para acompanhar o tutorial, você precisará de:
 
-- Visual Studio. Se não tiver, [transferir e instalar o Visual Studio 2017 Community Edition gratuita](https://www.visualstudio.com/downloads/).
-- Uma chave de subscrição para a API de pesquisa Web Bing. Se não possui uma chave, [inscreva-se numa avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- Visual Studio. Se você não o tiver, [Baixe e instale o Visual Studio 2017 Community Edition gratuito](https://www.visualstudio.com/downloads/).
+- Uma chave de assinatura para o API de Pesquisa na Web do Bing. Se não possui uma chave, [inscreva-se numa avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
-## <a name="create-a-new-console-app-project"></a>Criar um novo projeto de aplicação de consola
+## <a name="create-a-new-console-app-project"></a>Criar um novo projeto de aplicativo de console
 
 No Visual Studio, crie um projeto com `Ctrl`+`Shift`+`N`.
 
-Na **novo projeto** caixa de diálogo, clique em **Visual c# > área de trabalho clássica do Windows > aplicação de consola (.NET Framework)** .
+Na caixa de diálogo **novo projeto** , clique em **Visual C# > área de trabalho clássica do Windows > aplicativo de console (.NET Framework)** .
 
-Dê o nome **MyConsoleSearchApp**e, em seguida, clique em **OK**.
+Nomeie o aplicativo **MyConsoleSearchApp**e clique em **OK**.
 
-## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adicione o pacote JSON.net Nuget ao projeto
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adicionar o pacote NuGet do JSON.net ao projeto
 
-JSON.net permite-lhe trabalhar com as respostas JSON devolvidas pela API. Adicione o seu pacote NuGet ao seu projeto:
+JSON.net permite que você trabalhe com as respostas JSON retornadas pela API. Adicione seu pacote NuGet ao seu projeto:
 
-- Na **Explorador de soluções** com o botão direito no projeto e selecione **gerir pacotes NuGet...** .
-- Sobre o **navegue** separador, procure `Newtonsoft.Json`. Selecione a versão mais recente e, em seguida, clique em **instalar**.
-- Clique nas **OK** botão a **rever alterações** janela.
-- Feche o separador do Visual Studio intitulado **NuGet: MyConsoleSearchApp**.
+- Em **Gerenciador de soluções** clique com o botão direito do mouse no projeto e selecione **gerenciar pacotes NuGet...** .
+- Na guia **procurar** , procure `Newtonsoft.Json`. Selecione a versão mais recente e clique em **instalar**.
+- Clique no botão **OK** na janela **revisar alterações** .
+- Feche a guia do Visual Studio chamada **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Adicionar uma referência a System. Web
 
-Este tutorial baseia-se no `System.Web` assembly. Adicione uma referência a esse assembly ao seu projeto:
+Este tutorial se baseia no assembly `System.Web`. Adicione uma referência a este assembly ao seu projeto:
 
-- Na **Explorador de soluções**, clique em **referências** e selecione **Add Reference...**
-- Selecione **Assemblies > Framework**, em seguida, desloque para baixo e verificar **System. Web**
+- Em **Gerenciador de soluções**, clique com o botão direito do mouse em **referências** e selecione **Adicionar referência...**
+- Selecione **Assemblies > Framework**e, em seguida, role para baixo e verifique **System. Web**
 - Selecione **OK**
 
-## <a name="add-some-necessary-using-statements"></a>Adicionar algumas necessárias usando instruções
+## <a name="add-some-necessary-using-statements"></a>Adicionar algumas instruções using necessárias
 
-O código neste tutorial requer três adicionais usando instruções. Adicionar essas instruções abaixo existente `using` declarações na parte superior **Program.cs**:
+O código neste tutorial requer três instruções using adicionais. Adicione essas instruções abaixo das instruções de `using` existentes na parte superior de **Program.cs**:
 
 ```csharp
 using System.Web;
 using System.Net.Http;
 ```
 
-## <a name="ask-the-user-for-a-query"></a>Pedir ao utilizador para uma consulta
+## <a name="ask-the-user-for-a-query"></a>Solicitar ao usuário uma consulta
 
-Na **Explorador de soluções**, abra **Program.cs**. Atualização do `Main()` método:
+Em **Gerenciador de soluções**, abra **Program.cs**. Atualize o método de `Main()`:
 
 ```csharp
 static void Main()
@@ -91,13 +91,13 @@ static void Main()
 
 Este método:
 
-- Pede ao utilizador para uma consulta
-- Chamadas `RunQueryAndDisplayResults(userQuery)` para executar a consulta e exibir os resultados
-- Tem de aguardar pela intervenção do utilizador para impedir que a janela da consola imediatamente a fechar.
+- Solicita ao usuário uma consulta
+- Chama `RunQueryAndDisplayResults(userQuery)` para executar a consulta e exibir os resultados
+- Aguarda a entrada do usuário para impedir que a janela do console seja fechada imediatamente.
 
-## <a name="search-for-query-results-using-the-bing-web-search-api"></a>Procurar resultados de consulta usando a API de pesquisa Web Bing
+## <a name="search-for-query-results-using-the-bing-web-search-api"></a>Pesquisar resultados da consulta usando o API de Pesquisa na Web do Bing
 
-Em seguida, adicione um método que a API de consulta e apresenta os resultados:
+Em seguida, adicione um método que consulta a API e exibe os resultados:
 
 ```csharp
 static void RunQueryAndDisplayResults(string userQuery)
@@ -137,16 +137,16 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 Este método:
 
-- Cria um `HttpClient` para consultar a API de pesquisa Web
-- Conjuntos de `Ocp-Apim-Subscription-Key` cabeçalho HTTP, que o Bing utiliza para autenticar o pedido
-- Executa a solicitação e utiliza o JSON.net para anular a serialização de resultados
-- Chamadas `DisplayAllRankedResults(responseObjects)` para apresentar todos os resultados em ordem classificada
+- Cria um `HttpClient` para consultar a API de Pesquisa na Web
+- Define o cabeçalho HTTP `Ocp-Apim-Subscription-Key`, que o Bing usa para autenticar a solicitação
+- Executa a solicitação e usa JSON.net para desserializar os resultados
+- Chama `DisplayAllRankedResults(responseObjects)` para exibir todos os resultados em ordem classificada
 
-Certifique-se de definir o valor de `Ocp-Apim-Subscription-Key` à sua chave de subscrição.
+Certifique-se de definir o valor de `Ocp-Apim-Subscription-Key` para sua chave de assinatura.
 
 ## <a name="display-ranked-results"></a>Exibir resultados classificados
 
-Antes de mostrar como exibir os resultados em ordem classificada, dê uma olhada numa resposta de pesquisa de web de exemplo:
+Antes de mostrar como exibir os resultados em ordem classificada, dê uma olhada em uma resposta de pesquisa na Web de exemplo:
 
 ```json
 {
@@ -221,15 +221,15 @@ Antes de mostrar como exibir os resultados em ordem classificada, dê uma olhada
 }
 ```
 
-O `rankingResponse` objeto JSON ([documentação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descreve a ordem de exibição apropriado para resultados da pesquisa. Ele inclui um ou mais dos seguintes, prioritários grupos:
+O objeto JSON `rankingResponse` ([documentação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descreve a ordem de exibição apropriada para os resultados da pesquisa. Ele inclui um ou mais dos seguintes grupos priorizados:
 
-- `pole`: Os resultados da pesquisa para obter o tratamento mais visível (por exemplo, são apresentados acima o principal e barra lateral).
-- `mainline`: Os resultados da pesquisa para apresentar os principais no.
-- `sidebar`: Os resultados da pesquisa para apresentar na barra lateral. Se não houver nenhuma barra lateral, exiba os resultados abaixo as principais.
+- `pole`: os resultados da pesquisa para obter o tratamento mais visível (por exemplo, exibido acima da principal e da barra lateral).
+- `mainline`: os resultados da pesquisa a serem exibidos na principal.
+- `sidebar`: os resultados da pesquisa a serem exibidos na barra lateral. Se não houver nenhuma barra lateral, exiba os resultados abaixo da principal.
 
 A resposta de classificação JSON pode incluir um ou mais dos grupos.
 
-Na **Program.cs**, adicione o seguinte método para exibir resultados em ordem classificada corretamente:
+No **Program.cs**, adicione o seguinte método para exibir os resultados em ordem corretamente classificada:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -273,10 +273,10 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 
 Este método:
 
-- Faz um loop sobre o `rankingResponse` grupos que contém a resposta
-- Apresenta os itens em cada grupo chamando `DisplaySpecificResults(...)`
+- Executa um loop sobre os grupos de `rankingResponse` que a resposta contém
+- Exibe os itens em cada grupo chamando `DisplaySpecificResults(...)`
 
-Na **Program.cs**, adicione os seguintes dois métodos:
+No **Program.cs**, adicione os dois métodos a seguir:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)
@@ -305,7 +305,7 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 }
 ```
 
-Esses métodos funcionam em conjunto para enviar os resultados de pesquisa para a consola.
+Esses métodos funcionam juntos para gerar os resultados da pesquisa para o console.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
@@ -329,6 +329,6 @@ WebPage:
 ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Leia mais sobre [com a classificação de mensagens em fila para apresentar resultados](rank-results.md).
+Leia mais sobre como [usar a classificação para exibir resultados](rank-results.md).

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439018"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: criar a primeira fábrica de dados com o portal do Azure
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline pode conter uma
 
 Para criar uma fábrica de dados, siga estes passos:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Novo** > **Dados + Análise** > **Data Factory**.
 
@@ -110,7 +110,7 @@ Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Neste 
 
    ![Serviço ligado de armazenamento](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter a sua chave de acesso ao armazenamento, veja como visualizar, copiar e regenerar chaves de acesso ao armazenamento em [Gerir a conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave da conta** pela chave de acesso da sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
@@ -211,12 +211,12 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
    | Propriedade | Aninhado em | Descrição |
    |:--- |:--- |:--- |
    | tipo | propriedades |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
-   | linkedServiceName | ao |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
+   | linkedServiceName | format |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
    | folderPath | typeProperties | Especifica o contentor de blobs e a pasta que contém os blobs de entrada. | 
    | fileName | typeProperties |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste tutorial, apenas o ficheiro input.log é processado. |
-   | tipo | ao |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat**. |
-   | columnDelimiter | ao |As colunas nos ficheiros de registo são delimitadas por vírgula (`,`). |
-   | frequência/intervalo | availability |A frequência está definida para **Mês**, sendo o intervalo **1**, o que significa que os setores de entrada estão disponíveis mensalmente. |
+   | tipo | format |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat**. |
+   | columnDelimiter | format |As colunas nos ficheiros de registo são delimitadas por vírgula (`,`). |
+   | frequência/intervalo | disponibilidade |A frequência está definida para **Mês**, sendo o intervalo **1**, o que significa que os setores de entrada estão disponíveis mensalmente. |
    | externo | propriedades | Esta propriedade é definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Neste tutorial, o ficheiro input.log não é gerado por este pipeline, por isso definimos a propriedade como **verdadeira**. |
 
     Para obter mais informações sobre estas propriedades JSON, veja [Conector de Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties).
@@ -434,7 +434,7 @@ Neste tutorial, criou uma fábrica de dados para processar dados, ao executar o 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script do Hive num cluster do HDInsight a pedido. Para ver como utilizar uma atividade Copiar para copiar dados de armazenamento de blobs para uma base de dados SQL, veja [Tutorial: copiar dados de armazenamento de Blobs para a Base de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Ver também
 | Tópico | Descrição |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |

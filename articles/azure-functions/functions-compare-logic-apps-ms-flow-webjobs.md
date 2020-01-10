@@ -1,19 +1,20 @@
 ---
-title: O que são Microsoft Flow, aplicativos lógicos, funções e trabalhos Web? - Azure
+title: Opções de plataforma de integração e automação no Azure
 description: 'Compare os serviços em nuvem da Microsoft que são otimizados para tarefas de integração: Microsoft Flow, aplicativos lógicos, funções e trabalhos Web.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409841"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são Microsoft Flow, aplicativos lógicos, funções e trabalhos Web?
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação corretos no Azure
 
-Este artigo compara o seguinte Microsoft Cloud 
+Este artigo compara os seguintes serviços cloud do Microsoft:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
@@ -33,10 +34,10 @@ Microsoft Flow capacita qualquer operador do Office a executar integrações sim
 
 A tabela a seguir ajuda a determinar se Microsoft Flow ou aplicativos lógicos são melhores para uma determinada integração:
 
-|  | Microsoft Flow | Aplicações Lógicas |
+|  | Microsoft Flow | Logic Apps |
 | --- | --- | --- |
 | Utilizadores |Trabalhadores do escritório, utilizadores empresariais, administradores do SharePoint |Integradores e programadores profissionais, profissionais de TI |
-| Cenários |Gestão personalizada |Integrações avançadas |
+| Cenários |Self-service |Integrações avançadas |
 | Ferramenta de design |Aplicação no browser e móvel, apenas IU |No browser e [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Vista de código](../logic-apps/logic-apps-author-definitions.md) disponível |
 | Gerenciamento do ciclo de vida do aplicativo (ALM) |Projete e teste em ambientes de não produção, promova para produção quando estiver pronto |Azure DevOps: controle do código-fonte, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Experiência de administrador |Gerenciar ambientes de Microsoft Flow e políticas de prevenção de perda de dados (DLP), acompanhar o licenciamento: [Microsoft Flow centro de administração](https://admin.flow.microsoft.com) |Gerenciar grupos de recursos, conexões, gerenciamento de acesso e registro em log: [portal do Azure](https://portal.azure.com) |
@@ -50,14 +51,14 @@ Nas Funções do Azure, vai desenvolver orquestrações ao escrever código e ut
 
 Pode combinar serviços ao criar uma orquestração, chamar funções de aplicações lógicas e chamar aplicações lógicas de funções. Selecione como criar cada orquestração com base nas capacidades dos serviços ou nas suas preferências pessoais. A tabela a seguir lista algumas das principais diferenças entre elas:
 
-|  | Funções Duráveis | Aplicações Lógicas |
+|  | Funções Duráveis | Logic Apps |
 | --- | --- | --- |
 | Desenvolvimento | Baseada em código (imperativo) | Baseada em designer (declarativo) |
-| Conectividade | [Cerca de uma dúzia de tipos de vinculação integrados](functions-triggers-bindings.md#supported-bindings), código de escrita para vinculações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
+| Ligação | [Cerca de uma dúzia de tipos de vinculação integrados](functions-triggers-bindings.md#supported-bindings), código de escrita para vinculações personalizadas | [Grande coleção de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para cenários B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [criar conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | Ações | Cada atividade é uma função do Azure; escrever código para funções de atividades |[Grande coleção de ações preparadas](../logic-apps/logic-apps-workflow-actions-triggers.md)|
 | Monitorização | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | Logs de [portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Gestão | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
-| Contexto de execução | Pode ser executado [localmente](functions-runtime-overview.md) ou na nuvem | É executado somente na nuvem|
+| Contexto de execução | Pode ser executado [localmente](functions-runtime-overview.md) ou na nuvem | São executadas apenas na cloud|
 
 <a name="function"></a>
 
@@ -75,14 +76,14 @@ O WebJobs e o SDK do WebJobs funcionam melhor em conjunto, mas pode utilizar o W
 
 As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos dos acionadores de eventos e das ligações a outros serviços do Azure. Aqui estão alguns fatores a serem considerados quando você estiver escolhendo entre Azure Functions e trabalhos Web com o SDK de trabalhos Web:
 
-|  | Functions | WebJobs com o SDK do WebJobs |
+|  | Funções | WebJobs com o SDK do WebJobs |
 | --- | --- | --- |
 |[Modelo de aplicação sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Programação e testes no browser](functions-create-first-azure-function.md) |✔||
 |[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||
 | Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de Ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Idiomas suportados  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Linguagens suportadas  |C#<br>F#<br>Javascript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Gestores de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> trabalhos Web (sem o SDK de trabalhos Web) C#dão suporte a, Java, JavaScript, Bash,. cmd,. bat, PowerShell, PHP, TypeScript, Python e muito mais. Essa não é uma lista abrangente. Um WebJob pode executar qualquer programa ou script que possa ser executado na sandbox do Serviço de Aplicações.

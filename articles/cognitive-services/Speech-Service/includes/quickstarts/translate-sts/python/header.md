@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a5e8f951fbcfe1d0230b0b0ce55b4eba43024531
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45006e602cfab233840b4879f6eea2e2f9d38a6d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467769"
 ---
 Se você preferir ir diretamente, exiba ou Baixe todos os <a href="https://aka.ms/speech/github-python">exemplos de Python do SDK de fala</a> no github. Caso contrário, vamos começar.

@@ -2,18 +2,18 @@
 title: Desempenho de Phoenix no Azure HDInsight
 description: Práticas recomendadas para otimizar o desempenho de Apache Phoenix para clusters do Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810441"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552649"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Apache Phoenix
 
@@ -31,34 +31,34 @@ A chave primária definida em uma tabela no Phoenix determina como os dados são
 
 Por exemplo, uma tabela de contatos tem o nome, o sobrenome, o número de telefone e o endereço, tudo na mesma família de colunas. Você pode definir uma chave primária com base em um número de sequência crescente:
 
-|RowKey|       endereço|   telefone| firstName| lastName|
+|RowKey|       endereço|   telemóvel| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    João|Giros|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 No entanto, se você consulta com frequência por lastName, essa chave primária pode não ser bem executada, porque cada consulta requer uma verificação de tabela completa para ler o valor de cada sobrenome. Em vez disso, você pode definir uma chave primária nas colunas lastName, firstName e número do seguro social. Esta última coluna é desambiguar dois residentes no mesmo endereço com o mesmo nome, como um pai e um filho.
 
-|RowKey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|RowKey|       endereço|   telemóvel| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    João|Giros| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Com essa nova chave primária, as chaves de linha geradas pelo Phoenix seriam:
 
-|RowKey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|RowKey|       endereço|   telemóvel| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    João|Giros| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Na primeira linha acima, os dados para o RowKey são representados como mostrado:
 
-|RowKey|       key|   value| 
+|RowKey|       key|   valor|
 |------|--------------------|---|
 |  Dole-John-111|endereço |1111 San Gabriel Dr.|  
-|  Dole-John-111|telefone |1-425-000-0002|  
+|  Dole-John-111|telemóvel |1-425-000-0002|  
 |  Dole-John-111|firstName |João|  
 |  Dole-John-111|lastName |Giros|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 Esse RowKey agora armazena uma cópia duplicada dos dados. Considere o tamanho e o número de colunas que você inclui em sua chave primária, pois esse valor é incluído em cada célula na tabela do HBase subjacente.
 
@@ -109,11 +109,11 @@ Os índices secundários podem melhorar o desempenho de leitura, transformando o
 
 ### <a name="use-covered-indexes"></a>Usar índices cobertos
 
-Índices cobertos são índices que incluem dados da linha além dos valores que são indexados. Depois de encontrar a entrada de índice desejada, não é necessário acessar a tabela primária.
+Índices cobertos são índices que incluem dados da linha além dos valores que são indexados. Depois de encontrar a entrada de índice desejada, não há necessidade de acessar a tabela primária.
 
 Por exemplo, na tabela de exemplo de contato, você pode criar um índice secundário apenas na coluna socialSecurityNum. Esse índice secundário agilizaria as consultas que filtram por valores socialSecurityNum, mas recuperar outros valores de campo exigirá outra leitura na tabela principal.
 
-|RowKey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|RowKey|       endereço|   telemóvel| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    João|Giros| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -168,7 +168,7 @@ O plano de consulta tem a seguinte aparência:
 
 Neste plano, observe a frase verificação completa sobre vôos. Essa frase indica que a execução faz uma verificação de tabela em todas as linhas da tabela, em vez de usar a opção de verificação de intervalo mais eficiente ou ignorar verificação.
 
-Agora, digamos que você deseja consultar vôos em 2 de janeiro de 2014 para a operadora `AA` em que seu voo foi maior que 1. Vamos pressupor que as colunas ano, mês, DayOfMonth, Carrier e voo existam na tabela de exemplo e que fazem parte da chave primária composta. A consulta teria a seguinte aparência:
+Agora, digamos que você deseja consultar vôos em 2 de janeiro de 2014 para a transportadora `AA` em que seu voo foi maior que 1. Vamos pressupor que as colunas ano, mês, DayOfMonth, Carrier e voo existam na tabela de exemplo e que fazem parte da chave primária composta. A consulta teria a seguinte aparência:
 
     select * from "FLIGHTS" where year = 2014 and month = 1 and dayofmonth = 2 and carrier = 'AA' and flightnum > 1;
 
@@ -180,9 +180,9 @@ O plano resultante é:
 
     CLIENT 1-CHUNK PARALLEL 1-WAY ROUND ROBIN RANGE SCAN OVER FLIGHTS [2014,1,2,'AA',2] - [2014,1,2,'AA',*]
 
-Os valores entre colchetes são o intervalo de valores para as chaves primárias. Nesse caso, os valores de intervalo são corrigidos com o ano 2014, mês 1 e DAYOFMONTH 2, mas permitem valores para voo começando com 2 e em cima`*`(). Esse plano de consulta confirma que a chave primária está sendo usada conforme o esperado.
+Os valores entre colchetes são o intervalo de valores para as chaves primárias. Nesse caso, os valores de intervalo são corrigidos com o ano 2014, mês 1 e DAYOFMONTH 2, mas permitem valores para voo começando com 2 e em cima (`*`). Esse plano de consulta confirma que a chave primária está sendo usada conforme o esperado.
 
-Em seguida, crie um índice na tabela de vôos `carrier2_idx` denominada que está somente no campo da transportadora. Esse índice também inclui voo, cauda, Origin e voo como colunas cobertas cujos dados também são armazenados no índice.
+Em seguida, crie um índice na tabela de vôos denominada `carrier2_idx` que está somente no campo da transportadora. Esse índice também inclui voo, cauda, Origin e voo como colunas cobertas cujos dados também são armazenados no índice.
 
     CREATE INDEX carrier2_idx ON FLIGHTS (carrier) INCLUDE(FLIGHTDATE,TAILNUM,ORIGIN,FLIGHTNUM);
 
@@ -200,7 +200,7 @@ Para obter uma lista completa dos itens que podem aparecer em explicar os result
 
 Em geral, você deseja evitar junções, a menos que um lado seja pequeno, especialmente em consultas frequentes.
 
-Se necessário, você pode fazer junções grandes com a `/*+ USE_SORT_MERGE_JOIN */` dica, mas uma grande junção é uma operação cara em grandes números de linhas. Se o tamanho geral de todas as tabelas do lado direito exceder a memória disponível, use a `/*+ NO_STAR_JOIN */` dica.
+Se necessário, você pode fazer junções grandes com a dica de `/*+ USE_SORT_MERGE_JOIN */`, mas uma grande junção é uma operação cara em grandes números de linhas. Se o tamanho geral de todas as tabelas do lado direito exceder a memória disponível, use a dica `/*+ NO_STAR_JOIN */`.
 
 ## <a name="scenarios"></a>Cenários
 
@@ -212,7 +212,7 @@ Para casos de uso intensivo de leitura, verifique se você está usando índices
 
 ### <a name="write-heavy-workloads"></a>Cargas de trabalho pesadas de gravação
 
-Para cargas de trabalho com excesso de gravação em que a chave primária está aumentando de forma monotônico, crie buckets Salt para ajudar a evitar pontos de vida de gravação, às custas da taxa de transferência de leitura geral devido às verificações adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e faça o lote dos registros.
+Para cargas de trabalho com excesso de gravação em que a chave primária está aumentando de forma monotônico, crie buckets Salt para ajudar a evitar pontos de interrupções de gravação, às custas da taxa de transferência de leitura geral, devido às verificações adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e faça o lote dos registros.
 
 ### <a name="bulk-deletes"></a>Exclusões em massa
 

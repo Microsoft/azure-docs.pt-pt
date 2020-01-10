@@ -1,18 +1,14 @@
 ---
 title: Como parar de monitorar o cluster do Azure Red Hat OpenShift | Microsoft Docs
 description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: f769749532a05260bf3c2c9f99483c5607d985a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e726d2d8254598869f1c6305421c674c870e3d31
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404297"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres
 
@@ -24,9 +20,9 @@ São fornecido dois modelo Azure Resource Manager para suportar a remoção os r
 
 Se não estiver familiarizado com o conceito de implementar recursos com um modelo, consulte:
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implantar recursos com modelos do Resource Manager e o CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar sua versão, execute `az --version`. Se você precisar instalar ou atualizar o CLI do Azure, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-template"></a>Criar o modelo
 
@@ -69,7 +65,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
     }
     ```
 
-2. Salve esse arquivo como **OptOutTemplate. JSON** em uma pasta local.
+2. Guarde este ficheiro como **OptOutTemplate.json** para uma pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -92,7 +88,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 
     ![Página de propriedades do contentor](media/container-insights-optout-openshift/cluster-properties-page.png)
 
-5. Salve esse arquivo como **OptOutParam. JSON** em uma pasta local.
+5. Guarde este ficheiro como **OptOutParam.json** para uma pasta local.
 
 6. Está pronto para implementar este modelo. 
 
@@ -130,6 +126,6 @@ A alteração de configuração pode demorar alguns minutos a concluir. Quando f
 ProvisioningState       : Succeeded
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se a área de trabalho foi criada apenas para suportar a monitorização do cluster e já não for necessário, terá de eliminar manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md). 

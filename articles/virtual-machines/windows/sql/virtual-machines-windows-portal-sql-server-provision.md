@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350924"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -67,7 +67,7 @@ Na guia **noções básicas** , forneça as seguintes informações:
     ![Subscrição](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Utilizar um novo grupo de recursos é útil se estiver apenas a testar ou a saber mais sobre implementações do SQL Server no Azure. Depois de terminar o teste, elimine o grupo de recursos para eliminar automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para mais informações sobre grupos de recursos, consulte o artigo [Descrição Geral do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
+  > Utilizar um novo grupo de recursos é útil se estiver apenas a testar ou a saber mais sobre implementações do SQL Server no Azure. Depois de terminar o teste, elimine o grupo de recursos para eliminar automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para mais informações sobre grupos de recursos, consulte o artigo [Descrição Geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 
 * Em **detalhes da instância**:
@@ -106,7 +106,7 @@ Na guia **discos** , configure as opções de disco.
 ![Configurações de disco da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   
   
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Funcionamento em Rede
 
 Na guia **rede** , configure as opções de rede. 
 
@@ -143,7 +143,7 @@ Na guia **configurações de SQL Server** , defina configurações e otimizaçõ
 | [Serviços de Machine Learning](#machine-learning-services) |
 
 
-### <a name="connectivity"></a>Conectividade
+### <a name="connectivity"></a>Ligação
 
 Em **Conectividade do SQL**, especifique o tipo de acesso que pretende para a instância do SQL Server nesta VM. Para os fins deste passo a passos, selecione **público (Internet)** para permitir conexões a SQL Server de computadores ou serviços na Internet. Com essa opção selecionada, o Azure configura automaticamente o firewall e o grupo de segurança de rede para permitir o tráfego na porta selecionada.
 

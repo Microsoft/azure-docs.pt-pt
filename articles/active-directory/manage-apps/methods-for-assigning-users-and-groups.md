@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443337"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir utilizadores e grupos a uma aplicação no Azure Active Directory
 Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no Azure Active Directory (Azure AD). Os usuários primeiro devem ser atribuídos a uma aplicação antes de um administrador pode conceder-lhes acesso para fazer o seguinte:
@@ -34,10 +34,11 @@ Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no
 
 A disponibilidade da atribuição baseada em grupo é determinada pelo seu contrato de licença. A atribuição baseada em grupo tem suporte apenas para grupos de segurança. Atualmente, as associações de grupo aninhadas e os grupos O365 não têm suporte.
 
-## <a name="prerequisites"></a>Pré-requisitos
-Antes de poder atribuir utilizadores e grupos a uma aplicação, deve exigir a atribuição de utilizadores. Para exigir a atribuição de utilizadores:
+## <a name="configure-the-application-to-require-assignment"></a>Configurar o aplicativo para exigir atribuição
 
-1. Inicie sessão no portal do Azure com uma conta de administrador.
+Um aplicativo pode ser configurado para exigir atribuição antes que possa ser acessado. Para exigir atribuição:
+
+1. Faça logon no portal do Azure com uma conta de administrador ou como um proprietário do aplicativo em **aplicativos empresariais**.
 2. Clique nas **todos os serviços** item no menu principal.
 3. Escolha o diretório que está a utilizar para a aplicação.
 4. Clique nas **aplicações empresariais** separador.
@@ -74,7 +75,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do usuário ou a logótipo para adicionar o utilizador para o **selecionados** lista.
 
-12. **Adicional** Se você quiser **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na CheckBox para adicionar esse usuário à lista **selecionada** .
+12. **Opcional:** se quiser **adicionar mais do que um utilizador**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 
@@ -112,7 +113,7 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos ab
 
 11. Paire o rato sobre o **grupo** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil ou à logótipo para adicionar o utilizador para o grupo de **selecionados** lista.
 
-12. **Adicional** Se você quiser **adicionar mais de um grupo**, digite outro **nome de grupo completo** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na CheckBox para adicionar esse grupo à lista **selecionada** .
+12. **Opcional:** se quiser **adicionar mais de um grupo**, tipo em outro **nome do grupo inteiro** no **procurar por nome ou endereço de e-mail** caixa de pesquisa, e Clique na caixa de verificação para adicionar este grupo para o **selecionados** lista.
 
 13. Quando tiver terminado de selecionar os grupos, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
 
@@ -148,18 +149,18 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 9. Em seguida, para selecionar o grupo a que os utilizadores que pedem acesso a esta aplicação deve ser adicionado, clique o Seletor de junto à etiqueta **a que grupo devem os utilizadores atribuídos ser adicionados?** e selecione um grupo.
 
-10. **Adicional** Se você quiser exigir uma aprovação de negócios antes que os usuários tenham permissão de acesso, defina a opção **exigir aprovação antes de conceder acesso a este aplicativo?** alterne para **Sim**.
+10. **Opcional:** se quiser pedir uma aprovação de negócios antes dos utilizadores têm permissão para aceder, defina o **exigir a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
 
-11. **Adicional Para aplicativos que usam somente logon único de senha,**  se você quiser permitir que os aprovadores de negócios especifiquem as senhas que são enviadas para este aplicativo para usuários aprovados, defina **permitir que os aprovadores definam as senhas do usuário para este aplicativo?** Alterne para **Sim**.
+11. **Opcional: para aplicativos usando apenas, palavra-passe início de sessão único no** se pretender permitir que os aprovadores empresariais especificar as palavras-passe que são enviadas para esta aplicação para os utilizadores aprovados, defina o **permitir que os aprovadores definam do utilizador palavras-passe para esta aplicação?**  alternar para **Sim**.
 
-12. **Adicional** Para especificar os aprovadores de negócios que têm permissão para aprovar o acesso a esse aplicativo, clique no seletor ao lado do rótulo **que tem permissão para aprovar o acesso a este aplicativo?** para selecionar até 10 aprovadores de negócios individuais.
+12. **Opcional:** para especificar os aprovadores empresariais que têm permissão para aprovar o acesso a esta aplicação, clique o Seletor de junto a etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar a pessoa até 10 aprovadores empresariais.
 
     >[!NOTE]
     >Grupos não são suportados.
     >
     >
 
-13. **Adicional** **Para aplicativos que expõem funções**, se você quiser atribuir usuários aprovados por autoatendimento a uma função, clique no seletor ao lado do **a qual função os usuários devem ser atribuídos neste aplicativo?** para selecionar a função à qual esses usuários devem ser atribuídos.
+13. **Opcional:** **para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados self-service a uma função, clique no Seletor de junto a **a que função devem ser atribuídos os utilizadores desta aplicação?** para selecionar a função para que estes utilizadores devem ser atribuídos.
 
 14. Clique nas **guardar** botão na parte superior do painel para concluir.
 

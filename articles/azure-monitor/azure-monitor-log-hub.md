@@ -6,15 +6,15 @@ description: Azure Monitor pode coletar fontes diferentes como dados de log e ar
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: hub-page
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/29/2019
-ms.openlocfilehash: 407e18008c947f95204ea073db31b5f2279a5a4c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 903644b9e2f23e7bab4af2dbda0a07039ca3399a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597329"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406170"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -104,7 +104,7 @@ ms.locfileid: "72597329"
                                                         <br>
                                                         <h3>Origens de dados</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources">Visão geral<br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-windows-events">Eventos do Windows</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Contadores de desempenho do Windows e do Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Desempenho de aplicações do Linux</a><br/>
@@ -145,8 +145,8 @@ ms.locfileid: "72597329"
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/alerts-overview">Visão geral de alertas</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Dimensionamento Automático</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Alertas de log</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Alertas do log de atividades</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-unified-log">Alertas de registo</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-activity-log">Alertas do registo de atividades</a><br/>
                                                             <a href="/azure/azure-monitor/platform/action-groups">Grupos de ações</a><br/>
                                                         </p>
                                                     </div>

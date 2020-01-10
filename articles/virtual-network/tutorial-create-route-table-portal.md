@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350297"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure
 
@@ -44,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -58,7 +58,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e selecione *OK*. |
     | Localização | Deixe o **leste dos EUA**padrão.
-    | Propagação de rota BGP | Deixe o padrão **habilitado**. |
+    | Propagação de rota de gateway de rede virtual | Deixe o padrão **habilitado**. |
 
 1. Selecione **Criar**.
 
@@ -79,7 +79,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Nome da rota | Insira *ToPrivateSubnet*. |
     | Prefixo de endereço | Insira *10.0.1.0/24*. |
     | Tipo de salto seguinte | Selecione **Aplicação virtual**. |
-    | Endereço do próximo salto | Insira *10.0.2.4*. |
+    | Endereço do próximo salto | Enter *10.0.2.4*. |
 
 1. Selecione **OK**.
 
@@ -109,7 +109,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, você precisa criar 
 
 1. Na barra de pesquisa do portal, insira *myVirtualNetwork*.
 
-1. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione-a.
+1. Quando **myVirtualNetwork** aparecer nos resultados da pesquisa, selecione a mesma.
 
 1. Em **myVirtualNetwork**, em **configurações**, selecione sub- **redes** >  **+ sub-rede**.
 
@@ -137,7 +137,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, você precisa criar 
 
 ### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>Associar o myRouteTablePublic à sua sub-rede pública
 
-1. Selecione **público**.
+1. Selecione **Público**.
 
 1. Em **público**, selecione **tabela de rotas** > **MyRouteTablePublic** > **salvar**.
 
@@ -165,7 +165,7 @@ NVAs são VMs que ajudam com funções de rede como roteamento e otimização de
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
     | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmar senha | Digite a senha novamente. |
+    | Confirmar Palavra-Passe | Digite a senha novamente. |
     | **REGRAS DE PORTA DE ENTRADA** |  |
     | Portas de entrada públicas | Deixe o padrão **nenhum**.
     | **ECONOMIZE DINHEIRO** |  |
@@ -183,7 +183,7 @@ NVAs são VMs que ajudam com funções de rede como roteamento e otimização de
     | ------- | ----- |
     | Rede virtual | Deixe o **myVirtualNetwork**padrão. |
     | Subrede | Selecione **DMZ (10.0.2.0/24)** . |
-    | IP público | Selecione **nenhum**. Você não precisa de um endereço IP público. A VM não se conectará pela Internet.|
+    | IP público | Selecione **Nenhuma**. Você não precisa de um endereço IP público. A VM não se conectará pela Internet.|
 
 1. Deixe o restante dos padrões e selecione **Avançar: gerenciamento**.
 
@@ -233,25 +233,25 @@ Conclua as etapas 1-12 de [criar um NVA](#create-an-nva). Use a maioria das mesm
 | Definição | Valor |
 | ------- | ----- |
 | **VM PÚBLICA** | |
-| ALGUMAS |  |
+| INFORMAÇÕES BÁSICAS |  |
 | Nome da máquina virtual | Insira *myVmPublic*. |
-| REDE | |
+| REDES | |
 | Subrede | Selecione **público (10.0.0.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
 | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
 | Selecionar portas de entrada | Selecione **http** e **RDP**. |
-| GERENCIAMENTO | |
-| Conta de armazenamento de diagnóstico | Deixe o **mynvastorageaccount**padrão. |
+| GESTÃO | |
+| Conta de armazenamento de diagnósticos | Deixe o **mynvastorageaccount**padrão. |
 | **VM PRIVADA** | |
-| ALGUMAS |  |
+| INFORMAÇÕES BÁSICAS |  |
 | Nome da máquina virtual | Insira *myVmPrivate*. |
-| REDE | |
+| REDES | |
 | Subrede | Selecione **privado (10.0.1.0/24)** . |
 | Endereço IP público | Aceite o padrão. |
 | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
 | Selecionar portas de entrada | Selecione **http** e **RDP**. |
-| GERENCIAMENTO | |
-| Conta de armazenamento de diagnóstico | Deixe o **mynvastorageaccount**padrão. |
+| GESTÃO | |
+| Conta de armazenamento de diagnósticos | Deixe o **mynvastorageaccount**padrão. |
 
 Pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Não continue com o restante das etapas até que o Azure termine de criar ambas as VMs.
 

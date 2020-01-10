@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360179"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -114,7 +114,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 
 ### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **especificar vCenter Server detalhes**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Você pode deixar a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escuta.
-2. Em **nome de usuário** e **senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir as VMs no servidor do vCenter. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode fazer o escopo da descoberta limitando o acesso à conta do vCenter de acordo; Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#scoping-discovery).
+2. Em **nome de usuário** e **senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir as VMs no servidor do vCenter. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode fazer o escopo da descoberta limitando o acesso à conta do vCenter de acordo; Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Clique em **validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
@@ -133,6 +133,6 @@ Depois de especificar o vCenter Server e as credenciais da VM (opcional), clique
 
 Leva cerca de 15 minutos para que os metadados de VMs descobertas apareçam no Portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo, a duração depende do número de VMs que estão sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de migrações para Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Examine os tutoriais para [avaliação do VMware](tutorial-assess-vmware.md) e [migração sem agente](tutorial-migrate-vmware.md).

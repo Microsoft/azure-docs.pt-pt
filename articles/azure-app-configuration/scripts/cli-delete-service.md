@@ -1,5 +1,6 @@
 ---
-title: Exemplo de script de CLI do Azure – excluir um repositório de configuração de Azure App | Microsoft Docs
+title: Exemplo de script de CLI do Azure – excluir um repositório de configuração de Azure App
+titleSuffix: Azure App Configuration
 description: Exemplo de script de CLI do Azure – excluir um repositório de configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0983e7d68e7ad01683d588ef89827eaf79754d07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d5a80288fcd5b0216a9bf3ca322203f672f381d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413382"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Excluir um repositório de configuração de Azure App
 
@@ -52,7 +53,7 @@ Esse script usa os comandos a seguir para excluir um repositório de configuraç
 
 | Comando | Notas |
 |---|---|
-| [excluir o AZ appconfig](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Exclui um recurso de repositório de configuração de aplicativo. |
+| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Exclui um recurso de repositório de configuração de aplicativo. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

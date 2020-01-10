@@ -1,5 +1,5 @@
 ---
-title: Encaminhador local de rastreamento distribuído do Aplicativo Azure insights OpenCensus (visualização) | Microsoft docs
+title: Encaminhador local do Aplicativo Azure insights OpenCensus (visualização)
 description: Encaminhe rastreamentos distribuídos do OpenCensus e alcance de linguagens como Python e vá para Aplicativo Azure insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406613"
 ---
 # <a name="local-forwarder-preview"></a>Encaminhador local (visualização)
 
@@ -25,12 +25,12 @@ O encaminhador local é um [projeto de código-fonte aberto no GitHub](https://g
 
 ### <a name="windows"></a>Windows
 
-#### <a name="windows-service"></a>Serviço do Windows
+#### <a name="windows-service"></a>Serviço Windows
 
 A maneira mais fácil de executar o encaminhador local no Windows é instalá-lo como um serviço do Windows. A versão vem com um executável de serviço do Windows (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) que pode ser facilmente registrado com o sistema operacional.
 
 > [!NOTE]
-> O serviço de encaminhador local requer um mínimo de .NET Framework 4,7. Se você não tiver .NET Framework 4,7, o serviço será instalado, mas não iniciará. Para acessar a versão mais recente do .NET Framework **[visite a página de download do .NET Framework](
+> O serviço de encaminhador local requer um mínimo de .NET Framework 4,7. Se você não tiver .NET Framework 4,7, o serviço será instalado, mas não iniciará. Para acessar a versão de disponibilidade mais recente do .NET Framework **[visite a página de download do .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Baixe a LF. Arquivo WindowsServiceHost. zip da [página de versão do encaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no github.
@@ -78,7 +78,7 @@ Para certos casos de uso, pode ser benéfico executar o encaminhador local como 
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* um conjunto de binários do .NET Core independente para plataformas x86 e x64. Eles não exigem o tempo de execução do .NET Core para serem executados. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/Win-x64/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* um conjunto de binários do .NET Core independente para plataformas x86 e x64. Eles não exigem o tempo de execução do .NET Core para serem executados. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -93,7 +93,7 @@ Assim como no Windows, a versão vem com as seguintes versões executáveis do h
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* um conjunto de binários do .NET Core independente para Linux-64. Este não requer que o tempo de execução do .NET Core seja executado. */ConsoleHost/Linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
+* um conjunto de binários do .NET Core independente para Linux-64. Este não requer que o tempo de execução do .NET Core seja executado. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
@@ -105,7 +105,7 @@ Muitos usuários do Linux deverão executar o encaminhador local como um daemon.
 Como exemplo, vamos criar um serviço daemon usando o sistema. Usaremos a versão dependente da estrutura, mas a mesma também pode ser feita para uma conta independente.
 
 * Crie o seguinte arquivo de serviço chamado *localforwarder. Service* e coloque-o em */lib/systemd/System*.
-Este exemplo pressupõe que seu nome de usuário é SAMPLE_USER e você copiou os binários dependentes da estrutura de encaminhamento local (de */ConsoleHost/Publish*) para */Home/SAMPLE_USER/LOCALFORWARDER_DIR*.
+Este exemplo pressupõe que seu nome de usuário está SAMPLE_USER e você copiou os binários dependentes da estrutura de encaminhamento local (de */ConsoleHost/Publish*) para */home/SAMPLE_USER/LOCALFORWARDER_DIR*.
 
 ```
 # localforwarder.service
@@ -142,7 +142,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Monitore o serviço inspecionando * *. log* arquivos no diretório/home/SAMPLE_USER/LOCALFORWARDER_DIR
+* Monitore o serviço inspecionando arquivos * *. log* no diretório SAMPLE_USER/LOCALFORWARDER_DIR do/Home/.
 
 ### <a name="mac"></a>Mac
 O encaminhador local pode funcionar com o macOS, mas atualmente não é suportado oficialmente.

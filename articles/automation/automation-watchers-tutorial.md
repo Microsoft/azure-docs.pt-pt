@@ -2,18 +2,15 @@
 title: Criar uma tarefa do Inspetor na conta de automação do Azure
 description: Saiba como criar uma tarefa de observador na conta de automação do Azure para observar novos arquivos criados em uma pasta.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 75341fa2df6972dbf05542577d56ab35315919e6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419745"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas do observador de automação do Azure para rastrear alterações de arquivo em um computador local
 
@@ -54,7 +51,7 @@ Você também pode importar esse runbook para sua conta de automação do portal
 1. Abra sua conta de automação e clique na página **Runbooks** .
 2. Clique no botão **procurar na Galeria** .
 3. Pesquise "runbook do Inspetor", selecione **runbook do inspetor que procura por novos arquivos em um diretório** e selecione **importar**.
-  ![Importar runbook de automação da interface do usuário](media/automation-watchers-tutorial/importsourcewatcher.png)
+  ![importar runbook de automação da interface do usuário](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Dê um nome e uma descrição ao runbook e selecione **OK** para importar o runbook para sua conta de automação.
 1. Selecione **Editar** e clique em **publicar**. Quando solicitado, selecione **Sim** para publicar o runbook.
 
@@ -81,7 +78,7 @@ Você também pode importar esse runbook para sua conta de automação do portal
 1. Navegue até sua conta de automação e selecione **Runbooks** na categoria **automação de processo** .
 1. Clique no botão **procurar na Galeria** .
 1. Pesquise "ação do Inspetor" e selecione **ação do observador que processa eventos disparados por um runbook do Inspetor** e selecione **importar**.
-  ![Importar o runbook de ação da interface do usuário](media/automation-watchers-tutorial/importsourceaction.png)
+  ![importar o runbook de ação da interface do usuário](media/automation-watchers-tutorial/importsourceaction.png)
 1. Dê um nome e uma descrição ao runbook e selecione **OK** para importar o runbook para sua conta de automação.
 1. Selecione **Editar** e clique em **publicar**. Quando solicitado, selecione **Sim** para publicar o runbook.
 
@@ -154,7 +151,7 @@ Message is Process new file...
 Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

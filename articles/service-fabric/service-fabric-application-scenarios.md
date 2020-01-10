@@ -1,25 +1,14 @@
 ---
-title: Cenários e design de aplicativos | Microsoft Docs
+title: Cenários e design de aplicativos
 description: Visão geral das categorias de aplicativos em nuvem no Service Fabric. Discute o design de aplicativos que usa serviços com e sem estado.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 4/24/2019
-ms.author: atsenthi
-ms.openlocfilehash: d72e124248887690ca26c2676e8036cb1b5c4339
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464901"
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicativo Service Fabric
 O Azure Service Fabric oferece uma plataforma confiável e flexível em que você pode escrever e executar vários tipos de aplicativos e serviços de negócios. Esses aplicativos e microserviços podem ser sem estado ou com estado e são balanceados por recursos entre máquinas virtuais para maximizar a eficiência. 
@@ -80,7 +69,7 @@ Aqui está um exemplo de aplicativo que usa serviços com estado: ![aplicativo q
 * Visite a Centro de Arquitetura do Azure para obter diretrizes sobre a [criação de microserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 * Acesse o [Azure Service Fabric aplicativos e práticas recomendadas de cluster](service-fabric-best-practices-overview.md) para obter diretrizes de design de aplicativo.
 
-* Consulte também os seguintes tópicos:
+* Consulte também os tópicos seguintes:
   * [Conte-me sobre os microserviços](service-fabric-overview-microservices.md)
   * [Definir e gerenciar o estado do serviço](service-fabric-concepts-state.md)
   * [Disponibilidade de serviços de Service Fabric](service-fabric-availability-services.md)

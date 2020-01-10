@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: dd02fe17d5225a63f352069b3c6c5a47b7cbcb73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262095"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397281"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
-Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica do Azure. Isso permite que você configure automaticamente alertas em seus recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
+Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métrica do Azure. Isso permite que você configure automaticamente alertas em seus recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
 
 > [!NOTE]
 > 
@@ -32,7 +32,7 @@ As etapas básicas são as seguintes:
 Abaixo, descrevemos como criar um modelo do Resource Manager primeiro para um alerta sozinho, em seguida, para um alerta durante a criação de outro recurso.
 
 ## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Modelo do Resource Manager para um alerta de métrica clássico
-Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do `Microsoft.Insights/alertRules` tipo e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
+Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/alertRules` e preenche todas as propriedades relacionadas. Abaixo está um modelo que cria uma regra de alerta.
 
 ```json
 {
@@ -182,7 +182,7 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
 Uma explicação do esquema e das propriedades de uma regra de alerta [está disponível aqui](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Modelo do Resource Manager para um recurso com um alerta de métrica clássico
-Um alerta em um modelo do Resource Manager é geralmente útil ao criar um alerta ao criar um recurso. Por exemplo, talvez você queira garantir que uma regra "CPU% > 80" seja configurada sempre que você implantar uma máquina virtual. Para fazer isso, você adiciona a regra de alerta como um recurso na matriz de recursos para seu modelo de VM e adiciona uma dependência `dependsOn` usando a propriedade à ID de recurso da VM. Aqui está um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores de assinatura quando a utilização da CPU ficar acima de 80%.
+Um alerta em um modelo do Resource Manager é geralmente útil ao criar um alerta ao criar um recurso. Por exemplo, talvez você queira garantir que uma regra "CPU% > 80" seja configurada sempre que você implantar uma máquina virtual. Para fazer isso, você adiciona a regra de alerta como um recurso na matriz de recursos para seu modelo de VM e adiciona uma dependência usando a propriedade `dependsOn` à ID de recurso da VM. Aqui está um exemplo completo que cria uma VM do Windows e adiciona um alerta que notifica os administradores de assinatura quando a utilização da CPU ficar acima de 80%.
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019314"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442923"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança do cluster e atualizações no Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,8 @@ Este artigo se concentra em como proteger o seu cluster do AKS. Saiba como:
 > * Manter a atualização de nós até à data e automaticamente aplicar patches de segurança
 
 Você também pode ler as práticas recomendadas para [Gerenciamento de imagens de contêiner][best-practices-container-image-management] e segurança de [Pod][best-practices-pod-security].
+
+Você também pode usar a [integração dos serviços Kubernetess do Azure com a central de segurança][security-center-aks] para ajudar a detectar ameaças e exibir recomendações para proteger seus clusters do AKS.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger o acesso a nós de cluster e servidor de API
 
@@ -179,7 +181,7 @@ Novos recursos a um ritmo mais rápido que plataformas de infraestruturas mais t
 
 AKS oferece suporte a quatro versões secundárias do Kubernetes. Isso significa que, quando uma nova versão de patch secundária é introduzida, as mais antigas pequenas versão e patch em versões suportadas são descontinuadas. As atualizações menores de Kubernetes acontecem periodicamente. Certifique-se de que tem um processo de governação para verificar e atualizar conforme necessário para que não se enquadram sem suporte. Para obter mais informações, consulte [supported kubernetes Versions AKs][aks-supported-versions]
 
-Para verificar as versões que estão disponíveis para o cluster, use o comando [AZ AKs Get-][az-aks-get-upgrades] upgrades, conforme mostrado no exemplo a seguir:
+Para verificar as versões que estão disponíveis para o cluster, use o comando [AZ AKs Get-upgrades][az-aks-get-upgrades] , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
@@ -195,7 +197,7 @@ Para obter mais informações sobre atualizações no AKS, consulte [versões de
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processar atualizações e reinicializações do nó do Linux usando o kured
 
-**Diretrizes** de práticas recomendadas – o AKs automaticamente baixa e instala correções de segurança em cada nó do Linux, mas não é reinicializado automaticamente, se necessário. Utilize `kured` para observar reinicializações pendentes, em seguida, com segurança cordão e drenagem do nó para permitir que o nó reiniciar o computador, aplicar as atualizações e ser o mais segura possível em relação ao sistema operacional. Para nós do Windows Server (atualmente em visualização no AKS), execute regularmente uma operação de atualização de AKS para Cordon e dissipe com segurança os pods e implante os nós atualizados.
+**Diretrizes de práticas recomendadas** – o AKs automaticamente baixa e instala correções de segurança em cada nó do Linux, mas não é reinicializado automaticamente, se necessário. Utilize `kured` para observar reinicializações pendentes, em seguida, com segurança cordão e drenagem do nó para permitir que o nó reiniciar o computador, aplicar as atualizações e ser o mais segura possível em relação ao sistema operacional. Para nós do Windows Server (atualmente em visualização no AKS), execute regularmente uma operação de atualização de AKS para Cordon e dissipe com segurança os pods e implante os nós atualizados.
 
 Cada um dos nós da noite, do Linux no AKS Obtém os patches de segurança disponíveis por meio do canal de atualização do distribuição. Este comportamento é configurado automaticamente como os nós são implementados num cluster do AKS. Para minimizar a interrupção e impacto potencial para executar cargas de trabalho, nós não são automaticamente reiniciados se um patch de segurança ou atualização de kernel o exigir.
 
@@ -207,7 +209,7 @@ Se pretender que o controle de intervalo de agregação rigoroso em reinícios a
 
 Para obter mais informações sobre como lidar com reinicializações de nó, consulte [aplicar segurança e atualizações de kernel a nós no AKs][aks-kured].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo concentra-se sobre como proteger o seu cluster do AKS. Para implementar algumas dessas áreas, consulte os artigos seguintes:
 
@@ -235,3 +237,4 @@ Este artigo concentra-se sobre como proteger o seu cluster do AKS. Para implemen
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

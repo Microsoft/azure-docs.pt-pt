@@ -1,25 +1,16 @@
 ---
-title: Visão geral do ciclo de vida do ator do Azure Service Fabric | Microsoft Docs
+title: Visão geral do ciclo de vida do ator do Azure Service Fabric
 description: Explica Service Fabric ciclo de vida de ator confiável, coleta de lixo e exclusão manual de atores e seu estado
-services: service-fabric
-documentationcenter: .net
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 1a8e95c634a1d30b7c566fcd907cb06f34043fa9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349338"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida do ator, coleta de lixo automática e exclusão manual
 Um ator é ativado na primeira vez que uma chamada é feita a qualquer um de seus métodos. Um ator é desativado (lixo coletado pelo tempo de execução dos atores) se ele não for usado por um período de tempo configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.

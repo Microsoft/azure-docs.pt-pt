@@ -4,15 +4,15 @@ description: Este artigo descreve o Azure Monitor para o recurso de armazenament
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401136"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
 
@@ -47,7 +47,7 @@ Em Azure Monitor, você pode exibir detalhes de transação, latência e capacid
 
 Para exibir a utilização e a disponibilidade de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção **insights** , selecione **contas de armazenamento (versão prévia)** .
 
@@ -255,7 +255,7 @@ O número de contas de armazenamento selecionadas tem um limite de 200, independ
 
 O portal mostrará dados somente para assinaturas selecionadas no lançamento do Portal. Para alterar quais assinaturas estão selecionadas, vá para o canto superior direito e clique no bloco de anotações com um ícone de filtro. Isso mostrará a guia diretório + assinaturas.
 
-![Diretório + assinatura](./media/storage-insights-overview/fqa3.png)
+![Diretório + subscrição](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Como alterar a cor e o limite de disponibilidade?
 
@@ -315,7 +315,7 @@ Para alterar o nome de uma etapa na pasta de trabalho salva, selecione Editar na
 ![selecione Editar na parte inferior de uma etapa da pasta de trabalho para abrir as configurações](./media/storage-insights-overview/fqa-edit.png)
 ![em configurações selecione a engrenagem na parte inferior, para poder alterar o nome da etapa](./media/storage-insights-overview/fqa-change-name.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Configure [alertas de métrica](../platform/alerts-metric.md) e [notificações de integridade do serviço](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automatizados para auxiliar na detecção de problemas.
 

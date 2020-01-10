@@ -2,20 +2,16 @@
 title: Controlar alterações com a automação do Azure
 description: A solução Controle de Alterações ajuda a identificar as alterações no software e no serviço Windows que ocorrem em seu ambiente.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418754"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações em seu ambiente com a solução Controle de Alterações
 
@@ -74,7 +70,7 @@ Para controlar as alterações nos arquivos no Windows e no Linux, os hashes MD5
 A central de segurança do Azure adicionou o FIM (monitoramento de integridade de arquivo) criado no Azure Controle de Alterações. Embora o FIM monitore arquivos e registros apenas, a solução de Controle de Alterações completa também inclui:
 
 - Alterações de software
-- Serviços Windows
+- Serviços do Windows
 - Daemons do Linux
 
 Se você já tiver habilitado o FIM e quiser experimentar a solução de Controle de Alterações completa, você precisará executar as etapas a seguir. As configurações não são removidas por esse processo.

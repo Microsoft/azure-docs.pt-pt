@@ -7,12 +7,12 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c4351afe7781f4340dfd943828d65e94efbdc0a7
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120960"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659309"
 ---
 # <a name="networking-limit-increase"></a>Aumento do limite de rede
 
@@ -29,7 +29,7 @@ Siga as instruções abaixo para criar uma solicitação de suporte por meio da 
 
 1. Em https://portal.azure.com, selecione **ajuda + suporte**.
 
-    ![Ajuda + suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
+    ![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
  
 2.  Selecione **Novo pedido de suporte**. 
 
@@ -84,4 +84,4 @@ Siga as instruções abaixo usando para criar uma solicitação de suporte por m
 
 ## <a name="about-networking-limits"></a>Sobre limites de rede
 
-Para saber mais sobre os limites de rede, consulte a [seção rede](../azure-subscription-service-limits.md#networking-limits) da página limites ou nossas perguntas frequentes sobre limites de rede
+Para saber mais sobre os limites de rede, consulte a [seção rede](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) da página limites ou nossas perguntas frequentes sobre limites de rede

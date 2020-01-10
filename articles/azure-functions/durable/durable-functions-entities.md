@@ -3,14 +3,14 @@ title: Entidades duráveis-Azure Functions
 description: Saiba quais são as entidades duráveis e como usá-las na extensão de Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433326"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -34,13 +34,14 @@ As entidades são acessadas por meio de um identificador exclusivo, a *ID da ent
 
 Por exemplo, uma função de entidade `Counter` pode ser usada para manter a pontuação em um jogo online. Cada instância do jogo tem uma ID de entidade exclusiva, como `@Counter@Game1` e `@Counter@Game2`. Todas as operações direcionadas a uma entidade específica exigem a especificação de uma ID de entidade como um parâmetro.
 
-### <a name="entity-operations"></a>Operações de entidade ###
+### <a name="entity-operations"></a>Entity operations (Operações de entidade) ###
 
 Para invocar uma operação em uma entidade, especifique:
 
 * **ID da entidade** da entidade de destino.
 * **Nome da operação**, que é uma cadeia de caracteres que especifica a operação a ser executada. Por exemplo, a entidade `Counter` poderia dar suporte a operações `add`, `get`ou `reset`.
 * **Entrada de operação**, que é um parâmetro de entrada opcional para a operação. Por exemplo, a operação Adicionar pode usar um valor inteiro como a entrada.
+* **hora agendada*, que é um parâmetro opcional para especificar o tempo de entrega da operação. Por exemplo, uma operação pode ser agendada de forma confiável para executar vários dias no futuro.
 
 As operações podem retornar um valor de resultado ou um resultado de erro, como um erro de JavaScript ou uma exceção .NET. Esse resultado ou erro pode ser observado por orquestrações que chamaram a operação.
 
@@ -110,7 +111,7 @@ Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, 
 
 As entidades duráveis estão disponíveis em JavaScript, começando com a versão **1.3.0** do pacote do `durable-functions` NPM. O código a seguir é a entidade `Counter` implementada como uma função durável escrita em JavaScript.
 
-**function. JSON**
+**function.json**
 ```json
 {
   "bindings": [
@@ -124,7 +125,7 @@ As entidades duráveis estão disponíveis em JavaScript, começando com a vers�
 }
 ```
 
-**index. js**
+**index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -165,7 +166,7 @@ Os exemplos a seguir ilustram essas várias maneiras de acessar entidades.
 
 ### <a name="example-client-signals-an-entity"></a>Exemplo: o cliente sinaliza uma entidade
 
-Para acessar entidades de uma função comum do Azure, que também é conhecida como uma função de cliente, use a [Associação de saída do cliente de entidade](durable-functions-bindings.md#entity-client). O exemplo a seguir mostra uma função disparada por fila sinalizando uma entidade usando essa associação.
+Para acessar entidades de uma função comum do Azure, que também é conhecida como uma função de cliente, use a [Associação de cliente de entidade](durable-functions-bindings.md#entity-client). O exemplo a seguir mostra uma função disparada por fila sinalizando uma entidade usando essa associação.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> Atualmente, o JavaScript não dá suporte à sinalização de uma entidade de um orquestrador. Em vez disso, utilize `callEntity`.
 
 Somente orquestrações são capazes de chamar entidades e obter uma resposta, que pode ser um valor de retorno ou uma exceção. As funções de cliente que usam a [Associação de cliente](durable-functions-bindings.md#entity-client) só podem sinalizar entidades.
 
@@ -385,14 +386,14 @@ Muitos dos recursos de entidades duráveis são inspirados pelo [modelo de ator]
 Há algumas diferenças importantes que valem a pena observar:
 
 * As entidades duráveis priorizam a durabilidade em relação à latência e, portanto, podem não ser apropriadas para aplicativos com requisitos estritos de latência.
-* Entidades duráveis não têm tempos limite internos para mensagens. No Orleans, todas as mensagens expiram após uma hora configurável. O padrão é 30 segundos.
+* Entidades duráveis não têm tempos limite internos para mensagens. No Orleans, todas as mensagens expiram após uma hora configurável. A predefinição é 30 segundos.
 * As mensagens enviadas entre as entidades são entregues de forma confiável e em ordem. No Orleans, a entrega confiável ou ordenada tem suporte para conteúdo enviado por meio de fluxos, mas não é garantida para todas as mensagens entre as granulações.
 * Os padrões de solicitação-resposta em entidades são limitados a orquestrações. De dentro de entidades, somente as mensagens unidirecionais (também conhecidas como sinalização) são permitidas, como no modelo de ator original e, ao contrário de granulares em Orleans. 
 * As entidades duráveis não travam. No Orleans, os deadlocks podem ocorrer e não resolver até que o tempo limite das mensagens expire.
 * Entidades duráveis podem ser usadas em conjunto com orquestrações duráveis e oferecem suporte a mecanismos de bloqueio distribuídos. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Leia o guia do desenvolvedor para entidades duráveis no .NET](durable-functions-dotnet-entities.md)

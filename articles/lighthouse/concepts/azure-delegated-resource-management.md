@@ -3,12 +3,12 @@ title: Gestão de recursos delegados do Azure
 description: Os serviços gerenciados oferecem aos provedores de serviços para vender ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453633"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
@@ -33,7 +33,7 @@ Você pode [publicar o novo tipo de oferta de serviços gerenciados no Azure Mar
 
 Em um alto nível, veja como funciona o gerenciamento de recursos delegado do Azure:
 
-1. Como um provedor de serviços, você identifica o acesso (funções) que seus grupos, entidades de serviço ou usuários precisarão gerenciar os recursos do Azure do cliente. A definição de acesso contém a ID de locatário do provedor de serviços junto com o acesso necessário para a oferta, definida usando as identidades de **PrincipalId** do seu locatário mapeado para [valores **roleDefinition** internos](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (colaborador, VM Colaborador, leitor, etc.).
+1. Como um provedor de serviços, você identifica o acesso (funções) que seus grupos, entidades de serviço ou usuários precisarão gerenciar os recursos do Azure do cliente. A definição de acesso contém a ID de locatário do provedor de serviços junto com o acesso necessário para a oferta, definida usando as identidades de **PrincipalId** do seu locatário mapeado para [valores **roleDefinition** internos](../../role-based-access-control/built-in-roles.md) (colaborador, colaborador de VM, leitor, etc.).
 2. Você especifica esse acesso e integra o cliente ao gerenciamento de recursos delegado do Azure de uma das duas maneiras:
    - [Publicar uma oferta de serviços gerenciados do Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
    - [Implantar um modelo de Azure Resource Manager no locatário do cliente](../how-to/onboard-customer.md) para uma ou mais assinaturas ou grupos de recursos específicos
@@ -43,7 +43,7 @@ Em um alto nível, veja como funciona o gerenciamento de recursos delegado do Az
 
 Se precisar de ajuda relacionada ao gerenciamento de recursos delegado do Azure, você poderá abrir uma solicitação de suporte no portal do Azure. Para **tipo de problema**, escolha **técnico**. Selecione uma assinatura e, em seguida, selecione **Gerenciamento de recursos delegado** (em **monitoramento & gerenciamento**).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre as [ofertas de serviços gerenciados no Azure Marketplace](managed-services-offers.md).

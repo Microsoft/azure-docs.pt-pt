@@ -4,15 +4,15 @@ description: Este artigo descreve como atualizar o Azure Monitor para VMs agente
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400804"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Azure Monitor para VMs agente de dependência
 
@@ -54,7 +54,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute o comando a seguir.
+2. Execute o comando indicado a seguir.
 
     ```dos
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
@@ -62,7 +62,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
     O parâmetro `/RebootMode=manual` impede que a atualização reinicie automaticamente o computador se alguns processos estiverem usando arquivos da versão anterior e tiverem um bloqueio neles. 
 
-3. Para confirmar se a atualização foi bem-sucedida, consulte as `install.log` para obter informações detalhadas de configuração. O diretório de log é *%ProgramFiles%\Microsoft Dependency Agent\logs*.
+3. Para confirmar se a atualização foi bem-sucedida, consulte as `install.log` para obter informações detalhadas de configuração. É o diretório de registo *%Programfiles%\Microsoft dependência Agent\logs*.
 
 ## <a name="upgrade-linux-agent"></a>Atualizar agente do Linux 
 
@@ -74,7 +74,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 
 2. Execute o comando a seguir como raiz`sh InstallDependencyAgent-Linux64.bin -s`. 
 
-Se o agente de dependência não for iniciado, verifique os logs para obter informações detalhadas sobre o erro. Em agentes do Linux, o diretório de log é */var/opt/Microsoft/Dependency-Agent/log*. 
+Se o agente de dependência não iniciar, verifique os registos para obter informações de erro detalhadas. Em agentes do Linux, é o diretório de registo */var/opt/microsoft/dependency-agent/log*. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

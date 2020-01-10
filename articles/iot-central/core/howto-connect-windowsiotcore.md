@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454009"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao seu aplicativo IoT Central do Azure
 
@@ -25,19 +25,24 @@ Este artigo descreve como, como desenvolvedor de dispositivos, conectar um dispo
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-- Um aplicativo IoT Central do Azure criado no modelo de aplicativo **devkits de exemplo** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+- Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **herdado** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 
 - Um dispositivo que executa o sistema operacional Windows 10 IoT Core. Para obter mais informações, consulte [configurando seu dispositivo Windows 10 IOT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Um computador de desenvolvimento com o [node. js](https://nodejs.org/) versão 8.0.0 ou posterior instalado. Você pode executar `node --version` na linha de comando para verificar sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos.
 
-## <a name="the-sample-devkits-application"></a>O aplicativo devkits de exemplo
+## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um modelo de dispositivo **Windows IOT Core** com as seguintes características:
+No aplicativo IoT Central do Azure, adicione um novo modelo de dispositivo **Windows IOT Core** com as seguintes características:
 
 - Medições de telemetria para o dispositivo: **umidade**, **temperatura**e **pressão**.
 - Configuração para controlar a **velocidade do ventilador**.
 - Um número de **matriz** de propriedade de dispositivo e um **local**de propriedade de nuvem.
+
+1. Selecione **+ novo** nos modelos de dispositivo ![modelo de dispositivo](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Selecione **Windows IOT Core** e crie o modelo de dispositivo Windows iot Core ![adicionar modelo de dispositivo](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 Para obter detalhes completos sobre a configuração do modelo de dispositivo, consulte [detalhes do modelo de dispositivo do Windows IOT Core](#device-template-details).
 
@@ -107,14 +112,14 @@ Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um mo
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidade       | %      | 0       | 100     | 0              |
-| Temp           | °     | -40     | 120     | 0              |
+| temp           | °     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Definições
 
 Configurações numéricas
 
-| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | This |
+| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Velocidade do ventilador    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
@@ -123,7 +128,7 @@ Configurações numéricas
 | Tipo            | Nome a apresentar | Nome do campo | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Número do chip   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/D       |
+| Texto            | Localização     | localização   | N/A       |
 
 ## <a name="next-steps"></a>Passos seguintes
 

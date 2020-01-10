@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457116"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência-pontos de extremidade do Hub IoT
 
@@ -21,7 +21,7 @@ ms.locfileid: "68640610"
 
 ## <a name="iot-hub-names"></a>Nomes de Hub IoT
 
-Você pode encontrar o nome do host do Hub IoT que hospeda seus pontos de extremidade no portal na página de **visão geral** do Hub. Por padrão, o nome DNS de um hub IoT é semelhante a `{your iot hub name}.azure-devices.net`:.
+Você pode encontrar o nome do host do Hub IoT que hospeda seus pontos de extremidade no portal na página de **visão geral** do Hub. Por padrão, o nome DNS de um hub IoT é semelhante a: `{your iot hub name}.azure-devices.net`.
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos de extremidade do Hub IoT internos
 
@@ -31,15 +31,15 @@ O Hub IoT do Azure é um serviço multilocatário que expõe sua funcionalidade 
 
 A lista a seguir descreve os pontos de extremidade:
 
-* **Provedor de recursos**. O provedor de recursos do Hub IoT expõe uma interface [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) . Essa interface permite que os proprietários da assinatura do Azure criem e excluam hubs IoT e atualizem as propriedades do Hub IoT. As propriedades do Hub IoT regem [as políticas de segurança no nível do Hub](iot-hub-devguide-security.md#access-control-and-permissions), em oposição ao controle de acesso no nível do dispositivo e às opções funcionais para mensagens da nuvem para o dispositivo e do dispositivo para a nuvem. O provedor de recursos do Hub IoT também permite [Exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Provedor de recursos**. O provedor de recursos do Hub IoT expõe uma interface [Azure Resource Manager](../azure-resource-manager/management/overview.md) . Essa interface permite que os proprietários da assinatura do Azure criem e excluam hubs IoT e atualizem as propriedades do Hub IoT. As propriedades do Hub IoT regem [as políticas de segurança no nível do Hub](iot-hub-devguide-security.md#access-control-and-permissions), em oposição ao controle de acesso no nível do dispositivo e às opções funcionais para mensagens da nuvem para o dispositivo e do dispositivo para a nuvem. O provedor de recursos do Hub IoT também permite [Exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-* **Gerenciamento de identidade do dispositivo**. Cada Hub IoT expõe um conjunto de pontos de extremidade de REST HTTPS para gerenciar identidades de dispositivo (criar, recuperar, atualizar e excluir). As identidades de [dispositivo](iot-hub-devguide-identity-registry.md) são usadas para autenticação de dispositivo e controle de acesso.
+* **Gerenciamento de identidade do dispositivo**. Cada Hub IoT expõe um conjunto de pontos de extremidade de REST HTTPS para gerenciar identidades de dispositivo (criar, recuperar, atualizar e excluir). As [identidades de dispositivo](iot-hub-devguide-identity-registry.md) são usadas para autenticação de dispositivo e controle de acesso.
 
-* **Gerenciamento do dispositivo**de entrelaçamento. Cada Hub IoT expõe um conjunto de ponto de extremidade REST do HTTPS voltado ao serviço para consultar e atualizar [dispositivos gêmeos](iot-hub-devguide-device-twins.md) (atualizar marcas e propriedades).
+* **Gerenciamento do dispositivo de entrelaçamento**. Cada Hub IoT expõe um conjunto de ponto de extremidade REST do HTTPS voltado ao serviço para consultar e atualizar [dispositivos gêmeos](iot-hub-devguide-device-twins.md) (atualizar marcas e propriedades).
 
 * **Gerenciamento de trabalhos**. Cada Hub IoT expõe um conjunto de ponto de extremidade REST do HTTPS voltado ao serviço para consultar e gerenciar [trabalhos](iot-hub-devguide-jobs.md).
 
-* **Pontos de extremidade do dispositivo**. Para cada dispositivo no registro de identidade, o Hub IoT expõe um conjunto de pontos de extremidade:
+* **Pontos de extremidade do dispositivo**. para cada dispositivo no registo de identidades, o Hub IoT expõe um conjunto de pontos finais –
 
   * *Enviar mensagens do dispositivo para a nuvem*. Um dispositivo usa esse ponto de extremidade para [enviar mensagens do dispositivo para a nuvem](iot-hub-devguide-messages-d2c.md).
 
@@ -51,13 +51,13 @@ A lista a seguir descreve os pontos de extremidade:
 
   * *Receber solicitações de método direto*. Um dispositivo usa esse ponto de extremidade para escutar as solicitações do [método direto](iot-hub-devguide-direct-methods.md).
 
-    Esses pontos de extremidade são expostos usando os protocolos [MQTT v 3.1.1](https://mqtt.org/), https 1,1 e [AMQP 1,0](https://www.amqp.org/) . O AMQP também está disponível [](https://tools.ietf.org/html/rfc6455) sobre WebSockets na porta 443.
+    Esses pontos de extremidade são expostos usando os protocolos [MQTT v 3.1.1](https://mqtt.org/), https 1,1 e [AMQP 1,0](https://www.amqp.org/) . O AMQP também está disponível sobre [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
 
 * **Pontos de extremidade de serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade para que o back-end da solução se comunique com seus dispositivos. Com uma exceção, esses pontos de extremidade são expostos apenas usando o protocolo [AMQP](https://www.amqp.org/) . O ponto de extremidade de invocação de método é exposto pelo protocolo HTTPS.
   
   * *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [hubs de eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode usá-lo para ler as [mensagens do dispositivo para a nuvem](iot-hub-devguide-messages-d2c.md) enviadas por seus dispositivos. Você pode criar pontos de extremidade personalizados em seu hub IoT, além desse Endpoint interno.
   
-  * *Enviar mensagens da nuvem para o dispositivo e receber*confirmações de entrega. Esses pontos de extremidade permitem que o back-end da sua solução envie mensagens confiáveis da [nuvem para o dispositivo](iot-hub-devguide-messages-c2d.md)e receba as confirmações de entrega ou expiração correspondentes.
+  * *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o back-end da sua solução envie mensagens confiáveis da [nuvem para o dispositivo](iot-hub-devguide-messages-c2d.md)e receba as confirmações de entrega ou expiração correspondentes.
   
   * *Receber notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações de quando os dispositivos carregam um arquivo com êxito. 
   
@@ -75,14 +75,14 @@ Você pode vincular os serviços do Azure existentes em sua assinatura ao Hub Io
 
 O Hub IoT atualmente dá suporte aos seguintes serviços do Azure como pontos de extremidade adicionais:
 
-* Contentores de Armazenamento do Azure
-* Hubs de Eventos
-* Filas de Service Bus
-* Tópicos de Service Bus
+* Contêineres de armazenamento do Azure
+* Event Hubs
+* Filas do Service Bus
+* Tópicos do Service Bus
 
 Para os limites do número de pontos de extremidade que você pode adicionar, consulte [cotas e limitação](iot-hub-devguide-quotas-throttling.md).
 
-Você pode usar a integridade do [ponto de extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o status de integridade dos pontos de extremidade. É recomendável usar as métricas do [Hub IOT](iot-hub-metrics.md) relacionadas à latência da mensagem de roteamento para identificar e depurar erros quando a integridade do ponto de extremidade está inativa ou não íntegra, pois esperamos que a latência seja maior quando o ponto de extremidade estiver em um desses Estados.
+Você pode usar a integridade do [ponto de extremidade Get](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) da API REST para obter o status de integridade dos pontos de extremidade. É recomendável usar as [métricas do Hub IOT](iot-hub-metrics.md) relacionadas à latência da mensagem de roteamento para identificar e depurar erros quando a integridade do ponto de extremidade está inativa ou não íntegra, pois esperamos que a latência seja maior quando o ponto de extremidade estiver em um desses Estados.
 
 |Estado de Funcionamento|Descrição|
 |---|---|
@@ -97,7 +97,7 @@ Em uma solução de IoT, um *Gateway de campo* fica entre os seus dispositivos e
 
 Você pode usar [Azure IOT Edge](/azure/iot-edge/) para implementar um gateway de campo. O IoT Edge oferece funcionalidade como a multiplexação de comunicações de vários dispositivos na mesma conexão do Hub IoT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Outros tópicos de referência neste guia do desenvolvedor do Hub IoT incluem:
 

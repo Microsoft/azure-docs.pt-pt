@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359970"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos de SSD Premium do Azure.
 
@@ -169,7 +169,7 @@ A reserva de discos do Azure é adquirida para uma região e SKU específicos (c
 **O que acontece quando minha reserva de discos do Azure expira?**
 Você receberá notificações por email 30 dias antes da expiração e novamente na data de expiração. Depois que a reserva expirar, os discos implantados continuarão a ser executados e serão cobrados com as [tarifas pagas pelo uso](https://azure.microsoft.com/pricing/details/managed-disks/)mais recentes.
 
-## <a name="ultra-disks"></a>Ultra discos
+## <a name="ultra-disks"></a>Discos Ultra
 
 **Para que devo definir a taxa de transferência de ultra Disk?**
 Se você não tiver certeza sobre o que definir a taxa de transferência do disco como, recomendamos que comece supondo um tamanho de e/s de 16 KiB e ajuste o desempenho a partir daí, enquanto monitora seu aplicativo. A fórmula é: taxa de transferência em MBps = # de IOPS * 16/1000.
@@ -398,7 +398,7 @@ Não, os discos gerenciados do SSD Standard de qualquer tamanho não podem ser u
 
 **Qual é o maior tamanho de disco gerenciado com suporte para discos de sistema operacional e de dados?**
 
-O tipo de partição que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato MBR dá suporte a um tamanho de disco de até 2 TiB. O maior tamanho que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TiB para discos de dados gerenciados no Azure global, 4 TiB em nuvens soberanas do Azure.
+O tipo de partição que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato MBR dá suporte a um tamanho de disco de até 2 TiB. O maior tamanho que o Azure dá suporte para um disco do sistema operacional é 2 TiB. O Azure dá suporte a até 32 TiB para discos de dados gerenciados.
 
 **Qual é o maior tamanho de disco não gerenciado com suporte para discos de sistema operacional e de dados?**
 
@@ -441,7 +441,7 @@ O maior tamanho de disco com suporte do backup do Azure e do serviço de Azure S
 
 **Quais são os tamanhos de VM recomendados para tamanhos de disco maiores (> 4 TiB) para SSD Standard e HDD Standard discos para alcançar IOPS e largura de banda de disco otimizados?**
 
-Para obter a taxa de transferência de disco de SSD Standard e HDD Standard tamanhos de disco grandes (> 4 TiB) Além de 500 IOPS e 60 MiB/s, recomendamos que você implante uma nova VM de um dos seguintes tamanhos de VM para otimizar seu desempenho: série B, DSv2, série Dsv3, série ESv3 , Série FS, série Fsv2, série M, série GS, série NCv2, série NCv3 ou VMs da série ls-series. Anexar discos grandes a VMs ou VMS existentes que não usam os tamanhos recomendados acima pode apresentar um desempenho inferior.
+Para obter a taxa de transferência de disco de SSD Standard e HDD Standard tamanhos de disco grandes (> 4 TiB) Além de 500 IOPS e 60 MiB/s, recomendamos que você implante uma nova VM de um dos seguintes tamanhos de VM para otimizar o desempenho: série B, série DSv2, série Dsv3, série ESv3, série FS, série Fsv2, série M, séries GS, NCv2, série NCv3 ou VMs da série ls... e 2. Anexar discos grandes a VMs ou VMS existentes que não usam os tamanhos recomendados acima pode apresentar um desempenho inferior.
 
 **Como posso atualizar meus discos (> 4 TiB) que foram implantados durante a visualização de tamanhos de disco maiores para obter o IOPS mais alto & largura de banda em GA?**
 

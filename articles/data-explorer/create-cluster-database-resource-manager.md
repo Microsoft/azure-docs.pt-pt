@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444477"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando um modelo de Azure Resource Manager
 
@@ -26,7 +26,7 @@ ms.locfileid: "74869719"
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para usar o Azure Data Explorer, primeiro crie um cluster e crie um ou mais bancos de dados nesse cluster. Em seguida, você pode ingerir (carregar) dados em um banco de dado para poder executar consultas nele. 
 
-Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). O artigo mostra como definir quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, consulte [tipos de recursos Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
+Neste artigo, você cria um cluster de Data Explorer do Azure e um banco de dados usando um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md). O artigo mostra como definir quais recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, consulte [tipos de recursos Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

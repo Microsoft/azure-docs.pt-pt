@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465102"
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
+# <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Armazenamento do Azure
 
 Azure PowerShell é usado para criar e gerenciar recursos do Azure na linha de comando do PowerShell ou em scripts. Para o armazenamento do Azure, esses cmdlets se enquadram em duas categorias: o plano de controle e o plano de dados. Os cmdlets do plano de controle são usados para gerenciar a conta de armazenamento – para criar contas de armazenamento, definir propriedades, excluir contas de armazenamento, girar as chaves de acesso e assim por diante. Os cmdlets do plano de dados são usados para gerenciar os dados armazenados *na* conta de armazenamento. Por exemplo, carregar BLOBs, criar compartilhamentos de arquivos e adicionar mensagens a uma fila.
 
@@ -24,7 +24,7 @@ Este artigo de instruções abrange operações comuns usando os cmdlets do plan
 > [!div class="checklist"]
 > * Listar contas de armazenamento
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Definir propriedades da conta de armazenamento
 > * Recuperar e regenerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento
@@ -76,7 +76,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
 
 Agora você tem $storageAccount, que aponta para uma conta de armazenamento existente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 O script a seguir mostra como criar uma conta de armazenamento de uso geral usando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Depois de criar a conta, recupere seu contexto, que pode ser usado em comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
@@ -161,7 +161,7 @@ Para regenerar a outra chave, use `key2` como o nome da chave em vez de `key1`.
 Gere novamente uma de suas chaves e recupere-a novamente para ver o novo valor.
 
 > [!NOTE]
-> Você deve executar um planejamento cuidadoso antes de regenerar a chave para uma conta de armazenamento de produção. A regeneração de uma ou de ambas as chaves invalidará o acesso de qualquer aplicativo usando a chave que foi regenerada. Para obter mais informações, veja [Chaves de acesso](storage-account-manage.md#access-keys).
+> Você deve executar um planejamento cuidadoso antes de regenerar a chave para uma conta de armazenamento de produção. A regeneração de uma ou de ambas as chaves invalidará o acesso de qualquer aplicativo usando a chave que foi regenerada. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](storage-account-keys-manage.md).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminar uma conta do Storage
@@ -242,7 +242,7 @@ Este artigo de instruções abrange operações comuns usando os cmdlets do plan
 > [!div class="checklist"]
 > * Listar contas de armazenamento
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Definir propriedades da conta de armazenamento
 > * Recuperar e regenerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento

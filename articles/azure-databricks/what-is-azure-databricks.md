@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410453"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
@@ -23,7 +23,7 @@ O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimi
 
 ![O que é Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "O que é o Azure Databricks?")
 
-Azure Databricks é um serviço de análise rápido, fácil e colaborativo com base em Apache Spark. Para um pipeline Big Data, os dados (brutos ou estruturados) são incluídos no Azure por meio de Azure Data Factory em lotes ou transmitidos quase em tempo real usando Kafka, Hub de eventos ou Hub IoT. Esses dados estão em um data Lake para armazenamento persistente de longo prazo, no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Como parte do seu fluxo de trabalho de análise, use Azure Databricks para ler dados de várias fontes de dados, como o [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md), [Azure data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml)ou [Azure SQL data warehouse](../sql-data-warehouse/index.yml) e transformá-lo em um processo avançado informações que usam o Spark.
+Azure Databricks é um serviço de análise rápido, fácil e colaborativo com base em Apache Spark. Para um pipeline Big Data, os dados (brutos ou estruturados) são incluídos no Azure por meio de Azure Data Factory em lotes ou transmitidos quase em tempo real usando Kafka, Hub de eventos ou Hub IoT. Esses dados estão em um data Lake para armazenamento persistente de longo prazo, no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Como parte do seu fluxo de trabalho de análise, use Azure Databricks para ler dados de várias fontes de dados, como o [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md), [Azure data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml)ou [Azure SQL data warehouse](../sql-data-warehouse/index.yml) e transformá-lo em informações inovadoras usando o Spark.
 
 ![Pipeline do databricks](./media/what-is-azure-databricks/databricks-pipeline.png)
 
@@ -37,7 +37,7 @@ O Azure Databricks inclui as capacidades e tecnologias completas de cluster do A
 
 * **Transmissão em fluxo**: análise e processamento de dados em tempo real para aplicações interativas e analíticas. Pode ser integrado com HDFS, Flume e Kafka.
 
-* **MLib**: biblioteca de Machine Learning constituída por utilitários e algoritmos de aprendizagem comuns, incluindo classificação, regressão, clustering, filtragem em colaboração, redução de dimensionalidade, bem como primitivos de otimização subjacentes.
+* **MLlib**: Machine Learning biblioteca que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacentes.
 
 * **GraphX**: gráficos e computação de gráficos para um âmbito alargado de casos de utilização, desde a análise cognitiva até à exploração de dados.
 
@@ -86,7 +86,7 @@ O Azure Databricks fornece a segurança do Azure de nível empresarial, incluind
 * O acesso baseado em funções do Azure Databricks ativa permissões de utilizador detalhadas para blocos de notas, clusters, tarefas e dados.
 * SLAs de nível empresarial. 
 
-## <a name="integration-with-azure-services"></a>Integração com os serviços do Azure
+## <a name="integration-with-azure-services"></a>Integração nos serviços do Azure
 
 O Azure Databricks integra-se profundamente com as bases de dados e arquivos do Azure: SQL Data Warehouse, Cosmos DB, Data Lake Store e Armazenamento de Blobs. 
 

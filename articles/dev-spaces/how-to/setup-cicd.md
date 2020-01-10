@@ -6,14 +6,14 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Saiba como configurar a integração contínua/implantação contínua usando o Azure DevOps com o Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438452"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com Azure Dev Spaces
 

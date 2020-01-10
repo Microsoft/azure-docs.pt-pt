@@ -1,26 +1,16 @@
 ---
-title: Depurar seu aplicativo no Visual Studio | Microsoft Docs
+title: Depurar a sua aplicação no Visual Studio
 description: Melhore a confiabilidade e o desempenho de seus serviços desenvolvendo e Depurando-os no Visual Studio em um cluster de desenvolvimento local.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 18b32c0fb0b2d203b3536e7a859e149da8453f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458114"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -33,7 +23,7 @@ ms.locfileid: "71947890"
 Você pode economizar tempo e dinheiro Implantando e Depurando seu aplicativo de Service Fabric do Azure em um cluster de desenvolvimento de computador local. O Visual Studio 2019 ou 2015 pode implantar o aplicativo no cluster local e conectar automaticamente o depurador a todas as instâncias do seu aplicativo. O Visual Studio deve ser executado como administrador para conectar o depurador.
 
 1. Inicie um cluster de desenvolvimento local seguindo as etapas em [configurando seu ambiente de desenvolvimento de Service Fabric](service-fabric-get-started.md).
-2. Pressione **F5** ou clique em **depurar** > **Iniciar Depuração**.
+2. Pressione **F5** ou clique em **depurar** > **iniciar a depuração**.
    
     ![Iniciar a depuração de um aplicativo][startdebugging]
 3. Defina pontos de interrupção em seu código e percorra o aplicativo clicando em comandos no menu **depurar** .

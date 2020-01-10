@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: biblioteca de cliente do personalizador para Python | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do personalizador para Python'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de cliente do personalizador para Python usando um loop de aprendizado.
+description: Este guia de início rápido mostra como começar a usar a biblioteca de cliente do personalizador para Python usando um loop de aprendizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378947"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Início rápido: biblioteca de cliente do personalizador para Python
 
@@ -184,5 +184,5 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 
 * [O que é personalizador?](what-is-personalizer.md)
 * [Onde você pode usar o personalizador?](where-can-you-use-personalizer.md)
-* [Resolução de problemas](troubleshooting.md)
+* [Resolução de Problemas](troubleshooting.md)
 * O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).

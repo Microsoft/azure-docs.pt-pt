@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: 135c760919f094f7b2d242ad37cc1cadb614e36e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/27/2019
+ms.openlocfilehash: 86ade45cd00e82e8787a117c23003d2a74750cf0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009993"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552173"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de gêmeos digital do Azure
 
@@ -37,7 +37,7 @@ A lista a seguir mostra os componentes das APIs do digital gêmeos.
 
 * [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): você pode usar essas APIs para criar propriedades personalizadas para seus *espaços*, *dispositivos*, *usuários*e *sensores*. Essas propriedades são criadas como pares de chave/valor. Você pode definir o tipo de dados para essas propriedades definindo seu *PrimitiveDataType*. Por exemplo, você pode definir uma propriedade chamada *BasicTemperatureDeltaProcessingRefreshTime* do tipo *uint* para seus sensores e, em seguida, atribuir um valor para essa propriedade para cada um dos sensores. Você também pode adicionar restrições para esses valores ao criar a propriedade, como intervalos *mínimos* e *máximos* , bem como os valores permitidos como *ValidationData*.
 
-* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): essas APIs permitem que você especifique as condições que deseja avaliar dos dados de seu dispositivo de entrada. Consulte [Este artigo](concepts-user-defined-functions.md#matchers) para obter mais informações. 
+* [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): essas APIs permitem que você especifique as condições que deseja avaliar dos dados de seu dispositivo de entrada. Veja [este artigo](concepts-user-defined-functions.md#matchers) para obter mais informações. 
 
 * [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): essas APIs permitem que você crie, exclua ou atualize uma função personalizada que será executada quando as condições definidas pelos *correspondentes* ocorrerem, para processar dados provenientes da sua instalação. Consulte [Este artigo](concepts-user-defined-functions.md#user-defined-functions) para obter mais informações sobre essas funções personalizadas, também chamadas de *funções definidas pelo usuário*. 
 

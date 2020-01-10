@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408028"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: criar um localizador de repositório usando mapas do Azure
 
@@ -35,20 +35,18 @@ Vá direto para o exemplo ou [código-fonte](https://github.com/Azure-Samples/Az
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas deste tutorial, primeiro você precisa [criar sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e seguir as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
+Para concluir as etapas deste tutorial, primeiro você precisa criar uma conta do Azure Maps e obter sua chave primária (chave de assinatura). Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Design
 
 Antes de ir para o código, é uma boa ideia começar com um design. O localizador de armazenamento pode ser tão simples ou complexo quanto você desejar. Neste tutorial, criamos um localizador de repositório simples. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se você optar por. Criamos um localizador de repositório para uma empresa fictícia chamada contoso Coffee. A figura a seguir mostra um wireframe do layout geral do localizador de loja que criamos neste tutorial:
 
-<br/>
 <center>
 
 ![wireframe de um localizador de loja para locais de cafeteria de café da Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para maximizar a utilidade desse localizador de loja, incluímos um layout responsivo que se ajusta quando a largura da tela de um usuário é menor que 700 pixels de largura. Um layout responsivo facilita o uso do localizador de armazenamento em uma tela pequena, como em um dispositivo móvel. Aqui está um wireframe de um layout de tela pequena:  
 
-<br/>
 <center>
 
 ![wireframe do localizador da loja da Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
@@ -73,7 +71,6 @@ Os wireframes mostram um aplicativo razoavelmente simples. O aplicativo tem uma 
 
 Antes de desenvolvermos um aplicativo de localizador de repositório, precisamos criar um conjunto de um dos armazenamentos que desejamos exibir no mapa. Neste tutorial, usamos um conjunto de um DataSet para uma cafeteria fictícia chamada contoso Coffee. O conjunto de armazenamento para esse localizador de repositório simples é gerenciado em uma pasta de trabalho do Excel. O conjunto de conjuntos contém 10.213 locais de loja de café da Contoso distribuídos em nove países/regiões: o Estados Unidos, o Canadá, o Reino Unido, a França, a Alemanha, a Itália, os Países Baixos, a Dinamarca e a Espanha. Aqui está uma captura de tela da aparência dos dados:
 
-<br/>
 <center>
 
 ![captura de tela dos dados do localizador da loja em uma pasta de trabalho do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -95,14 +92,12 @@ Outra abordagem é converter esse conjunto de DataSet em um arquivo de texto sim
 
 Para converter a pasta de trabalho em um arquivo de texto simples, salve a pasta de trabalho como um arquivo delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, o que torna as colunas fáceis de analisar em nosso código. Você pode usar o formato CSV (valores separados por vírgula), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula em torno dele seria quebrado entre aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **salvar como**. Na lista suspensa **salvar como tipo** , selecione **texto (delimitado por tabulação) (*. txt)** . Nomeie o arquivo *ContosoCoffee. txt*. 
 
-<br/>
 <center>
 
 ![captura de tela da caixa de diálogo Salvar como tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Se você abrir o arquivo de texto no bloco de notas, ele será semelhante à seguinte figura:
 
-<br/>
 <center>
 
 ![captura de tela de um arquivo do bloco de notas que mostra um conjunto de DataSet delimitado por tabulação](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -112,12 +107,11 @@ Se você abrir o arquivo de texto no bloco de notas, ele será semelhante à seg
 
 Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código de sua escolha. Na pasta do projeto, crie três arquivos: *index. html*, *index. css*e *index. js*. Esses arquivos definem o layout, o estilo e a lógica para o aplicativo. Crie uma pasta denominada *dados* e adicione *ContosoCoffee. txt* à pasta. Crie outra pasta chamada *imagens*. Usamos dez imagens neste aplicativo para ícones, botões e marcadores no mapa. Você pode [baixar essas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto agora deve ser parecida com a seguinte figura:
 
-<br/>
 <center>
 
 ![captura de tela da pasta de projeto do localizador de repositório simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
-## <a name="create-the-user-interface"></a>Criar a interface do usuário
+## <a name="create-the-user-interface"></a>Criar a interface de utilizador
 
 Para criar a interface do usuário, adicione o código a *index. html*:
 
@@ -930,21 +924,18 @@ Agora, você tem um localizador de repositório totalmente funcional. Em um nave
 
 Na primeira vez que um usuário seleciona o botão meu local, o navegador exibe um aviso de segurança que solicita permissão para acessar o local do usuário. Se o usuário concordar em compartilhar seu local, o mapa ampliará o local do usuário e as lanchonetes próximas serão mostradas. 
 
-<br/>
 <center>
 
 ![captura de tela da solicitação do navegador para acessar o local do usuário](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Ao ampliar o suficiente em uma área que tem locais de cafeterias, os clusters são separados em locais individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up que mostra informações para esse local.
 
-<br/>
 <center>
 
 ![captura de tela do localizador de loja concluído](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Se você redimensionar a janela do navegador para menos de 700 pixels de largura ou abrir o aplicativo em um dispositivo móvel, o layout será alterado para ser mais adequado para telas menores. 
 
-<br/>
 <center>
 
 ![captura de tela da versão do localizador da loja](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>

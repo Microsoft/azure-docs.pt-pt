@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: quickstart
-ms.date: 09/30/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fb00fd3ce588aeeba4f315f191f6b82d6b75715
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 5a6d39fa6e10ad0ad102f9d25ffd252ec9e0fa8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71695863"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379504"
 ---
 # <a name="quickstart-bing-visual-search-client-library-for-java"></a>Início rápido: biblioteca de cliente Pesquisa Visual do Bing para Java
 
@@ -25,7 +25,7 @@ Use a biblioteca de cliente do Pesquisa Visual do Bing para Java para:
 * Carregue uma imagem para enviar uma solicitação de pesquisa visual.
 * Obtenha o token do insight de imagem e as marcas de pesquisa visual.
 
-[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  | [exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) do  | [do Maven (](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) )  | 
+[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) do | [do Maven (](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) ) | 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,14 +33,7 @@ Use a biblioteca de cliente do Pesquisa Visual do Bing para Java para:
 * A versão atual do [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de compilação gradle](https://gradle.org/install/)ou outro gerenciador de dependências
 
-## <a name="setting-up"></a>Configurando
-
-### <a name="create-a-bing-visual-search-azure-resource"></a>Criar um Pesquisa Visual do Bing recurso do Azure
-
-Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para Pesquisa Visual do Bing usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
-
-* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave chamada `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 

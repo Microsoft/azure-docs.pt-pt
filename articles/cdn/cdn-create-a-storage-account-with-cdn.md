@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386991"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: integrar uma conta de armazenamento do Azure com a CDN do Azure
 Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azure](cdn-overview.md) coloque conteúdo do armazenamento do Azure em cache. A CDN do Azure oferece aos programadores uma solução global para entregar conteúdo de largura de banda elevada. Pode colocar blobs e conteúdo estático em cache de instâncias de computação em nós físicos nos Estados Unidos da América, Europa, Ásia, Austrália e América do Sul.
@@ -30,7 +30,7 @@ Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azu
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 Utilize o procedimento seguinte para criar uma nova conta de armazenamento para uma subscrição do Azure. Uma conta de armazenamento dá acesso a serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o nível mais elevado de espaço de nomes para aceder a cada componente de serviços de Armazenamento do Microsoft Azure: armazenamento de Blobs, Filas e Tabelas do Azure. Para mais informações, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md).
 
 Para criar uma conta de armazenamento, tem de ser o administrador de serviços ou um coadministrador da subscrição associada.
@@ -75,7 +75,7 @@ Pode utilizar vários métodos para criar uma conta de armazenamento, incluindo 
     | **Performance** (Desempenho) | Utilize o valor predefinido. |
     | **Secure transfer required** (Transferência segura necessária) | Utilize o valor predefinido. |
     | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
-    | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Este nome tem de ser globalmente exclusivo. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. <br />Para informações sobre grupos de recursos, consulte o artigo [Descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Este nome tem de ser globalmente exclusivo. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. <br />Para informações sobre grupos de recursos, consulte o artigo [Descrição geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configurar redes virtuais** | Utilize o valor predefinido. |  
     
 5. Selecione **Afixar no dashboard** para guardar a conta de armazenamento no dashboard depois de ser criada.
@@ -142,7 +142,7 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 
 3. Para eliminar a conta de armazenamento, selecione-a no dashboard e, em seguida, selecione **Eliminar** no menu superior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como adicionar um domínio personalizado e ativar o HTTPS no ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]

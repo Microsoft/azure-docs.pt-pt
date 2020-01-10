@@ -1,5 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple – componentes da nuvem privada do VMware
+title: Componentes de nuvem privada do VMware
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve como os componentes do VMware são instalados na nuvem privada
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452325"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de nuvem privada do VMware
 
@@ -28,12 +29,12 @@ Uma nuvem privada é um ambiente isolado de pilha VMware (hosts ESXi, vCenter, v
 
 Uma nuvem privada VMware Stack é implantada com a seguinte versão de software.
 
-| Componente | Version | Versão licenciada |
+| Componente | Versão | Versão licenciada |
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise Plus |
 | vCenter | 6.7 U2 | vCenter padrão |
-| vSAN | 6.7 | Empresarial |
-| Data Center do NSX | 2.4.1 | Avançadas |
+| vSAN | 6.7 | Enterprise |
+| Data Center do NSX | 2.4.1 | Segurança |
 
 ## <a name="esxi"></a>ESXi
 
@@ -47,7 +48,7 @@ o dispositivo vCenter Server (VCSA) fornece as funções de autenticação, gere
 
 ### <a name="vcenter-single-sign-on"></a>logon único do vCenter
 
-O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um usuário **CloudOwner@cloudsimple.com** padrão é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
+O controlador de serviços de plataforma inserido no VCSA está associado a um **domínio de logon único do vCenter**.  O nome de domínio é **cloudsimple. local**.  Um **CloudOwner@cloudsimple.com** de usuário padrão é criado para que você acesse o vCenter.  Você pode adicionar suas fontes de identidade locais/do Azure Active Directory [para o vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>armazenamento vSAN
 
@@ -81,11 +82,11 @@ O NSX Data Center fornece recursos de virtualização de rede, micro segmentaç�
 
 ## <a name="vsphere-cluster"></a>cluster vSphere
 
-Os hosts ESXi são configurados como um cluster para garantir a alta disponibilidade da nuvem privada.  Quando você cria uma nuvem privada, os componentes de gerenciamento do vSphere são implantados no primeiro cluster.  Um pool de recursos é criado para componentes de gerenciamento e todas as VMs de gerenciamento são implantadas nesse pool de recursos. O primeiro cluster não pode ser excluído para reduzir a nuvem privada.  o cluster vSphere fornece alta disponibilidade para VMs usando o **VSPHERE ha**.  As falhas a serem toleradas são baseadas no número de nós disponíveis no cluster.  Você pode usar a fórmula ```Number of nodes = 2N+1``` em ```N``` que é o número de falhas a tolerar.
+Os hosts ESXi são configurados como um cluster para garantir a alta disponibilidade da nuvem privada.  Quando você cria uma nuvem privada, os componentes de gerenciamento do vSphere são implantados no primeiro cluster.  Um pool de recursos é criado para componentes de gerenciamento e todas as VMs de gerenciamento são implantadas nesse pool de recursos. O primeiro cluster não pode ser excluído para reduzir a nuvem privada.  o cluster vSphere fornece alta disponibilidade para VMs usando o **VSPHERE ha**.  As falhas a serem toleradas são baseadas no número de nós disponíveis no cluster.  Você pode usar a fórmula ```Number of nodes = 2N+1``` em que ```N``` é o número de falhas a tolerar.
 
 ### <a name="vsphere-cluster-limits"></a>limites de cluster vSphere
 
-| Resource | Limite |
+| Recurso | Limite |
 |----------|-------|
 | Número mínimo de nós para criar uma nuvem privada (primeiro cluster vSphere) | 3 |
 | Número máximo de nós em um cluster vSphere em uma nuvem privada | 16 |
@@ -116,6 +117,6 @@ O CloudSimple testa um patch de segurança crítico assim que ele se torna dispo
 
 O CloudSimple fornece atualizações de manutenção trimestral para componentes de software VMware. Quando uma nova versão principal do software VMware estiver disponível, o CloudSimple funcionará com os clientes para coordenar uma janela de manutenção adequada para atualização.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manutenção e atualizações do CloudSimple](cloudsimple-maintenance-updates.md)

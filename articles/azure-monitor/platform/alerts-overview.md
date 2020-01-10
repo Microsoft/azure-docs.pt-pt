@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
-ms.translationtype: MT
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396527"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral de alertas no Microsoft Azure 
 
@@ -116,12 +116,12 @@ Selecione os seguintes valores na parte superior da página alertas para abrir o
 
 | Valor | Descrição |
 |:---|:---|
-| Total de alertas | O número total de alertas que correspondem aos critérios selecionados. Selecione este valor para abrir a exibição todos os alertas sem filtro. |
+| Alertas totais | O número total de alertas que correspondem aos critérios selecionados. Selecione este valor para abrir a exibição todos os alertas sem filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criados a partir dos alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a lista de grupos inteligentes na exibição todos os alertas.
-| Total de regras de alertas | O número total de regras de alerta na assinatura e no grupo de recursos selecionados. Selecione este valor para abrir o modo de exibição de regras filtrado na assinatura e no grupo de recursos selecionados.
+| Regras de alertas totais | O número total de regras de alerta na assinatura e no grupo de recursos selecionados. Selecione este valor para abrir o modo de exibição de regras filtrado na assinatura e no grupo de recursos selecionados.
 
 
-## <a name="manage-alert-rules"></a>Gerir regras de alertas
+## <a name="manage-alert-rules"></a>Gere regras do alerta
 Para mostrar a página **regras** , selecione **gerenciar regras de alerta**. A página de regras é um único local para gerenciar todas as regras de alerta em suas assinaturas do Azure. Ele lista todas as regras de alerta e pode ser classificado com base nos recursos de destino, grupos de recursos, nome da regra ou status. Você também pode editar, habilitar ou desabilitar regras de alerta nesta página.  
 
  ![Captura de tela da página regras](./media/alerts-overview/alerts-preview-rules.png)
@@ -156,8 +156,8 @@ Você pode filtrar a exibição selecionando os seguintes valores nos menus susp
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente os alertas com destinos do tipo selecionado são incluídos na exibição. Esta coluna só estará disponível depois que um grupo de recursos tiver sido especificado. |
 | Recurso | Selecione um recurso. Somente os alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
 | Gravidade | Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
-| Monitorizar condição | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
-| Estado do alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
+| Condição do monitor | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
+| Estado de alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
 | Monitorizar serviço | Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas criados por regras que usam o serviço como um destino são incluídos. |
 | Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
@@ -184,23 +184,23 @@ O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha
 
 Talvez você queira consultar programaticamente os alertas gerados em sua assinatura. Isso pode ser criar exibições personalizadas fora do portal do Azure ou analisar seus alertas para identificar padrões e tendências.
 
-Você pode consultar alertas gerados em suas assinaturas usando a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api) ou usando a [API REST do grafo de recursos do Azure para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
+Você pode consultar alertas gerados em suas assinaturas usando a [API rest gerenciamento de alertas](https://aka.ms/alert-management-api) ou usando o [grafo de recursos do Azure](../../governance/resource-graph/overview.md) e a [API REST para recursos](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-A [API REST do grafo de recursos do Azure para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)) permite consultar instâncias de alerta em escala. Isso é recomendado quando você precisa gerenciar alertas gerados em várias assinaturas. 
+A API REST do grafo de recursos para recursos permite consultar instâncias de alerta em escala. Isso é recomendado quando você precisa gerenciar alertas gerados em várias assinaturas. 
 
-A seguinte solicitação de exemplo para a API retorna a contagem de alertas em uma assinatura:
+A seguinte solicitação de exemplo para a API REST do grafo de recursos retorna a contagem de alertas em uma assinatura:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+Você também pode ver o resultado dessa consulta de grafo de recursos no portal com o Gerenciador de gráficos de recursos do Azure: [Portal.Azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 Você pode consultar os alertas para seus campos [essenciais](alerts-common-schema-definitions.md#essentials) .
 
 Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api) para obter mais informações sobre alertas específicos, incluindo seus campos de [contexto de alerta](alerts-common-schema-definitions.md#alert-context) .

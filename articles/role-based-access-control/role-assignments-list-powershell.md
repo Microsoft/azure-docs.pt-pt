@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c30f1246dccbe14445b0f7db8584e37c0f4be6ab
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f728338284c755116414a03cbc586915e1cc9325
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462209"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Listar atribuições de função usando o RBAC e Azure PowerShell do Azure
 
@@ -146,6 +146,22 @@ Para listar as atribuições de função para o administrador da assinatura clá
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de função para uma identidade gerenciada
+
+1. Obtenha a ID de objeto da identidade gerenciada atribuída pelo sistema ou pelo usuário. 
+
+    Para obter a ID de objeto de uma identidade gerenciada atribuída pelo usuário, você pode usar [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+
+    ```azurepowershell
+    Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
+    ```
+
+1. Para listar as atribuições de função, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+
+    ```azurepowershell
+    Get-AzRoleAssignment -ObjectId <objectid>
+    ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

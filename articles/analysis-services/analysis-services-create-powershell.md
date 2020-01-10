@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 073193329950e1d7e6a812da4555ec8ba76f65e3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 071c44136d917874843bdf080de775ec6739937a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442877"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor - PowerShell
 
@@ -42,9 +42,9 @@ Entre em sua assinatura do Azure usando o comando [Connect-AzAccount](/powershel
 Connect-AzAccount
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos:
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. Quando criar o servidor, tem de especificar um grupo de recursos na sua subscrição. Se você ainda não tiver um grupo de recursos, poderá criar um novo usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na região E.U.A. Oeste.
+Um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. Quando criar o servidor, tem de especificar um grupo de recursos na sua subscrição. Se você ainda não tiver um grupo de recursos, poderá criar um novo usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na região E.U.A. Oeste.
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"

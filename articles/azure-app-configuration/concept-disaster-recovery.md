@@ -1,23 +1,17 @@
 ---
-title: Recuperação de desastre e resiliência de configuração de Azure App | Microsoft Docs
-description: Uma visão geral de como implementar resiliência e recuperação de desastre com a configuração do Azure App.
-services: azure-app-configuration
-documentationcenter: ''
+title: Resiliência de configuração Azure App e recuperação de desastre
+description: Saiba como implementar resiliência e recuperação de desastre com a configuração de Azure App.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 05/29/2019
+ms.openlocfilehash: f2f914ec993670b8ba7a596f873234afd9ffc8e8
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185283"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665060"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resiliência e recuperação após desastre
 
@@ -68,7 +62,7 @@ Para automatizar esse processo de exportação, use o CLI do Azure. O comando a 
 
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a aumentar seu aplicativo para obter resiliência geográfica durante o tempo de execução para a configuração do aplicativo. Você também pode inserir dados de configuração da configuração do aplicativo no momento da compilação ou implantação. Para obter mais informações, consulte [integrar com um pipeline de CI/CD](./integrate-ci-cd-pipeline.md).
 

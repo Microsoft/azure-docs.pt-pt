@@ -1,18 +1,18 @@
 ---
-title: Restringir o acesso para endereços IP
-description: Saiba como proteger seu aplicativo em Azure App serviço listando explicitamente os endereços IP do cliente ou intervalos de endereços.
+title: Azure App restrições de acesso de serviço
+description: Saiba como proteger seu aplicativo no serviço de Azure App especificando as restrições de acesso.
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422225"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App restrições de acesso de serviço #
 
@@ -24,7 +24,7 @@ Quando uma solicitação é feita ao seu aplicativo, o endereço de é avaliado 
 
 O recurso de restrições de acesso é implementado nas funções de front-end do serviço de aplicativo, que são upstream dos hosts de trabalho em que seu código é executado. Portanto, as restrições de acesso são efetivamente ACLs de rede.
 
-A capacidade de restringir o acesso ao seu aplicativo Web de uma VNet (rede virtual) do Azure é chamada de [pontos de extremidade de serviço][serviceendpoints]. Os pontos de extremidade de serviço permitem restringir o acesso a um serviço multilocatário de sub-redes selecionadas. Ele deve ser habilitado tanto no lado da rede quanto no serviço com o qual está sendo habilitado. Ele não funciona para restringir o tráfego para aplicativos hospedados em um Ambiente do Serviço de Aplicativo.  Se você estiver em um Ambiente do Serviço de Aplicativo, poderá controlar o acesso ao seu aplicativo com regras de endereço IP.
+A capacidade de restringir o acesso ao seu aplicativo Web de uma VNet (rede virtual) do Azure é chamada de [pontos de extremidade de serviço][serviceendpoints]. Os pontos de extremidade de serviço permitem restringir o acesso a um serviço multilocatário de sub-redes selecionadas. Ele deve ser habilitado tanto no lado da rede quanto no serviço com o qual está sendo habilitado. Ele não funciona para restringir o tráfego para aplicativos hospedados em um Ambiente do Serviço de Aplicativo. Se você estiver em um Ambiente do Serviço de Aplicativo, poderá controlar o acesso ao seu aplicativo com regras de endereço IP.
 
 ![fluxo de restrições de acesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ Os pontos de extremidade de serviço permitem restringir o acesso às sub-redes 
 
 Os pontos de extremidade de serviço não podem ser usados para restringir o acesso a aplicativos executados em um Ambiente do Serviço de Aplicativo. Quando seu aplicativo estiver em um Ambiente do Serviço de Aplicativo, você poderá controlar o acesso ao seu aplicativo com as regras de acesso de IP. 
 
-Com os pontos de extremidade de serviço, você pode configurar seu aplicativo com gateways de aplicativo ou outros dispositivos WAF. Você também pode configurar aplicativos de várias camadas com back-ends seguros. Para obter mais detalhes sobre algumas das possibilidades, leia [recursos de rede e serviço de aplicativo](networking-features.md).
+Com os pontos de extremidade de serviço, você pode configurar seu aplicativo com gateways de aplicativo ou outros dispositivos WAF. Você também pode configurar aplicativos de várias camadas com back-ends seguros. Para obter mais detalhes sobre algumas das possibilidades, leia [recursos de rede e](networking-features.md) integração do serviço de aplicativo e do [Gateway de aplicativo com pontos de extremidade de serviço](networking/app-gateway-with-service-endpoints.md).
 
 ## <a name="managing-access-restriction-rules"></a>Gerenciando regras de restrição de acesso
 
@@ -90,34 +90,49 @@ Além de poder controlar o acesso ao seu aplicativo, você também pode restring
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulação programática de regras de restrição de acesso ##
 
-Atualmente, não há uma CLI ou o PowerShell para o novo recurso de restrições de acesso, mas os valores podem ser definidos manualmente com uma operação Put da [API REST do Azure](https://docs.microsoft.com/rest/api/azure/) na configuração do aplicativo no Gerenciador de recursos. Por exemplo, você pode usar resources.azure.com e editar o bloco ipSecurityRestrictions para adicionar o JSON necessário.
+[CLI do Azure](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) têm suporte para editar restrições de acesso. Exemplo de adição de uma restrição de acesso usando CLI do Azure:
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+Exemplo de adição de uma restrição de acesso usando Azure PowerShell:
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+Os valores também podem ser definidos manualmente com uma operação Put da [API REST do Azure](https://docs.microsoft.com/rest/api/azure/) na configuração do aplicativo no Gerenciador de recursos ou usando um modelo de Azure Resource Manager. Por exemplo, você pode usar resources.azure.com e editar o bloco ipSecurityRestrictions para adicionar o JSON necessário.
 
 O local para essas informações no Resource Manager é:
 
 management.azure.com/subscriptions/**ID da assinatura**/resourceGroups/**grupos de recursos**/Providers/Microsoft.Web/sites/nome do**aplicativo Web**/config/Web? API-Version = 2018-02-01
 
 A sintaxe JSON para o exemplo anterior é:
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>Aplicativo de funções restrições de IP
+## <a name="azure-function-app-access-restrictions"></a>Restrições de acesso de Aplicativo de funções do Azure
 
-As restrições de IP estão disponíveis para ambos os aplicativos de funções com a mesma funcionalidade que os planos do serviço de aplicativo. Habilitar restrições de IP desabilitará o editor de código do portal para qualquer IPs não permitido.
+As restrições de acesso estão disponíveis para ambos os aplicativos de funções com a mesma funcionalidade que os planos do serviço de aplicativo. Habilitar restrições de acesso desabilitará o editor de código do portal para qualquer IPs não permitido.
 
-[Saiba mais aqui](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+## <a name="next-steps"></a>Passos seguintes
+[Restrições de acesso para aplicativos de funções do Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[Integração do gateway de aplicativo com pontos de extremidade de serviço](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

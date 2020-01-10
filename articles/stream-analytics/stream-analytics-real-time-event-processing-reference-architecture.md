@@ -1,19 +1,18 @@
 ---
 title: Processamento de eventos em tempo real usando Azure Stream Analytics
 description: Este artigo descreve a arquitetura de referência para obter análise e processamento de eventos em tempo real usando o Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d219b3fcb27b23527c0a651bc8e842a9e036bfc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925101"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431489"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento de eventos em tempo real com Microsoft Azure Stream Analytics
 A arquitetura de referência para o processamento de eventos em tempo real com Azure Stream Analytics destina-se a fornecer um plano gráfico genérico para a implantação de uma solução de processamento de fluxo de PaaS (plataforma como serviço) em tempo real com Microsoft Azure.
@@ -24,7 +23,7 @@ Tradicionalmente, as soluções de análise têm sido baseadas em recursos como 
 O Microsoft Azure fornece um catálogo abrangente de tecnologias de análise que são capazes de dar suporte a uma matriz de diferentes cenários e requisitos de solução. Selecionar quais serviços do Azure implantar para uma solução de ponta a ponta pode ser um desafio devido à amplitude das ofertas. Este documento foi projetado para descrever os recursos e a interoperação dos vários serviços do Azure que dão suporte a uma solução de streaming de eventos. Ele também explica alguns dos cenários nos quais os clientes podem se beneficiar desse tipo de abordagem.
 
 ## <a name="contents"></a>Conteúdos
-* Resumo executivo
+* Resumo Executivo
 * Introdução à análise em tempo real
 * Proposta de valor de dados em tempo real no Azure
 * Cenários comuns de análise em tempo real

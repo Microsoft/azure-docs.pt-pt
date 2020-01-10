@@ -10,19 +10,19 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454705"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo em Azure Machine Learning Studio (clássico)
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Depois de ter treinado um modelo e feito previsões sobre ele ("pontuado o modelo"), você precisa entender e interpretar o resultado da previsão.
 
 
 
-Há quatro tipos principais de modelos de aprendizado de máquina na versão clássica do Azure Machine Learning Studio:
+Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning Studio (clássico):
 
 * Classificação
 * Clustering
@@ -39,7 +39,7 @@ Este documento explica como interpretar os resultados de previsão para cada um 
 
 Este tópico aborda a interpretação da previsão, mas não a avaliação do modelo. Para obter mais informações sobre como avaliar seu modelo, consulte [como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)](evaluate-model-performance.md).
 
-Se você for novo na versão clássica do Azure Machine Learning Studio e precisar de ajuda para criar um experimento simples para começar, consulte [criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md).
+Se você for novo no Azure Machine Learning Studio (clássico) e precisar de ajuda para criar um experimento simples para começar, consulte [criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md).
 
 ## <a name="classification"></a>Classificação
 Há duas subcategorias de problemas de classificação:
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (clássico) tem diferentes módulos para lidar com
 ### <a name="two-class-classification"></a>Classificação de duas classes
 **Experimento de exemplo**
 
-Um exemplo de um problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar flores íris com base em seus recursos. O conjunto de dados íris fornecido na versão clássica do Azure Machine Learning Studio é um subconjunto do [conjunto de dados íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) populares contendo instâncias de apenas duas espécies de flor (classes 0 e 1). Há quatro recursos para cada flor (comprimento SEPA, largura de SEPA, comprimento de pétala e largura de pétala).
+Um exemplo de um problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar flores íris com base em seus recursos. O conjunto de dados íris fornecido na Azure Machine Learning Studio (clássico) é um subconjunto do [conjunto de dados íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular que contém instâncias de apenas duas espécies de flor (classes 0 e 1). Há quatro recursos para cada flor (comprimento SEPA, largura de SEPA, comprimento de pétala e largura de pétala).
 
 ![Captura de tela do experimento de íris](./media/interpret-model-results/1.png)
 
@@ -224,9 +224,9 @@ Para sistemas de recomendação, você pode usar o problema de recomendação de
 
 * Classificações de restaurante de clientes
 * Dados de recurso do cliente
-* Dados de recurso do restaurante
+* Restaurant feature data
 
-Há várias coisas que podemos fazer com o módulo [treinar recomendador Matchbox][train-matchbox-recommender] na versão clássica do Azure Machine Learning Studio:
+Há várias coisas que podemos fazer com o módulo [treinar recomendador Matchbox][train-matchbox-recommender] no Azure Machine Learning Studio (clássico):
 
 * Prever classificações para um determinado usuário e item
 * Itens recomendados a um determinado usuário

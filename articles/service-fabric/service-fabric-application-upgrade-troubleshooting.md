@@ -1,25 +1,14 @@
 ---
-title: Solucionando problemas de atualizações de aplicativos | Microsoft Docs
+title: Resolver problemas de atualizações de aplicação
 description: Este artigo aborda alguns problemas comuns relacionados à atualização de um aplicativo Service Fabric e como resolvê-los.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: f5df528c7e46a5cb2a5df98f0088a451eb08cd6a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377927"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Resolução de problemas de atualização da aplicação
 
@@ -201,7 +190,7 @@ A atualização continua do domínio de atualização em que foi suspensa pela �
 
 Causa possível 1:
 
-Service Fabric converte todas as porcentagens em números reais de entidades (por exemplo, réplicas, partições e serviços) para avaliação de integridade e sempre arredonda para as entidades inteiras. Por exemplo, se o máximo de *MaxPercentUnhealthyReplicasPerPartition* for 21% e houver cinco réplicas, Service Fabric permitirá até duas réplicas não íntegras (ou seja, `Math.Ceiling (5*0.21)`). Portanto, as políticas de integridade devem ser definidas adequadamente.
+Service Fabric converte todas as porcentagens em números reais de entidades (por exemplo, réplicas, partições e serviços) para avaliação de integridade e sempre arredonda para as entidades inteiras. Por exemplo, se o máximo de *MaxPercentUnhealthyReplicasPerPartition* for 21% e houver cinco réplicas, Service Fabric permitirá até duas réplicas não íntegras (ou seja,`Math.Ceiling (5*0.21)`). Portanto, as políticas de integridade devem ser definidas adequadamente.
 
 Causa possível 2:
 
@@ -225,7 +214,7 @@ Aqui está um reartigo rápido sobre como os tempos limite interagem com os temp
 
 As atualizações para um domínio de atualização não podem ser concluídas mais rápido do que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-A falha de atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+A falha de atualização não pode ocorrer mais rápido que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
 O tempo de atualização para um domínio de atualização é limitado por *UpgradeDomainTimeout*.  Se *HealthCheckRetryTimeout* e *HealthCheckStableDuration* forem diferentes de zero e a integridade do aplicativo continuar alternando e em frente, a atualização eventualmente atingirá o tempo limite em *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inicia a contagem de baixo quando a atualização para o domínio de atualização atual começa.
 

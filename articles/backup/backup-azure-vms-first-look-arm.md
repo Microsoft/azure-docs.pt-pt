@@ -3,12 +3,12 @@ title: Fazer backup de uma VM do Azure por meio das configurações da VM
 description: Neste artigo, saiba como fazer backup de uma VM do Azure singular ou de várias VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391441"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Fazer backup de uma VM do Azure por meio das configurações da VM
 
@@ -31,7 +31,7 @@ Para fazer backup de VMs do Azure, o backup do Azure instala uma extensão no ag
 
 ## <a name="back-up-from-azure-vm-settings"></a>Fazer backup das configurações de VM do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **todos os serviços** e, no filtro, digite **máquinas virtuais**e clique em **máquinas virtuais**.
 3. Na lista de VMs, selecione a VM que você deseja fazer backup.
 4. No menu VM, clique em **backup**.
@@ -61,10 +61,6 @@ Para fazer backup de VMs do Azure, o backup do Azure instala uma extensão no ag
 10. Depois de habilitar o backup, um backup inicial é executado. Você pode iniciar o backup inicial imediatamente ou aguardar até que ele comece de acordo com o agendamento de backup.
     - Até que o backup inicial seja concluído, o **status do último backup** será exibido como **aviso (backup inicial pendente)** .
     - Para ver quando o próximo backup agendado será executado, clique no nome da política de backup.
-
-> [!NOTE]
-> O serviço de backup do Azure cria um grupo de recursos separado (diferente do grupo de recursos da VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados nesse grupo de recursos serão mantidos durante a duração em dias, conforme especificado na seção "reter instantâneo de recuperação instantânea" da política de backup de máquina virtual do Azure. A aplicação de um bloqueio a esse grupo de recursos pode causar falhas de backup.<br>
-Esse grupo de recursos também deve ser excluído de qualquer restrição de nome/marca, uma vez que uma política de restrição bloquearia a criação de coleções de ponto de recurso novamente, causando falhas de backup.
 
 ## <a name="run-a-backup-immediately"></a>Executar um backup imediatamente
 

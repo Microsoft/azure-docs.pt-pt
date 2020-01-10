@@ -6,24 +6,24 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 11ff310dae3c4733283d965a518df42a0711ce01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256279"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416044"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
 
-Esta seção explica as noções básicas de configuração de um sistema DNS para balanceamento de carga do cluster avere vFXT. 
+Esta seção explica as noções básicas de configuração de um sistema DNS para balanceamento de carga do cluster avere vFXT.
 
-Este documento não *inclui* instruções para configurar e gerenciar um servidor DNS no ambiente do Azure. 
+Este documento não *inclui* instruções para configurar e gerenciar um servidor DNS no ambiente do Azure.
 
-Em vez de usar o DNS Round Robin para balancear a carga de um cluster vFXT no Azure, considere o uso de métodos manuais para atribuir endereços IP uniformemente entre os clientes quando eles forem montados. Vários métodos são descritos em [montar o cluster avere](avere-vfxt-mount-clients.md). 
+Em vez de usar o DNS Round Robin para balancear a carga de um cluster vFXT no Azure, considere o uso de métodos manuais para atribuir endereços IP uniformemente entre os clientes quando eles forem montados. Vários métodos são descritos em [montar o cluster avere](avere-vfxt-mount-clients.md).
 
-Lembre-se destas coisas ao decidir se deve ou não usar um servidor DNS: 
+Lembre-se destas coisas ao decidir se deve ou não usar um servidor DNS:
 
-* Se o sistema for acessado somente por clientes NFS, não será necessário usar o DNS-é possível especificar todos os endereços de rede usando endereços IP numéricos. 
+* Se o sistema for acessado somente por clientes NFS, não será necessário usar o DNS-é possível especificar todos os endereços de rede usando endereços IP numéricos.
 
 * Se o seu sistema der suporte ao acesso SMB (CIFS), o DNS será necessário, pois você deve especificar um domínio DNS para o servidor de Active Directory.
 
@@ -41,12 +41,12 @@ Para obter um desempenho ideal, configure o servidor DNS para manipular endereç
 
 Um VServer de cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso para cliente com os registros A e os ponteiros conforme ilustrado.
 
-![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png) 
+![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado para o cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são nomeados VS1-Client-IP-* para fins de clareza, mas, em produção, você provavelmente deve usar algo mais conciso, como cliente *.)
 
-Os clientes montam o cluster usando o nome do vserver como o argumento do servidor. 
+Os clientes montam o cluster usando o nome do vserver como o argumento do servidor.
 
 Modifique o arquivo de ``named.conf`` do seu servidor DNS para definir a ordem cíclica de consultas para seu vserver. Essa opção garante que todos os valores disponíveis sejam alternados pelo. Adicione uma instrução como a seguinte:
 
@@ -58,7 +58,7 @@ options {
 };
 ```
 
-Os comandos nsupdate a seguir fornecem um exemplo de configuração de DNS corretamente:
+Os comandos a seguir ``nsupdate`` fornecem um exemplo de configuração de DNS corretamente:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -81,5 +81,3 @@ Especifique o servidor DNS que o cluster vFXT usa no **cluster** > página de co
 * Domínios de pesquisa DNS
 
 Leia [configurações de DNS](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) no guia de configuração do cluster avere para obter mais detalhes sobre como usar essa página.
-
-

@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3b176a6027b0f03c3802867df7be1e339286df2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365330"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
@@ -40,7 +40,7 @@ Siga junto com uma versão de vídeo deste tutorial abaixo:
 As consultas podem começar com um nome de tabela ou o comando de *pesquisa* . Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
 
 > [!NOTE]
-> A linguagem de consulta Kusto usada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave de idioma normalmente são escritas em letras minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar o caso correto, conforme mostrado no painel esquema.
+> A linguagem de consulta Kusto utilizada pelo Azure Monitor é sensível às maiúsculas e minúsculas. Normalmente, as palavras-chave da linguagem são escritas em letras minúsculas. Ao usar nomes de tabelas ou colunas em uma consulta, certifique-se de usar o caso correto, conforme mostrado no painel esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
 Azure Monitor organiza os dados de log em tabelas, cada uma composta por várias colunas. Todas as tabelas e colunas são mostradas no painel esquema em Log Analytics no portal de análise. Identifique uma tabela na qual você esteja interessado e dê uma olhada em um pouco de dados:

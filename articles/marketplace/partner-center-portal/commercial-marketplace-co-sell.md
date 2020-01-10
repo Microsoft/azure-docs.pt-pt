@@ -1,50 +1,69 @@
 ---
 title: Opção de venda conjunta no Partner Center | Azure Marketplace
 description: As informações que você fornecer na guia de revenda de sua oferta serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431958"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Partner Center
 
 Fornecer informações sobre a guia de venda é totalmente opcional. É necessário atingir o status pronto para venda de covenda pronta e de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [vender pela Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-## <a name="applicable-products"></a>Produtos aplicáveis
+A opção de venda conjunta no Partner Center está disponível no momento para alguns tipos de oferta. O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
-Escolha qualquer um dos produtos da Microsoft que sua oferta é criada sobre o ou projetado para trabalhar com o.
+| **Tipo de oferta** | **Página de co-venda disponível no Partner Center** |
+|    -----------------------    |    -----------------------------  |
+| SaaS (software como serviço) |     Disponibilidade geral em cerca de fev. 2020      |
+| Dynamics 365 para compromisso com o cliente & PowerApps      |     Já disponível      |
+| Dynamics 365 for Operations     |     Já disponível       |
+| Dynamics 365 Business Central      |  Disponibilidade geral em cerca de fev. 2020     |
+| Aplicação do Azure     |     Disponibilidade geral em cerca de fev. 2020     |
+| Máquina Virtual do Azure      |     A anunciar       |
+| Contêiner do Azure     |     A anunciar       |
+| Serviço de Consultoria      |     A anunciar       |
+| Módulo IoT Edge      |     A anunciar       |
+| Power BI aplicativo de serviço     |     A anunciar       |
+|  |
 
-## <a name="customer-segments"></a>Segmentos do cliente
+## <a name="listing"></a>Listagem
 
-Selecione o tamanho dos negócios que sua oferta está direcionando.
+As listagens de venda conjuntas ajudarão as equipes de vendas da Microsoft a comercializar sua solução para um público mais amplo.
 
-## <a name="offer-type"></a>Tipo de oferta
+- Escolha as plataformas da Microsoft com as quais sua oferta é criada, se estende ou se integra com.
+- Selecione os segmentos de mercado aos quais sua oferta está direcionada.
+- Selecione um [tipo de solução](#solution-type) para sua oferta.
+- Escolha até três [áreas de solução](#solution-areas) e subáreas.
 
-Selecione o tipo de oferta:
+### <a name="solution-type"></a>Tipo de solução
 
-| **Tipo de oferta**    | **Descrição**  |
+Os tipos de solução ajudam a definir os cenários para os quais sua oferta foi projetada para resolver.
+
+| **Tipo de solução**    | **Descrição**  |
 | :------------------- | :-------------------|
-| Dispositivo | Uma oferta que envolve a criação ou a venda de hardware de um fabricante de dispositivos. |
-| IP | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo: um programa CRM que pode ser licenciado e instalado localmente. |
+| Dispositivo (hardware) | Uma oferta que envolve a criação ou a venda de hardware de um fabricante de dispositivos. |
+| IP (aplicativo) | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo: um programa CRM que pode ser licenciado e instalado localmente. |
 | Serviço | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo: configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
 | Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo: fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciado. |
 
-## <a name="solution-areas"></a>Áreas de solução
+### <a name="solution-areas"></a>Áreas de solução
 
-Você pode adicionar até três áreas de solução para sua oferta.  Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a chave de `Ctrl` (no Windows) ou a tecla de comando (em Mac OS).
+As áreas de solução ajudam a definir ainda mais sua solução.
 
-As áreas de solução ajudam a definir os cenários para os quais sua oferta foi projetada para resolver.
+Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a chave de `Ctrl` (no Windows) ou a tecla de comando (em Mac OS).
 
 ## <a name="documents"></a>Documentos
+
+Você pode fornecer um material de apoio para a Microsoft usar para avaliar suas necessidades de clientes.
 
 | **Documento**    | **Descrição**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ As áreas de solução ajudam a definir os cenários para os quais sua oferta fo
 
 ## <a name="contacts"></a>Contactos
 
-Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal. 
+Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
 
 Este documento fornece orientação sobre as diferentes funções para parceiros e como escolher entre elas. Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contato e importando esse arquivo CSV. A importação de um arquivo CSV substituirá os contatos existentes.
 

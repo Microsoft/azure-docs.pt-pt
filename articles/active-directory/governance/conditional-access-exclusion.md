@@ -1,5 +1,5 @@
 ---
-title: Usar revisões de acesso para gerenciar usuários excluídos das políticas de acesso condicional-Azure Active Directory | Microsoft Docs
+title: Gerenciar usuários excluídos de políticas de acesso condicional – Azure AD
 description: Saiba como usar as revisões de acesso do Azure Active Directory (AD do Azure) para gerenciar usuários que foram excluídos das políticas de acesso condicional
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422716"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usar as revisões de acesso do Azure AD para gerenciar usuários excluídos das políticas de acesso condicional
 
@@ -97,7 +97,7 @@ Agora você pode criar uma política de acesso condicional que usa esse grupo de
 
 Vamos abordar dois exemplos em que você pode usar as revisões de acesso para gerenciar exclusões em políticas de acesso condicional.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemplo 1: Revisão de acesso para usuários que acessam de países/regiões bloqueados
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemplo 1: revisão de acesso para usuários que acessam de países/regiões bloqueados
 
 Digamos que você tenha uma política de acesso condicional que bloqueie o acesso de determinados países/regiões. Ele inclui um grupo que é excluído da política. Aqui está uma revisão de acesso recomendada onde os membros do grupo são revisados.
 
@@ -118,7 +118,7 @@ Digamos que você tenha uma política de acesso condicional que bloqueie o acess
 
     ![Criar um painel de revisão de acesso, por exemplo 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemplo 2: Revisão de acesso para usuários que acessam com autenticação herdada
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemplo 2: revisão de acesso para usuários que acessam com autenticação herdada
 
 Digamos que você tenha uma política de acesso condicional que bloqueie o acesso para usuários usando autenticação herdada e versões de cliente mais antigas. Ele inclui um grupo que é excluído da política. Aqui está uma revisão de acesso recomendada onde os membros do grupo são revisados.
 
@@ -136,7 +136,7 @@ Digamos que você tenha uma política de acesso condicional que bloqueie o acess
 
     ![Criar um painel de revisão de acesso, por exemplo 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Dica de pro**: Se você tiver muitos grupos de exclusão e, portanto, precisar criar várias revisões de acesso, agora temos uma API no ponto de extremidade Microsoft Graph beta que permite criá-las e gerenciá-las programaticamente. Para começar, consulte a [referência da API de revisões de acesso do Azure ad](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) e o [exemplo de recuperação de revisões de acesso do Azure ad por meio de Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+**Dica de pro**: se você tiver muitos grupos de exclusão e, portanto, precisar criar várias revisões de acesso, agora temos uma API no ponto de extremidade Microsoft Graph beta que permite criá-las e gerenciá-las programaticamente. Para começar, consulte a [referência da API de revisões de acesso do Azure ad](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) e o [exemplo de recuperação de revisões de acesso do Azure ad por meio de Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Resultados da revisão de acesso e logs de auditoria
 
@@ -156,7 +156,7 @@ Agora que você tem tudo em vigor, grupo, política de acesso condicional e revi
 
 Como administrador de ti, você sabe que o gerenciamento de grupos de exclusão para suas políticas, às vezes, é inevitável. No entanto, manter esses grupos, analisá-los regularmente pelo proprietário da empresa ou pelos próprios usuários e auditar essas alterações pode facilitar com as revisões de acesso do Azure AD.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

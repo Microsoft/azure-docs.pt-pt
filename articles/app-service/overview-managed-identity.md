@@ -1,17 +1,17 @@
 ---
-title: Identidades gerenciadas
+title: Identidades geridas
 description: Saiba como as identidades gerenciadas funcionam em Azure App serviço e Azure Functions, como configurar uma identidade gerenciada e gerar um token para um recurso de back-end.
 author: mattchenderson
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422020"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
 
@@ -40,7 +40,7 @@ Para configurar uma identidade gerenciada no portal, primeiro você criará um a
 
 4. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Clique em **Guardar**.
 
-    ![Identidade gerenciada no serviço de aplicativo](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Identidade gerenciada no serviço de aplicativo](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 
@@ -169,7 +169,7 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 
 6. Pesquise a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar**.
 
-    ![Identidade gerenciada no serviço de aplicativo](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Identidade gerenciada no serviço de aplicativo](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Usando um modelo de Azure Resource Manager
 
@@ -251,10 +251,10 @@ Um aplicativo com uma identidade gerenciada tem duas variáveis de ambiente defi
 
 O **MSI_ENDPOINT** é uma URL local da qual seu aplicativo pode solicitar tokens. Para obter um token para um recurso, faça uma solicitação HTTP GET para esse ponto de extremidade, incluindo os seguintes parâmetros:
 
-> |Nome do parâmetro|No|Descrição|
+> |Nome do parâmetro|Em|Descrição|
 > |-----|-----|-----|
-> |Kit|Consulta|O URI de recurso do AAD do recurso para o qual um token deve ser obtido. Pode ser um dos serviços do [Azure que dão suporte à autenticação do Azure ad ou a](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) qualquer outro URI de recurso.|
-> |versão da API|Consulta|A versão da API do token a ser usada. "2017-09-01" é a única versão com suporte no momento.|
+> |resource|Consulta|O URI de recurso do AAD do recurso para o qual um token deve ser obtido. Pode ser um dos serviços do [Azure que dão suporte à autenticação do Azure ad ou a](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) qualquer outro URI de recurso.|
+> |api-version|Consulta|A versão da API do token a ser usada. "2017-09-01" é a única versão com suporte no momento.|
 > |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET. Esse cabeçalho é usado para ajudar a mitigar ataques SSRF (falsificação de solicitação no lado do servidor).|
 > |ClientID|Consulta|(Opcional, a menos que seja atribuído pelo usuário) A ID da identidade atribuída pelo usuário a ser usada. Se omitido, a identidade atribuída pelo sistema será usada.|
 
@@ -267,7 +267,7 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > |-------------|----------|
 > |access_token|O token de acesso solicitado. O serviço Web de chamada pode usar esse token para se autenticar no serviço Web de recebimento.|
 > |expires_on|A hora em que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0: 0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida dos tokens armazenados em cache.|
-> |Kit|O URI da ID do aplicativo do serviço Web de recebimento.|
+> |resource|O URI da ID do aplicativo do serviço Web de recebimento.|
 > |token_type|Indica o valor do tipo de token. O único tipo ao qual o Azure AD dá suporte é portador. Para obter mais informações sobre tokens de portador, consulte [a estrutura de autorização do OAuth 2,0: uso de token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 Essa resposta é a mesma que a [resposta para a solicitação de token de acesso de serviço a serviço do AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

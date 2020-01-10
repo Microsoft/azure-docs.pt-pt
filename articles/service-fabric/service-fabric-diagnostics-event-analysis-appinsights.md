@@ -1,25 +1,16 @@
 ---
-title: Análise de eventos de Service Fabric do Azure com Application Insights | Microsoft Docs
+title: Análise de eventos de Service Fabric do Azure com Application Insights
 description: Saiba mais sobre como Visualizar e analisar eventos usando Application Insights para monitoramento e diagnóstico de clusters de Service Fabric do Azure.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464748"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise e visualização de eventos com Application Insights
 
@@ -51,7 +42,7 @@ Para explorar ainda mais os recursos do portal de Application Insights, acesse a
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configurando Application Insights com EventFlow
 
-Se você estiver usando EventFlow para agregar eventos, certifique-se de `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`importar o pacote NuGet. O código a seguir é necessário na seção de *saídas* do *eventFlowConfig. JSON*:
+Se você estiver usando EventFlow para agregar eventos, certifique-se de importar o pacote NuGet `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`. O código a seguir é necessário na seção de *saídas* do *eventFlowConfig. JSON*:
 
 ```json
 "outputs": [
@@ -70,7 +61,7 @@ Certifique-se de fazer as alterações necessárias em seus filtros, bem como in
 
 [Application insights suporte para microservices e contêineres](https://azure.microsoft.com/blog/app-insights-microservices/) mostra alguns dos novos recursos que estão sendo trabalhados (atualmente ainda em versão beta), que permitem que você tenha opções de monitoramento mais avançadas com Application insights. Isso inclui o acompanhamento de dependência (usado na criação de um AppMap de todos os seus serviços e aplicativos em um cluster e a comunicação entre eles) e uma correlação melhor de rastreamentos provenientes de seus serviços (ajuda a identificar melhor um problema no fluxo de trabalho de um aplicativo ou serviço).
 
-Se você estiver desenvolvendo no .NET e provavelmente usará alguns dos modelos de programação de Service Fabric e estiver disposto a usar Application Insights como sua plataforma de visualização e análise de dados de eventos e de log, recomendamos que você passe pelo Application Insights Rota do SDK como seu fluxo de trabalho de monitoramento e diagnóstico. Leia [isso](../azure-monitor/app/asp-net-more.md) para [](../azure-monitor/app/asp-net-trace-logs.md) começar a usar o Application insights para coletar e exibir seus logs.
+Se você estiver desenvolvendo no .NET e provavelmente usará alguns dos modelos de programação de Service Fabric e estiver disposto a usar Application Insights como sua plataforma de visualização e análise de dados de eventos e de log, recomendamos que você passe pelo Application Insights Rota do SDK como seu fluxo de trabalho de monitoramento e diagnóstico. Leia [isso](../azure-monitor/app/asp-net-more.md) para [começar a usar](../azure-monitor/app/asp-net-trace-logs.md) o Application insights para coletar e exibir seus logs.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navegando no recurso de Application Insights no portal do Azure
 
@@ -80,7 +71,7 @@ Depois de configurar Application Insights como uma saída para seus eventos e lo
 
 Clicar em **análise** levará você para o portal de análise de Application insights, no qual você pode consultar eventos e rastreamentos com maior escopo e opcionalidade. Leia mais sobre isso em [análise em Application insights](../azure-monitor/app/analytics.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar alertas no ia](../azure-monitor/app/alerts.md) para ser notificado sobre alterações no desempenho ou no uso
 * A [detecção inteligente no Application insights](../azure-monitor/app/proactive-diagnostics.md) executa uma análise proativa da telemetria que está sendo enviada para Application insights para avisá-lo sobre possíveis problemas de desempenho

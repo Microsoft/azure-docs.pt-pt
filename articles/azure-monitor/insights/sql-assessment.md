@@ -4,15 +4,15 @@ description: Com o Azure Monitor, você pode usar a solução de verificação d
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401042"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
@@ -34,7 +34,7 @@ Depois de adicionar a solução e uma avaliação ser concluída, as informaçõ
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016-Operations Manager e Operations Manager 2012 R2 e Azure Monitor.  
+* A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4.6.2 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016-Operations Manager e Operations Manager 2012 R2 e Azure Monitor.  
 * A solução dá suporte à SQL Server versão 2012, 2014 e 2016.
 * Um espaço de trabalho Log Analytics para adicionar a solução de verificação de integridade do SQL do Azure Marketplace no portal do Azure.  Para instalar a solução, você deve ser um administrador ou colaborador na assinatura do Azure.
 
@@ -47,7 +47,7 @@ Para executar a verificação de integridade em seus servidores de SQL Server, e
 
 1. Instale o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não estiver monitorado pelo System Center 2016-Operations Manager ou Operations Manager 2012 R2.
 2. Se ele for monitorado com o System Center 2016-Operations Manager ou Operations Manager 2012 R2 e o grupo de gerenciamento não estiver integrado com o Azure Monitor, o servidor poderá ser multihomed com Log Analytics para coletar dados e encaminhar para o serviço e ainda ser monitorado por Operations Manager.  
-3. Caso contrário, se o grupo de gerenciamento de Operations Manager estiver integrado ao serviço, você precisará adicionar os controladores de domínio para a coleta de dados pelo serviço seguindo as etapas em [Adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu espaço.  
+3. Caso contrário, se o grupo de gerenciamento de Operations Manager estiver integrado ao serviço, você precisará adicionar os controladores de domínio para coleta de dados pelo serviço seguindo as etapas em [Adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu espaço de trabalho.  
 
 O agente no SQL Server que relata para um grupo de gerenciamento de Operations Manager, coleta dados, encaminha para seu servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para Azure Monitor.  Os dados não são gravados nos bancos de dado do Operations Manager.  
 
@@ -56,7 +56,7 @@ Se o SQL Server for monitorado pelo Operations Manager, você precisará configu
 ## <a name="sql-health-check-data-collection-details"></a>Detalhes da coleta de dados da verificação de integridade do SQL
 A verificação de integridade do SQL coleta dados das seguintes fontes usando o agente que você habilitou:
 
-* Instrumentação de Gerenciamento do Windows (WMI)
+* Windows Management Instrumentation (WMI)
 * Registo
 * Contadores de desempenho
 * SQL Server resultados da exibição de gerenciamento dinâmico
@@ -79,7 +79,7 @@ Use as informações a seguir para definir a conta Executar como Operations Mana
 
 1. No Operations Manager, abra o console de operações e clique em **Administração**.
 2. Em **configuração de executar como**, clique em **perfis**e abra **avaliação do SQL perfil executar como**.
-3. Na página **contas Executar como** , clique em **Adicionar**.
+3. Na página **Contas Run As**, clique em **Adicionar**.
 4. Selecione uma conta Executar como do Windows que contenha as credenciais necessárias para SQL Server ou clique em **novo** para criar uma.
 
    > [!NOTE]
@@ -143,7 +143,7 @@ O peso de cada recomendação é expresso como um percentual da pontuação tota
 
 **Operações e monitoramento** – essa área de foco mostra recomendações para ajudar a simplificar suas operações de ti, implementar a manutenção preventiva e maximizar o desempenho.
 
-**Gerenciamento de alterações e configurações** – essa área de foco mostra recomendações para ajudar a proteger as operações diárias, garantir que as alterações não afetem negativamente sua infraestrutura, estabelecer procedimentos de controle de alterações e controlar e auditar o sistema Figura.
+**Gerenciamento de alterações e configurações** – essa área de foco mostra recomendações para ajudar a proteger as operações diárias, garantir que as alterações não afetem negativamente sua infraestrutura, estabelecer procedimentos de controle de alterações e rastrear e auditar as configurações do sistema.
 
 ### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Você deve visar a pontuação de 100% em cada área de foco?
 Não necessariamente. As recomendações são baseadas no conhecimento e nas experiências obtidas pelos engenheiros da Microsoft em milhares de visitas a clientes. No entanto, não há duas infraestruturas de servidor iguais, e recomendações específicas podem ser mais ou menos relevantes para você. Por exemplo, algumas recomendações de segurança podem ser menos relevantes se suas máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para serviços que fornecem relatórios e coleta de dados ad hoc de baixa prioridade. Os problemas que são importantes para um negócio maduro podem ser menos importantes para uma inicialização. Talvez você queira identificar quais áreas de foco são suas prioridades e, em seguida, examinar como suas pontuações mudam ao longo do tempo.
@@ -214,7 +214,7 @@ Se você tiver recomendações que deseja ignorar, poderá criar um arquivo de t
 
 *Qual é o nome do processo que faz a coleta de dados?*
 
-* AdvisorAssessment. exe
+* AdvisorAssessment.exe
 
 *Quanto tempo leva para os dados serem coletados?*
 
@@ -223,7 +223,7 @@ Se você tiver recomendações que deseja ignorar, poderá criar um arquivo de t
 *Que tipo de dados é coletado?*
 
 * Os seguintes tipos de dados são coletados:
-  * ESSES
+  * WMI
   * Registo
   * Contadores de desempenho
   * Exibições de gerenciamento dinâmico do SQL (DMV).

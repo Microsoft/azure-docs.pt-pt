@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-eventos sfctl | Microsoft Docs
+title: CLI do Azure Service Fabric-eventos sfctl
 description: Descreve os comandos Service Fabric CLI sfctl Events.
-services: service-fabric
-documentationcenter: na
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 858fd1971a22b1db2d243838558c3792d3a60cc9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 35dfbdb3f8b84e797d35c8d7ec1020509f7e8b57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466043"
 ---
 # <a name="sfctl-events"></a>eventos de sfctl
 Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado).

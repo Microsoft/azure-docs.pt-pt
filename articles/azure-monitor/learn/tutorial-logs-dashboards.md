@@ -4,16 +4,16 @@ description: Este tutorial ajuda você a entender como os painéis de Log Analyt
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365580"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -33,7 +33,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-a-shared-dashboard"></a>Criar um dashboard partilhado
 Selecione **painel** para abrir o [painel](../../azure-portal/azure-portal-dashboards.md)padrão. Seu painel terá aparência diferente do exemplo abaixo.
 
-![Painel do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Dashboard do portal do Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Aqui, pode reunir os dados operacionais mais importantes para as TI em todos os recursos do Azure, incluindo telemetria do Log Analytics do Azure.  Antes de entrarmos em visualização de uma consulta de log, vamos primeiro criar um painel e compartilhá-lo.  Em seguida, podemos nos concentrar em nossa consulta de log de desempenho de exemplo, que será renderizada como um gráfico de linhas e a adicionará ao painel.  
 
@@ -67,7 +67,7 @@ Perf
 
 Salve a consulta selecionando o botão **salvar** na parte superior da página.
 
-![Salvar consulta](media/tutorial-logs-dashboards/save-query.png)
+![Guardar consulta](media/tutorial-logs-dashboards/save-query.png)
 
 No painel de controle **Salvar consulta** , forneça um nome como *VMs do Azure-utilização do processador* e uma categoria como *painéis* e clique em **salvar**.  Dessa forma, você pode criar uma biblioteca de consultas comuns que você pode usar e modificar.  Por fim, fixe isso no painel compartilhado criado anteriormente selecionando o botão **fixar no painel** no canto superior direito da página e, em seguida, selecionando o nome do painel.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368012"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar o API do Graph do Azure AD
 
@@ -29,9 +29,6 @@ Para locatários B2C, há dois modos principais de se comunicar com o API do Gra
 * Para tarefas **automatizadas**e contínuas, você deve usar algum tipo de conta de serviço fornecido com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e Autenticando no Azure AD. Isso é feito usando uma *ID de aplicativo* que usa a [concessão de credenciais de cliente OAuth 2,0](../active-directory/develop/service-to-service.md). Nesse caso, o aplicativo atua como ele mesmo, não como um usuário, para chamar o API do Graph.
 
 Neste artigo, você aprenderá a executar o caso de uso automatizado. Você criará um `B2CGraphClient` .NET 4,5 que executa operações CRUD (criação, leitura, atualização e exclusão) de usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite invocar vários métodos. No entanto, o código é escrito para se comportar de maneira não interativa e automatizada.
-
->[!IMPORTANT]
-> Você **deve** usar o [API do Graph do Azure ad](../active-directory/develop/active-directory-graph-api-quickstart.md) para gerenciar usuários em um diretório Azure ad B2C. O API do Graph do Azure AD é diferente da API do Microsoft Graph. Saiba mais nesta postagem no blog do MSDN: [Microsoft Graph ou Azure ad Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,8 +60,9 @@ A permissão *ler e gravar dados do diretório* que você concedeu anteriormente
 
 Se você quiser dar ao aplicativo a capacidade de excluir usuários ou atualizar senhas, será necessário conceder a ela a função de *administrador de usuários* .
 
-1. Entre no [portal do Azure](https://portal.azure.com) e alterne para o diretório que contém o locatário Azure ad B2C.
-1. Selecione **Azure ad B2C** no menu à esquerda. Ou então, selecione **todos os serviços** e, em seguida, pesquise e selecione **Azure ad B2C**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 1. Em **gerenciar**, selecione **funções e administradores**.
 1. Selecione a função de **administrador de usuários** .
 1. Selecione **Adicionar atribuição**.
@@ -97,7 +95,7 @@ Depois de obter o exemplo de código, configure-o para o seu ambiente e, em segu
     </appSettings>
     ```
 
-1. Compilar a solução. Clique com o botão direito do mouse na solução **B2CGraphClient** no Gerenciador de soluções e selecione **Recompilar solução**.
+1. Compile a solução. Clique com o botão direito do mouse na solução **B2CGraphClient** no Gerenciador de soluções e selecione **Recompilar solução**.
 
 Se a compilação for bem-sucedida, o aplicativo de console `B2C.exe` pode ser encontrado em `B2CGraphClient\bin\Debug`.
 

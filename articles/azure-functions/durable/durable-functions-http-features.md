@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232877"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433289"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -32,7 +32,8 @@ Há suporte para as seguintes APIs HTTP internas.
 * [Enviar um evento externo para uma orquestração](durable-functions-http-api.md#raise-event)
 * [Limpar o histórico de orquestração](durable-functions-http-api.md#purge-single-instance-history)
 * [Enviar um evento de operação para uma entidade](durable-functions-http-api.md#signal-entity)
-* [Consultar o estado de uma entidade](durable-functions-http-api.md#query-entity)
+* [Obter o estado de uma entidade](durable-functions-http-api.md#get-entity)
+* [Consultar a lista de entidades](durable-functions-http-api.md#list-entities)
 
 Consulte o [artigo APIs http](durable-functions-http-api.md) para obter uma descrição completa de todas as APIs http internas expostas pela extensão Durable functions.
 
@@ -149,7 +150,7 @@ A API "chamar HTTP" pode implementar automaticamente o lado do cliente do padrã
 > [!NOTE]
 > As funções de orquestrador também dão suporte nativo ao padrão de consumidor de sondagem no lado do servidor, conforme descrito em [acompanhamento de operação assíncrona](#async-operation-tracking). Esse suporte significa que as orquestrações em um aplicativo de funções podem coordenar facilmente as funções de orquestrador em outros aplicativos de funções. Isso é semelhante ao conceito de [suborquestração](durable-functions-sub-orchestrations.md) , mas com suporte para comunicação entre aplicativos. Esse suporte é particularmente útil para o desenvolvimento de aplicativos no estilo de microserviço.
 
-### <a name="managed-identities"></a>Identidades gerenciadas
+### <a name="managed-identities"></a>Identidades geridas
 
 Durable Functions nativamente dá suporte a chamadas para APIs que aceitam tokens do Azure Active Directory (Azure AD) para autorização. Esse suporte usa [identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md) para adquirir esses tokens.
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-No exemplo anterior, o parâmetro `tokenSource` está configurado para adquirir tokens do Azure AD para [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Os tokens são identificados pelo URI de recurso `https://management.core.windows.net`. O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Presume-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG`.
+No exemplo anterior, o parâmetro `tokenSource` está configurado para adquirir tokens do Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI de recurso `https://management.core.windows.net`. O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Presume-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo de recursos especificado `myRG`.
 
 Em tempo de execução, a origem do token configurada retorna automaticamente um token de acesso OAuth 2,0. A origem, em seguida, adiciona o token como um token de portador ao cabeçalho de autorização da solicitação de saída. Esse modelo é uma melhoria em relação à adição manual de cabeçalhos de autorização a solicitações HTTP pelos seguintes motivos:
 
@@ -240,7 +241,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre entidades duráveis](durable-functions-entities.md)

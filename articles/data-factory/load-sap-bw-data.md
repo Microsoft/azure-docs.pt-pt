@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440167"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 
@@ -101,7 +101,7 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **criar & monitor*
 
     ![Definir configurações de cópia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Reveja as definições na página **Resumo**. Em seguida, selecione **Seguinte**.
+12. Na página **Resumo** , reveja as definições. Em seguida, selecione **Seguinte**.
 
 13. Na página **implantação** , selecione **Monitor** para monitorar o pipeline.
 
@@ -156,11 +156,15 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
    - **SAPOpenHubDestinationName**: especifique o nome da tabela de Hub aberta para a qual copiar dados.
 
-   - **ADLSGen2SinkPath**: especifique o caminho de Azure data Lake Storage Gen2 de destino para copiar dados. Se o caminho não existir, a atividade de cópia Data Factory criará um caminho durante a execução.
+   - **Data_Destination_Container**: especifique o contêiner de Azure data Lake Storage Gen2 de destino para copiar dados. Se o contêiner não existir, a atividade de cópia Data Factory criará uma durante a execução.
+  
+   - **Data_Destination_Directory**: especifique o caminho da pasta no contêiner de Azure data Lake Storage Gen2 para copiar dados. Se o caminho não existir, a atividade de cópia Data Factory criará um caminho durante a execução.
+  
+   - **HighWatermarkBlobContainer**: especifique o contêiner para armazenar o valor de marca d' água alta.
 
-   - **HighWatermarkBlobPath**: especifique o caminho para armazenar o valor de marca d' água alta, como `container/path`.
+   - **HighWatermarkBlobDirectory**: especifique o caminho da pasta no contêiner para armazenar o valor de marca d' água alta.
 
-   - **HighWatermarkBlobName**: especifique o nome do blob para armazenar o valor de marca d' água alta, como `requestIdCache.txt`. No armazenamento de BLOBs, vá para o caminho correspondente de HighWatermarkBlobPath + HighWatermarkBlobName, como *container/Path/requestIdCache. txt*. Crie um blob com o conteúdo 0.
+   - **HighWatermarkBlobName**: especifique o nome do blob para armazenar o valor de marca d' água alta, como `requestIdCache.txt`. No armazenamento de BLOBs, vá para o caminho correspondente de HighWatermarkBlobContainer + HighWatermarkBlobDirectory + HighWatermarkBlobName, como *container/Path/requestIdCache. txt*. Crie um blob com o conteúdo 0.
 
       ![Conteúdo do blob](media/load-sap-bw-data/blob.png)
 
@@ -185,11 +189,11 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
          }
          ```
 
-      3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em **HighWatermarkBlobPath** e **HighWatermarkBlobName**.
+      3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
       4. Selecione **Guardar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
-4. Depois de fornecer os parâmetros de pipeline Data Factory, selecione **depurar** > **concluir** para invocar uma execução para validar a configuração. Ou então, selecione **publicar tudo** para publicar as alterações e, em seguida, selecione **gatilho** para executar uma execução.
+4. Depois de fornecer os parâmetros de pipeline Data Factory, selecione **depurar** > **concluir** para invocar uma execução para validar a configuração. Ou selecione **publicar** para publicar todas as alterações e, em seguida, selecione **Adicionar gatilho** para executar uma execução.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW configurações de destino de Hub aberto
 

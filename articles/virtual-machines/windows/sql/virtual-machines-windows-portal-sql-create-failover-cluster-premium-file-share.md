@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464990"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -84,7 +84,6 @@ Antes de concluir as etapas neste artigo, você já deve ter:
    - Um endereço IP para cada FCI.
 - DNS configurado na rede do Azure, apontando para os controladores de domínio.
 - Um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) com base na cota de armazenamento do seu banco de dados para seus arquivos.
-- Um compartilhamento de arquivos para backups que é diferente do compartilhamento de arquivos Premium usado para seus arquivos de dados. Esse compartilhamento de arquivos pode ser Standard ou Premium.
 
 Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de failover. A primeira etapa é criar as máquinas virtuais.
 
@@ -144,7 +143,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **serviços mecanismo de banco de Dadoss**. Não remova os **recursos compartilhados**. Você verá algo semelhante à captura de tela a seguir:
 
-        ![Selecionar recursos](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Selecionar Funcionalidades](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selecione **Avançar**e, em seguida, selecione **remover**.
 
@@ -240,7 +239,7 @@ Para validar o cluster usando o PowerShell, execute o seguinte script de uma ses
 
 Depois de validar o cluster, crie o cluster de failover.
 
-### <a name="create-the-failover-cluster"></a>Criar o cluster de failover
+### <a name="create-the-failover-cluster"></a>Criar o cluster de ativação pós-falha
 
 Para criar o cluster de failover, você precisa de:
 - Os nomes das máquinas virtuais que se tornarão os nós de cluster.
@@ -357,7 +356,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **OK** para criar o pool de back-end.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma investigação de integridade do balanceador de carga
+### <a name="configure-a-load-balancer-health-probe"></a>Configurar uma pesquisa de estado de funcionamento do balanceador de carga
 
 1. Na folha balanceador de carga, selecione **investigações de integridade**.
 
@@ -431,7 +430,7 @@ Depois de definir a investigação de cluster, você poderá ver todos os parâm
 
 ## <a name="step-8-test-fci-failover"></a>Etapa 8: testar o failover do FCI
 
-Teste o failover do FCI para validar a funcionalidade do cluster. Execute as seguintes etapas:
+Teste o failover do FCI para validar a funcionalidade do cluster. Siga os passos seguintes:
 
 1. Conecte-se a um dos nós de cluster SQL Server FCI usando o RDP.
 

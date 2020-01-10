@@ -2,19 +2,15 @@
 title: Exibir alterações de conteúdo do arquivo com a automação do Azure
 description: Use o recurso alteração de conteúdo de arquivo do controle de alterações para exibir o conteúdo de um arquivo que foi alterado.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418815"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo acompanhado com Controle de Alterações
 
@@ -62,7 +58,7 @@ As etapas a seguir orientarão você na ativação do controle de alterações d
 
 1. Na página **alterar detalhes** , você vê as informações padrão antes e depois do arquivo, na parte superior esquerda, clique em **Exibir alterações de conteúdo do arquivo** para ver o conteúdo do arquivo.
 
-   ![Alterar detalhes](./media/change-tracking-file-contents/change-details.png)
+   ![alterar detalhes](./media/change-tracking-file-contents/change-details.png)
 
 1. A nova página mostra o conteúdo do arquivo em uma exibição lado a lado. Você também pode selecionar **embutido** para ver uma exibição em linha das alterações.
 

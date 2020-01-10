@@ -1,25 +1,14 @@
 ---
-title: Criar um Cluster Service Fabric no portal do Azure | Microsoft Docs
+title: Create a Service Fabric cluster in the Azure portal (Criar um cluster do Service Fabric no portal do Azure)
 description: Saiba como configurar um cluster de Service Fabric seguro no Azure usando o portal do Azure e Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452308"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um Cluster Service Fabric no Azure usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -79,7 +68,7 @@ A criação de um cluster de produção para atender às necessidades do seu apl
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Pesquisar o recurso de Cluster Service Fabric
 
-Inicie sessão no [portal do Azure][azure-portal].
+Inicie sessão no [Portal do Azure][azure-portal].
 Clique em **criar um recurso** para adicionar um novo modelo de recurso. Pesquise o modelo de Cluster Service Fabric no **Marketplace** em **tudo**.
 Selecione **Service Fabric cluster** na lista.
 
@@ -111,7 +100,7 @@ Na folha noções básicas, você precisa fornecer os detalhes básicos para o c
 Configure seus nós de cluster. Os tipos de nó definem os tamanhos de VM, o número de VMs e suas propriedades. O cluster pode ter mais de um tipo de nó, mas o tipo de nó primário (o primeiro que você define no Portal) deve ter pelo menos cinco VMs, pois esse é o tipo de nó em que Service Fabric serviços do sistema são colocados. Não configure **as propriedades de posicionamento** porque uma propriedade de posicionamento padrão de "nodetypename" é adicionada automaticamente.
 
 > [!NOTE]
-> Um cenário comum para vários tipos de nó é um aplicativo que contém um serviço de front-end e um serviço de back-end. Você deseja colocar o serviço de front-end em VMs menores (tamanhos de VM, como D2_V2) com portas abertas para a Internet e colocar o serviço de back-end em VMs maiores (com tamanhos de VM, como D3_V2, D6_V2, D15_V2 e assim por diante) sem nenhuma porta voltada para a Internet aberta.
+> Um cenário comum para vários tipos de nó é um aplicativo que contém um serviço de front-end e um serviço de back-end. Você deseja colocar o serviço de front-end em VMs menores (tamanhos de VM, como D2_V2) com portas abertas para a Internet e colocar o serviço de back-end em VMs maiores (com tamanhos de VM, como D3_V2, D6_V2, D15_V2 e assim por diante) sem portas para a Internet abertas.
 > 
 
 1. Escolha um nome para o tipo de nó (de 1 a 12 caracteres contendo apenas letras e números).
