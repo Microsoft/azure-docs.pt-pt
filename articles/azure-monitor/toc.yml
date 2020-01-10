@@ -91,6 +91,8 @@
       items:
         - name: Dados de registo
           href: platform/data-security.md
+        - name: Chaves geridas pelo cliente
+          href: platform/customer-managed-keys.md
         - name: Processamento dos dados de registo pessoais
           href: platform/personal-data-mgmt.md
         - name: 'Recolha de dados, retenção e armazenamento de dados da aplicação'

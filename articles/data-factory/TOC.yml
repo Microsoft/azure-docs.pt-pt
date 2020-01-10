@@ -132,6 +132,12 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
+        - name: Associar à rede virtual
+          href: tutorial-deploy-ssis-virtual-network.md
+    - name: Laboratórios ponto a ponto
+      items:
+        - name: Integração de dados com o data factory e o data share
+          href: lab-data-flow-data-share.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -673,18 +679,18 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Recursos
   items:
+    - name: Documentos técnicos
+      href: whitepapers.md
+    - name: FAQ
+      href: frequently-asked-questions.md
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Fazer uma pergunta - fórum da MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: Fazer uma pergunta - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Pedir uma funcionalidade
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: FAQ
-      href: frequently-asked-questions.md
-    - name: Documentos técnicos
-      href: whitepapers.md
-    - name: Mapa
-      href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Armazenamento por região

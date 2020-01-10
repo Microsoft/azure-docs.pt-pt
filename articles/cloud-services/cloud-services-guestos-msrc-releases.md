@@ -10,17 +10,62 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 01/08/2020
 ms.author: raiye
-ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894634"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779591"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas a seguir mostram as atualizações do MSRC (Microsoft Security Response Center) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao sistema operacional convidado que você está usando. As atualizações sempre são postergadas para a [família][family-explain] específica em que foram introduzidas.
+
+## <a name="december-2019-guest-os"></a>SO convidado de dezembro de 2019
+
+| Categoria do Produto | Artigo da base de conhecimento pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 19-12  |  [4530692]  |  Segurança do Windows  | [2,93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2,93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3,80] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530698]  |  Segurança do Windows  | [3,80] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530730]  |  Segurança do Windows  | [4,73] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4,73] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530689]  |  Atualização cumulativa mais recente  | [5,38] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4530715]  |  Atualização cumulativa mais recente  | [6,14] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4525235]  |  Não segurança  | [2,93] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4531786]  |  Atualização da pilha de manutenção  | [2,93] | 10 de dezembro de 2019 |
+|  Rel 19-12  |  [4525246]  |  Não segurança  | [3,80] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4523208]  |  Atualização da pilha de manutenção  | [3,80] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4525243]  |  Não segurança  | [4,73] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4524445]  |  Atualização da pilha de manutenção  | [4,73] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4520724]  |  Atualização da pilha de manutenção  | [5,38] | 12 de novembro de 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6,14] | 12 de novembro de 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+[6,14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
 
 ## <a name="november-2019-guest-os"></a>SO convidado de novembro de 2019
 
