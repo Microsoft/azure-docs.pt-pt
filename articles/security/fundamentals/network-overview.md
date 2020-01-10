@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384205"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749948"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -29,7 +29,7 @@ A segurança de rede pode ser definida como o processo de proteção de recursos
 Este artigo aborda algumas das opções que o Azure oferece na área de segurança de rede. Você pode aprender sobre:
 
 * Rede do Azure
-* Controle de acesso à rede
+* Controlo de acesso à rede
 * Azure Firewall
 * Acesso remoto seguro e conectividade entre locais
 * Disponibilidade
@@ -48,7 +48,7 @@ Mais informações:
 
 * [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
 
-## <a name="network-access-control"></a>Controle de acesso à rede
+## <a name="network-access-control"></a>Controlo de acesso à rede
 
 O controle de acesso à rede é o ato de limitar a conectividade de e para dispositivos ou sub-redes específicas em uma rede virtual. O objetivo do controle de acesso à rede é limitar o acesso às suas máquinas virtuais e serviços a usuários e dispositivos aprovados. Os controles de acesso baseiam-se em decisões para permitir ou negar conexões de e para sua máquina virtual ou serviço.
 
@@ -122,7 +122,7 @@ Por exemplo, os requisitos de segurança podem incluir:
 * Autenticação e autorização antes de permitir o acesso ao seu aplicativo
 * Detecção de intrusão e resposta de intrusão
 * Inspeção da camada de aplicativo para protocolos de alto nível
-* Filtragem de URL
+* filtragem de URLs
 * Antivírus e antimalware no nível da rede
 * Proteção contra bot
 * Controle de acesso do aplicativo
@@ -395,7 +395,7 @@ Mais informações:
 
 O registro em log em um nível de rede é uma função fundamental para qualquer cenário de segurança de rede. No Azure, você pode registrar as informações obtidas para NSGs para obter informações de log no nível de rede. Com o registro em log do NSG, você obtém informações de:
 
-* [Logs de atividade](../../azure-monitor/platform/activity-logs-overview.md). Use esses logs para exibir todas as operações enviadas para suas assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados dentro do portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
+* [Logs de atividade](../../azure-monitor/platform/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas para suas assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados dentro do portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
 * Logs de eventos. Esses logs fornecem informações sobre quais regras de NSG foram aplicadas.
 * Logs de contador. Esses logs permitem que você saiba quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 

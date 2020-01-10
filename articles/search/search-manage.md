@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113282"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754319"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Embora possamos recuperar seus dados, o Azure Pesquisa Cognitiva não fornece um
 
 Se o serviço contínuo for necessário no caso de falhas catastróficas fora do controle da Microsoft, você poderá [provisionar um serviço adicional](search-create-service-portal.md) em uma região diferente e implementar uma estratégia de replicação geográfica para garantir que os índices sejam totalmente redundantes em todos os serviços.
 
-Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos de Geografia aproveitando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, podem indexar a mesma fonte de dados para obter redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que os indexadores do Azure Pesquisa Cognitiva só podem executar a indexação incremental de réplicas primárias. Em um evento de failover, certifique-se de apontar novamente o indexador para a nova réplica primária. 
+Os clientes que usam [indexadores](search-indexer-overview.md) para popular e atualizar índices podem lidar com a recuperação de desastre por meio de indexadores específicos de Geografia aproveitando a mesma fonte de dados. Dois serviços em regiões diferentes, cada um executando um indexador, podem indexar a mesma fonte de dados para obter redundância geográfica. Se você estiver indexando de fontes de dados que também são com redundância geográfica, lembre-se de que os indexadores do Azure Pesquisa Cognitiva só podem executar a indexação incremental (mesclar atualizações de documentos novos, modificados ou excluídos) de réplicas primárias. Em um evento de failover, certifique-se de apontar novamente o indexador para a nova réplica primária. 
 
 Se você não usar indexadores, você usaria o código do aplicativo para enviar objetos e dados por push a diferentes serviços de pesquisa em paralelo. Para obter mais informações, consulte [desempenho e otimização no Azure pesquisa cognitiva](search-performance-optimization.md).
 

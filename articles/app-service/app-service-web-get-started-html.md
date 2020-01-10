@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5c2aca1996d1ec764dcdca30c7657ee360b9c355
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ed756a972b3887ac638a061075d2e6fbeea98104
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671474"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747960"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar uma aplicação Web HTML estática no Azure
 
@@ -49,7 +49,7 @@ No comando a seguir, substitua <nome_aplicação> por um nome de aplicação exc
 ```bash
 cd html-docs-hello-world
 
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 O comando `az webapp up` executa as seguintes ações:
@@ -101,7 +101,7 @@ Guarde as alterações e feche o nano. Utilize o comando `^O` para guardar e `^X
 Agora irá implementar novamente a aplicação com o mesmo comando `az webapp up`.
 
 ```bash
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Depois de concluída a implementação, volte para a janela do browser aberta que abriu no passo **Navegar para a aplicação** e atualize a página.

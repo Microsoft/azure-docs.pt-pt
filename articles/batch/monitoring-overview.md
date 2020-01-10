@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: ef57e0f63f8cfad5bc5fa5710661657176171194
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: f7155baa7b899922c9553a9a556e5bfcf3562d1b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530804"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745233"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -33,7 +33,7 @@ Uma maneira de recuperar eventos de seu log de atividades é usar o portal do Az
 
 ## <a name="batch-account-level-monitoring"></a>Monitoramento em nível de conta do lote
 
-Monitore cada conta do lote usando os recursos do [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta [métricas](../azure-monitor/platform/data-platform-metrics.md) e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) para recursos com escopo no nível de uma conta do lote, como pools, trabalhos e tarefas. Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades em sua conta do lote e para diagnosticar problemas. Para obter detalhes, consulte [métricas do lote, alertas e logs para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
+Monitore cada conta do lote usando os recursos do [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta [métricas](../azure-monitor/platform/data-platform-metrics.md) e, opcionalmente, [logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos com escopo no nível de uma conta do lote, como pools, trabalhos e tarefas. Colete e consuma esses dados manualmente ou programaticamente para monitorar atividades em sua conta do lote e para diagnosticar problemas. Para obter detalhes, consulte [métricas do lote, alertas e logs para avaliação e monitoramento de diagnóstico](batch-diagnostics.md).
  
 > [!NOTE]
 > As métricas estão disponíveis por padrão em sua conta do lote sem configuração adicional e têm um histórico contínuo de 30 dias. Você deve habilitar o log de diagnóstico para uma conta do lote e pode incorrer em custos adicionais para armazenar ou processar dados de log de diagnóstico. 

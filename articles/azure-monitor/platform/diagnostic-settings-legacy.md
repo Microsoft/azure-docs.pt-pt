@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541520"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750971"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Coletar log de atividades do Azure com configurações herdadas
-O [log de atividades do Azure](activity-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Até recentemente, você criou um perfil de log para enviar entradas do log de atividades a [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) e usou um conector para coletá-las em um [espaço de trabalho log Analytics](activity-log-collect.md). Este artigo descreve a diferença entre os métodos, como trabalhar com configurações herdadas existentes e como limpar as configurações herdadas em preparação para configurações de diagnóstico.
+O [log de atividades do Azure](platform-logs-overview.md) é um [log de plataforma](platform-logs-overview.md) que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Até recentemente, você criou um perfil de log para enviar entradas do log de atividades a [um hub de eventos ou uma conta de armazenamento](activity-log-export.md) e usou um conector para coletá-las em um [espaço de trabalho log Analytics](activity-log-collect.md). Este artigo descreve a diferença entre os métodos, como trabalhar com configurações herdadas existentes e como limpar as configurações herdadas em preparação para configurações de diagnóstico.
 
 
 ## <a name="differences-between-methods"></a>Diferenças entre métodos

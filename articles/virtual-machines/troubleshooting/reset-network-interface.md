@@ -12,16 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111717"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749905"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir a interface de rede para a VM do Windows do Azure 
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Este artigo mostra como redefinir o adaptador de rede para a VM do Windows do Azure para resolver problemas quando você não pode se conectar ao Microsoft Azure VM (máquina virtual) do Windows após:
 
@@ -116,7 +114,7 @@ Para redefinir a interface de rede, siga estas etapas:
 ## <a name="delete-the-unavailable-nics"></a>Excluir as NICs não disponíveis
 Depois de fazer a área de trabalho remota para o computador, você deve excluir as NICs antigas para evitar o possível problema:
 
-1.  Abra Device Manager.
+1.  Abra o Gestor de Dispositivos.
 2.  Selecione **exibir** > **Mostrar dispositivos ocultos**.
 3.  Selecione **adaptadores de rede**. 
 4.  Verifique os adaptadores nomeados como "adaptador de rede Microsoft Hyper-V".

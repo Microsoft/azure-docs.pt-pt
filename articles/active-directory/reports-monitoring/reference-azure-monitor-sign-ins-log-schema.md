@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014321"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748660"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -145,7 +145,7 @@ Este artigo descreve o esquema de logon de entrada do Azure Active Directory (AD
 
 | Nome do campo | Descrição |
 |------------|-------------|
-| Hora | A data e a hora, em UTC. |
+| Tempo | A data e a hora, em UTC. |
 | ResourceId | Esse valor é não mapeado e você pode ignorar esse campo com segurança.  |
 | OperationName | Para entradas, esse valor é sempre a *atividade de entrada*. |
 | OperationVersion | A versão da API REST solicitada pelo cliente. |
@@ -170,4 +170,4 @@ Este artigo descreve o esquema de logon de entrada do Azure Active Directory (AD
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)
-* [Leia mais sobre os logs de diagnóstico do Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Leia mais sobre os logs de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)

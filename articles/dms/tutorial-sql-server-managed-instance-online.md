@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: usar o serviço de migração de banco de dados do Azure para executar uma migração online do SQL Server para uma instância gerenciada do banco de dados SQL do Azure | Microsoft Docs'
+title: 'Tutorial: migrar SQL Server online para uma instância gerenciada do SQL'
+titleSuffix: Azure Database Migration Service
 description: Saiba como executar uma migração online do SQL Server local para uma instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 12/04/2019
-ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 01/08/2020
+ms.openlocfilehash: 88bc90a50fb9579e29b8b31b4be23052275b2b28
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975028"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746845"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure online usando DMS
 
@@ -42,6 +43,9 @@ Neste tutorial, ficará a saber como:
 > [!IMPORTANT]
 > Para uma experiência de migração ideal, a Microsoft recomenda a criação de uma instância do serviço de migração de banco de dados do Azure na mesma região do Azure que o banco de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
+> [!IMPORTANT]
+> É importante reduzir a duração do processo de migração online o máximo possível para minimizar o risco de interrupção causada pela reconfiguração da instância ou pela manutenção planejada. No caso desse evento, o processo de migração será iniciado desde o início. No caso de manutenção planejada, há um período de carência de 36 horas antes da reinicialização do processo de migração.
+
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
 Este artigo descreve uma migração online do SQL Server para uma instância gerenciada do banco de dados SQL. Para uma migração offline, consulte [migrar SQL Server para uma instância gerenciada do banco de dados SQL offline usando DMS](tutorial-sql-server-to-managed-instance.md).
@@ -50,10 +54,10 @@ Este artigo descreve uma migração online do SQL Server para uma instância ger
 
 Para concluir este tutorial, precisa de:
 
-* Crie uma rede virtual do Azure (VNet) para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
     >
     > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
     > * Ponto de extremidade de armazenamento
@@ -66,9 +70,9 @@ Para concluir este tutorial, precisa de:
     > [!IMPORTANT]
     > Em relação à conta de armazenamento usada como parte da migração, você deve:
     > * Escolha permitir que toda a rede acesse a conta de armazenamento.
-    > * Configure as ACLs para a VNet. Para obter mais informações, consulte o artigo [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+    > * Configure as ACLs para a rede virtual. Para obter mais informações, consulte o artigo [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-* Certifique-se de que suas regras de grupo de segurança de rede VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o SQL Server de origem, que por padrão é a porta TCP 1433.
 * Se você estiver executando várias instâncias de SQL Server nomeadas usando portas dinâmicas, talvez queira habilitar o serviço de SQL Browser e permitir o acesso à porta UDP 1434 por meio de firewalls para que o serviço de migração de banco de dados do Azure possa se conectar a uma instância nomeada em sua origem servidor.
@@ -113,11 +117,11 @@ Para concluir este tutorial, precisa de:
 
 4. Selecione a localização em que pretende criar a instância do DMS.
 
-5. Selecione uma VNet existente ou crie uma.
+5. Selecione uma rede virtual existente ou crie uma.
 
-    A VNet fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância gerenciada do banco de dados SQL de destino.
+    A rede virtual fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância gerenciada do banco de dados SQL de destino.
 
-    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
     Para obter detalhes adicionais, consulte o artigo [topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi)
 

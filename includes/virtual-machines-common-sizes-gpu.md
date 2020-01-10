@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 82e62b6d0925aa53fc8456addb4732b16e69080b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9b08dd60020dad6f747167f35e8d172fdc24a59e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935898"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752188"
 ---
 Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com uma ou várias GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho com uso intensivo de computação, gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda da rede também estão incluídas para cada tamanho neste agrupamento.
 
@@ -93,22 +93,34 @@ As VMs da série NCv3 são alimentadas por GPUs [NVIDIA Tesla V100](https://www.
 
 *Com capacidade RDMA
 
-## <a name="ndv2-series-preview"></a>Série NDv2 (versão prévia)
+## <a name="updated-ndv2-series-preview"></a>Série NDv2 atualizada (versão prévia)
 
 Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
 
-InfiniBand: sem suporte
+InfiniBand: com suporte
 
-A máquina virtual NDv2-Series é uma nova adição à família GPU projetada para as necessidades das cargas de trabalho HPC, AI e Machine Learning. Ele é alimentado por oito GPUs NVIDIA Tesla V100 NVLINK interconectadas e 40 núcleos Intel Xeon Platinum 8168 (Skylake) e 672 GiB de memória do sistema. A instância NDv2 fornece um excelente desempenho FP32 e FP64 para cargas de trabalho de HPC e IA através das arquiteturas Cuda, TensorFlow, Pytorch, Caffe e de outro tipo.
+A máquina virtual da série NDv2 é uma nova adição à família de GPU projetada para as necessidades das cargas de trabalho mais exigentes do ia, do aprendizado de máquina, da simulação e do HPC com maior rapidez. 
 
-[Inscreva-se e obtenha acesso a esses computadores durante a visualização](https://aka.ms/ndv2signup).
+A NDv2 é alimentada por oito GPUs NVIDIA Tesla V100 NVLINK conectadas, cada uma com 32 GB de memória de GPU. Cada VM NDv2 também tem 40 núcleos não hiperthreads Intel Xeon Platinum 8168 (Skylake) e 672 GiB de memória do sistema. 
+
+As instâncias de NDv2 fornecem um desempenho excelente para cargas de trabalho do HPC e do AI utilizando kernels de computação com otimização de GPU CUDA e as muitas ferramentas de ia, ML e análises que dão suporte à aceleração de GPU "pronta para uso", como TensorFlow, Pytorch, Caffe, RAPIDS e outras estruturas. 
+
+De forma crucial, o NDv2 é criado para expansão computacionalmente intensa (aproveitando 8 GPUs por VM) e escalar horizontalmente (aproveitando várias VMs trabalhando juntas) cargas de trabalho. A série NDv2 agora dá suporte à rede de back-end Gigabit InfiniBand EDR de 100, semelhante àquela disponível na série HB da VM HPC, para permitir o clustering de alto desempenho para cenários paralelos, incluindo treinamento distribuído para ia e ML. Essa rede de back-end dá suporte a todos os principais protocolos InfiniBand, incluindo aqueles empregados pelas bibliotecas NCCL2 da NVIDIA, permitindo um clustering contínuo de GPUs.
+
+> Ao [habilitar a InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) na VM ND40rs_v2, use o driver 4.7-1.0.0.1 Mellanox ofed.
+
+> Devido à maior memória da GPU, o novo ND40rs_v2 VM requer o uso de [VMs de geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) e imagens do Marketplace. 
+
+> [Inscreva-se para solicitar acesso antecipado à visualização da máquina virtual NDv2.](https://aka.ms/AzureNDrv2Preview)
+
+> Observação: o ND40s_v2 incluindo 16 GB de memória por GPU não está mais disponível para visualização e foi substituído pelo ND40rs_v2 atualizado.
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD): GiB | GPU | Memória da GPU: GiB | Máximo de discos de dados | Débito máximo do disco não colocado em cache: IOPS/MBps | Largura de banda máxima da rede | NICs máximos |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
 
 ## <a name="nd-series"></a>Série ND
 

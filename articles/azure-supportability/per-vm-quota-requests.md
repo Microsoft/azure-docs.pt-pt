@@ -1,131 +1,155 @@
 ---
-title: Solicitações de aumento de cota de vCPU do Azure por VM | Microsoft Docs
-description: solicitações de aumento de cota de vCPU por VM
+title: Solicitar um aumento nos limites de cota de vCPU por série de VMs do Azure | Microsoft Docs
+description: Este artigo discute como solicitar aumentos de limite de cota por VM vCPU.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fc59ffda245834c716067bc63e6c3745fa5d23b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850045"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750191"
 ---
-# <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Cota padrão: aumento de limite de vCPU por série de VM
+# <a name="standard-quota-increase-limits-by-vm-series"></a>Cota padrão: aumentar os limites por série de VMs
 
-O Gerenciador de recursos dá suporte a dois tipos de cotas do vCPU para máquinas virtuais. **As VMs pagas conforme o uso e as instâncias de VM reservadas** usam a cota padrão. As **VMs pontuais** usam a cota Spot. A cota de vCPU padrão para instâncias de VMs pagas conforme o uso e as de VM reservadas são impostas em duas camadas para cada assinatura em cada região
+O Azure Resource Manager dá suporte a dois tipos de cotas do vCPU para máquinas virtuais:
+* *As VMs pagas conforme o uso* e as *instâncias de VM reservadas* estão sujeitas a uma *cota de vCPU padrão*.
+* As *VMs pontuais* estão sujeitas a uma *cota de vCPU Spot*. 
 
-A primeira camada é o **limite de VCPUs regional total** (em toda a série de VM), e a segunda camada é o **limite de vCPUs por série de VMs** (como a vCPUs da série Dv3). Sempre que uma nova VM for implantada, a soma do uso de vCPUs novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, a contagem de vCPU total e nova e existente implantada em toda a série de VMs não deve exceder a cota de vCPUs regional total aprovada para a assinatura. Se qualquer uma dessas cotas for excedida, a implantação da VM não será permitida.
-Você pode solicitar um aumento do limite de cota de vCPUs para a série de VMs de portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPUs regional total pelo mesmo valor. 
+A cota padrão do vCPU para instâncias de VM pagas conforme o uso e reservada é imposta em duas camadas para cada assinatura em cada região:
+* A primeira camada é o *limite de vCPUs regional total* (em toda a série de VMs).
+* A segunda camada é o *limite de vCPUs da série por VM* (como o vCPUs da série Dv3). 
 
-Saiba mais sobre as cotas de vCPU padrão na [página de cotas do vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e na [página limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
+Sempre que você implantar uma nova VM Spot, o uso total de vCPU novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, o número total de vCPUs novas e existentes implantadas em toda a série de VMs não deve exceder a cota de vCPU regional total aprovada para a assinatura. Se uma dessas cotas for excedida, a implantação da VM não será permitida.
 
-Saiba mais sobre como aumentar o limite de vCPU regionais para a cota padrão [aqui](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
+Você pode solicitar um aumento no limite de cota de vCPU para a série de VMs usando o portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPU regional total pelo mesmo valor. 
 
-Saiba mais sobre como **aumentar os limites de vCPU de VM Spot** [aqui](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Para saber mais sobre as cotas de vCPU padrão, consulte [cotas de vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e [limites de serviço e assinatura do Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
 
-Você pode solicitar um aumento nos **limites de cota padrão do vCPU por série de VM** por meio da folha **ajuda + suporte** ou da folha **usos + cota** no Portal.
+Para saber mais sobre como aumentar o limite de vCPU por região para a cota padrão, consulte [cota padrão: aumentar os limites por região](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-the-help--support-blade"></a>Solicitar aumento de cota de vCPU padrão por série de VM no nível de assinatura usando a folha ajuda + suporte
+Para saber mais sobre como aumentar os limites de vCPU de VM Spot, confira [cota de spot: aumentar os limites para todas as séries de VM](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-Siga as instruções abaixo para criar uma solicitação de suporte por meio da folha ' ajuda + suporte ' do Azure disponível no portal do Azure. 
+Você pode solicitar um aumento nos limites de cota padrão do vCPU por série de VMs de uma das duas maneiras, conforme descrito nas seções a seguir.
 
-Você também pode solicitar a cota para várias regiões por meio de um único caso de suporte. Consulte a etapa 11 abaixo para obter detalhes.
+## <a name="request-a-standard-quota-increase-from-the-help--support-pane"></a>Solicitar um aumento de cota padrão do painel "ajuda + suporte"
 
-1. Em https://portal.azure.com, selecione **ajuda + suporte**.
+Para solicitar um aumento de cota de vCPU padrão por série de VMs do painel **ajuda + suporte** , faça o seguinte: 
 
-   ![Ajuda + Suporte](./media/resource-manager-core-quotas-request/helpsupport.png)
+> [!NOTE]
+> Você também pode solicitar um aumento de limite de cota para várias regiões por meio de um único caso de suporte. Para obter detalhes, consulte a etapa 8.
+
+1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **ajuda + suporte**.
+
+   ![O link "ajuda + suporte"](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  Selecione **Novo pedido de suporte**. 
+1. No painel **ajuda + suporte** , selecione **nova solicitação de suporte**. 
 
-     ![Novo pedido de suporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![Novo pedido de suporte](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. Na lista suspensa tipo de problema, escolha **limites de serviço e assinatura (cotas)** .
+1. Na lista suspensa **tipo de problema** , selecione limites de **serviço e assinatura (cotas)** .
 
-   ![Lista suspensa tipo de problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![A lista suspensa "tipo de problema"](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. Selecione a subscrição que precisa de uma quota maior.
+1. Na lista suspensa **assinatura** , selecione a assinatura cuja cota você deseja aumentar.
 
-   ![Selecionar notícias de assinatura](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![A lista suspensa "assinatura"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Selecione **computação – limite de assinatura de VM (núcleos-vCPUs) aumentos** na lista suspensa **tipo de cota** . 
+1. Na lista suspensa **tipo de cota** , selecione o **limite de assinaturas computação-VM (núcleos-vCPUs) aumenta**. 
 
-   ![Selecionar tipo de cota](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![A lista suspensa "tipo de cota"](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. Em **detalhes do problema**, forneça informações adicionais para ajudar a processar sua solicitação clicando em **fornecer detalhes**.
+1. Na guia **detalhes** , em **detalhes do problema**, selecione **fornecer detalhes**e, em seguida, insira informações adicionais para ajudar a processar sua solicitação.
 
-   ![Fornecer detalhes](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![O link "fornecer detalhes"](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. No painel **detalhes da cota** , selecione **modelo de implantação** e selecione um **local.**
+1. No painel de **detalhes de cota** no canto superior direito, faça o seguinte:
 
-   ![Detalhes da cota DM](./media/resource-manager-core-quotas-request/1-7.png)
+   ![O painel "detalhes da cota"](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e spot de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de cota Spot** nesta [página](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
+   a. Na lista suspensa **modelo de implantação** , selecione o modelo apropriado.
 
-   ![Família de SKU](./media/resource-manager-core-quotas-request/1-8.png)
+   b. Na lista suspensa **locais** , selecione um local. Para o local selecionado, em **tipos**, na caixa **selecionar um tipo** , digite **padrão**.
 
-9. Selecionar as **famílias de SKU** que exigem um aumento
+   ![O painel "detalhes da cota"-tipos de cota](./media/resource-manager-core-quotas-request/1-8.png)
 
-   ![Família de SKU](./media/resource-manager-core-quotas-request/1-9.png)
-
-10. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque a SKU da lista suspensa família de SKUs ou clique no ícone descartar "x". 
-
-   ![Novos limites](./media/resource-manager-core-quotas-request/1-10.png)
-
-11. Para solicitar a cota para mais de um local, você pode verificar em outro **local** na lista suspensa e selecionar o tipo de VM apropriado. Esta etapa sobrecarrega as famílias de SKU selecionadas para o **local** anterior em relação ao novo local e você pode simplesmente inserir os novos limites desejados.
-
-   ![Vários locais](./media/resource-manager-core-quotas-request/1-11.png)
+   Em **tipos**, você pode solicitar tipos de cota padrão e spot de um único caso de suporte por meio do suporte a várias seleções.
    
-12. Depois de inserir a cota desejada para cada família de SKUs, clique em **salvar e continue** no painel detalhes da cota para continuar com a criação da solicitação de suporte.
+   Para obter mais informações sobre como aumentar os limites de cota Spot, consulte [VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-usages--quota-blade"></a>Solicitar aumento de cota de vCPU padrão por série de VM no nível de assinatura usando usos + folha de cota
+   c. Abaixo da lista suspensa **padrão** , selecione a série de SKUs cujas cotas você deseja aumentar.
 
-Siga as instruções abaixo usando para criar uma solicitação de suporte por meio da folha ' uso + cota ' do Azure disponível no portal do Azure.
+   ![O painel "detalhes da cota"-série de SKUs](./media/resource-manager-core-quotas-request/1-9.png)
 
-Você também pode **solicitar a cota para várias regiões** por meio de um único caso de suporte. Consulte a etapa 10 abaixo para obter detalhes
+   d. Insira os novos limites de cota que você deseja para esta assinatura. Para remover uma SKU da lista, desmarque a caixa de seleção ao lado da SKU ou selecione o ícone **excluir** (X). 
 
-1. Em https://portal.azure.com, selecione **assinaturas**.
+   ![A caixa de texto "novo limite de vCPU"](./media/resource-manager-core-quotas-request/1-10.png)
 
-   ![Subscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional na lista suspensa e, em seguida, selecione um tipo de VM apropriado. Em seguida, você pode inserir um limite que se aplica ao local adicional.
 
-2. Selecione a subscrição que precisa de uma quota maior.
+   ![Locais adicionais no painel "detalhes da cota"](./media/resource-manager-core-quotas-request/1-11.png)
+   
+1. Selecione **salvar e continuar** para continuar criando a solicitação de suporte.
 
-   ![Selecionar subscrição](./media/resource-manager-core-quotas-request/select-subscription.png)
+## <a name="request-a-standard-quota-increase-from-the-subscriptions-pane"></a>Solicitar um aumento de cota padrão no painel "assinaturas"
 
-3. Selecionar **uso + cotas**
+Para solicitar um aumento de cota de vCPU padrão por série de VMs do painel **assinaturas** , faça o seguinte:
 
-   ![Selecionar uso e cotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+> [!NOTE]
+> Você também pode solicitar um aumento de limite de cota para várias regiões por meio de um único caso de suporte. Para obter detalhes, consulte a etapa 7.
 
-4. No canto superior direito, selecione **solicitar aumento**.
+1. No painel esquerdo da [portal do Azure](https://portal.azure.com), selecione **assinaturas**.
+
+   ![O link "assinaturas"](./media/resource-manager-core-quotas-request/subscriptions.png)
+
+1. Selecione a assinatura cuja cota você deseja aumentar.
+
+   ![O painel "assinaturas"](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+1. No painel esquerdo da página **> nome da assinatura do\<** , selecione **uso + cotas**.
+
+   ![O link "uso + cotas"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+1. No canto superior direito, selecione **solicitar aumento**.
 
    ![Aumento da solicitação](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Selecione **computação – o limite de assinatura de VM (núcleos-vCPUs) aumenta** como o tipo de cotação. 
+1. Na lista suspensa **tipo de cota** , selecione o **limite de assinaturas computação-VM (núcleos-vCPUs) aumenta**.
 
-   ![Preencher formulário](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![A lista suspensa "tipo de cota"](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
-6. No painel **detalhes da cota** , selecione modelo de implantação e selecione um local.
+1. No painel de **detalhes de cota** no canto superior direito, faça o seguinte:
 
-   ![Folha problema de cota](./media/resource-manager-core-quotas-request/1-1-6.png)
+   ![O painel "detalhes da cota"](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Para o local selecionado, selecione valor de **tipo** como **' padrão '** . Você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte de seleção múltipla no campo **tipo** . Saiba mais sobre como **aumentar os limites de VCPUs Spot** nesta [página](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
+   a. Na lista suspensa **modelo de implantação** , selecione o modelo apropriado.
 
-   ![Série de SKUs selecionada](./media/resource-manager-core-quotas-request/1-1-7.png)
+   b. Na lista suspensa **locais** , selecione um local. 
    
+   c. Para o local selecionado, em **tipos**, selecione **selecionar um tipo**e, em seguida, marque a caixa de seleção **padrão** .
+
+   ![A caixa de seleção "padrão"](./media/resource-manager-core-quotas-request/1-1-7.png)
    
-8. Selecionar as **famílias de SKU** que exigem um aumento
-
-   ![Série de SKUs selecionada](./media/resource-manager-core-quotas-request/1-1-8.png)
-
-9. Insira os novos limites que você deseja na assinatura. Para remover uma linha, desmarque a SKU da lista suspensa família de SKUs ou clique no ícone descartar "x". 
-
-   ![Nova solicitação de cota de SKU](./media/resource-manager-core-quotas-request/1-1-9.png)
+   Em **tipos**, você pode solicitar tipos de cota padrão e de baixa prioridade de um único caso de suporte por meio do suporte a várias seleções.
    
+   Para obter mais informações sobre como aumentar os limites de cota Spot, consulte [VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-10. Para solicitar a cota para mais de um local, você pode verificar em outro **local** na lista suspensa e selecionar o tipo de VM apropriado. Esta etapa sobrecarrega as famílias de SKU selecionadas para o **local** anterior em relação ao novo local e você pode simplesmente inserir os novos limites desejados.
+   d. Abaixo da lista suspensa **padrão** , selecione a série de SKUs cujas cotas você deseja aumentar.
+
+   ![O painel "detalhes da cota"-série de SKUs](./media/resource-manager-core-quotas-request/1-1-8.png)
+
+   e. Insira os novos limites de cota que você deseja para esta assinatura. Para remover uma SKU da lista, desmarque a caixa de seleção ao lado da SKU ou selecione **excluir** (X). 
+
+   ![A caixa de texto "novo limite de vCPU"](./media/resource-manager-core-quotas-request/1-1-9.png)
    
-    ![Nova solicitação de cota de SKU](./media/resource-manager-core-quotas-request/1-1-10.png)
+1. Para solicitar um aumento de cota para mais de um local, selecione um local adicional na lista suspensa e, em seguida, selecione um tipo de VM apropriado. 
+
+   Esta etapa sobrecarrega a série de SKU que você selecionou para os locais anteriores. Insira os limites de cota que você deseja aplicar à série adicional.
+   
+   ![Locais adicionais no painel "detalhes da cota"](./media/resource-manager-core-quotas-request/1-1-10.png)
  
+1. Selecione **salvar e continuar** para continuar criando a solicitação de suporte.

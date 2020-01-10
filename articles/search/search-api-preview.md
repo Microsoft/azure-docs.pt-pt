@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: ee8e11670d5b3e0f0edd57e3f87566faa60d4bc4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720019"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754410"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST do serviço de Pesquisa Cognitiva do Azure – versão 2019-05-06-visualização
 
@@ -25,11 +25,11 @@ Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do s
 
 ## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-Preview
 
-+ A [indexação incremental](cognitive-search-incremental-indexing-conceptual.md) é um novo modo de indexação que adiciona o estado e o cache a um conjunto de qualificações, permitindo que você reutilize a saída existente quando os dados de origem, o indexador e as definições de conjunto de qualificações não forem alterados. Esse recurso se aplica somente a aprimoramentos definidos como um determinado contratador de habilidades.
++ O [enriquecimento incremental (visualização)](cognitive-search-incremental-indexing-conceptual.md) adiciona o cache a um pipeline de enriquecimento, permitindo que você reutilize a saída existente se uma modificação direcionada, como uma atualização de um conjunto de qualificações ou outro objeto, não alterar o conteúdo. O Caching aplica-se somente a documentos aprimorados produzidos por um configurador de qualificações.
 
-+ [Cosmos DB indexador](search-howto-index-cosmosdb.md) dá suporte à API do MONGODB, API Gremlin e API do Cassandra.
++ [Cosmos DB indexador](search-howto-index-cosmosdb.md) dá suporte à API do MongoDB (versão prévia), API Gremlin (versão prévia) e API do Cassandra (versão prévia).
 
-+ [Azure data Lake Storage Gen2 indexador](search-howto-index-azure-data-lake-storage.md) pode indexar conteúdo e metadados de data Lake Storage Gen2.
++ [Azure data Lake Storage Gen2 indexador (versão prévia)](search-howto-index-azure-data-lake-storage.md) pode indexar conteúdo e metadados de data Lake Storage Gen2.
 
 + A [extração de documentos (visualização)](cognitive-search-skill-document-extraction.md) é uma habilidade cognitiva usada durante a indexação que permite extrair o conteúdo de um arquivo de dentro de um conferente. Anteriormente, a quebra de documento ocorreu apenas antes da execução do concodificador. Com a adição dessa habilidade, você também pode executar essa operação dentro da execução do conconjunto de habilidades.
 

@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/30/2019
-ms.openlocfilehash: 176f0f197db3393c4ef8c37d05234fce41a494e1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563212"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754062"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
 
 > [!IMPORTANT] 
-> A loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
+> a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
 Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure.
 
@@ -50,7 +50,7 @@ Para executar consultas, clique em **consulta** na barra de comandos e insira su
 
 ## <a name="clean-up"></a>Limpeza
 
-Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
@@ -62,4 +62,4 @@ Conecte essa loja de conhecimento para Power BI para análise mais profunda ou a
 
 > [!div class="nextstepaction"]
 > [Conectar-se com Power BI](knowledge-store-connect-power-bi.md)
-> [criar uma loja de conhecimento em repouso](knowledge-store-howto.md)
+> [criar uma loja de conhecimento em repouso](knowledge-store-create-rest.md)

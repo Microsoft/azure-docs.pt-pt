@@ -8,18 +8,18 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534311"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748256"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
 Armazenamento com redundância de zona geográfica (GZRS) (visualização) casasse a alta disponibilidade de [armazenamento com redundância de zona (ZRS)](storage-redundancy-zrs.md) com proteção contra interrupções regionais, conforme fornecido pelo [armazenamento com REDUNDÂNCIA geográfica (GRS)](storage-redundancy-grs.md). Os dados em uma conta de armazenamento GZRS são replicados em três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais. Cada região do Azure é emparelhada com outra região na mesma geografia, juntos criando um par regional. Para obter mais detalhes e exceções, consulte a [documentação](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. O GZRS também oferece as mesmas [metas de escalabilidade](storage-scalability-targets.md) que lRS, ZRS, grs ou ra-grs. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
+Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano. O GZRS também oferece as mesmas metas de escalabilidade que LRS, ZRS, GRS ou RA-GRS. Opcionalmente, você pode habilitar o acesso de leitura aos dados na região secundária com armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS) se seus aplicativos precisarem ser capazes de ler dados no caso de um desastre na região primária.
 
 A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade, alta disponibilidade, excelente desempenho e resiliência para a recuperação de desastres. Para obter a segurança adicional de acesso de leitura para a região secundária no caso de um desastre regional, habilite o RA-GZRS para sua conta de armazenamento.
 
@@ -160,3 +160,4 @@ Um representante de suporte entrará em contato com você para fornecer assistê
 - [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [ZRS (armazenamento com redundância de zona): aplicativos de armazenamento do Azure altamente disponíveis](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md)

@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 7cb5a335af7093bc217578d57340b03b8b9c08b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351246"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748342"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o armazenamento Premium do Azure (discos não gerenciados)
 
@@ -64,7 +64,8 @@ Há cinco tipos de discos que podem ser usados com sua VM e cada um tem IOPs e l
 Dependendo de sua carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar vários discos de dados persistentes à sua VM. Se necessário, você pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. (Veja o que é a distribuição de disco [aqui](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Se você distribuir discos de dados de armazenamento Premium usando [espaços de armazenamento][4], deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor do que o esperado devido a uma distribuição irregular do tráfego entre os discos. Para VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo. Consulte o artigo [Configurar o RAID de software no Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes.
 
 #### <a name="storage-account-scalability-targets"></a>Metas de escalabilidade da conta de armazenamento
-As contas de armazenamento Premium têm as seguintes metas de escalabilidade [, além das metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md). Se os requisitos do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar várias contas de armazenamento e particione seus dados entre essas contas de armazenamento.
+
+As contas de armazenamento Premium têm as seguintes metas de escalabilidade. Se os requisitos do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar várias contas de armazenamento e particione seus dados entre essas contas de armazenamento.
 
 | Capacidade total da conta | Largura de banda total para uma conta de armazenamento com redundância local |
 |:--- |:--- |
@@ -162,7 +163,8 @@ Para discos de dados, você pode optar por manter alguns discos de dados em uma 
 Você precisará localizar o caminho do contêiner e a chave da conta de armazenamento para processar qualquer uma dessas duas opções. O caminho do contêiner e a chave da conta de armazenamento podem ser encontrados no **portal do Azure** > **armazenamento**. A URL do contêiner será como "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opção 1: copiar um VHD com AzCopy (cópia assíncrona)
-Usando o AzCopy, você pode facilmente carregar o VHD pela Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
+
+Usando o AzCopy, você pode facilmente carregar o VHD pela Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md) para obter detalhes.
 
 1. Baixe e instale o AzCopy aqui: [versão mais recente do AzCopy](https://aka.ms/downloadazcopy)
 2. Abra Azure PowerShell e vá para a pasta onde o AzCopy está instalado.
@@ -259,7 +261,8 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 Um exemplo de URI de \<> pode ser **_"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** . Um exemplo \<FileInfo > pode ser **_"C:\path\to\upload.vhd"_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opção 2: usando AzCopy para carregar o arquivo. vhd
-Usando o AzCopy, você pode facilmente carregar o VHD pela Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
+
+Usando o AzCopy, você pode facilmente carregar o VHD pela Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md) para obter detalhes.
 
 1. Baixe e instale o AzCopy aqui: [versão mais recente do AzCopy](https://aka.ms/downloadazcopy)
 2. Abra Azure PowerShell e vá para a pasta onde o AzCopy está instalado.

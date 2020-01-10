@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a4a4393a25bfa49a8074793b572111f69dcc17c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459651"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749952"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -195,7 +195,7 @@ Esses logs são emitidos por um recurso e fornecem dados avançados e frequentes
 
 Por exemplo, os logs do sistema de eventos do Windows são uma categoria de log de diagnóstico para VMs e logs de BLOB, tabela e fila são categorias de logs de diagnóstico para contas de armazenamento.
 
-Os logs de diagnóstico são diferentes do [log de atividades (anteriormente conhecido como log de auditoria ou log operacional)](../../azure-monitor/platform/activity-logs-overview.md). O log de atividades fornece informações sobre as operações que foram executadas em recursos em sua assinatura. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
+Os logs de diagnóstico são diferentes do [log de atividades (anteriormente conhecido como log de auditoria ou log operacional)](../../azure-monitor/platform/platform-logs-overview.md). O log de atividades fornece informações sobre as operações que foram executadas em recursos em sua assinatura. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
 
 ### <a name="metrics"></a>Métricas
 

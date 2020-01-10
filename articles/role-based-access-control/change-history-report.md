@@ -15,38 +15,38 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 753c626fe44193b83cbd992f225fe01c2ff67f89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172405"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744816"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Exibir logs de atividade para alterações de RBAC para recursos do Azure
 
-Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função) para recursos do Azure, como para fins de auditoria ou solução de problemas. Sempre que alguém fizer alterações nas atribuições de função ou definições de função em suas assinaturas, as alterações serão registradas no [log de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC nos últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função) para recursos do Azure, como para fins de auditoria ou solução de problemas. Sempre que alguém fizer alterações nas atribuições de função ou definições de função em suas assinaturas, as alterações serão registradas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC nos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações que são registradas em log
 
 Estas são as operações relacionadas ao RBAC que são registradas no log de atividades:
 
 - Criar atribuição de função
-- Eliminar atribuição de função
+- Excluir atribuição de função
 - Criar ou atualizar definição de função personalizada
 - Eliminar definição de função personalizada
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-A maneira mais fácil de começar é exibir os logs de atividade com o portal do Azure. A captura de tela a seguir mostra um exemplo de um log de atividades que foi filtrado para exibir as operações de atribuição de função e de definição de função. Ele também inclui um link para baixar os logs como um arquivo CSV.
+A forma mais fácil de dar início a este processo é ver os registos de atividades com recurso ao portal do Azure. A captura de tela a seguir mostra um exemplo de um log de atividades que foi filtrado para exibir as operações de atribuição de função e de definição de função. Ele também inclui um link para baixar os logs como um arquivo CSV.
 
 ![Logs de atividade usando o portal-captura de tela](./media/change-history-report/activity-log-portal.png)
 
 O log de atividades no portal tem vários filtros. Estes são os filtros relacionados ao RBAC:
 
-|Filtro  |Value  |
+|Filtrar  |Valor  |
 |---------|---------|
-|Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
-|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
+|Categoria de evento     | <ul><li>Administrativa</li></ul>         |
+|Operação     | <ul><li>Criar atribuição de função</li> <li>Excluir atribuição de função</li> <li>Criar ou atualizar definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
 
 
 Para obter mais informações sobre logs de atividade, consulte [Exibir eventos no log de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
@@ -149,6 +149,6 @@ AzureActivity
 
 ![Logs de atividade usando o portal de análise avançada – captura de tela](./media/change-history-report/azure-log-analytics.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Monitorizar a Atividade de Subscrição com o Registo de Atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

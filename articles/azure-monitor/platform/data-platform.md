@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894135"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750992"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados Azure Monitor
 
@@ -48,7 +48,7 @@ Leia mais sobre Azure Monitor métricas, incluindo suas fontes de dados em [mét
 Os logs em Azure Monitor são armazenados em um espaço de trabalho Log Analytics baseado no [Azure data Explorer](/azure/data-explorer/) que fornece um mecanismo de análise poderoso e uma [linguagem de consulta avançada](/azure/kusto/query/). Os logs normalmente fornecem informações suficientes para fornecer o contexto completo do problema identificado e são valiosos para identificar o caso de problemas raiz.
 
 > [!NOTE]
-> É importante distinguir entre Azure Monitor logs e fontes de dados de log no Azure. Por exemplo, os eventos de nível de assinatura no Azure são gravados em um [log de atividades](activity-logs-overview.md) que você pode exibir no menu Azure monitor. A maioria dos recursos irá gravar informações operacionais em um [log de recursos](resource-logs-overview.md) que você pode encaminhar para locais diferentes. Os logs de Azure Monitor são uma plataforma de dados de log que coleta logs de atividade e logs de recursos junto com outros dados de monitoramento para fornecer análise profunda em todo o seu conjunto de recursos.
+> É importante distinguir entre Azure Monitor logs e fontes de dados de log no Azure. Por exemplo, os eventos de nível de assinatura no Azure são gravados em um [log de atividades](platform-logs-overview.md) que você pode exibir no menu Azure monitor. A maioria dos recursos irá gravar informações operacionais em um [log de recursos](platform-logs-overview.md) que você pode encaminhar para locais diferentes. Os logs de Azure Monitor são uma plataforma de dados de log que coleta logs de atividade e logs de recursos junto com outros dados de monitoramento para fornecer análise profunda em todo o seu conjunto de recursos.
 
 
  Você pode trabalhar com [consultas de log](../log-query/log-query-overview.md) interativamente com [log Analytics](../log-query/portals.md) no portal do Azure ou adicionar os resultados a um [painel do Azure](../learn/tutorial-app-dashboards.md) para visualização em combinação com outros dados. Você também pode criar [alertas de log](alerts-log.md) , que dispararão um alerta com base nos resultados de uma consulta de agendamento.

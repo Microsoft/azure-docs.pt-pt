@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530855"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750359"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar logs da plataforma Azure no espaço de trabalho Log Analytics no Azure Monitor
-[Os logs de plataforma](resource-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
+[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo descreve a coleta de logs de recursos em um espaço de trabalho Log Analytics que permite analisá-lo com outros dados de monitoramento coletados em logs de Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. 
 
 
 ## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>O que você pode fazer com os logs da plataforma em um espaço de trabalho
@@ -124,5 +124,5 @@ Você deve migrar seus logs para usar o modo específico do recurso assim que po
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](resource-logs-overview.md).
+* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).

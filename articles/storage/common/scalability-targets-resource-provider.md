@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d8fc0e6e2f78d4438672a16674c3e257ca855a92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: e7fb118dbc53b36e01c8188b9013a3f739bf0c59
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486849"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747791"
 ---
 # <a name="scalability-and-performance-targets-for-the-azure-storage-resource-provider"></a>Escalabilidade e metas de desempenho para o provedor de recursos de armazenamento do Azure
 
@@ -26,4 +26,4 @@ ms.locfileid: "75486849"
 ## <a name="see-also"></a>Ver também
 
 - [Escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md)
-- [Metas de escalabilidade para contas de armazenamento de blob de blocos Premium](../blobs/scalability-targets-premium-block-blobs.md)
+- [Cotas e limites de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)

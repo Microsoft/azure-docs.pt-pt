@@ -1,6 +1,7 @@
 ---
-title: Topologias para migrações de instância gerida da base de dados SQL do Azure com o serviço de migração de base de dados do Azure de rede | Documentos da Microsoft
-description: Saiba as configurações de origem e de destino para o Azure Database Migration Service.
+title: Topologias de rede para migrações de instância gerenciada do SQL
+titleSuffix: Azure Database Migration Service
+description: Conheça as configurações de origem e destino para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,94 +9,94 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/07/2019
-ms.openlocfilehash: 74613599903f7cde606295a1e2d9eaaa0924cf50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/08/2020
+ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808415"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749264"
 ---
-# <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida BD SQL do Azure com o serviço de migração de base de dados do Azure
+# <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para BD SQL do Azure Instância Gerenciada migrações usando o serviço de migração de banco de dados do Azure
 
-Este artigo aborda várias topologias de rede que funciona com o Azure Database Migration Service para fornecer uma experiência de migração abrangente de servidores do SQL Server no local para a instância gerida da base de dados SQL do Azure.
+Este artigo discute várias topologias de rede com as quais o serviço de migração de banco de dados do Azure pode trabalhar para fornecer uma experiência de migração abrangente de servidores SQL locais para Instância Gerenciada do Banco de Dados SQL do Azure.
 
-## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>O Azure SQL Database Managed Instance configurado para cargas de trabalho híbrida 
+## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Instância Gerenciada do Banco de Dados SQL do Azure configurado para cargas de trabalho híbridas 
 
-Utilize esta topologia se o seu Azure SQL Database Managed Instance está ligado à sua rede no local. Esta abordagem fornece o encaminhamento de rede mais simplificado e produz o débito de dados máximo durante a migração.
+Use essa topologia se sua Instância Gerenciada do Banco de Dados SQL do Azure estiver conectada à sua rede local. Essa abordagem fornece o roteamento de rede mais simplificado e produz a taxa de transferência máxima de dados durante a migração.
 
-![Topologia de rede para cargas de trabalho híbrida](media/resource-network-topologies/hybrid-workloads.png)
-
-**Requisitos**
-
-- Neste cenário, a instância gerida de SQL Database do Azure e a instância do serviço de migração de base de dados do Azure são criados na mesma VNet do Azure, mas usam diferentes sub-redes.  
-- A VNet utilizada neste cenário também está ligada à rede no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-
-## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>O Azure SQL Database Managed Instance isolada da rede no local
-
-Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes cenários:
-
-- A instância gerida da base de dados do Azure SQL é isolada da conectividade no local, mas sua instância do serviço de migração de base de dados do Azure está ligada à rede no local.
-- Se as políticas de controlo de acesso baseado em ' (RBAC) da função estão em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a alojar a instância gerida da base de dados do Azure SQL.
-- As VNets utilizadas para a instância gerida da base de dados SQL do Azure e o serviço de migração de base de dados do Azure estão em subscrições diferentes.
-
-![Topologia de rede para a instância gerida isolada da rede no local](media/resource-network-topologies/mi-isolated-workload.png)
+![Topologia de rede para cargas de trabalho híbridas](media/resource-network-topologies/hybrid-workloads.png)
 
 **Requisitos**
 
-- A VNet que utiliza o Azure Database Migration Service para este cenário tem também de estar ligada à rede no local através de um (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Configurar [VNet peering da rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a VNet utilizada para a base de dados do Azure SQL gerida instância e o Azure Database Migration Service.
+- Nesse cenário, a instância gerenciada do banco de dados SQL do Azure e a instância do serviço de migração de banco de dados do Azure são criadas na mesma Rede Virtual do Microsoft Azure, mas usam sub-redes diferentes.  
+- A rede virtual usada neste cenário também está conectada à rede local usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migrações de cloud para a cloud: partilhado VNet
+## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>Instância Gerenciada do Banco de Dados SQL do Azure isolado da rede local
 
-Utilize esta topologia se a origem do SQL Server estiver alojada numa VM do Azure e compartilha a mesma VNET com a instância de base de dados do SQL do Azure gerido e o Azure Database Migration Service.
+Use essa topologia de rede se seu ambiente exigir um ou mais dos seguintes cenários:
 
-![Topologia de rede para migrações de Cloud para a Cloud com uma VNet partilhada](media/resource-network-topologies/cloud-to-cloud.png)
+- A instância gerenciada do banco de dados SQL do Azure é isolada da conectividade local, mas sua instância do serviço de migração de banco de dados do Azure está conectada à rede local.
+- Se as políticas de RBAC (controle de acesso baseado em função) estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando a instância gerenciada do banco de dados SQL do Azure.
+- As redes virtuais usadas para o Instância Gerenciada do Banco de Dados SQL do Azure e o serviço de migração de banco de dados do Azure estão em assinaturas diferentes.
 
-**Requisitos**
-
-- Não existem requisitos adicionais.
-
-## <a name="cloud-to-cloud-migrations-isolated-vnet"></a>Na cloud para migrações para a cloud: VNet em ambiente isolado
-
-Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes cenários:
-
-- A instância gerida da base de dados do Azure SQL é aprovisionada numa VNet isolada.
-- Se as políticas de controlo de acesso baseado em ' (RBAC) da função estão em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a alojar a instância gerida da base de dados do Azure SQL.
-- As VNets utilizadas para a instância gerida da base de dados SQL do Azure e o serviço de migração de base de dados do Azure estão em subscrições diferentes.
-
-![Topologia de rede para migrações de Cloud para a Cloud com uma VNet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
+![Topologia de rede para Instância Gerenciada isoladas da rede local](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Requisitos**
 
-- Configurar [VNet peering da rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a VNet utilizada para a base de dados do Azure SQL gerida instância e o Azure Database Migration Service.
+- A rede virtual que o serviço de migração de banco de dados do Azure usa para esse cenário também deve estar conectada à rede local usando o (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para instância gerenciada do banco de dados SQL do Azure e o serviço de migração de banco de dados do Azure.
+
+## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrações da nuvem para a nuvem: rede virtual compartilhada
+
+Use essa topologia se o SQL Server de origem estiver hospedado em uma VM do Azure e compartilhar a mesma rede virtual com a instância gerenciada do banco de dados SQL do Azure e o serviço de migração de banco de dados do Azure.
+
+![Topologia de rede para migrações de nuvem para nuvem com uma VNet compartilhada](media/resource-network-topologies/cloud-to-cloud.png)
+
+**Requisitos**
+
+- Nenhum requisito adicional.
+
+## <a name="cloud-to-cloud-migrations-isolated-virtual-network"></a>Migrações de nuvem para nuvem: rede virtual isolada
+
+Use essa topologia de rede se seu ambiente exigir um ou mais dos seguintes cenários:
+
+- A instância gerenciada do banco de dados SQL do Azure é provisionada em uma rede virtual isolada.
+- Se as políticas de RBAC (controle de acesso baseado em função) estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando a instância gerenciada do banco de dados SQL do Azure.
+- As redes virtuais usadas para Instância Gerenciada do Banco de Dados SQL do Azure e o serviço de migração de banco de dados do Azure estão em assinaturas diferentes.
+
+![Topologia de rede para migrações de nuvem para nuvem com uma VNet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
+
+**Requisitos**
+
+- Configure o [emparelhamento de rede VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a rede virtual usada para instância gerenciada do banco de dados SQL do Azure e o serviço de migração de banco de dados do Azure.
 
 ## <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| **NOME**   | **PORT** | **PROTOCOL** | **ORIGEM** | **DESTINO** | **AÇÃO** |
+| **NOMES**   | **Porto** | **PROTOCOLO** | **ORIGEM** | **DESTINO** | **ACTION** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Qualquer      | Qualquer          | SUB-REDE DO DMS | Qualquer             | Permitir      |
+| DMS_subnet | Qualquer      | Qualquer          | SUB-REDE DMS | Qualquer             | Permitir      |
 
 ## <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| **NOME**                  | **PORT**                                              | **PROTOCOL** | **ORIGEM** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
+| **NOMES**                  | **Porto**                                              | **PROTOCOLO** | **ORIGEM** | **DESTINO**           | **ACTION** | **Motivo da regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| móveis                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de plano de gestão através do service bus e o armazenamento de Blobs do Azure. <br/>(Se estiver ativada o peering da Microsoft, poderá não ter esta regra.)                                                             |
-| Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS utiliza esta regra para recolher informações de diagnóstico para fins de resolução de problemas.                                                                                                                      |
-| Servidor de origem de SQL         | 1433 (ou de porta de TCP IP que o SQL Server está escutando para) | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de origem do SQL Server do DMS <br/>(Se tiver conectividade de site a site, poderá não ter esta regra.)                                                                                       |
-| Instância nomeada do SQL Server | 1434                                                  | UDP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de instância de origem do DMS nomeadas de SQL Server <br/>(Se tiver conectividade de site a site, poderá não ter esta regra.)                                                                        |
-| Partilha SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Partilha de rede SMB para DMS armazenar ficheiros de cópia de segurança de base de dados para as migrações para o MI de base de dados do Azure SQL e SQL Servers em VM do Azure <br/>(Se tiver conectividade de site a site, poderá não ter esta regra). |
+| móveis                | 443, 9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação do plano de gerenciamento através do barramento de serviço e do armazenamento de BLOBs do Azure. <br/>(Se o emparelhamento da Microsoft estiver habilitado, talvez você não precise dessa regra.)                                                             |
+| Diagnósticos               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS usa essa regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
+| Servidor de origem do SQL         | 1433 (ou porta TCP IP que SQL Server está ouvindo) | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de origem do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não precise dessa regra.)                                                                                       |
+| SQL Server instância nomeada | 1434                                                  | UDP          | Qualquer        | Espaço de endereços no local | Permitir      | SQL Server conectividade de origem da instância nomeada do DMS <br/>(Se você tiver conectividade site a site, talvez não precise dessa regra.)                                                                        |
+| Compartilhamento SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Compartilhamento de rede SMB para DMS para armazenar arquivos de backup de banco de dados para migrações para o banco de dados SQL do Azure MI e SQL Servers na VM do Azure <br/>(Se você tiver conectividade site a site, talvez não precise dessa regra). |
 | DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | Permitir      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Migrar o SQL Server para instância gerida de base de dados SQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Descrição geral da pré-requisitos para utilizar o Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
+- [Migrar SQL Server para Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
+- [Visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [Criar uma rede virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para uma descrição geral do serviço de migração de base de dados do Azure, consulte o artigo [o que é o Azure Database Migration Service?](dms-overview.md).
-- Para obter informações atualizadas sobre a disponibilidade regional do serviço de migração de base de dados do Azure, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) página.
+- Para obter uma visão geral do serviço de migração de banco de dados do Azure, consulte o artigo [o que é o Azure Database Migration Service?](dms-overview.md).
+- Para obter informações atuais sobre a disponibilidade regional do serviço de migração de banco de dados do Azure, consulte a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) .

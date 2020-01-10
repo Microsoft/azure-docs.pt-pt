@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553720"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747525"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades 
 
 ## <a name="overview"></a>Visão geral
-Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](activity-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás dos alertas do log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
+Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](platform-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás dos alertas do log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
 
 > [!NOTE]
 > **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
@@ -31,7 +31,7 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 Em ambos os casos, um alerta do log de atividades monitora apenas os eventos na assinatura em que o alerta é criado.
 
-Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON para um evento do log de atividades. Para obter mais informações, consulte [visão geral do log de atividades do Azure](./activity-logs-overview.md#categories-in-the-activity-log). Para saber mais sobre eventos de integridade do serviço, consulte [receber alertas do log de atividades em notificações de serviço](./alerts-activity-log-service-notifications.md). 
+Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON para um evento do log de atividades. Para obter mais informações, consulte [categorias no log de atividades](activity-log-view.md#categories-in-the-activity-log). Para saber mais sobre eventos de integridade do serviço, consulte [receber alertas do log de atividades em notificações de serviço](alerts-activity-log-service-notifications.md). 
 
 Os alertas do log de atividades têm algumas opções comuns:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: a79bf07c91ef80509355a10c1401d1ab94cc5118
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552748"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748795"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>WebHooks para alertas do log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Com WebHooks, você pode rotear essas notificações para outros sistemas para pós-processamento ou ações personalizadas. Este artigo mostra a aparência da carga do HTTP POST para um webhook.
@@ -271,8 +271,8 @@ Para obter detalhes sobre o esquema específico sobre alertas de log de atividad
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
 | propriedades |Conjunto de pares de `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
-| circunstância |Elemento que contém metadados sobre o evento. |
-| nesse |As propriedades do controle de acesso baseado em função do evento. Essas propriedades geralmente incluem a ação, a função e o escopo. |
+| event |Elemento que contém metadados sobre o evento. |
+| authorization |As propriedades do controle de acesso baseado em função do evento. Essas propriedades geralmente incluem a ação, a função e o escopo. |
 | categoria |Categoria do evento. Os valores com suporte incluem administrativo, alerta, segurança, integridade e recomendação. |
 | chamado |Endereço de email do usuário que realizou a operação, declaração de UPN ou declaração de SPN com base na disponibilidade. Pode ser NULL para determinadas chamadas do sistema. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Os eventos com CorrelationId pertencem à mesma ação maior e geralmente compartilham uma CorrelationId. |
@@ -280,17 +280,17 @@ Para obter detalhes sobre o esquema específico sobre alertas de log de atividad
 | eventDataId |Identificador exclusivo do evento. |
 | eventSource |Nome do serviço do Azure ou da infraestrutura que gerou o evento. |
 | httpRequest |A solicitação geralmente inclui o método clientRequestId, clientIpAddress e HTTP (por exemplo, PUT). |
-| Geral |Um dos seguintes valores: crítico, erro, aviso e informativo. |
+| level |Um dos seguintes valores: crítico, erro, aviso e informativo. |
 | operationId |Geralmente, um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |
-| status |Strings. Status da operação. Os valores comuns incluem iniciado, em andamento, com êxito, com falha, ativo e resolvido. |
+| status |Cadeia. Estado da operação. Os valores comuns incluem iniciado, em andamento, com êxito, com falha, ativo e resolvido. |
 | subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Ele também pode incluir outras cadeias de caracteres que descrevem um substatus. Valores de substatus comuns incluem OK (código de status HTTP: 200), criado (código de status HTTP: 201), aceito (código de status HTTP: 202), sem conteúdo (código de status HTTP: 204), solicitação incorreta (código de status http: 400), não encontrado (código de status HTTP: 404), conflito (código de status http: 409 ), Erro interno do servidor (código de status HTTP: 500), serviço não disponível (código de status HTTP: 503) e tempo limite do gateway (código de status HTTP: 504). |
 
-Para obter detalhes sobre o esquema específico sobre todos os outros alertas do log de atividades, consulte [visão geral do log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Para obter detalhes sobre o esquema específico sobre todos os outros alertas do log de atividades, consulte [visão geral do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o log de atividades](../../azure-monitor/platform/activity-logs-overview.md).
+* [Saiba mais sobre o log de atividades](../../azure-monitor/platform/platform-logs-overview.md).
 * [Execute os scripts de automação do Azure (Runbooks) nos alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use um aplicativo lógico para enviar um SMS por meio do twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo é para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Use um aplicativo lógico para enviar uma mensagem de margem de atraso de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo é para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.

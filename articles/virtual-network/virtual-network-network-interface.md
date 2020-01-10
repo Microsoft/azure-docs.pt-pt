@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 809e40f6616e8ab022a31d8dd29d4a5386c5e844
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 95ed6df3192043f33cf8d911387fc2a318153ac7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838417"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751166"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou excluir uma interface de rede
 
@@ -83,14 +83,14 @@ Você pode exibir e alterar a maioria das configurações de uma interface de re
 3. Os seguintes itens são listados para a interface de rede que você selecionou:
    - **Visão geral:** Fornece informações sobre a interface de rede, como os endereços IP atribuídos a ela, a rede virtual/sub-rede à qual o adaptador de rede está atribuído e a máquina virtual à qual o adaptador de rede está anexado (se estiver conectado a um). A imagem a seguir mostra as configurações de visão geral de um adaptador de rede chamado **mywebserver256**: visão geral do ![interface de rede](./media/virtual-network-network-interface/nic-overview.png)
 
-     Você pode mover uma interface de rede para um grupo de recursos ou assinatura diferente selecionando (**alterar**) ao lado do **grupo de recursos** ou **nome da assinatura**. Se você mover a interface de rede, deverá mover todos os recursos relacionados à interface de rede com ela. Se a interface de rede estiver conectada a uma máquina virtual, por exemplo, você também deverá mover a máquina virtual e outros recursos relacionados à máquina virtual. Para mover um adaptador de rede, consulte [mover o recurso para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista os pré-requisitos e como mover recursos usando o portal do Azure, o PowerShell e o CLI do Azure.
+     Você pode mover uma interface de rede para um grupo de recursos ou assinatura diferente selecionando (**alterar**) ao lado do **grupo de recursos** ou **nome da assinatura**. Se você mover a interface de rede, deverá mover todos os recursos relacionados à interface de rede com ela. Se a interface de rede estiver conectada a uma máquina virtual, por exemplo, você também deverá mover a máquina virtual e outros recursos relacionados à máquina virtual. Para mover um adaptador de rede, consulte [mover o recurso para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). O artigo lista os pré-requisitos e como mover recursos usando o portal do Azure, o PowerShell e o CLI do Azure.
    - **Configurações de IP:** Os endereços IPv4 e IPv6 públicos e privados atribuídos às configurações de IP estão listados aqui. Se um endereço IPv6 for atribuído a uma configuração de IP, o endereço não será exibido. Para saber mais sobre as configurações de IP e como adicionar e remover endereços IP, consulte [configurar endereços IP para uma interface de rede do Azure](virtual-network-network-interface-addresses.md). O encaminhamento de IP e a atribuição de sub-rede também são configurados nesta seção. Para saber mais sobre essas configurações, consulte [habilitar ou desabilitar encaminhamento de IP](#enable-or-disable-ip-forwarding) e [alterar atribuição de sub-rede](#change-subnet-assignment).
    - **Servidores DNS:** Você pode especificar qual servidor DNS uma interface de rede é atribuída pelos servidores DHCP do Azure. A interface de rede pode herdar a configuração da rede virtual à qual o adaptador de rede está atribuído ou ter uma configuração personalizada que substitui a configuração da rede virtual à qual ela está atribuída. Para modificar o que é exibido, consulte [alterar servidores DNS](#change-dns-servers).
    - **NSG (grupo de segurança de rede):** Exibe qual NSG está associado à interface de rede (se houver). Um NSG contém regras de entrada e saída para filtrar o tráfego de rede para a interface de rede. Se um NSG estiver associado à interface de rede, o nome do NSG associado será exibido. Para modificar o que é exibido, consulte [associar ou dissociar um grupo de segurança de rede](#associate-or-dissociate-a-network-security-group).
    - **Propriedades:** Exibe as principais configurações sobre o adaptador de rede, incluindo seu endereço MAC (em branco se a interface de rede não estiver anexada a uma máquina virtual) e a assinatura na qual ela existe.
    - **Regras de segurança em vigor:**  As regras de segurança são listadas se o adaptador de rede estiver conectado a uma máquina virtual em execução e um NSG estiver associado à interface de rede, à sub-rede à qual ele está atribuído ou a ambos. Para saber mais sobre o que é exibido, consulte [Exibir regras de segurança em vigor](#view-effective-security-rules). Para saber mais sobre o NSGs, confira [grupos de segurança de rede](security-overview.md).
    - **Rotas efetivas:** As rotas são listadas se a interface de rede estiver conectada a uma máquina virtual em execução. As rotas são uma combinação das rotas padrão do Azure, quaisquer rotas definidas pelo usuário e quaisquer rotas BGP que possam existir para a sub-rede à qual a interface de rede está atribuída. Para saber mais sobre o que é exibido, consulte [Exibir rotas efetivas](#view-effective-routes). Para saber mais sobre as rotas padrão do Azure e as rotas definidas pelo usuário, consulte [visão geral de roteamento](virtual-networks-udr-overview.md).
-   - **Configurações comuns de Azure Resource Manager:**  Para saber mais sobre configurações comuns de Azure Resource Manager, consulte [log de atividades](../azure-monitor/platform/activity-logs-overview.md), [controle de acesso (iam)](../role-based-access-control/overview.md), [marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+   - **Configurações comuns de Azure Resource Manager:**  Para saber mais sobre configurações comuns de Azure Resource Manager, consulte [log de atividades](../azure-monitor/platform/platform-logs-overview.md), [controle de acesso (iam)](../role-based-access-control/overview.md), [marcas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [script de automação](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -160,7 +160,7 @@ Você pode alterar a sub-rede, mas não a rede virtual, à qual uma interface de
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[AZ Network NIC IP-config Update](/cli/azure/network/nic/ip-config)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adicionar ou remover de grupos de segurança de aplicativo
@@ -253,19 +253,19 @@ Para executar tarefas em interfaces de rede, sua conta deve ser atribuída à fu
 
 | Ação                                                                     | Nome                                                      |
 | ---------                                                                  | -------------                                             |
-| Microsoft. Network/networkInterfaces/Read                                   | Obter interface de rede                                     |
-| Microsoft. Network/networkInterfaces/Write                                  | Criar ou atualizar a interface de rede                        |
-| Microsoft. Network/networkInterfaces/junção/ação                            | Anexar uma interface de rede a uma máquina virtual           |
-| Microsoft. Network/networkInterfaces/excluir                                 | Excluir interface de rede                                  |
-| Microsoft. Network/networkInterfaces/joinViaPrivateIp/Action                | Unir um recurso a uma interface de rede por meio de um servi...     |
-| Microsoft. Network/networkInterfaces/effectiveRouteTable/Action             | Obter tabela de rotas efetivas da interface de rede               |
-| Microsoft. Network/networkInterfaces/effectiveNetworkSecurityGroups/Action  | Obter grupos de segurança efetivos da interface de rede           |
-| Microsoft. Network/networkInterfaces/balanceadores/leitura                     | Obter balanceadores de carga de interface de rede                      |
-| Microsoft. Network/networkInterfaces/perassociations/Read               | Obter Associação de serviço                                   |
-| Microsoft. Network/networkInterfaces/perassociations/Write              | Criar ou atualizar uma associação de serviço                    |
-| Microsoft. Network/networkInterfaces/perassociationes/Delete             | Excluir Associação de serviço                                |
-| Microsoft. Network/networkInterfaces/perassociações/validar/ação    | Validar Associação de serviço                              |
-| Microsoft. Network/networkInterfaces/ipconfigurations/Read                  | Obter configuração de IP da interface de rede                    |
+| Microsoft.Network/networkInterfaces/read                                   | Obter interface de rede                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar a interface de rede                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Anexar uma interface de rede a uma máquina virtual           |
+| Microsoft.Network/networkInterfaces/delete                                 | Excluir interface de rede                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Unir um recurso a uma interface de rede por meio de um servi...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Obter tabela de rotas efetivas da interface de rede               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Obter grupos de segurança efetivos da interface de rede           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Obter balanceadores de carga de interface de rede                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Obter Associação de serviço                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Criar ou atualizar uma associação de serviço                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Excluir Associação de serviço                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Validar Associação de serviço                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Obter configuração de IP da interface de rede                    |
 
 ## <a name="next-steps"></a>Passos seguintes
 

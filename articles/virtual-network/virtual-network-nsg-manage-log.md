@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196739"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751177"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
@@ -29,7 +29,7 @@ Um NSG (grupo de segurança de rede) inclui regras que permitem ou negam o tráf
 
 Os logs de diagnóstico estão disponíveis somente para NSGs implantados por meio do modelo de implantação Azure Resource Manager. Não é possível habilitar o log de diagnóstico para o NSGs implantado por meio do modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte [noções básicas sobre modelos de implantação do Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-O log de diagnóstico é habilitado separadamente para *cada* NSG para a qual você deseja coletar dados de diagnóstico. Se você estiver interessado em logs operacionais ou de atividade, consulte [registro em log de atividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure.
+O log de diagnóstico é habilitado separadamente para *cada* NSG para a qual você deseja coletar dados de diagnóstico. Se você estiver interessado em logs operacionais ou de atividade, consulte [registro em log de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure.
 
 ## <a name="enable-logging"></a>Ativar registo
 
@@ -198,7 +198,7 @@ O log do contador de regras contém informações sobre cada regra aplicada aos 
 
 ## <a name="view-and-analyze-logs"></a>Exibir e analisar logs
 
-Para saber como exibir dados de log de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
+Para saber como exibir dados de log de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
 - **Logs de Azure monitor**: você pode usar a solução de [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) para obter informações avançadas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede em uma máquina virtual.
 - **Conta de armazenamento do Azure**: os dados são gravados em um arquivo PT1H. JSON. Você pode encontrar:
@@ -207,7 +207,7 @@ Para saber como exibir dados de log de diagnóstico, consulte [visão geral dos 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [log de atividades](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conhecido como logs de auditoria ou operacionais. O log de atividades é habilitado por padrão para o NSGs criado por meio do modelo de implantação do Azure. Para determinar quais operações foram concluídas em NSGs no log de atividades, procure entradas que contenham os seguintes tipos de recursos:
+- Saiba mais sobre o [log de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conhecido como logs de auditoria ou operacionais. O log de atividades é habilitado por padrão para o NSGs criado por meio do modelo de implantação do Azure. Para determinar quais operações foram concluídas em NSGs no log de atividades, procure entradas que contenham os seguintes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

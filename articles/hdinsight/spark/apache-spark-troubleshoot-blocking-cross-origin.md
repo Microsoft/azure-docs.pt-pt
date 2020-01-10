@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 7f8eb000533673d243258d569834869bbb2a1778
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: df8f934cd7dad4e0c79c6f48d857967592e0e69e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241124"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751061"
 ---
 # <a name="scenario-jupyter-server-404-not-found-error-due-to-blocking-cross-origin-api-in-azure-hdinsight"></a>Cenário: erro do Jupyter Server 404 "não encontrado" devido a "bloquear API de origem cruzada" no Azure HDInsight
 
@@ -25,7 +25,7 @@ Ao acessar o serviço Jupyter no HDInsight, você verá uma caixa de erro dizend
 ```log
 [W 2018-08-21 17:43:33.352 NotebookApp] 404 PUT /api/contents/PySpark/notebook.ipynb (10.16.0.144) 4504.03ms referer=https://pnhr01hdi-corpdir.msappproxy.net/jupyter/notebooks/PySpark/notebook.ipynb
 Blocking Cross Origin API request.  
-Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
+Origin: https://xxx.xxx.xxx, Host: pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
 ```
 
 Você também pode ver um endereço IP no campo "origem" no log do Jupyter.

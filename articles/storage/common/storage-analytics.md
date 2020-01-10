@@ -8,12 +8,12 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844854"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750519"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -23,7 +23,7 @@ Para usar Análise de Armazenamento, você deve habilitá-lo individualmente par
 
 Os dados agregados são armazenados em um blob conhecido (para registro em log) e em tabelas conhecidas (para métricas), que podem ser acessados usando as APIs serviço de BLOB e serviço de tabela.
 
-Análise de Armazenamento tem um limite de 20 TB na quantidade de dados armazenados que é independente do limite total para sua conta de armazenamento. Para obter mais informações sobre limites de conta de armazenamento, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md).
+Análise de Armazenamento tem um limite de 20 TB na quantidade de dados armazenados que é independente do limite total para sua conta de armazenamento. Para obter mais informações sobre limites de conta de armazenamento, consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md).
 
 Para obter um guia detalhado sobre como usar Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao armazenamento do Azure, consulte [monitorar, diagnosticar e solucionar problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -46,7 +46,7 @@ Cada solicitação feita ao serviço de armazenamento de uma conta é Faturável
 
 Ao examinar Análise de Armazenamento dados, você pode usar as tabelas no tópico [análise de armazenamento de operações registradas e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar quais solicitações são faturáveis. Em seguida, você pode comparar seus logs e dados de métricas com as mensagens de status para ver se você foi cobrado por uma solicitação específica. Você também pode usar as tabelas no tópico anterior para investigar a disponibilidade de um serviço de armazenamento ou de uma operação de API individual.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Métricas de Análise de Armazenamento](storage-analytics-metrics.md)
 * [Log de Análise de Armazenamento](storage-analytics-logging.md)

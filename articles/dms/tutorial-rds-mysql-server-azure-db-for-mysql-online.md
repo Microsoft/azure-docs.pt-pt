@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: usar o serviço de migração de banco de dados do Azure para uma migração online do RDS MySQL para o banco de dados do Azure para MySQL | Microsoft Docs'
+title: 'Tutorial: migrar o RDS MySQL online para o banco de dados do Azure para MySQL'
+titleSuffix: Azure Database Migration Service
 description: Saiba como executar uma migração online do RDS MySQL para o banco de dados do Azure para MySQL usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 10/28/2019
-ms.openlocfilehash: 2df76c5906037fc5ce35e0c3a6558b0240c4b2be
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 01/08/2020
+ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043312"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751299"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: migrar o RDS MySQL para o banco de dados do Azure para MySQL online usando DMS
 
@@ -26,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
 > * Migre o esquema de exemplo usando os utilitários mysqldump e MySQL.
-> * Crie uma instância do serviço de migração de banco de dados do Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração usando o serviço de migração de banco de dados do Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -55,8 +56,8 @@ Para concluir este tutorial, precisa de:
 
 * Baixe e instale o [banco de dados de exemplo de **funcionários** do MySQL](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Crie uma instância do [banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
-* Certifique-se de que suas regras de grupo de segurança de rede VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Certifique-se de que suas regras de grupo de segurança de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure o [Firewall do Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (ou o Firewall do Linux) para permitir o acesso ao mecanismo de banco de dados. Para o servidor MySQL, permita a porta 3306 para conectividade.
 
 > [!NOTE]
@@ -67,7 +68,7 @@ Para concluir este tutorial, precisa de:
 1. Para criar um novo grupo de parâmetros, siga as instruções fornecidas por AWS no artigo [arquivos de log do banco de dados MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html), na seção **formato de log binário** .
 2. Crie um novo grupo de parâmetros com a seguinte configuração:
     * binlog_format = linha
-    * binlog_checksum = nenhum
+    * binlog_checksum = NONE
 3. Salve o novo grupo de parâmetros.
 4. Associe o novo grupo de parâmetros à instância do RDS MySQL. Uma reinicialização pode ser necessária.
 
@@ -160,11 +161,11 @@ Para concluir este tutorial, precisa de:
 
 4. Selecione o local no qual você deseja criar a instância do serviço de migração de banco de dados do Azure.
 
-5. Selecione uma VNet existente ou crie uma nova.
+5. Selecione uma rede virtual existente ou crie uma nova.
 
-    A VNet fornece ao serviço de migração de banco de dados do Azure acesso à instância do MySQL de origem e à instância de destino do banco de dados do Azure para MySQL.
+    A rede virtual fornece o serviço de migração de banco de dados do Azure com acesso à instância do MySQL de origem e à instância de destino do banco de dados do Azure para MySQL.
 
-    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
 6. Selecione um tipo de preço; para esta migração online, certifique-se de selecionar o tipo de preço premium: 4vCores.
 

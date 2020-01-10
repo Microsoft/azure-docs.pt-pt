@@ -8,16 +8,16 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 74014a91684749eec7c4086a88785f2024694677
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929083"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749033"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerenciar Application Insights regras de detecção inteligente usando modelos de Azure Resource Manager
 
-Regras de detecção inteligente no Application Insights podem ser gerenciadas e configuradas usando [modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+Regras de detecção inteligente no Application Insights podem ser gerenciadas e configuradas usando [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 Esse método pode ser usado ao implantar novos recursos de Application Insights com Azure Resource Manager automação ou para modificar as configurações de recursos existentes.
 
 ## <a name="smart-detection-rule-configuration"></a>Configuração de regra de detecção inteligente
@@ -133,9 +133,12 @@ Certifique-se de substituir o nome do recurso de Application Insights e para esp
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Regra de alerta de anomalias de falha v2 (não clássico)
+### <a name="failure-anomalies-alert-rule"></a>Regra de alerta de anomalias de falha
 
-Este modelo de Azure Resource Manager demonstra como configurar uma regra de alerta de anomalias de falha V2 com uma severidade de 2. Essa nova versão da regra de alerta de anomalias de falha faz parte da nova plataforma de alerta do Azure e substitui a versão clássica que está sendo desativada como parte do [processo de aposentadoria de alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Este modelo de Azure Resource Manager demonstra a configuração de uma regra de alerta de anomalias com uma severidade de 2. Essa nova versão da regra de alerta de anomalias de falha faz parte da nova plataforma de alerta do Azure e substitui a versão clássica que está sendo desativada como parte do [processo de aposentadoria de alertas clássicos](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> As anomalias de falha são um serviço global, portanto, o local da regra é criado no local global.
 
 ```json
 {
@@ -166,7 +169,7 @@ Este modelo de Azure Resource Manager demonstra como configurar uma regra de ale
 ```
 
 > [!NOTE]
-> Este modelo de Azure Resource Manager é exclusivo para a regra de alerta de anomalias V2 e é diferente das outras regras de detecção inteligente clássicas descritas neste artigo.   
+> Esse Azure Resource Manager modelo é exclusivo para a regra de alerta de anomalias de falha e é diferente das outras regras de detecção inteligente clássicas descritas neste artigo.
 
 ## <a name="smart-detection-rule-names"></a>Nomes de regra de detecção inteligente
 

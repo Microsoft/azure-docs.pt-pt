@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379602"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746041"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como planejar sua implementação de ingresso no Azure AD
 
@@ -75,7 +75,7 @@ Quando você estiver usando AD FS, será necessário habilitar os seguintes pont
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Se seu provedor de identidade não oferecer suporte a esses protocolos, o ingresso no Azure AD não funcionará nativamente. A partir do Windows 10 1809, os usuários podem entrar em um dispositivo ingressado no Azure AD com um provedor de identidade baseado em SAML por meio de [entrada na Web no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, a entrada na Web é um recurso de visualização e não é recomendada para implantações de produção.
+Se seu provedor de identidade não oferecer suporte a esses protocolos, o ingresso no Azure AD não funcionará nativamente. 
 
 >[!NOTE]
 > Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
@@ -87,7 +87,7 @@ Não é possível usar cartões inteligentes ou autenticação baseada em certif
 
 **Recomendação:** Implemente o Windows Hello for Business para autenticação forte e sem senha em dispositivos Windows 10.
 
-### <a name="user-configuration"></a>Configuração do usuário
+### <a name="user-configuration"></a>Configuração de utilizador
 
 Se você criar usuários no seu:
 
@@ -169,7 +169,7 @@ Os usuários obtêm SSO de dispositivos ingressados no Azure AD se o dispositivo
 
 Os usuários têm o SSO de dispositivos ingressados no Azure AD quando um dispositivo tem acesso a um controlador de domínio local.
 
-### <a name="printers"></a>Print
+### <a name="printers"></a>Impressoras
 
 Para impressoras, você precisa implantar a [impressão de nuvem híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) para descobrir impressoras em dispositivos ingressados no Azure AD. 
 
@@ -195,7 +195,7 @@ Você pode provisionar o ingresso no Azure AD usando as seguintes abordagens:
  
 Aqui está uma comparação dessas três abordagens 
  
-|   | Configuração de autoatendimento | Piloto automático do Windows | Inscrição em massa |
+|   | Configuração de autoatendimento | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
 | Exigir interação do usuário para configurar | Sim | Sim | Não |
 | Exigir esforço de ti | Não | Sim | Sim |
@@ -266,9 +266,9 @@ Com base no seu escopo, uma das seguintes situações ocorrerá:
 
 Há três URLs relacionadas à sua configuração de MDM:
 
-- URL dos termos de uso do MDM
-- URL de descoberta de MDM 
-- URL de conformidade do MDM
+- URL dos termos de utilização da MDM
+- URL de deteção da MDM 
+- URL de conformidade da MDM
 
 ![Adicionar uma aplicação](./media/azureadjoin-plan/06.png)
 

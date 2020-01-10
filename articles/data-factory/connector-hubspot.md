@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: cb7091cf61efab8e5bd7e9321911980a1f681476
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929286"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754129"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot com o Azure Data Factory (pré-visualização)
 
@@ -50,9 +50,9 @@ As seguintes propriedades são suportadas para o serviço de HubSpot ligado:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo deve ser definida como: **Hubspot** | Sim |
-| clientId | O ID de cliente associado à sua aplicação Hubspot.  | Sim |
-| clientSecret | O segredo do cliente associado à sua aplicação Hubspot. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| accessToken | O token de acesso que obteve quando inicialmente está a autenticar a sua integração de OAuth. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| clientId | A ID do cliente associada ao aplicativo HubSpot. Saiba como criar um aplicativo no HubSpot [aqui](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Sim |
+| clientSecret | O segredo do cliente associado ao seu aplicativo HubSpot. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| accessToken | O token de acesso que obteve quando inicialmente está a autenticar a sua integração de OAuth. Saiba como obter o token de acesso com a ID e o segredo do cliente [aqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | refreshToken | O token de atualização obtido durante a autenticação inicialmente a integração de OAuth. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço de HubSpot ligado:
 
 ```json
 {
-    "name": "HubspotLinkedService",
+    "name": "HubSpotLinkedService",
     "properties": {
         "type": "Hubspot",
         "typeProperties": {
@@ -99,13 +99,13 @@ Para copiar dados de HubSpot, defina a propriedade de tipo de conjunto de dados 
 
 ```json
 {
-    "name": "HubspotDataset",
+    "name": "HubSpotDataset",
     "properties": {
         "type": "HubspotObject",
         "typeProperties": {},
         "schema": [],        
         "linkedServiceName": {
-            "referenceName": "<Hubspot linked service name>",
+            "referenceName": "<HubSpot linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -134,7 +134,7 @@ Para copiar dados de HubSpot, definir o tipo de origem na atividade de cópia pa
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Hubspot input dataset name>",
+                "referenceName": "<HubSpot input dataset name>",
                 "type": "DatasetReference"
             }
         ],

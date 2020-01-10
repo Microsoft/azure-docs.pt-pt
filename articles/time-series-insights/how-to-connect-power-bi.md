@@ -7,13 +7,13 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.date: 01/07/2020
+ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705981"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749377"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizar dados de Time Series Insights no Power BI
 
@@ -41,8 +41,8 @@ Lembre-se de inscrever-se para uma [assinatura gratuita do Azure](https://azure.
 
 Para conectar seu ambiente de Time Series Insights ao Power BI, siga estas etapas:
 
-1. Abrir Time Series Insights Explorer                      
-1. Exportar dados como uma consulta ou dados brutos                       
+1. Abrir Time Series Insights Explorer
+1. Exportar dados como uma consulta ou dados brutos
 1. Abrir Power BI Desktop
 1. Carregar da consulta personalizada
 
@@ -51,13 +51,14 @@ Para conectar seu ambiente de Time Series Insights ao Power BI, siga estas etapa
 Para começar:
 
 1. Abra o Time Series Insights Gerenciador de visualização e visualize seus dados.
-1. Depois de criar uma exibição com a qual você está satisfeito, navegue até o menu suspenso **mais ações** e clique em **conectar-se a Power bi**. 
+1. Depois de criar uma exibição com a qual você está satisfeito, navegue até o menu suspenso **mais ações** e clique em **conectar-se a Power bi**.
 
     [![Time Series Insights exportar Gerenciador de visualização](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Defina os parâmetros nesta guia:
 
-   1. Especifique um período de tempo relativo a ser exibido. Se você estiver satisfeito com o modo de exibição existente, deixe isso como um **período de tempo existente**. 
+   1. Especifique um período de tempo relativo a ser exibido. Se você estiver satisfeito com o modo de exibição existente, deixe isso como um **período de tempo existente**.
+   
    1. Escolha entre eventos **agregados** e **brutos**. 
    
        > [!NOTE]
@@ -70,7 +71,7 @@ Para começar:
 
    1. Se você não tiver configurado sua instância de Time Series Insights para **armazenamento quente**, receberá um aviso.
 
-       [![conectar](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![aviso de armazenamento quente](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
        > Você pode configurar sua instância existente para **armazenamento quente** na portal do Azure.

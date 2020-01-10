@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 765bbc352c493124c1adec68eff456f4d0de3d49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494302"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744870"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrar Apache Spark e Apache Hive com o conector do depósito do hive
 
@@ -58,7 +58,7 @@ Copie as informações de nó do arquivo `/etc/hosts` em headnode0 do seu cluste
 
 1. Navegue até **hive** > **configurações** > **avançado** > **Hive avançado-site** > **Hive. Zookeeper. quorum** e anote o valor. O valor pode ser semelhante a: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-1. Navegue até **hive** > **configurações** > **avançado** > **geral** > **Hive. metastore. URIs** e observe o valor. O valor pode ser semelhante a: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Navegue até **hive** > **configurações** > **avançado** > **geral** > **Hive. metastore. URIs** e observe o valor. O valor pode ser semelhante a: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
 #### <a name="from-your-apache-spark-cluster"></a>Do seu cluster Apache Spark
 
@@ -91,7 +91,7 @@ Salve as alterações e reinicie os componentes conforme necessário.
 
 Você pode escolher entre alguns métodos diferentes para se conectar ao seu cluster de consulta interativa e executar consultas usando o conector do depósito do hive. Os métodos com suporte incluem as seguintes ferramentas:
 
-* [Spark-Shell](../spark/apache-spark-shell.md)
+* [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
 * Spark – enviar
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
@@ -107,7 +107,7 @@ Para iniciar uma sessão do Spark-Shell, execute as seguintes etapas:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
@@ -132,7 +132,7 @@ O Enterprise Security Package (ESP) fornece recursos de nível corporativo como 
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 3368f72aeb7909c3e0a8653bb5b094729c4c45ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228027"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749852"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as práticas recomendadas de segurança para VMs e sistemas operacionais.
@@ -81,7 +81,7 @@ Você pode integrar o Microsoft antimalware e as soluções de parceiros à [cen
 **Detalhe**: [gerenciar problemas do Endpoint Protection com a central de segurança](../../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Gerenciar suas atualizações de VM
-As VMs do Azure, como todas as VMs locais, devem ser gerenciadas pelo usuário. O Azure não envia por push atualizações do Windows para eles. Você precisa gerenciar as atualizações da VM.
+As VMs do Azure, como todas as VMs locais, devem ser gerenciadas pelo usuário. O Azure não emite atualizações do Windows para as VMs. Você precisa gerenciar as atualizações da VM.
 
 **Prática recomendada**: Mantenha suas VMs atuais.   
 **Detalhe**: Use a solução [Gerenciamento de atualizações](../../automation/automation-update-management.md) na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux implantados no Azure, em ambientes locais ou em outros provedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
@@ -99,7 +99,7 @@ Se você usar Windows Update, deixe a configuração de Windows Update automáti
 **Detalhe**: Verifique e instale todas as atualizações do Windows como uma primeira etapa de cada implantação. Essa medida é especialmente importante para se aplicar ao implantar imagens provenientes de você ou de sua própria biblioteca. Embora as imagens do Azure Marketplace sejam atualizadas automaticamente por padrão, pode haver um tempo de retardo (até algumas semanas) após uma versão pública.
 
 **Prática recomendada**: reimplante periodicamente suas VMs para forçar uma nova versão do sistema operacional.   
-**Detalhe**: defina sua VM com um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para que você possa reimplantá-lo facilmente. O uso de um modelo fornece uma VM com patch e segurança quando você precisa dela.
+**Detalhe**: defina sua VM com um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para que você possa reimplantá-lo facilmente. O uso de um modelo fornece uma VM com patch e segurança quando você precisa dela.
 
 **Prática recomendada**: aplicar rapidamente atualizações de segurança às VMs.   
 **Detalhe**: habilitar a central de segurança do Azure (camada gratuita ou Standard) para [identificar atualizações de segurança ausentes e aplicá-las](../../security-center/security-center-apply-system-updates.md).
@@ -139,7 +139,7 @@ O abuso de recursos pode ser um problema quando processos de VM consomem mais re
 
 Recomendamos que você use [Azure monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) para obter visibilidade da integridade do recurso. Recursos de Azure Monitor:
 
-- [Arquivos de log de diagnóstico de recurso](../../azure-monitor/platform/resource-logs-overview.md): monitora os recursos da VM e identifica possíveis problemas que podem comprometer o desempenho e a disponibilidade.
+- [Arquivos de log de diagnóstico de recurso](../../azure-monitor/platform/platform-logs-overview.md): monitora os recursos da VM e identifica possíveis problemas que podem comprometer o desempenho e a disponibilidade.
 - [Extensão de diagnóstico do Azure](/azure/azure-monitor/platform/diagnostics-extension-overview): fornece recursos de monitoramento e diagnóstico em VMs do Windows. Você pode habilitar esses recursos incluindo a extensão como parte do modelo de [Azure Resource Manager](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 As organizações que não monitoram o desempenho da VM não podem determinar se determinadas alterações nos padrões de desempenho são normais ou anormais. Uma VM que está consumindo mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução na VM.
@@ -152,13 +152,13 @@ Recomendamos que você criptografe seus VHDs (discos rígidos virtuais) para aju
 A seguir estão as práticas recomendadas para usar Azure Disk Encryption:
 
 **Prática recomendada**: habilitar a criptografia em VMS.   
-**Detalhe**: Azure Disk Encryption gera e grava as chaves de criptografia em seu cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, você pode usar a autenticação baseada em segredo do cliente ou a [autenticação do Azure ad baseada em certificado do cliente](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Detalhe**: Azure Disk Encryption gera e grava as chaves de criptografia em seu cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Prática recomendada**: Use uma chave de criptografia de chave (Kek) para obter uma camada adicional de segurança para chaves de criptografia. Adicione um KEK ao cofre de chaves.   
 **Detalhe**: Use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de criptografia de chave no cofre de chaves. Você também pode importar um KEK do seu HSM (módulo de segurança de hardware) local para o gerenciamento de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução dessa chave em um HSM de gerenciamento de chaves local oferece proteção adicional contra a exclusão acidental de chaves.
 
 **Prática recomendada**: faça um [instantâneo](../../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou backup antes que os discos sejam criptografados. Os backups fornecem uma opção de recuperação se ocorrer uma falha inesperada durante a criptografia.   
-**Detalhe**: as VMs com discos gerenciados exigem um backup antes que a criptografia ocorra. Depois que um backup é feito, você pode usar o cmdlet **set-AzVMDiskEncryptionExtension** para criptografar discos gerenciados especificando o parâmetro *-skipVmBackup* . Para obter mais informações sobre como fazer backup e restaurar VMs criptografadas, consulte o artigo [backup do Azure](../../backup/backup-azure-vms-encryption.md) .
+**Detalhe**: as VMs com discos gerenciados exigem um backup antes que a criptografia ocorra. Depois que um backup é feito, você pode usar o cmdlet **set-AzVMDiskEncryptionExtension** para criptografar discos gerenciados especificando o parâmetro *-skipVmBackup* . Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../../backup/backup-azure-vms-encryption.md) artigo.
 
 **Prática recomendada**: para garantir que os segredos de criptografia não entrem em limites regionais, Azure Disk Encryption precisa que o cofre de chaves e as VMs estejam localizados na mesma região.   
 **Detalhe**: Crie e use um cofre de chaves que esteja na mesma região que a VM a ser criptografada.
@@ -180,7 +180,7 @@ Monitore e restrinja a conectividade direta com a Internet da VM. Os invasores e
 **Prática recomendada**: restringir as portas de gerenciamento (RDP, SSH).   
 **Detalhe**: o [acesso à VM just-in-time (JIT)](../../security-center/security-center-just-in-time.md) pode ser usado para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o JIT está habilitado, a central de segurança bloqueia o tráfego de entrada para suas VMs do Azure criando uma regra de grupo de segurança de rede. Você seleciona as portas na VM para a qual o tráfego de entrada será bloqueado. Essas portas são controladas pela solução JIT.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.
 
 Os recursos a seguir estão disponíveis para fornecer informações mais gerais sobre segurança do Azure e serviços da Microsoft relacionados:

@@ -1,19 +1,15 @@
 ---
 title: Solucionando problemas do dimensionamento automático do Azure
 description: Rastreamento de problemas com o dimensionamento automático do Azure usado em Service Fabric, máquinas virtuais, aplicativos Web e serviços de nuvem.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893574"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751331"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
@@ -101,7 +97,7 @@ Na tela de configuração de dimensionamento automático, vá para a guia **hist
 
 ## <a name="autoscale-resource-logs"></a>Logs de recursos de dimensionamento automático
 
-O mesmo que qualquer outro recurso do Azure, o serviço de dimensionamento automático fornece [logs de recursos](resource-logs-overview.md). Há duas categorias de logs.
+O mesmo que qualquer outro recurso do Azure, o serviço de dimensionamento automático fornece [logs de recursos](platform-logs-overview.md). Há duas categorias de logs.
 
 - **Avaliações de dimensionamento automático** -o mecanismo de dimensionamento automático registra entradas de log para cada avaliação de condição única toda vez que faz uma verificação.  A entrada inclui detalhes sobre os valores observados das métricas, as regras avaliadas e se a avaliação resultou em uma ação de escala ou não.
 

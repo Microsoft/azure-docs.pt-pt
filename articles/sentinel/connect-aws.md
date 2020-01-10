@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 61bee1618092788da33549ec322dc4ab7130de16
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 2913ef93d610b1d6a0ea57d79b27aee329838d25
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244687"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75610748"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
 
@@ -83,4 +83,5 @@ Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel
 Neste documento, você aprendeu a conectar o AWS CloudTrail ao Azure sentinela. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
 - Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
 

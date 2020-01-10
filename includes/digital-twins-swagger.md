@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: 57373f31b91be81021d3f8382331d491e39b0f9c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 096e28c875634e248ee95e1010fa915dd35bddab
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74062916"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752376"
 ---
 > [!TIP]
 > Uma visualização de espiadas do Swagger é fornecida para demonstrar o conjunto de recursos da API.

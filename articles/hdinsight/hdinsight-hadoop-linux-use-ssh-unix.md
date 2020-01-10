@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 58a00d36120a4f8bbab0388f02f414c7f48b47b9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f4ca521e13ac51d7df4917e75fdf1c21b1e9cfa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028752"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751104"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conectar-se ao HDInsight (Apache Hadoop) usando SSH
 
@@ -54,7 +54,7 @@ O Microsoft Windows não instala clientes SSH por padrão. Os clientes `ssh` e `
 
 Também há vários clientes SSH gráficos [, como reproduzida e](https://www.chiark.greenend.org.uk/~sgtatham/putty/) [MobaXterm](https://mobaxterm.mobatek.net/). Embora estes clientes possam ser utilizados para ligar ao HDInsight, o processo de ligação é diferente relativamente à utilização do utilitário `ssh`. Para obter mais informações, consulte a documentação do cliente gráfico que você está usando.
 
-## <a id="sshkey"></a>Authentication Chaves SSH
+## <a id="sshkey"></a>Autenticação: chaves SSH
 
 As chaves SSH usam [criptografia de chave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) para autenticar sessões ssh. As chaves SSH são mais seguras do que as palavras-passe e proporcionam uma forma fácil de proteger o acesso ao seu cluster do Hadoop.
 
@@ -93,7 +93,7 @@ Você será solicitado a fornecer informações durante o processo de criação 
 | CLI do Azure | Use o parâmetro `--sshPublicKey` do comando [AZ hdinsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) e passe o conteúdo da chave pública como uma cadeia de caracteres. |
 | Modelo do Resource Manager | Para obter um exemplo de como utilizar chaves SSH com um modelo, veja [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Implementar o HDInsight no Linux com uma chave SSH). O elemento `publicKeys` no ficheiro [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) é utilizado para transmitir as chaves ao Azure ao criar o cluster. |
 
-## <a id="sshpassword"></a>Authentication Palavra-passe
+## <a id="sshpassword"></a>Autenticação: palavra-passe
 
 As contas SSH podem ser protegidas através de palavra-passe. Ao se conectar ao HDInsight usando SSH, você será solicitado a inserir a senha.
 
@@ -116,9 +116,9 @@ As contas SSH podem ser protegidas através de palavra-passe. Ao se conectar ao 
 
 Para obter informações sobre como alterar a palavra-passe da conta do utilizador SSH, veja a secção __Change passwords__ (Alterar palavras-passe) do documento [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) (Gerir o HDInsight).
 
-## <a id="domainjoined"></a>Authentication HDInsight ingressado no domínio
+## <a id="domainjoined"></a>Autenticação: HDInsight associado a um domínio
 
-Se você estiver usando um __cluster HDInsight ingressado no domínio__, deverá usar o comando `kinit` após a conexão com o usuário local SSH. Este comando pede-lhe um utilizador e uma palavra-passe de domínio e autentica a sua sessão com o domínio do Azure Active Directory associado ao cluster.
+Se você estiver usando um __cluster HDInsight ingressado no domínio__, deverá usar o comando `kinit` depois de se conectar com o usuário local SSH. Este comando pede-lhe um utilizador e uma palavra-passe de domínio e autentica a sua sessão com o domínio do Azure Active Directory associado ao cluster.
 
 Você também pode habilitar a autenticação Kerberos em cada nó ingressado no domínio (por exemplo, nó de cabeçalho, nó de borda) para SSH usando a conta de domínio. Para editar este ficheiro de configuração de sshd:
 
@@ -161,7 +161,7 @@ Os nós principais e o nó de extremidade (caso exista um) podem ser acedidos at
 > [!IMPORTANT]  
 > Os exemplos anteriores pressupõem que está a utilizar a autenticação por palavra-passe ou a autenticação de certificados está a ocorrer automaticamente. Se utilizar um par de chaves SSH para a autenticação e o certificado não for utilizado automaticamente, utilize o parâmetro `-i` para especificar a chave privada. Por exemplo, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Uma vez conectado, o prompt é alterado para indicar o nome de usuário SSH e o nó ao qual você está conectado. Por exemplo, quando estiver ligado ao nó principal primário como `sshuser`, a linha de comandos é `sshuser@hn0-clustername:~$`.
+Uma vez conectado, o prompt é alterado para indicar o nome de usuário SSH e o nó ao qual você está conectado. Por exemplo, quando estiver ligado ao nó principal primário como `sshuser`, a linha de comandos é `sshuser@<active-headnode-name>:~$`.
 
 ### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>Conectar-se aos nós Worker e Apache Zookeeper
 
@@ -218,7 +218,7 @@ Se a conta SSH for protegida por __chaves SSH__, certifique-se de que o encaminh
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    Se nada for retornado, `ssh-agent` não será executado. Para obter mais informações, veja as informações de scripts de arranque do agente em [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Utilizar o ssh-agent com ssh) ou veja a documentação do cliente SSH.
+    Se nada for retornado, `ssh-agent` não estará em execução. Para obter mais informações, veja as informações de scripts de arranque do agente em [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Utilizar o ssh-agent com ssh) ou veja a documentação do cliente SSH.
 
 4. Depois de verificar se o **ssh-agent** está em execução, use o seguinte para adicionar sua chave privada SSH ao agente:
 

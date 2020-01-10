@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/6/2019
+ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931070"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749597"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente de Sincronização de Arquivos do Azure
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -23,9 +23,10 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Marco | Número de versão do agente | Data da versão | Estado |
+| Marco | Número de versão do agente | Data de lançamento | Estado |
 |----|----------------------|--------------|------------------|
-| V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Com suporte-comprovante |
+| Pacote cumulativo de atualizações de dezembro de 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 de dezembro de 2019 | Suportadas |
+| V9 versão – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 de dezembro de 2019 | Suportadas |
 | V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 de julho de 2019 | Suportadas |
@@ -43,6 +44,15 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-9100"></a>Versão do agente 9.1.0.0
+As notas de versão a seguir são para a versão 9.1.0.0 do agente de Sincronização de Arquivos do Azure lançado em 12 de dezembro de 2019. Essas notas são além das notas de versão listadas para a versão 9.0.0.0.
+
+Problema corrigido nesta versão:  
+- A sincronização falha com um dos seguintes erros após a atualização para o Sincronização de Arquivos do Azure Agent versão 9,0:
+    - 0x8e5e044e (JET_errWriteConflict)
+    - 0x8e5e0450 (JET_errInvalidSesid)
+    - 0x8e5e0442 (JET_errInstanceUnavailable)
 
 ## <a name="agent-version-9000"></a>Versão do agente 9.0.0.0
 As notas de versão a seguir são para a versão 9.0.0.0 do agente de Sincronização de Arquivos do Azure (lançado em 2 de dezembro de 2019).
@@ -116,7 +126,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 - Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
 - Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis. Para saber mais, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
-- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
 - Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.
@@ -132,6 +142,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.
 - Ao copiar arquivos usando o Robocopy, use a opção/MIR para preservar os carimbos de data/hora do arquivo. Isso garantirá que os arquivos mais antigos estejam em camadas antes dos arquivos acessados recentemente.
+- Os arquivos podem falhar na camada se o arquivo de paginação. sys estiver localizado em um volume que tenha a camada de nuvem habilitada. O arquivo de paginação. sys deve estar localizado em um volume que tenha a camada de nuvem desabilitada.
 
 ## <a name="agent-version-8000"></a>Versão do agente 8.0.0.0
 As notas de versão a seguir são para a versão 8.0.0.0 do agente de Sincronização de Arquivos do Azure (lançado em 8 de outubro de 2019).
@@ -183,7 +194,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 - Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
 - Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis. Para saber mais, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
-- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
 - Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.
@@ -276,7 +287,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 - Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
 - Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis.
-- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
 - Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.
@@ -373,7 +384,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 - Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
 - Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis.
-- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
 - Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.
@@ -471,7 +482,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="server-endpoint"></a>Ponto de extremidade do servidor
 - Só é possível criar um ponto final do servidor num volume NTFS. O ReFS, FAT, FAT32 e outros sistemas de ficheiros não são atualmente suportados pelo Azure File Sync.
 - Arquivos em camadas se tornarão inacessíveis se os arquivos não forem recuperados antes de excluir o ponto de extremidade do servidor. Para restaurar o acesso aos arquivos, recrie o ponto de extremidade do servidor. Se forem aprovados 30 dias desde que o ponto de extremidade do servidor foi excluído ou se o ponto de extremidade de nuvem foi excluído, os arquivos em camadas que não foram rechamados serão inutilizáveis.
-- Não há suporte para a disposição em camadas na nuvem no volume do sistema. Para criar um ponto de extremidade do servidor no volume do sistema, desabilite a camada da nuvem ao criar o ponto de extremidade do servidor.
+- O arrumo na cloud não é suportado no volume de sistema. Para criar um ponto final do servidor no volume de sistema, desative o arrumo na cloud ao criar o ponto final do servidor.
 - O Clustering de Ativação Pós-falha só é suportado com discos em cluster, mas não com Volumes Partilhados de Cluster (CSVs).
 - Não é possível aninhar um ponto final do servidor. Pode coexistir no mesmo volume em paralelo com outro ponto final.
 - Não armazene um arquivo de paginação do sistema operacional ou aplicativo em um local de ponto de extremidade do servidor.

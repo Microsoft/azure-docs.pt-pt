@@ -6,19 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7b44597b24adce05498eed273c9494cae3360ed6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 271a4f116b8b929e17c3a0379bef91d6b80e1490
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168805"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754449"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
-O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. Trata-se de um firewall totalmente com estado como um serviço com alta disponibilidade interna e escalabilidade de nuvem irrestrita.
+O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall com total monitoração de estado como um serviço com elevada disponibilidade incorporada e escalabilidade da cloud sem restrições.
 
 ![Descrição geral das firewalls](media/overview/firewall-threat.png)
 
@@ -94,7 +94,7 @@ Todos os eventos são integrados com o Azure Monitor, permitindo que você arqui
 
 O Firewall do Azure é o setor de cartão de pagamento (PCI), os controles de organização de serviço (SOC) e o Organização Internacional de Normalização (ISO) em conformidade. Atualmente, ele dá suporte a SOC 1 tipo 2, SOC 2 tipo 2, SOC 3, PCI DSS e ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
 
-Para obter mais informações, veja o [Guia de Conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
+Para obter mais informações, consulte o [Guia de conformidade da Microsoft](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -106,7 +106,6 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Suporte do PowerShell e CLI em falta para ICMP|O Azure PowerShell e a CLI não suportam o ICMP como um protocolo válido nas regras de rede.|Ainda é possível usar o ICMP como um protocolo por meio do portal e da API REST. Estamos trabalhando para adicionar o ICMP no PowerShell e na CLI em breve.|
 |As etiquetas FQDN requerem um protocolo: porta a definir|As regras de aplicativo com marcas de FQDN exigem a definição de protocolo Port:.|Pode utilizar **https** como a porta: valor de protocolo. Estamos trabalhando para tornar esse campo opcional quando marcas de FQDN são usadas.|
 |Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso mapa de estrada. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
-|Intervalo de portas em regras de aplicativos e de rede|As portas são limitadas a 64.000, pois as portas altas são reservadas para investigações de gerenciamento e integridade. |Estamos trabalhando para relaxar essa limitação.|
 |Os alertas de inteligência contra ameaças podem ser mascarados|As regras de rede com o destino 80/443 para filtragem de saída mascaram alertas de inteligência contra ameaças quando configuradas para o modo somente alerta.|Criar filtragem de saída para 80/443 usando regras de aplicativo. Ou então, altere o modo de inteligência contra ameaças para **alertar e negar**.|
 |O Firewall do Azure usa o DNS do Azure somente para resolução de nomes|O Firewall do Azure resolve FQDNs usando apenas o DNS do Azure. Não há suporte para um servidor DNS personalizado. Não há nenhum impacto na resolução de DNS em outras sub-redes.|Estamos trabalhando para relaxar essa limitação.|
 |O Firewall do Azure SNAT/DNAT não funciona para destinos de IP privado|O suporte ao firewall do Azure SNAT/DNAT é limitado à saída/entrada na Internet. O SNAT/DNAT não funciona atualmente para destinos IP privados. Por exemplo, spoke para spoke.|Essa é uma limitação atual.|

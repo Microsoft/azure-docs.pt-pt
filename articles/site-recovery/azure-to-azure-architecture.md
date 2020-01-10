@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 1/08/2020
 ms.author: raynew
-ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621114"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754510"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -63,7 +63,7 @@ Você pode gerenciar os recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão Site Recovery cria uma nova política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Predefinição**
+**Definição de política** | **Detalhes** | **Predefinição**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneo consistente com o aplicativo** | Com que frequência Site Recovery usa um instantâneo consistente com o aplicativo. | A cada quatro horas
@@ -145,17 +145,19 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 **Régua** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Repositório.\<> de nome de região.
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de origem | Repositório.\<nome da região >
 Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD).<br/><br/> Se os endereços do Azure AD forem adicionados no futuro, você precisará criar novas regras de NSG (grupo de segurança de rede).  | AzureActiveDirectory
-Permitir saída HTTPS: porta 443 | Permitir acesso a [site Recovery pontos de extremidade](https://aka.ms/site-recovery-public-ips) que correspondem ao local de destino. 
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub.\<nome da região >
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 
 #### <a name="target-region-rules"></a>Regras de região de destino
 
 **Régua** |  **Detalhes** | **Etiqueta de serviço**
 --- | --- | --- 
-Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino. | Repositório.\<> de nome de região.
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<nome da região >
 Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem ao Azure AD.<br/><br/> Se os endereços do Azure AD forem adicionados no futuro, você precisará criar novas regras do NSG.  | AzureActiveDirectory
-Permitir saída HTTPS: porta 443 | Permitir acesso a [site Recovery pontos de extremidade](https://aka.ms/site-recovery-public-ips) que correspondem ao local de origem. 
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub.\<nome da região >
+Permitir saída HTTPS: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras NSG

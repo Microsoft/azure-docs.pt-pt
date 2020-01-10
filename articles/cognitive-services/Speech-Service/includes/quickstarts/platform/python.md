@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 095c591f63cb228b48681ffc67499820631bbaf5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 218d0dca43d126c1318c273603a4980697c465af
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816461"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752350"
 ---
 Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python.
 
@@ -47,7 +47,7 @@ Este guia mostra como instalar o [SDK de fala](~/articles/cognitive-services/spe
         ```
 
 - No Windows, você precisa do [Microsoft Visual C++ redistribuível para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma. Observe que a instalação desta pela primeira vez pode exigir que você reinicie o Windows antes de continuar com este guia.
-- E, finalmente, você precisará do [Python 3,5 ou posterior](https://www.python.org/downloads/). Para verificar sua instalação, abra um prompt de comando e digite o comando `python --version` e verifique o resultado. Se ele estiver instalado corretamente, você receberá uma resposta "Python 3.5.1" ou semelhante.
+- E, finalmente, você precisará do [Python 3,5, 3,6 ou 3,7](https://www.python.org/downloads/). Para verificar sua instalação, abra um prompt de comando e digite o comando `python --version` e verifique o resultado. Se ele estiver instalado corretamente, você receberá uma resposta "Python 3.5.1" ou semelhante.
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Instalar o SDK de fala usando Visual Studio Code
 

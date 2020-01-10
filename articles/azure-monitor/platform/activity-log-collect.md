@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 40025e2347fa80d2717ba292f6e3d74f5dda8e5c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931417"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745623"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor
 
 > [!WARNING]
 > Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-subscription.md).
 
-O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Este artigo descreve como coletar o log de atividades em um espaço de trabalho Log Analytics e como usar a [solução de monitoramento](../insights/solutions.md)de análise do log de atividades, que fornece consultas de log e exibições para a análise desses dados. 
+O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Este artigo descreve como coletar o log de atividades em um espaço de trabalho Log Analytics e como usar a [solução de monitoramento](../insights/solutions.md)de análise do log de atividades, que fornece consultas de log e exibições para a análise desses dados. 
 
 Conectar o log de atividades a um espaço de trabalho Log Analytics fornece os seguintes benefícios:
 
@@ -47,7 +47,7 @@ Use o procedimento a seguir para conectar o log de atividades ao seu espaço de 
     ![Conectar espaços de trabalho](media/activity-log-export/connect-workspace.png)
 
 ## <a name="analyze-in-log-analytics-workspace"></a>Analisar no espaço de trabalho Log Analytics
-Quando você conecta um log de atividades a um espaço de trabalho Log Analytics, as entradas são gravadas no espaço de trabalho em uma tabela chamada **AzureActivity** que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-logs-overview.md#categories-in-the-activity-log). Consulte [esquema de eventos do log de atividades do Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
+Quando você conecta um log de atividades a um espaço de trabalho Log Analytics, as entradas são gravadas no espaço de trabalho em uma tabela chamada **AzureActivity** que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-view.md#categories-in-the-activity-log). Consulte [esquema de eventos do log de atividades do Azure](activity-log-schema.md) para obter uma descrição de cada categoria.
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Solução de monitoramento de análise de logs de atividades
 A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics.
@@ -74,6 +74,6 @@ Clique no bloco **logs de atividade do Azure** para abrir a exibição **logs de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [log de atividades](activity-logs-overview.md).
+- Saiba mais sobre o [log de atividades](platform-logs-overview.md).
 - Saiba mais sobre a [plataforma de dados Azure monitor](data-platform.md).
 - Use [consultas de log](../log-query/log-query-overview.md) para exibir informações detalhadas do seu log de atividades.

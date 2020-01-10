@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225392"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754247"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 
@@ -48,7 +48,7 @@ Para implementar um balanceador de carga, têm de ser criados os objetos seguint
 * Configuração de sonda: as sondas de estado de funcionamentos para máquinas virtuais.
 * Regras NAT de entrada: as regras de porta para acesso direto às máquinas virtuais.
 
-Para obter mais informações sobre os componentes dos balanceadores de carga, veja [Azure Resource Manager support for load balancer](load-balancer-arm.md) (Suporte do Azure Resource Manager para balanceamento de carga).
+Para obter mais informações sobre componentes do balanceador de carga, consulte [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
 
 Os seguintes passos explicam como configurar um balanceador de carga entre duas máquinas virtuais.
 
@@ -90,7 +90,7 @@ Crie um grupo de recursos novo para o balanceador de carga. Ignore este passo se
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização, que é utilizada como a predefinição para todos os recursos no grupo de recursos. Utilize sempre o mesmo grupo de recursos para todos os comandos relacionados com a criação do balanceador de carga.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. que é utilizada como a predefinição para todos os recursos no grupo de recursos. Utilize sempre o mesmo grupo de recursos para todos os comandos relacionados com a criação do balanceador de carga.
 
 Neste exemplo, criámos um grupo de recursos denominado **NRP-RG**, com a localização E.U.A. Oeste.
 
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>Remover um balanceador de carga existente
 
-Utilize o comando **para eliminar o balanceador de carga**NRP-LB**no grupo de recursos**NRP-RG`Remove-AzLoadBalancer`:
+Utilize o comando `Remove-AzLoadBalancer` para eliminar o balanceador de carga **NRP-LB** no grupo de recursos **NRP-RG**:
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: d4bcb8475f822675d39ca8e542155779384eacf1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0b4975984abf4a36f7d61b42f365eeb1b2902abf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087840"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750021"
 ---
-# <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Cenário: Erro do Apache Ambari UI 502 no Azure HDInsight
+# <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Cenário: erro do Apache Ambari UI 502 no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
@@ -49,10 +49,10 @@ service ambari-server start
 
 ### <a name="ambari-server-killed-by-oom-killer"></a>Servidor Ambari eliminado por Oom-Killer
 
-Em alguns cenários, o cabeçalho fica sem memória e o Linux Oom-Killer começa a escolher os processos a serem eliminados. Você pode verificar essa situação pesquisando a ID do processo AmbariServer, que não deve ser encontrada. Em seguida, examine `/var/log/syslog`seu e procure algo assim:
+Em alguns cenários, o cabeçalho fica sem memória e o Linux Oom-Killer começa a escolher os processos a serem eliminados. Você pode verificar essa situação pesquisando a ID do processo AmbariServer, que não deve ser encontrada. Em seguida, examine sua `/var/log/syslog`e procure algo assim:
 
 ```
-Jul 27 15:29:30 hn0-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
+Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
 ```
 
 Em seguida, identifique quais processos estão usando lembranças e tente uma maior causa raiz.
@@ -65,12 +65,12 @@ Raramente o servidor Ambari não pode lidar com a solicitação de entrada, voc�
 Error Processing URI: /api/v1/clusters/xxxxxx/host_components - (java.lang.OutOfMemoryError) Java heap space
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
 * Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

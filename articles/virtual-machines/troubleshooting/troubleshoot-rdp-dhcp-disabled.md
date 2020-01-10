@@ -12,32 +12,31 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058027"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749890"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas de virtuais do Azure, porque o serviço de cliente DHCP é desativado
 
 Este artigo descreve um problema em que não é possível o ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) depois do serviço de cliente DHCP está desativado na VM.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Sintomas
 Não pode fazer uma ligação RDP uma VM no Azure, porque o serviço de cliente DHCP está desativado na VM. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, verá a VM arranca normalmente e aguarda que as credenciais no ecrã de início de sessão. Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que o serviço de cliente DHCP não estiver iniciado ou não conseguir iniciar. Registo de um exemplo a seguir:
 
-**Nome do log**: Sistema </br>
-**Origem**: Gerenciador de controle de serviço </br>
-**Data**: 12/16/2015 11:19:36 AM </br>
-**ID do evento**: 7022 </br>
-**Categoria da tarefa**: Nenhum </br>
-**Nível**: Erro </br>
-**Palavras-chave**: Clássica</br>
-**Usuário**: N/A </br>
+**Nome de registo**: sistema </br>
+**Origem**: Gestor de controlo de serviço </br>
+**Data**: 12/16/2015:19:36 às 11H </br>
+**ID de evento**: 7022 </br>
+**Categoria de tarefas**: nenhum </br>
+**Nível**: erro </br>
+**Palavras-chave**: clássico</br>
+**Utilizador**: n/d </br>
 **Computador**: myvm.cosotos.com</br>
-**Descrição**: O serviço cliente DHCP parou ao iniciar.</br>
+**Descrição**: serviço de cliente de DHCP a suspenso sobre como iniciar.</br>
 
 Para VMs do Resource Manager, pode utilizar a funcionalidade de consola de acesso de série a consulta para o evento registos 7022 com o seguinte comando:
 
@@ -183,7 +182,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
 1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação. Certifique-se de que o disco ligado é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
-3.  Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Este script presume que é a letra de unidade que está atribuída ao disco do SO anexado **F**. Substitua a letra conforme adequado com o valor na sua VM.
+3.  Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Esse script pressupõe que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua a letra conforme apropriado com o valor em sua VM.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
@@ -201,6 +200,6 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
 4. [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema é resolvido.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) conseguir resolver o seu problema.

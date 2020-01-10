@@ -7,19 +7,19 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: af47195a336739d604f0eb40ce6c5c54e15547cb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894084"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750953"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Serviços, esquemas e categorias com suporte para logs de recursos do Azure
 
 > [!NOTE]
 > Os logs de recursos eram anteriormente conhecidos como logs de diagnóstico.
 
-[Azure monitor logs de recursos](../../azure-monitor/platform/resource-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
+[Azure monitor logs de recursos](../../azure-monitor/platform/platform-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
 
 Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e o `category` identificar exclusivamente um esquema. Este artigo descreve o esquema de nível superior para logs de recursos e links para o Schemata para cada serviço.
 
@@ -65,7 +65,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | Gestor de Dados | [Monitorar fábricas de dados usando Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Acessando logs para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Arquivo do Data Lake |[Acessando logs para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Hubs de Eventos |[Logs de hubs de eventos do Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| Event Hubs |[Logs de hubs de eventos do Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Esquema não disponível. |
 | Azure Firewall | Esquema não disponível. |
 | Hub IoT | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
@@ -77,7 +77,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | Proteção contra DDOS | [Gerenciar a proteção contra DDoS do Azure Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI Dedicado | [Registro em log para Power BI Embedded no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
-| Procurar |[Habilitando e usando o Análise de Tráfego de pesquisa](../../search/search-traffic-analytics.md) |
+| Search |[Habilitando e usando o Análise de Tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Service Bus |[Logs do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Log do banco de dados SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Logs de trabalho](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -313,7 +313,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/resource-logs-overview.md)
+* [Saiba mais sobre os logs de recursos](../../azure-monitor/platform/platform-logs-overview.md)
 * [Transmitir logs de recurso de recurso para **hubs de eventos**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 * [Alterar as configurações de diagnóstico do log de recursos usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

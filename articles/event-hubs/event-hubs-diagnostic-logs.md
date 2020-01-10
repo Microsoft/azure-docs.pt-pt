@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260843"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750725"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnóstico para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para os Hubs de eventos do Azure:
 
-* **[Logs de atividade](../azure-monitor/platform/activity-logs-overview.md)** : Esses logs têm informações sobre as operações executadas em um trabalho. Os registos são sempre ativados.
-* **[Logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md)** : Você pode configurar os logs de diagnóstico para uma exibição mais rica de tudo o que acontece com um trabalho. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+* **[Registos de atividades](../azure-monitor/platform/platform-logs-overview.md)** : estes registos têm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
+* **[Os registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : pode configurar os registos de diagnóstico para uma vista mais avançada de tudo o que acontece com uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 
@@ -54,7 +54,7 @@ Os registos de diagnóstico estão desativados por predefinição. Para ativar o
 
 Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, registos de constar no destino arquivamento configurado, o **registos de diagnóstico** painel.
 
-Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md).
+Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 
@@ -138,7 +138,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md)
 * [Descrição geral da API dos Hubs de Eventos](event-hubs-api-overview.md)
 * [Introdução ao Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

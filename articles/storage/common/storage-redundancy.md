@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670787"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748170"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -38,19 +38,21 @@ A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e d
 | Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
 | Uma interrupção em toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
 | Acesso de leitura aos seus dados (em uma região remota de replicação geográfica) no caso de indisponibilidade em toda a região | Não                              | Não                               | Sim (com RA-GRS)                                   | Sim (com RA-GZRS)                                 |
-| Projetado para fornecer \_ \_ durabilidade de objetos em um determinado ano                                          | pelo menos 99,999999999% (11 9 ' s) | pelo menos 99,9999999999% (12 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) |
-| Tipos de conta de armazenamento com suporte                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| SLA de disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) para GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GRS | Pelo menos 99,9% (99% para a camada de acesso fria) para GZRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GZRS |
-| SLA de disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) |
+| Projetado para fornecer \_\_ durabilidade de objetos em um determinado ano<sup>1</sup>                                          | pelo menos 99,999999999% (11 9 ' s) | pelo menos 99,9999999999% (12 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) | pelo menos 99.99999999999999% (16 9 ' s) |
+| Tipos de conta de armazenamento com suporte<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
+| SLA de disponibilidade para solicitações de leitura<sup>1</sup>  | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) para GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GRS | Pelo menos 99,9% (99% para a camada de acesso fria) para GZRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso fria) para RA-GZRS |
+| SLA de disponibilidade para solicitações de gravação<sup>1</sup>  | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) | Pelo menos 99,9% (99% para a camada de acesso fria) |
 
-Todos os dados em sua conta de armazenamento são replicados, incluindo BLOBs de blocos e blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos. Todos os tipos de contas de armazenamento são replicados, embora ZRS exija uma conta de armazenamento v2 de uso geral.
+<sup>1</sup> para obter informações sobre as garantias de armazenamento do Azure quanto à durabilidade e disponibilidade, consulte o [SLA do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).   
 
-Para obter informações sobre preços para cada opção de redundância, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). 
+<sup>2</sup> para obter informações sobre tipos de conta de armazenamento, consulte [visão geral da conta de armazenamento](storage-account-overview.md).
 
-Para obter informações sobre as garantias de armazenamento do Azure quanto à durabilidade e disponibilidade, consulte o [SLA do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+Todos os dados de todos os tipos de contas de armazenamento são replicados, incluindo BLOBs de blocos, blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos.
+
+Para obter informações sobre preços para cada opção de redundância, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Atualmente, o armazenamento Premium do Azure dá suporte apenas ao LRS (armazenamento com redundância local).
+> O Azure Premium Armazenamento em Disco atualmente dá suporte apenas ao LRS (armazenamento localmente redundante). O armazenamento de blobs de blocos Premium do Azure dá suporte a LRS (armazenamento com redundância local) e ZRS (armazenamento com redundância de zona) em determinadas regiões.
 
 ## <a name="changing-replication-strategy"></a>Alterando a estratégia de replicação
 
@@ -67,13 +69,14 @@ Se você migrar sua conta de armazenamento de GRS para LRS, não haverá nenhum 
 
 Se você migrar sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta será cobrada como RA-GRS por um adicional 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
-- [Armazenamento com redundância de zona (ZRS): Aplicativos de armazenamento do Azure altamente disponíveis](storage-redundancy-zrs.md)
-- [Armazenamento com redundância geográfica (GRS): Replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)
+- [Visão geral da conta de armazenamento](storage-account-overview.md)
+- [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](storage-redundancy-lrs.md)
+- [ZRS (armazenamento com redundância de zona): aplicativos de armazenamento do Azure altamente disponíveis](storage-redundancy-zrs.md)
+- [Armazenamento com redundância geográfica (GRS): replicação entre regiões para o armazenamento do Azure](storage-redundancy-grs.md)
 - [Armazenamento com redundância de zona geográfica (GZRS) para alta disponibilidade e durabilidade máxima (versão prévia)](storage-redundancy-gzrs.md)
-- [Escalabilidade e metas de desempenho do armazenamento do Azure](storage-scalability-targets.md)
+- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md)
 - [Criando aplicativos altamente disponíveis usando o armazenamento RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Opções de redundância Armazenamento do Microsoft Azure e armazenamento com redundância geográfica com acesso de leitura](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP Paper – armazenamento do Azure: Um serviço de armazenamento em nuvem altamente disponível com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [SOSP Paper – armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

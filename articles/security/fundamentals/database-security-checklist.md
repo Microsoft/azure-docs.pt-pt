@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934734"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745703"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
 Para ajudar a melhorar a segurança, o banco de dados do Azure inclui vários controles de segurança internos que você pode usar para limitar e controlar o acesso.
 
-Estas incluem:
+As regiões incluem:
 
 -   Um firewall que permite criar regras de [Firewall](../../sql-database/sql-database-firewall-configure.md) limitando a conectividade por endereço IP,
 -   Firewall de nível de servidor acessível por meio do portal do Azure
@@ -35,12 +35,12 @@ Estas incluem:
 -   Usar o gerenciamento de acesso
 -   Encriptação de dados
 -   Auditoria da Base de Dados SQL
--   Deteção de ameaças da Base de Dados SQL
+-   Detecção de ameaças do banco de dados SQL
 
 ## <a name="introduction"></a>Introdução
 A computação em nuvem requer novos paradigmas de segurança que não são familiares para muitos usuários de aplicativos, administradores de banco de dados e programadores. Como resultado, algumas organizações estão hesitars a implementar uma infraestrutura de nuvem para gerenciamento de dados devido a riscos de segurança percebidos. No entanto, grande parte dessa preocupação pode ser aliviada por meio de uma melhor compreensão dos recursos de segurança incorporados ao Microsoft Azure e Banco de Dados SQL do Microsoft Azure.
 
-## <a name="checklist"></a>Lista de verificação
+## <a name="checklist"></a>Lista de Verificação
 Recomendamos que você leia o artigo [práticas recomendadas de segurança do banco de dados do Azure](database-best-practices.md) antes de examinar esta lista de verificação. Você poderá obter o máximo desta lista de verificação depois de entender as práticas recomendadas. Você pode usar essa lista de verificação para certificar-se de que você resolveu os problemas importantes na segurança de banco de dados do Azure.
 
 
@@ -50,10 +50,10 @@ Recomendamos que você leia o artigo [práticas recomendadas de segurança do ba
 | <br> Criptografia em movimento/trânsito| <ul><li>[Segurança da camada de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados estão sendo movidos para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) sobre TLS (segurança da camada de transporte).</li></ul> |
 |<br>Encriptação inativa| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), quando os dados inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
 |**Controlar o acesso**||  
-|<br> Acesso à Base de Dados | <ul><li>[Autenticação](../../sql-database/sql-database-control-access.md) do (Autenticação de Azure Active Directory) A autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>A [autorização](../../sql-database/sql-database-control-access.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
-|<br>Acesso ao aplicativo| <ul><li>[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131) (Usando a política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, na função ou no contexto de execução de um usuário).</li><li>[Máscara de dados dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (Usando a política de & de permissão, o limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios)</li></ul>|
+|<br> Acesso à Base de Dados | <ul><li>[Autenticação do AD](../../sql-database/sql-database-control-access.md) (autenticação de Azure Active Directory) usa identidades gerenciadas pelo Azure Active Directory.</li><li>A [autorização](../../sql-database/sql-database-control-access.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
+|<br>Acesso ao aplicativo| <ul><li>[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131) (usando a política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, na função ou no contexto de execução de um usuário).</li><li>[Máscara de dados dinâmicos](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (usando política de & de permissão, limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios)</li></ul>|
 |**Monitoramento proativo**||  
-| <br>Rastreando & detectando| <ul><li>A [auditoria](../../sql-database/sql-database-auditing.md) rastreia eventos de banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Azure monitor logs de atividades](../../azure-monitor/platform/activity-logs-overview.md).</li><li>A [detecção de ameaças](../../sql-database/sql-database-threat-detection.md) detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
+| <br>Rastreando & detectando| <ul><li>A [auditoria](../../sql-database/sql-database-auditing.md) rastreia eventos de banco de dados e os grava em um log de auditoria/log de atividades em sua [conta de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).</li><li>Acompanhe a integridade do banco de dados do Azure usando [Azure monitor logs de atividades](../../azure-monitor/platform/platform-logs-overview.md).</li><li>A [detecção de ameaças](../../sql-database/sql-database-threat-detection.md) detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados. </li></ul> |
 |<br>Centro de Segurança do Azure| <ul><li>[Monitoramento de dados](../../security-center/security-center-enable-auditing-on-sql-databases.md) Use a central de segurança do Azure como uma solução de monitoramento de segurança centralizada para SQL e outros serviços do Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusão

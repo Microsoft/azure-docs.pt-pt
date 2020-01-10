@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5dd698b28a01ed251492cf34e9da2dda4d0c2580
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 180b7c203755553c343e0f7fc65c93092b330124
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241992"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751321"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar a criptografia e autenticação do protocolo SSL (SSL) para Apache Kafka no Azure HDInsight
 
 Este artigo mostra como configurar a criptografia SSL entre Apache Kafka clientes e Apache Kafka agentes. Ele também mostra como configurar a autenticação de clientes (às vezes chamados de SSL bidirecional).
 
 > [!Important]
-> Há dois clientes que você pode usar para aplicativos Kafka: um cliente Java e um cliente de console. Somente o cliente Java `ProducerConsumer.java` pode usar SSL para produção e consumo. O cliente do produtor do console `console-producer.sh` não funciona com SSL.
+> Há dois clientes que você pode usar para aplicativos Kafka: um cliente Java e um cliente de console. Somente o `ProducerConsumer.java` de cliente Java pode usar SSL para produção e consumo. O `console-producer.sh` do cliente do produtor do console não funciona com SSL.
 
 ## <a name="apache-kafka-broker-setup"></a>Instalação do Apache Kafka Broker
 
@@ -36,7 +36,7 @@ O resumo do processo de configuração do agente é o seguinte:
 
 1. As etapas a seguir são repetidas em cada um dos três nós de trabalho:
 
-    1. Gerar um certificado.
+    1. Crie um certificado.
     1. Crie uma solicitação de assinatura de certificado.
     1. Envie a solicitação de assinatura de certificado para a autoridade de certificação (CA).
     1. Entre na AC e assine a solicitação.
@@ -49,7 +49,7 @@ O resumo do processo de configuração do agente é o seguinte:
 Use as seguintes instruções detalhadas para concluir a configuração do agente:
 
 > [!Important]
-> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído por `wn0`, `wn1` ou `wn2`, conforme apropriado. `WorkerNode0_Name` e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores, como `wn0-abcxyz` ou `hn0-abcxyz`.
+> Nos trechos de código a seguir, wnX é uma abreviação de um dos três nós de trabalho e deve ser substituído por `wn0`, `wn1` ou `wn2` conforme apropriado. `WorkerNode0_Name` e `HeadNode0_Name` devem ser substituídos pelos nomes dos respectivos computadores.
 
 1. Execute a configuração inicial no nó de cabeçalho 0, que para o HDInsight preencherá a função da autoridade de certificação (CA).
 
@@ -157,10 +157,10 @@ Para concluir a modificação de configuração, execute as seguintes etapas:
 
 Conclua as seguintes etapas para concluir a configuração do cliente:
 
-1. Entre no computador cliente (hn1).
+1. Entre no computador cliente (nó de cabeçalho de espera).
 1. Crie um repositório de chaves Java e obtenha um certificado assinado para o agente. Em seguida, copie o certificado para a VM em que a autoridade de certificação está em execução.
-1. Alterne para o computador da CA (hn0) para assinar o certificado do cliente.
-1. Vá para o computador cliente (hn1) e navegue até a pasta `~/ssl`. Copie o certificado assinado no computador cliente.
+1. Alterne para o computador da AC (nó de cabeçalho ativo) para assinar o certificado do cliente.
+1. Vá para o computador cliente (nó de cabeçalho de espera) e navegue até a pasta `~/ssl`. Copie o certificado assinado no computador cliente.
 
 ```bash
 cd ssl
@@ -174,11 +174,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
@@ -191,7 +191,7 @@ keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert 
 keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Por fim, exiba o arquivo `client-ssl-auth.properties` com o comando `cat client-ssl-auth.properties`. Ele deve ter as seguintes linhas:
+Por fim, exiba o arquivo `client-ssl-auth.properties` com o `cat client-ssl-auth.properties`de comando. Ele deve ter as seguintes linhas:
 
 ```bash
 security.protocol=SSL
@@ -226,7 +226,7 @@ keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cer
 keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-Por fim, exiba o arquivo `client-ssl-auth.properties` com o comando `cat client-ssl-auth.properties`. Ele deve ter as seguintes linhas:
+Por fim, exiba o arquivo `client-ssl-auth.properties` com o `cat client-ssl-auth.properties`de comando. Ele deve ter as seguintes linhas:
 
 ```bash
 security.protocol=SSL

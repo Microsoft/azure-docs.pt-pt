@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4708f2e0d6d4aadba228b82cf07e0a7f58b8f68a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0318f851f547aed7c7682c9e6841f71d56c98be1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825591"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750924"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Criar uma nova oferta do Dynamics 365 for Operations
 
@@ -70,7 +70,7 @@ Para habilitar uma test drive, marque a caixa **habilitar um test drive** . Em s
 
 #### <a name="type-of-test-drive"></a>Tipo de test drive
 
-Selecione uma das seguintes opções:
+As seguintes opções estão disponíveis para seleção:
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : um modelo de implantação que contém todos os recursos do Azure que compõem sua solução. Os produtos que se ajustam a esse cenário usam apenas os recursos do Azure.
 - **[Dynamics 365 for Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos empresariais do Business central (finanças, operações, Cadeia de fornecedores, CRM, etc.).  
@@ -99,11 +99,11 @@ A página **Propriedades** permite que você defina as categorias e os setores u
 
 ### <a name="category"></a>Categoria
 
-Selecione no mínimo um e no máximo três categorias. Eles serão usados para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Lembre-se de chamar como sua oferta dá suporte a essas categorias na descrição da oferta. 
+Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta na categoria selecionada.
 
 ### <a name="industry"></a>Indústria
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+Opcionalmente, você pode selecionar até duas indústrias e duas verticais em cada setor. Essas categorias são usadas para exibir sua oferta, quando as verticais e da indústria são usadas em filtros de pesquisa e aplicadas na vitrine.  Se sua oferta for direcionada a um setor específico e/ou vertical, descreva como sua oferta dá suporte a setores selecionados ou verticais na descrição da oferta.  Caso contrário, se sua oferta não for específica do setor, não faça uma seleção e deixe essa seção em branco.
 
 ### <a name="app-version"></a>Versão da aplicação
 
@@ -136,7 +136,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
-### <a name="short-description"></a>Descrição resumida
+### <a name="short-description"></a>Breve descrição
 
 Forneça uma breve descrição da sua oferta (até 100 caracteres). Isso pode ser usado nos resultados da pesquisa do Marketplace.
 
@@ -193,7 +193,7 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 Você deve fornecer o logotipo de sua oferta em dois tamanhos: **pequeno (48 x 48)** e **grande (216 x 216)** .
 
-#### <a name="hero"></a>'
+#### <a name="hero"></a>Herói
 
 A imagem do Hero é opcional. Se você fornecer um, ele deve medir 815 x 290 pixels.
 
@@ -269,13 +269,13 @@ Um modelo de implantação que contém todos os recursos do Azure que compõem s
 
 - **Instâncias**: selecione o tipo (quente ou frio) e o número de instâncias disponíveis, que serão multiplicadas pelo número de regiões em que sua oferta está disponível.
 
-**Quente**: esse tipo de instância é implantado e aguardando acesso por região selecionada. Os clientes podem acessar instantaneamente as instâncias *quentes* de um Test Drive, em vez de ter que esperar por uma implantação. A desvantagem é que essas instâncias estão sempre em execução na sua assinatura do Azure, portanto, elas incorrerão em um custo maior de tempo de atividade. É altamente recomendável ter pelo menos uma instância de *acesso* , pois a maioria dos clientes não deseja esperar por implantações completas, resultando em uma retirada no uso do cliente, se nenhuma instância de *acesso* estiver disponível.
+**Quente**: esse tipo de instância é implantado e aguardando acesso por região selecionada. Os clientes podem acessar instantaneamente as instâncias *quentes* de um Test Drive, em vez de ter que esperar por uma implantação. A desvantagem é que estas instâncias são sempre em execução na sua subscrição do Azure, para que eles incorre num tempo de atividade maior custos. É altamente recomendável ter pelo menos uma instância de *acesso* , pois a maioria dos clientes não deseja esperar por implantações completas, resultando em uma retirada no uso do cliente, se nenhuma instância de *acesso* estiver disponível.
 
 **Frio**: esse tipo de instância representa o número total de instâncias que podem possivelmente ser implantadas por região. As instâncias frias exigem todo o modelo do Gerenciador de recursos da unidade de teste para implantar quando um cliente solicita a test drive, portanto, as instâncias *frias* são muito mais lentas para serem carregadas do que as instâncias *quentes* . A compensação é que você só precisa pagar pela duração da test drive, *nem* sempre está em execução em sua assinatura do Azure como com uma instância de *Hot* .
 
 - **Testar unidade de Azure Resource Manager modelo**: carregue o. zip que contém o modelo de Azure Resource Manager.  Saiba mais sobre como criar um modelo de Azure Resource Manager no artigo de início rápido [criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa, em número de horas. O Test Drive é encerrado automaticamente após o término desse período de tempo. Essa duração só pode ser definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).
+- **Duração do teste de unidade** (obrigatório): Insira o período de tempo que a unidade de teste permanecerá ativa, em número de horas. O Test-Drive automaticamente termina após o final deste período de tempo. Essa duração só pode ser definida por um número inteiro de horas (por exemplo, "2" horas, "1,5" não é válido).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configuração técnica do Dynamics 365 test drive
 
@@ -337,7 +337,7 @@ A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe
 
 - **Manual do usuário** (obrigatório): uma explicação detalhada de sua experiência de Test Drive. O manual do usuário deve abranger exatamente o que você deseja que o cliente tenha de apresentar o test drive e servir como uma referência para quaisquer perguntas que possam ter. O arquivo deve estar no formato PDF e ter o nome (máximo de 255 caracteres) após o carregamento.
 
-- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou no Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir uma orientação sobre as informações para ajudá-los a entender melhor o Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
+- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou Vimeo e mencionados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir uma orientação sobre as informações para ajudá-los a entender melhor os Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
   - **Nome** (obrigatório)
   - **URL (somente YouTube ou Vimeo)** (obrigatório)
   - **Miniatura (533 x 324px)** : o arquivo de imagem deve estar no formato png.
@@ -377,4 +377,4 @@ Se esta for a primeira vez que você publica essa oferta, você pode:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)
+- [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)

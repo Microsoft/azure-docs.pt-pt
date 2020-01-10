@@ -3,12 +3,12 @@ title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173142"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753944"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -43,9 +43,9 @@ DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 
 DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM VMware | System Center 2012 R2 com pacote cumulativo de atualizações 5 ou posterior.
 Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4,5 instalados.
-Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode fazer backup.
-Tipos de arquivo com suporte | É possível fazer backup desses tipos de arquivo com o backup do Azure: criptografado (somente backups completos); Compactado (backups incrementais com suporte); Esparso (backups incrementais com suporte); Compactados e esparsos (tratados como esparsos).
-Tipos de arquivo sem suporte | Servidores em sistemas de arquivos que diferenciam maiúsculas de minúsculas; links físicos (ignorados); pontos de nova análise (ignorados); criptografado e compactado (ignorado); criptografado e esparso (ignorado); Fluxo compactado; analisar fluxo.
+Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode fazer backup.
+Tipos de ficheiros suportados | É possível fazer backup desses tipos de arquivo com o backup do Azure: criptografado (somente backups completos); Compactado (backups incrementais com suporte); Esparso (backups incrementais com suporte); Compactados e esparsos (tratados como esparsos).
+Tipos de ficheiros não suportados | Servidores em sistemas de arquivos que diferenciam maiúsculas de minúsculas; links físicos (ignorados); pontos de nova análise (ignorados); criptografado e compactado (ignorado); criptografado e esparso (ignorado); Fluxo compactado; analisar fluxo.
 Armazenamento local | Cada computador que você deseja fazer backup deve ter armazenamento local livre que tenha pelo menos 5% do tamanho dos dados que estão sendo submetidos a backup. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre no local de rascunho.
 Armazenamento do cofre | Não há limite para a quantidade de dados que você pode fazer backup em um cofre de backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, uma máquina virtual ou banco de dado) não deve exceder 54.400 GB.
 Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o emparelhamento privado ou da Microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele poderá ser usado para fazer backup dos dados no Azure.<br/><br/> **Observação:** O emparelhamento público foi preterido para novos circuitos.
@@ -97,7 +97,7 @@ Para obter as credenciais, baixe o arquivo de credencial do cofre por meio de um
 
 Baixe o arquivo de credenciais do cofre em um computador local da seguinte maneira:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Abra o cofre no qual você deseja registrar o servidor DPM.
 3. Em **configurações**, clique em **Propriedades**.
 
@@ -105,7 +105,7 @@ Baixe o arquivo de credenciais do cofre em um computador local da seguinte manei
 
 4. Em **propriedades** > **credenciais de backup**, clique em **baixar**. O portal gera o arquivo de credencial do cofre usando uma combinação do nome do cofre e da data atual e o torna disponível para download.
 
-    ![Transferência](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Transferir](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 5. Clique em **salvar** para baixar as credenciais do cofre para a pasta ou em **salvar como** e especifique um local. Levará até um minuto para que o arquivo seja gerado.
 
@@ -119,7 +119,7 @@ Cada computador que é submetido a backup pelo backup do Azure deve ter o agente
     ![Abrir o menu do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na página **Propriedades** , baixe o agente de backup do Azure.
 
-    ![Transferência](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Transferir](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Após o download, execute MARSAgentInstaller. exe. para instalar o agente no computador do DPM.
 5. Selecione uma pasta de instalação e uma pasta de cache para o agente. O espaço livre do local do cache deve ser pelo menos 5% dos dados de backup.
@@ -134,7 +134,7 @@ Cada computador que é submetido a backup pelo backup do Azure deve ter o agente
 1. No console do administrador do DPM > **Gerenciamento**, clique em **online**. Selecione **Registar**. O assistente para registrar servidor será aberto.
 2. Em **configuração de proxy**, especifique as configurações de proxy conforme necessário.
 
-    ![Configuração de proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
+    ![Configuração do proxy](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 3. Em **cofre de backup**, navegue até e selecione o arquivo de credenciais do cofre que você baixou.
 
     ![Credenciais do cofre](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
@@ -165,7 +165,7 @@ Cada computador que é submetido a backup pelo backup do Azure deve ter o agente
 
 7. Clique em **registrar** para registrar o servidor DPM no cofre.
 
-Depois que o servidor é registrado com êxito no cofre e agora você está pronto para iniciar o backup em Microsoft Azure.
+Depois que o servidor é registrado com êxito no cofre e agora você está pronto para iniciar o backup em Microsoft Azure. Você precisará configurar o grupo de proteção no console do DPM para fazer backup de cargas de trabalho no Azure. [Saiba como](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
 
 ## <a name="troubleshoot-vault-credentials"></a>Solucionar problemas de credenciais do cofre
 

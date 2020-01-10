@@ -14,17 +14,17 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 9412107759e0aa068d982828d47b97822c09ae35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530821"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748096"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
  
-Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
+Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de batch
 
@@ -109,7 +109,7 @@ Outras opções de destino para os registos de diagnóstico:
 
     ![Diagnóstico do batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).
+Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Registos do diagnóstico de acesso no armazenamento

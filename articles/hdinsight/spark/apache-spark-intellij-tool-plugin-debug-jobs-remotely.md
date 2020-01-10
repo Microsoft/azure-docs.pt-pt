@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 5fede76fbc97b31cbbcdaec1b17f838100d35511
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 76603642b90bd4d3926e10ce1c5a3c38391362cf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195840"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749773"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar Azure Toolkit for IntelliJ para depurar Apache Spark aplicativos remotamente no HDInsight por meio de VPN
 
@@ -59,7 +59,7 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
 
     ![Selecionar hosts no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN***. Selecione o primeiro nó principal.
+1. Você verá uma lista de nós de cabeçalho, nós de trabalho e nós Zookeeper. Os nós de cabeçalho têm um prefixo **HN**\*. Selecione o primeiro nó principal.
 
     ![Localizar o nó de cabeçalho no Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
@@ -75,12 +75,12 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
 
     ```
     # For headnode0
-    192.xxx.xx.xx hn0-nitinp
-    192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     
     # For headnode1
-    192.xxx.xx.xx hn1-nitinp
-    192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     ```
 
 1. No computador que você conectou à rede virtual do Azure que é usada pelo cluster HDInsight, verifique se você pode executar ping nos nós de cabeçalho usando o endereço IP, bem como o nome do host.
@@ -141,15 +141,15 @@ Recomendamos que você também crie um cluster Apache Spark no Azure HDInsight q
     Como já adicionamos o endereço IP do nó principal do cluster e os nomes de host para o arquivo de hosts na área de trabalho, podemos usar os comandos `scp` da seguinte maneira:
 
     ```bash
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/core-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/yarn-site.xml .
     ```
 
     Para adicionar esses arquivos ao seu projeto, copie-os na pasta **/src** na árvore do projeto, por exemplo `<your project directory>\src`.
 
 1. Atualize o arquivo de `core-site.xml` para fazer as seguintes alterações:
 
-   a. Substitua a chave criptografada. O arquivo de `core-site.xml` inclui a chave criptografada para a conta de armazenamento associada ao cluster. No arquivo de `core-site.xml` que você adicionou ao projeto, substitua a chave criptografada pela chave de armazenamento real associada à conta de armazenamento padrão. Para obter mais informações, consulte [gerenciar suas chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+   a. Substitua a chave criptografada. O arquivo de `core-site.xml` inclui a chave criptografada para a conta de armazenamento associada ao cluster. No arquivo de `core-site.xml` que você adicionou ao projeto, substitua a chave criptografada pela chave de armazenamento real associada à conta de armazenamento padrão. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
     ```xml
     <property>

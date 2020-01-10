@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2cde70579e61d1911008f7c8126ad7bda132eac1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563501"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754104"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução às lojas de conhecimento no Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ Fisicamente, uma loja de conhecimento é o [armazenamento do Azure](https://docs
 
 ## <a name="benefits-of-knowledge-store"></a>Benefícios da loja de conhecimento
 
-Uma loja de conhecimento fornece estrutura, contexto e conteúdo real, obtidas por meio de arquivos de dados não estruturados e semiestruturados, como BLOBs, arquivos de imagem que passaram por análise ou até mesmo dados estruturados, remodelados em novos formulários. Em um [passo a](knowledge-store-howto.md)passo, você pode ver em primeira mão como um documento de JSON denso é particionado em subestruturações, reconstituído em novas estruturas e disponibilizado para processos downstream, como o aprendizado de máquina e cargas de trabalho de ciência de dados.
+Uma loja de conhecimento fornece estrutura, contexto e conteúdo real, obtidas por meio de arquivos de dados não estruturados e semiestruturados, como BLOBs, arquivos de imagem que passaram por análise ou até mesmo dados estruturados, remodelados em novos formulários. Em um [passo a](knowledge-store-create-rest.md)passo, você pode ver em primeira mão como um documento de JSON denso é particionado em subestruturações, reconstituído em novas estruturas e disponibilizado para processos downstream, como o aprendizado de máquina e cargas de trabalho de ciência de dados.
 
 Embora seja útil ver o que um pipeline de enriquecimento de ia pode produzir, o potencial real de uma loja de conhecimento é a capacidade de remodelar dados. Você pode começar com um habilidades básicas e iterar sobre ele para adicionar níveis cada vez maiores de estrutura, que você pode combinar em novas estruturas, consumíveis em outros aplicativos além do Azure Pesquisa Cognitiva.
 

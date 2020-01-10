@@ -14,20 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6d43fa2621aa95bdcf18d5c033d1347e13dc3f67
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 53ffc6dd36dbf8588b5e1eb26b461e22c7445092
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101479"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747673"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Oracle Database em uma VM do Azure
 
 Este guia detalha o uso do CLI do Azure para implantar uma máquina virtual do Azure da [imagem da galeria do Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) para criar um banco de dados Oracle 12c. Depois que o servidor for implantado, você será conectado via SSH para configurar o banco de dados Oracle. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -73,7 +71,7 @@ Depois de criar a VM, CLI do Azure exibe informações semelhantes ao exemplo a 
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
-Para criar uma sessão SSH com a VM, use o comando a seguir. Substitua o endereço IP pelo `publicIpAddress` valor de sua VM.
+Para criar uma sessão SSH com a VM, use o comando a seguir. Substitua o endereço IP pelo valor `publicIpAddress` para sua VM.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -150,7 +148,7 @@ Antes de se conectar, você precisa definir duas variáveis de ambiente: *ORACLE
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-Você também pode adicionar as variáveis ORACLE_HOME e ORACLE_SID ao arquivo. bashrc. Isso salvaria as variáveis de ambiente para futuras entradas. Confirme que as instruções a seguir foram adicionadas `~/.bashrc` ao arquivo usando o editor de sua escolha.
+Você também pode adicionar ORACLE_HOME e ORACLE_SID variáveis ao arquivo. bashrc. Isso salvaria as variáveis de ambiente para logons futuros. Confirme se as instruções a seguir foram adicionadas ao arquivo de `~/.bashrc` usando o editor de sua escolha.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -190,14 +188,14 @@ Para uma ferramenta de gerenciamento de GUI que você pode usar para explorar o 
       3           PDB1                      MOUNT
     ```
 
-4. Se o OPEN_MODE para `PDB1` não for Read Write, execute os seguintes comandos para abrir o PDB1:
+4. Se o OPEN_MODE para `PDB1` não for leitura e gravação, execute os seguintes comandos para abrir o PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Você precisa digitar `quit` para finalizar a sessão sqlplus e digitar `exit` para fazer logoff do usuário Oracle.
+Você precisa digitar `quit` para encerrar a sessão de sqlplus e digitar `exit` para fazer logoff do usuário Oracle.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Automatizar inicialização e desligamento de banco de dados
 
@@ -208,7 +206,7 @@ Por padrão, o banco de dados Oracle não é iniciado automaticamente quando voc
     sudo su -
     ```
 
-2.  Usando seu editor favorito, edite o `/etc/oratab` arquivo e altere o `N` padrão `Y`para:
+2.  Usando seu editor favorito, edite o arquivo `/etc/oratab` e altere o `N` padrão para `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
@@ -322,8 +320,8 @@ Depois de terminar de explorar seu primeiro banco de dados Oracle no Azure e a V
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outras [soluções Oracle no Azure](oracle-considerations.md). 
 
-Experimente o tutorial Instalando e Configurando o [Gerenciamento de armazenamento automatizado da Oracle](configure-oracle-asm.md) .
+Experimente o tutorial [Instalando e Configurando o gerenciamento de armazenamento automatizado da Oracle](configure-oracle-asm.md) .

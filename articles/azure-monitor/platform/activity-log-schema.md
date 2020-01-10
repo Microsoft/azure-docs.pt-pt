@@ -1,22 +1,24 @@
 ---
 title: Esquema de evento do log de atividades do Azure
 description: Descreve o esquema de evento para cada categoria no log de atividades do Azure.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 12/04/2019
+ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893608"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749459"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento do log de atividades do Azure
-O **log de atividades do Azure** é um log que fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados difere dependendo se você estiver lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST versus [transmitir os dados para o armazenamento ou hubs de eventos usando um perfil de log](activity-log-export.md). Os exemplos a seguir mostram o esquema conforme disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs do Azure](diagnostic-logs-schema.md) é fornecido no final do artigo.
+O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve o esquema de evento para cada categoria. 
+
+Os exemplos a seguir mostram o esquema quando você acessa o log de atividades do portal, do PowerShell, da CLI e da API REST. O esquema é diferente quando você [transmite o log de atividades para o armazenamento ou hubs de eventos](resource-logs-stream-event-hubs.md). Um mapeamento das propriedades para o [esquema de logs de recursos](diagnostic-logs-schema.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativa
 Essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Exemplos dos tipos de eventos que você veria nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança de rede" cada ação tomada por um usuário ou aplicativo usando o Resource Manager é modelada como uma operação em um determinado tipo de recurso. Se o tipo de operação for gravação, exclusão ou ação, os registros de início e êxito ou falha da operação serão registrados na categoria administrativa. A categoria administrativa também inclui quaisquer alterações no controle de acesso baseado em função em uma assinatura.
@@ -771,9 +773,13 @@ Esta categoria contém registros de todas as operações de ação de efeito exe
 | Propriedades. Policies | Inclui detalhes sobre a definição de política, atribuição, efeito e parâmetros dos quais essa avaliação de política é resultado. |
 | relatedEvents | Este campo está em branco para eventos de política. |
 
-## <a name="mapping-to-resource-logs-schema"></a>Mapeando para o esquema de logs de recursos
 
-Ao transmitir o log de atividades do Azure para um namespace de conta de armazenamento ou de hubs de eventos, os dados seguem o [esquema de logs de recursos do Azure](./diagnostic-logs-schema.md). Aqui está o mapeamento das propriedades do esquema acima para o esquema de logs de recursos:
+## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema da conta de armazenamento e dos hubs de eventos
+Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hub de eventos, os dados seguem o [esquema do log de recursos](diagnostic-logs-schema.md). A tabela a seguir fornece um mapeamento das propriedades do esquema acima para o esquema de logs de recursos.
+
+> [!IMPORTANT]
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](diagnostic-logs-append-blobs.md) para obter detalhes sobre essa alteração de formato.
+
 
 | Propriedade de esquema dos logs de recursos | Propriedade de esquema da API REST do log de atividades | Notas |
 | --- | --- | --- |
@@ -796,8 +802,69 @@ Ao transmitir o log de atividades do Azure para um namespace de conta de armazen
 | properties.operationId | operationId |  |
 | properties.eventProperties | propriedades |  |
 
+Veja a seguir um exemplo de um evento que usa esse esquema.
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2015-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o log de atividades](activity-logs-overview.md)
-* [Exportar o log de atividades para o armazenamento do Azure ou hubs de eventos](activity-log-export.md)
+* [Saiba mais sobre o log de atividades](platform-logs-overview.md)
+* [Criar uma configuração de diagnóstico para enviar o log de atividades para Log Analytics espaço de trabalho, armazenamento do Azure ou hubs de eventos](diagnostic-settings.md)
 

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: f963885f60116bf23087fceb6a92d18e71ac7f24
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457017"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745329"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -35,7 +35,7 @@ O Azure digital gêmeos dá suporte ao registro em log, monitoramento e análise
 
 * Para a configuração de log específica do Azure digital gêmeos, leia [como configurar o monitoramento e o registro em log](./how-to-configure-monitoring.md).
 * Consulte a visão geral de [Azure monitor](../azure-monitor/overview.md) para saber mais sobre configurações de log avançadas habilitadas por meio de Azure monitor.
-* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md) para definir as configurações de log de diagnóstico no gêmeos digital do Azure por meio do portal do Azure, CLI do Azure ou PowerShell.
+* Examine o artigo [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md) para definir as configurações de log de diagnóstico no gêmeos digital do Azure por meio do portal do Azure, CLI do Azure ou PowerShell.
 
 Uma vez configurado, você poderá selecionar todas as categorias de log, métricas e usar espaços de trabalho de Azure Monitor do log Analytics eficientes para dar suporte aos seus esforços de depuração.
 
@@ -216,4 +216,4 @@ Se você habilitar as configurações de diagnóstico, poderá encontrar essas e
 
 - Saiba como habilitar o [monitoramento e os logs](./how-to-configure-monitoring.md) no gêmeos digital do Azure.
 
-- Leia o artigo [visão geral do log de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md) para obter mais opções de log do Azure.
+- Leia o artigo [visão geral do log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) para obter mais opções de log do Azure.

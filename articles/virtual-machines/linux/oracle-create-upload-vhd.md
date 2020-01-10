@@ -3,7 +3,7 @@ title: Criar e carregar um VHD de Oracle Linux
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -12,33 +12,31 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: szark
-ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 12/10/2019
+ms.author: mimckitt
+ms.openlocfilehash: e0250737f1f2934548a16ee42e9ff582f2403c48
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035376"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747739"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Oracle Linux para o Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já tenha instalado um sistema operacional Oracle Linux em um disco rígido virtual. Existem várias ferramentas para criar arquivos. VHD, por exemplo, uma solução de virtualização, como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
-### <a name="oracle-linux-installation-notes"></a>Notas de instalação do Oracle Linux
+## <a name="oracle-linux-installation-notes"></a>Notas de instalação do Oracle Linux
 * Consulte também as [notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
-* O kernel compatível com Red Hat da Oracle e seus UEK3 (sem interrupção de kernel corporativo) têm suporte no Hyper-V e no Azure. Para obter melhores resultados, certifique-se de atualizar para o kernel mais recente ao preparar seu Oracle Linux VHD.
+* O Hyper-V e o suporte do Azure Oracle Linux com o UEK (inbreakable Enterprise kernel) ou o kernel compatível com Red Hat.
 * O UEK2 da Oracle não tem suporte no Hyper-V e no Azure, pois não inclui os drivers necessários.
 * Não há suporte para o formato VHDX no Azure, somente **VHD fixo**.  Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o cmdlet Convert-VHD.
 * Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. O [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser usado em discos de dados, se for preferencial.
-* O NUMA não tem suporte para tamanhos maiores de VM devido a um bug nas versões de kernel do Linux abaixo de 2.6.37. Esse problema afeta principalmente as distribuições usando o kernel upstream Red Hat 2.6.32. A instalação manual do agente Linux do Azure (waagent) desabilitará automaticamente o NUMA na configuração do GRUB para o kernel do Linux. Mais informações sobre isso podem ser encontradas nas etapas abaixo.
+* As versões do kernel do Linux anteriores ao 2.6.37 não dão suporte a NUMA no Hyper-V com tamanhos de VM maiores. Esse problema afeta principalmente as distribuições mais antigas usando o kernel upstream Red Hat 2.6.32 e foi corrigido no Oracle Linux 6,6 e posterior
 * Não configure uma partição de permuta no disco do sistema operacional. O agente do Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporário.  Mais informações sobre isso podem ser encontradas nas etapas abaixo.
 * Todos os VHDs no Azure devem ter um tamanho virtual alinhado a 1 MB. Ao converter de um disco bruto para VHD, você deve garantir que o tamanho do disco bruto seja um múltiplo de 1MB antes da conversão. Consulte [notas de instalação do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
 * Verifique se o repositório de `Addons` está habilitado. Edite o arquivo `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) e altere a `enabled=0` de linha para `enabled=1` em **[ol6_addons]** ou **[ol7_addons]** neste arquivo.
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
+## <a name="oracle-linux-64-and-later"></a>Oracle Linux 6,4 e posterior
 Você deve concluir as etapas de configuração específicas no sistema operacional para que a máquina virtual seja executada no Azure.
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
@@ -71,11 +69,11 @@ Você deve concluir as etapas de configuração específicas no sistema operacio
 8. Instale o Python-pyasn1 executando o seguinte comando:
    
         # sudo yum install python-pyasn1
-9. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra "/boot/grub/menu.lst" em um editor de texto e verifique se o kernel padrão inclui os seguintes parâmetros:
+9. Modifique a linha de inicialização do kernel em sua configuração do grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra "/boot/grub/menu.lst" em um editor de texto e verifique se o kernel inclui os seguintes parâmetros:
    
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
-   Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Isso desabilitará o NUMA devido a um bug no kernel compatível com Red Hat da Oracle.
+   Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração.
    
    Além do que está acima, é recomendável *remover* os seguintes parâmetros:
    
@@ -107,12 +105,12 @@ Você deve concluir as etapas de configuração específicas no sistema operacio
 14. Clique em **ação-> desligar** no Gerenciador do Hyper-V. Seu VHD do Linux agora está pronto para ser carregado no Azure.
 
 ---
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0 +
+## <a name="oracle-linux-70-and-later"></a>Oracle Linux 7,0 e posterior
 **Alterações no Oracle Linux 7**
 
 Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao Oracle Linux 6, no entanto, há várias diferenças importantes que vale a pena observar:
 
-* O kernel compatível com Red Hat e o UEK3 da Oracle têm suporte no Azure.  O kernel UEK3 é recomendado.
+* O Azure dá suporte a Oracle Linux com o kernel do UEK (inquebrable Enterprise) ou kernel compatível com Red Hat. É recomendável Oracle Linux com UEK.
 * O pacote NetworkManager não está mais em conflito com o agente Linux do Azure. Esse pacote é instalado por padrão e recomendamos que ele não seja removido.
 * GRUB2 agora é usado como o carregador de estado padrão, portanto, o procedimento para editar parâmetros de kernel foi alterado (veja abaixo).
 * XFS agora é o sistema de arquivos padrão. O sistema de arquivos EXT4 ainda pode ser usado se desejado.
@@ -151,7 +149,7 @@ Preparar uma máquina virtual Oracle Linux 7 para o Azure é muito semelhante ao
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Ele também desativa as novas convenções de nomenclatura do OEL 7 para NICs. Além do que está acima, é recomendável *remover* os seguintes parâmetros:
+   Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Ele também desativa as convenções de nomenclatura para NICs no Oracle Linux 7 com o kernel corporativo inquebrável. Além do que está acima, é recomendável *remover* os seguintes parâmetros:
    
        rhgb quiet crashkernel=auto
    

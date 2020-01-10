@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d75f12953c0ec767dba8a49b3ed76c176223b30c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
-ms.translationtype: HT
+ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613895"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749227"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
 
 A Microsoft desenvolveu várias práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com o armazenamento de BLOBs. Esta lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente enquanto estiver projetando seu aplicativo e durante todo o processo.
 
-O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de desempenho e escalabilidade do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e [escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de Verificação
 
@@ -285,5 +285,6 @@ Os blobs de páginas são apropriados se o aplicativo precisar executar gravaç�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Metas de desempenho e escalabilidade do Armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md)
+- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

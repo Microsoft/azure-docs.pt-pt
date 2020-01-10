@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468017"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751760"
 ---
 Instantâneos incrementais (visualização) são backups pontuais para discos gerenciados que, quando tirados, consistem apenas em todas as alterações desde o último instantâneo. Quando você tenta baixar ou, de outra forma, usa um instantâneo incremental, o VHD completo é usado. Essa nova funcionalidade para instantâneos de disco gerenciado pode potencialmente permitir que eles sejam mais econômicos, já que você não precisa mais armazenar todo o disco com cada instantâneo individual, a menos que você escolha. Assim como instantâneos regulares, instantâneos incrementais podem ser usados para criar um disco gerenciado completo ou para criar um instantâneo normal.
 
@@ -23,7 +23,7 @@ Os instantâneos incrementais também oferecem um recurso diferencial, que está
 
 ## <a name="restrictions"></a>Restrições
 
-- Os instantâneos incrementais atualmente só estão disponíveis no leste dos EUA, EUA Central, Canadá central, Oeste EUA Central e Europa Setentrional.
+- Os instantâneos incrementais atualmente só estão disponíveis no leste dos EUA, leste dos EUA 2, EUA Central, Oeste EUA Central, leste do Canadá, centro do Canadá e Europa Setentrional.
 - Não é possível criar instantâneos incrementais no momento depois de alterar o tamanho de um disco.
 - Os instantâneos incrementais atualmente não podem ser movidos entre assinaturas.
 - No momento, você pode gerar apenas URIs SAS de até cinco instantâneos de uma família de instantâneos específica em um determinado momento.

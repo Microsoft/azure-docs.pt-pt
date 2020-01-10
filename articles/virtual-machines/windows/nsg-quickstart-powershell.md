@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371212"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754165"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -97,5 +97,5 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 
 * [Descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
-* [Visão geral de Azure Resource Manager para balanceadores de carga](../../load-balancer/load-balancer-arm.md)
+* [Visão geral de Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
 

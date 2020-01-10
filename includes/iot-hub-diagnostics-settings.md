@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2498711a5b7e5bce29cd0054ba40257f8f996d43
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266828"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750704"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar log com configurações de diagnóstico
 
@@ -25,7 +25,7 @@ ms.locfileid: "71266828"
 
 3. Selecione **ativar os diagnósticos**.
 
-   ![Ativar diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
+   ![Ativar os diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
 4. Dê um nome às configurações de diagnóstico.
 
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os logs aparecem no destino de arquivamento configurado na folha **configurações de diagnóstico** . Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../articles/azure-monitor/platform/resource-logs-overview.md).
+Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os logs aparecem no destino de arquivamento configurado na folha **configurações de diagnóstico** . Para obter mais informações sobre como configurar o diagnóstico, consulte [coletar e consumir dados de log dos recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md).

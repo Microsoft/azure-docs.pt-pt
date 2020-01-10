@@ -3,12 +3,12 @@ title: Azure Lighthouse em cenários empresariais
 description: Os recursos do Azure Lighthouse podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463911"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749205"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
@@ -38,7 +38,7 @@ De qualquer forma, certifique-se de [seguir o princípio de privilégios mínimo
 
 O Azure Lighthouse e o gerenciamento de recursos delegado do Azure fornecem apenas links lógicos entre um locatário de gerenciamento e locatários gerenciados, em vez de mover dados ou recursos fisicamente. Além disso, o acesso sempre entra apenas em uma direção, do locatário de gerenciamento para os locatários gerenciados.  Os usuários e grupos no locatário de gerenciamento devem continuar a usar a autenticação multifator ao executar operações de gerenciamento em recursos de locatário gerenciados.
 
-Empresas com governança interna ou externa e guardrails de conformidade podem usar [os logs de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) para atender aos requisitos de transparência. Quando os locatários empresariais tiverem estabelecido o gerenciamento e as relações de locatário gerenciadas, os usuários em cada locatário poderão monitorar e obter visibilidade das ações executadas pelos usuários no outro locatário exibindo a atividade registrada.
+Empresas com governança interna ou externa e guardrails de conformidade podem usar [os logs de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) para atender aos requisitos de transparência. Quando os locatários empresariais tiverem estabelecido o gerenciamento e as relações de locatário gerenciadas, os usuários em cada locatário poderão monitorar e obter visibilidade das ações executadas pelos usuários no outro locatário exibindo a atividade registrada.
 
 ## <a name="onboarding-process-considerations"></a>Considerações sobre processo de integração
 
@@ -56,7 +56,7 @@ Por exemplo, no exemplo descrito acima, o locatário A pode ser considerado como
 
 Nesse exemplo, o locatário que um usuário com as permissões apropriadas pode [Exibir e gerenciar recursos delegados](../how-to/view-manage-customers.md) na página **meus clientes** do portal do Azure. Da mesma forma, os usuários do locatário B e do locatário C com as permissões apropriadas podem [Exibir e gerenciar os recursos que foram delegados](../how-to/view-manage-service-providers.md) para o locatário a na página **provedores de serviço** do portal do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre a [Gestão de recursos delegados do Azure](azure-delegated-resource-management.md).

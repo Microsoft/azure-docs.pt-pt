@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b8e244dc00b4ed61a802f5c9f39149a7c020768a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530838"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750350"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Transmitir logs da plataforma Azure para os hubs de eventos do Azure
-[Os logs de plataforma](resource-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve os logs da plataforma de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
+[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve os logs da plataforma de streaming para os hubs de eventos para enviar dados a sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.
 
 
 ## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>O que você pode fazer com os logs de plataforma enviados para um hub de eventos
@@ -135,7 +135,7 @@ Veja a seguir exemplos de dados de saída dos hubs de eventos para um log de rec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](resource-logs-overview.md).
+* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
 * [Transmita logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * [Introdução aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).

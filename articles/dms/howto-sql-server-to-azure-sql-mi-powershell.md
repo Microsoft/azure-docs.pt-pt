@@ -1,6 +1,7 @@
 ---
-title: Migrar SQL Server para Instância Gerenciada do Banco de Dados SQL do Azure com o serviço de migração de banco de dados e o PowerShell | Microsoft Docs
-description: Saiba como migrar do SQL Server local para o BD SQL do Azure Instância Gerenciada usando Azure PowerShell.
+title: 'PowerShell: migrar SQL Server para instância gerenciada do SQL'
+titleSuffix: Azure Database Migration Service
+description: Saiba como migrar do SQL Server local para a instância gerenciada do banco de dados SQL do Azure usando o Azure PowerShell e o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,24 +9,25 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 01/08/2020
+ms.openlocfilehash: 3b434bc8a495f47f7fb2de8429069283821cf397
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163962"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746626"
 ---
-# <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migre SQL Server locais para uma instância gerenciada do banco de dados SQL do Azure usando Azure PowerShell
+# <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar SQL Server para instância gerenciada do banco de dados SQL com o PowerShell & serviço de migração de banco de dados
+
 Neste artigo, você migra o banco de dados **Adventureworks2016** restaurado para uma instância local do SQL Server 2005 ou superior para uma instância gerenciada do banco de dados SQL do Azure usando Microsoft Azure PowerShell. É possível migrar bancos de dados de uma instância de SQL Server local para uma instância gerenciada do banco de dados SQL do Azure usando o módulo `Az.DataMigration` no Microsoft Azure PowerShell.
 
 Neste artigo, vai aprender a:
 > [!div class="checklist"]
 >
 > * Crie um grupo de recursos.
-> * Crie uma instância do serviço de migração de banco de dados do Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração em uma instância do serviço de migração de banco de dados do Azure.
 > * Executar a migração.
 
@@ -44,14 +46,14 @@ Para concluir essas etapas, você precisará de:
 * Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma instância gerenciada do banco de dados SQL do Azure. Você pode criar uma instância gerenciada do banco de dados SQL do Azure seguindo os detalhes no artigo [criar uma instância gerenciada do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * Para baixar e instalar o [Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595) v 3.3 ou posterior.
-* Uma VNet (rede virtual) do Azure criada usando o modelo de implantação Azure Resource Manager, que fornece o serviço de migração de banco de dados do Azure com conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Um Rede Virtual do Microsoft Azure criado usando o modelo de implantação Azure Resource Manager, que fornece o serviço de migração de banco de dados do Azure com conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Uma avaliação completa de seu banco de dados local e migração de esquema usando o Assistente de Migração de Dados, conforme descrito no artigo [executando uma avaliação de migração de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
 * Para baixar e instalar o módulo `Az.DataMigration` (versão 0.7.2 ou posterior) do Galeria do PowerShell usando o [cmdlet Install-Module PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 * Para garantir que as credenciais usadas para se conectar à instância de SQL Server de origem tenham a permissão [Control Server](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) .
 * Para garantir que as credenciais usadas para se conectar à instância gerenciada do banco de dados SQL do Azure de destino tenham a permissão CONTROL DATABASE nos bancos de dados de instância gerenciada do banco de dados SQL do Azure de destino.
 
     > [!IMPORTANT]
-    > Para migrações online, você deve ler suas credenciais de Azure Active Directory. Para obter mais informações, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > Para migrações online, você já deve ter configurado suas credenciais de Azure Active Directory. Para obter mais informações, consulte o artigo [usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Entrar em sua assinatura do Microsoft Azure
 
@@ -77,7 +79,7 @@ Esse cmdlet espera os seguintes parâmetros obrigatórios:
 * *Nome do grupo de recursos do Azure*. Você pode usar [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) comando para criar um grupo de recursos do Azure como mostrado anteriormente e fornecer seu nome como um parâmetro.
 * *Nome do serviço*. Cadeia de caracteres que corresponde ao nome de serviço exclusivo desejado para o serviço de migração de banco de dados do Azure.
 * *Localização*. Especifica o local do serviço. Especifique um local de data center do Azure, como oeste dos EUA ou sudeste asiático.
-* *SKU*. Esse parâmetro corresponde ao nome do SKU do DMS. Atualmente, os nomes de SKU com suporte são *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*.
+* *Sku*. Esse parâmetro corresponde ao nome do SKU do DMS. Atualmente, os nomes de SKU com suporte são *Basic_1vCore*, *Basic_2vCores* *GeneralPurpose_4vCores*.
 * *Identificador de sub-rede virtual*. Você pode usar o cmdlet [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig) para criar uma sub-rede.
 
 O exemplo a seguir cria um serviço chamado *mydms* no grupo de recursos *MyDMSResourceGroup* localizado na região *leste dos EUA* usando uma rede virtual chamada *MyVNET* e uma sub-rede chamada *mysubnet*.
@@ -276,7 +278,7 @@ Use o cmdlet `New-AzDataMigrationTask` para criar e iniciar uma tarefa de migra�
 
 #### <a name="specify-parameters"></a>Especificar parâmetros
 
-##### <a name="common-parameters"></a>Parâmetros comuns
+##### <a name="common-parameters"></a>Parâmetros Common
 
 Independentemente de você estar executando uma migração offline ou online, o cmdlet `New-AzDataMigrationTask` espera os seguintes parâmetros:
 

@@ -3,7 +3,7 @@ title: Distribuições do Linux endossadas no Azure
 description: Saiba mais sobre o Linux em distribuições endossadas pelo Azure, incluindo diretrizes para Ubuntu, CentOS, Oracle e SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: szark
-ms.openlocfilehash: 66717222b505b7dd91f7f270cab27ec4ca97038e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: mimckitt
+ms.openlocfilehash: 8f12224f6ea2b9b4cecce79809389419e0159217
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036220"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748053"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuições do Linux endossadas no Azure
 Os parceiros fornecem imagens do Linux no Azure Marketplace. Estamos trabalhando com várias comunidades do Linux para adicionar ainda mais tipos à lista de distribuição endossada. Enquanto isso, para as distribuições que não estão disponíveis no Marketplace, você sempre pode trazer seu próprio Linux seguindo as diretrizes em [criar e carregar um disco rígido virtual que contém o sistema operacional Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -93,7 +93,7 @@ O principal provedor de soluções de software livre do mundo, a Red Hat ajuda m
 
 O SUSE Linux Enterprise Server no Azure é uma plataforma comprovada que fornece confiabilidade e segurança superiores para a computação em nuvem. A plataforma Linux versátil do SUSE integra-se perfeitamente aos serviços de nuvem do Azure para fornecer um ambiente de nuvem facilmente gerenciável. Com mais de 9.200 aplicativos certificados de mais de 1.800 fornecedores de software independentes para o SUSE Linux Enterprise Server, o SUSE garante que as cargas de trabalho com suporte no data center possam ser implantadas com segurança no Azure.
 
-### <a name="canonical"></a>Canónico
+### <a name="canonical"></a>Canonical
 [https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
 
 Engenharia canônica e abertura de governança da Comunidade da unidade de controle do Ubuntu no cliente, servidor e computação em nuvem, que inclui serviços de nuvem pessoal para consumidores. A visão canônica de uma plataforma unificada e gratuita no Ubuntu, do telefone à nuvem, fornece uma família de interfaces coerentes para o telefone, Tablet, TV e área de trabalho. Essa visão torna o Ubuntu a primeira opção para instituições diversificadas de provedores de nuvem pública para os criadores de eletrônicos de consumidores e um favorito entre tecnólogos individuais.

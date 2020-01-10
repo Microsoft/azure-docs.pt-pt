@@ -6,20 +6,18 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 88051a755ab1598edd2ccdc92968639f1baa2986
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f6883e627644f9bea68ddce401162d269509c67e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829894"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750111"
 ---
-# <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Início rápido: Criar e criptografar uma VM do Linux com o CLI do Azure
+# <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Início rápido: criar e criptografar uma VM do Linux com o CLI do Azure
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de início rápido mostra como usar o CLI do Azure para criar e criptografar uma VM (máquina virtual) do Linux.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este guia de início rápido requer a execução da versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -31,7 +29,7 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group?view=
 az group create --name "myResourceGroup" --location "eastus"
 ```
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 Crie uma VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM*.
 

@@ -3,21 +3,21 @@ title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279472"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747212"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
-As atribuições de política são usadas pelo Azure Policy para definir quais recursos são atribuídos durante políticas ou iniciativas. A atribuição de política pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de política que abordam as mesmas propriedades de recurso com necessidades diferentes de conformidade.
+As atribuições de política são usadas pelo Azure Policy para definir quais recursos são atribuídos a quais políticas ou iniciativas. A atribuição de política pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de política que abordam as mesmas propriedades de recurso com necessidades diferentes de conformidade.
 
 Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
 
 - Nome a apresentar
-- Descrição
+- descrição
 - do IdP
 - modo de imposição
 - definição de política
@@ -55,7 +55,7 @@ Use **DisplayName** e **Description** para identificar a atribuição de políti
 
 ## <a name="enforcement-mode"></a>Modo de imposição
 
-A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/activity-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
+A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/platform-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
 
 Essa propriedade tem os seguintes valores:
 
@@ -89,7 +89,7 @@ Esse design torna possível reutilizar uma definição de política ou iniciativ
 
 Neste exemplo, os parâmetros definidos anteriormente na definição de política são `prefix` e `suffix`. Essa atribuição de política específica define `prefix` para o **depta** e `suffix` a **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de política, oferecendo flexibilidade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).

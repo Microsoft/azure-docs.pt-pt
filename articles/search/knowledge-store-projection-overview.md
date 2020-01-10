@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com projeções em uma loja de conhecimento (visualização)
+title: Projeções em uma loja de conhecimento (visualização)
 titleSuffix: Azure Cognitive Search
 description: Salve e formate seus dados aprimorados do pipeline de indexação de reutilização de ia em uma loja de conhecimento para uso em cenários diferentes da pesquisa de texto completo. a loja de conhecimento está atualmente em visualização pública.
 manager: nitinme
@@ -7,20 +7,20 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789997"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754534"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projeções em uma loja de conhecimento no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT] 
 > a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
-O Azure Pesquisa Cognitiva permite o enriquecimento de conteúdo por meio de habilidades cognitivas internas e habilidades personalizadas como parte da indexação. Aprimoramentos adicionam estrutura a seus documentos e tornam a pesquisa mais eficiente. Em muitos casos, os documentos aprimorados são úteis para cenários diferentes de pesquisa, como para a mineração de conhecimento.
+O Azure Pesquisa Cognitiva permite o enriquecimento de conteúdo por meio de habilidades cognitivas internas e habilidades personalizadas como parte da indexação. Os aprimoramentos criam novas informações onde não existiam anteriormente: extraindo informações de imagens, detectando sentimentos, frases-chave e entidades de texto, para citar alguns. Aprimoramentos também adicionam estrutura a texto não diferenciado. Todos esses processos resultam em documentos que tornam a pesquisa de texto completo mais eficiente. Em muitos casos, documentos aprimorados são úteis para cenários diferentes de pesquisa, como para a mineração de conhecimento.
 
 Projeções, um componente da [loja de conhecimento](knowledge-store-concept-intro.md), são exibições de documentos aprimorados que podem ser salvos no armazenamento físico para fins de mineração de conhecimento. Uma projeção permite "projetar" seus dados em uma forma que se alinhe às suas necessidades, preservando as relações para que ferramentas como Power BI possam ler os dados sem esforço adicional.
 
@@ -34,7 +34,7 @@ A loja de conhecimento dá suporte a três tipos de projeções:
 
 + **Arquivos**: quando você precisa salvar as imagens extraídas dos documentos, as projeções de arquivo permitem salvar as imagens normalizadas no armazenamento de BLOBs.
 
-Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md).
+Para ver as projeções definidas no contexto, percorra [criar uma loja de conhecimento em repouso](knowledge-store-create-rest.md).
 
 ## <a name="projection-groups"></a>Grupos de projeção
 
@@ -114,12 +114,6 @@ Aqui está um exemplo de projeções de tabela.
 
 Como demonstrado neste exemplo, as frases-chave e as entidades são modeladas em tabelas diferentes e conterá uma referência de volta para o pai (MainTable) para cada linha.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>Projeções de objeto
 
 As projeções de objeto são representações de JSON da árvore de enriquecimento que podem ser originadas de qualquer nó. Em muitos casos, a mesma habilidade de **forma** que cria uma projeção de tabela pode ser usada para gerar uma projeção de objeto. 
@@ -143,10 +137,8 @@ As projeções de objeto são representações de JSON da árvore de enriquecime
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ As projeções de objeto são representações de JSON da árvore de enriquecime
 
 A geração de uma projeção de objeto requer alguns atributos específicos do objeto:
 
-+ storageContainer: o contêiner em que os objetos serão salvos
++ storageContainer: o contêiner de BLOB em que os objetos serão salvos
 + Source: o caminho para o nó da árvore de enriquecimento que é a raiz da projeção
-+ chave: um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
 
 ## <a name="file-projection"></a>Projeção de arquivo
 
@@ -219,4 +210,4 @@ Por fim, se você precisar exportar seus dados da loja de conhecimento, Azure Da
 Como uma próxima etapa, crie sua primeira loja de conhecimento usando dados de exemplo e instruções.
 
 > [!div class="nextstepaction"]
-> [Como criar uma loja de conhecimento](knowledge-store-howto.md).
+> [Crie um repositório de conhecimento em REST](knowledge-store-create-rest.md).

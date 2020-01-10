@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529934"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751080"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure
-[Os logs de plataforma](resource-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar logs de plataforma para destinos diferentes.
+[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar logs de plataforma para destinos diferentes.
 
 > [!IMPORTANT]
 > Antes de criar uma configuração de diagnóstico para coletar o log de atividades, primeiro você deve desabilitar qualquer configuração herdada. Consulte [coletar log de atividades do Azure com configurações herdadas](diagnostic-settings-legacy.md) para obter detalhes.
@@ -136,4 +136,4 @@ Consulte [criar configuração de diagnóstico no Azure monitor usando um modelo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs da plataforma Azure](resource-logs-overview.md)
+* [Leia mais sobre os logs da plataforma Azure](platform-logs-overview.md)

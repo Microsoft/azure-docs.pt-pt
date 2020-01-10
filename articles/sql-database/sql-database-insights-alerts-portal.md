@@ -11,16 +11,16 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810389"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745947"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o banco de dados SQL do Azure e data warehouse usando portal do Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo mostra como configurar o banco de dados SQL do Azure e data warehouse alertas usando o portal do Azure. Os alertas podem enviar um email ou chamar um gancho da Web quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atingir o limite. Este artigo também fornece as práticas recomendadas para definir períodos de alerta.    
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ Depois de criar um alerta, você pode selecioná-lo e:
 
 ## <a name="sql-database-alert-values"></a>Valores de alerta do banco de dados SQL
 
-| Tipo de Recurso | Nome da métrica | Nome amigável | Tipo de agregação | Janela de tempo de alerta mínimo|
+| Tipo de Recurso | Nome da Métrica | Nome amigável | Tipo de Agregação | Janela de tempo de alerta mínimo|
 | --- | --- | --- | --- | --- |
 | Base de dados SQL | cpu_percent | Percentagem de CPU | Média | 5 minutos |
 | Base de dados SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 5 minutos |
@@ -84,7 +84,7 @@ Depois de criar um alerta, você pode selecioná-lo e:
 | Base de dados SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
 | Base de dados SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | Base de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| Base de dados SQL | Bloqueado | Deadlocks | Total | 10 minutos |
+| Base de dados SQL | bloqueado | Deadlocks | Total | 10 minutos |
 | Base de dados SQL | storage_percent | Percentagem de tamanho da Base de Dados | Máximo | 30 minutos |
 | Base de dados SQL | xtp_storage_percent | Porcentagem de armazenamento OLTP na memória (visualização) | Média | 5 minutos |
 | Base de dados SQL | workers_percent | Porcentagem de trabalhadores | Média | 5 minutos |
@@ -103,20 +103,20 @@ Depois de criar um alerta, você pode selecioná-lo e:
 | Conjunto elástico | eDTU_used | eDTU usado | Média | 10 minutos |
 | Conjunto elástico | storage_used | Armazenamento utilizado | Média | 10 minutos |
 ||||||               
-| data warehouse do SQL | cpu_percent | Percentagem de CPU | Média | 10 minutos |
-| data warehouse do SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
-| data warehouse do SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
-| data warehouse do SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
-| data warehouse do SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
-| data warehouse do SQL | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
-| data warehouse do SQL | dwu_limit | limite de DWU | Máximo | 10 minutos |
-| data warehouse do SQL | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
-| data warehouse do SQL | dwu_used | DWU usado | Média | 10 minutos |
+| Armazém de dados SQL | cpu_percent | Percentagem de CPU | Média | 10 minutos |
+| Armazém de dados SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
+| Armazém de dados SQL | connection_successful | Conexões com êxito | Total | 10 minutos |
+| Armazém de dados SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
+| Armazém de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
+| Armazém de dados SQL | service_level_objective | Camada de serviço do banco de dados | Total | 10 minutos |
+| Armazém de dados SQL | dwu_limit | limite de DWU | Máximo | 10 minutos |
+| Armazém de dados SQL | dwu_consumption_percent | Porcentagem de DWU | Média | 10 minutos |
+| Armazém de dados SQL | dwu_used | DWU usado | Média | 10 minutos |
 ||||||
 
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Obtenha uma visão geral do monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
 * Saiba mais sobre como [Configurar WebHooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
+* Obtenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
 * Obtenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para certificar-se de que seu serviço está disponível e responsivo.

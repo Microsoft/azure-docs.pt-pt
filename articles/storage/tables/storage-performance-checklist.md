@@ -8,27 +8,28 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389981"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749547"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas
 
 A Microsoft desenvolveu várias práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com o armazenamento de tabelas. Esta lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente enquanto estiver projetando seu aplicativo e durante todo o processo.
 
-O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de desempenho e escalabilidade do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) e [escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de Verificação
 
 Este artigo organiza as práticas comprovadas de desempenho em uma lista de verificação que você pode seguir ao desenvolver seu aplicativo de armazenamento de tabelas.
 
-| Concluído | Categoria | Consideração de design |
+| Concluído | Categoria | Considerações de design |
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Você pode projetar seu aplicativo para não usar mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Você está evitando a abordagem de limites de capacidade e transação?](#capacity-and-transaction-targets) |
+| &nbsp; |Metas de escalabilidade |[Você está se aproximando das metas de escalabilidade para entidades por segundo?](#targets-for-data-operations) |
 | &nbsp; |Funcionamento em Rede |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
 | &nbsp; |Funcionamento em Rede |[Os dispositivos do lado do cliente têm um link de rede de alta qualidade?](#link-quality) |
 | &nbsp; |Funcionamento em Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
@@ -41,7 +42,6 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Ferramentas |[Você está usando as versões mais recentes das bibliotecas e ferramentas de cliente fornecidas pela Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitação de erros e tempos limite?](#timeout-and-server-busy-errors) |
 | &nbsp; |Tentativas |[Seu aplicativo está evitando repetições para erros sem nova tentativa?](#non-retryable-errors) |
-| &nbsp; |Metas de escalabilidade |[Você está se aproximando das metas de escalabilidade para entidades por segundo?](#table-specific-scalability-targets) |
 | &nbsp; |Configuração |[Você está usando JSON para suas solicitações de tabela?](#use-json) |
 | &nbsp; |Configuração |[Você desligou o algoritmo Nagle para melhorar o desempenho de pequenas solicitações?](#disable-nagle) |
 | &nbsp; |Tabelas e partições |[Você particionou corretamente os dados?](#schema) |
@@ -61,7 +61,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 
 Se seu aplicativo se aproximar ou exceder qualquer um dos destinos de escalabilidade, ele poderá encontrar maiores latências ou limitação de transação. Quando o armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (servidor ocupado) ou 500 (tempo limite da operação). Evitar esses erros ao permanecer dentro dos limites das metas de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço tabela, consulte [metas de desempenho e escalabilidade do armazenamento do Azure para contas de armazenamento](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Para obter mais informações sobre metas de escalabilidade para o serviço tabela, consulte [escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -77,9 +77,17 @@ Se seu aplicativo estiver se aproximando das metas de escalabilidade de uma úni
     Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho da rede, ela também pode ter efeitos negativos no desempenho. Avalie o impacto no desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, pois pode ser mais desafiador exibir os dados usando ferramentas padrão.
 - Se seu aplicativo estiver se aproximando das metas de escalabilidade, verifique se você está usando uma retirada exponencial para novas tentativas. É melhor tentar evitar o alcance das metas de escalabilidade implementando as recomendações descritas neste artigo. No entanto, o uso de uma retirada exponencial para novas tentativas impedirá que seu aplicativo seja repetido rapidamente, o que poderia tornar a limitação pior. Para obter mais informações, consulte a seção intitulada [tempo limite e erros de servidor ocupado](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Metas de escalabilidade específicas de tabela
+### <a name="targets-for-data-operations"></a>Destinos para operações de dados
 
-Além das limitações de largura de banda de uma conta de armazenamento inteira, as tabelas têm o seguinte limite de escalabilidade específico. O sistema balanceará a carga conforme o tráfego aumentar, mas se o tráfego tiver picos repentinos, talvez você não consiga obter esse volume de taxa de transferência imediatamente. Se o seu padrão tiver intermitências, você deve esperar ver a limitação e/ou os tempos limite durante a intermitência, uma vez que o serviço de armazenamento automaticamente balanceia a tabela. O aumento lento geralmente tem resultados melhores, pois dá ao tempo do sistema para balancear a carga adequadamente.
+O balanceamento de carga do armazenamento do Azure como o tráfego para sua conta de armazenamento aumenta, mas se o tráfego exibir picos repentinos, talvez você não consiga obter esse volume de taxa de transferência imediatamente. Espere ver a limitação e/ou os tempos limite durante a intermitência, uma vez que o armazenamento do Azure balanceia automaticamente a tabela. Aumentar lentamente geralmente fornece resultados melhores, pois o sistema tem tempo para balancear a carga adequadamente.
+
+#### <a name="entities-per-second-storage-account"></a>Entidades por segundo (conta de armazenamento)
+
+O limite de escalabilidade para acessar tabelas é de até 20.000 entidades (1 KB cada) por segundo para uma conta. Em geral, cada entidade que é inserida, atualizada, excluída ou verificada conta para esse destino. Portanto, uma inserção em lote que contém 100 entidades contaria como 100 entidades. Uma consulta que examina as entidades de 1000 e retorna 5 conta como 1000 entidades.
+
+#### <a name="entities-per-second-partition"></a>Entidades por segundo (partição)
+
+Em uma única partição, a meta de escalabilidade para acessar tabelas é de 2.000 entidades (1 KB cada) por segundo, usando a mesma contagem, conforme descrito na seção anterior.
 
 ## <a name="networking"></a>Funcionamento em Rede
 
@@ -281,5 +289,6 @@ Se você estiver executando inserções em lotes e, em seguida, recuperando inte
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Escalabilidade e metas de desempenho para o armazenamento de tabelas](scalability-targets.md)
+- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

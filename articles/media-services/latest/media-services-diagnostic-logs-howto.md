@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977714"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750894"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
@@ -181,8 +181,8 @@ Poderá ter de aguardar até cinco minutos para que o evento apareça na conta d
 ## <a name="see-also"></a>Ver também
 
 * [Métricas de Azure Monitor](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md)
-* [Como coletar e consumir dados de log de seus recursos do Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)
+* [Como coletar e consumir dados de log de seus recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

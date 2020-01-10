@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572816"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749679"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -40,7 +40,7 @@ O Azure Analysis Services está disponível nos escalões **Programador**, **Bá
 
 Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. Este escalão não oferece um SLA.
 
-|Planear  |QPUs  |Memória (GB)  |
+|Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
@@ -49,7 +49,7 @@ Este escalão é recomendado para cenários de avaliação, desenvolvimento e te
 
 Este escalão é recomendado para soluções de produção com modelos em tabela mais pequenos, simultaneidade de utilizadores limitada e requisitos simples de atualização de dados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. As perspetivas, partições múltiplas e funcionalidades de modelos em tabela do DirectQuery *não são suportadas* neste escalão.  
 
-|Planear  |QPUs  |Memória (GB)  |
+|Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
@@ -58,7 +58,7 @@ Este escalão é recomendado para soluções de produção com modelos em tabela
 
 Este escalão destina-se a aplicações de produção críticas para o negócio, que requerem simultaneidade de utilizadores elástica e têm modelos de dados em rápido crescimento. Suporta a atualização de dados avançada para atualizações de modelos de dados quase em tempo real, bem como todas as funcionalidades de modelos em tabela.
 
-|Planear  |QPUs  |Memória (GB)  |
+|Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -81,12 +81,12 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|EUA Leste     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|EUA Leste 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|EUA Leste 2     |     S8, S9, S8v2, S9v2   |    1    |
+|Este dos E.U.A.     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|Este dos E.U.A. 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Este dos E.U.A. 2     |     S8, S9, S8v2, S9v2   |    1    |
 |E.U.A. Centro-Norte     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|EUA Central     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|EUA Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Centro dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|E.U.A. Centro-Sul     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |E.U.A. Centro-Oeste   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Oeste dos E.U.A.     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Oeste dos E.U.A.     |    S8, S9, S8v2, S9v2   |    2  |
@@ -114,11 +114,11 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
-## <a name="scale-to-your-needs"></a>Dimensionar para as suas necessidades
+## <a name="scale-to-your-needs"></a>Dimensione de acordo com as suas necessidades
 
 ### <a name="scale-updown-pause-and-resume"></a>Aumentar/reduzir verticalmente, interromper ou retomar
 
-Aumente ou reduza verticalmente o seu servidor ou interrompa-o. Utilize o portal do Azure ou utilize o PowerShell para ter controlo num instante. Só paga o que utilizar.  
+Aumente ou reduza verticalmente o seu servidor ou interrompa-o. Utilize o portal do Azure ou utilize o PowerShell para ter controlo num instante. Paga apenas o que utilizar.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Aumente recursos horizontalmente para obter repostas de consultas rápidas
 
@@ -165,7 +165,7 @@ A Firewall do Azure Analysis Services bloqueia todas as ligações de cliente qu
 
 O [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) lida com a autenticação dos utilizadores. Ao iniciar sessão, os utilizadores recorrem a uma identidade de conta da organização, com acesso à base de dados baseado em funções. As identidades de utilizador têm de ser membros do Azure Active Directory predefinido da subscrição em que o servidor se encontra. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
 
-### <a name="data-security"></a>Segurança de dados
+### <a name="data-security"></a>Segurança dos dados
 
 O Azure Analysis Services utiliza o Armazenamento de blobs do Azure para persistir o armazenamento e os metadados das bases de dados do Analysis Services. Os ficheiros de dados no Blob são encriptados com a [Encriptação do Lado do Servidor (SSE) do Blob do Azure](../storage/common/storage-service-encryption.md). Ao utilizar o modo DirectQuery, só são armazenados os metadados. Os dados propriamente ditos são acedidos através de protocolos encriptados a partir da origem de dados no momento da consulta.
 
@@ -177,7 +177,7 @@ O Analysis Services utiliza a [autorização baseada em funções](https://docs.
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Segurança ao Nível da Linha
+### <a name="row-level-security"></a>Segurança ao nível da linha
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 
@@ -224,7 +224,7 @@ As ferramentas modernas de exploração e visualização de dados, como o Power 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registe métricas com os [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/resource-logs-overview.md). Monitorar e enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-los para [Azure monitor logs](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
+O Azure Analysis Services está integrado nas métricas do Azure, proporcionando um número alargado de métricas específicas de recursos para o ajudar a monitorizar o desempenho e o estado de funcionamento dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registe métricas com os [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md). Monitorar e enviar logs para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-los para [Azure monitor logs](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
 
 O Azure Analysis Services também suporta a utilização de [Vistas de Gestão Dinâmica (DMVs)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Com base na sintaxe do SQL, os conjuntos de linhas de esquema de interface dos DMVs devolvem metadados e informações de monitorização sobre a instância do servidor.
 
@@ -232,7 +232,7 @@ O Azure Analysis Services também suporta a utilização de [Vistas de Gestão D
 
 Esta secção inclui documentação específica do Azure Analysis Services. Utilize o índice no lado esquerdo do ecrã do browser para localizar artigos. 
 
-Como os modelos de tabela Azure Analysis Services são muito semelhantes aos modelos de tabela no SQL Server Analysis Services, há uma extensa biblioteca de artigos conceituais, de procedimento, de desenvolvedor e de referência no [SQL Server Analysis Services Documentação](https://docs.microsoft.com/analysis-services/analysis-services-overview)do. Os artigos na documentação do SQL Server Analysis Services mostram se também se aplicam ao Azure Analysis Services através de uma faixa com a indicação "APLICA-SE A" abaixo do título.
+Como os modelos de tabela Azure Analysis Services são muito semelhantes aos modelos de tabela no SQL Server Analysis Services, há uma extensa biblioteca de artigos conceituais, de procedimento, de desenvolvedor e de referência na [documentação SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Os artigos na documentação do SQL Server Analysis Services mostram se também se aplicam ao Azure Analysis Services através de uma faixa com a indicação "APLICA-SE A" abaixo do título.
 
 ![Documentação partilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 

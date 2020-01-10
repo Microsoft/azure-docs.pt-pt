@@ -1,37 +1,35 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
-services: azure-app-configuration
 author: yegu
+ms.author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
-ms.author: yegu
-ms.custom: include file
-ms.openlocfilehash: c98a17be394887ef4e008b079467c85d4ded7e09
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 12/03/2019
+ms.openlocfilehash: ceeeb5ee155624e050f36e733a464c2cb21db88c
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393318"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750280"
 ---
-1. Para criar um novo arquivo de configuração de aplicações, inicie sessão para o [portal do Azure](https://portal.azure.com). No canto superior esquerdo do painel, selecione **+ criar um recurso**. Na **pesquisar no Marketplace** , introduza **configuração de aplicações** e selecione Enter.
+1. Para criar um novo repositório de configuração de aplicativo, entre no [portal do Azure](https://portal.azure.com). No canto superior esquerdo da home page, selecione **criar um recurso**. Na caixa **Pesquisar no Marketplace** , insira **configuração de aplicativo** e selecione Enter.
 
-    ![Pesquisa de configuração de aplicações](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
+    ![Pesquisar configuração de aplicativo](media/azure-app-configuration-create/azure-portal-search.png)
 
-1. Selecione **configuração da aplicação** partir da linha de resultados da pesquisa e, em seguida, selecione **criar**.
+1. Selecione **configuração de aplicativo** nos resultados da pesquisa e, em seguida, selecione **criar**.
 
-1. Sobre o **configuração da aplicação** > **criar** painel, introduza as seguintes definições:
+    ![Selecione Criar](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
+
+1. No painel **configuração do aplicativo** > **criar** , insira as seguintes configurações:
 
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nome do recurso** | Nome globalmente exclusivo | Introduza um nome de recurso exclusiva para utilizar para o recurso de arquivo de configuração de aplicações. O nome tem de ser uma cadeia entre 1 e 63 carateres e conter apenas números, letras e o caráter `-`. O nome não pode começar nem terminar com o `-` caráter e consecutivas `-` carateres não são válidos.  |
-    | **Subscrição** | A sua subscrição | Selecione a subscrição do Azure que pretende utilizar para testar a configuração de aplicações. Se a sua conta tiver apenas uma subscrição, é selecionada automaticamente e o **subscrição** não é apresentada a lista. |
-    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o seu recurso do arquivo de configuração de aplicações. Este grupo é útil para organizar os vários recursos que pode querer eliminar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](/azure/azure-resource-manager/resource-group-overview). |
-    | **Localização** | *E.U.A. central* | Uso **localização** para especificar a localização geográfica na qual o seu arquivo de configuração de aplicação está alojado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes da sua aplicação. |
+    | **Nome do recurso** | Nome globalmente exclusivo | Insira um nome de recurso exclusivo a ser usado para o recurso de repositório de configuração de aplicativo. O nome tem de ser uma cadeia entre 1 e 63 carateres e conter apenas números, letras e o caráter `-`. O nome não pode começar ou terminar com o caractere de `-` e os caracteres de `-` consecutivos não são válidos.  |
+    | **Subscrição** | A sua subscrição | Selecione a assinatura do Azure que você deseja usar para testar a configuração do aplicativo. Se sua conta tiver apenas uma assinatura, ela será selecionada automaticamente e a lista de **assinaturas** não será exibida. |
+    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o recurso de repositório de configuração do aplicativo. Esse grupo é útil para organizar vários recursos que você pode querer excluir ao mesmo tempo excluindo o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](/azure/azure-resource-manager/resource-group-overview). |
+    | **Localização** | *E.U.A. Central* | Use **local** para especificar a localização geográfica na qual seu repositório de configuração de aplicativo está hospedado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes do seu aplicativo. |
 
-    ![Criar um recurso do arquivo de configuração de aplicações](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
+    ![Criar um recurso de repositório de configuração de aplicativo](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
-1. Selecione **Criar**. A implementação pode demorar alguns minutos a concluir.
+1. Selecione **Criar**. A implantação pode levar alguns minutos.
 
-1. Depois de concluída a implementação, selecione **configurações** > **chaves de acesso**. Tome nota da cadeia de caracteres de só de leitura ou primária de leitura-escrita ligação da chave primária. Usará esta cadeia de ligação mais tarde para configurar a sua aplicação para comunicar com o armazenamento de configuração de aplicação que criou.
+1. Após a conclusão da implantação, selecione **configurações** > **chaves de acesso**. Anote a cadeia de conexão de chave somente leitura primária. Você usará essa cadeia de conexão posteriormente para configurar seu aplicativo para se comunicar com o repositório de configuração de aplicativo que você criou.

@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392143"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749720"
 ---
-# <a name="latency-in-blob-storage"></a>Latência no armazenamento de BLOBs
+# <a name="latency-in-blob-storage"></a>Latência no Armazenamento de blobs
 
 Latência, às vezes referenciada como tempo de resposta, é a quantidade de tempo que um aplicativo deve aguardar até que uma solicitação seja concluída. A latência pode afetar diretamente o desempenho de um aplicativo. A baixa latência costuma ser importante para cenários com seres humanos no loop, como a condução de transações de cartão de crédito ou o carregamento de páginas da Web. Os sistemas que precisam processar eventos de entrada a altas taxas, como log de telemetria ou eventos de IoT, também exigem baixa latência. Este artigo descreve como entender e medir a latência de operações em blobs de blocos e como projetar seus aplicativos para baixa latência.
 
@@ -39,7 +39,7 @@ O armazenamento do Azure fornece duas métricas de latência para BLOBs de bloco
 
 - A **latência do servidor** mede o intervalo de quando o armazenamento do Azure recebe o último pacote da solicitação até que o primeiro pacote da resposta seja retornado do armazenamento do Azure.
 
-A imagem a seguir mostra a **latência média de E2E de sucesso** e a **latência média do servidor de êxito** para `Get Blob` uma carga de trabalho de exemplo que chama a operação:
+A imagem a seguir mostra a **latência média de E2E de sucesso** e a **latência média do servidor de êxito** para uma carga de trabalho de exemplo que chama a operação de `Get Blob`:
 
 ![Captura de tela mostrando métricas de latência para operação de obtenção de BLOB](media/storage-blobs-latency/latency-metrics-get-blob.png)
 
@@ -67,5 +67,5 @@ Para avaliar a latência, primeiro estabeleça métricas de linha de base para s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md)
-- [Lista de verificação de desempenho e escalabilidade do armazenamento do Azure](../common/storage-performance-checklist.md)
+- [Escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md)
+- [Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs](storage-performance-checklist.md)

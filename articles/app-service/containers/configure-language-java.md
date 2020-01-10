@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805744"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750734"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o serviço Azure App
 
@@ -238,24 +238,37 @@ Para injetar esses segredos em seu arquivo de configuração Spring ou Tomcat, u
 
 ### <a name="using-the-java-key-store"></a>Usando o repositório de chaves Java
 
-Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados no repositório de chaves Java à medida que o contêiner for iniciado. Isso significa que os certificados carregados estarão disponíveis no contexto de conexão ao fazer conexões TLS de saída. Depois de carregar seu certificado, você precisará reiniciar o serviço de aplicativo para que ele seja carregado no repositório de chaves Java.
+Por padrão, todos os certificados públicos ou privados [carregados no serviço de aplicativo Linux](../configure-ssl-certificate.md) serão carregados nos respectivos repositórios de chaves Java à medida que o contêiner for iniciado. Depois de carregar seu certificado, você precisará reiniciar o serviço de aplicativo para que ele seja carregado no repositório de chaves Java. Os certificados públicos são carregados no repositório de chaves em `$JAVA_HOME/jre/lib/security/cacerts`, e os certificados privados são armazenados em `$JAVA_HOME/lib/security/client.jks`.
 
-Você pode interagir ou depurar a ferramenta de chave do Java [abrindo uma conexão SSH](app-service-linux-ssh-support.md) para o serviço de aplicativo e executando o comando `keytool`. Consulte a [documentação da ferramenta de chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Os certificados são armazenados no local do arquivo de keystore padrão do Java, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-A configuração adicional pode ser necessária para criptografar sua conexão JDBC. Consulte a documentação para o driver JDBC escolhido.
+A configuração adicional pode ser necessária para criptografar sua conexão JDBC com certificados no repositório de chaves Java. Consulte a documentação para o driver JDBC escolhido.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
+#### <a name="initializing-the-java-key-store"></a>Inicializando o repositório de chaves Java
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>Inicializar e carregar manualmente o repositório de chaves
+Para inicializar o objeto `import java.security.KeyStore`, carregue o arquivo do repositório de chaves com a senha. A senha padrão para ambos os repositórios de chaves é "changeit".
 
-Você pode inicializar o repositório de chaves e adicionar certificados manualmente. Crie uma configuração de aplicativo, `SKIP_JAVA_KEYSTORE_LOAD`, com um valor de `1` para desabilitar o serviço de aplicativo de carregar os certificados no repositório de chaves automaticamente. Todos os certificados públicos carregados no serviço de aplicativo por meio do portal do Azure são armazenados em `/var/ssl/certs/`. Os certificados privados são armazenados em `/var/ssl/private/`.
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
 
-Para obter mais informações sobre a API do keystore, consulte [a documentação oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>Carregar manualmente o repositório de chaves
+
+Você pode carregar certificados manualmente no repositório de chaves. Crie uma configuração de aplicativo, `SKIP_JAVA_KEYSTORE_LOAD`, com um valor de `1` para desabilitar o serviço de aplicativo de carregar os certificados no repositório de chaves automaticamente. Todos os certificados públicos carregados no serviço de aplicativo por meio do portal do Azure são armazenados em `/var/ssl/certs/`. Os certificados privados são armazenados em `/var/ssl/private/`.
+
+Você pode interagir ou depurar a ferramenta de chave do Java [abrindo uma conexão SSH](app-service-linux-ssh-support.md) para o serviço de aplicativo e executando o comando `keytool`. Consulte a [documentação da ferramenta de chave](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obter uma lista de comandos. Para obter mais informações sobre a API do keystore, consulte [a documentação oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configurar plataformas APM
 
@@ -373,7 +386,7 @@ O script de inicialização fará uma [transformação XSL](https://www.w3school
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 Um exemplo de arquivo XSL é fornecido abaixo. O arquivo XSL de exemplo adiciona um novo nó de conector ao servidor Tomcat. xml.

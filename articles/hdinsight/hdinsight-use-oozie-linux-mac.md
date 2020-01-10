@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241683"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744902"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -299,8 +299,8 @@ A definição de trabalho descreve onde encontrar o Workflow. xml. Ele também d
     |Valor do espaço reservado| Valor substituído|
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valor recebido da etapa 1.|
-    |ADM| Seu nome de logon para o cluster HDInsight, se não for admin.|
-    |serverName| Nome do servidor do banco de dados SQL do Azure.|
+    |administrador| Seu nome de logon para o cluster HDInsight, se não for admin.|
+    |ServerName| Nome do servidor do banco de dados SQL do Azure.|
     |sqlLogin| Logon do servidor do banco de dados SQL do Azure.|
     |sqlPassword| Senha de logon do servidor do banco de dados SQL do Azure.|
 
@@ -394,10 +394,10 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    A parte `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` é a URL a ser usada com o comando Oozie.
+    A parte `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` é a URL a ser usada com o comando Oozie.
 
 2. Edite o código para substituir a URL por aquela que você recebeu anteriormente. Para criar uma variável de ambiente para a URL, use o seguinte, para que você não precise inseri-la para cada comando:
 
@@ -492,7 +492,7 @@ Para obter mais informações sobre como usar a API REST do amOozie, consulte [A
 
 A interface do usuário da Web do amOozie fornece uma exibição baseada na Web para o status de trabalhos do Oozie no cluster. Com a interface do usuário da Web, você pode exibir as seguintes informações:
 
-   * Status do trabalho
+   * Estado da tarefa
    * Definição da tarefa
    * Configuração
    * Um grafo das ações no trabalho

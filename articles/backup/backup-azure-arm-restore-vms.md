@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual do Azure de um ponto de recuperaçã
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 9426a66115513cf02af501eb6271cf1f1b9fdf76
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 98101639d82ede2a6c625ea9da413bcf93f6a185
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996345"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753927"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -23,7 +23,8 @@ O backup do Azure fornece várias maneiras de restaurar uma VM.
 --- | ---
 **Criar uma nova VM** | Cria e obtém rapidamente uma VM básica em funcionamento a partir de um ponto de restauração.<br/><br/> Você pode especificar um nome para a VM, selecionar o grupo de recursos e a rede virtual (VNet) na qual ele será colocado e especificar uma conta de armazenamento para a VM restaurada. A nova VM deve ser criada na mesma região que a VM de origem.
 **Restaurar disco** | Restaura um disco de VM, que pode ser usado para criar uma nova VM.<br/><br/> O backup do Azure fornece um modelo para ajudá-lo a personalizar e criar uma VM. <br/><br> O trabalho de restauração gera um modelo que você pode baixar e usar para especificar configurações de VM personalizadas e criar uma VM.<br/><br/> Os discos são copiados para o grupo de recursos que você especificar.<br/><br/> Como alternativa, você pode anexar o disco a uma VM existente ou criar uma nova VM usando o PowerShell.<br/><br/> Essa opção será útil se você quiser personalizar a VM, adicionar definições de configuração que não estavam lá no momento do backup ou adicionar configurações que devem ser configuradas usando o modelo ou o PowerShell.
-**Substituir existente** | Você pode restaurar um disco e usá-lo para substituir um disco na VM existente.<br/><br/> A VM atual deve existir. Se ela tiver sido excluída, essa opção não poderá ser usada.<br/><br/> O backup do Azure tira um instantâneo da VM existente antes de substituir o disco e a armazena no local de preparo que você especificar. Os discos existentes conectados à VM são substituídos pelo ponto de restauração selecionado.<br/><br/> O instantâneo é copiado para o cofre e mantido de acordo com a política de retenção. <br/><br/> Após a operação de substituição de disco, o disco original é retido no grupo de recursos. Você pode optar por excluir manualmente os discos originais se eles não forem necessários. <br/><br/>A substituição existente tem suporte para VMs gerenciadas não criptografadas. Não há suporte para discos não gerenciados, [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)ou para VMs [criadas usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauração tiver mais ou menos discos que a VM atual, o número de discos no ponto de restauração refletirá apenas a configuração da VM.<br/><br/>
+**Substituir existente** | Você pode restaurar um disco e usá-lo para substituir um disco na VM existente.<br/><br/> A VM atual deve existir. Se ela tiver sido excluída, essa opção não poderá ser usada.<br/><br/> O backup do Azure tira um instantâneo da VM existente antes de substituir o disco e a armazena no local de preparo que você especificar. Os discos existentes conectados à VM são substituídos pelo ponto de restauração selecionado.<br/><br/> O instantâneo é copiado para o cofre e mantido de acordo com a política de retenção. <br/><br/> Após a operação de substituição de disco, o disco original é retido no grupo de recursos. Você pode optar por excluir manualmente os discos originais se eles não forem necessários. <br/><br/>A substituição existente tem suporte para VMs gerenciadas não criptografadas. Não há suporte para discos não gerenciados, [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)ou para VMs [criadas usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauração tiver mais ou menos discos que a VM atual, o número de discos no ponto de restauração refletirá apenas a configuração da VM.
+**Entre regiões (região secundária)** | A restauração entre regiões pode ser usada para restaurar VMs do Azure na região secundária, que é uma [região emparelhada do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> Você pode restaurar todas as VMs do Azure para o ponto de recuperação selecionado se o backup for feito na região secundária.<br><br> Esse recurso está disponível para as opções abaixo:<br> * [criar uma VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [restaurar discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Atualmente, não há suporte para a opção [substituir discos existentes](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) .<br><br> Permissões<br> A operação de restauração na região secundária pode ser executada por administradores de backup e administradores de aplicativos.
 
 > [!NOTE]
 > Você também pode recuperar arquivos e pastas específicas em uma VM do Azure. [Saiba mais](backup-azure-restore-files-from-vm.md).
@@ -114,8 +115,8 @@ Depois que o disco for restaurado, use o modelo que foi gerado como parte da ope
     ![Detalhar o trabalho de restauração](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
 
 3. Para personalizar a configuração de VM fornecida no modelo, clique em **Editar modelo**. Se você quiser adicionar mais personalizações, clique em **Editar parâmetros**.
-    - [Saiba mais](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) sobre como implantar recursos de um modelo personalizado.
-    - [Saiba mais](../azure-resource-manager/resource-group-authoring-templates.md) sobre a criação de modelos.
+    - [Saiba mais](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sobre como implantar recursos de um modelo personalizado.
+    - [Saiba mais](../azure-resource-manager/templates/template-syntax.md) sobre a criação de modelos.
 
    ![Carregar implantação de modelo](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
@@ -132,6 +133,47 @@ Como uma das [Opções de restauração](#restore-options), você pode substitui
 3. Em **local de preparo**, especifique onde os instantâneos dos discos gerenciados atuais devem ser salvos durante o processo de restauração. [Saiba mais](#storage-accounts).
 
    ![Assistente para restaurar configuração substituir existente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
+
+## <a name="cross-region-restore"></a>Restauração entre regiões
+
+Como uma das [Opções de restauração](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options), a CRR (restauração entre regiões) permite que você restaure as VMs do Azure em uma região secundária, que é uma região emparelhada do Azure.
+
+Para carregar o recurso durante a versão prévia, leia a [seção antes de começar](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+Para ver se a CRR está habilitada, siga as instruções em [Configurar a restauração entre regiões](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Exibir itens de backup na região secundária
+
+Se a CRR estiver habilitada, você poderá exibir os itens de backup na região secundária.
+
+1. No portal, vá para **cofre dos serviços de recuperação** > **itens de backup**
+2. Clique em **região secundária** para exibir os itens na região secundária.
+
+![Máquinas virtuais na região secundária](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Selecionar região secundária](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+
+### <a name="restore-in-secondary-region"></a>Restaurar na região secundária
+
+A experiência do usuário de restauração da região secundária será semelhante à experiência do usuário de restauração da região primária. Ao configurar detalhes na folha restaurar configuração para configurar a restauração, você será solicitado a fornecer apenas os parâmetros secundários da região.
+
+![Escolher a VM a ser restaurada](./media/backup-azure-arm-restore-vms/sec-restore.png)
+
+![Selecionar ponto de restauro](./media/backup-azure-arm-restore-vms/sec-rp.png)
+
+![Restaurar configuração](./media/backup-azure-arm-restore-vms/rest-config.png)
+
+![Notificação de disparo de restauração em andamento](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+- Para restaurar e criar uma VM, consulte [criar uma VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
+- Para restaurar como um disco, consulte [restaurar discos](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorando trabalhos de restauração de região secundária
+
+1. No portal, vá para **cofre dos serviços de recuperação** > **trabalhos de backup**
+2. Clique em **região secundária** para exibir os itens na região secundária.
+
+![Trabalhos de backup filtrados](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
 ## <a name="restore-vms-with-special-configurations"></a>Restaurar VMs com configurações especiais
 

@@ -9,15 +9,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 758c9b323e78e7e86312555f5fabdcc9c4c28330
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b2b7b2413a187c446aace4eb1e416dea1b4258d3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123724"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750654"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>Introdução ao Visual Studio 2019 para SQL Data Warehouse
 O SSDT (Visual Studio **2019** SQL Server Data Tools) é uma única ferramenta que permite que você faça o seguinte:
@@ -40,11 +40,12 @@ Há ocasiões em que as versões de recursos para SQL Data Warehouse podem não 
 - [Índices Columnstore clusterizados ordenados](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (em andamento)
 - [Instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (em andamento)
 - [Gerenciamento de carga de trabalho](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) -grupos de carga de trabalho e classificadores (em andamento)
-- [Segurança em nível de linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+- [Segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
   - Envie um tíquete de suporte ou vote [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obter o recurso com suporte.
 - [Máscara de dados dinâmica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
   - Envie um tíquete de suporte ou vote [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o recurso com suporte. 
 - Função [Predict](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) 
+- Não há suporte para [tabelas com restrições](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-table-constraints#table-constraints) . Para esses objetos de tabela, defina a ação de Build como "None".
 
 ## <a name="next-steps"></a>Passos seguintes
 

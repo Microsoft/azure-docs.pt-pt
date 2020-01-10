@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 254cbc995da9380f108970fb981c000fca7dc63f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a474bdceffa07b18530250a02a9ef94159a8e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925815"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750330"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir dados de monitoramento do Azure para um hub de eventos
 O Azure Monitor fornece uma solução completa de monitoramento de pilha completa para aplicativos e serviços no Azure, em outras nuvens e no local. Além de usar Azure Monitor para analisar os dados e aproveitá-los para diferentes cenários de monitoramento, talvez seja necessário enviá-los para outras ferramentas de monitoramento em seu ambiente. O método mais eficaz para transmitir dados de monitoramento para ferramentas externas na maioria dos casos é usar os [hubs de eventos do Azure](/azure/event-hubs/). Este artigo fornece uma breve descrição de como você pode transmitir dados de monitoramento de fontes diferentes para um hub de eventos e links para orientações detalhadas.
@@ -62,7 +62,7 @@ O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monit
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Arquivar o log de atividades em uma conta de armazenamento](../../azure-monitor/platform/archive-activity-log.md)
-* [Leia a visão geral do log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md)
+* [Leia a visão geral do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Configurar um alerta com base em um evento do log de atividades](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

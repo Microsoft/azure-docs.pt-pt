@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559214"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749653"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
 Este guia destina-se a profissionais de tecnologias da informação (TI), analistas de segurança de informações e administradores da cloud cujas organizações utilizam o Centro de Segurança do Azure e que precisam de resolver problemas relacionados com o Centro de Segurança.
 
-A central de segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migração da Plataforma do Centro de Segurança do Azure) para saber mais. As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Agente de Monitorização da Microsoft.
+A central de segurança usa o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Azure Security Center Platform Migration](security-center-platform-migration.md) (Migração da Plataforma do Centro de Segurança do Azure) para saber mais. As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Microsoft Monitoring Agent.
 
 ## <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -40,11 +40,11 @@ Consoante os tipos de alerta, os clientes podem obter as informações necessár
 
 Para alguns alertas, também temos uma pontuação de confiança. A classificação de confiança no **Centro de Segurança** pode ajudar a sua equipa a fazer a triagem e a dar prioridade aos alertas. A **central de segurança** aplica automaticamente práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece informações significativas na forma de uma pontuação de confiança.
 
-Os clientes podem partilhar feedback para a descrição e relevância do alerta. Aceda ao alerta, selecione o botão **Isto foi útil?** , selecione o motivo e introduza um comentário para explicar o feedback. Nós monitorizamos consistentemente este canal de feedback para melhorar os nossos alertas.
+Os clientes podem partilhar feedback na descrição e relevância do alerta. Aceda ao alerta, selecione o botão **Isto foi útil?** , selecione o motivo e introduza um comentário para explicar o feedback. Nós monitorizamos consistentemente este canal de feedback para melhorar os nossos alertas.
 
 ## <a name="audit-log"></a>Log de auditoria
 
-A maior parte da resolução de problemas feita no Centro de Segurança será realizada ao consultar primeiro os [Registos de Auditoria](../azure-monitor/platform/activity-logs-overview.md) quanto ao componente que falhou. Os registos de auditoria permitem-lhe determinar:
+A maior parte da resolução de problemas feita no Centro de Segurança será realizada ao consultar primeiro os [Registos de Auditoria](../azure-monitor/platform/platform-logs-overview.md) quanto ao componente que falhou. Os registos de auditoria permitem-lhe determinar:
 
 * As operações que foram executadas
 * Quem iniciou a operação
@@ -92,8 +92,8 @@ O **estado da monitorização** define o motivo pelo qual o Centro de Segurança
 |A instalação falhou – erro geral | O Microsoft Monitoring Agent foi instalado mas falhou devido a um erro. | [Instale a extensão manualmente](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou desinstale a extensão, para que o Centro de Segurança tente instalá-la novamente. |
 | A instalação falhou - o agente local já está instalado | A instalação do Microsoft Monitoring Agent falhou. A central de segurança identificou um agente local (Log Analytics ou System Center Operations Manager) já instalado na VM. Para evitar a configuração multi-homing, em que a VM está a comunicar com duas áreas de trabalho separadas, a instalação do Microsoft Monitoring Agent parou. | Existem duas formas de resolver isto: [instalar manualmente a extensão](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e ligá-la à área de trabalho pretendida. Ou então definir a sua área de trabalho pretendida como a área de trabalho predefinida e ativar o aprovisionamento automático do agente.  Veja [ativar o aprovisionamento automático](security-center-enable-data-collection.md). |
 | O agente não consegue ligar à área de trabalho | O Microsoft Monitoring Agent foi instalado, mas falhou devido a conectividade de rede.  Verifique se tem acesso à Internet ou se foi configurado um proxy HTTP válido para o agente. | Consulte requisitos de rede do agente de monitoramento. |
-| Agente ligado a área de trabalho em falta ou desconhecida | O Centro de Segurança detetou que o Microsoft Monitoring Agent instalado na VM está ligado a uma área de trabalho à qual não tem acesso. | Isto pode acontecer em dois casos. A área de trabalho foi eliminada e já não existe. Reinstale o agente com a área de trabalho correta ou desinstale o agente e permita que o Centro de Segurança conclua a instalação de aprovisionamento automática. O segundo caso é quando a área de trabalho faz parte de uma subscrição para a qual o Centro de Segurança não tem permissões. O Centro de Segurança requer subscrições para permitir que o Fornecedor de Recursos de Segurança da Microsoft aceda às mesmas. Para ativar, registe a subscrição no Fornecedor de Recursos de Segurança da Microsoft. Isto pode ser feito por API, PowerShell, portal ou filtrando a subscrição no dashboard **Descrição Geral** do Centro de Segurança. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) para obter mais informações. |
-| O agente não responde ou tem o ID em falta | O Centro de Segurança não consegue obter dados de segurança analisados a partir da VM, apesar de o agente estar instalado. | O agente não está a comunicar quaisquer dados, incluindo o heartbeat. O agente pode estar danificado ou algo está a bloquear o tráfego. Ou então o agente está a comunicar dados mas falta um ID de recurso do Azure, pelo que é impossível corresponder os dados à VM do Azure. Para solucionar problemas do Linux, consulte [Guia de solução de problemas do agente do log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para resolver problemas do Windows, Veja [Resolução de Problemas das Máquinas Virtuais Windows](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| Agente ligado a área de trabalho em falta ou desconhecida | O Centro de Segurança detetou que o Microsoft Monitoring Agent instalado na VM está ligado a uma área de trabalho à qual não tem acesso. | Isto pode acontecer em dois casos. A área de trabalho foi eliminada e já não existe. Reinstale o agente com a área de trabalho correta ou desinstale o agente e permita que o Centro de Segurança conclua a instalação de aprovisionamento automática. O segundo caso é quando a área de trabalho faz parte de uma subscrição para a qual o Centro de Segurança não tem permissões. O Centro de Segurança requer subscrições para permitir que o Fornecedor de Recursos de Segurança da Microsoft aceda às mesmas. Para ativar, registe a subscrição no Fornecedor de Recursos de Segurança da Microsoft. Isto pode ser feito por API, PowerShell, portal ou filtrando a subscrição no dashboard **Descrição Geral** do Centro de Segurança. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) para obter mais informações. |
+| O agente não responde ou tem o ID em falta | O Centro de Segurança não consegue obter dados de segurança analisados a partir da VM, apesar de o agente estar instalado. | O agente não está a comunicar quaisquer dados, incluindo o heartbeat. O agente pode estar danificado ou algo está a bloquear o tráfego. Ou então o agente está a comunicar dados mas falta um ID de recurso do Azure, pelo que é impossível corresponder os dados à VM do Azure. Para resolver problemas relacionados com o Linux, veja [guia de resolução de problemas de mensagens em fila para o agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para resolver problemas do Windows, Veja [Resolução de Problemas das Máquinas Virtuais Windows](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agente não instalado | A recolha de dados está desativada. | Ative a recolha de dados na política de segurança ou instale manualmente o Microsoft Monitoring Agent. |
 
 ## Requisitos de resolução de problemas de rede do agente de monitorização <a name="mon-network-req"></a>
@@ -147,11 +147,11 @@ Neste documento, aprendeu a configurar as políticas de segurança no Centro de 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança
 * [Understanding security alerts in Azure Security Center](security-center-alerts-type.md) (Compreender os alertas de segurança no Centro de Segurança do Azure)
 * [Tutorial: responder a incidentes de segurança](tutorial-security-incident.md)
-* [Alerts Validation in Azure Security Center](security-center-alert-validation.md) (Validação de Alertas no Centro de Segurança do Azure)
+* [Alerts Validation in Azure Security Center](security-center-alert-validation.md) (Validação de alertas no Centro de Segurança do Azure)
 * [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md) (Notificações por e-mail no Centro de Segurança do Azure)
 * [Handling Security Incidents in Azure Security Center](security-center-incident.md) (Lidar com incidentes de segurança no Centro de Segurança do Azure)
 * [Alert confidence score](security-center-secure-score.md) (Pontuação de confiança do alerta)
-* [Investigate Incidents and Alerts in Azure Security Center](security-center-investigation.md) (Investigar incidentes e alertas no Centro de Segurança do Azure)
+* [Investigar Incidentes e Alertas no Centro de Segurança do Azure](security-center-investigation.md)
 * [Capacidades de deteção do Centro de Segurança do Azure](security-center-detection-capabilities.md)
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço

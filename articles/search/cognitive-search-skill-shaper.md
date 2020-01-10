@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791867"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754127"
 ---
 # <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
 
@@ -27,7 +27,7 @@ O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nom
 > A habilidade do **modelador** não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. Skills. util. ShaperSkill
+Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Cenário 1: tipos complexos
 
@@ -252,4 +252,4 @@ Nesse caso, o **modelador** cria um tipo complexo. Essa estrutura existe na mem�
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
 + [Loja de conhecimento (visualização)](knowledge-store-concept-intro.md)
-+ [Como começar a usar a loja de conhecimento](knowledge-store-howto.md)
++ [Criar um repositório de conhecimento em repouso](knowledge-store-create-rest.md)

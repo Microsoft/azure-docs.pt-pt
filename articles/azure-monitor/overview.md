@@ -7,16 +7,16 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: d02ea18422e20aa2fede4f25cdffa985607e7b5c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597348"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745434"
 ---
-# <a name="azure-monitor-overview"></a>Visão geral de Azure Monitor
+# <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
-O Azure Monitor maximiza a disponibilidade e o desempenho de seus aplicativos e serviços, fornecendo uma solução abrangente para coletar, analisar e agir na telemetria de seus ambientes locais e de nuvem. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.
+O Azure Monitor maximiza a disponibilidade e o desempenho das suas aplicações e serviços ao disponibilizar uma solução completa para recolher, analisar e agir com base em telemetria a partir dos seus ambientes na cloud e no local. Ajuda a compreender o desempenho das suas aplicações e identifica proativamente os problemas que as afetam e os recursos de que dependem.
 
 Apenas alguns exemplos do que você pode fazer com Azure Monitor incluem:
 
@@ -27,16 +27,16 @@ Apenas alguns exemplos do que você pode fazer com Azure Monitor incluem:
 - Crie visualizações com [painéis](learn/tutorial-logs-dashboards.md) e [pastas de trabalho](app/usage-workbooks.md)do Azure.
 
 ## <a name="overview"></a>Visão geral
-O diagrama a seguir fornece uma exibição de alto nível do Azure Monitor. No centro do diagrama estão os armazenamentos de dados para métricas e logs, que são os dois tipos fundamentais de uso de dados por Azure Monitor. À esquerda estão as [fontes de dados de monitoramento](platform/data-sources.md) que preenchem esses [armazenamentos de dados](platform/data-platform.md). À direita estão as funções diferentes que Azure Monitor executa com esses dados coletados, como análise, alertas e streaming para sistemas externos.
+O seguinte diagrama fornece uma visão geral do Azure Monitor. No centro do diagrama estão os armazenamentos de dados para métricas e logs, que são os dois tipos fundamentais de uso de dados por Azure Monitor. À esquerda estão as [fontes de dados de monitoramento](platform/data-sources.md) que preenchem esses [armazenamentos de dados](platform/data-platform.md). À direita estão as funções diferentes que Azure Monitor executa com esses dados coletados, como análise, alertas e streaming para sistemas externos.
 
 
-![Visão geral de Azure Monitor](media/overview/overview.png)
+![Descrição geral do Azure Monitor](media/overview/overview.png)
 
 
 ## <a name="monitoring-data-platform"></a>Plataforma de dados de monitoramento
-Todos os dados coletados pelo Azure Monitor se adaptam a um dos dois tipos fundamentais, [métricas e logs](platform/data-platform.md). [Métricas](platform/data-platform-metrics.md) são valores numéricos que descrevem um aspecto de um sistema em um determinado momento. Eles são leves e capazes de dar suporte a cenários quase em tempo real. [Os logs](platform/data-platform-logs.md) contêm diferentes tipos de dados organizados em registros com diferentes conjuntos de propriedades para cada tipo. A telemetria, como eventos e rastreamentos, é armazenada como logs além dos dados de desempenho para que todos possam ser combinados para análise.
+Todos os dados coletados pelo Azure Monitor se adaptam a um dos dois tipos fundamentais, [métricas e logs](platform/data-platform.md). [Métricas](platform/data-platform-metrics.md) são valores numéricos que descrevem um aspecto de um sistema em um determinado momento. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Os logs](platform/data-platform-logs.md) contêm diferentes tipos de dados organizados em registros com diferentes conjuntos de propriedades para cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
 
-Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente na página de visão geral na portal do Azure. Examine qualquer máquina virtual, por exemplo, e você verá vários gráficos exibindo métricas de desempenho. Clique em qualquer um dos grafos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md) no portal do Azure, o que permite que você regráficoize os valores de várias métricas ao longo do tempo.  Você pode exibir os gráficos interativamente ou fixá-los em um painel para exibi-los com outras visualizações.
+Para muitos recursos do Azure, você verá os dados coletados pelo Azure Monitor diretamente na página de visão geral na portal do Azure. Examine qualquer máquina virtual, por exemplo, e você verá vários gráficos exibindo métricas de desempenho. Clique em qualquer um dos grafos para abrir os dados no [Metrics Explorer](platform/metrics-charts.md) no portal do Azure, o que permite que você regráficoize os valores de várias métricas ao longo do tempo.  Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações.
 
 ![Métricas](media/overview/metrics.png)
 
@@ -46,20 +46,20 @@ Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/quer
 
 ![Registos](media/overview/logs.png)
 
-## <a name="what-data-does-azure-monitor-collect"></a>Quais dados Azure Monitor coleta?
-Azure Monitor pode coletar dados de uma variedade de fontes. Você pode considerar o monitoramento de dados para seus aplicativos em camadas que variam de seu aplicativo, qualquer sistema operacional e serviço do qual ele se baseia, até a própria plataforma. Azure Monitor coleta dados de cada uma das seguintes camadas:
+## <a name="what-data-does-azure-monitor-collect"></a>Que dados é que o Azure Monitor recolhe?
+O Azure Monitor pode recolher dados de várias origens. Pode pensar em monitorizar os dados das suas aplicações em camadas, desde a sua aplicação, qualquer sistema operativo e serviços de que dependem, até à própria plataforma. O Azure Monitor recolhe dados de cada um dos seguintes escalões:
 
 - **Dados de monitoramento de aplicativos**: dados sobre o desempenho e a funcionalidade do código que você escreveu, independentemente de sua plataforma.
-- **Dados de monitoramento do SO convidado**: dados sobre o sistema operacional no qual seu aplicativo está sendo executado. Isso pode estar em execução no Azure, em outra nuvem ou local. 
+- **Dados de monitoramento do SO convidado**: dados sobre o sistema operacional no qual seu aplicativo está sendo executado. Pode estar em execução no Azure, noutra cloud ou no local. 
 - **Dados de monitoramento de recursos do Azure**: dados sobre a operação de um recurso do Azure.
 - **Dados de monitoramento de assinatura do Azure**: dados sobre a operação e o gerenciamento de uma assinatura do Azure, bem como dados sobre a integridade e a operação do próprio Azure. 
 - **Dados de monitoramento de locatário do Azure**: dados sobre a operação de serviços do Azure no nível do locatário, como Azure Active Directory.
 
-Assim que você criar uma assinatura do Azure e começar a adicionar recursos, como máquinas virtuais e aplicativos Web, Azure Monitor começará a coletar dados.  [Os logs de atividade](platform/activity-logs-overview.md) registram quando os recursos são criados ou modificados. As [métricas](platform/data-platform.md) informam como o recurso está sendo executado e os recursos que ele está consumindo. 
+Assim que cria uma subscrição do Azure e começa a adicionar recursos, como máquinas virtuais e aplicações Web, o Azure Monitor começa a recolher dados.  [Os logs de atividade](platform/platform-logs-overview.md) registram quando os recursos são criados ou modificados. As [métricas](platform/data-platform.md) informam como o recurso está sendo executado e os recursos que ele está consumindo. 
 
-Estenda os dados que você está coletando para a operação real dos recursos, [habilitando o diagnóstico](platform/resource-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para computar recursos. Isso coletará a telemetria para a operação interna do recurso e permitirá que você configure diferentes [fontes de dados](platform/agent-data-sources.md) para coletar logs e métricas do sistema operacional convidado Windows e Linux. 
+Estenda os dados que você está coletando para a operação real dos recursos, [habilitando o diagnóstico](platform/platform-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para computar recursos. Isso coletará a telemetria para a operação interna do recurso e permitirá que você configure diferentes [fontes de dados](platform/agent-data-sources.md) para coletar logs e métricas do sistema operacional convidado Windows e Linux. 
 
-Habilite o monitoramento do [aplicativo de serviços de aplicativos](app/azure-web-apps.md) ou da [VM e do aplicativo do conjunto de dimensionamento de máquinas virtuais](app/azure-vm-vmss-apps.md)para permitir que Application insights colete informações detalhadas sobre o aplicativo, incluindo exibições de página, solicitações de aplicativo e exceção. Verifique melhor a disponibilidade do seu aplicativo Configurando um [teste de disponibilidade](app/monitor-web-app-availability.md) para simular o tráfego do usuário.
+Habilite o monitoramento do [aplicativo de serviços de aplicativos](app/azure-web-apps.md) ou da [VM e do aplicativo do conjunto de dimensionamento de máquinas virtuais](app/azure-vm-vmss-apps.md)para permitir que Application insights colete informações detalhadas sobre o aplicativo, incluindo exibições de página, solicitações de aplicativo e exceções. Verifique melhor a disponibilidade do seu aplicativo Configurando um [teste de disponibilidade](app/monitor-web-app-availability.md) para simular o tráfego do usuário.
 
 ### <a name="custom-sources"></a>Fontes personalizadas
 Azure Monitor pode coletar dados de log de qualquer cliente REST usando a [API do coletor de dados](platform/data-collector-api.md). Isso permite que você crie cenários de monitoramento personalizados e estenda o monitoramento para recursos que não expõem a telemetria por meio de outras fontes.
@@ -80,7 +80,7 @@ Os dados de monitoramento só serão úteis se puderem aumentar sua visibilidade
 ![Integridade do contêiner](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-O [Azure monitor para VMs](insights/vminsights-overview.md) monitora suas máquinas virtuais (VM) do Azure em escala analisando o desempenho e a integridade de suas VMs Windows e Linux, incluindo seus processos diferentes e dependências interconectadas em outros recursos e externos processar. A solução inclui suporte para monitoramento de desempenho e dependências de aplicativo para VMs hospedadas no local ou outro provedor de nuvem.  
+O [Azure monitor para VMs](insights/vminsights-overview.md) monitora suas máquinas virtuais (VM) do Azure em escala analisando o desempenho e a integridade de suas VMs Windows e Linux, incluindo seus processos diferentes e dependências interconectadas em outros recursos e processos externos. A solução inclui suporte para monitoramento de desempenho e dependências de aplicativo para VMs hospedadas no local ou outro provedor de nuvem.  
 
 
 ![Informações de VM](media/overview/vm-insights.png)
@@ -117,7 +117,7 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) permitem comb
 ### <a name="views"></a>Vistas
 [Exibições](../log-analytics/log-analytics-view-designer.md) visualmente apresentam dados de log em Azure monitor.  Cada exibição inclui um único bloco que faz uma busca detalhada de uma combinação de visualizações, como gráficos de barras e linhas, além de listas que resumem dados críticos.  As soluções de monitoramento incluem exibições que resumem dados para um aplicativo específico, e você pode criar suas próprias exibições para apresentar dados de qualquer consulta de log. Como outros elementos no Azure Monitor, as exibições podem ser adicionadas aos painéis do Azure.
 
-![Ver](media/overview/view.png)
+![Vista](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 O [Power bi](https://powerbi.microsoft.com) é um serviço de análise de negócios que fornece visualizações interativas em uma variedade de fontes de dados e é um meio eficaz de disponibilizar dados para outras pessoas dentro e fora da sua organização. Você pode configurar Power BI para [importar automaticamente os dados de log do Azure monitor](../log-analytics/log-analytics-powerbi.md) para aproveitar essas visualizações adicionais.

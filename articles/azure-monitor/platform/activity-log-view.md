@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 54a1d3e503ddb8b11109596decde94a2834dbf47
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529971"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749513"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Exibir e recuperar eventos do log de atividades do Azure
 
-O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo fornece detalhes sobre diferentes métodos para exibir e recuperar eventos do log de atividades.
+O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo fornece detalhes sobre diferentes métodos para exibir e recuperar eventos do log de atividades.
 
 ## <a name="azure-portal"></a>Portal do Azure
 Exiba o log de atividades de todos os recursos no menu **monitorar** na portal do Azure. Exiba o log de atividades de um recurso específico da opção **log de atividades** no menu desse recurso.

@@ -3,29 +3,24 @@ title: Criar e carregar um VHD de Ubuntu Linux no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Ubuntu Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
+author: MicahMcKittrick-MSFT
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: szark
-ms.openlocfilehash: cdf2c6c0d5621223655fc4571affcdde4563ac97
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: mimckitt
+ms.openlocfilehash: e8226322ad1aa9a1079834cc26b4ff8a1b40a204
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258272"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750159"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Imagens oficiais de nuvem do Ubuntu
-O Ubuntu agora publica VHDs oficiais do Azure para download [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/)em. Se você precisar criar sua própria imagem do Ubuntu especializada para o Azure, em vez de usar o procedimento manual abaixo, é recomendável iniciar com esses VHDs de trabalho conhecidos e personalizá-los conforme necessário. As versões mais recentes da imagem sempre podem ser encontradas nos seguintes locais:
+
+O Ubuntu agora publica VHDs oficiais do Azure para download em [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Se você precisar criar sua própria imagem do Ubuntu especializada para o Azure, em vez de usar o procedimento manual abaixo, é recomendável iniciar com esses VHDs de trabalho conhecidos e personalizá-los conforme necessário. As versões mais recentes da imagem sempre podem ser encontradas nos seguintes locais:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -46,7 +41,7 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
 
 ## <a name="manual-steps"></a>Etapas manuais
 > [!NOTE]
-> Antes de tentar criar sua própria imagem personalizada do Ubuntu para o Azure, considere usar as imagens [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) previamente compiladas e testadas em vez disso.
+> Antes de tentar criar sua própria imagem personalizada do Ubuntu para o Azure, considere usar as imagens predefinidas e testadas de [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/) em vez disso.
 > 
 > 
 
@@ -54,9 +49,9 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
 
 2. Clique em **conectar** para abrir a janela da máquina virtual.
 
-3. Substitua os repositórios atuais na imagem para usar o Azure repositórios do Ubuntu. As etapas variam um pouco dependendo da versão do Ubuntu.
+3. Substitua os repositórios atuais na imagem para usar o repositório do Azure do Ubuntu. As etapas variam um pouco dependendo da versão do Ubuntu.
    
-    Antes de `/etc/apt/sources.list`editar, é recomendável fazer um backup:
+    Antes de editar `/etc/apt/sources.list`, é recomendável fazer um backup:
    
         # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -108,11 +103,11 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. Modifique a linha de inicialização do kernel para grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, `/etc/default/grub` abra em um editor de texto, localize a `GRUB_CMDLINE_LINUX_DEFAULT` variável chamada (ou adicione-a se necessário) e edite-a para incluir os seguintes parâmetros:
+5. Modifique a linha de inicialização do kernel para grub para incluir parâmetros de kernel adicionais para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a se necessário) e edite-a para incluir os seguintes parâmetros:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
-    Salve e feche esse arquivo e, em seguida `sudo update-grub`, execute. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte técnico do Azure com problemas de depuração.
+    Salve e feche esse arquivo e, em seguida, execute `sudo update-grub`. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte técnico do Azure com problemas de depuração.
 
 6. Verifique se o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, isso é o padrão.
 
@@ -122,7 +117,7 @@ Este artigo pressupõe que você já tenha instalado um sistema operacional Ubun
         # sudo apt-get install walinuxagent
 
    > [!Note]
-   >  O `walinuxagent` pacote pode remover os `NetworkManager` pacotes `NetworkManager-gnome` e, se eles estiverem instalados.
+   >  O pacote de `walinuxagent` pode remover os `NetworkManager` e os pacotes de `NetworkManager-gnome`, se estiverem instalados.
 
 
 1. Execute os seguintes comandos para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed376a3f500f6d6af3d0eab7f98b68e856513600
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547106"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745462"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento no Azure digital gêmeos
 
@@ -26,7 +26,7 @@ Este artigo resume as opções de registro em log e monitoramento e como combin�
 
 ## <a name="review-activity-logs"></a>Examinar logs de atividade
 
-[Os logs de atividades](../azure-monitor/platform/activity-logs-overview.md) do Azure fornecem informações rápidas sobre os históricos de eventos e operações de nível de assinatura para cada instância de serviço do Azure.
+[Os logs de atividades](../azure-monitor/platform/platform-logs-overview.md) do Azure fornecem informações rápidas sobre os históricos de eventos e operações de nível de assinatura para cada instância de serviço do Azure.
 
 Os eventos de nível de assinatura incluem:
 
@@ -57,7 +57,7 @@ Para o registro em log de atividades avançadas:
 
 ## <a name="enable-customer-diagnostic-logs"></a>Habilitar logs de diagnóstico do cliente
 
-[As configurações de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Embora os logs de atividade pertençam a eventos de nível de assinatura, o log de diagnóstico fornece informações sobre o histórico operacional dos próprios recursos.
+[As configurações de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) do Azure podem ser definidas para cada instância do Azure para complementar o log de atividades. Embora os logs de atividade pertençam a eventos de nível de assinatura, o log de diagnóstico fornece informações sobre o histórico operacional dos próprios recursos.
 
 Exemplos de log de diagnóstico incluem:
 
@@ -127,8 +127,8 @@ O Azure digital gêmeos também dá suporte ao log específico do aplicativo e �
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [os logs de atividades](../azure-monitor/platform/activity-logs-overview.md)do Azure.
+- Saiba mais sobre [os logs de atividades](../azure-monitor/platform/platform-logs-overview.md)do Azure.
 
-- Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md).
+- Aprofunde-se nas configurações de diagnóstico do Azure lendo uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
 
 - Leia mais sobre [logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md).

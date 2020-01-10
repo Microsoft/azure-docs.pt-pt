@@ -3,7 +3,7 @@ title: Criar e carregar um VHD do SUSE Linux no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: szark
-ms.openlocfilehash: d3241229fcf3ef99f71185c452ae615ec2cfc889
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mimckitt
+ms.openlocfilehash: 5ff28e25bf3da33fcf85a77f850b3b8f5ac8bb6b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091212"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745828"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual SLES ou openSUSE para o Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+
 Este artigo pressupõe que você já tenha instalado um sistema operacional Linux SUSE ou openSUSE em um disco rígido virtual. Existem várias ferramentas para criar arquivos. VHD, por exemplo, uma solução de virtualização, como o Hyper-V. Para obter instruções, consulte [instalar a função Hyper-V e configurar uma máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
-### <a name="sles--opensuse-installation-notes"></a>Notas de instalação do SLES/openSUSE
+## <a name="sles--opensuse-installation-notes"></a>Notas de instalação do SLES/openSUSE
 * Consulte também as [notas de instalação gerais do Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
 * Não há suporte para o formato VHDX no Azure, somente **VHD fixo**.  Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o cmdlet Convert-VHD.
 * Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso evitará conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. O [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser usado em discos de dados, se for preferencial.
@@ -79,12 +78,15 @@ Como uma alternativa para compilar seu próprio VHD, o SUSE também publica imag
     
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. É recomendável editar o arquivo "/etc/sysconfig/network/DHCP" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
+11. É recomendável editar o arquivo "/etc/sysconfig/network/DHCP" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
     
      DHCLIENT_SET_HOSTNAME="no"
 12. Em "/etc/sudoers", comente ou remova as seguintes linhas, se existirem:
     
-     Padrões targetpw # solicitam a senha do usuário de destino, ou seja, raiz ALL todos = (ALL) todos os # WARNING! Use-o apenas junto com ' defaults targetpw '!
+    ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
 13. Verifique se o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, isso é o padrão.
 14. Não crie espaço de permuta no disco do sistema operacional.
     
@@ -136,12 +138,16 @@ Como uma alternativa para compilar seu próprio VHD, o SUSE também publica imag
    Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Além disso, remova os seguintes parâmetros da linha de inicialização do kernel, se existirem:
    
      libata. atapi_enabled = 0 Reserve = 0x1f0, 0x8
-7. É recomendável editar o arquivo "/etc/sysconfig/network/DHCP" e alterar o `DHCLIENT_SET_HOSTNAME` parâmetro para o seguinte:
+7. É recomendável editar o arquivo "/etc/sysconfig/network/DHCP" e alterar o parâmetro `DHCLIENT_SET_HOSTNAME` para o seguinte:
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **Importante:** Em "/etc/sudoers", comente ou remova as seguintes linhas, se existirem:
-   
-     Padrões targetpw # solicitam a senha do usuário de destino, ou seja, raiz ALL todos = (ALL) todos os # WARNING! Use-o apenas junto com ' defaults targetpw '!
+     
+     ```
+     Defaults targetpw   # ask for the password of the target user i.e. root
+     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+     ```
+
 9. Verifique se o servidor SSH está instalado e configurado para iniciar no momento da inicialização.  Normalmente, isso é o padrão.
 10. Não crie espaço de permuta no disco do sistema operacional.
     

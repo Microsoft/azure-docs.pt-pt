@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682240"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747870"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade de clusters de Apache Hadoop no HDInsight
 
@@ -33,7 +33,7 @@ Os nós em um cluster HDInsight são implementados usando máquinas virtuais do 
 
 Para garantir a alta disponibilidade dos serviços do Hadoop, o HDInsight fornece dois nós de cabeçalho. Ambos os nós de cabeça estão ativos e em execução no cluster HDInsight simultaneamente. Alguns serviços, como Apache HDFS ou Apache Hadoop YARN, são apenas "ativos" em um nó de cabeçalho em um determinado momento. Outros serviços, como HiveServer2 ou metastore do hive, estão ativos em ambos os nós de cabeçalho ao mesmo tempo.
 
-Os nós de cabeçalho (e outros nós no HDInsight) têm um valor numérico como parte do nome do host do nó. Por exemplo, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
+Para obter os nomes de host para diferentes tipos de nó em seu cluster, use a [API REST do amAmbari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Não associe o valor numérico a se um nó for primário ou secundário. O valor numérico só está presente para fornecer um nome exclusivo para cada nó.
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 Esse comando retorna um valor semelhante ao seguinte, que contém a URL interna a ser usada com o comando `oozie`:
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Para obter mais informações sobre como trabalhar com a API REST do Ambari, consulte [monitorar e gerenciar o HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -119,7 +119,7 @@ Há uma série de ícones que podem aparecer ao lado de um serviço para indicar
 
 Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
-| Nome do alerta                               | Descrição                                                                                                                                                                                  |
+| Nome do Alerta                               | Descrição                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Status do monitor de métrica                    | Esse alerta indica o status do processo de monitor de métricas conforme determinado pelo script de status do monitor.                                                                                   |
 | Pulsação do agente Ambari                   | Esse alerta será disparado se o servidor tiver perdido o contato com um agente.                                                                                                                        |
@@ -194,7 +194,7 @@ A resposta é semelhante ao JSON a seguir:
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ A resposta é semelhante ao JSON a seguir:
 }
 ```
 
-A URL nos informa que o serviço está em execução no momento em um nó de cabeçalho chamado **hn0-ClusterName**.
+A URL nos informa que o serviço está sendo executado no momento em um nó de cabeçalho chamado **mycluster. wutj3h4ic1zejluqhxzvckxq0g**.
 
 O estado informa que o serviço está em execução no momento ou **foi iniciado**.
 

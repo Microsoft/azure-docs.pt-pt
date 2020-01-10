@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 17ba808ebfabb68765cf35bbf0799d117bc6383b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133428"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746508"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Gerenciador de visualização do Azure Time Series Insights
 
@@ -58,7 +58,7 @@ O painel de ambiente apresenta todos os ambientes do Time Series Insights que te
 
 ## <a name="2-navigation-bar"></a>2. barra de navegação
 
-  [![barra de navegação](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
+  [![barra de navegação](media/v2-update-explorer/tsi-preview-navigation-bar.png)](media/v2-update-explorer/tsi-preview-navigation-bar.png#lightbox)
 
 Use a barra de navegação para selecionar entre duas exibições:
 
@@ -79,9 +79,9 @@ Para saber mais sobre o modelo de série de tempo, veja [modelos de série de ve
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. árvore de hierarquia e painel de pesquisa
 
-A árvore de hierarquia e o painel de pesquisa permitem que você pesquise e navegue facilmente pela hierarquia do [modelo de série temporal](./time-series-insights-update-tsm.md) para localizar as instâncias de série temporal específicas que você deseja exibir no gráfico. Quando você seleciona suas instâncias, elas não são adicionadas apenas ao gráfico atual, mas também são adicionadas ao bem de dados. 
+A árvore de hierarquia e o painel de pesquisa permitem pesquisar e navegar facilmente na hierarquia do [modelo de série temporal](./time-series-insights-update-tsm.md) para localizar as instâncias de série temporal específicas que você deseja exibir no gráfico. Quando você seleciona suas instâncias, elas não são adicionadas apenas ao gráfico atual, mas também são adicionadas ao bem de dados. 
 
-[árvore de hierarquia de ![e painel de pesquisa](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+[árvore de hierarquia de ![e painel de pesquisa](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 O painel resultados da pesquisa também permite exibir os resultados em uma exibição de hierarquia ou em uma exibição de lista, facilitando a localização das instâncias que você deseja exibir.
  
@@ -89,7 +89,7 @@ O painel resultados da pesquisa também permite exibir os resultados em uma exib
 
 O bem exibe os campos de instância e outros metadados associados às instâncias de Time Series Insights selecionadas. Ao marcar as caixas de seleção no lado direito, você pode ocultar ou exibir instâncias específicas do gráfico atual. 
 
-  [![o compartimento de visualização](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
+  [![o compartimento de visualização](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
 Você pode remover elementos de dados específicos de seus dados atuais bem, selecionando o controle vermelho **delete** (lixeira) no lado esquerdo do elemento. O também permite que você controle como cada elemento é exibido no gráfico. Você pode optar por adicionar sombras mínimas/máximas, pontos de dados, deslocar o elemento no tempo e visualizar a instância de uma maneira de nível. 
 
@@ -100,13 +100,13 @@ Além disso, o controle explorações permite que você crie facilmente turnos d
 > [!NOTE]
 > Se você vir a mensagem a seguir, a instância não terá nenhum dado durante o período de tempo selecionado. Para resolver o problema, aumente o período de tempo ou confirme se a instância está enviando dados por push.
 >
-> ![Nenhuma notificação de dados](media/v2-update-explorer/no-data-warning.png)
+> ![Nenhuma notificação de dados](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
 ## <a name="5-chart-panel"></a>5. painel de gráfico
 
 O gráfico permite que você exiba instâncias de série temporal como linhas. Pode fechar o painel de ambiente, o modelo de dados e o painel de controlo de span de tempo ao clicar em controles da web para aumentar o gráfico. 
 
-  [Visão geral do gráfico de visualização de ![](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
+  [Visão geral do gráfico de visualização de ![](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
 1. **Tipo de gráfico**: controla quais elementos de dados estão disponíveis para visualização.
 
@@ -122,29 +122,29 @@ O gráfico permite que você exiba instâncias de série temporal como linhas. P
 
 1. **Elemento Marker**: o elemento de dados selecionado no momento e seus detalhes associados.
 
-Você pode detalhar ainda mais uma fatia de dados específica **clicando com** o botão esquerdo do mouse em um ponto de dados no grafo atual enquanto mantém o rato pressionado e arrastando a área selecionada para o ponto de extremidade de sua escolha. **Clique com o botão direito do mouse** na área cinza selecionada e clique em **zoom** , conforme mostrado abaixo. Você também pode exibir e baixar os eventos de telemetria no período de tempo selecionado.
+Você pode detalhar ainda mais uma fatia de dados específica **clicando com** o botão esquerdo do mouse em um ponto de dados no grafo atual enquanto mantém o rato pressionado e arrastando a área selecionada para o ponto de extremidade de sua escolha. **Clique com o botão direito do mouse** na área azul selecionado e clique em **zoom** , conforme mostrado abaixo. Você também pode exibir e baixar os eventos de telemetria no período de tempo selecionado.
 
   [![o zoom do gráfico de visualização](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
 Depois de executar a ação de **zoom** , você verá o conjunto de dados selecionado. Selecione o controle de formato para percorrer as três representações do eixo y de seus dados de Time Series Insights.
 
-  [![eixo y do gráfico de visualização](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
+  [![eixo y do gráfico de visualização](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
 Aqui, você pode ver um exemplo de um **gráfico sobreposto**:
 
-  [opção ![sobreposição de gráfico](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
+  [opção ![sobreposição de gráfico](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-O botão **mais ações** se expande para exibir as opções **baixar como CSV** e **exportar para Power bi** .
+O **botão mais ações** se expande para exibir o **download como CSV**, **conectar-se a Power bi**, **Mostrar dados do gráfico como uma tabela**e explorar as opções de **eventos brutos** .
 
   [opção ![mais ações](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Leia sobre o [conector de Power bi nativo Time Series insights](concepts-power-bi.md).
+Saiba mais sobre a opção **conectar-se a Power bi** no [Time Series insights conector Power bi nativo](concepts-power-bi.md).
 
 ## <a name="6-time-editor-panel"></a>6. painel de editor de tempo
 
 Ao trabalhar com Time Series Insights primeiro, você selecionará um período de tempo. O período de tempo selecionado controlará o conjunto de dados que está disponível para manipulação com os widgets de atualização de Time Series Insights.
 
-  [painel de seleção de ![tempo](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
+  [painel de seleção de ![tempo](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png)](media/v2-update-explorer/tsi-preview-explorer-timeline-element.png#lightbox)
 
 > [!TIP]
 > Uma parte da linha do tempo é realçada em uma cor âmbar ou laranja para indicar o intervalo de dados que está disponível na loja a quente.
@@ -171,15 +171,15 @@ O painel de navegação Time Series Insights visualização aparece na parte sup
 
 ### <a name="current-session-share-link-control"></a>Controlo de sessão atual de ligação de partilha
 
-  [ícone de compartilhamento de ![](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
+  [ícone de compartilhamento de ![](media/v2-update-explorer/tsi-preview-explorer-share-icon.png)](media/v2-update-explorer/tsi-preview-explorer-share-icon.png#lightbox)
 
 Selecione o ícone novo **compartilhamento** para compartilhar um link de URL com sua equipe.
 
-  [![compartilhar a URL da instância](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
+  [![compartilhar a URL da instância](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png)](media/v2-update-explorer/tsi-preview-explorer-share-your-view.png#lightbox)
 
 ### <a name="tenant-section"></a>Secção de inquilino
 
-  [seleção de locatário ![](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
+  [seleção de locatário ![](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png)](media/v2-update-explorer/tsi-preview-explorer-tenant-selection.png#lightbox)
 
 * Exibe as informações atuais da sua conta de entrada de Time Series Insights.
 * Use-o para alternar entre os temas de Time Series Insights disponíveis.
@@ -189,7 +189,7 @@ Selecione o ícone novo **compartilhamento** para compartilhar um link de URL co
 
 Para selecionar um novo tema, selecione o ícone de perfil localizado no canto superior direito. Em seguida, selecione **alterar tema**.
 
-  [seleção de tema de ![](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [seleção de tema de ![](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
 > [!TIP]
 > A seleção de idioma também está disponível selecionando o ícone de perfil.
@@ -199,7 +199,7 @@ Pré-visualização de informações de série de tempo do Azure suporta dois te
 * **Tema claro**: o tema padrão mostrado em todo este documento.
 * **Tema escuro**: renderiza o Gerenciador como mostrado aqui:
 
-  [![tema escuro selecionado](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
+  [![tema escuro selecionado](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>Controles de ambiente de S1/S2
 
@@ -220,13 +220,13 @@ O painel de editor de termos de pré-visualização do Time Series Insights prec
 | `<`, `>`, `<=`, `>=` | Período de tempo de Double, DateTime, | |
 | `=`, `!=`, `<>` | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo |
 | `IN` | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo | Todos os operandos devem ser do mesmo tipo ou ser constante NULL. |
-| `HAS` | Cadeia | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
+| `HAS` | String | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
 
 Para saber mais sobre os tipos de dados e operações de consulta com suporte, confira [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exemplos de cláusulas WHERE
 
-  [![exemplos de cláusula WHERE](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
+  [![exemplos de cláusula WHERE](media/v2-update-explorer/tsi-preview-example-queries.png)](media/v2-update-explorer/tsi-preview-example-queries.png#lightbox)
 
 **Medida**: uma lista suspensa que exibe todas as colunas numéricas (**duplos**) que você pode usar como elementos para seu gráfico atual.
 

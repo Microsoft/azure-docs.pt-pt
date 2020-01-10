@@ -1,19 +1,19 @@
 ---
 title: Recriar um índice de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma recompilação completa ou indexação incremental parcial para atualizar um índice de Pesquisa Cognitiva do Azure.
+description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma recompilação completa ou indexação parcial para atualizar um índice de Pesquisa Cognitiva do Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 18cfa3c6fde399ea61e09c5788c72ce20e5570e8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112960"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754388"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
 

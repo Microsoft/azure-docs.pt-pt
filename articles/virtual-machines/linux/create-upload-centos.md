@@ -3,23 +3,20 @@ title: Criar e carregar um VHD do Linux baseado em CentOS no Azure
 description: Aprenda a criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Linux baseado em CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
-ms.author: szark
-ms.openlocfilehash: 1ac2b24649363538d2728f302941b5a4bf5dd357
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.author: mimckitt
+ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534147"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750237"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b6ec1952d730b6515032572def65806a1ccbc0b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810373"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744700"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Intelligent Insights
 
@@ -110,7 +110,7 @@ Você também pode reduzir a carga de trabalho otimizando ou distribuindo-a em v
 
 Para obter sugestões de solução de problemas adicionais, consulte [concessões de memória reflexão sobre: o misterioso SQL Server consumidor de memória com muitos nomes](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
-## <a name="locking"></a>Bloqueio
+## <a name="locking"></a>Bloquear
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 
@@ -331,4 +331,4 @@ Geralmente, a Intelligent Insights precisa de uma hora para executar a análise 
 - Saiba mais sobre os conceitos de [Intelligent insights](sql-database-intelligent-insights.md) .
 - Use o [Intelligent insights log de diagnóstico de desempenho do banco de dados SQL do Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitore o [banco de dados SQL do Azure usando análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).

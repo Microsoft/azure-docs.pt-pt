@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8cb328c36a1120e5a30732c36e53d9669fc6a67c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530872"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750384"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arquivar logs de recursos do Azure para a conta de armazenamento
-[Os logs de plataforma](resource-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve como coletar logs de plataforma para uma conta de armazenamento do Azure para reter dados para arquivamento.
+[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem.  Este artigo descreve como coletar logs de plataforma para uma conta de armazenamento do Azure para reter dados para arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você precisará [criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md) se ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
@@ -63,7 +63,7 @@ No arquivo PT1H. JSON, cada evento é armazenado com o formato a seguir. Isso us
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia mais sobre os logs de recursos](resource-logs-overview.md).
+* [Leia mais sobre os logs de recursos](platform-logs-overview.md).
 * [Crie a configuração de diagnóstico para coletar logs e métricas no Azure](diagnostic-settings.md).
 * [Baixe BLOBs para análise](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * [Arquive logs de Azure Active Directory com Azure monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).

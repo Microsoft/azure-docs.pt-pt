@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: usar o DMS para migrar para uma instância gerenciada do banco de dados SQL do Azure | Microsoft Docs'
+title: 'Tutorial: migrar SQL Server para instância gerenciada do SQL'
+titleSuffix: Azure Database Migration Service
 description: Saiba como migrar do SQL Server local para uma instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: ca6f94664ad07b15c9c0c6dada6d6824e97527d9
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 01/08/2020
+ms.openlocfilehash: d8e5b531684e175e5b9423bbc302bbe0b3d36058
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903142"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745281"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure offline usando DMS
 
@@ -27,7 +28,7 @@ Neste tutorial, você migra o banco de dados **Adventureworks2012** de uma inst�
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 >
-> - Crie uma instância do serviço de migração de banco de dados do Azure.
+> - Crie uma instância do Azure Database Migration Service.
 > - Crie um projeto de migração usando o serviço de migração de banco de dados do Azure.
 > - Executar a migração.
 > - Monitorizar a migração.
@@ -44,23 +45,32 @@ Este artigo descreve uma migração offline do SQL Server para uma instância ge
 
 Para concluir este tutorial, precisa de:
 
-- Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+- Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Aprenda topologias de rede para migrações de instância gerenciada do banco de dados SQL do Azure usando o serviço de migração de banco de](https://aka.ms/dmsnetworkformi) Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
     > - Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
     > - Ponto de extremidade de armazenamento
     > - Ponto de extremidade do barramento de serviço
     >
     > Essa configuração é necessária porque o serviço de migração de banco de dados do Azure não tem conectividade com a Internet.
 
-- Certifique-se de que suas regras de grupo de segurança de rede VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o SQL Server de origem, que por padrão é a porta TCP 1433.
 - Se você estiver executando várias instâncias de SQL Server nomeadas usando portas dinâmicas, talvez queira habilitar o serviço de SQL Browser e permitir o acesso à porta UDP 1434 por meio de firewalls para que o serviço de migração de banco de dados do Azure possa se conectar a uma instância nomeada em sua origem servidor.
 - Se você estiver usando um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de origem para migração, bem como arquivos por meio da porta SMB 445.
 - Crie uma instância gerenciada do banco de dados SQL do Azure seguindo os detalhes no artigo [criar uma instância gerenciada do banco de dados SQL do Azure no portal do Azure](https://aka.ms/sqldbmi).
 - Verifique se os logons usados para conectar o SQL Server de origem e a instância gerenciada de destino são membros da função de servidor sysadmin.
+
+    >[!NOTE]
+    >Por padrão, o serviço de migração de banco de dados do Azure dá suporte apenas à migração de logons SQL. No entanto, você pode habilitar a capacidade de migrar logons do Windows por:
+    >
+    >- Garantir que a instância gerenciada do banco de dados SQL de destino tenha acesso de leitura do AAD, que pode ser configurada por meio do portal do Azure por um usuário com a função **administrador da empresa**ou **administrador global**.
+    >- Configurando sua instância do serviço de migração de banco de dados do Azure para habilitar migrações de logon de usuário/grupo do Windows, que é configurada por meio da portal do Azure, na página de configuração. Depois de habilitar essa configuração, reinicie o serviço para que as alterações entrem em vigor.
+    >
+    > Depois de reiniciar o serviço, os logons de usuário/grupo do Windows aparecem na lista de logons disponíveis para migração. Para qualquer logon de usuário/grupo do Windows que você migrar, será solicitado que você forneça o nome de domínio associado. Não há suporte para contas de usuário de serviço (conta com nome de domínio Autoridade NT) e contas de usuário virtual (nome de conta com o serviço NT de nome de domínio).
+
 - Crie um compartilhamento de rede que o serviço de migração de banco de dados do Azure pode usar para fazer backup do banco de dados de origem.
 - Confirme que a conta de serviço em execução na instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou e que a conta do computador do servidor de origem tem acesso de leitura/escrita à mesma partilha.
 - Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O serviço de migração de banco de dados do Azure representa a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração.
@@ -70,7 +80,7 @@ Para concluir este tutorial, precisa de:
 
 1. Inicie sessão no portal do Azure, selecione **Todos os serviços** e **Subscrições**.
 
-    ![Mostrar subscrições no portal](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)        
+    ![Mostrar subscrições no portal](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
 
 2. Selecione a assinatura na qual você deseja criar a instância do serviço de migração de banco de dados do Azure e, em seguida, selecione **provedores de recursos**.
 
@@ -84,7 +94,7 @@ Para concluir este tutorial, precisa de:
 
 1. No portal do Azure, selecione + **Criar um recurso**, procure o **Azure Database Migration Service** e selecione **Azure Database Migration Service**, na lista pendente.
 
-     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
 2. No ecrã **Azure Database Migration Service**, selecione **Criar**.
 
@@ -94,11 +104,11 @@ Para concluir este tutorial, precisa de:
 
 4. Selecione a localização em que pretende criar a instância do DMS.
 
-5. Selecione uma VNet existente ou crie uma.
+5. Selecione uma rede virtual existente ou crie uma.
 
-    A VNet fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância gerenciada do banco de dados SQL do Azure.
+    A rede virtual fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância gerenciada do banco de dados SQL do Azure de destino.
 
-    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
     Para obter detalhes adicionais, confira o artigo [topologias de rede para migrações de instância gerenciada do BD SQL do Azure usando o serviço de migração de banco de dados](https://aka.ms/dmsnetworkformi)
 
@@ -158,7 +168,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
     Se você ainda não tiver provisionado a instância gerenciada do banco de dados SQL, selecione o [link](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para ajudá-lo a provisionar a instância. Você ainda pode continuar com a criação do projeto e, em seguida, quando a instância gerenciada do banco de dados SQL do Azure estiver pronta, retorne a esse projeto específico para executar a migração.
 
-     ![Selecionar o Destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
+    ![Selecionar o Destino](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2. Selecione **Guardar**.
 
@@ -175,7 +185,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 1. No ecrã **Selecionar os inícios de sessão**, selecione os inícios de sessão que quer migrar.
 
     >[!NOTE]
-    >Esta versão só suporta a migração de inícios de sessão do SQL.
+    >Por padrão, o serviço de migração de banco de dados do Azure dá suporte apenas à migração de logons SQL. Para habilitar o suporte para migrar logons do Windows, consulte a seção **pré-requisitos** deste tutorial.
 
     ![Selecionar os inícios de sessão](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 

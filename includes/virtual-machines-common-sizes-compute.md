@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279170"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752082"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -31,7 +31,7 @@ Armazenamento Premium: com suporte
 
 Cache de armazenamento Premium: com suporte
 
-| Tamanho             | vCPUs | Memória: GiB | Armazenamento (SSD) temporário em GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
+| Tamanho             | vCPUs | Memória: GiB | Armazenamento (SSD) temporário em GiB | Máximo de discos de dados | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Máximo de NICs/largura de banda de rede esperada (Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000/31 (32)           | 3200/47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000/63 (64)           | 6400/95                | 2 / 1750               |
@@ -44,6 +44,15 @@ Cache de armazenamento Premium: com suporte
 
 <sup>1</sup> o recurso de VMs da série Fsv2 Intel® tecnologia Hyper-Threading.
 
-<sup>2</sup> o uso de mais de 64 vCPU exige um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16, 4 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 ou Oracle Linux 7,3 com Lis 4.2.1.
+<sup>2</sup> o uso de mais de 64 vCPU exige um destes sistemas operacionais convidados com suporte:
+- Windows Server 2016 ou posterior
+- Ubuntu 16, 4 LTS ou posterior, com kernel ajustado do Azure (kernel 4,15 ou posterior)
+- SLES 12 SP2 ou posterior
+- RHEL ou CentOS versão 6,7 a 6,10, com o pacote LIS fornecido pela Microsoft 4.3.1 (ou posterior) instalado
+- RHEL ou CentOS versão 7,3, com o pacote LIS fornecido pela Microsoft 4.2.1 (ou posterior) instalado
+- RHEL ou CentOS versão 7,6 ou posterior
+- Oracle Linux com UEK4 ou posterior
+- Debian 9 com o kernel de backports, Debian 10 ou posterior
+- CoreOS com um kernel 4,14 ou posterior
 
 <sup>3</sup> a instância é isolada em hardware dedicado a um único cliente.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0294efb7510d4240cfdd6386c7f8bef1d4184538
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077060"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754470"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga voltado para a Internet com IPv6 usando o PowerShell para o Gerenciador de recursos
 
@@ -55,13 +55,13 @@ As etapas a seguir mostram como criar um balanceador de carga voltado para a Int
 
 Para implantar um balanceador de carga, você cria e configura os seguintes objetos:
 
-* Configuração de IP front-end - contém os endereços IP públicos para o tráfego de rede recebido.
-* Conjunto de endereços de back-end - contém interfaces de rede (NICs) para as máquinas virtuais receberem tráfego de rede do balanceador de carga.
+* Configuração de IP de front-end-contém endereços IP públicos para o tráfego de rede de entrada.
+* Pool de endereços de back-end – contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
 * Regras de balanceamento de carga - contém as regras que mapeiam uma porta pública no balanceador de carga para a porta no conjunto de endereços de back-end.
 * Regras NAT de entrada - contém as regras que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no conjunto de endereços de back-end.
 * Sondas - contém sondas utilizadas para verificar a disponibilidade de instâncias das máquinas virtuais no conjunto de endereços de back-end.
 
-Para obter mais informações, veja [Suporte do Azure Resource Manager para o Load Balancer](load-balancer-arm.md).
+Para obter mais informações, consulte [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurar o PowerShell para utilizar o Resource Manager
 
@@ -81,7 +81,7 @@ Verifique se você tem a versão de produção mais recente do módulo Azure Res
     Get-AzSubscription
     ```
 
-3. Escolha qual das suas subscrições do Azure utilizar.
+3. Escolha qual das subscrições do Azure utilizar.
 
     ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'

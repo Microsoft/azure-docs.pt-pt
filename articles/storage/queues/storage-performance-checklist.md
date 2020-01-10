@@ -8,24 +8,24 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390028"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750511"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de filas
 
 A Microsoft desenvolveu várias práticas comprovadas para o desenvolvimento de aplicativos de alto desempenho com o armazenamento de filas. Esta lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente enquanto estiver projetando seu aplicativo e durante todo o processo.
 
-O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de desempenho e escalabilidade do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+O armazenamento do Azure tem metas de desempenho e escalabilidade para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre destinos de escalabilidade de armazenamento do Azure, consulte [metas de escalabilidade e desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [escalabilidade e metas de desempenho para armazenamento de filas](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de Verificação
 
 Este artigo organiza as práticas comprovadas de desempenho em uma lista de verificação que você pode seguir ao desenvolver seu aplicativo de armazenamento de filas.
 
-| Concluído | Categoria | Consideração de design |
+| Concluído | Categoria | Considerações de design |
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Você pode projetar seu aplicativo para não usar mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Você está evitando a abordagem de limites de capacidade e transação?](#capacity-and-transaction-targets) |
@@ -51,7 +51,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 
 Se seu aplicativo se aproximar ou exceder qualquer um dos destinos de escalabilidade, ele poderá encontrar maiores latências ou limitação de transação. Quando o armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (servidor ocupado) ou 500 (tempo limite da operação). Evitar esses erros ao permanecer dentro dos limites das metas de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço Fila, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets).
+Para obter mais informações sobre metas de escalabilidade para o serviço Fila, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -194,5 +194,6 @@ Use filas para tornar a arquitetura do aplicativo escalonável. Veja a seguir al
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Escalabilidade e metas de desempenho para o armazenamento de filas](scalability-targets.md)
+- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

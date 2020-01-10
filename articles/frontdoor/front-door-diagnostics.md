@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677904"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751397"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoramento de métricas e logs no serviço de porta frontal do Azure
 
@@ -31,14 +31,14 @@ As métricas são um recurso para determinados recursos do Azure que permitem Ex
 
 | Métrica | Nome a apresentar de métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
-| RequestCount | Número de Pedidos | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pela porta frontal.  |
+| RequestCount | Número de Pedidos | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de solicitações de cliente atendidas pela porta frontal.  |
 | Solicitações | Tamanho da solicitação | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como solicitações de clientes para a porta frontal. |
 | Respostas | Tamanho da resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas da porta frontal para os clientes. |
 | TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado a partir da solicitação do cliente recebida pela porta frontal até que o cliente confirme o último byte de resposta da porta frontal. |
-| BackendRequestCount | Contagem de solicitações de back-end | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de solicitações enviadas da porta frontal para back-ends. |
+| BackendRequestCount | Contagem de solicitações de back-end | Contagem | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de solicitações enviadas da porta frontal para back-ends. |
 | BackendRequestLatency | Latência de solicitação de back-end | Milissegundos | Back-end | O tempo calculado a partir de quando a solicitação foi enviada pela porta frontal para o back-end até que a porta frontal receba o último byte de resposta do back-end. |
-| BackendHealthPercentage | Percentual de integridade de back-end | Percent | Back-end</br>Httpsettings | A porcentagem de investigações de integridade bem-sucedidas da porta frontal para back-ends. |
-| WebApplicationFirewallRequestCount | Contagem de solicitações de firewall do aplicativo Web | Count | PolicyName</br>RuleName</br>Action | O número de solicitações de cliente processadas pela segurança da camada de aplicativo da porta frontal. |
+| BackendHealthPercentage | Percentual de integridade de back-end | Percentagem | Back-end</br>Httpsettings | A porcentagem de investigações de integridade bem-sucedidas da porta frontal para back-ends. |
+| WebApplicationFirewallRequestCount | Contagem de solicitações de firewall do aplicativo Web | Contagem | PolicyName</br>RuleName</br>Ação | O número de solicitações de cliente processadas pela segurança da camada de aplicativo da porta frontal. |
 
 ## <a name="activity-log"></a>Logs de atividade
 
@@ -59,7 +59,7 @@ Acesse logs de atividade em seu serviço de porta frontal ou em todos os logs do
 ## <a name="diagnostic-logging"></a>Logs de diagnóstico
 Os logs de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria e solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades.
 
-Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações executadas pelo recurso. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md).
+Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações executadas pelo recurso. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Registos de diagnósticos](./media/front-door-diagnostics/diagnostic-log.png)
 
@@ -76,7 +76,7 @@ O serviço de porta frontal atualmente fornece logs de diagnóstico (em lote). O
 | Propriedade  | Descrição |
 | ------------- | ------------- |
 | ClientIp | O endereço IP do cliente que fez a solicitação. |
-| clientPort | A porta IP do cliente que fez a solicitação. |
+| ClientPort | A porta IP do cliente que fez a solicitação. |
 | HttpMethod | Método HTTP usado pela solicitação. |
 | HttpStatusCode | O código de status HTTP retornado do proxy. |
 | HttpStatusDetails | Status resultante na solicitação. O significado desse valor de cadeia de caracteres pode ser encontrado em uma tabela de referência de status. |

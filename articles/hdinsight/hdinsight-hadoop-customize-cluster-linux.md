@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: df5dbfc9c86294c7ec046d3a02832192bf67b4ce
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638991"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747087"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight usando ações de script
 
@@ -446,11 +446,11 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
     Nesse diretório, os logs são organizados separadamente para **cabeçalho**, **nó de trabalho**e **nó Zookeeper**. Veja os exemplos seguintes:
 
-    * **Cabeçalho**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Cabeçalho**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nó de trabalho**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **Nó de trabalho**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nó Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Nó Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Todos os **stdout** e **stderr** do host correspondente são carregados para a conta de armazenamento. Há um **output-\*. txt** e **erros-\*. txt** para cada ação de script. O arquivo **output-*. txt** contém informações sobre o URI do script que foi executado no host. O texto a seguir é um exemplo dessas informações:
 

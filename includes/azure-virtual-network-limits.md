@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980450"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751912"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -58,21 +58,29 @@ ms.locfileid: "74980450"
 #### <a name="load-balancer"></a>Limites de balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Limite máximo/padrão |
-| --- | --- |
-| Balanceadores de carga | 1,000 | 
-| Regras por recurso, básico | 250 |
-| Regras por recurso, Standard | 1,500 | 
-| Regras por configuração de IP | 299 |
-| Regras por NIC | 300 |
-| Configurações de IP de front-end, básicas | 200 |
-| Configurações de IP de front-end, Standard | 600 |
-| Pool de back-ends, básico | 100, conjunto de disponibilidade único |
-| Pool de back-ends, Standard | 1\.000, rede virtual única |
-| Recursos de back-end por balanceador de carga, Standard<sup>1</sup> | 150 |
-| Portas de alta disponibilidade, Standard | 1 por front-end interno |
+**Standard Load Balancer**
+
+| Recurso                                | Limite máximo/padrão         |
+|-----------------------------------------|-------------------------------|
+| Balanceadores de carga                          | 1,000                         |
+| Regras por recurso                      | 1,500                         |
+| Regras por NIC (em todos os IPs em uma NIC) | 300                           |
+| Configurações de IP de front-end             | 600                           |
+| Tamanho do pool de back-end                          | 1\.000 instâncias, rede virtual única |
+| Recursos de back-end por balanceador de carga<sup>1<sup>   | 150                 |
+| Portas de alta disponibilidade                 | 1 por front-end interno      |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos de conjunto de disponibilidade e recursos de conjunto de escala de máquina virtual.
+
+**Load Balancer básica**
+
+| Recurso                                | Limite máximo/padrão        |
+|-----------------------------------------|------------------------------|
+| Balanceadores de carga                          | 1,000                        |
+| Regras por recurso                      | 250                          |
+| Regras por NIC (em todos os IPs em uma NIC) | 300                          |
+| Configurações de IP de front-end             | 200                          |
+| Tamanho do pool de back-end                           | 100 instâncias, conjunto de disponibilidade único |
 
 #### <a name="virtual-networking-limits-classic"></a>Os limites a seguir se aplicam somente a recursos de rede gerenciados por meio do modelo de implantação **clássico** por assinatura. Saiba como [Exibir o uso atual de recursos em relação aos limites de sua assinatura](../articles/networking/check-usage-against-limits.md).
 

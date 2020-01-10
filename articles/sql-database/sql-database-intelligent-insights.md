@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151425"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745116"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando o ia para monitorar e solucionar problemas de desempenho do banco de dados
 
@@ -164,7 +164,7 @@ O modelo de tempo de espera excessivo monitora consultas de banco de dados indiv
 - Alcançando limites de recursos do pool elástico
 - Número excessivo de threads de trabalho ou sessão
 - Bloqueio excessivo de banco de dados
-- Pressão de memória
+- Pressão da memória
 - Outras estatísticas de espera
 
 Atingir limites de recursos ou limites de recursos de pool elástico denotam que o consumo de recursos disponíveis em uma assinatura ou no pool elástico ultrapassou os limites absolutos. Essas estatísticas indicam a degradação do desempenho da carga de trabalho. Um número excessivo de threads de trabalho ou sessão denota uma condição em que o número de threads de trabalho ou sessões iniciadas ultrapassou os limites absolutos. Essas estatísticas indicam a degradação do desempenho da carga de trabalho.
@@ -190,4 +190,4 @@ Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos
 - Saiba como [solucionar problemas de desempenho do banco de dados SQL com o Intelligent insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do banco de dados SQL Intelligent insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Saiba como [monitorar o banco de dados SQL usando a análise de SQL](../azure-monitor/insights/azure-sql.md).
-- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Saiba como [coletar e consumir dados de log de seus recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).

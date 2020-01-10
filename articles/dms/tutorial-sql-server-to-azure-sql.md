@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: usar o serviço de migração de banco de dados do Azure para migrar offline de SQL Server para um banco de dados individual/em pool no banco de dados SQL do Azure | Microsoft Docs'
+title: 'Tutorial: migrar SQL Server offline para um banco de dados individual SQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a migrar de SQL Server locais para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure offline usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 11/05/2019
-ms.openlocfilehash: 46d5754d046284ae42da91c2eb08bfe709e7e372
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/08/2020
+ms.openlocfilehash: 75dacf053de595ae25f3b58ef33577e2723319f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582360"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750752"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Tutorial: migrar SQL Server para um banco de dados individual ou banco de dados em pool no banco de dados SQL do Azure offline usando DMS
 
@@ -27,7 +28,7 @@ Neste tutorial, ficará a saber como:
 >
 > - Utilizar o Assistente de Migração de Dados para avaliar a sua base de dados no local.
 > - Utilizar o Assistente de Migração de Dados para migrar o esquema de exemplo.
-> - Crie uma instância do serviço de migração de banco de dados do Azure.
+> - Crie uma instância do Azure Database Migration Service.
 > - Crie um projeto de migração usando o serviço de migração de banco de dados do Azure.
 > - Executar a migração.
 > - Monitorizar a migração.
@@ -46,13 +47,14 @@ Para concluir este tutorial, precisa de:
 - Crie um banco de dados único (ou em pool) no banco de dados SQL do Azure, que você faz seguindo os detalhes no artigo [criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
     > [!NOTE]
-    > Se você usar SQL Server Integration Services (SSIS) e desejar migrar o banco de dados de catálogo para seus projetos/pacotes SSIS (SSISDB) de SQL Server para o banco de dados SQL do Azure, o destino SSISDB será criado e gerenciado automaticamente em seu nome quando você Provisione o SSIS no Azure Data Factory (ADF). Para obter mais informações sobre como migrar pacotes SSIS, consulte o artigo [migrar pacotes de SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
+    > Se você usar SQL Server Integration Services (SSIS) e desejar migrar o banco de dados de catálogo para seus projetos/pacotes SSIS (SSISDB) do SQL Server para o banco de dados SQL do Azure, o destino SSISDB será criado e gerenciado automaticamente em seu nome quando você provisionar o SSIS no Azure Data Factory (ADF). Para obter mais informações sobre como migrar pacotes SSIS, consulte o artigo [migrar pacotes de SQL Server Integration Services para o Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
   
 - Transferir e instalar o [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
-- Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+- Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    >
     > - Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
     > - Ponto de extremidade de armazenamento
     > - Ponto de extremidade do barramento de serviço
@@ -61,12 +63,12 @@ Para concluir este tutorial, precisa de:
     >
     >Se você não tiver conectividade site a site entre a rede local e o Azure ou se houver uma largura de banda de conectividade site a site limitada, considere usar o serviço de migração de banco de dados do Azure no modo híbrido (versão prévia). O modo híbrido aproveita um trabalho de migração local junto com uma instância do serviço de migração de banco de dados do Azure em execução na nuvem. Para criar uma instância do serviço de migração de banco de dados do Azure no modo híbrido, consulte o artigo [criar uma instância do serviço de migração de banco de dados do Azure no modo híbrido usando o portal do Azure](https://aka.ms/dms-hybrid-create).
 
-- Certifique-se de que suas regras de grupo de segurança de rede VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o SQL Server de origem, que por padrão é a porta TCP 1433.
 - Se você estiver executando várias instâncias de SQL Server nomeadas usando portas dinâmicas, talvez queira habilitar o serviço de SQL Browser e permitir o acesso à porta UDP 1434 por meio de firewalls para que o serviço de migração de banco de dados do Azure possa se conectar a uma instância nomeada em sua origem servidor.
 - Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de origem para migração.
-- Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de IP no nível de servidor para o servidor do banco de dados SQL do Azure para permitir o acesso ao serviço de migração de banco de dados do Azure aos bancos de dados de destino Forneça o intervalo de sub-rede da VNet usada para o serviço de migração de banco de dados do Azure.
+- Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de IP no nível de servidor para o servidor do banco de dados SQL do Azure para permitir o acesso ao serviço de migração de banco de dados do Azure aos bancos de dados de destino Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
 - Confirmar que as credenciais utilizadas para ligar à instância de origem do SQL Server têm permissões [CONTROLAR SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Confirmar que as credenciais utilizadas para ligar à instância de destino da Base de Dados SQL do Azure têm permissões CONTROLAR BASE DE DADOS nas bases de dados SQL do Azure de destino.
 
@@ -127,7 +129,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Detalhes da Ligação de Origem do Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
-6. Selecione **Avançar**, em **conectar ao servidor de destino**, especifique os detalhes da conexão de destino para o banco de dados SQL do Azure, selecione **conectar**e, em seguida, selecione o banco de dados **ADVENTUREWORKSAZURE** que você tinha previamente provisionado no SQL Azure Banco.
+6. Selecione **Avançar**, em **conectar ao servidor de destino**, especifique os detalhes da conexão de destino para o banco de dados SQL do Azure, selecione **conectar**e, em seguida, selecione o banco de dados **AdventureWorksAzure** que você tinha previamente provisionado no banco de dados SQL do Azure.
 
     ![Detalhes da Ligação de Destino do Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
@@ -147,7 +149,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
-1. Inicie sessão no portal do Azure, selecione **Todos os serviços** e **Subscrições**.
+1. Inicie sessão no Portal do Azure. Procure e selecione **subscrições**.
 
    ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
@@ -155,13 +157,13 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Mostrar fornecedores de recursos](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
+3. Procure migração e, em seguida, selecione **registrar** para **Microsoft. datamigration**.
 
     ![Registar o fornecedor de recursos](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Criar uma instância
 
-1. No portal do Azure, selecione + **Criar um recurso**, procure o Azure Database Migration Service e selecione **Azure Database Migration Service** na lista pendente.
+1. No menu portal do Azure ou na **Home** Page do, selecione **criar um recurso**. Pesquise e selecione **serviço de migração de banco de dados do Azure**.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
@@ -173,11 +175,11 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 4. Selecione o local no qual você deseja criar a instância do serviço de migração de banco de dados do Azure.
 
-5. Selecione uma VNet existente ou crie uma nova.
+5. Selecione uma rede virtual existente ou crie uma nova.
 
-    A VNet fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância de destino do banco de dados SQL do Azure.
+    A rede virtual fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância de destino do banco de dados SQL do Azure.
 
-    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
 6. Selecione um escalão de preço.
 
@@ -191,15 +193,16 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
 Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um projeto de migração novo.
 
-1. No portal do Azure, selecione **Todos os serviços**, procure Azure Database Migration Service e selecione **Azure Database Migration Services**.
+1. No menu portal do Azure, selecione **todos os serviços**. Pesquise e selecione **serviços de migração de banco de dados do Azure**.
 
      ![Localizar todas as instâncias do serviço de migração de banco de dados do Azure](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
-2. No ecrã **Azure Database Migration Services**, procure o nome da instância do Azure Database Migration Service que criou e selecione-a.
+2. Na tela **serviços de migração de banco de dados do Azure** , selecione a instância do serviço de migração de banco de dados do Azure que você criou.
 
-    ![Localize sua instância do serviço de migração de banco de dados do Azure](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+3. Selecione **novo projeto de migração**.
 
-3. Selecione + **Novo Projeto de Migração**.
+     ![Localize sua instância do serviço de migração de banco de dados do Azure](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+
 4. No ecrã **Novo projeto de migração**, indique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**, na caixa de texto **Tipo de servidor de destino**, selecione **Base de Dados SQL do Azure** e, em **Escolher tipo de atividade**, selecione **Migração de dados offline**.
 
     ![Criar Projeto do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
@@ -238,7 +241,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 3. Selecione **Guardar**, no ecrã **Selecionar tabelas**, expanda a lista de tabelas e reveja a lista dos campos afetados.
 
-    Observe que o serviço de migração de banco de dados do Azure seleciona automaticamente todas as tabelas de origem vazias existentes na instância de banco de dados SQL do Azure de destino. Se quiser voltar a emigrar tabelas que já incluem dados, tem de selecionar explicitamente as tabelas neste painel.
+    O serviço de migração de banco de dados do Azure seleciona automaticamente todas as tabelas de origem vazias existentes na instância de banco de dados SQL do Azure de destino. Se quiser voltar a emigrar tabelas que já incluem dados, tem de selecionar explicitamente as tabelas neste painel.
 
     ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
 

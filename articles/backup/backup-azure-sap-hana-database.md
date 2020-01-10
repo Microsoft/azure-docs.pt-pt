@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: ed47f18c9dabc685d6fbe02804562ef86a93190a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285848"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753966"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -30,22 +30,77 @@ Consulte as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisi
 
 ### <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 
-Para todas as operações, a VM SAP HANA precisa de conectividade com os endereços IP públicos do Azure. As operações de VM (descoberta de banco de dados, configurar backups, agendar backups, restaurar pontos de recuperação e assim por diante) não funcionam sem conectividade. Estabeleça a conectividade permitindo o acesso aos intervalos de IP do datacenter do Azure:
+Para todas as operações, a VM SAP HANA requer conectividade com os endereços IP públicos do Azure. Operações de VM (descoberta de banco de dados, configurar backups, agendar backups, restaurar pontos de recuperação e assim por diante) falham sem conectividade com os endereços IP públicos do Azure.
 
-* Você pode baixar os [intervalos de endereços IP](https://www.microsoft.com/download/details.aspx?id=41653) para data centers do Azure e, em seguida, permitir o acesso a esses endereços IP.
-* Se você estiver usando NSGs (grupos de segurança de rede), poderá usar a [marca de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud para permitir todos os endereços IP públicos do Azure. Você pode usar o [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0) para modificar as regras de NSG.
-* A porta 443 deve ser adicionada à lista de permissões, pois o transporte é via HTTPS.
+Estabeleça a conectividade usando uma das seguintes opções:
+
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Permitir os intervalos de IP do datacenter do Azure
+
+Essa opção permite os [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no arquivo baixado. Para acessar um NSG (grupo de segurança de rede), use o cmdlet Set-AzureNetworkSecurityRule. Se sua lista de destinatários confiáveis incluir apenas IPs específicos de região, você também precisará atualizar a lista de destinatários seguros a marca de serviço Azure Active Directory (AD do Azure) para habilitar a autenticação.
+
+#### <a name="allow-access-using-nsg-tags"></a>Permitir acesso usando marcas NSG
+
+Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure. Além disso, você também deve permitir a conectividade para autenticação e transferência de dados usando [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para o Azure AD e o armazenamento do Azure. Isso pode ser feito no portal do Azure ou por meio do PowerShell.
+
+Para criar uma regra usando o portal:
+
+  1. Em **todos os serviços**, vá para **grupos de segurança de rede** e selecione o grupo de segurança de rede.
+  2. Selecione **regras de segurança de saída** em **configurações**.
+  3. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma nova regra, conforme descrito em [configurações de regra de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Verifique se a opção **destino** está definida como **marca de serviço** e se a **marca serviço de destino** está definida como **AzureBackup**.
+  4. Clique em **Adicionar**para salvar a regra de segurança de saída recém-criada.
+
+Para criar uma regra usando o PowerShell:
+
+ 1. Adicionar credenciais de conta do Azure e atualizar as nuvens nacionais<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Selecione a assinatura do NSG<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Selecione o NSG<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Adicionar regra de permissão de saída para a marca do serviço de backup do Azure<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Adicionar regra de permissão de saída para a marca de serviço de armazenamento<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Adicionar regra de permissão de saída para a marca de serviço AzureActiveDirectory<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Salve o NSG<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Permitir acesso usando marcas de firewall do Azure**. Se você estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a [marca de FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Isso permite o acesso de saída ao backup do Azure.
+
+**Implante um servidor proxy http para rotear o tráfego**. Quando você faz backup de um banco de dados SAP HANA em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento para o backup do Azure e dados para o armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Encaminhe o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
+
+As opções de conectividade incluem as seguintes vantagens e desvantagens:
+
+**Opção** | **Vantagens** | **Desvantagens**
+--- | --- | ---
+Permitir intervalos de IP | Sem custos adicionais | Complexo para gerenciar porque os intervalos de endereços IP mudam ao longo do tempo <br/><br/> Fornece acesso ao todo o Azure, não apenas ao armazenamento do Azure
+Usar marcas de serviço NSG | Mais fácil de gerenciar como as alterações de intervalo são mescladas automaticamente <br/><br/> Sem custos adicionais <br/><br/> | Pode ser usado somente com NSGs <br/><br/> Fornece acesso ao serviço inteiro
+Usar marcas de FQDN do firewall do Azure | Mais fácil de gerenciar, pois os FQDNs necessários são gerenciados automaticamente | Pode ser usado somente com o Firewall do Azure
+Usar um proxy HTTP | O controle granular no proxy sobre as URLs de armazenamento é permitido <br/><br/> Ponto único de acesso à Internet para VMs <br/><br/> Não está sujeito às alterações de endereço IP do Azure | Custos adicionais para executar uma VM com o software proxy
 
 ## <a name="onboard-to-the-public-preview"></a>Integração à visualização pública
 
 Integre à visualização pública da seguinte maneira:
 
 * No portal, registre sua ID de assinatura para o provedor de serviço de serviços de recuperação [seguindo este artigo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Para o PowerShell, execute este cmdlet. Ele deve ser concluído como "registrado".
+* Para o módulo ' az ' no PowerShell, execute este cmdlet. Ele deve ser concluído como "registrado".
 
     ```powershell
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
+* Se você estiver usando o módulo ' AzureRM ' no PowerShell, execute este cmdlet. Ele deve ser concluído como "registrado".
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+    
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -71,13 +126,13 @@ Agora, habilite o backup.
 
 1. Na etapa 2, clique em **Configurar backup**.
 
-    ![Configurar Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![Configurar Cópia de Segurança](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. Em **selecionar itens para fazer backup**, selecione todos os bancos de dados que você deseja proteger > **OK**.
 
     ![Selecionar itens para backup](./media/backup-azure-sap-hana-database/select-items.png)
 3. Em **política de backup** > **escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
 
-    ![Escolher política de backup](./media/backup-azure-sap-hana-database/backup-policy.png)
+    ![Escolher política de cópia de segurança](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. Depois de criar a política, no menu **backup** , clique em **habilitar backup**.
 
     ![Habilitar backup](./media/backup-azure-sap-hana-database/enable-backup.png)
@@ -133,6 +188,9 @@ Especifique as configurações de política da seguinte maneira:
 9. Clique em **OK** para salvar a política e retornar ao menu principal da **política de backup** .
 10. Depois de terminar de definir a política de backup, clique em **OK**.
 
+> [!NOTE]
+> Cada backup de log é encadeado ao backup completo anterior para formar uma cadeia de recuperação. Esse backup completo será retido até que a retenção do último backup de log tenha expirado. Isso pode significar que o backup completo é mantido por um período extra para garantir que todos os logs possam ser recuperados. Vamos supor que o usuário tenha um backup completo semanal, os logs diferenciais diários e de 2 horas. Todos eles são mantidos por 30 dias. No entanto, a semana completa pode ser realmente limpa/excluída somente depois que o próximo backup completo estiver disponível, ou seja, após 30 a 7 dias. Digamos que um backup completo semanal ocorra em 16 de novembro. De acordo com a política de retenção, ela deve ser retida até 16 de dezembro. O último backup de log para esse total ocorre antes do próximo agendamento completo, em novembro de 22. Até que esse log esteja disponível até dec 22, o 16º total de novembro não poderá ser excluído. Portanto, o 16º 16 de novembro é mantido até dec 22.
+
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
 Os backups são executados de acordo com o agendamento da política. Você pode executar um backup sob demanda da seguinte maneira:
@@ -157,7 +215,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
     * Defina **enable_auto_log_backup** como **Sim**.
     * Defina **log_backup_using_backint** como **true**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [restaurar SAP Hana bancos de dados em execução em VMs do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
 * Saiba como [gerenciar SAP Hana bancos de dados cujo backup é feito usando o backup do Azure](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

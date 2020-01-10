@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384235"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749881"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para a VM do Azure
 
@@ -67,7 +67,7 @@ As atualizações de várias instâncias (para VMs num conjunto de disponibilida
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinicialização ou desligamento iniciadas pelo usuário
 
-Se você executar uma reinicialização do portal do Azure, Azure PowerShell, interface de linha de comando ou API REST, poderá encontrar o evento no [log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Se você executar uma reinicialização do portal do Azure, Azure PowerShell, interface de linha de comando ou API REST, poderá encontrar o evento no [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Se você executar a ação do sistema operacional da VM, poderá encontrar o evento nos logs do sistema.
 
@@ -97,7 +97,7 @@ Se o servidor host não puder ser reinicializado por algum motivo, a plataforma 
 
 Todas as VMs nesse host são automaticamente realocadas para um servidor host diferente e íntegro. Esse processo geralmente é concluído em 15 minutos. Para saber mais sobre o processo de recuperação automática, consulte [recuperação automática de VMs](https://azure.microsoft.com/blog/service-healing-auto-recovery-of-virtual-machines).
 
-### <a name="unplanned-maintenance"></a>Manutenção não planejada
+### <a name="unplanned-maintenance"></a>Manutenção não planeada
 
 Em raras ocasiões, a equipe de operações do Azure pode precisar executar atividades de manutenção para garantir a integridade geral da plataforma Azure. Esse comportamento pode afetar a disponibilidade da VM e geralmente resulta na mesma ação de recuperação automática, conforme descrito anteriormente.  
 

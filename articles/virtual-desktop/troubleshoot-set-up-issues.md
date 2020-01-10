@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/17/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: b2209e2ada2d825714d08b6ac3237583df28272a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459488"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749355"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -59,7 +59,7 @@ Exemplo de erro bruto:
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Criando VMs do host de sessão de área de trabalho virtual do Windows
 
-As VMs de host de sessão podem ser criadas de várias maneiras, mas a equipe de área de trabalho virtual do Windows dá suporte apenas a problemas de provisionamento de VM relacionados à oferta do [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Para obter mais detalhes, consulte [problemas usando a área de trabalho virtual do Windows-provisionar uma oferta do Azure Marketplace no pool de hosts](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
+As VMs de host de sessão podem ser criadas de várias maneiras, mas a equipe de área de trabalho virtual do Windows dá suporte apenas a problemas de provisionamento de VM relacionados à oferta do [Azure Marketplace](https://azuremarketplace.microsoft.com/) . Para obter mais informações, consulte [problemas usando a área de trabalho virtual do Windows-provisionar uma oferta do Azure Marketplace no pool de hosts](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemas ao usar a área de trabalho virtual do Windows – provisionar uma oferta do Azure Marketplace no pool
 
@@ -138,8 +138,16 @@ Exemplo de erro bruto:
 
 **Causa 2:** O nome de domínio não é resolvido.
 
-**Correção 2:** Consulte o erro "o nome de domínio não resolve" para as VMs não são unidas ao domínio em [sessão host configuração de VM](troubleshoot-vm-configuration.md).
+**Correção 2:** Consulte o [erro: o nome de domínio não é resolvido](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) na [configuração da VM do host de sessão](troubleshoot-vm-configuration.md).
 
+**Causa 3:** Sua configuração de DNS de VNET (rede virtual) está definida como **padrão**.
+
+Para corrigir isso, faça o seguinte:
+
+1. Abra o portal do Azure e vá para a folha **redes virtuais** .
+2. Localize sua VNET e, em seguida, selecione **servidores DNS**.
+3. O menu servidores DNS deve aparecer no lado direito da tela. Nesse menu, selecione **personalizado**.
+4. Verifique se os servidores DNS listados em Personalizar correspondem ao seu controlador de domínio ou Active Directory domínio. Se você não vir o servidor DNS, poderá adicioná-lo inserindo seu valor no campo **Adicionar servidor DNS** .
 
 ### <a name="error-your-deployment-failedunauthorized"></a>Erro: falha na implantação. ..\Unauthorized
 
@@ -159,7 +167,7 @@ Exemplo de erro bruto:
 
 **Causa 2:** Erro transitório com conexão.
 
-**Correção:** Confirme se o ambiente de área de trabalho virtual do Windows está íntegro ao entrar usando o PowerShell. Conclua o registro da VM manualmente em [criar um pool de hosts com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correção:** Confirme se o ambiente de área de trabalho virtual do Windows está íntegro ao entrar usando o PowerShell. Conclua o registro da VM manualmente em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erro: o nome de usuário do administrador especificado não é permitido
 
@@ -347,7 +355,7 @@ Exemplo de erro bruto:
 
 **Causa:** O administrador de locatários da área de trabalho virtual do Windows especificado requer a autenticação multifator do Azure (MFA) para entrar.
 
-**Correção:** Crie uma entidade de serviço e atribua a ela uma função para seu locatário da área de trabalho virtual do Windows seguindo as etapas em [tutorial: criar entidades de serviço e atribuições de função com o PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Depois de verificar se você pode entrar na área de trabalho virtual do Windows com a entidade de serviço, execute novamente a oferta do Azure Marketplace ou o modelo de Azure Resource Manager do GitHub, dependendo do método que você está usando. Siga as instruções abaixo para inserir os parâmetros corretos para seu método.
+**Correção:** Crie uma entidade de serviço e atribua a ela uma função para seu locatário da área de trabalho virtual do Windows seguindo as etapas em [tutorial: criar entidades de serviço e atribuições de função com o PowerShell](create-service-principal-role-powershell.md). Depois de verificar se você pode entrar na área de trabalho virtual do Windows com a entidade de serviço, execute novamente a oferta do Azure Marketplace ou o modelo de Azure Resource Manager do GitHub, dependendo do método que você está usando. Siga as instruções abaixo para inserir os parâmetros corretos para seu método.
 
 Se você estiver executando a oferta do Azure Marketplace, forneça valores para os seguintes parâmetros para se autenticar corretamente na área de trabalho virtual do Windows:
 

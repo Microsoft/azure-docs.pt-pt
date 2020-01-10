@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706066"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744781"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -29,7 +29,7 @@ Você pode dimensionar um cluster manualmente usando um dos métodos descritos a
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
-|Utilitários | Descrição|
+|Utility | Descrição|
 |---|---|
 |[AZ do PowerShell](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
 |[AzureRM do PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome do cluster >-TargetInstanceCount \<newSize >|
@@ -147,10 +147,10 @@ org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create director
 ```
 
 ```
-org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-Você pode examinar os logs de nó de nome na pasta `/var/log/hadoop/hdfs/`, perto do momento em que o cluster foi dimensionado, para ver quando ele entrou no modo de segurança. Os arquivos de log são nomeados `Hadoop-hdfs-namenode-hn0-clustername.*`.
+Você pode examinar os logs de nó de nome na pasta `/var/log/hadoop/hdfs/`, perto do momento em que o cluster foi dimensionado, para ver quando ele entrou no modo de segurança. Os arquivos de log são nomeados `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
 A causa raiz dos erros anteriores é que o hive depende de arquivos temporários no HDFS durante a execução de consultas. Quando o HDFS entra no modo de segurança, o hive não pode executar consultas porque ele não pode gravar no HDFS. Os arquivos temporários no HDFS estão localizados na unidade local montada nas VMs de nó de trabalho individuais e replicados entre outros nós de trabalho em três réplicas, no mínimo.
 
@@ -194,7 +194,7 @@ Se o hive for deixado para trás dos arquivos temporários, você poderá limpar
     Aqui está um exemplo de saída quando existem arquivos:
 
     ```output
-    sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
+    sshuser@scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
     -rw-r--r--   3 hive hdfs         27 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info
