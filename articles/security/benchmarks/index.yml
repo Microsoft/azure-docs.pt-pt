@@ -12,23 +12,21 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 97f5463ee4348f8e17b8cf571262c361908d7265
-  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+  ms.openlocfilehash: c4209c1f8f7d82e1d78eb84c9ab92bc061ffa47b
+  ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/31/2019
-  ms.locfileid: "75563867"
+  ms.lasthandoff: 01/10/2020
+  ms.locfileid: "75835040"
 landingContent:
 - title: Acerca da Referência de Segurança do Azure
   linkLists:
   - linkListType: overview
     links:
-    - text: Descrição geral
-      url: overview.md
-    - text: Introdução aos Controlos de Segurança
+    - text: Introdução às Referências de Segurança do Azure
       url: introduction.md
-    - text: Responsabilidade partilhada na cloud
-      url: ../fundamentals/shared-responsibility.md
+    - text: Descrição geral do Centro de Segurança do Azure
+      url: overview.md
 - title: Controlos de Segurança
   linkLists:
   - linkListType: overview
@@ -51,7 +49,7 @@ landingContent:
     links:
     - text: Noções Básicas da Segurança do Azure
       url: ../fundamentals/index.yml
+    - text: Responsabilidade partilhada na cloud
+      url: ../fundamentals/shared-responsibility.md
     - text: Centro de Segurança do Azure
       url: ../../security-center/index.yml
-    - text: Azure Key Vault
-      url: ../../key-vault/index.yml

@@ -37,6 +37,16 @@
       href: howto-deploy-prometheus.md
     - name: Gerir projetos num cluster do Azure Red Hat OpenShift
       href: howto-manage-projects.md
+    - name: Monitorização e registos
+      items:
+        - name: Azure Monitor para contentores (pré-visualização)
+          items:
+            - name: Configure o Azure Monitor para contentores
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: Desative o Azure Monitor para contentores
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
 - name: Referência
   items:
     - name: CLI do Azure Red Hat OpenShift

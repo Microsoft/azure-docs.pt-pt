@@ -35,7 +35,7 @@
     - name: Balancear carga de tráfego de internet para VMs
       href: tutorial-load-balancer-standard-manage-portal.md
     - name: Balancear carga de tráfego interno para VMs
-      href: tutorial-load-balancer-basic-internal-portal.md
+      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Balancear carga de VMs por zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica

@@ -1,10 +1,10 @@
-- name: Referência de Segurança do Azure
+- name: Referências de Segurança do Azure
   href: index.yml
 - name: Introdução
   href: introduction.md
 - name: Controlos de Segurança
   items:
-    - name: Descrição geral
+    - name: Descrição geral do Centro de Segurança do Azure
       href: overview.md
     - name: Segurança de Rede
       href: security-control-network-security.md
