@@ -8,12 +8,12 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5c4ba510360475e1365d4901136c94181e8c3da3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174371"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708851"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início rápido: rotear eventos personalizados para um Azure function com a grade de eventos
 
@@ -21,7 +21,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. Azure Functions é um
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-azure-function"></a>Criar Azure function
+## <a name="create-azure-function"></a>Criar a Função do Azure
 
 Antes de assinar o tópico personalizado, vamos criar uma função para manipular os eventos. No portal do Azure, clique em ' criar um recurso ' e digite ' função ' e escolha ' Aplicativo de funções ' e clique em criar. Selecione ' criar novo ' em grupo de recursos e dê um nome a ele. Você usará isso para o restante do tutorial. Dê ao Aplicativo de funções um nome, deixe a alternância ' publicar ' em ' código ', selecione qualquer tempo de execução e região e, em seguida, clique em criar.
 
@@ -184,13 +184,12 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
     ![Grupos de recursos](./media/custom-event-to-function/delete-resource-groups.png)
 
     O outro grupo de recursos que você vê na imagem foi criado e usado pela janela de Cloud Shell. Exclua-o se você não planeja usar a janela de Cloud Shell mais tarde. 
-```
 
-## Next steps
+## <a name="next-steps"></a>Passos seguintes
 
-Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
+Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 
-- [About Event Grid](overview.md)
-- [Route Blob storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
-- [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
-- [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)
+- [Sobre o Event Grid](overview.md)
+- [Encaminhar eventos de armazenamento de Blobs para um ponto final Web personalizado](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Monitorizar alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md)

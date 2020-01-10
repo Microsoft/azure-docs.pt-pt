@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a96429a84fab10c033cc18a2c35edb4b2a056924
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9d7e7f705d091834b0a3b694ea8bf0cf6b65ef9
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895397"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708343"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o portal do Azure
 
@@ -38,7 +38,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instalar o Git](https://git-scm.com/)
+1. [Instale o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar o CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -68,6 +68,10 @@ az extension add --name spring-cloud
 
 Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantação, a página **visão geral** da instância do serviço será exibida.
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
+
+
 ## <a name="set-up-your-configuration-server"></a>Configurar o servidor de configuração
 
 1. Vá para a página **visão geral** do serviço e selecione **servidor de configuração**.
@@ -79,6 +83,9 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 1. Selecione **Aplicar** para guardar as alterações.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microatendimento
 
@@ -121,6 +128,9 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 
 1. Leva alguns minutos para concluir a implantação dos aplicativos. Para confirmar que eles foram implantados, acesse a folha **aplicativos** no portal do Azure. Você deve ver uma linha de cada um dos três aplicativos.
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
 
 1. Abra a guia **aplicativos** no menu à esquerda.
@@ -135,6 +145,8 @@ Leva cerca de 5 minutos para que o serviço seja implantado.  Após a implantaç
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Passos seguintes
 

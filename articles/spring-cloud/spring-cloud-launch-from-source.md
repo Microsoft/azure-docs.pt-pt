@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 37af0ee99e48bfeddf4be81241b75318d1afda40
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895458"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707889"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Início rápido: iniciar seu aplicativo Spring Cloud a partir do código-fonte
 
@@ -35,7 +35,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Antes de começar, verifique se sua assinatura do Azure tem as dependências necessárias:
 
-1. [Instalar o Git](https://git-scm.com/)
+1. [Instale o Git](https://git-scm.com/)
 2. [Instalar o JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Instalar o Maven 3,0 ou superior](https://maven.apache.org/download.cgi)
 4. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -76,6 +76,9 @@ Defina o nome do grupo de recursos padrão e o nome do cluster usando os seguint
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## <a name="create-the-spring-cloud-application"></a>Criar o aplicativo Spring Cloud
 
@@ -137,12 +140,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > Os logs do kpack só mostrarão a implantação mais recente se essa implantação tiver sido criada a partir da origem usando kpack.
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
 
 1. Abra a página **painel do aplicativo** .
 2. Selecione o aplicativo `gateway` para mostrar a página de **detalhes do aplicativo** .
 3. Selecione **atribuir domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode demorar alguns minutos. 
 4. Insira o IP público atribuído em seu navegador para exibir o aplicativo em execução.
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0f9378b80b4985ad542d6f602ba361f59737fc9d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872745"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707919"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início rápido: criar um aplicativo Java no serviço de Azure App no Linux
 
@@ -21,7 +21,7 @@ O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um ser
 
 > [!NOTE]
 >
-> A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e o eclipse. Confira nossos documentos semelhantes em [Azure Toolkit for IntelliJ início rápido](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit for Eclipse início rápido](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> A mesma coisa também pode ser feita usando IDEs populares, como IntelliJ, Eclipse e VS Code. Confira nossos documentos semelhantes em [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)guia de início rápido, [Azure Toolkit for Eclipse início](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) rápido ou [vs Code QuickStart](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Aplicativo de exemplo em execução no serviço Azure App](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -35,6 +35,11 @@ Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo 
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+```
+Em seguida, altere seu diretório de trabalho para a pasta do projeto:
+
+```bash
+cd helloworld
 ```
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven

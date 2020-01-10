@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 26b53e897d70e596bcd770e99d2d29ac16c52755
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895400"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707083"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início rápido: iniciar um aplicativo de nuvem Spring do Azure usando o plug-in do Maven
 
@@ -35,7 +35,7 @@ Seguindo este guia de início rápido, você aprenderá a:
 
 Para concluir este guia de início rápido:
 
-1. [Instalar o Git](https://git-scm.com/).
+1. [Instale o Git](https://git-scm.com/).
 2. [Instale o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Instale o Maven 3,0 ou posterior](https://maven.apache.org/download.cgi).
 4. [Inscreva-se para uma assinatura gratuita do Azure](https://azure.microsoft.com/free/).
@@ -57,6 +57,9 @@ Para concluir este guia de início rápido:
 
 Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o serviço for implantado, selecione **ir para recurso** e a página **visão geral** da instância de serviço será exibida.
 
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>Configurar o servidor de configuração
 
 1. Na página **visão geral** do serviço, selecione **servidor de configuração**.
@@ -64,6 +67,9 @@ Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o servi�
 
     > [!div class="mx-imgBorder"]
     > ![definir e aplicar configurações de configuração](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>Clonar e compilar o repositório de aplicativos de exemplo
 
@@ -105,6 +111,9 @@ Leva cerca de 5 minutos para que o serviço seja implantado. Depois que o servi�
    ```
 
 1. Após a conclusão da implantação, você pode acessar o PiggyMetrics usando a URL fornecida na saída do comando anterior.
+
+> [!div class="nextstepaction"]
+> [Ocorreu um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>Passos seguintes
 

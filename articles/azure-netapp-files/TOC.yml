@@ -6,7 +6,7 @@
       href: azure-netapp-files-introduction.md
     - name: Compreender a hierarquia de armazenamento
       href: azure-netapp-files-understand-storage-hierarchy.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Configurar o Azure NetApp Files e criar um volume NFS
@@ -81,5 +81,7 @@
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Vídeos
       href: azure-netapp-files-videos.md
