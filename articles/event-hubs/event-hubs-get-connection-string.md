@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158876"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771007"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de ligação dos Hubs de eventos
 
-Para utilizar os Hubs de eventos, terá de criar um espaço de nomes de Hubs de eventos. Um espaço de nomes é um contentor de âmbito para vários hubs de eventos ou tópicos do Kafka. Este espaço de nomes fornece um exclusivo [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Depois de criar um espaço de nomes, pode obter a cadeia de ligação necessária para comunicar com os Hubs de eventos.
+Para utilizar os Hubs de eventos, terá de criar um espaço de nomes de Hubs de eventos. Um namespace é um contêiner de escopo para vários hubs de eventos ou tópicos de Kafka. Este espaço de nomes fornece um exclusivo [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Depois de criar um espaço de nomes, pode obter a cadeia de ligação necessária para comunicar com os Hubs de eventos.
 
 A cadeia de ligação para os Hubs de eventos do Azure tem os seguintes componentes incorporados dentro da mesma,
 
-* FQDN = o FQDN do espaço de nomes EventHubs que criou (inclui o nome de espaço de nomes de EventHubs seguido servicebus.windows.net)
+* FQDN = o FQDN do namespace EventHubs que você criou (ele inclui o nome do namespace EventHubs seguido por servicebus.windows.net)
 * SharedAccessKeyName = o nome que escolheu para chaves SAS da sua aplicação
 * SharedAccessKey = o valor gerado da chave.
 
@@ -39,23 +39,23 @@ Este artigo o orienta através de várias formas de obter a cadeia de ligação.
 ## <a name="get-connection-string-from-the-portal"></a>Obter cadeia de ligação a partir do portal
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 2. Selecione **todos os serviços** no menu de navegação à esquerda. 
-3. Selecione **os Hubs de eventos** no **Analytics** secção. 
-4. Na lista de hubs de eventos, selecione o seu hub de eventos.
-6. Sobre o **espaço de nomes de Hubs de eventos** página, selecione **políticas de acesso partilhado** no menu da esquerda.
+3. Selecione **hubs de eventos** na seção **análise** . 
+4. Na lista de hubs de eventos, selecione seu hub de eventos.
+6. Na página **namespace de hubs de eventos** , selecione **políticas de acesso compartilhado** no menu à esquerda.
 
-    ![Partilhado o item de menu de políticas de acesso](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Selecione um **partilhado a política de acesso** na lista de políticas. A predefinição um com o nome: **RootManageSharedAccessPolicy**. Pode adicionar uma política com permissões adequadas (leitura, escrita) e utilizar essa política. 
+    ![Item de menu políticas de acesso compartilhado](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Selecione uma **política de acesso compartilhado** na lista de políticas. O padrão é chamado: **RootManageSharedAccessPolicy**. Você pode adicionar uma política com permissões apropriadas (leitura, gravação) e usar essa política. 
 
-    ![Os Hubs de eventos compartilhado políticas de acesso](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-8. Selecione o **cópia** junto aos **ligação chave primária da cadeia de caracteres** campo. 
+    ![Políticas de acesso compartilhado dos hubs de eventos](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Selecione o botão **copiar** ao lado do campo **cadeia de conexão-chave primária** . 
 
-    ![Os Hubs de eventos - obter cadeia de ligação](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Hubs de eventos-obter cadeia de conexão](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obter a cadeia de ligação com o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode utilizar o [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de ligação para o nome de política/regra específica, conforme mostrado abaixo:
+Você pode usar o [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) para obter a cadeia de conexão para o nome de política/regra específico, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -68,11 +68,17 @@ Pode utilizar o seguinte para obter a cadeia de ligação para o espaço de nome
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Para obter mais informações sobre os comandos da CLI do Azure para os Hubs de eventos, consulte [CLI do Azure para os Hubs de eventos](/cli/azure/eventhubs).
+Ou você pode usar o seguinte para obter a cadeia de conexão para uma entidade do EventHub:
 
-## <a name="next-steps"></a>Passos Seguintes
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
+Para obter mais informações sobre CLI do Azure comandos para hubs de eventos, consulte [CLI do Azure para os hubs de eventos](/cli/azure/eventhubs).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)

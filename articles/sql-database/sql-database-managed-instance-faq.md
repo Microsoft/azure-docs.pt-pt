@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443864"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835019"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -105,7 +105,7 @@ Se as duas gerações de hardware não tiverem suporte na mesma região, a alter
 
 ## <a name="tune-performance"></a>Otimizar o desempenho
 
-\* * Como fazer ajustar o desempenho da minha instância gerenciada? **
+**Como fazer ajustar o desempenho da minha instância gerenciada?**
 
 Uso Geral instância gerenciada usa o armazenamento remoto porque o tamanho dos arquivos de dados e de log é importante para o desempenho. Para obter mais informações, consulte [impacto do tamanho do arquivo de log em Uso Geral instância gerenciada desempenho](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
@@ -180,8 +180,8 @@ Para entender melhor os benefícios, os custos e os riscos associados à implant
 
 ## <a name="dns-refresh"></a>Atualização de DNS 
 
-\* * Posso fazer a atualização de DNS? **
-  
+**Posso fazer a atualização de DNS?**
+
 No momento, não fornecemos um recurso para atualizar a configuração do servidor DNS para a instância gerenciada.
 
 A configuração de DNS é eventualmente atualizada:

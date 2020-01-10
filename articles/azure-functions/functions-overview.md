@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2afc0efad2784bbde902fd2cdf4a40beb7803
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230441"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769086"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure  
 Funções do Azure é uma solução para uma fácil execução de pequenos blocos de código, ou "funções", na nuvem. É possível escrever apenas o código que necessita para o problema em questão, sem ter de se preocupar com toda a aplicação ou a infraestrutura para executá-la. As funções podem tornar o desenvolvimento ainda mais produtivo e você pode usar a linguagem de desenvolvimento de sua escolha C#, como Java, JavaScript, PowerShell e Python. Paga apenas para a hora que o seu código é executado e confie no Azure para dimensionar conforme necessário. As Funções do Azure permitem desenvolver aplicações [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
@@ -50,7 +50,7 @@ Funções do Azure suporta *acionadores*, que são formas de iniciar a execuçã
 Funções do Azure integra-se com vários serviços do Azure e de terceiros. Estes serviços podem acionar a sua função e iniciar a execução ou podem servir como entrada e saída para o seu código. As Funções do Azure são compatíveis com as seguintes integrações de serviço:
 
 * Azure Cosmos DB
-* Azure Event Hubs
+* Hubs de Eventos do Azure
 * Azure Event Grid
 * Hubs de Notificação do Azure
 * Azure Service Bus (filas e tópicos)
@@ -61,7 +61,8 @@ Funções do Azure integra-se com vários serviços do Azure e de terceiros. Est
 ## <a name="pricing"></a>Quanto custam as Funções?
 As Funções do Azure têm dois tipos de planos de preços. Escolha o que melhor se adequa às suas necessidades: 
 
-* **Plano de Consumo** - Quando a função é executada, o Azure fornece todos os recursos informáticos necessários. Não tem de se preocupar com a gestão de recursos, paga apenas o tempo de execução do seu código. 
+* **Plano de Consumo** - Quando a função é executada, o Azure fornece todos os recursos informáticos necessários. Não tem de se preocupar com a gestão de recursos, paga apenas o tempo de execução do seu código.
+* **Plano Premium** -você especifica um número de instâncias pré-configuradas que estão sempre online e prontas para responder imediatamente. Quando sua função é executada, o Azure fornece quaisquer recursos computacionais adicionais necessários. Você paga pelas instâncias pré-configuradas executadas continuamente e quaisquer instâncias adicionais que você usa como o Azure dimensiona seu aplicativo para dentro e para fora.
 * **Plano do Serviço de Aplicações** – Executar as funções como aplicações da Web. Se já utilizar o App Service para outras aplicações, pode executar as suas funções no mesmo plano sem custos adicionais. 
 
 Para obter mais informações sobre os planos de alojamento, veja [Azure Functions hosting plan comparison (Comparação do plano de alojamento das Funções do Azure)](functions-scale.md). Os detalhes completos sobre os preços estão disponíveis na [Preços das Funções](https://azure.microsoft.com/pricing/details/functions/).

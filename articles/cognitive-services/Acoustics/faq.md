@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855033"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770208"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Perguntas frequentes sobre o projeto acústicos
 
@@ -28,7 +28,7 @@ O pacote de plug-ins acústicos do projeto é um sistema acústico que calcula o
 
 Você pode baixar o [plug-in do módulo acústica do projeto](https://www.microsoft.com/download/details.aspx?id=57346) ou o [plug-in do projeto acústica inreal](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>O projeto acústica dá suporte &lt;à&gt; plataforma x?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>O projeto acústica o suporte a &lt;plataforma x&gt;?
 
 O suporte à plataforma acústica do projeto evolui com base nas necessidades do cliente. Entre em contato conosco no [Fórum de problemas do acústica do projeto](https://github.com/microsoft/ProjectAcoustics/issues) para saber mais sobre o suporte para plataformas adicionais.
 
@@ -76,6 +76,10 @@ Os acústicas de projetos fornecem parâmetros acústicos precisos e confiáveis
 
 Um distorta consiste em simulações de ondas acústicas de regiões de simulação de cuboid centralizadas em cada investigação de ouvinte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="is-my-source-content-secure"></a>Meu conteúdo de origem é seguro?
+
+O projeto acústicos não carrega a cena de origem Geometry para a nuvem. Em vez disso, a simulação opera em uma voxelization de sua cena, que é combinada com dados de localização de investigação e armazenada em um formato proprietário.     
+
+## <a name="next-steps"></a>Passos seguintes
 * Experimente o [conteúdo de exemplo do projeto acústicos do acústica](unity-quickstart.md) ou [conteúdo de exemplo não real](unreal-quickstart.md)
 

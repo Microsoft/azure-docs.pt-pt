@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Saiba como instalar Azure Dev Spaces em um cluster AKS e instalar as ferramentas do lado do cliente.
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325784"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770633"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Instalar o Azure Dev Spaces no AKS e nas ferramentas do lado do cliente
 
@@ -58,7 +58,7 @@ Antes de instalar espaços de desenvolvimento usando o portal do Azure, você pr
 * [Um cluster AKs][create-aks-portal] em uma [região com suporte][supported-regions].
 
 Para instalar Azure Dev Spaces usando o portal do Azure:
-1. Iniciar sessão no [portal do Azure][az-portal].
+1. Inicie sessão no [Portal do Azure][az-portal].
 1. Navegue até o cluster AKS.
 1. Clique em *espaços de desenvolvimento*.
 1. Altere *habilitar espaços de desenvolvimento* para *Sim* e clique em *salvar*.
@@ -76,7 +76,7 @@ Você pode usar o Azure Dev Spaces ferramentas do lado do cliente para interagir
 * No Visual Studio 2017, instale a carga de trabalho de desenvolvimento Web e [Ferramentas do Visual Studio para kubernetes][visual-studio-k8s-tools].
 * Baixe e instale a CLI do [Windows][cli-win], [Mac][cli-mac]ou [Linux][cli-linux] .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 
@@ -86,7 +86,7 @@ Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em v�
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com

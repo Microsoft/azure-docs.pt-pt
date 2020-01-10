@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8f77083ae0107ed9f9c5e3943cfcec25846ff087
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 934f3f69d46362e4bef4e713bcee23e9a3e24eb6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227208"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769358"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Criar sua primeira função do PowerShell no Azure
 
@@ -48,7 +48,7 @@ Para concluir este guia de início rápido:
 
 ## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
-O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto que pode ser publicado numa aplicação de funções no Azure. As aplicações de funções permitem-lhe agrupar funções como unidades lógicas para a gestão, implementação e partilha de recursos. 
+O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto que pode ser publicado numa aplicação de funções no Azure. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
 1. No Visual Studio Code, selecione o logótipo do Azure para apresentar a área **Azure: Funções** e, em seguida, selecione o ícone Criar Novo Projeto.
 
@@ -128,7 +128,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 16
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você usou Visual Studio Code para criar um aplicativo de funções do PowerShell com uma função simples disparada por HTTP. Você também pode querer saber mais sobre como [depurar uma função do PowerShell localmente](functions-debug-powershell-local.md) usando o Azure Functions Core Tools. Confira o [Guia do desenvolvedor do Azure Functions PowerShell](functions-reference-powershell.md).
 
@@ -138,4 +138,4 @@ Você usou Visual Studio Code para criar um aplicativo de funções do PowerShel
 [Azure portal]: https://portal.azure.com
 [Azure Functions Core Tools]: functions-run-local.md
 [Extensão das Funções do Azure para o Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
-[' Aguardar depurador ']: /powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6
+[`Wait-Debugger`]: /powershell/module/microsoft.powershell.utility/wait-debugger?view=powershell-6

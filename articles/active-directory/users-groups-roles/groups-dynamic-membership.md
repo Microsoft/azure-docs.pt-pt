@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538783"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768724"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -48,9 +48,9 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
 
-Para obter instruções passo a passo, consulte [atualizar um grupo dinâmico](groups-update-rule.md).
+Para obter instruções passo a passo, consulte [criar ou atualizar um grupo dinâmico](groups-create-rule.md).
 
-![Adicionar regra de associação a um grupo dinâmico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Adicionar regra de associação a um grupo dinâmico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Sintaxe de regra para uma única expressão
 
@@ -97,29 +97,29 @@ A seguir estão as propriedades do usuário que você pode usar para criar uma �
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou *nulo* |(User. City-eq "valor") |
 | país |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Country-EQ "valor") |
-| companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (User. companyName-EQ "valor") |
-| inteiros |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
-| displayName |Qualquer valor de cadeia de caracteres |(User. displayName-EQ "valor") |
-| Funcionário |Qualquer valor de cadeia de caracteres |(User. employeeId-EQ "valor")<br>(User. employeeId-ne *NULL*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. facsimileTelephoneNumber-EQ "valor") |
-| givenName |Qualquer valor de cadeia de caracteres ou *nulo* |(User. excertoname-EQ "valor") |
+| companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (user.companyName -eq "value") |
+| Departamento |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Department-EQ "valor") |
+| displayName |Qualquer valor de cadeia de caracteres |(user.displayName -eq "value") |
+| employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "value")<br>(User. employeeId-ne *NULL*) |
+| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Qualquer valor de cadeia de caracteres ou *nulo* |(user.givenName -eq "value") |
 | jobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(User. jobTitle-EQ "valor") |
-| mescla |Qualquer valor de cadeia de caracteres ou *nulo* (endereço SMTP do usuário) |(User. mail-EQ "valor") |
-| mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(User. mailNickName-EQ "valor") |
-| móveis |Qualquer valor de cadeia de caracteres ou *nulo* |(User. Mobile-EQ "valor") |
-| objectId |GUID do objeto de usuário |(User. objectId-EQ "11111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | SID (identificador de segurança) local para usuários que foram sincronizados do local para a nuvem. |(User. onPremisesSecurityIdentifier-EQ "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
-| passwordPolicies |Nenhum DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(User. passwordPolicies-EQ "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *nulo* |(User. physicalDeliveryOfficeName-EQ "valor") |
-| postalCode |Qualquer valor de cadeia de caracteres ou *nulo* |(User. postalCode-EQ "valor") |
+| correio |Qualquer valor de cadeia de caracteres ou *nulo* (endereço SMTP do usuário) |(User. mail-EQ "valor") |
+| mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName -eq "value") |
+| móvel |Qualquer valor de cadeia de caracteres ou *nulo* |(user.mobile -eq "value") |
+| objectId |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | SID (identificador de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |Nenhum DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
+| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *nulo* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Qualquer valor de cadeia de caracteres ou *nulo* |(user.postalCode -eq "value") |
 | preferredLanguage |Código ISO 639-1 |(User. preferredLanguage-EQ "en-US") |
-| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sipProxyAddress-EQ "valor") |
+| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(user.sipProxyAddress -eq "value") |
 | state |Qualquer valor de cadeia de caracteres ou *nulo* |(User. State-EQ "valor") |
-| streetAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(User. streetAddress-EQ "valor") |
-| sobrenome |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
+| streetAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(user.streetAddress -eq "value") |
+| Apelido |Qualquer valor de cadeia de caracteres ou *nulo* |(User. sobrenome-EQ "valor") |
 | telephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(User. telephoneNumber-EQ "valor") |
-| usageLocation |Código de país de duas letras |(User. usageLocation-EQ "US") |
-| userPrincipalName |Qualquer valor de cadeia de caracteres |(User. userPrincipalName-EQ "alias@domain") |
+| usageLocation |Código de país de duas letras |(user.usageLocation -eq "US") |
+| userPrincipalName |Qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro convidado *nulo* |(User. UserType-EQ "membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades do tipo coleção de cadeia de caracteres
@@ -138,15 +138,15 @@ A tabela a seguir lista todos os operadores com suporte e sua sintaxe para uma �
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| Igual a |-EQ |
-| Não começa com |-Não StartsWith |
+| Igual a |-eq |
+| Não começa com |-notStartsWith |
 | Começa com |-startsWith |
-| Não contém |-Não contém |
-| Contains |-contém |
-| Sem correspondência |-Não correspondente |
-| Às |-correspondência |
-| No | -in |
-| Não está em | -notIn |
+| Não contém |-notContains |
+| Contains |-contains |
+| Sem correspondência |-notMatch |
+| Correspondência |-correspondência |
+| Em | -in |
+| Não em | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>Usando os operadores-in e-notIn
 
@@ -178,7 +178,7 @@ Os valores usados em uma expressão podem consistir em vários tipos, incluindo:
 
 * Cadeias
 * Booliano – verdadeiro, falso
-* Números
+* Numbers
 * Matrizes – matriz de números, matriz de cadeia de caracteres
 
 Ao especificar um valor dentro de uma expressão, é importante usar a sintaxe correta para evitar erros. Algumas dicas de sintaxe são:
@@ -213,7 +213,7 @@ Veja a seguir exemplos de regras de associação construídas corretamente com v
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedência de operador
+### <a name="operator-precedence"></a>Precedência de operadores
 
 Todos os operadores são listados abaixo em ordem de precedência do mais alto para o mais baixo. Os operadores na mesma linha são de precedência igual:
 
@@ -353,7 +353,7 @@ Um exemplo de uma regra que usa uma propriedade de extensão personalizada é:
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-O nome da propriedade personalizada pode ser encontrado no diretório consultando a propriedade de um usuário usando o explorador do Graph e procurando o nome da propriedade. Além disso, agora você pode selecionar a link **obter propriedades de extensão personalizadas** no construtor de regras do grupo de usuários dinâmico para inserir uma ID de aplicativo exclusiva e receber a lista completa de propriedades de extensão personalizadas a serem usadas ao criar uma regra de associação dinâmica. Essa lista também pode ser atualizada para obter todas as novas propriedades de extensão personalizadas para esse aplicativo.
+O nome da propriedade personalizada pode ser encontrado no diretório consultando a propriedade de um usuário usando o explorador do Graph e procurando o nome da propriedade. Além disso, agora você pode selecionar a link **obter propriedades de extensão personalizadas** no construtor de regras do grupo de usuários dinâmico para inserir uma ID de aplicativo exclusiva e receber a lista completa de propriedades de extensão personalizadas a serem usadas ao criar uma regra de associação dinâmica. Esta lista também pode ser atualizada para obter quaisquer novas propriedades de extensão personalizado para essa aplicação.
 
 ## <a name="rules-for-devices"></a>Regras para dispositivos
 
@@ -372,17 +372,17 @@ Os atributos de dispositivo a seguir podem ser usados.
  Atributo de dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
  accountEnabled | verdadeiro falso | (Device. accountEnabled-EQ true)
- displayName | Qualquer valor de cadeia de caracteres |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | Qualquer valor de cadeia de caracteres | (Device. deviceOSType-EQ "iPad")-ou (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
- deviceOSVersion | Qualquer valor de cadeia de caracteres | (Device. deviceOSVersion-EQ "9,1")
- deviceCategory | um nome de categoria de dispositivo válido | (Device. deviceCategory-EQ "BYOD")
- deviceManufacturer | Qualquer valor de cadeia de caracteres | (Device. deviceManufacturer-EQ "Samsung")
- DeviceModel | Qualquer valor de cadeia de caracteres | (Device. deviceModel-EQ "iPad Air")
+ displayName | qualquer valor de cadeia de caracteres |(device.displayName -eq "Rob iPhone")
+ deviceOSType | qualquer valor de cadeia de caracteres | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ versãoDeSODoDispositivo | qualquer valor de cadeia de caracteres | (device.deviceOSVersion -eq "9.1")
+ deviceCategory | um nome de categoria de dispositivo válido | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | qualquer valor de cadeia de caracteres | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | qualquer valor de cadeia de caracteres | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (Device. deviceOwnership-EQ "empresa")
- enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (Device. enrollmentProfileName-EQ "iPhone DEP")
- IsRoot | verdadeiro falso | (Device. isenraizadad-EQ true)
- gerenciamento de | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (Device. managementtype-EQ "MDM")
- deviceId | uma ID de dispositivo do Azure AD válida | (Device. DeviceID-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | verdadeiro falso | (Device. isenraizadad-EQ true)
+ managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
+ deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | uma ID de objeto do Azure AD válida |  (Device. objectId-EQ "76ad43c9-32c5-45e8-A272-7b58b58f596d")
  devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcar dispositivos de local de trabalho modernos | (Device. systemLabels-contém "M365Managed")

@@ -1,5 +1,5 @@
 ---
-title: Configurar sua conta para streaming offline de conteúdo protegido do PlayReady – Azure
+title: Streaming do PlayReady offline com os serviços de mídia v3-Azure
 description: Este artigo mostra como configurar sua conta dos serviços de mídia do Azure para o PlayReady de streaming para Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, modo offline Widevine, ExoPlayer, Android
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974058"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779792"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Streaming do PlayReady offline para Windows 10
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming do PlayReady offline para Windows 10 com os serviços de mídia v3
 
 Os serviços de mídia do Azure dão suporte a download/reprodução offline com proteção DRM. Este artigo aborda o suporte offline dos serviços de mídia do Azure para clientes Windows 10/PlayReady. Você pode ler sobre o suporte do modo offline para dispositivos iOS/FairPlay e Android/Widevine nos seguintes artigos:
 
-- [Transmissão offline do FairPlay para iOS](offline-fairplay-for-ios.md)
+- [Offline FairPlay Streaming for iOS](offline-fairplay-for-ios.md) (Transmissão Offline do FairPlay para iOS)
 - [Streaming de Widevine offline para Android](offline-widevine-for-android.md)
 
 > [!NOTE]

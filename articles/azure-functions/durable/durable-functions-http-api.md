@@ -3,14 +3,14 @@ title: APIs HTTP no Durable Functions-Azure Functions
 description: Saiba como implementar APIs HTTP na extensão de Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231394"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769630"
 ---
 # <a name="http-api-reference"></a>Referência de API HTTP
 
@@ -56,9 +56,9 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo              | Tipo de parâmetro  | Descrição |
 |--------------------|-----------------|-------------|
-| **`functionName`** | do IdP             | O nome da função de orquestrador a ser iniciada. |
-| **`instanceId`**   | do IdP             | Parâmetro opcional. A ID da instância de orquestração. Se não for especificado, a função de orquestrador será iniciada com uma ID de instância aleatória. |
-| **`{content}`**    | Conteúdo da solicitação | Opcional. A entrada da função de orquestrador formatada em JSON. |
+| **`functionName`** | URL             | O nome da função de orquestrador a ser iniciada. |
+| **`instanceId`**   | URL             | Parâmetro opcional. A ID da instância de orquestração. Se não for especificado, a função de orquestrador será iniciada com uma ID de instância aleatória. |
+| **`{content}`**    | Solicitar conteúdos | Opcional. A entrada da função de orquestrador formatada em JSON. |
 
 ### <a name="response"></a>Resposta
 
@@ -105,10 +105,10 @@ Aqui está um exemplo de carga de resposta para uma instância de orquestração
 }
 ```
 
-A resposta http é destinada a ser compatível com o *padrão de consumidor de sondagem*. Ele também inclui os seguintes cabeçalhos de resposta notáveis:
+A resposta HTTP é destinada a ser compatível com o *padrão de consumidor de sondagem*. Ele também inclui os seguintes cabeçalhos de resposta notáveis:
 
 * **Location**: a URL do ponto de extremidade de status. Essa URL contém o mesmo valor que o campo `statusQueryGetUri`.
-* **Tentar novamente**: o número de segundos de espera entre as operações de sondagem. O valor padrão é `10`.
+* **Tentar novamente**: o número de segundos de espera entre as operações de sondagem. O valor predefinido é `10`.
 
 Para obter mais informações sobre o padrão de sondagem HTTP assíncrona, consulte a documentação de [rastreamento de operação](durable-functions-http-features.md#async-operation-tracking) assíncrona http.
 
@@ -146,7 +146,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | A ID da instância de orquestração. |
+| **`instanceId`**        | URL             | A ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução de orquestração será incluído na carga de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
@@ -274,7 +274,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | A ID da instância de orquestração. |
+| **`instanceId`**        | URL             | A ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a entrada da função não será incluída na carga de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução de orquestração será incluído na carga de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, as saídas de função serão incluídas no histórico de execução de orquestração.|
@@ -372,7 +372,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
+| **`instanceId`**  | URL             | A ID da instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
@@ -485,9 +485,9 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
-| **`eventName`**   | do IdP             | O nome do evento que a instância de orquestração de destino está aguardando. |
-| **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
+| **`instanceId`**  | URL             | A ID da instância de orquestração. |
+| **`eventName`**   | URL             | O nome do evento que a instância de orquestração de destino está aguardando. |
+| **`{content}`**   | Solicitar conteúdos | A carga do evento em formato JSON. |
 
 ### <a name="response"></a>Resposta
 
@@ -540,7 +540,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
+| **`instanceId`**  | URL             | A ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para encerrar a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
@@ -589,7 +589,7 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | A ID da instância de orquestração. |
+| **`instanceId`**  | URL             | A ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para retroceder a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
@@ -620,7 +620,7 @@ Envia uma mensagem de operação unidirecional para uma [entidade durável](dura
 A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -631,10 +631,10 @@ Os parâmetros de solicitação para essa API incluem o conjunto padrão mencion
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | do IdP             | O tipo da entidade. |
-| **`entityKey`**   | do IdP             | O nome exclusivo da entidade. |
+| **`entityName`**  | URL             | O nome (tipo) da entidade. |
+| **`entityKey`**   | URL             | A chave (ID exclusiva) da entidade. |
 | **`op`**          | Cadeia de consulta    | Opcional. O nome da operação definida pelo usuário a ser invocada. |
-| **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
+| **`{content}`**   | Solicitar conteúdos | A carga do evento em formato JSON. |
 
 Aqui está uma solicitação de exemplo que envia uma mensagem de "adição" definida pelo usuário a uma entidade `Counter` chamada `steps`. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ela será criada por essa solicitação:
 
@@ -645,17 +645,20 @@ Content-Type: application/json
 5
 ```
 
+> [!NOTE]
+> Por padrão, com [entidades baseadas em classe no .net](durable-functions-dotnet-entities.md#defining-entity-classes), especificar o `op` valor de `delete` excluirá o estado de uma entidade. Se a entidade definir uma operação chamada `delete`, no entanto, essa operação definida pelo usuário será invocada em vez disso.
+
 ### <a name="response"></a>Resposta
 
 Esta operação tem várias respostas possíveis:
 
 * **HTTP 202 (aceito)** : a operação de sinal foi aceita para processamento assíncrono.
 * **HTTP 400 (solicitação inválida)** : o conteúdo da solicitação não era do tipo `application/json`, não era um JSON válido ou tinha um valor de `entityKey` inválido.
-* **HTTP 404 (não encontrado)** : o `entityType` especificado não foi encontrado.
+* **HTTP 404 (não encontrado)** : o `entityName` especificado não foi encontrado.
 
 Uma solicitação HTTP bem-sucedida não contém nenhum conteúdo na resposta. Uma solicitação HTTP com falha pode conter informações de erro formatadas em JSON no conteúdo da resposta.
 
-## <a name="query-entity"></a>Entidade de consulta
+## <a name="get-entity"></a>Obter entidade
 
 Obtém o estado da entidade especificada.
 
@@ -664,7 +667,7 @@ Obtém o estado da entidade especificada.
 A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -692,6 +695,100 @@ Se a entidade `Counter` simplesmente contivesse várias etapas salvas em um camp
 {
     "currentValue": 5
 }
+```
+
+## <a name="list-entities"></a>Listar entidades
+
+Você pode consultar várias entidades pelo nome da entidade ou pela última data de operação.
+
+### <a name="request"></a>Pedir
+
+A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para maior clareza):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Os parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como os seguintes parâmetros exclusivos:
+
+| Campo                       | Tipo de parâmetro  | Descrição |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | Opcional. Quando especificado, filtra a lista de entidades retornadas pelo nome da entidade (não diferencia maiúsculas de minúsculas). |
+| **`fetchState`**            | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o estado da entidade será incluído na carga de resposta. |
+| **`lastOperationTimeFrom`** | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de entidades retornadas que processaram operações após o carimbo de data/hora ISO8601 fornecido. |
+| **`lastOperationTimeTo`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de entidades retornadas que processaram operações antes do carimbo de data/hora ISO8601 fornecido. |
+| **`top`**                   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, limita o número de entidades retornadas pela consulta. |
+
+
+### <a name="response"></a>Resposta
+
+Uma resposta HTTP 200 bem-sucedida contém uma matriz serializada JSON de entidades e, opcionalmente, o estado de cada entidade.
+
+Por padrão, a operação retorna as primeiras 100 entidades que correspondem aos critérios de consulta. O chamador pode especificar um valor de parâmetro de cadeia de caracteres de consulta para `top` retornar um número máximo de resultados diferente. Se houver mais resultados Além do que é retornado, um token de continuação também será retornado no cabeçalho de resposta. O nome do cabeçalho é `x-ms-continuation-token`.
+
+Se você definir o valor do token de continuação no próximo cabeçalho de solicitação, poderá obter a próxima página de resultados. O nome do cabeçalho da solicitação também é `x-ms-continuation-token`.
+
+### <a name="example---list-all-entities"></a>Exemplo – listar todas as entidades
+
+A solicitação HTTP de exemplo a seguir lista todas as entidades no Hub de tarefas:
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+A resposta JSON pode ser parecida com a seguinte (formatada para facilitar a leitura):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### <a name="example---filtering-the-list-of-entities"></a>Exemplo – filtrando a lista de entidades
+
+A solicitação HTTP de exemplo a seguir lista apenas as duas primeiras entidades do tipo `counter` e também busca seu estado:
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+A resposta JSON pode ser parecida com a seguinte (formatada para facilitar a leitura):
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

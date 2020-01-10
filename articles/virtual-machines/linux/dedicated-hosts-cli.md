@@ -2,38 +2,32 @@
 title: Implantar hosts dedicados do Azure usando a CLI
 description: Implante VMs em hosts dedicados usando o CLI do Azure.
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036409"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834927"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Versão prévia: implantar VMs em hosts dedicados usando o CLI do Azure
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implantar VMs em hosts dedicados usando o CLI do Azure
  
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
 Certifique-se de ter instalado CLI do Azure versão 2.0.70 ou posterior e conectado a uma conta do Azure usando `az login`. 
 
-> [!IMPORTANT]
-> Atualmente, os hosts dedicados do Azure estão em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitações de visualização conhecidas**
-> - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-> - A versão inicial da visualização dá suporte à seguinte série de VMs: DSv3 e ESv3. 
+
+## <a name="limitations"></a>Limitações
+
+- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- A versão inicial dá suporte à seguinte série de VMs: DSv3 e ESv3. 
  
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
@@ -43,7 +37,7 @@ Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azu
 az group create --name myDHResourceGroup --location eastus 
 ```
  
-## <a name="create-a-host-group"></a>Criar um grupo de hosts 
+## <a name="create-a-host-group"></a>Criar um grupo de anfitriões 
 
 Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
 - Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
@@ -86,8 +80,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Criar um host 
 
-Agora, vamos criar um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.  Durante a visualização, ofereceremos suporte aos seguintes valores de SKU do host: DSv3_Type1 e ESv3_Type1.
-
+Agora, vamos criar um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.  Há suporte para os seguintes valores de SKU: DSv3_Type1 e ESv3_Type1.
 
 Para obter mais informações sobre os preços e as SKUs do host, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
 
@@ -104,7 +97,7 @@ az vm host create \
 
 
  
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual 
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual 
 Crie uma máquina virtual em um host dedicado usando [AZ VM Create](/cli/azure/vm#az-vm-create). Se você especificou uma zona de disponibilidade ao criar o grupo de hosts, será necessário usar a mesma zona ao criar a máquina virtual.
 
 ```bash

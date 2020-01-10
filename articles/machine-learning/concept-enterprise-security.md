@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/17/2019
-ms.openlocfilehash: 4b2f9e7f12b468f12fcfbe1b0af5c2918aa6c6ad
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541169"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762829"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -130,11 +130,11 @@ O disco do sistema operacional para cada nó de computação armazenado no armaz
 Cada máquina virtual também tem um disco temporário local para operações do sistema operacional. Se desejar, você pode usar o disco para preparar os dados de treinamento. O disco não está criptografado.
 Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte [criptografia de dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
-### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
+### <a name="encryption-in-transit"></a>Encriptação em circulação
 
 Você pode usar SSL para proteger a comunicação interna entre os microserviços Azure Machine Learning e para proteger chamadas externas para o ponto de extremidade de pontuação. Todo o acesso ao armazenamento do Azure também ocorre em um canal seguro.
 
-Para obter mais informações, consulte [usar SSL para proteger um serviço Web por meio de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-secure-web-service).
+Para obter mais informações, consulte [usar SSL para proteger um serviço Web por meio de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Usando Azure Key Vault
 

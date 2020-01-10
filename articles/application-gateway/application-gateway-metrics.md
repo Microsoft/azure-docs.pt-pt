@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551391"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777823"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -36,7 +36,7 @@ As métricas a seguir relacionadas ao tempo da solicitação e resposta estão d
 
   Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como a média do intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até o momento em que a operação de envio de resposta é concluída. É importante observar que isso geralmente inclui o tempo de processamento do gateway de aplicativo, o tempo que os pacotes de solicitação e resposta estão viajando pela rede e o tempo que o servidor back-end levou para responder.
   
-Se o *RTT do cliente* for muito mais do que o *tempo total do gateway de aplicativo*, ele poderá ser deduzido de que a latência observada pelo cliente é devido à conectividade de rede entre o cliente e o gateway de aplicativo. Se ambas as latências forem comparáveis, a alta latência poderá ser devido a qualquer um dos seguintes: gateway de aplicativo, a rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
+Após a filtragem por ouvinte, se o *RTT do cliente* for muito mais do que o *tempo total do gateway de aplicativo*, ele poderá ser deduzido que a latência observada pelo cliente é devido à conectividade de rede entre o cliente e o gateway de aplicativo. Se ambas as latências forem comparáveis, a alta latência poderá ser devido a qualquer um dos seguintes: gateway de aplicativo, a rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
 
 - **Tempo de resposta do primeiro byte do back-end**
 

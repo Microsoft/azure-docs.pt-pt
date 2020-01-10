@@ -3,12 +3,12 @@ title: Matriz de suporte da cópia de segurança de uma VM do Azure
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de VMs do Azure com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996175"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829549"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -62,7 +62,7 @@ Fazer backup com a extensão do agente de VM do Azure | -Cliente do Windows 10 (
 Fazer backup com o agente MARS | Sistemas operacionais [com suporte](backup-support-matrix-mars-agent.md#support-for-direct-backups) .
 Fazer backup com o DPM/MABS | Sistemas operacionais com suporte para backup com o [mAbs](backup-mabs-protection-matrix.md) e [o DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
-O backup do Azure não dá suporte a sistemas operacionais de 32 bits.
+O Azure Backup não suporta sistemas operativos de 32 bits.
 
 ## <a name="support-for-linux-backup"></a>Suporte para backup do Linux
 
@@ -79,7 +79,7 @@ Fazer backup de VMs do Linux Azure com o DPM/MABS | Não suportado.
 Para backups do Linux de VM do Azure, o backup do Azure dá suporte à lista de [distribuições do Linux endossadas pelo Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Tenha em atenção o seguinte:
 
 - O backup do Azure não dá suporte ao sistema operacional principal Linux.
-- O backup do Azure não dá suporte a sistemas operacionais de 32 bits.
+- O Azure Backup não suporta sistemas operativos de 32 bits.
 - Outras distribuições do Linux traga seu próprio trabalho podem funcionar contanto que o [agente de VM do Azure para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) esteja disponível na VM e, desde que o Python tenha suporte.
 - O backup do Azure não oferece suporte a uma VM do Linux configurada por proxy se não tiver a versão 2,7 do Python instalada.
 
@@ -154,16 +154,16 @@ VMs Gen2 | Suportadas <br> O backup do Azure dá suporte ao backup e à restaura
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados de VM do Azure | Faça backup de uma VM com 16 ou menos discos de dados.
+Discos de dados de VM do Azure | Faça backup de uma VM com 16 ou menos discos de dados.<BR> Para se registar para obter a pré-visualização privada de VMs com mais de 16 discos (até 32 discos), contacte-nos através de AskAzureBackupTeam@microsoft.com
 Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 Tipo de armazenamento | HDD Standard, SSD Standard SSD Premium.
 Managed Disks | Suportado.
-Discos criptografados | Com suporte (até 4 TB).<br/><br/> As VMs do Azure habilitadas com Azure Disk Encryption podem ser submetidas a backup (com ou sem o aplicativo do Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você deve recuperar toda a VM.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidas pelo backup do Azure.
+Discos criptografados | Suportado.<br/><br/> As VMs do Azure habilitadas com Azure Disk Encryption podem ser submetidas a backup (com ou sem o aplicativo do Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você deve recuperar toda a VM.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidas pelo backup do Azure.
 Discos com Acelerador de Gravação habilitados | Não suportado.<br/><br/> O backup do Azure exclui automaticamente os discos com Acelerador de Gravação habilitado durante o backup. Como não é feito backup, você não poderá restaurar esses discos de pontos de recuperação da VM.
-Fazer backup & restaurar VMs/discos com eliminação de duplicação | O backup do Azure não oferece suporte à eliminação de duplicação. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados, pois o cofre não entenderá o formato
+Fazer backup & restaurar VMs/discos com eliminação de duplicação | O backup do Azure não oferece suporte à eliminação de duplicação. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados, pois o cofre não entenderá o formato. No entanto, você poderá executar com êxito a restauração completa da VM.
 Adicionar disco à VM protegida | Suportado.
 Redimensionar disco na VM protegida | Suportado.
-Armazenamento compartilhado| O backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal não é recomendado. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
+Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar o postmaster para chamadas de API REST de Serviços de Mídia do Azure
+title: Configurar o postmaster para chamadas da API REST dos serviços de mídia do Azure v3
 description: Este artigo mostra como configurar o postmaster para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888109"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779642"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
 
 Este artigo mostra como configurar o **postmaster** para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS). O artigo mostra como importar arquivos de ambiente e de coleção para o **postmaster**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs REST dos serviços de mídia do Azure (AMS). O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
 

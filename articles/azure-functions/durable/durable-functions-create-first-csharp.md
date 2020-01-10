@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3ead9eefd6f0d4c504cc7711ea4e03facf8edc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12e79df4af2dab097a41cf8482d5a344080890cf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231517"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769711"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -34,7 +34,7 @@ Para concluir este tutorial:
 
 ## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
-O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. As aplicações de funções permitem-lhe agrupar funções como unidades lógicas para a gestão, implementação e partilha de recursos.
+O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
 1. No Visual Studio, selecione **Novo** > **Projeto**, no menu **Ficheiro**.
 
@@ -51,7 +51,7 @@ O modelo de Azure Functions cria um projeto que pode ser publicado em um aplicat
     | Definição      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Versão** | Azure Functions 2,0 <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução da versão 2,0 do Azure Functions, que dá suporte ao .NET Core. Azure Functions 1,0 dá suporte ao .NET Framework. Para obter mais informações, veja [How to target Azure Functions runtime version](../functions-versions.md) (Como segmentar a versão do runtime das Funções do Azure).   |
-    | **Modelo** | Esvaziá | Cria um aplicativo de funções vazio. |
+    | **Modelo** | Empty | Cria um aplicativo de funções vazio. |
     | **Conta de armazenamento**  | Emulador do Armazenamento | Uma conta de armazenamento é necessária para o gerenciamento de estado de função durável. |
 
 4. Selecione **criar** para criar um projeto de função vazio. Este projeto tem os arquivos de configuração básicos necessários para executar suas funções.

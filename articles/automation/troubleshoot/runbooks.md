@@ -1,6 +1,6 @@
 ---
 title: Solucionar erros com Runbooks de automação do Azure
-description: Saiba como solucionar problemas com runbooks de automação do Azure
+description: Saiba como solucionar e resolver problemas que podem ser encontrados com runbooks de automação do Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 10152087b45a4048f30f382b237017efbbb63787
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850147"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769885"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar erros com runbooks
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 Esse erro ocorre devido a um dos seguintes problemas:
 
-* Limite de memória. Os limites documentados sobre a quantidade de memória alocada para uma área restrita são encontrados nos [limites do serviço de automação](../../azure-subscription-service-limits.md#automation-limits). Um trabalho poderá falhar se ele estiver usando mais de 400 MB de memória.
+* Limite de memória. Os limites documentados sobre a quantidade de memória alocada para uma área restrita são encontrados nos [limites do serviço de automação](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). Um trabalho poderá falhar se ele estiver usando mais de 400 MB de memória.
 
-* Soquetes de rede. As áreas restritas do Azure são limitadas a 1000 soquetes de rede simultâneos, conforme descrito em [limites do serviço de automação](../../azure-subscription-service-limits.md#automation-limits).
+* Soquetes de rede. As áreas restritas do Azure são limitadas a 1000 soquetes de rede simultâneos, conforme descrito em [limites do serviço de automação](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 * Módulo incompatível. Esse erro pode ocorrer se as dependências de módulo não estiverem corretas e, se não forem, o runbook normalmente retorna uma mensagem "comando não encontrado" ou "não é possível associar o parâmetro".
 

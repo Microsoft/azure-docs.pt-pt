@@ -1,6 +1,6 @@
 ---
-title: Criar um grupo dinâmico e verificar o status-Azure AD | Microsoft Docs
-description: Como criar uma regra de associação de grupo no portal do Azure, verifique o status.
+title: Criar ou editar um grupo dinâmico e obter o status-Azure AD | Microsoft Docs
+description: Como criar ou atualizar uma regra de associação de grupo no portal do Azure e verificar seu status de processamento.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900939"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768775"
 ---
-# <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
+# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
 No Azure Active Directory (AD do Azure), você pode usar regras para determinar a associação de grupo com base nas propriedades do usuário ou do dispositivo. Este artigo informa como configurar uma regra para um grupo dinâmico no portal do Azure.
 A associação dinâmica tem suporte para grupos de segurança ou grupos do Office 365. Quando uma regra de associação de grupo é aplicada, os atributos de usuário e de dispositivo são avaliados para correspondências com a regra de associação. Quando um atributo é alterado para um usuário ou dispositivo, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários e dispositivos serão adicionados ou removidos se atenderem às condições de um grupo. Os grupos de segurança podem ser usados para dispositivos ou usuários, mas os grupos do Office 365 podem ser apenas grupos de usuários.
@@ -40,7 +40,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
 
-![Adicionar regra de associação a um grupo dinâmico](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores para uma regra de associação, consulte [regras de associação dinâmica para grupos no Azure Active Directory](groups-dynamic-membership.md).
 
@@ -63,6 +63,20 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 1. Selecione **criar** na página **novo grupo** para criar o grupo.
 
 Se a regra que você inseriu não for válida, uma explicação do motivo pelo qual a regra não pôde ser processada será exibida em uma notificação do Azure no Portal. Leia com atenção para entender como corrigir a regra.
+
+## <a name="to-update-an-existing-rule"></a>Para atualizar uma regra existente
+
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador de grupo, administrador do Intune ou administrador de usuário no locatário.
+1. Selecione **grupos** > **todos os grupos**.
+1. Selecione um grupo para abrir seu perfil.
+1. Na página perfil do grupo, selecione regras de **associação dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
+
+   ![Adicionar regra de associação a um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
+
+1. Para ver as propriedades de extensão personalizadas disponíveis para sua regra de associação:
+   1. Selecionar **obter propriedades de extensão personalizadas**
+   1. Insira a ID do aplicativo e, em seguida, selecione **Atualizar Propriedades**.
+1. Depois de atualizar a regra, selecione **salvar**.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar o email de boas-vindas
 

@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226889"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769188"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -34,7 +34,7 @@ Nesta secção, utilize a IU do portal para adicionar um enlace de saída de arm
 
 1. Selecione a função que criou no início rápido anterior.
 
-1. Selecione **Integrar > Nova saída > Armazenamento de Filas do Azure**.
+1. Selecione **integrar > nova saída > armazenamento de filas do Azure**.
 
 1. Clique em **Selecionar**.
 
@@ -103,7 +103,7 @@ Nesta secção, adicione código que escreve uma mensagem para a fila de saída.
 
     ![Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Tenha em atenção que o **Corpo do pedido** contém o valor `name` *Azure*. Este valor é apresentado na mensagem de fila que é criada quando a função é invocada.
+    Tenha em atenção que o **Corpo do pedido** contém o valor `name`*Azure*. Este valor é apresentado na mensagem de fila que é criada quando a função é invocada.
     
     Como alternativa à seleção de **Executar** aqui, pode chamar a função de introduzir um URL num browser e especificar o valor `name` na cadeia de consulta. O método de browser é apresentado no [início rápido anterior](functions-create-first-azure-function.md#test-the-function).
 

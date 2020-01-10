@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 9aac6662304395b1bce5dfc21770d296f6a4f2ab
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226854"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769103"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions de monitoramento com logs de Azure Monitor
 
@@ -25,11 +25,11 @@ Azure Monitor usa uma versão da [linguagem de consulta Kusto](/azure/kusto/quer
 
 ## <a name="setting-up"></a>Configurando
 
-Na seção monitoramento, selecione **configurações de diagnóstico** e clique em **Adicionar**.
+Na seção **monitoramento** , selecione **configurações de diagnóstico** e clique em **Adicionar configuração de diagnóstico**.
 
 ![Adicionar uma configuração de diagnóstico](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-Na página configuração, escolha **Enviar para log Analytics**e, em **log** , escolha **FunctionAppLogs**, essa tabela contém os logs desejados.
+Na página **configurações de diagnóstico** , escolha **Enviar para log Analytics**e, em seguida, selecione o espaço de trabalho log Analytics. Em **log** , escolha **FunctionAppLogs**, essa tabela contém os logs desejados.
 
 ![Adicionar uma configuração de diagnóstico](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -37,39 +37,42 @@ Na página configuração, escolha **Enviar para log Analytics**e, em **log** , 
 
 Para gerar logs personalizados, você pode usar a instrução de log específica, dependendo do seu idioma, aqui estão os trechos de código de exemplo:
 
-**JavaScript**
 
-```javascript
-    context.log('My app logs here.');
-```
-
-**Python**
-
-```python
-    logging.info('My app logs here.')
-```
-
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-    log.LogInformation("My app logs here.");
+log.LogInformation("My app logs here.");
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```java
-    context.getLogger().info("My app logs here.");
+context.getLogger().info("My app logs here.");
 ```
 
-**PowerShell**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+context.log('My app logs here.');
+```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
-    Write-Host "My app logs here."
+Write-Host "My app logs here."
 ```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```python
+logging.info('My app logs here.')
+```
+
+---
 
 ## <a name="querying-the-logs"></a>Consultando os logs
 
-Para consultar os logs gerados, vá para o espaço de trabalho do log Analytics e clique em **logs**.
+Para consultar os logs gerados, vá para o espaço de trabalho Log Analytics que você configurou para enviar os logs de função e clique em **logs**.
 
 ![Janela de consulta na LA espaço de trabalho](media/functions-monitor-log-analytics/querying.png)
 
@@ -103,7 +106,7 @@ FunctionAppLogs
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examinar a [visão geral de Azure Functions](functions-overview.md)
 - Saiba mais sobre [os logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md)

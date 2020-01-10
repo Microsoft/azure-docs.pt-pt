@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 1b03f5569386212905cdeb362cfe0a88774eb887
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406718"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754347"
 ---
 # <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Tutorial: importar o banco de dados C# SQL do Azure usando indexadores de pesquisa cognitiva do Azure
 
@@ -159,7 +159,7 @@ Neste tutorial, o indexador extrai dados de uma origem de dados. Na prática, vo
 
 O programa principal inclui a lógica para criar um cliente, um índice, uma fonte de dados e um indexador. Verifica e elimina os recursos existentes com o mesmo nome, no pressuposto de que poderá executar este programa várias vezes.
 
-O objeto de fonte de dados é configurado com configurações que são específicas para recursos do Azure SQL Database, incluindo a [indexação incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os recursos internos de [detecção de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) do SQL do Azure. O banco de dados de hotéis de demonstração no SQL do Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna é definida como true no banco de dados, o indexador remove o documento correspondente do índice de Pesquisa Cognitiva do Azure.
+O objeto de fonte de dados é configurado com configurações que são específicas para recursos do Azure SQL Database, incluindo [indexação parcial ou incremental](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) para aproveitar os [recursos](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) internos de detecção de alterações do SQL do Azure. O banco de dados de hotéis de demonstração no SQL do Azure tem uma coluna de "exclusão reversível" chamada **IsDeleted**. Quando essa coluna é definida como true no banco de dados, o indexador remove o documento correspondente do índice de Pesquisa Cognitiva do Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");

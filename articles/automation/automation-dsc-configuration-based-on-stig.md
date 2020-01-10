@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6215884a5f11e92d3a6ab61d86c338c30c090ee6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231665"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769987"
 ---
 # <a name="configuration-based-on-stig"></a>Configuração baseada em STIG
 
@@ -39,9 +39,9 @@ O PowerSTIG resolve o problema fornecendo [recursos de composição](https://git
 Depois que as configurações tiverem sido geradas, você poderá usar os [scripts de configuração de DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF para a automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Em seguida, registre os servidores no [local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) ou [no Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para efetuar pull das configurações.
 
-Para experimentar o PowerSTIG, visite a [Galeria do PowerShell](http://www.powershellgallery.com) e baixe a solução ou clique em "site do projeto" para exibir a [documentação](https://github.com/microsoft/powerstig).
+Para experimentar o PowerSTIG, visite a [Galeria do PowerShell](https://www.powershellgallery.com) e baixe a solução ou clique em "site do projeto" para exibir a [documentação](https://github.com/microsoft/powerstig).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da configuração de estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos de DSC](/powershell/scripting/dsc/resources/resources)

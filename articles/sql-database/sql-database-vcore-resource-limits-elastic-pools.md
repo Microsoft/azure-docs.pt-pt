@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 12/11/2019
-ms.openlocfilehash: 1c419e0550561e99694d9256c9c9111a2549b82e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/09/2020
+ms.openlocfilehash: f6b7797fbebd3d1df3da3405926543d716e584f4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647871"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835104"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 
@@ -52,8 +52,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|400|800|1200|1600|2000|2400|
-|Taxa máxima de logs (MBps)|4.7|9.4|14,1|18,8|23,4|28,1|
+|IOPS de dados máximo por pool *|400|800|1200|1600|2000|2400|
+|Taxa máxima de log por pool (MBps)|4.7|9.4|14,1|18,8|23,4|28,1|
 |Máximo de trabalhos simultâneos por pool (solicitações) * * |210|420|630|840|1050|1260|
 |Máximo de logons simultâneos por pool * * |210|420|630|840|1050|1260|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -82,8 +82,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|512|768|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|2800|3200|3600|4000|6400|9600|
-|Taxa máxima de logs (MBps)|32,8|37,5|37,5|37,5|37,5|37,5|
+|IOPS de dados máximo por pool *|2800|3200|3600|4000|6400|9600|
+|Taxa máxima de log por pool (MBps)|32,8|37,5|37,5|37,5|37,5|37,5|
 |Máximo de trabalhos simultâneos por pool (solicitações) *|1470|1680|1890|2100|3360|5040|
 |Pool de logons simultâneos máximos (solicitações) *|1470|1680|1890|2100|3360|5040|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -112,8 +112,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|800|1600|2400|3200|4000|4800|5600|
-|Taxa máxima de logs (MBps)|9.4|18,8|28,1|37,5|37,5|37,5|37,5|
+|IOPS de dados máximo por pool *|800|1600|2400|3200|4000|4800|5600|
+|Taxa máxima de log por pool (MBps)|9.4|18,8|28,1|37,5|37,5|37,5|37,5|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|210|420|630|840|1050|1260|1470|
 |Máximo de logons simultâneos por pool (solicitações) * *|210|420|630|840|1050|1260|1470|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -142,8 +142,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo * |6,400|7\.200|8,000|9600|12,800|16,000|32,000|
-|Taxa máxima de logs (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
+|IOPS de dados máximo por pool * |6,400|7\.200|8,000|9600|12,800|16,000|32,000|
+|Taxa máxima de log por pool (MBps)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|1680|1890|2100|2520|3360|4200|8400|
 |Máximo de logons simultâneos por pool (solicitações) * *|1680|1890|2100|2520|3360|4200|8400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -174,10 +174,10 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|333|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|28.800|
-|Taxa máxima de logs (MBps)|37,5|
-|Máximo de trabalhos simultâneos por pool (solicitações) * *|1680|
-|Máximo de logons simultâneos por pool (solicitações) * *|1680|
+|IOPS de dados máximo por pool *|16,000|
+|Taxa máxima de log por pool (MBps)|37,5|
+|Máximo de trabalhos simultâneos por pool (solicitações) * *|3780|
+|Máximo de logons simultâneos por pool (solicitações) * *|3780|
 |Sessões simultâneas máx.|30,000|
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0-72|
 |Número de réplicas|1|
@@ -209,8 +209,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo do log (GB)|307|307|307|307|307|
 |Tamanho máximo de dados de TempDB (GB)|64|96|128|160|192|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|9000|13.500|18 000|22.500|27.000|
-|Taxa máxima de logs (MBps)|20|30|40|50|60|
+|IOPS de dados máximo por pool *|9000|13.500|18 000|22.500|27.000|
+|Taxa máxima de log por pool (MBps)|20|30|40|50|60|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|420|630|840|1050|1260|
 |Máximo de logons simultâneos por pool (solicitações) * *|420|630|840|1050|1260|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|
@@ -239,8 +239,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo do log (GB)|307|307|307|307|307|307|
 |Tamanho máximo de dados de TempDB (GB)|224|256|288|320|512|768|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|31.500|36.000|40.500|45,000|72.000|90,000|
-|Taxa máxima de logs (MBps)|70|80|80|80|80|80|
+|IOPS de dados máximo por pool *|31.500|36.000|40.500|45,000|72.000|96.000|
+|Taxa máxima de log por pool (MBps)|70|80|80|80|80|80|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|1470|1680|1890|2100|3360|5040|
 |Máximo de logons simultâneos por pool (solicitações) * *|1470|1680|1890|2100|3360|5040|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -271,8 +271,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|128|192|256|320|384|448|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|18 000|27.000|36.000|45,000|54,000|63.000|
-|Taxa máxima de logs (MBps)|60|90|120|120|120|120|
+|IOPS de dados máximo por pool *|18 000|27.000|36.000|45,000|54,000|63.000|
+|Taxa máxima de log por pool (MBps)|60|90|120|120|120|120|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|420|630|840|1050|1260|1470|
 |Máximo de logons simultâneos por pool (solicitações) * *|420|630|840|1050|1260|1470|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -301,8 +301,8 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 |Tamanho máximo de dados de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|72.000|81.000|90,000|108.000|144.000|180,000|256.000|
-|Taxa máxima de logs (MBps)|120|120|120|120|120|120|120|
+|IOPS de dados máximo por pool *|72.000|81.000|90,000|108.000|144.000|180,000|256.000|
+|Taxa máxima de log por pool (MBps)|120|120|120|120|120|120|120|
 |Máximo de trabalhos simultâneos por pool (solicitações) * *|1680|1890|2100|2520|3360|4200|8400|
 |Máximo de logons simultâneos por pool (solicitações) * *|1680|1890|2100|2520|3360|4200|8400|
 |Sessões simultâneas máx.|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -320,23 +320,23 @@ Você pode definir a camada de serviço, o tamanho da computação e o valor de 
 
 ### <a name="m-series-compute-generation-preview"></a>Geração de computação da série M (versão prévia)
 
-|Tamanho da computação|GP_M_128|
+|Tamanho da computação|BC_M_128|
 |:--- | --: |
 |Geração de computação|Série M|
 |vCores|128|
-|Memória (GB)|3767|
+|Memória (GB)|3767,1|
 |Número de DBs máximo por conjunto|100|
 |Suporte a Columnstore|Sim|
-|Armazenamento OLTP na memória (GB)|481|
+|Armazenamento OLTP na memória (GB)|1768|
 |Tamanho máximo de dados (GB)|4096|
 |Tamanho máximo do log (GB)|2048|
 |Tamanho máximo de dados de TempDB (GB)|4096|
 |Tipo de armazenamento|SSD local|
 |Latência de e/s (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|40,000|
-|Taxa máxima de logs (MBps)|120|
-|Máximo de trabalhos simultâneos por pool (solicitações) *|1680|
-|Máximo de logons simultâneos por pool (solicitações) *|1680|
+|IOPS de dados máximo por pool *|200,000|
+|Taxa máxima de log por pool (MBps)|333|
+|Máximo de trabalhos simultâneos por pool (solicitações) *|13.440|
+|Máximo de logons simultâneos por pool (solicitações) *|13.440|
 |Sessões simultâneas máx.|30,000|
 |Opções vCore de pool elástico mínimo/máximo por banco de dados|0-128|
 |Número de réplicas|4|

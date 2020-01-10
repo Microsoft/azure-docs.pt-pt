@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8b6a9978d6db1a8978f993abf16d7cfbfb2f44a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688157"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771024"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuídos. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -33,7 +33,7 @@ Para concluir este início rápido, certifique-se de que tem:
 
 Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os recursos são implementados e geridos num grupo de recursos. Para criar um grupo de recursos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Na navegação à esquerda, clique em **Grupos de recursos**. Em seguida, clique em **Adicionar**.
 
    ![Grupos de recursos - Botão Adicionar](./media/event-hubs-quickstart-portal/resource-groups1.png)
@@ -60,7 +60,7 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
 4. Na página **criar namespace** , execute as seguintes etapas:
     1. Insira um **nome** para o namespace. O sistema verifica imediatamente a disponibilidade do nome.
     2. Escolha o **tipo de preço** (básico ou padrão).
-    3. Observe que a opção **habilitar Kafka** é habilitada automaticamente. Os hubs de eventos do Azure fornecem um ponto de extremidade Kafka. Esse ponto de extremidade permite que seu namespace de hubs de eventos entenda nativamente [Apache Kafka](https://kafka.apache.org/intro) protocolo de mensagem e APIs. Com esse recurso, você pode se comunicar com seus hubs de eventos como faria com os tópicos do Kafka sem alterar seus clientes de protocolo nem executar seus próprios clusters. Os hubs de eventos oferecem suporte às [versões 1,0](https://kafka.apache.org/10/documentation.html) e posteriores do Apache Kafka.
+    3. Observe que a opção **habilitar Kafka** é habilitada automaticamente. Os Hubs de eventos do Azure fornece um ponto de extremidade do Kafka. Este ponto final permite que o espaço de nomes de Hubs de eventos compreender de forma nativa [Apache Kafka](https://kafka.apache.org/intro) protocolo e APIs de mensagens. Com esta capacidade, pode comunicar com os hubs de eventos, tal como faria com tópicos do Kafka sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos suportam [versões do Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e mais tarde.
     4. Selecione a **assinatura** na qual você deseja criar o namespace.
     5. Selecione um **grupo de recursos** existente ou crie um novo grupo de recursos. 
     4. Selecione um **local** para o namespace.
@@ -102,7 +102,7 @@ Neste artigo, criou um grupo de recursos, um espaço de nomes de Hubs de Eventos
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (somente enviar)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (somente reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (somente recebimento)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

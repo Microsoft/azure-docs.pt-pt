@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 30d69476c96017319842a424c26de29350ec1ef6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561920"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769052"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor do Azure Functions JavaScript
 
@@ -371,9 +371,9 @@ Ao trabalhar com gatilhos HTTP, você pode acessar os objetos de solicitação e
 + **Das propriedades `req` e `res` no objeto `context`.** Dessa forma, você pode usar o padrão convencional para acessar dados HTTP do objeto de contexto, em vez de ter que usar o padrão de `context.bindings.name` completo. O exemplo a seguir mostra como acessar os objetos `req` e `res` no `context`:
 
     ```javascript
-    // You can access your http request off the context ...
+    // You can access your HTTP request off the context ...
     if(context.req.body.emoji === ':pizza:') context.log('Yay!');
-    // and also set your http response
+    // and also set your HTTP response
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 

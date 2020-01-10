@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847597"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762880"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Azure Active Directory
 
@@ -67,8 +67,8 @@ Com base nos requisitos organizacionais, os valores de bloqueio inteligente pode
 
 Para verificar ou modificar os valores de bloqueio inteligente para sua organização, use as seguintes etapas:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure e selecione *Azure Active Directory*. Selecione os **métodos de autenticação** > proteção por **senha**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Procure e selecione *Azure Active Directory*. Selecione **segurança** > **métodos de autenticação** > **proteção por senha**.
 1. Defina o **limite de bloqueio**, com base em quantas entradas com falha são permitidas em uma conta antes de seu primeiro bloqueio. O padrão é 10.
 1. Defina a **duração do bloqueio em segundos**, para o comprimento em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).
 

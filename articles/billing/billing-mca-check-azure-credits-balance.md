@@ -11,48 +11,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: bbd456f82e333ab8e096e5695a55be43c2084c6d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 48f7e0b3d1289d8e9c620f931f9bc85570b90042
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449552"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Controlar o saldo do Crédito do Azure do Contrato de Cliente da Microsoft
 
-Pode consultar o saldo do Crédito do Azure da sua conta de faturação do Contrato de Cliente da Microsoft no portal do Azure. 
+Pode consultar o saldo do Crédito do Azure da sua conta de faturação do Contrato de Cliente Microsoft no portal do Azure ou através das APIs REST.
 
-Utilize os créditos para pagar os custos que são elegíveis para créditos. Ser-lhe-á cobrado quando utiliza produtos que não são elegíveis para créditos ou a sua utilização exceder o saldo do crédito. Para obter mais informações, veja [Produtos que não estão abrangidos pelos créditos do Azure](#products-that-arent-covered-by-azure-credits).
-
-Na conta de faturação de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de faturação. Cada perfil de faturação tem os seus próprios créditos. Tem de ter uma função de proprietário, contribuidor, leitor ou gestor de faturas no perfil de faturação ou uma função de proprietário, contribuidor ou leitor na conta de faturação para ver o saldo do Crédito do Azure de um perfil de faturação. Para saber mais sobre as funções, veja [Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure](billing-understand-mca-roles.md).
+Na conta de faturação de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de faturação. Cada perfil de faturação tem os seus próprios créditos que são aplicados automaticamente aos custos na fatura. Tem de ter uma função de proprietário, contribuidor, leitor ou gestor de faturas no perfil de faturação ou uma função de proprietário, contribuidor ou leitor na conta de faturação para ver o saldo do Crédito do Azure de um perfil de faturação. Para saber mais sobre as funções, veja [Compreender as funções administrativas do Contrato de Cliente da Microsoft no Azure](billing-understand-mca-roles.md).
 
 Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Microsoft. [Verifique se tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance-in-the-azure-portal"></a>Consultar o saldo do crédito no portal do Azure
+## <a name="check-your-credit-balance"></a>Consultar o saldo do crédito
 
-1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
+### <a name="azure-portaltabportal"></a>[Portal do Azure](#tab/portal)
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Procure **Cost Management + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  Selecione **Créditos do Azure** no lado esquerdo. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação ou um perfil de faturação e, em seguida, selecionar **Créditos do Azure**.
+3. Na página dos âmbitos de faturação, selecione a conta de faturação na qual quer controlar o saldo do crédito. A conta de faturação deverá ser do tipo **Contrato de Cliente Microsoft**.
 
-4. Os Créditos do Azure apresentam as seguintes informações:
+    ![Captura de ecrã que mostra a pesquisa no portal para Cost Management + Faturação](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
-   ![Captura de ecrã do saldo do crédito e das transações de um perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+    > [!NOTE]
+    >
+    > O portal do Azure memoriza o último âmbito de faturação ao qual acedeu e apresenta-o na próxima vez que aceder à página Gestão de Custos + Faturação. Não verá a página dos âmbitos de faturação se tiver visitado a Gestão de Custos + Faturação anteriormente. Se assim for, verifique se está no [âmbito certo](#check-access-to-a-microsoft-customer-agreement). Se não estiver, [mude o âmbito](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para selecionar a conta de faturação de um Contrato de Cliente Microsoft.
+
+3. Selecione **Métodos de pagamento** do lado esquerdo e, em seguida, selecione **Créditos do Azure**.
+
+   ![Captura de ecrã do saldo do crédito de um perfil de faturação](./media/billing-mca-check-azure-credits-balance/mca-payment-methods.png)
+
+4. A página Créditos do Azure tem as seguintes seções:
+    
+   #### <a name="balance"></a>Saldo
+   
+   A secção de saldo apresenta o resumo do saldo do Crédito do Azure.
+
+   ![Captura de ecrã do saldo do crédito de um perfil de faturação](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
    | Termo               | Definição                           |
    |--------------------|--------------------------------------------------------|
    | Saldo estimado  | O montante estimado de créditos que possui depois de considerar todas as transações faturadas e pendentes |
    | Saldo atual    | Montante de créditos desde a última fatura. Não inclui as transações pendentes |
-   | Transações       | Transações de faturação que afetaram o saldo do Crédito do Azure |
 
    Quando o saldo estimado cair para 0, ser-lhe-á cobrada toda a utilização, incluindo os produtos que são elegíveis para crédito.
 
-6. Selecione **Lista de créditos** para ver a lista de créditos do perfil de faturação. A lista de créditos disponibiliza as seguintes informações:
+   #### <a name="credits-list"></a>Lista de créditos
+   
+   A secção da lista de créditos apresenta a lista de Créditos do Azure.
 
-   ![Captura de ecrã das listas de créditos de um Perfil de faturação](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![Captura de ecrã das listas de créditos de um Perfil de faturação](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
 
    | Termo | Definição |
    |---|---|
@@ -63,7 +78,28 @@ Este artigo aplica-se a uma conta de faturação de um Contrato de Cliente da Mi
    | Montante original | O montante original de crédito |
    | Estado | O estado atual do crédito. O estado pode ser ativo, utilizado, expirado ou a expirar |
 
-## <a name="check-your-credit-balance-programmatically"></a>Consultar o saldo do crédito através de programação
+   #### <a name="transactions"></a>Transações
+
+   A secção de transações apresenta todas as transações que afetaram o saldo dos créditos.
+
+   ![Captura de ecrã das transações de crédito de um perfil de faturação](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
+    
+   | Termo | Definição |
+   |---|---|
+   | Data da transação | A data em que ocorreu a transação |
+   | Descrição | Uma descrição da transação |
+   | Montante| O montante da transação |
+   | Saldo | O saldo após a transação |
+
+    > [!NOTE]
+    >
+    > Se não vir Créditos do Azure na página dos métodos de pagamento é porque não tem créditos ou não selecionou o âmbito certo. Selecione a conta de faturação que tem créditos ou um dos perfis de faturação. Para saber como alterar os âmbitos, veja [Alterar os âmbitos de faturação no portal do Azure](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+
+5. Se vir Créditos do Azure no âmbito da conta de faturação e a conta de faturação tiver mais do que um perfil de faturação, a página Créditos do Azure mostrará uma tabela com um resumo dos Créditos do Azure para cada perfil de faturação. Selecione um perfil de faturação na lista, selecione os métodos de pagamento e, em seguida, os Créditos do Azure para ver os detalhes de um perfil de faturação.
+
+    ![Captura de ecrã da lista de créditos de uma conta de faturação](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
+
+### <a name="rest-apitabrest"></a>[API REST](#tab/rest)
 
 Pode utilizar as APIs de [Faturação do Azure](https://docs.microsoft.com/rest/api/billing/) e de [Consumo](https://docs.microsoft.com/rest/api/consumption/) para, através de programação, obter o saldo do crédito da sua conta de faturação.
 
@@ -118,11 +154,11 @@ A resposta das APIs devolve uma lista de contas de faturação e respetivos perf
 }
 ```
 
-Utilize a propriedade `displayName` do perfil de faturação para identificar o perfil de faturação para o qual pretende consultar o saldo do crédito. Copie o `id` do perfil de faturação. Por exemplo, se quiser consultar o saldo do crédito do perfil de faturação **Desenvolvimento**, terá de copiar ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Cole este valor algures para que possa utilizá-lo no próximo passo.
+Utilize a propriedade `displayName` do perfil de faturação para identificar o perfil de faturação para o qual quer consultar o saldo do crédito. Copie o `id` do perfil de faturação. Por exemplo, se quiser consultar o saldo do crédito do perfil de faturação **Desenvolvimento**, terá de copiar ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Cole este valor algures para que possa utilizá-lo no próximo passo.
 
 ### <a name="get-azure-credit-balance"></a>Obter o saldo do Crédito do Azure 
 
-Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado do primeiro passo (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado no primeiro passo (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -173,7 +209,7 @@ A resposta das APIs devolve o saldo estimado e o atual para o perfil de faturaç
 
 ### <a name="get-list-of-credits"></a>Obter a lista de créditos
 
-Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado do primeiro passo (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado no primeiro passo (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
@@ -237,7 +273,7 @@ A resposta das APIs devolve as listas de créditos do Azure de um perfil de fatu
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>Obter transações que afetaram o saldo do crédito
 
-Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado do primeiro passo (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Terá de transmitir uma **startDate** e uma **endDate**  para obter as transações para a duração desejada.
+Faça o pedido a seguir ao substituir `<billingProfileId>` por `id`, copiado no primeiro passo (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Terá de transmitir uma **startDate** e uma **endDate**  para obter as transações para a duração desejada.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
@@ -324,6 +360,8 @@ A resposta das APIs devolve todas as transações que afetaram o saldo de crédi
 | `closedBalance`  | O saldo após a transação.   |
 | `eventType`  | O tipo de transação.   |
 | `invoiceNumber`  | O número da fatura em que a transação é faturada. Estará vazio para a transação pendente.   |
+
+---
 
 ## <a name="how-credits-are-used"></a>Como os créditos são utilizados
 

@@ -1,27 +1,26 @@
 ---
-title: 'Instale um certificado de cliente de ponto a Site: Azure | Microsoft Docs'
-description: Instale o certificado de cliente para autenticação de certificados P2S - Windows, Mac ou Linux.
+title: 'Gateway de VPN do Azure: instalar um certificado de cliente ponto a site'
+description: Instale o certificado do cliente para autenticação de certificado P2S-Windows, Mac, Linux.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6399f52229916c9ab3e55ec55ace092d0b73dba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778282"
 ---
-# <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalar certificados de cliente para ligações de autenticação de certificados P2S
+# <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalar certificados de cliente para conexões de autenticação de certificado P2S
 
-Todos os clientes que se ligam a uma rede virtual a utilizar a autenticação de certificados do Azure ponto a Site requerem um certificado de cliente. Este artigo ajuda-o a instalar um certificado de cliente que é utilizado para autenticação ao ligar a uma VNet com P2S.
+Todos os clientes que se conectam a uma rede virtual usando a autenticação de certificado do Azure ponto a site exigem um certificado de cliente. Este artigo ajuda você a instalar um certificado de cliente que é usado para autenticação ao se conectar a uma VNet usando o P2S.
 
 ## <a name="generate"></a>Adquirir um certificado de cliente
 
-Não importa qual o sistema de operacional de cliente que pretende ligar a partir de, sempre tem de ter um certificado de cliente. Pode gerar um certificado de cliente a partir de um certificado de raiz que tenha sido criado através de uma solução de AC empresarial ou um certificado de raiz autoassinado. Consulte a [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), ou [Linux](vpn-gateway-certificates-point-to-site-linux.md) instruções para obter os passos gerar um certificado de cliente. 
+Não importa o sistema operacional do cliente do qual você deseja se conectar, você deve sempre ter um certificado de cliente. Você pode gerar um certificado de cliente de um certificado raiz que foi gerado usando uma solução de autoridade de certificação corporativa ou um certificado raiz autoassinado. Consulte as instruções do [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)ou [Linux](vpn-gateway-certificates-point-to-site-linux.md) para obter as etapas para gerar um certificado de cliente. 
 
 ## <a name="installwin"></a>Windows
 
@@ -30,7 +29,7 @@ Não importa qual o sistema de operacional de cliente que pretende ligar a parti
 ## <a name="installmac"></a>Mac
 
 >[!NOTE]
->Os clientes de VPN do Mac são suportados para apenas o modelo de implementação do Resource Manager. Não são suportadas para o modelo de implementação clássica.
+>Os clientes de VPN Mac têm suporte apenas para o modelo de implantação do Resource Manager. Eles não têm suporte para o modelo de implantação clássico.
 >
 >
 
@@ -38,8 +37,8 @@ Não importa qual o sistema de operacional de cliente que pretende ligar a parti
 
 ## <a name="installlinux"></a>Linux
 
-O certificado de cliente de Linux está instalado no cliente como parte da configuração do cliente. Ver [configuração do cliente - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) para obter instruções.
+O certificado do cliente Linux é instalado no cliente como parte da configuração do cliente. Consulte [configuração do cliente-Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) para obter instruções.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Continue com os passos de configuração de ponto a Site para [criar e instalar ficheiros de configuração de cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md).
+Continue com as etapas de configuração de ponto a site para [criar e instalar arquivos de configuração de cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md).

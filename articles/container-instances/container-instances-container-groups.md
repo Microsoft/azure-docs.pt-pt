@@ -4,12 +4,12 @@ description: Saiba mais sobre grupos de contêineres em instâncias de contêine
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 19fa50f83a2593b8914931e25fa99cb2e4896227
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896584"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770276"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em instâncias de contêiner do Azure
 
@@ -44,21 +44,19 @@ Para preservar a configuração de um grupo de contêineres, você pode exportar
 
 ## <a name="resource-allocation"></a>Alocação de recursos
 
-As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opcionalmente, [GPUs][gpus] (visualização) a um grupo de contêineres adicionando as [solicitações de recurso][resource-requests] das instâncias no grupo. Usando recursos de CPU como exemplo, se você criar um grupo de contêineres com duas instâncias, cada uma solicitando 1 CPU, o grupo de contêineres tem 2 CPUs alocadas.
+As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opcionalmente, [GPUs][gpus] (visualização) para um grupo de vários contêineres adicionando as [solicitações de recurso][resource-requests] das instâncias no grupo. Usando recursos de CPU como exemplo, se você criar um grupo de contêineres com duas instâncias, cada uma solicitando 1 CPU, o grupo de contêineres tem 2 CPUs alocadas.
 
 ### <a name="resource-usage-by-instances"></a>Uso de recursos por instâncias
 
-Cada instância de contêiner é alocada aos recursos especificados em sua solicitação de recurso. No entanto, o uso de recursos por uma instância de contêiner em um grupo depende de como você configura sua propriedade de [limite de recurso][resource-limits] opcional. O limite de recursos deve ser menor que a propriedade obrigatória de [solicitação de recursos][resource-requests] .
+Cada instância de contêiner em um grupo é alocada os recursos especificados em sua solicitação de recurso. No entanto, o máximo de recursos usados por uma instância em um grupo pode ser diferente se você configurar sua propriedade de [limite de recurso][resource-limits] opcional. O limite de recursos de uma instância deve ser maior ou igual à propriedade obrigatória de [solicitação de recurso][resource-requests] .
 
 * Se você não especificar um limite de recurso, o uso máximo de recursos da instância será o mesmo que sua solicitação de recurso.
 
-* Se você especificar um limite de recurso para uma instância, poderá ajustar o uso de recursos da instância para sua carga de trabalho, reduzindo ou aumentando o uso relativo à solicitação de recurso. O limite máximo de recursos que você pode definir é o total de recursos alocados para o grupo.
+* Se você especificar um limite para uma instância, o uso máximo da instância poderá ser maior que a solicitação, até o limite definido. De modo correspondente, o uso de recursos por outras instâncias no grupo pode diminuir. O limite máximo de recursos que você pode definir para uma instância é o total de recursos alocados para o grupo.
     
-Por exemplo, em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
+Por exemplo, em um grupo com duas instâncias, cada uma solicitando 1 CPU, um de seus contêineres pode executar uma carga de trabalho que exige mais CPUs para execução do que a outra.
 
-Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
-
-Para obter mais informações, consulte a propriedade [ResourceRequirements][resource-requirements] na API REST dos grupos de contêineres.
+Nesse cenário, você pode definir um limite de recursos de 2 CPUs para a instância. Essa configuração permite que o contêiner use até as 2 CPUs completas, se disponíveis.
 
 ### <a name="minimum-and-maximum-allocation"></a>Alocação mínima e máxima
 
@@ -68,7 +66,7 @@ Para obter mais informações, consulte a propriedade [ResourceRequirements][res
 
 ## <a name="networking"></a>Funcionamento em Rede
 
-Os grupos de contêineres podem compartilhar um endereço IP voltado para o externo e um namespace de porta nesse endereço IP. Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. 
+Os grupos de contêineres podem compartilhar um endereço IP externo, uma ou mais portas nesse endereço IP e um rótulo DNS com um FQDN (nome de domínio totalmente qualificado). Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. O endereço IP e o FQDN de um grupo de contêineres serão liberados quando o grupo de contêineres for excluído. 
 
 Dentro de um grupo de contêineres, as instâncias de contêineres podem chegar umas às outras por meio de localhost em qualquer porta, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo ou no contêiner.
 
@@ -76,7 +74,13 @@ Opcionalmente, implante grupos de contêineres em uma [rede virtual do Azure][vi
 
 ## <a name="storage"></a>Armazenamento
 
-Você pode especificar volumes externos para montar dentro de um grupo de contêineres. Você pode mapear esses volumes em caminhos específicos dentro dos contêineres individuais em um grupo.
+Você pode especificar volumes externos para montar dentro de um grupo de contêineres. Os volumes com suporte incluem:
+* [Partilha de ficheiros do Azure][azure-files]
+* [Segredo][secret]
+* [Diretório vazio][empty-directory]
+* [Repositório git clonado][volume-gitrepo]
+
+Você pode mapear esses volumes em caminhos específicos dentro dos contêineres individuais em um grupo. 
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -112,5 +116,8 @@ Saiba como implantar um grupo de contêineres de vários contêineres com um mod
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

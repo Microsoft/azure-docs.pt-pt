@@ -12,21 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552683"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780050"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integração do registro de contêiner do Azure com a central de segurança (versão prévia)
 
 O ACR (registro de contêiner do Azure) é um serviço de registro gerenciado e privado do Docker que armazena e gerencia suas imagens de contêiner para implantações do Azure em um registro central. Ele é baseado no registro do Docker 2,0 de código aberto.
 
-Para obter uma visibilidade mais profunda das vulnerabilidades do registro e das imagens, os usuários da camada Standard da central de segurança do Azure podem habilitar o pacote de registros de contêiner opcionais. O custo para usar esse recurso é cobrado por imagem, não por verificação. Para obter mais informações, veja os [preços](security-center-pricing.md). Com o pacote habilitado, a central de segurança examina automaticamente as imagens no registro sempre que uma imagem é enviada por push ao registro.
+Se você estiver na camada Standard da central de segurança do Azure, poderá adicionar o pacote de registros de contêiner. Esse recurso opcional traz uma visibilidade mais profunda das vulnerabilidades das imagens em seus registros. Habilite ou desabilite o pacote no nível de assinatura para abranger todos os registros em uma assinatura. Esse recurso é cobrado por imagem, não por verificação, conforme mostrado na [página de preços](security-center-pricing.md). 
 
-> [!NOTE]
-> A primeira verificação da central de segurança de um registro só ocorrerá depois que o grupo de registros de contêiner estiver habilitado e uma imagem for enviada por push ao registro.
+Habilitando o pacote de registros de contêiner, o garante que a central de segurança esteja pronta para verificar imagens que são enviadas por push ao registro. As verificações estão no nível da imagem: a central de segurança não está verificando o registro, ele está verificando as imagens armazenadas no registro. 
+
+Sempre que uma imagem é enviada para o registro, a central de segurança verifica a imagem automaticamente. Para disparar a verificação de uma imagem, envie-a por push para o repositório.
+
 
 Quando a verificação for concluída (normalmente após aproximadamente 10 minutos), as descobertas estarão disponíveis nas recomendações da central de segurança como esta:
 

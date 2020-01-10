@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: banders
-ms.openlocfilehash: a17ffab72163768a59da182204bb207003f5f774
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: faf65075179b595b1f841bffceab3959b69614a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389774"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagamento das suas subscrições do Azure por fatura
 
@@ -25,19 +25,23 @@ Se alternar para o pagamento por fatura, significa que pagará a fatura no prazo
 > [!IMPORTANT]
 > * O pagamento por fatura (cheque/transferência bancária) só está disponível para contas comerciais.
 > * Pague todos os custos pendentes antes de alternar para o pagamento por fatura.
-> * Atualmente, o pagamento por fatura não é compatível com o Azure global na China.
+> * Atualmente, o pagamento por fatura não é suportado no Azure Global na China.
 
 ## <a name="request-to-pay-by-invoice"></a>Pedido para pagamento por fatura
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Selecione **Ajuda + suporte** > **Novo pedido de suporte**.
+1. Aceda ao [portal do Azure](https://portal.azure.com) para submeter um pedido de suporte. Procure e selecione **Ajuda + suporte**.
 
-    ![Hiperligação de ajuda e suporte](./media/billing-how-to-pay-by-invoice/help-and-support.png)
+    ![Procurar Ajuda e suporte, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/search-for-help-and-support.png)
+
+2. Selecione **Novo pedido de suporte**.
+
+    ![Ligação do novo pedido de suporte, ecrã Ajuda e suporte, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
 2. Selecione **Faturação** como **Tipo de problema**. O *tipo de problema* é a categoria de pedido de suporte. Selecione a subscrição para a qual quer pagar por fatura, selecione um plano de suporte e, em seguida, selecione **Seguinte**.
 
 3. Selecione **Pagamento** como o **Tipo de problema**. O *tipo de problema* é a subcategoria de pedido de suporte.
 
-4. Selecione **Alternar para pagamento por fatura** como o **Subtipo de problema**
+4. Selecione **Mudar para Pagar por Fatura** como o **Subtipo do problema**.
 
 5. Introduza as informações a seguir na caixa **Detalhes** e, em seguida, selecione **Seguinte**.
 
@@ -58,7 +62,7 @@ Se alternar para o pagamento por fatura, significa que pagará a fatura no prazo
          Contact Email:
          Justification on why you prefer Invoice option over credit card:
 
-        For cores increase, provide the following additional information:
+         For cores increase, provide the following additional information:
 
          (Old quota) Existing Cores:
          (New quota) Requested cores:
@@ -67,7 +71,7 @@ Se alternar para o pagamento por fatura, significa que pagará a fatura no prazo
     - O **Nome da empresa** e o **Endereço da empresa** devem corresponder às informações fornecidas por si para a conta do Azure. Para visualizar ou atualizar as informações, veja [Alterar as suas informações de perfil de conta do Azure](billing-how-to-change-azure-account-profile.md).
     - Adicione as suas informações de contacto de faturação no portal do Azure antes que o limite de crédito possa ser aprovado. Os detalhes de contacto devem estar relacionados ao departamento de Contas a pagar ou Finanças da empresa. Para atualizar as informações de contacto de faturação, vá para o [Centro de Contas do Azure](https://account.azure.com/Profile).
 
-6. Verifique as informações de contacto e o método de contacto preferencial e, em seguida, clique em **Criar**.
+6. Verifique as informações de contacto e o método de contacto preferencial e, em seguida, selecione **Criar**.
 
 Se precisar executar uma verificação de crédito devido à quantidade de crédito de que precisa, enviaremos uma aplicação de verificação de crédito.
 
@@ -79,37 +83,35 @@ Se tiver uma conta do Programa do Microsoft Online Services, poderá mudar a sua
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Alternar a subscrição do Azure para cheque/transferência bancária
 
-Siga os passos abaixo para alternar a sua subscrição do Azure para pagamento por fatura (cheque/transferência bancária). **Quando alternar para o pagamento por fatura (cheque/transferência bancária), não pode voltar ao pagamento por cartão de crédito**.
+Siga os passos abaixo para alternar a sua subscrição do Azure para pagamento por fatura (cheque/transferência bancária). *Quando alternar para o pagamento por fatura (cheque/transferência bancária), não pode voltar ao pagamento por cartão de crédito*.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como Administrador de Conta.
-1. Procure **Cost Management + Faturação**.
+1. Aceda ao [portal do Azure](https://portal.azure.com) para iniciar sessão como Administrador de Conta. Procure e selecione **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã a mostrar a pesquisa](./media/billing-how-to-pay-by-invoice/search.png)
+    ![Procurar Gestão de Custos e Faturação, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/search.png)
 
 1. Selecione a subscrição que quer mudar para pagamento contra fatura.
 1. Selecione **Métodos de pagamento**.
-1. Na barra de comandos, clique no botão**Pagamento por fatura**.
+1. Na barra de comandos, selecione o botão **Pagar por fatura**.
 
-    ![Captura de ecrã que mostra o botão de pagamento por fatura](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
+    ![Botão Pagar por fatura, Métodos de pagamento, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
 ### <a name="switch-billing-profile-to-checkwire-transfer"></a>Alternar o perfil de faturação para cheque/transferência bancária
 
 Siga os passos abaixo para alternar um perfil de faturação para cheque/transferência bancária. Apenas a pessoa que se inscreveu no Azure pode alterar o método de pagamento por predefinição de um perfil de faturação.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
-1. No menu esquerdo, clique em **Perfis de faturação**.
+1. Aceda ao [portal do Azure](https://portal.azure.com) para ver as informações de faturação. Procure e selecione **Gestão de Custos + Faturação**.
+1. No menu, escolha **Perfis de faturação**.
 
-    ![captura de ecrã que mostra o perfil de faturação no menu](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+    ![Item de menu Perfis de faturação, Gestão de Custos e Faturação, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/billing-profile.png)
 
 1. Selecione um perfil de faturação.
-1. No menu esquerdo, selecione **Métodos de pagamento**.
+1. No menu **Perfil de faturação**, selecione **Métodos de pagamento**.
 
-   ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+   ![Item de menu Métodos de pagamento, Perfis de faturação, Gestão de Custos, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
 
-1. Clique na faixa azul que diz que está qualificado para pagar por cheque/transferência bancária.
+1. Selecione a faixa que indica que é elegível para pagar por cheque/transferência bancária.
 
-    ![Captura de ecrã que mostra a faixa azul para alternar para cheque/transferência bancária](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+    ![Faixa para alternar para cheque/transferência bancária, Métodos de pagamento, portal do Microsoft Azure](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

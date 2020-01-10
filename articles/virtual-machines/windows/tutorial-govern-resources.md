@@ -1,5 +1,5 @@
 ---
-title: Tutorial – gerenciar máquinas virtuais do Azure com o Azure PowerShell
+title: Tutorial-gerenciar máquinas virtuais com o PowerShell
 description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para gerir máquinas virtuais do Azure através da aplicação de RBAC, políticas, bloqueios e etiquetas
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,20 +13,18 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9f806c6790c953d86cf7fe99daf40c17a43d2d35
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6a4c02883c80b2ad7e5283c6ac33a4604ee35c75
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067951"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751370"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutorial: Saiba mais sobre o gerenciamento de máquinas virtuais do Windows com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
-
- 
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
@@ -238,5 +236,5 @@ Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 Avance para o próximo tutorial para saber mais sobre como identificar alterações e gerenciar atualizações de pacote em uma máquina virtual Linux.
 
 > [!div class="nextstepaction"]
-> [Gerenciar máquinas virtuais](tutorial-config-management.md)
+> [Gerir máquinas virtuais](tutorial-config-management.md)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 85aa1bda395240d0f11b0654ee48b9f1a0401eaa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 561162767a48a060763510310de77767f37d4eb4
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930600"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770191"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing para Python
 
@@ -38,7 +38,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 1. Crie um novo script Python no seu IDE ou editor favorito e as seguintes importações:
 
     ```python
-    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from azure.cognitiveservices.search.imagesearch import ImageSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
@@ -46,6 +46,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
     ```python
     subscription_key = "Enter your key here"
+    subscription_endpoint = "Enter your endpoint here"
     search_term = "canadian rockies"
     ```
 
@@ -54,7 +55,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 1. Crie uma instância do `CognitiveServicesCredentials` e utilize-a para instanciar o cliente:
 
     ```python
-    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 1. Envie uma consulta de pesquisa para a API de Pesquisa de Imagens do Bing:
     ```python

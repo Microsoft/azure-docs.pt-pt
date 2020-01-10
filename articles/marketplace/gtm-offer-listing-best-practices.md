@@ -8,24 +8,28 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818654"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779107"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
 As tabelas nesta seção fornecem sugestões para a criação e o envolvimento de ofertas do Marketplace. Para escrever e configurar seus materiais de marketing, acesse o [portal de parceiros de nuvem](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>Detalhes da oferta de vitrine
+
 | Configuração de vitrine | Melhores práticas |
 |:--- |:--- |  
 | Nome da Oferta | Forneça um título forte:<br> <ul> <li> O nome do aplicativo deve comunicar o valor principal para seus clientes. </li> <li> Inclua palavras-chave de pesquisa no título do aplicativo para receber uma classificação mais alta nos resultados do mecanismo de pesquisa. </li> </ul> Siga um formato de título definido para listagens de serviços de consultoria:<br>[Nome da oferta: [duração] [tipo de oferta] (por exemplo, *contoso: implementação de 2 semanas*) <br><br> Siga as diretrizes da marca:<br>Siga as [diretrizes da marca e das marcas comerciais da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes específicas do produto quando você se referir às marcas comerciais da Microsoft e aos nomes de softwares, produtos e serviços da Microsoft. |
 | Descrição da oferta | Forneça uma descrição da oferta clara:<br> <ul> <li> Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição. </li> <li> Tenha em mente que as primeiras frases podem ser exibidas nos resultados do mecanismo de pesquisa. </li> <li> Não confie em recursos e funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você fornece. </li> <li> Use vocabulário específico do setor ou palavras com base no benefício o máximo possível.</li> <li> Além disso, as listagens de serviços de consultoria devem declarar claramente o serviço profissional que você fornece. </li></ul> Os componentes principais da sua proposta de valor devem incluir as seguintes informações:<ul><li>Descrição do produto.</li><li>Tipo de usuário que se beneficia do produto.</li><li>O cliente precisa ou problemático que o produto aborda.</li></ul> |
 
+As tabelas nesta seção fornecem sugestões para a criação e o envolvimento de ofertas do Marketplace. Para escrever e configurar seus materiais de marketing, acesse o [portal de parceiros de nuvem](https://cloudpartner.azure.com/#insights). 
+
 ## <a name="storefront-listing-details"></a>Detalhes da listagem de vitrine
+
 | Configuração de vitrine | Melhores práticas |
 |:--- |:--- |  
 | Setores: somente aplicativos AppSource e serviços de consultoria | Selecione setores se sua oferta atender às necessidades específicas do setor: <ul><li> Chame recursos específicos do setor em sua descrição de oferta.</li> </ul> **Observação**: o número máximo de opções varia por tipo de oferta e é indicado no [portal de parceiros de nuvem](https://cloudpartner.azure.com/#insights). |
@@ -44,9 +48,9 @@ Você pode selecionar até duas categorias e duas subcategorias para uma oferta.
 | \* Automotivo     | \* Automotivo |
 | Agricultura     | \* Outros-não segmentados |
 | Distribuição    | \* Atacado <br> \* Envio de pacote de & de remessa |
-| Education     | \* Ensino superior <br> \* Principal & educação secundária/K-12 <br> \* Bibliotecas & museus |
+| Educação     | \* Ensino superior <br> \* Principal & educação secundária/K-12 <br> \* Bibliotecas & museus |
 | Serviços Financeiros     | \* Mercados de capital & bancários <br> \* Seguro |
-| Governo    | \* Defense & Intelligence (usado para ser chamado de segurança nacional e pública) <br> \* Segurança pública & Justiça <br> \* Governo civis |
+| Administração pública    | \* Defense & Intelligence (usado para ser chamado de segurança nacional e pública) <br> \* Segurança pública & Justiça <br> \* Governo civis |
 | Saúde (costumava ser chamada de integridade)   | \* Pagador de integridade <br> \* Provedor de integridade <br> \* Produtos farmacêuticos |
 | Recursos de fabricação & (usados para ser chamado de fabricação)   | \* Agrochemical química & <br> \* Fabricação discreta <br> \* Energia |
 | Bens de consumo de & de varejo (usados para serem chamados de varejo)  | \* Bens de consumo <br> \* Varejistas |
@@ -57,12 +61,24 @@ Você pode selecionar até duas categorias e duas subcategorias para uma oferta.
 | \* Outros setores do setor público  | \* Pesca & de floresta <br> \* Não fins lucrativos |
 | \* Espaço real  | \* Outros-não segmentados |
 
+### <a name="industries"></a>Setores
+
+A seleção do setor só se aplica a ofertas publicadas em AppSource e serviços de consultoria publicados no Azure Marketplace. Selecione setores e/ou verticais se sua oferta atender às necessidades específicas do setor, chamando recursos específicos do setor em sua descrição de oferta. Você pode selecionar até dois (2) setores e duas (2) verticais por setor selecionados.
+
+### <a name="applicable-products"></a>Produtos aplicáveis
+
+Selecione os produtos aplicáveis com os quais seu aplicativo trabalha para a oferta a ser exibida em produtos selecionados no AppSource.
+
+### <a name="search-keywords"></a>Pesquisar palavras-chave
+
+As palavras-chave podem ajudar os clientes a encontrar sua oferta ao pesquisar. Identifique as palavras-chave de pesquisa principais para sua oferta, incorpore-as em seu resumo de oferta e descrição, bem como na seção de palavra-chave da seção detalhes da listagem de ofertas.
+
 ## <a name="storefront-marketing-details"></a>Detalhes de marketing de vitrine
 | Configuração de vitrine | Melhores práticas |
 |:--- |:--- |  
 | Logotipo da oferta (formato PNG, 48&nbsp;&times;&nbsp;48): página pesquisa | Projete e Otimize seu logotipo para um meio digital:<br>Carregue o logotipo no formato PNG na página de pesquisa de sua oferta. |
 | Logotipo da oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalhes do aplicativo | Projete e Otimize seu logotipo para um meio digital:<br>Carregue o logotipo no formato PNG na página de listagem de detalhes do aplicativo de sua oferta. |
-| Documentos "Saiba mais" | Inclua vendas de suporte e ativos de marketing em "Saiba mais". alguns exemplos são: <ul> <li> White papers, </li> <li> folhetos </li> <li> listas de verificação ou </li> <li> Apresentações do PowerPoint.</li> </ul>Salve todos os arquivos no formato PDF. Seu objetivo aqui deve ser instruir os clientes, não vendê-los. <br><br>Adicione um link à página de aterrissagem do aplicativo a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a acompanhar os visitantes e as avaliações. |
+| Documentos "Saiba mais" | Inclua vendas de suporte e ativos de marketing em "Saiba mais". alguns exemplos são: <ul> <li> White papers, </li> <li> Folhetos </li> <li> listas de verificação ou </li> <li> Apresentações do PowerPoint.</li> </ul>Salve todos os arquivos no formato PDF. Seu objetivo aqui deve ser instruir os clientes, não vendê-los. <br><br>Adicione um link à página de aterrissagem do aplicativo a todos os seus documentos e adicione parâmetros de URL para ajudá-lo a acompanhar os visitantes e as avaliações. |
 | Vídeos: AppSource, serviços de consultoria e somente ofertas de SaaS | Os vídeos mais fortes comunicam o valor da sua oferta na forma de narração:<ul> <li> Torne seu cliente, não a sua empresa, o herói da história. </li> <li> Seu vídeo deve abordar os principais desafios e metas de seu cliente-alvo. </li> <li> Comprimento recomendado: 60-90 segundos.</li> <li> Incorpore palavras-chave de pesquisa que usam o nome dos vídeos. </li> <li> Considere adicionar vídeos adicionais, como um "como", introdução ou depoimentos de clientes. </li> </ul> |
 | Capturas de tela (1280&nbsp;&times;&nbsp;720) | Adicione até cinco capturas de tela:<br>Incorpore palavras-chave de pesquisa nos nomes de arquivo. |
 
@@ -80,6 +96,6 @@ Ao adicionar os parâmetros à URL do AppSource, você pode examinar a eficácia
 
 Saiba mais sobre os [benefícios do seu Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
-Faça logon no [portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar sua oferta.
+Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar e configurar a sua oferta.
 
 ---

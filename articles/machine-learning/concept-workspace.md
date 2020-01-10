@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 369199c70d560fc0a8be6d4f0e0595207b486bbb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 3d8a1b965724c0fcb9f07b382ed446d41fe23dac
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541650"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772572"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -52,7 +52,7 @@ Você pode interagir com seu espaço de trabalho das seguintes maneiras:
     + [Azure Machine Learning designer (versão prévia)](concept-designer.md) – disponível somente em espaços de trabalho do [Enterprise Edition](overview-what-is-azure-ml.md#sku) .
 + Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Em qualquer ambiente de R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Na linha de comando usando a [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli) do Azure Machine Learning
++ Na linha de comando usando a [extensão da CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do Azure Machine Learning
 
 ## <a name="machine-learning-with-a-workspace"></a>Aprendizado de máquina com um espaço de trabalho
 

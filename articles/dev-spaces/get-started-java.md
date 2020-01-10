@@ -5,15 +5,15 @@ author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
+description: Este tutorial mostra como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente um aplicativo Java no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5c4f5dc630be95dad513a43f08af4a2dda8cd10f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708398"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771177"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Criar um kubernetes dev Space: Visual Studio Code e Java com Azure Dev Spaces
 
@@ -231,4 +231,4 @@ Atualize a aplicação Web no browser. Deverá ver a mensagem personalizada apre
 > [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

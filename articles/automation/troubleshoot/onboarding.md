@@ -1,5 +1,5 @@
 ---
-title: Solucionar erros de integração Gerenciamento de Atualizações, Controle de Alterações e inventário
+title: Solucionar problemas de integração das soluções de gerenciamento de automação do Azure
 description: Saiba como solucionar erros de integração com as soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 737b963074a2bec851882bddd78ad0b89f48d1d9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849314"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769902"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solucionar erros ao realizar soluções de integração
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Solucionar erros ao realizar a integração de Gerenciamento de Atualizações, Controle de Alterações e inventário
 
 Você pode encontrar erros ao realizar soluções de integração como Gerenciamento de Atualizações ou Controle de Alterações e inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
@@ -140,7 +140,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre quando você ainda tem soluções ativas em seu espaço de trabalho Log Analytics que dependem da sua conta de automação e do espaço de trabalho do log análise que está sendo vinculado.
+Esse erro ocorre quando você ainda tem soluções ativas em seu espaço de trabalho Log Analytics que dependem de sua conta de automação e Log Analytics espaço de trabalho que está sendo vinculado.
 
 ### <a name="resolution"></a>Resolução
 

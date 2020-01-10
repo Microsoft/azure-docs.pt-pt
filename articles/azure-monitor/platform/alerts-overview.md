@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396527"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830331"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral de alertas no Microsoft Azure 
 
@@ -60,7 +60,7 @@ Veja a seguir os principais atributos de uma regra de alerta:
 
 ## <a name="what-you-can-alert-on"></a>Sobre o que você pode alertar
 
-Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources-reference.md). Estes incluem, mas não estão limitados a:
+Você pode alertar sobre métricas e logs, conforme descrito em [monitorando fontes de dados](../../azure-monitor/platform/data-sources.md). Estes incluem, mas não estão limitados a:
 - Valores de métricas
 - Consultas de pesquisa de registos
 - Eventos de registo de atividades

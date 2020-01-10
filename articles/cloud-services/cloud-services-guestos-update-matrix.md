@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 1/8/2020
 ms.author: raiye
-ms.openlocfilehash: c22ed9da2d2947fa4085a4695acd8803964ca757
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894628"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778214"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões do SO convidado do Azure e matriz de compatibilidade do SDK
 Fornece informações atualizadas sobre as versões mais recentes do sistema operacional convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar o caminho de atualização antes que um sistema operacional convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* do sistema operacional convidado, conforme descrito em [configurações de atualização do SO convidado do Azure][Azure Guest OS Update Settings], não é vital que você leia esta página.
@@ -41,6 +41,9 @@ Fornece informações atualizadas sobre as versões mais recentes do sistema ope
 Não tem certeza de como atualizar seu sistema operacional convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Atualizações de notícias
+
+###### <a name="january-8-2020"></a>**8 de janeiro de 2020**
+O SO convidado de dezembro foi lançado.
 
 ###### <a name="december-5-2019"></a>**5 de dezembro de 2019**
 O sistema operacional convidado de novembro foi lançado.
@@ -110,10 +113,11 @@ O sistema operacional convidado de setembro foi lançado.
 >
 
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-6.14 _201912-01 | 8 de janeiro de 2020 | Post 6,16 |  
 | WA-GUEST-OS-6.13 _201911-01 | 5 de dezembro de 2019 | Post 6,15 |  
-| WA-GUEST-OS-6.12 _201910-01 | 1 de novembro de 2019 | Post 6,14 |  
+|~~WA-GUEST-OS-6.12 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-6.11 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019  |  
 |~~WA-GUEST-OS-6,9 _201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
@@ -136,10 +140,11 @@ O sistema operacional convidado de setembro foi lançado.
 >
 
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.38 _201912-01 | 8 de janeiro de 2020 | Post 5,40 |  
 | WA-GUEST-OS-5.37 _201911-01 | 5 de dezembro de 2019 | Post 5,39 |  
-| WA-GUEST-OS-5.36 _201910-01 | 1 de novembro de 2019 | Post 5,38 |  
+|~~WA-GUEST-OS-5.36 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-5.35 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  | 1 de novembro de 2019 |  
 |~~WA-GUEST-OS-5.33 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
@@ -159,10 +164,11 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5, 4.5.1, 4.5.2
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.73 _201912-01 | 8 de janeiro de 2020 | Post 4,75 |  
 | WA-GUEST-OS-4.72 _201911-01 | 5 de dezembro de 2019 | Post 4,74 |  
-| WA-GUEST-OS-4.71 _201910-01 | 1 de novembro de 2019 | Post 4,73 |  
+|~~WA-GUEST-OS-4.71 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-4.70 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
 |~~WA-GUEST-OS-4.68 _201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
@@ -182,10 +188,11 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5, 4,5
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3,80 _201912-01 | 8 de janeiro de 2020 | Post 3,82 |  
 | WA-GUEST-OS-3.79 _201911-01 | 5 de dezembro de 2019 | Post 3,81 |  
-| WA-GUEST-OS-3.78 _201910-01 | 1 de novembro de 2019 | Post 3,80 |  
+|~~WA-GUEST-OS-3.78 _201910-01~~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-3.77 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  1 de novembro de 2019  |  
 |~~WA-GUEST-OS-3,75 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
@@ -205,10 +212,11 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5 (inclui 2,0 e 3,0), 4,5
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2.94 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
 | WA-GUEST-OS-2,93 _201911-01 | 5 de dezembro de 2019 | Post 2,94 |  
-| WA-GUEST-OS-2.91 _201910-01 | 1 de novembro de 2019 | Post 2,93 |  
+|~ WA-GUEST-OS-2.91 _201910-01 ~| 1 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-2.90 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 1 de novembro de 2019 |  
 |~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |

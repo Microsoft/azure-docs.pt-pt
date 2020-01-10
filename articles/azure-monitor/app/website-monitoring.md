@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 3b909f1cb65ae2b355451def53410c32ae482167
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 54bd12db9a85cf237d6c22ad63e6f20f7d2b713a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872966"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770225"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
@@ -47,7 +47,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
     | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
-   | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
+   | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar dados do App insights. Você pode criar um novo grupo de recursos ou usar um existente. |
    | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
@@ -79,7 +79,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 2. Adicione o script seguinte a ``hello_world.html`` antes da etiqueta de fecho ``</head>``:
 
    ```javascript
-    <script type="text/javascript">
+   <script type="text/javascript">
       var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
       {
          instrumentationKey:"INSTRUMENTATION_KEY"
@@ -96,7 +96,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Agora, pode reabrir a página **Descrição geral** do Application Insights no portal do Azure, onde obteve a sua chave de instrumentação, para ver detalhes sobre a aplicação que se encontra em execução. Os quatro gráficos predefinidos na página de descrição geral estão confinados aos dados da aplicação do lado do servidor. Uma vez que estamos a instrumentar as interações do lado do cliente/browser com o SDK JavaScript, esta vista específica não se aplica, a menos que também tenhamos um SDK do lado do servidor instalado.
 
-2. Clique no ![ícone do Mapa da Aplicação](media/website-monitoring/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
+2. Clique no ícone de mapa do aplicativo ![](media/website-monitoring/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
 
     ```kusto
     // average pageView duration by name
@@ -132,6 +132,9 @@ Para obter configurações mais avançadas para monitorização de sites, veja a
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Caso contrário, se não quiser continuar, utilize os passos seguintes para eliminar todos os recursos criados por este início rápido no portal do Azure.
+
+> [!NOTE]
+> Se você usou um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso de Application Insights individual. Tenha em mente sempre que você excluir um grupo de recursos, todos os recursos do underyling que são membros desse grupo serão excluídos.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

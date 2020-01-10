@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794969"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770429"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -28,7 +28,7 @@ Você pode usar Pesquisa Visual Computacional em seu aplicativo por meio de um S
 
 Pesquisa Visual Computacional pode alimentar muitos cenários de DAM (gerenciamento de ativos digitais). DAM é o processo comercial de organizar, armazenar e recuperar ativos de mídia avançados e gerenciar direitos e permissões digitais. Por exemplo, uma empresa pode querer agrupar e identificar imagens com base em logotipos, rostos, objetos, cores visíveis e assim por diante. Ou, talvez você queira gerar automaticamente [legendas para imagens](./Tutorials/storage-lab-tutorial.md) e anexar palavras-chave para que elas sejam pesquisáveis. Para uma solução de DAM All-in-One usando serviços cognitivas, Pesquisa Cognitiva do Azure e relatórios inteligentes, consulte o [Guia do Solution Accelerator do Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) no github. Para outros exemplos de DAM, consulte o Pesquisa Visual Computacional repositório de [modelos de solução](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) .
 
-## <a name="analyze-images-for-insight"></a>Analisar imagens para Insight
+## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
 
 Você pode analisar imagens para detectar e fornecer informações sobre seus recursos e características visuais. Todos os recursos na tabela a seguir são fornecidos pela API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
@@ -48,7 +48,7 @@ Você pode analisar imagens para detectar e fornecer informações sobre seus re
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Você pode usar Pesquisa Visual Computacional [API de leitura](concept-recognizing-text.md#read-api) para extrair texto impresso e manuscrito de imagens em um fluxo de caracteres legível por máquina. A API de leitura usa nossos modelos mais recentes e trabalha com texto em uma variedade de superfícies e planos de fundo, como recibos, pôsteres, cartões de visita, cartas e quadros de comunicações. Atualmente, o inglês é o único idioma com suporte.
+Você pode usar Pesquisa Visual Computacional API de [leitura](concept-recognizing-text.md#read-api) para extrair texto impresso e manuscrito de imagens em um fluxo de caracteres legível por máquina. A API de leitura usa nossos modelos mais recentes e trabalha com texto em uma variedade de superfícies e planos de fundo, como recibos, pôsteres, cartões de visita, cartas e quadros de comunicações. Atualmente, o inglês é o único idioma com suporte.
 
 Você também pode usar a API de [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md#ocr-optical-character-recognition-api) para extrair o texto impresso em vários idiomas. Se necessário, o OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. O OCR dá suporte a 25 idiomas e detecta automaticamente o idioma do texto reconhecido.
 

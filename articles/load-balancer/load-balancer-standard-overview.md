@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: ce60062a49f08bb3409c8445e0aaf79c0d361865
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552819"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834667"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -195,18 +195,18 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 
 ## <a name="region-availability"></a>Disponibilidade regional
 
-O Standard Load Balancer está disponível atualmente em todas as regiões de nuvem pública.
+O Standard Load Balancer está disponível atualmente em todas as regiões do Azure.
 
-## <a name="sla"></a>SLA
+## <a name="sla"></a>SLA 
 
-Os balanceadores de carga padrão estão disponíveis com um SLA de 99,99%.  Examine o [SLA de Standard Load Balancer](https://aka.ms/lbsla) para obter detalhes.
+Os balanceadores de carga padrão estão disponíveis com um SLA de 99,99%.  Examine o [SLA de Standard Load Balancer](https://aka.ms/lbsla) para obter detalhes. 
 
-## <a name="pricing"></a>Preços
+## <a name="pricing"></a>Preços 
 
-O uso de Standard Load Balancer é cobrado.
+O uso de Standard Load Balancer é cobrado. 
 
-- Número de regras de balanceamento de carga e de saída configuradas (as regras de NAT de entrada não são contadas em relação ao número total de regras)
-- Quantidade de dados processados de entrada e saída, independentemente da regra. 
+- Número de regras de balanceamento de carga e de saída configuradas (as regras de NAT de entrada não são contadas em relação ao número total de regras) 
+- Quantidade de dados processados de entrada e saída, independentemente da regra.
 
 Para obter as informações de preços do Balanceador de Carga Standard, aceda à página [Preços de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
@@ -216,15 +216,15 @@ Para obter as informações de preços do Balanceador de Carga Standard, aceda �
 - Um recurso de máquina virtual autônoma, recurso de conjunto de disponibilidade ou recurso de conjunto de dimensionamento de máquinas virtuais pode referenciar um SKU, nunca ambos.
 - Uma regra de Load Balancer não pode abranger duas redes virtuais.  Os front-ends e suas instâncias de back-end relacionadas devem estar localizados na mesma rede virtual.  
 - [As operações de movimentação de assinatura](../azure-resource-manager/resource-group-move-resources.md) não têm suporte para recursos SKU lb e Pip padrão.
-- As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços de VNet e outros serviços de plataforma funcionam. Você não deve confiar nele como o próprio serviço ou a plataforma subjacente pode ser alterada sem aviso prévio. Você deve sempre supor que precisará criar a [conectividade de saída](load-balancer-outbound-connections.md) explicitamente, se desejado, ao usar apenas um Standard Load balancer interno.
+- As funções de Web Worker sem uma VNet e outros serviços de plataforma da Microsoft podem ser acessíveis de instâncias por trás de apenas um Standard Load Balancer interno devido a um efeito colateral de como os serviços de VNet e outros serviços de plataforma funcionam. Você não deve confiar nele como o próprio serviço ou a plataforma subjacente pode ser alterada sem aviso prévio. Você deve sempre supor que precisará criar a [conectividade de saída](load-balancer-outbound-connections.md) explicitamente, se desejado, ao usar apenas um Standard Load balancer interno.
 - O Balanceador de Carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de portas para estes dois protocolos IP específicos.  As regras de balanceamento de carga e as regras NAT de entrada são suportadas para TCP e UDP, mas não para os outros protocolos IP, incluindo o ICMP. O Balanceador de Carga não termina, não responde nem interage com o payload dos fluxos UDP ou TCP. Não é um proxy. A validação bem-sucedida da conectividade com um front-end deve ocorrer em banda com o mesmo protocolo usado em um balanceamento de carga ou em uma regra NAT de entrada (TCP ou UDP) _e_ pelo menos uma de suas máquinas virtuais deve gerar uma resposta para que um cliente Veja uma resposta de um front-end.  Não receber uma resposta em banda do front-end Load Balancer indica que nenhuma máquina virtual foi capaz de responder.  Não é possível interagir com um front-end Load Balancer sem uma máquina virtual capaz de responder.  Isto também se aplica às ligações de saída, em que o [SNAT de máscara de rede](load-balancer-outbound-connections.md#snat) só é suportado para TCP e UDP; qualquer outro protocolo IP, incluindo ICMP, falhará.  Para mitigar o problema, atribua um endereço IP público ao nível da instância.
 - Ao contrário dos balanceadores de carga públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) ao fazer a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não convertem conexões originadas de saída para o front-end de um Load balancer interno, pois ambos estão no espaço de endereço IP privado.  Isso evita o potencial de esgotamento de SNAT dentro do espaço de endereço IP interno exclusivo em que a conversão não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar um fluxo para o front-end da Load Balancer interna em que o pool reside _e_ for mapeado de volta para si mesmo, ambas as pernas do fluxo não corresponderão e o fluxo falhará.  Se o fluxo não foi mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, o fluxo terá sucesso.   Quando o fluxo mapeia de volta para si mesmo, o fluxo de saída parece originar da VM para o front-end e o fluxo de entrada correspondente parece originar-se da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e saída do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não reconhecerá essas partes do fluxo como fazendo parte do mesmo fluxo, pois a origem e o destino não correspondem.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo serão correspondidas e a VM poderá responder com êxito ao fluxo.  O sintoma para esse cenário é o tempo limite de conexão intermitente. Há várias soluções alternativas comuns para alcançar esse cenário de forma confiável (originando fluxos de um pool de back-end para os pools de back-ends respectivos Load Balancer front-end) que incluem a inserção de um proxy de terceiros atrás do Load Balancer interno ou o [uso de regras de estilo DSR](load-balancer-multivip-overview.md).  Embora possa utilizar um balanceador de carga público para mitigar o problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitado, salvo se for gerido cuidadosamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Saiba mais sobre [Azure Load Balancer](load-balancer-overview.md).
 - Saiba mais sobre como usar [Standard Load Balancer e zonas de disponibilidade](load-balancer-standard-availability-zones.md).
 - Saiba mais sobre [investigações de integridade](load-balancer-custom-probe-overview.md).
-- Saiba mais sobre [zonas de disponibilidade](../availability-zones/az-overview.md).
 - Saiba mais sobre o [diagnóstico de Standard Load Balancer](load-balancer-standard-diagnostics.md).
 - Saiba mais sobre as [métricas multidimensionais com suporte](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para diagnósticos no [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Aprenda a usar [Balanceador de carga para ligações de saída](load-balancer-outbound-connections.md).
@@ -232,8 +232,4 @@ Para obter as informações de preços do Balanceador de Carga Standard, aceda �
 - Saiba mais sobre a [redefinição de TCP em ociosidade](load-balancer-tcp-reset.md).
 - Saiba mais sobre [Standard Load Balancer com regras de balanceamento de carga de portas de alta disponibilidade](load-balancer-ha-ports-overview.md).
 - Saiba mais sobre como usar [Load Balancer com vários front-ends](load-balancer-multivip-overview.md).
-- Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
-- Saiba mais sobre [pontos de extremidade de serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md).
-- Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
-- Saiba mais sobre [Load Balancer](load-balancer-overview.md).

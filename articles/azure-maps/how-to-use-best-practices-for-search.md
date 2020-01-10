@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 88f864abc82ea6ba70559c8db5db2d0fe07383b1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429174"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768831"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Práticas recomendadas para usar o Azure Maps Serviço de Pesquisa
 
@@ -27,13 +27,13 @@ O Azure Maps [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/sea
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Para obter informações sobre como criar uma conta, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
+Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Para obter informações sobre como criar uma conta, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para recuperar uma chave primária (assinatura) para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > Para consultar o serviço de pesquisa, você pode usar o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas REST ou pode usar qualquer ambiente de desenvolvimento de API que preferir.
 
 
-## <a name="best-practices-for-geocoding"></a>Práticas recomendadas para geocodificação
+## <a name="best-practices-for-geocoding-address-search"></a>Práticas recomendadas para geocodificação (pesquisa de endereço)
 
 Quando você procura um endereço completo ou parcial usando o Azure Maps Serviço de Pesquisa, ele usa o termo de pesquisa e retorna as coordenadas de longitude e latitude do endereço. Esse processo é chamado de geocodificação. A capacidade de geocódigo em um país depende da cobertura de dados de estrada e da precisão de geocodificação do serviço de geocodificação.
 
@@ -58,10 +58,12 @@ Consulte [cobertura de geocodificação](https://docs.microsoft.com/azure/azure-
 
 
    **Parâmetros de pesquisa difusa**
+   
+   A [API de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) do Azure Maps é o serviço recomendado a ser usado quando você não sabe quais são suas entradas de usuário para uma consulta de pesquisa. A API combina a pesquisa de POI (ponto de interesse) e geocodificação em uma pesquisa canônica de *linha única*. 
 
    1. A `minFuzzyLevel` e `maxFuzzyLevel`, ajudam a retornar correspondências relevantes mesmo quando os parâmetros de consulta não correspondem exatamente às informações desejadas. A maioria das consultas de pesquisa usa como padrão `minFuzzyLevel=1` e `maxFuzzyLevel=2` para obter desempenho e reduzir resultados incomuns. Veja um exemplo de termo de pesquisa "restrant", que é correspondido a "restaurante" quando o `maxFuzzyLevel` é definido como 2. Os níveis de fuzzing padrão podem ser substituídos de acordo com as necessidades de solicitação. 
 
-   2. Você também pode especificar o conjunto exato de tipos de resultados a serem retornados usando o parâmetro `idxSet`. Para essa finalidade, você pode enviar uma lista de índices separados por vírgulas, a ordem do item não importa. Estes são os índices com suporte:
+   2. Você também pode priorizar o conjunto exato de tipos de resultados a serem retornados usando o parâmetro `idxSet`. Para essa finalidade, você pode enviar uma lista de índices separados por vírgulas; a ordem dos itens não importa. Há suporte para os seguintes índices:
 
        * `Addr`**intervalos de endereços** - : para algumas ruas, há pontos de endereço que são interpolados do início e do fim da rua; esses pontos são representados como intervalos de endereços.
        * `Geo` - **geografia**: áreas em um mapa que representam a divisão administrativa de um terreno, ou seja, país, estado, cidade.
@@ -317,7 +319,10 @@ A pesquisa de POI (pontos de interesse) permite solicitar resultados de POI por 
 
 Para melhorar a relevância dos resultados e as informações na resposta, a resposta de pesquisa de POI (ponto de interesse) inclui as informações de marca que podem ser usadas ainda mais para analisar a resposta.
 
+Você também pode enviar uma lista separada por vírgulas de nomes de marca na solicitação. Você pode usar a lista para restringir os resultados a marcas específicas usando o parâmetro `brandSet`. A ordem dos itens não importa. Quando várias marcas são fornecidas, somente os resultados que pertencem a (pelo menos) uma das listas fornecidas são retornados.
+
 Vamos fazer uma solicitação de [pesquisa de categoria POI](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) para estações de gás próximas à Microsoft campus (Redmond, WA). Se você observar a resposta, poderá ver informações de marca para cada POI retornado.
+
 
 **Consulta de exemplo:**
 

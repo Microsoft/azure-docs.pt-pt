@@ -1,6 +1,6 @@
 ---
-title: Solucionar erros com Gerenciamento de Atualizações
-description: Saiba como solucionar problemas com o Gerenciamento de Atualizações.
+title: Solucionar erros com o Azure Gerenciamento de Atualizações
+description: Saiba como solucionar problemas com a solução Gerenciamento de Atualizações no Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849246"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769800"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -253,9 +253,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>Causa
 
-Um proxy, gateway ou firewall pode estar bloqueando A comunicação de rede.
+Um proxy, gateway ou firewall pode estar bloqueando A comunicação de rede. 
 
 ### <a name="resolution"></a>Resolução
 
@@ -325,9 +329,10 @@ Se você vir um HRESULT, clique duas vezes na exceção exibida em vermelho para
 |`0x8024402C`     | Se você estiver usando um servidor WSUS, verifique se os valores do registro para `WUServer` e `WUStatusServer` na chave do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` especifique o servidor do WSUS correto.        |
 |`0x80072EE2`|Há um problema de conectividade de rede ou um problema em conversar com um servidor WSUS configurado. Verifique as configurações do WSUS e verifique se o serviço pode ser acessado do cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Verifique se o serviço de Windows Update (wuauserv) está em execução e não está desabilitado.        |
+|`0x80070005`| Um erro de acesso negado pode ser causado por qualquer um dos seguintes:<br> Computador infectado<br> Windows Update configurações não configuradas corretamente<br> Erro de permissão de arquivo com a pasta%WinDir%\SoftwareDistribution<br> Espaço em disco insuficiente na unidade do sistema (C:).
 |Qualquer outra exceção genérica     | Execute uma pesquisa na Internet para obter soluções possíveis e trabalhe com o suporte de ti local.         |
 
-A revisão do arquivo windowsupdate. log também pode ajudá-lo a determinar possíveis causas. Para obter mais informações sobre como ler o log, consulte [como ler o arquivo windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+A revisão do arquivo%Windir%\Windowsupdate.log também pode ajudá-lo a determinar possíveis causas. Para obter mais informações sobre como ler o log, consulte [como ler o arquivo windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Você também pode baixar e executar a [solução de problemas Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) para verificar se há problemas com Windows Update no computador.
 

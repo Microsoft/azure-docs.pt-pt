@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 922babb4b9b80c91ea99062170cf224346df192a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230934"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769426"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função acionada pelo Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
-   ![Página de início rápido das funções no portal do Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+   ![Início rápido das funções no portal do Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 
 1. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
@@ -64,7 +64,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome** | Predefinição | Utilize o nome de função predefinido sugerido pelo modelo.|
-    | **Ligação de conta do Azure Cosmos DB** | Nova definição | Selecione **Novo** e, em seguida, escolha a sua **Subscrição**, a **Conta de base de dados** que criou anteriormente e **Selecionar**. Esta ação cria uma definição da aplicação para a ligação da sua conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
+    | **Ligação de conta do Azure Cosmos DB** | Nova definição | Selecione **Novo** e, em seguida, escolha a sua **Subscrição**, a **Conta de base de dados** que criou anteriormente e **Selecionar**. Esta ação cria uma definição da aplicação para a ligação da sua conta. Essa configuração é usada pela Associação para se conectar ao banco de dados. |
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorizada. |
     | **Criar coleção de concessão, se não existir** | Assinalado | A coleção ainda não existe, como tal, deve ser criada. |
     | **Nome da base de dados** | Tarefas | Nome da base de dados com a coleção a ser monitorizada. |

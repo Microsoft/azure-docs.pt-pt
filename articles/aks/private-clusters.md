@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: 8af0f998df2a92e51078a2e23806cca07ff08ca3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6152becb8debd0700ddab6190284514c6d6cf69d
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480089"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830059"
 ---
 # <a name="public-preview---private-azure-kubernetes-service-cluster"></a>Visualização pública-cluster particular do serviço kubernetes do Azure
 
@@ -81,16 +81,16 @@ Onde--Enable-Private-cluster é um sinalizador obrigatório para um cluster priv
 #### <a name="advanced-networking"></a>Rede avançada  
 
 ```azurecli-interactive
-az aks create \ 
-    --resource-group <private-cluster-resource-group>\ 
-    --name <private-cluster-name> \ 
-    --load-balancer-sku standard
-    --enable-private-cluster 
-    --network-plugin azure \ 
-    --vnet-subnet-id <subnet-id> \ 
-    --docker-bridge-address 172.17.0.1/16 \ 
-    --dns-service-ip 10.2.0.10 \ 
-    --service-cidr 10.2.0.0/24 \ 
+az aks create \
+    --resource-group <private-cluster-resource-group> \
+    --name <private-cluster-name> \
+    --load-balancer-sku standard \
+    --enable-private-cluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24 
 ```
 Onde--Enable-Private-cluster é um sinalizador obrigatório para um cluster privado 
 
@@ -108,6 +108,11 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
     * Clique na zona de DNS privado 
     * Selecione o link de rede virtual no painel esquerdo
     * Crie um novo link para adicionar a VNET da VM à zona de DNS privado *(leva alguns minutos para que o link da zona DNS fique disponível)*
+    * voltar para o grupo de recursos MC_ * no portal
+    * Selecione a rede virtual no painel direito. O nome da rede virtual estará no formato AKs-vnet-*.
+    * selecionar emparelhamentos no painel esquerdo
+    * clique em Adicionar e adicione a rede virtual da VM e crie o emparelhamento.
+    * Vá para a vnet onde você tem a VM e, em seguida, clique em emparelhamentos e selecione a rede virtual AKS e crie o emparelhamento. Se os intervalos de endereços na rede virtual AKS e a rede virtual da VM entrarem em conflito, o emparelhamento falhará. Consulte este [documento][virtual-network-peering] para obter mais informações sobre o emparelhamento de rede virtual.
 * SSH na VM
 * Instalar a ferramenta Kubectl e executar comandos do Kubectl
 
@@ -132,3 +137,5 @@ O ponto de extremidade do servidor de API não tem nenhum endereço IP público.
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+

@@ -6,16 +6,16 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d20f56e0fba3af5885043fa344e7c6aa4e13d1b2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976881"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769239"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Azure for Students Starter
 
-Neste tutorial, criaremos uma função HTTP Hello World em uma assinatura do Azure for Students Starter. Também vamos examinar o que está disponível em Azure Functions nesse tipo de assinatura.
+Neste tutorial, criaremos uma função HTTP "Olá, mundo" em uma assinatura inicial do Azure for students. Também vamos examinar o que está disponível em Azure Functions nesse tipo de assinatura.
 
 O Microsoft *Azure for Students Starter* o inicia com os produtos do Azure que você precisa para desenvolver na nuvem sem nenhum custo para você. [Saiba mais sobre esta oferta aqui.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Inicie sessão no portal do Azure em <https://portal.azure.com> com a sua conta 
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Precisa de uma aplicação Function App para alojar a execução das suas funções. As aplicações App Function permitem-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. 
+Precisa de uma aplicação Function App para alojar a execução das suas funções. Um aplicativo de funções permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
-1. Selecione o botão **Novo** no canto superior esquerdo do portal do Azure e, em seguida, selecione **Computação** > **Function App**.
+1. Selecione o botão **criar um recurso** encontrado no canto superior esquerdo da portal do Azure. Em seguida, selecione **computação** > **aplicativo de funções**.
 
     ![Criar uma aplicação de função no portal do Azure](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -47,7 +47,7 @@ Precisa de uma aplicação Function App para alojar a execução das suas funç�
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome da aplicação** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
     | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. | 
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
    | **[Local/plano do serviço de aplicativo](./functions-scale.md)** | Novo | O plano de hospedagem que controla em qual região seu aplicativo de funções é implantado e a densidade de seus recursos. Vários aplicativos de funções implantados no mesmo plano compartilharão a mesma única instância gratuita. Essa é uma restrição do plano de início do aluno. As opções de hospedagem completa são [explicadas aqui.](./functions-scale.md)|
     | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Selecione **.NET** para funções C# e F#. |
     |**[Application Insights](./functions-monitoring.md)**| Ativado | Application Insights é usado para armazenar e analisar os logs do aplicativo de funções. Ele será habilitado por padrão se você escolher um local com suporte a Application Insights. Application Insights pode ser habilitado para qualquer função, escolhendo manualmente uma região próxima para implantar Application Insights. Sem Application Insights, você só poderá exibir logs de transmissão ao vivo.
@@ -110,7 +110,7 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Recursos com suporte no Azure for Students Starter
 
-No iniciador do Azure para estudantes, você tem acesso à maioria dos recursos do tempo de execução de Azure Functions, com várias limitações principais listadas abaixo:
+No iniciador do Azure for Students, você tem acesso à maioria dos recursos do tempo de execução de Azure Functions, com várias limitações principais listadas abaixo:
 
 * O gatilho HTTP é o único tipo de gatilho com suporte.
     * Todas as associações de entrada e de saída são suportadas! [Consulte a lista completa aqui.](functions-triggers-bindings.md)

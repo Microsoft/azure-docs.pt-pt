@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226614"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768967"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -45,7 +45,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
+2. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
 3. Clique em **IA + Machine Learning** > **Análise de Texto**. Em seguida, utilize as definições conforme especificado na tabela para criar o recurso.
 
@@ -54,7 +54,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
-    | **Localização** | EUA Oeste | Utilize a localização mais próxima de si. |
+    | **Localização** | Oeste dos E.U.A. | Utilize a localização mais próxima de si. |
     | **Escalão de preço** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -78,7 +78,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
 
-    ![Página de início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
+    ![Início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
 
 2. Em seguida, selecione **Webhook + API** e clique em **Criar**. 
 
@@ -129,7 +129,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
 
 ## <a name="create-a-logic-app"></a>Criar uma aplicação lógica   
 
-1. No portal do Azure, clique no botão **Novo**, localizado no canto superior esquerdo.
+1. No portal do Azure, clique no botão **criar um recurso** localizado no canto superior esquerdo da portal do Azure.
 
 2. Clique em **Web** > **Aplicação Lógica**.
  
@@ -141,7 +141,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos que utilizou anteriormente. |
-    | **Localização** | EUA Leste | Escolha uma localização perto de si. |    
+    | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si. |    
 
 4. Depois de introduzir os valores de definições apropriadas, clique em **Criar** para criar a sua aplicação lógica. 
 

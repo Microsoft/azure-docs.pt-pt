@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 5e840960c66f586882e64a655ddbfa078dae51ef
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.date: 01/08/2019
+ms.openlocfilehash: eb181cbf6c647c816886f330502a9a46cb956dee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646647"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763288"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,7 +213,7 @@ Para treinar um modelo, você pode fornecer os dados de treinamento usando um Da
 Para registrar o conjunto de registros usando o arquivo de `dataset.json`, use o seguinte comando:
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 A saída desse comando é semelhante ao JSON a seguir:
@@ -368,6 +368,9 @@ Para implantar um modelo, use o seguinte comando:
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> Você pode receber um aviso sobre "falha ao verificar a existência de LocalWebservice". Você pode ignorá-lo com segurança, pois não está implantando um serviço Web local.
+
 Este comando implanta um novo serviço chamado `myservice`, usando a versão 1 do modelo que você registrou anteriormente.
 
 O arquivo de `inferenceConfig.yml` fornece informações sobre como executar a inferência, como o script de entrada (`score.py`) e as dependências de software. Para obter mais informações sobre a estrutura desse arquivo, consulte o [esquema de configuração de inferência](reference-azure-machine-learning-cli.md#inference-configuration-schema). Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com o Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -413,6 +416,13 @@ Embora você possa criar um aplicativo cliente para chamar o ponto de extremidad
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> Se você usar o PowerShell, use o seguinte comando em vez disso:
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 A resposta do comando é semelhante a `[ 3 ]`.
 

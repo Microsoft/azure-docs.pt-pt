@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563229"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754085"
 ---
-# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Criar uma loja de conhecimento do Azure Pesquisa Cognitiva usando REST
+# <a name="create-a-knowledge-store-using-rest-and-postman"></a>Criar uma loja de conhecimento usando REST e postmaster
 
 > [!IMPORTANT] 
 > a loja de conhecimento está atualmente em visualização pública. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece recursos de visualização. Atualmente, há suporte ao portal limitado e não há suporte para o SDK do .NET.
 
-O recurso de armazenamento de conhecimento no Azure Pesquisa Cognitiva persiste a saída de um pipeline de enriquecimento de ia para análise posterior ou outro processamento de downstream. Um pipeline aprimorado de ia aceita arquivos de imagem ou arquivos de texto não estruturados, indexa-os usando o Azure Pesquisa Cognitiva, aplica aprimoramentos de ia dos serviços cognitivas do Azure (como análise de imagem e processamento de linguagem natural) e salva os resultados em um repositório de conhecimento no armazenamento do Azure. Você pode usar ferramentas como Power BI ou Gerenciador de Armazenamento no portal do Azure para explorar a loja de conhecimento.
+Uma loja de conhecimento contém a saída de um pipeline de enriquecimento de Pesquisa Cognitiva do Azure para análise posterior ou outro processamento downstream. Um pipeline aprimorado de ia aceita arquivos de imagem ou arquivos de texto não estruturados, indexa-os usando o Azure Pesquisa Cognitiva, aplica os aprimoramentos de ia dos serviços cognitivas (como análise de imagem e processamento de linguagem natural) e salva os resultados em um repositório de conhecimento no armazenamento do Azure. Você pode usar ferramentas como Power BI ou Gerenciador de Armazenamento no portal do Azure para explorar a loja de conhecimento.
 
 Neste artigo, você usa a interface da API REST para ingerir, indexar e aplicar aprimoramentos de ia a um conjunto de revisões de Hotel. As revisões do Hotel são importadas para o armazenamento de BLOBs do Azure. Os resultados são salvos como uma loja de conhecimento no armazenamento de tabelas do Azure.
 

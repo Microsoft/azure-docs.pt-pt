@@ -10,24 +10,73 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968721"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832315"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` em seu leitor de RSS feed.
+
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
-* As versões mais recentes
+* Versões mais recentes
 * Problemas conhecidos
 * Correções de erros
-* Funcionalidade preterida
+* Funcionalidades preteridas
 
+## <a name="december-2019"></a>Dezembro de 2019
+
+### <a name="update-transcript-with-the-new-api"></a>Atualizar transcrição com a nova API
+
+Atualize uma seção específica na transcrição usando a API [Update-Video-index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) .
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Corrigir a configuração da conta no portal de Video Indexer
+
+Agora você pode atualizar a configuração de conexão dos serviços de mídia para autoajudar com problemas como: 
+
+* recurso incorreto dos serviços de mídia do Azure
+* alterações de senha
+* Os recursos dos serviços de mídia foram movidos entre assinaturas  
+
+Para corrigir a configuração da conta, no portal do Video Indexer, navegue até Configurações > guia conta (como proprietário).
+
+### <a name="configure-the-custom-vision-account"></a>Configurar a conta de visão personalizada
+
+Configurar a conta de visão personalizada em contas pagas usando o portal de Video Indexer (anteriormente, isso só era suportado pela API). Para fazer isso, entre no portal de Video Indexer, escolha personalização de modelo > caracteres animados > Configurar. 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Cenas, capturas e quadros-chave – agora em um painel de insights
+
+Os bastidores, as capturas e os quadros-chave agora são mesclados em uma percepção para facilitar o consumo e a navegação. Ao selecionar a cena desejada, você pode ver quais capturas e quadros-chave são consistentes. 
+
+### <a name="notification-about-a-long-video-name"></a>Notificação sobre um nome de vídeo longo
+
+Quando um nome de vídeo tem mais de 80 caracteres, Video Indexer mostra um erro descritivo no carregamento.
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>A notificação de ponto de extremidade de streaming está desabilitada
+
+Quando o ponto de extremidade de streaming estiver desabilitado, Video Indexer mostrará um erro descritivo na página do Player.
+
+### <a name="error-handling-improvement"></a>Aprimoramento do tratamento de erros
+
+O código de status 409 agora será retornado de [reindexação de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) e atualização de APIs de [índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) caso um vídeo esteja ativamente indexado, para evitar a substituição das alterações de reindexação atuais por acidente.
+
+## <a name="november-2019"></a>Novembro de 2019
+ 
+* Suporte aos modelos de idioma personalizado coreano
+
+    O video indexer agora dá suporte a modelos de linguagem personalizados em coreano (`ko-KR`) tanto na API quanto no Portal. 
+* Novos idiomas com suporte para conversão de fala em texto (STT)
+
+    Video Indexer APIs agora dão suporte a STT em árabe Levantine (ar-SY), dialeto inglês do Reino Unido (en-GB) e dialeto australiano inglês (en-AU).
+    
+    Para carregamento de vídeo, substituimos zh-HANS a zh-CN, ambos têm suporte, mas o zh-CN é recomendado e mais preciso.
+    
 ## <a name="october-2019"></a>Outubro de 2019
  
 * Pesquisar caracteres animados na Galeria
@@ -52,7 +101,7 @@ Vários avanços anunciados em IBC 2019:
     Marcação de capturas com tipos editoriais como close up, Medium, two shot, interno, externamente, etc. Para obter mais informações, consulte [detecção do tipo editorial shot](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Aprimoramento do tópico inferência – agora cobrindo o nível 2
     
-    O tópico inferência Model agora oferece suporte à granularidade mais profunda da taxonomia IPTC. Leia os detalhes completos nos [serviços de mídia do Azure nova inovação com alimentação de ia](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+    O tópico inferência Model Agora dá suporte à granularidade mais profunda da taxonomia IPTC. Leia os detalhes completos nos [serviços de mídia do Azure nova inovação com alimentação de ia](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Agosto de 2019
  

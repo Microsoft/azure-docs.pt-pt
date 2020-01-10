@@ -4,15 +4,15 @@ description: Configurar Diagnóstico do Azure com hubs de eventos de ponta a pon
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555540"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770174"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no Hot Path usando hubs de eventos
 Diagnóstico do Azure fornece maneiras flexíveis de coletar métricas e logs de VMs (máquinas virtuais) de serviços de nuvem e transferir resultados para o armazenamento do Azure. A partir do período de março de 2016 (SDK 2,9), você pode enviar diagnósticos para fontes de dados personalizadas e transferir dados de caminho quente em segundos usando os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -21,8 +21,7 @@ Os tipos de dados com suporte incluem:
 
 * Eventos de Rastreio de Eventos para o Windows (ETW)
 * Contadores de desempenho
-* Registos de eventos do Windows
-* Logs de aplicativo
+* Logs de eventos do Windows, incluindo logs de aplicativos no log de eventos do Windows
 * Registos da infraestrutura do Diagnóstico do Azure
 
 Este artigo mostra como configurar Diagnóstico do Azure com hubs de eventos de ponta a ponta. As diretrizes também são fornecidas para os seguintes cenários comuns:
@@ -43,7 +42,7 @@ Os hubs de eventos que recebem dados do Diagnóstico do Azure têm suporte em se
 * Namespace de hubs de eventos provisionados de acordo com o artigo, [introdução aos hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnóstico do Azure ao coletor de hubs de eventos
-Por padrão, Diagnóstico do Azure sempre envia logs e métricas para uma conta de armazenamento do Azure. Um aplicativo também pode enviar dados para os hubs de eventos adicionando uma nova seção de **coletores** no elemento **PublicConfig**  / **WadCfg** do arquivo *. wadcfgx* . No Visual Studio, o arquivo *. wadcfgx* é armazenado no seguinte caminho: **projeto de serviço de nuvem**  > **funções**  >  **(roleName)**  >  arquivo**Diagnostics. wadcfgx** .
+Por padrão, Diagnóstico do Azure sempre envia logs e métricas para uma conta de armazenamento do Azure. Um aplicativo também pode enviar dados para os hubs de eventos adicionando uma nova seção de **coletores** no elemento **PublicConfig** / **WadCfg** do arquivo *. wadcfgx* . No Visual Studio, o arquivo *. wadcfgx* é armazenado no seguinte caminho: **projeto de serviço de nuvem** > **funções** >  **(roleName)**  > arquivo **Diagnostics. wadcfgx** .
 
 ```xml
 <SinksConfig>
@@ -200,7 +199,7 @@ O exemplo a seguir mostra como um desenvolvedor pode limitar a quantidade de dad
 Neste exemplo, o coletor é aplicado aos logs e é filtrado somente para rastreamento de nível de erro.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implantar e atualizar um aplicativo de serviços de nuvem e configuração de diagnóstico
-O Visual Studio fornece o caminho mais fácil para implantar o aplicativo e a configuração do coletor de hubs de eventos. Para exibir e editar o arquivo, abra o arquivo *. wadcfgx* no Visual Studio, edite-o e salve-o. O caminho é **projeto de serviço de nuvem**  > **funções**  >  **(roleName)**  > **Diagnostics. wadcfgx**.  
+O Visual Studio fornece o caminho mais fácil para implantar o aplicativo e a configuração do coletor de hubs de eventos. Para exibir e editar o arquivo, abra o arquivo *. wadcfgx* no Visual Studio, edite-o e salve-o. O caminho é **projeto de serviço de nuvem** > **funções** >  **(roleName)**  > **Diagnostics. wadcfgx**.  
 
 Neste ponto, todas as ações de implantação e atualização de implantação no Visual Studio, no Visual Studio Team System e em todos os comandos ou scripts baseados no MSBuild e usam o destino **/t: publish** incluem o *. wadcfgx* no processo de empacotamento. Além disso, as implantações e atualizações implantam o arquivo no Azure usando a extensão apropriada do agente de Diagnóstico do Azure em suas VMs.
 

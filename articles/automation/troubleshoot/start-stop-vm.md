@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas ao iniciar e parar VMs com a automação do Azure
-description: Este artigo fornece informações sobre como iniciar e parar as VMs na automação do Azure
+title: Solucionar problemas ao iniciar e parar VMs-automação do Azure
+description: Este artigo fornece informações sobre como iniciar e parar as VMs na automação do Azure.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eeaf44b9abe5c8f0343325454f599d282be6c743
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850113"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769851"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução iniciar/parar VMs fora do horário comercial
 

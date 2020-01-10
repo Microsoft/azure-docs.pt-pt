@@ -3,17 +3,17 @@ title: 'Depurar e iterar em kubernetes: Visual Studio & .NET Core'
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Este guia de início rápido mostra como usar Azure Dev Spaces e o Visual Studio para depurar e iterar rapidamente um aplicativo .NET Core no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: de830d07010037793eaf7471fc1147a42081b09c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325612"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770599"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início rápido: Depurar e iterar em kubernetes: Visual Studio & .NET Core-Azure Dev Spaces
 
@@ -134,4 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

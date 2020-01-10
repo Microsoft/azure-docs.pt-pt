@@ -4,12 +4,12 @@ description: Solucionar problemas de instalação, registro de Servidor de Backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
-ms.translationtype: HT
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665336"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830212"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -46,11 +46,11 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 | --- | --- | --- |
 | Backup | Falha na criação do ponto de recuperação online | **Mensagem de erro**: o Windows Azure Backup Agent não pôde criar um instantâneo do volume selecionado. <br> **Solução alternativa**: tente aumentar o espaço na réplica e no volume de pontos de recuperação.<br> <br> **Mensagem de erro**: o agente do Windows Azure backup não pode se conectar ao serviço OBEngine <br> **Solução alternativa**: Verifique se o OBEngine existe na lista de serviços em execução no computador. Se o serviço OBEngine não estiver em execução, use o comando "net start OBEngine" para iniciar o serviço OBEngine. <br> <br> **Mensagem de erro**: a senha de criptografia para este servidor não está definida. Configure uma senha de criptografia. <br> **Solução alternativa**: Tente configurar uma senha de criptografia. Se ele falhar, execute as seguintes etapas: <br> <ol><li>Verifique se o local de rascunho existe. Esse é o local mencionado no registro **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config**, com o nome **ScratchLocation** deve existir.</li><li> Se o local de rascunho existir, tente registrar novamente usando a frase secreta antiga. *Sempre que você configurar uma senha de criptografia, salve-a em um local seguro.*</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>As credenciais do cofre fornecidas são diferentes do cofre no qual o servidor está registrado
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Os servidores DPM original e externo devem ser registrados no mesmo cofre
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Restauro | **Código de erro**: erro de credenciais de CBPServerRegisteredVaultDontMatchWithCurrent/cofre: 100110 <br/> <br/>**Mensagem de erro**: as credenciais do cofre fornecidas são diferentes do cofre no qual o servidor está registrado | **Causa**: esse problema ocorre quando você está tentando restaurar arquivos para o servidor alternativo a partir do servidor original usando a opção de recuperação externa do DPM e se o servidor que está sendo recuperado e o servidor original do qual os dados são copiados não estão associados ao mesmo cofre do serviço de recuperação.<br/> <br/>**Solução alternativa** Para resolver esse problema, certifique-se de que o servidor original e o alternativo estejam registrados no mesmo cofre.|
+| Restauro | **Código de erro**: erro de credenciais de CBPServerRegisteredVaultDontMatchWithCurrent/cofre: 100110 <br/> <br/>**Mensagem de erro**: os servidores DPM originais e externos devem ser registrados no mesmo cofre | **Causa**: esse problema ocorre quando você está tentando restaurar arquivos para o servidor alternativo a partir do servidor original usando a opção de recuperação externa do DPM e se o servidor que está sendo recuperado e o servidor original do qual os dados são copiados não estão associados ao mesmo cofre do serviço de recuperação.<br/> <br/>**Solução alternativa** Para resolver esse problema, certifique-se de que o servidor original e o alternativo estejam registrados no mesmo cofre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Falha nos trabalhos de criação de ponto de recuperação online para VM VMware
 

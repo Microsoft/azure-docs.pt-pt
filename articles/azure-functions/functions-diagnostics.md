@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562056"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834037"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Visão geral do diagnóstico de Azure Functions
 
@@ -42,9 +42,9 @@ Depois de selecionar um bloco, você poderá ver uma lista de tópicos relaciona
 
 Depois de escolher um tópico, você pode exibir um relatório de diagnóstico específico para seu aplicativo de funções. Os relatórios de diagnóstico usam ícones de status para indicar se há problemas específicos com seu aplicativo. Você verá uma descrição detalhada do problema, as ações recomendadas, as métricas relacionadas e os documentos úteis. Relatórios de diagnóstico personalizados são gerados de uma série de verificações executadas em seu aplicativo de funções. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar problemas em seu aplicativo de funções e orientá-lo para resolver o problema.
 
-## <a name="find-the-problem-code"></a>Localizar o código do problema 
+## <a name="find-the-problem-code"></a>Localizar o código do problema
 
-Para funções baseadas em script, você pode usar a **execução de função** e **erros** em **aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
+Para funções baseadas em script, você pode usar a **execução de função e erros** em **aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
 
 ![Relatório de diagnóstico sobre erros de execução de função](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

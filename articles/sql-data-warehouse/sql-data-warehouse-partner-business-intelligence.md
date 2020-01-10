@@ -11,18 +11,18 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 882067f25030c6594526914fb8d111639b205949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 32e7251c7c47e7ccc03e313b939c917557a31417
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685623"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772215"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de business intelligence SQL Data Warehouse
 Para criar sua solução de data warehouse de ponta a ponta, escolha entre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca as empresas parceiras da Microsoft com soluções de business intelligence oficial (BI) que dão suporte aos SQL Data Warehouse do Azure.
 
 ## <a name="our-business-intelligence-partners"></a>Nossos parceiros de business intelligence
-| Partner | Descrição | Link de site/produto |
+| Parceiro | Descrição | Link de site/produto |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst conecta toda a organização por meio de uma rede de instâncias de BI virtualizadas entrelaçadas na parte superior de uma malha analítica comum compartilhada|[Página do produto][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![Dados do ClearStory][2] |**Dados do ClearStory (percepções de negócios contínuas)**<br>Os dados do ClearStory permitem a análise de ciclo rápido em dados diferentes armazenados no SQL Data Warehouse. O aplicativo de análise e a plataforma integrada com base em Spark ClearStory aceleram o acesso a dados e a harmonização de conjuntos de dados diferentes. Eles permitem uma exploração rápida e colaborativa que capacita os usuários empresariais a se autodependentes para obter informações. |[Página do produto][clearstory_website]<br> |
@@ -37,7 +37,7 @@ Para criar sua solução de data warehouse de ponta a ponta, escolha entre uma a
 | ![SiSense][9] |**SiSense**<br>O SiSense é um software de Business Intelligence de pilha completa que vem com ferramentas de que uma empresa precisa para analisar e Visualizar dados: um banco de dados analítico de alto desempenho, a capacidade de unir várias fontes, ETL (extração de dados simples) e dados baseados na Web visualização. Comece a analisar e Visualizar grandes conjuntos de dados com o SiSense BI e a análise hoje mesmo. |[Página do produto][sisense_website]<br> |
 | ![Tableau][10] |**Tableau**<br>A análise de autoatendimento do tableau ajuda qualquer pessoa a ver e entender seus dados, em vários tipos de dados de arquivos simples para bancos de dado. O tableau tem um conector nativo e otimizado para SQL Data Warehouse do Microsoft Azure que dá suporte a dados dinâmicos e a análise na memória. |[Página do produto][tableau_website]<br> [Azure Marketplace][tableau_marketplace]<br>|
 | ![TARGIT][11] |**TARGIT (conjunto de decisões)**<br>O TARGIT Decision Suite fornece uma plataforma de BI e de análise que fornece painéis em tempo real, análise de autoatendimento, relatórios amigáveis, recursos móveis impressionantes e tecnologia de descoberta de dados simples em uma única solução coesa. O TARGIT dá às empresas o que aconselham a agir. |[Página do produto][targit_website]<br> [Azure Marketplace][targit_marketplace]<br> |
-| ![YellowFin][12] |**YellowFin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios ad hoc e painéis por BARC; Pesquisa de BI. Conecte-se ao Azure SQL Data Warehouse, crie e compartilhe belas relatórios e painéis com os premiados recursos de BI e inteligência de local de colaboração. |[Página do produto][yellowfin_website]<br> [Azure Marketplace][yellowfin_marketplace] |
+| ![YellowFin][12] |**Yellowfin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios ad hoc e painéis por BARC; Pesquisa de BI. Conecte-se ao Azure SQL Data Warehouse, crie e compartilhe belas relatórios e painéis com os premiados recursos de BI e inteligência de local de colaboração. |[Página do produto][yellowfin_website]<br> [Azure Marketplace][yellowfin_marketplace] |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
@@ -87,7 +87,7 @@ Para saber mais sobre alguns de nossos outros parceiros, consulte [parceiros de 
 
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
-[looker_marketplace]:https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
+[looker_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20
 [qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
 [tableau_marketplace]:https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]:https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/ 

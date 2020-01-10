@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 86f042a451583759aa15e886b3261700335a5285
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893353"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748542"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -38,15 +38,15 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Encaminhar registos da subscrição para a conta de armazenamento
 
-Agora, está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitorização para uma conta de armazenamento. Primeiro, vamos configurar os dados ao nível da subscrição (contidos no Registo de Atividades do Azure) para serem encaminhados para a conta de armazenamento. O [**Registo de Atividades do Azure**](../../azure-monitor/platform/activity-logs-overview.md) disponibiliza um histórico de eventos ao nível da subscrição no Azure. Pode navegar no mesmo no portal do Azure para determinar *quem* criou, atualizou ou eliminou *que* recursos e *quando*.
+Agora, está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitorização para uma conta de armazenamento. Primeiro, vamos configurar os dados ao nível da subscrição (contidos no Registo de Atividades do Azure) para serem encaminhados para a conta de armazenamento. O [**Registo de Atividades do Azure**](../../azure-monitor/platform/platform-logs-overview.md) disponibiliza um histórico de eventos ao nível da subscrição no Azure. Pode navegar no mesmo no portal do Azure para determinar *quem* criou, atualizou ou eliminou *que* recursos e *quando*.
 
 1. Clique no botão **Monitorizar**, na lista de navegação esquerda, e em **Registo de Atividades**.
 

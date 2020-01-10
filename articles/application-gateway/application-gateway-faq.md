@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996668"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770089"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o gateway de aplicativo
 
@@ -122,7 +122,7 @@ Use o Gerenciador de tráfego para distribuir o tráfego entre vários gateways 
 
 Sim, o SKU do gateway de aplicativo v2 dá suporte ao dimensionamento automático. Para obter mais informações, consulte [dimensionamento automático e gateway de aplicativo com redundância de zona](application-gateway-autoscaling-zone-redundant.md).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>A redução ou redução manual causa tempo de inatividade?
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>O dimensionamento manual ou automático aumenta ou reduz verticalmente a causa do tempo de inatividade?
 
 Não. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
 
@@ -158,7 +158,7 @@ Consulte [rotas definidas pelo usuário com suporte na sub-rede do gateway de ap
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites no gateway de aplicativo? Posso aumentar esses limites?
 
-Consulte [limites do gateway de aplicativo](../azure-subscription-service-limits.md#application-gateway-limits).
+Consulte [limites do gateway de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Posso usar simultaneamente o gateway de aplicativo para tráfego interno e externo?
 
@@ -200,6 +200,9 @@ Não.
 
 Sim. Para obter detalhes, consulte [migrar aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2](migrate-v1-v2.md).
 
+### <a name="does-application-gateway-support-ipv6"></a>O gateway de aplicativo dá suporte a IPv6?
+
+O gateway de aplicativo v2 não dá suporte a IPv6 no momento. Ele pode operar em uma VNet de pilha dupla usando somente IPv4, mas a sub-rede de gateway deve ser somente IPv4. O gateway de aplicativo v1 não dá suporte a pilha dupla VNets. 
 
 ## <a name="configuration---ssl"></a>Configuração-SSL
 
@@ -380,6 +383,30 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você implantou o gateway de aplicativo v2
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Como fazer usar o gateway de aplicativo V2 com apenas endereço IP de front-end privado?
+
+O gateway de aplicativo v2 atualmente não dá suporte apenas ao modo de IP privado. Ele dá suporte às seguintes combinações
+* IP privado e IP público
+* Somente IP público
+
+Mas se você quiser usar o gateway de aplicativo v2 somente com o IP privado, você pode seguir o processo abaixo:
+1. Criar um gateway de aplicativo com o endereço IP de front-end público e privado
+2. Não crie nenhum ouvinte para o endereço IP de front-end público. O gateway de aplicativo não escutará nenhum tráfego no endereço IP público se nenhum ouvinte for criado para ele.
+3. Crie e anexe um [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede do gateway de aplicativo com a seguinte configuração na ordem de prioridade:
+    
+    a. Permita o tráfego da origem como a marca de serviço do **gatewaymanager** e o destino como **qualquer** porta de destino e como **65200-65535**. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
+    
+    b. Permitir o tráfego da origem como a marca de serviço **AzureLoadBalancer** e a porta de destino e destino como **qualquer**
+    
+    c. Negue todo o tráfego de entrada da origem como marca de serviço de **Internet** e porta de destino e destino como **qualquer**. Dê a essa regra a *prioridade mínima* nas regras de entrada
+    
+    d. Mantenha as regras padrão como permitir a entrada de VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
+    
+    e. A conectividade de Internet de saída não pode ser bloqueada. Caso contrário, você enfrentará problemas de registro em log, métricas, etc.
+
+Exemplo de configuração de NSG para acesso somente IP privado: ![a configuração de NSG do gateway de aplicativo v2 para acesso de IP privado somente](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

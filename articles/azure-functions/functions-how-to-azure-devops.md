@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: 1358ac667903e5a1a3f00e4f069a448f0cfdc8f7
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531586"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834030"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -29,7 +29,7 @@ Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em segui
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
 
-#### <a name="net"></a>.NET
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para compilar um aplicativo .NET:
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-#### <a name="javascript"></a>Javascript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para criar um aplicativo JavaScript:
 
@@ -88,28 +88,27 @@ steps:
     artifactName: 'drop'
 ```
 
-#### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-Você pode usar o exemplo a seguir para criar um arquivo YAML para criar um aplicativo Python. O Python tem suporte apenas para Azure Functions Linux. O YAML para Python 3,7 pode ser criado substituindo todas as instâncias de 3,6 por 3,7 neste YAML.
+Você pode usar um dos exemplos a seguir para criar um arquivo YAML para criar um aplicativo para uma versão específica do Python. O Python tem suporte apenas para aplicativos de funções em execução no Linux.
+
+**Versão 3,7**
 
 ```yaml
 pool:
-      vmImage: ubuntu-16.04
+  vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
-  displayName: "Setting python version to 3.6 as required by functions"
+  displayName: "Setting python version to 3.7 as required by functions"
   inputs:
-    versionSpec: '3.6'
+    versionSpec: '3.7'
     architecture: 'x64'
 - bash: |
     if [ -f extensions.csproj ]
     then
         dotnet build extensions.csproj --output ./bin
     fi
-    python3.6 -m venv worker_venv
-    source worker_venv/bin/activate
-    pip3.6 install setuptools
-    pip3.6 install -r requirements.txt
+    pip install --target="./.python_packages/lib/site-packages" -r ./requirements.txt
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -121,7 +120,37 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
-#### <a name="powershell"></a>PowerShell
+
+**Versão 3,6**
+
+```yaml
+pool:
+  vmImage: ubuntu-16.04
+steps:
+- task: UsePythonVersion@0
+  displayName: "Setting python version to 3.6 as required by functions"
+  inputs:
+    versionSpec: '3.6'
+    architecture: 'x64'
+- bash: |
+    if [ -f extensions.csproj ]
+    then
+        dotnet build extensions.csproj --output ./bin
+    fi
+    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    artifactName: 'drop'
+```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 Você pode usar o exemplo a seguir para criar um arquivo YAML para empacotar um aplicativo PowerShell. O PowerShell só tem suporte para o Windows Azure Functions.
 
@@ -140,6 +169,8 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+
+---
 
 ### <a name="deploy-your-app"></a>Implantar seu aplicativo
 

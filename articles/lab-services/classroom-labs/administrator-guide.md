@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c26e5c6b4bd484b643182e9e4ade3d71929fdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486212"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771739"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guia do Azure Lab Services do administrador
 Os administradores de ti (tecnologia da informação) que gerenciam os recursos de nuvem de uma organização também são responsáveis por configurar a conta de laboratório para sua organização. Os administradores ou educadores criam laboratórios de sala de aula na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos do Azure envolvidos e as diretrizes para criá-los.
@@ -68,7 +68,7 @@ A lista a seguir realça os cenários em que mais de uma conta de laboratório p
 - **Orçamento separado por conta de laboratório**
 
     Em vez de ter todos os custos de laboratório de sala de aula relatados para uma única conta de laboratório, talvez seja necessário ter um orçamento mais claramente separado. Continuando com o exemplo no marcador acima, você pode criar uma conta de laboratório para cada departamento universitário para separar o orçamento de acordo. Usando o gerenciamento de custos do Azure, você pode exibir o custo de cada conta de laboratório individual.
-• **Isole os laboratórios piloto dos laboratórios ativos**
+- **Isole os laboratórios piloto dos laboratórios ativos**
 
     Você pode ter casos em que deseja fazer alterações de política de piloto em uma conta de laboratório sem afetar potencialmente os laboratórios ativos. Nesse tipo de cenário, a criação de uma conta de laboratório separada para fins de piloto permite isolar as alterações. 
 
@@ -129,7 +129,7 @@ Ao configurar os recursos do Azure Lab Services, você precisa fornecer uma regi
     O local da conta do laboratório indica a região deste recurso. Os laboratórios de sala de aula criados na conta de laboratório podem ser implantados em qualquer região na mesma geografia. A região específica em que as VMs do laboratório são implantadas é selecionada automaticamente com base na capacidade disponível na região naquele momento.  
     Se um administrador permitir que os criadores de laboratório escolham o local de seu laboratório de sala de aula, os locais disponíveis para seleção serão baseados na capacidade regional disponível ao criar o laboratório.
 
-    O local do laboratório da sala de aula também determina que os tamanhos de computação da VM estão disponíveis para seleção. Determinados tamanhos de computação só estão disponíveis em locais específicos.
+    O local do laboratório da sala de aula também determina quais tamanhos de computação da VM estão disponíveis para seleção. Determinados tamanhos de computação só estão disponíveis em locais específicos.
 - **Galeria de imagens compartilhadas**
 
     A região indica a região de origem em que a primeira versão da imagem é armazenada antes de ser replicada automaticamente para as regiões de destino.

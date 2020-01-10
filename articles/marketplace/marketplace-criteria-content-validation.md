@@ -2,19 +2,19 @@
 title: Validação de conteúdo de critérios do Marketplace | Azure Marketplace
 description: Este artigo descreve como se tornar um Publicador no Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: pabutler
-ms.openlocfilehash: 060856cd43b978cec58ab08e1bb5b524bc2a4285
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/31/2019
+ms.author: evansma
+ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822955"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779744"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -29,14 +29,14 @@ Todas as ofertas devem atender aos [requisitos de listagem](https://docs.microso
 |:--- |:--- |:--- |:--- |
 | 1 | Destino do cliente potencial | Ter um destino de cliente potencial configurado| O catálogo OCP tem as informações do CRM de destino do Lead também listadas na guia solução do parceiro | 
 | 2 | Título da oferta | Descrição da oferta da solução. Corresponde à promoção online de solução no site do parceiro | Contém palavras-chave de pesquisa |
-| 3 | Logótipo | O logotipo é exibido corretamente | O logotipo é exibido corretamente e inclui a [imagem do Hero](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish) , que é a imagem de formato grande no portal do Azure |
+| 3 | Logótipo | O logotipo é exibido corretamente | O logotipo é exibido corretamente e inclui [imagem do Hero que é a imagem de formato grande no portal do Azure |
 | 4 |  Descrição da oferta | <br>• parágrafos de 2-3 <br>• A oferta de solução é facilmente compreendida em um relance <br>• A descrição da oferta é gratuita de erros ortográficos e gramaticais <br>• A descrição da oferta é abrangente e captura: público-alvo, tipo de usuário, por que é valioso (valor prop) <br>• A descrição da oferta está no formulário de narração de parágrafo com frases curtas que são fáceis de compreender | <br>• O setor-alvo é descrito (se relevante) <br>• Boa formatação de estilo com cada cabeçalho de parágrafo com uma frase única ou um resumo do conteúdo que segue e inclui os pontos de marcador (quando apropriado) para enfatizar os principais benefícios. O objetivo aqui é que o leitor entenda a oferta rapidamente em um formato fácil de exibir e não precise ler parágrafos. <br>• Há espaçamento entre cada parágrafo e lê como um panfleto de carro. O que significa recursos técnicos ou jargão de código, mas é descritivo da oferta em termos simples e é abrangente. | 
-| 5 | Categorias & indústrias | <br>• As categorias correspondem aos recursos de oferta da solução <br>• Não estender para categorias às quais a solução não se ajusta <br>• Setor ideal ou todos os setores selecionados (se não forem os setores ideais) | <br>Maximizar. 3 categorias <br>Maximizar. 3 indústrias |
+| 5 | Categorias & indústrias | <br>• As categorias correspondem aos recursos de oferta da solução <br>• Não estender para categorias às quais a solução não se ajusta <br>• Setor ideal ou todos os setores selecionados (se não forem os setores ideais) | <br>Maximizar. Três categorias <br>Maximizar. 3 indústrias |
 | 6 | Imagens | <br>• Nenhuma imagem é necessária, mas se fornecido, deve ser exibido e uma imagem de alta resolução. <br>• Os requisitos de imagem estão listados em CPP e também aqui <br>• O texto incluído na captura de tela é legível com imagem clara | A oferta da solução é facilmente compreendida em um relance |
 | 7 | Vídeos | <br>• Nenhum vídeo é necessário, mas se fornecido, deve reproduzir sem erros. <br>• Se fornecido, pode não se referir às empresas concorrentes, a menos que seja demonstrado uma solução de migração |<br>• Idealmente 3 minutos ou mais <br>• Oferta de solução facilmente compreendida por meio de conteúdo de vídeo <br>• Demonstração dos recursos da solução |
 | 8 | Status da lista (plano de ação) | <br>Deve ser rotulado como um dos seguintes tipos: <ul>o entre em contato comigo</ul><ul>o avaliação/obter avaliação agora/iniciar teste/testar unidade</ul><ul>o comprar agora/obtê-lo agora</ul> | O cliente pode entender prontamente quais são as próximas etapas disponíveis: <ul>1. experimente a avaliação</ul> <ul>2. Compre agora</ul><ul>3. entre em contato por email ou número de telefone para organizar a PoC, avaliação ou resumo.</ul> | 
 | 9 | Preço da solução | Deve ter a guia preços/detalhes da solução e na moeda local da oferta da solução de parceiro | Várias opções de cobrança disponíveis com preços de camada para que o cliente tenha opções |    
-| 10 | Saiba Mais | Os links na parte inferior (sob a descrição, não os links do Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis publicamente e são exibidos corretamente |   Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas site da home page do parceiro | 
+| 10 | Saiba Mais | Os links na parte inferior (sob a descrição, não os links do Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis publicamente e são exibidos corretamente |    Links para itens específicos (por exemplo, páginas de especificações no site do parceiro) e não apenas site da home page do parceiro | 
 | 11 | Ajuda do & de suporte da solução | Vincule a pelo menos um dos seguintes: <br>números de telefone de o <br>o suporte por email <br>agentes de chat de o <br>fóruns da Comunidade |<br>• Todos os métodos de suporte listados: telefone & suporte por email. <br>• Suporte pago oferecido gratuitamente durante a avaliação ou período de test drive | 
 | 12 | Informações Legais | Políticas ou termos disponíveis por meio de uma URL pública |  | 
 
@@ -48,7 +48,7 @@ Todas as ofertas devem atender aos [requisitos de listagem](https://docs.microso
 |  | Status da lista | O link deve levar à experiência de avaliação orientada pelo cliente | Outros CTAs (por exemplo, comprar agora) também estão disponíveis | 
 
 ---
-## <a name="saas-apps-requirements"></a>Requisitos de aplicativos SaaS
+## <a name="saas-app-requirements"></a>Requisitos do aplicativo SaaS
 
 |  | Elemento Listing | Requisitos básicos | Requisitos ideais | 
 |:--- |:--- |:--- |:--- |
@@ -92,7 +92,7 @@ Todas as ofertas devem atender aos [requisitos de listagem](https://docs.microso
 | 9 | Competências |<br>• Deve ser pelo menos um dos seguintes:<br>• Desenvolvimento de aplicativos <br>• Integração de aplicativos <br>• Gerenciamento do ciclo de vida do aplicativo <br>• Plataforma de nuvem <br>• Análise de dados <br>• Data Center <br>• Plataforma de dados <br>• DevOps |
 | 10 | Produtos | Deve ser Azure | |
 | 11 | País/Região | Verifique se o país e a região correspondem à moeda escolhida | |
-| 12 | Saiba Mais  | <br>• Os links na parte inferior (sob a descrição, não os links do Marketplace à esquerda) levam a mais informações sobre a solução e são publicamente disponíveis e exibidos corretamente. <br>• Os links devem ter um "nome amigável" e não aparecerem como o nome do arquivo de nenhum download | |
+| 12 | Saiba Mais  | <br>• Os links na parte inferior (sob a descrição, não os links do Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis publicamente e são exibidos corretamente. <br>• Os links devem ter um "nome amigável" e não aparecerem como o nome do arquivo de nenhum download | |
 
 
 ## <a name="next-steps"></a>Passos seguintes

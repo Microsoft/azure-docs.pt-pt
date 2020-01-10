@@ -3,12 +3,12 @@ title: Implantação por push de zip para Azure Functions
 description: Use os recursos de implantação de arquivo. zip do serviço de implantação kudu para publicar seu Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233068"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769677"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implantação de zip para Azure Functions
 
@@ -16,7 +16,7 @@ Este artigo descreve como implantar seus arquivos de projeto de aplicativo de fu
 
 Azure Functions tem a gama completa de opções de implantação e integração contínuas fornecidas pelo serviço Azure App. Para obter mais informações, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md).
 
-Para agilizar o desenvolvimento, você pode achar mais fácil implantar seus arquivos de projeto de aplicativo de funções diretamente de um arquivo. zip. A API de implantação. zip usa o conteúdo de um arquivo. zip e extrai o conteúdo para a pasta `wwwroot` do seu aplicativo de funções. Essa implantação de arquivo. zip usa o mesmo serviço kudu que capacita implantações baseadas em integração contínua, incluindo:
+Para acelerar o desenvolvimento, você pode achar mais fácil implantar seus arquivos de projeto de aplicativo de funções diretamente de um arquivo. zip. A API de implantação. zip usa o conteúdo de um arquivo. zip e extrai o conteúdo para a pasta `wwwroot` do seu aplicativo de funções. Essa implantação de arquivo. zip usa o mesmo serviço kudu que capacita implantações baseadas em integração contínua, incluindo:
 
 + Exclusão de arquivos que foram deixados de implantações anteriores.
 + Personalização da implantação, incluindo a execução de scripts de implantação.
@@ -66,10 +66,10 @@ Você também pode baixar um arquivo. zip de um repositório GitHub. Quando voc�
 
 Você pode usar CLI do Azure para disparar uma implantação de envio por push. Envie por push um arquivo. zip para seu aplicativo de funções usando o comando [AZ functionapp Deployment Source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) . Para usar esse comando, você deve usar CLI do Azure versão 2.0.21 ou posterior. Para ver o que CLI do Azure versão que você está usando, use o comando `az --version`.
 
-No comando a seguir, substitua o espaço reservado `<zip_file_path>` pelo caminho para o local do arquivo. zip. Além disso, substitua `<app_name>` pelo nome exclusivo do seu aplicativo de funções. 
+No comando a seguir, substitua o espaço reservado `<zip_file_path>` pelo caminho para o local do arquivo. zip. Além disso, substitua `<app_name>` pelo nome exclusivo do seu aplicativo de funções e substitua `<resource_group>` pelo nome do seu grupo de recursos.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

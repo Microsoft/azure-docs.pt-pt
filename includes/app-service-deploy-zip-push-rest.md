@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
-ms.openlocfilehash: 4f3236c0a167a2b6f7586c6cb5fea8e30f55a86c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954061"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769676"
 ---
 ## <a name="rest"></a>Implantar arquivo ZIP com APIs REST 
 
@@ -19,13 +19,13 @@ Para a autenticação básica HTTP, você precisa de suas credenciais de implant
 
 ### <a name="with-curl"></a>Com ondulação
 
-O exemplo a seguir usa a ferramenta de rotação para implantar um arquivo. zip. Substitua os espaços reservados `<username>`, `<password>`, `<zip_file_path>`e `<app_name>`. Quando solicitado por ondulação, digite a senha.
+O exemplo a seguir usa a ferramenta de rotação para implantar um arquivo. zip. Substitua os espaços reservados `<deployment_user>`, `<zip_file_path>`e `<app_name>`. Quando solicitado por ondulação, digite a senha.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Essa solicitação dispara a implantação por push do arquivo. zip carregado. Você pode examinar as implantações atual e passada usando o `https://<app_name>.scm.azurewebsites.net/api/deployments` ponto de extremidade, conforme mostrado no exemplo de ondulação a seguir. Novamente, substitua `<app_name>` pelo nome do seu aplicativo e `<deployment_user>` pelo nome de usuário de suas credenciais de implantação.
+Essa solicitação dispara a implantação por push do arquivo. zip carregado. Você pode examinar as implantações atuais e antigas usando o ponto de extremidade `https://<app_name>.scm.azurewebsites.net/api/deployments`, conforme mostrado no exemplo de ondulação a seguir. Novamente, substitua `<app_name>` pelo nome do seu aplicativo e `<deployment_user>` com o nome de usuário das suas credenciais de implantação.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 Essa solicitação dispara a implantação por push do arquivo. zip carregado. 
 
-Para examinar as implantações atuais e antigas, execute os comandos a seguir. Novamente, substitua os `<deployment-user>`espaços `<deployment-password>`reservados, `<app-name>` e.
+Para examinar as implantações atuais e antigas, execute os comandos a seguir. Novamente, substitua os espaços reservados `<deployment-user>`, `<deployment-password>`e `<app-name>`.
 
 ```bash
 $username = "<deployment-user>"

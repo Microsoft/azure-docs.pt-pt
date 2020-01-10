@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48b81d508711f35a75efe1c93fe0a5556c5bb960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c984faf22b8e4cd499a5588f45d7072610f33544
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784466"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767930"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -46,32 +46,32 @@ A integração dos diretórios no local com o Azure AD torna os utilizadores mai
 
 * Os utilizadores podem utilizar uma identidade única para acederem às aplicações no local e aos serviços na nuvem, como o Office 365.
 * Uma ferramenta única para proporcionar uma experiência fácil de implementação para sincronização e início de sessão.
-* Fornece as capacidades mais recentes para os seus cenários. O Azure AD Connect substitui as versões anteriores das ferramentas de integração de identidade, como o DirSync e o Azure AD Sync. Para obter mais informações, consulte [Comparação das ferramentas de integração de diretórios de identidade híbrida](plan-hybrid-identity-design-considerations-tools-comparison.md).
+* Fornece as capacidades mais recentes para os seus cenários. Azure AD Connect substitui versões mais antigas das ferramentas de integração de identidade, como DirSync e Azure AD Sync. Para obter mais informações, consulte [comparação de ferramentas de integração de diretório de identidade híbrida](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ## <a name="why-use-azure-ad-connect-health"></a>Porquê utilizar o Azure AD Connect Health?
 Quando com o Azure AD, os utilizadores sejam mais produtivos porque existe uma identidade comum para aceder aos recursos na cloud e no local. Garantir que o ambiente é confiável, para que os utilizadores podem aceder estes recursos, torna-se um desafio.  O Azure AD Connect Health ajuda a monitorizar e obter informações sobre a infraestrutura de identidade no local, que garante a confiabilidade de neste ambiente. É tão simples como instalar um agente em cada um dos servidores de identidade no local.
 
 O Azure AD Connect Health para AD FS suporta o AD FS 2.0 no Windows Server 2008 R2, no Windows Server 2012, no Windows Server 2012 R2 e no Windows Server 2016. Suporta também a monitorização de servidores proxy do AD FS ou de aplicações Web que fornecem suporte de autenticação para acesso à extranet. Com uma instalação fácil e rápida do Agente de Estado de Funcionamento, o Azure AD Connect Health para AD FS fornece um conjunto de capacidades principais.
 
-Principais vantagens e as práticas recomendadas:
+Principais benefícios e práticas recomendadas:
 
-|Principais vantagens|Melhores práticas|
+|Principais vantagens|Melhores Práticas|
 |-----|-----|
-|Segurança avançada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de inícios de sessão falhados](how-to-connect-health-adfs-risky-ip.md)</br>[Em privacidade em conformidade](reference-connect-health-user-privacy.md)|
-|Receba alertas no [todos críticos problemas de sistema do AD FS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
-|Facilidade de implementação e gestão|[Instalação do agente rápida](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Atualização automática do agente para a versão mais recente</br>Dados disponíveis no portal em alguns minutos|
-Rich [métrica de utilização](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Utilização principal das aplicações</br>Localizações de rede e ligação TCP</br>Pedidos de token por servidor|
-|Grande experiência de usuário|Modo de dashboard do portal do Azure</br>[Alertas por e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+|Segurança avançada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de inícios de sessão falhados](how-to-connect-health-adfs-risky-ip.md)</br>[Em conformidade com privacidade](reference-connect-health-user-privacy.md)|
+|Receber alertas sobre [todos os problemas críticos do sistema do ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
+|Facilidade de implementação e gestão|[Instalação rápida de agente](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Atualização automática do agente para a versão mais recente</br>Dados disponíveis no portal em alguns minutos|
+[Métricas de uso](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs) avançado|Utilização principal das aplicações</br>Localizações de rede e ligação TCP</br>Pedidos de token por servidor|
+|Excelente experiência do usuário|Modo de dashboard do portal do Azure</br>[Alertas por e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisitos de licença para utilizar o Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisitos de licença para usar o Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
+## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Requisitos de licença para usar o Azure AD Connect Health
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
-
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições rápidas](how-to-connect-install-express.md)

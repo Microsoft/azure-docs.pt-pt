@@ -10,16 +10,16 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: e353a65544e86e702bd216db5c8b5f81f033c46a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429428"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772249"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: desenvolver e implantar um módulo de IoT Edge do Python para dispositivos Linux
 
-Use Visual Studio Code para desenvolver código C e implantá-lo em um dispositivo Linux em execução Azure IoT Edge. 
+Use Visual Studio Code para desenvolver o código Python e implantá-lo em um dispositivo Linux em execução Azure IoT Edge. 
 
 Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial orienta você pela criação e implantação de um módulo IoT Edge que filtra dados de sensor no dispositivo IoT Edge que você configurou no guia de início rápido. Neste tutorial, ficará a saber como:    
 
@@ -100,7 +100,7 @@ O ficheiro de ambiente armazena as credenciais do seu repositório de contentor 
 
 ### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-Atualmente, Visual Studio Code pode desenvolver módulos C para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
+Atualmente, Visual Studio Code pode desenvolver módulos Python para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
 
 1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 

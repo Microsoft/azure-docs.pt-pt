@@ -3,15 +3,15 @@ title: Desenvolvimento em equipe no kubernetes
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: Team kubernetes Development com contêineres e microservices no Azure
+description: Este guia de início rápido mostra como fazer o Team kubernetes Development com contêineres e microservices com Azure Dev Spaces
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 2f3ed0f2a9635488aea509e7816fbe84e1589d14
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 86d8d559a2d6408eb6846705887a82b440d50d7b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770837"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início rápido: desenvolvimento de equipe no kubernetes-Azure Dev Spaces
 
@@ -228,7 +228,7 @@ Para que essas alterações sejam refletidas em *dev* e *dev/azureuser1*, você 
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços.
 
@@ -236,4 +236,4 @@ Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações
 > [Working with multiple containers and team development](multi-service-nodejs.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
 
 [helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

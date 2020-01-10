@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7abfa00b01f2e5e32b2486d69f36ac62f844c5ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033843"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833924"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Versão prévia: implantar VMs em hosts dedicados usando o portal
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 

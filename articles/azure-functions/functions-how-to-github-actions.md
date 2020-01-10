@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226917"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769154"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -46,36 +46,32 @@ Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinat
 
 ## <a name="download-the-publishing-profile"></a>Baixar o perfil de publicação
 
-Você pode baixar o perfil de publicação de seu functionapp, acessando a página **visão geral** do seu aplicativo e clicando em **obter perfil de publicação**.
+Você pode baixar o perfil de publicação do seu aplicativo de funções, acessando a página **visão geral** do seu aplicativo e clicando em **obter perfil de publicação**.
 
-   ![Baixar o perfil de publicação](media/functions-how-to-github-actions/get-publish-profile.png)
+   ![Transferir perfil de publicação](media/functions-how-to-github-actions/get-publish-profile.png)
 
 Copie o conteúdo do arquivo.
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
-1. No [GitHub](https://github.com), procure seu repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
+1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
 
    ![Adicionar segredo](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` para o **nome** e a saída do comando copiado para **valor**, se você selecionar **Adicionar segredo**. Se você estiver usando o perfil de publicação, use `SCM_CREDENTIALS` para o **nome** e o conteúdo do arquivo para **valor**.
+1. Adicione um novo segredo.
+
+   * Se você estiver usando a entidade de serviço que você criou usando o CLI do Azure, use `AZURE_CREDENTIALS` para o **nome**. Em seguida, Cole a saída do objeto JSON copiado para o **valor**e selecione **Adicionar segredo**.
+   * Se você estiver usando um perfil de publicação, use `SCM_CREDENTIALS` para o **nome**. Em seguida, use o conteúdo do arquivo do perfil de publicação para **valor**e selecione **Adicionar segredo**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente 
 
-A configuração do ambiente pode ser feita usando uma das ações de instalação de publicação.
+A configuração do ambiente é feita usando uma ação de instalação de publicação específica a um idioma.
 
-|Idioma | Ação de instalação |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambiente para os vários idiomas com suporte:
-
-**JavaScript**
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a ação `actions/setup-node` para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +84,9 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambien
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a ação `actions/setup-python` para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +99,9 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambien
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a ação `actions/setup-dotnet` para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +114,9 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambien
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a ação `actions/setup-java` para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +130,15 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambien
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>Compilar o aplicativo de funções
 
 Isso depende do idioma e dos idiomas com suporte pelo Azure Functions, esta seção deve ser as etapas de compilação padrão de cada idioma.
 
-Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo de funções em vários idiomas com suporte.:
+O exemplo a seguir mostra a parte do fluxo de trabalho que cria o aplicativo de funções, que é específico do idioma:
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +153,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +167,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +180,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +193,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>Implementar a aplicação de função
 
@@ -211,7 +215,7 @@ O exemplo a seguir usa a versão 1 do `functions-action`:
         app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para exibir um Workflow. YAML completo, consulte um dos arquivos no repositório de [exemplos de fluxo de trabalho de ações do Azure GitHub](https://aka.ms/functions-actions-samples) que têm `functionapp` no nome. Você pode usar esses exemplos em um ponto de partida para seu fluxo de trabalho.
 

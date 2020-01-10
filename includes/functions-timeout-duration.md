@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
-ms.openlocfilehash: fded43bb655cefda508b82eca94522730ab6da00
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 3501ff3f92ae045019df2766bbcf7fc2c3fec5b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941732"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768928"
 ---
 ## <a name="timeout"></a>Duração do tempo limite do aplicativo de funções 
 
-A duração do tempo limite de um aplicativo de funções é definida pela propriedade functionTimeout no arquivo de projeto [host. JSON](../articles/azure-functions/functions-host-json.md#functiontimeout) . A tabela a seguir mostra os valores padrão e máximo em minutos para ambos os planos e em ambas as versões de tempo de execução:
+A duração do tempo limite de um aplicativo de funções é definida pela propriedade `functionTimeout` no arquivo de projeto [host. JSON](../articles/azure-functions/functions-host-json.md#functiontimeout) . A tabela a seguir mostra os valores padrão e máximo em minutos para os planos e para as diferentes versões de tempo de execução:
 
 | Plano | Versão de tempo de execução | Predefinição | Máximo |
 |------|---------|---------|---------|

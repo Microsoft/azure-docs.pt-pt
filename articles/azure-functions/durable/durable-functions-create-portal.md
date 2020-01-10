@@ -4,12 +4,12 @@ description: Saiba como instalar a extensão de Durable Functions para Azure Fun
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
-ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231486"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769647"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Durable Functions usando o portal do Azure
 
@@ -22,7 +22,7 @@ A extensão de [Durable Functions](durable-functions-overview.md) para Azure Fun
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Você deve ter um aplicativo de funções para hospedar a execução de qualquer função. Um aplicativo de funções permite que você agrupe suas funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Você pode criar um aplicativo .NET ou JavaScript.
+Você deve ter um aplicativo de funções para hospedar a execução de qualquer função. Um aplicativo de funções permite agrupar suas funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos. Você pode criar um aplicativo .NET ou JavaScript.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -60,7 +60,7 @@ Se você estiver criando Durable Functions de JavaScript, será necessário inst
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
-   ![Página de início rápido das funções no portal do Azure](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+   ![Início rápido das funções no portal do Azure](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
 1. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
@@ -68,7 +68,7 @@ Se você estiver criando Durable Functions de JavaScript, será necessário inst
 
 1. No campo de pesquisa, digite `durable` e, em seguida, escolha o modelo de **início de HTTP Durable Functions** .
 
-1. Quando solicitado, selecione **instalar** para instalar a extensão DurableTask do Azure quaisquer dependências no aplicativo de funções. Você só precisa instalar a extensão uma vez para um aplicativo de função de permissão. Depois de instalar com êxito, selecione **Continuar**.
+1. Quando solicitado, selecione **instalar** para instalar a extensão DurableTask do Azure e quaisquer dependências no aplicativo de funções. Só tem de instalar a extensão uma vez para uma determinada aplicação de funções. Depois de instalar com êxito, selecione **Continuar**.
 
     ![Instalar as extensões de enlace](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -88,7 +88,7 @@ Se você estiver criando Durable Functions de JavaScript, será necessário inst
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-    Neste exemplo, `{your-function-app-name}` é o domínio que é o nome do seu aplicativo de funções. A mensagem de resposta contém um conjunto de pontos de extremidade de URI que você pode usar para monitorar e gerenciar a execução, que é semelhante ao exemplo a seguir:
+    Neste exemplo, `{your-function-app-name}` é o domínio que é o nome do seu aplicativo de funções. A mensagem de resposta contém um conjunto de pontos finais URI que pode utilizar para monitorizar e gerir a execução, e que pode ser semelhante ao seguinte exemplo:
 
     ```json
     {  

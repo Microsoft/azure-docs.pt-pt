@@ -3,12 +3,12 @@ title: Referência de configurações de aplicação para as funções do Azure
 description: Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 1c7f5f9f8f6f198c5fe74baa613306732fa9b55b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4de6f093e43bbb8b3e258c3dd2a71f728beb7287
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977272"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769545"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -109,6 +109,19 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 |---|------------|
 |AS FUNÇÕES\_EXTENSÃO\_VERSÃO|~ 2|
 
+## <a name="functions_v2_compatibility_mode"></a>\_modo de\_de compatibilidade do Functions\_v2
+
+Essa configuração permite que seu aplicativo de funções seja executado em um modo compatível com versão 2. x no tempo de execução da versão 3. x. Use essa configuração somente se encontrar problemas ao [atualizar seu aplicativo de funções da versão 2. x para 3. x do tempo de execução](functions-versions.md#migrating-from-2x-to-3x). 
+
+>[!IMPORTANT]
+> Essa configuração destina-se somente como uma solução alternativa de curto prazo enquanto você atualiza seu aplicativo para ser executado corretamente na versão 3. x. Há suporte para essa configuração, contanto que o [tempo de execução 2. x tenha suporte](functions-versions.md). Se você encontrar problemas que impeçam que seu aplicativo seja executado na versão 3. x sem usar essa configuração, informe [seu problema](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+
+Requer que o [functions\_versão de\_de extensão](functions-app-settings.md#functions_extension_version) seja definido como `~3`.
+
+|Chave|Valor da amostra|
+|---|------------|
+|\_modo de\_de compatibilidade do Functions\_v2|true|
+
 ## <a name="functions_worker_process_count"></a>O Functions\_o processo de\_do trabalhador\_contagem
 
 Especifica o número máximo de processos de trabalho de idioma, com um valor padrão de `1`. O valor máximo permitido é `10`. As invocações de função são distribuídas uniformemente entre os processos de trabalho de linguagem. Os processos de trabalho de idioma são gerados a cada 10 segundos até que a contagem definida por funções\_o processo de\_de trabalho\_contagem seja atingida. O uso de vários processos de trabalho de idioma não é o mesmo que o [dimensionamento](functions-scale.md). Considere usar essa configuração quando sua carga de trabalho tiver uma combinação de invocações associadas à CPU e de e/s. Essa configuração se aplica a todos os idiomas do non-.NET.
@@ -179,7 +192,7 @@ Por predefinição, os proxies de funções utilizará um atalho para enviar as 
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um url de back-end que aponta para uma função no local a aplicação de função será reencaminhada diretamente para essa função|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

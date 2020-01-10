@@ -5,12 +5,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Saiba como conectar seu computador de desenvolvimento a um cluster AKS com Azure Dev Spaces
 keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482234"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770684"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Ligar o seu computador de desenvolvimento a um cluster do AKS (pré-visualização)
 
@@ -96,7 +96,7 @@ Depois de selecionar a porta TCP do aplicativo, Azure Dev Spaces estabelecerá u
 
 Azure Dev Spaces abre uma janela de terminal intitulada *AZDS Connect-Bikes* depois de estabelecer uma conexão com o cluster AKs. Essa janela de terminal tem todas as variáveis de ambiente e entradas DNS configuradas do seu cluster AKS. Qualquer código executado nesta janela de terminal ou usando o depurador de Visual Studio Code está conectado ao cluster AKS.
 
-![Componentes](../media/how-to-connect/connect-terminal.png)
+![Terminal](../media/how-to-connect/connect-terminal.png)
 
 Além disso, Azure Dev Spaces cria uma janela chamada *espaços de desenvolvimento se conecta* com toda a sua saída.
 
@@ -242,7 +242,7 @@ Clique na barra de status Azure Dev Spaces e escolha *Mostrar informações de d
 
 Além disso, você pode encontrar os logs de diagnóstico no diretório `Azure Dev Spaces` no [diretório *temporário* do seu computador de desenvolvimento][azds-tmp-dir].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como usar as ações Azure Dev Spaces e GitHub para testar alterações de uma solicitação pull diretamente no AKS antes que a solicitação pull seja mesclada no Branch principal do repositório.
 
@@ -254,6 +254,6 @@ Saiba como usar as ações Azure Dev Spaces e GitHub para testar alterações de
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

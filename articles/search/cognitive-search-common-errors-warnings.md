@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973973"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763169"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -54,15 +54,15 @@ O indexador não pôde ler o documento a partir da fonte de dados. Isso pode aco
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>Erro: não foi possível extrair o conteúdo do documento
-O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo do documento (por exemplo, um arquivo PDF). Isso pode acontecer devido a:
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Erro: não foi possível extrair o conteúdo ou os metadados do documento
+O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os metadados do documento (por exemplo, um arquivo PDF). Isso pode acontecer devido a:
 
 | Razão | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | o blob está acima do limite de tamanho | O documento tem `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte `'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob está criptografado | Não foi possível processar o documento-ele pode estar criptografado ou protegido por senha. | Você pode ignorar o blob com [as configurações de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| problemas transitórios | Erro ao processar o blob: a solicitação foi anulada: a solicitação foi cancelada. | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| problemas transitórios | "Erro ao processar o blob: a solicitação foi anulada: a solicitação foi cancelada". "O documento atingiu o tempo limite durante o processamento." | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 <a name="could-not-parse-document"/>
 
@@ -144,7 +144,7 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 | --- | --- | --- |
 | Um campo contém um termo muito grande | Um termo no documento é maior que o [limite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Você pode evitar essa restrição garantindo que o campo não esteja configurado como filtrável, facetable ou classificável.
 | O documento é muito grande para ser indexado | Um documento é maior que o [tamanho máximo de solicitação de API](search-limits-quotas-capacity.md#api-request-limits) | [Como indexar grandes conjuntos de dados](search-howto-large-index.md)
-| O documento contém muitos objetos na coleção | Uma coleção em seu documento excede o [máximo de elementos em todo o limite de coleções complexas](search-limits-quotas-capacity.md#index-limits) | É recomendável reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar a alta utilização do armazenamento.
+| O documento contém muitos objetos na coleção | Uma coleção em seu documento excede o [máximo de elementos em todas as coleções complexas limite](search-limits-quotas-capacity.md#index-limits) "o documento com a chave `'1000052'` tem `'4303'` objetos em coleções (matrizes JSON). No máximo `'3000'` objetos podem estar em coleções em todo o documento. Remova objetos de coleções e tente indexar o documento novamente. " | É recomendável reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar a alta utilização do armazenamento.
 | Problemas de conexão com o índice de destino (que persiste após novas tentativas) porque o serviço está em outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está sob carga pesada. | [Escalar verticalmente seu serviço de pesquisa](search-capacity-planning.md)
 | O serviço de pesquisa está sendo corrigido para atualização de serviço ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está inoperante no momento/o serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para a documentação de 99,9% de disponibilidade por [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu uma falha desconhecida. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha.
@@ -158,7 +158,7 @@ O documento foi lido e processado, mas devido a uma incompatibilidade na configu
 
 | Razão | Detalhes/exemplo
 | --- | ---
-| O tipo de dados dos campos extraídos pelo indexador é incompatível com o modelo de dados do campo de índice de destino correspondente. | O campo de dados '_Data_' no documento com a chave '_Data_' tem um valor inválido ' do tipo ' EDM. String ' '. O tipo esperado era ' Collection (EDM. String) '. |
+| O tipo de dados dos campos extraídos pelo indexador é incompatível com o modelo de dados do campo de índice de destino correspondente. | O campo de dados '_Data_' no documento com a chave ' 888 ' tem um valor inválido ' do tipo ' EDM. String ' '. O tipo esperado era ' Collection (EDM. String) '. |
 | Falha ao extrair qualquer entidade JSON de um valor de cadeia de caracteres. | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como um objeto JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho '_caminho_', linha 1, posição 3162. ' |
 | Falha ao extrair uma coleção de entidades JSON de um valor de cadeia de caracteres.  | Não foi possível analisar o valor ' do tipo ' EDM. String ' ' do campo '_Data_' como uma matriz JSON. Erro: ' depois de analisar um valor, um caractere inesperado foi encontrado: ' '. Caminho ' [0] ', linha 1, posição 27. ' |
 | Um tipo desconhecido foi descoberto no documento de origem. | Tipo desconhecido '_desconhecido_' não pode ser indexado |
@@ -174,10 +174,18 @@ Esse erro ocorre quando o indexador não pode concluir o processamento de um ún
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>Aviso: não foi possível executar a habilidade porque uma entrada de habilidade era inválida
-O indexador não pôde executar uma habilidade no conteriante porque uma entrada para a habilidade estava ausente, o tipo errado ou é inválido.
+## <a name="warning-skill-input-was-invalid"></a>Aviso: a entrada de habilidade era inválida
+Uma entrada para a habilidade estava ausente, o tipo errado ou é inválido. A mensagem de aviso indicará o impacto:
+1) Não foi possível executar a habilidade
+2) Habilidade executada, mas pode ter resultados inesperados
 
-As habilidades cognitivas têm entradas e entradas opcionais necessárias. Por exemplo, a [habilidade de extração de frases-chave](cognitive-search-skill-keyphrases.md) tem duas entradas necessárias `text`, `languageCode`e nenhuma entrada opcional. Se as entradas necessárias forem inválidas, a habilidade será ignorada e gerará um aviso. As habilidades ignoradas não geram saídas, portanto, se outras habilidades usarem saídas da habilidade ignorada, elas poderão gerar avisos adicionais.
+As habilidades cognitivas têm entradas e entradas opcionais necessárias. Por exemplo, a [habilidade de extração de frases-chave](cognitive-search-skill-keyphrases.md) tem duas entradas necessárias `text`, `languageCode`e nenhuma entrada opcional. As entradas de habilidades personalizadas são consideradas entradas opcionais.
+
+Se quaisquer entradas necessárias estiverem ausentes ou se qualquer entrada não for do tipo correto, a habilidade será ignorada e gerará um aviso. As habilidades ignoradas não geram saídas, portanto, se outras habilidades usarem saídas da habilidade ignorada, elas poderão gerar avisos adicionais.
+
+Se uma entrada opcional estiver ausente, a habilidade ainda será executada, mas poderá produzir uma saída inesperada devido à entrada ausente.
+
+Em ambos os casos, esse aviso pode ser esperado devido à forma de seus dados. Por exemplo, se você tiver um documento que contém informações sobre pessoas com os campos `firstName`, `middleName`e `lastName`, você poderá ter alguns documentos que não têm uma entrada para `middleName`. Se você passar `middleName` como uma entrada para uma habilidade no pipeline, espera-se que essa entrada de habilidade esteja sem algum tempo. Você precisará avaliar seus dados e cenário para determinar se alguma ação é necessária ou não como resultado desse aviso.
 
 Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá usar a [habilidade condicional](cognitive-search-skill-conditional.md) para gerar um valor padrão e, em seguida, usar a saída da [habilidade condicional](cognitive-search-skill-conditional.md) como a entrada de habilidade.
 
@@ -197,8 +205,8 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 
 | Razão | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| A entrada de habilidade é do tipo errado | A entrada de habilidade necessária `X` não era do tipo esperado `String`. A entrada de habilidade necessária `X` não estava no formato esperado. | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
-| A entrada da habilidade está ausente | A entrada de habilidade necessária `X` está ausente. | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho, e os documentos da fonte de dados definem as entradas necessárias. |
+| A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo esperado `String`. Nome: `text`, origem: `/document/merged_content`. "  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text`, origem: `/document/merged_content`. "  "Não é possível iterar em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`de não matriz."  "Não é possível selecionar `0` em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não matrizes" | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera que `text` seja uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada tem `*` nas posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com `*` para matrizes. |
+| A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text`, fonte: `/document/merged_content`"" valor `/document/normalized_images/0/imageTags`ausente ".  "Não é possível selecionar `0` na matriz `/document/pages` de comprimento `0`". | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, `*` extra ou ausente no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |
 | A entrada do código do idioma da habilidade é inválida | `languageCode` de entrada de habilidades tem os códigos de idioma a seguir `X,Y,Z`, pelo menos um deles é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

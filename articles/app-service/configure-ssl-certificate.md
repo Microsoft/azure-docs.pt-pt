@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670741"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768470"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no serviço Azure App
 
@@ -113,8 +113,8 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Quando terminar
 |-|-|
 | Nome | Um nome amigável para seu certificado de serviço de aplicativo. |
 | Nome do host do domínio descoberto | Especifique o domínio raiz aqui. *O certificado emitido protege o domínio* raiz e o subdomínio `www`. No certificado emitido, o campo nome comum contém o domínio raiz e o campo nome alternativo da entidade contém o domínio `www`. Para proteger somente qualquer subdomínio, especifique o nome de domínio totalmente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`).|
-| Subscrição | O centro de dados onde o a aplicação Web está alojada. |
-| Grupo de recursos | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que o aplicativo do serviço de aplicativo, por exemplo. |
+| Subscrição | A assinatura que conterá o certificado. |
+| Grupo de recursos | O grupo de recursos que conterá o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que o aplicativo do serviço de aplicativo, por exemplo. |
 | SKU do certificado | Determina o tipo de certificado a ser criado, se um certificado padrão ou um [certificado curinga](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Termos legais | Clique para confirmar que você concorda com os termos legais. Os certificados são obtidos de GoDaddy. |
 
@@ -128,7 +128,7 @@ Selecione o certificado na página [certificados do serviço de aplicativo](http
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) é um serviço do Azure que ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. É o armazenamento de sua escolha para certificados do serviço de aplicativo.
 
-Na página **status da Key Vault** , clique em **repositório Key Vault** para criar um novo cofre ou escolha um cofre existente. Se você optar por criar um novo cofre, use a tabela a seguir para ajudá-lo a configurar o cofre e clique em criar. consulte para criar novos Key Vault dentro da mesma assinatura e grupo de recursos.
+Na página **status da Key Vault** , clique em **repositório Key Vault** para criar um novo cofre ou escolha um cofre existente. Se você optar por criar um novo cofre, use a tabela a seguir para ajudá-lo a configurar o cofre e clique em criar. Crie o novo Key Vault dentro da mesma assinatura e grupo de recursos que o aplicativo do serviço de aplicativo.
 
 | Definição | Descrição |
 |-|-|
@@ -137,9 +137,9 @@ Na página **status da Key Vault** , clique em **repositório Key Vault** para c
 | Localização | Selecione o mesmo local que o aplicativo do serviço de aplicativo. |
 | Escalão de preço | Para obter informações, consulte [Azure Key Vault detalhes de preços](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define os aplicativos e o acesso permitido aos recursos do cofre. Você pode configurá-lo mais tarde, seguindo as etapas em [conceder a vários aplicativos acesso a um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso à rede virtual | Restringir o acesso ao cofre para determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde, seguindo as etapas em [configurar Azure Key Vault firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
+| Acesso de Rede Virtual | Restringir o acesso ao cofre para determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde, seguindo as etapas em [configurar Azure Key Vault firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
-Depois de selecionar o cofre, feche a página do **repositório Key Vault** . A opção de **repositório** deve mostrar uma marca de seleção verde para êxito. Mantenha a página aberta para a próxima etapa.
+Depois de selecionar o cofre, feche a página do **repositório Key Vault** . A opção **Step 1: Store** deve mostrar uma marca de seleção verde para êxito. Mantenha a página aberta para a próxima etapa.
 
 ### <a name="verify-domain-ownership"></a>Verificar a propriedade do domínio
 
@@ -183,7 +183,7 @@ No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no me
 
 No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL** > **certificados de chave privada (. pfx)**  > **importar Key Vault certificado**.
 
-![Importar Key Vault certificado no serviço de aplicativo](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Importar Key Vault certificado no serviço de aplicativo](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 Use a tabela a seguir para ajudá-lo a selecionar o certificado.
 
@@ -235,7 +235,7 @@ Crie um ficheiro para o certificado intercalado, denominado _mergedcertificate.c
 
 Exporte o certificado SSL intercalado com a chave privada com que o pedido de certificado foi gerado.
 
-Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os marcadores de posição  _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ pelos caminhos para a chave privada e o ficheiro de certificado intercalado.
+Se tiver gerado o pedido de certificado com OpenSSL, significa que criou um ficheiro de chave privada. Para exportar o certificado para PFX, execute o seguinte comando. Substitua os marcadores de posição _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ pelos caminhos para a chave privada e o ficheiro de certificado intercalado.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  

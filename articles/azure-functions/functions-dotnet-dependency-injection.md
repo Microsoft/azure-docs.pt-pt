@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: dbd6762906bc189cad74d78dcd8f28b0cfeba183
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6ccf9dce0fc119bd666871489a42a3ef734f81
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226979"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769205"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET Azure Functions
 
@@ -25,7 +25,7 @@ Azure Functions dá suporte ao padrão de design de software injeção de depend
 
 Antes de poder usar a injeção de dependência, você deve instalar os seguintes pacotes NuGet:
 
-- [Microsoft. Azure. Functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Pacote Microsoft. net. Sdk. Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
@@ -62,7 +62,7 @@ namespace MyNamespace
 }
 ```
 
-### <a name="caveats"></a>ADVERTÊNCIAS
+### <a name="caveats"></a>Limitações
 
 Uma série de etapas de registro executada antes e depois que o tempo de execução processa a classe de inicialização. Portanto, tenha em mente os seguintes itens:
 
@@ -136,7 +136,7 @@ Se você precisar de seu próprio provedor de log, registre um tipo personalizad
 
 O host de função registra vários serviços. Os seguintes serviços são seguros para serem adotados como uma dependência em seu aplicativo:
 
-|Tipo de Serviço|Existência|Descrição|
+|Tipo de Serviço|Tempo de vida|Descrição|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Único|Configuração de tempo de execução|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Único|Responsável por fornecer a ID da instância do host|
@@ -196,7 +196,7 @@ Consulte o [padrão de opções em ASP.NET Core](https://docs.microsoft.com/aspn
 > [!WARNING]
 > Evite tentar ler valores de arquivos como *local. Settings. JSON* ou *appSettings. { Environment}. JSON* no plano de consumo. Os valores lidos desses arquivos relacionados a conexões de gatilho não estão disponíveis conforme o aplicativo é dimensionado porque a infraestrutura de hospedagem não tem acesso às informações de configuração.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

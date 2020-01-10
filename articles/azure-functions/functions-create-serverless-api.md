@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230684"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769273"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
-Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. As Funções do Azure incluem uma coleção de enlaces e acionadores HTTP incorporados, que facilitam a criação de um ponto final em várias linguagens, incluindo Node.JS, C# e muitas mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
+Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo node. C#js, e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Também vai preparar-se para aumentar a sua API ao integrá-la com os Proxies de Funções do Azure e ao configurar APIs fictícias. Tudo isto é feito sobre o ambiente de computação sem servidor das Funções, para que não tenha de se preocupar com o dimensionamento de recursos – pode concentrar-se apenas na lógica da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 

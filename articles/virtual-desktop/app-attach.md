@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972393"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772555"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar a anexação da aplicação MSIX
 
@@ -40,7 +40,7 @@ Primeiro, você precisa obter a imagem do sistema operacional que usará para o 
      >[!NOTE]
      >Você deve ser membro do programa Windows Insider para acessar o portal do Windows Insider. Para saber mais sobre o programa Windows Insider, Confira nossa [documentação do Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. Role para baixo até a seção **selecionar edição** e selecione **Windows 10 Insider Preview Enterprise (rápido) – Build xxxxx**.
+2. Role para baixo até a seção **selecionar edição** e selecione **Windows 10 Insider Preview Enterprise (rápido) – Build 19035** ou posterior.
 
 3. Selecione **confirmar**e, em seguida, selecione o idioma que deseja usar e, em seguida, selecione **confirmar** novamente.
     
@@ -172,8 +172,8 @@ No seu ambiente de área de trabalho virtual do Windows, crie um compartilhament
 Se seu aplicativo usa um certificado que não é confiável para o público ou foi autoassinado, veja como instalá-lo:
 
 1. Clique com o botão direito do mouse no pacote e selecione **Propriedades**.
-2. Na janela exibida, selecione a guia **assinaturas digitais** . Deve haver apenas um item na lista na guia, conforme mostrado na imagem a seguir. Selecione esse item para realçar o item e, em seguida, selecione * * de
-3. Quando a janela detalhes do sinal digital for exibida, selecione a guia **geral** e, em seguida, selecione **Instalar certificado**.
+2. Na janela exibida, selecione a guia **assinaturas digitais** . Deve haver apenas um item na lista na guia, conforme mostrado na imagem a seguir. Selecione esse item para realçar o item e, em seguida, selecione **detalhes**.
+3. Quando a janela detalhes da assinatura digital for exibida, selecione a guia **geral** e, em seguida, selecione **Instalar certificado**.
 4. Quando o instalador for aberto, selecione **computador local** como o local de armazenamento e, em seguida, selecione **Avançar**.
 5. Se o instalador perguntar se você deseja permitir que o aplicativo faça alterações no seu dispositivo, selecione **Sim**.
 6. Selecione **Coloque todos os certificados no repositório a seguir**e, em seguida, selecione **procurar**.
@@ -199,12 +199,12 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
 2.  Clique com o botão direito do mouse no VHD e selecione **montar**. Isso montará o VHD em uma letra de unidade.
 
-3.  Depois de montar o VHD, a janela **Explorador de arquivos** será aberta. Capturar a pasta pai e atualizar a variável de **\$ParentFolder**
+3.  Depois de montar o VHD, a janela **Explorador de arquivos** será aberta. Capturar a pasta pai e atualizar a variável **$ParentFolder**
 
     >[!NOTE]
     >Se você não vir uma pasta pai, isso significa que o MSIX não foi expandido corretamente. Refaça a seção anterior e tente novamente.
 
-4.  Abra a pasta pai. Se for expandido corretamente, você verá uma pasta com o mesmo nome que o pacote. Atualize a variável **\$PackageName** para corresponder ao nome dessa pasta.
+4.  Abra a pasta pai. Se for expandido corretamente, você verá uma pasta com o mesmo nome que o pacote. Atualize a variável **$PackageName** para corresponder ao nome desta pasta.
 
     Por exemplo, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -227,7 +227,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
     ```
 
 
-6.  Atualize a variável **\$volumeGuid** com o GUID do volume que você acabou de copiar.
+6.  Atualize a variável **$volumeGuid** com o GUID do volume que você acabou de copiar.
 
 7. Abra um prompt de administrador do PowerShell e atualize o seguinte script do PowerShell com as variáveis que se aplicam ao seu ambiente.
 
@@ -256,9 +256,9 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>Cancelar registro do script do PowerShell
 
-Para esse script, substitua o espaço reservado para **\$PackageName** pelo nome do pacote que você está testando.
+Para esse script, substitua o espaço reservado por **$PackageName** pelo nome do pacote que você está testando.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Despreparar script do PowerShell
 
-Para esse script, substitua o espaço reservado para **\$PackageName** pelo nome do pacote que você está testando.
+Para esse script, substitua o espaço reservado por **$PackageName** pelo nome do pacote que você está testando.
 
 ```powershell
 #MSIX app attach de staging sample

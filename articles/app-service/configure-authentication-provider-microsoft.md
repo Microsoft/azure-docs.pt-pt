@@ -5,12 +5,12 @@ ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9158a4094b7d2ec148c2cae85decb3ad959b7c3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 12e16cc7e17ae217a334fe25d71672ab2cafa5a8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671929"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768440"
 ---
 # <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon da conta da Microsoft
 
@@ -22,7 +22,7 @@ Este tópico mostra como configurar o serviço de Azure App para usar a conta da
 
 1. Vá para [**registros de aplicativo**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) na portal do Azure. Se necessário, entre com seu conta Microsoft.
 1. Selecione **novo registro**e insira um nome de aplicativo.
-1. Em **URIs de redirecionamento**, selecione **Web**e, em seguida, insira `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`. Substitua *\<app-domain-name >* pelo nome de domínio do seu aplicativo.  Por exemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Certifique-se de usar o esquema HTTPS na URL.
+1. Em **URIs de redirecionamento**, selecione **Web**e, em seguida, insira `https://<app-domain-name>/.auth/login/microsoftaccount/callback`. Substitua *\<app-domain-name >* pelo nome de domínio do seu aplicativo.  Por exemplo, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Certifique-se de usar o esquema HTTPS na URL.
 
 1. Selecione **Registar**.
 1. Copie a **ID do aplicativo (cliente)** . Precisará dela mais tarde.
@@ -30,7 +30,7 @@ Este tópico mostra como configurar o serviço de Azure App para usar a conta da
 1. Copie o valor que aparece na página **certificados & segredos** . Depois de sair da página, ela não será exibida novamente.
 
     > [!IMPORTANT]
-    > A senha é uma credencial de segurança importante. Não compartilhe a senha com ninguém nem a distribua em um aplicativo cliente.
+    > O valor de segredo do cliente (senha) é uma credencial de segurança importante. Não compartilhe a senha com ninguém nem a distribua em um aplicativo cliente.
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo do serviço de aplicativo
 
@@ -50,7 +50,7 @@ Este tópico mostra como configurar o serviço de Azure App para usar a conta da
 
 Agora você está pronto para usar a conta da Microsoft para autenticação em seu aplicativo.
 
-## <a name="related-content"> </a>Passos seguintes
+## <a name="related-content"> </a>Próximas etapas
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

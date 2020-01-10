@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528764"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771824"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Depurar interativamente em uma instância de computação Azure Machine Learning com VS Code remoto
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a configurar o Visual Studio Code remoto em uma i
 > [!NOTE]
 > As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **EUA Central norte** ou **sul do Reino Unido**.
 
-+ Uma [instância de computação Azure Machine Learning](/azure/machine-learning/service/concept-compute-instance) é uma estação de trabalho baseada em nuvem totalmente gerenciada para cientistas de dados e fornece recursos de gerenciamento e preparação empresarial para os administradores de ti. 
++ Uma [instância de computação Azure Machine Learning](concept-compute-instance.md) é uma estação de trabalho baseada em nuvem totalmente gerenciada para cientistas de dados e fornece recursos de gerenciamento e preparação empresarial para os administradores de ti. 
 
 
 + [Visual Studio Code remoto](https://code.visualstudio.com/docs/remote/remote-overview) O desenvolvimento permite que você use um contêiner, computador remoto ou o subsistema do Windows para Linux (WSL) como um ambiente de desenvolvimento repleto de recursos. 
@@ -117,4 +117,4 @@ Daqui em diante, você está trabalhando totalmente na instância de computaçã
 
 Agora que você configurou o Visual Studio Code remoto, é possível usar uma instância de computação como computação remota do Visual Studio Code para depurar interativamente seu código. 
 
-[Tutorial: treinar seu primeiro modelo de ml](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train) mostra como usar uma instância de computação com um bloco de anotações integrado.
+[Tutorial: treinar seu primeiro modelo de ml](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância de computação com um bloco de anotações integrado.

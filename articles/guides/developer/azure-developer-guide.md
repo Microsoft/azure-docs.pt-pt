@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: c8ab954471e597cfea5c6f56cd45b2191aa73242
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0df55f4ce790d6ea38f44ce0ca6dab43085c3455
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424076"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770922"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -50,7 +50,7 @@ O Azure oferece serviços que dão suporte ao desenvolvimento de aplicativos e �
 ![Opções de Hospedagem de aplicativo do Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Serviço de Aplicações do Azure 
+#### <a name="azure-app-service"></a>App Service do Azure 
 
 Quando você quiser o caminho mais rápido para publicar seus projetos baseados na Web, considere Azure App serviço. O serviço de aplicativo facilita estender seus aplicativos Web para dar suporte a seus clientes móveis e publicar facilmente as APIs REST consumidas. Essa plataforma fornece autenticação usando provedores sociais, dimensionamento automático baseado em tráfego, teste em produção e implantações baseadas em contêiner e contínuas.
 
@@ -93,10 +93,10 @@ Em vez de se preocupar em criar e gerenciar um aplicativo inteiro ou a infraestr
 O Azure Service Fabric é uma plataforma de sistemas distribuídos. Essa plataforma facilita a criação, o empacotamento, a implantação e o gerenciamento de microserviços escalonáveis e confiáveis. Ele também fornece recursos abrangentes de gerenciamento de aplicativos, como: 
 
 * Aprovisionamento
-* Implantar 
+* Deploying 
 * Monitorização
 * Atualização/aplicação de patch
-* Excluído 
+* A eliminar 
 
 Os aplicativos, que são executados em um pool compartilhado de computadores, podem começar pequeno e dimensionar para centenas ou milhares de máquinas, conforme necessário.
 
@@ -133,7 +133,7 @@ A maioria dos aplicativos deve armazenar dados, portanto, você decide hospedar 
   > **Introdução**: [crie um banco de dados SQL em minutos usando o portal do Azure](../../sql-database/sql-database-get-started.md).
 
 
-Você pode usar [Azure data Factory](../../data-factory/introduction.md) para mover dados locais existentes para o Azure. Se você não estiver pronto para mover dados para a nuvem, [conexões híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) nos serviços BizTalk permite que você conecte seu aplicativo hospedado do serviço de aplicativo a recursos locais. Você também pode se conectar aos serviços de armazenamento e dados do Azure de seus aplicativos locais.
+Você pode usar [Azure data Factory](../../data-factory/introduction.md) para mover dados locais existentes para o Azure. Se você não estiver pronto para mover dados para a nuvem, [conexões híbridas](../../app-service/app-service-hybrid-connections.md) no serviço Azure App permite que você conecte seu aplicativo hospedado do serviço de aplicativo a recursos locais. Você também pode se conectar aos serviços de armazenamento e dados do Azure de seus aplicativos locais.
 
 #### <a name="docker-support"></a>Suporte do Docker
 
@@ -147,11 +147,11 @@ O Azure fornece várias maneiras de usar contêineres em seus aplicativos.
   > 
   > **Introdução**: [criar um ambiente do Docker no Azure usando a extensão de VM do Docker](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
-- **Serviço de contêiner do Azure**: permite criar, configurar e gerenciar um cluster de máquinas virtuais que são pré-configuradas para executar aplicativos em contêineres. Para saber mais sobre o serviço de contêiner, consulte [introdução ao serviço de contêiner do Azure](../../container-service/container-service-intro.md).
+- **Serviço kubernetes do Azure**: permite criar, configurar e gerenciar um cluster de máquinas virtuais que são pré-configuradas para executar aplicativos em contêineres. Para saber mais sobre o serviço kubernetes do Azure, consulte [introdução ao serviço kubernetes do Azure](../../aks/intro-kubernetes.md).
 
   > **Quando usar**: quando você precisar criar ambientes escalonáveis e prontos para produção que fornecem ferramentas de gerenciamento e agendamento adicionais, ou quando você estiver implantando um cluster do Docker Swarm.
   > 
-  > **Introdução**: [implantar um cluster do serviço de contêiner](../../container-service/dcos-swarm/container-service-deployment.md).
+  > **Introdução**: [implantar um cluster do serviço kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 - **Máquina do Docker**: permite que você instale e gerencie um mecanismo do Docker em hosts virtuais usando comandos de máquina Docker.
 
@@ -185,7 +185,7 @@ Para saber mais sobre as práticas recomendadas de segurança no Azure, consulte
 
 Com seu aplicativo em funcionamento no Azure, você precisa monitorar o desempenho, observar problemas e ver como os clientes estão usando seu aplicativo. O Azure fornece várias opções de monitoramento.
 
--   **Application insights do Visual Studio**: um serviço de análise extensível hospedado pelo Azure que se integra ao Visual Studio para monitorar seus aplicativos Web em tempo real. Ele fornece os dados de que você precisa para melhorar o desempenho e a usabilidade de seus aplicativos continuamente. Essa melhoria ocorrerá se você hospedar seus aplicativos no Azure ou não.
+-   **Application insights**: um serviço de análise extensível hospedado no Azure que se integra ao Visual Studio para monitorar seus aplicativos Web em tempo real. Ele fornece os dados de que você precisa para melhorar o desempenho e a usabilidade de seus aplicativos continuamente. Essa melhoria ocorrerá se você hospedar seus aplicativos no Azure ou não.
 
     >**Introdução**: Siga o [tutorial de Application insights](../../azure-monitor/app/app-insights-overview.md).
 
@@ -203,7 +203,7 @@ Seja Provisionando VMs ou publicando seus aplicativos Web com integração cont�
 * Chef
 * TeamCity
 * Ansible
-* DevOps do Azure
+* Azure DevOps
 
 > **Introdução**: para ver as opções de DevOps para um aplicativo do serviço de aplicativo, consulte [implantação contínua no serviço Azure app](../../app-service/deploy-continuous-deployment.md).
 > 
@@ -240,7 +240,7 @@ O Azure fornece duas maneiras de gerenciar seus aplicativos e serviços na linha
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O [portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web. Você pode usar o portal do Azure para criar, gerenciar e remover recursos e serviços do Azure. Ele inclui:
+O [portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web. Você pode usar o portal do Azure para criar, gerenciar e remover recursos e serviços do Azure. Inclui:
 
 * Um painel configurável
 * Ferramentas de gerenciamento de recursos do Azure
@@ -264,9 +264,9 @@ Juntamente com as APIs REST, muitos serviços do Azure também permitem que voc�
 
 Serviços como [aplicativos móveis](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [serviços de mídia do Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) fornecem SDKs do lado do cliente para permitir que você acesse serviços de aplicativos de cliente Web e móveis.
 
-### <a name="azure-resource-manager"></a>Azure Resource Manager 
+### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure 
     
-A execução do aplicativo no Azure provavelmente envolve o trabalho com vários serviços do Azure. Esses serviços seguem o mesmo ciclo de vida e podem ser considerados como uma unidade lógica. Por exemplo, um aplicativo Web pode usar aplicativos Web, banco de dados SQL, armazenamento, cache do Azure para Redis e serviços de rede de distribuição de conteúdo do Azure. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos em seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos em uma única operação coordenada.
+A execução do aplicativo no Azure provavelmente envolve o trabalho com vários serviços do Azure. Esses serviços seguem o mesmo ciclo de vida e podem ser considerados como uma unidade lógica. Por exemplo, um aplicativo Web pode usar aplicativos Web, banco de dados SQL, armazenamento, cache do Azure para Redis e serviços de rede de distribuição de conteúdo do Azure. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) permite trabalhar com os recursos em seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos em uma única operação coordenada.
 
 Juntamente com o agrupamento lógico e o gerenciamento de recursos relacionados, o Azure Resource Manager inclui recursos de implantação que permitem personalizar a implantação e a configuração de recursos relacionados. Por exemplo, você pode usar a implantação do Resource Manager e configurar um aplicativo. Esse aplicativo pode consistir em várias máquinas virtuais, um balanceador de carga e um banco de dados SQL do Azure como uma única unidade.
 
@@ -298,7 +298,7 @@ Ao provisionar novos serviços do Azure, você faz isso em uma determinada assin
 
 A Azure Resource Explorer é uma excelente ferramenta para visualizar os recursos que você já criou em sua assinatura. Para saber mais, confira [usar Azure Resource Explorer para exibir e modificar recursos](../../resource-manager-resource-explorer.md).
 
-#### <a name="grant-access-to-resources"></a>Conceder acesso a recursos
+#### <a name="grant-access-to-resources"></a>Conceder acesso aos recursos
 
 Quando você permite o acesso aos recursos do Azure, é sempre uma prática recomendada fornecer aos usuários o privilégio mínimo necessário para realizar uma determinada tarefa.
 
@@ -320,7 +320,7 @@ Azure Resource Manager permite atribuir marcas personalizadas a recursos individ
 * No modelo de Azure Resource Manager 
 * Utilizar a API REST
 * Com a CLI do Azure
-* Com o PowerShell 
+* Utilizar o PowerShell 
 
 Você pode atribuir várias marcas a cada recurso. Para saber mais, consulte [usando marcas para organizar os recursos do Azure](../../resource-group-using-tags.md).
 

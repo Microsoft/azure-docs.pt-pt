@@ -1,10 +1,10 @@
 ---
-title: Desenvolver um aplicativo Web do Azure AD seguro | Microsoft Docs
+title: Desenvolver um aplicativo Web seguro do Azure AD | Microsoft Docs
 description: Este aplicativo de exemplo simples implementa práticas recomendadas de segurança que melhoram seu aplicativo e a postura de segurança de sua organização quando você desenvolve no Azure.
-keywords: na
+keywords: nd
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159850"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771279"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver um aplicativo seguro para um aplicativo do Azure AD
 ## <a name="overview"></a>Visão geral
@@ -55,7 +55,7 @@ A arquitetura consiste nesses componentes
 - [Sistema de nomes de domínio do Azure](../../dns/dns-overview.md). Forneça o serviço para hospedar o domínio.
 - [Balanceador de Carga do Azure](../../load-balancer/load-balancer-overview.md). Fornece para dimensionar seus aplicativos e criar alta disponibilidade para seus serviços.
 - [Aplicação Web do Azure](../../app-service/overview.md).  Fornece um serviço baseado em HTTP para hospedar aplicativos Web.
-- [Central de segurança do Azure](../../security-center/index.yml). fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
+- [Centro de Segurança do Azure](../../security-center/index.yml). fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
 - [Azure Policy](../../governance/policy/overview.md). Fornece avaliação de seus recursos para não conformidade com políticas atribuídas.
 
 ## <a name="threat-model"></a>Modelo de ameaça
@@ -334,7 +334,7 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
 
 5. Na folha sub-redes do NSG, selecione **associar**, selecione a rede virtual criada na implantação e selecione a sub-rede de gateway denominada **GW-subnet**. O NSG é aplicado à sub-rede.
 
-6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ele. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
+6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ela. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
 
    Se você tiver uma instância do serviço de aplicativo implantada em uma instância do Ambiente do Serviço de Aplicativo, que não é o caso desse aplicativo, você poderá adicionar regras de entrada para permitir investigações de integridade do serviço do Azure abrindo as portas 454-455 nos grupos de segurança de entrada de seu serviço de aplicativo NSG. Aqui está a configuração:
 
@@ -362,7 +362,7 @@ As tecnologias a seguir fornecem recursos para gerenciar o acesso aos dados do t
 - Azure Active Directory Privileged Identity Management permite que os clientes minimizem o número de usuários que têm acesso a determinadas informações, como dados de titulares de cartão. Os administradores podem usar Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar identidades com privilégios e seu acesso aos recursos. Essa funcionalidade também pode ser usada para impor acesso administrativo sob demanda e Just-in-time quando necessário.
 - Azure Active Directory Identity Protection detecta possíveis vulnerabilidades que afetam as identidades de uma organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas às identidades de uma organização e investiga suspeitas incidentes para executar a ação apropriada para resolvê-los.
 ### <a name="secrets-management"></a>Gerenciamento de segredos
-A solução usa Azure Key Vault para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados
+A solução usa Azure Key Vault para o gerenciamento de chaves e segredos. O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados
    - As políticas de acesso avançadas são configuradas de acordo com a necessidade.
    - Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos.
    - Todas as chaves e segredos em Key Vault têm datas de expiração.
@@ -412,7 +412,7 @@ Os serviços do Azure registram extensivamente a atividade do sistema e do usuá
    - Chave de acesso de armazenamento de dados
    - Cadeia de ligação
    - Nome da tabela de dados
-   - Credenciais do usuário
+   - Credenciais de Utilizador
    - As políticas de acesso avançadas são configuradas de acordo com a necessidade
    - Key Vault políticas de acesso são definidas com as permissões mínimas necessárias para chaves e segredos
    - Todas as chaves e segredos no Key Vault têm datas de expiração
@@ -465,7 +465,7 @@ Para habilitar o MFA para entradas de administrador
    1. Vá para a guia **Azure Active Directory** na portal do Azure
    2. Na categoria segurança, selecione acesso condicional. Você vê esta tela
 
-       ![Acesso condicional-políticas](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Políticas de Acesso Condicional](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se você não puder criar uma nova política
 
@@ -512,13 +512,13 @@ Para criar este espaço de trabalho
    *Pesquisar espaços de trabalho do Log Analytics*
 
    2. Na página seguinte, selecione **Adicionar** e forneça um nome, um grupo de recursos e um local para o espaço de trabalho.
-   ![criar um espaço de trabalho Log Analytics](./media/secure-aad-app/sentinel-log-analytics-create.png)
+   ![Criar uma área de trabalho do Log Analytics](./media/secure-aad-app/sentinel-log-analytics-create.png)
 
-   *Criar um espaço de trabalho Log Analytics*
+   *Criar uma área de trabalho do Log Analytics*
 
    3. Use a caixa de pesquisa para pesquisar o **Azure Sentinel**.
 
-   ![Pesquisar pelo Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
+   ![Procurar o Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
    *Pesquisar pelo Azure Sentinel*
 
@@ -537,7 +537,7 @@ Para criar este espaço de trabalho
    Por exemplo, para conectar o gateway de aplicativo, execute estas etapas:
 
    1. Abra a folha da instância do gateway Aplicativo Azure.
-   2. Em **monitoramento**, selecione **configurações de diagnóstico**.
+   2. Sob **monitorização**, selecione **das definições de diagnóstico**.
    3. Selecione **Adicionar configuração de diagnóstico**.
 
    ![Adicionar diagnóstico do gateway de aplicativo](./media/secure-aad-app/sentinel-gateway-connector.png)
@@ -558,6 +558,6 @@ Para criar este espaço de trabalho
 ## <a name="next-steps"></a>Passos seguintes
    Os artigos a seguir podem ajudá-lo a projetar, desenvolver e implantar aplicativos seguros.
 
-- [Desenvolver](secure-design.md)
+- [Estruturar](secure-design.md)
 - [Programar](secure-develop.md)
 - [Implementar](secure-deploy.md)

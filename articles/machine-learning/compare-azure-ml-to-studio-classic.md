@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 6c174faaad5d7d33a837d6399be27444ab0556c6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529559"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771977"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Como Azure Machine Learning difere de Machine Learning Studio (clássico)
 
@@ -29,7 +29,7 @@ Enquanto isso, [Azure Machine Learning](overview-what-is-azure-ml.md) fornece um
 O designer de Azure Machine Learning fornece uma experiência de arrastar e soltar semelhante ao Studio (clássico). No entanto, diferentemente da plataforma de computação proprietária do estúdio (clássico), o designer usa seus próprios recursos de computação, é escalonável e é totalmente integrado ao Azure Machine Learning.  
 
 > [!TIP]
-> Os clientes que atualmente usam ou avaliam Machine Learning Studio (clássico) são incentivados a experimentar o [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) (versão prévia), que fornece módulos ml de arrastar e soltar, __além__ de escalabilidade, controle de versão e segurança corporativa.
+> Os clientes que atualmente usam ou avaliam Machine Learning Studio (clássico) são incentivados a experimentar o [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/ui-concept-visual-interface) (versão prévia), que fornece módulos ml de arrastar e soltar, __além__ de escalabilidade, controle de versão e segurança corporativa.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparação: Azure Machine Learning vs. Machine Learning Studio (clássico)
 

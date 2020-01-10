@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f7fadd974fdc572dddb403c25e90246fd92b1989
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964060"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763237"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -29,9 +29,9 @@ Você pode adotar uma das duas abordagens para exigir a verificação em duas et
 
 **Habilitado alterando o estado do usuário** – esse é o método tradicional para exigir a verificação em duas etapas e é discutido neste artigo. Ele funciona com a MFA do Azure na nuvem e no servidor Azure MFA. O uso desse método exige que os usuários executem a verificação em duas etapas **sempre** que entrarem e substituam as políticas de acesso condicional.
 
-Habilitado pela política de acesso condicional – esse é o meio mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar o uso da política de acesso condicional funciona apenas para o Azure MFA na nuvem e é um recurso Premium do Azure AD. Mais informações sobre esse método podem ser encontradas em [implantar a autenticação multifator do Azure baseada em nuvem](howto-mfa-getstarted.md).
+**Habilitado pela política de acesso condicional** – esse é o meio mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar o uso da política de acesso condicional funciona apenas para o Azure MFA na nuvem e é um recurso Premium do Azure AD. Mais informações sobre esse método podem ser encontradas em [implantar a autenticação multifator do Azure baseada em nuvem](howto-mfa-getstarted.md).
 
-Habilitado por Azure AD Identity Protection-esse método usa a política de risco de Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos de nuvem. Esse método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
+**Habilitado por Azure ad Identity Protection** -esse método usa a política de risco de Azure ad Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos de nuvem. Esse método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
 > Mais informações sobre licenças e preços podem ser encontradas nas páginas de preços [do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/
@@ -136,7 +136,7 @@ Usar o PowerShell é uma boa opção quando você precisa habilitar usuários em
 Para desabilitar o MFA, use este script:
 
    ```PowerShell
-   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationMethods @()
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
    ```
 
 que também pode ser reduzido para:

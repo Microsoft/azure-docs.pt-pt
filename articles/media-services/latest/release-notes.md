@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0f2eabf0167865333131e0f8e5b0c4ccb409e40e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420032"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771245"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
+
+>Seja notificado sobre quando revisitar esta página para atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` em seu leitor de RSS feed.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -33,6 +35,40 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Use a [API REST](https://aka.ms/ams-v3-rest-sdk), a CLI ou um dos SDKs com suporte.
 
 Para obter mais informações, consulte [diretrizes de migração para mudar dos serviços de mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="november-2019"></a>Novembro de 2019
+
+### <a name="live-transcription-preview"></a>Visualização de transcrição ao vivo
+
+A transcrição ao vivo agora está em visualização pública e disponível para uso na região oeste dos EUA 2.
+
+A transcrição ao vivo foi projetada para trabalhar em conjunto com eventos ao vivo como um recurso complementar.  Há suporte para eventos ao vivo de codificação de passagem e Standard ou Premium.  Quando esse recurso é habilitado, o serviço usa o recurso de [conversão de fala em texto](../../cognitive-services/speech-service/speech-to-text.md) de serviços cognitivas para transcrever as palavras faladas no áudio de entrada em texto. Esse texto é disponibilizado para entrega junto com vídeo e áudio em protocolos MPEG-DASH e HLS. A cobrança é baseada em um novo medidor de complemento que é custo adicional para o evento ao vivo quando ele está no estado "em execução".  Para obter detalhes sobre a transcrição dinâmica e a cobrança, consulte [transcrição ao vivo](live-transcription.md)
+
+> [!NOTE]
+> Atualmente, a transcrição ao vivo só está disponível como um recurso de visualização na região oeste dos EUA 2. Ele dá suporte à transcrição de palavras faladas em inglês (en-US) somente no momento.
+
+### <a name="content-protection"></a>Proteção de conteúdo
+
+O recurso de *prevenção de reprodução de token* lançado em regiões limitadas de volta em setembro agora está disponível em todas as regiões.
+Os clientes dos serviços de mídia agora podem definir um limite no número de vezes que o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [prevenção de reprodução de token](content-protection-overview.md#token-replay-prevention).
+
+### <a name="new-recommended-live-encoder-partners"></a>Novos parceiros de codificador dinâmico recomendados
+
+Adição de suporte para os seguintes novos codificadores de parceiros recomendados para streaming ao vivo RTMP:
+
+- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
+- [GoPro Hero7/8 e máximo de câmeras de ação](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>Aprimoramentos de codificação de arquivo
+- Uma nova predefinição de codificação com reconhecimento de conteúdo está disponível agora. Ele produz um conjunto de MP4s alinhado a GOP usando a codificação com reconhecimento de conteúdo. Dado qualquer conteúdo de entrada, o serviço executa uma análise leve inicial do conteúdo de entrada. Ele usa esses resultados para determinar o número ideal de camadas, a taxa de bits apropriada e as configurações de resolução para entrega por streaming adaptável. Essa predefinição é particularmente eficaz para vídeos de baixa complexidade e de complexidade média, em que os arquivos de saída têm taxas de bits menores, mas com uma qualidade que ainda oferece uma boa experiência aos visualizadores. A saída conterá arquivos MP4 com vídeo e áudio intercalados. Para obter mais informações, consulte as [especificações de API aberta](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
+- Melhor desempenho e multithreading para o redimensionador em Media Encoder Standard. Em condições específicas, o cliente deve ver um aumento de desempenho entre 5-40% de codificação VOD. O conteúdo de baixa complexidade codificado em várias taxas de bits verá o maior desempenho aumenta. 
+- A codificação padrão agora mantém uma cadência GOP regular para conteúdo de VFR (taxa de quadros variável) durante a codificação VOD ao usar a configuração de GOP baseada em tempo.  Isso significa que o cliente que envia conteúdo de taxa de quadros misto que varia entre 15-30 fps, por exemplo, agora deve ver as distâncias GOP regulares calculadas na saída para arquivos MP4 de streaming de taxa de bits adaptável. Isso melhorará a capacidade de alternar diretamente entre as faixas ao entregar HLS ou DASH. 
+-  Sincronização antivírus aprimorada para conteúdo de origem de taxa de quadros variável (VFR)
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, análise de vídeo
+
+- Os quadros-chave extraídos usando a predefinição VideoAnalyzer agora estão na resolução original do vídeo em vez de serem redimensionados. A extração de quadro-chave de alta resolução fornece imagens de qualidade original e permite que você use os modelos de inteligência artificial baseados em imagem fornecidos pelo Microsoft Pesquisa Visual Computacional e Visão Personalizada Services para obter ainda mais informações do seu vídeo.
 
 ## <a name="september-2019"></a>Setembro de 2019
 
@@ -74,7 +110,7 @@ Para obter detalhes, consulte [migrar WAME para Media Encoder Standard](https://
 
 Ao transmitir conteúdo protegido com restrição de token, os usuários finais precisam obter um token que é enviado como parte da solicitação de entrega de chave. O recurso de *prevenção de reprodução de token* permite que os clientes dos serviços de mídia definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. Para obter mais informações, consulte [prevenção de reprodução de token](content-protection-overview.md#token-replay-prevention).
 
-Esse recurso está disponível no momento em Centro dos EUA e centro-oeste dos EUA.
+A partir de julho, o recurso de visualização só estava disponível em Centro dos EUA e centro-oeste dos EUA.
 
 ## <a name="june-2019"></a>Junho de 2019
 
@@ -159,16 +195,16 @@ O módulo CLI 2,0 agora está disponível para os [serviços de mídia do Azure 
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [AZ conta AMS](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ conta AMS – filtro](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [AZ Asset AMS](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ AMS Asset-Filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ AMS Content-Key-Policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [trabalho AZ AMS](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ AMS Live-Event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ AMS Live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ AMS streaming-Endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ AMS streaming-Locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [AZ AMS Account MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -permite que você gerencie unidades reservadas de mídia. Para obter mais informações, consulte [dimensionar unidades reservadas de mídia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Novos recursos e alterações significativas
@@ -258,13 +294,13 @@ Você pode ver os seguintes aprimoramentos de suporte da grade de eventos:
 
 Suporte à criptografia CMAF e ' CBCs ' para os players Apple HLS (iOS 11 +) e MPEG-DASH que dão suporte a CMAF.
 
-### <a name="video-indexer"></a>Indexador de Vídeos
+### <a name="video-indexer"></a>Indexador de Vídeo
 
 Video Indexer versão de GA foi anunciada em agosto. Para obter novas informações sobre os recursos com suporte no momento, consulte [o que é Video indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
 ### <a name="plans-for-changes"></a>Planos para que as alterações
 
-#### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
  
 O módulo CLI do Azure 2,0 que inclui operações em todos os recursos (incluindo políticas dinâmicas, de chave de conteúdo, filtros de conta/ativo, políticas de streaming) estará disponível em breve. 
 
@@ -276,7 +312,7 @@ Se você criou os ativos ou filtros de conta entre 09/28 e 10/12 com CLI ou APIs
 
 ## <a name="may-2018---preview"></a>Maio de 2018-visualização
 
-### <a name="net-sdk"></a>SDK .NET
+### <a name="net-sdk"></a>.NET SDK
 
 Os seguintes recursos estão presentes no SDK do .NET:
 

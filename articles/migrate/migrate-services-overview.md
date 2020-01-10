@@ -4,12 +4,12 @@ description: Saiba mais sobre o serviço migrações para Azure.
 ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 983ba420067bf2e4b6416287d8898943142c90c0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
-ms.translationtype: HT
+ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563569"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772198"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -39,7 +39,7 @@ O Hub migrações para Azure fornece as ferramentas a seguir.
 **DMS (serviço de migração de banco de dados)** | Migre bancos de dados locais para VMs do Azure executando SQL, BD SQL do Azure e instâncias gerenciadas do SQL do Azure. | [Saiba mais](https://docs.microsoft.com/azure/dms/dms-overview) sobre o DMS.
 **Movere** | Avaliar servidores | [Saiba mais](#movere) sobre o mover.
 **Assistente de Migração de aplicativo Web** | Avalie e migre aplicativos Web locais para o Azure. |  Use o Assistente de Migração de serviço Azure App para avaliar sites locais para migração para o serviço Azure App.<br/><br/> Migre aplicativos Web .NET e PHP para o Azure, usando Azure App Assistente de Migração de serviço. [Saiba mais](https://appmigration.microsoft.com/) sobre o assistente.
-**Azure Data Box** | Migração de dados offline. | Use Azure Data Box produtos para mover grandes quantidades de dados offline para o Azure. [Saiba mais](https:/docs.microsoft.com/azure/databox/).
+**Azure Data Box** | Migração de dados offline. | Use Azure Data Box produtos para mover grandes quantidades de dados offline para o Azure. [Saiba mais](https://docs.microsoft.com/azure/databox/).
 
 ## <a name="isv-integration"></a>Integração de ISV
 

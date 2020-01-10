@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/02/2020
-ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.date: 01/03/2020
+ms.openlocfilehash: 6ed0742a214b001ab773e33e851abfb94495984b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644992"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767675"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -93,8 +93,10 @@ Atribua a identidade gerenciada à função de **proprietário de dados do blob 
 
         ![Configurações de identidade para usar o Data Lake Storage Gen2 com o HDInsight](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
-> [!Note]
-> Para adicionar uma conta de Data Lake Storage Gen2 secundária, no nível da conta de armazenamento, basta atribuir a identidade gerenciada criada anteriormente à nova conta de armazenamento de Data Lake Storage Gen2 que você deseja adicionar. Lembre-se de que não há suporte para a adição de uma conta de Data Lake Storage Gen2 secundária por meio da folha "contas de armazenamento adicionais" no HDInsight.
+> [!NOTE]
+> * Para adicionar uma conta de Data Lake Storage Gen2 secundária, no nível da conta de armazenamento, basta atribuir a identidade gerenciada criada anteriormente à nova conta de armazenamento de Data Lake Storage Gen2 que você deseja adicionar. Lembre-se de que não há suporte para a adição de uma conta de Data Lake Storage Gen2 secundária por meio da folha "contas de armazenamento adicionais" no HDInsight.
+> * Você pode habilitar o RA-GRS ou o RA-ZRS na conta de armazenamento do Azure que o HDInsight usa. No entanto, não há suporte para a criação de um cluster em relação ao ponto de extremidade de RA-GRS ou RA-ZRS.
+
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Criar um cluster com Data Lake Storage Gen2 por meio do CLI do Azure
 

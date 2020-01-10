@@ -1,5 +1,5 @@
 ---
-title: Solucionando problemas com a DSC (configuração de estado desejado) da automação do Azure
+title: Solucionar problemas de DSC (configuração de estado desejado) da automação do Azure
 description: Este artigo fornece informações sobre como solucionar problemas de DSC (configuração de estado desejado)
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951467"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834264"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de DSC (configuração de estado desejado)
+# <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Solucionar problemas com a DSC (configuração de estado desejado) da automação do Azure
 
 Este artigo fornece informações sobre como solucionar problemas com a DSC (configuração de estado desejado).
 
@@ -270,7 +270,7 @@ Trate o nó de assinatura cruzada como se ele estivesse em uma nuvem separada ou
 
 Siga as etapas abaixo para registrar o nó.
 
-* Windows- [máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Windows- [máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
 * Linux- [computadores Linux físicos/virtuais locais ou em uma nuvem diferente do Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Cenário: mensagem de erro-"falha no provisionamento"

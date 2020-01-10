@@ -5,14 +5,14 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
+description: Este tutorial mostra como usar Azure Dev Spaces e o Visual Studio para depurar e iterar rapidamente um aplicativo .NET Core no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
-ms.openlocfilehash: bd59046af58f63c974d5c8d6a97a372f63b848ae
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327329"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770718"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Criar um kubernetes dev Space: Visual Studio e .NET Core com Azure Dev Spaces
 
@@ -56,7 +56,7 @@ Instale a versão mais recente do [Visual Studio](https://www.visualstudio.com/v
 
 Nesta seção, você criará um aplicativo Web ASP.NET Core e o tornará em execução em um contêiner no kubernetes.
 
-### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web ASP.NET
+### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web em ASP.NET
 
 No Visual Studio, crie um novo projeto. Atualmente, o projeto tem de ser uma **aplicação Web ASP.NET Core**. Atribua o nome "**webfrontend**" ao projeto.
 
@@ -76,7 +76,7 @@ Na caixa de diálogo apresentada a seguir, certifique-se de que tem sessão inic
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
-Por agora, mantenha a predefinição **no menu pendente**Space`default` (Espaço). Vai aprender mais sobre esta opção posteriormente. Selecione a caixa de verificação **Publicly Accessible** (Acessível Publicamente) para que a aplicação Web seja acessível a partir de um ponto final público. Esta definição não é obrigatória, mas será útil para demonstrar alguns conceitos mais adiante nestas instruções. Mas não se preocupe. Em qualquer caso, poderá depurar o seu site com o Visual Studio.
+Por agora, deixe o menu pendente **Space** (Espaço) com a predefinição `default`. Vai aprender mais sobre esta opção posteriormente. Selecione a caixa de verificação **Publicly Accessible** (Acessível Publicamente) para que a aplicação Web seja acessível a partir de um ponto final público. Esta definição não é obrigatória, mas será útil para demonstrar alguns conceitos mais adiante nestas instruções. Mas não se preocupe. Em qualquer caso, poderá depurar o seu site com o Visual Studio.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
@@ -152,4 +152,4 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 > [Saiba mais sobre o desenvolvimento de vários serviços](multi-service-netcore-visualstudio.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

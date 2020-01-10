@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048180"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768627"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicativos no serviço kubernetes do Azure (AKS)
 
@@ -28,6 +28,8 @@ Este artigo apresenta os principais conceitos que ajudam a dimensionar aplicativ
 ## <a name="manually-scale-pods-or-nodes"></a>Dimensionar manualmente os pods ou nós
 
 Você pode dimensionar manualmente as réplicas (PODS) e os nós para testar como seu aplicativo responde a uma alteração nos recursos e no estado disponíveis. O dimensionamento manual de recursos também permite que você defina uma quantidade definida de recursos a serem usados para manter um custo fixo, como o número de nós. Para dimensionar manualmente, você define a réplica ou a contagem de nós. A API kubernetes, em seguida, agenda a criação de pods adicionais ou a descarga de nós com base nessa réplica ou contagem de nós.
+
+Ao reduzir os nós verticalmente, a API kubernetes chama a API de computação do Azure relevante vinculada ao tipo de computação usado pelo cluster. Por exemplo, para clusters criados em escala de VM define a lógica para selecionar quais nós remover é determinada pela API dos conjuntos de dimensionamento de VM. Para saber mais sobre como os nós são selecionados para remoção na redução vertical, consulte as [perguntas frequentes do VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Para começar a dimensionar manualmente os pods e os nós, consulte [dimensionar aplicativos em AKs][aks-scale].
 

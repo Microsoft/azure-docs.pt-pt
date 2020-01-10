@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8aedb57f6fee68c4d11a123033d34bb58314eb8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 355bd75f865e821fa19fba0715cf5eca90a9a2d3
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367625"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829566"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ O OpenID Connect é um protocolo de autenticação, criado com base no OAuth 2,0
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* OAuth 2,0 para uso como um protocolo de *autenticação* . Esse protocolo de autenticação permite que você execute o logon único. Ele apresenta o conceito de *token de ID*, que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
 
-Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso*com segurança. Você pode usar tokens de acesso para acessar recursos que são protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Se você quiser adicionar o gerenciamento de identidades a seus aplicativos móveis ou de área de trabalho usando Azure AD B2C, deverá usar o [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) em vez do OpenID Connect. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
+Como ele estende o OAuth 2,0, ele também permite que os aplicativos adquiram *tokens de acesso*com segurança. Você pode usar tokens de acesso para acessar recursos que são protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md). O OpenID Connect é recomendado se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador. Para obter mais informações sobre tokens, consulte a [visão geral dos tokens no Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
 
 Azure AD B2C estende o protocolo OpenID Connect padrão para fazer mais do que a autenticação e a autorização simples. Ele apresenta o [parâmetro de fluxo de usuário](active-directory-b2c-reference-policies.md), que permite que você use o OpenID Connect para adicionar experiências de usuário ao seu aplicativo, como inscrição, entrada e gerenciamento de perfil.
 

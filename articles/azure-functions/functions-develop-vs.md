@@ -4,12 +4,12 @@ description: Saiba como desenvolver e testar Azure Functions usando as ferrament
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230662"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769779"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver Azure Functions usando o Visual Studio  
 
@@ -42,7 +42,7 @@ Outros recursos necessários, como uma conta de armazenamento do Azure, são cri
 
 ### <a name="check-your-tools-version"></a>Verifique a versão das ferramentas no Visual Studio 2017
 
-1. No menu **ferramentas** , escolha **extensões e atualizações**. Expanda as **ferramentas** de > **instaladas** e escolha **Azure Functions e ferramentas de trabalhos da Web**.
+1. Partir do **ferramentas** menu, escolha **extensões e atualizações**. Expanda as **ferramentas** de > **instaladas** e escolha **Azure Functions e ferramentas de trabalhos da Web**.
 
     ![Verificar a versão das ferramentas de funções](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -63,7 +63,7 @@ Outros recursos necessários, como uma conta de armazenamento do Azure, são cri
 1. Depois que a atualização for concluída, escolha **fechar** e reinicie o Visual Studio.
 
 > [!NOTE]  
-No Visual Studio 2019 e posterior, a extensão de ferramentas de Azure Functions é atualizada como parte do Visual Studio.  
+> No Visual Studio 2019 e posterior, a extensão de ferramentas de Azure Functions é atualizada como parte do Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto das Funções do Azure
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914080"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768690"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -86,11 +86,9 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
     - Salve as configurações quando terminar selecionando **salvar**.
 
 > [!NOTE]
-> Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 35 dias até a expiração, a menos que o grupo seja renovado automaticamente ou o proprietário o renova.
->
-> Quando um grupo dinâmico é excluído e restaurado, ele é visto como um novo grupo e populado novamente de acordo com a regra. Esse processo pode levar até 24 horas.
->
-> Os avisos de expiração para grupos usados em equipes são exibidos no feed proprietários de equipes.
+> - Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 35 dias até a expiração, a menos que o grupo seja renovado automaticamente ou o proprietário o renova.
+> - Quando um grupo dinâmico é excluído e restaurado, ele é visto como um novo grupo e populado novamente de acordo com a regra. Esse processo pode levar até 24 horas.
+> - Os avisos de expiração para grupos usados em equipes são exibidos no feed proprietários de equipes.
 
 ## <a name="email-notifications"></a>Notificações por e-mail
 

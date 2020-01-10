@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 816009bb7481d93fd53011d067ab56cecbe8e3ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: a5489b22ade2c661b2fae23c70440a29489e39f7
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440427"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830365"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -34,14 +34,14 @@ Este conector ODBC tem suporte para as seguintes atividades:
 
 Você pode copiar dados da origem ODBC para qualquer armazenamento de dados de coletor com suporte ou copiar de qualquer armazenamento de dados de origem com suporte para o coletor ODBC. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, esse conector ODBC dá suporte à cópia de dados de/para **quaisquer armazenamentos de dados compatíveis com ODBC** usando a autenticação **básica** ou **anônima** .
+Especificamente, esse conector ODBC dá suporte à cópia de dados de/para **quaisquer armazenamentos de dados compatíveis com ODBC** usando a autenticação **básica** ou **anônima** . Um **driver ODBC de 64 bits** é necessário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar esse conector ODBC, você precisa:
 
 - Configure um Integration Runtime auto-hospedado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instale o driver ODBC para o armazenamento de dados no computador Integration Runtime.
+- Instale o driver ODBC de 64 bits para o armazenamento de dados no computador Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
 

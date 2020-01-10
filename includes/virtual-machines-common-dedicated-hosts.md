@@ -8,21 +8,25 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390552"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833867"
 ---
-## <a name="benefits"></a>Benefícios 
+## <a name="limitations"></a>Limitações
+
+- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
+
+## <a name="benefits"></a>Vantagens 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
 -   Isolamento de hardware no nível do servidor físico. Nenhuma outra VM será colocada nos hosts. Os hosts dedicados são implantados nos mesmos data centers e compartilham a mesma rede e a infraestrutura de armazenamento subjacente que outros hosts não isolados.
 -   Controle sobre os eventos de manutenção iniciados pela plataforma Azure. Embora a maioria dos eventos de manutenção tenha pouco ou nenhum impacto em suas máquinas virtuais, há algumas cargas de trabalho confidenciais em que cada segundo de pausa pode ter um impacto. Com hosts dedicados, você pode aceitar uma janela de manutenção para reduzir o impacto em seu serviço.
 -   Com o benefício híbrido do Azure, você pode colocar suas próprias licenças para Windows e SQL no Azure. O uso dos benefícios híbridos oferece benefícios adicionais. Para obter mais informações, consulte [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## <a name="groups-hosts-and-vms"></a>Grupos, hosts e VMs  
@@ -62,7 +66,7 @@ Você pode usar ambos os recursos juntos para obter ainda mais isolamento de fal
 
 O modelo de exemplo do Resource Manager encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) usa zonas e domínios de falha para distribuir hosts para obter máxima resiliência em uma região.
 
-## <a name="maintenance-control"></a>Controle de manutenção
+## <a name="maintenance-control"></a>Controlo da manutenção
 
 Às vezes, a infraestrutura de suporte às suas máquinas virtuais pode ser atualizada para melhorar a confiabilidade, o desempenho, a segurança e a inicialização de novos recursos. A plataforma Azure tenta minimizar o impacto da manutenção da plataforma sempre que possível, mas os clientes com cargas de trabalho *sensíveis à manutenção* não podem tolerar até poucos segundos que a VM precisa ser congelada ou desconectada para manutenção.
 
@@ -103,7 +107,7 @@ Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU dife
 
 Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
-Durante a versão prévia, ofereceremos suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
+Hosts dedicados dão suporte ao seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
@@ -111,7 +115,7 @@ Durante a versão prévia, ofereceremos suporte ao seguinte host SKU\types: DSv3
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de integridade   | Descrição       |
+| Estado de Funcionamento   | Descrição       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |

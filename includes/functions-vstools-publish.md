@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70197174"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769710"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
@@ -30,13 +30,13 @@ ms.locfileid: "70197174"
 
 3. Selecione **Publicar**. Se você ainda não entrou em sua conta do Azure por meio do Visual Studio, selecione **entrar**. Você também pode criar uma conta gratuita do Azure.
 
-4. No serviço de aplicativo:  **Criar nova** caixa de diálogo, use as configurações de **hospedagem** conforme especificado na tabela abaixo da imagem:
+4. Na caixa de diálogo **Azure app serviço: criar novo** , use as configurações de **hospedagem** conforme especificado na tabela abaixo da imagem:
 
     ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Os carateres válidos são `a-z`, `0-9` e `-`. |
+    | **Nome** | Nome globalmente exclusivo | Nome que identifica exclusivamente a sua nova aplicação de funções. Os carateres válidos são `a-z`, `0-9` e `-`. |
     | **Subscrição** | Escolher a sua subscrição | A subscrição do Azure que deve utilizar. |
     | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome do grupo de recursos no qual a sua aplicação de funções será criada. Escolha **Novo** para criar um grupo de recursos novo.|
     | **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** | Plano de consumo | Certifique-se de escolher o **consumo** em **tamanho** depois de selecionar **novo** para criar um plano sem servidor. Escolha também uma **Localização** numa [região](https://azure.microsoft.com/regions/) perto de si ou de outros serviços aos quais as suas funções acedem. Quando executa um plano diferente de **Consumo**, deve gerir o [dimensionamento da sua aplicação de funções](../articles/azure-functions/functions-scale.md).  |

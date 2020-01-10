@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 4edf17026384ad8a6bfe4ecea847f4a91076634f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646579"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763594"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 > Embora os trechos de código neste artigo usem um modelo TensorFlow, você pode aplicar as informações a qualquer estrutura de Machine Learning que ofereça suporte a GPUs.
 
 > [!NOTE]
-> As informações neste artigo se baseiam nas informações no artigo [como implantar o serviço kubernetes do Azure](service/how-to-deploy-azure-kubernetes-service.md) . Onde esse artigo geralmente aborda a implantação no AKS, este artigo aborda a implantação específica da GPU.
+> As informações neste artigo se baseiam nas informações no artigo [como implantar o serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md) . Onde esse artigo geralmente aborda a implantação no AKS, este artigo aborda a implantação específica da GPU.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ A inferência, ou a Pontuação do modelo, é a fase em que o modelo implantado 
 
     * Para criar e registrar o modelo de Tensorflow usado para criar este documento, consulte [como treinar um modelo de Tensorflow](how-to-train-tensorflow.md).
 
-* Uma compreensão geral de [como e onde implantar modelos](service/how-to-deploy-and-where.md).
+* Uma compreensão geral de [como e onde implantar modelos](how-to-deploy-and-where.md).
 
 ## <a name="connect-to-your-workspace"></a>Ligar à sua área de trabalho
 
@@ -94,14 +94,14 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > O Azure cobrará você desde que o cluster AKS exista. Certifique-se de excluir o cluster AKS quando tiver terminado.
 
-Para obter mais informações sobre como usar o AKS com Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](service/how-to-deploy-azure-kubernetes-service.md).
+Para obter mais informações sobre como usar o AKS com Azure Machine Learning, consulte [como implantar no serviço kubernetes do Azure](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Gravar o script de entrada
 
 O script de entrada recebe dados enviados para o serviço Web, passa-os para o modelo e retorna os resultados da pontuação. O script a seguir carrega o modelo Tensorflow na inicialização e, em seguida, usa o modelo para pontuar dados.
 
 > [!TIP]
-> O script de entrada é específico para seu modelo. Por exemplo, o script deve saber a estrutura a ser usada com seu modelo, formatos de dados, etc.
+> O script de entrada é específico do seu modelo. Por exemplo, o script deve saber a estrutura a ser usada com seu modelo, formatos de dados, etc.
 
 ```python
 import json
@@ -135,7 +135,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Esse arquivo é denominado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](service/how-to-deploy-and-where.md).
+Esse arquivo é denominado `score.py`. Para obter mais informações sobre scripts de entrada, consulte [como e onde implantar](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Definir o ambiente Conda
 
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Implantar modelo em FPGA](service/how-to-deploy-fpga-web-service.md)
+* [Implantar modelo em FPGA](how-to-deploy-fpga-web-service.md)
 * [Implantar modelo com ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Treinar modelos do Tensorflow DNN](how-to-train-tensorflow.md)

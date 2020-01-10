@@ -1,5 +1,5 @@
 ---
-title: Redefinir um gateway de VPN do Azure para restabelecer túneis IPsec | Microsoft Docs
+title: Redefinir um gateway de VPN do Azure para restabelecer o túnel IPsec
 description: Este artigo orienta você pela redefinição do gateway de VPN do Azure para restabelecer túneis IPsec. O artigo se aplica aos gateways de VPN nos modelos de implantação clássico e do Gerenciador de recursos.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 6fd4bdf15ea5693a50403f3c31f72b920871f04f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563043"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779812"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -63,13 +63,13 @@ $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Disso
+Resultado:
 
 Ao receber um resultado de retorno, você pode assumir que a redefinição do gateway foi bem-sucedida. No entanto, não há nada no resultado de retorno que indica explicitamente que a redefinição foi bem-sucedida. Se você quiser olhar com mais detalhes o histórico para ver exatamente quando ocorreu a redefinição do gateway, poderá exibir essas informações no [portal do Azure](https://portal.azure.com). No portal, navegue até **"GATEWAYNAME"-> Resource Health**.
 
 ### <a name="resetclassic"></a>Modelo de implantação clássico
 
-O cmdlet para redefinir um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para o gerenciamento de serviços devem ser instalados localmente na sua área de trabalho. Você não pode usar Azure Cloud Shell. Antes de executar uma redefinição, verifique se você tem a versão mais recente dos cmdlets do [PowerShell do SM (gerenciamento de serviços)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Ao usar esse comando, verifique se você está usando o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Você pode exibir o nome longo usando ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '.
+O cmdlet para redefinir um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para o gerenciamento de serviços devem ser instalados localmente na sua área de trabalho. Você não pode usar Azure Cloud Shell. Antes de executar uma redefinição, verifique se você tem a versão mais recente dos [cmdlets do PowerShell do SM (gerenciamento de serviços)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Ao usar esse comando, verifique se você está usando o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Você pode exibir o nome longo usando ' Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml '.
 
 O exemplo a seguir redefine o gateway para uma rede virtual chamada "Group TestRG1 TestVNet1" (que mostra simplesmente "TestVNet1" no Portal):
 
@@ -77,7 +77,7 @@ O exemplo a seguir redefine o gateway para uma rede virtual chamada "Group TestR
 Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
-Disso
+Resultado:
 
 ```powershell
 Error          :
@@ -96,6 +96,6 @@ Para redefinir o gateway, use o comando [AZ Network vnet-gateway Reset](https://
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Disso
+Resultado:
 
 Ao receber um resultado de retorno, você pode assumir que a redefinição do gateway foi bem-sucedida. No entanto, não há nada no resultado de retorno que indica explicitamente que a redefinição foi bem-sucedida. Se você quiser olhar com mais detalhes o histórico para ver exatamente quando ocorreu a redefinição do gateway, poderá exibir essas informações no [portal do Azure](https://portal.azure.com). No portal, navegue até **"GATEWAYNAME"-> Resource Health**.

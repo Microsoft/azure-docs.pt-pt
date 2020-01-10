@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689132"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834950"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -66,7 +66,7 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 |--------|-----------|
 | **Failover de conta** |Ainda não tem suporte|
 | **AZCopy** | Suporte específico à versão <br><br>Use apenas a versão mais recente do AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Não há suporte para versões anteriores do AzCopy, como AzCopy v 8.1.|
-| **Políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs** | As políticas de gerenciamento do ciclo de vida têm suporte (versão prévia).  Há suporte para todas as camadas de acesso. A camada de acesso de arquivamento está em visualização no momento. Ainda não há suporte para a exclusão de instantâneos de BLOB. <br><br> Atualmente, existem alguns bugs que afetam as políticas de gerenciamento do ciclo de vida e a camada de acesso de arquivamento.  Inscreva-se para visualizar as políticas de gerenciamento do ciclo de vida e arquivar a camada de acesso [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
+| **Políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs** | As políticas de gerenciamento do ciclo de vida têm suporte (versão prévia).  Inscreva-se para visualizar as políticas de gerenciamento do ciclo de vida e arquivar a camada de acesso [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Há suporte para todas as camadas de acesso. A camada de acesso de arquivamento está em visualização no momento. Ainda não há suporte para a exclusão de instantâneos de BLOB.  Atualmente, existem alguns bugs que afetam as políticas de gerenciamento do ciclo de vida e a camada de acesso de arquivamento.  |
 | **Rede de Entrega de Conteúdos do Azure (CDN)** | Ainda não tem suporte|
 | **Azure Search** |Com suporte (visualização)|
 | **Explorador do Armazenamento do Azure** | Suporte específico à versão. <br><br>Use somente versões `1.6.0` ou superior. <br> Atualmente, há um bug de armazenamento que afeta a versão `1.11.0` que pode resultar em erros de autenticação em determinados cenários. Uma correção para o bug de armazenamento está sendo distribuída, mas como uma solução alternativa, recomendamos que você use a versão `1.10.x`, que está disponível como um [Download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` não é afetado pelo bug de armazenamento.|
@@ -74,7 +74,7 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 | **Blobfuse** |Ainda não tem suporte|
 | **Domínios personalizados** |Ainda não tem suporte|
 | **Gerenciador de Armazenamento no portal do Azure** | Suporte limitado. As ACLs ainda não têm suporte. |
-| **Registo de diagnósticos** |Os logs de diagnóstico têm suporte (versão prévia).<br><br>No momento, não há suporte para a habilitação de logs no portal do Azure. Aqui está um exemplo de como habilitar os logs usando o PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Certifique-se de especificar `Blob` como o valor do parâmetro `-ServiceType`, conforme mostrado neste exemplo. <br><br>No momento, Gerenciador de Armazenamento do Azure não pode ser usada para exibir os logs de diagnóstico. Para exibir os logs, use AzCopy ou SDKs.
+| **Registo de diagnósticos** |Os logs de diagnóstico têm suporte (versão prévia). <br><br>Gerenciador de Armazenamento do Azure 1,10. x não pode ser usado para exibir os logs de diagnóstico. Para exibir os logs, use AzCopy ou SDKs.
 | **Armazenamento imutável** |Ainda não tem suporte <br><br>O armazenamento imutável oferece a capacidade de armazenar dados em um estado de [worm (gravar uma vez, ler muitos)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Camadas de nível de objeto** |As camadas frias e de arquivo são suportadas. A camada de arquivo morto está em versão prévia. Todas as outras camadas de acesso ainda não têm suporte. <br><br> Atualmente, existem alguns bugs que afetam a camada de acesso de arquivamento.  Inscreva-se para a visualização da camada de acesso de arquivamento [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Sites estáticos** |Ainda não tem suporte <br><br>Especificamente, a capacidade de fornecer arquivos para [sites estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|

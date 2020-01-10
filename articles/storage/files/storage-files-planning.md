@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fdfa01a45c0dd35da65b2ad7ce8b0d291148af1a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931108"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771620"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "74931108"
 
 ![Estrutura de Ficheiros](./media/storage-files-introduction/files-concepts.png)
 
-* **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
+* **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Consulte [escalabilidade e metas de desempenho para contas de armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.
 
 * **Partilha:** uma partilha do Armazenamento de Ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. A capacidade total para compartilhamentos de arquivos Premium e Standard é de 100 TiB.
 
@@ -172,7 +172,7 @@ As seções a seguir descrevem as diferenças entre as diferentes opções de re
 ### <a name="geo-redundant-storage"></a>Armazenamento georredundante
 
 > [!Warning]  
-> Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
+> Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Se a fizer, fará com que a sincronização deixe de funcionar e poderá também causar perdas de dados inesperadas em caso de ficheiros com novo escalão. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
 
 O GRS (armazenamento com redundância geográfica) foi projetado para fornecer pelo menos a durabilidade da 99.99999999999999% (16 9) de objetos em um determinado ano, replicando seus dados para uma região secundária que está a centenas de quilômetros de distância da região primária. Se sua conta de armazenamento tiver o GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável.
 
@@ -205,24 +205,40 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 
 |Região |Redundância com suporte |
 |-------|---------|
+|Austrália Central    |LRS     |
+|Austrália Central 2    |LRS     |
 |Leste da Austrália |LRS     |
 |Sudeste da Austrália|LRS |
+|Sul do Brasil    |LRS     |
 |Canadá Central  |LRS     |
 |Leste do Canadá     |LRS     |
 |Centro da Índia  |LRS     |
-|EUA Central *   |LRS     |
+|EUA Central *   |LRS, ZRS    |
 |Este Asiático      |LRS     |
-|Leste dos EUA *        |LRS     |
-|Leste dos EUA 2 *      |LRS     |
+|Leste dos EUA *        |LRS, ZRS|
+|Leste dos EUA 2 *      |LRS, ZRS     |
 |França Central |LRS, ZRS|
 |Sul de França   |LRS     |
-|E.U.A. Centro-Norte |LRS     |
+|Este do Japão     |LRS     |
+|Oeste do Japão     |LRS     |
+|Coreia do Sul Central  |LRS     |
+|Sul da Coreia do Sul    |LRS     |
+|E.U.A. Centro-Norte |LRS   |
 |Europa do Norte   |LRS     |
 |Sul da Índia    |LRS     |
+|E.U.A. Centro-Sul |LRS     |
 |Sudeste Asiático |LRS, ZRS|
+|Norte da Suíça    |LRS     |
+|Oeste da Suíça    |LRS     |
+|E.A.U. Central    |LRS     |
+|Norte dos E.A.U.    |LRS     |
+|Norte do Reino Unido   |LRS, ZRS    |
+|Sul do Reino Unido    |LRS     |
+|Oeste do Reino Unido    |LRS     |
 |E.U.A. Centro-Oeste|LRS     |
 |Europa Ocidental *    |LRS, ZRS|
-|Oeste dos EUA *        |LRS     |
+|Oeste da Índia   |LRS     |
+|Oeste dos E.U.A.        |LRS     |
 |E.U.A. Oeste 2      |LRS, ZRS|
 
 \* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
@@ -243,7 +259,7 @@ Hoje, o tamanho máximo de um compartilhamento de arquivos do Azure é de 100 Ti
 
 Há muitas opções fáceis para transferir dados em massa de um compartilhamento de arquivos existente, como um compartilhamento de arquivos local, em arquivos do Azure. Alguns daqueles populares incluem (lista não exaustiva):
 
-* **Sincronização de arquivos do Azure**: como parte de uma primeira sincronização entre um compartilhamento de arquivos do Azure (um "ponto de extremidade de nuvem") e um namespace de diretório do Windows (um "ponto de extremidade do servidor"), sincronização de arquivos do Azure replicará todos os dados do compartilhamento de arquivos existente para os arquivos do Azure.
+* **[Sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)** : como parte de uma primeira sincronização entre um compartilhamento de arquivos do Azure (um "ponto de extremidade de nuvem") e um namespace de diretório do Windows (um "ponto de extremidade do servidor"), sincronização de arquivos do Azure replicará todos os dados do compartilhamento de arquivos existente para os arquivos do Azure.
 * **[Importação/exportação do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : o serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados para um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : o AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/07/2020
+ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901331"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834377"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -29,13 +29,19 @@ As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são 
 
 ## <a name="feature-announcements"></a>Anúncios de recursos
 
+### <a name="january-2020"></a>Janeiro de 2020
+
++ [As chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) agora estão disponíveis para o público geral. Se você estiver usando o REST, poderá acessar o recurso usando `api-version=2019-05-06`. Para código gerenciado, o pacote correto ainda é o [SDK do .NET versão 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , embora o recurso esteja fora de visualização. 
+
++ O *acesso IP restrito e o ponto de extremidade privado (visualização)* em um ponto de extremidade de serviço de pesquisa agora estão disponíveis em **API-Version = 2019-10-01-Preview**. Você pode configurar um ponto de extremidade seguro usando as novas propriedades **IpRule** e **NETWORKRULESET** na API REST de gerenciamento de [criação ou atualização](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) . Para obter mais informações sobre versões de API e disponibilidade regional, consulte [como usar a API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
 ### <a name="december-2019"></a>Dezembro de 2019
 
 + [Criar aplicativo (versão prévia)](search-create-app-portal.md) é um novo assistente no portal que gera um arquivo HTML para download. O arquivo vem com um script incorporado que renderiza um aplicativo Web de estilo "localhost" operacional, associado a um índice em seu serviço de pesquisa. As páginas são configuráveis no assistente e podem conter uma barra de pesquisa, área de resultados, navegação de barra lateral e suporte a consultas typeahead. Você pode modificar o HTML offline para estender ou personalizar o fluxo de trabalho ou a aparência.
 
 ### <a name="november-2019---ignite-conference"></a>2019 de novembro-conferência Ignite
 
-+ A [indexação incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md) permite que você escolha e escolha quais etapas reprocessar ao fazer modificações em um pipeline de enriquecimento. A indexação incremental será útil se você tiver conteúdo de imagem analisado anteriormente. A saída da análise dispendiosa é armazenada e, em seguida, usada como base para indexação ou enriquecimento adicional.
++ O [enriquecimento incremental (visualização)](cognitive-search-incremental-indexing-conceptual.md) adiciona Caching e statefullness a um pipeline de enriquecimento para que você possa trabalhar em etapas ou fases específicas sem perder o conteúdo que já foi processado. Anteriormente, qualquer alteração em um pipeline de enriquecimento exigia uma recompilação completa. Com o enriquecimento incremental, a saída da análise dispendiosa, especialmente a análise de imagens, é preservada.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->

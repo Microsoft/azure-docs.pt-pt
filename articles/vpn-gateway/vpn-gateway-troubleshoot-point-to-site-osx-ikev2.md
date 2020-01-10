@@ -1,26 +1,18 @@
 ---
-title: Resolver problemas de ligações de VPN do Azure ponto a Site de clientes de Mac OS X | Documentos da Microsoft
+title: 'Gateway de VPN do Azure: solucionar problemas de conexões ponto a site: clientes Mac OS X'
 description: Passos para resolver problemas de ligações de cliente de P2S Mac OS X VPN
 services: vpn-gateway
-documentationcenter: na
 author: anzaman
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457077"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780186"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Resolver problemas de ligações de VPN Point-to-Site de clientes de VPN do Mac OS X
 
@@ -63,12 +55,12 @@ Este artigo ajuda-o a resolver problemas de conectividade de ponto a Site em Mac
 
 Se tentar os passos anteriores e tudo o que está corretamente configurado, transfira [Wireshark](https://www.wireshark.org/#download) e efetuar uma captura de pacotes.
 
-1. Filtre *isakmp* e ver o **IKE_SA** pacotes. Deve ser capaz de examinar os detalhes da proposta de SA sob o **Payload: Associação de segurança**. 
+1. Filtre *isakmp* e ver o **IKE_SA** pacotes. Deve ser capaz de examinar os detalhes da proposta de SA sob o **Payload: associação de segurança**. 
 2. Certifique-se de que o cliente e o servidor tem um conjunto comum.
 
    ![pacote](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. Se não houver nenhuma resposta do servidor nos rastreios de rede, certifique-se de que ativou o protocolo IKEv2 na página de configuração do Gateway do Azure no site do Portal do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais ajuda, consulte [Support da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: 70cbc761c7e334ed9b13e3cd7d915102917ff149
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551629"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780203"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -241,6 +241,8 @@ Em produção, é provável que você atualize suas chaves de armazenamento peri
     Você pode configurar a auditoria para diferentes tipos de ações e grupos de ação usando o PowerShell, conforme descrito na seção [gerenciar a auditoria do banco de dados SQL usando Azure PowerShell](#subheading-7) .
 
 - Ao usar a autenticação do AAD, os registros de logons com falha *não* serão exibidos no log de auditoria do SQL. Para exibir os registros de auditoria de logon com falha, você precisa visitar o [portal de Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra em log os detalhes desses eventos.
+
+- A auditoria do banco de dados SQL do Azure é otimizada para disponibilidade & desempenho. Durante uma atividade muito alta, o banco de dados SQL do Azure permite que as operações continuem e não registrem alguns eventos auditados.
 
 
 ## <a id="subheading-7"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando Azure PowerShell

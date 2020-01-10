@@ -4,12 +4,12 @@ description: Saiba como lidar com a interação humana e os tempos limite na ext
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232816"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769579"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana no exemplo de verificação de telefone Durable Functions
 

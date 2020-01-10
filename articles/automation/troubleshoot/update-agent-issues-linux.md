@@ -1,6 +1,6 @@
 ---
-title: Entender a integridade do Linux Hybrid Runbook Worker no Azure Gerenciamento de Atualizações
-description: Saiba como solucionar problemas com o Hybrid Runbook Worker no Linux que oferece suporte a Gerenciamento de Atualizações.
+title: Diagnosticar Hybrid Runbook Worker do Linux – Gerenciamento de Atualizações do Azure
+description: Saiba como solucionar e resolver problemas com o Hybrid Runbook Worker de automação do Azure no Linux que dá suporte a Gerenciamento de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849264"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769834"
 ---
-# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Linux Hybrid Runbook Worker no Gerenciamento de Atualizações
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Entender e resolver o Linux Hybrid Runbook Worker Health para Gerenciamento de Atualizações
 
 Pode haver muitos motivos pelos quais seu computador não está mostrando **pronto** no gerenciamento de atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
 

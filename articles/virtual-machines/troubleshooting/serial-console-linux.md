@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287016"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772521"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -29,7 +29,7 @@ O console serial funciona da mesma maneira para VMs e instâncias do conjunto de
 Para obter a documentação do console serial para Windows, consulte [console serial para Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> O console serial está geralmente disponível em regiões globais do Azure. Ele ainda não está disponível no Azure government ou a clouds do Azure China.
+> O console serial está geralmente disponível em regiões globais do Azure e em visualização pública no Azure governamental. Ele ainda não está disponível na nuvem do Azure na China.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,7 +38,7 @@ Para obter a documentação do console serial para Windows, consulte [console se
 
 - Sua conta que usa o console serial deve ter a [função de colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de armazenamento de [diagnóstico de inicialização](boot-diagnostics.md)
 
-- Sua VM ou instância do conjunto de dimensionamento de máquinas virtuais deve ter um usuário baseado em senha. Você pode criar um com a função [Redefinir senha](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso à VM. Selecione **Redefinir senha** na seção **suporte + solução de problemas** .
+- Sua VM ou instância do conjunto de dimensionamento de máquinas virtuais deve ter um usuário baseado em senha. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção.
 
 - Sua VM ou instância do conjunto de dimensionamento de máquinas virtuais deve ter o [diagnóstico de inicialização](boot-diagnostics.md) habilitado.
 
@@ -63,6 +63,7 @@ Distribuição      | Acesso à consola de série
 :-----------|:---------------------
 Red Hat Enterprise Linux    | O acesso ao Console serial habilitado por padrão.
 CentOS      | O acesso ao Console serial habilitado por padrão.
+Debian      | O acesso ao Console serial habilitado por padrão.
 Ubuntu      | O acesso ao Console serial habilitado por padrão.
 CoreOS      | O acesso ao Console serial habilitado por padrão.
 SUSE        | As imagens SLES mais recentes disponíveis no Azure têm o acesso ao console serial habilitado por padrão. Se você estiver usando versões mais antigas (10 ou anteriores) do SLES no Azure, consulte o [artigo da base de conhecimento](https://www.novell.com/support/kb/doc.php?id=3456486) para habilitar o console serial.
@@ -92,16 +93,16 @@ Por padrão, todas as assinaturas têm o acesso ao console serial habilitado. Vo
 ## <a name="serial-console-security"></a>Segurança da consola de série
 
 ### <a name="access-security"></a>Segurança de acesso
-O acesso ao console serial é limitado aos usuários que têm uma função de acesso de [colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou superior à máquina virtual. Se seu locatário de Azure Active Directory exigir a MFA (autenticação multifator), o acesso ao console serial também precisará de MFA porque o acesso do console serial é por meio do [portal do Azure](https://portal.azure.com).
+Acesso à consola de série está limitado a utilizadores que têm uma função de acesso de [contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ou superior para a máquina virtual. Se o seu inquilino do Azure Active Directory requer autenticação multifator (MFA), então acesso à consola de série também terá de MFA porque o acesso da consola de série é através da [portal do Azure](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Segurança de canal
 Todos os dados que são enviados e volta são encriptados na conexão.
 
 ### <a name="audit-logs"></a>Registos de auditoria
-Todo o acesso ao console serial está conectado atualmente aos logs de [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) da máquina virtual. Acesso a estes registos são propriedade e controlado pelo administrador de máquina virtual do Azure.
+Todo o acesso à consola de série é iniciado a [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) registos da máquina virtual. Acesso a estes registos são propriedade e controlado pelo administrador de máquina virtual do Azure.
 
 > [!CAUTION]
-> Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. No entanto, recomendamos que siga a prática recomendada de usar o ambiente de trabalho remoto para tudo o que pode envolver segredos e/ou PII.
+> Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. Se você estiver inserindo qualquer comando de dados que contenha segredos ou PII, recomendamos o uso do SSH, a menos que o console serial seja absolutamente necessário.
 
 ### <a name="concurrent-usage"></a>Utilização em simultâneo
 Se um usuário estiver conectado à consola de série e outro utilizador com êxito pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado à mesma sessão.
@@ -113,7 +114,7 @@ Se um usuário estiver conectado à consola de série e outro utilizador com êx
 Acessibilidade é um foco importante para o console serial do Azure. Para esse fim, garantimos que o console serial esteja totalmente acessível.
 
 ### <a name="keyboard-navigation"></a>Navegação do teclado
-Use a tecla **Tab** no teclado para navegar na interface do console serial do portal do Azure. Sua localização será realçada na tela. Para deixar o foco da janela do console serial, pressione **Ctrl**+**F6** no teclado.
+Utilize o **separador** chave no teclado para navegar na interface de consola de série no portal do Azure. Sua localização será realçada na tela. Para deixar o foco da janela de consola de série, prima **Ctrl**+**F6** no teclado.
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Usar o console serial com um leitor de tela
 A consola de série tem suporte de leitor de ecrã incorporado. Navegação com um leitor de ecrã ativado, permitirá que o texto alternativo para o botão selecionado atualmente a ser lido em voz alta pelo leitor de ecrã.
@@ -123,7 +124,7 @@ Estamos cientes de alguns problemas com o console serial e o sistema operacional
 
 Problema                           |   Mitigação
 :---------------------------------|:--------------------------------------------|
-Pressionar **Enter** após a faixa de conexão não faz com que uma solicitação de entrada seja exibida. | Para obter mais informações, consulte [pressionar Enter não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
+Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
 Console serial texto só ocupa uma parte do tamanho da tela (geralmente, depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não haverá nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM não terá conhecimento do tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e, em seguida, execute `resize`.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
 Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB acrescentando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha de GRUB_CMDLINE_LINUX no `/etc/default/grub`, recriando o GRUB com `grub2-mkconfig -o /boot/grub2/grub.cfg`e reiniciando.
@@ -133,43 +134,43 @@ Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é recon
 
 **P. como posso enviar comentários?**
 
-A. Forneça comentários criando um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio de azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
+R. Forneça comentários criando um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
 
 **P. o console serial dá suporte a copiar/colar?**
 
-A. Sim. Use **ctrl**+**Shift**+**C** e **Ctrl**+**Shift**+**V** para copiar e colar no terminal.
+R. Sim. Uso **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift** + **V** de copiar e colar no terminal.
 
 **P. posso usar o console serial em vez de uma conexão SSH?**
 
-A. Embora esse uso possa parecer tecnicamente possível, o console serial destina-se a ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. É recomendável usar o console serial como uma substituição de SSH pelos seguintes motivos:
+R. Embora esse uso possa parecer tecnicamente possível, o console serial destina-se a ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. É recomendável usar o console serial como uma substituição de SSH pelos seguintes motivos:
 
 - O console serial não tem tanta largura de banda quanto SSH. Como é uma conexão somente de texto, mais interações de GUI pesada são difíceis.
 - O acesso Console serial é atualmente possível apenas usando um nome de usuário e senha. Como as chaves SSH são muito mais seguras do que as combinações de nome de usuário/senha, de uma perspectiva de segurança de entrada, recomendamos o SSH sobre o console serial.
 
 **P. quem pode habilitar ou desabilitar o console serial para minha assinatura?**
 
-A. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. As funções que tem permissão de escrita incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
+R. Para ativar ou desativar a consola de série a um nível de toda a subscrição, tem de ter permissões de escrita para a subscrição. As funções que tem permissão de escrita incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 **P. quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
 
-A. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
+R. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
 
 **P. meu console serial não está exibindo nada, o que eu faço?**
 
-A. A imagem é provavelmente mal configurada para acesso à consola de série. Para obter informações sobre como configurar sua imagem para habilitar o console serial, consulte [console serial disponibilidade de distribuição do Linux](#serial-console-linux-distribution-availability).
+R. A imagem é provavelmente mal configurada para acesso à consola de série. Para obter informações sobre como configurar sua imagem para habilitar o console serial, consulte [console serial disponibilidade de distribuição do Linux](#serial-console-linux-distribution-availability).
 
 **P. o console serial está disponível para conjuntos de dimensionamento de máquinas virtuais?**
 
-A. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+R. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **P. se eu configuro minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda posso usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
 
-A. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário/senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
+R. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário/senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Use o console serial para [acessar o grub e o modo de usuário único](serial-console-grub-single-user-mode.md).
 * Use o console serial para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md).
-* Saiba como usar o console serial para [habilitar o grub em vários distribuições](serial-console-grub-proactive-configuration.md) 
+* Saiba como usar o console serial para [habilitar o grub em vários distribuições](serial-console-grub-proactive-configuration.md)
 * O console serial também está disponível para [VMs do Windows](../windows/serial-console.md).
-* Saiba mais sobre o [diagnóstico de inicialização](boot-diagnostics.md).
+* Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md).
 

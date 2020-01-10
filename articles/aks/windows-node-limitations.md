@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768576"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho de aplicativo no serviço kubernetes do Azure (AKS)
 
@@ -66,6 +66,10 @@ Os nós do Windows Server no AKS devem ser *atualizados* para obter as correçõ
 > A imagem atualizada do Windows Server será usada somente se uma atualização de cluster (atualização do plano de controle) tiver sido executada antes da atualização do pool de nós
 >
 
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Como fazer girar a entidade de serviço para meu pool de nós do Windows?
+
+Durante a visualização, os pools de nós do Windows não dão suporte à rotação da entidade de serviço como uma limitação de visualização. Para atualizar a entidade de serviço, crie um novo pool de nós do Windows e migre o pods do pool mais antigo para o novo. Quando isso for concluído, exclua o pool de nós mais antigo.
+
 ## <a name="how-many-node-pools-can-i-create"></a>Quantos pools de nós posso criar?
 
 O cluster AKS pode ter um máximo de oito (8) pools de nós. Você pode ter um máximo de 400 nós entre esses pools de nós. [Limitações do pool de nós][nodepool-limitations].
@@ -98,7 +102,7 @@ Sim, você pode, no entanto, Azure Monitor não coleta logs (stdout) de contêin
 
 Trabalhamos muito para reunir todos os recursos de que você precisa para o Windows no AKS, mas se você encontrar lacunas, o projeto de [AKs-Engine][aks-engine] de software livre fornecerá uma maneira fácil e totalmente personalizável de executar o kubernetes no Azure, incluindo o suporte do Windows. Certifique-se de conferir nosso roteiro de recursos que estão chegando ao [roteiro do AKS][aks-roadmap].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nós que executa o Windows Server em AKs][windows-node-cli].
 

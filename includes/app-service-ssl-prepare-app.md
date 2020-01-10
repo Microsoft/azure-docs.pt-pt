@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 3a44dc35c27cd084e6589482f180b13b258f0b24
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c3f2009dc71df1a5496d585bdcba986a79ac0d0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470978"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768469"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
 
@@ -29,11 +29,11 @@ Pesquise e selecione **serviços de aplicativos**.
 
 ![Selecionar serviços de aplicativos](./media/app-service-ssl-prepare-app/app-services.png)
 
-Na página **serviços de aplicativos** , selecione o nome do seu aplicativo do Azure.
+Na página **serviços de aplicativos** , selecione o nome do seu aplicativo Web.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-ssl-prepare-app/select-app.png)
 
-Chegou à página de gestão da sua aplicação Web.  
+Você tem descarregou na página de gerenciamento do seu aplicativo Web.  
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 

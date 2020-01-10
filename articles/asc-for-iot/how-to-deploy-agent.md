@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933649"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770021"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecionar e implantar um agente de segurança em seu dispositivo IoT
 
@@ -59,9 +59,9 @@ O agente de segurança baseado em C tem uma superfície de memória menor e é a
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação do agente de segurança
 
-Para **Windows**: O script install SecurityAgent. ps1 deve ser executado em uma janela de administrador do PowerShell. 
+Para **Windows**: o script install SecurityAgent. ps1 deve ser executado em uma janela administrador do PowerShell. 
 
-Para **Linux**: O InstallSecurityAgent.sh deve ser executado como superusuário. É recomendável prefixar o comando de instalação com "sudo".
+Para **Linux**: o InstallSecurityAgent.sh deve ser executado como superusuário. É recomendável prefixar o comando de instalação com "sudo".
 
 
 ## <a name="choose-an-agent-flavor"></a>Escolher um tipo de agente 
@@ -88,13 +88,13 @@ Consulte [comparação do agente de segurança](how-to-deploy-agent.md#understan
 
 A lista a seguir inclui todas as plataformas com suporte no momento.
 
-|Central de segurança do Azure para agente de IoT |Sistema operativo |Arquitetura |
+|Central de segurança do Azure para agente de IoT |Sistema Operativo |Arquitetura |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 18.04 |   x64, ARMv7|
 |C|Debian 9 |   x64, x86|
 |C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
+|C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT Core, Build 17763    |x64|

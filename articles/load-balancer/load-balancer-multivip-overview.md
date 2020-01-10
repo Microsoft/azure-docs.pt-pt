@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f6943a95cd327785d4907bb675958be99b902764
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
-ms.translationtype: HT
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644941"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771262"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -98,8 +98,28 @@ Para esse cenário, cada VM no pool de back-end tem três interfaces de rede:
 * Frontend 1: uma interface de loopback no sistema operacional convidado que está configurado com o endereço IP do front-end 1
 * Front-end 2: uma interface de loopback no sistema operacional convidado que está configurado com o endereço IP do front-end 2
 
+Para cada VM no pool de back-end, execute os comandos a seguir em um prompt de comando do Windows.
+
+Para obter a lista de nomes de interface que você tem em sua VM, digite este comando:
+
+    netsh interface show interface 
+
+Para a NIC da VM (gerenciado pelo Azure), digite este comando:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (substitua InterfaceName pelo nome desta interface)
+
+Para cada interface de loopback que você adicionou, Repita estes comandos:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (substitua InterfaceName pelo nome desta interface de loopback)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (substitua InterfaceName pelo nome desta interface de loopback)
+
 > [!IMPORTANT]
 > A configuração das interfaces de loopback é executada no sistema operacional convidado. Essa configuração não é realizada nem gerenciada pelo Azure. Sem essa configuração, as regras não funcionarão. As definições de investigação de integridade usam o DIP da VM em vez da interface de loopback que representa o front-end DSR. Portanto, o serviço deve fornecer respostas de investigação em uma porta DIP que reflita o status do serviço oferecido na interface de loopback que representa o front-end DSR.
+
 
 Vamos supor a mesma configuração de front-end que no cenário anterior:
 

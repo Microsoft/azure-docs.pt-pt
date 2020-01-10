@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363392"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834212"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363392"
 
 Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Exemplos das tarefas que você pode executar com modelos incluem:
 
-* Criar um espaço de trabalho, incluindo a definição do tipo de preço 
+* Criar um espaço de trabalho, incluindo a definição de tipo de preço e reserva de capacidade
 * Adicionar uma solução
 * Criar pesquisas salvas
 * Criar um grupo de computadores
@@ -47,7 +47,19 @@ A tabela a seguir lista a versão da API para os recursos usados neste exemplo.
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
-O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON é configurado para exigir apenas o nome e o local do novo espaço de trabalho (usando os valores padrão para os outros parâmetros de espaço de trabalho, como tipo de preço e retenção).  
+O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computador local. O modelo JSON está configurado para exigir apenas o nome e o local do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como [modo de controle de acesso](design-logs-deployment.md#access-control-mode), tipo de preço, retenção e nível de reserva de capacidade.
+
+Para a reserva de capacidade, você define uma reserva de capacidade selecionada para ingerir dados, especificando o `CapacityReservation` de SKU e um valor em GB para a propriedade `capacityReservationLevel`. A lista a seguir detalha os valores com suporte e o comportamento ao configurá-lo.
+
+- Depois de definir o limite de reserva, você não poderá alterar para um SKU diferente dentro de 31 dias.
+
+- Depois de definir o valor de reserva, você só poderá aumentá-lo dentro de 31 dias.
+
+- Você só pode definir o valor de `capacityReservationLevel` em múltiplos de 100, com um valor máximo de 50000.
+
+- Se você aumentar o nível de reserva, o temporizador será redefinido e você não poderá alterá-lo por mais 31 dias a partir dessa atualização.  
+
+- Se você modificar qualquer outra propriedade para o espaço de trabalho, mas reter o limite de reserva para o mesmo nível, o temporizador não será redefinido. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implementar modelo
 
@@ -64,6 +76,21 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ O exemplo de modelo a seguir ilustra como:
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ O exemplo de modelo a seguir ilustra como:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ O exemplo de modelo a seguir ilustra como:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

@@ -4,17 +4,17 @@ description: Utilizar a extensão de IoT para a CLI do Azure para registar um no
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434102"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772436"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Registrar um dispositivo Azure IoT Edge
 
@@ -22,9 +22,9 @@ Para poder usar seus dispositivos IoT com o Azure IoT Edge, você deve registrá
 
 Você tem a opção de registrar-se usando uma das seguintes ferramentas:
 
-* O [portal do Azure](https://portal.azure.com) fornece uma interface gráfica do usuário para criar, exibir e gerenciar recursos do Azure.
-* [Visual Studio Code](https://code.visualstudio.com/) é um editor de código-fonte. As extensões do Azure IoT facilitam o gerenciamento de recursos de IoT da mesma ferramenta em que você está desenvolvendo soluções de IoT.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) é uma ferramenta de linha de comando para gerenciar recursos do Azure. Seus comandos reutilizáveis são úteis para automatizar tarefas.
+* [Registre um dispositivo no portal do Azure](#register-in-the-azure-portal) se você preferir uma interface gráfica do usuário para criar, exibir e gerenciar recursos do Azure.
+* [Registre um dispositivo com Visual Studio Code](#register-with-visual-studio-code) se preferir gerenciar os recursos de IOT do Azure no mesmo local em que você desenvolve suas soluções de IOT.
+* [Registre um dispositivo com o CLI do Azure](#register-with-the-azure-cli) se você preferir ferramentas de linha de comando para gerenciar recursos do Azure ou se pretende automatizar tarefas.
 
 ## <a name="register-in-the-azure-portal"></a>Registrar no portal do Azure
 

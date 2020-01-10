@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 16837ff53d7a87f6d6ac86643c7c8d16721e9470
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b95c5511b2f64414fcf165a4346dbb06b1f02435
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660380"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833863"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: treinar um modelo de reconhecimento de formulário e extrair dados de formulário usando a API REST com ondulação
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir este guia de início rápido, você deve ter:
 - Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
 - [rotação](https://curl.haxx.se/windows/) instalada.
-- Um conjunto de pelo menos cinco formulários do mesmo tipo. Você usará esses dados para treinar o modelo. Seus formulários podem ser de diferentes tipos de arquivo, mas devem ser do mesmo tipo de documento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure.
+- Um conjunto de pelo menos seis formas do mesmo tipo. Você usará cinco deles para treinar o modelo e, em seguida, irá testá-lo com o sexto formato. Seus formulários podem ser de diferentes tipos de arquivo, mas devem ser do mesmo tipo de documento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de BLOBs em uma conta de armazenamento do Azure. Você pode colocar os arquivos de teste em uma pasta separada.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulário
 
@@ -143,15 +143,14 @@ Em seguida, você usará seu modelo treinado recentemente para analisar um docum
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade obtido da chave de assinatura do reconhecedor de formulário. Você pode encontrá-lo na guia **visão geral** de recursos do reconhecedor de formulário.
 1. Substitua `<model ID>` pela ID do modelo que você recebeu na seção anterior.
-1. Substitua `<path to your form>` pelo caminho do arquivo do formulário (por exemplo, C:\temp\File.pdf). Isso também pode ser uma URL para um arquivo remoto. Para este guia de início rápido, você pode usar os arquivos na pasta **Test** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Substitua `<file type>` pelo tipo de arquivo. Tipos com suporte: `application/pdf`, `image/jpeg`, `image/png``image/tiff`.
+1. Substitua `<SAS URL>` por uma URL SAS em seu arquivo no armazenamento do Azure. Siga as etapas na seção de treinamento, mas, em vez de obter uma URL SAS para todo o contêiner de BLOB, obtenha um para o arquivo específico que você deseja analisar.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-Você receberá uma resposta de `202 (Success)` com um cabeçalho **de local de operação** . O valor desse cabeçalho é uma ID usada para acompanhar os resultados da operação de análise. Salve essa ID para a próxima etapa.
+Você receberá uma resposta de `202 (Success)` com um cabeçalho **de local de operação** . O valor desse cabeçalho inclui uma ID de resultados que você usa para acompanhar os resultados da operação de análise. Salve essa ID de resultados para a próxima etapa.
 
 ## <a name="get-the-analyze-results"></a>Obter os resultados da análise
 

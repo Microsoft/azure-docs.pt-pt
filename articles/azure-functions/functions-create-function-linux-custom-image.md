@@ -4,12 +4,12 @@ description: Saiba como criar Funções do Azure em execução numa imagem perso
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
-ms.translationtype: HT
+ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551493"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769324"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux usando uma imagem personalizada
 
@@ -17,7 +17,7 @@ As Funções do Azure permitem-lhe alojar as suas funções no Linux no seu pró
 
 Neste tutorial, irá aprender a implementar as suas funções no Azure como uma imagem personalizada do Docker. Esse padrão é útil quando você precisa personalizar a imagem de contêiner interna. Pode querer utilizar uma imagem personalizada quando as suas funções precisarem de uma versão de idioma ou dependência específicas, ou de uma configuração não fornecida na imagem incorporada. As imagens base com suporte para Azure Functions são encontradas no [repositório de imagens base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
-Este tutorial explica como utilizar o Azure Functions Core Tools para criar uma função numa imagem do Linux personalizada. Publique esta imagem numa aplicação de funções no Azure, que foi criada com a CLI do Azure. Posteriormente, você atualiza sua função para se conectar ao armazenamento de filas do Azure. Você também habilita o.  
+Este tutorial explica como utilizar o Azure Functions Core Tools para criar uma função numa imagem do Linux personalizada. Publique esta imagem numa aplicação de funções no Azure, que foi criada com a CLI do Azure. Posteriormente, você atualiza sua função para se conectar ao armazenamento de filas do Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -101,7 +101,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 Quando o comando for concluído, você poderá executar o novo contêiner localmente.
 
 ### <a name="run-the-image-locally"></a>Executar a imagem localmente
-Verifique se a imagem que incorpora funciona ao executar a imagem do Docker num contentor local. Emita o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e transmita o nome e a etiqueta da imagem ao mesmo. Certifique-se de que utiliza o argumento `-p` para especificar a porta.
+Verifique se a imagem que incorpora funciona ao executar a imagem do Docker num contentor local. Emita o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e transmita o nome e a etiqueta da imagem ao mesmo. Certifique-se de especificar as portas usando o argumento `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -118,7 +118,7 @@ Depois de ter verificado a aplicação de funções no contentor, pare a execuç
 
 ## <a name="push-to-docker-hub"></a>Enviar por push para o Hub do Docker
 
-Um registo de contentor é uma aplicação que aloja imagens e disponibiliza serviços de imagens e contentores. Para partilhar a sua imagem, tem de enviá-la para um registo. O Docker Hub é um registo de contentores para imagens do Docker que lhe permite alojar os seus próprios repositórios, sejam públicos ou privados.
+Um registro é um aplicativo que hospeda imagens e fornece serviços de imagem e contêiner. Para partilhar a sua imagem, tem de enviá-la para um registo. O Docker Hub é um registo de contentores para imagens do Docker que lhe permite alojar os seus próprios repositórios, sejam públicos ou privados.
 
 Antes de poder enviar uma imagem, tem de iniciar sessão no Docker Hub com o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Substitua `<docker-id>` pelo nome da sua conta e introduza a palavra-passe na consola, quando lhe for pedido. Para outras opções de palavra-passe do Docker Hub, veja a [documentação do comando docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
@@ -140,7 +140,7 @@ Depois que o push for bem sucedido, você poderá usar a imagem como a origem de
 
 ## <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Hospedagem do Linux para contêineres de funções personalizadas com suporte em [planos dedicados (serviço de aplicativo)](functions-scale.md#app-service-plan) e [planos Premium](functions-premium-plan.md#features). Este tutorial usa um plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md).
+A hospedagem do Linux para contêineres de funções personalizadas tem suporte em [planos dedicados (serviço de aplicativo)](functions-scale.md#app-service-plan) e [planos Premium](functions-premium-plan.md#features). Este tutorial usa um plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md).
 
 O exemplo a seguir cria um plano Premium chamado `myPremiumPlan` no tipo de preço **elástico Premium 1** (`--sku EP1`), na região oeste dos eua (`-location WestUS`) e em um contêiner do Linux (`--is-linux`).
 
@@ -346,13 +346,13 @@ Depois que a associação é definida, você pode usar a `name` da Associação 
 Na pasta raiz, execute novamente o comando [Docker Build](https://docs.docker.com/engine/reference/commandline/build/) e, desta vez, atualize a versão na marca para `v1.0.2`. Como antes, substitua `<docker-id>` pela ID da conta do Hub do Docker. 
 
 ```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+docker build --tag <docker-id>/mydockerimage:v1.0.2
 ```
 
 Envie a imagem atualizada de volta para o repositório.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0
+docker push <docker-id>/mydockerimage:v1.0.2
 ```
 
 ### <a name="verify-the-updates-in-azure"></a>Verificar as atualizações no Azure

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cfcf63274fc4bd77e7cb8fd792ed7d2782b36003
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 1217028dc6c206633f13fe44951732809cd72d22
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541247"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762802"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina
 
@@ -110,14 +110,14 @@ As redes neurais de revolução foram usadas em áreas como reconhecimento de v�
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os artigos a seguir mostram como usar a tecnologia de aprendizado profundo no [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri):
+Os artigos a seguir mostram como usar a tecnologia de aprendizado profundo no [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
 
-- [Classificar dígitos manuscritos usando um modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [Classificar dígitos manuscritos usando um modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
-- [Classificar dígitos manuscritos usando um estimador TensorFlow e Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classificar dígitos manuscritos usando um estimador TensorFlow e Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classificar imagens usando um modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [Classificar imagens usando um modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
-- [Classificar dígitos manuscritos usando um modelo de encadeamento](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Classificar dígitos manuscritos usando um modelo de encadeamento](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
 
 Além disso, use a página de dicas de [algoritmo Machine Learning](algorithm-cheat-sheet.md) para escolher algoritmos para seu modelo.

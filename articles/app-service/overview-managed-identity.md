@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422020"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834170"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o serviço de aplicativo e Azure Functions
 
 > [!Important] 
 > As identidades gerenciadas para o serviço de aplicativo e o Azure Functions não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, o que pode ser feito desabilitando e reabilitando o recurso. Consulte [removendo uma identidade](#remove) abaixo. Os recursos downstream também precisarão ter políticas de acesso atualizadas para usar a nova identidade.
 
-Este tópico mostra como criar uma identidade gerenciada para aplicativos de Azure Functions e serviço de aplicativo e como usá-lo para acessar outros recursos. As identidades geridas do Azure Active Directory permitem que a sua aplicação aceda facilmente a outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Este tópico mostra como criar uma identidade gerenciada para aplicativos de Azure Functions e serviço de aplicativo e como usá-lo para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory (AAD) permite que seu aplicativo acesse facilmente outros recursos protegidos por AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no AAD, consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Seu aplicativo pode receber dois tipos de identidades: 
 - Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se seu aplicativo for excluído. Um aplicativo pode ter apenas uma identidade atribuída pelo sistema.
@@ -77,7 +77,7 @@ As etapas a seguir mostrarão como criar um aplicativo Web e atribuir a ele uma 
 
 As etapas a seguir mostrarão como criar um aplicativo Web e atribuir a ele uma identidade usando Azure PowerShell:
 
-1. Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzAccount` para criar uma ligação ao Azure.
+1. Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia de Azure PowerShell](/powershell/azure/overview)e, em seguida, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 2. Crie um aplicativo Web usando Azure PowerShell. Para obter mais exemplos de como usar Azure PowerShell com o serviço de aplicativo, consulte [exemplos do PowerShell do serviço de aplicativo](../app-service/samples-powershell.md):
 
@@ -235,12 +235,12 @@ Onde `<PRINCIPALID>` e `<CLIENTID>` são substituídos por GUIDs. O PrincipalId 
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obtendo tokens para recursos do Azure
 
-Um aplicativo pode usar sua identidade para obter tokens para outros recursos protegidos pelo AAD, como Azure Key Vault. Esses tokens representam o aplicativo que está acessando o recurso e não qualquer usuário específico do aplicativo. 
+Um aplicativo pode usar sua identidade gerenciada para obter tokens para acessar outros recursos protegidos pelo AAD, como Azure Key Vault. Esses tokens representam o aplicativo que está acessando o recurso e não qualquer usuário específico do aplicativo. 
 
 > [!IMPORTANT]
-> Talvez seja necessário configurar o recurso de destino para permitir o acesso do seu aplicativo. Por exemplo, se você solicitar um token para Key Vault, precisará certificar-se de ter adicionado uma política de acesso que inclui a identidade do aplicativo. Caso contrário, suas chamadas para Key Vault serão rejeitadas, mesmo que incluam o token. Para saber mais sobre quais recursos dão suporte a tokens de Azure Active Directory, consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> Talvez seja necessário configurar o recurso de destino para permitir o acesso do seu aplicativo. Por exemplo, se você solicitar um token para acessar Key Vault, precisará certificar-se de ter adicionado uma política de acesso que inclui a identidade do aplicativo. Caso contrário, suas chamadas para Key Vault serão rejeitadas, mesmo que incluam o token. Para saber mais sobre quais recursos dão suporte a tokens de Azure Active Directory, consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Há um protocolo REST simples para obter um token no serviço de aplicativo e Azure Functions. Isso pode ser usado para todos os aplicativos e linguagens. Para alguns .NET e Java, o SDK do Azure fornece uma abstração sobre esse protocolo e facilita uma experiência de desenvolvimento local.
+Há um protocolo REST simples para obter um token no serviço de aplicativo e Azure Functions. Isso pode ser usado para todos os aplicativos e linguagens. Para .NET e Java, o SDK do Azure fornece uma abstração sobre esse protocolo e facilita uma experiência de desenvolvimento local.
 
 ### <a name="using-the-rest-protocol"></a>Usando o protocolo REST
 

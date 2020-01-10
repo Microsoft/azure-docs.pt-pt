@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893465"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768153"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -29,8 +29,6 @@ Este artigo fornece informações de suporte para as seguintes opções de confi
 - Condição de aplicativos cliente
 - Requisito de aplicativo cliente aprovado
 
-Se essas não forem as informações que você está procurando, deixe um comentário no final deste artigo.
-
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicativos de nuvem
 
 Com as políticas de acesso condicional, você controla como os usuários acessam seus [aplicativos de nuvem](conditions.md#cloud-apps-and-actions). Ao configurar uma política de acesso condicional, você precisa selecionar pelo menos um aplicativo de nuvem. 
@@ -41,6 +39,7 @@ Com as políticas de acesso condicional, você controla como os usuários acessa
 
 Você pode atribuir uma política de acesso condicional aos seguintes aplicativos de nuvem da Microsoft:
 
+- Office 365 (versão prévia)
 - Azure Analysis Services
 - Azure DevOps
 - Banco de dados SQL do Azure e data warehouse- [saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -55,7 +54,7 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- Registro de Microsoft Intune
+- Inscrição do Microsoft Intune
 - Microsoft Planner
 - Microsoft PowerApps
 - Pesquisa da Microsoft no Bing
@@ -68,11 +67,27 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 - Office Delve
 - Sway do Office
 - Grupos do Outlook
-- Serviço de Power BI
+- Serviço Power BI
 - Project Online
 - Skype para Empresas Online
 - VPN (rede virtual privada)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 (versão prévia)
+
+O Office 365 fornece serviços de produtividade e colaboração baseados em nuvem, como o Exchange, o SharePoint e o Microsoft Teams. Os serviços de nuvem do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais como o Office 365 Exchange Online e o Office 365 SharePoint Online para evitar problemas que podem surgir devido a políticas inconsistentes e dependências de serviço.
+
+Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévia):
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Portal do Office
+- Microsoft Forms
+- Automatização de energia da Microsoft
+- Microsoft Planner
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>Outros aplicativos
 
@@ -81,7 +96,7 @@ Além dos aplicativos de nuvem da Microsoft, você pode atribuir uma política d
 - Aplicativos conectados ao Azure AD
 - Aplicativo de SaaS (software como serviço) federado integrado
 - Aplicativos que usam SSO (logon único) de senha
-- Aplicativos de linha de negócios
+- Aplicações de linha de negócio
 - Aplicativos que usam o Azure Proxy de Aplicativo do AD
 
 ## <a name="device-platform-condition"></a>Condição de plataforma de dispositivo
@@ -115,10 +130,10 @@ Em sua política de acesso condicional, você pode selecionar **navegadores** co
 
 Essa configuração funciona com todos os navegadores. No entanto, para atender a uma política de dispositivo, como um requisito de dispositivo compatível, os seguintes sistemas operacionais e navegadores têm suporte:
 
-| SO                     | Navigator                                        |
+| SO                     | Browsers                                        |
 | :--                    | :--                                             |
 | Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows 8/8,1        | Internet Explorer, Chrome                       |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
 | Windows 7              | Internet Explorer, Chrome                       |
 | iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
 | Android                | Microsoft Edge, Intune Managed Browsers, Chrome  |
@@ -144,7 +159,7 @@ Para implantar automaticamente essa extensão em navegadores Chrome, crie a segu
 | --- | --- |
 | Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Nome | 1 |
-| Tipo | REG_SZ (cadeia de caracteres) |
+| Tipo | REG_SZ (String) |
 | Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/service/update2/crx |
 
 Para obter suporte ao Chrome no **Windows 8.1 e no 7**, crie a seguinte chave do registro:
@@ -153,8 +168,8 @@ Para obter suporte ao Chrome no **Windows 8.1 e no 7**, crie a seguinte chave do
 | --- | --- |
 | Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Nome | 1 |
-| Tipo | REG_SZ (cadeia de caracteres) |
-| Dados | {"Pattern": "https://device.login.microsoftonline.com", "filtro": {"emissor": {"CN": "MS-Organization-Access"}}} |
+| Tipo | REG_SZ (String) |
+| Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falhará se o navegador estiver sendo executado em modo privado.
 
@@ -166,7 +181,7 @@ Em sua política de acesso condicional, você pode selecionar **aplicativos móv
 
 Essa configuração tem um impacto nas tentativas de acesso feitas dos seguintes aplicativos móveis e clientes de desktop:
 
-| Aplicativos cliente | Serviço de destino | Plataforma |
+| Aplicações do cliente | Serviço de destino | Plataforma |
 | --- | --- | --- |
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicativo de email/calendário/pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
@@ -182,7 +197,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas dos seguintes
 | Outlook 2016 (Office para macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Aplicativo móvel do Outlook | Office 365 Exchange Online | Android, iOS |
-| Power BI aplicativo | serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
+| Aplicação Power BI | Serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
 | Skype para Empresas | Office 365 Exchange Online| Android, IOS |
 | Visual Studio Team Services aplicativo | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
@@ -235,6 +250,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Os aplicativos cliente aprovados dão suporte ao recurso de gerenciamento de aplicativos móveis do Intune.
 - O requisito **exigir aplicativo cliente aprovado** :
    - O só dá suporte ao iOS e ao Android para a [condição de plataforma de dispositivo](#device-platform-condition).
+- O acesso condicional não pode considerar o Microsoft Edge no modo InPrivate em um aplicativo cliente aprovado.
 
 ## <a name="app-protection-policy-requirement"></a>Requisito de política de proteção de aplicativo 
 

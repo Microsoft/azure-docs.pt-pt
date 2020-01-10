@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c1f3384b88de7b58457251cf72b2815267cb29
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541702"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772589"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -35,9 +35,9 @@ Azure Machine Learning fornece os seguintes recursos de MLOps:
 
 Use pipelines ML do Azure Machine Learning para unir todas as etapas envolvidas no processo de treinamento do modelo.
 
-Um pipeline ML pode conter etapas de preparação de dados para extração de recursos para ajuste de hiperparâmetro para avaliação de modelo. Para obter mais informações, consulte [pipelines do ml](service/concept-ml-pipelines.md).
+Um pipeline ML pode conter etapas de preparação de dados para extração de recursos para ajuste de hiperparâmetro para avaliação de modelo. Para obter mais informações, consulte [pipelines do ml](concept-ml-pipelines.md).
 
-Se você usar o [Designer](service/concept-designer.md) para criar seus pipelines de ml, você poderá, a qualquer momento, clicar em **"..."** na parte superior direita da página do designer e, em seguida, selecionar **clonar**. Clonar seu pipeline permite que você itere seu design de pipeline sem perder suas versões antigas.  
+Se você usar o [Designer](concept-designer.md) para criar seus pipelines de ml, você poderá, a qualquer momento, clicar em **"..."** na parte superior direita da página do designer e, em seguida, selecionar **clonar**. Clonar seu pipeline permite que você itere seu design de pipeline sem perder suas versões antigas.  
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Registre, empacote e implante modelos de qualquer lugar
 

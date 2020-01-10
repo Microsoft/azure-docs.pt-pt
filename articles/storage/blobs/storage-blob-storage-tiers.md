@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371960"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779887"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
@@ -61,7 +61,7 @@ A camada de acesso frio reduz os custos de armazenamento e os custos de acesso m
 
 A camada de acesso de arquivamento tem o menor custo de armazenamento. Mas ele tem custos de recuperação de dados mais altos em comparação com as camadas quente e fria. Os dados na camada de arquivo podem levar várias horas para serem recuperados. Os dados devem permanecer na camada de arquivo por pelo menos 180 dias ou estar sujeitos a uma cobrança de exclusão antecipada.
 
-Enquanto um blob está no armazenamento de arquivo morto, os dados de blob ficam offline e não podem ser lidos, copiados, substituídos ou modificados. Não é possível tirar instantâneos de um blob no armazenamento de arquivos. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e suas propriedades. Para BLOBs no arquivo morto, as únicas operações válidas são getblobproperties, GetBlobMetadata, ListBlobs, SetBlobTier e DeleteBlob.
+Enquanto um blob está no armazenamento de arquivo morto, os dados de blob ficam offline e não podem ser lidos, substituídos ou modificados. Para ler ou baixar um blob no arquivo morto, você deve primeiro reidratar-lo a uma camada online. Não é possível tirar instantâneos de um blob no armazenamento de arquivos. No entanto, os metadados de blob permanecem online e disponíveis, permitindo que você liste o blob e suas propriedades. Para BLOBs no arquivo morto, as únicas operações válidas são getblobproperties, GetBlobMetadata, ListBlobs, SetBlobTier, CopyBlob e DeleteBlob. Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.
 
 Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 
@@ -77,9 +77,9 @@ A alteração da camada de acesso à conta se aplica a todos os objetos _inferid
 
 ## <a name="blob-level-tiering"></a>Camadas ao nível do blob
 
-As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações de camada acontecem imediatamente. No entanto, reidratar um blob do arquivo pode levar várias horas.
+As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as solicitações de alteração de camada acontecem imediatamente e as alterações de camada entre a quente e a fria são instantâneas. No entanto, reidratar um blob do arquivo pode levar várias horas.
 
-A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário. Ao substituir um blob na camada quente ou fria, o blob recém-criado herda a camada do blob que foi substituído, a menos que a nova camada de acesso de blob seja definida explicitamente na criação.
+A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Ao substituir um blob na camada quente ou fria, o blob recém-criado herda a camada do blob que foi substituído, a menos que a nova camada de acesso de blob seja definida explicitamente na criação. Se um blob estiver na camada de arquivo morto, ele não poderá ser substituído, portanto, carregar o mesmo BLOB não será permitido nesse cenário. 
 
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Você também não pode alterar atualmente a camada de um blob de blocos que tenha instantâneos.
@@ -127,17 +127,18 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 <sup>2</sup> armazenamento de arquivos atualmente dá suporte a duas reidratar prioridades, alta e padrão, que oferece latências de recuperação diferentes. Para obter mais informações, consulte [dados de blob reidratar da camada de arquivo morto](storage-blob-rehydration.md).
 
 > [!NOTE]
-> As contas de armazenamento de BLOBs dão suporte às mesmas metas de desempenho e escalabilidade que as contas de armazenamento de uso geral v2. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> As contas de armazenamento de BLOBs dão suporte às mesmas metas de desempenho e escalabilidade que as contas de armazenamento de uso geral v2. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](scalability-targets.md).
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
-Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
+Nesta seção, os cenários a seguir são demonstrados usando o portal do Azure e o PowerShell:
 
 - Como alterar a camada de acesso predefinida de uma conta de armazenamento de Blobs ou GPv2.
 - Como alterar a camada de um blob numa conta de armazenamento de Blobs ou GPv2.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso predefinida de uma conta GPv2 ou de Armazenamento de Blobs
 
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Na portal do Azure, procure e selecione **todos os recursos**.
@@ -150,11 +151,27 @@ Nesta secção os seguintes cenários são demonstrados através do portal do Az
 
 1. Clique em **salvar** na parte superior.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob em uma conta de armazenamento de BLOBs ou de GPv2
+![Alterar a camada da conta de armazenamento](media/storage-tiers/account-tier.png)
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+O script do PowerShell a seguir pode ser usado para alterar a camada de conta. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. 
+```powershell
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+---
+
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob em uma conta de armazenamento de BLOBs ou de GPv2
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Na portal do Azure, procure e selecione **todos os recursos**.
+
+1. Selecione a sua conta de armazenamento.
 
 1. Selecione seu contêiner e, em seguida, selecione seu BLOB.
 
@@ -163,6 +180,29 @@ Nesta secção os seguintes cenários são demonstrados através do portal do Az
 1. Selecione a camada de acesso **quente**, **fria**ou de **arquivamento** . Se o blob estiver atualmente no arquivo morto e você quiser reidratar-lo em uma camada online, você também poderá selecionar uma prioridade reidratar de **padrão** ou **alta**.
 
 1. Selecione **salvar** na parte inferior.
+
+![Alterar a camada da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+O script do PowerShell a seguir pode ser usado para alterar a camada de BLOB. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do contêiner. A variável `$blobName` deve ser inicializada com o nome do blob. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to archive
+$blob.ICloudBlob.SetStandardBlobTier("Archive")
+```
+---
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -214,11 +254,11 @@ Todas as operações entre frequente e esporádica são 100% consistentes. Todas
 
 **Como posso saber que a reidratação de um blob a partir da camada de arquivo para a camada frequente ou esporádica foi concluída?**
 
-Durante a reidratação, você pode usar a operação obter propriedades de BLOB para sondar o atributo **status do arquivo** e confirmar quando a alteração da camada foi concluída. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade “archive status” do blob é removida e a propriedade **Access Tier** reflete a camada frequente ou esporádica nova.  
+Durante a reidratação, você pode usar a operação obter propriedades de BLOB para sondar o atributo **status do arquivo** e confirmar quando a alteração da camada foi concluída. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade “archive status” do blob é removida e a propriedade **Access Tier** reflete a camada frequente ou esporádica nova. Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.
 
 **Depois de definir a camada de um blob, quando é que me começa a ser faturada a taxa adequada?**
 
-Cada blob é sempre cobrado de acordo com a camada indicada pela propriedade **camada de acesso** do blob. Quando você define uma nova camada para um blob, a propriedade de **camada de acesso** reflete imediatamente a nova camada para todas as transições. No entanto, a reativação de um blob a partir de uma camada de arquivo para um escalão de acesso frequente ou esporádico pode demorar várias horas. Nesse caso, você será cobrado em taxas de arquivamento até que reidratação seja concluído, ponto em que a propriedade da **camada de acesso** reflete a nova camada. Nesse ponto, você será cobrado pelo blob à taxa quente ou fria.
+Cada blob é sempre cobrado de acordo com a camada indicada pela propriedade **camada de acesso** do blob. Quando você define uma nova camada online para um blob, a propriedade da **camada de acesso** reflete imediatamente a nova camada para todas as transições. No entanto, reidratar um blob da camada de arquivo offline para uma camada quente ou fria pode levar várias horas. Nesse caso, você será cobrado em taxas de arquivamento até que reidratação seja concluído, ponto em que a propriedade da **camada de acesso** reflete a nova camada. Depois de ser realimentado à camada online, você será cobrado pelo blob à taxa quente ou fria.
 
 **Como fazer determinar se eu incorrerá em um encargo de exclusão antecipada ao excluir ou mover um blob da camada fria ou de arquivo morto?**
 
@@ -230,7 +270,7 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 **Quantos dados posso armazenar nas camadas frequente, esporádica e de arquivo?**
 
-O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [metas de desempenho e escalabilidade do armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para obter mais informações, consulte [escalabilidade e metas de desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: f4410d9cab5677327d2950dfdc1a093140f31708
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 4855451136edfe86baaace48e2582fc7080a9b12
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102268"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770378"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analise vídeos quase em tempo real
 
@@ -144,7 +144,7 @@ while (true)
 
 Para ajudar a colocar seu aplicativo em funcionamento o mais rápido possível, implementamos o sistema descrito na seção anterior. Ele se destina a ser flexível o suficiente para acomodar muitos cenários, embora seja fácil de usar. Para acessar o código, vá para a página de [exemplo de análise de quadros de vídeo](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) no github.
 
-A biblioteca contém a `FrameGrabber` classe, que implementa o sistema produtor-consumidor discutido anteriormente para processar quadros de vídeo de uma webcam. Os usuários podem especificar a forma exata da chamada à API, e a classe usa eventos para permitir que o código de chamada saiba quando um novo quadro é adquirido ou quando um novo resultado de análise está disponível.
+A biblioteca contém a classe `FrameGrabber`, que implementa o sistema do consumidor produtor discutido anteriormente para processar quadros de vídeo de uma webcam. Os usuários podem especificar a forma exata da chamada à API, e a classe usa eventos para permitir que o código de chamada saiba quando um novo quadro é adquirido ou quando um novo resultado de análise está disponível.
 
 Para ilustrar algumas das possibilidades, fornecemos dois aplicativos de exemplo que usam a biblioteca. 
 
@@ -164,7 +164,7 @@ namespace BasicConsoleSample
         const string ApiKey = "<your API key>";
         const string Endpoint = "https://<your API region>.api.cognitive.microsoft.com";
 
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             // Create grabber.
             FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
@@ -205,14 +205,14 @@ namespace BasicConsoleSample
             grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
 
             // Start running in the background.
-            grabber.StartProcessingCameraAsync().Wait();
+            await grabber.StartProcessingCameraAsync();
 
             // Wait for key press to stop.
             Console.WriteLine("Press any key to stop...");
             Console.ReadKey();
 
             // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
+            await grabber.StopProcessingAsync();
         }
     }
 }

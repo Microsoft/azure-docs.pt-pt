@@ -1,21 +1,21 @@
 ---
-title: Logs de recursos para grupos de contêineres
+title: Coletar & analisar logs de recursos
 description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533723"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770548"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
-Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log de recursos não apenas do Azure, mas também recursos e recursos locais em outras nuvens. As instâncias de contêiner do Azure incluem suporte interno para enviar logs e dados de eventos para Azure Monitor logs.
+Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas de recursos do Azure, mas também recursos e recursos locais em outras nuvens. As instâncias de contêiner do Azure incluem suporte interno para enviar logs e dados de eventos para Azure Monitor logs.
 
-Para enviar dados de log e eventos do grupo de contêineres para Azure Monitor logs, você deve especificar uma ID do espaço de trabalho Log Analytics e uma chave do espaço de trabalho ao criar um grupo de contêineres. As secções seguintes descrevem como criar um grupo de contentores com registo ativado e registos de consulta.
+Para enviar dados de log e eventos do grupo de contêineres para Azure Monitor logs, especifique uma ID do espaço de trabalho Log Analytics e uma chave do espaço de trabalho existentes ao criar um grupo de contêineres. As seções a seguir descrevem como criar um grupo de contêineres habilitado para registro em log e como consultar logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -46,7 +46,7 @@ Para obter a ID do espaço de trabalho do log Analytics e a chave primária:
 
 Agora que você tem a ID do espaço de trabalho do log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para registro em log.
 
-Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres que consiste em um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contêiner fluentd produz várias linhas de saída em sua configuração padrão. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
 
 ### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 

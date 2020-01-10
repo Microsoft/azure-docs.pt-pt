@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4ab1dcf4f3554c941107ec653f717b3680543da2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d20f81bf7db2e098f2bca674c5540bc067577f30
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490725"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833915"
 ---
 # <a name="configure-personalizer"></a>Configurar o Personalizador
 
@@ -23,9 +23,9 @@ A configuração do serviço inclui como o serviço trata as recompensas, com qu
 
 ## <a name="create-personalizer-resource"></a>Criar recurso personalizado
 
-Crie um recurso personalizado para cada loop de comentários. 
+Crie um recurso personalizado para cada loop de comentários.
 
-1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você para a página **criar** para o serviço personalizador. 
+1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você para a página **criar** para o serviço personalizador.
 1. Insira o nome do serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
 1. Selecione a confirmação e selecione **criar**.
 
@@ -33,8 +33,8 @@ Crie um recurso personalizado para cada loop de comentários.
 
 ## <a name="configure-service-in-the-azure-portal"></a>Configurar o serviço no portal do Azure
 
-1. Iniciar sessão no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Encontre seu recurso personalizador. 
+1. Inicie sessão no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+1. Encontre seu recurso personalizador.
 1. Na seção **Gerenciamento de recursos** , selecione **configuração**.
 
     Antes de deixar o portal do Azure, copie uma das suas chaves de recurso da página **chaves** . Você precisará disso para usar o [SDK do personalizador](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
@@ -47,17 +47,17 @@ Configure o serviço para o uso de recompensas do seu loop de comentários. As a
 
 ![Configurar os valores de recompensa para o loop de comentários](media/settings/configure-model-reward-settings.png)
 
-|Valor|Objetivo|
+|Valor|Finalidade|
 |--|--|
-|tempo de espera de recompensa|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando: "quanto tempo o personalizador deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
+|Tempo de espera de recompensa|Define o período durante o qual o personalizador coletará valores de recompensa para uma chamada de classificação, a partir do momento em que a chamada de classificação ocorrer. Esse valor é definido perguntando: "quanto tempo o personalizador deve esperar por chamadas de recompensas?" Qualquer recompensa chegando após essa janela será registrada, mas não usada para aprendizado.|
 |Recompensa padrão|Se nenhuma chamada de recompensa for recebida pelo personalizador durante a janela de tempo de espera da recompensa associada a uma chamada de classificação, o personalizador atribuirá a recompensa padrão. Por padrão, e na maioria dos cenários, a recompensa padrão é zero.|
 |Recompensar agregação|Se várias recompensas forem recebidas para a mesma chamada à API de classificação, esse método de agregação será usado: **sum** ou mais **antigo**. O primeiro escolhe a pontuação mais antiga recebida e descarta o restante. Isso será útil se você quiser um recompensa exclusivo entre chamadas possivelmente duplicadas. |
 
 Depois de alterar esses valores, certifique-se de selecionar **salvar**.
 
-### <a name="configure-exploration"></a>Configurar a exploração 
+### <a name="configure-exploration"></a>Configurar a exploração
 
-A personalização é capaz de descobrir novos padrões e adaptar-se às alterações de comportamento do usuário ao longo do tempo explorando alternativas. O valor de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração. 
+A personalização é capaz de descobrir novos padrões e adaptar-se às alterações de comportamento do usuário ao longo do tempo explorando alternativas. O valor de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração.
 
 As alterações nesse valor redefinirão o modelo personalizado atual e o treinarão novamente com os últimos 2 dias de dados.
 
@@ -67,7 +67,7 @@ Depois de alterar esse valor, certifique-se de selecionar **salvar**.
 
 ### <a name="model-update-frequency"></a>Frequência de atualização do modelo
 
-O modelo mais recente, treinado a partir de recompensar chamadas de API de cada evento ativo, não é usado automaticamente pela chamada de classificação do personalizador. A **frequência de atualização do modelo** define com que frequência o modelo usado pela chamada de classificação é atualizado. 
+O modelo mais recente, treinado a partir de recompensar chamadas de API de cada evento ativo, não é usado automaticamente pela chamada de classificação do personalizador. A **frequência de atualização do modelo** define com que frequência o modelo usado pela chamada de classificação é atualizado.
 
 As frequências de atualização de modelo alto são úteis para situações em que você deseja controlar com mais precisão as alterações nos comportamentos do usuário. Os exemplos incluem sites que são executados em notícias ao vivo, conteúdo viral ou oferta de produtos ao vivo. Você pode usar uma frequência de 15 minutos nesses cenários. Para a maioria dos casos de uso, uma frequência de atualização mais baixa é eficaz. As frequências de atualização de um minuto são úteis ao depurar o código de um aplicativo usando o personalizador, fazer demonstrações ou testar interativamente aspectos de aprendizado de máquina.
 
@@ -83,14 +83,9 @@ Depois de alterar esse valor, certifique-se de selecionar **salvar**.
 
 ## <a name="export-the-personalizer-model"></a>Exportar o modelo personalizador
 
-Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, reveja criação de modelo e data da última atualização e exporte o modelo atual. Você pode usar o portal do Azure ou as APIs personalizadas para exportar um arquivo de modelo para fins de arquivamento. 
+Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, reveja criação de modelo e data da última atualização e exporte o modelo atual. Você pode usar o portal do Azure ou as APIs personalizadas para exportar um arquivo de modelo para fins de arquivamento.
 
 ![Exportar modelo personalizado atual](media/settings/export-current-personalizer-model.png)
-
-## <a name="import-and-export-learning-policy"></a>Importar e exportar política de aprendizagem
-
-Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
-Você pode obter arquivos de política de aprendizado de exportações anteriores ou baixar as políticas otimizadas descobertas durante as avaliações offline. Fazer alterações manuais nesses arquivos afetará o desempenho do aprendizado de máquina e a precisão das avaliações offline, e a Microsoft não conseguirá comprovar a precisão do aprendizado e das avaliações de máquina, ou exceções de serviço resultantes de políticas editadas manualmente.
 
 ## <a name="clear-data-for-your-learning-loop"></a>Limpar dados para seu loop de aprendizado
 
@@ -99,15 +94,14 @@ Você pode obter arquivos de política de aprendizado de exportações anteriore
 
     ![Em portal do Azure, desmarque dados do recurso Personalizar.](./media/settings/clear-data-from-personalizer-resource.png)
 
-    |Valor|Objetivo|
+    |Valor|Finalidade|
     |--|--|
     |Personalização registrada e dados de recompensa.|Esses dados de log são usados em avaliações offline. Limpe os dados se você estiver redefinindo seu recurso.|
     |Redefina o modelo personalizador.|Esse modelo é alterado em cada novo treinamento. Essa frequência de treinamento é especificada na **frequência do modelo de carregamento** na página de **configuração** . |
     |Defina a política de aprendizado como padrão.|Se você alterou a política de aprendizado como parte de uma avaliação offline, isso redefinirá a política de aprendizado original.|
 
-1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita. 
+1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-
-[Saiba mais sobre a disponibilidade de região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Saiba como gerenciar uma política de aprendizado](how-to-learning-policy.md)

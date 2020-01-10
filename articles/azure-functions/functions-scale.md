@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2eba0c7ae546b5f5ab7525cc8c84e6b6de431085
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929736"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768929"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 
-Ao criar um aplicativo de funções no Azure, você deve escolher um plano de hospedagem para seu aplicativo. Há três planos de hospedagem disponíveis para Azure Functions: [plano de consumo](#consumption-plan), [plano Premium](#premium-plan)e [plano do serviço de aplicativo](#app-service-plan).
+Ao criar um aplicativo de funções no Azure, você deve escolher um plano de hospedagem para seu aplicativo. Há três planos de hospedagem disponíveis para Azure Functions: [plano de consumo](#consumption-plan), [plano Premium](#premium-plan)e [plano dedicado (serviço de aplicativo)](#app-service-plan).
 
 O plano de hospedagem que você escolher ditará os seguintes comportamentos:
 
 * Como seu aplicativo de funções é dimensionado.
 * Os recursos disponíveis para cada instância do aplicativo de funções.
-* Suporte para recursos avançados, como conectividade VNET.
+* Suporte para recursos avançados, como a conectividade de rede virtual do Azure.
 
-Os planos de consumo e Premium adicionam capacidade de computação automaticamente quando seu código está em execução. Seu aplicativo é escalado horizontalmente quando necessário para lidar com a carga e diminuído verticalmente quando o código para de ser executado. Para o plano de consumo, você também não precisa pagar por VMs ociosas ou reservar a capacidade antecipadamente.  
+Os planos de consumo e Premium adicionam capacidade de computação automaticamente quando seu código está em execução. Seu aplicativo é escalado horizontalmente quando necessário para lidar com a carga e dimensionado quando o código para de ser executado. Para o plano de consumo, você também não precisa pagar por VMs ociosas ou reservar a capacidade antecipadamente.  
 
 O plano Premium fornece recursos adicionais, como instâncias de computação Premium, a capacidade de manter instâncias quentes indefinidamente e conectividade VNet.
 
@@ -33,7 +33,7 @@ O plano do serviço de aplicativo permite que você aproveite a infraestrutura d
 O suporte a recursos se enquadra nas duas categorias a seguir:
 
 * Disponibilidade _geral (GA)_ : suporte completo e aprovado para uso em produção.
-* Versão _prévia_: ainda não há suporte total e aprovado para uso em produção.
+* Versão _prévia_: ainda não há suporte total nem aprovado para uso em produção.
 
 A tabela a seguir indica o nível de suporte atual para os três planos de hospedagem, quando executado no Windows ou no Linux:
 
@@ -78,7 +78,7 @@ Considere o plano Azure Functions Premium nas seguintes situações:
 * Você tem um número alto de execuções pequenas e tem uma cobrança de alta execução, mas a cobrança de baixo GB por segundo no plano de consumo.
 * Você precisa de mais opções de CPU ou memória do que o fornecido pelo plano de consumo.
 * Seu código precisa ser executado por mais tempo do que o [máximo permitido](#timeout) no plano de consumo.
-* Você precisa de recursos que estão disponíveis apenas em um plano Premium, como conectividade VNET/VPN.
+* Você precisa de recursos que estão disponíveis apenas em um plano Premium, como a conectividade de rede virtual.
 
 Ao executar funções de JavaScript em um plano Premium, você deve escolher uma instância que tenha menos vCPUs. Para obter mais informações, consulte [escolher planos Premium de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
 
@@ -126,7 +126,9 @@ Quando a saída desse comando for `dynamic`, seu aplicativo de funções estará
 
 Em qualquer plano, um aplicativo de funções requer uma conta de armazenamento do Azure geral, que dá suporte ao blob do Azure, à fila, aos arquivos e ao armazenamento de tabelas. Isso ocorre porque as funções dependem do armazenamento do Azure para operações como gerenciar gatilhos e registrar execuções de função, mas algumas contas de armazenamento não dão suporte a filas e tabelas. Essas contas, que incluem contas de armazenamento somente BLOB (incluindo o armazenamento Premium) e contas de armazenamento de uso geral com replicação de armazenamento com redundância de zona, são filtradas de suas seleções de **conta de armazenamento** existentes quando você cria um aplicativo de funções.
 
-A mesma conta de armazenamento usada por seu aplicativo de funções também pode ser usada por seus gatilhos e associações para armazenar os dados do aplicativo. No entanto, para operações com uso intensivo de armazenamento, você deve usar uma conta de armazenamento separada.   
+A mesma conta de armazenamento usada por seu aplicativo de funções também pode ser usada por seus gatilhos e associações para armazenar os dados do aplicativo. No entanto, para operações com uso intensivo de armazenamento, você deve usar uma conta de armazenamento separada.  
+
+Certamente, é possível que vários aplicativos de funções compartilhem a mesma conta de armazenamento sem nenhum problema. (Um bom exemplo disso é quando você desenvolve vários aplicativos em seu ambiente local usando o emulador de armazenamento do Azure, que atua como uma conta de armazenamento.) 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Gatilhos diferentes também podem ter limites de dimensionamento diferentes, bem
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Práticas recomendadas e padrões para aplicativos escalonáveis
 
 Há muitos aspectos de um aplicativo de funções que afetarão o quão bem ele será dimensionado, incluindo a configuração do host, o espaço de tempo de execução e a eficiência dos recursos.  Para obter mais informações, consulte a [seção escalabilidade do artigo considerações sobre desempenho](functions-best-practices.md#scalability-best-practices). Você também deve estar ciente de como as conexões se comportam conforme seu aplicativo de funções é dimensionado. Para obter mais informações, consulte [como gerenciar conexões no Azure Functions](manage-connections.md).
+
+Para obter informações adicionais sobre o dimensionamento em Python e node. js, consulte [Azure Functions guia do desenvolvedor do Python – dimensionamento e simultaneidade](functions-reference-python.md#scaling-and-concurrency) e [Azure Functions guia do desenvolvedor do node. js – dimensionamento e simultaneidade](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de faturação
 

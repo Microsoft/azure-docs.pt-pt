@@ -1,5 +1,5 @@
 ---
-title: Visão geral do BGP e gateways de VPN do Azure | Microsoft Docs
+title: 'Gateway de VPN do Azure e BGP: visão geral'
 description: Este artigo fornece uma descrição geral do BGP com Gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: e85eb756e416f1170a0cb2b19ab68888b5a9422f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b4bb7ed90225fcb52ea170c07be2b57f8afbafe
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516429"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779798"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Sobre o BGP com o gateway de VPN do Azure
 Este artigo fornece uma visão geral do suporte a BGP (Border Gateway Protocol) no gateway de VPN do Azure.
@@ -47,6 +47,6 @@ O diagrama seguinte mostra um exemplo de uma topologia multi-hop com vários cam
 ## <a name="faq"></a>PERGUNTAS FREQUENTES SOBRE BGP
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja [Introdução ao BGP nos gateways de VPN do Azure](vpn-gateway-bgp-resource-manager-ps.md) para obter os passos para configurar o BGP para as ligações em vários locais e VNet a VNet.
 

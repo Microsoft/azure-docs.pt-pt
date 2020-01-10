@@ -1,20 +1,20 @@
 ---
 title: Autenticação com o Azure Maps | Microsoft Docs
-description: Autenticação para usar os serviços do Azure Maps.
+description: Azure Active Directory (Azure AD) ou autenticação de chave compartilhada para usar os serviços do Microsoft Azure Maps. Saiba como obter a chave de assinatura do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575661"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834204"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -22,12 +22,14 @@ O mapas do Azure dá suporte a duas maneiras de autenticar solicitações: chave
 
 ## <a name="shared-key-authentication"></a>Autenticação de chave compartilhada
 
-A autenticação de chave compartilhada passa as chaves geradas por uma conta do Azure Maps com cada solicitação para mapas do Azure.  Duas chaves são geradas quando sua conta do Azure Maps é criada. Para cada solicitação para os serviços do Azure Maps, a chave de assinatura precisa ser adicionada como um parâmetro à URL.
+A autenticação de chave compartilhada passa as chaves geradas por uma conta do Azure Maps com cada solicitação para mapas do Azure. Para cada solicitação para os serviços do Azure Maps, a *chave de assinatura* precisa ser adicionada como um parâmetro à URL. As chaves primária e secundária são geradas depois que a conta do Azure Maps é criada. Recomendamos que você use a chave primária como a chave de assinatura ao chamar o Azure Maps usando a autenticação de chave compartilhada. A chave secundária pode ser usada em cenários como alterações de chave sem interrupção.  
+
+Para obter informações sobre como exibir suas chaves no portal do Azure, consulte [gerenciar a autenticação](https://aka.ms/amauthdetails).
 
 > [!Tip]
 > É recomendável regenerar suas chaves regularmente. Você recebe duas chaves para que possa manter conexões com uma chave ao regenerar a outra. Ao regenerar as chaves, você precisa atualizar todos os aplicativos que acessam a conta para usar as novas chaves.
 
-Para obter informações sobre como exibir suas chaves, consulte [Exibir detalhes de autenticação](https://aka.ms/amauthdetails).
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticação com Azure Active Directory (versão prévia)
 
@@ -45,7 +47,7 @@ O mapas do Azure gera um *identificador exclusivo (ID do cliente)* para cada con
 
 | Ambiente do Azure   | Ponto de extremidade de token do Azure AD |
 | --------------------|-------------------------|
-| Público do Azure        | https://login.microsoftonline.com |
+| Azure Público        | https://login.microsoftonline.com |
 | Azure Government    | https://login.microsoftonline.us |
 
 
@@ -59,8 +61,8 @@ Depois que um token é recebido do Azure AD, uma solicitação pode ser enviada 
 
 | Cabeçalho do pedido    |    Valor    |
 |:------------------|:------------|
-| x-MS-Client-ID    | 30d7cc....9f55|
-| Autorização     | Portador eyJ0e... HNIVN |
+| x-ms-client-id    | 30d7cc....9f55|
+| Autorização     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` é o GUID baseado na conta do Azure Maps que aparece na página de autenticação do Azure Maps.

@@ -12,41 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033357"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833841"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Versão prévia: implantar VMs em hosts dedicados usando o Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
-Verifique se você instalou Azure PowerShell versão 2.4.2 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. Para instalar a versão 2.4.2, abra um prompt do PowerShell e digite:
+Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Limitações
 
-Será necessário pelo menos a versão 1.6.0 do módulo PowerShellGet para habilitar a funcionalidade do módulo de visualização no PowerShell. As versões mais recentes do PowerShell Core têm isso criado automaticamente, mas para versões mais antigas do PowerShell, você pode executar o seguinte comando para atualizar para a versão mais recente:
+- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
 
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Atualmente, os hosts dedicados do Azure estão em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitações de visualização conhecidas**
-> - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-> - A versão inicial da visualização dá suporte à seguinte série de VMs: DSv3 e ESv3. 
-
-
-
-## <a name="create-a-host-group"></a>Criar um grupo de hosts
+## <a name="create-a-host-group"></a>Criar um grupo de anfitriões
 
 Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
 - Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.

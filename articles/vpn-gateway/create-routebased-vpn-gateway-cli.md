@@ -1,24 +1,24 @@
 ---
-title: 'Crie um gateway de VPN do Azure baseado na rota: CLI | Microsoft Docs'
-description: Aprenda rapidamente a criar um Gateway de VPN com a CLI
+title: 'Criar um gateway de VPN do Azure baseado em rota: CLI'
+description: Aprenda rapidamente a criar um gateway de VPN usando a CLI
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f0cc1d63f8560399d1d71c8d010c37bd2c5e387
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391247"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778758"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um gateway VPN baseado na rota com a CLI
+# <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um gateway de VPN baseado em rota usando a CLI
 
-Este artigo ajuda-o a criar rapidamente um gateway de VPN do Azure baseado na rota com a CLI do Azure. Um gateway de VPN é utilizado quando criar uma ligação VPN à sua rede no local. Também pode utilizar um gateway de VPN para ligar VNets.
+Este artigo ajuda você a criar rapidamente um gateway de VPN do Azure baseado em rota usando o CLI do Azure. Um gateway de VPN é usado ao criar uma conexão VPN com sua rede local. Você também pode usar um gateway de VPN para conectar o VNets.
 
-Os passos neste artigo irão criar uma VNet, uma sub-rede, uma sub-rede de gateway e um gateway de VPN baseado na rota (gateway de rede virtual). Um gateway de rede virtual pode demorar 45 minutos ou mais para criar. Depois de concluída a criação de gateway, em seguida, pode criar ligações. Estes passos requerem uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+As etapas neste artigo criarão uma VNet, uma sub-rede, uma sub-rede de gateway e um gateway de VPN baseado em rota (gateway de rede virtual). Um gateway de rede virtual pode levar de 45 minutos ou mais para ser criado. Depois que a criação do gateway for concluída, você poderá criar conexões. Essas etapas exigem uma assinatura do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um grupo de recursos utilizando o [criar grupo az](/cli/azure/group) comando. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Crie um grupo de recursos usando o comando [AZ Group Create](/cli/azure/group) . Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Criar uma rede virtual
 
-Criar uma rede virtual com o [vnet de rede de az criar](/cli/azure/network/vnet) comando. O exemplo seguinte cria uma rede virtual denominada **VNet1** no **EastUS** localização:
+Crie uma rede virtual usando o comando [AZ Network vnet Create](/cli/azure/network/vnet) . O exemplo a seguir cria uma rede virtual chamada **VNet1** na localização **lesteus** :
 
 ```azurecli-interactive 
 az network vnet create \
@@ -49,7 +49,7 @@ az network vnet create \
 
 ## <a name="gwsubnet"></a>Adicionar uma sub-rede de gateway
 
-A sub-rede do gateway contém os endereços IP reservados que utilizam os serviços do gateway de rede virtual. Utilize os exemplos seguintes para adicionar uma sub-rede de gateway:
+A sub-rede de gateway contém os endereços IP reservados que os serviços de gateway de rede virtual usam. Use os exemplos a seguir para adicionar uma sub-rede de gateway:
 
 ```azurepowershell-interactive
 az network vnet subnet create \
@@ -59,9 +59,9 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Peça um endereço IP público
+## <a name="PublicIP"></a>Solicitar um endereço IP público
 
-Um gateway de VPN tem de ter um endereço IP público alocado dinamicamente. O endereço IP público será atribuído ao gateway de VPN que criou para a rede virtual. Utilize o seguinte exemplo para pedir um endereço IP público:
+Um gateway de VPN deve ter um endereço IP público alocado dinamicamente. O endereço IP público será alocado para o gateway de VPN que você criar para sua rede virtual. Use o exemplo a seguir para solicitar um endereço IP público:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -70,11 +70,11 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>Criar o gateway VPN
+## <a name="CreateGateway"></a>Criar o gateway de VPN
 
 Crie o gateway de VPN com o comando [az network vnet-gateway create](/cli/azure/group).
 
-Se executar este comando utilizando o `--no-wait` parâmetro, não verá nenhum feedback nem resultados. O `--no-wait` parâmetro permite que o gateway ser criado em segundo plano. Não significa que o gateway de VPN é criado imediatamente.
+Se você executar esse comando usando o parâmetro `--no-wait`, não verá nenhum comentário ou saída. O parâmetro `--no-wait` permite que o gateway seja criado em segundo plano. Isso não significa que o gateway de VPN é criado imediatamente.
 
 ```azurecli-interactive
 az network vnet-gateway create \
@@ -91,7 +91,7 @@ az network vnet-gateway create \
 
 Um gateway de VPN pode demorar 45 minutos ou mais a ser criado.
 
-## <a name="viewgw"></a>Ver o gateway de VPN
+## <a name="viewgw"></a>Exibir o gateway de VPN
 
 ```azurecli-interactive
 az network vnet-gateway show \
@@ -99,7 +99,7 @@ az network vnet-gateway show \
   -g TestRG1
 ```
 
-A resposta é semelhante a este:
+A resposta é semelhante a esta:
 
 ```
 {
@@ -145,9 +145,9 @@ A resposta é semelhante a este:
 }
 ```
 
-### <a name="view-the-public-ip-address"></a>Ver o endereço IP público
+### <a name="view-the-public-ip-address"></a>Exibir o endereço IP público
 
-Para ver o endereço IP público atribuído ao seu gateway, utilize o seguinte exemplo:
+Para exibir o endereço IP público atribuído ao seu gateway, use o exemplo a seguir:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -155,7 +155,7 @@ az network public-ip show \
   --resource-group TestRG11
 ```
 
-O valor associado a **ipAddress** campo é o endereço IP público do seu gateway VPN.
+O valor associado ao campo **ipAddress** é o endereço IP público do seu gateway de VPN.
 
 Resposta de exemplo:
 
@@ -172,17 +172,17 @@ Resposta de exemplo:
 ```
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não precisar dos recursos que criou, utilize [eliminação do grupo de az](/cli/azure/group) para eliminar o grupo de recursos. Isto elimina o grupo de recursos e todos os recursos contidos no mesmo.
+Quando você não precisar mais dos recursos que criou, use [AZ Group Delete](/cli/azure/group) para excluir o grupo de recursos. Isto elimina o grupo de recursos e todos os recursos contidos no mesmo.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois do gateway tenha terminado de criar, pode criar uma ligação entre a rede virtual e a outra VNet. Em alternativa, criar uma ligação entre a rede virtual e uma localização no local.
+Depois que o gateway terminar de criar, você poderá criar uma conexão entre sua rede virtual e outra VNet. Ou crie uma conexão entre sua rede virtual e um local.
 
 > [!div class="nextstepaction"]
-> [Criar uma ligação site a site](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
-> [Criar uma ligação ponto a site](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Criar uma ligação a outra VNet](vpn-gateway-vnet-vnet-rm-ps.md)
+> [Criar uma conexão site a site](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
+> [Criar uma conexão ponto a site](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
+> [Criar uma conexão com outra VNet](vpn-gateway-vnet-vnet-rm-ps.md)

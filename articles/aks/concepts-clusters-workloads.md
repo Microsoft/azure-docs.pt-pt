@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 349d7d8206cc4139de020234ee063e85f9a8f9ef
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120610"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768644"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos principais do kubernetes para o serviço kubernetes do Azure (AKS)
 
@@ -95,24 +95,24 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 |---|---|---|---|---|---|---|---|
 |Kube-reservado (milicores)|60|100|140|180|260|420|740|
 
-- A memória reservada para **memória** inclui a soma de dois valores
+- **Memória** -memória utilizada por AKs inclui a soma de dois valores.
 
-1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: memória. disponível < 750Mi, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo.
+1. O daemon do kubelet é instalado em todos os nós de agente do kubernetes para gerenciar a criação e o encerramento do contêiner. Por padrão, em AKS, esse daemon tem a seguinte regra de remoção: *memória. disponível < 750Mi*, o que significa que um nó sempre deve ter pelo menos 750 de a $ locais de mi.  Quando um host está abaixo desse limite de memória disponível, o kubelet encerrará um dos pods em execução para liberar memória no computador host e protegê-lo. Essa é uma ação reativa quando a memória disponível diminui além do limite de 750Mi.
 
-2. O segundo valor é uma taxa progressiva de memória reservada para o daemon kubelet funcionar adequadamente (Kube).
+2. O segundo valor é uma taxa progressiva de reservas de memória para o daemon kubelet funcionar adequadamente (Kube).
     - 25% dos primeiros 4 GB de memória
     - 20% dos próximos 4 GB de memória (até 8 GB)
     - 10% dos próximos 8 GB de memória (até 16 GB)
     - 6% dos próximos 112 GB de memória (até 128 GB)
     - 2% de qualquer memória acima de 128 GB
 
-Como resultado dessas duas regras definidas impostas para manter os nós kubernetes e Agent íntegros, a quantidade de CPU e memória de allocáveis aparecerá menos do que o nó em si pode oferecer. As reservas de recursos definidas acima não podem ser alteradas.
+As regras acima para alocação de memória e CPU são usadas para manter os nós de agente íntegros, alguns pods de sistema de hospedagem críticos para a integridade do cluster. Essas regras de alocação também fazem com que o nó relate menos memória e CPU do que seria se não fosse parte de um cluster kubernetes. As reservas de recursos acima não podem ser alteradas.
 
-Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável:
+Por exemplo, se um nó oferecer 7 GB, ele relatará 34% de memória não alocável sobre o limite de remoção de hardware 750Mi.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-Além das reservas para kubernetes, o sistema operacional de nó subjacente também reserva uma quantidade de recursos de CPU e memória para manter as funções do sistema operacional.
+Além das reservas para o próprio kubernetes, o sistema operacional de nó subjacente também reserva uma quantidade de recursos de CPU e memória para manter as funções do sistema operacional.
 
 Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para recursos básicos do Agendador no AKs][operator-best-practices-scheduler].
 
@@ -152,7 +152,7 @@ Para obter mais informações sobre como controlar onde os pods estão agendados
 
 O kubernetes usa *pods* para executar uma instância do seu aplicativo. Um pod representa uma única instância do seu aplicativo. Os pods normalmente têm um mapeamento 1:1 com um contêiner, embora haja cenários avançados em que um pod pode conter vários contêineres. Esses pods de vários contêineres são agendados juntos no mesmo nó e permitem que os contêineres compartilhem recursos relacionados.
 
-Ao criar um pod, você pode definir *limites de recursos* para solicitar uma determinada quantidade de recursos de CPU ou memória. O Agendador kubernetes tenta agendar o pods para ser executado em um nó com recursos disponíveis para atender à solicitação. Você também pode especificar limites máximos de recursos que impedem que um determinado Pod consuma muitos recursos de computação do nó subjacente. Uma prática recomendada é incluir limites de recursos para todos os pods para ajudar o Agendador kubernetes a entender quais recursos são necessários e permitidos.
+Ao criar um pod, você pode definir *solicitações de recursos* para solicitar uma determinada quantidade de recursos de CPU ou memória. O Agendador kubernetes tenta agendar o pods para ser executado em um nó com recursos disponíveis para atender à solicitação. Você também pode especificar limites máximos de recursos que impedem que um determinado Pod consuma muitos recursos de computação do nó subjacente. Uma prática recomendada é incluir limites de recursos para todos os pods para ajudar o Agendador kubernetes a entender quais recursos são necessários e permitidos.
 
 Para obter mais informações, consulte [kubernetes pods][kubernetes-pods] e [ciclo de vida do pod kubernetes][kubernetes-pod-lifecycle].
 

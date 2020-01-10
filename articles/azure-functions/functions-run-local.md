@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941836"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768984"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com Azure Functions Core Tools
 
@@ -26,8 +26,8 @@ Desenvolver funções em seu computador local e publicá-las no Azure usando fer
 > * [Registrar extensões de gatilho e de associação.](#register-extensions)
 > * [Defina o armazenamento e outras conexões.](#local-settings-file)
 > * [Crie uma função de um gatilho e de um modelo específico ao idioma.](#create-func)
-> * [Executar a função localmente](#start)
-> * [Publicar o projeto no Azure](#publish)
+> * [Execute a função localmente.](#start)
+> * [Publique o projeto no Azure.](#publish)
 
 ## <a name="core-tools-versions"></a>Versões do Core Tools
 
@@ -48,7 +48,7 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 3.
 A versão 2. x/3. x das ferramentas usa o Azure Functions Runtime criado no .NET Core. Esta versão tem suporte em todas as plataformas que o .NET Core dá suporte, incluindo [Windows](#windows-npm), [MacOS](#brew)e [Linux](#linux). 
 
 > [!IMPORTANT]
-> Você pode ignorar o requisito de instalação do SDK do .NET Core usando [extensão].
+> Você pode ignorar o requisito de instalação do SDK do .NET Core usando [pacotes de extensão].
 
 #### <a name="windows-npm"></a>Windows
 
@@ -56,7 +56,7 @@ As etapas a seguir usam o NPM para instalar as ferramentas principais no Windows
 
 1. Instale o [Node.js], que inclui NPM.
     - Para a versão 2. x das ferramentas, somente o Node. js 8,5 e versões posteriores têm suporte.
-    - Para a versão 3. x das ferramentas, há suporte apenas para o nó 10 e versões posteriores.
+    - Para a versão 3. x das ferramentas, somente o Node. js 10 e versões posteriores têm suporte.
 
 1. Instale o pacote de ferramentas principais:
 
@@ -74,7 +74,7 @@ As etapas a seguir usam o NPM para instalar as ferramentas principais no Windows
 
    Pode levar alguns minutos para que o NPM Baixe e instale o pacote de ferramentas principais.
 
-1. Se você não planeja usar pacotes de [extensão], instale o SDK do [.NET Core 2. x para Windows](https://www.microsoft.com/net/download/windows).
+1. Se você não planeja usar [pacotes de extensão], instale o [SDK do .NET Core 2. x para Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS com homebrew
 
@@ -129,7 +129,6 @@ As etapas a seguir usam a [apt](https://wiki.debian.org/Apt) para instalar as fe
 
     | Distribuição do Linux | Versão |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
@@ -149,13 +148,13 @@ As etapas a seguir usam a [apt](https://wiki.debian.org/Apt) para instalar as fe
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. Se você não planeja usar pacotes de [extensão], instale o [SDK do .NET Core 2. x para Linux](https://www.microsoft.com/net/download/linux).
+1. Se você não planeja usar [pacotes de extensão], instale o [SDK do .NET Core 2. x para Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
 Um diretório de projeto do Functions contém os arquivos [host. JSON](functions-host-json.md) e [local. Settings. JSON](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Esse diretório é o equivalente a um aplicativo de funções no Azure. Para saber mais sobre a estrutura de pastas do functions, consulte o [Guia do Azure Functions Developers](functions-reference.md#folder-structure).
 
-A versão 2. x exige que você selecione um idioma padrão para seu projeto quando ele é inicializado e todas as funções adicionadas usam modelos de idioma padrão. Na versão 1. x, você especifica o idioma cada vez que cria uma função.
+A versão 2. x exige que você selecione um idioma padrão para seu projeto quando ele for inicializado. Na versão 2. x, todas as funções adicionadas usam modelos de idioma padrão. Na versão 1. x, você especifica o idioma cada vez que cria uma função.
 
 Na janela do terminal ou em um prompt de comando, execute o seguinte comando para criar o projeto e o repositório git local:
 
@@ -227,7 +226,7 @@ Quando nenhuma cadeia de conexão de armazenamento válida é definida para [`Az
 
 ### <a name="get-your-storage-connection-strings"></a>Obter suas cadeias de conexão de armazenamento
 
-Mesmo ao usar o emulador de armazenamento para desenvolvimento, talvez você queira testar com uma conexão de armazenamento real. Supondo que você já tenha [criado uma conta de armazenamento](../storage/common/storage-create-storage-account.md), você pode obter uma cadeia de conexão de armazenamento válida de uma das seguintes maneiras:
+Mesmo ao usar o Emulador de Armazenamento do Microsoft Azure para desenvolvimento, talvez você queira testar com uma conexão de armazenamento real. Supondo que você já tenha [criado uma conta de armazenamento](../storage/common/storage-create-storage-account.md), você pode obter uma cadeia de conexão de armazenamento válida de uma das seguintes maneiras:
 
 - No [portal do Azure], procure e selecione contas de **armazenamento**. 
   ![selecionar contas de armazenamento de portal do Azure](./media/functions-run-local/select-storage-accounts.png)
@@ -235,7 +234,7 @@ Mesmo ao usar o emulador de armazenamento para desenvolvimento, talvez você que
   Selecione sua conta de armazenamento, selecione **chaves de acesso** em **configurações**e, em seguida, copie um dos valores da cadeia de **conexão** .
   ![copiar a cadeia de conexão do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Use [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para se conectar à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
+- Use [Gerenciador de armazenamento do Azure](https://storageexplorer.com/) para se conectar à sua conta do Azure. No **Gerenciador**, expanda sua assinatura, expanda **contas de armazenamento**, selecione sua conta de armazenamento e copie a cadeia de conexão primária ou secundária.
 
   ![Copiar cadeia de conexão do Gerenciador de Armazenamento](./media/functions-run-local/storage-explorer.png)
 
@@ -252,7 +251,7 @@ Mesmo ao usar o emulador de armazenamento para desenvolvimento, talvez você que
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Quando você ainda não tiver entrado no Azure, será solicitado a fazê-lo.
+    Quando você ainda não tiver entrado no Azure, você será solicitado a fazê-lo.
 
 ## <a name="create-func"></a>Criar uma função
 
@@ -323,7 +322,7 @@ Na versão 2. x do tempo de execução, o comando Start varia, dependendo da lin
 func start --build
 ```
 
-#### <a name="javascript"></a>JavaScript
+#### <a name="javascript"></a>Javascript
 
 ```command
 func start
@@ -352,8 +351,8 @@ o `func start` dá suporte às seguintes opções:
 | **`--cert`** | O caminho para um arquivo. pfx que contém uma chave privada. Usado somente com `--useHttps`. Somente a versão 2. x. |
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) versão 2. x somente. |
 | **`--cors`** | Uma lista separada por vírgulas de origens CORS, sem espaços. |
-| **`--language-worker`** | Argumentos para configurar o operador de idioma. Somente a versão 2. x. |
-| **`--nodeDebugPort -n`** | A porta para o depurador de nó usar. Padrão: um valor de Launch. JSON ou 5858. Somente versão 1. x. |
+| **`--language-worker`** | Argumento para configurar o trabalho de idioma. Por exemplo, você pode habilitar a depuração para o trabalho de idioma fornecendo a [porta de depuração e outros argumentos necessários](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Somente a versão 2. x. |
+| **`--nodeDebugPort -n`** | A porta do depurador node. js a ser usada. Padrão: um valor de Launch. JSON ou 5858. Somente versão 1. x. |
 | **`--password`** | A senha ou um arquivo que contém a senha para um arquivo. pfx. Usado somente com `--cert`. Somente a versão 2. x. |
 | **`--port -p`** | A porta local a ser escutada. Valor padrão: 7071. |
 | **`--pause-on-error`** | Pause para obter informações adicionais antes de sair do processo. Usado somente ao iniciar as ferramentas básicas de um ambiente de desenvolvimento integrado (IDE).|
@@ -372,7 +371,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Ao executar localmente, a autenticação não é imposta para pontos de extremidade HTTP. Isso significa que todas as solicitações HTTP locais são tratadas como `authLevel = "anonymous"`. Para obter mais informações, consulte o [artigo Associação http](functions-bindings-http-webhook.md#authorization-keys).
+>Ao executar localmente, a autorização não é imposta para pontos de extremidade HTTP. Isso significa que todas as solicitações HTTP locais são tratadas como `authLevel = "anonymous"`. Para obter mais informações, consulte o [artigo Associação http](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Passando dados de teste para uma função
 
@@ -474,7 +473,7 @@ As opções de publicação a seguir se aplicam a ambas as versões, 1. x e 2. x
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publique as configurações em local. Settings. JSON no Azure, solicitando a substituição se a configuração já existir. Se você estiver usando o emulador de armazenamento, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publique as configurações em local. Settings. JSON no Azure, solicitando a substituição se a configuração já existir. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprimir o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 As seguintes opções de publicação têm suporte apenas na versão 2. x:
@@ -516,9 +515,9 @@ As opções de implantação de contêiner personalizadas a seguir estão dispon
 
 A maneira recomendada para monitorar a execução de suas funções é integrar-se com o Aplicativo Azure insights. Você também pode transmitir logs de execução para o computador local. Para saber mais, consulte [monitorar Azure Functions](functions-monitoring.md).
 
-### <a name="enable-application-insights-integration"></a>Habilitar integração de Application Insights
+### <a name="application-insights-integration"></a>Integração do Application Insights
 
-Quando você cria um aplicativo de funções no portal do Azure, a integração Application Insights é feita para você por padrão. No entanto, quando você cria seu aplicativo de funções usando o CLI do Azure, a integração em seu aplicativo de funções no Azure não é feita.
+Application Insights integração deve ser habilitada quando você cria seu aplicativo de funções no Azure. Se, por algum motivo, seu aplicativo de funções não estiver conectado a uma instância de Application Insights, será fácil fazer essa integração no portal do Azure. 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ Você pode exibir um fluxo de arquivos de log que estão sendo gerados por suas 
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-Esse tipo de logs de streaming requer que você [habilite a integração de Application insights](#enable-application-insights-integration) para seu aplicativo de funções.   
+Esse tipo de logs de streaming requer que Application Insights integração seja habilitada para seu aplicativo de funções.   
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -545,4 +544,4 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[extensão]: functions-bindings-register.md#extension-bundles
+[pacotes de extensão]: functions-bindings-register.md#extension-bundles

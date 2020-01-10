@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670393"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834324"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar um aplicativo do Linux Ruby para o serviço Azure App
 
-Este artigo descreve como [Azure app serviço](app-service-linux-intro.md) executa aplicativos Ruby e como você pode personalizar o comportamento do serviço de aplicativo quando necessário. Os aplicativos Ruby devem ser implantados com todos os módulos [Pip](https://pypi.org/project/pip/) necessários.
+Este artigo descreve como [Azure app serviço](app-service-linux-intro.md) executa aplicativos Ruby e como você pode personalizar o comportamento do serviço de aplicativo quando necessário. Os aplicativos Ruby devem ser implantados com todas as [Gems](https://rubygems.org/gems)necessárias.
 
 Este guia fornece os principais conceitos e instruções para desenvolvedores de Ruby que usam um contêiner do Linux interno no serviço de aplicativo. Se você nunca usou Azure App serviço, deverá seguir o tutorial [início rápido do Ruby](quickstart-ruby.md) e [Ruby com PostgreSQL](tutorial-ruby-postgres-app.md) primeiro.
 
@@ -53,7 +53,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > Isso significa que a versão do Ruby configurada em seu projeto é diferente da versão instalada no contêiner que você está executando (`2.3.3` no exemplo acima). No exemplo acima, verifique *Gemfile* e *. Ruby-version* e verifique se a versão do Ruby não está definida ou se está definida para a versão instalada no contêiner que você está executando (`2.3.3` no exemplo acima).
 
-## <a name="access-environment-variables"></a>Variáveis de ambiente de acesso
+## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
 No serviço de aplicativo, você pode [definir configurações de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código do aplicativo. Em seguida, você pode acessá-los usando o padrão [env ['\<Path-name > ']](https://ruby-doc.org/core-2.3.3/ENV.html) padrão. Por exemplo, para acessar uma configuração de aplicativo chamada `WEBSITE_SITE_NAME`, use o seguinte código:
 

@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: usar o serviço de migração de banco de dados do Azure para executar uma migração online do Oracle para o banco de dados do Azure para PostgreSQL | Microsoft Docs'
+title: 'Tutorial: migrar o Oracle online para o banco de dados do Azure para PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Aprenda a executar uma migração online do Oracle local ou em máquinas virtuais para o banco de dados do Azure para PostgreSQL usando o serviço de migração de banco de dados do Azure.
 services: dms
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 09/10/2019
-ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 01/08/2020
+ms.openlocfilehash: 45b0c012ec8b8d70c1fad99db40f38fb92daf8a0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163425"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770650"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: migrar o Oracle para o banco de dados do Azure para PostgreSQL online usando DMS (versão prévia)
 
@@ -27,7 +28,7 @@ Neste tutorial, ficará a saber como:
 >
 > * Avalie o esforço de migração usando a ferramenta ora2pg.
 > * Migre o esquema de exemplo usando a ferramenta ora2pg.
-> * Crie uma instância do serviço de migração de banco de dados do Azure.
+> * Crie uma instância do Azure Database Migration Service.
 > * Crie um projeto de migração usando o serviço de migração de banco de dados do Azure.
 > * Executar a migração.
 > * Monitorizar a migração.
@@ -51,21 +52,22 @@ Para concluir este tutorial, precisa de:
 * Baixe e instale o ora2pg no [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) ou no [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
 * [Criar uma instância na Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Conecte-se à instância do e crie um banco de dados usando a instrução neste [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
-* Criar uma VNet (rede virtual) do Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou a [VPN ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando o modelo de implantação Azure Resource Manager, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
   > [!NOTE]
-  > Durante a configuração da VNet, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+  > Durante a configuração de rede virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+  >
   > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade SQL, ponto de extremidade Cosmos DB e assim por diante)
   > * Ponto de extremidade de armazenamento
   > * Ponto de extremidade do barramento de serviço
   >
   > Essa configuração é necessária porque o serviço de migração de banco de dados do Azure não tem conectividade com a Internet.
 
-* Certifique-se de que suas regras de NSG (grupo de segurança de rede) VNet não bloqueiem as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG VNet do Azure, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Verifique se suas regras de NSG (grupo de segurança de rede) de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o serviço de migração de banco de dados do Azure acesse o servidor Oracle de origem, que por padrão é a porta TCP 1521.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o serviço de migração de banco de dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o banco de dados do Azure para PostgreSQL a fim de permitir o acesso ao serviço de migração de banco de dados do Azure aos dados de destino Forneça o intervalo de sub-rede da VNet usada para o serviço de migração de banco de dados do Azure.
+* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o banco de dados do Azure para PostgreSQL a fim de permitir o acesso ao serviço de migração de banco de dados do Azure aos dados de destino Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
 * Habilite o acesso aos bancos de dados Oracle de origem.
 
   > [!NOTE]
@@ -172,7 +174,7 @@ Para concluir este tutorial, precisa de:
 
 A maioria dos clientes gastará uma quantidade considerável de tempo revisando o relatório de avaliação e considerando o esforço de conversão automática e manual.
 
-Para configurar e executar o ora2pg para criar um relatório de avaliação, consulte a seção **pré-migração: avaliação** do [banco de dados Oracle para o Azure para PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). Um exemplo de relatório de avaliação ora2pg está disponível para referência [aqui](http://ora2pg.darold.net/report.html).
+Para configurar e executar o ora2pg para criar um relatório de avaliação, consulte a seção **pré-migração: avaliação** do [banco de dados Oracle para o Azure para PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). Um exemplo de relatório de avaliação ora2pg está disponível para referência [aqui](https://ora2pg.darold.net/report.html).
 
 ## <a name="export-the-oracle-schema"></a>Exportar o esquema Oracle
 
@@ -243,8 +245,8 @@ Para começar:
     | ------------- | ------------- | ------------- |
     | RH | targetHR. público | Public. países. country_id |
     | RH | targetHR.trgthr | trgthr. países. country_id |
-    | RH | targetHR.TARGETHR | "TARGETHR"." PAÍSES "." COUNTRY_ID" |
-    | RH | targetHR.HR | "HR". PAÍSES "." COUNTRY_ID" |
+    | RH | targetHR.TARGETHR | "TARGETHR"." PAÍSES "." COUNTRY_ID " |
+    | RH | targetHR.HR | "HR". PAÍSES "." COUNTRY_ID " |
     | RH | targetHR.Hr | \* Não é possível mapear casos mistos |
 
     \* Para criar um esquema de caso misto e nomes de tabela no PostgreSQL de destino, entre em contato com [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). Podemos fornecer um script para configurar o esquema de tabela de casos misto no banco de dados PostgreSQL de destino.
@@ -275,11 +277,11 @@ Para começar:
   
 3. No ecrã **Criar Serviço de Migração**, especifique um nome para o serviço, a subscrição e um grupo de recursos novo ou já existente.
 
-4. Selecione uma VNet existente ou crie uma nova.
+4. Selecione uma rede virtual existente ou crie uma nova.
 
-    A VNet fornece ao serviço de migração de banco de dados do Azure acesso ao Oracle de origem e à instância de destino do banco de dados do Azure para PostgreSQL.
+    A rede virtual fornece o serviço de migração de banco de dados do Azure com acesso ao Oracle de origem e à instância de destino do banco de dados do Azure para PostgreSQL.
 
-    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
 
 5. Selecione um escalão de preço.
 
@@ -320,7 +322,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 ## <a name="upload-oracle-oci-driver"></a>Carregar o Driver Oracle OCI
 
-1. Selecione **salvar**e, em seguida, na tela **Instalar driver de OCI** , entre na sua conta Oracle e baixe o driver **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37.128.586 byte (s)) (soma de verificação SHA1:865082268 [) daqui ](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
+1. Selecione **salvar**e, em seguida, na tela **Instalar driver de OCI** , entre na sua conta Oracle e baixe o driver **instantclient-basiclite-Windows. x64-12.2.0.1.0. zip** (37.128.586 byte (s)) ( [soma de verificação](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)SHA1:865082268) daqui.
 2. Baixe o driver em uma pasta compartilhada.
 
    Verifique se a pasta é compartilhada com o nome de usuário que você especificou com o acesso de somente leitura mínimo. O serviço de migração de banco de dados do Azure acessa e lê do compartilhamento para carregar o driver de OCI no Azure, representando o nome de usuário que você especificar.
@@ -331,7 +333,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 
-1. Selecione **salvar**e, em seguida, na tela **detalhes de destino** , especifique os detalhes de conexão do banco de dados do Azure de destino para o servidor PostgreSQL, que é a instância pré-configurada do banco de dados do Azure para PostgreSQL ao qual o esquema de **RH** foi Plant.
+1. Selecione **salvar**e, em seguida, na tela **detalhes de destino** , especifique os detalhes de conexão para o servidor de banco de dados do Azure para PostgreSQL de destino, que é a instância pré-configurada do banco de dados do Azure para PostgreSQL no qual o esquema de **RH** foi implantado.
 
     ![Ecrã Detalhes do destino](media/tutorial-oracle-azure-postgresql-online/dms-add-target-details1.png)
 

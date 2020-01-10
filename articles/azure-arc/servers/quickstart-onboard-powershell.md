@@ -10,12 +10,12 @@ keywords: automação do Azure, DSC, PowerShell, configuração de estado deseja
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951450"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834086"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Início rápido: conectar computadores ao Azure usando o Azure ARC para servidores-PowerShell
 
@@ -35,6 +35,9 @@ Uma entidade de serviço é uma identidade de gerenciamento limitada especial qu
 ### <a name="steps-to-create-the-service-principal"></a>Etapas para criar a entidade de serviço
 
 Neste exemplo, usaremos [Azure PowerShell](/powershell/azure/install-az-ps) para criar um SPN (nome da entidade de serviço). Como alternativa, você pode seguir as etapas listadas em [criar uma entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) para esta tarefa.
+
+> [!NOTE]
+> Ao criar a entidade de serviço, você deve ser um administrador de acesso de usuário ou proprietário na assinatura que deseja usar para integração. Se você não tiver permissões suficientes para criar atribuições de função, a entidade de serviço poderá ser criada, mas não poderá carregar computadores.
 
 A função `Azure Connected Machine Onboarding` contém apenas as permissões necessárias para a integração. Você pode definir a permissão de um SPN para permitir que seu escopo cubra um grupo de recursos ou uma assinatura.
 
@@ -142,7 +145,7 @@ No Windows, abra o PowerShell como administrador em um nó de destino e execute:
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ Parâmetros:
 * `tenant-id`: o GUID do locatário. Você pode encontrá-lo em portal do Azure selecionando **Azure active directory** -> **Propriedades** -> **ID do diretório**.
 * `subscription-id`: o GUID da assinatura, no Azure, onde você deseja conectar seu computador.
 * `resource-group`: o grupo de recursos onde você deseja que seu computador seja conectado.
-* `location`: consulte [regiões e locais do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Esse local pode ser o mesmo, ou diferente, como o local do grupo de recursos. Para a visualização pública, há suporte para o serviço em **WestUS2** e **Europa Ocidental**.
+* `location`: consulte [regiões e locais do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Esse local pode ser o mesmo, ou diferente, como o local do grupo de recursos. Para a visualização pública, o serviço tem suporte no **WestUS2**, **sudeste asiático**e **Europa Ocidental**.
 * `resource-name`: (*opcional*) usado para a representação de recursos do Azure do seu computador local. Se você não especificar esse valor, o nome do host do computador será usado.
 
 Você pode encontrar mais informações sobre a ferramenta ' azcmagent ' na [referência do azcmagent](azcmagent-reference.md).

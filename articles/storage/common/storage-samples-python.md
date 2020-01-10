@@ -7,22 +7,25 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 7f694ee51989023a3e7a72f40700edcbb6a97bae
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351154"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747982"
 ---
 # <a name="azure-storage-samples-using-python"></a>Exemplos de armazenamento do Azure usando Python
 
 As tabelas a seguir fornecem uma visão geral do nosso repositório de exemplos e dos cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
 
-## <a name="blob-samples"></a>Amostras de BLOB
+> [!NOTE]
+> Esses exemplos usam a Biblioteca Python v 2.1 do armazenamento do Azure. Para o código V12, consulte [exemplos](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples) no repositório github.
 
-| **Cenário** | **Código de exemplo** |
+## <a name="blob-samples-v21"></a>Amostras de BLOB (v 2.1)
+
+| **Cenário** | **Código de Exemplo** |
 |--------------|-----------------|
-| Acrescentar Blob | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L166) |
+| Acrescentar blob | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L166) |
 | Blob de Blocos | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L77) |
 | Encriptação do Lado do Cliente | [Gerenciando chaves de conta de armazenamento no valor de chave do Azure com Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
 | Copiar Blob | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L102) |
@@ -34,14 +37,14 @@ As tabelas a seguir fornecem uma visão geral do nosso repositório de exemplos 
 | Obter intervalos de página | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L151) |
 | Blob/contêiner de concessão | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L377) |
 | Listar blob/contêiner | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L103) |
-| Blob de Página | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L124) |
-| RÍGIDO | [Assinatura de acesso compartilhado no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L145) |
+| Blob de páginas | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L124) |
+| SAS | [Assinatura de acesso compartilhado no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L145) |
 | Propriedades do Serviço | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_advanced_samples.py#L540) |
 | Blob de instantâneo | [Introdução com o serviço blob do Azure no Python](https://github.com/Azure-Samples/storage-blob-python-getting-started/blob/master/blob_basic_samples.py#L214) |
 
-## <a name="file-samples"></a>Amostras de arquivo
+## <a name="file-samples-v21"></a>Amostras de arquivo (v 2.1)
 
-| **Cenário** | **Código de exemplo** |
+| **Cenário** | **Código de Exemplo** |
 |--------------|-----------------|
 | Criar compartilhamentos/diretórios/arquivos | [Introdução com o serviço de arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L71) |
 | Excluir compartilhamentos/diretórios/arquivos | [Introdução com o serviço de arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_basic_samples.py#L170) |
@@ -53,11 +56,11 @@ As tabelas a seguir fornecem uma visão geral do nosso repositório de exemplos 
 | Listar compartilhamentos | [Introdução com o serviço de arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L82) |
 | Compartilhar Propriedades/metadados/estatísticas | [Introdução com o serviço de arquivos do Azure no Python](https://github.com/Azure-Samples/storage-file-python-getting-started/blob/master/file_advanced_samples.py#L144) |
 
-## <a name="queue-samples"></a>Exemplos de fila
+## <a name="queue-samples-v21"></a>Exemplos de fila (v 2.1)
 
-| **Cenário** | **Código de exemplo** |
+| **Cenário** | **Código de Exemplo** |
 |--------------|-----------------|
-| Adicionar mensagem | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L94) |
+| Adicionar Mensagem | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L94) |
 | Encriptação do Lado do Cliente | [Gerenciando chaves de conta de armazenamento em Azure Key Vault com Python](https://github.com/Azure-Samples/key-vault-python-storage-accounts) |
 | Criar filas | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L75) |
 | Excluir mensagem/fila | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L144) |
@@ -66,11 +69,11 @@ As tabelas a seguir fornecem uma visão geral do nosso repositório de exemplos 
 | Propriedades do serviço fila | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_advanced_samples.py#L128) |
 | Atualizar mensagem | [Introdução com o serviço fila do Azure em Python](https://github.com/Azure-Samples/storage-queue-python-getting-started/blob/master/queue_basic_samples.py#L120) |
 
-## <a name="table-samples"></a>Exemplos de tabela
+## <a name="table-samples-v21"></a>Exemplos de tabela (v 2.1)
 
-| **Cenário** | **Código de exemplo** |
+| **Cenário** | **Código de Exemplo** |
 |--------------|-----------------|
-| Criar tabela | [Introdução com o serviço tabela do Azure no Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
+| Criar a Tabela | [Introdução com o serviço tabela do Azure no Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L46) |
 | Excluir entidade/tabela | [Introdução com o serviço tabela do Azure no Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L79) |
 | Inserir/mesclar/substituir entidade | [Introdução com o serviço tabela do Azure no Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L57) |
 | Consultar entidades | [Introdução com o serviço tabela do Azure no Python](https://github.com/Azure-Samples/storage-table-python-getting-started/blob/master/table_basic_samples.py#L62) |
@@ -97,7 +100,7 @@ Confira os guias a seguir se você estiver procurando instruções sobre como in
 
 Para obter informações sobre exemplos de outros idiomas:
 
-* .NET: [Exemplos de Armazenamento do Microsoft Azure com o .NET](storage-samples-dotnet.md)
-* Java: [Exemplos de Armazenamento do Microsoft Azure com o Java](storage-samples-java.md)
-* JavaScript/node. js: [Exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
-* Todos os outros idiomas: [Exemplos de armazenamento do Azure](storage-samples.md)
+* .NET: [exemplos de armazenamento do Azure usando .net](storage-samples-dotnet.md)
+* Java: [exemplos de armazenamento do Azure usando Java](storage-samples-java.md)
+* JavaScript/node. js: [exemplos de armazenamento do Azure usando JavaScript](storage-samples-javascript.md)
+* Todos os outros idiomas: [exemplos de armazenamento do Azure](storage-samples.md)

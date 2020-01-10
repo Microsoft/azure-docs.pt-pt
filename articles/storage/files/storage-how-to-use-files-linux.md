@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3d8d7c6d3c4e752480310c122bcb7db237b3022b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209401"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772113"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada no `/etc/fstab`.
@@ -26,7 +26,7 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | CentOS | 7 + |  7.5 + |
 | Debian | 8 + | 10+ |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | mais de 12 | 12 SP3 + |
+| Servidor Linux Empresarial SUSE | 12+ | 12 SP3 + |
 
 Se você estiver usando uma distribuição do Linux não listada na tabela acima, poderá verificar se sua distribuição do Linux dá suporte ao SMB 3,0 com criptografia verificando a versão do kernel do Linux. O SMB 3,0 com criptografia foi adicionado ao kernel do Linux versão 4,11. O comando `uname` retornará a versão do kernel do Linux em uso:
 
@@ -80,7 +80,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -283,4 +283,4 @@ Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 
 * [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
 * [FAQ](../storage-files-faq.md)
-* [Resolução de problemas](storage-troubleshoot-linux-file-connection-problems.md)
+* [Resolução de Problemas](storage-troubleshoot-linux-file-connection-problems.md)

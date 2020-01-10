@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: detectar anomalias de dados usando a biblioteca de cliente do detector de anomalias para Python'
 titleSuffix: Azure Cognitive Services
-description: Use a API do detector de anomalias para detectar anormalidades em sua série de dados, seja como um lote ou em dados de streaming.
+description: Use a API do detector de anomalias para detectar anormalidades em sua série de dados como um lote ou sobre streaming de dados com este guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483504"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770446"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente do detector de anomalias para node. js
 
@@ -67,7 +67,7 @@ Crie variáveis do ponto de extremidade do Azure e da chave do recurso. Se você
 Instale o `ms-rest-azure` e `azure-cognitiveservices-anomalydetector` pacotes NPM. A biblioteca de análise de CSV também é usada neste guia de início rápido:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
+npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
 O arquivo de `package.json` do seu aplicativo será atualizado com as dependências.

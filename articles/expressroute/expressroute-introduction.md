@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083416"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770956"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
-O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Office 365.
+O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure e o Office 365.
 
 A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, velocidades mais rápidas, latências consistentes e maior segurança do que as conexões típicas pela Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
@@ -39,7 +39,7 @@ Para obter mais informações, consulte as [ExpressRoute FAQ (FAQs do ExpressRou
 A Microsoft utiliza o BGP, um protocolo de encaminhamento dinâmico padrão da indústria para trocar rotas entre a sua rede no local, as instâncias no Azure e os endereços públicos da Microsoft. Estabelecemos várias sessões BGP com a sua rede para diferentes perfis de tráfego. Pode obter mais detalhes no artigo [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundância
-Cada circuito ExpressRoute é composto por duas ligações para dois routers de limite da Microsoft Enterprise (MSEE) a partir do fornecedor de conetividade/o seu limite de rede. A Microsoft necessita de uma ligação BGP dupla a partir do fornecedor de conectividade/periferia da sua rede – um para cada MSEE. Pode optar por não implementar dispositivos redundantes/circuitos Ethernet na sua parte. No entanto, os fornecedores de conectividade utilizam dispositivos redundantes para verificar que as ligações são entregues à Microsoft de forma redundante. Uma configuração de conectividade redundante de Camada 3 é um requisito para que o nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
+Cada circuito do ExpressRoute consiste em duas conexões com dois MSEEs (roteadores do Microsoft Enterprise Edge) em um [local do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) do provedor de conectividade/sua borda de rede. A Microsoft necessita de uma ligação BGP dupla a partir do fornecedor de conectividade/periferia da sua rede – um para cada MSEE. Pode optar por não implementar dispositivos redundantes/circuitos Ethernet na sua parte. No entanto, os fornecedores de conectividade utilizam dispositivos redundantes para verificar que as ligações são entregues à Microsoft de forma redundante. Uma configuração de conectividade redundante de Camada 3 é um requisito para que o nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços em nuvem da Microsoft
 As ligações ExpressRoute permitem o acesso aos seguintes serviços:
@@ -88,10 +88,10 @@ Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.mic
 Pode comprar circuitos ExpressRoute para uma vasta gama de larguras de banda. As larguras de banda suportadas são apresentadas abaixo. Confirme que consulta o seu fornecedor de conectividade para determinar as larguras de banda suportadas que suportam.
 
 * 50 Mbps
-* 100 Mbps
-* 200 Mbps
-* 500 Mbps
-* 1 Gbps
+* 100 Mbps
+* 200 Mbps
+* 500 Mbps
+* 1 Gbps
 * 2 Gbps
 * 5 Gbps
 * 10 Gbps
@@ -106,13 +106,13 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 * **Dados limitados**. A faturação é baseada numa taxa mensal; todas as transferências de dados de entrada são gratuitas. A transferência de dados de saída é cobrada por GB da transferência de dados. As taxas da transferência de dados variam consoante a região.
 * **Suplemento do ExpressRoute Premium**. O ExpressRoute Premium é um suplemento do circuito do ExpressRoute. O suplemento do ExpressRoute Premium oferece as seguintes capacidades: 
   * Aumento dos limites de rota para peering público e privado Azure de 4000 rotas para 10 000 rotas.
-  * Conectividade global para os serviços. Um circuito ExpressRoute criado em qualquer região (excluindo as nuvens nacionais) terá acesso aos recursos a partir de qualquer outra região do mundo. Por exemplo, uma rede virtual criada na Europa Ocidental pode ser acedida através de um circuito ExpressRoute aprovisionado em Silicon Valley.
+  * Conectividade global para serviços. Um circuito ExpressRoute criado em qualquer região (excluindo as nuvens nacionais) terá acesso aos recursos a partir de qualquer outra região do mundo. Por exemplo, o acesso a uma rede virtual criada na Europa Ocidental é possível através de um circuito ExpressRoute aprovisionado no Silicon Valley.
   * Aumento do número de ligações VNet por circuito ExpressRoute, de 10 até um limite superior, dependendo da largura de banda do circuito.
 
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [ExpressRoute connectivity models (Modelos de conectividade do ExpressRoute)](expressroute-connectivity-models.md).
 * Saiba mais sobre ligações ExpressRoute e domínios de encaminhamento. Veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 * Encontre um fornecedor de serviços. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).

@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821861"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771688"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 
@@ -50,7 +50,7 @@ O banco de dados SQL do Azure dá suporte apenas a um único conjunto de credenc
 -   Altere as credenciais para diferentes fases (por exemplo, *credentials1* para instalação e *credentials2* para contínuo).  
 -   Altere a permissão das credenciais (ou seja, altere a permissão depois que a sincronização estiver configurada).
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 ### <a name="database-considerations-and-constraints"></a>Considerações e restrições de banco de dados
 
@@ -116,7 +116,7 @@ Para minimizar a latência, mantenha o banco de dados Hub próximo à maior conc
 
 Aplique as diretrizes anteriores a configurações de grupo de sincronização complexas, como aquelas que são uma combinação de cenários de empresa para nuvem e nuvem para nuvem.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Sincronizar
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Evitar sincronização inicial lenta e dispendiosa
 
@@ -218,6 +218,14 @@ Em vez disso, primeiro remova um banco de dados de um grupo de sincronização. 
 
 Se você tentar remover um banco de dados e editar um grupo de sincronização sem primeiro implantar uma das alterações, uma ou outra operação falhará. A interface do portal pode se tornar inconsistente. Se isso acontecer, atualize a página para restaurar o estado correto.
 
+### <a name="avoid-schema-refresh-timeout"></a>Evitar tempo limite de atualização do esquema
+
+Se você tiver um esquema complexo para sincronizar, poderá encontrar um "tempo limite de operação" durante uma atualização de esquema se o banco de dados de metadados de sincronização tiver um SKU inferior (exemplo: básico). 
+
+#### <a name="solution"></a>Solução
+
+Para atenuar esse problema, escale verticalmente seu banco de dados de metadados de sincronização para ter uma SKU superior, como S3. 
+
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre Sincronização de Dados SQL, consulte:
 
@@ -227,7 +235,7 @@ Para obter mais informações sobre Sincronização de Dados SQL, consulte:
     - Com o PowerShell
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL do Azure e uma base de dados do SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md)
--   Agente de sincronização de dados- [agente de sincronização de dados para Azure sincronização de dados SQL](sql-database-data-sync-agent.md)
+-   Agente de - de sincronização de dados [agente de sincronização de dados SQL do Azure de sincronização de dados](sql-database-data-sync-agent.md)
 -   Monitorar [sincronização de dados SQL monitorar com Azure monitor logs](sql-database-sync-monitor-oms.md)
 -   Solucionar problemas- [solucionar problema com o Azure sincronização de dados SQL](sql-database-troubleshoot-data-sync.md)
 -   Atualizar o esquema de sincronização

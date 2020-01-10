@@ -3,16 +3,16 @@ title: Ingerir dados do hub de eventos para o Azure Data Explorer
 description: Neste artigo, você aprenderá a ingerir (carregar) dados no Azure Data Explorer do hub de eventos.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667426"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779961"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do hub de eventos para o Azure Data Explorer
 
@@ -33,7 +33,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
@@ -109,7 +109,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
 
     ![Ligação ao hub de eventos](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Fonte de dados:
+    **Fonte de dados:**
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
@@ -120,7 +120,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     | Propriedades do sistema de eventos | Selecionar propriedades relevantes | As [Propriedades do sistema do hub de eventos](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se houver vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro. Ao adicionar propriedades do sistema, [crie](/azure/kusto/management/tables#create-table) ou [atualize](/azure/kusto/management/tables#alter-table-and-alter-merge-table) o esquema de tabela e o [mapeamento](/azure/kusto/management/mappings) para incluir as propriedades selecionadas. |
     | | |
 
-    Tabela de destino:
+    **Tabela de destino:**
 
     Há duas opções para rotear os dados ingeridos: *estático* e *dinâmico*. 
     Para este artigo, use o roteamento estático, no qual você especifica o nome da tabela, o formato de dados e o mapeamento. Portanto, deixe que **meus dados incluam as informações de roteamento** desmarcadas.
@@ -137,6 +137,8 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     > * Somente os eventos enfileirados após a criação da conexão de dados são ingeridos.
     > * Habilite a compactação GZip para roteamento estático abrindo uma [solicitação de suporte no portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Habilite a compactação GZip para roteamento dinâmico como visto no [aplicativo de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
     > * O formato Avro e as propriedades do sistema de eventos não têm suporte na carga de compactação.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 

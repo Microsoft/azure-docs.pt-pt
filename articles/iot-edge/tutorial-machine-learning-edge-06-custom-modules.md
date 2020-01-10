@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701835"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772368"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: criar e implantar módulos de IoT Edge personalizados
 
@@ -22,7 +22,7 @@ ms.locfileid: "74701835"
 
 Neste artigo, criamos três módulos IoT Edge que recebem mensagens de dispositivos folha, executam os dados por meio de seu modelo de aprendizado de máquina e encaminham insights ao Hub IoT.
 
-IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Os módulos só precisam especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens.
+IoT Edge Hub facilita a comunicação entre módulos e módulos. O uso do hub de IoT Edge como um agente de mensagem mantém os módulos independentes entre si. Módulos só precisam de especificar as entradas em que aceite mensagens e as saídas para que eles escrevem mensagens.
 
 Queremos que o dispositivo IoT Edge realize quatro coisas para nós:
 
@@ -39,13 +39,13 @@ Para realizar essas tarefas, usamos três módulos personalizados:
 
 * **Módulo do roteador:** O módulo roteador recebe mensagens de dispositivos de folha downstream e, em seguida, formata e envia as mensagens para o classificador. Em seguida, o módulo recebe as mensagens do classificador e encaminha a mensagem para o módulo do gravador do Avro. Por fim, o módulo envia apenas a previsão RUL para o Hub IoT.
 
-  * Informações
+  * Entradas:
     * **deviceInput**: recebe mensagens de dispositivos folha
     * **rulInput:** recebe mensagens do "amlOutput"
 
-  * Produz
+  * Saídas:
     * **classificar:** envia mensagens para "amlInput"
-    * **writeAvro:** envia mensagens "avroModuleInput"
+    * **writeAvro:** envia mensagens para "avroModuleInput"
     * **toIotHub:** envia mensagens para $upstream, que passa as mensagens para o Hub IOT conectado
 
 O diagrama a seguir mostra os módulos, entradas, saídas e as rotas de Hub de IoT Edge para a solução completa:
@@ -828,7 +828,7 @@ Neste artigo, criamos uma solução IoT Edge em Visual Studio Code com três mó
 Mais informações podem ser encontradas nas seguintes páginas:
 
 * [Saiba como implementar módulos e estabelecer rotas no IoT Edge](module-composition.md)
-* [Sintaxe de consulta de roteamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
+* [Sintaxe de consulta do encaminhamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
 * [Roteamento de mensagens do Hub IoT: agora com roteamento no corpo da mensagem](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
 * [Carregar ficheiros com o Hub IoT](../iot-hub/iot-hub-devguide-file-upload.md)
 * [Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT](../iot-hub/iot-hub-python-python-file-upload.md)

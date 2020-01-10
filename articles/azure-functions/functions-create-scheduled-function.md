@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227180"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769290"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 
@@ -38,7 +38,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, vá para a etapa 3.
 
-   ![Página de início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
+   ![Início rápido das funções no portal do Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
 2. Escolha **Mais modelos** e **Terminar e ver os modelos**.
 
@@ -53,7 +53,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
     | **Nome** | Predefinição | Define o nome da sua função acionada por temporizador. |
     | **Agenda** | 0 \*/1 \* \* \* \* | Uma [expressão CRON](functions-bindings-timer.md#ncrontab-expressions) de seis campos que agenda a função para ser executada todos os minutos. |
 
-4. Clique em **Criar**. É criada uma função na linguagem que escolheu e que é executada todos os minutos.
+4. Clique em **Criar**. Uma função é criada no idioma escolhido que é executado a cada minuto, no minuto.
 
 5. Veja as informações de rastreio escritas nos registos para verificar a execução.
 
@@ -69,7 +69,7 @@ Agora, altere a agenda da função, para que seja executada a cada hora, em vez 
 
 ![Agenda de temporizador atualizado de funções no portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-Tem agora uma função que é executada uma vez por hora. 
+Agora você tem uma função que é executada uma vez a cada hora, na hora.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

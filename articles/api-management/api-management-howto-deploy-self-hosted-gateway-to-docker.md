@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747699"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768508"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Implantar um gateway auto-hospedado do gerenciamento de API do Azure para o Docker
 
@@ -33,7 +33,7 @@ Este artigo fornece as etapas para implantar o gateway de gerenciamento de API d
 - [Provisionar um recurso de gateway em sua instância de gerenciamento de API](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> O gateway auto-hospedado é empacotado como um contêiner do Docker baseado em Linux.
+> O gateway auto-hospedado é empacotado como um contêiner do Docker baseado em Linux x86-64.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Implantar o gateway auto-hospedado no Docker
 
@@ -57,7 +57,7 @@ CONTAINER ID        IMAGE                                                 COMMAN
 ```
 10. Volte para portal do Azure e confirme se o nó de gateway que você acabou de implantar está relatando o status Íntegro.
 
-![Status do gateway](media/api-management-howto-deploy-self-hosted-gateway-to-docker/status.png)
+![status do gateway](media/api-management-howto-deploy-self-hosted-gateway-to-docker/status.png)
 
 > [!TIP]
 > Use <code>console docker container logs <gateway-name></code> comando para exibir um instantâneo do log de gateway auto-hospedado.

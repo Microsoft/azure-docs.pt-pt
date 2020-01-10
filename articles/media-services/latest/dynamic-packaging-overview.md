@@ -1,5 +1,5 @@
 ---
-title: Empacotamento dinâmico nos serviços de mídia
+title: Empacotamento dinâmico nos serviços de mídia do Azure v3
 titleSuffix: Azure Media Services
 description: Este artigo fornece uma visão geral do empacotamento dinâmico nos serviços de mídia do Azure.
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977765"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779608"
 ---
-# <a name="dynamic-packaging-in-media-services"></a>Empacotamento dinâmico nos serviços de mídia
+# <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos serviços de mídia v3
 
 Serviços de Mídia do Microsoft Azure pode ser usado para codificar muitos formatos de arquivo de origem de mídia. Ele os entrega por meio de protocolos de streaming diferentes, com ou sem proteção de conteúdo, para alcançar todos os principais dispositivos (como dispositivos iOS e Android). Esses clientes entendem protocolos diferentes. Por exemplo, o iOS requer que os fluxos sejam entregues no formato HTTP Live Streaming (HLS) e os dispositivos Android dão suporte a HLS, bem como MPEG DASH.
 

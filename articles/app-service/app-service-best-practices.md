@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671499"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768491"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores práticas do Serviço de Aplicações do Azure
 Este artigo resume as práticas recomendadas para o uso do [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -65,3 +65,13 @@ Quando ocorrerem falhas de backup, examine os resultados mais recentes para ente
 ## <a name="nodejs"></a>Quando novos aplicativos node. js são implantados no serviço Azure App
 Azure App configuração padrão do serviço para aplicativos node. js destina-se melhor às necessidades dos aplicativos mais comuns. Se a configuração do seu aplicativo node. js se beneficiar do ajuste personalizado para melhorar o desempenho ou otimizar o uso de recursos para CPU/memória/recursos de rede, consulte [práticas recomendadas e guia de solução de problemas para aplicativos de nó no serviço de Azure app](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Este artigo descreve as configurações de iisnode que talvez você precise configurar para seu aplicativo node. js, descreve os vários cenários ou problemas que seu aplicativo pode estar enfrentando e mostra como resolver esses problemas.
 
+
+## <a name="next-steps"></a>Próximos Passos
+Para obter mais informações sobre as práticas recomendadas, visite [diagnóstico do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para descobrir práticas recomendadas acionáveis específicas ao seu recurso.
+
+- Navegue até seu aplicativo Web no [portal do Azure](https://portal.azure.com).
+- Clique em **diagnosticar e resolver problemas** no painel de navegação esquerdo, que abre o diagnóstico do serviço de aplicativo.
+- Escolha o bloco página inicial de **práticas recomendadas** .
+- Clique em **práticas recomendadas para disponibilidade & desempenho** ou **práticas recomendadas para a configuração ideal** para exibir o estado atual do seu aplicativo em relação a essas práticas recomendadas.
+
+Você também pode usar esse link para abrir diretamente o diagnóstico do serviço de aplicativo para seu recurso: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 8198ff6579aff839ff9aacb729e2f3f8d3472fae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ce7b8590e4718585fe841921466e049dc204928
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230465"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769137"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 
@@ -22,7 +22,7 @@ O [postmaster](https://www.getpostman.com/) é usado no exemplo a seguir, mas vo
 
 ## <a name="define-the-request-location"></a>Definir o local da solicitação
 
-Para executar uma função não disparada por HTTP, você precisará de uma maneira de enviar uma solicitação ao Azure para executar a função. A URL usada para fazer essa solicitação usa um formulário específico.
+Para executar uma função não disparada por HTTP, você precisa de uma maneira de enviar uma solicitação ao Azure para executar a função. A URL usada para fazer essa solicitação usa um formulário específico.
 
 ![Definir o local da solicitação: nome do host + caminho da pasta + nome da função](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
@@ -63,7 +63,7 @@ Abra o postmaster e siga estas etapas:
 
     ![Configurações do corpo do postmaster](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-8. Clique em **Enviar**.
+8. Clique em **enviar**.
 
     ![Enviando uma solicitação com o postmaster](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
@@ -75,5 +75,5 @@ Em seguida, retorne à sua função na portal do Azure. Localize a janela de *lo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Estratégias para testar seu código no Azure Functions](./functions-test-a-function.md)
-- [Depuração local do gatilho de grade de eventos do Azure function](./functions-debug-event-grid-trigger-local.md)
+- [Estratégias para testar o seu código nas Funções do Azure](./functions-test-a-function.md)
+- [Função do Azure Event Grid acionador Local depuração](./functions-debug-event-grid-trigger-local.md)

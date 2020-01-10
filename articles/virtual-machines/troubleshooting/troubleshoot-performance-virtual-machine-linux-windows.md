@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 176b0634fe2c7ee2f47162e439c4ea16bde77a8a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965478"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772623"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
 
@@ -26,11 +26,11 @@ Este artigo descreve a solução de problemas de desempenho genérico da VM (má
 
 Este artigo abordará o uso do monitoramento para diagnosticar gargalos de desempenho.
 
-## <a name="enabling-monitoring"></a>Habilitando o monitoramento
+## <a name="enabling-monitoring"></a>A ativação da monitorização
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinas virtuais IAAS do Azure
 
-Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
+Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
 
 ![O monitoramento não está habilitado](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -61,7 +61,7 @@ O armazenamento é uma camada muito importante quando pretendemos analisar o des
    1. Clique em visão geral da conta de armazenamento encontrada com a etapa acima.
    2. As métricas padrão seriam mostradas. 
 
-    ![Métricas padrão](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+    ![Métricas predefinidas](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
 
 3. Clique em qualquer uma das métricas, que mostrará outra folha com mais opções para configurar e adicionar métricas.
 
@@ -137,9 +137,9 @@ O uso de memória mostra a quantidade de memória que está sendo consumida com 
 
 Consumo estável e constante/constante-a utilização de memória alta pode não ser a causa do mau desempenho, já que alguns aplicativos, como os mecanismos de banco de dados relacional, alocam uma grande quantidade de memória, e essa utilização pode não ser significativa. No entanto, se houver vários aplicativos que exigem muita memória, você poderá ver um baixo desempenho da contenção de memória, causando corte e paginação/troca de disco. Esse baixo desempenho geralmente é uma causa perceptível do impacto no desempenho do aplicativo.
 
-Consumo cada vez maior – um possível "aquecimento" do aplicativo, esse consumo é comum entre os mecanismos de banco de dados iniciando. No entanto, ele também pode ser um sinal de perda de memória em um aplicativo. Identifique o aplicativo e entenda se o comportamento é esperado.
+Consumo cada vez maior – um possível "aquecimento" do aplicativo, esse consumo é comum entre os mecanismos de banco de dados iniciando. No entanto, também pode ser um sinal de fuga de memória numa aplicação. Identifique o aplicativo e entenda se o comportamento é esperado.
 
-Uso de página ou troca de arquivo – Verifique se você está usando o arquivo de paginação do Windows (localizado em D: \) ou o arquivo de permuta do Linux (localizado em `/dev/sdb`) estão sendo usados intensamente. Se você não tiver nada nesses volumes, exceto nesses arquivos, verifique se há altas leituras/gravações nesses discos. Esse problema é um indicativo de condições de memória insuficiente.
+Uso de página ou troca de arquivo – Verifique se você está usando o arquivo de paginação do Windows (localizado em D:\) ou o arquivo de permuta do Linux (localizado em `/dev/sdb`) estão sendo usados intensamente. Se você não tiver nada nesses volumes, exceto nesses arquivos, verifique se há altas leituras/gravações nesses discos. Esse problema é um indicativo de condições de memória insuficiente.
 
 ### <a name="high-memory-utilization-remediation"></a>Correção de utilização de memória alta
 
@@ -186,9 +186,9 @@ Se você vir uma queda na disponibilidade, pode haver um problema com a platafor
 
 * ClientTimeOutError
 * ServerTimeOutError
-* AverageE2ELatency
+* LatênciaMédiaE2E
 * AverageServerLatency
-* TotalRequests
+* TotalPedidos
 
 Os valores nas métricas * TimeOutError indicam que uma operação de e/s demorou muito e atingiu o tempo limite. O trabalho nas próximas etapas ajudará a identificar possíveis causas.
 
@@ -212,11 +212,11 @@ Com novas ofertas de disco no armazenamento Standard, os limites de IOPS e taxa 
 
 #### <a name="references"></a>Referências
 
-* [Metas de escalabilidade para discos de máquina virtual](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
+* [Escalabilidade e metas de desempenho para contas de armazenamento de blob de página Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 A largura de banda da conta de armazenamento é medida pelas métricas da conta de armazenamento: TotalIngress e TotalEgress. Você tem limites diferentes de largura de banda, dependendo do tipo de redundância e de regiões.
 
-* [Metas de escalabilidade para BLOBs, filas, tabelas e arquivos](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files)
+* [Escalabilidade e metas de desempenho para contas de armazenamento Standard](../../storage/common/scalability-targets-standard-account.md)
 
 Verifique o TotalIngress e o TotalEgress nos limites de entrada e saída para a região e o tipo de redundância da conta de armazenamento.
 

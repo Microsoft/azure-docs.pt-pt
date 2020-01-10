@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 55de5a5c604273225a85e49ca682980f83a951d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420555"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75767573"
 ---
 # <a name="what-are-baseline-policies"></a>O que são políticas de linha de base?
 
-As políticas de linha de base são um conjunto de políticas predefinidas que ajudam a proteger as organizações contra muitos ataques comuns. Esses ataques comuns podem incluir pulverização, reprodução e phishing de senha. As políticas de linha de base estão disponíveis em todas as edições do Azure AD. A Microsoft está tornando essas políticas de proteção de linha de base disponíveis para todos, pois os ataques baseados em identidade estão aumentando os últimos anos. O objetivo dessas quatro políticas é garantir que todas as organizações tenham um nível de linha de base de segurança habilitado sem nenhum custo adicional.  
+As políticas de linha de base são um conjunto de políticas predefinidas que ajudam a proteger as organizações contra muitos ataques comuns. Esses ataques comuns podem incluir pulverização, reprodução e phishing de senha. As políticas de linha de base estão disponíveis em todas as edições do Azure AD. A Microsoft está tornando essas políticas de proteção de linha de base disponíveis para todos, pois os ataques baseados em identidade estão aumentando os últimos anos. O objetivo dessas quatro políticas é garantir que todas as organizações tenham um nível de linha de base de segurança habilitado sem nenhum custo adicional.
 
 O gerenciamento de políticas de acesso condicional personalizado requer uma licença de Azure AD Premium.
 
+> [!IMPORTANT]
+> As políticas de linha de base estão sendo preteridas. Veja [o que há de novo no Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) para obter mais informações.
+
 ## <a name="baseline-policies"></a>Políticas de linha de base
 
-![Políticas de linha de base de acesso condicional no portal do Azure](./media/concept-baseline-protection/conditional-access-policies.png)
+![Políticas de linha de base de acesso condicional no portal do Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Há quatro políticas de linha de base:
 
@@ -36,6 +39,10 @@ Há quatro políticas de linha de base:
 * Exigir MFA para gerenciamento de serviços (versão prévia)
 
 Todas as quatro políticas afetarão os fluxos de autenticação herdados como POP, IMAP e clientes de área de trabalho do Office mais antigos.
+
+### <a name="exclusions"></a>Exclusões
+
+Quando as políticas de linha de base entraram em sua visualização pública inicial, havia uma opção para excluir usuários das políticas. Essa funcionalidade evoluiu pela versão prévia e foi removida em julho de 2019. As organizações que já criaram exclusões foram capazes de continuar a mantê-las, os novos usuários não podiam adicionar exclusões às políticas.
 
 ### <a name="require-mfa-for-admins-preview"></a>Exigir MFA para administradores (versão prévia)
 
@@ -60,8 +67,8 @@ Administradores com alto privilégio não são os únicos destinados a ataques. 
 
 A **proteção do usuário final (versão prévia)** é uma política de linha de base que protege todos os usuários em um diretório. A habilitação dessa política exige que todos os usuários se registrem para a autenticação multifator do Azure dentro de 14 dias. Depois de registrado, os usuários receberão uma solicitação pela MFA somente durante tentativas de entrada arriscadas. As contas de usuário comprometidas são bloqueadas até que a redefinição de senha e o risco sejam ignorados. 
 
-[!NOTE]
-Todos os usuários sinalizados anteriormente para risco são bloqueados até a redefinição de senha e o risco serem ignorados na ativação da política.
+> [!NOTE]
+> Todos os usuários sinalizados anteriormente para risco são bloqueados até a redefinição de senha e o risco serem ignorados na ativação da política.
 
 ### <a name="block-legacy-authentication-preview"></a>Bloquear autenticação herdada (versão prévia)
 
@@ -83,10 +90,10 @@ Usar qualquer uma dessas ferramentas para executar o gerenciamento de recursos �
 
 Para proteger ações privilegiadas, isso **requer MFA para a política de gerenciamento de serviços (versão prévia)** exigirá autenticação multifator para qualquer usuário que acesse portal do Azure, Azure PowerShell ou CLI do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
+* [Habilitando padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
-* [Cinco etapas para proteger a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
-* [O que é o acesso condicional no Azure Active Directory?](overview.md)
+* [Cinco passos para proteger a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)

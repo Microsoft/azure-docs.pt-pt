@@ -1,6 +1,6 @@
 ---
 title: Solucionando problemas com o Azure Controle de Alterações
-description: Este artigo fornece informações sobre a solução de problemas Controle de Alterações
+description: Saiba como solucionar e resolver problemas com o Controle de Alterações de automação do Azure e o recurso de inventário.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 51a9dbf8be6538534c05a4b8b6fcd913ef8c6ae3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849399"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769936"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Resolver Problemas do Controlo de Alterações e do Inventário
 

@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792989"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771568"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: tratamento de exceção e log de erros para aplicativos lógicos
 
@@ -25,7 +25,7 @@ Este cenário descreve como você pode estender um aplicativo lógico para dar m
 
 Esta é a história como o caso de uso para este cenário: 
 
-Uma organização de saúde conhecida nos contratou para desenvolver uma solução do Azure que criaria um portal de pacientes usando o Microsoft Dynamics CRM Online. Eles precisavam enviar registros de compromissos entre o portal do paciente do Dynamics CRM Online e o Salesforce. Fomos solicitados a usar o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
+Uma organização de saúde conhecida nos contratou para desenvolver uma solução do Azure que criaria um portal de pacientes usando o Microsoft Dynamics CRM Online. Eles precisavam enviar registros de compromissos entre o portal do paciente do Dynamics CRM Online e o Salesforce. Fomos solicitados a usar o padrão [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
 
 O projeto tinha dois requisitos principais:  
 
@@ -122,7 +122,7 @@ Devemos registrar a origem (solicitação) do registro de pacientes no portal do
 
 O exemplo de código do aplicativo lógico a seguir mostra como manipular o registro em log.
 
-#### <a name="log-entry"></a>Entrada de log
+#### <a name="log-entry"></a>Entrada de registo
 
 Aqui está o código-fonte do aplicativo lógico para inserir uma entrada de log.
 

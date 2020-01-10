@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526707"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772283"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e implementação
 
@@ -30,7 +30,7 @@ Tarefas de ciência de dados típicos incluem a exploração de dados, modelaç�
 
 Um cientista de dados pode realizar a exploração e relatórios de diversas formas: através da utilização de bibliotecas e os pacotes disponíveis para o Python (matplotlib por exemplo) ou com R (ggplot ou reticulado, por exemplo). Os cientistas de dados podem personalizar esse código para atender às necessidades de exploração de dados para cenários específicos. As necessidades para lidar com dados estruturados são diferentes que para dados não estruturados, como texto ou imagens. 
 
-Produtos como Azure Machine Learning também fornecem [preparação de dados avançada](../service/how-to-transform-data.md) para Wrangling e exploração de dados, incluindo a criação de recursos. O usuário deve decidir sobre as ferramentas, bibliotecas e pacotes que melhor suite suas necessidades. 
+Produtos como Azure Machine Learning também fornecem [preparação de dados avançada](../how-to-create-register-datasets.md) para Wrangling e exploração de dados, incluindo a criação de recursos. O usuário deve decidir sobre as ferramentas, bibliotecas e pacotes que melhor suite suas necessidades. 
 
 O resultado final no final desta fase é um relatório de exploração de dados. O relatório deve fornecer uma visão razoavelmente abrangente dos dados a serem usados para modelagem e uma avaliação se é adequados para avançar para o passo de modelagem de dados. Os utilitários de processo de ciência de dados de equipa (TDSP) abordados nas seções a seguir para exploração semiautomática, modelagem e relatórios também fornecem relatórios de modelagem e exploração de dados padronizada. 
 

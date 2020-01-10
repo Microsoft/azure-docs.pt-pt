@@ -5,20 +5,20 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227227"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769528"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
 Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *Function. JSON* e em parâmetros de função e código, você pode usar expressões que são resolvidas para valores de várias fontes.
 
-A maioria das expressões é identificada encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto da mensagem da fila. Se a propriedade `path` para uma associação de saída de blob for `container/{queueTrigger}` e a função for disparada por uma mensagem de fila `HelloWorld`, um blob chamado `HelloWorld` será criado.
+A maioria das expressões são colocadas entre chavetas para as identificar. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto da mensagem da fila. Se a propriedade `path` para uma associação de saída de blob for `container/{queueTrigger}` e a função for disparada por uma mensagem de fila `HelloWorld`, um blob chamado `HelloWorld` será criado.
 
-Tipos de expressões de associação
+Tipos de expressões de enlace
 
 * [Configurações do aplicativo](#binding-expressions---app-settings)
 * [Nome do arquivo de gatilho](#trigger-file-name)
@@ -67,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Nome do arquivo de gatilho
+## <a name="trigger-file-name"></a>Nome de ficheiro do acionador
 
 O `path` para um gatilho de blob pode ser um padrão que permite que você consulte o nome do blob de gatilho em outras associações e código de função. O padrão também pode incluir critérios de filtragem que especificam quais BLOBs podem disparar uma invocação de função.
 
@@ -133,7 +133,7 @@ public static void Run(
 
 Você também pode criar expressões para partes do nome do arquivo, como a extensão. Para obter mais informações sobre como usar expressões e padrões na cadeia de caracteres de caminho de BLOB, consulte a [referência de associação de blob de armazenamento](functions-bindings-storage-blob.md).
 
-## <a name="trigger-metadata"></a>Metadados de gatilho
+## <a name="trigger-metadata"></a>Metadados do acionador
 
 Além da carga de dados fornecida por um gatilho (como o conteúdo da mensagem da fila que disparou uma função), muitos disparadores fornecem valores de metadados adicionais. Esses valores podem ser usados como parâmetros de entrada C# nas F# Propriedades e ou no objeto `context.bindings` em JavaScript. 
 
@@ -141,7 +141,7 @@ Por exemplo, um gatilho de armazenamento de filas do Azure dá suporte às segui
 
 * QueueTrigger – disparando o conteúdo da mensagem se uma cadeia de caracteres válida
 * DequeueCount
-* expirationTime
+* ExpirationTime
 * Id
 * Inserttime
 * NextVisibleTime
@@ -169,7 +169,7 @@ Esses valores de metadados são acessíveis nas propriedades do arquivo *Functio
 
 Os detalhes das propriedades de metadados de cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue.md#trigger---message-metadata). A documentação também está disponível na guia **integrar** do portal, na seção **documentação** abaixo da área configuração de associação.  
 
-## <a name="json-payloads"></a>Cargas JSON
+## <a name="json-payloads"></a>Payloads JSON
 
 Quando uma carga de gatilho é JSON, você pode consultar suas propriedades na configuração de outras associações na mesma função e no código de função.
 
@@ -285,7 +285,7 @@ A expressão de associação de `{rand-guid}` cria um GUID. O caminho de blob a 
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -298,7 +298,7 @@ A expressão de associação `DateTime` é resolvida para `DateTime.UtcNow`. O c
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## <a name="binding-at-runtime"></a>Associação em tempo de execução

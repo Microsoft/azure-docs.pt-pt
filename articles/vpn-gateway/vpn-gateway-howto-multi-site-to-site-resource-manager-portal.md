@@ -1,19 +1,20 @@
 ---
-title: 'Adicionar várias conexões site a site de gateway de VPN a uma VNet: portal do Azure: Resource Manager | Microsoft Docs'
+title: 'Adicionar várias conexões site a site de gateway de VPN a uma VNet: portal do Azure'
 description: Adicionar conexões S2S multissite a um gateway de VPN que tem uma conexão existente
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244627"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779693"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicionar uma conexão site a site a uma VNet com uma conexão de gateway de VPN existente
 
@@ -49,24 +50,24 @@ Verifique os seguintes itens:
 2. Clique em **todos os recursos** e localize o **Gateway de rede virtual** na lista de recursos e clique nele.
 3. Na página **Gateway de rede virtual** , clique em **conexões**.
    
-    ![Página de Ligações](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página de Ligações")<br>
+    ![Página conexões](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página conexões")<br>
 4. Na página **conexões** , clique em **+ Adicionar**.
    
-    Botão Adicionar conexão ![botão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Adicionar conexão")<br>
+    ![Botão Adicionar conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Botão Adicionar conexão")<br>
 5. Na página **Adicionar conexão** , preencha os seguintes campos:
    
    * **Nome:** O nome que você deseja dar ao site ao qual você está criando a conexão.
    * **Tipo de conexão:** Selecione **site a site (IPSec)** .
      
-     Página ![Adicionar]conexão na página(./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar conexão")<br>
+     ![Página Adicionar conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Página Adicionar conexão")<br>
 
 ## <a name="part2"></a>Parte 2-adicionar um gateway de rede local
 1. Clique em **Gateway de rede local** ***escolha um gateway de rede local***. Isso abrirá a página **escolher gateway de rede local** .
    
-    ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "escolher gateway de rede local")<br>
+    ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Escolher gateway de rede local")<br>
 2. Clique em **criar novo** para abrir a página **criar gateway de rede local** .
    
-    ![Página Criar gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "criar gateway de rede local")<br>
+    ![Página Criar gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Criar gateway de rede local")<br>
 3. Na página **criar gateway de rede local** , preencha os seguintes campos:
    
    * **Nome:** O nome que você deseja dar ao recurso de gateway de rede local.
@@ -77,7 +78,7 @@ Verifique os seguintes itens:
 ## <a name="part3"></a>Parte 3-adicionar a chave compartilhada e criar a conexão
 1. Na página **Adicionar conexão** , adicione a chave compartilhada que você deseja usar para criar a conexão. Você pode obter a chave compartilhada do seu dispositivo VPN ou criar uma aqui e, em seguida, configurar seu dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves são exatamente as mesmas.
    
-    ![Chave partilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chave partilhada")<br>
+    ![Chave compartilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chave partilhada")<br>
 2. Na parte inferior da página, clique em **OK** para criar a conexão.
 
 ## <a name="part4"></a>Parte 4-verificar a conexão VPN

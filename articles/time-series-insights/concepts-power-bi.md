@@ -7,19 +7,27 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 8ca5dec833f3e726aed0d469525ca3d9735fc33c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/06/2020
+ms.openlocfilehash: e17d38f6bcb1d843b49e89a473551f8ef4aa16aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114971"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770327"
 ---
 # <a name="connect-time-series-insights-to-power-bi"></a>Conectar Time Series Insights ao Power BI  
- 
+
 Você está procurando uma solução para ajudar a correlacionar seus dados de série temporal, criar visualizações vivas e compartilhar informações em toda a sua organização?
 
-O Time Series Insights agora se integra perfeitamente com o [Power bi](https://powerbi.microsoft.com/), fornecendo recursos de visualização e de Dashboard mais avançados sobre seus dados de streaming e permite que você compartilhe informações e resultados em toda a sua organização.
+O Azure Time Series Insights agora se integra perfeitamente com o [Power bi](https://powerbi.microsoft.com/), fornecendo recursos de visualização e de Dashboard mais avançados sobre seus dados de streaming e permite que você compartilhe informações e resultados em toda a sua organização.
+
+## <a name="video"></a>Vídeo
+
+Saiba mais sobre como integrar Azure Time Series Insights com Power BI.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
+
+## <a name="summary"></a>Resumo
 
    [![opção Exportar no Time Series Insights](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 

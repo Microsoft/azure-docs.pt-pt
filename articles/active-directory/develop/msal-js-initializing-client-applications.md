@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916507"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777841"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicativos cliente usando o MSAL. js
 Este artigo descreve como inicializar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com uma instância de um aplicativo de agente do usuário. O aplicativo de agente de usuário é uma forma de aplicativo cliente público em que o código do cliente é executado em um agente de usuário, como um navegador da Web. Esses clientes não armazenam segredos, pois o contexto do navegador está aberto de acessível. Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
@@ -116,7 +116,7 @@ Veja abaixo o conjunto total de opções configuráveis que têm suporte no mome
         * `https://login.microsoftonline.com/common`-usado para conectar usuários com contas corporativas e de estudante ou uma conta pessoal da Microsoft.
         * `https://login.microsoftonline.com/organizations/`-usado para conectar usuários com contas corporativas e de estudante.
         * `https://login.microsoftonline.com/consumers/`-usado para conectar usuários somente com o conta Microsoft pessoal (ao vivo).
-    * No Azure AD B2C, ele está no formato `https://<instance>/tfp/<tenant>/<policyName>/`, em que Instance é o domínio Azure AD B2C, locatário é o nome do locatário Azure AD B2C, PolicyName é o nome da política B2C a ser aplicada.
+    * Em Azure AD B2C, ele está no formato `https://<instance>/tfp/<tenant>/<policyName>/`, em que Instance é o domínio Azure AD B2C, ou seja, {Your-locatário-Name}. b2clogin. com, Tenant é o nome do locatário de Azure AD B2C, ou seja, {Your-locatário-Name}. onmicrosoft. com, PolicyName é o nome da política do B2C a ser aplicada.
 
 
 - **validateAuthority**: opcional.  Valide o emissor de tokens. A predefinição é `true`. Para aplicativos B2C, como o valor de autoridade é conhecido e pode ser diferente por política, a validação de autoridade não funcionará e precisará ser definida como `false`.

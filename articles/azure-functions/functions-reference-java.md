@@ -3,12 +3,12 @@ title: Referência do desenvolvedor Java para Azure Functions
 description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 50fc4dc278e274109725ff60ea8d438310ce464d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230406"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769035"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor do Azure Functions Java
 
@@ -331,7 +331,7 @@ Você invoca essa função em um HttpRequest. Ele grava vários valores no armaz
 
  Eles são definidos em `azure-functions-java-library`. Eles são tipos auxiliares para trabalhar com as funções HttpTrigger.
 
-| Tipo especializado      |       Destino        | Uso típico                  |
+| Tipo especializado      |       Visar        | Uso típico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Acionador HTTP     | Obtém o método, os cabeçalhos ou as consultas |
 | `HttpResponseMessage` | Associação de saída HTTP | Retorna o status diferente de 200   |

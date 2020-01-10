@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799391"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832925"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -166,7 +166,7 @@ Para obter mais informações sobre objetos JWK, consulte [JSON Web Key (JWK)](h
 
 ###  <a name="key-attributes"></a>Atributos de chave
 
-Além do material da chave, os atributos a seguir podem ser especificados. Em uma solicitação JSON, a palavra-chave Attributes e chaves, ' {' '} ', são necessárias mesmo se não houver nenhum atributo especificado.  
+Para além do material de chave, é possível especificar os seguintes atributos. Em uma solicitação JSON, a palavra-chave Attributes e chaves, ' {' '} ', são necessárias mesmo se não houver nenhum atributo especificado.  
 
 - *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e utilizável para operações criptográficas. O atributo *Enabled* é usado em conjunto com *NBF* e *exp*. Quando ocorrer uma operação entre *NBF* e *exp*, ele só será permitido se *habilitado* for definido como **true**. As operações fora da janela *nbf* / *exp* são automaticamente desautorizadas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations).
 - *NBF*: IntDate, opcional, o padrão é agora. O atributo *NBF* (não antes) identifica a hora antes da qual a chave não deve ser usada para operações criptográficas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations). O processamento do atributo *NBF* requer que a data/hora atual deva ser posterior ou igual à data/hora anterior, listada no atributo *NBF* . Key Vault pode fornecer algumas pequenas reserva, normalmente não mais do que alguns minutos, para considerar a distorção do relógio. Seu valor deve ser um número que contenha um valor IntDate.  
@@ -230,7 +230,7 @@ Para obter mais informações sobre como trabalhar com chaves, consulte [operaç
 
 Da perspectiva de um desenvolvedor, Key Vault APIs aceitam e retornam valores secretos como cadeias de caracteres. Internamente, o Key Vault armazena e gerencia segredos como sequências de octetos (bytes de 8 bits), com um tamanho máximo de 25K bytes cada. O serviço de Key Vault não fornece semântica para segredos. Ele simplesmente aceita os dados, criptografa-os, armazena-os e retorna um identificador secreto ("ID"). O identificador pode ser usado para recuperar o segredo em um momento posterior.  
 
-Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção para os dados. A criptografia de dados usando uma chave de proteção separada antes do armazenamento no Key Vault é um exemplo.  
+Para dados altamente confidenciais, os clientes devem considerar camadas adicionais de proteção para os dados. A encriptação de dados com uma chave de proteção separada antes do armazenamento no Key Vault é um exemplo disso.  
 
 Key Vault também dá suporte a um campo contentType para segredos. Os clientes podem especificar o tipo de conteúdo de um segredo para ajudar a interpretar os dados secretos quando eles são recuperados. O comprimento máximo desse campo é de 255 caracteres. Não há valores predefinidos. O uso sugerido é como uma dica para interpretar os dados secretos. Por exemplo, uma implementação pode armazenar senhas e certificados como segredos e, em seguida, usar esse campo para diferenciar. Não há valores predefinidos.  
 
@@ -372,11 +372,11 @@ A tabela a seguir representa o mapeamento da política de uso de chave X509 para
 |Não-repúdio|assinar, verificar| N/A |
 |crlsign|assinar, verificar| N/A |
 
-### <a name="certificate-issuer"></a>Emissor do certificado
+### <a name="certificate-issuer"></a>Emissor do Certificado
 
 Um objeto de certificado Key Vault mantém uma configuração usada para se comunicar com um provedor de emissor de certificado selecionado para solicitar certificados X509.  
 
--   Parceiros de Key Vault com os seguintes provedores de emissor de certificado para certificados SSL
+-   Parceiros de Key Vault com os seguintes provedores de emissor de certificado para certificados TLS/SSL
 
 |**Nome do provedor**|**Localizações**|
 |----------|--------|
@@ -389,7 +389,7 @@ Antes que um emissor de certificado possa ser criado em um Key Vault, as etapas 
 
     -   Um administrador da organização deve integrar sua empresa (por exemplo, Contoso) com pelo menos um provedor de autoridade de certificação.  
 
-2. O administrador cria credenciais do solicitante para Key Vault registrar (e renovar) certificados SSL  
+2. O administrador cria credenciais do solicitante para Key Vault registrar (e renovar) certificados TLS/SSL  
 
     -   Fornece a configuração a ser usada para criar um objeto emissor do provedor no cofre de chaves  
 
@@ -473,7 +473,7 @@ As seguintes permissões podem ser usadas ao autorizar uma entidade de usuário 
 
 Para obter mais informações, consulte as [operações da conta de armazenamento na referência da API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, consulte [cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [cofres-atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824452"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762897"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Guia Marketplace de máquina virtual
 
@@ -30,14 +30,14 @@ A tabela a seguir descreve a finalidade e o conteúdo desses campos. Os campos o
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título da oferta, geralmente o nome longo e formal. Este título será exibido em destaque no Marketplace.  Comprimento máximo de 50 caracteres. |
-| **\* de resumo**               | Curto objetivo ou função da solução.  Comprimento máximo de 100 caracteres. |
+| **Resumo\***               | Curto objetivo ou função da solução.  Comprimento máximo de 100 caracteres. |
 | **Resumo longo\***          | Finalidade ou função da solução.  Comprimento máximo de 256 caracteres. |
 | **Descrição\***           | Descrição da solução.  O comprimento máximo de 3000 caracteres oferece suporte à formatação HTML simples. |
 | **\* de canal do revendedor CSP da Microsoft** | A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP. |
 | **Identificador de marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui o nome da sua organização e da solução, o comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Visualizar IDs de assinatura\*** | Adicione um a 100 identificadores de assinatura de visualizações. Essas assinaturas listadas em branco terão acesso à oferta depois de publicadas, antes de entrar em tempo real. |
 | **Links úteis**          | Adicione URLs às documentações, notas de versão, perguntas frequentes e assim por diante. |
-| **Categorias sugeridas (máx. 5)\*** | Várias seleções de categorias técnicas e de negócios que oferecem o podem ser mais bem associadas ao.  Máximo de cinco permitidos.  |
+| **Categorias sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada. |
 |  |  |
 
 

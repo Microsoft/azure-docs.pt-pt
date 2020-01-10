@@ -3,12 +3,12 @@ title: Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9a3c13856d3c130f2396488fed09313578dda79c
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496917"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829634"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cargas de trabalho de nuvem que usam o backup do Azure
 
@@ -89,7 +89,7 @@ O ' Deletestate ' do item de backup será alterado de ' candeleted ' para ' ToBe
 
 #### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Desfazendo a operação de exclusão usando o Azure PowerShell
 
-Primeiro, busque o item de backup relevante que está no estado de exclusão reversível, ou seja, prestes a ser excluído
+Primeiro, busque o item de backup relevante que está no estado de exclusão reversível (ou seja, prestes a ser excluído).
 
 ```powershell
 
@@ -164,7 +164,7 @@ Dados de backup em estado de exclusão reversível antes de desabilitar esse rec
 Siga estes passos.
 
 1. Siga as etapas para [desabilitar a exclusão reversível](#disabling-soft-delete).
-2. No portal do Azure, acesse seu cofre, vá para **itens de backup** e escolha a VM com exclusão reversível
+2. No portal do Azure, acesse seu cofre, vá para **itens de backup**e escolha a VM com exclusão reversível.
 
 ![Escolher VM com exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -232,19 +232,32 @@ Se os itens foram excluídos antes de a exclusão reversível ter sido desabilit
 2. Em seguida, desabilite a funcionalidade de exclusão reversível usando a API REST usando as etapas mencionadas [aqui](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Em seguida, exclua os backups usando a API REST, conforme mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
-## <a name="other-security-features"></a>Outros recursos de segurança
+## <a name="encryption"></a>Encriptação
 
-### <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
+### <a name="encryption-of-backup-data-using-microsoft-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas da Microsoft
 
-O armazenamento do Azure criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows. O backup do Azure criptografa automaticamente os dados antes de armazená-los. O armazenamento do Azure descriptografa os dados antes de recuperá-los.  
+Os dados de backup são criptografados automaticamente usando a criptografia de armazenamento do Azure. A criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Os dados são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure é semelhante à criptografia BitLocker no Windows.
 
 No Azure, os dados em trânsito entre o armazenamento do Azure e o cofre são protegidos por HTTPS. Esses dados permanecem na rede de backbone do Azure.
 
-Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).  Consulte as [perguntas frequentes sobre o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a perguntas que você possa ter sobre criptografia.
+Para obter mais informações, consulte [criptografia de armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Consulte as [perguntas frequentes sobre o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) para responder a perguntas que você possa ter sobre criptografia.
 
-### <a name="vm-encryption"></a>Criptografia de VM
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
+
+Ao fazer backup de máquinas virtuais do Azure, você também tem a opção de criptografar os dados de backup no cofre dos serviços de recuperação usando suas chaves de criptografia armazenadas no Azure Key Vault.
+
+>[!NOTE]
+>Este recurso está atualmente em uso inicial. Preencha [esta pesquisa](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) se desejar criptografar seus dados de backup usando chaves gerenciadas pelo cliente. Observe que a capacidade de usar esse recurso está sujeita à aprovação do serviço de backup do Azure.
+
+### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Backup de VM de disco gerenciado criptografado usando chaves gerenciadas pelo cliente
+
+O backup do Azure permite fazer backup de máquinas virtuais do Azure que contêm discos criptografados usando chaves gerenciadas pelo cliente. Para obter detalhes, consulte [criptografia de discos gerenciados com chaves gerenciadas pelo cliente](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview).
+
+### <a name="backup-of-encrypted-vms"></a>Backup de VMs criptografadas
 
 Você pode fazer backup e restaurar máquinas virtuais (VMs) do Azure do Windows ou Linux com discos criptografados usando o serviço de backup do Azure. Para obter instruções, consulte [fazer backup e restaurar máquinas virtuais criptografadas com o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="other-security-features"></a>Outros recursos de segurança
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Proteção dos pontos de recuperação do backup do Azure
 
@@ -258,7 +271,7 @@ Para obter mais informações, consulte [usar o controle de acesso baseado em fu
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>É necessário habilitar o recurso de exclusão reversível em todos os cofres?
 
-Não, ele é criado e habilitado por padrão para todos os cofres dos serviços de recuperação.
+Não, ele é compilado e habilitado por padrão para todos os cofres dos serviços de recuperação.
 
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Posso configurar o número de dias pelos quais meus dados serão retidos no estado de exclusão reversível após a conclusão da operação de exclusão?
 
@@ -282,7 +295,7 @@ Não excluir seguido pela operação de retomada irá proteger o recurso novamen
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso excluir meu cofre se houver itens com exclusão reversível no cofre?
 
-O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente 14 dias após a operação de exclusão. Se você não puder esperar por 14 dias, [desabilite a exclusão reversível](#disabling-soft-delete), exclua os itens com exclusão reversível e exclua-os novamente para ser excluído permanentemente. Depois de garantir que não há itens protegidos e nenhum item de exclusão reversível, o cofre pode ser excluído.  
+O cofre dos serviços de recuperação não poderá ser excluído se houver itens de backup em estado de exclusão reversível no cofre. Os itens excluídos por software são excluídos permanentemente 14 dias após a operação de exclusão. Se você não puder esperar por 14 dias, [desabilite a exclusão reversível](#disabling-soft-delete), exclua os itens com exclusão reversível e exclua-os novamente para ser excluído permanentemente. Depois de garantir que não há itens protegidos e nenhum item com exclusão reversível, o cofre pode ser excluído.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Posso excluir os dados anteriores ao período de exclusão reversível de 14 dias após a exclusão?
 

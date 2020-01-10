@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 70c1e22fc7f1fb1cda3fd4af1c2d3aa2cd257201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39a1e224173dc021cf49b535957eb4b49f4c91ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442612"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834326"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end usando a autenticação de certificado de cliente no gerenciamento de API do Azure
 
@@ -30,9 +30,12 @@ Para obter informações sobre como gerenciar certificados usando a API REST de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este guia mostra como configurar sua instância de serviço de gerenciamento de API para usar a autenticação de certificado de cliente para acessar o serviço de back-end para uma API. Antes de seguir as etapas neste artigo, você deve ter seu serviço de back-end configurado para autenticação de certificado de cliente ([para configurar a autenticação de certificado nos sites do Azure, consulte este artigo][to configure certificate authentication in Azure WebSites refer to this article]). Você precisa ter acesso ao certificado e à senha para carregá-lo no serviço de gerenciamento de API.
+Este guia mostra como configurar sua instância de serviço de gerenciamento de API para usar a autenticação de certificado de cliente para acessar o serviço de back-end para uma API. Antes de seguir as etapas neste artigo, você deve ter o serviço de back-end configurado para autenticação de certificado de cliente ([para configurar a autenticação de certificado no serviço Azure app consulte este artigo][to configure certificate authentication in Azure WebSites refer to this article]). Você precisa ter acesso ao certificado e à senha para carregá-lo no serviço de gerenciamento de API.
 
 ## <a name="step1"> </a>Carregar um certificado
+
+> [!NOTE]
+> Em vez de um certificado carregado, você pode usar um certificado armazenado no serviço de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) , conforme mostrado neste [exemplo](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
 
 ![Adicionar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
@@ -40,9 +43,9 @@ Siga as etapas abaixo para carregar um novo certificado de cliente. Se você ain
 
 1. Navegue até a instância do serviço de gerenciamento de API do Azure no portal do Azure.
 2. Selecione **certificados** no menu.
-3. Clique no botão **+ Adicionar**.  
-    ![adicionar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)  
-4. Procure o certificado, forneça sua ID e senha.  
+3. Clique no botão **+ Adicionar**.
+    ![adicionar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+4. Procure o certificado, forneça sua ID e senha.
 5. Clique em **Criar**.
 
 > [!NOTE]
@@ -65,14 +68,14 @@ Se o certificado estiver em uso por uma API, uma tela de aviso será exibida. Pa
 
 ## <a name="step2"> </a>Configurar uma API para usar um certificado de cliente para autenticação de gateway
 
-1. Clique em **APIs** no menu **Gerenciamento de API** à esquerda e navegue até a API.  
+1. Clique em **APIs** no menu **Gerenciamento de API** à esquerda e navegue até a API.
     ![habilitar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. Na guia **design** , clique em um ícone de lápis da seção de **back-end** . 
-3. Altere as **credenciais de gateway** para **certificado de cliente** e selecione o certificado na lista suspensa.  
+2. Na guia **design** , clique em um ícone de lápis da seção de **back-end** .
+3. Altere as **credenciais de gateway** para **certificado de cliente** e selecione o certificado na lista suspensa.
     ![habilitar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Clique em **Guardar**. 
+4. Clique em **Guardar**.
 
 > [!WARNING]
 > Essa alteração entra em vigor imediatamente e as chamadas para operações dessa API usarão o certificado para autenticar no servidor back-end.

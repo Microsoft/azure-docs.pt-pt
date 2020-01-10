@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954674"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772232"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para Azure Disk Encryption para outra região do Azure
 
 Este artigo descreve como replicar VMs do Azure com o Azure Disk Encryption (ADE) habilitado, de uma região do Azure para outra.
 
 >[!NOTE]
-> O Site Recovery atualmente dá suporte a ADE, com e sem Azure Active Directory (AAD) para VMs que executam o Windows.  Para máquinas que executam o ADE 1,1 (sem AAD), as VMs do Windows devem estar usando discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0,1 (com AAD) para 1,1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1,1.
+> O Site Recovery atualmente dá suporte a ADE, com e sem Azure Active Directory (AAD) para VMs que executam sistemas operacionais Windows e Linux.  Para computadores que executam o ADE 1,1 (sem AAD), as VMs devem usar discos gerenciados. Não há suporte para VMs com discos não gerenciados. Se você alternar de ADE 0,1 (com AAD) para 1,1, será necessário desabilitar a replicação e habilitar a replicação para uma VM depois de habilitar a 1,1.
 
 
 ## <a id="required-user-permissions"></a>Permissões de usuário necessárias
@@ -35,9 +35,9 @@ Para habilitar a replicação de VMs habilitadas para criptografia de disco do p
         - Obter, listar e definir
     
 - Permissões de chave do Key Vault (necessárias somente se as VMs usarem chave de criptografia de chave para criptografar chaves de criptografia de disco)
-    - Operações de gerenciamento de chaves
+    - Operações de Gestão de Chaves
         - Obter, listar e criar
-    - Operações criptográficas
+    - Operações Criptográficas
         - Descriptografar e criptografar
 
 Para gerenciar permissões, vá para o recurso do Key Vault no Portal. Adicione as permissões necessárias para o usuário. O exemplo a seguir mostra como habilitar permissões para o Key Vault *ContosoWeb2Keyvault*, que está na região de origem.

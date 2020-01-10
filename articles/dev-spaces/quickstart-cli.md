@@ -3,15 +3,15 @@ title: Desenvolver um aplicativo no kubernetes
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Implantar um microserviço no AKS com o Azure Dev Spaces
+description: Este guia de início rápido mostra como usar Azure Dev Spaces e a linha de comando para desenvolver um aplicativo no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 99e234fc838ef173b25989f888cb9d3ca80d649f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325648"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770616"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Início rápido: desenvolver um aplicativo no kubernetes-Azure Dev Spaces
 Neste guia, vai aprender a:
@@ -146,7 +146,7 @@ Para implantar uma versão atualizada do serviço, você pode atualizar qualquer
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em vários contêineres e como você pode simplificar o desenvolvimento colaborativo trabalhando com diferentes versões ou branches do seu código em espaços diferentes.
 
@@ -157,4 +157,4 @@ Saiba como Azure Dev Spaces ajuda a desenvolver aplicativos mais complexos em v�
 [nodejs-quickstart]: quickstart-nodejs.md
 [netcore-quickstart]: quickstart-netcore.md
 [team-quickstart]: quickstart-team-development.md
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
