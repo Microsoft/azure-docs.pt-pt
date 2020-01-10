@@ -3,7 +3,7 @@ title: Criar e carregar um VHD Red Hat Enterprise Linux para uso no Azure
 description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contém um sistema operacional Red Hat Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: szark
-ms.openlocfilehash: 7c03271dc5fda5cee0b210370a965a45a6a7ef42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: mimckitt
+ms.openlocfilehash: 77334e3e807776e9072bb4ad9674bf7ba5a8f915
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035164"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732523"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, você aprenderá a preparar uma máquina virtual Red Hat Enterprise Linux (RHEL) para uso no Azure. As versões do RHEL abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores para preparação abordados neste artigo são Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de qualificação para participar do programa de acesso à nuvem do Red Hat, consulte o [site de acesso à nuvem do Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [executando o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -154,7 +154,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
 
 1. Verifique se o serviço de rede será iniciado no momento da inicialização executando o seguinte comando:
 
@@ -408,7 +408,7 @@ Esta seção pressupõe que você já tenha obtido um arquivo ISO do site do Red
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
 
 1. Verifique se o serviço de rede será iniciado no momento da inicialização executando o seguinte comando:
 
@@ -666,7 +666,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim
 
 1. Verifique se o serviço de rede será iniciado no momento da inicialização executando o seguinte comando:
 
@@ -883,8 +883,7 @@ Esta seção pressupõe que você já tenha instalado uma máquina virtual RHEL 
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
-        EOF
+    PERSISTENT_DHCLIENT = Sim NM_CONTROLLED = Sim EOF
 
         # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision

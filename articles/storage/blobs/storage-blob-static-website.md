@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311218"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708167"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estática no armazenamento do Azure
 
@@ -56,13 +56,16 @@ Os usuários podem exibir o conteúdo do site de um navegador usando a URL públ
 |**CLI do Azure** | [Localize a URL do site usando o CLI do Azure](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Módulo Azure PowerShell** | [Localizar a URL do site usando o PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-A URL do seu site contém um código regional. Por exemplo, a URL `https://contosoblobaccount.z22.web.core.windows.net/` contém código regional `z22`.
+A URL do seu site contém um código regional. Por exemplo, a URL `https://contosoblobaccount.z22.web.core.windows.net/` contém `z22`de código regional.
 
 Embora esse código deva permanecer na URL, ele é apenas para uso interno, e você não precisará usar esse código de nenhuma outra maneira.
 
 O documento de índice especificado quando você habilita a hospedagem de site estático é exibido quando os usuários abrem o site e não especificam um arquivo específico (por exemplo: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Se o servidor retornar um erro 404 e você não tiver especificado um documento de erro ao habilitar o site, uma página 404 padrão será retornada ao usuário.
+
+> [!NOTE]
+> Não há suporte para [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) com site estático.
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impacto da configuração do nível de acesso público do contêiner da Web
 
@@ -74,7 +77,7 @@ A captura de tela a seguir mostra a configuração de nível de acesso público 
 
 Embora o ponto de extremidade de site estático primário não seja afetado, uma alteração no nível de acesso público afeta o ponto de extremidade do serviço blob primário.
 
-Por exemplo, se você alterar o nível de acesso público do contêiner de **$Web** de **privado (sem acesso anônimo)** para **BLOB (acesso de leitura anônimo para BLOBs somente)** , o nível de acesso público ao ponto de extremidade de site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` Não é alterado.
+Por exemplo, se você alterar o nível de acesso público do contêiner de **$Web** de **privado (sem acesso anônimo)** para **BLOB (acesso de leitura anônimo somente para BLOBs)** , o nível de acesso público ao ponto de extremidade de site estático primário `https://contosoblobaccount.z22.web.core.windows.net/index.html` não será alterado.
 
 No entanto, o acesso público ao ponto de extremidade do serviço blob primário `https://contosoblobaccount.blob.core.windows.net/$web/index.html` muda de particular para público. Agora, os usuários podem abrir esse arquivo usando qualquer um desses dois pontos de extremidade.
 
@@ -111,6 +114,6 @@ Para habilitar as métricas em suas páginas de site estáticos, consulte [habil
 * [Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar um nome de domínio personalizado para seu BLOB ou ponto de extremidade da Web](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [App Service do Azure](/azure/app-service/overview)
+* [Serviço de Aplicações do Azure](/azure/app-service/overview)
 * [Crie seu primeiro aplicativo Web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

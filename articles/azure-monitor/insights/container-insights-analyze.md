@@ -1,18 +1,14 @@
 ---
 title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 01/07/2020
+ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872983"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75731021"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -24,17 +20,11 @@ Para obter informações sobre como habilitar o Azure Monitor para contêineres,
 
 Azure Monitor fornece uma exibição de vários clusters que mostra o status de integridade de todos os clusters kubernetes monitorados que executam o Linux e o Windows Server 2019 implantados em grupos de recursos em suas assinaturas. Ele mostra os clusters descobertos em todos os ambientes que não são monitorados pela solução. Você pode entender imediatamente a integridade do cluster e, a partir daqui, pode fazer uma busca detalhada na página de desempenho do nó e do controlador ou navegar para ver os gráficos de desempenho do cluster. Para clusters AKS que foram descobertos e identificados como não monitorados, você pode habilitar o monitoramento para eles a qualquer momento. 
 
-As principais diferenças no monitoramento de um cluster do Windows Server com Azure Monitor para contêineres em comparação com um cluster do Linux são as seguintes:
-
-- A métrica RSS de memória não está disponível para o nó e contêineres do Windows.
-- As informações de capacidade de armazenamento em disco não estão disponíveis para nós do Windows.
-- O suporte a logs dinâmicos está disponível com exceção dos logs de contêiner do Windows.
-- Somente ambientes de Pod são monitorados, não ambientes de Docker.
-- Com a versão de visualização, há suporte para um máximo de 30 contêineres do Windows Server. Essa limitação não se aplica a contêineres do Linux. 
+As principais diferenças no monitoramento de um cluster do Windows Server com Azure Monitor para contêineres em comparação com um cluster do Linux são descritas [aqui](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) no artigo Visão geral.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). 
+Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de cluster multi do Azure Monitor
 
@@ -88,7 +78,7 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 | |Aviso |N/A |
 | |Crítico |< 100% |
 | |Desconhecido |Se não comunicadas nos últimos 30 minutos |
-|**Node** | | |
+|**Nó** | | |
 | |Bom estado de funcionamento |> 85% |
 | |Aviso |60 - 84% |
 | |Crítico |< 60% |

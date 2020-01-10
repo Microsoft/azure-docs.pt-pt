@@ -4,19 +4,19 @@ description: Este artigo fornece uma visão geral do suporte a vários sites de 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
+ms.date: 1/7/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0192d27ebfa696376ce79f90a6ceeb816dfb1e46
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835346"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719958"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação
 
-O alojamento de vários sites permite-lhe configurar mais do que uma aplicação Web na mesma instância do gateway de aplicação. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando até 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway de aplicação está a enviar tráfego para contoso.com e fabrikam.com a partir de dois agrupamentos de servidores de back-end com o nome ContosoServerPool e FabrikamServerPool.
+A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Esse recurso permite que você configure uma topologia mais eficiente para suas implantações adicionando até 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para o seu próprio agrupamento de back-end. No exemplo seguinte, o gateway de aplicação está a enviar tráfego para contoso.com e fabrikam.com a partir de dois agrupamentos de servidores de back-end com o nome ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

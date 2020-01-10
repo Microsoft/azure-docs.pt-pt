@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499982"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732642"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte a idiomas e regiões para o API de Análise de Texto
 
@@ -31,7 +31,7 @@ Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, 
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Reconhecimento de entidade Análise de Sentimento, Extração de Frases-chave e nomeada
 
-Para análise de sentimentos, extração de frases-chave e reconhecimento de entidade, a lista de idiomas com suporte é mais seletiva, pois os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais. No reconhecimento de entidade nomeada v2, o suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) está atualmente limitado aos seguintes idiomas: 
+Para análise de sentimentos, extração de frases-chave e reconhecimento de entidade, a lista de idiomas com suporte é mais seletiva, pois os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais. No reconhecimento de entidade nomeada v2, o suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) está atualmente limitado aos seguintes idiomas: 
 * Português
 * Chinês-simplificado
 * Francês
@@ -47,7 +47,7 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 > [!NOTE]
 > Para obter suporte de idioma detalhado para a visualização pública de reconhecimento de entidade nomeada (NER) v3, consulte [tipos de entidade nomeada](named-entity-types.md).
 
-| Idioma              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Vinculação de entidade |       Notas        |
+| Linguagem              | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas | Vinculação de entidade |       Notas        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Checo                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -75,9 +75,9 @@ O suporte a idiomas é inicialmente distribuído na visualização, graduando pa
 
 o suporte ao idioma \* está em versão prévia
 
-\** também disponível no [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) e/ou em visualizações públicas do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) .
+\** também disponível no [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/ou em visualizações públicas do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Página de documentação de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

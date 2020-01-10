@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073570"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708360"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar a colocação em cache para melhorar o desempenho na API Management do Azure
 
@@ -46,7 +46,7 @@ Para concluir este tutorial:
 + [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 + [Importe e publique uma API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>adicione as políticas de colocação em cache
+## <a name="caching-policies"> </a>Adicionar as políticas de cache
 
 Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetuado à operação **GetSpeakers** devolve uma resposta do serviço de back-end. Esta resposta é colocada em cache, codificada pelos cabeçalhos e pelos parâmetros de cadeia de consulta especificados. Para as chamadas subsequentes à operação que tenham parâmetros correspondentes, será devolvida a resposta em cache, até que o intervalo de duração da cache expire.
 
@@ -56,7 +56,7 @@ Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetu
 4. Clique em **API da Conferência de Demonstração** na lista de API.
 5. Selecione **GetSpeakers**.
 6. Na parte superior do ecrã, selecione o separador **Design**.
-7. Na seção **processamento de entrada** , clique no **</>** ícone.
+7. Na secção **Processamento de entrada**, clique no ícone **</>** .
 
     ![editor de código](media/api-management-howto-cache/code-editor.png)
 
@@ -70,14 +70,14 @@ Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetu
 
 9. No elemento **saída**, adicione a seguinte política:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Duração** especifica o intervalo de expiração das respostas em cache. Neste exemplo, o intervalo restante é de **20** segundos.
 
 > [!TIP]
-> Se você estiver usando um cache externo, conforme descrito em [usar um cache externo do Azure para Redis no gerenciamento de API do Azure](api-management-howto-cache-external.md), talvez você queira `caching-type` especificar o atributo das políticas de cache. Consulte [políticas de cache do gerenciamento de API](api-management-caching-policies.md) para obter mais detalhes.
+> Se você estiver usando um cache externo, conforme descrito em [usar um cache externo do Azure para Redis no gerenciamento de API do Azure](api-management-howto-cache-external.md), talvez você queira especificar o atributo `caching-type` das políticas de cache. Consulte [políticas de cache do gerenciamento de API](api-management-caching-policies.md) para obter mais detalhes.
 
-## <a name="test-operation"> </a>Chamar uma operação e testar a colocação em cache
+## <a name="test-operation"> </a>Chamar uma operação e testar o cache
 Para ver a colocação em cache em ação, chame a operação a partir do portal do programador.
 
 1. No portal do Azure, navegue para a instância APIM.
@@ -87,7 +87,7 @@ Para ver a colocação em cache em ação, chame a operação a partir do portal
 5. Clique no separador **Teste** no menu superior direito.
 6. Prima **Enviar**.
 
-## <a name="next-steps"> </a>Passos seguintes
+## <a name="next-steps"> </a>Próximas etapas
 * Para obter mais informações sobre as políticas de colocação em cache, consulte [Políticas de colocação em cache][Caching policies] na [Referência de política da API Management][API Management policy reference].
 * Para obter informações sobre a colocação em cache de itens por chave utilizando expressões de política, consulte [Colocação em cache personalizada na API Management do Azure](api-management-sample-cache-by-key.md).
 * Para obter mais informações sobre como usar o cache externo do Azure para Redis, consulte [usar um cache do Azure externo para Redis no gerenciamento de API do Azure](api-management-howto-cache-external.md).

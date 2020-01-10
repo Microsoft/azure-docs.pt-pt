@@ -4,15 +4,15 @@ description: Este documento discute as maneiras de solucionar problemas comuns e
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: roaror
-ms.openlocfilehash: ece975fa37e500b1c160210684a0cb46e719c48b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 41d667f4e90114052a17c5707989634bbb5fc421
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754959"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719839"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Solucionar problemas comuns na API do Azure Cosmos DB para MongoDB
 
@@ -24,10 +24,10 @@ Embora a API do Azure Cosmos DB para MongoDB seja compatível com a versão 3,2 
 
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | O número total de unidades de solicitação consumidas é maior que a taxa de unidade de solicitação provisionada para a coleção e foi limitada. | Considere dimensionar a taxa de transferência atribuída a um contêiner ou a um conjunto de contêineres do portal do Azure ou você pode repetir a operação. |
-| ExceededMemoryLimit | 16501 | Como um serviço multilocatário, a operação passou pela alocação de memória do cliente. | Reduza o escopo da operação por meio de critérios de consulta mais restritivos ou entre em contato com o suporte da [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+| TooManyRequests     | 16500 | O número total de unidades de pedido consumida é mais do que a taxa de unidade de pedido de aprovisionamento para a coleção e otimizado. | Considere dimensionar a taxa de transferência atribuída a um contêiner ou a um conjunto de contêineres do portal do Azure ou você pode repetir a operação. |
+| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, tornou-se a operação ao longo de alocação de memória do cliente. | Reduza o âmbito da operação por meio de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | O caminho de índice correspondente ao item de ordem por especificado é excluído/a consulta order by não tem um índice composto correspondente do qual ele pode ser atendido. | 2 | A consulta solicita uma classificação em um campo que não está indexado. | Crie um índice correspondente (ou índice composto) para a consulta de classificação que está sendo tentada. |
-| Problemas de versão de conexão do MongoDB | - | As versões mais antigas dos drivers do MongoDB não conseguem detectar o nome da conta do Azure Cosmos nas cadeias de conexão. | Acrescente *AppName = @**accountName**@* ao final da cadeia de conexão da API do cosmos DB para MongoDB, em que ***accountName*** é o nome da sua conta de Cosmos DB. |
+| Problemas de versão de conexão do MongoDB | - | As versões mais antigas dos drivers do MongoDB não conseguem detectar o nome da conta do Azure Cosmos nas cadeias de conexão. | Acrescentar *appName = @**accountName**@* no final da API do Cosmos DB para a cadeia de ligação do MongoDB, em que ***accountName*** é o nome da sua conta do Cosmos DB . |
 
 
 ## <a name="next-steps"></a>Passos seguintes

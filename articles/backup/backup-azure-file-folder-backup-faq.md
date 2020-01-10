@@ -3,12 +3,12 @@ title: Fazendo backup de arquivos e pastas-perguntas comuns
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173050"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720366"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre como fazer backup de arquivos e pastas
 
@@ -76,9 +76,9 @@ O agente MARS depende do NTFS e usa a especificação de comprimento FilePath li
 
 O agente MARS depende do NTFS e permite [caracteres com suporte](/windows/desktop/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de arquivo.
 
-### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>O aviso "backups do Azure não foram configurados para este servidor" é exibido.
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>O aviso "backups do Azure não foram configurados para este servidor" aparece
 
-Esse aviso pode aparecer mesmo que você tenha configurado uma política de backup, quando as configurações de agendamento de backup armazenadas no servidor local não são as mesmas que as configurações armazenadas no cofre de backup.
+Esse aviso pode aparecer mesmo que você tenha configurado uma política de backup, quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup.
 
 * Quando o servidor ou as configurações forem recuperados para um estado válido conhecido, os agendamentos de backup poderão se tornar não sincronizados.
 * Se você receber esse aviso, [Configure](backup-azure-manage-windows-server.md) a política de backup novamente e, em seguida, execute um backup sob demanda para ressincronizar o servidor local com o Azure.
@@ -91,7 +91,7 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 
 * Os volumes da pasta de cache devem ter espaço livre igual a pelo menos 5-10% do tamanho total dos dados de backup.
 * Se o volume tiver menos de 5% de espaço livre, aumente o tamanho do volume ou mova a pasta de cache para um volume com espaço suficiente.
-* Se você fazer backup do estado do sistema do Windows, será necessário mais 30-35 GB de espaço livre no volume que contém a pasta de cache.
+* Se você fazer backup do estado do sistema do Windows, precisará de mais 30-35 GB de espaço livre no volume que contém a pasta de cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válida e acessível?
 
@@ -130,22 +130,22 @@ O tamanho da pasta cache determina a quantidade de dados para a cópia de segura
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Onde a pasta de cache deve ser localizada?
 
-As seguintes localizações para a pasta da cache não são recomendadas:
+Os seguintes locais para a pasta de cache não são recomendados:
 
-* Compartilhamento de rede/mídia removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Locais de rede ou mídias removíveis, como unidades USB, não são suportadas
+* Compartilhamento de rede/mídia removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para locais de rede ou mídias removíveis, como unidades USB.
 * Volumes offline: a pasta de cache deve estar online para o backup esperado usando o agente de backup do Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Há algum atributo da pasta de cache que não tem suporte?
 
 Os atributos ou respetivas combinações seguintes não são suportadas para a pasta de cache:
 
-* Encriptados
+* Encriptada
 * Duplicados eliminados
 * Comprimidos
 * Disperso
 * Ponto de Reanálise
 
-A pasta de cache e o VHD de metadados não têm os atributos necessários para o agente do Azure Backup.
+A pasta de cache e o VHD de metadados não têm os atributos necessários para o agente de backup do Azure.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Há uma maneira de ajustar a quantidade de largura de banda usada para backup?
 
@@ -153,9 +153,45 @@ Sim, você pode usar a opção **alterar propriedades** no agente Mars para ajus
 
 ## <a name="restore"></a>Restauro
 
+### <a name="manage"></a>Gerir
+
+**Posso recuperar se esqueci minha frase secreta?**
+O agente de backup do Azure requer uma frase secreta (que você forneceu durante o registro) para descriptografar os dados de backup durante a restauração. Examine os cenários abaixo para entender suas opções de tratamento de uma senha perdida:
+
+| Computador original <br> *(computador de origem onde os backups foram feitos)* | Passphrase | Opções disponíveis |
+| --- | --- | --- |
+| Disponível |Excluído |Se o computador original (em que os backups foram feitos) estiver disponível e ainda estiver registrado no mesmo cofre dos serviços de recuperação, você poderá regenerar a senha seguindo estas [etapas](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
+
+Considere as seguintes condições:
+
+* Se você desinstalar e registrar novamente o agente no mesmo computador original com
+  * *Mesma frase secreta*, você poderá restaurar os dados de backups.
+  * *Senha diferente*. em seguida, você não poderá restaurar os dados de backup.
+* Se você instalar o agente em um *computador diferente* com
+  * *Mesma frase secreta* (usada no computador original), você poderá restaurar os dados de backups.
+  * Uma *senha diferente*, você não poderá restaurar os dados de backup.
+* Se o computador original estiver corrompido (impedindo a regeneração da senha por meio do console do MARS), mas você puder restaurar ou acessar a pasta de rascunho original usada pelo agente MARS, poderá restaurar (se você esqueceu a senha). Para obter mais assistência, entre em contato com o atendimento ao cliente.
+
+**Como fazer recuperar se eu perder minha máquina original (onde os backups foram feitos)?**
+
+Se você tiver a mesma senha (que você forneceu durante o registro) da máquina original, poderá restaurar os dados de backup para um computador alternativo. Examine os cenários abaixo para entender as opções de restauração.
+
+| Computador original | Passphrase | Opções disponíveis |
+| --- | --- | --- |
+| Excluído |Disponível |Você pode instalar e registrar o agente MARS em outro computador com a mesma senha que você forneceu durante o registro do computador original. Escolha a **opção de recuperação** > **outro local** para executar a restauração. Para obter mais informações, veja [este](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine) artigo.
+| Excluído |Excluído |Não é possível recuperar os dados ou os dados não estão disponíveis |
+
+
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
 
 Se um trabalho de restauração em andamento for cancelado, o processo de restauração será interrompido. Todos os arquivos restaurados antes do cancelamento permanecem no destino configurado (local original ou alternativo), sem nenhuma reversão.
+
+### <a name="does-the-mars-agent-back-up-and-restore-acls-set-on-files-folders-and-volumes"></a>O agente MARS faz backup e restaura ACLs definidas em arquivos, pastas e volumes?
+
+* O agente MARS faz backup de ACLs definidas em arquivos, pastas e volumes
+* Para a opção de recuperação de volume, o agente MARS fornece uma opção para ignorar a restauração de permissões de ACL para o arquivo ou pasta que está sendo recuperada
+* Para a opção de recuperação de arquivo e pastas individuais, o agente MARS será restaurado com permissões de ACL (não há nenhuma opção para ignorar a restauração de ACL).
 
 ## <a name="next-steps"></a>Passos seguintes
 

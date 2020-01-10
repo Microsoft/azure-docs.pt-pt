@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456388"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708313"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas mais frequentes sobre o Azure Container Registry
 
@@ -32,7 +32,7 @@ Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Há uma verificação de vulnerabilidade de segurança para imagens no ACR?
 
-Sim. Consulte a documentação em [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [azul-piscina](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sim. Consulte a documentação da [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [azul-piscina](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como fazer configurar o kubernetes com o registro de contêiner do Azure?
 
@@ -101,7 +101,7 @@ Leva algum tempo para propagar as alterações de regra de firewall. Depois de a
 - [Por que o uso da cota do registro não é reduzido após a exclusão de imagens?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [Como fazer validar as alterações de cota de armazenamento?](#how-do-i-validate-storage-quota-changes)
 - [Como fazer autenticar com o meu registro ao executar a CLI em um contêiner?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [O registro de contêiner do Azure oferece configuração somente TLS v 1.2 e como habilitar o TLS v 1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Como habilitar o TLS 1,2?](#how-to-enable-tls-12)
 - [O registro de contêiner do Azure dá suporte à confiança de conteúdo?](#does-azure-container-registry-support-content-trust)
 - [Como fazer conceder acesso a imagens pull ou push sem permissão para gerenciar o recurso de registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Como fazer habilitar a quarentena de imagem automática para um registro](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -181,9 +181,12 @@ Em seguida, autentique com o registro:
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>O registro de contêiner do Azure oferece configuração somente TLS v 1.2 e como habilitar o TLS v 1.2?
+### <a name="how-to-enable-tls-12"></a>Como habilitar o TLS 1,2?
 
-Sim. Habilite o TLS usando qualquer cliente do Docker recente (versão 18.03.0 e posterior). 
+Habilite o TLS 1,2 usando qualquer cliente do Docker recente (versão 18.03.0 e superior). 
+
+> [!IMPORTANT]
+> A partir de 13 de janeiro de 2020, o registro de contêiner do Azure exigirá todas as conexões seguras de servidores e aplicativos para usar o TLS 1,2. O suporte para TLS 1,0 e 1,1 será desativado.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>O Azure Container Registry suporta o Content Trust?
 
@@ -427,8 +430,8 @@ Entre em contato com seu administrador de rede ou verifique a configuração de 
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Por que minha solicitação pull ou push falha com uma operação não permitida?
 
-Aqui estão algumas cenários em que as operações talvez não sejam permitidas:
-* Não há mais suporte para registros clássicos. Atualize para uma [SKU](https://aka.ms/acr/skus) com suporte usando [AZ ACR Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou o portal do Azure.
+Aqui estão alguns cenários em que as operações talvez não sejam permitidas:
+* Não há mais suporte para registros clássicos. Atualize para uma [SKU](https://aka.ms/acr/skus) com suporte usando [AZ ACR update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou o portal do Azure.
 * A imagem ou o repositório pode estar bloqueado para que ele não possa ser excluído ou atualizado. Você pode usar o comando [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para exibir os atributos atuais.
 * Algumas operações não serão permitidas se a imagem estiver em quarentena. Saiba mais sobre [quarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
@@ -504,6 +507,6 @@ Atualmente, não há suporte para GitLab para gatilhos de origem.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [Ações do GitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais](container-registry-intro.md) sobre o registro de contêiner do Azure.

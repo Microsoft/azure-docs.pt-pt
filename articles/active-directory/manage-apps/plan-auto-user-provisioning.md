@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786423"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732455"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -132,13 +132,13 @@ Considere suas necessidades organizacionais para determinar a estratégia para i
 
 Quando os projetos de tecnologia falham, normalmente é devido a expectativas incompatíveis com o impacto, os resultados e as responsabilidades. Para evitar essas armadilhas, [certifique-se de que você esteja participando dos participantes certos](https://aka.ms/deploymentplans) e que as funções de Stakeholder no projeto sejam bem compreendidas ao documentar os participantes e sua entrada e responsabilidades de projeto.
 
-### <a name="plan-communications"></a>Planejar comunicações
+### <a name="plan-communications"></a>Planear as comunicações
 
 A comunicação é fundamental para o sucesso de qualquer novo serviço. Comunique-se de forma proativa com seus usuários como sua experiência será alterada, quando ele será alterado e como obter suporte se eles tiverem problemas.
 
 ### <a name="plan-a-pilot"></a>Planejar um piloto
 
-Recomendamos que a configuração inicial do provisionamento de usuário automático esteja em um ambiente de teste com um pequeno subconjunto de usuários antes de dimensioná-lo para todos os usuários em produção.
+Recomendamos que a configuração inicial do provisionamento de usuário automático esteja em um ambiente de teste com um pequeno subconjunto de usuários antes de dimensioná-lo para todos os usuários em produção. Consulte [práticas recomendadas](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) para executar um piloto.
 
 #### <a name="best-practices-for-a-pilot"></a>Práticas recomendadas para um piloto  
 
@@ -235,7 +235,7 @@ Depois de configurar o provisionamento automático de usuário para o aplicativo
 | As informações do usuário são atualizadas no Azure AD por qualquer método | Os atributos de usuário atualizados são refletidos no sistema de destino após um ciclo incremental |
 | O usuário está fora do escopo | O objeto de usuário está desabilitado ou excluído. <br>Observação: esse comportamento é substituído para o [provisionamento do workday](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions). |
 
-### <a name="plan-security"></a>Segurança do plano
+### <a name="plan-security"></a>Planear a segurança
 
 É comum que uma revisão de segurança seja exigida como parte de uma implantação. Se você precisar de uma revisão de segurança, confira muitos [White papers](https://www.microsoft.com/download/details.aspx?id=36391) do Azure AD que fornecem uma visão geral da identidade como um serviço.
 

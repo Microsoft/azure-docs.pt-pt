@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935054"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732387"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Use o reparticionamento para otimizar o processamento com Azure Stream Analytics
 
@@ -21,11 +21,11 @@ Este artigo mostra como usar o reparticionamento para dimensionar sua consulta d
 Talvez você não consiga usar a [paralelização](stream-analytics-parallelization.md) se:
 
 * Você não controla a chave de partição para seu fluxo de entrada.
-* A entrada "pulveriza" de origem em várias partições que posteriormente precisam ser mescladas. 
-
-## <a name="how-to-repartition"></a>Como reparticionar
+* A entrada "pulveriza" de origem em várias partições que posteriormente precisam ser mescladas.
 
 O reparticionamento, ou embaralhando, é necessário quando você processa dados em um fluxo que não é fragmentado de acordo com um esquema de entrada natural, como **PartitionID** para hubs de eventos. Quando você reparticiona, cada fragmento pode ser processado de forma independente, o que permite que você expanda linearmente o pipeline de streaming.
+
+## <a name="how-to-repartition"></a>Como reparticionar
 
 Para reparticionar, use a palavra-chave **into** após uma instrução **Partition by** em sua consulta. O exemplo a seguir particiona os dados por **DeviceID** em uma contagem de partições de 10. O hash de **DeviceID** é usado para determinar qual partição deve aceitar qual Subfluxo. Os dados são liberados de forma independente para cada fluxo particionado, supondo que a saída dê suporte a gravações particionadas e tenha 10 partições.
 

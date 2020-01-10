@@ -6,17 +6,14 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671459"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728757"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
-
-> [!NOTE] 
-> Key Vault referências não estão disponíveis atualmente nos planos de consumo do Linux.
 
 Este tópico mostra como trabalhar com segredos de Azure Key Vault em seu serviço de aplicativo ou Azure Functions aplicativo sem a necessidade de nenhuma alteração de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gerenciamento de segredos centralizado, com controle total sobre políticas de acesso e histórico de auditoria.
 
@@ -43,8 +40,8 @@ Uma referência de Key Vault é do `@Microsoft.KeyVault({referenceString})`de fo
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri =_SecretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | Vaultname =_vaultname_; Secretname =_secretoname_; SecretVersion =_SecretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
+> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
 
 Por exemplo, uma referência completa com a versão seria parecida com a seguinte:
 
@@ -190,7 +187,7 @@ Você também pode usar um dos detectores internos para obter informações adic
 ### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
 
 1. No portal, navegue até seu aplicativo.
-2. Selecione **diagnosticar e resolver problemas**.
+2. Selecione **Diagnosticar e resolver problemas**.
 3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
 4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
 
@@ -199,6 +196,6 @@ Você também pode usar um dos detectores internos para obter informações adic
 
 1. No portal, navegue até seu aplicativo.
 2. Navegue até **recursos da plataforma.**
-3. Selecione **diagnosticar e resolver problemas**.
+3. Selecione **Diagnosticar e resolver problemas**.
 4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
 5. Clique em **Key Vault configurações do aplicativo diagnósticos.**

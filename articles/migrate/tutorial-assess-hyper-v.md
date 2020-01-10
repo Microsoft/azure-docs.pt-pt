@@ -1,19 +1,15 @@
 ---
 title: Avaliar as VMs do Hyper-V para migração para o Azure com migrações para Azure | Microsoft Docs
 description: Descreve como avaliar VMs do Hyper-V locais para migração para o Azure usando as migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f2a7caad13ad845d5b2aeb3240b7d77fa89faf12
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158379"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720264"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar as VMs do Hyper-V com a avaliação do servidor de migrações para Azure
 
@@ -43,7 +39,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções neste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
     - [Configure as permissões do Azure](tutorial-prepare-hyper-v.md#prepare-azure) para migrações para Azure.
-    - Prepare clusters, hosts e VMs do [Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) para avaliação.
+    - Prepare clusters, hosts e VMs do [Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) para avaliação.
+    - [Prepare-se para a implantação](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) do dispositivo de migrações para Azure, usado para avaliação e descoberta de VM do Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto de migrações para Azure
 
@@ -64,7 +61,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     **Geografia** | **Região**
     --- | ---
-    Ásia  | Sudeste asiático
+    Ásia  | Sudeste Asiático
     Europa | Europa Setentrional ou Europa Ocidental
     Reino Unido |  Sul do Reino Unido ou Oeste do Reino Unido
     Estados Unidos | Leste dos EUA, oeste dos EUA 2 ou Oeste EUA Central
@@ -131,18 +128,18 @@ Importe o arquivo baixado e crie a VM.
     - Essa pasta contém uma subpasta, também chamada de **AzureMigrateAppliance_VersionNumber**.
     - Essa subpasta contém três subpastas adicionais – **instantâneos**, **discos rígidos virtuais**e **máquinas virtuais**.
 
-2. Abra o Gerenciador do Hyper-V. Em **ações**, clique em **importar máquina virtual**.
+2. Abra o Gestor de Hyper-V. Em **ações**, clique em **importar máquina virtual**.
 
     ![Implantar VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. No assistente de importação de máquina virtual > **antes de começar**, clique em **Avançar**.
-3. Em **Localizar pasta**, selecione a pasta **máquinas virtuais** . Em seguida, clique em **Seguinte**.
+3. Em **Localizar pasta**, selecione a pasta **máquinas virtuais** . Clique depois em **Seguinte**.
 1. Em **selecionar máquina virtual**, clique em **Avançar**.
-2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Seguinte**.
+2. Em **escolher tipo de importação**, clique em **copiar a máquina virtual (criar uma nova ID exclusiva)** . Clique depois em **Seguinte**.
 3. Em **escolher destino**, deixe a configuração padrão. Clique em **Seguinte**.
 4. Em **pastas de armazenamento**, deixe a configuração padrão. Clique em **Seguinte**.
 5. Em **escolher rede**, especifique o comutador virtual que será usado pela VM. A opção precisa de conectividade com a Internet para enviar dados para o Azure.
-6. Em **Resumo**, examine as configurações. Em seguida, clique em **concluir**.
+6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V > **máquinas virtuais**, inicie a VM.
 
 
@@ -184,7 +181,7 @@ Configure o dispositivo pela primeira vez.
 
 Se você estiver executando VHDs em SMBs, deverá habilitar a delegação de credenciais do dispositivo para os hosts do Hyper-V. Isso requer o seguinte:
 
-- Você permite que cada host atue como um delegado para o dispositivo. Você deve ter feito isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)ou [executando o script de configuração de pré-requisitos do Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Você permite que cada host atue como um delegado para o dispositivo. Se você seguiu os tutoriais em ordem, fez isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faça isso.
 - Habilite a delegação de CredSSP para que o dispositivo de migrações para Azure possa atuar como o cliente, delegando credenciais a um host.
 
 Habilite no dispositivo da seguinte maneira:

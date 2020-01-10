@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379207"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707949"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solucionando problemas de dispositivos usando o comando dsregcmd
 
@@ -28,10 +28,10 @@ Esta seção lista os parâmetros de estado de ingresso no dispositivo. A tabela
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Estado do dispositivo |
 | ---   | ---   | ---   | ---   |
-| Ok | NO | NO | Ingressado no Azure AD |
-| NO | NO | Ok | Ingressado no domínio |
-| Ok | NO | Ok | Ingressado no AD híbrido |
-| NO | Ok | Ok | DRS local Unido |
+| SIM | NO | NO | Ingressado no Azure AD |
+| NO | NO | SIM | Associado a domínio |
+| SIM | NO | SIM | Ingressado no AD híbrido |
+| NO | SIM | SIM | DRS local Unido |
 
 > [!NOTE]
 > O estado do Workplace Join (Azure AD registrado) é exibido na seção "estado do usuário"
@@ -297,10 +297,22 @@ Esta seção exibe a saída de verificações de sanidade executadas em um dispo
 
 ## <a name="ngc-prerequisite-check"></a>Verificação de pré-requisitos do NGC
 
-Esta seção executa as verificações de perquisite para o provisionamento de uma chave do NGC. 
+Esta seção executa as verificações de perquisite para o provisionamento do Windows Hello para empresas (WHFB). 
 
 > [!NOTE]
-> Talvez você não veja detalhes de verificação de pré-requisito do NGC em dsregcmd/status se o usuário já tiver configurado com êxito as credenciais do NGC.
+> Você não poderá ver detalhes de verificação de pré-requisito do NGC em dsregcmd/status se o usuário já tiver configurado com êxito o WHFB.
+
+- **IsDeviceJoined:** – defina como "Sim" se o dispositivo for ingressado no Azure AD.
+- **IsUserAzureAD:** – defina como "Sim" se o usuário conectado estiver presente no Azure AD.
+- **PolicyEnabled:** – defina como "Sim" se a política de WHFB estiver habilitada no dispositivo.
+- **PostLogonEnabled:** – defina como "Sim" se o registro de WHFB for disparado nativamente pela plataforma. Se ele estiver definido como "não", indica que o registro do Windows Hello para empresas é disparado por um mecanismo personalizado
+- **DeviceEligible:** – defina como "Sim" se o dispositivo atender ao requisito de hardware para registrar-se com o WHFB.
+- **SessionIsNotRemote:** – defina como "Sim" se o usuário atual estiver conectado diretamente ao dispositivo e não remotamente.
+- **CertEnrollment:** -específico para a implantação de confiança de certificado WHFB, indicando a autoridade de registro de certificado para WHFB. Defina como "autoridade de registro" se a origem da política WHFB for Política de Grupo, "gerenciamento de dispositivo móvel" se a origem for MDM. "nenhum" caso contrário
+- **AdfsRefreshToken:** -específico para a implantação de confiança de certificado WHFB. Presente somente se CertEnrollment for "autoridade de registro". Indica se o dispositivo tem um PRT empresarial para o usuário.
+- **AdfsRaIsReady:** -específico para a implantação de confiança de certificado WHFB.  Presente somente se CertEnrollment for "autoridade de registro". Defina como "Sim" se o ADFS for indicado nos metadados de descoberta que oferece suporte a WHFB e se o modelo *de* certificado de logon estiver disponível.
+- **LogonCertTemplateReady:** -específico para a implantação de confiança de certificado WHFB. Presente somente se CertEnrollment for "autoridade de registro". Definido como "Sim" se o estado do modelo de certificado de logon for válido e ajudar a solucionar problemas do ADFS RA.
+- **PreReqResult:** -fornece o resultado de toda a avaliação de pré-requisito do WHFB. Defina como "provisionar" se o registro WHFB for iniciado como uma tarefa de pós-logon quando o usuário entrar na próxima vez.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exemplo de saída de verificação de pré-requisitos de NGC
 
@@ -323,6 +335,6 @@ Esta seção executa as verificações de perquisite para o provisionamento de u
 +----------------------------------------------------------------------+
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para perguntas, consulte as [perguntas frequentes sobre gerenciamento de dispositivo](faq.md)

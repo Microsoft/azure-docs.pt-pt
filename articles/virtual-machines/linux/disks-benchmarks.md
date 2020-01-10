@@ -1,5 +1,5 @@
 ---
-title: Benchmarking de seu aplicativo em discos gerenciados Armazenamento em Disco do Azure
+title: Benchmarking de seu aplicativo no Armazenamento em Disco do Azure
 description: Saiba mais sobre o processo de benchmark de seu aplicativo no Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: e5ac60811eb4fb7735feae6a62ee1b20c8983e0e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695848"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720060"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking de um disco
 
@@ -24,9 +24,8 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos de ar
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Siga o artigo nosso design para alto desempenho. Nele, você cria uma lista de verificação semelhante ao aplicativo existente para o protótipo. Usando ferramentas de benchmark, você pode simular as cargas de trabalho e medir o desempenho no aplicativo prototype. Ao fazer isso, você pode determinar qual oferta de disco pode corresponder ou ultrapassar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para seu aplicativo de produção.
+Vá para nosso artigo sobre como [projetar para alto desempenho](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Veja o artigo sobre a [criação de alto desempenho](premium-storage-performance.md) começar.
+Neste artigo, você cria uma lista de verificação semelhante ao aplicativo existente para o protótipo. Usando ferramentas de benchmark, você pode simular as cargas de trabalho e medir o desempenho no aplicativo prototype. Ao fazer isso, você pode determinar qual oferta de disco pode corresponder ou ultrapassar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para seu aplicativo de produção.

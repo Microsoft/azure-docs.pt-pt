@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: O gerenciamento de recursos delegado do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 11/7/2019
+ms.date: 01/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 661ada4e5d620d4977290986f5649b91363202fe
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928012"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706993"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -19,7 +19,7 @@ Como um provedor de serviços, você pode usar o [Gerenciamento de recursos dele
 
 ## <a name="understanding-customer-tenants"></a>Noções básicas sobre locatários do cliente
 
-Um locatário Azure Active Directory (Azure AD) é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização recebe quando cria uma relação com a Microsoft inscrevendo-se no Azure, Microsoft 365 ou outros serviços. Cada locatário do Azure AD é distinto e separado de outros locatários do Azure AD e tem sua própria ID de locatário (um GUID). Para obter mais informações, consulte [o que é Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+Um locatário Azure Active Directory (Azure AD) é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização recebe quando cria uma relação com a Microsoft inscrevendo-se no Azure, Microsoft 365 ou outros serviços. Cada locatário do Azure AD é distinto e separado de outros locatários do Azure AD e tem sua própria ID de locatário (um GUID). Para obter mais informações, consulte [o que é Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 Normalmente, para gerenciar recursos do Azure para um cliente, os provedores de serviço precisam entrar no portal do Azure usando uma conta associada ao locatário do cliente, exigindo que um administrador no locatário do cliente crie e gerencie contas de usuário para o provedor de serviços.
 
@@ -43,31 +43,31 @@ Também fornecemos APIs para executar tarefas de gerenciamento de recursos deleg
 
 A maioria das tarefas e serviços pode ser executado em recursos delegados entre locatários gerenciados. Abaixo estão alguns dos principais cenários em que o gerenciamento entre locatários pode ser eficaz.
 
-[Arco do Azure para servidores (visualização)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+[Arco do Azure para servidores (visualização)](../../azure-arc/servers/overview.md):
 
-- [Conectar computadores Windows Server ou Linux fora do Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) a assinaturas delegadas e/ou grupos de recursos no Azure
+- [Conectar computadores Windows Server ou Linux fora do Azure](../../azure-arc/servers/quickstart-onboard-portal.md) a assinaturas delegadas e/ou grupos de recursos no Azure
 - Gerenciar computadores conectados usando construções do Azure, como Azure Policy e marcação
 
-[Automação do Azure](https://docs.microsoft.com/azure/automation/):
+[Automação do Azure](../../automation/index.yml):
 
 - Usar contas de automação para acessar e trabalhar com recursos de cliente delegados
 
-[Azure Backup](https://docs.microsoft.com/azure/backup/):
+[Azure Backup](../../backup/index.yml):
 
 - Fazer backup e restaurar dados do cliente em locatários do cliente
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com//azure/aks/):
+[Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - Gerenciar ambientes kubernetes hospedados e implantar e gerenciar aplicativos em contêineres dentro de locatários do cliente
 
-[Azure monitor](https://docs.microsoft.com/azure/azure-monitor/):
+[Azure monitor](../../azure-monitor/index.yml):
 
 - Exibir alertas para assinaturas delegadas, com a capacidade de exibir alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
 - Log Analytics: consultar dados de espaços de trabalho de clientes remotos em vários locatários
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no locatário do provedor de serviços por meio de WebHooks
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
+[Azure Policy](../../governance/policy/index.yml):
 
 - Instantâneos de conformidade mostram detalhes de políticas atribuídas em assinaturas delegadas
 - Criar e Editar definições de política em uma assinatura delegada
@@ -75,11 +75,11 @@ A maioria das tarefas e serviços pode ser executado em recursos delegados entre
 - Os clientes veem as políticas criadas pelo provedor de serviços junto com as políticas que eles mesmos criaram
 - Pode [corrigir deployIfNotExists ou modificar atribuições dentro do locatário do cliente](../how-to/deploy-policy-remediation.md)
 
-[Grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Grafo de recursos do Azure](../../governance/resource-graph/index.yml):
 
 - Agora inclui a ID do locatário nos resultados da consulta retornados, permitindo que você identifique se uma assinatura pertence ao locatário do cliente ou ao locatário do provedor de serviço
 
-[Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/):
+[Central de segurança do Azure](../../security-center/index.yml):
 
 - Visibilidade entre locatários
   - Monitorar a conformidade com as políticas de segurança e garantir a cobertura de segurança em todos os recursos dos locatários
@@ -96,27 +96,28 @@ A maioria das tarefas e serviços pode ser executado em recursos delegados entre
   - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
   - Monitorar alterações em arquivos importantes e entradas de registro com o monitoramento de integridade de arquivo (FIM)
 
-[Sentinela do Azure](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
+[Sentinela do Azure](../../sentinel/multiple-tenants-service-providers.md):
 
-- Gerenciar recursos do Azure Sentinel em locatários do cliente
+- Gerenciar recursos do Azure Sentinel [em locatários do cliente](../../sentinel/multiple-tenants-service-providers.md)
+- [Acompanhar ataques e exibir alertas de segurança em vários locatários de clientes](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 
-[Integridade do serviço do Azure](https://docs.microsoft.com/azure/service-health/):
+[Integridade do serviço do Azure](../../service-health/index.yml):
 
 - Monitore a integridade dos recursos do cliente com o Azure Resource Health
 - Acompanhe a integridade dos serviços do Azure usados por seus clientes
 
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/):
+[Azure Site Recovery](../../site-recovery/index.yml):
 
 - Gerenciar opções de recuperação de desastre para máquinas virtuais do Azure em locatários do cliente (Observe que você não pode usar contas Executar como para copiar extensões de VM)
 
-[Máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/):
+[Máquinas virtuais do Azure](../../virtual-machines/index.yml):
 
 - Usar extensões de máquina virtual para fornecer tarefas de configuração e automação de pós-implantação em VMs do Azure em locatários do cliente
 - Usar o diagnóstico de inicialização para solucionar problemas de VMs do Azure em locatários do cliente
 - Acessar VMs com o console serial em locatários do cliente
 - Observe que você não pode usar Azure Active Directory para fazer logon remoto em uma VM e não pode integrar uma VM com uma Key Vault para senhas, segredos ou chaves de criptografia para criptografia de disco
 
-[Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/):
+[Rede Virtual do Azure](../../virtual-network/index.yml):
 
 - Implantar e gerenciar redes virtuais e vNICs (placas de interface de rede virtual) em locatários do cliente
 
@@ -128,9 +129,9 @@ Solicitações de suporte:
 Com todos os cenários, esteja ciente das seguintes limitações atuais:
 
 - As solicitações manipuladas pelo Azure Resource Manager podem ser executadas usando o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações começam com `https://management.azure.com`. No entanto, as solicitações que são manipuladas por uma instância de um tipo de recurso (por exemplo, acesso a dados de armazenamento ou acesso aos segredos do keyvault) não têm suporte com o gerenciamento de recursos delegado do Azure. Os URIs de operação para essas solicitações normalmente começam com um endereço que é exclusivo de sua instância, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. A última opção também são operações de dados em vez de operações de gerenciamento. 
-- As atribuições de função devem usar [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com a permissão [Dataactions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) . A função Administrador de acesso do usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Não há suporte para funções personalizadas e [funções de administrador de assinatura clássica](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) .
+- As atribuições de função devem usar [funções internas](../../role-based-access-control/built-in-roles.md)de RBAC (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegado do Azure, exceto o proprietário ou qualquer função interna com a permissão [Dataactions](../../role-based-access-control/role-definitions.md#dataactions) . A função Administrador de acesso do usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Não há suporte para funções personalizadas e [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) .
 - No momento, não é possível carregar uma assinatura (ou grupo de recursos em uma assinatura) para o gerenciamento de recursos delegado do Azure se a assinatura usar Azure Databricks. Da mesma forma, se uma assinatura tiver sido registrada para integração com o provedor de recursos **Microsoft. managedservices** , você não poderá criar um espaço de trabalho do databricks para essa assinatura no momento.
-- Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegado do Azure que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) que protegem recursos gerenciados pelo sistema, como aquelas criadas por aplicativos gerenciados do Azure ou plantas do Azure (atribuições de negação atribuída pelo sistema), impedem que os usuários no locatário de gerenciamento atuem nesses recursos; no entanto, no momento, os usuários no locatário do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuída pelo usuário).
+- Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegado do Azure que têm bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. As [atribuições de negação](../../role-based-access-control/deny-assignments.md) que protegem recursos gerenciados pelo sistema, como aquelas criadas por aplicativos gerenciados do Azure ou plantas do Azure (atribuições de negação atribuída pelo sistema), impedem que os usuários no locatário de gerenciamento atuem nesses recursos; no entanto, no momento, os usuários no locatário do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuída pelo usuário).
 
 ## <a name="next-steps"></a>Passos seguintes
 

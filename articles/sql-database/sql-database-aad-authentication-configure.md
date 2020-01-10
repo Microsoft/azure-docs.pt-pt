@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 11/06/2019
-ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/07/2020
+ms.openlocfilehash: dc2661bbc443201d6a2da4b5efb7ecdc2caad444
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901395"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732574"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerenciar a autenticação de Azure Active Directory com o SQL
 
@@ -178,7 +178,7 @@ Como prática recomendada para os administradores existentes do Azure AD para MI
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets do PowerShell, você precisa ter Azure PowerShell instalado e em execução. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Para executar os cmdlets do PowerShell, você precisa ter Azure PowerShell instalado e em execução. Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
@@ -274,7 +274,7 @@ Para remover um administrador mais tarde, na parte superior da página **adminis
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar os cmdlets do PowerShell, você precisa ter Azure PowerShell instalado e em execução. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para provisionar um administrador do Azure AD, execute os seguintes comandos de Azure PowerShell:
+Para executar os cmdlets do PowerShell, você precisa ter Azure PowerShell instalado e em execução. Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para provisionar um administrador do Azure AD, execute os seguintes comandos de Azure PowerShell:
 
 - Connect-AzAccount
 - Select-AzSubscription
@@ -345,14 +345,17 @@ Para obter mais informações sobre comandos da CLI, consulte [AZ SQL Server](/c
 Em todos os computadores cliente, dos quais seus aplicativos ou usuários se conectam ao banco de dados SQL do Azure ou ao Azure SQL Data Warehouse usando identidades do Azure AD, você deve instalar o seguinte software:
 
 - .NET Framework 4,6 ou posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Azure Active Directory biblioteca de autenticação para SQL Server (*ADALSQL. DLL*) está disponível em vários idiomas (x86 e AMD64) do centro de download no [Microsoft Biblioteca de Autenticação do Active Directory para Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
+- Azure Active Directory biblioteca de autenticação para SQL Server (*Adal. DLL*). Abaixo estão os links de download para instalar o driver SSMS, ODBC e OLE DB mais recente que contém a *Adal.* Biblioteca de dll.
+    1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+    1. [ODBC Driver 17 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
+    1. [Driver OLE DB 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
 Você pode atender a esses requisitos:
 
-- A instalação do [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou [SQL Server Data Tools para o Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) atende aos requisitos do .NET Framework 4,6.
-- O SSMS instala a versão x86 do *ADALSQL. DLL*.
-- SSDT instala a versão amd64 do *ADALSQL. DLL*.
-- O Visual Studio mais recente dos [downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) atende aos requisitos .NET Framework 4,6, mas não instala a versão de AMD64 necessária do *ADALSQL. DLL*.
+- A instalação da versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) atende aos requisitos .NET Framework 4,6.
+    - O SSMS instala a versão x86 do *Adal. DLL*.
+    - SSDT instala a versão amd64 do *Adal. DLL*.
+    - O Visual Studio mais recente dos [downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) atende ao requisito de .NET Framework 4,6, mas não instala a versão de AMD64 necessária do *Adal. DLL*.
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Criar usuários de banco de dados independente em seu banco de dados mapeado para identidades do Azure AD
 
@@ -513,9 +516,13 @@ As instruções a seguir, conectem-se usando a versão 13,1 do sqlcmd, que está
 > `sqlcmd` com o comando `-G` não funciona com as identidades do sistema e requer um logon principal do usuário.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
+
+## <a name="troubleshooting-azure-ad-authentication"></a>Solucionando problemas de autenticação do Azure AD
+
+A orientação sobre solução de problemas com a autenticação do Azure AD pode ser encontrada no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ## <a name="next-steps"></a>Passos seguintes
 

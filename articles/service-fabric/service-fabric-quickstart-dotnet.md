@@ -1,26 +1,17 @@
 ---
 title: Crie rapidamente um aplicativo .NET em Service Fabric no Azure
 description: Neste início rápido, vai criar uma aplicação .NET para o Azure, utilizando o exemplo de aplicação de serviços fiáveis do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: azure-vs
 ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: dfc8890d58763bd193f6a0b4137fc972d26beb9f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e3d984fee75dcdb8d4e14e7b454e74a3f7c629f2
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013220"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730149"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implementar uma aplicação de serviços fiáveis no Service Fabric em .NET
 
@@ -28,7 +19,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos par implement
 
 Este início rápido mostra como implementar a sua primeira aplicação .NET no Service Fabric. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web ASP.NET que guarda os resultados das votações num serviço de back-end com estado no cluster.
 
-![Captura de ecrã da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
+![Captura de Ecrã da Aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 Com esta aplicação, vai aprender a:
 
@@ -36,7 +27,7 @@ Com esta aplicação, vai aprender a:
 * Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Escalar horizontalmente a aplicação em vários nós
+* Aumentar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -60,6 +51,8 @@ Depois de instalar o tempo de execução, os SDKs, as ferramentas do Visual Stud
 > O motivo para que o Docker seja executado quando você cria o cluster é para que o cluster seja criado com os recursos de contêiner habilitados. Se o Docker não estiver em execução, você precisará recriar o cluster para habilitar os recursos do contêiner.
 > Embora seja desnecessário para esse início rápido específico, a instrução para que o Docker em execução quando você cria o cluster está incluída como uma prática recomendada.
 > Teste se o Docker está em execução ao abrir uma janela de terminal e ao executar `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está a ser executado e está pronto para compilar um cluster.
+>
+> [Configurar o Windows 10 ou o Windows Server para contêineres](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. Abra uma nova janela do PowerShell elevada como administrador.
 2. Execute o seguinte comando do PowerShell para criar um cluster de desenvolvimento:
@@ -163,7 +156,7 @@ Para atualizar a aplicação, faça o seguinte:
 2. Altere o cabeçalho da página ao adicionar ou atualizar o texto. Por exemplo, altere o cabeçalho para "Exemplo de Aplicação de Votação v” do Service Fabric".
 3. Guarde o ficheiro.
 4. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar). É apresentada a caixa de diálogo Publicar.
-5. Clique botão **Manifest Version** (Versão do Manifesto) para alterar a versão do serviço e da aplicação.
+5. Clique no botão **Manifest Version** (Versão do Manifesto) para alterar a versão do serviço e da aplicação.
 6. Altere a versão do elemento **Code** em **VotingWebPkg** para "2.0.0", por exemplo, e clique em **Save** (Guardar).
 
     ![Caixa de Diálogo Alterar Versão](./media/service-fabric-quickstart-dotnet/change-version.png)
@@ -191,7 +184,7 @@ Neste início rápido, aprendeu a:
 * Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
-* Escalar horizontalmente a aplicação em vários nós
+* Aumentar horizontalmente a aplicação em vários nós
 * Realizar atualizações sem interrupção de aplicações
 
 Para saber mais sobre o Service Fabric e .NET, veja este tutorial:

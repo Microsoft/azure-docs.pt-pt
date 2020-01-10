@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227813"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708262"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -26,7 +26,7 @@ A cota padrão em um compartilhamento Premium é 100 GiB, que fornece um IOPS de
 
 Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no Portal.
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **todos os serviços** e, em seguida, pesquise **métricas**.
 
@@ -41,6 +41,9 @@ Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar
 1. Adicione um filtro para **ResponseType** e verifique se alguma solicitação tem um código de resposta de **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
 
 ![Opções de métricas para compartilhamentos de filepremium](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+> [!NOTE]
+> Para receber um alerta se um compartilhamento de arquivos for limitado, consulte [como criar um alerta se um compartilhamento de arquivos for limitado](#how-to-create-an-alert-if-a-file-share-is-throttled).
 
 ### <a name="solution"></a>Solução
 
@@ -157,7 +160,7 @@ As cargas de trabalho que dependem da criação de um grande número de arquivos
 
 ### <a name="workaround"></a>Solução
 
-- Nenhuma.
+- Nenhum.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 
@@ -168,3 +171,38 @@ Maior que a latência esperada Acessando arquivos do Azure para cargas de trabal
 ### <a name="workaround"></a>Solução
 
 - Instale o [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponível.
+
+## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for limitado
+
+1. Na [portal do Azure](https://portal.azure.com), clique em **Monitor**. 
+
+2. Clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+
+3. Clique em **selecionar** para selecionar o recurso de **conta de armazenamento/arquivo** que contém o compartilhamento de arquivos no qual você deseja alertar e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
+
+4. Clique em **Adicionar** para adicionar uma condição.
+
+5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
+
+6. Na folha **Configurar lógica de sinal** , vá para a **dimensão tipo de resposta** , clique na lista suspensa valores de **dimensão** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST). 
+
+  > [!NOTE]
+  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado.  Para adicionar o valor de dimensão, clique na **+** ao lado da lista suspensa **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #6.
+
+7. Vá para a dimensão de **compartilhamento de arquivos** , clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar. 
+
+  > [!NOTE]
+  > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a lista suspensa valores de dimensão ficará em branco porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento. 
+
+8. Defina os **parâmetros de alerta** (limite, operador, granularidade e frequência de agregação) que são usados para avaliar a regra de alerta de métrica e clique em **concluído**.
+
+  > [!TIP]
+  > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
+
+9. Adicione um **grupo de ação** (email, SMS, etc.) ao alerta selecionando um grupo de ação existente ou criando um novo grupo de ação.
+
+10. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
+
+11. Clique em **criar regra de alerta** para criar o alerta.
+
+Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).

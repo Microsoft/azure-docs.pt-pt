@@ -7,22 +7,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: c6f7e921886a6acdaa31d0f69f57119c339c0b8b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172598"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720349"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer"></a>Proteger seu cluster no Azure Data Explorer
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Proteger seu cluster no Azure Data Explorer-portal do Azure
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele fornece criptografia de volume para o sistema operacional e discos de dados de suas máquinas virtuais de cluster. Ele também se integra com [Azure Key Vault](/azure/key-vault/) que nos permite controlar e gerenciar as chaves e os segredos de criptografia de disco e garantir que todos os dados nos discos de VM sejam criptografados em repouso no armazenamento do Azure. 
-
-As configurações de segurança do cluster permitem habilitar a criptografia de disco no cluster.
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele fornece criptografia de volume para o sistema operacional e discos de dados de suas máquinas virtuais de cluster. Ele também se integra com [Azure Key Vault](/azure/key-vault/), que nos permite controlar e gerenciar as chaves e os segredos de criptografia de disco e garantir que todos os dados nos discos de VM sejam criptografados. 
   
-## <a name="enable-encryption-at-rest"></a>Habilitar criptografia em repouso
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Habilitar a criptografia em repouso no portal do Azure
   
-Habilitar a [criptografia em repouso](/azure/security/fundamentals/encryption-atrest) no cluster fornece proteção de dados para dados armazenados (em repouso). 
+As configurações de segurança do cluster permitem habilitar a criptografia de disco no cluster. Habilitar a [criptografia em repouso](/azure/security/fundamentals/encryption-atrest) no cluster fornece proteção de dados para dados armazenados (em repouso). 
 
 1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. No título **configurações** , selecione **segurança**. 
 

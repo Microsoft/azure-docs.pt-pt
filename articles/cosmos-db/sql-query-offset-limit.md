@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873255"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732591"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula de limite de deslocamento no Azure Cosmos DB
 
@@ -37,7 +37,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Observações
   
-  A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores. Atualmente, essa cláusula tem suporte para consultas em apenas uma única partição, as consultas entre partições ainda não dão suporte a ela.
+  A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores. Essa cláusula agora tem suporte para consultas em uma única partição, bem como consultas entre partições.
 
 ## <a name="examples"></a>Exemplos
 

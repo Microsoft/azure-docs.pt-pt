@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214821"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732332"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
 
@@ -58,7 +58,7 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
     | Grupo de recursos         | Selecione **criar novo** e digite *MyResourceGroupLBAZ* na caixa de texto.|
     | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Tipo          | Selecione **público**.                                        |
+    | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **padrão**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público              | Digite *myPublicIP* na caixa de texto.   |
@@ -69,7 +69,7 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
 
 Nesta secção, vai criar uma rede virtual, máquinas virtuais em diferentes zonas na região e, em seguida, instalar o IIS nas máquinas virtuais para o ajudar a testar o balanceador de carga com redundância entre zonas. Por conseguinte, se uma zona falhar, a sonda de estado de funcionamento da VM na mesma zona falhará e o tráfego continuará a ser servido por VMs nas outras zonas.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Criar rede virtual
 Crie uma rede virtual para implementar os seus servidores de back-end.
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Rede virtual** e introduza estes valores para a rede virtual:
@@ -78,7 +78,7 @@ Crie uma rede virtual para implementar os seus servidores de back-end.
     - *myBackendSubnet* - no nome da sub-rede.
 2. Clique em **Criar** para criar a rede virtual.
 
-    ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+    ![Criar rede virtual](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -89,7 +89,7 @@ Crie um grupo de segurança de rede para definir ligações recebidas para a sua
     - *myNetworkSecurityGroup* – no nome do grupo de segurança de rede.
     - *myResourceGroupLBAZ* – no nome do grupo de recursos existente.
    
-![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Criar rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Criar regras do grupo de segurança de rede
 
@@ -108,7 +108,7 @@ Nesta secção, irá criar regras do grupo de segurança de rede para permitir l
     - *Allow HTTP* – na descrição da regra do balanceador de carga.
 4. Clique em **OK**.
  
-   ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Criar rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita os passos 2 a 4 para criar outra regra com o nome *myRDPRule* para permitir uma ligação RDP de entrada através da porta 3389 com os seguintes valores:
     - *Service Tag* - na **Origem**.
     - *Internet* - na **Etiqueta do serviço de origem**
@@ -132,12 +132,12 @@ Crie máquinas virtuais em diferentes zonas (zona 1, zona 2 e zona 3) na região
 4. Introduza estes valores para as definições de VM:
     - *zone 1* - na zona onde colocar a VM.
     -  *myVNet* - certifique-se de que está selecionado como a rede virtual.
-    - *myBackendSubnet* - certifique-se de que está selecionado como sub-rede.
+    - *myBackendSubnet* - certifique-se de que está selecionado como a sub-rede.
     - *myNetworkSecurityGroup* - no nome do grupo de segurança de rede (firewall).
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
   
-   ![Criar uma máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Crie uma máquina virtual](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Crie uma segunda VM, com o nome *VM2* na Zona 2, e uma terceira VM na Zona 3, com *myVnet* como rede virtual, *myBackendSubnet* como sub-rede e **myNetworkSecurityGroup* como grupo de segurança de rede através dos passos 1 a 6.
 
@@ -215,6 +215,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
     - *myBackendPool* - no nome do conjunto de back-end.
     - *myHealthProbe* - no nome da sonda de estado de funcionamento.
 4. Clique em **OK**.
+    
     
     ![Adicionar uma regra de balanceamento de carga](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 

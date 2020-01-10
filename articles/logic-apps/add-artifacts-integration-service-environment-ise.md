@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793299"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732272"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicionar artefatos ao seu ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
-Depois de criar um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), adicione artefatos como aplicativos lógicos, contas de integração e conectores para que eles possam acessar os recursos em sua rede virtual do Azure.
+Depois de criar um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), adicione artefatos como aplicativos lógicos, contas de integração e conectores para que eles possam acessar os recursos em sua rede virtual do Azure. Por exemplo, os conectores do ISE gerenciados que ficam disponíveis depois que você cria o ISE não aparecem automaticamente no designer do aplicativo lógico. Antes de poder usar esses conectores do ISE, você precisa [Adicionar e implantar manualmente esses conectores no ISE](#add-ise-connectors-environment) para que eles apareçam no designer do aplicativo lógico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -84,17 +84,17 @@ Para criar uma conta de integração que usa um ISE, siga estas etapas:
 
 ## <a name="add-ise-connectors"></a>Adicionar conectores do ISE
 
-Você pode adicionar conectores gerenciados pela Microsoft que estão disponíveis para uso no ISE, mas não são implantados no ISE.
+Os conectores gerenciados pela Microsoft que ficam disponíveis depois que você cria o ISE não aparecem automaticamente no seletor de conector no designer de aplicativo lógico. Antes de poder usar esses conectores do ISE, você precisa adicionar e implantar manualmente esses conectores no ISE para que eles apareçam no designer do aplicativo lógico.
 
 1. No menu do ISE, em **configurações**, selecione **conectores gerenciados**. Na barra de ferramentas, selecione **Adicionar**.
 
    ![Exibir conectores gerenciados](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. No painel **Adicionar um novo conector gerenciado** , abra a lista **Localizar conector** . Se o conector que você deseja estiver disponível, selecione esse conector e, em seguida, selecione **criar**.
+1. No painel **Adicionar um novo conector gerenciado** , abra a lista **Localizar conector** . Selecione o conector do ISE que você deseja usar, mas ainda não está implantado no ISE. Selecione **Criar**.
 
-   A lista mostra apenas os conectores que estão qualificados, mas não são implantados no ISE. Os conectores que já estão implantados em seu ISE parecem estar indisponíveis para seleção.
+   ![Selecione o conector do ISE que você deseja implantar em seu ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Selecionar conector qualificado](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Somente conectores do ISE qualificados, mas ainda não implantados em seu ISE, aparecem disponíveis para seleção. Os conectores que já estão implantados em seu ISE parecem estar indisponíveis para seleção.
 
 <a name="create-custom-connectors-environment"></a>
 

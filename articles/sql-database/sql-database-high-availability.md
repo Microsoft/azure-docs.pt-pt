@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811354"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732404"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidade e banco de dados SQL do Azure
 
-O objetivo da arquitetura de alta disponibilidade no banco de dados SQL do Azure é garantir que seu banco de dados esteja em execução em 99,99% do tempo, sem se preocupar com o impacto das operações de manutenção e interrupções. O Azure manipula automaticamente tarefas de manutenção críticas, como aplicação de patches, backups, atualizações do Windows e do SQL, bem como eventos não planejados, como hardware subjacente, software ou falhas de rede.  Quando a instância subjacente do SQL for corrigida ou passar por failover, o tempo de inatividade não será perceptível se você [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) em seu aplicativo. O banco de dados SQL do Azure pode recuperar-se rapidamente, mesmo nas circunstâncias mais críticas, garantindo que eles estejam sempre disponíveis.
+O objetivo da arquitetura de alta disponibilidade no banco de dados SQL do Azure é garantir que seu banco de dados esteja em execução no mínimo 99,99% do tempo (para obter mais informações sobre SLA específico para diferentes camadas, consulte [SLA para o banco de dados SQL do Azure](https://azure.microsoft.com/support/legal/sla/sql-database/)), sem se preocupar com o impacto de operações de manutenção e interrupções. O Azure manipula automaticamente tarefas de manutenção críticas, como aplicação de patches, backups, atualizações do Windows e do SQL, bem como eventos não planejados, como hardware subjacente, software ou falhas de rede.  Quando a instância subjacente do SQL for corrigida ou passar por failover, o tempo de inatividade não será perceptível se você [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) em seu aplicativo. O banco de dados SQL do Azure pode recuperar-se rapidamente, mesmo nas circunstâncias mais críticas, garantindo que eles estejam sempre disponíveis.
 
 A solução de alta disponibilidade foi projetada para garantir que os dados confirmados nunca sejam perdidos devido a falhas, que as operações de manutenção não afetam sua carga de trabalho e que o banco de dados não será um ponto único de falha em sua arquitetura de software. Não há nenhuma janela de manutenção ou tempo de inatividade que exija a interrupção da carga de trabalho enquanto o banco de dados é atualizado ou mantido. 
 

@@ -1,43 +1,36 @@
 ---
-title: Gestor de recursos do Service Fabric Cluster - afinidade | Documentos da Microsoft
-description: Descrição geral de configuração de afinidade para serviços do Service Fabric
+title: Gerenciador de recursos de Cluster Service Fabric-afinidade
+description: Visão geral da afinidade de serviço para serviços de Service Fabric do Azure e orientação sobre a configuração de afinidade de serviço.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118420"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551748"
 ---
-# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurar e utilizar as afinidades de serviço no Service Fabric
-Afinidade é um controle que é fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores no mundo de nuvem e de microsserviços. Também é utilizado como uma otimização para melhorar o desempenho de serviços, embora se o fizer, pode ter efeitos colaterais.
+# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurando e usando a afinidade de serviço no Service Fabric
+A afinidade é um controle que é fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores para o mundo de microserviços e nuvem. Ele também é usado como uma otimização para melhorar o desempenho dos serviços, embora isso possa ter efeitos colaterais.
 
-Digamos que trazem uma aplicação maior ou que simplesmente não foi desenvolvido com microsserviços em mente, no Service Fabric (ou qualquer ambiente distribuído). Este tipo de transição é comum. Comece por elevação de todo o aplicativo para o ambiente, empacotamento-lo e garantir que ele esteja funcionando corretamente. Em seguida, começa a segmentar a Modelagem em diferentes serviços menores que todos conversar entre si.
+Digamos que você esteja trazendo um aplicativo maior, ou um que não tenha sido projetado com os microserviços em mente, para Service Fabric (ou qualquer ambiente distribuído). Esse tipo de transição é comum. Você começa levantando todo o aplicativo no ambiente, empacotando-o e verificando se ele está funcionando sem problemas. Em seguida, você começa a dividi-lo em serviços menores diferentes que se comunicam entre si.
 
-Eventualmente, pode achar que a aplicação está a ter alguns problemas. Os problemas geralmente se encaixam em uma dessas categorias:
+Eventualmente, você pode descobrir que o aplicativo está enfrentando alguns problemas. Os problemas geralmente se enquadram em uma destas categorias:
 
-1. Algum componente X na aplicação monolítica tinha uma dependência de não-documentada no componente Y, e passou desses componentes em serviços separados. Uma vez que estes serviços estão agora em execução em diferentes nós do cluster, está desfeitos.
-2. Esses componentes comunicam através de (local pipes nomeado | memória compartilhada | ficheiros no disco) e que realmente precisam de ser possível escrever um recurso local compartilhado por motivos de desempenho neste momento. Essa dependência difícil é removida mais tarde, talvez.
-3. Está tudo certo, mas acontece que esses dois componentes são, na verdade, chatty/desempenho confidencial. Quando movidas-los em serviços separados geral do desempenho de aplicações tanked ou latência aumentada. Como resultado, o aplicativo inteiro não está atendendo às expectativas.
+1. Algum componente X no aplicativo monolítico tinha uma dependência não documentada no componente Y, e você acabou de transformar esses componentes em serviços separados. Como esses serviços agora estão sendo executados em nós diferentes no cluster, eles são desfeitos.
+2. Esses componentes se comunicam por meio de (pipes nomeados locais | memória compartilhada | arquivos em disco) e eles realmente precisam ser capazes de gravar em um recurso local compartilhado por motivos de desempenho no momento. Essa dependência rígida é removida posteriormente, talvez.
+3. Tudo está bem, mas acontece que esses dois componentes são, na verdade, diferenciados/de desempenho. Quando elas foram movidas para serviços separados, o desempenho geral do aplicativo foi aumentado ou a latência aumentou. Como resultado, o aplicativo geral não atende às expectativas.
 
-Nestes casos, nós não quer perder nosso trabalho de refatoração e não quiser voltar para a solução. A última condição pode até ser desejável como um recurso de otimização sem formatação. No entanto, até que podemos pode reestruturar os componentes para trabalhar naturalmente como serviços (ou até que nós podemos resolver as expectativas de desempenho alguma forma), vamos precisar de alguma forma de localidade.
+Nesses casos, não queremos perder nosso trabalho de refatoração e não queremos voltar para o monolítico. A última condição pode até ser desejável como uma otimização simples. No entanto, até que possamos recriar os componentes para trabalhar naturalmente como serviços (ou até que possamos resolver as expectativas de desempenho de alguma outra maneira), vamos precisar de alguma noção de localidade.
 
-O que fazer? Bem, pode tentar ativar a afinidade.
+O que fazer? Bem, você pode tentar ativar a afinidade.
 
-## <a name="how-to-configure-affinity"></a>Como configurar a afinidade de
-Para configurar a afinidade, define uma relação de afinidade entre dois serviços diferentes. Pode pensar afinidade como "apontando" um serviço em outro e dizendo que "este serviço só pode ser executado em que se o serviço está em execução." Por vezes, nos Referimos afinidade como uma relação de pai/filho (onde apontar o filho para o elemento principal). Afinidade garante que as réplicas ou instâncias de um serviço são colocadas em nós do mesmo, como as de outro serviço.
+## <a name="how-to-configure-affinity"></a>Como configurar a afinidade
+Para configurar a afinidade, você define uma relação de afinidade entre dois serviços diferentes. Você pode considerar a afinidade como "apontar" um serviço em outro e dizer "este serviço pode ser executado somente onde o serviço está em execução". Às vezes, nos referimos à afinidade como uma relação pai/filho (onde você aponta o filho no pai). A afinidade garante que as réplicas ou instâncias de um serviço sejam colocadas nos mesmos nós que os de outro serviço.
 
 ```csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
@@ -48,41 +41,41 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 > [!NOTE]
-> Um serviço de subordinado só pode participar de uma relação de afinidade único. Se quisesse que o menor possível agrupar, ao mesmo tempo, dois serviços de principal tem duas opções:
-> - Inverter as relações (ter parentService1 e parentService2 apontar para o serviço de filho atual), ou
-> - Designar um dos pais como um concentrador por convenção e têm todos os serviços do ponto em que o serviço. 
+> Um serviço filho só pode participar de uma única relação de afinidade. Se você quisesse que o filho fosse relacionados a dois serviços pai de uma vez, você tem duas opções:
+> - Inverta as relações (tenha parentService1 e parentService2 ponto no serviço filho atual) ou
+> - Designar um dos pais como um hub por convenção e fazer com que todos os serviços apontem para esse serviço. 
 >
-> O comportamento de colocação resultante do cluster deve ser o mesmo.
+> O comportamento de posicionamento resultante no cluster deve ser o mesmo.
 >
 
-## <a name="different-affinity-options"></a>Opções de afinidade diferentes
-Afinidade é representada através de um dos vários esquemas de correlação e tem dois modos diferentes. O modo mais comum de afinidade é o que chamamos NonAlignedAffinity. NonAlignedAffinity, as réplicas ou instâncias dos serviços diferentes são colocadas em nós do mesmo. O outro modo é AlignedAffinity. Afinidade alinhada é útil apenas com os serviços com estado. Configurar serviços com monitoração de estado para alinhado afinidade garante que as cores primárias desses serviços são colocadas em nós do mesmo como entre si. Também faz com que cada par de bases de dados secundárias para os serviços sejam colocados em nós do mesmo. Também é possível (embora menos comum) configurar NonAlignedAffinity para serviços com estado. Para NonAlignedAffinity, as réplicas diferentes dos dois serviços com estado seriam executado em nós do mesmo, mas suas cores primárias poderiam acabar em nós diferentes.
+## <a name="different-affinity-options"></a>Diferentes opções de afinidade
+A afinidade é representada por meio de um dos vários esquemas de correlação e tem dois modos diferentes. O modo mais comum de afinidade é o que chamamos de NonAlignedAffinity. No NonAlignedAffinity, as réplicas ou instâncias dos diferentes serviços são colocadas nos mesmos nós. O outro modo é AlignedAffinity. A afinidade alinhada é útil somente com serviços com estado. Configurar dois serviços com estado para ter a afinidade alinhada garante que os primários desses serviços sejam colocados nos mesmos nós um do outro. Ele também faz com que cada par de secundários para esses serviços seja colocado nos mesmos nós. Também é possível (embora menos comum) configurar o NonAlignedAffinity para serviços com estado. Para NonAlignedAffinity, as diferentes réplicas dos dois serviços com estado seriam executadas nos mesmos nós, mas seus primários poderiam acabar em nós diferentes.
 
 <center>
 
-![Modos de afinidade e seus efeitos][Image1]
+![modos de afinidade e seus efeitos][Image1]
 </center>
 
-### <a name="best-effort-desired-state"></a>Melhor estado de esforço pretendido
-Uma relação de afinidade é melhor esforço. Ele não fornece as garantias mesmo de colocalização ou confiabilidade que em execução no mesmo processo executável faz. Os serviços numa relação de afinidade são fundamentalmente diferentes entidades que podem efetuar a ativação e ser movidas de forma independente. Também poderá interromper uma relação de afinidade, embora essas quebras são temporárias. Por exemplo, as limitações de capacidade podem significar que apenas alguns dos objetos de serviço na relação de afinidade se encaixa num determinado nó. Nestes casos, apesar de não existe uma relação de afinidade no lugar, ele não pode ser imposto devido a outras restrições. Se for possível fazer isso, a violação é automaticamente corrigida mais tarde.
+### <a name="best-effort-desired-state"></a>Estado desejado do melhor esforço
+Uma relação de afinidade é o melhor esforço. Ele não fornece as mesmas garantias de colocação ou confiabilidade que são executadas no mesmo processo executável. Os serviços em uma relação de afinidade são entidades basicamente diferentes que podem falhar e serem movidas de forma independente. Uma relação de afinidade também pode ser interrompida, embora essas interrupções sejam temporárias. Por exemplo, limitações de capacidade podem significar que apenas alguns dos objetos de serviço na relação de afinidade podem caber em um determinado nó. Nesses casos, embora haja uma relação de afinidade em vigor, ela não pode ser imposta devido a outras restrições. Se for possível fazer isso, a violação será corrigida automaticamente mais tarde.
 
-### <a name="chains-vs-stars"></a>Cadeias versus estrelas
-Hoje mesmo o Gestor de recursos de Cluster não é capaz de cadeias de modelo de relações de afinidade. O que significa que um serviço que é um filho numa relação de afinidade não pode ser um encarregado de educação na outra relação de afinidade. Se deseja modelar este tipo de relação, terá efetivamente modelá-lo como uma estrela, em vez de uma cadeia. Para mudar de uma cadeia para uma estrela, o subordinado na extremidade inferior seria ser pai de principal do primeiro subordinado em vez disso. Consoante a disposição dos seus serviços, poderá ter de fazer isso várias vezes. Se não houver nenhum serviço principal natural, poderá ter de criar um que serve como um marcador de posição. Dependendo dos requisitos, talvez também queira examinar [grupos de aplicações](service-fabric-cluster-resource-manager-application-groups.md).
+### <a name="chains-vs-stars"></a>Cadeias vs. estrelas
+Hoje, o Gerenciador de recursos de cluster não é capaz de modelar cadeias de relações de afinidade. Isso significa que um serviço que é um filho em uma relação de afinidade não pode ser pai em outra relação de afinidade. Se você quiser modelar esse tipo de relação, terá de modelar efetivamente como uma estrela, em vez de uma cadeia. Para mover de uma cadeia para uma estrela, o filho na extremidade inferior seria pai para o pai do primeiro filho. Dependendo da organização de seus serviços, talvez você precise fazer isso várias vezes. Se não houver nenhum serviço pai natural, talvez você precise criar um que sirva como um espaço reservado. Dependendo dos seus requisitos, talvez você também queira examinar os grupos de [aplicativos](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
 
-![Vs de cadeias. Estrelas no contexto de relações de afinidade][Image2]
+Cadeias de ![vs. estrelas no contexto de relações de afinidade][Image2]
 </center>
 
-Outro ponto importante sobre as relações de afinidade hoje é que eles são direcionais por predefinição. Isso significa que a regra de afinidade só irá impor que o filho colocadas com o elemento principal. Não garante que o elemento principal é localizado com o filho. Por conseguinte, se existir uma violação de afinidade e para corrigir a violação por algum motivo, não é viável para mover o filho para o nó do encarregado de educação, em seguida, – mesmo que mover o elemento principal para o nó do seu filho seria ter corrigido a violação – o elemento principal não será movido para th nó do menor e. Definir a configuração [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) para true removeria a direcionalidade. Também é importante observar que a relação de afinidade não pode ser perfeito ou instantaneamente imposta uma vez que os diferentes serviços têm com diferentes ciclos de vida e podem falhar e mover de forma independente. Por exemplo, digamos que o elemento principal, de repente, efetua a ativação pós-falha para outro nó porque ele falhou. Processam, o Gestor de recursos de Cluster e o Gestor de ativação pós-falha, a ativação pós-falha em primeiro lugar, desde a manter os serviços, consistente, e disponível é a prioridade. Uma vez concluída a ativação pós-falha, a relação de afinidade é interrompida, mas o Gestor de recursos de Cluster achar que está tudo certo até que ele observar que o elemento subordinado não é localizado com o elemento principal. Esses tipos de verificações são executados periodicamente. Obter mais informações sobre como o Gestor de recursos de Cluster avalia as restrições estão disponíveis no [este artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), e [esse](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência da sobre quais são essas restrições avaliada.   
+Outra coisa a observar sobre as relações de afinidade hoje é que elas são direcionais por padrão. Isso significa que a regra de afinidade impõe apenas que o filho colocado com o pai. Ele não garante que o pai esteja localizado com o filho. Portanto, se houver uma violação de afinidade e para corrigir a violação por algum motivo, não é possível mover o filho para o nó do pai. em seguida, mesmo que mover o pai para o nó do filho tenha corrigido a violação – o pai não será movido para th nó do filho e. Definir a configuração [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) como true removeria a direcionalidade. Também é importante observar que a relação de afinidade não pode ser perfeita ou imposta instantaneamente, já que serviços diferentes têm ciclos de vida diferentes e podem falhar e mover de forma independente. Por exemplo, digamos que o pai falhe repentinamente em outro nó porque falhou. O Gerenciador de recursos de cluster e Gerenciador de Failover lidam com o failover primeiro, pois manter os serviços, consistentes e disponíveis é a prioridade. Após a conclusão do failover, a relação de afinidade é interrompida, mas o Gerenciador de recursos de cluster pensa que tudo está bem até observar que o filho não está localizado com o pai. Esses tipos de verificações são executados periodicamente. Mais informações sobre como o Gerenciador de recursos de cluster avalia as restrições estão disponíveis neste [artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência na qual essas restrições são avaliadas.   
 
 
 ### <a name="partitioning-support"></a>Suporte de criação de partições
-A última coisa a observar sobre a afinidade é esse afinidade as relações não são suportadas em que o elemento principal está particionado. Serviços principal particionada podem ser suportados, eventualmente, mas atualmente não é permitido.
+A coisa final a ser observada sobre a afinidade é que as relações de afinidade não têm suporte onde o pai é particionado. Os serviços pai particionados podem ter suporte eventualmente, mas hoje não são permitidos.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
-- Para limitar os serviços a um pequeno conjunto de máquinas ou agregar a carga de serviços, utilize [grupos de aplicações](service-fabric-cluster-resource-manager-application-groups.md)
+## <a name="next-steps"></a>Passos seguintes
+- Para obter mais informações sobre como configurar serviços, [saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
+- Para limitar os serviços a um pequeno conjunto de computadores ou agregar a carga de serviços, use [grupos de aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
