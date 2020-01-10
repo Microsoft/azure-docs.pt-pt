@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457428"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento v2 de uso geral
 
@@ -26,7 +26,7 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue até à sua conta de armazenamento.
 3. Na seção **configurações** , clique em **configuração**.
 4. Em **Tipo de conta**, clique em **Atualizar**.
@@ -168,4 +168,3 @@ Também pode ser calculado o custo de transferência de dados de georreplicaçã
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta de armazenamento](storage-quickstart-create-account.md)
-* [Gerenciar contas de armazenamento do Azure](storage-account-manage.md)

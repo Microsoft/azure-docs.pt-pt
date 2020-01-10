@@ -4,15 +4,15 @@ description: Descreva os sintomas, as causas e a resolução dos problemas mais 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 486c68cb32b5f4c8c8a18b21d1aee139ffda45bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397445"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Como solucionar problemas com o agente de Log Analytics para Windows 
 
@@ -20,9 +20,9 @@ Este artigo fornece ajuda para solucionar erros que podem ocorrer com o Log Anal
 
 Se nenhum destes passos resolver, também estão disponíveis os seguintes canais de suporte:
 
-* Os clientes com benefícios de suporte Premier podem abrir uma solicitação de suporte com o [Premier](https://premier.microsoft.com/).
-* Os clientes com contratos de suporte do Azure podem abrir uma solicitação de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
-* Visite a página de comentários Log Analytics para revisar ideias e bugs enviados [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou um novo arquivo. 
+* Clientes com suporte Premier benefícios pode abrir um pedido de suporte com [Premier](https://premier.microsoft.com/).
+* Os clientes com contratos de suporte do Azure, podem abrir um pedido de suporte [no portal do Azure](https://manage.windowsazure.com/?getsupport=true).
+* Visite a página de comentários do Log Analytics para rever as ideias submetidas e bugs [ https://aka.ms/opinsightsfeedback ](https://aka.ms/opinsightsfeedback) ou um novo de ficheiros. 
 
 ## <a name="important-troubleshooting-sources"></a>Fontes de solução de problemas importantes
 
@@ -34,7 +34,7 @@ Se o agente estiver se comunicando por meio de um servidor proxy ou firewall, po
 
 Verifique se o firewall ou o proxy está configurado para permitir as seguintes portas e URLs descritas na tabela a seguir. Também confirme se a inspeção HTTP não está habilitada para o tráfego da Web, pois ela pode impedir um canal TLS seguro entre o agente e o Azure Monitor.  
 
-|Recursos do Agente|Portas |Direction |Inspeção de HTTPS direto|
+|Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Porta 443 |Saída|Sim |  
 |*.oms.opinsights.azure.com |Porta 443 |Saída|Sim |  
@@ -62,15 +62,15 @@ Há várias maneiras de verificar se o agente está se comunicando com êxito co
 
 - Filtre o log de eventos *Operations Manager* por **fontes de evento** - *módulos de serviço de integridade*, *HealthService*e *conector de serviço* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se ele gravou eventos da tabela a seguir. Se estiverem, examine as etapas de resolução incluídas para cada evento possível.
 
-    |ID do Evento |Source |Descrição |Resolução |
+    |ID do Evento |Origem |Descrição |Resolução |
     |---------|-------|------------|-----------|
-    |2133 & 2129 |Serviço de Integridade |Falha na conexão com o serviço do agente |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
-    |2138 |Módulos de Serviço de Integridade |O proxy requer autenticação |Defina as configurações de proxy do agente e especifique o nome de usuário/senha necessários para autenticar com o servidor proxy. |
+    |2133 & 2129 |Serviço de Estado de Funcionamento |Falha na conexão com o serviço do agente |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
+    |2138 |Módulos de Serviço de Integridade |Proxy requer autenticação |Defina as configurações de proxy do agente e especifique o nome de usuário/senha necessários para autenticar com o servidor proxy. |
     |2129 |Módulos de Serviço de Integridade |Falha na conexão/falha na negociação SSL |Verifique as configurações de TCP/IP do adaptador de rede e as configurações de proxy do agente.|
     |2127 |Módulos de Serviço de Integridade |Falha ao enviar dados-código de erro recebido |Se isso ocorrer apenas periodicamente durante o dia, poderia ser uma anomalia aleatória que pode ser ignorada. Monitor para entender com que frequência isso acontece. Se ocorrer muitas vezes ao longo do dia, verifique primeiro as configurações de rede e de proxy. Se a descrição incluir o código de erro HTTP 404 e for a primeira vez que o agente tentar enviar dados para o serviço, ele incluirá um erro 500 com um código de erro de 404 interno. 404 significa não encontrado, que indica que a área de armazenamento do novo espaço de trabalho ainda está sendo provisionada. Na próxima tentativa, os dados serão gravados com êxito no espaço de trabalho conforme o esperado. Um erro HTTP 403 pode indicar uma permissão ou um problema de credenciais. Há mais informações incluídas com o erro 403 para ajudar a solucionar o problema.|
-    |4000 |Conector de serviço |Falha na resolução do nome DNS |O computador não pôde resolver o endereço da Internet usado ao enviar dados para o serviço. Isso pode ser as configurações do resolvedor de DNS em seu computador, configurações de proxy incorretas ou talvez um problema de DNS temporário com seu provedor. Se ocorrer periodicamente, isso pode ser causado por um problema transitório relacionado à rede.|
-    |4001 |Conector de serviço |Falha na conexão com o serviço. |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
-    |4002 |Conector de serviço |O serviço retornou o código de status HTTP 403 em resposta a uma consulta. Verifique com o administrador de serviços a integridade do serviço. A consulta será repetida mais tarde. |Esse erro é gravado durante a fase de registro inicial do agente e você verá uma URL semelhante à seguinte: *https://\<workspaceid >. OMS. opinsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por uma ID ou chave de espaço de trabalho digitada incorretamente, ou os dados e a hora estão incorretos no computador. Se o tempo é + /-15 minutos da hora atual, em seguida, integração falha. Para corrigir isso, atualize a data e/ou o fuso horário do computador com Windows.|
+    |4000 |Conector do Serviço |Falha na resolução do nome DNS |O computador não pôde resolver o endereço da Internet usado ao enviar dados para o serviço. Isso pode ser as configurações do resolvedor de DNS em seu computador, configurações de proxy incorretas ou talvez um problema de DNS temporário com seu provedor. Se ocorrer periodicamente, isso pode ser causado por um problema transitório relacionado à rede.|
+    |4001 |Conector do Serviço |Falha na conexão com o serviço. |Esse erro pode ocorrer quando o agente não pode se comunicar diretamente ou por meio de um servidor de firewall/proxy para o serviço de Azure Monitor. Verifique as configurações de proxy do agente ou se o firewall de rede/proxy permite o tráfego TCP do computador para o serviço.|
+    |4002 |Conector do Serviço |O serviço retornou o código de status HTTP 403 em resposta a uma consulta. Verifique com o administrador de serviços a integridade do serviço. A consulta será repetida mais tarde. |Esse erro é gravado durante a fase de registro inicial do agente e você verá uma URL semelhante à seguinte: *https://\<workspaceid >. OMS. opinsights. Azure. com/AgentService. svc/AgentTopologyRequest*. Um código de erro 403 significa proibido e pode ser causado por uma ID ou chave de espaço de trabalho digitada incorretamente, ou os dados e a hora estão incorretos no computador. Se o tempo é + /-15 minutos da hora atual, em seguida, integração falha. Para corrigir isso, atualize a data e/ou o fuso horário do computador com Windows.|
 
 ## <a name="data-collection-issues"></a>Problemas de coleta de dados
 
@@ -100,7 +100,7 @@ Se a consulta retornar resultados, você precisará determinar se um determinado
 
 3. Se, após vários minutos, você não vir os dados esperados nos resultados da consulta ou na visualização, dependendo de se você estiver exibindo os dados de uma solução ou insight, no log de eventos *Operations Manager* , procure por **fontes de eventos** *HealthService* e *serviço de integridade módulos* e filtre por *aviso* de **nível de evento** e *erro* para confirmar se há eventos gravados da tabela a seguir.
 
-    |ID do Evento |Source |Descrição |Resolução |
+    |ID do Evento |Origem |Descrição |Resolução |
     |---------|-------|------------|
     |8000 |HealthService |Esse evento especificará se um fluxo de trabalho relacionado a desempenho, evento ou outro tipo de dados coletado não puder encaminhar para o serviço para ingestão no espaço de trabalho. | A ID de evento 2136 da fonte HealthService é escrita junto com esse evento e pode indicar que o agente não pode se comunicar com o serviço, possivelmente devido a uma configuração incorreta do proxy e das configurações de autenticação, interrupção de rede ou o firewall/proxy de rede não permite o tráfego TCP do computador para o serviço.| 
     |10102 e 10103 |Módulos de Serviço de Integridade |O fluxo de trabalho não pôde resolver a fonte de dados. |Isso pode ocorrer se o contador de desempenho ou a instância especificada não existir no computador ou se estiver definido incorretamente nas configurações de dados do espaço de trabalho. Se esse for um [contador de desempenho](data-sources-performance-counters.md#configuring-performance-counters)especificado pelo usuário, verifique se as informações especificadas estão seguindo o formato correto e se existem nos computadores de destino. |

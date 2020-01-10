@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443843"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure, o PowerShell e o CLI do Azure
 
@@ -33,7 +33,7 @@ Um banco de dados individual pode ser criado na camada de computação provision
 - Um único banco de dados na camada de computação provisionada é previamente alocado uma quantidade fixa de recursos de computação, incluindo CPU e memória, usando um dos dois [modelos de compra](sql-database-purchase-models.md).
 - Um único banco de dados na camada de computação sem servidor tem uma variedade de recursos de computação, incluindo CPU e memória que são dimensionados automaticamente e só estão disponíveis nos [modelos de compra baseados em vCore](sql-database-service-tiers-vcore.md).
 
-Ao criar um banco de dados individual, você também define um [servidor de banco de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
+Ao criar um banco de dados individual, você também define um [servidor de banco de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) em uma região especificada.
 
 > [!NOTE]
 > Este guia de início rápido usa o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), mas o [modelo de compra baseado em DTU](sql-database-service-tiers-DTU.md) também está disponível.

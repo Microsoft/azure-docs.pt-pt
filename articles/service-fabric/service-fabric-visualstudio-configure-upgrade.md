@@ -1,25 +1,16 @@
 ---
-title: Configurar a atualização de um aplicativo Service Fabric | Microsoft Docs
+title: Configurar a atualização de uma aplicação do Service Fabric
 description: Saiba como definir as configurações para atualizar um aplicativo Service Fabric usando Microsoft Visual Studio.
-services: service-fabric
-documentationcenter: na
 author: mikkelhegn
-manager: mfussell
-editor: tglee
-ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikhegn
-ms.openlocfilehash: 5979541146b7cd7b854f35c5bf204e71208f066b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ef88a528dbb6d326e5cc742d14c27218eb7502f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464076"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurar a atualização de um aplicativo Service Fabric no Visual Studio
 As ferramentas do Visual Studio para Azure Service Fabric fornecem suporte de atualização para a publicação em clusters locais ou remotos. Há três cenários nos quais você deseja atualizar seu aplicativo para uma versão mais recente em vez de substituir o aplicativo durante o teste e a depuração:
@@ -31,7 +22,7 @@ As ferramentas do Visual Studio para Azure Service Fabric fornecem suporte de at
 ## <a name="parameters-needed-to-upgrade"></a>Parâmetros necessários para atualizar
 Você pode escolher entre dois tipos de implantação: regular ou atualizar. Uma implantação regular apaga todas as informações e dados de implantação anteriores no cluster, enquanto uma implantação de atualização a preserva. Ao atualizar um aplicativo Service Fabric no Visual Studio, você precisa fornecer os parâmetros de atualização do aplicativo e as políticas de verificação de integridade. Os parâmetros de atualização de aplicativo ajudam a controlar a atualização, enquanto as políticas de verificação de integridade determinam se a atualização foi bem-sucedida. Consulte [Service Fabric atualização de aplicativo: parâmetros de atualização](service-fabric-application-upgrade-parameters.md) para obter mais detalhes.
 
-Há três modos de atualização: *Monitorado*, *UnmonitoredAuto*e *UnmonitoredManual*.
+Há três modos de atualização: *monitorado*, *UnmonitoredAuto*e *UnmonitoredManual*.
 
 * Uma atualização monitorada automatiza a atualização e a verificação de integridade do aplicativo.
 * Uma atualização do UnmonitoredAuto automatiza a atualização, mas ignora a verificação de integridade do aplicativo.
@@ -86,5 +77,5 @@ O exemplo a seguir mostra como aplicar uma política de verificação de integri
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como atualizar um aplicativo, consulte [atualizar um aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).

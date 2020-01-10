@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443834"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -78,7 +78,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[aumentar o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
-| OLTP na memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP dentro da memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
 
@@ -87,7 +87,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 > - Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">Sys. master_files</a> para determinar o total de espaço usado por bancos de dados. Os logs de erros não são persistidos e não são incluídos no tamanho. Os backups não são incluídos no tamanho do armazenamento.
 > - A taxa de transferência e o IOPS na camada de Uso Geral também dependem do [tamanho do arquivo](#file-io-characteristics-in-general-purpose-tier) que não é explicitamente limitado pela instância gerenciada.
 > - Você pode criar outra réplica legível em uma região do Azure diferente usando grupos de failover automático.
-> - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1GB com IOPS de 5K máximo cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, você poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguma quantidade de IOPS também é usada para backups automáticos.
+> - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1 TB com 5K IOPS máximos cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguma quantidade de IOPS também é usada para backups automáticos.
 
 > [!NOTE]
 > Encontre mais informações sobre os [limites de recursos em pools de instâncias gerenciadas neste artigo](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -153,7 +153,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 
 1. Abra **ajuda + suporte**e clique em **nova solicitação de suporte**.
 
-   ![Ajuda e suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+   ![Ajuda e Suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Na guia noções básicas da nova solicitação de suporte:
    - Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
    - Em **Subscrição**, selecione a sua subscrição.

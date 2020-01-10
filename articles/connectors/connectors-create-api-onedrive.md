@@ -1,22 +1,22 @@
 ---
-title: Conectar-se ao OneDrive
-description: Carregar e gerenciar arquivos com as APIs REST do OneDrive e os aplicativos lógicos do Azure
+title: Acessar e gerenciar arquivos no Microsoft OneDrive
+description: Carregar e gerenciar arquivos no OneDrive criando fluxos de trabalho automatizados em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378437"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Introdução ao conector do OneDrive
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Acessar e gerenciar arquivos no conector do OneDrive usando aplicativos lógicos do Azure
 
-Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. Com o OneDrive, você pode executar estas tarefas:
+Usando os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do onedrive](/connectors/onedriveconnector/), você pode criar tarefas e fluxos de trabalho automatizados para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. Com o OneDrive, você pode executar estas tarefas:
 
 * Crie seu fluxo de trabalho armazenando arquivos no OneDrive ou atualize os arquivos existentes no OneDrive. 
 * Use gatilhos para iniciar o fluxo de trabalho quando um arquivo for criado ou atualizado no OneDrive.
@@ -26,7 +26,7 @@ Este artigo mostra como usar o conector do OneDrive em um aplicativo lógico e t
 
 Para saber mais sobre os aplicativos lógicos, consulte [o que são aplicativos lógicos](../logic-apps/logic-apps-overview.md) e [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="connect-to-onedrive"></a>Conectar-se ao OneDrive
+## <a name="connect-to-onedrive"></a>Ligar ao OneDrive
 
 Antes que seu aplicativo lógico possa acessar qualquer serviço, você primeiro cria uma *conexão* com o serviço. Uma conexão fornece conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao OneDrive, você precisa primeiro de uma *conexão*do onedrive. Para criar uma conexão, insira as credenciais que você normalmente usa para acessar o serviço ao qual você deseja se conectar. Portanto, com o OneDrive, insira as credenciais para sua conta do OneDrive para criar a conexão.
 
@@ -38,7 +38,7 @@ Antes que seu aplicativo lógico possa acessar qualquer serviço, você primeiro
 
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. Dispara a "sondagem" do serviço em um intervalo e uma frequência que você deseja. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. No aplicativo lógico, digite "onedrive" para obter uma lista dos gatilhos:  
+1. No designer do aplicativo lógico, digite `onedrive` para obter uma lista dos gatilhos:  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 2. Escolha **Adicionar uma ação**.
 
-3. Na caixa de texto, digite "onedrive" para obter uma lista de todas as ações disponíveis.
+3. Na caixa de pesquisa, digite `onedrive` para obter uma lista de todas as ações disponíveis.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444507"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
@@ -60,6 +60,8 @@ Você pode instruir o ADF a manter um pool de recursos de cluster (VMs) definind
 Se você executar fluxos de dados em um pipeline em paralelo, o ADF girará Azure Databricks clusters separados para cada execução de atividade com base nas configurações de sua Azure Integration Runtime anexadas a cada atividade. Para criar execuções paralelas em pipelines do ADF, adicione suas atividades de fluxo de dados sem restrições de precedência na interface do usuário.
 
 Dessas três opções, essa opção provavelmente será executada no menor período de tempo. No entanto, cada fluxo de dados paralelo será executado ao mesmo tempo em clusters separados, de modo que a ordem dos eventos é não determinística.
+
+Se você estiver executando suas atividades de fluxo de dados em paralelo dentro de seus pipelines, é recomendável não usar TTL. Isso ocorre porque as execuções paralelas de fluxos de dados simultaneamente usando o mesmo Azure Integration Runtime resultarão em várias instâncias de pools quentes para seu data factory.
 
 ##### <a name="overload-single-data-flow"></a>Sobrecarga de fluxo de dados único
 

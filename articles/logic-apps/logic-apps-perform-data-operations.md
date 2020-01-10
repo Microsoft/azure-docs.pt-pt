@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793115"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666742"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Executar operações de dados em aplicativos lógicos do Azure
 
@@ -443,6 +443,9 @@ Para criar uma matriz menor que tenha itens, que atendam a critérios específic
 > Qualquer texto de filtro que você usa em sua condição diferencia maiúsculas de minúsculas. Além disso, essa ação não pode alterar o formato ou os componentes dos itens na matriz. 
 > 
 > Para ações para usar a saída de matriz da ação **Filtrar matriz** , essas ações devem aceitar matrizes como entrada ou você pode ter que transformar a matriz de saída em outro formato compatível.
+> 
+> Se você chamar um ponto de extremidade HTTP e receber uma resposta JSON, use a ação **analisar JSON** para processar a resposta JSON. 
+> Caso contrário, a ação **Filtrar matriz** pode ler apenas o corpo da resposta e não a estrutura da carga JSON.
 
 Se você preferir trabalhar no editor de exibição de código, poderá copiar a **matriz de filtro** de exemplo e inicializar definições de ação de **variável** deste artigo em sua própria definição de fluxo de trabalho subjacente do aplicativo lógico: [exemplos de código de operação de dados – filtrar matriz](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

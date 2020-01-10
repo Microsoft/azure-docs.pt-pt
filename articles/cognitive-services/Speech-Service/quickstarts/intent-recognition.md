@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 01/02/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9b8fed7a023a4c39dca3eacb4f8496730a7f50b2
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9dd8a4d9d8dddb7ee8c8a34673ea635748927584
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815874"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660542"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Início rápido: reconhecer fala, intenções e entidades com Reconhecimento vocal (LUIS)
 

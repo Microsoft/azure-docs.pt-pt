@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451307"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Habilitar e desabilitar o console serial do Azure
 
@@ -32,6 +32,9 @@ O console serial pode ser desabilitado para uma VM específica ou um conjunto de
 
 
 ## <a name="subscription-level-enabledisable"></a>Habilitação/desabilitação no nível da assinatura
+
+> [!NOTE]
+> Verifique se você está na nuvem certa (nuvem pública do Azure, nuvem do governo dos EUA do Azure) antes de executar este comando. Você pode verificar `az cloud list` e definir sua nuvem com `az cloud set -n <Name of cloud>`.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -58,9 +61,6 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
 
-> [!NOTE]
-> Verifique se você está na nuvem certa (nuvem pública do Azure, nuvem do governo dos EUA do Azure) antes de executar este comando. Você pode verificar `az cloud list` e definir sua nuvem com `az cloud set -n <Name of cloud>`.
-
 ### <a name="powershell"></a>PowerShell
 
 Console serial também pode ser habilitado e desabilitado usando o PowerShell.
@@ -79,7 +79,7 @@ $subscription=(Get-AzContext).Subscription.Id
 Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o [console serial do Azure para VMs Linux](./serial-console-linux.md)
 * Saiba mais sobre o [console serial do Azure para VMs do Windows](./serial-console-windows.md)
 * Saiba mais sobre [as opções de gerenciamento de energia no console serial do Azure](./serial-console-power-options.md)

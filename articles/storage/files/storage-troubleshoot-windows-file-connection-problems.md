@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457384"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de arquivos do Azure no Windows
 
@@ -151,7 +151,7 @@ Você não tem acesso
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **controle de acesso (iam)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azure está localizado, clique em **controle de acesso (iam)** e verifique se sua conta de usuário tem acesso à conta de armazenamento. Para saber mais, confira [como proteger sua conta de armazenamento com o RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: as regras de firewall ou de rede virtual estão habilitadas na conta de armazenamento
 

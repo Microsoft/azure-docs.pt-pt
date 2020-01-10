@@ -3,12 +3,12 @@ title: 'Início rápido: criar um plano gráfico com a API REST'
 description: Neste guia de início rápido, você usa plantas do Azure para criar, definir e implantar artefatos usando a API REST.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436597"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início rápido: definir e atribuir um Azure Blueprint com a API REST
 
@@ -407,7 +407,9 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      > [!IMPORTANT]
      > Os planos gráficos não gerenciam a identidade gerenciada atribuída pelo usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes, ou a atribuição Blueprint falhará.
 
-## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
+## <a name="clean-up-resources"></a>Limpar recursos
+
+### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
 Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, utilize a seguinte operação da API REST:
 
@@ -417,7 +419,7 @@ Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Eliminar um esquema
+### <a name="delete-a-blueprint"></a>Eliminar um esquema
 
 Para remover o próprio esquema, utilize a seguinte operação da API REST:
 

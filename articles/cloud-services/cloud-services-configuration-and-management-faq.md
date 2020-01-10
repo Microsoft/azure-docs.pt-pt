@@ -1,5 +1,6 @@
 ---
-title: Problemas de configuração e gerenciamento para Serviços de Nuvem do Microsoft Azure perguntas frequentes | Microsoft Docs
+title: Perguntas frequentes sobre problemas de configuração e gerenciamento
+titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre configuração e gerenciamento para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161764"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660618"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para os serviços de nuvem do Azure: perguntas frequentes (FAQs)
 
@@ -135,7 +136,7 @@ Você esgotou a cota de armazenamento local para gravar no diretório de log. 
 * Remova manualmente os arquivos de log do diretório de log.
 * Aumente o limite de cota para recursos locais.
 
-Para obter mais informações, consulte os seguintes documentos:
+Para obter mais informações, consulte os documentos seguintes:
 * [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 * [Logs do IIS param de gravar no serviço de nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
@@ -189,7 +190,7 @@ A Microsoft monitora continuamente servidores, redes e aplicativos para detectar
 O Windows 10 e o Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente e do servidor. Se o cliente (navegador) estiver se conectando ao servidor IIS por TLS que negocia o HTTP/2 via Extensões TLS, você não precisará fazer nenhuma alteração no lado do servidor. Isso ocorre porque, por TLS, o cabeçalho H2-14 que especifica o uso de HTTP/2 é enviado por padrão. Se, por outro lado, seu cliente estiver enviando um cabeçalho de atualização para atualizar para HTTP/2, você precisará fazer a alteração abaixo no lado do servidor para garantir que a atualização funcione e que você acabe com uma conexão HTTP/2. 
 
 1. Execute regedit. exe.
-2. Navegue até a chave do registro: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Navegue até a chave do registro: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Crie um novo valor DWORD chamado **DuoEnabled**.
 4. Defina seu valor como 1.
 5. Reinicie o servidor.
@@ -218,7 +219,7 @@ Os serviços de nuvem não dão suporte ao modelo RBAC (controle de acesso basea
 
 Consulte [entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Área de trabalho remota
+## <a name="remote-desktop"></a>Ambiente de trabalho remoto
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>A Microsoft interna pode engenheiros de área de trabalho remota para instâncias de serviço de nuvem sem permissão?
 A Microsoft segue um processo estrito que não permitirá que engenheiros internos para a área de trabalho remota em seu serviço de nuvem sem permissão por escrito (email ou outra comunicação por escrito) do proprietário ou de seus designs.
@@ -276,7 +277,7 @@ Você também pode adicionar isso como uma configuração no IIS. Use o seguinte
 Use o script de inicialização do IIS do artigo [tarefas comuns de inicialização](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) .
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Qual é o limite de cota para meu serviço de nuvem?
-Consulte [limites específicos do serviço](../azure-subscription-service-limits.md#subscription-limits).
+Consulte [limites específicos do serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade em minha VM de serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse é um comportamento esperado e não deve causar nenhum problema ao seu aplicativo. O registro em log está ativado para a unidade% approot% nas VMs de PaaS do Azure, que basicamente consome o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há várias coisas a serem consideradas que, essencialmente, transforma isso em um não problema.

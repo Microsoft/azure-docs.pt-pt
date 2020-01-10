@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: 352e31e2a2f1a88a33e82134460e6df0911dbd2e
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 33dc415e06b7f49f75697abb05248750444fea7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432633"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Explore os logs de rastreamento do .NET/.NET Core e do Python no Application Insights
 
@@ -214,7 +214,7 @@ Se seu aplicativo enviar quantidades volumosos de dados e você estiver usando o
 * [Diagnosticar falhas e exceções no ASP.NET][exceptions]
 * [Saiba mais sobre a pesquisa][diagnostic]
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]
-* [Resolução de problemas][qna]
+* [Resolução de Problemas][qna]
 
 <!--Link references-->
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379167"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689124"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -102,7 +102,8 @@ Este campo indica se o dispositivo está registrado no Azure AD como um disposit
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: Sim  
 
-Este campo indica se o dispositivo está ingressado no Azure AD. Se o valor for **não**, a junção ao Azure ad ainda não foi concluída. 
+Este campo indica se o dispositivo está Unido. O valor será **Sim** se o dispositivo for um dispositivo ingressado no Azure ad ou um dispositivo ingressado no Azure ad híbrido.
+Se o valor for **não**, a junção ao Azure ad ainda não foi concluída. 
 
 Prossiga para as próximas etapas para solução de problemas.
 

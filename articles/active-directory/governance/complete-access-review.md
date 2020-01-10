@@ -1,5 +1,5 @@
 ---
-title: Concluir uma revisão de acesso de grupos ou aplicativos-Azure Active Directory | Microsoft Docs
+title: Concluir uma revisão de acesso de grupos & aplicativos-Azure AD
 description: Saiba como concluir uma revisão de acesso de membros do grupo ou acesso ao aplicativo em Azure Active Directory revisões de acesso.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422728"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou aplicativos nas revisões de acesso do Azure AD
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
 Como administrador, você [cria uma revisão de acesso de grupos ou aplicativos](create-access-review.md) e revisores [executam a revisão de acesso](perform-access-review.md). Este artigo descreve como Ver os resultados da revisão de acesso e aplicar os resultados.
 
@@ -66,7 +66,7 @@ Se a **aplicação automática de resultados no recurso** não foi habilitada pa
 
 ![Aplicar alterações de revisão de acesso](./media/complete-access-review/apply-changes.png)
 
-O status da revisão será alterado de **concluído** por meio de Estados intermediários  , como aplicando e finalmente ao resultado de estado **aplicado**. Você deve esperar que os usuários negados, se houver, sejam removidos da Associação de grupo ou da atribuição de aplicativo em alguns minutos.
+O status da revisão será alterado de **concluído** por meio de Estados intermediários, como **aplicando** e finalmente ao resultado de estado **aplicado**. Você deve esperar que os usuários negados, se houver, sejam removidos da Associação de grupo ou da atribuição de aplicativo em alguns minutos.
 
 Uma revisão de aplicação automática configurada ou seleção de **aplicar** não tem um efeito em um grupo originado em um diretório local ou em um grupo dinâmico. Se você quiser alterar um grupo originado no local, baixe os resultados e aplique essas alterações à representação do grupo nesse diretório.
 
@@ -86,7 +86,7 @@ Para recuperar todos os resultados de uma revisão de acesso, clique no botão *
 
  Por predefinição, um utilizador eliminado permanecerá eliminado no Azure AD para 30 dias, durante o qual pode ser restaurado por um administrador, se necessário.  Após 30 dias, esse utilizador é eliminado permanentemente.  Além disso, através do portal do Azure Active Directory, um Administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](../fundamentals/active-directory-users-restore.md) antes desse período de tempo ser atingido.  Depois de um utilizador ser eliminado de maneira permanente, subsequentemente os dados sobre esse utilizador serão removidos das revisões de acesso ativas.  As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)

@@ -1,93 +1,84 @@
 ---
-title: Desempenho de recursos de infraestrutura do serviço do Azure monitorização | Documentos da Microsoft
-description: Saiba mais sobre contadores de desempenho para monitorização e diagnóstico de clusters do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Monitoramento de desempenho do Azure Service Fabric
+description: Saiba mais sobre contadores de desempenho para monitoramento e diagnóstico de clusters de Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60392896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464712"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
-Devem ser recolhidas métricas para compreender o desempenho do seu cluster, bem como as aplicações em execução no mesmo. Para clusters do Service Fabric, recomendamos os seguintes contadores de desempenho a recolher.
+As métricas devem ser coletadas para entender o desempenho do cluster, bem como os aplicativos em execução. Para Service Fabric clusters, é recomendável coletar os contadores de desempenho a seguir.
 
 ## <a name="nodes"></a>Nós
 
-Para as máquinas no seu cluster, considere os seguintes contadores de desempenho para melhor compreender a carga em cada máquina e tomar decisões no dimensionamento do cluster adequado a recolher.
+Para os computadores em seu cluster, considere coletar os contadores de desempenho a seguir para entender melhor a carga em cada máquina e tomar decisões de dimensionamento de cluster apropriadas.
 
 | Categoria do contador | Nome do contador |
 | --- | --- |
-| Disco lógico | Espaço livre em disco lógico |
-| PhysicalDisk (por disco) | Média Comprimento de fila de leitura do disco |
-| PhysicalDisk (por disco) | Média Comprimento de fila de escrita de disco |
-| PhysicalDisk (por disco) | Média Disco seg/leitura |
-| PhysicalDisk (por disco) | Média Disco seg/escritas |
+| Disco lógico | Espaço Livre de Disco Lógico |
+| PhysicalDisk (por disco) | Comprimento médio da fila de leitura de disco |
+| PhysicalDisk (por disco) | Comprimento médio da fila de gravação de disco |
+| PhysicalDisk (por disco) | Média de disco s/leitura |
+| PhysicalDisk (por disco) | Média de disco s/gravação |
 | PhysicalDisk (por disco) | Leituras de disco/seg |
 | PhysicalDisk (por disco) | Bytes Lidos de Disco/seg |
 | PhysicalDisk (por disco) | Escritas de disco/seg |
 | PhysicalDisk (por disco) | Bytes Escritos em Disco/seg |
 | Memória | MBytes disponíveis |
-| PagingFile | % De utilização |
-| Processor(total) | % Tempo do processador |
+| Paginação | % De uso |
+| Processador (total) | % Tempo do processador |
 | Processo (por serviço) | % Tempo do processador |
-| Processo (por serviço) | Identificador de processo |
-| Processo (por serviço) | Bytes privados |
-| Processo (por serviço) | Contagem de threads |
-| Processo (por serviço) | Bytes virtuais |
-| Processo (por serviço) | Conjunto de trabalho |
-| Processo (por serviço) | Conjunto de trabalho - privado |
-| Interface(all-instances) de rede | Bytes recd |
-| Interface(all-instances) de rede | Bytes enviados |
-| Interface(all-instances) de rede | Total de bytes |
-| Interface(all-instances) de rede | Comprimento da fila de saída |
-| Interface(all-instances) de rede | Pacotes de saída rejeitados |
-| Interface(all-instances) de rede | Pacotes receberam rejeitados |
-| Interface(all-instances) de rede | Erros de saída de pacotes |
-| Interface(all-instances) de rede | Erros de pacotes recebidos |
+| Processo (por serviço) | Processo de ID |
+| Processo (por serviço) | Bytes Privados |
+| Processo (por serviço) | Número de Threads |
+| Processo (por serviço) | Bytes Virtuais |
+| Processo (por serviço) | Conjunto de Trabalho |
+| Processo (por serviço) | Conjunto de trabalho-privado |
+| Interface de rede (todas as instâncias) | Bytes de rECd |
+| Interface de rede (todas as instâncias) | Bytes enviados |
+| Interface de rede (todas as instâncias) | Total de bytes |
+| Interface de rede (todas as instâncias) | Comprimento da fila de saída |
+| Interface de rede (todas as instâncias) | Pacotes de saída descartados |
+| Interface de rede (todas as instâncias) | Pacotes recebidos descartados |
+| Interface de rede (todas as instâncias) | Erros de pacotes de saída |
+| Interface de rede (todas as instâncias) | Erros de pacotes recebidos |
 
-## <a name="net-applications-and-services"></a>Aplicações e serviços .NET
+## <a name="net-applications-and-services"></a>Aplicativos e serviços .NET
 
-Recolha os contadores a seguir se estiver a implementar serviços .NET ao seu cluster. 
+Colete os contadores a seguir se você estiver implantando serviços .NET em seu cluster. 
 
 | Categoria do contador | Nome do contador |
 | --- | --- |
-| Memória de .NET CLR (por serviço) | ID de processo |
-| Memória de .NET CLR (por serviço) | # Total committed Bytes |
-| Memória de .NET CLR (por serviço) | # Total reservado Bytes |
-| Memória de .NET CLR (por serviço) | # Bytes in all Heaps |
-| Memória de .NET CLR (por serviço) | Tamanho de Heap de objeto grande |
-| Memória de .NET CLR (por serviço) | # Identificadores de GC |
-| Memória de .NET CLR (por serviço) | # Gen 0 Collections |
-| Memória de .NET CLR (por serviço) | # Gen 1 Collections |
-| Memória de .NET CLR (por serviço) | # Gen 2 coleções |
-| Memória de .NET CLR (por serviço) | % De tempo na GC |
+| Memória .NET CLR (por serviço) | ID de Processo |
+| Memória .NET CLR (por serviço) | N º total de bytes confirmados |
+| Memória .NET CLR (por serviço) | N º total de bytes reservados |
+| Memória .NET CLR (por serviço) | N º de bytes em todos os heaps |
+| Memória .NET CLR (por serviço) | Tamanho do heap de objeto grande |
+| Memória .NET CLR (por serviço) | Identificadores # GC |
+| Memória .NET CLR (por serviço) | N º de coletas de Gen 0 |
+| Memória .NET CLR (por serviço) | N º de coletas de Gen 1 |
+| Memória .NET CLR (por serviço) | N º de coletas de Gen 2 |
+| Memória .NET CLR (por serviço) | % De tempo no GC |
 
 ### <a name="service-fabrics-custom-performance-counters"></a>Contadores de desempenho personalizados do Service Fabric
 
-Service Fabric gera uma quantidade substancial de contadores de desempenho personalizados. Se tiver o SDK instalado, pode ver a lista abrangente no seu computador Windows em seu aplicativo de Monitor de desempenho (Iniciar > Monitor de desempenho). 
+Service Fabric gera uma quantidade significativa de contadores de desempenho personalizados. Se você tiver o SDK instalado, poderá ver a lista abrangente em seu computador Windows em seu aplicativo monitor de desempenho (Iniciar > Monitor de desempenho). 
 
-Nas aplicações que está a implementar o cluster, se estiver a utilizar o Reliable Actors, adicionar contadores de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [diagnóstico do serviço Fabric Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
+Nos aplicativos que você está implantando no cluster, se você estiver usando Reliable Actors, adicione contadores das categorias `Service Fabric Actor` e `Service Fabric Actor Method` (consulte [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-Utilizar o Reliable Services ou de comunicação remota do serviço, da mesma forma, temos `Service Fabric Service` e `Service Fabric Service Method` contador categorias que deve recolher contadores de, veja [com a comunicação remota do serviço de monitorização](service-fabric-reliable-serviceremoting-diagnostics.md) e [fiável contadores de desempenho de serviços](service-fabric-reliable-services-diagnostics.md#performance-counters). 
+Se você usar a comunicação remota do Reliable Services ou do serviço, de forma semelhante, temos `Service Fabric Service` e `Service Fabric Service Method` categorias de contador das quais você deve coletar contadores, consulte monitoramento com contadores de desempenho de [comunicação remota do serviço](service-fabric-reliable-serviceremoting-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
-Se utilizar a Reliable Collections, recomendamos que adicione o `Avg. Transaction ms/Commit` partir o `Service Fabric Transactional Replicator` para recolher a latência média de consolidação por métrica de transação.
+Se você usar coleções confiáveis, recomendamos adicionar o `Avg. Transaction ms/Commit` da `Service Fabric Transactional Replicator` para coletar a latência média de confirmação por métrica de transação.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
-* Recolher métricas de desempenho por meio de [agente do Log Analytics](service-fabric-diagnostics-oms-agent.md)
+* Saiba mais sobre [a geração de eventos no nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
+* Coletar métricas de desempenho por meio do [agente de log Analytics](service-fabric-diagnostics-oms-agent.md)

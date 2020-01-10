@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443313"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Tutorial: integrar o productboard ao Azure Active Directory
 
@@ -68,7 +68,7 @@ Para configurar e testar o SSO do Azure AD com o productboard, conclua os seguin
     * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
 1. **[Configurar o SSO do productboard](#configure-productboard-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do productboard](#create-productboard-test-user)** – para ter um equivalente de B. Simon em EZOfficeInventory que esteja vinculado à representação do usuário no Azure AD.
+    * **[Criar usuário de teste do productboard](#create-productboard-test-user)** – para ter um equivalente de B. Simon em productboard que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD

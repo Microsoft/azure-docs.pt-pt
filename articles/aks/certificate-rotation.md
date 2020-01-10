@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 00d8546cb20d12c5f1a94bdcababa04a77c73133
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422304"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)
 
@@ -22,20 +22,7 @@ Este artigo mostra como girar os certificados em seu cluster AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que você esteja executando o CLI do Azure versão 2.0.76 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
-
-
-### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI do AKS-Preview
-
-Para usar esse recurso, você precisa da extensão da CLI do *AKs* versão 0.4.21 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+Este artigo requer que você esteja executando o CLI do Azure versão 2.0.77 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="aks-certificates-certificate-authorities-and-service-accounts"></a>Certificados AKS, autoridades de certificação e contas de serviço
 
@@ -51,7 +38,13 @@ O AKS gera e usa os seguintes certificados, autoridades de certificação e cont
 * O cliente `kubectl` tem um certificado para se comunicar com o cluster AKS.
 
 > [!NOTE]
-> Os clusters AKS criados antes de março de 2019 têm certificados que expiram após dois anos. Qualquer cluster criado após 2019 de março ou qualquer cluster que tenha seus certificados girados tem certificados que expiram após 30 anos.
+> Os clusters AKS criados antes de março de 2019 têm certificados que expiram após dois anos. Qualquer cluster criado após 2019 de março ou qualquer cluster que tenha seus certificados girados tem certificados que expiram após 30 anos. Para verificar quando o cluster foi criado, use `kubectl get nodes` para ver a *idade* de seus pools de nós.
+> 
+> Além disso, você pode verificar a data de validade do certificado do cluster. Por exemplo, o comando a seguir exibe os detalhes do certificado para o cluster *myAKSCluster* .
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## <a name="rotate-your-cluster-certificates"></a>Girar seus certificados de cluster
 

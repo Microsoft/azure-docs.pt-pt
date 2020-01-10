@@ -1,14 +1,14 @@
 ---
 title: Ofertas de serviços geridos no Azure Marketplace
 description: Os serviços gerenciados oferecem aos provedores de serviços para vender ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
-ms.date: 09/19/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7dcaa34b1fb471823acd74a7d9b05e42dd44161
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453588"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Ofertas de serviços geridos no Azure Marketplace
 
@@ -22,21 +22,22 @@ Depois disso, os usuários em sua organização poderão executar tarefas de adm
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 
-Cada oferta de serviços gerenciados inclui um ou mais planos. Esses planos podem ser privados ou públicos.
+Cada oferta de serviços gerenciados inclui um ou mais planos. Os planos podem ser privados ou públicos. 
 
-Se você quiser limitar sua oferta a clientes específicos, poderá publicar um plano privado. Quando você fizer isso, o plano só poderá ser adquirido para as IDs de assinatura específicas que você fornecer. Para obter mais informações, consulte [ofertas privadas](https://docs.microsoft.com/azure/marketplace/private-offers).
+Se você quiser limitar sua oferta a clientes específicos, poderá publicar um plano privado. Quando você fizer isso, o plano só poderá ser adquirido para as IDs de assinatura específicas que você fornecer. Para obter mais informações, consulte [ofertas privadas](../../marketplace/private-offers.md).
 
 Os planos públicos permitem promover seus serviços a novos clientes. Normalmente, eles são mais apropriados quando você só precisa de acesso limitado ao locatário do cliente. Depois de estabelecer uma relação com um cliente, se decidir conceder acesso adicional à sua organização, você poderá fazer isso publicando um novo plano privado somente para esse cliente ou inserindo [-os para obter acesso adicional usando modelos de Azure Resource Manager](../how-to/onboard-customer.md).
 
-Tenha em mente que depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Além disso, não é possível restringir a disponibilidade de um plano público a determinados clientes ou até mesmo a um determinado número de clientes, embora você possa parar de vender o plano completamente se optar por fazê-lo.
-
 Se apropriado, você pode incluir planos públicos e privados na mesma oferta.
+
+> [!IMPORTANT]
+> Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Atualmente, não há nenhum mecanismo para rejeitar ou remover delegações depois que um cliente aceita uma oferta, embora você sempre possa entrar em contato com um cliente e pedir que ele [remova seu acesso](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ## <a name="publish-managed-service-offers"></a>Publicar ofertas de serviço gerenciado
 
-Para saber como publicar uma oferta de serviços gerenciados, consulte [publicar uma oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para obter informações gerais sobre como publicar no Azure Marketplace usando o Portal do Cloud Partner, consulte [Guia de publicação do Azure Marketplace e AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e [gerenciar ofertas do Azure e do AppSource Marketplace](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
+Para saber como publicar uma oferta de serviços gerenciados, consulte [publicar uma oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para obter informações gerais sobre como publicar no Azure Marketplace usando o Portal do Cloud Partner, consulte [Guia de publicação do Azure Marketplace e AppSource](../../marketplace/marketplace-publishers-guide.md) e [gerenciar ofertas do Azure e do AppSource Marketplace](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md) e [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - [Publicar ofertas de serviços gerenciados](../how-to/publish-managed-services-offers.md) no Azure Marketplace.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o SumoLogic | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o SumoLogic | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SumoLogic.
 services: active-directory
 documentationCenter: na
@@ -11,130 +11,158 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: de6d941c6efe42993b6bad7c556582831d179250
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233342"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: integração do Azure Active Directory com o SumoLogic
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o SumoLogic
 
-Neste tutorial, você aprenderá a integrar o SumoLogic com o Azure Active Directory (Azure AD).
-A integração do SumoLogic ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o SumoLogic com o Azure Active Directory (Azure AD). Ao integrar o SumoLogic ao Azure AD, você pode:
 
-* No Azure AD, é possível controlar quem tem acesso ao SumoLogic.
-* Você pode permitir que seus usuários sejam conectados automaticamente ao SumoLogic (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao SumoLogic.
+* Habilite seus usuários a serem conectados automaticamente ao SumoLogic com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao SumoLogic, você precisará dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se você não tiver um ambiente do Azure AD, poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do SumoLogic
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do SumoLogic.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O SumoLogic dá suporte ao SSO iniciado por **SP**
+* SumoLogic dá suporte ao SSO iniciado pelo **IDP**
 
 ## <a name="adding-sumologic-from-the-gallery"></a>Adicionando o SumoLogic da Galeria
 
 Para configurar a integração do SumoLogic ao Azure AD, você precisará adicionar o SumoLogic da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o SumoLogic da galeria, execute as seguintes etapas:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **SumoLogic** na caixa de pesquisa.
+1. Selecione **SumoLogic** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sumologic"></a>Configurar e testar o logon único do Azure AD para o SumoLogic
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com o SumoLogic usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no SumoLogic.
 
-2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
+Para configurar e testar o SSO do Azure AD com o SumoLogic, conclua os seguintes blocos de construção:
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do SumoLogic](#configure-sumologic-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do SumoLogic](#create-sumologic-test-user)** – para ter um equivalente de B. Simon em SumoLogic que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, digite **SumoLogic**, selecione **SumoLogic** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SumoLogic** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-     ![SumoLogic na lista de resultados](common/search-new-app.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+1. Na página **Configurar logon único com SAML** , insira os valores para os seguintes campos:
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o SumoLogic, com base em um usuário de teste chamado **Brenda Simon**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no SumoLogic.
-
-Para configurar e testar o logon único do Azure AD com o SumoLogic, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do SumoLogic](#configure-sumologic-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
-4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
-5. **[Criar usuário de teste do SumoLogic](#create-sumologic-test-user)** – para ter um equivalente de Brenda Simon no SumoLogic que esteja vinculado à representação do usuário no Azure AD.
-6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
-
-Para configurar o logon único do Azure AD com o SumoLogic, execute as seguintes etapas:
-
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SumoLogic** , selecione **logon único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
-
-    ![Editar configuração básica de SAML](common/edit-urls.png)
-
-4. Na seção **configuração básica do SAML** , execute as seguintes etapas:
-
-    ![Informações de logon único de domínio e URLs do SumoLogic](common/sp-identifier.png)
-
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<tenantname>.SumoLogic.com`
-
-   b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:
 
     | |
     |--|
-    | `https://<tenantname>.us2.sumologic.com` |
-    | `https://<tenantname>.sumologic.com` |
-    | `https://<tenantname>.us4.sumologic.com` |
-    | `https://<tenantname>.eu.sumologic.com` |
-    | `https://<tenantname>.au.sumologic.com` |
+    | `https://service.sumologic.com`|
+    | `https://<tenantname>.us2.sumologic.com`|
+    | `https://<tenantname>.us4.sumologic.com`|
+    | `https://<tenantname>.eu.sumologic.com`|
+    | `https://<tenantname>.jp.sumologic.com`|
+    | `https://<tenantname>.de.sumologic.com`|
+    | `https://<tenantname>.ca.sumologic.com`|
+
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:
+
+    | |
+    |--|
+    | `https://service.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.us2.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.us4.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.eu.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.jp.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.de.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.ca.sumologic.com/sumo/saml/consume/<tenantname>`|
+    | `https://service.au.sumologic.com/sumo/saml/consume/<tenantname>`|
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do SumoLogic](https://www.sumologic.com/contact-us/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o identificador e a URL de resposta reais. Contate a [equipe de suporte ao cliente do SumoLogic](https://www.sumologic.com/contact-us/) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
+1. O aplicativo SumoLogic espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![imagem](common/default-attributes.png)
+
+1. Além de acima, o aplicativo SumoLogic espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seus requisitos.
+
+    |  Nome | Atributo de origem |
+    | ---------------| --------------- |
+    | FirstName | user.givenname |
+    | Apelido | User. sobrenome |
+    | Funções | user.assignedroles |
+
+    > [!NOTE]
+    > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber como configurar a **função** no Azure AD.
+
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar SumoLogic** , copie as URLs apropriadas de acordo com seu requisito.
+1. Na seção **Configurar SumoLogic** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-    b. Identificador do Azure AD
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    c. URL de fim de sessão
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-### <a name="configure-sumologic-single-sign-on"></a>Configurar o logon único do SumoLogic
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao SumoLogic.
+
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **SumoLogic**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
+
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
+
+    ![O link Adicionar usuário](common/add-assign-user.png)
+
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
+
+## <a name="configure-sumologic-sso"></a>Configurar o SSO do SumoLogic
 
 1. Em uma janela diferente do navegador da Web, entre no site da empresa do SumoLogic como um administrador.
 
@@ -170,57 +198,6 @@ Para configurar o logon único do Azure AD com o SumoLogic, execute as seguintes
 
     h. Na caixa de texto **caminho de logon** , digite **Azure** e clique em **salvar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo usuário** na parte superior da tela.
-
-    ![Botão novo usuário](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. No campo **nome** , insira **brendafernandes**.
-  
-    b. No campo **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo acesso ao SumoLogic.
-
-1. Na portal do Azure, selecione **aplicativos empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **SumoLogic**.
-
-    ![Folha aplicativos empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicativos, selecione **SumoLogic**.
-
-    ![O link do SumoLogic na lista de aplicativos](common/all-applications.png)
-
-3. No menu à esquerda, selecione **usuários e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **usuários e grupos** , selecione **Brenda Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
-
 ### <a name="create-sumologic-test-user"></a>Criar usuário de teste do SumoLogic
 
 Para permitir que os usuários do AD do Azure entrem no SumoLogic, eles devem ser provisionados no SumoLogic. No caso do SumoLogic, o provisionamento é uma tarefa manual.
@@ -239,7 +216,7 @@ Para permitir que os usuários do AD do Azure entrem no SumoLogic, eles devem se
 
 1. Na caixa de diálogo **novo usuário** , execute as seguintes etapas:
 
-    ![Novo usuário](./media/sumologic-tutorial/ic778563.png "Novo usuário") 
+    ![Novo usuário](./media/sumologic-tutorial/ic778563.png "Novo Utilizador")
 
     a. Digite as informações relacionadas da conta do Azure AD que você deseja provisionar nas caixas de texto **nome**, **sobrenome**e **email** .
   
@@ -252,17 +229,18 @@ Para permitir que os usuários do AD do Azure entrem no SumoLogic, eles devem se
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação de conta de usuário SumoLogic ou APIs fornecidas pelo SumoLogic para provisionar contas de usuário do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-sso"></a>Testar SSO
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco do SumoLogic no painel de acesso, você deverá ser conectado automaticamente ao SumoLogic para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Experimente o SumoLogic com o Azure AD](https://aad.portal.azure.com/)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/19/2017
-ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/26/2019
+ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077097"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500080"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar dimensionador e Sparkr no HDInsight
 
@@ -21,7 +21,7 @@ Este documento mostra como prever atrasos de chegada de voo usando um modelo de 
 
 Embora ambos os pacotes sejam executados no mecanismo de execução do Spark Apache Hadoop, eles são bloqueados do compartilhamento de dados na memória, pois cada um deles exigem suas próprias sessões do Spark. Até que esse problema seja resolvido em uma versão futura do ML Server, a solução alternativa é manter sessões não sobrepostas do Spark e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples de obter.
 
-Este exemplo foi compartilhado inicialmente em uma palestra em Strata 2016 por Mario Inchiosa e Roni Burd,. Você pode encontrar essa palestra em [criando uma plataforma de ciência de dados escalonável com R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Este exemplo foi compartilhado inicialmente em uma palestra em Strata 2016 por Mario Inchiosa e Roni Burd,. Você pode encontrar essa palestra em [criando uma plataforma de ciência de dados escalonável com R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop).
 
 O código foi escrito originalmente para ML Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de misturar o uso de Sparkr e scaler em um script também é válido no contexto de ambientes locais.
 
@@ -31,7 +31,7 @@ As etapas neste documento pressupõem que você tenha um nível intermediário d
 
 Os dados de vôo estão disponíveis nos [arquivos do governo dos EUA](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Ele também está disponível como um zip de [AirOnTimeCSV. zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Os dados meteorológicos podem ser baixados como arquivos zip na forma bruta, por mês, do [repositório National Oceanic and atmosférica Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Para este exemplo, baixe os dados de maio de 2007 a 2012 de dezembro. Use os arquivos de dados por hora `YYYYMMMstation.txt` e o arquivo em cada um dos zips. 
+Os dados meteorológicos podem ser baixados como arquivos zip na forma bruta, por mês, do [repositório National Oceanic and atmosférica Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Para este exemplo, baixe os dados de maio de 2007 a 2012 de dezembro. Use os arquivos de dados por hora e o arquivo de `YYYYMMMstation.txt` em cada um dos zips.
 
 ## <a name="setting-up-the-spark-environment"></a>Configurando o ambiente do Spark
 
@@ -80,7 +80,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Em seguida, `Spark_Home` adicione ao caminho de pesquisa para pacotes do R. Adicioná-lo ao caminho de pesquisa permite que você use o Sparkr e inicialize uma sessão do Sparkr:
+Em seguida, adicione `Spark_Home` ao caminho de pesquisa para pacotes de R. Adicioná-lo ao caminho de pesquisa permite que você use o Sparkr e inicialize uma sessão do Sparkr:
 
 ```
 #..setup for use of SparkR  
@@ -114,7 +114,7 @@ Para preparar os dados meteorológicos, subdivida-os nas colunas necessárias pa
 
 Em seguida, adicione um código de aeroporto associado à estação do clima e converta as medidas de hora local em UTC.
 
-Comece criando um arquivo para mapear as informações de estação de clima (WBAN) para um código de aeroporto. O código a seguir lê cada um dos arquivos de dados brutos de clima por hora, subconjuntos com as colunas de que precisamos, mescla o arquivo de mapeamento da estação do clima, ajusta os tempos de data das medidas para UTC e, em seguida, grava uma nova versão do arquivo:
+Comece criando um arquivo para mapear as informações de estação de clima (WBAN) para um código de aeroporto. O código a seguir lê cada um dos arquivos de dados brutos de clima por hora, subconjuntos com as colunas de que precisamos, mescla o arquivo de mapeamento de estação meteorológico, ajusta os tempos de data das medidas para UTC e, em seguida, grava uma nova versão do arquivo:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Pontuação em outro lugar
 
-Também podemos usar o modelo para Pontuação de dados em outra plataforma. Salvando-o em um arquivo RDS e, em seguida, transferindo e importando esse RDS para um ambiente de Pontuação de destino, como o MIcrosoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam àqueles nos quais o modelo foi criado. Essa correspondência pode ser obtida extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio `rxCreateColInfo()` da função do scaler e, em seguida, aplicando essas informações de coluna à fonte de dados de entrada para previsão. Nos seguintes, salvamos algumas linhas do conjunto de dados de teste e extraímos e usamos as informações de coluna deste exemplo no script de previsão:
+Também podemos usar o modelo para Pontuação de dados em outra plataforma. Salvando-o em um arquivo RDS e, em seguida, transferindo e importando esse RDS para um ambiente de Pontuação de destino, como o MIcrosoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam àqueles nos quais o modelo foi criado. Essa correspondência pode ser obtida extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio da função de `rxCreateColInfo()` do scaler e, em seguida, aplicando essas informações de coluna à fonte de dados de entrada para previsão. Nos seguintes, salvamos algumas linhas do conjunto de dados de teste e extraímos e usamos as informações de coluna deste exemplo no script de previsão:
 
 ```
 # save the model and a sample of the test dataset 

@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas com o Aplicativo Azure insights Profiler | Microsoft Docs
+title: Solucionar problemas com o Aplicativo Azure insights Profiler
 description: Este artigo apresenta as etapas e as informações de solução de problemas para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432386"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas de habilitação ou exibição de Application Insights Profiler
 
@@ -69,7 +69,7 @@ Para que o profiler funcione corretamente:
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
 * O trabalho Web do **ApplicationInsightsProfiler3** deve estar em execução. Para verificar o webjob:
@@ -77,7 +77,7 @@ Para que o profiler funcione corretamente:
    1. No menu **ferramentas** , selecione **painel trabalhos**Web.  
       O painel **trabalhos** Web é aberto. 
    
-      ![criador de perfil – webjob]   
+      ![profiler-webjob]   
    
    1. Para exibir os detalhes do webjob, incluindo o log, selecione o link **ApplicationInsightsProfiler3** .  
      O painel de **detalhes do WebJob contínuo** é aberto.
@@ -101,17 +101,17 @@ Quando você configura o Profiler, as atualizações são feitas nas configuraç
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey para o recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Muitas sessões de criação de perfil ativas
 
 No momento, você pode habilitar o Profiler em um máximo de quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você tiver mais de quatro aplicativos Web em execução em um plano do serviço de aplicativo, o profiler poderá gerar um *Microsoft. Service Profile. Exceptions. TooManyETWSessionException*. O criador de perfil é executado separadamente para cada aplicativo Web e tenta iniciar uma sessão ETW (rastreamento de eventos para Windows) para cada aplicativo. Mas um número limitado de sessões de ETW pode estar ativo ao mesmo tempo. Se o webjob do criador de perfil relatar muitas sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs '
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erro de implantação: diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs
 
 Se você estiver reimplantando seu aplicativo Web em um recurso de aplicativos Web com o criador de perfil habilitado, você poderá ver a seguinte mensagem:
 
-*Diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs '*
+*Diretório não vazio:\\Home\\site\\wwwroot\\App_Data\\Jobs*
 
 Esse erro ocorrerá se você executar Implantação da Web de scripts ou do pipeline de implantação do Azure DevOps. A solução é adicionar os seguintes parâmetros de implantação adicionais à tarefa de Implantação da Web:
 
@@ -165,9 +165,14 @@ Para verificar as configurações que foram usadas para configurar Diagnóstico 
     Quando o rastreamento está sendo carregado, a seguinte mensagem é exibida: *Iniciar para carregar o rastreamento*. 
 
 
+## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou um proxy de rede
+
+Se seu aplicativo se conectar à Internet por meio de um proxy ou um firewall, talvez seja necessário editar as regras para permitir que seu aplicativo se comunique com o serviço de Application Insights Profiler. Os IPs usados pelo Application Insights Profiler são incluídos na marca de serviço do Azure Monitor.
+
+
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[criador de perfil – webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
-[criador de perfil-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

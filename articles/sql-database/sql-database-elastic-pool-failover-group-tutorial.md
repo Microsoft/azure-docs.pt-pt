@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823882"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552564"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: adicionar um pool elástico do banco de dados SQL do Azure a um grupo de failover
 
@@ -378,7 +378,6 @@ Limpe seus recursos usando o PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 
@@ -386,7 +385,10 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos | 
 
-Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
+---
+
+> [!IMPORTANT]
+> Se você quiser manter o grupo de recursos, mas excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
 
 ## <a name="full-script"></a>Script completo
 

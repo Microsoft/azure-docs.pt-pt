@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064174"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659530"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para utilização no Azure Active Directory B2C
 
@@ -28,7 +28,11 @@ Você pode adicionar seu próprio código do lado do cliente JavaScript aos seus
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Selecione um layout de página para os elementos da interface do usuário do seu aplicativo. Se você pretende usar o JavaScript, precisará definir uma versão de layout de página para todas as definições de conteúdo em sua política personalizada.
+### <a name="select-a-page-layout"></a>Selecionar um layout de página
+
+* [Selecione um layout de página](page-layout.md) para os elementos da interface do usuário do seu aplicativo.
+
+    Se você pretende usar o JavaScript, precisará [definir uma versão de layout de página](page-layout.md#replace-datauri-values) para *todas* as definições de conteúdo em sua política personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adicione o elemento de ScriptExecution
 
@@ -145,6 +149,6 @@ function addTermsOfUseLink() {
 
 No código, substitua `termsOfUseUrl` com a ligação para os seus termos do contrato de utilização. Para seu diretório, crie um novo atributo de usuário chamado **termsOfUse** e, em seguida, inclua **termsOfUse** como um atributo de usuário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Encontrar mais informações sobre como pode personalizar a interface do usuário das suas aplicações na [personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

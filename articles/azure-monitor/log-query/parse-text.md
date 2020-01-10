@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 5a3b6852563955bfac940073bdda7d0afa02e77f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 82ad197a1f64040dfb91aa73d7a6dfd4210f99a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365279"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto em logs de Azure Monitor
 Alguns dados de log coletados pelo Azure Monitor incluirão várias partes de informações em uma única propriedade. A análise desses dados em várias propriedades facilita o uso em consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os valores diferentes, você pode pesquisar e agregar em cada uma.
@@ -139,7 +139,7 @@ Se os dados estiverem formatados em uma estrutura conhecida, você poderá usar 
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)
-- [IPv6](/azure/kusto/query/parse-ipv4function)
+- [IPv4](/azure/kusto/query/parse-ipv4function)
 - [URL](/azure/kusto/query/parseurlfunction)
 - [Consulta de URL](/azure/kusto/query/parseurlqueryfunction)
 - [Caminho do ficheiro](/azure/kusto/query/parsepathfunction)
@@ -189,4 +189,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [consultas de log](log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
+* Saiba mais sobre [registar as consultas](log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

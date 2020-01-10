@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para o go | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para o go'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de cliente do Pesquisa Visual Computacional para o go.
+description: Comece a usar a biblioteca de cliente do Pesquisa Visual Computacional para usar este guia de início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958414"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382314"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Início rápido: biblioteca de cliente do Pesquisa Visual Computacional para o go
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432968"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Para obter informações sobre como criar uma conta, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
+Para fazer chamadas para as APIs de serviço do Maps, você precisa de uma conta e chave do Maps. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 Este artigo usa o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas REST. Você pode usar qualquer ambiente de desenvolvimento de API que preferir.
 
@@ -50,7 +50,7 @@ A maioria das consultas de pesquisa usa como padrão `maxFuzzyLevel=1` para obte
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL do Pedido | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Autorização | Sem autenticação |
+    | Autorização | No Auth |
 
     O atributo **JSON** no caminho da URL determina o formato de resposta. Você está usando JSON em todo este artigo para facilitar o uso e a legibilidade. Você pode encontrar os formatos de resposta disponíveis na definição **obter pesquisa difusa** da referência da [API funcional do Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
@@ -60,9 +60,9 @@ A maioria das consultas de pesquisa usa como padrão `maxFuzzyLevel=1` para obte
 
     | Chave | Valor |
     |------------------|-------------------------|
-    | versão da API | 1.0 |
+    | api-version | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
-    | consulta | pizzaria |
+    | consulta | pizza |
 
 4. Clique em **Enviar** e examine o corpo da resposta.
 
@@ -74,7 +74,7 @@ A maioria das consultas de pesquisa usa como padrão `maxFuzzyLevel=1` para obte
 
     | Chave | Valor |
     |------------------|-------------------------|
-    | paísset | EUA |
+    | countrySet | EUA |
   
     Os resultados agora são limitados pelo código do país e a consulta retorna restaurantes no Estados Unidos.
   
@@ -87,7 +87,7 @@ A maioria das consultas de pesquisa usa como padrão `maxFuzzyLevel=1` para obte
     | Chave | Valor |
     |-----|------------|
     | Lat | 47,620525 |
-    | Lon | -122,349274 |
+    | Lon | -122.349274 |
 
 ## <a name="search-for-address-properties-and-coordinates"></a>Pesquisar Propriedades de endereço e coordenadas
 
@@ -102,7 +102,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL do Pedido | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Autorização | Sem autenticação |
+    | Autorização | No Auth |
 
 3. Clique em **params**e insira os seguintes pares de chave/valor para usar como parâmetros de consulta ou caminho na URL da solicitação:
   
@@ -110,7 +110,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
     | Chave | Valor |
     |------------------|-------------------------|
-    | versão da API | 1.0 |
+    | api-version | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
     | consulta | 400 de Santa ampla, Seattle, WA 98109 |
   
@@ -143,7 +143,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL do Pedido | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Autorização | Sem autenticação |
+    | Autorização | No Auth |
   
 3. Clique em **params**e insira os seguintes pares de chave/valor para usar como parâmetros de consulta ou caminho na URL da solicitação:
   
@@ -151,7 +151,7 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
   
     | Chave | Valor |
     |------------------|-------------------------|
-    | versão da API | 1.0 |
+    | api-version | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
     | consulta | 47.591180,-122,332700 |
   
@@ -203,13 +203,13 @@ Você pode passar um endereço de rua completo ou parcial para a API de endereç
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL do Pedido | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Autorização | Sem autenticação |
+    | Autorização | No Auth |
   
 3. Clique em **params**e insira os seguintes pares de chave/valor para usar como parâmetros de consulta ou caminho na URL da solicitação:
   
     | Chave | Valor |
     |------------------|-------------------------|
-    | versão da API | 1.0 |
+    | api-version | 1.0 |
     | chave de assinatura | \<sua chave do Azure Maps\> |
     | consulta | 47.591180,-122,332700 |
   

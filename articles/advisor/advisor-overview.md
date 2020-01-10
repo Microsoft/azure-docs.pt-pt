@@ -1,21 +1,14 @@
 ---
-title: Introdução ao Azure Advisor | Microsoft Docs
+title: Introdução ao Azure Advisor
 description: Use o Azure Advisor para otimizar as implantações do Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443083"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -25,9 +18,9 @@ Saiba mais sobre os principais recursos do Azure Advisor e obtenha respostas par
 O Advisor é um consultor de nuvem personalizado que ajuda você a seguir as práticas recomendadas para otimizar suas implantações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
 Com o Advisor, você pode:
-* Obtenha recomendações de práticas recomendadas proativas, acionáveis e personalizadas. 
+* Obter recomendações proativas, acionáveis e personalizadas de melhores práticas. 
 * Melhore o desempenho, a segurança e a alta disponibilidade de seus recursos, conforme você identifica oportunidades para reduzir o gasto geral do Azure.
-* Obtenha recomendações com ações propostas embutidas.
+* Obter recomendações inline com propostas de ações.
 
 Você pode acessar o Advisor por meio do [portal do Azure](https://aka.ms/azureadvisordashboard). Entre no [portal](https://portal.azure.com), localize o **Advisor** no menu de navegação ou procure-o no menu **todos os serviços** .
 

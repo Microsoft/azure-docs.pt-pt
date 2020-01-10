@@ -1,25 +1,14 @@
 ---
 title: ReliableConcurrentQueue no Azure Service Fabric
 description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite filas paralelas e remover filas.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462738"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue no Azure Service Fabric
 A fila simultânea confiável é uma fila assíncrona, transacional e replicada que apresenta alta simultaneidade para operações enfileirar e remover da fila. Ele foi projetado para fornecer alta taxa de transferência e baixa latência, relaxando a ordem de FIFO estrita fornecida pela [fila confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordem de melhor esforço.
@@ -49,10 +38,10 @@ Um caso de uso de exemplo para o ReliableConcurrentQueue é o cenário de [fila 
 * A contagem não é transacional. Ele pode ser usado para obter uma ideia do número de elementos na fila, mas representa um ponto no tempo e não pode ser confiável.
 * O processamento dispendioso nos itens da fila não deve ser executado enquanto a transação estiver ativa, para evitar transações de longa execução que podem ter um impacto no desempenho do sistema.
 
-## <a name="code-snippets"></a>Trechos de código
+## <a name="code-snippets"></a>Fragmentos de Código
 Vamos examinar alguns trechos de código e suas saídas esperadas. O tratamento de exceção é ignorado nesta seção.
 
-### <a name="instantiation"></a>Instanciação
+### <a name="instantiation"></a>Instalação
 A criação de uma instância de uma fila simultânea confiável é semelhante a qualquer outra coleção confiável.
 
 ```csharp

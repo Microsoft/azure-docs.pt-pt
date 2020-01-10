@@ -3,14 +3,14 @@ title: Práticas recomendadas para Azure Functions
 description: Aprenda as práticas recomendadas e padrões para Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433301"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
@@ -70,7 +70,11 @@ Há vários fatores que afetam a escala de instâncias do seu aplicativo de fun�
 
 ### <a name="share-and-manage-connections"></a>Compartilhar e gerenciar conexões
 
-Reutilize conexões a recursos externos sempre que possível.  Consulte [como gerenciar conexões no Azure Functions](./manage-connections.md).
+Reutilize conexões a recursos externos sempre que possível. Consulte [como gerenciar conexões no Azure Functions](./manage-connections.md).
+
+### <a name="avoid-sharing-storage-accounts"></a>Evite compartilhar contas de armazenamento
+
+Ao criar um aplicativo de funções, você deve associá-lo a uma conta de armazenamento. A conexão da conta de armazenamento é mantida na [configuração do aplicativo AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Para maximizar o desempenho, use uma conta de armazenamento separada para cada aplicativo de funções. Isso é particularmente importante quando você tem Durable Functions ou funções disparadas pelo hub de eventos, que geram um alto volume de transações de armazenamento. Quando a lógica do aplicativo interage com o armazenamento do Azure, seja diretamente (usando o SDK de armazenamento) ou por meio de uma das associações de armazenamento, você deve usar uma conta de armazenamento dedicada. Por exemplo, se você tiver uma função disparada por Hub de eventos gravando alguns dados no armazenamento de BLOBs, use duas contas de armazenamento&mdash;uma para o aplicativo de funções e outra para os blobs que estão sendo armazenados pela função.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misture o código de teste e de produção no mesmo aplicativo de funções
 
@@ -84,9 +88,17 @@ Não use o log detalhado no código de produção, que tem um impacto negativo n
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Usar código assíncrono, mas evitar chamadas de bloqueio
 
-A programação assíncrona é uma prática recomendada. No entanto, sempre Evite referenciar a propriedade `Result` ou chamar `Wait` método em uma instância de `Task`. Essa abordagem pode levar ao esgotamento de threads.
+A programação assíncrona é uma prática recomendada, especialmente ao bloquear operações de e/s envolvidas.
+
+No C#, sempre Evite referenciar a propriedade `Result` ou chamar `Wait` método em uma instância de `Task`. Essa abordagem pode levar ao esgotamento de threads.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### <a name="use-multiple-worker-processes"></a>Usar vários processos de trabalho
+
+Por padrão, qualquer instância de host para o Functions usa um único processo de trabalho. Para melhorar o desempenho, especialmente com tempos de execução de thread único como Python, use o [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) para aumentar o número de processos de trabalho por host (até 10). Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+
+O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens no lote sempre que possível
 

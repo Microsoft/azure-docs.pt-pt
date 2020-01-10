@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008463"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564768"
 ---
 É importante compreender como e onde as suas máquinas virtuais (VMs) funcionam no Azure, juntamente com as opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece-lhe uma descrição geral das funcionalidades de disponibilidade e redundância do Azure.
 
@@ -29,7 +29,7 @@ O Azure tem algumas regiões especiais que você talvez queira usar ao criar seu
 * **Gov (US) - Virginia** e **US Gov - Iowa**
   * Uma instância isolada da rede física e lógica do Azure para agências e parceiros do governo dos Estados Unidos da América, operada por pessoas selecionadas dos EUA. Inclui certificações de conformidades adicionais, como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Leia mais sobre o [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Leste da China** e **Norte da China**
-  * Estas regiões estão disponíveis através de uma parceria exclusiva entre a Microsoft e a 21Vianet, nos termos da qual a Microsoft não controla diretamente os datacenters. Veja mais sobre o [Azure China 21vianet](http://www.windowsazure.cn/).
+  * Estas regiões estão disponíveis através de uma parceria exclusiva entre a Microsoft e a 21Vianet, nos termos da qual a Microsoft não controla diretamente os datacenters. Veja mais sobre o [Azure China 21vianet](https://www.windowsazure.cn/).
 * **Alemanha Central** e **Nordeste da Alemanha**
   * Essas regiões estão disponíveis por meio de um modelo de data Trustee, no qual os dados do cliente permanecem na Alemanha, sob o controle de T-Systems, uma empresa de Telekom de alemão, agindo como o data Trustee do alemão.
 
@@ -44,13 +44,13 @@ Os exemplos de pares de região incluem:
 
 | Primária | Secundária |
 |:--- |:--- |
-| EUA Oeste |EUA Leste |
-| Europa do Norte |Europa ocidental |
-| Sudeste asiático |Ásia Oriental |
+| Oeste dos E.U.A. |Este dos E.U.A. |
+| Europa do Norte |Europa Ocidental |
+| Sudeste Asiático |Este Asiático |
 
 Pode ver a [lista completa de pares regionais aqui](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="feature-availability"></a>Disponibilidade de funcionalidades
+## <a name="feature-availability"></a>Funcionalidades disponíveis
 Alguns serviços ou funcionalidades de VM só estão disponíveis em determinadas regiões, como VMs com tamanhos ou tipos de armazenamento específicos. Existem também alguns serviços globais do Azure que não requerem a seleção de uma região específica, como o [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Gestor de Tráfego](../articles/traffic-manager/traffic-manager-overview.md) ou [DNS do Azure](../articles/dns/dns-overview.md). Para ajudá-lo a estruturar o seu ambiente de aplicação, pode verificar a [disponibilidade dos serviços do Azure em cada região](https://azure.microsoft.com/regions/#services). Você também pode [consultar programaticamente os tamanhos de VM e as restrições com suporte em cada região](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Disponibilidade de armazenamento

@@ -1,26 +1,15 @@
 ---
-title: Criar um cluster do Service Fabric do Linux no Azure | Microsoft Docs
+title: Criar um cluster de Service Fabric do Linux no Azure
 description: Saiba como implementar um cluster do Service Fabric do Linux numa rede virtual do Azure existente, com a CLI do Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465407"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Linux Service Fabric em uma rede virtual do Azure
 
@@ -53,35 +42,35 @@ No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linu
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros de modelo), um nó em cada um dos outros tipos de nó
-* SO: Ubuntu 16, 4 LTS (configurável nos parâmetros de modelo)
+* SO: Ubuntu 16.04 LTS (configurável nos parâmetros do modelo)
 * protegido por certificado (configurável nos parâmetros do modelo)
 * O [serviço DNS](service-fabric-dnsservice.md) está ativado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros do modelo)
 * [Nível de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros do modelo)
-* ponto de extremidade de conexão do cliente: 19000 (configurável nos parâmetros do modelo)
-* Ponto de extremidade do gateway HTTP: 19080 (configurável nos parâmetros do modelo)
+* ponto final de ligação de cliente: 19000 (configurável nos parâmetros do modelo)
+* ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo)
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
 No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
-* ponto de extremidade de conexão do cliente: 19000
-* Ponto de extremidade do gateway HTTP: 19080
-* porta do aplicativo: 80
-* porta do aplicativo: 443
+* ponto final de ligação de cliente: 19000
+* ponto final de gateway HTTP: 19080
+* porta da aplicação: 80
+* porta da aplicação: 443
 
 ### <a name="virtual-network-and-subnet"></a>Rede virtual e sub-rede
 
 Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
-* espaço de endereço de rede virtual: 10.0.0.0/16
-* Espaço de endereço de sub-rede Service Fabric: 10.0.2.0/24
+* espaço de endereços de rede virtual: 10.0.0.0/16
+* espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24
 
 Se forem necessárias quaisquer outras portas da aplicação, terá de ajustar o recurso Microsoft.Network/loadBalancers para permitir o tráfego nas mesmas.
 
 ## <a name="set-template-parameters"></a>Definir parâmetros de modelo
 
-O arquivo de parâmetros [AzureDeploy.][parameters] Parameters declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que poderá ser necessário modificar para a sua implementação:
+O arquivo de parâmetros [AzureDeploy. Parameters][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que poderá ser necessário modificar para a sua implementação:
 
 |Parâmetro|Valor de exemplo|Notas|
 |---|---||
@@ -90,7 +79,7 @@ O arquivo de parâmetros [AzureDeploy.][parameters] Parameters declara muitos va
 |clusterName|mysfcluster123| O nome do cluster. |
 |localização|southcentralus| A localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor do thumbprint SHA-1 do certificado. Por exemplo, “6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
-|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https:\//mykeyvault.Vault.Azure.net:443/Secrets/myCertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor no cofre de origem. Por exemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
@@ -162,7 +151,7 @@ sfctl cluster health
 
 Se não passar imediatamente para o artigo seguinte, poderá [eliminar o cluster](service-fabric-cluster-delete.md) para evitar incorrer em custos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [dimensionar um cluster](service-fabric-tutorial-scale-cluster.md).
 

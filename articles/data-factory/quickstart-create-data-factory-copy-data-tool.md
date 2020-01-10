@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440132"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: usar a ferramenta de Copiar Dados para copiar dados
 
@@ -54,7 +54,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
    - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista. 
    - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
-   Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+   Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 1. Em **Versão**, selecione **V2**.
 1. Em **Localização**, selecione a localização para a fábrica de dados.
 

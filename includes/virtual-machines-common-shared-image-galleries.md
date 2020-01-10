@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875535"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663031"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -144,7 +144,7 @@ As regiões nas quais uma versão de imagem compartilhada é replicada podem ser
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender a que o usuário obtém acesso:
 
@@ -239,9 +239,9 @@ Para listar todos os recursos da Galeria de imagens compartilhadas nas assinatur
  
 Sim. Há três cenários com base nos tipos de imagens que você pode ter.
 
- Cenário 1: se você tiver uma imagem gerenciada, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
+ Cenário 1: se você tiver uma imagem gerenciada na mesma assinatura que o SIG, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 
- Cenário 2: se você tiver uma imagem não gerenciada, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
+ Cenário 2: se você tiver uma imagem não gerenciada na mesma assinatura que o SIG, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
 
  Cenário 3: se você tiver um VHD em seu sistema de arquivos local, precisará carregar o VHD em uma imagem gerenciada e, em seguida, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457109"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node. js)
 
@@ -148,7 +148,7 @@ Para Pins de sensor, use a seguinte fiação:
 | LED VDD (PIN 18F)        | GPIO 24 (pino 18)       | Cabo branco   |
 | LED GND (pino 17F)        | GND (pino 20)           | Cabo preto   |
 
-Clique para exibir [mapeamentos de PIN do Raspberry Pi 2 & 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para sua referência.
+Clique para exibir [mapeamentos de PIN do Raspberry Pi 2 & 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para sua referência.
 
 Depois de conectar o BME280 ao seu Raspberry Pi com êxito, deve ser como a imagem abaixo.
 
@@ -244,9 +244,9 @@ Execute o aplicativo de exemplo executando o seguinte comando:
    > [!NOTE]
    > Certifique-se de copiar e colar a cadeia de conexão do dispositivo nas aspas simples.
 
-Você deve ver a saída a seguir que mostra os dados do sensor e as mensagens que são enviadas para o Hub IoT.
+Deverá ver o seguinte resultado, que mostra os dados do sensor e as mensagens que são enviadas ao seu hub IoT.
 
-![Saída-dados de sensor enviados do Raspberry Pi para o Hub IoT](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
+![Resultado – dados do sensor enviados do Raspberry Pi ao hub IoT](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
 

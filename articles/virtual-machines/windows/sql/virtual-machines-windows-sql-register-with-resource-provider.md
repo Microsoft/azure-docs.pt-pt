@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793465"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690787"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -61,8 +61,8 @@ Para obter mais informações sobre os benefícios de usar o provedor de recurso
 
 Para registrar sua VM SQL Server com o provedor de recursos, você precisará de: 
 
-- Uma [assinatura do Azure](https://azure.microsoft.com/free/).
-- Um modelo de recurso do Azure [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) implantada na nuvem pública. 
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
+- Um modelo de recurso do Azure [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) implantada na nuvem pública ou do Azure governamental. 
 - A versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli) ou do [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modos de gerenciamento
@@ -223,7 +223,7 @@ Para atualizar o modo do agente para completo:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Vá para o recurso de [máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) . 
 1. Selecione sua SQL Server máquina virtual e selecione **visão geral**. 
 1. Para SQL Server VMs com o modo noagent ou Lightweight IaaS, selecione o **único tipo de licença e atualizações de edição estão disponíveis com a mensagem de extensão IaaS do SQL** .
@@ -265,7 +265,7 @@ Você pode verificar se sua VM de SQL Server já foi registrada com o provedor d
 
 ### <a name="azure-portal"></a>Portal do Azure 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 1. Vá para o [SQL Server máquinas virtuais](virtual-machines-windows-sql-manage-portal.md).
 1. Selecione seu SQL Server VM na lista. Se sua VM de SQL Server não estiver listada aqui, provavelmente ela não foi registrada com o provedor de recursos de VM do SQL. 
 1. Exiba o valor em **status**. Se o **status** for **bem-sucedido**, a VM de SQL Server foi registrada com êxito no provedor de recursos de VM do SQL. 
@@ -286,8 +286,7 @@ Verifique o status atual de registro da VM SQL Server usando o AZ CLI ou o Power
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 O provedor de recursos de VM do SQL só dá suporte a:
 - SQL Server VMs implantadas por meio do Azure Resource Manager. Não há suporte para VMs SQL Server implantadas por meio do modelo clássico. 
-- SQL Server VMs implantadas na nuvem pública. Não há suporte para implantações na nuvem privada ou governamental. 
+- SQL Server VMs implantadas na nuvem pública ou do Azure governamental. Não há suporte para implantações em outras nuvens privadas ou governamentais. 
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 

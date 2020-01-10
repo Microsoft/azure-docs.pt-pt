@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451327"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Dimensionar os anfitriões de sessão de forma dinâmica
 
@@ -50,7 +50,7 @@ Primeiro, prepare seu ambiente para o script de dimensionamento:
 
 1. Entre na VM (VM de escalar) que executará a tarefa agendada com uma conta administrativa de domínio.
 2. Crie uma pasta na VM scaler para manter o script de dimensionamento e sua configuração (por exemplo, **C:\\Scale-HostPool1**).
-3. Baixe os arquivos **basicScale. ps1**, **config. xml**e **Functions-PSStoredCredentials. ps1** , e a pasta **PowershellModules** do repositório de [script de dimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copie-os para a pasta que você criou na etapa 2. Há duas maneiras principais de obter os arquivos antes de copiá-los para a VM do scaler:
+3. Baixe os arquivos **basicScale. ps1**, **config. JSON**e **Functions-PSStoredCredentials. ps1** , e a pasta **PowershellModules** do repositório de [script de dimensionamento](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copie-os para a pasta que você criou na etapa 2. Há duas maneiras principais de obter os arquivos antes de copiá-los para a VM do scaler:
     - Clone o repositório git em seu computador local.
     - Exiba a versão **bruta** de cada arquivo, copie e cole o conteúdo de cada arquivo em um editor de texto e, em seguida, salve os arquivos com o nome de arquivo e o tipo de arquivo correspondentes. 
 
@@ -73,13 +73,13 @@ Em seguida, você precisará criar as credenciais armazenadas com segurança:
     ```
     
     Por exemplo, **set-variable-name-caminho KeyPath-scope global-valor "c:\\Scaling-HostPool1"**
-5. Execute o cmdlet **New-StoredCredential-KeyPath \$KeyPath** . Quando solicitado, insira suas credenciais de área de trabalho virtual do Windows com permissões para consultar o pool de hosts (o pool de hosts é especificado no **arquivo config. xml**).
+5. Execute o cmdlet **New-StoredCredential-KeyPath \$KeyPath** . Quando solicitado, insira suas credenciais de área de trabalho virtual do Windows com permissões para consultar o pool de hosts (o pool de hosts é especificado no **config. JSON**).
     - Se você usar entidades de serviço ou conta padrão diferentes, execute o cmdlet **New-StoredCredential-KeyPath \$KeyPath** uma vez para cada conta para criar credenciais armazenadas locais.
 6. Execute **Get-StoredCredential-List** para confirmar que as credenciais foram criadas com êxito.
 
-### <a name="configure-the-configxml-file"></a>Configurar o arquivo config. xml
+### <a name="configure-the-configjson-file"></a>Configurar o arquivo config. JSON
 
-Insira os valores relevantes nos campos a seguir para atualizar as configurações de script de dimensionamento em config. xml:
+Insira os valores relevantes nos campos a seguir para atualizar as configurações de script de dimensionamento em config. JSON:
 
 | Campo                     | Descrição                    |
 |-------------------------------|------------------------------------|
@@ -103,7 +103,7 @@ Insira os valores relevantes nos campos a seguir para atualizar as configuraçõ
 
 ### <a name="configure-the-task-scheduler"></a>Configurar o Agendador de Tarefas
 
-Depois de configurar o arquivo Configuration. xml, você precisará configurar o Agendador de Tarefas para executar o arquivo basicScaler. ps1 em um intervalo regular.
+Depois de configurar o arquivo JSON de configuração, você precisará configurar o Agendador de Tarefas para executar o arquivo basicScaler. ps1 em um intervalo regular.
 
 1. Iniciar **Agendador de tarefas**.
 2. Na janela **Agendador de tarefas** , selecione **criar tarefa...**
@@ -117,13 +117,13 @@ Depois de configurar o arquivo Configuration. xml, você precisará configurar o
 
 ## <a name="how-the-scaling-script-works"></a>Como funciona o script de dimensionamento
 
-Esse script de dimensionamento lê as configurações de um arquivo config. xml, incluindo o início e término do período de pico de uso durante o dia.
+Esse script de dimensionamento lê as configurações de um arquivo config. JSON, incluindo o início e término do período de pico de uso durante o dia.
 
-Durante o tempo de uso de pico, o script verifica o número atual de sessões e a capacidade de RDSH em execução no momento para cada pool de hosts. Ele calcula se as VMs host da sessão em execução têm capacidade suficiente para dar suporte a sessões existentes com base no parâmetro SessionThresholdPerCPU definido no arquivo config. xml. Caso contrário, o script inicia VMs de host de sessão adicionais no pool de hosts.
+Durante o tempo de uso de pico, o script verifica o número atual de sessões e a capacidade de RDSH em execução no momento para cada pool de hosts. Ele calcula se as VMs host da sessão em execução têm capacidade suficiente para dar suporte a sessões existentes com base no parâmetro SessionThresholdPerCPU definido no arquivo config. JSON. Caso contrário, o script inicia VMs de host de sessão adicionais no pool de hosts.
 
-Durante o tempo de uso fora de pico, o script determina quais VMs de host de sessão devem ser desligadas com base no parâmetro MinimumNumberOfRDSH no arquivo config. xml. O script definirá as VMs do host da sessão para o modo de drenagem para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro **LimitSecondsToForceLogOffUser** no arquivo config. xml para um valor positivo diferente de zero, o script notificará qualquer usuário conectado no momento para salvar o trabalho, aguardará o período de tempo configurado e forçará os usuários a se desconectarem. Depois que todas as sessões de usuário tiverem sido desconectadas em uma VM de host de sessão, o script desligará o servidor.
+Durante o tempo de uso fora de pico, o script determina quais VMs de host de sessão devem ser desligadas com base no parâmetro MinimumNumberOfRDSH no arquivo config. JSON. O script definirá as VMs do host da sessão para o modo de drenagem para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro **LimitSecondsToForceLogOffUser** no arquivo config. JSON para um valor positivo diferente de zero, o script notificará qualquer usuário conectado no momento para salvar o trabalho, aguardará o período de tempo configurado e forçará os usuários a se desconectarem. Depois que todas as sessões de usuário tiverem sido desconectadas em uma VM de host de sessão, o script desligará o servidor.
 
-Se você definir o parâmetro **LimitSecondsToForceLogOffUser** no arquivo config. xml como zero, o script permitirá que a configuração de sessão nas propriedades do pool de hosts manipule a assinatura de sessões de usuário. Se houver sessões em uma VM host de sessão, ela deixará a VM host de sessão em execução. Se não houver nenhuma sessão, o script desligará a VM host da sessão.
+Se você definir o parâmetro **LimitSecondsToForceLogOffUser** no arquivo config. JSON como zero, o script permitirá que a configuração de sessão nas propriedades do pool de hosts manipule a assinatura de sessões de usuário. Se houver sessões em uma VM host de sessão, ela deixará a VM host de sessão em execução. Se não houver nenhuma sessão, o script desligará a VM host da sessão.
 
 O script é projetado para ser executado periodicamente no servidor de VM do scaler usando Agendador de Tarefas. Selecione o intervalo de tempo apropriado com base no tamanho do seu ambiente de Serviços de Área de Trabalho Remota e lembre-se de que iniciar e desligar máquinas virtuais pode levar algum tempo. É recomendável executar o script de dimensionamento a cada 15 minutos.
 

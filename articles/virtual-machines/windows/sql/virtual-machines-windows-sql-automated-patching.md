@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0900dd1809ecb1e93906b57483f334d0f12f6582
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b48ccede9ca3330d356fa75d4df34789e31eb916
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350751"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "70102083"
 A aplicação de patch automatizada estabelece uma janela de manutenção para uma máquina virtual do Azure que executa o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
 
 > [!IMPORTANT]
-> Só são instaladas as atualizações do Windows assinaladas como **Importantes**. As outras atualizações do SQL Server, como as Atualizações Cumulativas, têm de ser instaladas manualmente. 
+> Somente as atualizações do Windows e SQL Server marcadas como **importantes** são instaladas. As outras atualizações do SQL Server, como as Atualizações Cumulativas, têm de ser instaladas manualmente. 
 
 A Colocação de Patches Automática depende da [Extensão Agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

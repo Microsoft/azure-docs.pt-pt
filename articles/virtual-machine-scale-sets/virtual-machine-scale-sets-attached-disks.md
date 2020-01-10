@@ -1,6 +1,6 @@
 ---
-title: Discos de Dados Anexados a Conjuntos de Dimensionamento de Máquinas Virtuais do Azure | Microsoft Docs
-description: Saiba como utilizar discos de dados anexados com conjuntos de dimensionamento de máquinas virtuais
+title: Discos de dados anexados de conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Saiba como usar discos de dados anexados com conjuntos de dimensionamento de máquinas virtuais por meio de contornos de casos de uso específicos.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 5482e082e3e37d279c4374a8642f2cb6db588dd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465005"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjunto de dimensionamento de máquinas virtuais do Azure e discos de dados anexados
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.
 
 > [!NOTE]
-> Quando cria um conjunto de dimensionamento com discos de dados anexados, tem de montar e formatar os discos a partir de uma VM para poder utilizá-los (tal como acontece com VMs do Azure autónomas). Uma forma conveniente de executar este processo é utilizar uma Extensão de Script Personalizado que chama um script para particionar e formatar todos os discos de dados numa VM. Para obter exemplos deste processo, veja [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Quando cria um conjunto de dimensionamento com discos de dados anexados, tem de montar e formatar os discos a partir de uma VM para poder utilizá-los (tal como acontece com VMs do Azure autónomas). Uma forma conveniente de executar este processo é utilizar uma Extensão de Script Personalizado que chama um script para particionar e formatar todos os discos de dados numa VM. Para obter exemplos disso, consulte [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Criar e gerir discos num conjunto de dimensionamento
 Para obter informações detalhadas sobre como criar um conjunto de dimensionamento com discos de dados anexados, preparar e formatar ou adicionar e remover discos de dados, veja um dos seguintes tutoriais:
 
 - [CLI do Azure](tutorial-use-disks-cli.md)
-- [Azure PowerShell](tutorial-use-disks-powershell.md)
+- [O Azure PowerShell](tutorial-use-disks-powershell.md)
 
 O resto deste artigo descreve casos de utilização específicos, tais como clusters do Service Fabric que necessitam de discos de dados ou anexar discos de dados existentes com conteúdo a um conjunto de dimensionamento.
 
@@ -93,7 +93,7 @@ Para preparar automaticamente o(s) disco(s) de dados num cluster do Linux, adici
 
 
 ## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Adicionar discos de dados pré-preenchidos a um conjunto de dimensionamento existente
-Os discos de dados especificados no modelo de conjunto de dimensionamento estão sempre vazios. No entanto, pode anexar um disco de dados existente a uma VM específica num conjunto de dimensionamento. Esta funcionalidade está em pré-visualização, com exemplos ativada [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se quiser propagar dados em todas as VMs no conjunto de dimensionamento, pode duplicar o disco de dados e anexá-lo a cada VM no conjunto de dimensionamento, pode criar uma imagem personalizada que contenha os dados e fornecer o conjunto de dimensionamento a partir desta imagem personalizada, ou pode utilizar Ficheiros do Azure ou uma oferta de armazenamento de dados semelhante.
+Os discos de dados especificados no modelo de conjunto de dimensionamento estão sempre vazios. No entanto, pode anexar um disco de dados existente a uma VM específica num conjunto de dimensionamento. Este recurso está em versão prévia, com exemplos no [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se quiser propagar dados em todas as VMs no conjunto de dimensionamento, pode duplicar o disco de dados e anexá-lo a cada VM no conjunto de dimensionamento, pode criar uma imagem personalizada que contenha os dados e fornecer o conjunto de dimensionamento a partir desta imagem personalizada, ou pode utilizar Ficheiros do Azure ou uma oferta de armazenamento de dados semelhante.
 
 
 ## <a name="additional-notes"></a>Notas adicionais

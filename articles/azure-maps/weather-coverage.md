@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407622"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
 
@@ -52,7 +52,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Costa Rica                               | ✓ |   |  ✓| 
 | Cuba                                     | ✓ |   |  ✓| 
 | Curaçao                                  | ✓ |   |  ✓| 
-| Dominica                                 | ✓ |   |  ✓| 
+| Domínica                                 | ✓ |   |  ✓| 
 | República Dominicana                       | ✓ |   |  ✓| 
 | Equador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
@@ -77,16 +77,16 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | São Bartolomeu                         | ✓ |   |  ✓| 
 | São Cristóvão e Neves                    | ✓ |   |  ✓| 
 | Santa Lúcia                              | ✓ |   |  ✓| 
-| São Martin                             | ✓ |   |  ✓| 
+| São Martinho (Saint Martin)                             | ✓ |   |  ✓| 
 | São Pedro e Miquelon                | ✓ |   |  ✓| 
 | São Vicente e Granadinas         | ✓ |   |  ✓| 
 | Santo Eustáquio                           | ✓ |   |  ✓|  
-| Santo Maarten                             | ✓ |   |  ✓| 
+| São Martinho (Sint Maarten)                             | ✓ |   |  ✓| 
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ |   |  ✓| 
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   |  ✓| 
-| Territórios insulares dos EUA                    | ✓ |   |  ✓| 
+| Ilhas Menores Afastadas dos EUA                    | ✓ |   |  ✓| 
 | Ilhas Virgens dos EUA                      | ✓ |   |  ✓| 
 | Estados Unidos                            | ✓ | ✓ |  ✓| 
 | Uruguai                                  | ✓ |   |  ✓| 
@@ -108,23 +108,23 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Camarões                    | ✓               |                              |        ✓| 
 | Cabo Verde                  | ✓               |                              |        ✓| 
 | República Centro-Africana    | ✓               |                              |        ✓| 
-| Chad                        | ✓               |                              |        ✓| 
-| Ilhas                     | ✓               |                              |        ✓| 
-| Congo (RDC)                 | ✓               |                              |        ✓|
-| Côte d' Ivoire               | ✓               |                              |        ✓| 
-| Djibuti                    | ✓               |                              |        ✓| 
+| Chade                        | ✓               |                              |        ✓| 
+| Comoros                     | ✓               |                              |        ✓| 
+| República Democrática do Congo                 | ✓               |                              |        ✓|
+| Costa do Marfim               | ✓               |                              |        ✓| 
+| Jibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 
 | Eritreia                     | ✓               |                              |        ✓| 
 | eSwatini                    | ✓               |                              |        ✓| 
 | Etiópia                    | ✓               |                              |        ✓| 
-| Territórios franceses do Sul | ✓               |                              |        ✓| 
+| Territórios Austrais Franceses | ✓               |                              |        ✓| 
 | Gabão                       | ✓               |                              |        ✓| 
 | Gâmbia                      | ✓               |                              |        ✓| 
 | Gana                       | ✓               |                              |        ✓| 
 | Guiné                      | ✓               |                              |        ✓| 
 | Guiné-Bissau               | ✓               |                              |        ✓| 
-| Irã                        | ✓               |                              |        ✓| 
+| Irão                        | ✓               |                              |        ✓| 
 | Iraque                        | ✓               |                              |        ✓| 
 | Israel                      | ✓               |                              |        ✓| 
 | Jordânia                      | ✓               |                              |        ✓| 
@@ -139,7 +139,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Mali                        | ✓               |                              |        ✓| 
 | Mauritânia                  | ✓               |                              |        ✓| 
 | Maurícia                   | ✓               |                              |        ✓| 
-| Mayotte                     | ✓               |                              |        ✓| 
+| Maiote                     | ✓               |                              |        ✓| 
 | Marrocos                     | ✓               |                              |        ✓| 
 | Moçambique                  | ✓               |                              |        ✓| 
 | Namíbia                     | ✓               |                              |        ✓| 
@@ -148,13 +148,13 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Omã                        | ✓               |                              |        ✓| 
 | Autoridade Palestiniana       | ✓               |                              |        ✓| 
 | Catar                       | ✓               |                              |        ✓| 
-| Réunion                     | ✓               |                              |        ✓| 
+| Reunião                     | ✓               |                              |        ✓| 
 | Ruanda                      | ✓               |                              |        ✓| 
 | Santa Helena, ascensão e Tristão da Cunha        | ✓               |                              |        ✓| 
 | São Tomé e Príncipe       | ✓               |                              |        ✓| 
 | Arábia Saudita                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
-| Seychelles                  | ✓               |                              |        ✓| 
+| Seicheles                  | ✓               |                              |        ✓| 
 | Serra Leoa                | ✓               |                              |        ✓| 
 | Somália                     | ✓               |                              |        ✓| 
 | África do Sul                | ✓               |                              |        ✓| 
@@ -186,13 +186,13 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Brunei                            | ✓ |   |  ✓| 
 | Camboja                          | ✓ |   |  ✓| 
 | China                             | ✓ | ✓ |  ✓| 
-| Ilha Christmas                  | ✓ |   |  ✓| 
-| Ilhas Cocos (Keeling)           | ✓ |   |  ✓| 
+| Ilha do Natal                  | ✓ |   |  ✓| 
+| Ilhas dos Cocos (Keeling)           | ✓ |   |  ✓| 
 | Ilhas Cook                      | ✓ |   |  ✓| 
 | Fiji                              | ✓ |   |  ✓| 
-| Polinésia francesa                  | ✓ |   |  ✓| 
-| Guam                              | ✓ |   |  ✓| 
-| Ilha Heard e Ilhas McDonald | ✓ |   |  ✓| 
+| Polinésia Francesa                  | ✓ |   |  ✓| 
+| Guame                              | ✓ |   |  ✓| 
+| Ilhas Heard e McDonald | ✓ |   |  ✓| 
 | RAE de Hong Kong                     | ✓ |   |  ✓| 
 | Índia                             | ✓ |   |  ✓| 
 | Indonésia                         | ✓ |   |  ✓| 
@@ -202,7 +202,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Coreia                             | ✓ | ✓ |  ✓| 
 | Quirguizistão                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
-| Rae de Macau                         | ✓ |   |  ✓| 
+| RAE de Macau                         | ✓ |   |  ✓| 
 | Malásia                          | ✓ |   |  ✓| 
 | Maldivas                          | ✓ |   |  ✓| 
 | Ilhas Marshall                  | ✓ |   |  ✓| 
@@ -211,7 +211,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Myanmar                           | ✓ |   |  ✓| 
 | Nauru                             | ✓ |   |  ✓| 
 | Nepal                             | ✓ |   |  ✓| 
-| Nova Caledônia                     | ✓ |   |  ✓| 
+| Nova Caledónia                     | ✓ |   |  ✓| 
 | Nova Zelândia                       | ✓ |   |  ✓| 
 | Niue                              | ✓ |   |  ✓| 
 | Ilha Norfolk                    | ✓ |   |  ✓| 
@@ -229,7 +229,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Taiwan                            | ✓ |   |  ✓| 
 | Tajiquistão                        | ✓ |   |  ✓| 
 | Tailândia                          | ✓ |   |  ✓| 
-| Timor-Timor Leste                       | ✓ |   |  ✓| 
+| Timor-Leste                       | ✓ |   |  ✓| 
 | Toquelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
 | Turquemenistão                      | ✓ |   |  ✓| 
@@ -264,19 +264,19 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Alemanha                | ✓ | ✓ |  ✓| 
 | Gibraltar              | ✓ | ✓ |  ✓| 
 | Grécia                 | ✓ |   |  ✓| 
-| Guernsey               | ✓ |   |  ✓| 
+| Guernesey               | ✓ |   |  ✓| 
 | Hungria                | ✓ | ✓ |  ✓| 
 | Islândia                | ✓ |   |  ✓| 
 | Irlanda                | ✓ | ✓ |  ✓| 
 | Itália                  | ✓ |   |  ✓|
 | Ilha de Man            | ✓ |   |  ✓| 
-| Camisas                 | ✓ |   |  ✓| 
+| Jersey                 | ✓ |   |  ✓| 
 | Kosovo                 | ✓ |   |  ✓| 
 | Letónia                 | ✓ |   |  ✓| 
 | Listenstaine          | ✓ | ✓ |  ✓| 
 | Lituânia              | ✓ |   |  ✓| 
 | Luxemburgo             | ✓ | ✓ |  ✓| 
-| Nordeste da Macedônia        | ✓ |   |  ✓| 
+| Macedónia do Norte        | ✓ |   |  ✓| 
 | Malta                  | ✓ |   |  ✓| 
 | Moldova                | ✓ | ✓ |  ✓| 
 | Mónaco                 | ✓ | ✓ |  ✓| 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440389"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Alternar atividade no Azure Data Factory
 
@@ -65,11 +65,11 @@ A atividade switch fornece a mesma funcionalidade que uma instrução switch for
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade do comutador. | String | Sim
 tipo | Deve ser definido como *Switch** | String | Sim
-expressão | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
+expression | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
 bolsas | Conjunto de casos que contêm um valor e um conjunto de atividades a serem executadas quando o valor corresponde à avaliação da expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos Case | Sim
 defaultactivities | Conjunto de atividades que são executadas quando a avaliação da expressão não é satisfeita. | Matriz de atividades | Sim
 
@@ -236,10 +236,7 @@ O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de s
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

@@ -1,6 +1,6 @@
 ---
-title: Modelando as relações no design da tabela de armazenamento do Azure | Documentos da Microsoft
-description: Compreenda o processo de modelagem quando conceber a sua solução de armazenamento de tabela.
+title: Relações de modelagem no design de armazenamento de tabelas do Azure | Microsoft Docs
+description: Entenda o processo de modelagem ao projetar sua solução de armazenamento de tabela.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457555"
 ---
 # <a name="modeling-relationships"></a>Modelar relações
-Este artigo explica o processo de modelagem para criar as suas soluções de armazenamento de tabelas do Azure.
+Este artigo discute o processo de modelagem para ajudá-lo a projetar suas soluções de armazenamento de tabelas do Azure.
 
 A criação de modelos de domínio é uma etapa importante no design de sistemas complexos. Normalmente, o processo de modelagem é utilizado para identificar as entidades e as relações entre eles, como uma forma de compreender o domínio de empresa e informar o design do seu sistema. Esta seção se concentra em como é possível converter alguns dos tipos de relação comuns encontrados em modelos de domínio para designs para o serviço de tabela. O processo de mapeamento de um modelo de dados lógico para um físico baseados em NoSQL-modelo de dados é diferente da usada ao conceber uma base de dados relacional. Design de bancos de dados relacionais normalmente pressupõe um processo de normalização de dados otimizado para minimizar a redundância – e uma capacidade de consulta declarativa que abstrai a como a implementação de como funciona a base de dados.  
 
@@ -26,7 +26,7 @@ Relações um-para-muitos entre objetos de domínio de negócios ocorrerem com f
 Considere o exemplo de uma grande empresa multinacional com dezenas de milhares de departamentos e entidades de funcionário em que cada departamento tem muitos funcionários e de cada funcionário como associados a um departamento específico. Uma abordagem é armazenar separado de departamento e entidades de funcionário como estas:  
 
 
-![Store departamento separado e entidades de funcionários](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Armazenar entidades de departamento e funcionário separadas](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
 Este exemplo mostra uma relação um-para-muitos implícita entre tipos de acordo com o **PartitionKey** valor. Cada departamento pode ter muitos funcionários.  
 
@@ -63,7 +63,7 @@ A tabela seguinte resume os prós e contras de cada uma das abordagens descritas
 </td>
 </tr>
 <tr>
-<td>Tipos de entidade separada, partições diferentes ou tabelas ou contas de armazenamento</td>
+<td>Tipos de entidade separados, partições ou tabelas diferentes ou contas de armazenamento</td>
 <td>
 <ul>
 <li>Pode atualizar uma entidade de departamento ou funcionário com uma única operação.</li>
@@ -101,28 +101,28 @@ Modelos de domínio podem incluir um para um relações entre entidades. Se prec
 Também existem considerações de implementação que podem levar a implementar as relações um para um no serviço de tabela:  
 
 * Tratamento de entidades grandes (para obter mais informações, consulte [grandes entidades padrão](table-storage-design-patterns.md#large-entities-pattern)).  
-* A implementação de controlos de acesso (para obter mais informações, consulte a controlar o acesso com assinaturas de acesso partilhado).  
+* Implementando controles de acesso (para obter mais informações, consulte controlando o acesso com assinaturas de acesso compartilhado).  
 
 ## <a name="join-in-the-client"></a>Junte-se no cliente
 Embora existam formas para modelar relações no serviço tabela, deve não se esqueça de que os dois motivos principais para utilizar o serviço de tabela são a escalabilidade e desempenho. Se encontrar a que modelagem de relações de muitos que comprometem o desempenho e escalabilidade da sua solução, deve se perguntar se é necessário criar todas as relações de dados em seu design de tabela. Poderá conseguir simplificar o design e melhorar a escalabilidade e desempenho da sua solução se permitir que a aplicação cliente realizar qualquer uniões necessárias.  
 
-Por exemplo, se tiver pequenas tabelas que contêm dados que não são alterados muitas vezes, em seguida, pode obter estes dados uma vez e cache no cliente. Isto pode evitar idas e voltas repetidas para obter os mesmos dados. Nos exemplos, temos analisado a neste guia, o conjunto de departamentos numa pequena organização, é provável que ser pequeno e alterar com pouca frequência tornando um bom candidato para a cache de dados que a aplicação cliente pode transferir uma vez e como a procura de dados.  
+Por exemplo, se tiver pequenas tabelas que contêm dados que não são alterados muitas vezes, em seguida, pode obter estes dados uma vez e cache no cliente. Isto pode evitar idas e voltas repetidas para obter os mesmos dados. Nos exemplos que vimos neste guia, o conjunto de departamentos em uma pequena organização provavelmente será pequeno e mudará raramente, tornando-o um bom candidato a dados que o aplicativo cliente pode baixar uma vez e armazenar em cache como dados de pesquisa.  
 
 ## <a name="inheritance-relationships"></a>Relações de herança
 Se a aplicação cliente utiliza um conjunto de classes que fazem parte de uma relação de herança para representar as entidades comerciais, pode facilmente manter essas entidades no serviço tabela. Por exemplo, pode ter o seguinte conjunto de classes definidas na aplicação de cliente em que **pessoa** é uma classe abstrata.
 
-![Classe abstrata da pessoa](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
+![Classe de pessoa abstrata](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
 Pode manter instâncias das duas classes concretas no serviço de tabela com uma única tabela de pessoa com entidades aquela aparência como esta:  
 
-![Tabela de pessoas](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
+![Tabela Person](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Para obter mais informações sobre como trabalhar com vários tipos de entidade na mesma tabela no código do cliente, consulte a secção trabalhar com tipos de entidade heterogênea mais tarde neste guia. Esta opção fornece exemplos de como a reconhecer o tipo de entidade no código do cliente.  
+Para obter mais informações sobre como trabalhar com vários tipos de entidade na mesma tabela no código do cliente, consulte a seção trabalhando com tipos de entidade heterogêneas, mais adiante neste guia. Esta opção fornece exemplos de como a reconhecer o tipo de entidade no código do cliente.  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Padrões de design de tabela](table-storage-design-patterns.md)
-- [Design para a consulta](table-storage-design-for-query.md)
-- [Encriptar dados da tabela](table-storage-design-encrypt-data.md)
+- [Design para consulta](table-storage-design-for-query.md)
+- [Criptografar dados da tabela](table-storage-design-encrypt-data.md)
 - [Design para modificação de dados](table-storage-design-for-modification.md)

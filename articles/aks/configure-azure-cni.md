@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604777"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659785"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no serviço kubernetes do Azure (AKS)
 
@@ -25,7 +25,6 @@ Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-red
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A rede virtual para o cluster AKS deve permitir a conectividade de Internet de saída.
-* Não crie mais de um cluster AKS na mesma sub-rede.
 * Os clusters AKS não podem usar `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
 * A entidade de serviço usada pelo cluster AKS deve ter pelo menos permissões de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de colaborador de rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -73,9 +72,9 @@ Você pode configurar o número máximo de pods por nó *somente no momento da i
 
 Um valor mínimo para máximo de pods por nó é imposto para garantir o espaço para o pods crítico do sistema para a integridade do cluster. O valor mínimo que pode ser definido para o pods máximo por nó é 10 se e somente se a configuração de cada pool de nós tiver espaço para um mínimo de 30 pods. Por exemplo, definir o máximo de pods por nó para o mínimo de 10 exige que cada pool de nós individual tenha um mínimo de 3 nós. Esse requisito se aplica a cada novo pool de nós criado também; portanto, se 10 for definido como um pods máximo por nó, cada pool de nós subsequente adicionado deverá ter pelo menos 3 nós.
 
-| Redes | Mínimo | Máximo |
+| Funcionamento em Rede | Mínimo | Máximo |
 | -- | :--: | :--: |
-| CNI do Azure | 10 | 250 |
+| Azure CNI | 10 | 250 |
 | Kubenet | 10 | 110 |
 
 > [!NOTE]
@@ -93,7 +92,7 @@ Não é possível alterar o pods máximo por nó em um cluster AKS existente. Vo
 
 Quando você cria um cluster AKS, os seguintes parâmetros são configuráveis para a rede CNI do Azure:
 
-**Rede virtual**: a rede virtual na qual você deseja implantar o cluster kubernetes. Se você quiser criar uma nova rede virtual para o cluster, selecione *criar nova* e siga as etapas na seção *criar rede virtual* . Para obter informações sobre os limites e cotas de uma rede virtual do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+**Rede virtual**: a rede virtual na qual você deseja implantar o cluster kubernetes. Se você quiser criar uma nova rede virtual para o cluster, selecione *criar nova* e siga as etapas na seção *criar rede virtual* . Para obter informações sobre os limites e cotas de uma rede virtual do Azure, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Sub-rede**: a sub-rede na rede virtual em que você deseja implantar o cluster. Se você quiser criar uma nova sub-rede na rede virtual para o cluster, selecione *criar novo* e siga as etapas na seção *criar sub-rede* . Para conectividade híbrida, o intervalo de endereços não deve se sobrepor a outras redes virtuais em seu ambiente.
 

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67184817"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552427"
 ---
 Tem de cumprir os requisitos seguintes para concluir este tutorial:
 
-**CLI do Azure**: Você deve ter CLI do Azure versão 2.0.29 ou posterior instalada no computador local. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+**CLI do Azure**: Tem de ter a CLI do Azure versão 2.0.29 ou posterior instalada no computador local. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
-**Docker**: Este tutorial pressupõe uma compreensão básica dos principais conceitos do Docker, como contêineres, imagens de `docker` contêiner e comandos básicos. Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker][docker-get-started].
+**Docker**: Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos básicos do `docker`. Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker][docker-get-started].
 
-**Mecanismo**do Docker: Para concluir este tutorial, você precisa do mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS][docker-mac], no [Windows][docker-windows]e no [Linux][docker-linux].
+**Docker**: para concluir este tutorial, você precisa do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS][docker-mac], no [Windows][docker-windows]e no [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Uma vez que a shell do Azure Cloud não inclui o daemon do Docker, *tem* de instalar a CLI do Azure e o Motor do Docker no seu *computador local* para concluir este tutorial. Não pode utilizar o Azure Cloud Shell para este tutorial.

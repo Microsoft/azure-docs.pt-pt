@@ -1,7 +1,7 @@
 ---
 title: 'SVD Recomendador de Pontuação: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de recomendação do SVD de pontuação no serviço de Azure Machine Learning para pontuar previsões de recomendação para um conjunto de informações.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de recomendação do SVD de pontuação no Azure Machine Learning para pontuar previsões de recomendação para um conjunto de informações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456327"
 ---
-# <a name="score-svd-recommender"></a>Pontuar Recomendador SVD
+# <a name="score-svd-recommender"></a>Classificar Recomendador SVD
 
 Este artigo descreve como usar o módulo Score SVD Recomendador no designer de Azure Machine Learning (versão prévia). Use este módulo para criar previsões usando um modelo de recomendação treinado com base no algoritmo de decomposição de valor único (SVD).
 
@@ -123,4 +123,4 @@ Ao colocar o modelo em operação, você normalmente altera o modo de previsão 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

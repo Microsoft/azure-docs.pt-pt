@@ -8,17 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 1/02/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: a87ed9355a5939393fd5e20f395cc96f35e7f150
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833d39ab91cd803f066d707306a6ff648d37e8f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816079"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660556"
 ---
-Neste guia de início rápido, você usará o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconhecer de forma interativa a fala de dados de áudio capturados de um microfone. Depois de satisfazer alguns pré-requisitos, reconhecer a fala de um microfone usa apenas quatro etapas:
+Neste guia de início rápido, você usará o [SDK de fala](~/articles/cognitive-services/speech-service/speech-sdk.md) e o serviço de reconhecimento vocal (Luis) para reconhecer tentativas de dados de áudio capturados de um microfone. Especificamente, você usará o SDK de fala para capturar fala e um domínio predefinido do LUIS para identificar tentativas de automação doméstica, como ligar e desligar uma luz. 
+
+Depois de atender a alguns pré-requisitos, reconhecer a fala e identificar tentativas de um microfone leva apenas algumas etapas:
+
 > [!div class="checklist"]
 >
 > * Crie um objeto de ````SpeechConfig```` de sua chave de assinatura e região.

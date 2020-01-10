@@ -3,12 +3,12 @@ title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 11/21/2019
 ms.topic: how-to
-ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436589"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plano gráfico existente
 
@@ -55,7 +55,7 @@ A implantação das atribuições atualizadas segue algumas regras importantes. 
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possíveis erros na atualização de atribuições
 
-Ao atualizar atribuições, é possível fazer alterações que sejam interrompidas quando executadas. Um exemplo é alterar o local de um grupo de recursos depois que ele já tiver sido implantado. Qualquer alteração compatível com [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) pode ser feita, mas qualquer alteração que resulte em um erro por meio de Azure Resource Manager também resultará na falha da atribuição.
+Ao atualizar atribuições, é possível fazer alterações que sejam interrompidas quando executadas. Um exemplo é alterar o local de um grupo de recursos depois que ele já tiver sido implantado. Qualquer alteração compatível com [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) pode ser feita, mas qualquer alteração que resulte em um erro por meio de Azure Resource Manager também resultará na falha da atribuição.
 
 Não há limite de quantas vezes uma atribuição pode ser atualizada. Se ocorrer um erro, determine o erro e faça outra atualização para a atribuição.  Cenários de erro de exemplo:
 

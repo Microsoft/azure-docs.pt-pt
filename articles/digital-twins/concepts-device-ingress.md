@@ -1,19 +1,19 @@
 ---
 title: Conectividade do dispositivo e entrada de telemetria-Azure digital gêmeos | Microsoft Docs
-description: Saiba como conectar e carregar um dispositivo no Azure digital gêmeos.
+description: Saiba como conectar, carregar e enviar telemetria de um dispositivo IoT no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010117"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660346"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo
 
@@ -67,11 +67,11 @@ Você pode personalizar o formato e a carga de mensagens do dispositivo para ate
 
  O conteúdo da carga de uma **mensagem** pode ser dados arbitrários de até 256 KB de tamanho. Há alguns requisitos esperados para as propriedades do tipo de [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) . A tabela mostra as propriedades obrigatórias e opcionais com suporte no sistema.
 
-| Nome da propriedade | Valor | Necessário | Descrição |
+| Nome da propriedade | Valor | Obrigatório | Descrição |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **mensagem**. Esse valor deve corresponder à propriedade **HardwareID** de um objeto para o sistema processá-lo. Por exemplo, `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Não | Uma cadeia de caracteres de data formatada [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica o tempo de amostragem da carga. Por exemplo, `2018-09-20T07:35:00.8587882-07:00`. |
+| **CreationTimeUtc** | `string` | Não | Uma cadeia de caracteres de data formatada [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) que identifica o tempo de amostragem da carga. Por exemplo, `2018-09-20T07:35:00.8587882-07:00`. |
 | **CorrelationId** | `string` | Não | Um UUID que é usado para rastrear eventos no sistema. Por exemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Enviar sua mensagem para o digital gêmeos

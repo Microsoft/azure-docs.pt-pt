@@ -1,16 +1,16 @@
 ---
-title: Habilitar o backup automaticamente na criação de VM usando Azure Policy
+title: Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 description: Um artigo que descreve como usar Azure Policy para habilitar o backup automaticamente para todas as VMs criadas em um determinado escopo
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: ea3c0d217c8495078e91e171caef695bb32d129b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980130"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450125"
 ---
-# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitar o backup automaticamente na criação de VM usando Azure Policy
+# <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 
 Uma das principais responsabilidades de um administrador de backup ou conformidade em uma organização é garantir que todos os computadores críticos para os negócios sejam submetidos a backup com a retenção apropriada.
 
@@ -25,6 +25,8 @@ Hoje, o backup do Azure fornece uma política interna (usando Azure Policy) que 
 * O cofre especificado e as VMs configuradas para backup podem estar em grupos de recursos diferentes.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
+
+* Atualmente, a política interna não está disponível em nuvens nacionais.
 
 ## <a name="using-the-built-in-policy"></a>Usando a política interna
 

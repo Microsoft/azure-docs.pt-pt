@@ -1,20 +1,14 @@
 ---
-title: Criar alertas do supervisor do Azure para novas recomendações | Microsoft Docs
+title: Criar alertas do Azure Advisor para novas recomendações
 description: Criar alertas do supervisor do Azure para nova recomendação
-services: advisor
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/09/2019
-ms.author: sagupt
-ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 07cbc57ef718b6cac104d2b5238ff4e3196f197a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443161"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Criar alertas do supervisor do Azure sobre novas recomendações 
 
@@ -24,7 +18,7 @@ Sempre que o Azure Advisor detecta uma nova recomendação para um de seus recur
 
 Você também pode determinar os tipos de recomendações usando essas propriedades:
 
-* Category
+* Categoria
 * Nível de impacto
 * Tipo de recomendação
 
@@ -274,7 +268,7 @@ Se você não usar o esquema comum, sua carga será parecida com a seguinte:
 }
 ```
 
-Em qualquer esquema, você pode identificar eventos de recomendação do Advisor procurando por EventSource `Recommendation` é e operationName `Microsoft.Advisor/recommendations/available/action`é.
+Em qualquer esquema, você pode identificar eventos de recomendação do Advisor procurando por **EventSource** é `Recommendation` e **operationName** é `Microsoft.Advisor/recommendations/available/action`.
 
 Alguns dos outros campos importantes que você pode querer usar são: 
 

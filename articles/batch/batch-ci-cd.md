@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 47665171ee5ae137e0503b3e5fa1d369aeabb356
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449803"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -27,7 +27,7 @@ Neste exemplo, criaremos um pipeline de Build e versão para implantar uma infra
 
 ![Diagrama mostrando o fluxo de implantação em nosso pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Configurar
+### <a name="setup"></a>Configuração
 
 Para seguir as etapas neste artigo, você precisa de uma organização DevOps do Azure e um projeto de equipe.
 
@@ -47,12 +47,12 @@ A estrutura de CodeBase usada neste exemplo é semelhante à seguinte;
 * Uma pasta **ARM-templates** , que contém vários modelos de Azure Resource Manager. Os modelos são explicados neste artigo.
 * Uma pasta **cliente-aplicativo** , que é uma cópia do [processamento de arquivos .net do lote do Azure com](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) o exemplo ffmpeg. Isso não é necessário para este artigo.
 * Uma pasta **HPC-Application** , que é a versão do Windows 64 bits do [ffmpeg 3,4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
-* Uma pasta pipelines. Ele contém um arquivo YAML que descreve nosso processo de compilação. Isso é discutido no artigo.
+* Uma pasta **pipelines** . Ele contém um arquivo YAML que descreve nosso processo de compilação. Isso é discutido no artigo.
 
 Esta seção pressupõe que você esteja familiarizado com o controle de versão e criando modelos do Resource Manager. Se você não estiver familiarizado com esses conceitos, consulte as páginas a seguir para obter mais informações.
 
 * [O que é o controle do código-fonte?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
+* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
@@ -302,8 +302,8 @@ Há quatro seções principais para este repositório:
 
 * A pasta **ARM-templates** que armazena nossa infraestrutura como código
 * A pasta **HPC-Application** que contém os binários para ffmpeg
-* A pasta pipelines que contém a definição para o pipeline de compilação.
-* **Opcional**: A pasta **cliente-aplicativo** que armazenaria o código para o aplicativo .net. Não usamos isso no exemplo, mas em seu próprio projeto, talvez você queira executar execuções do aplicativo do lote HPC por meio de um aplicativo cliente.
+* A pasta **pipelines** que contém a definição para o pipeline de compilação.
+* **Opcional**: a pasta **cliente-aplicativo** que armazenaria o código para o aplicativo .net. Não usamos isso no exemplo, mas em seu próprio projeto, talvez você queira executar execuções do aplicativo do lote HPC por meio de um aplicativo cliente.
 
 > [!NOTE]
 > Esse é apenas um exemplo de uma estrutura para uma base de código. Essa abordagem é usada para fins de demonstração de que o aplicativo, a infraestrutura e o código de pipeline são armazenados no mesmo repositório.
@@ -351,7 +351,7 @@ Neste exemplo, iremos nos concentrar na pasta **HPC-Application** . A pasta **HP
         targetPath: '$(Build.ArtifactStagingDirectory)/package'
     ```
 
-1. Depois que a compilação for configurada conforme necessário, selecione **salvar & fila**. Se você tiver a integração contínua habilitada ( na seção disparadores), a compilação será disparada automaticamente quando uma nova confirmação para o repositório for feita, atendendo as condições definidas na compilação.
+1. Depois que a compilação for configurada conforme necessário, selecione **salvar & fila**. Se você tiver a integração contínua habilitada (na seção **disparadores** ), a compilação será disparada automaticamente quando uma nova confirmação para o repositório for feita, atendendo as condições definidas na compilação.
 
     ![Exemplo de um pipeline de compilação existente](media/batch-ci-cd/existing-build-pipeline.jpg)
 
@@ -364,7 +364,7 @@ Neste exemplo, iremos nos concentrar na pasta **HPC-Application** . A pasta **HP
 
 ## <a name="continuous-deployment"></a>Implementação contínua
 
-Azure Pipelines também usado para implantar seu aplicativo e a infraestrutura subjacente. Os pipelines de [versão](https://docs.microsoft.com/azure/devops/pipelines/release) são o componente que permite a implantação contínua e automatiza o processo de liberação.
+Azure Pipelines também usado para implantar seu aplicativo e a infraestrutura subjacente. Os [pipelines de versão](https://docs.microsoft.com/azure/devops/pipelines/release) são o componente que permite a implantação contínua e automatiza o processo de liberação.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implantando seu aplicativo e a infraestrutura subjacente
 
@@ -390,15 +390,15 @@ Há várias etapas envolvidas na implantação da infraestrutura. Como nós usam
 
 1. Navegue até a seção **variáveis** . É recomendável criar um número de variáveis em seu pipeline, para que você não esteja inserindo as mesmas informações em várias tarefas. Essas são as variáveis usadas neste exemplo e como elas afetam a implantação.
 
-    * **applicationStorageAccountName**: Nome da conta de armazenamento para armazenar os binários do aplicativo HPC
-    * **batchAccountApplicationName**: Nome do aplicativo na conta do lote do Azure
-    * **batchAccountName**: Nome da conta do lote do Azure
-    * **batchAccountPoolName**: Nome do pool de VMs que executa o processamento
+    * **applicationStorageAccountName**: nome da conta de armazenamento para armazenar binários do aplicativo HPC
+    * **batchAccountApplicationName**: nome do aplicativo na conta do lote do Azure
+    * **batchAccountName**: nome da conta do lote do Azure
+    * **batchAccountPoolName**: o nome do pool de VMs que executa o processamento
     * **batchApplicationId**: ID exclusiva para o aplicativo do lote do Azure
-    * **batchApplicationVersion**: Versão semântica do seu aplicativo do lote (ou seja, os binários ffmpeg)
-    * **local**: Local para os recursos do Azure a serem implantados
-    * **resourceGroupName**: Nome do grupo de recursos a ser criado e onde seus recursos serão implantados
-    * **storageAccountName**: Nome da conta de armazenamento para manter modelos vinculados do Resource Manager
+    * **batchApplicationVersion**: versão semântica do seu aplicativo do lote (ou seja, os binários do ffmpeg)
+    * **local**: local para os recursos do Azure a serem implantados
+    * **resourceGroupName**: o nome do grupo de recursos a ser criado e o local em que os recursos serão implantados
+    * **storageAccountName**: nome da conta de armazenamento para manter modelos vinculados do Resource Manager
 
     ![Exemplo de variáveis definidas para a versão Azure Pipelines](media/batch-ci-cd/Release-4.jpg)
 
@@ -416,7 +416,7 @@ Há várias etapas envolvidas na implantação da infraestrutura. Como nós usam
     Adicione a tarefa de **implantação do grupo de recursos do Azure** e defina as seguintes propriedades:
     * **Nome para exibição:** Implantar conta de armazenamento para modelos do Resource Manager
     * **Assinatura do Azure:** Selecione a assinatura do Azure apropriada
-    * **Ação**: Criar ou atualizar o grupo de recursos
+    * **Ação**: criar ou atualizar grupo de recursos
     * **Grupo de recursos**: $ (resourceGroupName)
     * **Local**: $ (local)
     * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
@@ -428,7 +428,7 @@ Há várias etapas envolvidas na implantação da infraestrutura. Como nós usam
     * **Source:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Tipo de conexão do Azure**: Azure Resource Manager
     * **Assinatura do Azure:** Selecione a assinatura do Azure apropriada
-    * **Tipo de destino**: Blob do Azure
+    * **Tipo de destino**: BLOB do Azure
     * **Conta de armazenamento do RM**: $ (storageAccountName)
     * **Nome do contêiner**: modelos
     * **URI do contêiner de armazenamento**: templateContainerUri
@@ -439,11 +439,11 @@ Há várias etapas envolvidas na implantação da infraestrutura. Como nós usam
     Adicione a tarefa de **implantação do grupo de recursos do Azure** e defina as seguintes propriedades:
     * **Nome para exibição:** Implantar o lote do Azure
     * **Assinatura do Azure:** Selecione a assinatura do Azure apropriada
-    * **Ação**: Criar ou atualizar o grupo de recursos
+    * **Ação**: criar ou atualizar grupo de recursos
     * **Grupo de recursos**: $ (resourceGroupName)
     * **Local**: $ (local)
     * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
-    * **Substituir parâmetros de modelo**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **Substituir parâmetros de modelo**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Uma prática comum é usar Azure Key Vault tarefas. Se a entidade de serviço (conexão à sua assinatura do Azure) tiver um conjunto de políticas de acesso apropriado, ele poderá baixar segredos de um Azure Key Vault e ser usado como variáveis em seu pipeline. O nome do segredo será definido com o valor associado. Por exemplo, um segredo de sshPassword poderia ser referenciado com $ (sshPassword) na definição da versão.
 
@@ -452,16 +452,16 @@ Uma prática comum é usar Azure Key Vault tarefas. Se a entidade de serviço (c
     Adicione a tarefa de **CLI do Azure** e defina as seguintes propriedades:
     * **Nome para exibição:** Criar aplicativo na conta do lote do Azure
     * **Assinatura do Azure:** Selecione a assinatura do Azure apropriada
-    * **Local do script**: Script embutido
-    * **Script embutido**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Local do script**: script embutido
+    * **Script embutido**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. A segunda etapa é usada para carregar pacotes associados ao aplicativo. Em nosso caso, os arquivos ffmpeg.
 
     Adicione a tarefa de **CLI do Azure** e defina as seguintes propriedades:
     * **Nome para exibição:** Carregar pacote na conta do lote do Azure
     * **Assinatura do Azure:** Selecione a assinatura do Azure apropriada
-    * **Local do script**: Script embutido
-    * **Script embutido**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Local do script**: script embutido
+    * **Script embutido**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > O número de versão do pacote de aplicativos é definido como uma variável. Isso é conveniente se a substituição de versões anteriores do pacote funcionar para você e se você quiser controlar manualmente o número de versão do pacote enviado por push para o lote do Azure.
@@ -479,7 +479,7 @@ Quando o ambiente estiver configurado, confirme se os testes a seguir podem ser 
 Conecte-se à nova conta do lote do Azure usando o CLI do Azure de um prompt de comando do PowerShell.
 
 * Entre em sua conta do Azure com `az login` e siga as instruções para autenticar.
-* Agora, autentique a conta do lote:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* Agora, autentique a conta do lote: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Listar os aplicativos disponíveis
 
@@ -493,7 +493,7 @@ az batch application list -g <resourcegroup> -n <batchaccountname>
 az batch pool list
 ```
 
-Observe o valor de `currentDedicatedNodes` da saída deste comando. Esse valor é ajustado no próximo teste.
+Observe o valor de `currentDedicatedNodes` da saída desse comando. Esse valor é ajustado no próximo teste.
 
 #### <a name="resize-the-pool"></a>Redimensionar o pool
 
@@ -503,7 +503,7 @@ Redimensione o pool para que haja nós de computação disponíveis para teste d
 az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Além deste artigo, há dois tutoriais que utilizam o ffmpeg, usando o .NET e o Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta do lote por meio de um aplicativo simples.
 

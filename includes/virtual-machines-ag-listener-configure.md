@@ -4,51 +4,51 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467554"
 ---
-O serviço de escuta do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta na. Para criar o serviço de escuta do grupo de disponibilidade, faça o seguinte:
+O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
 1. <a name="getnet"></a>Obtenha o nome do recurso de rede do cluster.
 
-    a. Utilize o RDP para ligar à máquina virtual do Azure que aloja a réplica primária. 
+    a. Use o RDP para se conectar à máquina virtual do Azure que hospeda a réplica primária. 
 
-    b. Abra o Gestor de clusters de ativação pós-falha.
+    b. Abra Gerenciador de Cluster de Failover.
 
-    c. Selecione o **redes** nó e tenha em atenção o nome de rede do cluster. Utilizar este nome no `$ClusterNetworkName` variáveis no script do PowerShell. Na imagem seguinte é o nome de rede do cluster **rede de Cluster 1**:
+    c. Selecione o nó **redes** e anote o nome da rede do cluster. Use esse nome na variável `$ClusterNetworkName` no script do PowerShell. Na imagem a seguir, o nome da rede do cluster é **rede de cluster 1**:
 
-   ![Nome de rede do cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
+   ![Nome da rede do cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Adicione o ponto de acesso de cliente.  
-    O ponto de acesso de cliente é o nome de rede que aplicações utilizam para ligar às bases de dados num grupo de disponibilidade. Crie o ponto de acesso de cliente no Gestor de clusters de ativação pós-falha.
+1. <a name="addcap"></a>Adicione o ponto de acesso para cliente.  
+    O ponto de acesso para cliente é o nome de rede que os aplicativos usam para se conectar aos bancos de dados em um grupo de disponibilidade. Crie o ponto de acesso para cliente no Gerenciador de Cluster de Failover.
 
-    a. Expanda o nome do cluster e, em seguida, clique em **funções**.
+    a. Expanda o nome do cluster e clique em **funções**.
 
-    b. Na **funções** painel, clique com o botão direito no nome do grupo de disponibilidade e, em seguida, selecione **adicionar recursos** > **ponto de acesso de cliente**.
+    b. No painel **funções** , clique com o botão direito do mouse no nome do grupo de disponibilidade e selecione **Adicionar recurso** > **ponto de acesso para cliente**.
 
-   ![Ponto de acesso de cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
-    c. Na **nome** caixa, crie um nome para este novo serviço de escuta. 
-   O nome para o novo serviço de escuta é o nome de rede que aplicações utilizam para ligar a bases de dados no grupo de disponibilidade do SQL Server.
+    c. Na caixa **nome** , crie um nome para esse novo ouvinte. 
+   O nome do novo ouvinte é o nome da rede que os aplicativos usam para se conectar a bancos de dados no grupo de disponibilidade SQL Server.
 
-    d. Para acabar de criar o serviço de escuta, clique em **próxima** duas vezes e, em seguida, clique em **concluir**. Não inclua o serviço de escuta ou recurso online neste momento.
+    d. Para concluir a criação do ouvinte, clique em **Avançar** duas vezes e, em seguida, clique em **concluir**. Não coloque o ouvinte ou recurso online neste momento.
 
-1. Coloque a função de cluster de grupo de disponibilidade offline. Na **Gestor de clusters de ativação pós-falha** sob **funções**, a função com o botão direito e selecione **parar função**.
+1. Coloque a função de cluster do grupo de disponibilidade offline. Em **Gerenciador de cluster de failover** em **funções**, clique com o botão direito do mouse na função e selecione **parar função**.
 
-1. <a name="congroup"></a>Configure o recurso IP para o grupo de disponibilidade.
+1. <a name="congroup"></a>Configure o recurso de IP para o grupo de disponibilidade.
 
-    a. Clique nas **recursos** separador e, em seguida, expanda o ponto de acesso de cliente que criou.  
-    O ponto de acesso de cliente está offline.
+    a. Clique na guia **recursos** e expanda o ponto de acesso para cliente que você criou.  
+    O ponto de acesso para cliente está offline.
 
-   ![Ponto de acesso de cliente](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
+   ![Ponto de acesso para cliente](./media/virtual-machines-ag-listener-configure/94-newclientaccesspoint.png) 
 
-    b. Com o botão direito do recurso de IP e, em seguida, clique em propriedades. Tome nota do nome do endereço IP e utilizá-la no `$IPResourceName` variáveis no script do PowerShell.
+    b. Clique com o botão direito do mouse no recurso IP e clique em Propriedades. Anote o nome do endereço IP e use-o na variável `$IPResourceName` no script do PowerShell.
 
-    c. Sob **endereço IP**, clique em **endereço IP estático**. Defina o endereço IP como o mesmo endereço que utilizou quando definir o endereço de Balanceador de carga no portal do Azure.
+    c. Em **endereço IP**, clique em **endereço IP estático**. Defina o endereço IP como o mesmo endereço que você usou ao definir o endereço do balanceador de carga no portal do Azure.
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
@@ -56,41 +56,41 @@ O serviço de escuta do grupo de disponibilidade é um nome de rede e endereço 
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Tornar o recurso do grupo de disponibilidade do SQL Server dependentes no ponto de acesso de cliente.
+1. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade SQL Server dependente do ponto de acesso para cliente.
 
-    a. No Gestor de clusters de ativação pós-falha, clique em **funções**e, em seguida, clique em seu grupo de disponibilidade.
+    a. Em Gerenciador de Cluster de Failover, clique em **funções**e, em seguida, clique em seu grupo de disponibilidade.
 
-    b. Sobre o **recursos** separador, em **outros recursos**, o grupo de recursos de disponibilidade com o botão direito e, em seguida, clique em **propriedades**. 
+    b. Na guia **recursos** , em **outros recursos**, clique com o botão direito do mouse no grupo de recursos de disponibilidade e clique em **Propriedades**. 
 
-    c. Na guia dependências, adicione o nome do recurso de ponto (o serviço de escuta) de acesso de cliente.
+    c. Na guia dependências, adicione o nome do recurso de ponto de acesso para cliente (o ouvinte).
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Clique em **OK**.
 
-1. <a name="listname"></a>Marca o recurso de ponto de acesso de cliente dependente no endereço IP.
+1. <a name="listname"></a>Torne o recurso de ponto de acesso para cliente dependente do endereço IP.
 
-    a. No Gestor de clusters de ativação pós-falha, clique em **funções**e, em seguida, clique em seu grupo de disponibilidade. 
+    a. Em Gerenciador de Cluster de Failover, clique em **funções**e, em seguida, clique em seu grupo de disponibilidade. 
 
-    b. Sobre o **recursos** separador, clique com o botão direito do recurso de ponto de acesso de cliente em **nome do servidor de**e, em seguida, clique em **propriedades**. 
+    b. Na guia **recursos** , clique com o botão direito do mouse no recurso ponto de acesso para cliente em **nome do servidor**e clique em **Propriedades**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Clique nas **dependências** separador. Certifique-se de que o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se existirem vários recursos listados, certifique-se de que os endereços IP têm ou, não AND, as dependências. Clique em **OK**. 
+    c. Clique na guia **dependências** . Verifique se o endereço IP é uma dependência. Se não estiver, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm as dependências ou, não e. Clique em **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Pode validar que as dependências estão corretamente configuradas. No Gestor de clusters de ativação pós-falha, aceda às funções, clique com botão direito do grupo de disponibilidade, clique em **mais ações**e, em seguida, clique em **Mostrar relatório de dependência**. Quando as dependências estão corretamente configuradas, o grupo de disponibilidade está dependente do nome da rede e o nome da rede é dependente do endereço IP. 
+    >Você pode validar que as dependências estão configuradas corretamente. Em Gerenciador de Cluster de Failover, vá para funções, clique com o botão direito do mouse no grupo de disponibilidade, clique em **mais ações**e, em seguida, clique em **Mostrar relatório de dependência**. Quando as dependências são configuradas corretamente, o grupo de disponibilidade depende do nome da rede e o nome da rede depende do endereço IP. 
 
 
 1. <a name="setparam"></a>Defina os parâmetros de cluster no PowerShell.
 
-   a. Copie o seguinte script do PowerShell para uma das suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
+   a. Copie o seguinte script do PowerShell para uma de suas instâncias de SQL Server. Atualize as variáveis para seu ambiente.
 
-   - `$ListenerILBIP` é o endereço IP que criou no balanceador de carga do Azure para o serviço de escuta do grupo de disponibilidade.
+   - `$ListenerILBIP` é o endereço IP que você criou no Azure Load Balancer para o ouvinte do grupo de disponibilidade.
     
-   - `$ListenerProbePort` é a porta que configurou no balanceador de carga do Azure para o serviço de escuta do grupo de disponibilidade.
+   - `$ListenerProbePort` é a porta configurada no balanceador de carga do Azure para o ouvinte do grupo de disponibilidade.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -103,28 +103,28 @@ O serviço de escuta do grupo de disponibilidade é um nome de rede e endereço 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-   b. Defina os parâmetros de cluster ao executar o script do PowerShell num de nós do cluster.  
+   b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós de cluster.  
 
    > [!NOTE]
-   > Se as instâncias do SQL Server estão em diferentes regiões, terá de executar o script PowerShell duas vezes. Na primeira vez, utilize o `$ListenerILBIP` e `$ListenerProbePort` da primeira região. Na segunda vez, utilize o `$ListenerILBIP` e `$ListenerProbePort` partir da segunda região. O nome de rede do cluster e o nome de recurso IP de cluster também são diferentes para cada região.
+   > Se suas instâncias de SQL Server estiverem em regiões separadas, você precisará executar o script do PowerShell duas vezes. Na primeira vez, use o `$ListenerILBIP` e `$ListenerProbePort` da primeira região. Na segunda vez, use o `$ListenerILBIP` e `$ListenerProbePort` da segunda região. O nome da rede do cluster e o nome do recurso de IP do cluster também são diferentes para cada região.
 
-1. Colocar a função de cluster de grupo de disponibilidade online. Na **Gestor de clusters de ativação pós-falha** sob **funções**, clique com o botão direito do rato na função e selecione **iniciar função**.
+1. Coloque a função de cluster do grupo de disponibilidade online. Em **Gerenciador de cluster de failover** em **funções**, clique com o botão direito do mouse na função e selecione **Iniciar função**.
 
-Se necessário, repita os passos acima para definir os parâmetros de cluster para o endereço IP do cluster WSFC.
+Se necessário, repita as etapas acima para definir os parâmetros de cluster para o endereço IP do Cluster WSFC.
 
-1. Obtenha o nome de endereço IP do endereço IP do Cluster de WSFC. Na **Gestor de clusters de ativação pós-falha** sob **recursos principais do Cluster**, localize **nome do servidor**.
+1. Obtenha o nome do endereço IP do endereço IP do Cluster WSFC. Em **Gerenciador de cluster de failover** em **recursos principais do cluster**, localize **nome do servidor**.
 
-1. Com o botão direito **endereço IP**e selecione **propriedades**.
+1. Clique com o botão direito do mouse em **endereço IP**e selecione **Propriedades**.
 
-1. Copiar o **nome** do endereço IP. Pode ser `Cluster IP Address`. 
+1. Copie o **nome** do endereço IP. Pode ser `Cluster IP Address`. 
 
 1. <a name="setwsfcparam"></a>Defina os parâmetros de cluster no PowerShell.
   
-   a. Copie o seguinte script do PowerShell para uma das suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
+   a. Copie o seguinte script do PowerShell para uma de suas instâncias de SQL Server. Atualize as variáveis para seu ambiente.
 
-   - `$ClusterCoreIP` é o endereço IP que criou no balanceador de carga do Azure para o recurso de cluster do WSFC core. É diferente do endereço IP para o serviço de escuta do grupo de disponibilidade.
+   - `$ClusterCoreIP` é o endereço IP que você criou no Azure Load Balancer para o recurso de cluster do WSFC Core. Ele é diferente do endereço IP para o ouvinte do grupo de disponibilidade.
 
-   - `$ClusterProbePort` é a porta que configurou no balanceador de carga do Azure para a sonda de estado de funcionamento do WSFC. É diferente da sonda para o serviço de escuta do grupo de disponibilidade.
+   - `$ClusterProbePort` é a porta configurada no balanceador de carga do Azure para a investigação de integridade do WSFC. Ele é diferente da investigação do ouvinte do grupo de disponibilidade.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -137,7 +137,7 @@ Se necessário, repita os passos acima para definir os parâmetros de cluster pa
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-   b. Defina os parâmetros de cluster ao executar o script do PowerShell num de nós do cluster.  
+   b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós de cluster.  
 
 >[!WARNING]
->Porta de sonda de estado de funcionamento de serviço de escuta de grupo de disponibilidade tem de ser diferente do que a porta de sonda de estado de funcionamento de endereço do cluster principal IP. Nestes exemplos, a porta do serviço de escuta é 59999 e o endereço IP de núcleo de cluster é 58888. Ambas as portas requerem uma regra de firewall de entrada de permissão.
+>A porta de investigação de integridade do ouvinte de grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP do núcleo do cluster. Nesses exemplos, a porta do ouvinte é 59999 e a porta de investigação de integridade do endereço IP do núcleo do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.

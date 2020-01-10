@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Content Moderator para .NET | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do Content Moderator para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de cliente do Content Moderator para .NET.
+description: Introdução à biblioteca de cliente do Content Moderator para .NET com este guia de início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539040"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382060"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Início rápido: biblioteca de cliente do Content Moderator para .NET
 
@@ -27,7 +27,7 @@ Use a biblioteca de cliente do Content Moderator para .NET para:
 * [Imagens moderadas](#moderate-images)
 * [Criar uma revisão](#create-a-review)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [amostras](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet) do NuGet ( [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [do pacote) | de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) biblioteca
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [do NuGet ( do pacote)de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [amostras biblioteca](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

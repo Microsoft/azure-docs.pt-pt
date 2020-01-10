@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453982"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerenciar um aplicativo de IoT Central do Azure no portal do CSP
 
@@ -33,7 +33,7 @@ Você é levado para a página do Gerenciador de aplicativos IoT Central do Azur
 
 ![Criar Gerenciador para CSPs](media/howto-create-application-csp/image3.png)
 
-Para criar um aplicativo de IoT Central do Azure, selecione **Compilar** no menu à esquerda. Escolha um dos modelos do setor ou escolha **aplicativo personalizado** para criar um aplicativo do zero. Isso carregará a página de criação do aplicativo. Você deve concluir todos os campos nesta página e, em seguida, escolher **criar**. Você encontrará mais informações sobre cada um dos campos abaixo.
+Para criar um aplicativo de IoT Central do Azure, selecione **Compilar** no menu à esquerda. Escolha um dos modelos do setor ou escolha **aplicativo herdado** para criar um aplicativo do zero. Isso carregará a página de criação do aplicativo. Você deve concluir todos os campos nesta página e, em seguida, escolher **criar**. Você encontrará mais informações sobre cada um dos campos abaixo.
 
 ![Criar página de aplicativo para CSPs](media/howto-create-application-csp/image4.png)
 
@@ -85,13 +85,12 @@ Você pode ver as regiões nas quais o Azure IoT Central está disponível na p�
 
 ## <a name="application-template"></a>Modelo de aplicação
 
-Você pode escolher um dos modelos de aplicativo disponíveis para seu novo aplicativo de IoT Central do Azure. Os modelos de aplicação podem conter itens predefinidos, como modelos de dispositivo e dashboards, que o ajudam a começar.
+Você pode escolher o modelo de aplicativo abaixo para seu novo aplicativo de IoT Central do Azure.
 
 | Modelo de aplicação | Descrição |
 | -------------------- | ----------- |
-| Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
-| Exemplo da Contoso       | Cria um aplicativo que inclui um modelo de dispositivo para um dispositivo conectado simples. Utilize este modelo para começar a explorar o Azure IoT Central. |
-| Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Use este modelo se você for um desenvolvedor de dispositivos experimentando o código em um desses dispositivos. |
+| Aplicativo herdado   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

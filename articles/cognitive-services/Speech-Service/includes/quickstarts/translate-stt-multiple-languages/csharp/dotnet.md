@@ -7,15 +7,15 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 5fb4b30e9a9a7bd7ff7bb0dcda7ec1bd4b702c8d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b285492fd32e39a577c37a45c76ac08145ffda81
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466588"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

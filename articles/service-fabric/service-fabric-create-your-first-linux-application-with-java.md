@@ -1,25 +1,14 @@
 ---
-title: Criar uma aplicação Java Reliable Actors do Azure Service Fabric no Linux | Microsoft Docs
+title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
 description: Saiba como criar e implementar uma aplicação Java Reliable Actors do Service Fabric em cinco minutos.
-services: service-fabric
-documentationcenter: java
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: atsenthi
-ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458175"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -50,8 +39,8 @@ Para começar a utilizar o Reliable Actors, só precisa de compreender alguns co
 * **Interface de ator**. A interface de ator serve para definir uma interface pública com tipos de dados inflexíveis de um ator. Na terminologia modelo do Reliable Actor, a interface de ator define os tipos de mensagens que o ator pode compreender e processar. A interface de ator é utilizada por outros atores e aplicações cliente para "enviar" (de forma assíncrona) mensagens para o ator. O Reliable Actors pode implementar várias interfaces.
 * **Classe ActorProxy**. A classe ActorProxy é utilizada por aplicações cliente para invocar os métodos expostos através da interface de ator. A classe ActorProxy fornece duas funcionalidades importantes:
   
-  * Resolução de nomes: Ele é capaz de localizar o ator no cluster (localizar o nó do cluster onde ele está hospedado).
-  * Tratamento de falhas: Ele pode repetir invocações de método e resolver novamente o local do ator depois, por exemplo, uma falha que exige que o ator seja realocado para outro nó no cluster.
+  * Resolução de nomes: é capaz de localizar o ator no cluster (localizar o nó do cluster onde está alojado).
+  * Processamento de falhas: pode repetir invocações de método e voltar a resolver a localização do ator após, por exemplo, uma falha que exija que o ator seja relocalizado para outro nó no cluster.
 
 As seguintes regras que pertencem a interfaces de ator merecem especial referência:
 
@@ -346,7 +335,7 @@ Suporte ao nível do sistema para o Service Fabric, que comunica com o runtime d
   }
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Create your first Service Fabric Java application on Linux using Eclipse (Criar a sua primeira aplicação Java do Service Fabric no Linux com o Eclipse)](service-fabric-get-started-eclipse.md)
 * [Saiba mais sobre os Reliable Actors](service-fabric-reliable-actors-introduction.md)

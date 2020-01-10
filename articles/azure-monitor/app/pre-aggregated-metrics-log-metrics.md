@@ -8,14 +8,14 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: e0a0784c6331bdf4575f5c044c67cf9b4df3152f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 384e3c9032b324ee92762db9156c628a05e5e862
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406583"
 ---
-# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e previamente agregadas no Application Insights
+# <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
 
 Este artigo explica a diferença entre as métricas de Application Insights "tradicionais" que são baseadas em logs e métricas previamente agregadas que estão atualmente em visualização pública. Os dois tipos de métricas estão disponíveis para os usuários de Application Insights, e cada uma traz um valor exclusivo no monitoramento da integridade do aplicativo, do diagnóstico e da análise. Os desenvolvedores que estão instrumentando aplicativos podem decidir qual tipo de métrica é mais adequado a um cenário específico, dependendo do tamanho do aplicativo, do volume esperado de telemetria e dos requisitos de negócios para precisão e alertas de métricas.
 
@@ -47,7 +47,7 @@ Vale a pena mencionar que o ponto de extremidade de coleta agrega eventos antes 
 
 Você pode usar a pré-autenticação com métricas personalizadas. Os dois principais benefícios são a capacidade de configurar e alertar em uma dimensão de uma métrica personalizada e reduzir o volume de dados enviados do SDK para o ponto de extremidade da coleção de Application Insights.
 
-Há várias [maneiras de enviar métricas personalizadas do SDK do Application insights](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Se sua versão do SDK oferece os métodos [getmetric e trackvalue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) , essa é a maneira preferida de enviar métricas personalizadas, já que, nesse caso, a pré-autenticação acontece dentro do SDK, não apenas reduzindo o volume de dados armazenados no Azure, mas também o volume de dados transmitidos do SDK para Application Insights. Caso contrário, use o método [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) , que irá agregar previamente os eventos de métrica durante a ingestão de dados.
+Há várias [maneiras de enviar métricas personalizadas do SDK do Application insights](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Se sua versão do SDK oferece os métodos [getmetric e trackvalue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) , essa é a maneira preferida de enviar métricas personalizadas, já que, nesse caso, a pré-autenticação ocorre dentro do SDK, não apenas reduzindo o volume de dados armazenados no Azure, mas também o volume de dados transmitidos do sdk para Application insights. Caso contrário, use o método [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) , que irá agregar previamente os eventos de métrica durante a ingestão de dados.
 
 ## <a name="custom-metrics-dimensions-and-pre-aggregation"></a>Dimensões de métricas personalizadas e pré-agregação
 
@@ -63,7 +63,7 @@ A coleção de dimensões de métricas personalizadas é desativada por padrão 
 
 Use [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) para plotar gráficos de métricas previamente agregadas e baseadas em log e para criar painéis com gráficos. Depois de selecionar o recurso de Application Insights desejado, use o seletor de namespace para alternar entre as métricas padrão (visualização) e baseada em log ou selecione um namespace de métrica personalizado:
 
-![Namespace de métrica](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
+![Espaço de nomes de métricas](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

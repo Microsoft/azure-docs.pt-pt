@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: monitorar com informações do Aplicativo Azure'
-description: Fornece instruções para configurar rapidamente uma Aplicação Web Node.js para monitorização com o Application Insights
+title: Início rápido-monitorar node. js com Azure Monitor Application Insights
+description: Fornece instruções para configurar rapidamente um aplicativo Web node. js para monitoramento com Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398787"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Início rápido: iniciar o monitoramento do aplicativo Web node. js com insights Aplicativo Azure
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
@@ -51,7 +51,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
     | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
-   | **Tipo de Aplicação** | Aplicação Node.js | Tipo de aplicação que está a monitorizar |
+   | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar dados do App insights. Você pode criar um novo grupo de recursos ou usar um existente. |
    | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Selecione **Criar**.
@@ -120,7 +120,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
    </script>
    ```
 
-5. À esquerda, selecione **métricas**. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Você pode selecionar **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráfico, a altura, a paleta de cores, os agrupamentos e as métricas existentes. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. À esquerda, selecione **Métricas**. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Você pode selecionar **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráfico, a altura, a paleta de cores, os agrupamentos e as métricas existentes. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Grafo de métricas do Application Insights Server](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
@@ -129,6 +129,9 @@ Para saber mais sobre a monitorização de Node.js, veja a [Documentação adici
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
+
+> [!NOTE]
+> Se você usou um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso de Application Insights individual. Tenha em mente sempre que você excluir um grupo de recursos, todos os recursos do underyling que são membros desse grupo serão excluídos.
 
 1. No menu à esquerda na portal do Azure, selecione **grupos de recursos** e, em seguida, selecione grupo de **recursos**.
 2. Na página do grupo de recursos, selecione **excluir**, digite **MyResource** Group na caixa de texto e, em seguida, selecione **excluir**.

@@ -1,20 +1,19 @@
 ---
 title: '& Do Excel Apache Hadoop com o driver ODBC-Azure HDInsight'
 description: Saiba como configurar e usar o driver ODBC do Microsoft Hive para Excel para consultar dados em clusters HDInsight do Microsoft Excel.
-keywords: Hadoop Excel, Hive Excel, Hive ODBC
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/11/2019
+ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435817"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conectar o Excel ao Apache Hadoop no Azure HDInsight com o driver ODBC do Microsoft Hive
 
@@ -52,7 +51,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do hive.
    | Propriedade | Descrição |
    | --- | --- |
    |  Nome da Origem de Dados |Atribua um nome para a sua origem de dados |
-   |  Host (s) |Introduza `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net` |
+   |  Host (s) |Introduza `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: há suporte para `HDInsightClusterName-int.azurehdinsight.net` contanto que a VM do cliente seja emparelhada com a mesma rede virtual. |
    |  Porta |Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
    |  Base de Dados |Usar **padrão**. |
    |  Mecanismo |Selecione o **serviço HDInsight do Windows Azure** |
@@ -91,7 +90,7 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela do hive p
 
 4. Para o primeiro uso, uma caixa de diálogo do **driver ODBC** será aberta. Selecione **Windows** no menu à esquerda. Em seguida, selecione **conectar** para abrir a janela **navegador** .
 
-5. No **navegador**, navegue até **Hive** > **padrão** > **Hivesampletable**e, em seguida, selecione **carregar**. Leva alguns minutos para que os dados sejam importados para o Excel.
+5. No **navegador**, navegue até **HIVE** > **padrão** > **Hivesampletable**e, em seguida, selecione **carregar**. Leva alguns minutos para que os dados sejam importados para o Excel.
 
     ![Navegador ODBC do hive do Excel do HDInsight](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "Navegador ODBC do hive do Excel do HDInsight")
 

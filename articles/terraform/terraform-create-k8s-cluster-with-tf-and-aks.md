@@ -3,12 +3,12 @@ title: Tutorial-criar um cluster kubernetes com o AKS (serviço kubernetes do Az
 description: Tutorial que demonstra como criar um Cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159293"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708279"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: criar um cluster kubernetes com o serviço kubernetes do Azure usando o Terraform
 
@@ -35,11 +35,11 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 
-1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se não tiver selecionado um ambiente anteriormente, selecione **Bash** como o seu ambiente.
+1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
-    ![Comandos do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
+    ![Comando do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -138,12 +138,10 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {
@@ -168,7 +166,7 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
 
     O registro de `linux_profile` permite que você defina as configurações que permitem a entrada nos nós de trabalho usando o SSH.
 
-    No AKS, paga apenas os nós de trabalho. O registro de `agent_pool_profile` configura os detalhes para esses nós de trabalho. O `agent_pool_profile record` inclui o número de nós de trabalho a serem criados e o tipo de nós de trabalho. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
+    No AKS, paga apenas os nós de trabalho. O registro de `default_node_pool` configura os detalhes para esses nós de trabalho. O `default_node_pool record` inclui o número de nós de trabalho a serem criados e o tipo de nós de trabalho. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
 
 1. Salve o arquivo ( **&lt;ctrl > S**) e saia do editor ( **&lt;CTRL > Q**).
 
@@ -289,7 +287,7 @@ Nesta seção, você verá como executar as seguintes tarefas:
 
     ![Menu de conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Anote o valor **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor da **chave** key1. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 

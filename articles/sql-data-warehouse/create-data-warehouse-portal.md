@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457805"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: criar e consultar uma SQL Data Warehouse do Azure no portal do Azure
 
@@ -33,11 +33,11 @@ Transfira e instale a versão mais recente do [SQL Server Management Studio](/sq
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
 
-Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-logical-servers.md). 
+Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-logical-servers.md). 
 
 Siga estas etapas para criar um SQL Data Warehouse que contém os dados de exemplo AdventureWorksDW. 
 
@@ -124,7 +124,7 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **SQL data warehouses** no menu à esquerda e clique em seu data warehouse na página **SQL data warehouses** .
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é mynewserver-20180430.database.windows.net.
 

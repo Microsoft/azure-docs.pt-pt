@@ -1,5 +1,5 @@
 ---
-title: Migrar do serviço de controle de acesso do AD do Azure para SAS
+title: Barramento de serviço do Azure – migrar para autorização de assinatura de acesso compartilhado
 description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fe0acedeb65f010f9af2ea55cd37e6fe3046d989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462156"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Barramento de serviço-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
-Os aplicativos do barramento de serviço tinham anteriormente a opção de usar dois modelos de autorização diferentes: o modelo de token [SAS (assinatura de acesso compartilhado)](service-bus-sas.md) fornecido diretamente pelo barramento de serviço e um modelo federado em que o gerenciamento de regras de autorização é gerenciados dentro do, o ACS (serviço de controle de acesso) [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para o barramento de serviço para autorizar o acesso aos recursos desejados.
+Os aplicativos do barramento de serviço tinham uma opção de usar dois modelos de autorização diferentes: o modelo de token [SAS (assinatura de acesso compartilhado)](service-bus-sas.md) fornecido diretamente pelo barramento de serviço e um modelo federado em que o gerenciamento de regras de autorização é gerenciado pelo serviço de controle de acesso (ACS) [Azure Active Directory](/azure/active-directory/) e tokens obtidos do ACS são passados para o barramento de serviço para autorizar o acesso aos recursos deseja
 
 O modelo de autorização do ACS foi substituído por uma [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferencial, e toda a documentação, orientação e exemplos usam exclusivamente SAS atualmente. Além disso, não é mais possível criar novos namespaces do barramento de serviço emparelhados com o ACS.
 
@@ -47,13 +47,13 @@ Para obter assistência com a migração de conjuntos de regras complexas, você
 
 ### <a name="unchanged-defaults"></a>Padrões inalterados
 
-Se seu aplicativo não tiver alterado os padrões do ACS, você poderá substituir todo o uso de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) por um objeto [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) e usar o namespace pré-configurado **RootManageSharedAccessKey** em vez disso da conta do **proprietário** do ACS. Observe que, mesmo com a conta do **proprietário** do ACS, essa configuração foi (e ainda), geralmente não é recomendada, porque essa conta/regra fornece autoridade de gerenciamento completa sobre o namespace, incluindo a permissão para excluir qualquer entidade.
+Se o seu aplicativo não tiver alterado os padrões do ACS, você poderá substituir todo o uso de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) por um objeto [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) e usar o namespace pré-configurado **RootManageSharedAccessKey** em vez da conta do **proprietário** do ACS. Observe que, mesmo com a conta do **proprietário** do ACS, essa configuração foi (e ainda), geralmente não é recomendada, porque essa conta/regra fornece autoridade de gerenciamento completa sobre o namespace, incluindo a permissão para excluir qualquer entidade.
 
 ### <a name="simple-rules"></a>Regras simples
 
 Se o aplicativo usar identidades de serviço personalizadas com regras simples, a migração será simples no caso em que uma identidade de serviço do ACS foi criada para fornecer controle de acesso em uma fila específica. Esse cenário geralmente é o caso em soluções em estilo SaaS em que cada fila é usada como uma ponte para um site de locatário ou filial, e a identidade do serviço é criada para esse site específico. Nesse caso, a respectiva identidade de serviço pode ser migrada para uma regra de assinatura de acesso compartilhado, diretamente na fila. O nome da identidade do serviço pode se tornar o nome da regra SAS e a chave de identidade do serviço pode se tornar a chave de regra SAS. Os direitos da regra de SAS são então configurados equivalentes à regra do ACS aplicável para a entidade.
 
-Você pode fazer essa configuração nova e adicional de SAS in-loco em qualquer namespace existente que seja federado com o ACS, e a migração para fora do ACS é executada posteriormente usando [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) em vez de [ SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). O namespace não precisa ser desvinculado do ACS.
+Você pode fazer essa configuração nova e adicional de SAS in-loco em qualquer namespace existente que seja federado com o ACS, e a migração para fora do ACS é executada posteriormente usando [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) em vez de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). O namespace não precisa ser desvinculado do ACS.
 
 ### <a name="complex-rules"></a>Regras complexas
 

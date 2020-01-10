@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457009"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar Key Vault ao seu aplicativo Web usando os serviços conectados do Visual Studio
 
@@ -26,7 +26,7 @@ Para obter detalhes sobre as alterações que os serviços conectados fazem em s
 
 - **Uma subscrição do Azure**. Se você não tiver uma assinatura, Inscreva-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 versão 16,3** ou posterior ou **visual studio 2017 versão 15,7** com a carga de trabalho de **desenvolvimento da Web** instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- Para ASP.NET (não núcleo) com o Visual Studio 2017, você precisa das ferramentas de desenvolvimento .NET Framework 4.7.1 ou posterior, que não são instaladas por padrão. Para instalá-los, inicie o Instalador do Visual Studio, escolha **Modificar**e, em seguida, escolha **componentes individuais**, no lado direito, expanda **ASP.net e desenvolvimento**para a Web e escolha **.NET Framework as ferramentas de desenvolvimento do 4.7.1** .
+- Para ASP.NET (não núcleo) com o Visual Studio 2017, você precisa das ferramentas de desenvolvimento .NET Framework 4.7.1 ou posterior, que não são instaladas por padrão. Para instalá-los, inicie o Instalador do Visual Studio, escolha **Modificar**e, em seguida, escolha **componentes individuais**, no lado direito, expanda **ASP.net e desenvolvimento**para a Web e escolha **.NET Framework as ferramentas de desenvolvimento do 4.7.1**.
 - Um ASP.NET 4.7.1 ou posterior, ou ASP.NET Core o projeto Web 2,0 ou posterior aberto.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Adicionar suporte de Key Vault ao seu projeto
@@ -112,7 +112,7 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. Em seguida, abra um dos arquivos de paginação, como *index.cshtml.cs* e escreva o seguinte código:
@@ -176,7 +176,7 @@ Você pode configurar a configuração para que o arquivo Web. config tenha um v
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos. Isso exclui a Key Vault e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando já não necessitar, elimine o grupo de recursos. Isso exclui a Key Vault e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.

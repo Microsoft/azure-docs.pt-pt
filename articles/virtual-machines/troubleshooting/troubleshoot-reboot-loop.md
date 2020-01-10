@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 3fd0a8bf6bacfec5e2be6dfa52ca51e46c7025f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443588"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop de reinicialização do Windows em uma VM do Azure
 Este artigo descreve o loop de reinicialização que você pode experimentar em uma VM (máquina virtual) do Windows no Microsoft Azure.
@@ -62,7 +62,7 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 
 4. Na VM de resgate, abra o editor do registro do Windows (regedit).
 
-5. Selecione a chave **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
+5. Selecione a chave de **HKEY_LOCAL_MACHINE** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
 6. Navegue até o arquivo do sistema na pasta **\Windows\System32\config**
 
@@ -86,7 +86,7 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. Selecione a chave **BROKENSYSTEM** e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
+13. Selecione a chave **BROKENSYSTEM** e, em seguida, selecione **arquivo** > **Descarregar Hive** no menu.
 
 14. Desanexe o disco do sistema operacional da VM de solução de problemas.
 

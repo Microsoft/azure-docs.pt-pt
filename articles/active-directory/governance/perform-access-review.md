@@ -1,5 +1,5 @@
 ---
-title: Examinar o acesso a grupos ou aplicativos nas revisões de acesso-Azure Active Directory | Microsoft Docs
+title: Examinar o acesso a grupos & aplicativos em revisões de acesso – Azure AD
 description: Saiba como revisar o acesso de membros do grupo ou acesso ao aplicativo em Azure Active Directory revisões de acesso.
 services: active-directory
 author: msaburnley
@@ -15,14 +15,14 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 8393a1e4719137aa09233d0a87dabdf81d8ccb59
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422462"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure AD
+# <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos e aplicativos nas revisões de acesso do Azure AD
 
 O Azure Active Directory (AD do Azure) simplifica como as empresas gerenciam o acesso a grupos e aplicativos no Azure AD e outros serviços online da Microsoft com um recurso chamado revisões de acesso do Azure AD.
 

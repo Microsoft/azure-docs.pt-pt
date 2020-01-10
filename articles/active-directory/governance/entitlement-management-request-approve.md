@@ -1,5 +1,5 @@
 ---
-title: Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Aprovar ou negar solicitações de acesso-gerenciamento de direitos do Azure AD
 description: Saiba como usar o portal meu acesso para aprovar ou negar solicitações a um pacote do Access no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422524"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD
 

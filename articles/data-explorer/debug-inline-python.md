@@ -7,16 +7,16 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: f0bf81ce6392e1650d9986d81a55eac9c416c24d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74822906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444459"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Depurar Python embutido em linguagem de consulta Kusto usando o VS Code
 
-O Azure Data Explorer dá suporte à execução de código Python inserido na linguagem de consulta Kusto usando o [plug-in Python ()](/azure/kusto/query/pythonplugin). O tempo de execução do plug-in é hospedado em uma área restrita, um ambiente Python seguro e isolado. O recurso de plug-in Python () estende as funcionalidades nativas da linguagem de consulta Kusto com o enorme arquivo de pacotes python do OSS. Essa extensão permite que você execute algoritmos avançados, como aprendizado de máquina, inteligência artificial, estatística e série temporal, como parte da consulta.
+O Azure Data Explorer dá suporte à execução de código Python inserido na linguagem de consulta Kusto usando o [plug-in Python ()](/azure/kusto/query/pythonplugin). O tempo de execução do plug-in é hospedado em uma área restrita, um ambiente Python seguro e isolado. O recurso de plug-in Python () estende as funcionalidades nativas da linguagem de consulta Kusto com o enorme arquivo de pacotes python do OSS. Essa extensão permite que você execute algoritmos avançados, como aprendizado de máquina, inteligência artificial, estatística e série temporal como parte da consulta.
 
 As ferramentas de linguagem de consulta Kusto não são convenientes para desenvolver e depurar algoritmos de Python. Portanto, desenvolva o algoritmo em seu ambiente favorito de desenvolvimento integrado do Python, como Jupyter, PyCharm, VS ou VS Code. Quando o algoritmo for concluído, copie e cole em KQL. Para melhorar e simplificar esse fluxo de trabalho, o Azure Data Explorer dá suporte à integração entre o Kusto Explorer ou os clientes de interface do usuário da Web e VS Code para a criação e a depuração de código Python embutido no KQL. 
 

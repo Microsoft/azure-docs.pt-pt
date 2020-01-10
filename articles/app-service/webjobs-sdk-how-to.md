@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421955"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para processamento em segundo plano controlado por eventos
 
@@ -84,7 +84,7 @@ O processo para habilitar o modo de desenvolvimento depende da versão do SDK.
 Versão 3. *x* usa as APIs de ASP.NET Core padrão. Chame o método [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) na instância de [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) . Passe uma cadeia de caracteres chamada `development`, como neste exemplo:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -236,7 +236,7 @@ O processo de instalação e gerenciamento de tipos de associação depende se v
 Na versão 3. *x*, as associações de armazenamento são incluídas no pacote de `Microsoft.Azure.WebJobs.Extensions.Storage`. Chame o método de extensão `AddAzureStorage` no método `ConfigureWebJobs`, como mostrado aqui:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 Para usar outros tipos de gatilho e de associação, instale o pacote NuGet que os contém e chame o método de extensão `Add<binding>` implementado na extensão. Por exemplo, se você quiser usar uma associação de Azure Cosmos DB, instale `Microsoft.Azure.WebJobs.Extensions.CosmosDB` e chame `AddCosmosDB`, desta forma:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -318,7 +318,7 @@ O processo de associação ao [`ExecutionContext`] depende da versão do SDK.
 Chame o método de extensão `AddExecutionContextBinding` no método `ConfigureWebJobs`, como mostrado aqui:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ Você pode configurar as seguintes associações:
 Este exemplo mostra como configurar o gatilho de Azure Cosmos DB:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ Para obter mais detalhes, consulte o artigo [Associação de CosmosDB do Azure](
 Este exemplo mostra como configurar o gatilho de hubs de eventos:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ Estes exemplos mostram como configurar o gatilho de armazenamento de filas:
 #### <a name="version-3x"></a>Versão 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ Para obter mais detalhes, consulte a [referência de host. JSON v1. x](../azure-
 Este exemplo mostra como configurar a associação de saída SendGrid:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ Para obter mais detalhes, consulte o artigo [Associação de SendGrid](../azure-
 Este exemplo mostra como configurar o gatilho do barramento de serviço:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ Alguns tipos de gatilho e de associação definem seus próprios tipos de config
 #### <a name="version-3x"></a>Versão 3. *x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -571,7 +565,7 @@ static void Main()
 }
 ```
 
-## <a name="binding-expressions"></a>Expressões de associação
+## <a name="binding-expressions"></a>Expressões de enlace
 
 Em parâmetros de construtor de atributo, você pode usar expressões que resolvem valores de várias fontes. Por exemplo, no código a seguir, o caminho para o atributo `BlobTrigger` cria uma expressão chamada `filename`. Quando usado para a associação de saída, `filename` resolve para o nome do blob de gatilho.
 
@@ -745,13 +739,13 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### <a name="singletonmodelistener"></a>Singletonmode. Listener
+### <a name="singletonmodelistener"></a>SingletonMode.Listener
 
 Alguns gatilhos têm suporte interno para gerenciamento de simultaneidade:
 
 * **QueueTrigger**. Defina `JobHostConfiguration.Queues.BatchSize` como `1`.
 * **ServiceBusTrigger**. Defina `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` como `1`.
-* **Gatilho de filetrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
+* **FileTrigger**. Defina `FileProcessor.MaxDegreeOfParallelism` como `1`.
 
 Você pode usar essas configurações para garantir que sua função seja executada como um singleton em uma única instância. Para garantir que apenas uma única instância da função esteja em execução quando o aplicativo Web é dimensionado para várias instâncias, aplique um bloqueio singleton no nível do ouvinte na função (`[Singleton(Mode = SingletonMode.Listener)]`). Os bloqueios de ouvinte são adquiridos quando o JobHost é iniciado. Se três instâncias escaladas horizontalmente começarem ao mesmo tempo, apenas uma das instâncias adquirirá o bloqueio e apenas um ouvinte será iniciado.
 
@@ -775,7 +769,7 @@ public class WorkItem
 }
 ```
 
-### <a name="singletonscopehost"></a>SingletonScope. host
+### <a name="singletonscopehost"></a>SingletonScope.Host
 
 O escopo padrão de um bloqueio é `SingletonScope.Function`, o que significa que o escopo de bloqueio (o caminho de concessão de BLOB) está vinculado ao nome da função totalmente qualificada. Para bloquear entre funções, especifique `SingletonScope.Host` e use um nome de ID de escopo que seja o mesmo em todas as funções que você não deseja executar simultaneamente. No exemplo a seguir, apenas uma instância de `AddItem` ou `RemoveItem` é executada por vez:
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Chame [`ConfigureServices`] no construtor para adicionar o [`ITelemetryInitializer`] personalizado ao pipeline.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -1004,9 +997,9 @@ config.LoggerFactory = new LoggerFactory()
 
 Este artigo fornece trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de trabalhos Web. Para obter exemplos completos, consulte [Azure-webjobs-SDK-Samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
-[ExecutionContext]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [TelemetryClient]: /dotnet/api/microsoft.applicationinsights.telemetryclient
-[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [ITelemetryInitializer]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-[TelemetryConfiguration]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

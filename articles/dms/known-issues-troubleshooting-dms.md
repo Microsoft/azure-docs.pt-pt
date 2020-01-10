@@ -1,5 +1,5 @@
 ---
-title: Artigo sobre solução de problemas conhecidos/erros comuns associados ao uso do serviço de migração de banco de dados do Azure | Microsoft Docs
+title: Problemas comuns-serviço de migração de banco de dados do Azure
 description: Saiba mais sobre como solucionar problemas comuns/erros conhecidos associados ao uso do serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
@@ -8,15 +8,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5bed7935f673ef824037cb5641ac8e8577fee550
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437779"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas e erros comuns do serviço de migração de banco de dados do Azure
 
@@ -34,7 +34,7 @@ Quando você cria novas atividades em um projeto de serviço de migração de ba
 
 O seguinte erro ocorre ao criar uma atividade para um projeto de migração de banco de dados para mover para o banco de dados SQL do Azure ou uma instância gerenciada do banco de dados SQL do Azure:
 
-* **Erro**: Erro de validação das configurações de migração "," errorDetail ":" mais do que o número máximo de objetos ' 4 ' de ' bancos de dados ' foi selecionado para migração. "
+* **Erro**: erro de validação das configurações de migração "," errorDetail ":" mais do que o número máximo de objetos ' 4 ' de ' bancos de dados ' foi selecionado para migração. "
 
 | Causa         | Resolução |
 | ------------- | ------------- |
@@ -44,27 +44,27 @@ O seguinte erro ocorre ao criar uma atividade para um projeto de migração de b
 
 Quando você migra do MySQL para o banco de dados do Azure para MySQL usando o serviço de migração de banco de dados do Azure, a atividade de migração falha com o seguinte erro:
 
-* **Erro**: Erro de migração de banco de dados-a tarefa ' TaskId ' foi suspensa devido a [n] falhas de recuperação sucessivas.
+* **Erro**: erro de migração de banco de dados-a tarefa ' TaskId ' foi suspensa devido a [n] falhas de recuperação sucessivas.
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Esse erro pode ocorrer quando o usuário que está fazendo a migração não tem a função ReplicationAdmin e/ou privilégios de cliente de replicação, réplica de replicação e SUPER (versões anteriores ao MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Verifique se os [privilégios de pré-requisito](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de usuário estão configurados com precisão na instância do banco de dados do Azure para MySQL. Por exemplo, as etapas a seguir podem ser seguidas para criar um usuário chamado ' Migrateuser ' com os privilégios necessários:<br>1. CRIAR usuário Migrateuser @ '% ' identificado por ' Secret '; <br>2. Conceder todos os privilégios em db_name. * para ' Migrateuser ' @ '% ' identificado por ' Secret '; Repita esta etapa para conceder acesso a mais bancos de dados <br>3. Conceda a replicação subordinada em *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>4. Conceder cliente de replicação em *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>5. Liberar privilégios; |
+| Esse erro pode ocorrer quando o usuário que está fazendo a migração não tem a função ReplicationAdmin e/ou privilégios de cliente de replicação, réplica de replicação e SUPER (versões anteriores ao MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Verifique se os [privilégios de pré-requisito](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para a conta de usuário estão configurados com precisão na instância do banco de dados do Azure para MySQL. Por exemplo, as etapas a seguir podem ser seguidas para criar um usuário chamado ' Migrateuser ' com os privilégios necessários:<br>1. criar migrateuser@ de usuário '% ' identificado por ' Secret '; <br>2. conceder todos os privilégios em db_name. * para ' Migrateuser ' @ '% ' identificado por ' Secret '; Repita esta etapa para conceder acesso a mais bancos de dados <br>3. conceda a replicação subordinada em *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>4. conceda o cliente de replicação no *.* para ' Migrateuser ' @ '% ' identificado por ' Secret ';<br>5. liberar privilégios; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erro ao tentar parar o serviço de migração de banco de dados do Azure
 
 Você recebe o seguinte erro ao interromper a instância do serviço de migração de banco de dados do Azure:
 
-* **Erro**: Falha ao parar o serviço. Erro: {'error':{'code':'InvalidRequest','message':'Uma ou mais atividades estão atualmente a ser executadas. Para interromper o serviço, aguarde até que as atividades sejam concluídas ou interrompa as atividades manualmente e tente novamente. '}}
+* **Erro**: falha ao interromper o serviço. Erro: {'error':{'code':'InvalidRequest','message':'Uma ou mais atividades estão atualmente a ser executadas. Para interromper o serviço, aguarde até que as atividades sejam concluídas ou interrompa as atividades manualmente e tente novamente. '}}
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Esse erro é exibido quando a instância de serviço que você está tentando parar inclui atividades que ainda estão em execução ou estão presentes em projetos de migração. <br><br><br><br><br><br> | Verifique se não há atividades em execução na instância do serviço de migração de banco de dados do Azure que você está tentando parar. Você também pode excluir as atividades ou projetos antes de tentar interromper o serviço. As etapas a seguir ilustram como remover projetos para limpar a instância do serviço de migração excluindo todas as tarefas em execução:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-subscriptionname "\<subname >" <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName >-ResourceGroupName \< \<rgName >-ServiceName ServiceName >-DeleteRunningTask |
+| Esse erro é exibido quando a instância de serviço que você está tentando parar inclui atividades que ainda estão em execução ou estão presentes em projetos de migração. <br><br><br><br><br><br> | Verifique se não há atividades em execução na instância do serviço de migração de banco de dados do Azure que você está tentando parar. Você também pode excluir as atividades ou projetos antes de tentar interromper o serviço. As etapas a seguir ilustram como remover projetos para limpar a instância do serviço de migração excluindo todas as tarefas em execução:<br>1. Install-Module-Name AzureRM. datamigration <br>2. login-AzureRmAccount <br>3. Select-AzureRmSubscription-Subscriptionname "\<subname >" <br> 4. Remove-AzureRmDataMigrationProject-Name \<projectName >-ResourceGroupName \<rgName >-ServiceName \<ServiceName >-DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Erro ao tentar iniciar o serviço de migração de banco de dados do Azure
 
 Você recebe o seguinte erro ao iniciar a instância do serviço de migração de banco de dados do Azure:
 
-* **Erro**: Falha ao iniciar o serviço. Erro: {' errorDetail ': ' falha ao iniciar o serviço, contate o suporte da Microsoft '}
+* **Erro**: falha ao iniciar o serviço. Erro: {' errorDetail ': ' falha ao iniciar o serviço, contate o suporte da Microsoft '}
 
 | Causa         | Resolução |
 | ------------- | ------------- |
@@ -74,21 +74,21 @@ Você recebe o seguinte erro ao iniciar a instância do serviço de migração d
 
 Quando você executa uma migração online do SQL Server para uma instância gerenciada do banco de dados SQL do Azure, a transferência falha com o seguinte erro:
 
-* **Erro**: Falha na operação de restauração da ID da operação ' operationId '. O código ' AuthorizationFailed ', mensagem ' o cliente ' clientId ' com a ID de objeto ' objectId ' não tem autorização para executar a ação ' Microsoft. SQL/Locations/managedDatabaseRestoreAzureAsyncOperation/Read ' sobre o escopo '/subscriptions/ SubscriptionId '. '.
+* **Erro**: falha na operação de restauração da ID da operação ' operationId '. O código ' AuthorizationFailed ', mensagem ' o cliente ' clientId ' com a ID de objeto ' objectId ' não tem autorização para executar a ação ' Microsoft. SQL/Locations/managedDatabaseRestoreAzureAsyncOperation/Read ' sobre o escopo '/subscriptions/subscriptionId '. '.
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Esse erro indica que a entidade de segurança de aplicativo que está sendo usada para migração online do SQL Server para uma instância gerenciada do banco de dados SQL do Azure não tem permissão de colaboração na assinatura. Determinadas chamadas à API com Instância Gerenciada no momento exigem essa permissão na assinatura para a operação de restauração. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use o `Get-AzureADServicePrincipal` cmdlet do PowerShell `-ObjectId` com disponível na mensagem de erro para listar o nome de exibição da ID do aplicativo que está sendo usada.<br><br> Valide as permissões para esse aplicativo e verifique se ele tem a [função de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) no nível da assinatura. <br><br> A equipe de engenharia do serviço de migração de banco de dados do Azure está trabalhando para restringir o acesso necessário da função atual do Contribute na assinatura. Se você tiver um requisito de negócios que não permita o uso da função do Contribute, entre em contato com o suporte do Azure para obter ajuda adicional. |
+| Esse erro indica que a entidade de segurança de aplicativo que está sendo usada para migração online do SQL Server para uma instância gerenciada do banco de dados SQL do Azure não tem permissão de colaboração na assinatura. Determinadas chamadas à API com Instância Gerenciada no momento exigem essa permissão na assinatura para a operação de restauração. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use o `Get-AzureADServicePrincipal` cmdlet do PowerShell com `-ObjectId` disponível na mensagem de erro para listar o nome de exibição da ID do aplicativo que está sendo usada.<br><br> Valide as permissões para esse aplicativo e verifique se ele tem a [função de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) no nível da assinatura. <br><br> A equipe de engenharia do serviço de migração de banco de dados do Azure está trabalhando para restringir o acesso necessário da função atual do Contribute na assinatura. Se você tiver um requisito de negócios que não permita o uso da função do Contribute, entre em contato com o suporte do Azure para obter ajuda adicional. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erro ao excluir a NIC associada ao serviço de migração de banco de dados do Azure
 
 Quando você tenta excluir uma placa de interface de rede associada ao serviço de migração de banco de dados do Azure, a tentativa de exclusão falha com esse erro:
 
-* **Erro**: Não é possível excluir a NIC associada ao serviço de migração de banco de dados do Azure devido ao serviço DMS utilizando a NIC
+* **Erro**: não é possível excluir a NIC associada ao serviço de migração de banco de dados do Azure devido ao serviço DMS utilizando a NIC
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
-| Esse problema ocorre quando a instância do serviço de migração de banco de dados do Azure ainda pode estar presente e consumindo a NIC. <br><br><br><br><br><br><br><br> | Para excluir essa NIC, exclua a instância do serviço DMS que exclui automaticamente a NIC usada pelo serviço.<br><br> **Importante**: Verifique se a instância do serviço de migração de banco de dados do Azure sendo excluída não tem atividades em execução.<br><br> Depois que todos os projetos e atividades associados à instância do serviço de migração de banco de dados do Azure forem excluídos, você poderá excluir a instância de serviço. A NIC usada pela instância de serviço é automaticamente limpa como parte da exclusão do serviço. |
+| Esse problema ocorre quando a instância do serviço de migração de banco de dados do Azure ainda pode estar presente e consumindo a NIC. <br><br><br><br><br><br><br><br> | Para excluir essa NIC, exclua a instância do serviço DMS que exclui automaticamente a NIC usada pelo serviço.<br><br> **Importante**: Verifique se a instância do serviço de migração de banco de dados do Azure que está sendo excluída não tem atividades em execução.<br><br> Depois que todos os projetos e atividades associados à instância do serviço de migração de banco de dados do Azure forem excluídos, você poderá excluir a instância de serviço. A NIC usada pela instância de serviço é automaticamente limpa como parte da exclusão do serviço. |
 
 ## <a name="connection-error-when-using-expressroute"></a>Erro de conexão ao usar o ExpressRoute
 
@@ -102,7 +102,7 @@ Quando tenta ligar à origem no assistente de projeto do serviço de Migração 
 
 Quando você migra um banco de dados MySQL para uma instância do banco de dados do Azure para MySQL por meio do serviço de migração de banco de dados do Azure, a migração falha com o erro de tempo limite de espera
 
-* **Erro**: Erro de migração de banco de dados-falha ao carregar o arquivo-falha ao iniciar o processo de carregamento para o arquivo ' n' RetCode: SQL_ERROR SqlState: NativeError HY000: 1205 mensagem: [MySQL] [driver ODBC] [mysqld] tempo limite de espera de bloqueio excedido; Tente reiniciar a transação
+* **Erro**: erro de migração de banco de dados-falha ao carregar arquivo-falha ao iniciar o processo de carregamento para o arquivo ' n ' RetCode: SQL_ERROR SQLSTATE: HY000 NativeError: 1205 mensagem: [mysql] [driver ODBC] [mysqld] tempo limite de espera de bloqueio excedido; Tente reiniciar a transação
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
@@ -112,7 +112,7 @@ Quando você migra um banco de dados MySQL para uma instância do banco de dados
 
 Quando você tenta conectar o serviço de migração de banco de dados do Azure para SQL Server fonte que é executada na instância nomeada ou em uma porta dinâmica, a conexão falha com esse erro:
 
-* **Erro**:-1-falha na conexão SQL. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas. operador Interfaces de rede do SQL, erro: 26-erro ao localizar o servidor/instância especificada)
+* **Erro**:-1-falha na conexão SQL. Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível. Verifique se o nome da instância está correto e se SQL Server está configurado para permitir conexões remotas. (provedor: interfaces de rede do SQL, erro: 26-erro ao localizar o servidor/instância especificado)
 
 | Causa         | Resolução    |
 | ------------- | ------------- |
@@ -124,7 +124,7 @@ Quando você tenta conectar o serviço de migração de banco de dados do Azure 
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
 * [Problemas conhecidos/limitações de migração com migrações online para o banco de dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Exiba o artigo [PowerShell do serviço de migração de banco de dados do Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
 * Exiba o artigo [como configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).

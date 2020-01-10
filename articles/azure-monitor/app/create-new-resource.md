@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432621"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
 Aplicativo Azure insights exibe dados sobre seu aplicativo em um *recurso*de Microsoft Azure. A criação de um novo recurso, portanto, faz parte da [configuração de Application insights para monitorar um novo aplicativo][start]. Depois de criar o novo recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK do Application Insights. A chave de instrumentação vincula sua telemetria ao recurso.
 
-## <a name="sign-in-to-microsoft-azure"></a>Entrar no Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>Iniciar sessão no Microsoft Azure
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 

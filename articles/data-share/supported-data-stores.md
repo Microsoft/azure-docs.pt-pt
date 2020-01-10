@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 762cea6dce3e0c6be3f5e977c5f9de806ca0880e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56103ed89d2e7813fd60bc50ecca7271f5421a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438694"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no compartilhamento de dados do Azure
 
@@ -26,25 +26,25 @@ A tabela abaixo detalha as fontes de dados com suporte para o compartilhamento d
 | Arquivo de dados | Compartilhamento baseado em instantâneo | Partilha no local 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure |✓ | |
-| Armazenamento do Azure Data Lake Ger1 |✓ | |
-| Armazenamento do Azure Data Lake Ger2 |✓ ||
-| Base de Dados SQL do Azure |Visualização pública | |
-| Azure SQL Data Warehouse |Visualização pública | |
-| Azure Data Explorer | |[Visualização limitada](https://aka.ms/azuredatasharepreviewsignup) |
+| Armazenamento Ger1 do Azure Data Lake |✓ | |
+| Ger2 de Armazenamento do Azure Data Lake |✓ ||
+| Base de Dados SQL do Azure |Pré-visualização pública | |
+| Análise do Azure Synapse (anteriormente Azure SQL DW) |Pré-visualização pública | |
+| Explorador de Dados do Azure | |[Visualização limitada](https://aka.ms/azuredatasharepreviewsignup) |
 
 ## <a name="data-store-support-matrix"></a>Matriz de suporte do armazenamento de dados
 
-O compartilhamento de dados do Azure oferece flexibilidade aos consumidores de dados ao decidir sobre um armazenamento de dados para aceitar dados no. Por exemplo, os dados que estão sendo compartilhados do banco de dados SQL do Azure podem ser recebidos em Azure Data Lake Store Gen2, banco de dados SQL do Azure ou SQL Data Warehouse do Azure. Os clientes podem escolher em qual formato receber dados ao configurar um compartilhamento de dados recebido. 
+O compartilhamento de dados do Azure oferece flexibilidade aos consumidores de dados ao decidir sobre um armazenamento de dados para aceitar dados no. Por exemplo, os dados que estão sendo compartilhados do banco de dados SQL do Azure podem ser recebidos em Azure Data Lake Store Gen2, banco de dados SQL do Azure ou Azure Synapse Analytics. Os clientes podem escolher em qual formato receber dados ao configurar um compartilhamento de dados recebido. 
 
 A tabela abaixo detalha combinações diferentes e escolhas que os consumidores de dados têm ao aceitar e configurar seu compartilhamento de dados. Para obter mais informações sobre como configurar mapeamentos de conjunto de dados, consulte [como configurar mapeamentos de conjunto](how-to-configure-mapping.md)de dados.
 
-|  | Armazenamento de Blobs do Azure | Gen1 SQL do Azure Data Lake | Gen2 SQL do Azure Data Lake | Base de Dados SQL do Azure | Azure SQL Data Warehouse 
+|  | Armazenamento de Blobs do Azure | Gen1 SQL do Azure Data Lake | Gen2 SQL do Azure Data Lake | Base de Dados SQL do Azure | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure |✓ ||✓|
-| Armazenamento do Azure Data Lake Ger1 |✓ | |✓|
-| Armazenamento do Azure Data Lake Ger2 |✓ | |✓|
+| Armazenamento Ger1 do Azure Data Lake |✓ | |✓|
+| Ger2 de Armazenamento do Azure Data Lake |✓ | |✓|
 | Base de Dados SQL do Azure |✓ | |✓|✓|✓|
-| Azure SQL Data Warehouse |✓ | |✓|✓|✓|
+| Azure Synapse Analytics |✓ | |✓|✓|✓|
 
 ## <a name="next-steps"></a>Passos seguintes
 

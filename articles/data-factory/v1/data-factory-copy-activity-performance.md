@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438927"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 
@@ -416,7 +416,8 @@ Neste caso, bzip2 compressão de dados pode ser mais lento todo o pipeline. Muda
 ## <a name="reference"></a>Referência
 Aqui estão as referências de monitoramento e ajuste de desempenho para alguns dos armazenamentos de dados com suporte:
 
-* O armazenamento do Azure (incluindo o armazenamento de BLOBs e armazenamento de tabelas): [metas de escalabilidade do armazenamento do Azure](../../storage/common/storage-scalability-targets.md) e [lista de verificação de armazenamento do Azure, desempenho e escalabilidade](../../storage/common/storage-performance-checklist.md)
+* Armazenamento de blob do Azure: [escalabilidade e metas de desempenho para armazenamento de BLOBs](../../storage/blobs/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de BLOBs](../../storage/blobs/storage-performance-checklist.md).
+* Armazenamento de tabelas do Azure: [escalabilidade e metas de desempenho para armazenamento de tabelas](../../storage/tables/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de tabelas](../../storage/tables/storage-performance-checklist.md).
 * Base de dados SQL do Azure: Pode [monitorizar o desempenho](../../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
 * O Azure SQL Data Warehouse: O seu recurso é medido em unidades do data warehouse (DWUs); consulte [gerir computação power no Azure SQL Data Warehouse (descrição geral)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../../cosmos-db/performance-levels.md)

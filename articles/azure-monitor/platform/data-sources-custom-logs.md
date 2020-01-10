@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450669"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados no Azure Monitor
 
@@ -52,7 +52,7 @@ O assistente de log personalizado é executado no portal do Azure e permite que 
 
 1. No portal do Azure, selecione **log Analytics espaços de trabalho** > seu espaço de trabalho > **Configurações avançadas**.
 2. Clique em **dados** > **logs personalizados**.
-3. Por padrão, todas as alterações de configuração são automaticamente enviadas para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
+3. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique em **Adicionar +** para abrir o assistente de log personalizado.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um log de exemplo
@@ -71,16 +71,16 @@ Se um delimitador de carimbo de data/hora for usado, a Propriedade TimeGenerated
 ### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos de coleção de logs
 Você deve definir um ou mais caminhos no agente onde ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log, ou pode especificar um caminho com um curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
 
-Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *log\*.txt* que se aplicaria a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
+Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *log\*. txt* , que se aplicaria a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar arquivos de log diferentes.
 
 | Descrição | Caminho |
 |:--- |:--- |
 | Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
-| Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\ log\*.txt |
-| Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/Audit/*. txt |
-| Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/log\*.txt |
+| Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\log\*.txt |
+| Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/audit/*.txt |
+| Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/Log\*. txt |
 
 1. Selecione Windows ou Linux para especificar o formato de caminho que você está adicionando.
 2. Digite o caminho e clique no botão **+** .
@@ -123,7 +123,7 @@ Os registros de log personalizados têm um tipo com o nome do log que você forn
 | TimeGenerated |Data e hora em que o registro foi coletado por Azure Monitor.  Se o log usar um delimitador baseado em tempo, esse será o tempo coletado da entrada. |
 | SourceSystem |Tipo de agente do qual o registro foi coletado. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux – todos os agentes do Linux |
 | RawData |Texto completo da entrada coletada. Provavelmente, você desejará [analisar esses dados em propriedades individuais](../log-query/parse-text.md). |
-| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, isso é AOI-\<ID do espaço de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemplo de explicação de como adicionar um log personalizado
@@ -148,7 +148,7 @@ Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo ser
 ### <a name="provide-a-name-and-description-for-the-log"></a>Forneça um nome e uma descrição para o log
 Usamos um nome de *MyApp_CL* e digitamos uma **Descrição**.
 
-![Nome do log](media/data-sources-custom-logs/log-name.png)
+![Nome do registo](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Validar que os logs personalizados estão sendo coletados
 Usamos uma consulta simples de *MyApp_CL* para retornar todos os registros do log coletado.
@@ -170,4 +170,4 @@ Nos casos em que os dados não podem ser coletados com logs personalizados, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte [analisar dados de texto em Azure monitor](../log-query/parse-text.md) para que os métodos analisem cada entrada de log importada em várias propriedades.
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

@@ -1,25 +1,16 @@
 ---
-title: Configurar seu cluster do Azure Service Fabric autônomo | Microsoft Docs
+title: Configurar o cluster autônomo do Azure Service Fabric
 description: Saiba como configurar seu cluster do Azure Service Fabric local ou autônomo.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458371"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo do Windows
 Este artigo descreve as definições de configuração de um cluster autônomo do Azure Service Fabric que pode ser definido no arquivo *ClusterConfig. JSON* . Você usará esse arquivo para especificar informações sobre os nós do cluster, as configurações de segurança, bem como a topologia de rede em termos de domínios de falha e atualização.  Depois de alterar ou adicionar definições de configuração, você pode [criar um cluster autônomo](service-fabric-cluster-creation-for-windows-server.md) ou [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -74,7 +65,7 @@ Um Cluster Service Fabric deve conter pelo menos três nós. Você pode adiciona
 | **Configuração de nó** | **Descrição** |
 | --- | --- |
 | nodeName |Você pode fornecer qualquer nome amigável para o nó. |
-| IP |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua-o à variável iPAddress. |
+| iPAddress |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua-o à variável iPAddress. |
 | nodeTypeRef |Cada nó pode ser atribuído a um tipo de nó diferente. Os [tipos de nó](#node-types) são definidos na seção a seguir. |
 | faultDomain |Os domínios de falha permitem que os administradores de cluster definam os nós físicos que podem falhar ao mesmo tempo devido a dependências físicas compartilhadas. |
 | upgradeDomain |Os domínios de atualização descrevem conjuntos de nós que são desligados para Service Fabric atualizações ao mesmo tempo. Você pode escolher quais nós atribuir a quais domínios de atualização, porque eles não são limitados por quaisquer requisitos físicos. |

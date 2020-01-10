@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452415"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -50,7 +50,7 @@ Esta seção mostrará como usar o PowerShell para criar o aplicativo Azure Acti
 >[!NOTE]
 >As permissões de API são área de trabalho virtual do Windows, Log Analytics e permissões de API Microsoft Graph são adicionadas ao aplicativo Azure Active Directory.
 
-1. Abra o PowerShell como administrador.
+1. Abra o PowerShell como Administrador.
 2. Entre no Azure com uma conta que tenha permissões de proprietário ou colaborador na assinatura do Azure que você gostaria de usar para a ferramenta de diagnóstico:
    ```powershell
    Login-AzAccount
@@ -256,3 +256,8 @@ Você também pode interagir com os usuários no host da sessão:
 - [Atraso de entrada do usuário por sessão (\*)\\atraso de entrada máximo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Limite: maior que 2000 MS é marcado como não íntegro.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba como monitorar logs de atividades em [usar diagnósticos com log Analytics](diagnostics-log-analytics.md).
+- Leia sobre cenários de erro comuns e como corrigi-los em [identificar e diagnosticar problemas](diagnostics-role-service.md).

@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script da CLI do Service Fabric - Atualizar uma aplicação num cluster
+title: Atualizar um aplicativo em um cluster no sfctl
 description: Exemplo de Script da CLI do Service Fabric - Atualizar uma aplicação com uma nova versão. Este exemplo também atualiza uma aplicação implementada com as novas partes.
 services: service-fabric
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: e925f4f7b4a3da2d298413feccc94ea742e47f6b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 34f2ae6f3a2ff3adc35794d6e7dfd682640c646b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034703"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614728"
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
+# <a name="update-an-application-using-the-service-fabric-cli"></a>Atualizar um aplicativo usando a CLI do Service Fabric
 
 Este script de exemplo carrega uma nova versão de uma aplicação existente e então atualiza uma aplicação implementada com as novas partes.
 

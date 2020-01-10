@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f6a0a2631c3f7458548a2ff435c3e565e744f41
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926270"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660222"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -71,7 +71,7 @@ O Load Balancer dá suporte a SKUs Basic e Standard. Essas SKUs diferem em escal
 A configuração completa do cenário pode variar ligeiramente dependendo do SKU. A documentação do Balanceador de Carga indica se um artigo se aplica apenas a um SKU específico. Para comparar e compreender as diferenças, veja a tabela seguinte. Para obter mais informações, consulte [visão geral do Azure Standard Load Balancer](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Standard Load Balancer Microsoft reccomends.
+> A Microsoft recomenda Standard Load Balancer.
 As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionamento de máquinas virtuais só podem ser ligados a um SKU, nunca a ambos. Load Balancer e o SKU do endereço IP público devem corresponder quando você os usa com endereços IP públicos. Load Balancer e SKUs de IP público não são mutáveis.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]

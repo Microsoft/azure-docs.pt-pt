@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 5ca45d772e3804dce4e27e5a6d4388acca4d1486
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ff9c123c0fecd26aba6ecbbda4a915d928b99f2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454726"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implantar Azure Machine Learning Studio espaço de trabalho (clássico) usando Azure Resource Manager
 
-O uso de um modelo de implantação Azure Resource Manager poupa tempo fornecendo uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento do Azure e, em seguida, implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo de Azure Resource Manager para implantar um espaço de trabalho do Studio (clássico) e todas as suas dependências. Este artigo orienta você passo a passo deste processo. Para obter uma ótima visão geral do Azure Resource Manager, consulte [Azure Resource Manager visão geral](../../azure-resource-manager/resource-group-overview.md).
+Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar os espaços de trabalho do Azure Machine Learning Studio (clássico), por exemplo, você precisa primeiro configurar uma conta de armazenamento do Azure e, em seguida, implantar seu espaço de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo de Azure Resource Manager para implantar um espaço de trabalho do Studio (clássico) e todas as suas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente descrição geral do Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Workspace do Machine Learning
-Criaremos um grupo de recursos do Azure e implantaremos uma nova conta de armazenamento do Azure e um novo espaço de trabalho Azure Machine Learning Studio (clássico) usando um modelo do Resource Manager. Depois que a implantação for concluída, vamos imprimir informações importantes sobre os espaços de trabalho que foram criados (a chave primária, o workspaceid e a URL para o espaço de trabalho).
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar uma área de trabalho do Machine Learning
+Criaremos um grupo de recursos do Azure e implantaremos uma nova conta de armazenamento do Azure e um novo espaço de trabalho Azure Machine Learning Studio (clássico) usando um modelo do Resource Manager. Assim que a implementação estiver concluída, iremos irá imprimir informações importantes sobre as áreas de trabalho que foram criados (a chave primária, o workspaceID e o URL para a área de trabalho).
 
-### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo de Azure Resource Manager
+### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
 
-Um Workspace do Machine Learning requer uma conta de armazenamento do Azure para armazenar o conjunto de um vinculado a ele.
-O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho.  Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
+Uma área de trabalho do Machine Learning requer uma conta de armazenamento do Azure para armazenar o conjunto de dados ligado ao mesmo.
+O modelo seguinte utiliza o nome do grupo de recursos para gerar o nome de conta de armazenamento e o nome de área de trabalho.  Ele também usa o nome da conta de armazenamento como uma propriedade ao criar a área de trabalho.
 
 ```json
 {
@@ -76,12 +76,12 @@ O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de 
 }
 
 ```
-Salve este modelo como arquivo mlworkspace. JSON em c:\Temp\.
+Guarde este modelo como ficheiro mlworkspace.json em c:\temp\.
 
-### <a name="deploy-the-resource-group-based-on-the-template"></a>Implantar o grupo de recursos, com base no modelo
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Implementar o grupo de recursos, com base no modelo
 
 * Abrir o PowerShell
-* Instalar módulos para Azure Resource Manager e gerenciamento de serviços do Azure
+* Instalar módulos para o Azure Resource Manager e gestão de serviço do Azure
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -91,15 +91,15 @@ Install-Module Az -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Estas etapas baixam e instalam os módulos necessários para concluir as etapas restantes. Isso só precisa ser feito uma vez no ambiente em que você está executando os comandos do PowerShell.
+   Estes passos transferirem e instalar os módulos necessários para concluir os passos restantes. Só precisa ser feito uma vez no ambiente em que está a executar os comandos do PowerShell.
 
-* Autenticar no Azure
+* Autenticar para o Azure
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzAccount
 ```
-Esta etapa precisa ser repetida para cada sessão. Depois de autenticado, as informações de sua assinatura devem ser exibidas.
+Este passo tem de ser repetido para cada sessão. Uma vez autenticado, deverá ser apresentadas informações da sua subscrição.
 
 ![Conta do Azure](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
@@ -112,26 +112,26 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verifique se o grupo de recursos está provisionado corretamente. **ProvisioningState** deve ser "Succeeded".
-O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e usar apenas números e letras minúsculas.
+Certifique-se de que o grupo de recursos está aprovisionado corretamente. **ProvisioningState** deve ser "com êxito."
+O nome do grupo de recursos é utilizado pelo modelo para gerar o nome de conta de armazenamento. O nome da conta de armazenamento tem de ter entre 3 e 24 carateres de comprimento e utilizar números e letras minúsculas apenas.
 
 ![Grupo de Recursos](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
-* Usando a implantação do grupo de recursos, implante um novo Workspace do Machine Learning.
+* Ao utilizar a implementação do grupo de recursos, implemente uma nova área de trabalho do Machine Learning.
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Após a conclusão da implantação, é simples acessar as propriedades do espaço de trabalho implantado. Por exemplo, você pode acessar o token de chave primária.
+Depois de concluída a implementação, é simples para propriedades de acesso da área de trabalho que implementou. Por exemplo, pode acessar o Token de chave primária.
 
 ```powershell
 # Access Azure Machine Learning Studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Outra maneira de recuperar Tokens do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, você pode listar os tokens primários e secundários de todos os espaços de trabalho.
+Outra maneira de recuperar Tokens do espaço de trabalho existente é usar o comando Invoke-AzResourceAction. Por exemplo, pode listar os tokens primários e secundários de todas as áreas de trabalho.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
@@ -141,9 +141,9 @@ Depois que o espaço de trabalho for provisionado, você também poderá automat
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a [criação de modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
-* Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
-* Assista a este vídeo sobre [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+* Saiba mais sobre [criar modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
+* Veja a [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+* Assista a este vídeo sobre [do Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * Consulte a [ajuda de referência do modelo do Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

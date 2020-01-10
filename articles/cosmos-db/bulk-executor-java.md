@@ -1,6 +1,6 @@
 ---
-title: Usando a biblioteca de Java do executor em massa para efetuar a importação em massa e atualizar operações no Azure Cosmos DB
-description: Em massa importar e atualizar documentos do Azure Cosmos DB com a biblioteca de Java do executor em massa.
+title: Usar a biblioteca Java do executor em massa no Azure Cosmos DB para executar operações de importação e atualização em massa
+description: Importação e atualização em massa de Azure Cosmos DB documentos usando a biblioteca Java do executor em massa
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445714"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca de Java do executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Atualmente, a biblioteca de executores em massa tem suporte apenas por Azure Cos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou, você pode usar o [emulador](https://docs.microsoft.com/azure/cosmos-db/local-emulator) de Azure Cosmos DB `https://localhost:8081` com o ponto de extremidade. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
+* Você pode [tentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem custos e compromissos. Ou, você pode usar o [emulador Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade `https://localhost:8081`. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
@@ -118,7 +118,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |Int getNumberOfDocumentsImported()  |   O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.      |
    |getTotalRequestUnitsConsumed() duplo   |  As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.       |
    |Duração getTotalTimeTaken()   |    O tempo total que a importação em massa chamada à API para concluir a execução.     |
-   |Listar\<exceção > GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
+   |Lista\<exceção > GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
    |Listar\<objeto > getBadInputDocuments ()  |    A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter a maior parte importar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
@@ -182,7 +182,7 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
    |Int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizadas com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |getTotalRequestUnitsConsumed() duplo |  As unidades de total do pedido (RU) consumidos pela atualização em massa, chamada de API.       |
    |Duração getTotalTimeTaken()  |   O tempo total que a maior parte chamada à API para concluir a execução de atualização.      |
-   |Listar\<exceção > GetErrors ()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
+   |Lista\<exceção > GetErrors ()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
 
 3. Depois de ter a maior parte atualizar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
 
@@ -211,7 +211,7 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
 * Uma vez que uma execução de API de operação em massa única consome uma grande parte de e/s da CPU e da rede de máquina cliente. Isso acontece por gerar várias tarefas internamente, evite ao gerar várias tarefas em simultâneo em seu processo de aplicativo que chama cada API de operação em massa em execução. Se uma chamada de API de operação em massa única em execução numa única máquina virtual não é possível consumir o débito do contentor inteiro (se. o débito > 1 o contentor milhão RU/s), é preferível para criar máquinas virtuais separadas para executar simultaneamente em massa chamadas de operação de API.
 
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre os detalhes do pacote maven e notas da biblioteca de Java do executor em massa de versão, consulte[em massa detalhes sobre o SDK executor](sql-api-sdk-bulk-executor-java.md).
 
 

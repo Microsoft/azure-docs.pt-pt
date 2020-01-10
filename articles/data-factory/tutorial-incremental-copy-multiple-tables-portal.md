@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439301"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 
@@ -28,14 +28,14 @@ Vai executar os seguintes passos neste tutorial:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criar um integration runtime autoalojado.
-> * Instalou o integration runtime. 
+> * Instalar o integration runtime. 
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Crie conjuntos de dados de origem, de sink e de marca d'água.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
-> * Rever os resultados finais.
+> * Reviu os resultados finais.
 
 ## <a name="overview"></a>Visão geral
 Eis os passos importantes para criar esta solução: 
@@ -46,7 +46,7 @@ Eis os passos importantes para criar esta solução:
 
 1. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.   
     
-    Neste tutorial, vai armazenar o valor de limite superior numa base de dados SQL.
+    Neste tutorial, vai armazenar o valor de marca d'água numa base de dados SQL.
 
 1. **Criar um pipeline com as seguintes atividades:** 
     
@@ -54,11 +54,11 @@ Eis os passos importantes para criar esta solução:
 
     b. Criar duas atividades de pesquisa. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy.
 
-    c. Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para o armazenamento de Blobs do Azure como um ficheiro novo.
+    c. Criar uma atividade Cópia que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para o armazenamento de Blobs do Azure como um ficheiro novo.
 
     d. Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
-    Eis o diagrama da solução de alto nível: 
+    Eis o diagrama de nível elevado da solução: 
 
     ![Carregar dados de forma incremental](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
@@ -67,7 +67,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **SQL Server**. Neste tutorial, vai utilizar uma base de dados do SQL Server no local como o arquivo de dados de origem. 
-* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja [Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para seguir os passos para criar uma. 
+* **Base de Dados SQL do Azure**. Vai ulizar uma base de dados SQL como o arquivo de dados de sink. Se não tiver uma base de dados SQL, veja[Criar uma base de dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para obter os passos para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
@@ -246,7 +246,7 @@ END
      
     - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
     - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
-    Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+    Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
 7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 8. Clique em **Criar**.      
@@ -356,7 +356,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
    ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
-### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para um limite de tamanho
+### <a name="create-a-dataset-for-a-watermark"></a>Criar um conjunto de dados para uma marca d'água
 Neste passo, vai criar um conjunto de dados para armazenar um valor de limite superior de tamanho. 
 
 1. No painel esquerdo, clique em **+ (mais)** e clique em **Conjunto de Dados**.
@@ -674,14 +674,14 @@ Neste tutorial, executou os passos seguintes:
 > * Prepare os arquivos de dados de origem e de destino.
 > * Criar uma fábrica de dados.
 > * Criou um integration runtime autoalojado (IR).
-> * Instalou o integration runtime.
+> * Instalar o integration runtime.
 > * Criar serviços ligados. 
-> * Crie conjuntos de dados de origem, de sink e de limite de tamanho.
+> * Crie conjuntos de dados de origem, de sink e de marca d'água.
 > * Criar, executar e monitorizar um pipeline.
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
-> * Rever os resultados finais.
+> * Reviu os resultados finais.
 
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 

@@ -5,13 +5,13 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: 2be21b20c394ae8505ad18f2c411db7aab06215f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 12/29/2019
+ms.openlocfilehash: 49fea7d568e356169f8bbf0dfd1f4ce5c80a7223
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74694006"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690329"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: monitorar recursos de nuvem Spring usando alertas e grupos de ações
 
@@ -26,7 +26,7 @@ Além dos requisitos do Azure Spring, este tutorial depende dos recursos a segui
 
 * Uma instância do Azure Spring Cloud implantada.  Siga nosso [início rápido](spring-cloud-quickstart-launch-app-cli.md) para começar.
 
-* Um recurso do Azure para monitorar, por exemplo, o banco de dados implementado neste artigo: [como usar o Spring Data API do Apache Cassandra com Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* Um recurso do Azure para monitorar. Este exemplo monitora uma instância do Spring Cloud.
  
 Os procedimentos a seguir inicializam o **grupo de ações** e o **alerta** a partir da opção **alertas** no painel de navegação esquerdo de uma instância do Spring Cloud. (O procedimento também pode ser iniciado na página **visão geral do monitor** do portal do Azure.) 
 
@@ -70,21 +70,46 @@ Para configurar um **alerta**, navegue de volta para a página **alertas** e cli
 
 1. Clique em **+ nova regra de alerta**.
 
-  ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3.png)
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3.png)
 
-1. Na página **criar regra** , especifique o **recurso**, a **condição**e as **ações**.  No painel **ações** , selecione o **grupo**de ações definido anteriormente.
+1. Na página **criar regra** , especifique o **recurso**.
 
-1. Em **detalhes do alerta**, nomeie a regra de alerta.
+1. A configuração de **condição** fornece muitas opções para monitorar seus recursos de **nuvem Spring** .  Clique em **Adicionar** para abrir o painel **Configurar lógica de sinal** .
+
+1. Selecione uma condição. Este exemplo usa o **percentual de uso da CPU do sistema**.
+
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3-1.png)
+
+1. Role para baixo o painel **Configurar lógica de sinal** para definir o **valor de limite** a ser monitorado.
+
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3-2.png)
+
+1. Clique em **Concluído**.
+
+Para obter detalhes das condições disponíveis para monitorar, consulte [Opções de métricas do portal do usuário](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+
+ Em **ações**, clique em **selecionar grupo de ações**. No painel **ações** , selecione o **grupo**de ações definido anteriormente.
+
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3-3.png) 
+
+1. Role para baixo e, em **detalhes do alerta**, nomeie a regra de alerta.
+
+1. Defina a **severidade**.
 
 1. Clique em **criar regra de alerta**.
 
-  ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-4.png)
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-3-4.png)
 
 Verifique se a nova regra de alerta está habilitada.
 
-  ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-5.png)
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-4.png)
+
+Uma regra também pode ser criada usando a página **métricas** :
+
+   ![Nova regra de alerta do portal de captura de tela](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passos seguintes
+* [Opções de métricas do portal do usuário](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Criar e gerenciar grupos de ação no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [Comportamento de alerta do SMS em grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: usando o rastreamento distribuído com o Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456938"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagens Personalizada no Azure DevTest Labs
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurar a política de retenção no Azure DevTest Labs
 Este artigo aborda a definição de uma política de retenção, a limpeza da fábrica e a desativação de imagens antigas de todos os outros DevTest Labs da organização. 
 
 ## <a name="prerequisites"></a>Pré-requisitos

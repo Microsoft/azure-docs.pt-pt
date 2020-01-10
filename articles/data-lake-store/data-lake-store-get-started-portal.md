@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438749"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure
 
@@ -30,9 +30,9 @@ Saiba como usar o portal do Azure para criar uma conta de Data Lake Storage Gen1
 
 Antes de começar este tutorial, tem de ter os seguintes itens:
 
-* **Uma subscrição do Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta de Data Lake Storage Gen1
+## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
 
 1. Inicie sessão no novo [portal do Azure](https://portal.azure.com).
 2. Clique em **criar um recurso > armazenamento > data Lake Storage Gen1**.
@@ -42,7 +42,7 @@ Antes de começar este tutorial, tem de ter os seguintes itens:
 
    * **Nome**. Insira um nome exclusivo para a conta de Data Lake Storage Gen1.
    * **Subscrição**. Selecione a assinatura sob a qual você deseja criar uma nova conta de Data Lake Storage Gen1.
-   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contentor que retém recursos relacionados para uma aplicação. Para obter mais informações, veja [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contentor que retém recursos relacionados para uma aplicação. Para obter mais informações, veja [Grupos de Recursos no Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Local**: selecione um local onde você deseja criar a conta de data Lake Storage Gen1.
    * **Definições de Encriptação**. Existem três opções:
 
@@ -117,7 +117,7 @@ Clique no ícone de reticências contra um ficheiro e, no menu de pop-up, clique
 
 Você pode proteger os dados armazenados em sua conta de Data Lake Storage Gen1 usando o Azure Active Directory e o controle de acesso (ACLs). Para obter instruções sobre como fazer isso, consulte [protegendo dados em Azure data Lake Storage Gen1](data-lake-store-secure-data.md).
 
-## <a name="delete-your-account"></a>Excluir sua conta
+## <a name="delete-your-account"></a>Eliminar a sua conta
 
 Para excluir uma conta de Data Lake Storage Gen1, na folha Data Lake Storage Gen1, clique em **excluir**. Para confirmar a ação, ser-lhe-á pedido para introduzir o nome da conta que pretende eliminar. Introduza o nome da conta e, em seguida, clique em **Eliminar**.
 

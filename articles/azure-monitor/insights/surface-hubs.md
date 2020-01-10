@@ -4,15 +4,15 @@ description: Use a solução Surface Hub para acompanhar a integridade dos hubs 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7ced5f678b9f8b2d4aa073a984276f41b8b7c4b9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 32ac14a06230341d21ff1b14a33cbcdd0992e4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400905"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorar os hubs de superfície com Azure Monitor para controlar sua integridade
 
@@ -32,7 +32,7 @@ Em seguida, você adicionará um espaço de trabalho Log Analytics existente ou 
 * Automaticamente por meio do Intune
 * Manualmente por meio **das configurações** em seu dispositivo Surface Hub.
 
-## <a name="set-up-monitoring"></a>Configurar o monitoramento
+## <a name="set-up-monitoring"></a>Configurar a monitorização
 Você pode monitorar a integridade e a atividade de seu Surface Hub usando Azure Monitor. Você pode registrar o Surface Hub usando o Intune ou localmente usando **as configurações** na Surface Hub.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Conectar os hubs de superfície a Azure Monitor por meio do Intune
@@ -44,7 +44,7 @@ O Intune é um produto da Microsoft que permite que você gerencie centralmente 
 2. Navegue até **configurações** > **fontes conectadas**.
 3. Crie ou edite uma política com base no modelo de Surface Hub.
 4. Navegue até a seção insights operacionais do Azure da política e adicione a ID do *espaço* de trabalho log Analytics e a *chave do espaço de trabalho* à política.
-5. Salve a política.
+5. Guarde a política.
 6. Associe a política ao grupo de dispositivos apropriado.
 
    ![Política do Intune](./media/surface-hubs/intune.png)
@@ -61,7 +61,7 @@ Se você não usar o Intune para gerenciar seu ambiente, poderá registrar dispo
 3. Clique **neste dispositivo**e, em **monitoramento**, clique em **definir configurações de log Analytics**.
 4. Selecione **habilitar monitoramento**.
 5. Na caixa de diálogo Configurações de Log Analytics, digite a **ID do espaço de trabalho** log Analytics e digite a chave do espaço de **trabalho**.  
-   configurações de ![](./media/surface-hubs/settings.png)
+   ![settings](./media/surface-hubs/settings.png)
 6. Clique em **OK** para concluir a configuração.
 
 Uma confirmação é exibida informando se a configuração foi aplicada com êxito ao dispositivo. Se foi, será exibida uma mensagem informando que o agente se conectou com êxito ao Azure Monitor. Em seguida, o dispositivo começa a enviar dados para Azure Monitor onde você pode exibir e agir sobre ele.

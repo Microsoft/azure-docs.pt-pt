@@ -1,28 +1,18 @@
 ---
-title: Criar uma aplicação de contentor do Windows no Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo de contêiner do Windows em Service Fabric no Azure
 description: Neste guia de introdução, crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466264"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implantar contêineres do Windows para Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis.
 
@@ -98,15 +88,15 @@ O script de exemplo a seguir cria um cluster de cinco nós Service Fabric proteg
 
 Se necessário, instale o Azure PowerShell usando as instruções encontradas no [Guia de Azure PowerShell](/powershell/azure/overview).
 
-Antes de executar o script a seguir, no PowerShell `Connect-AzAccount` , execute para criar uma conexão com o Azure.
+Antes de executar o script a seguir, no PowerShell, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
-Copie o script a seguir na área de transferência e abra **ISE do Windows PowerShell**.  Cole o conteúdo na janela Untitled1. ps1 vazia. Em seguida, forneça valores para as variáveis no script `subscriptionId`: `certpwd` `certfolder`, `adminuser` `adminpwd`,,, e assim por diante.  O diretório especificado para `certfolder` deve existir antes de você executar o script.
+Copie o script a seguir na área de transferência e abra **ISE do Windows PowerShell**.  Cole o conteúdo na janela Untitled1. ps1 vazia. Em seguida, forneça valores para as variáveis no script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`e assim por diante.  O diretório especificado para `certfolder` deve existir antes de você executar o script.
 
 [!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
 
 Depois de fornecer seus valores para as variáveis, pressione **F5** para executar o script.
 
-Depois que o script for executado e o cluster for criado, `ClusterEndpoint` localize o na saída. Por exemplo:
+Depois que o script for executado e o cluster for criado, localize o `ClusterEndpoint` na saída. Por exemplo:
 
 ```powershell
 ...
@@ -115,9 +105,9 @@ ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/cluster
 
 ### <a name="install-the-certificate-for-the-cluster"></a>Instalar o certificado para o cluster
 
-Agora, instalaremos o PFX no repositório de certificados do *CurrentUser\My* . O arquivo PFX estará no diretório especificado usando a `certfolder` variável de ambiente no script do PowerShell acima.
+Agora, instalaremos o PFX no repositório de certificados do *CurrentUser\My* . O arquivo PFX estará no diretório especificado usando a variável de ambiente `certfolder` no script do PowerShell acima.
 
-Altere para esse diretório e, em seguida, execute o seguinte comando do PowerShell, substituindo o nome do arquivo PFX que `certfolder` está em seu diretório e a senha que você especificou `certpwd` na variável. Neste exemplo, o diretório atual é definido como o diretório especificado pela `certfolder` variável no script do PowerShell. A partir daí `Import-PfxCertificate` , o comando é executado:
+Altere para esse diretório e, em seguida, execute o seguinte comando do PowerShell, substituindo o nome do arquivo PFX que está no diretório `certfolder` e a senha que você especificou na variável `certpwd`. Neste exemplo, o diretório atual é definido como o diretório especificado pela variável `certfolder` no script do PowerShell. A partir daí, o comando `Import-PfxCertificate` é executado:
 
 ```powershell
 PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
@@ -142,9 +132,9 @@ Agora que a aplicação está pronta, pode implementá-la num cluster diretament
 
 Clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e escolha **Publicar**. É apresentada a caixa de diálogo Publicar.
 
-Copie o conteúdo após **CN =** na janela do PowerShell quando você executou `Import-PfxCertificate` o comando acima e adicione a `19000` porta a ele. Por exemplo, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Copie-o para o campo **ponto de extremidade de conexão** . Lembre-se desse valor porque você precisará dele em uma etapa futura.
+Copie o conteúdo após **CN =** na janela do PowerShell quando você executou o comando `Import-PfxCertificate` acima e adicione a porta `19000` a ele. Por exemplo, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Copie-o para o campo **ponto de extremidade de conexão** . Lembre-se desse valor porque você precisará dele em uma etapa futura.
 
-Clique em **Parâmetros de Ligação Avançada** e verifique as informações dos parâmetros da ligação.  Os valores FindValue e *ServerCertThumbprint* devem corresponder à impressão digital do certificado instalado quando você `Import-PfxCertificate` executou na etapa anterior.
+Clique em **Parâmetros de Ligação Avançada** e verifique as informações dos parâmetros da ligação.  Os valores *FindValue* e *ServerCertThumbprint* devem corresponder à impressão digital do certificado instalado quando você executou `Import-PfxCertificate` na etapa anterior.
 
 ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -152,9 +142,9 @@ Clique em **Publicar**.
 
 Cada aplicação no cluster tem de ter um nome exclusivo. Se houver um conflito de nome, renomeie o projeto do Visual Studio e implante novamente.
 
-Abra um navegador e navegue até o endereço que você colocou no campo **ponto de extremidade de conexão** na etapa anterior. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.Azure.com:80.
+Abra um navegador e navegue até o endereço que você colocou no campo **ponto de extremidade de conexão** na etapa anterior. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
- Você deverá ver a página da Web padrão do IIS: ![Página da Web padrão do IIS][iis-default]
+ Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
 
 ## <a name="clean-up"></a>Limpeza
 

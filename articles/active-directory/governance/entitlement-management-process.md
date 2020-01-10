@@ -1,5 +1,5 @@
 ---
-title: Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Processo de solicitação & notificações-gerenciamento de direitos do Azure AD
 description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422612"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD
 
@@ -33,12 +33,12 @@ Um usuário que precisa acessar um pacote do Access pode enviar uma solicitaçã
 
 ![Diagrama de processo de aprovação](./media/entitlement-management-process/request-process.png)
 
-| State | Descrição |
+| Estado | Descrição |
 | --- | --- |
-| Enviada | O usuário envia uma solicitação. |
+| Submetido | O usuário envia uma solicitação. |
 | Aprovação pendente | Se a política para um pacote de acesso exigir aprovação, uma solicitação será movida para aprovação pendente. |
 | Fora do prazo | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
-| Nega | O aprovador nega uma solicitação. |
+| Recusado | O aprovador nega uma solicitação. |
 | Aprovado | O aprovador aprova uma solicitação. |
 | Lucrativ | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos. Eles também podem não ter aceitado o prompt de consentimento. |
 | Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
@@ -79,8 +79,8 @@ A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por
 | 6 | A solicitação expirou para *[access_package]* | Este email será enviado para os aprovadores alternativos do primeiro aprovador e do estágio 1 depois que a solicitação tiver expirado. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
 | 7 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado para o primeiro aprovador e o estágio 1 aprovadores alternativos mediante a conclusão da solicitação. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
 | 8 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado aos aprovadores alternativos do primeiro aprovador e do estágio 1 de uma solicitação de dois estágios quando a solicitação Stage-1 for aprovada. | Primeiro aprovador, Aprovadores alternativos do estágio 1 |
-| 9 | Solicitação negada para *[access_package]* | Este email será enviado para o solicitante quando a solicitação for negada | Solicitante |
-| 10 | Sua solicitação expirou para *[access_package]* | Este email será enviado ao solicitante no final de uma solicitação de único ou de dois estágios. O email notifica o solicitante de que a solicitação expirou. | Solicitante |
+| 9 | Solicitação negada para *[access_package]* | Este email será enviado para o solicitante quando a solicitação for negada | Requerente |
+| 10 | Sua solicitação expirou para *[access_package]* | Este email será enviado ao solicitante no final de uma solicitação de único ou de dois estágios. O email notifica o solicitante de que a solicitação expirou. | Requerente |
 | 11 | Ação necessária: aprovar ou negar solicitação por *[data]* | Este email será enviado para o segundo aprovador, se o escalonamento estiver desabilitado, para executar uma ação. | Segundo aprovador |
 | 12 | Lembrete necessário da ação: aprovar ou negar a solicitação por *[data]* | Este email de lembrete será enviado para o segundo aprovador, se o escalonamento estiver desabilitado. A notificação solicita que eles executem uma ação caso ainda não tenham feito isso. | Segundo aprovador |
 | 13 | Ação necessária: aprovar ou negar a solicitação em *[data]* para *[solicitante]* | Este email será enviado para o segundo aprovador, se o escalonamento estiver habilitado, para executar uma ação. | Segundo aprovador |
@@ -88,9 +88,9 @@ A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por
 | 15 | Ação necessária: aprovar ou negar a solicitação encaminhada por *[data]* | Este email será enviado aos aprovadores alternativos do estágio 2, se o escalonamento estiver habilitado, para executar uma ação. | Aprovadores alternativos de estágio 2 |
 | 16 | Solicitação aprovada para *[solicitante]* para *[access_package]* | Este email será enviado para o segundo aprovador e para o estágio 2 aprovadores alternativos após a aprovação da solicitação. | Segundo aprovador, Aprovadores alternativos de estágio 2 |
 | 17 | Uma solicitação expirou para *[access_package]* | Este email será enviado ao segundo Aprovador ou a aprovadores alternativos, depois que a solicitação expirar. | Segundo aprovador, Aprovadores alternativos de estágio 2 |
-| 18 | Agora você tem acesso ao *[access_package]* | Este email será enviado aos usuários finais para começar a usar seu acesso. | Solicitante |
-| 19 | Estender o acesso para *[access_package]* por *[data]* | Este email será enviado aos usuários finais antes de seu acesso expirar. | Solicitante |
-| 20 | O acesso foi encerrado para *[access_package]* | Este email será enviado aos usuários finais após o acesso expirar. | Solicitante |
+| 18 | Agora você tem acesso ao *[access_package]* | Este email será enviado aos usuários finais para começar a usar seu acesso. | Requerente |
+| 19 | Estender o acesso para *[access_package]* por *[data]* | Este email será enviado aos usuários finais antes de seu acesso expirar. | Requerente |
+| 20 | O acesso foi encerrado para *[access_package]* | Este email será enviado aos usuários finais após o acesso expirar. | Requerente |
 
 ### <a name="access-request-emails"></a>Emails de solicitação de acesso
 
@@ -152,7 +152,7 @@ Aqui está um exemplo de notificação por email que é enviada para um solicita
 
 ![Email de solicitação de acesso expirado do solicitante](./media/entitlement-management-process/requestor-email-request-expired.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

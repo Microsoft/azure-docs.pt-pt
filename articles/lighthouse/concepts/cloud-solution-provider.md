@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
 description: Para parceiros CSP, o gerenciamento de recursos delegado do Azure ajuda a melhorar a segurança e o controle habilitando permissões granulares.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456907"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>O Azure Lighthouse e o programa de provedor de soluções na nuvem
 
@@ -34,11 +34,11 @@ A integração de uma assinatura que você criou por meio do programa CSP segue 
 ![Gerenciamento de locatários usando o AOBO e o gerenciamento de recursos delegado do Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão no plano do Azure. Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](https://docs.microsoft.com/azure/billing/mpa-overview).
+> A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão [no plano do Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](../../billing/mpa-overview.md).
 >
-> Os clientes do CSP podem aparecer nesta seção se eles tiverem sido integrados ao gerenciamento de recursos delegado do Azure. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md).
+> Os clientes do CSP podem aparecer nesta seção se também tiverem sido integrados ao gerenciamento de recursos delegado do Azure. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md). Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los para o gerenciamento de recursos delegado do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba como integrar [uma assinatura ao gerenciamento de recursos delegado do Azure](../how-to/onboard-customer.md).

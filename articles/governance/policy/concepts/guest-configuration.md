@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como Azure Policy usa o agente de configuração do convidado para auditar as configurações nas máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f68bbc64ee8f0da02d213895a70e4c533b9a5f63
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
-ms.translationtype: MT
+ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463788"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666725"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -36,13 +36,13 @@ Antes de poder utilizar configuração de convidado, tem de registar o fornecedo
 
 Para registar o fornecedor de recursos para a configuração de convidado através do portal do Azure, siga estes passos:
 
-1. Inicie o portal do Azure e clique em **todos os serviços**. Procure e selecione **assinaturas**.
+1. Iniciar o portal do Azure e clique em **todos os serviços**. Procure e selecione **subscrições**.
 
 1. Localize e clique na subscrição que pretende ativar a configuração de convidado para.
 
-1. No menu à esquerda da página **assinatura** , clique em **provedores de recursos**.
+1. No menu à esquerda do **subscrição** página, clique em **fornecedores de recursos**.
 
-1. Filtre ou role até localizar **Microsoft. GuestConfiguration**e, em seguida, clique em **registrar** na mesma linha.
+1. Filtrar por ou rolar até localizar **Microsoft.GuestConfiguration**, em seguida, clique em **registar** na mesma linha.
 
 ### <a name="registration---powershell"></a>Registo - PowerShell
 
@@ -62,7 +62,7 @@ A tabela seguinte mostra uma lista das ferramentas de locais usadas em cada sist
 |Sistema operativo|Ferramenta de validação|Notas|
 |-|-|-|
 |Windows|[Configuração de estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Inspecs do chefe](https://www.chef.io/inspec/)| Ruby e Python é instalados pela extensão da configuração de convidado. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python é instalados pela extensão da configuração de convidado. |
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
@@ -74,10 +74,10 @@ A tabela seguinte mostra uma lista de sistemas operativos suportados nas imagens
 
 |Publicador|Nome|Versões|
 |-|-|-|
-|Canónico|Ubuntu Server|14.04, 16.04, 18.04|
+|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
-|Microsoft|Cliente Windows|Windows 10|
+|Microsoft|Cliente Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
@@ -93,32 +93,32 @@ O Windows Server nano Server não tem suporte em nenhuma versão.
 
 Para se comunicar com o provedor de recursos de configuração de convidado no Azure, as máquinas exigem acesso de saída aos datacenters do Azure na porta **443**. Se você estiver usando uma rede virtual privada no Azure que não permita o tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . Uma marca de serviço não existe atualmente para Azure Policy configuração de convidado.
 
-Para listas de endereços IP, você pode baixar [Microsoft Azure intervalos de IP do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Você só precisa permitir o acesso de saída aos IPs nas regiões em que suas VMs são implantadas.
+Para listas de endereços IP, você pode baixar [intervalos de IP e marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Você só precisa permitir o acesso de saída aos IPs nas regiões em que suas VMs são implantadas.
 
 > [!NOTE]
-> O arquivo XML do endereço IP do datacenter do Azure lista os intervalos de endereços IP que são usados nos data centers Microsoft Azure. O arquivo inclui intervalos de computação, SQL e armazenamento. Um arquivo atualizado é lançado semanalmente. O arquivo reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Novos intervalos que aparecem no arquivo não são usados nos data centers por pelo menos uma semana. É uma boa ideia baixar o novo arquivo XML a cada semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio de Border Gateway Protocol (BGP) do espaço do Azure na primeira semana de cada mês.
+> O arquivo JSON de intervalos de IP e marcas de serviço do Azure lista os intervalos de endereços IP que são usados nos data centers Microsoft Azure. O arquivo inclui intervalos de computação, SQL e armazenamento. Um arquivo atualizado é lançado semanalmente. O arquivo reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP. Novos intervalos que aparecem no arquivo não são usados nos data centers por pelo menos uma semana. É uma boa ideia baixar o novo arquivo XML a cada semana. Em seguida, atualize seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para atualizar o anúncio de Border Gateway Protocol (BGP) do espaço do Azure na primeira semana de cada mês.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de convidado
 
 Cada execução de auditoria pela configuração de convidado requer duas definições de política, uma definição de **DeployIfNotExists** e uma definição de **AuditIfNotExists** . A definição de **DeployIfNotExists** é usada para preparar a máquina com o agente de configuração convidado e outros componentes para dar suporte às [ferramentas de validação](#validation-tools).
 
-A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
+O **DeployIfNotExists** definição de política valida e corrige os seguintes itens:
 
 - Valide se uma configuração foi atribuída à máquina para avaliação. Se nenhuma atribuição estiver presente no momento, obtenha a atribuição e prepare a máquina da:
   - Autenticando no computador usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Instalando a versão mais recente da extensão **Microsoft. GuestConfiguration**
-  - Instalando as dependências e as [ferramentas de validação](#validation-tools) , se necessário
+  - Instalar a versão mais recente dos **Microsoft.GuestConfiguration** extensão
+  - A instalar [ferramentas de validação](#validation-tools) e as dependências, se necessário
 
 Se a atribuição de **DeployIfNotExists** não for compatível, uma [tarefa de correção](../how-to/remediate-resources.md#create-a-remediation-task) poderá ser usada.
 
 Depois que a atribuição de **DeployIfNotExists** é compatível, a atribuição de política **AuditIfNotExists** usa as ferramentas de validação locais para determinar se a atribuição de configuração é compatível ou não compatível. A ferramenta de validação fornece os resultados para o cliente de configuração de convidado. O cliente reencaminha os resultados para a extensão de convidado, o que as torna disponíveis por meio do Provedor de recursos de configuração de convidado.
 
-Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos de configuração de convidado para relatar a conformidade no nó **conformidade** . Para obter mais informações, consulte [obtendo dados de conformidade](../how-to/get-compliance-data.md).
+Política do Azure utiliza os fornecedores de recursos de configuração de convidado **complianceStatus** propriedade para reportar a conformidade no **conformidade** nó. Para obter mais informações, consulte [obtenção de dados de conformidade](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
 
-Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa interna chamada _\[Preview\]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows_ contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa interna chamada _\[Preview\]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows_ contém 18 políticas. Existem seis **DeployIfNotExists** e **AuditIfNotExists** pares para Windows e três pares para Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditando configurações do sistema operacional seguindo linhas de base do setor
 

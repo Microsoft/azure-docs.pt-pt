@@ -2,19 +2,15 @@
 title: Iniciando um runbook de automação do Azure com um webhook
 description: Um webhook que permite que um cliente inicie um runbook na automação do Azure de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418961"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciando um runbook de automação do Azure com um webhook
 
@@ -51,7 +47,7 @@ O objeto **$WebhookData** tem as seguintes propriedades:
 |:--- |:--- |
 | WebhookName |O nome do webhook. |
 | RequestHeader |Tabela de hash que contém os cabeçalhos da solicitação POST de entrada. |
-| requestBody |O corpo da solicitação POST de entrada. Isso mantém qualquer formatação, como cadeia de caracteres, JSON, XML ou dados codificados de formulário. O runbook deve ser gravado para funcionar com o formato de dados esperado. |
+| RequestBody |O corpo da solicitação POST de entrada. Isso mantém qualquer formatação, como cadeia de caracteres, JSON, XML ou dados codificados de formulário. O runbook deve ser gravado para funcionar com o formato de dados esperado. |
 
 Não há nenhuma configuração do webhook necessária para dar suporte ao parâmetro **$WebhookData** e o runbook não é necessário para aceitá-lo. Se o runbook não definir o parâmetro, todos os detalhes da solicitação enviada do cliente serão ignorados.
 
@@ -98,7 +94,7 @@ Use o procedimento a seguir para criar um novo webhook vinculado a um runbook no
 4. Especifique um **nome**, uma **data de validade** para o webhook e se ele deve ser habilitado. Consulte os [detalhes de um webhook](#details-of-a-webhook) para obter mais informações sobre essas propriedades.
 5. Clique no ícone de cópia e pressione CTRL + C para copiar a URL do webhook. Em seguida, registre-o em um local seguro. **Depois de criar o webhook, você não poderá recuperar a URL novamente.**
 
-   ![URL do webhook](media/automation-webhooks/copy-webhook-url.png)
+   ![URL do Webhook](media/automation-webhooks/copy-webhook-url.png)
 
 1. Clique em **parâmetros** para fornecer valores para os parâmetros de runbook. Se o runbook tiver parâmetros obrigatórios, não poderá criar o webhook, a não ser que sejam fornecidos os valores.
 1. Clique em **Criar** para criar o webhook.

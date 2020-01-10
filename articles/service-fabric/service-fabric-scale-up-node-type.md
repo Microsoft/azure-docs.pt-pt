@@ -1,25 +1,14 @@
 ---
-title: Escalar verticalmente um tipo de nó de Service Fabric do Azure | Microsoft Docs
+title: Escalar verticalmente um tipo de nó de Service Fabric do Azure
 description: Saiba como dimensionar um Cluster Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/13/2019
-ms.author: atsenthi
-ms.openlocfilehash: 272bc571a0ea71fd6e7bd45a426460d2e0faf1d7
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464222"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Escalar verticalmente um tipo de nó primário de Cluster Service Fabric
 Este artigo descreve como escalar verticalmente um tipo de nó primário de Cluster Service Fabric aumentando os recursos de máquina virtual. Um Cluster Service Fabric é um conjunto de máquinas físicas ou virtuais conectadas à rede em que seus microserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster de Service Fabric, você pode dimensionar um tipo de nó de cluster verticalmente (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  Você pode dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  À medida que o cluster é dimensionado, os aplicativos também são dimensionados automaticamente.
@@ -27,7 +16,7 @@ Este artigo descreve como escalar verticalmente um tipo de nó primário de Clus
 > [!WARNING]
 > Não comece a alterar o SKU da VM NodeType primária, se a integridade do cluster não estiver íntegra. Se a integridade do cluster não estiver íntegra, você só desestabilizará o cluster se tentar alterar a SKU da VM.
 >
-> Recomendamos que você não altere a SKU da VM de um conjunto de dimensionamento/tipo de nó, a menos que ele esteja sendo executado na durabilidade de [prata ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). A alteração do tamanho do SKU da VM é uma operação de infraestrutura in-loco destrutiva de dados. Sem alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. Isso significa o tipo de nó primário, que está executando serviços de sistema do Service Fabric com estado ou qualquer tipo de nó que esteja executando suas cargas de trabalho de aplicativo com estado.
+> Recomendamos que você não altere a SKU da VM de um conjunto de dimensionamento/tipo de nó, a menos que ele esteja sendo executado na [durabilidade de prata ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). A alteração do tamanho do SKU da VM é uma operação de infraestrutura in-loco destrutiva de dados. Sem alguma capacidade de atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. Isso significa o tipo de nó primário, que está executando serviços de sistema do Service Fabric com estado ou qualquer tipo de nó que esteja executando suas cargas de trabalho de aplicativo com estado.
 >
 
 
@@ -160,10 +149,10 @@ foreach($name in $nodeNames){
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [Adicionar um tipo de nó a um cluster](virtual-machine-scale-set-scale-node-type-scale-out.md)
-* Saiba mais sobre a escalabilidade do [aplicativo](service-fabric-concepts-scalability.md).
+* Saiba mais sobre a [escalabilidade do aplicativo](service-fabric-concepts-scalability.md).
 * [Dimensionar ou reduzir um cluster do Azure](service-fabric-tutorial-scale-cluster.md).
-* [Dimensione um cluster do Azure](service-fabric-cluster-programmatic-scaling.md) programaticamente usando o SDK de computação do Azure fluente.
+* [Dimensione um cluster do Azure programaticamente](service-fabric-cluster-programmatic-scaling.md) usando o SDK de computação do Azure fluente.
 * [Dimensionar ou reduzir um cluster autônomo](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

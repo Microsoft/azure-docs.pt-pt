@@ -1,5 +1,5 @@
 ---
-title: Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Solicitar um pacote de acesso-gerenciamento de direitos do Azure AD
 description: Saiba como usar o portal meu acesso para solicitar acesso a um pacote de acesso no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422531"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD
 

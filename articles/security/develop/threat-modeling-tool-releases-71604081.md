@@ -1,26 +1,18 @@
 ---
-title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Versão Microsoft Threat Modeling Tool 4/9/2019 – Azure
 description: Documentando as notas de versão da ferramenta de modelagem de ameaças
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-ms.openlocfilehash: 6992ac58ebf8976714e5a478dd7b886efab2a4b7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 488168b1a17d3f5fac1ae7cca0a37676063bfe03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934790"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552071"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão de atualização do Threat Modeling Tool 7.1.60408.1-4/9/2019
 
@@ -47,7 +39,7 @@ A versão do cliente do Threat Modeling Tool agora é mostrada na tela inicial d
 
 ### <a name="support-links-have-been-updated"></a>Links de suporte foram atualizados
 
-Todos os links de suporte dentro da ferramenta foram atualizados para direcionar [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) os usuários para o em vez de um fórum do MSDN.
+Todos os links de suporte dentro da ferramenta foram atualizados para direcionar os usuários para [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) em vez de um fórum do MSDN.
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 

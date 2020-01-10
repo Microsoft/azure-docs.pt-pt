@@ -7,15 +7,15 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d82b2904f16cc9816a22caadba598a7a44bfa007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467818"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

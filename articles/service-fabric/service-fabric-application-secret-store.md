@@ -1,20 +1,16 @@
 ---
-title: Repositório de segredos Service Fabric | Microsoft Docs
+title: Arquivo de Segredos do Service Fabric
 description: Este artigo descreve como usar Service Fabric repositório de segredos.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5315a8806f45e40204e8500e97c3440bfa9ab8b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 16608d9eaf12fc9abc535ef316d7b5e8b74a8b37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457517"
 ---
-#  <a name="service-fabric-secrets-store"></a>Armazenamento de segredos Service Fabric
+#  <a name="service-fabric-secrets-store"></a>Arquivo de Segredos do Service Fabric
 Este artigo descreve como criar e usar segredos em Service Fabric aplicativos usando o Service Fabric repositório de segredos (CSS). O CSS é um cache de repositório de segredo local, usado para manter dados confidenciais, como senha, tokens e chaves criptografados na memória.
 
 ## <a name="enabling-secrets-store"></a>Habilitando o armazenamento de segredos
@@ -24,8 +20,8 @@ Este artigo descreve como criar e usar segredos em Service Fabric aplicativos us
     [
         ...
     {
+        "name":  "CentralSecretService",
         "parameters":  [
-            "name":  "CentralSecretService"
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -46,6 +42,9 @@ Este artigo descreve como criar e usar segredos em Service Fabric aplicativos us
                 ],
             },
             ]
+     }
+        ...
+     ]
 ```
 ## <a name="declare-secret-resource"></a>Declarar recurso secreto
 Você pode criar um recurso secreto usando o modelo do Resource Manager ou usando a API REST.

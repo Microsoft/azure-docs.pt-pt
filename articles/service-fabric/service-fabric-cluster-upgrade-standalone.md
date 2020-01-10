@@ -1,25 +1,14 @@
 ---
-title: Atualizar um cluster autônomo do Azure Service Fabric | Microsoft Docs
+title: Atualizar um cluster autônomo do Azure Service Fabric
 description: Saiba mais sobre como atualizar a versão ou a configuração de um cluster autônomo do Azure Service Fabric.  T
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
-ms.author: atsenthi
-ms.openlocfilehash: bf99d5d59354745508d8ca88abfc4b42fe608025
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451831"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Atualizando e atualizando um Cluster Service Fabric autônomo
 
@@ -47,7 +36,7 @@ Para cada um dos tipos de nó, você pode adicionar métricas de capacidade pers
 O POA (aplicativo de orquestração de patch) é um aplicativo Service Fabric que automatiza a aplicação de patch do sistema operacional em um Cluster Service Fabric sem tempo de inatividade. O [aplicativo de orquestração de patch para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar patches de maneira orquestrada enquanto mantém os serviços disponíveis o tempo todo. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como personalizar algumas das configurações de [malha de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)

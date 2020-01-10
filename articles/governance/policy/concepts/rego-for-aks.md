@@ -3,12 +3,12 @@ title: Saiba Azure Policy do serviço kubernetes do Azure
 description: Saiba como Azure Policy usa o rego e o agente de política aberto para gerenciar clusters no serviço kubernetes do Azure.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436398"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -18,7 +18,7 @@ Ao estender o uso do [gatekeeper](https://github.com/open-policy-agent/gatekeepe
 > [!NOTE]
 > Azure Policy para AKS está em visualização limitada e só dá suporte a definições de políticas internas.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguintes ações:
 
@@ -29,11 +29,11 @@ Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguin
 
 ## <a name="opt-in-for-preview"></a>Aceitar para visualização
 
-Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. ContainerService** e o provedor de recursos **Microsoft. PolicyInsights** , em seguida, ser aprovada para Participe da versão prévia. Para ingressar na versão prévia, siga estas etapas na portal do Azure ou com CLI do Azure:
+Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. ContainerService** e o provedor de recursos **Microsoft. PolicyInsights** e, em seguida, ser aprovada para ingressar na versão prévia. Para ingressar na versão prévia, siga estas etapas na portal do Azure ou com CLI do Azure:
 
 - portal do Azure:
 
-  1. Registre os provedores de recursos **Microsoft. ContainerService** e **Microsoft. PolicyInsights** . Para obter as etapas, consulte [provedores de recursos e tipos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registre os provedores de recursos **Microsoft. ContainerService** e **Microsoft. PolicyInsights** . Para obter as etapas, consulte [provedores de recursos e tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 
@@ -251,7 +251,7 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Exceções/erros encontrados por Azure Policy complemento durante a instalação do agente na avaliação da política
 - Número de políticas de gatekeeper não instaladas pelo complemento Azure Policy
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

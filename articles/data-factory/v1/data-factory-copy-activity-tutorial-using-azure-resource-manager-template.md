@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a4f1c2d128e41e13a6e57732e8f97ff4c250d0a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438862"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 
 * Leia o artigo [Descrição Geral do Tutorial e Pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua os passos de **pré-requisitos**.
 * Siga as instruções no artigo [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) para instalar a versão mais recente do Azure PowerShell no computador. Neste tutorial, utiliza o PowerShell para implementar entidades do Data Factory. 
-* (opcional) Veja [Authoring Azure Resource Manager Templates (Criação de Modelos Azure Resource Manager)](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos Azure Resource Manager.
+* (opcional) Veja [Authoring Azure Resource Manager Templates (Criação de Modelos Azure Resource Manager)](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos Azure Resource Manager.
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, cria uma fábrica de dados com as entidades do Data Factory seguintes:

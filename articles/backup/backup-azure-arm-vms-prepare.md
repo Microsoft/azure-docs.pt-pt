@@ -3,12 +3,12 @@ title: Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 description: Descreve como fazer backup de VMs do Azure em um cofre de serviços de recuperação usando o backup do Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173350"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450137"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de VMs do Azure em um cofre dos serviços de recuperação
 
@@ -42,7 +42,7 @@ Além disso, há algumas coisas que você pode precisar fazer em algumas circuns
 
  Um cofre armazena backups e pontos de recuperação criados ao longo do tempo e armazena políticas de backup associadas a computadores de backup. Crie um cofre da seguinte maneira:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Em pesquisa, digite **serviços de recuperação**. Em **Serviços**, clique em **cofres dos serviços de recuperação**.
 
      ![Pesquisar cofres dos serviços de recuperação](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -63,9 +63,8 @@ Depois que o cofre é criado, ele aparece na lista cofres dos serviços de recup
 
 ![Lista de cofres de cópia de segurança](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> O serviço de backup do Azure cria um grupo de recursos separado (diferente do grupo de recursos da VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados nesse grupo de recursos serão mantidos durante a duração em dias, conforme especificado na seção *reter instantâneo de recuperação instantânea* da política de backup de máquina virtual do Azure.  A aplicação de um bloqueio a esse grupo de recursos pode causar falhas de backup.<br>
-Esse grupo de recursos também deve ser excluído de qualquer restrição de nome/marca, uma vez que uma política de restrição bloquearia a criação de coleções de ponto de recurso novamente, causando falhas de backup.
+>[!NOTE]
+> O backup do Azure agora permite a personalização do nome do grupo de recursos criado pelo serviço de backup do Azure. Para obter mais informações, consulte [grupo de recursos de backup do Azure para máquinas virtuais](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### <a name="modify-storage-replication"></a>Modificar a replicação de armazenamento
 
@@ -170,10 +169,10 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 **Instantânea** | **Transferir dados para o cofre** | **Status do trabalho**
 --- | --- | ---
 Concluído | Em curso | Em curso
-Concluído | Ignorada | Concluído
+Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Falhou | Concluído com aviso
-Falhou | Falhou | Falhou
+Concluído | Com Falhas | Concluído com aviso
+Com Falhas | Com Falhas | Com Falhas
 
 Agora, com esse recurso, para a mesma VM, dois backups podem ser executados em paralelo, mas, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode ser executada. Assim, em cenários, um trabalho de backup em andamento resultou na falha do backup do dia seguinte, com essa funcionalidade de desacoplamento. Os backups do dia seguinte podem ter o instantâneo concluído ao **transferir dados para o cofre** ignorados se o trabalho de backup de um dia anterior estiver em estado de andamento.
 O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.

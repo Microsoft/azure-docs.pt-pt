@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450838"
 ---
 1. Selecione **conectar sites VPN** para abrir a página **conectar sites** .
 
@@ -22,13 +22,13 @@ ms.locfileid: "73488929"
    Preencha os seguintes campos:
 
    * Insira uma chave pré-compartilhada. Se você não inserir uma chave, o Azure gerará uma para você.
-   * Selecione as configurações de protocolo e IPsec. Consulte os detalhes de IPSec padrão/personalizado (Coloque o link para a página)
+   * Selecione as configurações de protocolo e IPsec. Consulte [detalhes de IPSec padrão/personalizado] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * Selecione a opção apropriada para **propagar a rota padrão**. A opção **habilitar** permite que o Hub virtual propague uma rota padrão aprendida para essa conexão. Esse sinalizador habilita a propagação de rota padrão para uma conexão somente se a rota padrão já for aprendida pelo hub de WAN virtual como resultado da implantação de um firewall no Hub ou se outro site conectado tiver o túnel forçado habilitado. A rota padrão não é originada no Hub WAN virtual.
 
 2. Selecione **Ligar**.
 3. Em alguns minutos, o site mostrará o status de conexão e conectividade.
 
-   ![Estado](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Status da conexão:** Esse é o status do recurso do Azure para a conexão que conecta o site VPN ao gateway de VPN do Hub do Azure. Quando essa operação do plano de controle for bem-sucedida, o gateway de VPN do Azure e o dispositivo VPN local continuarão a estabelecer a conectividade.
 

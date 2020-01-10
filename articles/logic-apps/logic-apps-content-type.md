@@ -1,17 +1,17 @@
 ---
 title: Lidar com tipos de conteúdo
-description: Saiba como os aplicativos lógicos lidam com tipos de conteúdo em tempo de design e tempo de execução
+description: Saiba como lidar com vários tipos de conteúdo em fluxos de trabalho durante o tempo de design e o tempo de execução em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791528"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666878"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em aplicativos lógicos do Azure
 
@@ -111,7 +111,7 @@ Os aplicativos lógicos fornecem a capacidade de gerar tokens amigáveis para o 
 
 <a name="text-plain"></a>
 
-## <a name="textplain"></a>texto/sem formatação
+## <a name="textplain"></a>text/plain
 
 Quando seu aplicativo lógico recebe mensagens HTTP que têm o cabeçalho `Content-Type` definido como `text/plain`, seu aplicativo lógico armazena essas mensagens em formato bruto. Se você incluir essas mensagens em ações subsequentes sem conversão, as solicitações passarão com o cabeçalho `Content-Type` definido como `text/plain`. 
 

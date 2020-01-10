@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/06/2020
 ms.custom: include file
-ms.openlocfilehash: 3cc01182a7127794d69eb341d2881e0b62d7688c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bacb665eeffc6bb5351d11ec74139a272c95a9fb
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74062917"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692543"
 ---
 Nos exemplos a seguir, `YOUR_MANAGEMENT_API_URL` se refere ao URI das APIs do digital gêmeos:
 

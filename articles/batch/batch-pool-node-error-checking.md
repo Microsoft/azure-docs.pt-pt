@@ -1,18 +1,18 @@
 ---
 title: Verificar se há erros de pool e de nó-lote do Azure
-description: Erros a serem verificados e como evitá-los ao criar pools e nós
+description: Este artigo aborda as operações em segundo plano que podem ocorrer, juntamente com erros a serem verificados e como evitá-los ao criar pools e nós.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449794"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar se há erros de pool e de nó
 
@@ -121,7 +121,7 @@ O processo do agente do lote que é executado em cada nó de pool pode fornecer 
 A unidade temporária para uma VM de nó de pool é usada pelo lote para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados.
 
 - Arquivos de pacotes de aplicativos
-- Ficheiros de recursos de tarefas
+- Arquivos de recurso de tarefa
 - Arquivos específicos do aplicativo baixados para uma das pastas do lote
 - Arquivos stdout e stderr para cada execução de aplicativo de tarefa
 - Arquivos de saída específicos do aplicativo

@@ -3,12 +3,12 @@ title: 'Início rápido: criar um plano gráfico com o PowerShell'
 description: Neste guia de início rápido, você usa plantas do Azure para criar, definir e implantar artefatos usando o PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436639"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: definir e atribuir um Azure Blueprint com o PowerShell
 
@@ -379,7 +379,9 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
      > [!IMPORTANT]
      > Os planos gráficos não gerenciam a identidade gerenciada atribuída pelo usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes, ou a atribuição Blueprint falhará.
 
-## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
+## <a name="clean-up-resources"></a>Limpar recursos
+
+### <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
 Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de plano gráfico, use o cmdlet `Remove-AzBlueprintAssignment`:
 
@@ -389,7 +391,7 @@ assignMyBlueprint
 Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou, atribuiu e removeu um plano gráfico com o PowerShell. Para saber mais sobre os planos gráficos do Azure, prossiga para o artigo ciclo de vida do Blueprint.
 

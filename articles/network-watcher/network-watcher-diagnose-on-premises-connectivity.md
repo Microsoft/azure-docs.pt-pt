@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454297"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio de gateways de VPN
 
-O gateway de VPN do Azure permite que você crie uma solução híbrida que atenda à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. À medida que seus requisitos são exclusivos, é a opção de dispositivo VPN local. Atualmente, o Azure dá suporte a [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o gateway de VPN do Azure é configurado com um conjunto de [parâmetros de IPsec com suporte](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há como especificar ou selecionar uma combinação específica de parâmetros IPsec do gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre o local e o Azure, as configurações do dispositivo VPN local devem estar de acordo com os parâmetros IPsec prescritos pelo gateway de VPN do Azure. Se as configurações estiverem corretas, haverá uma perda de conectividade e, até agora, a solução desses problemas não era trivial e geralmente levava horas para identificar e corrigir o problema.
+O gateway de VPN do Azure permite que você crie uma solução híbrida que atenda à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. À medida que seus requisitos são exclusivos, é a opção de dispositivo VPN local. Atualmente, o Azure dá suporte a [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o gateway de VPN do Azure é configurado com um conjunto de [parâmetros de IPsec com suporte](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há como especificar ou selecionar uma combinação específica de parâmetros IPsec do gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre o local e o Azure, as configurações do dispositivo VPN local devem estar de acordo com os parâmetros IPsec prescritos pelo gateway de VPN do Azure. Se as configurações estiverem incorretas, haverá perda de conectividade e, até agora, a solução desses problemas não era trivial e geralmente levava horas para identificar e corrigir o problema.
 
 Com o recurso de solução de problemas do observador de rede do Azure, você pode diagnosticar problemas com seu gateway e conexões e, em minutos, ter informações suficientes para tomar uma decisão informada de retificar o problema.
 
@@ -50,7 +50,7 @@ Uma das etapas de configuração críticas é configurar os parâmetros de comun
 | --- | --- | --- |
 | Versão do IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
-| Método de Autenticação |Chave Pré-partilhada |Chave Pré-partilhada |
+| Método de autenticação |Chave Pré-partilhada |Chave Pré-partilhada |
 | Algoritmos de Encriptação |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo Hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Duração (Tempo) da Associação de Segurança (SA) da Fase 1 |28 800 segundos |28 800 segundos |
@@ -82,14 +82,14 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de falha | Razão | Registo|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
-| Nofault | Quando nenhum erro é detectado. |Sim|
+| NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| PlatformInActive | Há um problema com a plataforma. | Não|
+| PlatformInActive | Existe um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existe nenhuma conexão no gateway. Isso é apenas um aviso.| Não|
 | ConnectionsNotConnected | Nenhuma das conexões está conectada. Isso é apenas um aviso.| Sim|
@@ -97,9 +97,9 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 
 ### <a name="connection"></a>Ligação
 
-| Tipo de falha | Razão | Registo|
+| Tipo de Falha | Razão | Registo|
 |---|---|---|
-| Nofault | Quando nenhum erro é detectado. |Sim|
+| NoFault | Quando não é detetado nenhum erro. |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Quando uma atualização do usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
@@ -111,7 +111,7 @@ O recurso de solução de problemas do observador de rede do Azure permite diagn
 | Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway de mesmo nível não está acessível. | Sim|
 | IkePolicyMismatch | O gateway par tem políticas IKE que não são suportadas pelo Azure. | Sim|
-| Erro de WfpParse | Ocorreu um erro ao analisar o log WFP. |Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="next-steps"></a>Passos seguintes
 

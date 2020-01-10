@@ -1,22 +1,22 @@
 ---
-title: As informações de Azure Monitor Aplicativo Azure substituem os pontos de extremidade do SDK padrão | Microsoft Docs
-description: Modifique os pontos de extremidade do SDK do Aplicativo Azure insights padrão para regiões como o Azure governamental.
+title: Aplicativo Azure insights substituir pontos de extremidade do SDK padrão
+description: Modifique o Azure Monitor padrão Application Insights pontos de extremidade do SDK para regiões como o Azure governamental.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432579"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
 
-Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos valores de espaço reservado para `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` com os endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
+Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos valores de espaço reservado para `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`e `Profile_Query_Endpoint_address` com os endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
 
 ## <a name="sdk-code-changes"></a>Alterações de código do SDK
 
@@ -178,7 +178,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 ```javascript
 <script type="text/javascript">
@@ -195,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Região |  Nome do ponto de extremidade | Valor |
+|Região |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | Canal de telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (métricas ao vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -207,7 +207,7 @@ Atualmente, as únicas regiões que exigem modificações de ponto de extremidad
 Se você usar atualmente a [API REST Application insights](https://dev.applicationinsights.io/
 ) que normalmente é acessada por meio de ' API.applicationinsights.Io ', será necessário usar um ponto de extremidade que seja local para sua região:
 
-|Região |  Nome do ponto de extremidade | Valor |
+|Região |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | API REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API REST | `api.applicationinsights.us`|

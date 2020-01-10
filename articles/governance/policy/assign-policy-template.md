@@ -3,12 +3,12 @@ title: 'Início rápido: nova atribuição de política com modelos'
 description: Neste guia de início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos sem conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 61bffcdeb5d562fe18df98fda091d5d6aa4b4051
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436455"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início rápido: criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
@@ -43,9 +43,9 @@ Aqui está uma cópia do modelo:
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | Selecione **criar novo**, especifique um nome e, em seguida, selecione **OK**. Na captura de tela, o nome do grupo de recursos é _mypolicyquickstart\<data em MMDD\>RG_. |
-   | Localização | Selecione uma região. Por exemplo, **EUA Central**. |
+   | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome da atribuição de política | Especifique um nome de atribuição de política. Você pode usar a exibição definição de política se desejar. Por exemplo, **audite VMs que não usam discos gerenciados**. |
-   | Nome RG | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste guia de início rápido, use o valor padrão **[resourcegroup (). Name]** . **[resourcegroup ()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
+   | Nome RG | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste guia de início rápido, use o valor padrão **[resourcegroup (). Name]** . **[resourcegroup ()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
    | ID de definição de política | Especifique **/Providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4C19-B460-a2d36003525a**. |
    | Eu concordo com os termos e condições declarados acima | Não |
 
@@ -55,16 +55,16 @@ Alguns recursos adicionais:
 
 - Para encontrar mais modelos de exemplos, consulte [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver a referência de modelo, vá para [referência de modelo do Azure](/azure/templates/microsoft.authorization/allversions).
-- Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+- Para saber como desenvolver modelos do Resource Manager, consulte a [documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 - Para aprender a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](../../azure-resource-manager/deploy-to-subscription.md).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
-Selecione **conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
+Selecione **conformidade** no lado esquerdo da página. Em seguida, localize a **VMs de auditoria que não utilizam discos geridos** atribuição de política que criou.
 
 ![Página Visão geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
 
-Se houver algum recurso existente que não esteja em conformidade com essa nova atribuição, eles aparecerão em **recursos sem conformidade**.
+Se existirem quaisquer recursos existentes que não estão em conformidade com esta nova atribuição, aparecem em **recursos não compatíveis**.
 
 Para obter mais informações, consulte [como funciona a conformidade](./how-to/get-compliance-data.md#how-compliance-works).
 

@@ -1,17 +1,17 @@
 ---
-title: Solucionar problemas e diagnosticar falhas
-description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho em aplicativos lógicos do Azure
+title: Solucionar problemas e diagnosticar falhas de fluxo de trabalho
+description: Saiba como solucionar e diagnosticar problemas, erros e falhas em seus fluxos de trabalho em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790775"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666810"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho no aplicativo lógico do Azure
 
@@ -38,7 +38,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não for acionado, p
    | ------ | ----------- | 
    | **Foi** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status "disparado" também aparece junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou `SplitOn` comando que não foi atendido. <p>Esse status pode ser aplicado a um gatilho manual, gatilho de recorrência ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações geram erros sem tratamento. | 
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados. | 
-   | **Falha ao** | Ocorreu um erro. Para examinar todas as mensagens de erro geradas para um gatilho com falha, selecione essa tentativa de disparo e escolha **saídas**. Por exemplo, você pode encontrar entradas que não são válidas. | 
+   | **Falhou** | Ocorreu um erro. Para examinar todas as mensagens de erro geradas para um gatilho com falha, selecione essa tentativa de disparo e escolha **saídas**. Por exemplo, você pode encontrar entradas que não são válidas. | 
    ||| 
 
    Você pode ter várias entradas de gatilho com a mesma data e hora, o que acontece quando seu aplicativo lógico localiza vários itens. 
@@ -78,7 +78,7 @@ Cada gatilho acionado inicia uma execução de fluxo de trabalho. Você pode exa
    | Estado | Descrição | 
    | ------ | ----------- | 
    | **Foi** | Todas as ações foram bem-sucedidas. <p>Se ocorrerem falhas em uma ação específica, uma ação a seguir no fluxo de trabalho tratou dessa falha. | 
-   | **Falha ao** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha. | 
+   | **Falhou** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho foi configurada para lidar com a falha. | 
    | **Cancelar** | O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento. | 
    | **Executado** | O fluxo de trabalho está em execução no momento. <p>Esse status pode ocorrer para fluxos de trabalho limitados ou devido ao plano de preços atual. Para obter mais informações, consulte os [limites de ação na página de preços](https://azure.microsoft.com/pricing/details/logic-apps/). Se você configurar o [log de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md), também poderá obter informações sobre os eventos de restrição que acontecerem. | 
    ||| 

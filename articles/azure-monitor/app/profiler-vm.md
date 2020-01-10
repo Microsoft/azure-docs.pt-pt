@@ -1,5 +1,5 @@
 ---
-title: Perfil de aplicativos Web em execução em uma VM do Azure usando Application Insights Profiler | Microsoft Docs
+title: Criar perfil de aplicativos Web em uma VM do Azure-Application Insights Profiler
 description: Criar o perfil de aplicativos Web em uma VM do Azure usando Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 046128fda385486f5a92d215e349760483c5dfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432372"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Criar perfil de aplicativos Web em execução em uma máquina virtual do Azure ou em um conjunto de dimensionamento de máquinas virtuais usando Application Insights Profiler
 
@@ -21,7 +21,7 @@ ms.locfileid: "74031020"
 
 Você também pode implantar o Aplicativo Azure insights Profiler nesses serviços:
 * [Serviço de Aplicações do Azure](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços Cloud do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implantar o Profiler em uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais

@@ -1,21 +1,23 @@
 ---
-title: Configurar o acesso para vários ISEs
-description: Para vários ambientes de serviço de integração (ISEs), você pode configurar um único endereço IP de saída público para acessar sistemas externos de aplicativos lógicos do Azure
+title: Configurar um endereço IP de saída público para ISEs
+description: Saiba como configurar um único endereço IP de saída pública para ambientes do serviço de integração (ISEs) em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453487"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Configurar o acesso para vários ambientes de serviço de integração nos aplicativos lógicos do Azure
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurar um único endereço IP para um ou mais ambientes de serviço de integração nos aplicativos lógicos do Azure
 
-Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicativos lógicos que precisam de acesso a recursos em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se você tiver várias instâncias do ISE que precisam de acesso a outros pontos de extremidade que têm restrições de IP, implante um [Firewall do Azure](../firewall/overview.md) ou um [dispositivo de rede virtual](../virtual-network/virtual-networks-overview.md#filter-network-traffic) em sua rede virtual e roteie o tráfego de saída por meio desse firewall ou dispositivo de rede virtual. Você pode fazer com que todas as instâncias do ISE em sua rede virtual usem um endereço IP único, previsível e público para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nos sistemas de destino para cada ISE. Este tópico mostra como rotear o tráfego de saída por meio de um firewall do Azure, mas você pode aplicar conceitos semelhantes a uma solução de virtualização de rede virtual, como um firewall de terceiros do Azure Marketplace.
+Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicativos lógicos que precisam de acesso a recursos em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Quando você tem várias instâncias do ISE que precisam de acesso a outros pontos de extremidade que têm restrições de IP, implante um [Firewall do Azure](../firewall/overview.md) ou um [dispositivo de rede virtual](../virtual-network/virtual-networks-overview.md#filter-network-traffic) em sua rede virtual e roteie o tráfego de saída por meio desse firewall ou dispositivo de rede virtual. Você pode fazer com que todas as instâncias do ISE em sua rede virtual usem um único endereço IP público, estático e previsível para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nesses sistemas de destino para cada ISE.
+
+Este tópico mostra como rotear o tráfego de saída por meio de um firewall do Azure, mas você pode aplicar conceitos semelhantes a uma solução de virtualização de rede, como um firewall de terceiros do Azure Marketplace. Embora este tópico se concentre na configuração de várias instâncias do ISE, você também pode usar essa abordagem para um único ISE quando seu cenário exigir a limitação do número de endereços IP que precisam de acesso. Considere se os custos adicionais para o firewall ou dispositivo de rede virtual fazem sentido para seu cenário. Saiba mais sobre os [preços do firewall do Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

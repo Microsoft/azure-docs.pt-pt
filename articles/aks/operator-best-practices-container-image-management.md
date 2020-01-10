@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614822"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442906"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para gerenciamento de imagens de contentor e de segurança no Azure Kubernetes Service (AKS)
 
@@ -25,6 +25,8 @@ Este artigo se concentra em como proteger os seus contentores no AKS. Saiba como
 > * Acionar e voltar a implementar imagens de contentor quando uma imagem de base é atualizada automaticamente
 
 Você também pode ler as práticas recomendadas para [segurança de cluster][best-practices-cluster-security] e segurança de [Pod][best-practices-pod-security].
+
+Você também pode usar a [segurança de contêiner na central de segurança][security-center-containers] para ajudar a examinar seus contêineres em busca de vulnerabilidades.  Também há [integração do registro de contêiner do Azure][security-center-acr] com a central de segurança para ajudar a proteger suas imagens e o registro de vulnerabilidades.
 
 ## <a name="secure-the-images-and-run-time"></a>Proteja as imagens e tempo de execução
 
@@ -46,7 +48,7 @@ Tarefas de registo de contentor do Azure também pode atualizar automaticamente 
 
 Para obter mais informações sobre atualizações de imagem de base, consulte [automatizar compilações de imagem na atualização da imagem de base com as tarefas do registro de contêiner do Azure][acr-base-image-update].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo concentra-se sobre como proteger os seus contentores. Para implementar algumas dessas áreas, consulte os artigos seguintes:
 
@@ -61,3 +63,5 @@ Este artigo concentra-se sobre como proteger os seus contentores. Para implement
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[security-center-containers]: /azure/security-center/container-security
+[security-center-acr]: /azure/security-center/azure-container-registry-integration

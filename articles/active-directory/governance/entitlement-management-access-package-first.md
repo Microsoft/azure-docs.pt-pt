@@ -1,5 +1,5 @@
 ---
-title: Tutorial-criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Tutorial – criar pacote de acesso-gerenciamento de direitos do Azure AD
 description: Tutorial passo a passo sobre como criar seu primeiro pacote de acesso em Azure Active Directory gerenciamento de direitos.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422662"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -190,7 +190,7 @@ Nesta etapa, você executa as etapas como **solicitante interno** e solicita ace
 
     ![Meu Portal de acesso-solicitar acesso](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Clique em **Enviar**.
+1. Clique em **Submit** (Submeter).
 
 1. No menu à esquerda, clique em **histórico de solicitações** para verificar se sua solicitação foi enviada.
 

@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 631a9e2d44b798404ee7567d3ccfed90628d2f8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432853"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicionar uma camada de imagem a um mapa
 
-Este artigo mostra como você pode sobrepor uma imagem ao conjunto fixo de coordenadas no mapa. Há muitos cenários em que a sobreposição de uma imagem no mapa é feita. Aqui estão alguns exemplos do tipo de imagens geralmente sobrepostas em mapas;
+Este artigo mostra como você pode sobrepor uma imagem a um conjunto fixo de coordenadas no mapa. Aqui estão alguns exemplos do tipo de imagens geralmente sobrepostas em mapas:
 
-* Imagens capturadas de drones.
-* Criando floorplans.
-* Histórico ou outras imagens de mapa especializadas.
-* Plantas de sites de trabalho.
-* Imagens de radar de clima.
+* Imagens capturadas de drones
+* Criando floorplans
+* Histórico ou outras imagens de mapa especializadas
+* Plantas de sites de trabalho
+* Imagens de radar de clima
 
 > [!TIP]
-> Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é uma maneira rápida de sobrepor uma imagem em um mapa. No entanto, se a imagem for grande, o navegador poderá se esforçar para carregá-la. Nesse caso, considere dividir a imagem em blocos e carregá-los no mapa como um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é uma maneira fácil de sobrepor uma imagem em um mapa. Observe que os navegadores podem ter dificuldades para carregar uma imagem grande. Nesse caso, considere dividir a imagem em blocos e carregá-los no mapa como um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
 A camada de imagem dá suporte aos seguintes formatos de imagem:
 
@@ -38,7 +38,7 @@ A camada de imagem dá suporte aos seguintes formatos de imagem:
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-No código a seguir, sobrepõe uma imagem de um [mapa de Newark New Jersey de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando uma URL para uma imagem e coordenadas para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
+O código a seguir sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando uma URL para uma imagem e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Aqui está o exemplo de código completo em execução do código anterior.
 
 <br/>
 
@@ -62,9 +62,9 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 ## <a name="import-a-kml-ground-overlay"></a>Importar uma sobreposição de aterramento KML
 
-Este exemplo mostra como sobrepor informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário, enquanto a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é do Chartres Cathedral e originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+Este exemplo a seguir mostra como sobrepor informações de sobreposição de terra KML como uma camada de imagem no mapa. As sobreposições de aterramento KML fornecem coordenadas norte, Sul, leste e oeste e uma rotação no sentido anti-horário, enquanto a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de aterramento KML neste exemplo é do Chartres Cathedral e é originada de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-O código a seguir usa a função estática `getCoordinatesFromEdges` da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) para calcular os quatro cantos da imagem das informações norte, Sul, leste, oeste e de rotação da sobreposição de aterramento KML.
+O código a seguir usa a função estática `getCoordinatesFromEdges` da classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Ele calcula os quatro cantos da imagem do Norte, Sul, leste e oeste e informações de rotação da sobreposição de aterramento KML.
 
 <br/>
 

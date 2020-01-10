@@ -1,28 +1,25 @@
 ---
-title: Obter eventos de estado de funcionamento com a API REST de recursos do Azure | Documentos da Microsoft
-description: Utilize as APIs de REST do Azure para obter os eventos de estado de funcionamento para os seus recursos do Azure.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
+title: Obter eventos do Azure Resource Health usando a API REST | Microsoft Docs
+description: Use as APIs REST do Azure para obter os eventos de integridade dos recursos do Azure.
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451380"
 ---
-# <a name="get-resource-health-using-the-rest-api"></a>Obter o estado de funcionamento de recursos com a API REST 
+# <a name="get-resource-health-using-the-rest-api"></a>Obter Resource Health usando a API REST 
 
-Este artigo de exemplo mostra como recuperar uma lista de eventos de estado de funcionamento dos recursos do Azure na sua subscrição com o [API REST do Azure](/rest/api/azure/).
+Este artigo de exemplo mostra como recuperar uma lista de eventos de integridade para os recursos do Azure em sua assinatura usando a [API REST do Azure](/rest/api/azure/).
 
-Estão disponíveis na documentação de referência completa e exemplos adicionais para a API REST da [referência de REST do Azure Monitor](/rest/api/monitor). 
+A documentação de referência completa e exemplos adicionais para a API REST estão disponíveis na [referência REST do Azure monitor](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte procedimento `GET` pedido HTTP para listar os eventos de estado de funcionamento para a sua subscrição para o intervalo de tempo entre `2018-05-16` e `2018-06-20`.
+Use a seguinte `GET` solicitação HTTP para listar os eventos de integridade da sua assinatura do intervalo de tempo entre `2018-05-16` e `2018-06-20`.
 
 ```http
 https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
@@ -30,29 +27,29 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
-Os seguintes cabeçalhos são necessários: 
+Os seguintes cabeçalhos são obrigatórios: 
 
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Necessário. Defina como um token de [acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)de `Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Name | Descrição |
+| Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2015-04-01`, incluído no URL acima.  |
-| $filter | A opção de filtragem para reduzir o conjunto de resultados devolvidos. Os padrões permitidos para este parâmetro estão disponíveis [de referência para a operação de registos de atividades](/rest/api/monitor/activitylogs/list#uri-parameters). O exemplo mostrado a captura todos os eventos num intervalo de tempo entre 2018-05-16 e de 2018-06-20 |
+| subscriptionId | A ID da assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento aborda a versão de API `2015-04-01`, incluída na URL acima.  |
+| $filter | A opção de filtragem para reduzir o conjunto de resultados retornados. Os padrões permitidos para esse parâmetro estão disponíveis [na referência para a operação de logs de atividade](/rest/api/monitor/activitylogs/list#uri-parameters). O exemplo mostrado captura todos os eventos em um intervalo de tempo entre 2018-05-16 e 2018-06-20 |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido não é necessária para esta operação.
+Nenhum corpo de solicitação é necessário para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-Código de estado 200 é devolvido com uma lista de valores de eventos de estado de funcionamento correspondente para o parâmetro filter, juntamente com um `nextlink` URI para obter a seguinte página de resultados.
+O código de status 200 é retornado com uma lista de valores de eventos de integridade correspondentes ao parâmetro de filtro, juntamente com um URI de `nextlink` para recuperar a próxima página de resultados.
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

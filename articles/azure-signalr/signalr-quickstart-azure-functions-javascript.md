@@ -5,16 +5,16 @@ author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: fd935ffda7d16988781d5debce9333ccf2adb16f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450267"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início rápido: Criar uma sala de chat com Azure Functions e o serviço de Signalr usando JavaScript
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início Rápido: Criar uma sala de chat com as Funções do Azure e o Serviço SignalR utilizando JavaScript
 
 O Serviço Azure SignalR permite-lhe adicionar facilmente funcionalidades em tempo real à sua aplicação. As Funções do Azure são uma plataforma sem servidor que lhe permite executar código sem ter de gerir qualquer infraestrutura. Neste início rápido, saiba como utilizar o Serviço SignalR e as Funções para criar uma aplicação de chat em tempo real sem servidor.
 
@@ -24,11 +24,9 @@ Este início rápido pode ser executado no macOS, Windows ou Linux.
 
 Certifique-se de que tem um editor de código como o [Visual Studio Code](https://code.visualstudio.com/) instalado.
 
-Instale o [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) para executar localmente aplicações das Funções do Azure.
+Instale o [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versão 2 ou superior) para executar os aplicativos de funções do Azure localmente.
 
-Azure Functions requer o [node. js](https://nodejs.org/en/download/) versão 8 ou 10.
-
-Para instalar as extensões, o Azure Functions Core Tools necessita que o [.NET Core SDK](https://www.microsoft.com/net/download) esteja instalado. No entanto, não precisa de estar familiarizado com o .NET para criar aplicações das Funções do Azure com JavaScript.
+Este guia de início rápido usa o [node. js](https://nodejs.org/en/download/) 10. x, mas deve funcionar com outras versões. Consulte a [documentação do Azure Functions Runtime Versions](../azure-functions/functions-versions.md#languages) para obter mais informações sobre as versões do node. js com suporte.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -63,13 +61,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
 
-1. No terminal, verifique se você está na pasta *src/chat/JavaScript* . Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
-
-    ```bash
-    func extensions install
-    ```
-
-1. Execute a aplicação de funções.
+1. No terminal, verifique se você está na pasta *src/chat/JavaScript* . Execute a aplicação de funções.
 
     ```bash
     func start

@@ -1,19 +1,18 @@
 ---
 title: Tutorial-desserializadores personalizados do .NET para Azure Stream Analytics trabalhos de nuvem
 description: Este tutorial demonstra como criar um desserializador do .NET personalizado para um Azure Stream Analytics trabalho de nuvem usando o Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443698"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: desserializadores .NET personalizados para Azure Stream Analytics
 
@@ -79,7 +78,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
 
    |Definição|Valor sugerido|
    |-------|---------------|
-   |Origem|Armazenamento de Blobs|
+   |Origem|Blob Storage|
    |Recurso|Escolha a origem de dados na conta atual|
    |Subscrição|< sua assinatura >|
    |Conta de Armazenamento|< sua conta de armazenamento >|
@@ -87,7 +86,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
    |Formato de serialização de evento|Outro (Protobuf, XML, proprietário...)|
    |Recurso|Carregar da referência de projeto ASA ou codebehind|
    |Nome do assembly CSharp|ProtobufDeserializer. dll|
-   |Nome da classe|MessageBodyProto.MessageBodyDeserializer|
+   |Nome da Classe|MessageBodyProto.MessageBodyDeserializer|
    |Tipo de compactação de evento|Nenhuma|
 
 3. Adicione a consulta a seguir ao arquivo **script. asaql** .
@@ -104,7 +103,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
    |Tipo de Fonte|Fluxo de Dados|
    |Formato de serialização de evento|Outro (Protobuf, XML, proprietário...)|
    |Nome do assembly CSharp|ProtobufDeserializer. dll|
-   |Nome da classe|MessageBodyProto.MessageBodyDeserializer|
+   |Nome da Classe|MessageBodyProto.MessageBodyDeserializer|
    |Caminho do arquivo de entrada local|< o caminho do arquivo para o arquivo de entrada protobuf de exemplo baixado >|
 
 ## <a name="execute-the-stream-analytics-job"></a>Executar o trabalho de Stream Analytics

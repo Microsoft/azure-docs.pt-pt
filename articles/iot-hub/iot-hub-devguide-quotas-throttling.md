@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457077"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência-cotas e limitação do Hub IoT
 
@@ -101,11 +101,11 @@ O Hub IoT impõe outros limites operacionais:
 | Pontos de extremidade adicionais | Os hubs de SKU pagos podem ter 10 pontos de extremidade adicionais. Os hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Consultas de roteamento de mensagens | Os hubs de SKU pagos podem ter 100 consultas de roteamento. Os hubs SKU gratuitos podem ter cinco consultas de roteamento. |
 | Melhoramentos das mensagens | Os hubs de SKU pagos podem ter até 10 aprimoramentos de mensagens. Os hubs de SKU gratuitos podem ter até 2 aprimoramentos de mensagens.|
-| Mensagens do dispositivo para a nuvem | Tamanho máximo de mensagem de 256 KB |
+| Mensagens de dispositivo para cloud | Tamanho máximo de mensagem de 256 KB |
 | Mensagens da nuvem para o dispositivo<sup>1</sup> | Tamanho máximo de mensagem de 64 KB. O máximo de mensagens pendentes para entrega é de 50 por dispositivo. |
 | Método direto<sup>1</sup> | O tamanho máximo do payload de método direto é 128 KB. |
-| Configurações de dispositivo automáticas<sup>1</sup> | configurações de 100 por Hub SKU pago. 20 configurações por Hub SKU gratuito. |
-| IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
+| Configurações automáticas de dispositivo e módulo<sup>1</sup> | configurações de 100 por Hub SKU pago. 20 configurações por Hub SKU gratuito. |
+| IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações (incluindo implantações em camadas) por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
 | Gêmeos<sup>1</sup> | O tamanho máximo das seções desejadas e das propriedades relatadas são 32 KB. O tamanho máximo da seção de marcas é 8 KB. |
 
 <sup>1</sup> Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [como escolher o Hub IOT correto](iot-hub-scaling.md).

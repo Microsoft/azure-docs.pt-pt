@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975589"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667547"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -94,10 +94,6 @@ Você também pode [Adicionar uma nova função ao seu projeto](#add-a-function-
 
 Exceto para gatilhos HTTP e de temporizador, as associações são implementadas em pacotes de extensão. Você deve instalar os pacotes de extensão para os gatilhos e as associações que precisam deles. O processo de instalação de extensões de associação depende do idioma do seu projeto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Execute o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-package) na janela do terminal para instalar os pacotes de extensão de que você precisa em seu projeto. O comando a seguir instala a extensão de armazenamento do Azure, que implementa associações para armazenamento de BLOBs, filas e tabelas.
@@ -105,6 +101,10 @@ Execute o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-packag
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ Você pode adicionar uma nova função a um projeto existente usando um dos mode
 
 Os resultados dessa ação dependem do idioma do seu projeto:
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-Uma nova pasta é criada no projeto. A pasta contém um novo arquivo function. JSON e o novo arquivo de código JavaScript.
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Um novo C# arquivo de biblioteca de classes (. cs) é adicionado ao seu projeto.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+Uma nova pasta é criada no projeto. A pasta contém um novo arquivo function. JSON e o novo arquivo de código JavaScript.
 
 ---
 
@@ -129,6 +129,24 @@ Um novo C# arquivo de biblioteca de classes (. cs) é adicionado ao seu projeto.
 Você pode expandir sua função adicionando associações de entrada e saída. O processo para adicionar associações depende do idioma do seu projeto. Para saber mais sobre associações, confira [Azure Functions os conceitos de gatilhos e associações](functions-triggers-bindings.md).
 
 Os exemplos a seguir se conectam a uma fila de armazenamento chamada `outqueue`, em que a cadeia de conexão para a conta de armazenamento é definida na configuração do aplicativo `MyStorageConnection` em local. Settings. JSON.
+
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+Atualize o método de função para adicionar o seguinte parâmetro à definição do método de `Run`:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+Esse código exige que você adicione a seguinte instrução de `using`:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Você adiciona uma ou mais mensagens à coleção. Essas mensagens são enviadas para a fila quando a função é concluída.
+
+Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---c-example) .
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -144,7 +162,7 @@ Veja a seguir exemplos de prompts para definir uma nova associação de saída d
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila de armazenamento do Azure. |
 | **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
 | **A fila para a qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação é gravada. Quando o *QueueName* não existe, a associação o cria no primeiro uso. |
-| **Selecione configuração em "local. setting. JSON"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
+| **Selecione configuração em "local. Settings. JSON"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
 
 Neste exemplo, a seguinte associação é adicionada à matriz de `bindings` em seu arquivo function. JSON:
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Para saber mais, consulte a referência de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---javascript-example) .
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-Atualize o método de função para adicionar o seguinte parâmetro à definição do método de `Run`:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-Esse código exige que você adicione a seguinte instrução de `using`:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Você adiciona uma ou mais mensagens à coleção. Essas mensagens são enviadas para a fila quando a função é concluída.
-
-Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---c-example) .
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 

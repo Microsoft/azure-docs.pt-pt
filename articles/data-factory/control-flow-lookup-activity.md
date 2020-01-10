@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440494"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -25,7 +25,7 @@ A atividade de pesquisa pode recuperar um conjunto de dados de qualquer uma das 
 
 A atividade de pesquisa lê e retorna o conteúdo de um arquivo de configuração ou tabela. Ele também retorna o resultado da execução de uma consulta ou um procedimento armazenado. A saída da atividade de pesquisa pode ser usada em uma atividade de cópia ou transformação subsequente se for um valor singleton. A saída poderá ser usada em uma atividade ForEach se for uma matriz de atributos.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Capacidades suportadas
 
 As fontes de dados a seguir têm suporte para a atividade de pesquisa. O maior número de linhas que podem ser retornadas pela atividade de pesquisa é 5.000, com até 2 MB de tamanho. Atualmente, a duração mais longa para a atividade de pesquisa antes do tempo limite é de uma hora.
 
@@ -238,10 +238,7 @@ Essa conta de armazenamento contém o arquivo JSON com os nomes das tabelas SQL.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -258,16 +255,13 @@ Esta instância do banco de dados SQL do Azure contém os dados a serem copiados
         "type": "AzureSqlDatabase",
         "description": "",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
         }
     }
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable. JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Conjunto de objetos
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462468"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia é para profissionais de ti (tecnologia da informação), arquitetos de ti, analistas de segurança de informações e administradores de nuvem para usar a central de segurança do Azure.
@@ -83,6 +83,10 @@ Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário
 
 * Proprietário/colaborador do grupo de recursos
 
+**Helena (CISO/CIO)**
+
+* Proprietário/colaborador ou administrador de segurança da assinatura
+
 **Diogo (Segurança de TI)**
 
 * Proprietário/colaborador ou administrador de segurança da assinatura
@@ -150,8 +154,8 @@ Os dados recolhidos pelo Agente de Monitorização Microsoft (em nome do Centro 
 
 No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 
-* Espaço *DefaultWorkspace-[subscription-ID]-[geo]*
-* Grupo de recursos: *Defaultresource: [geo]*
+* Área de trabalho: *DefaultWorkspace-[subscription-ID]-[geo]*
+* Grupo de recursos: *Defaultresource Group-[geográfico]*
 
 Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados são retidos durante 30 dias. Para as áreas de trabalho existentes, a retenção baseia-se no escalão de preço da área de trabalho. Se quiser, também pode utilizar uma área de trabalho existente.
 
@@ -195,7 +199,7 @@ Quando adicionar novos recursos (VMs, BDs SQL) ao seu Ambiente do Azure, o Centr
 
 Você também deve monitorar regularmente os recursos existentes para as alterações de configuração que poderiam ter criado riscos de segurança, descompasso das linhas de base recomendadas e alertas de segurança. Comece no dashboard do Centro de Segurança. A partir daí, você tem três áreas principais para examinar de forma consistente.
 
-![Operações](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. O painel da secção **Prevenção** fornece-lhe acesso rápido aos seus recursos principais. Utilize esta opção para monitorizar a Computação, a Rede, o Armazenamento e dados e as Aplicações.
 2. O painel **Recomendações** permite-lhe rever as recomendações do Centro de Segurança. Durante o monitoramento contínuo, você pode achar que não tem recomendações diariamente, o que é normal, já que você solucionou todas as recomendações sobre a configuração inicial da central de segurança. Por este motivo, é possível que não tenha novas informações nesta secção todos os dias e que apenas tenha de aceder à mesma conforme seja necessário.
@@ -247,7 +251,7 @@ No [como aproveitar a central de segurança do Azure & Microsoft Operations Mana
 ## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
+* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

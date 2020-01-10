@@ -1,25 +1,16 @@
 ---
-title: Restaurando backup no Azure Service Fabric | Microsoft Docs
+title: Restaurando o backup no Azure Service Fabric
 description: Use o recurso backup e restauração periódicos no Service Fabric para restaurar dados de um backup dos dados do aplicativo.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377910"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restaurando o backup no Azure Service Fabric
 
@@ -326,7 +317,7 @@ A solicitação de restauração progride na seguinte ordem:
 
 ## <a name="automatic-restore"></a>Restauração automática
 
-Você pode configurar o serviço de estado confiável e Reliable Actors partições no Cluster Service Fabric para _restauração automática_. Na política de backup, defina `AutoRestore` como _true_. Habilitar a _restauração automática_ restaura automaticamente os dados do backup de partição mais recente quando a perda de dados é relatada. Para obter mais informações, consulte:
+Você pode configurar o serviço de estado confiável e Reliable Actors partições no Cluster Service Fabric para _restauração automática_. Na política de backup, defina `AutoRestore` como _true_. Habilitar a _restauração automática_ restaura automaticamente os dados do backup de partição mais recente quando a perda de dados é relatada. Para obter mais informações, veja:
 
 - [Habilitação da restauração automática na política de backup](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Referência da API do RestorePartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

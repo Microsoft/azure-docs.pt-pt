@@ -1,25 +1,14 @@
 ---
-title: Saiba mais sobre a segurança de aplicativo do Azure Service Fabric | Microsoft Docs
+title: Saiba mais sobre a segurança do aplicativo Service Fabric do Azure
 description: Uma visão geral de como executar aplicativos de microserviço com segurança em Service Fabric. Saiba como executar o script de serviços e de inicialização em diferentes contas de segurança, autenticar e autorizar usuários, gerenciar segredos de aplicativos, proteger comunicações de serviço, usar um gateway de API e proteger dados de aplicativos em repouso.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452259"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de aplicativo e serviço Service Fabric
 Uma arquitetura de microserviços pode trazer [muitos benefícios](service-fabric-overview-microservices.md). No entanto, gerenciar a segurança dos microserviços é um desafio e diferente de gerenciar a segurança dos aplicativos monolíticos tradicionais. 
@@ -31,7 +20,7 @@ Este artigo não é um guia para a segurança de microserviços, há muitos dess
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 Geralmente, é necessário que os recursos e as APIs expostas por um serviço sejam limitados a determinados usuários ou clientes confiáveis. A autenticação é o processo de garantir a identidade de um usuário de forma confiável.  A autorização é o processo que disponibiliza APIs ou serviços para alguns usuários autenticados, mas não para outros.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 A primeira etapa para fazer decisões de confiança no nível da API é a autenticação. A autenticação é o processo de garantir a identidade de um usuário de forma confiável.  Em cenários de microserviço, a autenticação é normalmente tratada centralmente. Se você estiver usando um gateway de API, poderá [descarregar a autenticação](/azure/architecture/patterns/gateway-offloading) para o gateway. Se você usar essa abordagem, certifique-se de que os serviços individuais não podem ser acessados diretamente (sem o gateway de API), a menos que a segurança adicional esteja em vigor para autenticar mensagens se elas forem provenientes do gateway ou não.
 
 Se os serviços puderem ser acessados diretamente, um serviço de autenticação como Azure Active Directory ou um microserviço de autenticação dedicado agindo como um serviço de token de segurança (STS) pode ser usado para autenticar usuários. As decisões de confiança são compartilhadas entre serviços com tokens de segurança ou cookies. 
@@ -96,7 +85,7 @@ Você pode estabelecer uma conexão segura entre o proxy reverso e os serviços,
 A estrutura de aplicativo Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Saiba como melhorar a segurança quando você estiver usando a comunicação remota do [C#](service-fabric-reliable-services-secure-communication.md) serviço (no ou [Java](service-fabric-reliable-services-secure-communication-java.md)) ou usando o [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Criptografar dados de aplicativo em repouso
-Cada [tipo de nó](service-fabric-cluster-nodetypes.md) em um Cluster Service Fabric em execução no Azure é apoiado por um conjunto de dimensionamento de [máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Ao utilizar um modelo do Azure Resource Manager, pode anexar discos de dados aos conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se seus serviços salvarem dados em um disco de dados anexado, você poderá [criptografar esses discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados do aplicativo.
+Cada [tipo de nó](service-fabric-cluster-nodetypes.md) em um Cluster Service Fabric em execução no Azure é apoiado por um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Ao utilizar um modelo do Azure Resource Manager, pode anexar discos de dados aos conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se seus serviços salvarem dados em um disco de dados anexado, você poderá [criptografar esses discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados do aplicativo.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/30/2019
 ms.author: alsin
-ms.openlocfilehash: 2ae1f3769254575e33eaa5b4e3a24c47b9eb1aff
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451233"
 ---
 # <a name="azure-serial-console"></a>Consola de Série do Azure
 
-O console serial no portal do Azure fornece acesso a um console baseado em texto para VMs (máquinas virtuais) e instâncias do conjunto de dimensionamento de máquinas virtuais que executam o Linux ou o Windows. Essa conexão serial conecta-se à porta serial ttyS0 ou COM1 da VM ou à instância do conjunto de dimensionamento de máquinas virtuais, fornecendo acesso independente do estado da rede ou do sistema operacional. O console serial só pode ser acessado usando o portal do Azure e é permitido somente para os usuários que têm uma função de acesso de colaborador ou superior ao conjunto de dimensionamento de máquinas virtuais ou VM.
+O console serial no portal do Azure fornece acesso a um console baseado em texto para VMs (máquinas virtuais) e instâncias do conjunto de dimensionamento de máquinas virtuais que executam o Linux ou o Windows. Esta ligação série estabelece ligação com a porta série ttyS0 ou COM1 da VM ou da instância de conjunto de dimensionamento de máquinas virtuais, o que permite aceder independentemente do estado do sistema operativo ou da rede. O console serial só pode ser acessado usando o portal do Azure e é permitido somente para os usuários que têm uma função de acesso de colaborador ou superior ao conjunto de dimensionamento de máquinas virtuais ou VM.
 
 O console serial funciona da mesma maneira para VMs e instâncias do conjunto de dimensionamento de máquinas virtuais. Neste documento, todas as menção a VMs irão incluir implicitamente as instâncias do conjunto de dimensionamento de máquinas virtuais, salvo indicação em contrário.
 
 > [!NOTE]
-> O console serial está geralmente disponível em regiões globais do Azure. Ele ainda não está disponível no Azure government ou a clouds do Azure China.
+> O console serial está geralmente disponível em regiões globais do Azure e em visualização pública no Azure governamental. Ele ainda não está disponível na nuvem do Azure na China.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Pré-requisitos para acessar o console serial do Azure
 Para acessar o console serial em sua VM ou instância do conjunto de dimensionamento de máquinas virtuais, você precisará do seguinte:
@@ -71,10 +71,10 @@ O console serial está disponível para conjuntos de dimensionamento de máquina
 Além do acesso do console à sua VM, você também pode usar o console serial do Azure para o seguinte:
 * Enviando um [comando de solicitação do sistema para sua VM](./serial-console-nmi-sysrq.md)
 * Enviando uma [interrupção não mascarável para sua VM](./serial-console-nmi-sysrq.md)
-* Reinicializando [ou forçando forçosamente a energia de sua VM](./serial-console-power-options.md)
+* [Reinicializando ou forçando forçosamente a energia de sua VM](./serial-console-power-options.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 A documentação adicional do console serial está disponível na barra lateral.
 - Mais informações estão disponíveis para o [console serial para VMs do Linux](./serial-console-linux.md).
 - Mais informações estão disponíveis para o [console serial para VMs do Windows](./serial-console-windows.md).

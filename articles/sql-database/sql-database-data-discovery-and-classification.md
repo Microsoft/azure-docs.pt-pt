@@ -12,22 +12,22 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555362"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552554"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Classificação & do banco de dados SQL do Azure e SQL Data Warehouse data Discovery
 
-A classificação de & de descoberta de dados fornece recursos avançados incorporados ao banco de dado SQL do Azure para **descobrir**, **classificar**, **rotular** & **proteger** os dados confidenciais em seus bancos.
+A classificação de & de descoberta de dados fornece recursos avançados incorporados ao banco de dado SQL do Azure para **descobrir**, **classificar**, **rotular** & **relatar** os dados confidenciais em seus bancos.
 
-Descobrindo e classificando seus dados mais confidenciais (negócios, financeiros, de saúde, PII (dados de identificação pessoal) e assim por diante.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Ele pode servir como uma infraestrutura para:
+Descobrindo e classificando seus dados mais confidenciais (negócios, financeiros, de saúde, PII (dados de identificação pessoal) e assim por diante.) pode desempenhar uma função dinâmica em sua estatura de proteção de informações organizacionais. Pode funcionar como infraestrutura para:
 
-- Ajudando a atender aos padrões de privacidade de dados e aos requisitos de conformidade regulatória.
+- Ajudar a cumprir as normas de privacidade dos dados e os requisitos de conformidade regulamentares.
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas de acesso anormal a dados confidenciais.
-- Controlando o acesso e protegendo a segurança de bancos de dados que contenham um dado altamente confidencial.
+- Controlar o acesso e reforçar a segurança das bases de dados que contêm dados altamente confidenciais.
 
 A classificação de & de descoberta de dados faz parte da oferta do ADS ( [segurança de dados avançada](sql-database-advanced-data-security.md) ), que é um pacote unificado para recursos avançados de segurança do SQL. a classificação de & de descoberta de dados pode ser acessada e gerenciada por meio do portal de anúncios do SQL central.
 
@@ -40,11 +40,11 @@ A classificação de & de descoberta de dados apresenta um conjunto de serviços
 
 - **Recomendações de & de descoberta**
 
-  O mecanismo de classificação verifica o banco de dados e identifica as colunas que contenham os possíveis confidenciais. Em seguida, ele fornece uma maneira fácil de revisar e aplicar as recomendações de classificação apropriadas por meio do portal do Azure.
+  O mecanismo de classificação verifica o banco de dados e identifica as colunas que contenham os possíveis confidenciais. Em seguida, proporciona-lhe uma forma fácil de analisar e aplicar as recomendações de classificação adequadas através do portal do Azure.
 
 - **Rotulagem**
 
-  Os rótulos de classificação de confidencialidade podem ser marcados persistentemente em colunas usando novos atributos de metadados de classificação introduzidos no mecanismo do SQL. Esses metadados podem ser utilizados para cenários de proteção e auditoria baseados em sensibilidade avançada.
+  Os rótulos de classificação de confidencialidade podem ser marcados persistentemente em colunas usando novos atributos de metadados de classificação introduzidos no mecanismo do SQL. Em seguida, estes metadados podem ser utilizados em cenários avançados de proteção e auditoria baseados em confidencialidade.
 
 - **Sensibilidade do conjunto de resultados da consulta**
 
@@ -52,7 +52,7 @@ A classificação de & de descoberta de dados apresenta um conjunto de serviços
 
 - **Visibility** (Visibilidade)
 
-  O estado de classificação do banco de dados pode ser exibido em um painel detalhado no Portal. Além disso, você pode baixar um relatório (no formato do Excel) a ser usado para fins de auditoria & de conformidade, bem como outras necessidades.
+  O estado de classificação do banco de dados pode ser exibido em um painel detalhado no Portal. Adicionalmente, pode transferir um relatório (no formato do Excel) para ser utilizado para fins de conformidade e auditoria, bem como para outras necessidades.
 
 ## <a id="subheading-2"></a>Descobrir, classificar & colunas confidenciais do rótulo
 
@@ -69,7 +69,7 @@ A classificação de & do SQL Data Discovery vem com um conjunto interno de rót
 
 A definição e a personalização de sua taxonomia de classificação são feitas em um local central para todo o seu locatário do Azure. Esse local está na [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte de sua política de segurança. Somente alguém com direitos administrativos no grupo de gerenciamento raiz do locatário pode executar essa tarefa.
 
-Como parte do gerenciamento de políticas da proteção de informações, você pode definir rótulos personalizados, classificá-los e associá-los a um conjunto selecionado de tipos de informações. Você também pode adicionar seus próprios tipos de informações personalizados e configurá-los com padrões de cadeia de caracteres, que são adicionados à lógica de descoberta para identificar esse tipo de dados em seus bancos.
+Como parte do gerenciamento de políticas da proteção de informações, você pode definir rótulos personalizados, classificá-los e associá-los a um conjunto selecionado de tipos de informações. Também pode adicionar os seus próprios tipos de informações personalizados e configurá-los com padrões de cadeia, que são adicionados à lógica de deteção para identificar este tipo de dados nas bases de dados.
 Saiba mais sobre como personalizar e gerenciar sua política no [Guia de instruções da política de proteção de informações](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 Depois que a política de todo o locatário tiver sido definida, você poderá continuar com a classificação de bancos de dados individuais usando sua política personalizada.
@@ -98,7 +98,7 @@ Depois que a política de todo o locatário tiver sido definida, você poderá c
 
    - Para exibir a lista de classificações de coluna recomendadas, clique no painel recomendações na parte inferior da janela:
 
-      ![Classificar seus dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+      ![Classificar os seus dados](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
    - Examine a lista de recomendações – para aceitar uma recomendação para uma coluna específica, marque a caixa de seleção na coluna à esquerda da linha relevante. Você também pode marcar *todas as recomendações* como aceitas marcando a caixa de seleção no cabeçalho da tabela de recomendações.
 
@@ -149,7 +149,7 @@ Você pode usar o T-SQL para adicionar/remover classificações de coluna, bem c
 - Exibir todas as classificações no banco de dados: [Sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 # <a name="rest-apistabazure-rest-api"></a>[APIs REST](#tab/azure-rest-api)
-Você também pode usar as APIs REST para gerenciar programaticamente as classificações. As APIs REST publicadas dão suporte às seguintes operações:
+Você pode usar as APIs REST para gerenciar programaticamente as classificações e recomendações. As APIs REST publicadas dão suporte às seguintes operações:
 
 - [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza o rótulo de sensibilidade de uma determinada coluna
 - [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) – exclui o rótulo de sensibilidade de uma determinada coluna
@@ -157,11 +157,10 @@ Você também pode usar as APIs REST para gerenciar programaticamente as classif
 - [Habilitar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) – habilita recomendações de sensibilidade em uma determinada coluna (as recomendações são habilitadas por padrão em todas as colunas)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -Obtém o rótulo de sensibilidade de uma determinada coluna
 - [Listar atual pelo banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -Obtém os rótulos de sensibilidade atuais de um determinado banco de dados
-
 - [Lista recomendada pelo banco de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtém os rótulos de sensibilidade recomendados de um determinado banco de dados
 
 # <a name="powershell-cmdlettabazure-powelshell"></a>[Cmdlet do PowerShell](#tab/azure-powelshell)
-Você pode usar o PowerShell para obter todas as colunas recomendadas em um banco de dados SQL do Azure e em uma instância gerenciada.
+Você pode usar o PowerShell para gerenciar classificações e recomendações para o banco de dados SQL do Azure e Instância Gerenciada.
 
 ### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet do PowerShell para banco de dados SQL do Azure
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)

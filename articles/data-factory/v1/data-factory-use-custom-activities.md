@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438815"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -440,7 +440,7 @@ Os serviços ligados ligam os arquivos de dados ou serviços de computação a u
 2. Clique em **novo armazenamento de dados** na barra de comandos e escolha **armazenamento do Azure**. Deverá ver o script JSON para criar um serviço ligado do Storage do Azure no editor.
 
     ![Novo armazenamento de dados-armazenamento do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Substitua `<accountname>` pelo nome da sua conta de armazenamento do Azure e `<accountkey>` com a chave de acesso da conta de armazenamento do Azure. Para saber como obter a chave de acesso ao armazenamento, veja [Ver, copiar e regenerar as chaves de acesso ao armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+3. Substitua `<accountname>` pelo nome da sua conta de armazenamento do Azure e `<accountkey>` com a chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
     ![Serviço curtido do armazenamento do Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implementar** na barra de comandos para implementar o serviço ligado.

@@ -1,25 +1,14 @@
 ---
-title: Implementar uma aplicação .NET num contentor no Azure Service Fabric | Microsoft Docs
+title: Implantar um aplicativo .NET em um contêiner para o Azure Service Fabric
 description: Saiba como colocar uma aplicação .NET existente num contentor com o Visual Studio e depurar contentores no Service Fabric localmente. A aplicação em contentor é enviada para um registo de contentor do Azure e implementada num cluster do Service Fabric. Quando implementada no Azure, a aplicação utiliza a BD SQL do Azure para manter os dados.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463061"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -42,7 +31,7 @@ Neste tutorial, ficará a saber como:
 2. Instale o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), para que possam executar contentores no Windows 10.
 3. Instale o [runtime do Service Fabric, versão 6.2 ou posterior](service-fabric-get-started.md) e o [SDK do Service Fabric, versão 3.1](service-fabric-get-started.md) ou posterior.
 4. Instale o [Visual Studio 2019 versão 16,1](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
-5. Instalar [Azure PowerShell][link-azure-powershell-install]
+5. Instale o [Azure PowerShell][link-azure-powershell-install].
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Transferir e executar o Fabrikam Fiber CallCenter
@@ -129,7 +118,7 @@ Volte para o projeto **FabrikamFiber.Web**, atualize a cadeia de ligação no fi
 ## <a name="run-the-containerized-application-locally"></a>Executar a aplicação em contentor localmente
 Prima **F5** para executar e depurar a aplicação num contentor no cluster de desenvolvimento do Service Fabric local. Clique em **Sim** se for apresentada uma caixa de mensagem a pedir para conceder permissões de leitura e execução do grupo “ServiceFabricAllowedUsers” ao diretório do projeto do Visual Studio.
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Create a container registry (Criar um registo de contentores)
 Agora que a aplicação é executada localmente, comece a preparar a implementação do Azure.  As imagens de contentor têm de ser armazenadas num registo de contentor.  Crie um [registo de contentor do Azure](/azure/container-registry/container-registry-intro) com o script seguinte. O nome de registo do contentor é visível para as outras subscrições do Azure, pelo que tem de ser exclusivo.
 Antes de implementar a aplicação no Azure, coloque a imagem de contentor neste registo.  Quando a aplicação é implementada no cluster no Azure, a imagem de contentor é retirada deste registo.
 
@@ -167,11 +156,11 @@ Ao criar o cluster,
 
     a. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a subscrição e a localização que pretende utilizar. Anote o nome do grupo de recursos de cluster.
 
-    b. Opcional: Você pode modificar o número de nós. Por predefinição, tem três nós, o mínimo exigido para testar cenários do Service Fabric.
+    b. Opcional: pode modificar o número de nós. Por predefinição, tem três nós, o mínimo exigido para testar cenários do Service Fabric.
 
-    c. Selecione o separador **Certificado**. Neste separador, escreva uma palavra-passe a utilizar para proteger o certificado do seu cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
+    c. Selecione a guia **certificado** . Nessa guia, digite uma senha a ser usada para proteger o certificado do cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
 
-    d. Selecione o separador **Detalhes da VM**. Especifique a palavra-passe que pretende utilizar para as máquinas virtuais (VM) que compõem o cluster. O nome de utilizador e a palavra-passe podem ser utilizados para ligar remotamente às VMs. Também tem de selecionar um tamanho de VM e pode alterar a imagem da VM, se necessário. 
+    d. Selecione a guia **detalhes da VM** . Especifique a senha que você deseja usar para as máquinas virtuais (VM) que compõem o cluster. O nome de utilizador e a palavra-passe podem ser utilizados para ligar remotamente às VMs. Também tem de selecionar um tamanho de VM e pode alterar a imagem da VM, se necessário. 
 
     > [!IMPORTANT]
     >Escolha uma SKU que ofereça suporte a contêineres em execução. O SO do Windows Server nos nós do cluster tem de ser compatível com o SO do Windows Server do seu contentor. Para obter mais informações, veja [Compatibilidade do sistema operativo do contentor do Windows Server e do sistema operativo do sistema anfitrião ](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Por predefinição, este tutorial cria uma imagem do Docker com base no Windows Server 2016 LTSC. Os contentores com base nesta imagem serão executados nos clusters criados com o Windows Server 2016 Datacenter com Contentores. No entanto, se criar um cluster ou utilizar um cluster existente com base no Windows Server Datacenter Core 1709 com Contentores, terá de alterar a imagem do SO do Windows Server em que se baseia o contentor. Abra o **Dockerfile** no projeto **FabrikamFiber.Web**, comente a instrução `FROM` existente (com base em `windowsservercore-ltsc`) e anule os comentários na instrução `FROM` baseada em `windowsservercore-1709`. 
@@ -235,12 +224,12 @@ Agora que a aplicação está pronta, pode implementá-la no cluster diretamente
 
 ![Publicar a aplicação][publish-app]
 
-Siga o progresso da implementação na janela de saída.  Quando a aplicação for implementada, abra um browser e escreva o endereço do cluster e a porta da aplicação. Por exemplo, http:\//fabrikamfibercallcenter.southcentralus.cloudapp.Azure.com:8659/.
+Siga o progresso da implementação na janela de saída.  Quando a aplicação for implementada, abra um browser e escreva o endereço do cluster e a porta da aplicação. Por exemplo, http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Exemplo de Fabrikam Web][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurar a Integração e a Implementação Contínua (CI/CD) com um cluster do Service Fabric
-Para saber como usar o Azure DevOps para configurar a implantação de aplicativo de CI/CD em um cluster [Service Fabric, consulte Tutorial: Implante um aplicativo com CI/CD em um cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)Service Fabric. O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
+Para saber como utilizar o Azure DevOps para configurar a implementação de aplicação de CI/CD num cluster do Service Fabric, veja o [Tutorial: Implementar uma aplicação com a CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). O processo descrito no tutorial é o mesmo para este projeto (FabrikamFiber), basta ignorar a transferência do exemplo de Voto e substituir o FabrikamFiber pelo nome do repositório, em vez de Voto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar, lembre-se de remover todos os recursos que criou.  A forma mais simples de fazê-lo consiste em remover os grupos de recursos que contêm o cluster do Service Fabric, a BD SQL do Azure e o Azure Container Registry.
@@ -260,7 +249,7 @@ Remove-AzResourceGroup -Name $acrresourcegroupname
 Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

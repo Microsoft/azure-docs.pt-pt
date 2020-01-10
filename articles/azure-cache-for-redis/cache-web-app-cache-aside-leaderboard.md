@@ -1,18 +1,18 @@
 ---
-title: Tutorial para criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache
-description: Saiba como criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache
+title: 'Tutorial: criar um aplicativo Web (reserva de cache)-cache do Azure para Redis'
+description: Saiba como criar um aplicativo Web com o cache do Azure para Redis que usa o padrão de reserva de cache.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411945"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação cache-aside no ASP.NET
 
@@ -720,7 +720,7 @@ Clique em algumas das ações e experimente obter os dados a partir de diferente
 Quando tiver terminado o tutorial da aplicação de exemplo, poderá eliminar os recursos do Azure utilizados para conservar os custos e os recursos. Todos os recursos devem estar presentes no mesmo grupo de recursos para poder eliminá-los numa única operação ao eliminar o grupo de recursos. As instruções neste tópico utilizaram um grupo de recursos denominado *TestResources*.
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis.
 >
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.

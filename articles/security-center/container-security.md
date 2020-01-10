@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 9cb4f6ec7331a2d0eb03beb2680c882484b69541
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7bd097885d629a6c8541b57195f2a2996e45ffaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868495"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552666"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contêiner na central de segurança
 
@@ -32,9 +32,9 @@ Este artigo descreve como você pode melhorar, monitorar e manter a segurança d
 [![guia Segurança do contêiner da central de segurança do Azure](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gerenciamento de vulnerabilidades-verificação de imagens de contêiner (visualização)
-Para monitorar o registro de contêiner do Azure, verifique se você está na camada Standard da central de segurança (consulte [preços](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
+Para monitorar o registro de contêiner do Azure, verifique se você está na camada Standard da central de segurança (consulte [preços](/azure/security-center/security-center-pricing)). Em seguida, habilite o pacote opcional de registros de contêiner. Quando uma nova imagem é enviada por push, a central de segurança examina a imagem usando um scanner do fornecedor de verificação de vulnerabilidade líder do setor, Qualys.
 
-Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a lista de recomendações [aqui](recommendations-compute-and-apps.md).
+Quando forem encontrados problemas – por Qualys ou pela central de segurança – você será notificado no painel da central de segurança. Para cada vulnerabilidade, a central de segurança fornece recomendações acionáveis, juntamente com uma classificação de gravidade, e orientações sobre como corrigir o problema. Para obter detalhes das recomendações da central de segurança, consulte a [lista de referências de recomendações](recommendations-reference.md).
 
 ## <a name="environment-hardening"></a>Proteção do ambiente
 

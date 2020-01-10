@@ -1,18 +1,14 @@
 ---
 title: Visão geral da integridade do serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados por problemas e manutenção atuais e futuros do serviço do Azure.
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451579"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
@@ -51,7 +47,7 @@ Você pode obter um link para o problema a ser usado no sistema de gerenciamento
 
 ![Gerenciar problema de serviço-gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
 
-## <a name="get-support-from-microsoft"></a>Obtenha suporte da Microsoft
+## <a name="get-support-from-microsoft"></a>Obter suporte da Microsoft
 
 Contate o suporte se o recurso for deixado em um estado inadequado mesmo depois que o problema for resolvido.  Use os links de suporte à direita da página.  
 

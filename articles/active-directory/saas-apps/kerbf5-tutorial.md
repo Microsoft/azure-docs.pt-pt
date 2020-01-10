@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431463"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com F5
 
@@ -163,25 +163,25 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize XML de metadados de **Federação** e **certificado (Base64)** e, em seguida, selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/metadataxml.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
 1. Na seção **Configurar F5** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo usuário** na parte superior da tela.
+1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao F5.
 
@@ -189,7 +189,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **F5**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![O link "usuários e grupos"](common/users-groups-blade.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -216,11 +216,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Será necessário importar o certificado de metadados para o F5, que será usado posteriormente no processo de instalação.
 
-1. Navegue até **sistema > gerenciamento de certificados > gerenciamento de certificado de tráfego > lista de certificados SSL**. Selecione **importar** no canto direito. Especifique um **nome de certificado** (será referenciado mais tarde na configuração). Na **origem do certificado**, selecione carregar arquivo especifique o certificado baixado do Azure ao configurar o logon único do SAML. Clique em **Importar**.
+1. Navegue até **sistema > gerenciamento de certificados > gerenciamento de certificado de tráfego > lista de certificados SSL**. Selecione **importar** no canto direito. Especifique um **nome de certificado** (será referenciado mais tarde na configuração). Na **origem do certificado**, selecione carregar arquivo especifique o certificado baixado do Azure ao configurar o logon único do SAML. Clique em **importar**.
 
     ![Configuração de F5 (Kerberos)](./media/kerbf5-tutorial/configure01.png) 
 
-1. Além disso, você precisará **de um certificado SSL para o nome de host do aplicativo. Navegue até sistema > gerenciamento de certificados > gerenciamento de certificado de tráfego > lista de certificados SSL**. Selecione **importar** no canto direito. O **tipo de importação** será **PKCS 12 (IIS)** . Especifique um **nome de chave** (que será referenciado mais tarde na configuração) e especifique o arquivo PFX. Especifique a **senha** para o PFX. Clique em **Importar**.
+1. Além disso, você precisará **de um certificado SSL para o nome de host do aplicativo. Navegue até sistema > gerenciamento de certificados > gerenciamento de certificado de tráfego > lista de certificados SSL**. Selecione **importar** no canto direito. O **tipo de importação** será **PKCS 12 (IIS)** . Especifique um **nome de chave** (que será referenciado mais tarde na configuração) e especifique o arquivo PFX. Especifique a **senha** para o PFX. Clique em **importar**.
 
     >[!NOTE]
     >No exemplo, o nome do aplicativo é `Kerbapp.superdemo.live`, estamos usando um certificado curinga nosso KeyName é `WildCard-SuperDemo.live`
@@ -370,7 +370,7 @@ Você configura um servidor Active Directory AAA no Gerenciador de políticas de
     >[!Note]
     > Você precisará da conta de delegação Kerberos a ser criada e especificada. Consulte a seção KCD (consulte o apêndice para referências de variáveis)
 
-    * **Origem do nome de usuário**: Session.SAML.Last.attr.Name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Nome de usuário origem**: Session. SAML. Last. attr. Name. http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **Origem do realm do usuário**: sessão. logon. último. domínio
 
@@ -477,11 +477,11 @@ Você configura um servidor Active Directory AAA no Gerenciador de políticas de
 
 ### <a name="create-f5-test-user"></a>Criar usuário de teste do F5
 
-Nesta seção, você criará um usuário chamado B. Simon em F5. Trabalhe com a [equipe de suporte ao cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma F5. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará um usuário chamado B. Simon em F5. Trabalhe com a [equipe de suporte ao cliente F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para adicionar os usuários à plataforma F5. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Ao clicar no bloco F5 no painel de acesso, você deverá ser conectado automaticamente ao F5 para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

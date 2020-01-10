@@ -3,19 +3,19 @@ title: Instalar o .NET em funções dos serviços de nuvem do Azure | Microsoft 
 description: Este artigo descreve como instalar manualmente o .NET Framework em suas funções Web e de trabalho do serviço de nuvem
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360995"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos serviços de nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não vêm com o sistema operacional convidado do Azure. Você pode usar o .NET no sistema operacional convidado para configurar suas funções Web e de trabalho do serviço de nuvem.
@@ -36,7 +36,7 @@ Para baixar o instalador da Web para o .NET Framework, escolha a versão que voc
 
 Para adicionar o instalador para uma função *Web* :
   1. Em **Gerenciador de soluções**, em **funções** em seu projeto de serviço de nuvem, clique com o botão direito do mouse em sua função *Web* e selecione **Adicionar** > **nova pasta**. Crie uma pasta chamada **bin**.
-  2. Clique com o botão direito do mouse na pasta bin e selecione **Adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
+  2. Clique com o botão direito do mouse na pasta bin e selecione **adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
   
 Para adicionar o instalador para uma função de *trabalho* :
 * Clique com o botão direito do mouse em sua função de *trabalho* e selecione **Adicionar** > **Item existente**. Selecione o instalador do .NET e adicione-o à função. 
@@ -53,7 +53,7 @@ Quando os arquivos são adicionados dessa maneira à pasta de conteúdo da funç
 ## <a name="define-startup-tasks-for-your-roles"></a>Definir tarefas de inicialização para suas funções
 Você pode usar tarefas de inicialização para executar operações antes de uma função ser iniciada. Instalar o .NET Framework como parte da tarefa de inicialização garante que a estrutura seja instalada antes de qualquer código de aplicativo ser executado. Para obter mais informações sobre tarefas de inicialização, consulte [executar tarefas de inicialização no Azure](cloud-services-startup-tasks.md). 
 
-1. Adicione o seguinte conteúdo ao arquivo de @ Definition. csdef sob o  nó WebRole ou **WorkerRole** para todas as funções:
+1. Adicione o seguinte conteúdo ao arquivo de @ Definition. csdef sob o nó **WebRole** ou **WorkerRole** para todas as funções:
    
     ```xml
     <LocalResources>
@@ -73,7 +73,7 @@ Você pode usar tarefas de inicialização para executar operações antes de um
     </Startup>
     ```
    
-    A configuração anterior executa o comando `install.cmd` do console com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **localStorage** chamado **NETFXInstall**. O script de inicialização define a pasta Temp para usar esse recurso de armazenamento local. 
+    A configuração anterior executa o comando do console `install.cmd` com privilégios de administrador para instalar o .NET Framework. A configuração também cria um elemento **localStorage** chamado **NETFXInstall**. O script de inicialização define a pasta Temp para usar esse recurso de armazenamento local. 
     
     > [!IMPORTANT]
     > Para garantir a instalação correta da estrutura, defina o tamanho desse recurso como pelo menos 1.024 MB.
@@ -197,7 +197,7 @@ Você pode usar tarefas de inicialização para executar operações antes de um
    EXIT /B 0
    ```
 
-3. Adicione o arquivo install. cmd a cada função usando **Adicionar** > **Item existente** no **Gerenciador de soluções** , conforme descrito anteriormente neste tópico. 
+3. Adicione o arquivo install. cmd a cada função usando **adicionar** > **Item existente** no **Gerenciador de soluções** conforme descrito anteriormente neste tópico. 
 
     Depois que essa etapa for concluída, todas as funções deverão ter o arquivo do instalador do .NET e o arquivo install. cmd.
 
@@ -234,3 +234,6 @@ Quando você implantar seu serviço de nuvem, as tarefas de inicialização inst
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

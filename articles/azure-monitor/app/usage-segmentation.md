@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 88dccd3a33c4a6e64de30ef7e7df4723a17f0c44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dbda6debe2412f1756bc707cf3b587c77f466fdc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432310"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -21,7 +21,7 @@ Descubra quando as pessoas usam seu aplicativo Web, em quais páginas eles estã
 
 ![Captura de tela de Application Insights usuários](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 Se você ainda não vê dados nas folhas usuários, sessões ou eventos no Portal Application Insights, [saiba como começar a usar as ferramentas de uso](usage-overview.md).
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454662"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
@@ -19,7 +19,7 @@ Este artigo descreve como configurar o mapeamento de dependência sem agente nas
 
 > [!IMPORTANT]
 > A visualização de dependência sem agente está atualmente em versão prévia para VMs VMware do Azure descobertas usando um dispositivo de migrações para Azure.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Essa visualização é coberta pelo atendimento ao cliente e pode ser usada para cargas de trabalho de produção.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>Sobre mapeamento de dependência

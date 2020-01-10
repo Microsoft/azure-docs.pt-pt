@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439609"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
 
@@ -38,10 +38,13 @@ O modelo contém quatro atividades:
 - **Copiar** copia somente as alterações do banco de dados de origem para o repositório de destino. A consulta que identifica as alterações no banco de dados de origem é semelhante a ' selecionar * de Data_Source_Table em que TIMESTAMP_Column > "última marca d' água alta" e TIMESTAMP_Column < = "alta-marca d' água atual".
 - **SqlServerStoredProcedure** grava o valor de alta-água atual em uma tabela de controle externa para cópia Delta na próxima vez.
 
-O modelo define cinco parâmetros:
+O modelo define os seguintes parâmetros:
 - *Data_Source_Table_Name* é a tabela no banco de dados de origem para a qual você deseja carregar o.
 - *Data_Source_WaterMarkColumn* é o nome da coluna na tabela de origem usada para identificar linhas novas ou atualizadas. O tipo dessa coluna normalmente é *DateTime*, *int*ou semelhante.
-- *Data_Destination_Folder_Path* ou *Data_Destination_Table_Name* é o local onde os dados são copiados no armazenamento de destino.
+- *Data_Destination_Container* é o caminho raiz do local onde os dados são copiados no armazenamento de destino.
+- *Data_Destination_Directory* é o caminho do diretório sob a raiz do local onde os dados são copiados no armazenamento de destino.
+- *Data_Destination_Table_Name* é o local onde os dados são copiados no armazenamento de destino (aplicável quando "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" está selecionado como destino de dados).
+- *Data_Destination_Folder_Path* é o local onde os dados são copiados no armazenamento de destino (aplicável quando "sistema de arquivos" ou "Azure data Lake Storage Gen1" está selecionado como destino de dados).
 - *Control_Table_Table_Name* é a tabela de controle externo que armazena o valor de marca d' água alta.
 - *Control_Table_Column_Name* é a coluna na tabela de controle externo que armazena o valor de marca d' água alta.
 
@@ -100,20 +103,18 @@ O modelo define cinco parâmetros:
     ![Criar uma nova conexão com o armazenamento de dados da tabela de controle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Selecione **Utilizar este modelo**.
-
-     ![Utilizar este modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Você verá o pipeline disponível, conforme mostrado no exemplo a seguir:
+  
+    ![Examinar o pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Examinar o pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Selecione o **procedimento armazenado**. Para o **nome do procedimento armazenado**, escolha **[dbo]. [ update_watermark]** . Selecione **importar parâmetro**e, em seguida, selecione **adicionar conteúdo dinâmico**.  
 
-9. Selecione o **procedimento armazenado**. Para **nome do procedimento armazenado**, escolha **[update_watermark]** . Selecione **importar parâmetro**e, em seguida, selecione **adicionar conteúdo dinâmico**.  
-
-     ![Definir a atividade de procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![Definir a atividade de procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. Grave o conteúdo **\@{Activity (' LookupCurrentWaterMark '). Output. firstRow. NewWatermarkValue}** e, em seguida, selecione **concluir**.  
 
-     ![Gravar o conteúdo para os parâmetros do procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![Gravar o conteúdo para os parâmetros do procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
 
@@ -132,13 +133,12 @@ O modelo define cinco parâmetros:
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-14. Para executar o pipeline novamente, selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
 
-    ![Selecione * * depurar * *](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+14. Para executar o pipeline novamente, selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
 
     Você verá que apenas as novas linhas foram copiadas para o destino.
 
-15. Adicional Se você selecionou SQL Data Warehouse como o destino de dados, também deverá fornecer uma conexão com o armazenamento de BLOBs do Azure para preparo, o que é exigido pelo SQL Data Warehouse polybase. Verifique se o contêiner já foi criado no armazenamento de BLOBs.
+15. Adicional Se você selecionar o Azure Synapse Analytics (anteriormente conhecido como SQL DW) como o destino de dados, você também deverá fornecer uma conexão com o armazenamento de BLOBs do Azure para preparo, o que é exigido pelo SQL Data Warehouse polybase. O modelo irá gerar um caminho de contêiner para você. Após a execução do pipeline, verifique se o contêiner foi criado no armazenamento de BLOBs.
     
     ![Configurar o polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

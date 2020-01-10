@@ -1,28 +1,19 @@
 ---
-title: 'Início rápido: Criar um aplicativo Java no Azure Service Fabric'
+title: 'Início rápido: criar um aplicativo Java no Azure Service Fabric'
 description: Neste início rápido, vai criar uma aplicação em Java para o Azure, utilizando o exemplo de aplicação de serviços fiáveis do Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 257fd02c2f7ec2aff9d55b91b2cbd54b6eb55431
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464399"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Início rápido:  Implantar um aplicativo Java no Azure Service Fabric no Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Início rápido: implantar um aplicativo Java no Azure Service Fabric no Linux
 
 Este guia de início rápido mostra como implantar seu primeiro aplicativo Java no Azure Service Fabric usando o IDE do eclipse em um computador de desenvolvedor do Linux. Quando tiver terminado, terá uma aplicação de votações com um front-end da Web Java que guarda os resultados das votações num serviço de back-end com estado no cluster.
 
@@ -65,8 +56,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![O Service Fabric Explorer do Azure mostra nós íntegros](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Abra o Eclipse.
-3. Selecione **arquivo** > **importar** **gradle projeto gradle existente** e siga o assistente. >  > 
-4. Selecione **diretório** e escolha o `Voting` diretório na `service-fabric-java-quickstart` pasta clonada do github. Selecione **Concluir**.
+3. Selecione **arquivo** > **importar** > **gradle** > **projeto gradle existente** e siga o assistente.
+4. Selecione **diretório** e escolha o diretório `Voting` na pasta `service-fabric-java-quickstart` que você clonou do github. Selecione **Concluir**.
 
     ![Importar o projeto gradle para o eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -75,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![JSON local de publicação Service Fabric do Azure](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
-7. Abra seu navegador da Web favorito e acesse o aplicativo `http://localhost:8080`acessando.
+7. Abra seu navegador da Web favorito e acesse o aplicativo acessando `http://localhost:8080`.
 
     ![Host local do Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 

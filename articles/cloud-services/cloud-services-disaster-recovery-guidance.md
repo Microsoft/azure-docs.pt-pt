@@ -1,5 +1,6 @@
 ---
-title: O que fazer no caso de uma interrupção de serviço do Azure que afete os serviços de nuvem do Azure | Microsoft Docs
+title: Lidando com uma interrupção de serviço do Azure que afeta os serviços de nuvem do Azure
+titleSuffix: Azure Cloud Services
 description: Saiba o que fazer no caso de uma interrupção de serviço do Azure que afete os serviços de nuvem do Azure.
 services: cloud-services
 documentationcenter: ''
@@ -9,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361216"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure impactar os serviços de nuvem do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. As forças além do nosso controle, às vezes, afetam-nos de maneiras que causam interrupções de serviço não planejadas.

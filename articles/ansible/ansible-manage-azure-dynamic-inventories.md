@@ -4,12 +4,12 @@ description: Saiba como usar o Ansible para gerenciar seus inventários dinâmic
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, inventário dinâmico
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442776"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 
@@ -32,7 +32,7 @@ O Ansible pode ser usado para efetuar pull de informações de inventário de v�
 
 ## <a name="create-the-test-vms"></a>Criar as VMs de teste
 
-1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -228,7 +228,7 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     
@@ -237,7 +237,7 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
               service: name=nginx state=started
     ```
 
-1. Salve o arquivo e saia do editor.
+1. Guarde o ficheiro e saia do editor.
 
 1. Execute o guia estratégico usando o comando `ansible-playbook`:
 

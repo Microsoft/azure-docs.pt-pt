@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/6/2019
 ms.author: alsin
-ms.openlocfilehash: f17b96ad880742cf1232b074e4398f3b1d15e5ba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 11c2549d7282bae5654ede1ac34d63a43cd0f059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451207"
 ---
 # <a name="power-options-available-from-the-azure-serial-console"></a>Opções de energia disponíveis no console serial do Azure
 
-O console serial do Azure fornece várias ferramentas poderosas para o gerenciamento de energia em sua VM ou conjunto de dimensionamento de máquinas virtuais. Essas opções de gerenciamento de energia podem ser confusas para alguns, portanto, este documento é uma visão geral de cada ferramenta e seu caso de uso pretendido.
+O console serial do Azure fornece várias ferramentas poderosas para o gerenciamento de energia em sua VM ou conjunto de dimensionamento de máquinas virtuais. Essas opções de gerenciamento de energia podem ser confusas para algumas, portanto, essa é uma visão geral de cada ferramenta e seu caso de uso pretendido.
 
 Recurso de console serial | Descrição | Caso de Utilização
 :----------------------|:------------|:---------
@@ -32,6 +32,6 @@ Redefinir VM | Um ciclo de energia forçado de sua VM ou conjunto de dimensionam
 SysRq-reinicialização (b) | Uma solicitação do sistema para forçar uma reinicialização do convidado. | Esse recurso só é aplicável a sistemas operacionais Linux e requer [que o SysRq esteja habilitado](./serial-console-nmi-sysrq.md#system-request-sysrq) no sistema operacional. Se o sistema operacional estiver configurado corretamente para SysRq, esse comando fará com que o sistema operacional seja reiniciado.
 NMI (interrupção não mascarada) | Um comando de interrupção, que será entregue ao sistema operacional | Esta operação está disponível para VMs do [Windows](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) e [Linux](./serial-console-nmi-sysrq.md#non-maskable-interrupt-nmi) e requer que o NMI esteja habilitado. O envio de uma NMI normalmente fará com que o sistema operacional falhe. Você pode configurar seu sistema operacional para criar um arquivo de despejo e reiniciar após o recebimento do NMI, o que pode ser útil na depuração de baixo nível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o [console serial do Azure para VMs Linux](./serial-console-linux.md)
 * Saiba mais sobre o [console serial do Azure para VMs do Windows](./serial-console-windows.md)

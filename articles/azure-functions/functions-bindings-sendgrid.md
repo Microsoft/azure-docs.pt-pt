@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a96cd537328a1a9edeeb03f81350ed5393806765
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410047"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions associações SendGrid
 
@@ -35,18 +35,11 @@ As associações SendGrid são fornecidas no pacote NuGet [Microsoft. Azure. web
 
 ## <a name="example"></a>Exemplo
 
-Veja o exemplo de idioma específico:
-
-* [C#](#c-example)
-* [Script do c# (.csx)](#c-script-example)
-* [JavaScript](#javascript-example)
-* [Java](#java-example)
-
-### <a name="c-example"></a>C#exemplo
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que usa um gatilho de fila do barramento de serviço e uma associação de saída SendGrid.
 
-#### <a name="synchronous-c-example"></a>Exemplo C# síncrono:
+### <a name="synchronous"></a>Síncrono
 
 ```cs
 [FunctionName("SendEmail")]
@@ -71,7 +64,8 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
-#### <a name="asynchronous-c-example"></a>Exemplo C# assíncrono:
+
+### <a name="asynchronous"></a>Assíncrono
 
 ```cs
 [FunctionName("SendEmail")]
@@ -101,7 +95,7 @@ public class OutgoingEmail
 
 Você pode omitir a configuração da propriedade de `ApiKey` do atributo se tiver sua chave de API em uma configuração de aplicativo chamada "AzureWebJobsSendGridApiKey".
 
-### <a name="c-script-example"></a>C#exemplo de script
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de saída SendGrid em um arquivo *Function. JSON* e uma [ C# função de script](functions-reference-csharp.md) que usa a associação.
 
@@ -160,34 +154,7 @@ public class Message
 }
 ```
 
-### <a name="java-example"></a>Exemplo de Java
-
-O exemplo a seguir usa a anotação `@SendGridOutput` da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para enviar um email usando a associação de saída SendGrid.
-
-```java
-@FunctionName("SendEmail")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
-            @SendGridOutput(
-                name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
-                subject= "Sending with SendGrid", text = "Hello from Azure Functions"
-                ) OutputBinding<String> email
-            )
-    {
-        String name = request.getBody().orElse("World");
-
-        final String emailBody = "{\"personalizations\":" +
-                                    "[{\"to\":[{\"email\":\"test@example.com\"}]," +
-                                    "\"subject\":\"Sending with SendGrid\"}]," +
-                                    "\"from\":{\"email\":\"test@example.com\"}," +
-                                    "\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello" + name + "\"}]}";
-
-        email.setValue(emailBody);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-```
-
-### <a name="javascript-example"></a>Exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída SendGrid em um arquivo *Function. JSON* e uma [função JavaScript](functions-reference-node.md) que usa a associação.
 
@@ -214,10 +181,10 @@ O [configuração](#configuration) seção explica essas propriedades.
 Eis o código JavaScript:
 
 ```javascript
-module.exports = function (context, input) {    
+module.exports = function (context, input) {
     var message = {
          "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
-        from: { email: "sender@contoso.com" },        
+        from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
             type: 'text/plain',
@@ -229,7 +196,120 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a name="attributes"></a>Atributos
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+O exemplo a seguir mostra uma função disparada por HTTP que envia um email usando a associação SendGrid. Você pode fornecer valores padrão na configuração de associação. Por exemplo, o endereço *de email de* é configurado em *Function. JSON*. 
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "authLevel": "function",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "sendGrid",
+      "name": "sendGridMessage",
+      "direction": "out",
+      "apiKey": "SendGrid_API_Key",
+      "from": "sender@contoso.com"
+    }
+  ]
+}
+```
+
+A função a seguir mostra como você pode fornecer valores personalizados para propriedades opcionais.
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResponse:
+
+    value = "Sent from Azure Functions"
+
+    message = {
+        "personalizations": [ {
+          "to": [{
+            "email": "user@contoso.com"
+            }]}],
+        "subject": "Azure Functions email with SendGrid",
+        "content": [{
+            "type": "text/plain",
+            "value": value }]}
+
+    sendGridMessage.set(json.dumps(message))
+
+    return func.HttpResponse(f"Sent")
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+O exemplo a seguir usa a anotação `@SendGridOutput` da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para enviar um email usando a associação de saída SendGrid.
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerSendGrid {
+
+    @FunctionName("HttpTriggerSendGrid")
+    public HttpResponseMessage run(
+
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.GET, HttpMethod.POST },
+            authLevel = AuthorizationLevel.FUNCTION)
+                HttpRequestMessage<Optional<String>> request,
+
+        @SendGridOutput(
+            name = "message",
+            dataType = "String",
+            apiKey = "SendGrid_API_Key",
+            to = "user@contoso.com",
+            from = "sender@contoso.com",
+            subject = "Azure Functions email with SendGrid",
+            text = "Sent from Azure Functions")
+                OutputBinding<String> message,
+
+        final ExecutionContext context) {
+
+        final String toAddress = "user@contoso.com";
+        final String value = "Sent from Azure Functions";
+
+        StringBuilder builder = new StringBuilder()
+            .append("{")
+            .append("\"personalizations\": [{ \"to\": [{ \"email\": \"%s\"}]}],")
+            .append("\"content\": [{\"type\": \"text/plain\", \"value\": \"%s\"}]")
+            .append("}");
+
+        final String body = String.format(builder.toString(), toAddress, value);
+
+        message.setValue(body);
+
+        return request.createResponseBuilder(HttpStatus.OK).body("Sent").build();
+    }
+}
+```
+
+---
+
+## <a name="attributes-and-annotations"></a>Atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) .
 
@@ -245,22 +325,42 @@ public static void Run(
 }
 ```
 
-Para obter um exemplo completo, consulte [ C# exemplo](#c-example).
+Para obter um exemplo completo, consulte [ C# exemplo](#example).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Não há suporte para atributos no Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) permite configurar declarativamente a associação SendGrid fornecendo valores de configuração. Consulte as seções [exemplo](#example) e [configuração](#configuration) para obter mais detalhes.
+
+---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro e o `SendGrid` atributo.
+A tabela a seguir lista as propriedades de configuração de associação disponíveis no arquivo *Function. JSON* e o atributo/anotação `SendGrid`.
 
-|propriedade de Function | Propriedade de atributo |Descrição|
-|---------|---------|----------------------|
-|**tipo**|| Obrigatório-deve ser definido como `sendGrid`.|
-|**direção**|| Obrigatório-deve ser definido como `out`.|
-|**name**|| Obrigatório-o nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor de retorno. |
-|**apiKey**|**ApiKey**| O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será "AzureWebJobsSendGridApiKey".|
-|**to**|**Para**| o endereço de email do destinatário. |
-|**from**|**From**| o endereço de email do remetente. |
-|**subject**|**Assunto**| o assunto do email. |
-|**text**|**Text** (Texto)| o conteúdo do email. |
+| Propriedade *Function. JSON* | Propriedade de atributo/anotação | Descrição | Opcional |
+|--------------------------|-------------------------------|-------------|----------|
+| tipo || Tem de ser definido como `sendGrid`.| Não |
+| direção || Tem de ser definido como `out`.| Não |
+| nome || O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor de retorno. | Não |
+| apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
+| para| a | O endereço de email do destinatário. | Sim |
+| de| A partir de | O endereço de email do remetente. |  Sim |
+| subject| Assunto | O assunto do email. | Sim |
+| texto| Texto | O conteúdo do email. | Sim |
+
+As propriedades opcionais podem ter valores padrão definidos na associação e adicionadas ou substituídas programaticamente.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

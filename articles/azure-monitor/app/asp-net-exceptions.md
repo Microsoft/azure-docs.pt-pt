@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar falhas e exceções em aplicativos Web com o Aplicativo Azure insights | Microsoft Docs
+title: Diagnosticar falhas e exceções com o Aplicativo Azure insights
 description: Capture exceções de aplicativos ASP.NET juntamente com telemetria de solicitação.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/11/2019
-ms.openlocfilehash: 90f03baa35d0bf2b63ec480a23db30409df3845f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f89149de9b1173a659176f686053e8dc564ab85c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677758"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432659"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com Application Insights
 As exceções em seu aplicativo Web em tempo real são relatadas pelo [Application insights](../../azure-monitor/app/app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para que você possa diagnosticar as causas rapidamente.
@@ -70,7 +70,7 @@ Em um único clique, você pode examinar amostras representativas para cada um d
 ## <a name="custom-tracing-and-log-data"></a>Rastreamento personalizado e dados de log
 Para obter dados de diagnóstico específicos para seu aplicativo, você pode inserir o código para enviar seus próprios dados de telemetria. Isso é exibido na pesquisa de diagnóstico junto com a solicitação, a exibição de página e outros dados coletados automaticamente.
 
-Você tem várias opções:
+Tem várias opções:
 
 * [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em eventos personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter Propriedades de cadeia de caracteres e métricas numéricas nas quais você pode [filtrar as pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md).
 * [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) permite que você envie dados mais longos, como informações de postagem.
@@ -79,7 +79,7 @@ Você tem várias opções:
 
 Para ver esses eventos, abra [Pesquisar](../../azure-monitor/app/diagnostic-search.md) no menu à esquerda, selecione os **tipos de evento**de menu suspenso e, em seguida, escolha evento personalizado, rastreamento ou exceção.
 
-![Detalhar](./media/asp-net-exceptions/customevents.png)
+![Explorar](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se a sua aplicação gerar uma grande quantidade de telemetria, o módulo de amostragem adaptável irá reduzir automaticamente o volume que é enviado para o portal, enviando apenas uma fração representativa dos eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](../../azure-monitor/app/sampling.md)
@@ -159,7 +159,7 @@ Os parâmetros de propriedades e medidas são opcionais, mas são úteis para [F
 ## <a name="browser-exceptions"></a>Exceções de browser
 A maioria das exceções de navegador é relatada.
 
-Se sua página da Web incluir arquivos de script de redes de distribuição de conteúdo ou outros domínios, verifique se a marca do script tem o atributo ```crossorigin="anonymous"``` e se o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isso permitirá que você obtenha um rastreamento de pilha e detalhes para exceções de JavaScript sem tratamento desses recursos.
+Se sua página da Web incluir arquivos de script de redes de distribuição de conteúdo ou outros domínios, verifique se a marca do script tem o atributo ```crossorigin="anonymous"```e se o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isso permitirá que você obtenha um rastreamento de pilha e detalhes para exceções de JavaScript sem tratamento desses recursos.
 
 ## <a name="reuse-your-telemetry-client"></a>Reutilizar o cliente de telemetria
 

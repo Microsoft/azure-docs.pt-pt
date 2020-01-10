@@ -1,18 +1,18 @@
 ---
 title: Entenda como a ferramenta de migração voluntária funciona para alertas de Azure Monitor
 description: Entenda como funciona a ferramenta de migração de alertas e solucione problemas.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061551"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680686"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entenda como funciona a ferramenta de migração
 
@@ -39,7 +39,7 @@ Embora a ferramenta possa migrar quase todas as [regras de alerta clássicas](mo
 Se sua assinatura tiver essas regras clássicas, você deverá migrá-las manualmente. Como não podemos fornecer uma migração automática, todos os alertas de métrica clássicos existentes desses tipos continuarão funcionando até 2020 de junho. Essa extensão dá tempo para passar para novos alertas. Você também pode continuar criando novos alertas clássicos nas exceções listadas acima até junho de 2020. No entanto, para todo o resto, nenhum alerta clássico novo pode ser criado após 2019 de agosto.
 
 > [!NOTE]
-> Além das exceções listadas acima, se suas regras de alerta clássicas forem inválidas [](#classic-alert-rules-on-deprecated-metrics) , ou seja, se estiverem em métricas preteridas ou recursos que foram excluídos, elas não serão migradas durante a migração voluntária. Quaisquer regras de alerta clássica inválidas serão excluídas quando ocorrer a migração automática.
+> Além das exceções listadas acima, se suas regras de alerta clássicas forem inválidas, ou seja, se estiverem em [métricas preteridas](#classic-alert-rules-on-deprecated-metrics) ou recursos que foram excluídos, elas não serão migradas e não estarão disponíveis depois que o serviço for desativado.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métricas de convidado em máquinas virtuais
 
@@ -75,11 +75,11 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 
 - Média de solicitações por segundo
 - Nível de Consistência
-- Http 2xx
-- Http 3xx
+- 2xx http
+- 3xx http
 - Http 400
 - Http 401
-- Erro Interno do Servidor
+- Erro interno do servidor
 - Máximo de RUPM consumidos por minuto
 - Máximo de RUs por segundo
 - Solicitações de falha na contagem de Mongo
@@ -116,18 +116,18 @@ Essas são regras de alerta clássicas sobre métricas que eram anteriormente su
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, throttling, dtu_consumption_percent, storage_used |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, limitação, dtu_consumption_percent, storage_used |
 | Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
 
 ## <a name="how-equivalent-new-alert-rules-and-action-groups-are-created"></a>Como as novas regras de alerta e os grupos de ação equivalentes são criados
 
-A ferramenta de migração converte suas regras de alerta clássicas para novas regras de alerta e grupos de ação equivalentes. Para as regras de alerta mais clássicas, as novas regras de alerta equivalentes estão na mesma métrica com `windowSize` as `aggregationType`mesmas propriedades, como e. No entanto, há algumas regras de alerta clássicas em métricas que têm uma métrica diferente e equivalente no novo sistema. Os princípios a seguir se aplicam à migração de alertas clássicos, a menos que especificado na seção abaixo:
+A ferramenta de migração converte suas regras de alerta clássicas para novas regras de alerta e grupos de ação equivalentes. Para a maioria das regras de alerta clássicas, as novas regras de alerta equivalentes estão na mesma métrica com as mesmas propriedades, como `windowSize` e `aggregationType`. No entanto, há algumas regras de alerta clássicas em métricas que têm uma métrica diferente e equivalente no novo sistema. Os princípios a seguir se aplicam à migração de alertas clássicos, a menos que especificado na seção abaixo:
 
-- **Frequência**: Define com que frequência uma regra de alerta clássica ou nova verifica a condição. As `frequency` regras de alerta clássicas não eram configuráveis pelo usuário e foram sempre 5 minutos para todos os tipos de recursos, exceto Application insights componentes para os quais era 1 minuto. Portanto, a frequência das regras equivalentes também é definida como 5 min e 1 min, respectivamente.
-- **Tipo**de agregação: Define como a métrica é agregada na janela de interesse. O `aggregationType` também é o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, como a métrica é diferente entre alertas clássicos e novos alertas, o `aggregationType` equivalente ou `primary Aggregation Type` o definido para a métrica é usado.
-- **Unidades**: Propriedade da métrica na qual o alerta é criado. Algumas métricas equivalentes têm unidades diferentes. O limite é ajustado adequadamente conforme necessário. Por exemplo, se a métrica original tiver segundos como unidades, mas a nova métrica equivalente tiver milissegundos como unidades, o limite original será multiplicado por 1000 para garantir o mesmo comportamento.
-- **Tamanho da janela**: Define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para valores `windowSize` padrão como 5mins, 15mins, 30mins, 1hour, 3Hours, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, o mais próximo `windowSize` é escolhido para ser usado. Para a maioria dos clientes, não há nenhum impacto com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
+- **Frequência**: define com que frequência uma regra de alerta clássica ou nova verifica a condição. As `frequency` nas regras de alerta clássicas não eram configuráveis pelo usuário e foram sempre 5 minutos para todos os tipos de recursos, exceto os componentes Application Insights para os quais ele era de 1 minuto. Portanto, a frequência das regras equivalentes também é definida como 5 min e 1 min, respectivamente.
+- **Tipo de agregação**: define como a métrica é agregada na janela de interesse. O `aggregationType` também é o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, como a métrica é diferente entre alertas clássicos e novos alertas, `aggregationType` equivalentes ou o `primary Aggregation Type` definido para a métrica é usado.
+- **Unidades**: a propriedade da métrica na qual o alerta é criado. Algumas métricas equivalentes têm unidades diferentes. O limite é ajustado adequadamente conforme necessário. Por exemplo, se a métrica original tiver segundos como unidades, mas a nova métrica equivalente tiver milissegundos como unidades, o limite original será multiplicado por 1000 para garantir o mesmo comportamento.
+- **Tamanho da janela**: define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para valores padrão de `windowSize` como 5mins, 15mins, 30mins, 1hour, 3Hours, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, a `windowSize` mais próxima é escolhida para ser usada. Para a maioria dos clientes, não há nenhum impacto com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
 
 Nas seções a seguir, detalharemos as métricas que têm uma métrica diferente e equivalente no novo sistema. Qualquer métrica que permanece a mesma para as regras de alerta clássicas e novas não está listada. Você pode encontrar uma lista de métricas com suporte no novo sistema [aqui](metrics-supported.md).
 
@@ -145,7 +145,7 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | AnonymousServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError" e "Authentication" = "anônimo" | |
 | AnonymousSuccess | Métrica de transações com dimensões "ResponseType" = "êxito" e "autenticação" = "anônimo" | |
 | AuthorizationError | Métrica de transações com dimensões "ResponseType" = "AuthorizationError" | |
-| AverageE2ELatency | SuccessE2ELatency | |
+| LatênciaMédiaE2E | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
 | Capacidade | BlobCapacity | Use `aggregationType` ' Average ' em vez de ' Last '. A métrica se aplica somente aos serviços de BLOB |
 | ClientOtherError | Métrica de transações com dimensões "ResponseType" = "ClientOtherError"  | |
@@ -165,8 +165,8 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | Êxito | Métrica de transações com dimensões "ResponseType" = "êxito" | |
 | TotalBillableRequests| Transações | |
 | TotalEgress | Saída | |
-| TotalIngress | Entrada | |
-| TotalRequests | Transações | |
+| TotalEntrada | Entrada | |
+| TotalPedidos | Transações | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft.insights/components
 
@@ -184,7 +184,7 @@ Por Application Insights, as métricas equivalentes são mostradas abaixo:
 | clientPerformance.sendRequest.value | browserTimings/sendDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | clientPerformance.total.value | browserTimings/totalDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
 | performanceCounter. available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter. Io _data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter. io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
 | performanceCounter.number_of_exceps_thrown_per_sec.value | performanceCounters/exceptionsPerSecond|   |
 | performanceCounter.percentage_processor_time_normalized.value | performanceCounters/processCpuPercentage|   |
 | performanceCounter.percentage_processor_time.value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
@@ -205,9 +205,9 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
-| Tamanho dos Dados | DataUsage| |
+| Tamanho dos dados | DataUsage| |
 | Contagem de documentos | DocumentCount||
-| Tamanho do Índice | IndexUsage||
+| Tamanho do índice | IndexUsage||
 | Encargo de solicitação de contagem de Mongo| MongoRequestCharge com a dimensão "CommandName" = "Count"||
 | Taxa de solicitação de contagem de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Count"||
 | Mongo o encargo da solicitação de exclusão | MongoRequestCharge com a dimensão "CommandName" = "Delete"||
@@ -217,7 +217,7 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Encargo de solicitação de consulta do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Find"||
 | Taxa de solicitação de consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
 | Encargo de solicitação de atualização do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Update"||
-| Serviço Não Disponível| Indisponibilidade||
+| Serviço indisponível| Indisponibilidade||
 | TotalRequestUnits | TotalRequestUnits||
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Como os grupos de ação equivalentes são criados
@@ -227,7 +227,7 @@ As regras de alerta clássicas tinham email, webhook, aplicativo lógico e açõ
 > [!NOTE]
 > Os alertas clássicos enviaram emails localizados com base na localidade do administrador clássico quando usados para notificar funções de administrador clássicas. Os novos emails de alerta são enviados por meio de grupos de ação e são apenas em inglês.
 
-## <a name="rollout-phases"></a>Fases de distribuição
+## <a name="rollout-phases"></a>Fases de implementação
 
 A ferramenta de migração é distribuída em fases para clientes que usam regras de alerta clássicas. Os proprietários da assinatura receberão um email quando a assinatura estiver pronta para ser migrada usando a ferramenta.
 
@@ -262,7 +262,7 @@ Devido a algumas alterações recentes nas regras de alerta clássicas em sua as
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Bloqueio de escopo nos impedindo de migrar suas regras
 
-Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, um bloqueio de escopo pode impedi-lo de criar ou excluir recursos. Dependendo do bloqueio de escopo, algumas ou todas as regras não puderam ser migradas. Você pode resolver esse problema removendo o bloqueio de escopo para a assinatura, o grupo de recursos ou o recurso, que está listado na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e disparando a migração novamente. O bloqueio de escopo não pode ser desabilitado e deve ser removido durante o processo de migração. [Saiba mais sobre como gerenciar bloqueios de escopo](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+Como parte da migração, novos alertas de métrica e novos grupos de ação serão criados e as regras de alerta clássicas serão excluídas. No entanto, um bloqueio de escopo pode impedi-lo de criar ou excluir recursos. Dependendo do bloqueio de escopo, algumas ou todas as regras não puderam ser migradas. Você pode resolver esse problema removendo o bloqueio de escopo para a assinatura, o grupo de recursos ou o recurso, que está listado na [ferramenta de migração](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)e disparando a migração novamente. O bloqueio de escopo não pode ser desabilitado e deve ser removido durante o processo de migração. [Saiba mais sobre como gerenciar bloqueios de escopo](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Política com o efeito ' negar ' nos impedindo de migrar suas regras
 
@@ -271,7 +271,7 @@ Como parte da migração, novos alertas de métrica e novos grupos de ação ser
 - Excluindo as assinaturas ou grupos de recursos para a duração do processo de migração da atribuição de política. [Saiba mais sobre como gerenciar políticas escopo de exclusão](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
 - Remover ou alterar o efeito para ' auditoria ' ou ' acrescentar ' (que, por exemplo, pode resolver problemas relacionados a marcas ausentes). [Saiba mais sobre o efeito de gerenciamento de políticas](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como utilizar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Preparar para a migração](alerts-prepare-migration.md)

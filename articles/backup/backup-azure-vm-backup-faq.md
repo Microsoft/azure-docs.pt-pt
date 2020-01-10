@@ -4,18 +4,18 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172566"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680533"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
 Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o serviço de [backup do Azure](backup-introduction-to-azure-backup.md) .
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens de VM podem ser habilitadas para backup quando eu as crio?
 
@@ -111,16 +111,9 @@ Você pode usar a opção restaurar disco se desejar:
 
 Sim, você pode usar backups feitos antes de os discos serem migrados de não gerenciados para gerenciados.
 
-- Por padrão, um trabalho de restaurar VM cria uma VM não gerenciada.
-- No entanto, você pode restaurar discos e usá-los para criar uma VM gerenciada.
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Como posso restaurar uma VM para um ponto de restauro antes de a VM ter sido migrada para discos geridos?
 
-Por padrão, um trabalho de restaurar VM cria uma VM com discos não gerenciados. Para criar uma VM com discos gerenciados:
-
-1. [Restaure para discos não gerenciados](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Converta os discos restaurados em discos gerenciados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Crie uma VM com discos gerenciados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+O processo de restauração permanece o mesmo. Se o ponto de recuperação for de um ponto no tempo em que a VM tinha discos não gerenciados, você poderá [restaurar discos como não gerenciados](tutorial-restore-disk.md#unmanaged-disks-restore). Se a VM tivesse discos gerenciados, você pode [restaurar discos como discos gerenciados](tutorial-restore-disk.md#managed-disk-restore). Em seguida, você pode [criar uma VM a partir desses discos](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Saiba mais](backup-azure-vms-automation.md#restore-an-azure-vm) sobre como fazer isso no PowerShell.
 

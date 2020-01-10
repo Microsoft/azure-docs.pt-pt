@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671952"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666193"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -21,9 +21,13 @@ Este tópico explica como definir configurações comuns para aplicativos Web, b
 
 No serviço de aplicativo, as configurações de aplicativo são variáveis passadas como variáveis de ambiente para o código do aplicativo. Para aplicativos Linux e contêineres personalizados, o serviço de aplicativo passa configurações de aplicativo para o contêiner usando o sinalizador `--env` para definir a variável de ambiente no contêiner.
 
-Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **configurações do aplicativo**.
+No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. 
 
-![Configurações do aplicativo](./media/configure-common/open-ui.png)
+![Pesquisar serviços de aplicativos](./media/configure-common/search-for-app-services.png)
+
+No menu à esquerda do aplicativo, selecione **configuração** > **configurações do aplicativo**.
+
+![Definições da Aplicação](./media/configure-common/open-ui.png)
 
 Para os desenvolvedores de ASP.NET e ASP.NET Core, definir configurações de aplicativo no serviço de aplicativo é como configurá-los em `<appSettings>` em *Web. config* ou *appSettings. JSON*, mas os valores no serviço de aplicativo substituem aqueles em *Web. config* ou *appSettings. JSON*. Você pode manter as configurações de desenvolvimento (por exemplo, a senha local do MySQL) em *Web. config* ou *appSettings. JSON*, mas os segredos de produção (por exemplo, a senha do banco de dados MySQL do Azure) são seguros no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
@@ -82,9 +86,9 @@ As configurações do aplicativo têm a seguinte formatação JSON:
 
 ## <a name="configure-connection-strings"></a>Configurar cadeias de ligação
 
-Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **configurações do aplicativo**.
+No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. No menu à esquerda do aplicativo, selecione **configuração** > **configurações do aplicativo**.
 
-![Configurações do aplicativo](./media/configure-common/open-ui.png)
+![Definições da Aplicação](./media/configure-common/open-ui.png)
 
 Para desenvolvedores de ASP.NET e ASP.NET Core, definir cadeias de conexão no serviço de aplicativo é como configurá-los em `<connectionStrings>` no *Web. config*, mas os valores definidos no serviço de aplicativo substituem aqueles em *Web. config*. Você pode manter as configurações de desenvolvimento (por exemplo, um arquivo de banco de dados) em *Web. config* e segredos de produção (por exemplo, credenciais do banco de dados SQL) seguras no serviço de aplicativo. O mesmo código usa suas configurações de desenvolvimento quando você depura localmente e usa seus segredos de produção quando implantado no Azure.
 
@@ -151,9 +155,9 @@ As cadeias de conexão têm a seguinte formatação JSON:
 <a name="platform"></a>
 <a name="alwayson"></a>
 
-## <a name="configure-general-settings"></a>Definir configurações gerais
+## <a name="configure-general-settings"></a>Configurar as definições gerais
 
-Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **configurações do aplicativo**.
+No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. No menu à esquerda do aplicativo, selecione **configuração** > **configurações gerais**.
 
 ![Definições gerais](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ Aqui, você pode definir algumas configurações comuns para o aplicativo. Algum
 
 Essa configuração é apenas para aplicativos do Windows.
 
-Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **documentos padrão**.
+No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. No menu à esquerda do aplicativo, selecione **configuração** > **documentos padrão**.
 
-![Definições gerais](./media/configure-common/open-documents.png)
+![Documentos predefinidos](./media/configure-common/open-documents.png)
 
 O documento padrão é a página da Web que é exibida na URL raiz de um site. O primeiro arquivo correspondente na lista é usado. Para adicionar um novo documento padrão, clique em **novo documento**. Não se esqueça de clicar em **salvar**.
 
@@ -186,9 +190,9 @@ Se o aplicativo usa módulos que roteiam com base na URL em vez de fornecer cont
 
 ## <a name="configure-path-mappings"></a>Configurar mapeamentos de caminho
 
-Na [portal do Azure], navegue até a página de gerenciamento do aplicativo. No menu à esquerda do aplicativo, clique em **configuração** > **mapeamentos de caminho**.
+No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. No menu à esquerda do aplicativo, selecione **configuração** > **mapeamentos de caminho**.
 
-![Definições gerais](./media/configure-common/open-path.png)
+![Mapeamentos de caminho](./media/configure-common/open-path.png)
 
 A página **mapeamentos de caminho** mostra diferentes coisas com base no tipo de sistema operacional.
 

@@ -1,25 +1,25 @@
 ---
 title: Obter logs de instância de contêiner & eventos
-description: Saiba como depurar com logs de contêiner e eventos com instâncias de contêiner do Azure
+description: Saiba como recuperar logs de contêiner e eventos em instâncias de contêiner do Azure para ajudar a solucionar problemas de contêiner
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fe30ab875aa6cd7f465ffe69672a771e18134e1c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481744"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664741"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Recuperar logs de contêiner e eventos em instâncias de contêiner do Azure
 
-Quando você tiver um contêiner com comportamento inadequado, comece exibindo seus logs com [AZ container logs][az-container-logs]e transmitindo seu erro padrão e padrão com [AZ container Attach][az-container-attach].
+Quando você tiver um contêiner com comportamento inadequado nas instâncias de contêiner do Azure, comece exibindo seus logs com [AZ container logs][az-container-logs]e transmita seu erro padrão e padrão com [AZ container Attach][az-container-attach]. Você também pode exibir logs e eventos para instâncias de contêiner no portal do Azure ou enviar dados de log e de evento para grupos de contêineres para [Azure monitor logs](container-instances-log-analytics.md).
 
 ## <a name="view-logs"></a>Ver registos
 
 Para exibir os logs do código do aplicativo em um contêiner, você pode usar o comando [AZ container logs][az-container-logs] .
 
-A seguir está a saída de log do contêiner de exemplo baseado em tarefa em [executar uma tarefa em contêineres no ACI](container-instances-restart-policy.md), depois de ter colocado uma URL inválida para o processo:
+A seguir está a saída de log do contêiner de exemplo baseado em tarefa em [defina a linha de comando em uma instância de contêiner](container-instances-start-command.md#azure-cli-example), depois de ter fornecido uma URL inválida usando uma substituição de linha de comando:
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -47,7 +47,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 O comando [AZ container Attach][az-container-attach] fornece informações de diagnóstico durante a inicialização do contêiner. Depois que o contêiner for iniciado, ele transmitirá STDOUT e STDERR para o console local.
 
-Por exemplo, aqui está a saída do contêiner baseado em tarefa em [executar uma tarefa em contêineres no ACI](container-instances-restart-policy.md), depois de ter fornecido uma URL válida de um arquivo de texto grande para processar:
+Por exemplo, aqui está a saída do contêiner baseado em tarefa em [definir a linha de comando em uma instância de contêiner](container-instances-start-command.md#azure-cli-example), depois de ter fornecido uma URL válida de um arquivo de texto grande para processar:
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -76,7 +76,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Obter eventos de diagnóstico
 
-Se o contêiner não for implantado com êxito, você precisará examinar as informações de diagnóstico fornecidas pelo provedor de recursos das instâncias de contêiner do Azure. Para exibir os eventos para o seu contêiner, execute o comando [AZ container show] [AZ-contêiner-show]:
+Se o contêiner não for implantado com êxito, examine as informações de diagnóstico fornecidas pelo provedor de recursos das instâncias de contêiner do Azure. Para exibir os eventos do seu contêiner, execute o comando [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -145,6 +145,9 @@ A saída inclui as propriedades básicas do seu contêiner, juntamente com os ev
 ## <a name="next-steps"></a>Passos seguintes
 Saiba como [solucionar problemas comuns de contêiner e implantação](container-instances-troubleshooting.md) para instâncias de contêiner do Azure.
 
+Saiba como enviar dados de log e de evento para grupos de contêineres para [Azure monitor logs](container-instances-log-analytics.md).
+
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach
 [az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show

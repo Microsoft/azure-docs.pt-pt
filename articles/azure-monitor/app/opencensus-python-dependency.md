@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: c28ef627e9ef65f9985a520c8c4f3facc7a160da
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 18354881b7bf2899bdd109b47d6a10e29073cc36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432505"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Acompanhar dependências com Python OpenCensus
 

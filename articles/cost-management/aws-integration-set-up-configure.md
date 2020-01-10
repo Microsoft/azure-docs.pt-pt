@@ -1,21 +1,21 @@
 ---
-title: Configurar e configurar a integração de relatório de uso e custo do AWS com o gerenciamento de custos do Azure
+title: Configurar a integração do AWS com o gerenciamento de custos do Azure
 description: Este artigo explica como configurar e configurar a integração de relatório de uso e custo do AWS com o gerenciamento de custos do Azure.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/15/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 66dbe45ff1a8ee773fdf7fcb0aa7cfe8e6ad6437
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77bc7772e1d9b8144199c865a8d82f818d5e1963
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444599"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurar e configurar a integração de relatório de uso e custo do AWS
 
@@ -68,7 +68,7 @@ Use o assistente para criação de uma nova função:
 4. Na página seguinte, selecione **outra conta do AWS**.
 5. Em **ID da conta**, insira **432263259397**.
 6. Em **Opções**, selecione **exigir ID externa (prática recomendada quando uma terceira parte assumirá essa função)** .
-7. Em **ID externa**, insira a ID externa. A ID externa é uma senha compartilhada entre a função AWS e o gerenciamento de custos do Azure. A mesma ID externa também é usada na nova página de **conector** no gerenciamento de custos. Por exemplo, uma ID externa é semelhante a _Companyname1234567890123_.
+7. Em **ID externa**, insira a ID externa, que é uma senha compartilhada entre a função AWS e o gerenciamento de custos do Azure. A mesma ID externa também é usada na nova página de **conector** no gerenciamento de custos. A Microsoft recomenda que você use uma política de senha forte ao inserir a ID externa.
 
     > [!NOTE]
     > Não altere a seleção para **exigir MFA**. Ele deve permanecer limpo.
@@ -150,7 +150,7 @@ A política JSON deve ser semelhante ao exemplo a seguir. Substitua _bucketname_
 
 Use as informações a seguir para criar um conector do AWS e começar a monitorar seus custos de AWS:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Vá para **Gerenciamento de custos + cobrança** > **Gerenciamento de custos**.
 3. Em **configurações**, selecione **conectores de nuvem (versão prévia)** .  
     ![exemplo mostrando a configuração de conectores de nuvem (versão prévia)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
@@ -227,7 +227,7 @@ Por padrão, as permissões para uma conta vinculada AWS são definidas na cria�
 
 As contas vinculadas do AWS sempre herdam as permissões do grupo de gerenciamento ao qual pertencem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Agora que você configurou e configurou a integração de relatório de uso e custo do AWS, continue a [gerenciar os custos e o uso do AWS](aws-integration-manage.md).
 - Se você não estiver familiarizado com a análise de custo, consulte [explorar e analisar custos com](quick-acm-cost-analysis.md) o guia de início rápido de análise de custo.

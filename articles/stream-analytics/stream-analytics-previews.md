@@ -1,27 +1,26 @@
 ---
-title: Azure Stream Analytics recursos de visualização
-description: Este artigo lista os recursos de Azure Stream Analytics que estão atualmente em visualização.
-services: stream-analytics
+title: Funcionalidades de pré-visualização do Azure Stream Analytics
+description: Este artigo lista as funcionalidades do Azure Stream Analytics que estão atualmente em pré-visualização.
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: df3e8c1cd91c676c64d15c46c5acdc3d5bcfaa8e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 59bb866d7a339608555f0bb802e1716eba5d3255
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431575"
 ---
-# <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics recursos de visualização
+# <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
-Este artigo resume todos os recursos atualmente em visualização para Azure Stream Analytics. Não é recomendável usar os recursos de visualização em um ambiente de produção.
+Este artigo resume todas as funcionalidades atualmente em pré-visualização do Azure Stream Analytics. Não é recomendado a utilizar funcionalidades de pré-visualização num ambiente de produção.
 
-## <a name="public-previews"></a>Visualizações públicas
+## <a name="public-previews"></a>Pré-visualizações públicas
 
-Os recursos a seguir estão em visualização pública. Você pode aproveitar esses recursos hoje, mas não usá-los em seu ambiente de produção.
+As seguintes funcionalidades estão em pré-visualização pública. Pode aproveitar esses recursos hoje, mas não usá-los no seu ambiente de produção.
 
 ### <a name="online-scaling"></a>Dimensionamento online
 
@@ -57,22 +56,22 @@ Azure Stream Analytics trabalhos podem ser criados no Visual Studio Code. Veja n
 
 ### <a name="anomaly-detection"></a>Deteção de Anomalias
 
-Azure Stream Analytics introduz novos modelos de aprendizado de máquina com suporte para detecção de *pico* e *DIPs* , além de detecção bidirecional, positiva lenta e baixa de tendências negativas. Para obter mais informações, visite [detecção de anomalias em Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+O Azure Stream Analytics introduz novos modelos de aprendizagem automática com suporte para *pico* e *quedas* deteção, além de deteção, bidirecional, lento positivos e lenta tendências negativas. Para obter mais informações, visite [detecção de anomalias em Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
-Você pode dimensionar Stream Analytics trabalhos com funções de Machine Learning (ML). Para saber mais sobre como você pode usar as funções do ML em seu trabalho de Stream Analytics, visite [dimensionar seu trabalho de Stream Analytics com funções de Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com a [execução de análise de sentimentos usando Azure Stream Analytics e Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Pode dimensionar tarefas do Stream Analytics com as funções de Machine Learning (ML). Para saber mais sobre como pode usar as funções de ML na sua tarefa do Stream Analytics, visite [dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
 
-### <a name="live-data-testing-in-visual-studio"></a>Testes de dados dinâmicos no Visual Studio
+### <a name="live-data-testing-in-visual-studio"></a>Live o teste de dados no Visual Studio
 
-As ferramentas do Visual Studio para Azure Stream Analytics aprimoram o recurso de teste local que permite que você teste as consultas em fluxos de eventos ao vivo de fontes de nuvem, como hub de eventos ou Hub IoT. Saiba como [testar dados dinâmicos localmente usando o Azure Stream Analytics Tools para Visual Studio](stream-analytics-live-data-local-testing.md).
+O Visual Studio tools para o Azure Stream Analytics aprimore a funcionalidade de teste local que permite que teste consultas em fluxos de eventos em direto de origens na cloud, como o Hub de eventos ou IoT hub. Saiba como [testar dados dinâmicos localmente com ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md).
 
 
-### <a name="net-user-defined-functions-on-iot-edge"></a>Funções definidas pelo usuário do .NET no IoT Edge
+### <a name="net-user-defined-functions-on-iot-edge"></a>Funções definidas pelo utilizador do .NET no IoT Edge
 
-Com as funções padrão definidas pelo usuário do .NET, você pode executar .NET Standard código como parte do pipeline de streaming. Você pode criar classes C# simples ou importar projetos e bibliotecas completas. Há suporte para a criação completa e a experiência de depuração no Visual Studio. Para obter mais informações, visite [desenvolver .net Standard funções definidas pelo usuário para Azure Stream Analytics trabalhos do Edge](stream-analytics-edge-csharp-udf-methods.md).
+Com o .NET padrão definido pelo utilizador funções, pode executar código padrão do .NET como parte do seu pipeline de transmissão em fluxo. Pode criar classes simples c# ou importar projeto completo e bibliotecas. Criação e a experiência de depuração completa é suportada no Visual Studio. Para obter mais informações, visite [desenvolver .NET Standard funções definidas pelo utilizador para tarefas do Edge do Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md).
 
 ## <a name="other-previews"></a>Outras visualizações
 

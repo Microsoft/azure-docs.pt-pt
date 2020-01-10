@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5ba08da5c58ff486bc26f2c771dfef55452629a
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184741"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681060"
 ---
-Regresse à _janela de terminal local_ e adicione um remoto do Azure ao seu repositório Git local. Substitua _&lt;deploymentLocalGitUrl-from-create-step>_ pelo URL do Git remoto que guardou em [Criar uma aplicação Web](#create-a-web-app).
+De volta à janela do terminal local, adicione um remoto do Azure ao repositório git local. Substitua *\<deploymentLocalGitUrl-from-create-step>* pelo URL do Git remoto que guardou em [Criar uma aplicação Web](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando lhe forem pedidas credenciais pelo Gestor de credenciais do Git, certifique-se de que introduz as credenciais que criou em configurar um utilizador de implementação, não as credenciais de que utiliza para iniciar sessão no portal do Azure.
+Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando o Git Credential Manager solicitar credenciais, certifique-se de inserir as credenciais criadas em [configurar um usuário de implantação](/azure/app-service/containers/tutorial-python-postgresql-app#configure-a-deployment-user), não as credenciais usadas para entrar no portal do Azure.
 
 ```bash
 git push azure master

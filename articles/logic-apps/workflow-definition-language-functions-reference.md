@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2019
-ms.openlocfilehash: e449eed0a8ae9ed6e1847ea70db6968bf9ede9bd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f1fd776f903b4f5b4f315147f460143c7843fdc9
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784532"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689063"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para usar funções em expressões para aplicativos lógicos do Azure e automatizar energia
 
@@ -24,8 +24,8 @@ Por exemplo, você pode calcular valores usando funções matemáticas, como a [
 
 | Tarefa | Sintaxe da função | Resultado |
 | ---- | --------------- | ------ |
-| Retornar uma cadeia de caracteres em formato em minúsculas. | toLower (' <*text*> ') <p>Por exemplo: toLower (' Olá ') | Oi |
-| Retornar um GUID (identificador global exclusivo). | GUID () |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
+| Retornar uma cadeia de caracteres em formato em minúsculas. | toLower('<*text*>') <p>Por exemplo: toLower (' Olá ') | Oi |
+| Retornar um GUID (identificador global exclusivo). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
 Para localizar funções [com base em sua finalidade geral](#ordered-by-purpose), examine as tabelas a seguir. Ou, para obter informações detalhadas sobre cada função, consulte a [lista alfabética](#alphabetical-list).
@@ -47,7 +47,7 @@ Aqui estão algumas outras maneiras gerais de usar funções em expressões:
 | Tarefa | Sintaxe de função em uma expressão |
 | ---- | -------------------------------- |
 | Execute o trabalho com um item passando esse item para uma função. | "\@<*functionname*> (<*Item*>)" |
-| 1. Obtenha o valor de *ParameterName*usando a função de `parameters()` aninhada. </br>2. Execute o trabalho com o resultado passando esse valor para *FunctionName*. | "\@<*functionname*> (Parameters (' <*ParameterName*> '))" |
+| 1. Obtenha o valor de *ParameterName*usando a função de `parameters()` aninhada. </br>2. Execute o trabalho com o resultado passando esse valor para *FunctionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
 | 1. Obtenha o resultado da função interna aninhada *FunctionName*. </br>2. passe o resultado para a função externa *functionName2*. | "\@<*functionName2*> (<*FunctionName*> (<*Item*>))" |
 | 1. Obtenha o resultado de *FunctionName*. </br>2. Considerando que o resultado é um objeto com property *PropertyName*, obtenha o valor dessa propriedade. | "\@<*functionname*> (<*Item*>). <*PropertyName*>" |
 |||
@@ -79,18 +79,19 @@ As funções de cadeia de caracteres funcionam apenas em cadeias de caracteres.
 
 | Função de cadeia de caracteres | Tarefa |
 | --------------- | ---- |
-| [Concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine duas ou mais cadeias de caracteres e retorne a cadeia combinada. |
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine duas ou mais cadeias de caracteres e retorne a cadeia combinada. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma cadeia de caracteres termina com a subcadeia de caracteres especificada. |
-| [volume](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
+| [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Retornar um número como uma cadeia de caracteres com base no formato especificado |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retorna a posição inicial de uma subcadeia de caracteres. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retorna a posição inicial da última ocorrência de uma subcadeia de caracteres. |
-| [Substitua](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substitui uma subcadeia de caracteres pela cadeia de caracteres especificada e retorna a cadeia de caracteres atualizada. |
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substitui uma subcadeia de caracteres pela cadeia de caracteres especificada e retorna a cadeia de caracteres atualizada. |
 | [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retorna uma matriz que contém subcadeias de caracteres, separadas por vírgulas, de uma cadeia de caracteres maior com base em um caractere delimitador especificado na cadeia de caracteres original. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verifique se uma cadeia de caracteres começa com uma subcadeia de caracteres específica. |
-| [Subcadeia](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Retornar caracteres de uma cadeia de caracteres, começando da posição especificada. |
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Retornar caracteres de uma cadeia de caracteres, começando da posição especificada. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retornar uma cadeia de caracteres em formato em minúsculas. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retornar uma cadeia de caracteres em formato maiúsculo. |
-| [Trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remova o espaço em branco à esquerda e à direita de uma cadeia de caracteres e retorne a cadeia de caracteres atualizada. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remova o espaço em branco à esquerda e à direita de uma cadeia de caracteres e retorne a cadeia de caracteres atualizada. |
 |||
 
 <a name="collection-functions"></a>
@@ -101,17 +102,17 @@ Para trabalhar com coleções, geralmente matrizes, cadeias de caracteres e, às
 
 | Função de coleção | Tarefa |
 | ------------------- | ---- |
-| [terá](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
-| [esvaziá](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
-| [primeiro](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retornar o primeiro item de uma coleção. |
-| [interseção](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retorna uma coleção que tem *apenas* os itens comuns nas coleções especificadas. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retornar o primeiro item de uma coleção. |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retorna uma coleção que tem *apenas* os itens comuns nas coleções especificadas. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação repetida em uma matriz, retorna o item atual na matriz durante a iteração atual da ação. |
 | [aderir](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tenha *todos* os itens de uma matriz, separados pelo caractere especificado. |
-| [última](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retorna o último item de uma coleção. |
-| [muito](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
-| [saltar](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e retornar todos os *outros* itens. |
-| [ter](../logic-apps/workflow-definition-language-functions-reference.md#take) | Retornar itens da frente de uma coleção. |
-| [unida](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retorna uma coleção que tem *todos* os itens das coleções especificadas. |
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retorna o último item de uma coleção. |
+| [Comprimento](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e retornar todos os *outros* itens. |
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Retornar itens da frente de uma coleção. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retorna uma coleção que tem *todos* os itens das coleções especificadas. |
 |||
 
 <a name="comparison-functions"></a>
@@ -124,14 +125,14 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | Função de comparação lógica | Tarefa |
 | --------------------------- | ---- |
 | [e](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões são verdadeiras. |
-| [seja](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se ambos os valores são equivalentes. |
-| [grande](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior que o segundo valor. |
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se ambos os valores são equivalentes. |
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior que o segundo valor. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifique se o primeiro valor é maior ou igual ao segundo valor. |
-| [que](../logic-apps/workflow-definition-language-functions-reference.md#if) | Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, retorna um valor especificado. |
-| [inferiores](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verifique se o primeiro valor é menor que o segundo valor. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Verifique se uma expressão é verdadeira ou falsa. Com base no resultado, retorna um valor especificado. |
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verifique se o primeiro valor é menor que o segundo valor. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Verifique se o primeiro valor é menor ou igual ao segundo valor. |
-| [válido](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verifique se uma expressão é falsa. |
-| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verifique se pelo menos uma expressão é verdadeira. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verifique se uma expressão é falsa. |
+| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verifique se pelo menos uma expressão é verdadeira. |
 |||
 
 <a name="conversion-functions"></a>
@@ -145,8 +146,8 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 
 | Função de conversão | Tarefa |
 | ------------------- | ---- |
-| [variedade](../logic-apps/workflow-definition-language-functions-reference.md#array) | Retornar uma matriz de uma única entrada especificada. Para várias entradas, consulte [CreateArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
-| [Base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retornar a versão codificada em base64 para uma cadeia de caracteres. |
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Retornar uma matriz de uma única entrada especificada. Para várias entradas, consulte [CreateArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retornar a versão codificada em base64 para uma cadeia de caracteres. |
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Retornar a versão binária para uma cadeia de caracteres codificada em base64. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Retornar a versão de cadeia de caracteres para uma cadeia de caracteres codificada em base64. |
 | [binário](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Retornar a versão binária para um valor de entrada. |
@@ -159,10 +160,10 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Retornar a versão binária para um URI de dados. |
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Retorne uma cadeia de caracteres que substitui o caractere de escape por versões decodificadas. |
 | [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retornar uma cadeia de caracteres que substitui caracteres não seguros de URL por caracteres de escape. |
-| [barra](../logic-apps/workflow-definition-language-functions-reference.md#float) | Retornar um número de ponto flutuante para um valor de entrada. |
-| [inteiro](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retornar a versão de inteiro para uma cadeia de caracteres. |
-| [JSON](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retorna o valor ou o objeto do tipo JavaScript Object Notation (JSON) para uma cadeia de caracteres ou XML. |
-| [Strings](../logic-apps/workflow-definition-language-functions-reference.md#string) | Retornar a versão da cadeia de caracteres para um valor de entrada. |
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Retornar um número de ponto flutuante para um valor de entrada. |
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retornar a versão de inteiro para uma cadeia de caracteres. |
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retorna o valor ou o objeto do tipo JavaScript Object Notation (JSON) para uma cadeia de caracteres ou XML. |
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Retornar a versão da cadeia de caracteres para um valor de entrada. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Retorne a versão codificada em URI para um valor de entrada, substituindo caracteres não seguros por URL por caracteres de escape. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Retornar a versão binária para uma cadeia de caracteres codificada em URI. |
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Retornar a versão de cadeia de caracteres para uma cadeia de caracteres codificada em URI. |
@@ -178,15 +179,15 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 
 | Função Math | Tarefa |
 | ------------- | ---- |
-| [agrega](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retornar o resultado da adição de dois números. |
-| [marca](../logic-apps/workflow-definition-language-functions-reference.md#div) | Retornar o resultado da divisão de dois números. |
-| [maximizar](../logic-apps/workflow-definition-language-functions-reference.md#max) | Retorna o valor mais alto de um conjunto de números ou uma matriz. |
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retornar o resultado da adição de dois números. |
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Retornar o resultado da divisão de dois números. |
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Retorna o valor mais alto de um conjunto de números ou uma matriz. |
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retorna o valor mais baixo de um conjunto de números ou uma matriz. |
-| [resto](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retornar o resto da divisão de dois números. |
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retornar o resto da divisão de dois números. |
 | [Mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Retorne o produto da multiplicação de dois números. |
 | [Rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Retornar um inteiro aleatório de um intervalo especificado. |
-| [amplitude](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retornar uma matriz de inteiros que inicia de um número inteiro especificado. |
-| [projeto](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retorne o resultado da subtração do segundo número do primeiro número. |
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retornar uma matriz de inteiros que inicia de um número inteiro especificado. |
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retorne o resultado da subtração do segundo número do primeiro número. |
 |||
 
 <a name="date-time-functions"></a>
@@ -200,8 +201,8 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | --------------------- | ---- |
 | [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Adicione um número de dias a um carimbo de data/hora. |
 | [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Adicione um número de horas a um carimbo de data/hora. |
-| [addminutos](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Adicione um número de minutos a um carimbo de data/hora. |
-| [hipersegundos](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Adicione um número de segundos a um carimbo de data/hora. |
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Adicione um número de minutos a um carimbo de data/hora. |
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Adicione um número de segundos a um carimbo de data/hora. |
 | [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Adicione um número de unidades de tempo a um carimbo de data/hora. Consulte também [Getfuturtime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). |
 | [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Converta um carimbo de data/hora de UTC (tempo Universal Coordenado) para o fuso horário de destino. |
 | [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Converta um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. |
@@ -210,8 +211,8 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Retorna o dia do componente da semana de um carimbo de data/hora. |
 | [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Retorna o dia do componente de ano de um carimbo de data/hora. |
 | [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Retornar a data de um carimbo de hora. |
-| [getfuturtime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. Consulte também [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
-| [getpastetime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Retorna o carimbo de data/hora atual menos as unidades de tempo especificadas. Consulte também [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. Consulte também [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Retorna o carimbo de data/hora atual menos as unidades de tempo especificadas. Consulte também [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
 | [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Retorna o início do dia para um carimbo de data/hora. |
 | [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Retornar o início da hora para um carimbo de data/hora. |
 | [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Retornar o início do mês para um carimbo de data/hora. |
@@ -256,7 +257,7 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Retorna o corpo de uma parte específica na saída de várias partes de um gatilho. |
 | [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Crie uma matriz cujos valores correspondem a um nome de chave em *dados de formulário* ou saídas *de gatilho codificadas por formulário* . |
 | [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Retornar a saída de um gatilho em tempo de execução ou valores de outros pares de nome e valor JSON. Consulte [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
-| [as](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Retorna o valor de uma variável especificada. |
+| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Retorna o valor de uma variável especificada. |
 | [modelo](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Retornar todos os detalhes sobre o próprio fluxo de trabalho durante o tempo de execução. |
 |||
 
@@ -288,9 +289,9 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | --------------------- | ---- |
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Adicione uma propriedade e seu valor, ou par nome-valor, a um objeto JSON, e retorne o objeto atualizado. |
 | [COALESCE](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retorna o primeiro valor não nulo de um ou mais parâmetros. |
-| [removerproperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remove uma propriedade de um objeto JSON e retorna o objeto atualizado. |
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remove uma propriedade de um objeto JSON e retorna o objeto atualizado. |
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Defina o valor para a propriedade de um objeto JSON e retorne o objeto atualizado. |
-| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Marque XML para nós ou valores que correspondam a uma expressão XPath (linguagem de caminho XML) e retorne os nós ou valores correspondentes. |
+| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Marque XML para nós ou valores que correspondam a uma expressão XPath (linguagem de caminho XML) e retorne os nós ou valores correspondentes. |
 |||
 
 <a name="alphabetical-list"></a>
@@ -325,7 +326,7 @@ action().outputs.body.<property>
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| *ação de <-> de saída* | String | A saída da ação ou da propriedade atual |
+| <*action-output*> | String | A saída da ação ou da propriedade atual |
 ||||
 
 <a name="actionBody"></a>
@@ -342,12 +343,12 @@ actionBody('<actionName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome da saída de `body` da ação que você deseja |
+| <*actionName*> | Sim | String | O nome da saída de `body` da ação que você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| *ação <-corpo-saída*> | String | A `body` saída da ação especificada |
+| <*action-body-output*> | String | A `body` saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -387,12 +388,12 @@ actionOutputs('<actionName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome da saída da ação que você deseja |
+| <*actionName*> | Sim | String | O nome da saída da ação que você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <de *saída*> | String | A saída da ação especificada |
+| <*output*> | String | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -457,13 +458,13 @@ actions('<actionName>').outputs.body.<property>
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome do objeto de ação cuja saída você deseja  |
+| <*actionName*> | Sim | String | O nome do objeto de ação cuja saída você deseja  |
 | *propriedade* <> | Não | String | O nome da Propriedade do objeto de ação cujo valor você deseja: **nome**, **iníciotime**, **EndTime**, **entradas**, **saídas**, **status**, **código**, **TrackingID**e **clientTrackingId**. No portal do Azure, você pode encontrar essas propriedades revisando os detalhes de um histórico de execução específico. Para obter mais informações, consulte [API REST-ações de execução do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| *ação de <-> de saída* | String | A saída da ação ou da propriedade especificada |
+| <*action-output*> | String | A saída da ação ou da propriedade especificada |
 ||||
 
 *Exemplo*
@@ -493,7 +494,7 @@ add(<summand_1>, <summand_2>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| > *de soma de resultados de* < | Inteiro ou float | O resultado da adição dos números especificados |
+| <*result-sum*> | Inteiro ou float | O resultado da adição dos números especificados |
 ||||
 
 *Exemplo*
@@ -518,14 +519,14 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*dias*> | Sim | Número inteiro | O número positivo ou negativo de dias para adicionar |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de dias especificado  |
+| <*updated-timestamp*> | String | O carimbo de data/hora mais o número de dias especificado  |
 ||||
 
 *Exemplo 1*
@@ -560,14 +561,14 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*horas*> | Sim | Número inteiro | O número positivo ou negativo de horas para adicionar |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número especificado de horas  |
+| <*updated-timestamp*> | String | O carimbo de data/hora mais o número especificado de horas  |
 ||||
 
 *Exemplo 1*
@@ -592,7 +593,7 @@ E retorna este resultado: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-### <a name="addminutes"></a>addminutos
+### <a name="addminutes"></a>addMinutes
 
 Adicione um número de minutos a um carimbo de data/hora.
 
@@ -602,14 +603,14 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos a serem adicionados |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número especificado de minutos |
+| <*updated-timestamp*> | String | O carimbo de data/hora mais o número especificado de minutos |
 ||||
 
 *Exemplo 1*
@@ -644,14 +645,14 @@ addProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON em que você deseja adicionar uma propriedade |
+| *objeto* <> | Sim | Objeto | O objeto JSON em que você deseja adicionar uma propriedade |
 | *propriedade* <> | Sim | String | O nome da propriedade a ser adicionada |
 | <*valor*> | Sim | Qualquer | O valor da propriedade |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-objeto*> | Object | O objeto JSON atualizado com a propriedade especificada |
+| <*updated-object*> | Objeto | O objeto JSON atualizado com a propriedade especificada |
 ||||
 
 Para adicionar uma propriedade filho a uma propriedade existente, use esta sintaxe:
@@ -662,7 +663,7 @@ addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON em que você deseja adicionar uma propriedade |
+| *objeto* <> | Sim | Objeto | O objeto JSON em que você deseja adicionar uma propriedade |
 | > *de propriedade pai* < | Sim | String | O nome da propriedade pai em que você deseja adicionar a propriedade filho |
 | <> *de propriedade filho* | Sim | String | O nome da propriedade filho a ser adicionada |
 | <*valor*> | Sim | Qualquer | O valor a ser definido para a propriedade especificada |
@@ -670,7 +671,7 @@ addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-objeto*> | Object | O objeto JSON atualizado cuja propriedade você definiu |
+| <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade você definiu |
 ||||
 
 *Exemplo 1*
@@ -733,7 +734,7 @@ Este é o objeto JSON atualizado:
 
 <a name="addSeconds"></a>
 
-### <a name="addseconds"></a>hipersegundos
+### <a name="addseconds"></a>addSeconds
 
 Adicione um número de segundos a um carimbo de data/hora.
 
@@ -743,14 +744,14 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a serem adicionados |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de segundos especificado  |
+| <*updated-timestamp*> | String | O carimbo de data/hora mais o número de segundos especificado  |
 ||||
 
 *Exemplo 1*
@@ -786,15 +787,15 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *intervalo* de <> | Sim | Número inteiro | O número de unidades de tempo especificadas a serem adicionadas |
-| <de *unidade* time> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas a serem adicionadas |
+| <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número especificado de unidades de tempo  |
+| <*updated-timestamp*> | String | O carimbo de data/hora mais o número especificado de unidades de tempo  |
 ||||
 
 *Exemplo 1*
@@ -835,7 +836,7 @@ and(<expression1>, <expression2>, ...)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando todas as expressões são true. Retorna false quando pelo menos uma expressão é false. |
+| true ou false | Booleano | Retorna true quando todas as expressões são true. Retorna false quando pelo menos uma expressão é false. |
 ||||
 
 *Exemplo 1*
@@ -888,7 +889,7 @@ array('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*valor*>] | Array | Uma matriz que contém a entrada especificada única |
+| [<*valor*>] | Matriz | Uma matriz que contém a entrada especificada única |
 ||||
 
 *Exemplo*
@@ -903,7 +904,7 @@ E retorna este resultado: `["hello"]`
 
 <a name="base64"></a>
 
-### <a name="base64"></a>Base64
+### <a name="base64"></a>base64
 
 Retornar a versão codificada em base64 para uma cadeia de caracteres.
 
@@ -918,7 +919,7 @@ base64('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*Base64-cadeia de caracteres*> | String | A versão codificada em base64 para a cadeia de caracteres de entrada |
+| <*base64-string*> | String | A versão codificada em base64 para a cadeia de caracteres de entrada |
 ||||
 
 *Exemplo*
@@ -948,7 +949,7 @@ base64ToBinary('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Base64-string*> | String | A versão binária para a cadeia de caracteres codificada em base64 |
+| <*binary-for-base64-string*> | String | A versão binária para a cadeia de caracteres codificada em base64 |
 ||||
 
 *Exemplo*
@@ -997,7 +998,7 @@ E retorna este resultado: `"hello"`
 
 <a name="binary"></a>
 
-### <a name="binary"></a>binário
+### <a name="binary"></a>binary
 
 Retornar a versão binária de uma cadeia de caracteres.
 
@@ -1012,7 +1013,7 @@ binary('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-valor-de-entrada*> | String | A versão binária da cadeia de caracteres especificada |
+| <*binary-for-input-value*> | String | A versão binária da cadeia de caracteres especificada |
 ||||
 
 *Exemplo*
@@ -1029,7 +1030,7 @@ E retorna esse resultado:
 
 <a name="body"></a>
 
-### <a name="body"></a>conteúdo
+### <a name="body"></a>body
 
 Retornar a saída de `body` de uma ação em tempo de execução.
 Abreviação para `actions('<actionName>').outputs.body`.
@@ -1041,12 +1042,12 @@ body('<actionName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome da saída de `body` da ação que você deseja |
+| <*actionName*> | Sim | String | O nome da saída de `body` da ação que você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| *ação <-corpo-saída*> | String | A `body` saída da ação especificada |
+| <*action-body-output*> | String | A `body` saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -1091,7 +1092,7 @@ bool(<value>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | A versão booliana para o valor especificado |
+| true ou false | Booleano | A versão booliana para o valor especificado |
 ||||
 
 *Exemplo*
@@ -1126,7 +1127,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*primeiro-item não nulo*> | Qualquer | O primeiro item ou valor que não é nulo. Se todos os parâmetros forem nulos, essa função retornará NULL. |
+| <*first-non-null-item*> | Qualquer | O primeiro item ou valor que não é nulo. Se todos os parâmetros forem nulos, essa função retornará NULL. |
 ||||
 
 *Exemplo*
@@ -1157,7 +1158,7 @@ concat('<text1>', '<text2>', ...)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*texto1*>, <*Texto2*>,... | Sim | String | Pelo menos duas cadeias de caracteres para combinar |
+| <*text1*>, <*text2*>, ... | Sim | String | Pelo menos duas cadeias de caracteres para combinar |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -1177,7 +1178,7 @@ E retorna este resultado: `"HelloWorld"`
 
 <a name="contains"></a>
 
-### <a name="contains"></a>terá
+### <a name="contains"></a>Contém
 
 Verifique se uma coleção tem um item específico.
 Retornar true quando o item for encontrado ou retornar false quando não for encontrado.
@@ -1202,7 +1203,7 @@ Especificamente, essa função funciona nesses tipos de coleção:
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
+| true ou false | Booleano | Retornar true quando o item for encontrado. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1233,14 +1234,14 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido no fuso horário de destino |
+| <*converted-timestamp*> | String | O carimbo de data/hora convertido no fuso horário de destino |
 ||||
 
 *Exemplo 1*
@@ -1275,15 +1276,15 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido no fuso horário de destino |
+| <*converted-timestamp*> | String | O carimbo de data/hora convertido no fuso horário de destino |
 ||||
 
 *Exemplo 1*
@@ -1318,14 +1319,14 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido em UTC |
+| <*converted-timestamp*> | String | O carimbo de data/hora convertido em UTC |
 ||||
 
 *Exemplo 1*
@@ -1366,7 +1367,7 @@ createArray('<object1>', '<object2>', ...)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>,...] | Array | A matriz criada a partir de todos os itens de entrada |
+| [<*object1*>, <*object2*>,...] | Matriz | A matriz criada a partir de todos os itens de entrada |
 ||||
 
 *Exemplo*
@@ -1396,7 +1397,7 @@ dataUri('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*URI de dados*> | String | O URI de dados para a cadeia de caracteres de entrada |
+| <*data-uri*> | String | O URI de dados para a cadeia de caracteres de entrada |
 ||||
 
 *Exemplo*
@@ -1428,7 +1429,7 @@ dataUriToBinary('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-uri*> | String | A versão binária para o URI de dados |
+| <*binary-for-data-uri*> | String | A versão binária para o URI de dados |
 ||||
 
 *Exemplo*
@@ -1463,7 +1464,7 @@ dataUriToString('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *cadeia de caracteres <para-data-uri*> | String | A versão da cadeia de caracteres para o URI de dados |
+| <*string-for-data-uri*> | String | A versão da cadeia de caracteres para o URI de dados |
 ||||
 
 *Exemplo*
@@ -1488,12 +1489,12 @@ dayOfMonth('<timestamp>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia do mês*> | Número inteiro | O dia do mês do carimbo de data/hora especificado |
+| <*day-of-month*> | Número inteiro | O dia do mês do carimbo de data/hora especificado |
 ||||
 
 *Exemplo*
@@ -1518,7 +1519,7 @@ dayOfWeek('<timestamp>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -1548,12 +1549,12 @@ dayOfYear('<timestamp>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*dia do ano*> | Número inteiro | O dia do ano a partir do carimbo de data/hora especificado |
+| <*day-of-year*> | Número inteiro | O dia do ano a partir do carimbo de data/hora especificado |
 ||||
 
 *Exemplo*
@@ -1617,7 +1618,7 @@ decodeDataUri('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-uri*> | String | A versão binária para uma cadeia de caracteres de URI de dados |
+| <*binary-for-data-uri*> | String | A versão binária para uma cadeia de caracteres de URI de dados |
 ||||
 
 *Exemplo*
@@ -1652,7 +1653,7 @@ decodeUriComponent('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| < *-URI decodificado*> | String | A cadeia atualizada com os caracteres de escape decodificados |
+| <*decoded-uri*> | String | A cadeia atualizada com os caracteres de escape decodificados |
 ||||
 
 *Exemplo*
@@ -1667,7 +1668,7 @@ E retorna este resultado: `"https://contoso.com"`
 
 <a name="div"></a>
 
-### <a name="div"></a>marca
+### <a name="div"></a>div
 
 Retornar o resultado inteiro da divisão de dois números.
 Para obter o resultado restante, consulte [mod ()](#mod).
@@ -1679,12 +1680,12 @@ div(<dividend>, <divisor>)
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*dividendo*> | Sim | Inteiro ou float | O número a ser dividido pelo *divisor* |
-| > de <*divisor* | Sim | Inteiro ou float | O número que divide o *dividendo*, mas não pode ser 0 |
+| <*divisor*> | Sim | Inteiro ou float | O número que divide o *dividendo*, mas não pode ser 0 |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*quociente-resultado*> | Número inteiro | O resultado inteiro da divisão do primeiro número pelo segundo número |
+| <*quotient-result*> | Número inteiro | O resultado inteiro da divisão do primeiro número pelo segundo número |
 ||||
 
 *Exemplo*
@@ -1732,7 +1733,7 @@ E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-### <a name="empty"></a>Esvaziá
+### <a name="empty"></a>vazio
 
 Verifique se uma coleção está vazia.
 Retornar true quando a coleção estiver vazia ou retornar false quando não estiver vazio.
@@ -1749,7 +1750,7 @@ empty([<collection>])
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando a coleção está vazia. Retornar false quando não estiver vazio. |
+| true ou false | Booleano | Retorna true quando a coleção está vazia. Retornar false quando não estiver vazio. |
 ||||
 
 *Exemplo*
@@ -1780,13 +1781,13 @@ endsWith('<text>', '<searchText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres a ser verificada |
-| <*procurartexto*> | Sim | String | A subcadeia de caracteres final a ser localizada |
+| <*text*> | Sim | String | A cadeia de caracteres a ser verificada |
+| <*searchText*> | Sim | String | A subcadeia de caracteres final a ser localizada |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
+| true ou false  | Booleano | Retorna verdadeiro quando a subcadeia de caracteres final é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1811,7 +1812,7 @@ E retorna este resultado: `false`
 
 <a name="equals"></a>
 
-### <a name="equals"></a>seja
+### <a name="equals"></a>é igual a
 
 Verifique se os valores, as expressões ou os objetos são equivalentes.
 Retornar true quando ambos forem equivalentes ou retornar false quando eles não forem equivalentes.
@@ -1822,12 +1823,12 @@ equals('<object1>', '<object2>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*> | Sim | Vários | Os valores, expressões ou objetos para comparar |
+| <*object1*>, <*object2*> | Sim | Diversos | Os valores, expressões ou objetos para comparar |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
+| true ou false | Booleano | Retornar true quando ambos forem equivalentes. Retornar false quando não for equivalente. |
 ||||
 
 *Exemplo*
@@ -1897,7 +1898,7 @@ float('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Barra | O número de ponto flutuante para a cadeia de caracteres especificada |
+| <*float-value*> | Flutuante | O número de ponto flutuante para a cadeia de caracteres especificada |
 ||||
 
 *Exemplo*
@@ -1922,13 +1923,13 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*reformatado-carimbo de data/hora*> | String | O carimbo de data/hora atualizado no formato especificado |
+| <*reformatted-timestamp*> | String | O carimbo de data/hora atualizado no formato especificado |
 ||||
 
 *Exemplo*
@@ -1953,13 +1954,13 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
+| <*actionName*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
 | *chave* de <> | Sim | String | O nome da chave cujo valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*matriz com valores de chave*>] | Array | Uma matriz com todos os valores que correspondem à chave especificada |
+| [<*matriz com valores de chave*>] | Matriz | Uma matriz com todos os valores que correspondem à chave especificada |
 ||||
 
 *Exemplo*
@@ -1985,7 +1986,7 @@ formDataValue('<actionName>', '<key>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
+| <*actionName*> | Sim | String | A ação cuja saída tem o valor de chave desejado |
 | *chave* de <> | Sim | String | O nome da chave cujo valor você deseja |
 |||||
 
@@ -2004,9 +2005,63 @@ formDataValue('Send_an_email', 'Subject')
 
 E retorna o texto do assunto como uma cadeia de caracteres, por exemplo: `"Hello world"`
 
+<a name="formatNumber"></a>
+
+### <a name="formatnumber"></a>formatNumber
+
+Retornar um número como uma cadeia de caracteres com base no formato especificado.
+
+```text
+formatNumber(<number>, <format>, <locale>?)
+```
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+| --------- | -------- | ---- | ----------- |
+| *número* de <> | Sim | Inteiro ou duplo | O valor que você deseja formatar. |
+| <*format*> | Sim | String | Uma cadeia de caracteres de formato composto que especifica o formato que você deseja usar. Para obter as cadeias de caracteres de formato numérico com suporte, consulte [cadeias de caracteres de formato numérico padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings), que têm suporte pelo `number.ToString(<format>, <locale>)`. |
+| <*locale*> | Não | String | A localidade a ser usada com suporte pelo `number.ToString(<format>, <locale>)`. Se não for especificado, o valor padrão será `en-us`. |
+|||||
+
+| Valor de retorno | Tipo | Descrição |
+| ------------ | ---- | ----------- |
+| <> *de número formatado* | String | O número especificado como uma cadeia de caracteres no formato que você especificou. Você pode converter esse valor de retorno em um `int` ou `float`. |
+||||
+
+*Exemplo 1*
+
+Suponha que você deseja formatar o número `1234567890`. Este exemplo formata esse número como a cadeia de caracteres "1234567890, 0".
+
+```
+formatNumber(1234567890, "{0:0,0.00}", "en-us")
+```
+
+\* Exemplo 2 "
+
+Suponha que você deseja formatar o número `1234567890`. Este exemplo formata o número para a cadeia de caracteres "1.234.567.890, 00".
+
+```
+formatNumber(1234567890, "{0:0,0.00}", "is-is")
+```
+
+*Exemplo 3*
+
+Suponha que você deseja formatar o número `17.35`. Este exemplo formata o número para a cadeia de caracteres "$17.35".
+
+```
+formatNumber(17.36, "{0:C2}")
+```
+
+*Exemplo 4*
+
+Suponha que você deseja formatar o número `17.35`. Este exemplo formata o número para a cadeia de caracteres "17, 35 Kr".
+
+```
+formatNumber(17.36, "{0:C2}", "is-is")
+```
+
 <a name="getFutureTime"></a>
 
-### <a name="getfuturetime"></a>getfuturtime
+### <a name="getfuturetime"></a>getFutureTime
 
 Retornar o carimbo de data/hora atual mais as unidades de tempo especificadas.
 
@@ -2016,14 +2071,14 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *intervalo* de <> | Sim | Número inteiro | O número de unidades de tempo especificadas a serem adicionadas |
-| <de *unidade* time> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas a serem adicionadas |
+| <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora atual mais o número especificado de unidades de tempo |
+| <*updated-timestamp*> | String | O carimbo de data/hora atual mais o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -2060,14 +2115,14 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *intervalo* de <> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
-| <de *unidade* time> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
+| <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora atual menos o número especificado de unidades de tempo |
+| <*updated-timestamp*> | String | O carimbo de data/hora atual menos o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -2094,7 +2149,7 @@ E retorna este resultado: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-### <a name="greater"></a>grande
+### <a name="greater"></a>greater
 
 Verifique se o primeiro valor é maior que o segundo valor.
 Retornar true quando o primeiro valor for maior ou retornar false quando for menor.
@@ -2112,7 +2167,7 @@ greater('<value>', '<compareTo>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando o primeiro valor é maior que o segundo valor. Retorna false quando o primeiro valor é igual ou menor que o segundo valor. |
+| true ou false | Booleano | Retorna true quando o primeiro valor é maior que o segundo valor. Retorna false quando o primeiro valor é igual ou menor que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2149,7 +2204,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando o primeiro valor é maior ou igual ao segundo valor. Retorna false quando o primeiro valor é menor que o segundo valor. |
+| true ou false | Booleano | Retorna true quando o primeiro valor é maior ou igual ao segundo valor. Retorna false quando o primeiro valor é menor que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2168,7 +2223,7 @@ E retornar esses resultados:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>volume
+### <a name="guid"></a>guid
 
 Gere um GUID (identificador global exclusivo) como uma cadeia de caracteres, por exemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -2184,7 +2239,7 @@ guid('<format>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *formato* de <> | Não | String | Um [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) único para o GUID retornado. Por padrão, o formato é "D", mas você pode usar "N", "D", "B", "P" ou "X". |
+| <*format*> | Não | String | Um [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) único para o GUID retornado. Por padrão, o formato é "D", mas você pode usar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -2204,7 +2259,7 @@ E retorna este resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-### <a name="if"></a>que
+### <a name="if"></a>if
 
 Verifique se uma expressão é verdadeira ou falsa.
 Com base no resultado, retorna um valor especificado.
@@ -2247,8 +2302,8 @@ indexOf('<text>', '<searchText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
-| <*procurartexto*> | Sim | String | A subcadeia de caracteres a ser localizada |
+| <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
+| <*searchText*> | Sim | String | A subcadeia de caracteres a ser localizada |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -2283,7 +2338,7 @@ int('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*de resultado de inteiro*> | Número inteiro | A versão de inteiro para a cadeia de caracteres especificada |
+| <*integer-result*> | Número inteiro | A versão de inteiro para a cadeia de caracteres especificada |
 ||||
 
 *Exemplo*
@@ -2309,7 +2364,7 @@ item()
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> de *item de matriz atual* | Qualquer | O item atual na matriz para a iteração atual da ação |
+| <*current-array-item*> | Qualquer | O item atual na matriz para a iteração atual da ação |
 ||||
 
 *Exemplo*
@@ -2322,7 +2377,7 @@ item().body
 
 <a name="items"></a>
 
-### <a name="items"></a>los
+### <a name="items"></a>items
 
 Retorna o item atual de cada ciclo em um loop for-each.
 Use essa função dentro do loop for-each.
@@ -2333,7 +2388,7 @@ items('<loopName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*loopname*> | Sim | String | O nome para o loop for-each |
+| <*loopName*> | Sim | String | O nome para o loop for-each |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -2361,7 +2416,7 @@ iterationIndexes('<loopName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*loopname*> | Sim | String | O nome do loop Until | 
+| <*loopName*> | Sim | String | O nome do loop Until | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -2441,7 +2496,7 @@ Este exemplo cria uma variável de contador e incrementa essa variável por uma 
 
 <a name="json"></a>
 
-### <a name="json"></a>JSON
+### <a name="json"></a>json
 
 Retorna o valor ou o objeto do tipo JavaScript Object Notation (JSON) para uma cadeia de caracteres ou XML.
 
@@ -2456,7 +2511,7 @@ json('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*JSON-resultado*> | Tipo ou objeto nativo JSON | O valor do tipo nativo JSON ou o objeto para a cadeia de caracteres ou o XML especificado. Se a cadeia de caracteres for nula, a função retornará um objeto vazio. |
+| <*JSON-result*> | Tipo ou objeto nativo JSON | O valor do tipo nativo JSON ou o objeto para a cadeia de caracteres ou o XML especificado. Se a cadeia de caracteres for nula, a função retornará um objeto vazio. |
 ||||
 
 *Exemplo 1*
@@ -2553,7 +2608,7 @@ join([<collection>], '<delimiter>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *coleção* de <> | Sim | Array | A matriz que tem os itens a serem ingressados |
+| *coleção* de <> | Sim | Matriz | A matriz que tem os itens a serem ingressados |
 | *delimitador* de <> | Sim | String | O separador que aparece entre cada caractere na cadeia de caracteres resultante |
 |||||
 
@@ -2590,7 +2645,7 @@ last([<collection>])
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*última coleta de item*> | Cadeia de caracteres ou matriz, respectivamente | O último item na coleção |
+| <*last-collection-item*> | Cadeia de caracteres ou matriz, respectivamente | O último item na coleção |
 ||||
 
 *Exemplo*
@@ -2620,13 +2675,13 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
-| <*procurartexto*> | Sim | String | A subcadeia de caracteres a ser localizada |
+| <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser localizada |
+| <*searchText*> | Sim | String | A subcadeia de caracteres a ser localizada |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*end-index-value*> | Número inteiro | A posição inicial ou o valor do índice para a última ocorrência da subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
+| <*ending-index-value*> | Número inteiro | A posição inicial ou o valor do índice para a última ocorrência da subcadeia de caracteres especificada. <p>Se a cadeia de caracteres não for encontrada, retorne o número-1. |
 ||||
 
 *Exemplo*
@@ -2641,7 +2696,7 @@ E retorna este resultado: `6`
 
 <a name="length"></a>
 
-### <a name="length"></a>muito
+### <a name="length"></a>length
 
 Retorna o número de itens em uma coleção.
 
@@ -2657,7 +2712,7 @@ length([<collection>])
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de comprimento ou contagem* | Número inteiro | O número de itens na coleção |
+| <*length-or-count*> | Número inteiro | O número de itens na coleção |
 ||||
 
 *Exemplo*
@@ -2673,7 +2728,7 @@ E retornar esse resultado: `4`
 
 <a name="less"></a>
 
-### <a name="less"></a>inferiores
+### <a name="less"></a>less
 
 Verifique se o primeiro valor é menor que o segundo valor.
 Retornar true quando o primeiro valor for menor ou retornar false quando o primeiro valor for maior.
@@ -2691,7 +2746,7 @@ less('<value>', '<compareTo>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
+| true ou false | Booleano | Retorna true quando o primeiro valor é menor que o segundo valor. Retorna false quando o primeiro valor é igual ou maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2728,7 +2783,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
+| true ou false  | Booleano | Retorna true quando o primeiro valor é menor ou igual ao segundo valor. Retorna false quando o primeiro valor é maior que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2758,7 +2813,7 @@ listCallbackUrl()
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*retorno de chamada-URL*> | String | A URL de retorno de chamada para um gatilho ou uma ação |
+| <*callback-URL*> | String | A URL de retorno de chamada para um gatilho ou uma ação |
 ||||
 
 *Exemplo*
@@ -2769,7 +2824,7 @@ Este exemplo mostra uma URL de retorno de chamada de exemplo que essa função p
 
 <a name="max"></a>
 
-### <a name="max"></a>maximizar
+### <a name="max"></a>máx
 
 Retorne o valor mais alto de uma lista ou matriz com números que são inclusivos em ambas as extremidades.
 
@@ -2786,7 +2841,7 @@ max([<number1>, <number2>, ...])
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| > *de valor máximo* < | Inteiro ou float | O valor mais alto na matriz ou conjunto de números especificado |
+| <*max-value*> | Inteiro ou float | O valor mais alto na matriz ou conjunto de números especificado |
 ||||
 
 *Exemplo*
@@ -2847,12 +2902,12 @@ mod(<dividend>, <divisor>)
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*dividendo*> | Sim | Inteiro ou float | O número a ser dividido pelo *divisor* |
-| > de <*divisor* | Sim | Inteiro ou float | O número que divide o *dividendo*, mas não pode ser 0. |
+| <*divisor*> | Sim | Inteiro ou float | O número que divide o *dividendo*, mas não pode ser 0. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*de resultados de módulo*> | Inteiro ou float | O restante da divisão do primeiro número pelo segundo número |
+| <*modulo-result*> | Inteiro ou float | O restante da divisão do primeiro número pelo segundo número |
 ||||
 
 *Exemplo*
@@ -2883,7 +2938,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de resultados do produto* | Inteiro ou float | O produto da multiplicação do primeiro número pelo segundo número |
+| <*product-result*> | Inteiro ou float | O produto da multiplicação do primeiro número pelo segundo número |
 ||||
 
 *Exemplo*
@@ -2912,7 +2967,7 @@ multipartBody('<actionName>', <index>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome da ação que tem a saída com várias partes |
+| <*actionName*> | Sim | String | O nome da ação que tem a saída com várias partes |
 | *índice* de <> | Sim | Número inteiro | O valor de índice para a parte que você deseja |
 |||||
 
@@ -2923,7 +2978,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-### <a name="not"></a>válido
+### <a name="not"></a>not
 
 Verifique se uma expressão é falsa.
 Retorna true quando a expressão é false ou retorna false quando true.
@@ -2939,7 +2994,7 @@ not(<expression>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna verdadeiro quando a expressão é falsa. Retorna falso quando a expressão é verdadeira. |
+| true ou false | Booleano | Retorna verdadeiro quando a expressão é falsa. Retorna falso quando a expressão é verdadeira. |
 ||||
 
 *Exemplo 1*
@@ -2988,7 +3043,7 @@ or(<expression1>, <expression2>, ...)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso | Booleano | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
+| true ou false | Booleano | Retorna true quando pelo menos uma expressão for true. Retorna false quando todas as expressões são false. |
 ||||
 
 *Exemplo 1*
@@ -3021,7 +3076,7 @@ E retornar esses resultados:
 
 <a name="outputs"></a>
 
-### <a name="outputs"></a>produz
+### <a name="outputs"></a>outputs
 
 Retornar as saídas de uma ação em tempo de execução. Use essa função, em vez de `actionOutputs()`, que resolve para `outputs()` no designer do aplicativo lógico. Embora ambas as funções funcionem da mesma maneira, `outputs()` é preferida.
 
@@ -3031,12 +3086,12 @@ outputs('<actionName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*actionname*> | Sim | String | O nome da saída da ação que você deseja |
+| <*actionName*> | Sim | String | O nome da saída da ação que você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | -----| ----------- |
-| <de *saída*> | String | A saída da ação especificada |
+| <*output*> | String | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -3164,12 +3219,12 @@ range(<startIndex>, <count>)
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Sim | Número inteiro | Um valor inteiro que inicia a matriz como o primeiro item |
-| *contagem* de <> | Sim | Número inteiro | O número de inteiros na matriz |
+| <*count*> | Sim | Número inteiro | O número de inteiros na matriz |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [*intervalo de <-> de resultados*] | Array | A matriz com inteiros começando do índice especificado |
+| [<*range-result*>] | Matriz | A matriz com inteiros começando do índice especificado |
 ||||
 
 *Exemplo*
@@ -3194,14 +3249,14 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser substituída |
-| <> de *TextoAntigo* | Sim | String | A subcadeia de caracteres a ser substituída |
-| <*textonovo*> | Sim | String | A cadeia de caracteres de substituição |
+| <*text*> | Sim | String | A cadeia de caracteres que tem a subcadeia de caracteres a ser substituída |
+| <*oldText*> | Sim | String | A subcadeia de caracteres a ser substituída |
+| <*newText*> | Sim | String | A cadeia de caracteres de substituição |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-> de texto* | String | A cadeia de caracteres atualizada após substituir a subcadeia de caracteres <p>Se a subcadeia de caracteres não for encontrada, retorne a cadeia de caracteres original. |
+| <*updated-text*> | String | A cadeia de caracteres atualizada após substituir a subcadeia de caracteres <p>Se a subcadeia de caracteres não for encontrada, retorne a cadeia de caracteres original. |
 ||||
 
 *Exemplo*
@@ -3226,13 +3281,13 @@ removeProperty(<object>, '<property>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON do qual você deseja remover uma propriedade |
+| *objeto* <> | Sim | Objeto | O objeto JSON do qual você deseja remover uma propriedade |
 | *propriedade* <> | Sim | String | O nome da propriedade a ser removida |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-objeto*> | Object | O objeto JSON atualizado sem a propriedade especificada |
+| <*updated-object*> | Objeto | O objeto JSON atualizado sem a propriedade especificada |
 ||||
 
 Para remover uma propriedade filho de uma propriedade existente, use esta sintaxe:
@@ -3243,14 +3298,14 @@ removeProperty(<object>['<parent-property>'], '<child-property>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON cuja propriedade você deseja remover |
+| *objeto* <> | Sim | Objeto | O objeto JSON cuja propriedade você deseja remover |
 | > *de propriedade pai* < | Sim | String | O nome da propriedade pai com a propriedade filho que você deseja remover |
 | <> *de propriedade filho* | Sim | String | O nome da propriedade filho a ser removida |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-objeto*> | Object | O objeto JSON atualizado cuja propriedade filho você removeu |
+| <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade filho você removeu |
 ||||
 
 *Exemplo 1*
@@ -3313,7 +3368,7 @@ Este é o objeto JSON atualizado:
 
 <a name="result"></a>
 
-### <a name="result"></a>disso
+### <a name="result"></a>Resultado
 
 Retornar as entradas e saídas de todas as ações que estão dentro da ação com escopo especificado, como uma ação `For_each`, `Until`ou `Scope`. Essa função é útil, retornando os resultados de uma ação com falha para que você possa diagnosticar e manipular exceções. Para obter mais informações, consulte [obter contexto e resultados para falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
@@ -3444,7 +3499,7 @@ setProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON cuja propriedade você deseja definir |
+| *objeto* <> | Sim | Objeto | O objeto JSON cuja propriedade você deseja definir |
 | *propriedade* <> | Sim | String | O nome da propriedade nova ou existente a ser definida |
 | <*valor*> | Sim | Qualquer | O valor a ser definido para a propriedade especificada |
 |||||
@@ -3457,7 +3512,7 @@ setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<obj
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *objeto* <> | Sim | Object | O objeto JSON cuja propriedade você deseja definir |
+| *objeto* <> | Sim | Objeto | O objeto JSON cuja propriedade você deseja definir |
 | > *de propriedade pai* < | Sim | String | O nome da propriedade pai com a propriedade filho que você deseja definir |
 | <> *de propriedade filho* | Sim | String | O nome da propriedade filho a ser definida |
 | <*valor*> | Sim | Qualquer | O valor a ser definido para a propriedade especificada |
@@ -3465,7 +3520,7 @@ setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<obj
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-objeto*> | Object | O objeto JSON atualizado cuja propriedade você definiu |
+| <*updated-object*> | Objeto | O objeto JSON atualizado cuja propriedade você definiu |
 ||||
 
 *Exemplo 1*
@@ -3536,13 +3591,13 @@ skip([<collection>], <count>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *coleção* de <> | Sim | Array | A coleção cujos itens você deseja remover |
-| *contagem* de <> | Sim | Número inteiro | Um inteiro positivo para o número de itens a serem removidos na frente |
+| *coleção* de <> | Sim | Matriz | A coleção cujos itens você deseja remover |
+| <*count*> | Sim | Número inteiro | Um inteiro positivo para o número de itens a serem removidos na frente |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*atualizado-> de coleção*] | Array | A coleção atualizada após a remoção dos itens especificados |
+| [<*atualizado-> de coleção*] | Matriz | A coleção atualizada após a remoção dos itens especificados |
 ||||
 
 *Exemplo*
@@ -3567,13 +3622,13 @@ split('<text>', '<delimiter>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres a ser separada em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |
+| <*text*> | Sim | String | A cadeia de caracteres a ser separada em subcadeias de caracteres com base no delimitador especificado na cadeia de caracteres original |
 | *delimitador* de <> | Sim | String | O caractere na cadeia de caracteres original a ser usado como o delimitador |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*subseqüência1*>, <*subseqüência2*>,...] | Array | Uma matriz que contém subcadeias da cadeia de caracteres original, separadas por vírgulas |
+| [<*subseqüência1*>, <*subseqüência2*>,...] | Matriz | Uma matriz que contém subcadeias da cadeia de caracteres original, separadas por vírgulas |
 ||||
 
 *Exemplo*
@@ -3598,13 +3653,13 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando no sinal de zero horas para o dia |
+| <*updated-timestamp*> | String | O carimbo de data/hora especificado, mas começando no sinal de zero horas para o dia |
 ||||
 
 *Exemplo*
@@ -3629,13 +3684,13 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando na marca de minuto zero para a hora |
+| <*updated-timestamp*> | String | O carimbo de data/hora especificado, mas começando na marca de minuto zero para a hora |
 ||||
 
 *Exemplo*
@@ -3660,13 +3715,13 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando no primeiro dia do mês no sinal de zero |
+| <*updated-timestamp*> | String | O carimbo de data/hora especificado, mas começando no primeiro dia do mês no sinal de zero |
 ||||
 
 *Exemplo*
@@ -3693,13 +3748,13 @@ startsWith('<text>', '<searchText>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres a ser verificada |
-| <*procurartexto*> | Sim | String | A cadeia de caracteres inicial a ser localizada |
+| <*text*> | Sim | String | A cadeia de caracteres a ser verificada |
+| <*searchText*> | Sim | String | A cadeia de caracteres inicial a ser localizada |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| verdadeiro ou falso  | Booleano | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
+| true ou false  | Booleano | Retorna true quando a subcadeia de caracteres inicial é encontrada. Retorna falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -3739,7 +3794,7 @@ string(<value>)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de valor da cadeia de caracteres* | String | A versão da cadeia de caracteres para o valor especificado |
+| <*string-value*> | String | A versão da cadeia de caracteres para o valor especificado |
 ||||
 
 *Exemplo 1*
@@ -3774,8 +3829,8 @@ sub(<minuend>, <subtrahend>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*minuendo*> | Sim | Inteiro ou float | O número do qual subtrair o *subtraendo* |
-| <*subtraendo*> | Sim | Inteiro ou float | O número a ser subtraído da *minuendo* |
+| <*minuend*> | Sim | Inteiro ou float | O número do qual subtrair o *subtraendo* |
+| <*subtrahend*> | Sim | Inteiro ou float | O número a ser subtraído da *minuendo* |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -3806,14 +3861,14 @@ substring('<text>', <startIndex>, <length>)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia cujos caracteres você deseja |
+| <*text*> | Sim | String | A cadeia cujos caracteres você deseja |
 | <*startIndex*> | Sim | Número inteiro | Um número positivo igual ou maior que 0 que você deseja usar como a posição inicial ou o valor do índice |
 | *comprimento* de <> | Sim | Número inteiro | Um número positivo de caracteres que você deseja na Subcadeia |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *subcadeia de <-resultado*> | String | Uma Subcadeia com o número especificado de caracteres, começando na posição de índice especificada na cadeia de caracteres de origem |
+| <*substring-result*> | String | Uma Subcadeia com o número especificado de caracteres, começando na posição de índice especificada na cadeia de caracteres de origem |
 ||||
 
 *Exemplo*
@@ -3839,15 +3894,15 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
-| *intervalo* de <> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
-| <de *unidade* time> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*timestamp*> | Sim | String | A cadeia de caracteres que contém o carimbo de data/hora |
+| <*interval*> | Sim | Número inteiro | O número de unidades de tempo especificadas para subtrair |
+| <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com o *intervalo*: "segundo", "minuto", "hora", "dia", "semana", "mês", "ano" |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora menos o número especificado de unidades de tempo |
+| <*updated-timestamp*> | String | O carimbo de data/hora menos o número especificado de unidades de tempo |
 ||||
 
 *Exemplo 1*
@@ -3884,7 +3939,7 @@ take([<collection>], <count>)
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
 | *coleção* de <> | Sim | Cadeia de caracteres ou matriz | A coleção cujos itens você deseja |
-| *contagem* de <> | Sim | Número inteiro | Um inteiro positivo para o número de itens que você deseja da frente |
+| <*count*> | Sim | Número inteiro | Um inteiro positivo para o número de itens que você deseja da frente |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -3908,7 +3963,7 @@ E retornar esses resultados:
 
 <a name="ticks"></a>
 
-### <a name="ticks"></a>tiques
+### <a name="ticks"></a>ticks
 
 Retorna o valor da propriedade de `ticks` para um carimbo de data/hora especificado.
 Um *tique* é um intervalo de 100 a nanossegundos.
@@ -3919,12 +3974,12 @@ ticks('<timestamp>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*carimbo de data/hora*> | Sim | String | A cadeia de caracteres de um carimbo de data/hora |
+| <*timestamp*> | Sim | String | A cadeia de caracteres de um carimbo de data/hora |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*tiques-número*> | Número inteiro | O número de tiques desde o carimbo de data/hora especificado |
+| <*ticks-number*> | Número inteiro | O número de tiques desde o carimbo de data/hora especificado |
 ||||
 
 <a name="toLower"></a>
@@ -3939,12 +3994,12 @@ toLower('<text>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres a ser retornada em formato de minúsculas |
+| <*text*> | Sim | String | A cadeia de caracteres a ser retornada em formato de minúsculas |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de texto em minúsculas* | String | A cadeia de caracteres original em formato em minúsculas |
+| <*lowercase-text*> | String | A cadeia de caracteres original em formato em minúsculas |
 ||||
 
 *Exemplo*
@@ -3969,12 +4024,12 @@ toUpper('<text>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres a ser retornada em formato maiúsculo |
+| <*text*> | Sim | String | A cadeia de caracteres a ser retornada em formato maiúsculo |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de texto em maiúsculas* | String | A cadeia de caracteres original em formato maiúsculo |
+| <*uppercase-text*> | String | A cadeia de caracteres original em formato maiúsculo |
 ||||
 
 *Exemplo*
@@ -4006,7 +4061,7 @@ trigger()
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *gatilho <-saída*> | String | A saída de um gatilho em tempo de execução |
+| <*trigger-output*> | String | A saída de um gatilho em tempo de execução |
 ||||
 
 <a name="triggerBody"></a>
@@ -4023,7 +4078,7 @@ triggerBody()
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *gatilho <-corpo-saída*> | String | A saída de `body` do gatilho |
+| <*trigger-body-output*> | String | A saída de `body` do gatilho |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
@@ -4043,7 +4098,7 @@ triggerFormDataMultiValues('<key>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| [<*matriz com valores de chave*>] | Array | Uma matriz com todos os valores que correspondem à chave especificada |
+| [<*matriz com valores de chave*>] | Matriz | Uma matriz com todos os valores que correspondem à chave especificada |
 ||||
 
 *Exemplo*
@@ -4121,7 +4176,7 @@ triggerOutputs()
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *gatilho <-saída*> | String | A saída de um gatilho em tempo de execução  |
+| <*trigger-output*> | String | A saída de um gatilho em tempo de execução  |
 ||||
 
 <a name="trim"></a>
@@ -4136,7 +4191,7 @@ trim('<text>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > de *texto* < | Sim | String | A cadeia de caracteres que tem o espaço em branco à esquerda e à direita para remover |
+| <*text*> | Sim | String | A cadeia de caracteres que tem o espaço em branco à esquerda e à direita para remover |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -4156,7 +4211,7 @@ E retorna este resultado: `"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>unida
+### <a name="union"></a>union
 
 Retorna uma coleção que tem *todos* os itens das coleções especificadas.
 Para aparecer no resultado, um item pode aparecer em qualquer coleção passada para essa função. Se um ou mais itens tiverem o mesmo nome, o último item com esse nome aparecerá no resultado.
@@ -4173,7 +4228,7 @@ union([<collection1>], [<collection2>], ...)
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizadocollection*> | Matriz ou objeto, respectivamente | Uma coleção com todos os itens das coleções especificadas-sem duplicatas |
+| <*updatedCollection*> | Matriz ou objeto, respectivamente | Uma coleção com todos os itens das coleções especificadas-sem duplicatas |
 ||||
 
 *Exemplo*
@@ -4235,7 +4290,7 @@ uriComponentToBinary('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *URI de <binário para codificação*> | String | A versão binária para a cadeia de caracteres codificada em URI. O conteúdo binário é codificado em Base64 e representado por `$content`. |
+| <*binary-for-encoded-uri*> | String | A versão binária para a cadeia de caracteres codificada em URI. O conteúdo binário é codificado em Base64 e representado por `$content`. |
 ||||
 
 *Exemplo*
@@ -4270,7 +4325,7 @@ uriComponentToString('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| < *-URI decodificado*> | String | A versão decodificada da cadeia de caracteres codificada em URI |
+| <*decoded-uri*> | String | A versão decodificada da cadeia de caracteres codificada em URI |
 ||||
 
 *Exemplo*
@@ -4295,7 +4350,7 @@ uriHost('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `host` valor você deseja |
+| <*uri*> | Sim | String | O URI cujo `host` valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -4325,7 +4380,7 @@ uriPath('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `path` valor você deseja |
+| <*uri*> | Sim | String | O URI cujo `path` valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -4355,12 +4410,12 @@ uriPathAndQuery('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `path` e os valores de `query` desejados |
+| <*uri*> | Sim | String | O URI cujo `path` e os valores de `query` desejados |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| *caminho de <-consulta-valor*> | String | Os valores `path` e `query` para o URI especificado. Se `path` não especificar um valor, retornará o caractere "/". |
+| <*path-query-value*> | String | Os valores `path` e `query` para o URI especificado. Se `path` não especificar um valor, retornará o caractere "/". |
 ||||
 
 *Exemplo*
@@ -4385,7 +4440,7 @@ uriPort('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `port` valor você deseja |
+| <*uri*> | Sim | String | O URI cujo `port` valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -4415,12 +4470,12 @@ uriQuery('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `query` valor você deseja |
+| <*uri*> | Sim | String | O URI cujo `query` valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*de valor de consulta*> | String | O valor de `query` para o URI especificado |
+| <*query-value*> | String | O valor de `query` para o URI especificado |
 ||||
 
 *Exemplo*
@@ -4435,7 +4490,7 @@ E retorna este resultado: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-### <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>UriScheme
 
 Retornar o valor de `scheme` para um URI (Uniform Resource Identifier).
 
@@ -4445,12 +4500,12 @@ uriScheme('<uri>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *URI* de <> | Sim | String | O URI cujo `scheme` valor você deseja |
+| <*uri*> | Sim | String | O URI cujo `scheme` valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*de valor de esquema*> | String | O valor de `scheme` para o URI especificado |
+| <*scheme-value*> | String | O valor de `scheme` para o URI especificado |
 ||||
 
 *Exemplo*
@@ -4478,12 +4533,12 @@ Opcionalmente, você pode especificar um formato diferente com o parâmetro <*fo
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| *formato* de <> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*format*> | Não | String | Um [único especificador de formato](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-mm-ddThh: mm: SS: fffffffK), que está em conformidade com o [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*carimbo de data/hora atual*> | String | A data e a hora atuais |
+| <*current-timestamp*> | String | A data e a hora atuais |
 ||||
 
 *Exemplo 1*
@@ -4520,7 +4575,7 @@ variables('<variableName>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*variablename*> | Sim | String | O nome da variável cujo valor você deseja |
+| <*variableName*> | Sim | String | O nome da variável cujo valor você deseja |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
@@ -4579,7 +4634,7 @@ xml('<value>')
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*XML-versão*> | Object | O XML codificado para a cadeia de caracteres ou objeto JSON especificado |
+| <*XML-versão*> | Objeto | O XML codificado para a cadeia de caracteres ou objeto JSON especificado |
 ||||
 
 *Exemplo 1*
@@ -4622,7 +4677,7 @@ E retorna este XML de resultado:
 
 <a name="xpath"></a>
 
-### <a name="xpath"></a>XPath
+### <a name="xpath"></a>xpath
 
 Marque XML para nós ou valores que correspondam a uma expressão XPath (linguagem de caminho XML) e retorne os nós ou valores correspondentes. Uma expressão XPath, ou apenas "XPath", ajuda a navegar por uma estrutura de documento XML para que você possa selecionar nós ou valores de computação no conteúdo XML.
 
@@ -4632,15 +4687,15 @@ xpath('<xml>', '<xpath>')
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| > *xml* < | Sim | Qualquer | A cadeia de caracteres XML para pesquisar nós ou valores que correspondam a um valor de expressão XPath |
+| <*xml*> | Sim | Qualquer | A cadeia de caracteres XML para pesquisar nós ou valores que correspondam a um valor de expressão XPath |
 | <*xpath*> | Sim | Qualquer | A expressão XPath usada para localizar os valores ou nós XML correspondentes |
 |||||
 
 | Valor de retorno | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <> *de nó XML* | XML | Um nó XML quando apenas um único nó corresponde à expressão XPath especificada |
+| <*xml-node*> | XML | Um nó XML quando apenas um único nó corresponde à expressão XPath especificada |
 | <*valor*> | Qualquer | O valor de um nó XML quando apenas um único valor corresponde à expressão XPath especificada |
-| [<*XML-node1*>, <*xml-NODE2*>,...] </br>-ou- </br>[<*value1*>, <*value2*>,...] | Array | Uma matriz com nós XML ou valores que correspondem à expressão XPath especificada |
+| [<*xml-node1*>, <*xml-node2*>, ...] </br>-ou- </br>[<*value1*>, <*value2*>, ...] | Matriz | Uma matriz com nós XML ou valores que correspondem à expressão XPath especificada |
 ||||
 
 *Exemplo 1*
@@ -4675,15 +4730,27 @@ E retorna este resultado: `30`
 
 *Exemplo 3*
 
-Para este exemplo, as duas expressões localizam nós que correspondem ao nó `<location></location>`, nos argumentos especificados, que incluem XML com um namespace. As expressões usam o caractere de barra invertida (\\) como um caractere de escape para a aspa dupla (").
+Para este exemplo, as duas expressões localizam nós que correspondem ao nó `<location></location>`, nos argumentos especificados, que incluem XML com um namespace. 
+
+> [!NOTE]
+>
+> Se você estiver trabalhando no modo de exibição de código, escape a aspa dupla (") usando o caractere de barra invertida (\\). 
+> Por exemplo, você precisa usar caracteres de escape ao serializar uma expressão como uma cadeia de caracteres JSON. 
+> No entanto, se você estiver trabalhando no designer de aplicativo lógico ou no editor de expressão, não será necessário escapar das aspas duplas porque o caractere de barra invertida é adicionado automaticamente à definição subjacente, por exemplo:
+> 
+> * Exibição de código: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+>
+> * Editor de expressão: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+> 
+> Os exemplos a seguir se aplicam a expressões que você insere no editor de expressão.
 
 * *Expressão 1*
 
-  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 
 * *Expressão 2*
 
-  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
 
 Aqui estão os argumentos:
 
@@ -4695,9 +4762,9 @@ Aqui estão os argumentos:
 
 * Uma expressão XPath aqui:
 
-  * `/*[name()=\"file\"]/*[name()=\"location\"]`
+  * `/*[name()="file"]/*[name()="location"]`
 
-  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
+  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
 
 Este é o nó de resultado que corresponde ao nó de `<location></location>`:
 
@@ -4709,7 +4776,7 @@ Este é o nó de resultado que corresponde ao nó de `<location></location>`:
 
 A seguir, no exemplo 3, este exemplo localiza o valor no nó `<location></location>`:
 
-`xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
+`xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
 E retorna este resultado: `"Paris"`
 

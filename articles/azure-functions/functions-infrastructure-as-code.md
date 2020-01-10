@@ -1,21 +1,21 @@
 ---
-title: Automatizar a implantação de recursos para um aplicativo de funções no Azure Functions
+title: Automatizar a implantação de recursos do aplicativo de funções no Azure
 description: Saiba como criar um modelo de Azure Resource Manager que implanta seu aplicativo de funções.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: MT
+ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433147"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions
 
 Você pode usar um modelo de Azure Resource Manager para implantar um aplicativo de funções. Este artigo descreve os recursos e os parâmetros necessários para fazer isso. Talvez seja necessário implantar recursos adicionais, dependendo dos [gatilhos e das associações](functions-triggers-bindings.md) em seu aplicativo de funções.
 
-Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre como criar modelos, consulte Criando [modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Para modelos de exemplo, consulte:
 - [Aplicativo de funções no plano de consumo]
@@ -25,12 +25,12 @@ Para modelos de exemplo, consulte:
 
 Uma implantação Azure Functions normalmente consiste nesses recursos:
 
-| Resource                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
+| Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| Um aplicativo de funções                                                                     | Necessário    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Necessário    | [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |   |
-| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> Um plano de hospedagem só é necessário quando você opta por executar seu aplicativo de funções em um [plano Premium](./functions-premium-plan.md) (em versão prévia) ou em um [plano do serviço de aplicativo](../app-service/overview-hosting-plans.md).
 
@@ -74,7 +74,7 @@ Essas propriedades são especificadas na coleção de `appSettings` no objeto `s
 ]
 ```
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Estatísticas das Aplicações
 
 Application Insights é recomendado para monitorar seus aplicativos de funções. O recurso Application Insights é definido com o tipo **Microsoft. insights/Components** e o tipo **Web**:
 
@@ -139,7 +139,7 @@ Um aplicativo de funções deve incluir estas configurações de aplicativo:
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Uma cadeia de conexão para uma conta de armazenamento que o tempo de execução do Functions para a fila interna | Consulte a [conta de armazenamento](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | A versão do Azure Functions Runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java`ou `python` |
+| FUNCTIONS_WORKER_RUNTIME     | A pilha de idiomas a ser usada para funções neste aplicativo                                   | `dotnet`, `node`, `java` ou `python` |
 | WEBSITE_NODE_DEFAULT_VERSION | Necessário apenas se estiver usando a pilha de idiomas `node`, especifica a versão a ser usada              | `10.14.1`                             |
 
 Essas propriedades são especificadas na coleção de `appSettings` na propriedade `siteConfig`:
@@ -462,10 +462,10 @@ Um aplicativo de funções em um plano do serviço de aplicativo deve ter a prop
 
 Os aplicativos do Linux também devem incluir uma propriedade `linuxFxVersion` em `siteConfig`. Se você estiver apenas implantando o código, o valor para isso será determinado pela pilha de tempo de execução desejada:
 
-| Sobreposta            | Valor de exemplo                                         |
+| Pilha            | Valor de exemplo                                         |
 |------------------|-------------------------------------------------------|
 | Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
-| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
+| Javascript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
 | .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
 
 ```json

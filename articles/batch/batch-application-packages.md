@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449813"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do lote
 
@@ -94,7 +94,7 @@ Recomendamos que você crie uma conta de armazenamento *especificamente* para us
 > No momento, você não pode usar pacotes de aplicativos com uma conta de armazenamento do Azure configurada com [regras de firewall](../storage/common/storage-network-security.md).
 > 
 
-O serviço de lote usa o armazenamento do Azure para armazenar seus pacotes de aplicativos como BLOBs de blocos. Você é [cobrado como normal][storage_pricing] para os dados do blob de blocos e o tamanho de cada pacote não pode exceder o [tamanho máximo do blob de blocos](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Certifique-se de considerar o tamanho e o número de seus pacotes de aplicativos e remover periodicamente os pacotes preteridos para minimizar os custos.
+O serviço de lote usa o armazenamento do Azure para armazenar seus pacotes de aplicativos como BLOBs de blocos. Você é [cobrado como normal][storage_pricing] para os dados do blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, consulte [escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Certifique-se de considerar o tamanho e o número de seus pacotes de aplicativos e remover periodicamente os pacotes preteridos para minimizar os custos.
 > 
 > 
 
@@ -110,7 +110,7 @@ A seleção dessa opção de menu abre a janela **aplicativos** :
 Esta janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
 * **Pacotes**: o número de versões associadas a este aplicativo.
-* **Versão padrão**: a versão do aplicativo instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
+* **Versão padrão**: a versão do aplicativo instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Esta definição é opcional.
 * **Permitir atualizações**: o valor que especifica se atualizações de pacote, exclusões e adições são permitidas. Se isso for definido como **não**, as atualizações e exclusões do pacote serão desabilitadas para o aplicativo. Somente novas versões de pacote de aplicativos podem ser adicionadas. A predefinição é **Sim**.
 
 Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do lote no Portal. Na sua conta do lote, navegue até **pools**. Selecione o pool que contém os nós de computação nos quais você está interessado.
@@ -141,7 +141,7 @@ Clique em **Aplicações** > **Adicionar**.
 
 A janela **novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e pacote de aplicativos.
 
-**ID do aplicativo**
+**ID da Aplicação**
 
 Este campo especifica a ID do novo aplicativo, que está sujeita às regras de validação de ID de lote do Azure padrão. As regras para fornecer uma ID de aplicativo são as seguintes:
 
@@ -171,7 +171,7 @@ Depois de selecionar um arquivo, clique em **OK** para iniciar o carregamento no
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicativos
-Para adicionar uma versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo nas janelas de **aplicativos** e clique em **pacotes**  > **Adicionar**.
+Para adicionar uma versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo nas janelas de **aplicativos** e clique em **pacotes** > **Adicionar**.
 
 ![Folha adicionar pacote de aplicativos no portal do Azure][8]
 

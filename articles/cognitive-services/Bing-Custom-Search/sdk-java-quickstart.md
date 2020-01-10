@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: biblioteca de cliente do Pesquisa Personalizada do Bing para Java | Microsoft Docs'
-description: Introdução à biblioteca de cliente do Pesquisa Personalizada do Bing para Java solicitando os resultados da pesquisa de sua instância do Pesquisa Personalizada do Bing.
+title: 'Início rápido: biblioteca de cliente Pesquisa Personalizada do Bing para Java'
+description: Introdução à biblioteca de cliente do Pesquisa Personalizada do Bing para Java solicitando os resultados da pesquisa de sua instância de Pesquisa Personalizada do Bing neste guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384558"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>Início rápido: biblioteca de cliente Pesquisa Personalizada do Bing para Java
 

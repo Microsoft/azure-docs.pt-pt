@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551822"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363511"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções da API REST de monitoramento do Azure
 
@@ -97,7 +97,7 @@ Use a [API REST de definições de métrica Azure monitor](https://docs.microsof
 
 **Método**: Get
 
-**URI de solicitação**: https: \/ \/management. Azure.com/subscriptions/ *{SubscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}* /Providers/Microsoft.insights/metricDefinitions? API-Version = *{apiVersion}*
+**URI de solicitação**: https:\/\/Management.Azure.com/subscriptions/ *{SubscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}* /Providers/Microsoft.insights/metricDefinitions? API-Version = *{apiVersion}*
 
 Por exemplo, para recuperar as definições de métrica para uma conta de armazenamento do Azure, a solicitação seria exibida da seguinte maneira:
 
@@ -241,7 +241,7 @@ Use o nome da métrica ' value ' (não o ' localizador ') para quaisquer solicit
 
 **Método**: Get
 
-**URI da solicitação**: https \://Management.Azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{Resource-Type}* / *{nome-do-recurso}* /Providers/Microsoft.insights/Metrics de métricas = *{Metric}* & TimeSpan = *{starttime/EndTime}* & $Filter = *{filtro}* & ResultType = metadados & API-Version = *{ apiVersion}*
+**URI da solicitação**: https\://Management.Azure.com/subscriptions/ *{Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{tipo de recurso}* / *{nome*-do-recurso}/Providers/Microsoft.insights/Metrics? metricnames = *{métrica}* & timespan = *{StartTime/EndTime}* & $Filter = *{filtro}* & ResultType = metadados & API *apiVersion}*
 
 Por exemplo, para recuperar a lista de valores de dimensão que foram emitidos para a ' dimensão de nome da API ' para a métrica ' transações ', em que a dimensão geotipo = ' primário ' durante o intervalo de tempo especificado, a solicitação seria a seguinte:
 
@@ -314,7 +314,7 @@ Use o nome da métrica ' value ' (não o ' localizador ') para quaisquer solicit
 
 **Método**: Get
 
-**URI da solicitação**: *https://management.azure.com/subscriptions/ {Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{tipo de recurso}* / *{nome-do-recurso}* /Providers/ Microsoft. insights/métricas? métricanames = *{métrica}* & TimeSpan = *{StartTime/endtime}* & $Filter = *{filtro}* & intervalo = *{timegranular}* & agregação = *{aggreation}* & API-Version = *{apiVersion}*
+**URI da solicitação**: *https://management.azure.com/subscriptions/ {Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{tipo de recurso}* / *{Resource-Name}* /Providers/Microsoft.insights/Metrics? metricnames = *{Metric}* & timespan = *{StartTime/EndTime}* & $Filter = *{filtro}* & intervalo = *{timegranular}* & Aggregation = *{aggreation}* API-Version = *{apiVersion}*
 
 Por exemplo, para recuperar as três principais APIs, em valor decrescente, pelo número de ' Transactions ' durante um intervalo de 5 minutos, em que GeotType era ' Primary ', a solicitação seria a seguinte:
 
@@ -393,7 +393,7 @@ Use a [API REST de definições de métrica Azure monitor](https://msdn.microsof
 
 **Método**: Get
 
-**URI de solicitação**: https: \/ \/management. Azure.com/subscriptions/ *{SubscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}* /Providers/Microsoft.insights/metricDefinitions? API-Version = *{apiVersion}*
+**URI de solicitação**: https:\/\/Management.Azure.com/subscriptions/ *{SubscriptionId}* /resourceGroups/ *{resourceGroupName}* /Providers/ *{resourceProviderNamespace}* / *{ResourceType}* / *{resourceName}* /Providers/Microsoft.insights/metricDefinitions? API-Version = *{apiVersion}*
 
 Por exemplo, para recuperar as definições de métrica para um aplicativo lógico do Azure, a solicitação seria exibida da seguinte maneira:
 
@@ -466,7 +466,7 @@ Depois que as definições de métrica disponíveis são conhecidas, é possíve
 
 **Método**: Get
 
-**URI da solicitação**: *https://management.azure.com/subscriptions/ {Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{tipo de recurso}* / *{nome-do-recurso}* /Providers/ Microsoft. insights/métricas? $filter = *{filtro}* & API-Version = *{apiVersion}*
+**URI da solicitação**: *https://management.azure.com/subscriptions/ {Subscription-ID}* /resourceGroups/ *{nome-do-grupo-de-recursos}* /Providers/ *{Resource-Provider-namespace}* / *{tipo de recurso}* / *{nome-do-recurso}* /Providers/Microsoft.insights/Metrics? $Filter = *{filtro}* & API-Version = *{apiVersion}*
 
 Por exemplo, para recuperar os pontos de dados da métrica RunsSucceeded para o intervalo de tempo determinado e, por uma hora, de 1 hora, a solicitação seria a seguinte:
 

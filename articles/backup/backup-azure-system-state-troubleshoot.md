@@ -2,18 +2,18 @@
 title: Solucionar problemas de backup do estado do sistema
 description: Neste artigo, saiba como solucionar problemas no backup de estado do sistema para servidores Windows locais.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 116f8f40193ea276c6150452b0aa6f2d2ce5bc6c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: fde5fd9f2464c2aff9a7a34ffa440ab9a6a1ca51
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172609"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665045"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
-Este artigo descreve soluções para problemas que você pode encontrar ao usar o backup de estado do sistema.
+Este artigo descreve soluções para problemas que você pode chegar ao usar o backup de estado do sistema.
 
 ## <a name="basic-troubleshooting"></a>Resolução de problemas básicos
 
@@ -29,16 +29,16 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 - [Garantir que unidades e arquivos sem suporte com atributos sem suporte sejam excluídos do backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
 - Certifique-se de que o **Relógio do Sistema** do sistema protegido está configurado para o fuso horário correto <br>
 - [Certifique-se de que o servidor tem, pelo menos, a versão 4.5.2 ou superior do .Net Framework](https://www.microsoft.com/download/details.aspx?id=30653)<br>
-- Se estiver a tentar **registar novamente o servidor** para um cofre, então: <br>
-  - Certifique-se de que o agente foi desinstalado no servidor e que foi eliminado do portal <br>
+- Se você estiver tentando **registrar novamente o servidor** em um cofre, então: <br>
+  - Verifique se o agente está desinstalado no servidor e se ele foi excluído do portal <br>
   - Utilize a mesma frase de acesso que foi inicialmente utilizada para registar o servidor <br>
-- No caso de backup offline, verifique se Azure PowerShell versão 3.7.0 está instalada em ambos os computadores de origem e de cópia antes de começar a operação de backup offline
+- Se esse for um backup offline, verifique se Azure PowerShell versão 3.7.0 está instalada no computador de origem e de cópia antes de começar a operação de backup offline
 - [Consideração quando o agente de backup estiver em execução em uma máquina virtual do Azure](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>Limitação
 
 - A Microsoft não recomenda recuperar para um hardware diferente com a recuperação do Estado do Sistema.
-- O backup de estado do sistema atualmente dá suporte a servidores Windows "locais", essa funcionalidade não está disponível para VMs do Azure.
+- O backup de estado do sistema atualmente dá suporte a servidores Windows "locais". Essa funcionalidade não está disponível para VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Verifique se Backup do Windows Server está instalado e habilitado no servidor. 
 Get-WindowsFeature Windows-Server-Backup
  ```
 
-Se a saída exibir o **estado de instalação** como **disponível**, significa que o recurso de backup do Windows Server está disponível para a instalação, mas não instalado no servidor. No entanto, se Backup do Windows Server não estiver instalado, use um dos métodos abaixo para instalá-lo.
+Se a saída exibir o **estado de instalação** como **disponível**, significa que o recurso de backup do Windows Server está disponível para a instalação, mas não instalado no servidor. No entanto, se Backup do Windows Server não estiver instalado, use um dos métodos a seguir para instalá-lo.
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>Método 1: instalar Backup do Windows Server usando o PowerShell
 
@@ -72,7 +72,7 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 
 2. Selecione o **tipo de instalação** e clique em **Avançar**.
 
-    ![Tipo de instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
+    ![Tipo de Instalação](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
 3. Selecione um servidor no pool de servidores e clique em **Avançar**. Na função de servidor, deixe a seleção padrão e clique em **Avançar**.
 4. Selecione **backup do Windows Server** na guia **recursos** e clique em **Avançar**.
@@ -102,16 +102,16 @@ Provedor de cópia de sombra de software da Microsoft (SWPRV) | Manual
 
 ### <a name="validate-windows-server-backup-status"></a>Validar Backup do Windows Server status
 
-Para validar Backup do Windows Server status, execute as etapas abaixo:
+Para validar Backup do Windows Server status, execute as seguintes etapas:
 
 - Verificar se o PowerShell do WSB está em execução
 
-  - Execute `Get-WBJob` de um PowerShell elevado e certifique-se de que ele não retorna o seguinte erro:
+  - Execute `Get-WBJob` de um PowerShell elevado e verifique se ele não retorna o seguinte erro:
 
     > [!WARNING]
     > Get-WBJob: o termo ' Get-WBJob ' não é reconhecido como o nome de um cmdlet, função, arquivo de script ou programa operável. Verifique a ortografia do nome ou, se um caminho foi incluído, verifique se o caminho está correto e tente novamente.
 
-    - Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 pré-requisitos.
+    - Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 dos pré-requisitos.
 
   - Verifique se o backup do WSB está funcionando corretamente, executando o comando abaixo no prompt de comando elevado:
 
@@ -131,7 +131,7 @@ Se o trabalho falhar, ele indica um problema WSB que resultaria em falha nos bac
 
 | Sintoma | Causa | Resolução
 | -- | -- | --
-| -O agente MARS falha com a mensagem de erro: "falha no trabalho WSB com erros VSS. Verificar os logs de eventos do VSS para resolver a falha "<br/><br/> -O seguinte log de erros está presente nos logs de eventos do aplicativo VSS: "um gravador VSS rejeitou um evento com o erro 0x800423f2, o tempo limite do gravador expirou entre os eventos Freeze e descongelar."| O gravador VSS não pode ser concluído no tempo devido à falta de recursos de CPU e memória no computador <br/><br/> Outro software de backup já está usando o gravador VSS, pois uma operação de instantâneo de resultado não pôde ser concluída para este backup | Aguarde a liberação da CPU/memória nos processos do sistema ou da anulação usando muita memória/CPU e repita a operação <br/><br/>  Aguarde a conclusão do backup em andamento e repita a operação em um ponto posterior quando não houver backups em execução no computador
+| -O agente MARS falha com a mensagem de erro: "falha no trabalho WSB com erros VSS. Verificar os logs de eventos do VSS para resolver a falha "<br/><br/> -O seguinte log de erros está presente nos logs de eventos do aplicativo VSS: "um gravador VSS rejeitou um evento com o erro 0x800423f2, o tempo limite do gravador expirou entre os eventos Freeze e descongelar."| O gravador VSS não pode ser concluído no tempo devido à falta de recursos de CPU e memória no computador <br/><br/> Outro software de backup já está usando o gravador VSS, pois uma operação de instantâneo de resultado não pôde ser concluída para este backup | Aguarde a liberação da CPU/memória no sistema ou anule os processos usando muita memória/CPU e repita a operação. <br/><br/>  Aguarde a conclusão do backup em andamento e tente executar a operação posteriormente quando não houver backups em execução no computador.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espaço em disco insuficiente para aumentar as cópias de sombra
 

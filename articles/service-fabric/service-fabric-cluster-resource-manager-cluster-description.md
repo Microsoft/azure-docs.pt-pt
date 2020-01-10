@@ -1,131 +1,122 @@
 ---
-title: Descrever um cluster utilizando o Gestor de recursos de Cluster | Documentos da Microsoft
-description: Descreva um cluster do Service Fabric ao especificar domínios de falha, domínios de atualização, propriedades de nó e as capacidades de nós para o Gestor de recursos do Cluster.
-services: service-fabric
-documentationcenter: .net
+title: Descrever um cluster usando o Gerenciador de recursos de cluster
+description: Descreva um Cluster Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó para o Gerenciador de recursos de cluster.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22ccb21a208bbe8e825bff9f7602bfca05990816
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452109"
 ---
-# <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um cluster do Service Fabric utilizando o Gestor de recursos de Cluster
-A funcionalidade do Gestor de recursos de Cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
+# <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
+O recurso Gerenciador de recursos de cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
 
 * Domínios de falha
 * Domínios de atualização
-* Propriedades de nó
-* Capacidades de nós
+* Propriedades do nó
+* Capacidades do nó
 
-Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para garantir a elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, também tenta otimizar o consumo de recursos dentro do cluster.
+Durante o tempo de execução, o Gerenciador de recursos de cluster usa essas informações para garantir a alta disponibilidade dos serviços em execução no cluster. Ao impor essas regras importantes, ele também tenta otimizar o consumo de recursos no cluster.
 
 ## <a name="fault-domains"></a>Domínios de falha
-Um domínio de falha é qualquer área de falha de coordenada. Uma única máquina é um domínio de falha. Ele pode falhar em seus próprio por várias razões, da power falhas de fornecimento para falhas de unidade ao firmware do NIC ruim. 
+Um domínio de falha é qualquer área da falha coordenada. Um único computador é um domínio de falha. Ele pode falhar por conta própria por vários motivos, desde falhas de fornecimento de energia até falhas de unidade para firmware NIC inadequado. 
 
-As máquinas ligadas ao mesmo comutador Ethernet estão no mesmo domínio de falha. Então, são máquinas que partilham uma única fonte de energia ou numa única localização. 
+Os computadores conectados ao mesmo comutador Ethernet estão no mesmo domínio de falha. Portanto, os computadores que compartilham uma única fonte de energia ou em um único local. 
 
-Uma vez que é natural para falhas de hardware para se sobrepõem, domínios de falha são inerentemente hierárquicos. São representadas como URIs no Service Fabric.
+Como é natural que as falhas de hardware se sobreponham, os domínios de falha são inerentemente hierárquicos. Eles são representados como URIs em Service Fabric.
 
-É importante que domínios de falha estão configurados corretamente porque o Service Fabric utiliza estas informações para colocar em segurança a serviços. Service Fabric não quer colocar os serviços, de modo a que a perda de um domínio de falha (causada pela falha de algum componente) faz com que um serviço descer. 
+É importante que os domínios de falha sejam configurados corretamente porque o Service Fabric usa essas informações para posicionar os serviços com segurança. Service Fabric não quer posicionar serviços de forma que a perda de um domínio de falha (causada pela falha de algum componente) faça com que um serviço fique inativo. 
 
-No ambiente do Azure, o Service Fabric utiliza as informações de domínio de falhas fornecidas pelo ambiente para configurar corretamente os nós do cluster em seu nome. Para as instâncias de autónomo do Service Fabric, os domínios de falha são definidos no momento em que o cluster está configurado. 
+No ambiente do Azure, Service Fabric usa as informações de domínio de falha fornecidas pelo ambiente para configurar corretamente os nós no cluster em seu nome. Para instâncias autônomas do Service Fabric, os domínios de falha são definidos no momento em que o cluster é configurado. 
 
 > [!WARNING]
-> É importante que as informações de domínio de falhas fornecidas para o Service Fabric estão correta. Por exemplo, digamos que nós de cluster do Service Fabric estão em execução dentro de 10 máquinas virtuais em execução em 5 anfitriões físicos. Neste caso, muito embora haja 10 máquinas virtuais, existem apenas 5 diferentes (nível superior) domínios de falha. Partilharem o mesmo anfitrião físico faz com que as VMs partilhar o mesmo domínio de falha de raiz, uma vez que as VMs ocorrer falha coordenada, se falhar o respetivo anfitrião físico.  
+> É importante que as informações de domínio de falha fornecidas para Service Fabric sejam precisas. Por exemplo, digamos que os nós do Cluster Service Fabric estejam em execução dentro de 10 máquinas virtuais, em execução em 5 hosts físicos. Nesse caso, embora haja 10 máquinas virtuais, há apenas cinco domínios de falha (de nível superior) diferentes. Compartilhar o mesmo host físico faz com que as VMs compartilhem o mesmo domínio de falha raiz, pois as VMs terão falha coordenada se o host físico falhar.  
 >
-> Service Fabric espera que o domínio de falhas de nó não para alterar. Outros mecanismos de garantir a elevada disponibilidade de VMs, como [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx), poderá causar conflitos com o Service Fabric. Estes mecanismos utilizam migração transparente das VMs de um anfitrião para outro. Eles não reconfigurar ou notificar o código em execução dentro da VM. Como tal, eles são *nepodporuje* como ambientes para executar o Service Fabric clusters. 
+> Service Fabric espera que o domínio de falha de um nó não seja alterado. Outros mecanismos de garantir a alta disponibilidade das VMs, como [ha-VMs](https://technet.microsoft.com/library/cc967323.aspx), podem causar conflitos com Service Fabric. Esses mecanismos usam a migração transparente de VMs de um host para outro. Eles não reconfiguram nem notificam o código em execução dentro da VM. Dessa forma, eles *não têm suporte* como ambientes para execução de clusters de Service Fabric. 
 >
-> Recursos de infraestrutura do serviço devem ser a tecnologia de apenas de elevada disponibilidade empregada. Mecanismos, como em direto de migração de VM e SANs não são necessários. Se esses mecanismos são utilizados em conjunto com o Service Fabric, eles _reduzir_ de disponibilidade de aplicações e a confiabilidade. O motivo é que eles introduzem complexidade adicional, adicionar fontes centralizadas de falha e utilizam estratégias de fiabilidade e disponibilidade que entram em conflito com as pessoas de Service Fabric. 
+> A Service Fabric deve ser a única tecnologia de alta disponibilidade empregada. Mecanismos como migração de VM ao vivo e SANs não são necessários. Se esses mecanismos forem usados em conjunto com Service Fabric, eles _reduzirão_ a disponibilidade e a confiabilidade do aplicativo. O motivo é que eles introduzem complexidade adicional, adicionam fontes de falha centralizadas e usam estratégias de confiabilidade e disponibilidade que entram em conflito com aquelas em Service Fabric. 
 >
 >
 
-No seguinte gráfico, podemos todas as entidades que contribuem para domínios de falha e listam todos os domínios de falha diferentes que resultam de cores. Neste exemplo, temos de centros de dados ("DC"), racks ("R") e os painéis ("B"). Se cada painel contém mais do que uma máquina virtual, poderá haver outra camada na hierarquia de domínio de falhas.
+No gráfico a seguir, colorimos todas as entidades que contribuem para domínios de falha e listamos todos os diferentes domínios de falha que resultam. Neste exemplo, temos data centers ("DC"), racks ("R") e lâminas ("B"). Se cada folha contém mais de uma máquina virtual, pode haver outra camada na hierarquia de domínio de falha.
 
 <center>
 
-![Nós organizados por meio de domínios de falha][Image1]
+![nós organizados por meio de domínios de falha][Image1]
 </center>
 
-Durante o tempo de execução, o Gestor de recursos de Cluster do Service Fabric considera os domínios de falha no cluster e planos de layouts. As réplicas com monitoração de estado ou instâncias sem monitoração de estado para um serviço são distribuídas para que estejam em domínios de falha. Distribui o serviço em domínios de falha, garante que a disponibilidade do serviço não é comprometida quando a falha de um domínio de falha em qualquer nível da hierarquia.
+Durante o tempo de execução, Service Fabric Gerenciador de recursos de cluster considera os domínios de falha no cluster e os layouts de planos. As réplicas com estado ou instâncias sem estado para um serviço são distribuídas para que estejam em domínios de falha separados. A distribuição do serviço entre domínios de falha garante que a disponibilidade do serviço não seja comprometida quando um domínio de falha falhar em qualquer nível da hierarquia.
 
-Gestor de recursos de cluster não importa quantas camadas existem na hierarquia de domínio de falhas. Ele tenta Certifique-se de que a perda de qualquer um parte da hierarquia não afeta a serviços em execução no mesmo. 
+O Gerenciador de recursos de cluster não importa quantas camadas existem na hierarquia de domínio de falha. Ele tenta garantir que a perda de qualquer parte da hierarquia não afete os serviços em execução nela. 
 
-É melhor se o mesmo número de nós é em cada nível de profundidade na hierarquia de domínio de falhas. Se o "árvore" de domínios de falha é desequilibrado no seu cluster, é mais difícil para o Resource Manager de Cluster para descobrir a melhor alocação dos serviços. Layouts de domínio de falhas desequilibrado significam que a perda de alguns domínios afeta a disponibilidade dos serviços mais do que outros domínios. Como resultado, o Gestor de recursos do Cluster é interrompida entre dois objetivos: 
+É melhor se o mesmo número de nós estiver em cada nível de profundidade na hierarquia de domínio de falha. Se a "árvore" dos domínios de falha estiver desbalanceada no cluster, será mais difícil para o Gerenciador de recursos de cluster descobrir a melhor alocação dos serviços. Os layouts de domínio de falha desbalanceada significam que a perda de alguns domínios afeta a disponibilidade de serviços mais do que outros domínios. Como resultado, o Gerenciador de recursos de cluster é interrompido entre dois objetivos: 
 
-* Quer utilize as máquinas no domínio "pesado", ao disponibilizar serviços nos mesmos. 
-* Quer colocar os serviços em outros domínios, para que a perda de um domínio não causem problemas. 
+* Ele quer usar os computadores nesse domínio "pesado" colocando serviços neles. 
+* Ele deseja posicionar serviços em outros domínios para que a perda de um domínio não cause problemas. 
 
-O que o aspeto de domínios desequilibrados? O diagrama seguinte mostra dois layouts de cluster diferente. No primeiro exemplo, os nós são distribuídos uniformemente por domínios de falha. No segundo exemplo, um domínio de falha tem muitos mais nós que os outros domínios de falha. 
+Qual é a aparência dos domínios desbalanceos? O diagrama a seguir mostra dois layouts de cluster diferentes. No primeiro exemplo, os nós são distribuídos uniformemente entre os domínios de falha. No segundo exemplo, um domínio de falha tem muito mais nós do que os outros domínios de falha. 
 
 <center>
 
-![Dois layouts de cluster diferente][Image2]
+![dois layouts de cluster diferentes][Image2]
 </center>
 
-No Azure, a escolha de qual falha domínio contém um nó é gerida por si. Mas, dependendo do número de nós que Aprovisiona, ainda pode acabar com domínios de falha que tem mais nós nos mesmos do que em outros. 
+No Azure, a escolha de qual domínio de falha contém um nó é gerenciado para você. Mas, dependendo do número de nós que você provisiona, ainda é possível acabar com os domínios de falha que têm mais nós em relação aos outros. 
 
-Por exemplo, digamos que tem cinco domínios de falha no cluster, mas aprovisionar sete nós para um tipo de nó (**NodeType**). Neste caso, os primeiro dois domínios de falha acabam com mais nós. Se continuar a implementar mais **NodeType** instâncias com apenas algumas instâncias, o problema fica ainda pior. Por esse motivo, recomendamos que o número de nós em cada tipo de nó é um múltiplo do número de domínios de falha.
+Por exemplo, digamos que você tenha cinco domínios de falha no cluster, mas provisione sete nós para um tipo de nó (**NodeType**). Nesse caso, os dois primeiros domínios de falha terminam com mais nós. Se você continuar implantando mais instâncias de **NodeType** com apenas algumas instâncias, o problema ficará pior. Por esse motivo, recomendamos que o número de nós em cada tipo de nó seja um múltiplo do número de domínios de falha.
 
 ## <a name="upgrade-domains"></a>Domínios de atualização
-Domínios de atualização são outro recurso que ajuda a Service Fabric Cluster Resource Manager entender o layout do cluster. Domínios de atualização definem conjuntos de nós que são atualizadas ao mesmo tempo. Domínios de atualização ajudam a compreender e orquestrar operações de gestão, como atualizações de Gestor de recursos do Cluster.
+Os domínios de atualização são outro recurso que ajuda a Service Fabric o Gerenciador de recursos de cluster a entender o layout do cluster. Os domínios de atualização definem conjuntos de nós que são atualizados ao mesmo tempo. Domínios de atualização ajudam o Gerenciador de recursos de cluster a entender e orquestrar operações de gerenciamento como atualizações.
 
-Domínios de atualização são muito como domínios de falha, mas com algumas diferenças fundamentais. Em primeiro lugar, áreas de falhas de hardware coordenada definem domínios de falha. Domínios de atualização, por outro lado, são definidos pela política. Tem de decidir quantos desejar, em vez de permitir que o ambiente de ditar o número. Pode ter tantos domínios de atualização de nós. Outra diferença entre domínios de falha e domínios de atualização é que os domínios de atualização não são hierárquicos. Em vez disso, eles são mais parecido com uma marca simple. 
+Os domínios de atualização são muito parecidos com os domínios de falha, mas com algumas diferenças importantes. Primeiro, as áreas de falhas de hardware coordenadas definem domínios de falha. Os domínios de atualização, por outro lado, são definidos pela política. Você decide quantos deseja, em vez de permitir que o ambiente dite o número. Você pode ter tantos domínios de atualização quantos forem os nós. Outra diferença entre domínios de falha e domínios de atualização é que os domínios de atualização não são hierárquicos. Em vez disso, eles são mais como uma marca simples. 
 
-O diagrama seguinte mostra três domínios de atualização repartidos em três domínios de falha. Ela também mostra uma possível colocação para três réplicas diferentes de um serviço com estado, onde cada acaba em domínios de atualização e de falha diferente. Esse posicionamento permite que a perda de um domínio de falha no meio de uma atualização de serviço e ainda terá uma cópia do código e dados.  
+O diagrama a seguir mostra três domínios de atualização distribuídos em três domínios de falha. Ele também mostra um possível posicionamento para três réplicas diferentes de um serviço com estado, onde cada um acaba em diferentes domínios de falha e atualização. Esse posicionamento permite a perda de um domínio de falha no meio de uma atualização de serviço e ainda tem uma cópia do código e dos dados.  
 
 <center>
 
-![Domínios com a colocação e de falha de atualização][Image3]
+![posicionamento com domínios de falha e atualização][Image3]
 </center>
 
-Há prós e contras em ter um grande número de domínios de atualização. Domínios de atualização mais significa que cada passo da atualização é mais granular e afeta um número menor de nós ou serviços. Serviços menos tem de mover cada vez, apresentando o menor volume de alterações no sistema. Isso tende a melhorar a fiabilidade, porque o menor do serviço é afetado por qualquer problema que introduziu durante a atualização. Mais domínios de atualização também significam que terá de memória intermédia menos disponível nos outros nós para lidar com o impacto da atualização. 
+Há prós e contras para ter um grande número de domínios de atualização. Mais domínios de atualização significam que cada etapa da atualização é mais granular e afeta um número menor de nós ou serviços. Menos serviços precisam ser movidos de cada vez, apresentando menos variação no sistema. Isso tende a melhorar a confiabilidade, pois o menor serviço é afetado por qualquer problema introduzido durante a atualização. Mais domínios de atualização também significam que você precisa de menos buffer disponível em outros nós para lidar com o impacto da atualização. 
 
-Por exemplo, se tiver cinco domínios de atualização, os nós em cada estiver lidando com aproximadamente 20 por cento do tráfego. Se tiver de desativar esse domínio de atualização para uma atualização, essa carga, normalmente, tem de ir a alguma lugar. Uma vez que tenha quatro restantes domínios de atualização, cada um tem de ter espaço para cerca de 5% do tráfego total. Domínios de atualização mais significam que precisa de menos memória intermédia em nós do cluster. 
+Por exemplo, se você tiver cinco domínios de atualização, os nós em cada um serão manuseando aproximadamente 20% do tráfego. Se você precisar reduzir esse domínio de atualização para uma atualização, essa carga normalmente precisará ser executada em algum lugar. Como você tem quatro domínios de atualização restantes, cada um deve ter espaço para cerca de 5% do tráfego total. Mais domínios de atualização significam que você precisa de menos buffer nos nós do cluster. 
 
-Considere se tiver 10 domínios de atualização em vez disso. Nesse caso, cada domínio de atualização manipula apenas cerca de 10% do tráfego total. Quando uma atualização passos através do cluster, cada domínio precisaria ter espaço para apenas cerca de 1.1% do tráfego total. Mais domínios de atualização geralmente permitem executar os nós numa utilização mais elevada, porque tem capacidade de reserva menos. O mesmo é verdadeiro para domínios de falha.  
+Considere se você tinha 10 domínios de atualização em vez disso. Nesse caso, cada domínio de atualização estaria lidando apenas com cerca de 10% do tráfego total. Quando uma atualização percorre o cluster, cada domínio precisaria ter espaço para apenas cerca de 1,1% do tráfego total. Mais domínios de atualização geralmente permitem que você execute seus nós com maior utilização, pois você precisa de menos capacidade reservada. O mesmo é verdadeiro para domínios de falha.  
 
-A desvantagem de ter vários domínios de atualização é que as atualizações tendem a demorar mais tempo. Service Fabric aguarda um curto período de tempo depois de um domínio de atualização concluído e realiza verificações antes de iniciar a atualização seguinte. Esses atrasos ativar detectando problemas introduzidos pela atualização antes de continua a atualização. O compromisso é aceitável, pois evita que alterações ruins afetem muito do serviço de cada vez.
+A desvantagem de ter muitos domínios de atualização é que as atualizações tendem a demorar mais. Service Fabric aguarda um curto período após a conclusão de um domínio de atualização e executa verificações antes de começar a atualizar o próximo. Esses atrasos permitem a detecção de problemas introduzidos pela atualização antes que a atualização prossiga. A compensação é aceitável porque impede que alterações ruins afetem muito o serviço por vez.
 
-A presença de domínios de atualização muito poucos tem muitos efeitos de lado negativos. Enquanto cada domínio de atualização está pendente e a ser atualizado, não uma grande parte da sua capacidade geral está disponível. Por exemplo, se tiver apenas três domínios de atualização, está fazendo para baixo de aproximadamente um terço do seu serviço geral ou a capacidade do cluster ao mesmo tempo. Ter grande parte do seu serviço para baixo ao mesmo tempo não é desejável porque é necessário capacidade suficiente no resto do seu cluster para processar a carga de trabalho. Manter que esse buffer significa que, durante o funcionamento normal, esses nós são que menos carregado do que seria, caso contrário. Isso aumenta o custo de executar seu serviço.
+A presença de poucos domínios de atualização tem muitos efeitos colaterais negativos. Enquanto cada domínio de atualização está inoperante e sendo atualizado, uma grande parte da capacidade geral fica indisponível. Por exemplo, se você tiver apenas três domínios de atualização, estará demorando um terço da capacidade geral do serviço ou do cluster de cada vez. Ter muito de seu serviço ao mesmo tempo não é desejável porque você precisa de capacidade suficiente no restante do cluster para lidar com a carga de trabalho. Manter esse buffer significa que durante a operação normal, esses nós são menos carregados do que em caso contrário. Isso aumenta o custo da execução do seu serviço.
 
-Não existe nenhum limite real para o número total de domínios de falha ou atualização num ambiente ou restrições sobre como que se sobreponham. No entanto, existem padrões comuns:
+Não há nenhum limite real para o número total de domínios de falha ou de atualização em um ambiente ou restrições de como eles se sobrepõem. Mas há padrões comuns:
 
-- Domínios de falha e domínios de atualização mapeado 1:1
+- Domínios de falha e domínios de atualização mapeados 1:1
 - Um domínio de atualização por nó (instância de sistema operacional física ou virtual)
-- Um modelo de "repartido" ou "matrix" em que os domínios de falha e domínios de atualização formam uma matriz com máquinas normalmente em execução para baixo as diagonals
+- Um modelo "distribuído" ou "matriz" em que os domínios de falha e os domínios de atualização formam uma matriz com computadores geralmente executando as diagonais
 
 <center>
 
-![Layouts de domínios de falha e atualização][Image4]
+![layouts de domínios de falha e atualização][Image4]
 </center>
 
-Existe uma resposta melhor para escolher que esquema. Cada uma tem prós e contras. Por exemplo, o modelo de 1FD:1UD é fácil de configurar. O modelo de um domínio de atualização por modelo de nó é mais como o que as pessoas são utilizados para. Durante as atualizações, cada nó é atualizada de forma independente. Isso é semelhante a como pequenos conjuntos de máquinas foram atualizados manualmente no passado.
+Não há uma melhor resposta para qual layout escolher. Cada um tem prós e contras. Por exemplo, o modelo 1FD: 1UD é simples de configurar. O modelo de um domínio de atualização por modelo de nó é mais parecido com o que as pessoas estão acostumados. Durante as atualizações, cada nó é atualizado de forma independente. Isso é semelhante a como os pequenos conjuntos de computadores foram atualizados manualmente no passado.
 
-O modelo mais comuns é a matriz de FD/UD, onde os domínios de falha e domínios de atualização formam uma tabela e nós são colocados iniciar ao longo do diagonal. Esse é o modelo utilizado por predefinição em clusters do Service Fabric no Azure. Para clusters com vários nós, tudo o que acaba se parecendo com um padrão de matriz densa.
+O modelo mais comum é a matriz FD/UD, em que os domínios de falha e os domínios de atualização formam uma tabela e os nós são posicionados começando ao longo da diagonal. Esse é o modelo usado por padrão em clusters Service Fabric no Azure. Para clusters com muitos nós, tudo acaba parecendo com um padrão de matriz densa.
 
 > [!NOTE]
-> Clusters do Service Fabric alojados no Azure não suportam a alteração a estratégia de predefinição. Apenas os clusters autónomos oferecem essa personalização.
+> Service Fabric clusters hospedados no Azure não dão suporte à alteração da estratégia padrão. Somente os clusters autônomos oferecem essa personalização.
 >
 
-## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restrições de domínio de atualização e de falha e o comportamento resultante
-### <a name="default-approach"></a>Abordagem de predefinição
-Por predefinição, o Gestor de recursos do Cluster mantém Balanceados entre domínios de falha e atualização de serviços. Isso é modelado como um [restrição](service-fabric-cluster-resource-manager-management-integration.md). A restrição de Estados de domínios de atualização e de falha: "Para uma partição de determinado serviço há nunca deve ser uma diferença maior que um no número de objetos do serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre quaisquer dois domínios no mesmo nível de hierarquia."
+## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restrições de domínio de falha e de atualização e comportamento resultante
+### <a name="default-approach"></a>Abordagem padrão
+Por padrão, o Gerenciador de recursos de cluster mantém os serviços balanceados entre domínios de falha e de atualização. Isso é modelado como uma [restrição](service-fabric-cluster-resource-manager-management-integration.md). A restrição para domínios de falha e de atualização diz: "para uma determinada partição de serviço, nunca deve haver uma diferença maior que um no número de objetos de serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre dois domínios no mesmo nível de hierarquia. "
 
-Digamos que esta restrição fornece uma garantia de "máximo diferença". A restrição de domínios de falha e atualização impede que certos movimentos ou disposições que violam a regra.
+Digamos que essa restrição forneça uma garantia de "diferença máxima". A restrição para domínios de falha e de atualização impede determinadas movimentações ou disposições que violem a regra.
 
-Por exemplo, vamos supor que temos um cluster connosco seis, configurada com cinco domínios de falha e cinco domínios de atualização.
+Por exemplo, digamos que temos um cluster com seis nós, configurado com cinco domínios de falha e cinco domínios de atualização.
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 |
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -135,9 +126,9 @@ Por exemplo, vamos supor que temos um cluster connosco seis, configurada com cin
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Agora vamos supor que a criação de um serviço com uma **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount**) valor de cinco. N1 N5 direcionado para as réplicas. Na verdade, N6 nunca é usada, independentemente de quantos serviços assim que cria. Mas por quê? Vamos ver a diferença entre o layout atual e o que aconteceria se N6 for escolhida.
+Agora, digamos que criemos um serviço com um valor de **TargetReplicaSetSize** (ou, para um serviço sem estado, **InstanceCount**) de cinco. As réplicas se esterram em N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como esse você criar. Mas por quê? Vamos examinar a diferença entre o layout atual e o que aconteceria se N6 fosse escolhido.
 
-Este é o número total de réplicas por domínio de atualização e de falha e o esquema, temos:
+Aqui está o layout que obtemos e o número total de réplicas por domínio de falha e de atualização:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -148,9 +139,9 @@ Este é o número total de réplicas por domínio de atualização e de falha e 
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Este esquema é balanceada em termos de nós por domínio de falha e o domínio de atualização. Ele também é balanceado em termos de número de réplicas por domínio de atualização e de falha. Cada domínio tem o mesmo número de nós e o mesmo número de réplicas.
+Esse layout é balanceado em termos de nós por domínio de falha e domínio de atualização. Ele também é balanceado em termos do número de réplicas por domínio de falha e de atualização. Cada domínio tem o mesmo número de nós e o mesmo número de réplicas.
 
-Agora, vejamos o que aconteceria se tivéssemos usado N6 em vez de N2. Como seriam as réplicas distribuídas, em seguida?
+Agora, vamos examinar o que aconteceria se tivéssemos usado N6 em vez de N2. Como as réplicas seriam distribuídas?
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -161,7 +152,7 @@ Agora, vejamos o que aconteceria se tivéssemos usado N6 em vez de N2. Como seri
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Este esquema viola a nossa definição da garantia de "máximo diferença" para a restrição de domínio de falhas. FD0 tem duas réplicas, ao passo que FD1 tem zero. A diferença entre FD0 e FD1 é um total de dois, que é maior do que a diferença de máxima de um. Porque a restrição seja violada, Gestor de recursos de Cluster não permite esse esquema. Da mesma forma, se escolhemos N2 e N6 (em vez de N1 e N2), Obteremos:
+Esse layout viola nossa definição da garantia de "diferença máxima" para a restrição de domínio de falha. FD0 tem duas réplicas, enquanto FD1 tem zero. A diferença entre FD0 e FD1 é um total de dois, que é maior que a diferença máxima de um. Como a restrição foi violada, o Gerenciador de recursos de cluster não permite essa disposição. Da mesma forma, se escolhemos N2 e N6 (em vez de N1 e N2), obtemos:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -172,11 +163,11 @@ Este esquema viola a nossa definição da garantia de "máximo diferença" para 
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Este esquema é balanceada em termos de domínios de falha. Mas agora ele está violação a restrição de domínio de atualização, porque UD0 tem zero réplicas e UD1 tem dois. Este esquema também é inválida e não ser escolhida pelo Gestor de recursos do Cluster.
+Esse layout é balanceado em termos de domínios de falha. Mas agora ele está violando a restrição de domínio de atualização, porque UD0 tem zero réplicas e UD1 tem dois. Esse layout também é inválido e não será escolhido pelo Gerenciador de recursos de cluster.
 
-Essa abordagem para a distribuição de réplicas com monitoração de estado ou instâncias sem monitoração de estado fornece a tolerância de falhas possível melhor. Se um domínio ficar inativo, o número mínimo de réplicas/instâncias é perdido. 
+Essa abordagem à distribuição de réplicas com estado ou instâncias sem estado fornece a melhor tolerância a falhas possível. Se um domínio falhar, o número mínimo de réplicas/instâncias será perdido. 
 
-Por outro lado, essa abordagem pode ser demasiado restritivo e permite ao cluster utilizar todos os recursos. Para determinadas configurações de cluster, não não possível utilizar alguns nós. Isto pode fazer com que o Service Fabric não colocar seus serviços, resultando em mensagens de aviso. No exemplo anterior, alguns de nós do cluster não podem ser utilizado (N6 no exemplo). Mesmo que adicionou nós a esse cluster (N7 N10), instâncias/réplicas seria colocadas apenas em N1 – N5 devido a restrições nos domínios de falha e atualização. 
+Por outro lado, essa abordagem pode ser muito estrita e não permitir que o cluster utilize todos os recursos. Para determinadas configurações de cluster, determinados nós não podem ser usados. Isso pode fazer com que Service Fabric não coloque seus serviços, resultando em mensagens de aviso. No exemplo anterior, alguns dos nós de cluster não podem ser usados (N6 no exemplo). Mesmo que você tenha adicionado nós a esse cluster (N7-N10), as réplicas/instâncias só serão colocadas em N1 – N5 devido a restrições em domínios de falha e de atualização. 
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 |
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -190,36 +181,36 @@ Por outro lado, essa abordagem pode ser demasiado restritivo e permite ao cluste
 
 ### <a name="alternative-approach"></a>Abordagem alternativa
 
-Gestor de recursos de cluster suporta a outra versão da restrição para domínios de falha e atualização. Ele permite que o posicionamento ao mesmo tempo garantindo ainda um nível mínimo de segurança. A restrição alternativa pode ser declarada da seguinte maneira: "Para uma partição de determinado serviço, distribuição de réplica em vários domínios deve garantir que a partição não sofrem uma perda de quórum." Digamos que esta restrição fornece uma garantia de "quórum seguro". 
+O Gerenciador de recursos de cluster dá suporte a outra versão da restrição para domínios de falha e atualização. Ele permite o posicionamento enquanto ainda garante um nível mínimo de segurança. A restrição alternativa pode ser declarada da seguinte maneira: "para uma determinada partição de serviço, a distribuição de réplica entre domínios deve garantir que a partição não sofra uma perda de quorum". Digamos que essa restrição forneça uma garantia de "segurança de quorum". 
 
 > [!NOTE]
-> Para um serviço com estado, definimos *perda de quórum* numa situação quando a maioria das réplicas de partição estão indisponíveis, ao mesmo tempo. Por exemplo, se **TargetReplicaSetSize** é cinco, um conjunto de qualquer três réplicas representa o quórum. Da mesma forma, se **TargetReplicaSetSize** é seis, quatro réplicas são necessárias para o quórum. Em ambos os casos, não mais do que duas réplicas podem ficar indisponíveis ao mesmo tempo se a partição que deseja continuar a funcionar normalmente. 
+> Para um serviço com estado, definimos a *perda de quorum* em uma situação em que a maioria das réplicas de partição está inativa ao mesmo tempo. Por exemplo, se **TargetReplicaSetSize** for cinco, um conjunto de três réplicas representará quorum. Da mesma forma, se **TargetReplicaSetSize** for seis, quatro réplicas serão necessárias para o quorum. Em ambos os casos, no máximo duas réplicas podem ficar inativas ao mesmo tempo se a partição quiser continuar funcionando normalmente. 
 >
-> Para um serviço sem estado, não há nenhum algo como *perda de quórum*. Serviços sem estado continuam a funcionar, normalmente, mesmo que a maioria das instâncias ficam inativos, ao mesmo tempo. Então, vamos nos concentrar em serviços com estado no resto deste artigo.
+> Para um serviço sem estado, não há nenhuma coisa como *perda de quorum*. Os serviços sem estado continuam a funcionar normalmente mesmo que a maioria das instâncias fique inativa ao mesmo tempo. Então, nos concentraremos nos serviços com estado no restante deste artigo.
 >
 
-Vamos voltar para o exemplo anterior. Com a versão de "quórum seguro" da restrição, todos os três layouts seria válidos. Mesmo que FD0 falhou no layout da segunda ou UD1 falhou no layout da terceira, a partição ainda teria o quórum. (A maioria das réplicas ainda seria cópia de segurança.) Com esta versão da restrição, N6 quase sempre pode ser utilizado.
+Vamos voltar ao exemplo anterior. Com a versão "segurança de quorum" da restrição, todos os três layouts seriam válidos. Mesmo se FD0 falhou no segundo layout ou UD1 falhou no terceiro layout, a partição ainda teria quorum. (A maioria das réplicas ainda estaria ativa.) Com essa versão da restrição, o N6 quase sempre pode ser utilizado.
 
-A abordagem de "quórum seguro" fornece mais flexibilidade do que a abordagem de "máximo diferença". O motivo é que ele é mais fácil encontrar distribuições de réplica que são válidas em quase qualquer topologia do cluster. No entanto, essa abordagem não pode garantir a falha melhores características de tolerância porque algumas falhas são pior do que outras pessoas. 
+A abordagem "segurança de quorum" fornece mais flexibilidade do que a abordagem de "diferença máxima". O motivo é que é mais fácil localizar distribuições de réplicas que são válidas em praticamente qualquer topologia de cluster. No entanto, essa abordagem não pode garantir as melhores características de tolerância a falhas porque algumas falhas são piores do que outras. 
 
-Na pior das hipóteses, a maioria das réplicas pode ser perdida com a falha de um domínio e uma réplica adicional. Por exemplo, em vez de três falhas necessárias perder o quórum com cinco réplicas ou instâncias, pode agora perder uma maioria com apenas duas falhas. 
+No pior cenário, a maioria das réplicas pode ser perdida com a falha de um domínio e de uma réplica adicional. Por exemplo, em vez de três falhas sendo necessárias para perder o quorum com cinco réplicas ou instâncias, agora você pode perder a maioria com apenas duas falhas. 
 
 ### <a name="adaptive-approach"></a>Abordagem adaptável
-Uma vez que ambas as abordagens têm vantagens e desvantagens, introduzimos uma abordagem adaptável, que combina essas duas estratégias.
+Como ambas as abordagens têm pontos fortes e fracos, apresentamos uma abordagem adaptável que combina essas duas estratégias.
 
 > [!NOTE]
-> Este é o comportamento padrão a partir do Service Fabric versão 6.2. 
+> Esse é o comportamento padrão começando com Service Fabric versão 6,2. 
 > 
-> A abordagem adaptável usa a lógica de "máximo diferença" por predefinição e muda para a lógica de "quórum seguro" apenas quando necessário. Gestor de recursos de cluster detecta automaticamente qual estratégia é necessária examinar como é que o cluster e os serviços são configurados.
+> A abordagem adaptável usa a lógica de "diferença máxima" por padrão e alterna para a lógica "segurança de quorum" somente quando necessário. O Gerenciador de recursos de cluster descobre automaticamente qual estratégia é necessária examinando como o cluster e os serviços são configurados.
 > 
-> Gestor de recursos de cluster deve usar a lógica de "quórum com base" para um serviço ambas estas condições forem verdadeiras:
+> O Gerenciador de recursos de cluster deve usar a lógica "baseada em quorum" para um serviço que essas duas condições sejam verdadeiras:
 >
-> * **TargetReplicaSetSize** para o serviço é uniformemente divisível pelo número de domínios de falha e o número de domínios de atualização.
-> * O número de nós é menor ou igual ao número de domínios de falha, multiplicados pelo número de domínios de atualização.
+> * O **TargetReplicaSetSize** para o serviço é igualmente divisível pelo número de domínios de falha e pelo número de domínios de atualização.
+> * O número de nós é menor ou igual ao número de domínios de falha multiplicado pelo número de domínios de atualização.
 >
-> Lembre-se de que o Resource Manager de Cluster irá utilizar esta abordagem para serviços com e sem monitoração de estado, mesmo que a perda de quórum não é relevante para serviços sem estado.
+> Tenha em mente que o Gerenciador de recursos de cluster usará essa abordagem para serviços com e sem estado, mesmo que a perda de quorum não seja relevante para serviços sem estado.
 
-Voltemos ao exemplo anterior e partem do princípio de que um cluster agora tem oito nós. O cluster ainda está configurado com cinco domínios de falha e cinco domínios de atualização e o **TargetReplicaSetSize** valor de um serviço alojado nesse cluster permanece cinco. 
+Vamos voltar ao exemplo anterior e supor que um cluster agora tem oito nós. O cluster ainda é configurado com cinco domínios de falha e cinco domínios de atualização, e o valor de **TargetReplicaSetSize** de um serviço hospedado nesse cluster permanece cinco. 
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 |
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -229,7 +220,7 @@ Voltemos ao exemplo anterior e partem do princípio de que um cluster agora tem 
 | **UD3** | | |N8 |N4 | |
 | **UD4** | | | | |N5 |
 
-Uma vez que todas as condições necessárias são cumpridas, Gestor de recursos do Cluster irá utilizar a lógica de "o quórum com base em" o serviço de distribuição. Isto permite a utilização de N6 N8. Uma distribuição de serviço possíveis em vez disso pode ser assim:
+Como todas as condições necessárias são satisfeitas, o Gerenciador de recursos de cluster usará a lógica "baseada em quorum" na distribuição do serviço. Isso habilita o uso de N6-N8. Nesse caso, uma possível distribuição de serviço pode ser assim:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -240,23 +231,23 @@ Uma vez que todas as condições necessárias são cumpridas, Gestor de recursos
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |2 |1 |1 |0 |1 |- |
 
-Se o serviço **TargetReplicaSetSize** valor é reduzido para quatro (por exemplo), Gestor de recursos de Cluster vai reparar que essa alteração. Será retomada usando a lógica de "máximo diferença", porque **TargetReplicaSetSize** não deixa de poder é dividable pelo número de domínios de falha e domínios de atualização. Como resultado, irão ocorrer em certos movimentos de réplica distribuir as réplicas de quatro restantes em nós N1 N5. Dessa forma, a versão de "máximo diferença" da lógica de domínio de falha e atualização do domínio não é violada. 
+Se o valor de **TargetReplicaSetSize** do serviço for reduzido para quatro (por exemplo), o Gerenciador de recursos de cluster observará essa alteração. Ele será retomado usando a lógica "diferença máxima" porque o **TargetReplicaSetSize** não é mais dividable pelo número de domínios de falha e domínios de atualização. Como resultado, certos movimentos de réplica ocorrerão para distribuir as quatro réplicas restantes nos nós N1 a N5. Dessa forma, a versão de "diferença máxima" da lógica de domínio de falha e de domínio de atualização não é violada. 
 
-No layout anterior, se o **TargetReplicaSetSize** valor é cinco e N1 é removida do cluster, o número de domínios de atualização torna-se igual para quatro. Novamente, o Gestor de recursos de Cluster é iniciado com a lógica de "máximo diferença", porque o número de domínios de atualização não divide o serviço de maneira uniforme **TargetReplicaSetSize** mais valor. Como resultado, réplica R1, quando criada novamente, tem de parar em N4 para que a restrição para o domínio de atualização e de falha não é violada.
+No layout anterior, se o valor de **TargetReplicaSetSize** for cinco e N1 for removido do cluster, o número de domínios de atualização se tornará igual a quatro. Novamente, o Gerenciador de recursos de cluster começa usando a lógica "diferença máxima" porque o número de domínios de atualização não divide o valor de **TargetReplicaSetSize** do serviço de maneira mais uniforme. Como resultado, a réplica R1, quando criada novamente, precisa se esN4r para que a restrição para o domínio de falha e de atualização não seja violada.
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |N/A |N/D |N/D |N/D |N/D |N/A |
+| **UD0** |N/A |N/A |N/A |N/A |N/A |N/A |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-## <a name="configuring-fault-and-upgrade-domains"></a>Configurar domínios de falha e atualização
-Nas implementações do Service Fabric alojado no Azure, domínios de falha e domínios de atualização são definidos automaticamente. Service Fabric seleciona e utiliza as informações do ambiente do Azure.
+## <a name="configuring-fault-and-upgrade-domains"></a>Configurando domínios de falha e atualização
+Em implantações de Service Fabric hospedadas pelo Azure, os domínios de falha e os domínios de atualização são definidos automaticamente. Service Fabric coleta e usa as informações de ambiente do Azure.
 
-Se estiver a criar seu próprio cluster (ou pretende executar uma topologia específica no desenvolvimento), pode fornecer o domínio de falhas e informações de domínio de atualização por conta própria. Neste exemplo, definimos um cluster de desenvolvimento local do nó de nove que abrange três datacenters (cada um com três racks). Este cluster tem também três domínios de atualização repartidos por essas três datacenters. Eis um exemplo da configuração no ClusterManifest.xml:
+Se você estiver criando seu próprio cluster (ou desejar executar uma topologia específica em desenvolvimento), poderá fornecer o domínio de falha e as informações de domínio de atualização por conta própria. Neste exemplo, definimos um cluster de desenvolvimento local de nove nós que abrange três data centers (cada um com três racks). Esse cluster também tem três domínios de atualização distribuídos entre esses três data centers. Aqui está um exemplo da configuração em ClusterManifest. xml:
 
 ```xml
   <Infrastructure>
@@ -277,7 +268,7 @@ Se estiver a criar seu próprio cluster (ou pretende executar uma topologia espe
   </Infrastructure>
 ```
 
-Este exemplo usa ClusterConfig.json para das implementações autónomas:
+Este exemplo usa ClusterConfig. JSON para implantações autônomas:
 
 ```json
 "nodes": [
@@ -348,69 +339,69 @@ Este exemplo usa ClusterConfig.json para das implementações autónomas:
 ```
 
 > [!NOTE]
-> Durante a definição de clusters através do Azure Resource Manager, o Azure atribui domínios de falha e domínios de atualização. Para que a definição dos seus tipos de nós e o dimensionamento de máquinas virtuais define modelo do Azure Resource Manager não inclui informações sobre o domínio de falha ou domínio de atualização.
+> Quando você está definindo clusters via Azure Resource Manager, o Azure atribui domínios de falha e domínios de atualização. Portanto, a definição de seus tipos de nó e conjuntos de dimensionamento de máquinas virtuais em seu modelo de Azure Resource Manager não inclui informações sobre domínio de falha ou domínio de atualização.
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Propriedades de nó e restrições de posicionamento
-Às vezes (na verdade, na maioria das vezes) vai querer garantir que determinadas cargas de trabalho são executados apenas em determinados tipos de nós do cluster. Por exemplo, algumas cargas de trabalho poderão necessitar de GPUs ou SSDs e outras empresas poderão não. 
+Às vezes (na verdade, na maioria das vezes), você desejará garantir que determinadas cargas de trabalho sejam executadas apenas em determinados tipos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, e outras podem não. 
 
-Um ótimo exemplo de filtragem de hardware para cargas de trabalho específicas é quase todos os arquitetura de n camadas. Determinados computadores servem como o front-end ou do lado do serviço de API do aplicativo e são expostos a clientes ou à internet. Computadores diferentes, muitas vezes, com recursos de hardware diferente, lidar com o trabalho de camadas de computação ou de armazenamento. Normalmente, são _não_ expostos diretamente a clientes ou à internet. 
+Um ótimo exemplo de direcionamento de hardware para cargas de trabalho específicas é quase todas as arquiteturas de n camadas. Determinados computadores servem como o lado de front-end ou de serviço de API do aplicativo e são expostos aos clientes ou à Internet. Máquinas diferentes, muitas vezes com recursos de hardware diferentes, lidam com o trabalho das camadas de armazenamento ou de computação. Normalmente, eles _não_ são expostos diretamente aos clientes ou à Internet. 
 
-Service Fabric espera que, em alguns casos, determinadas cargas de trabalho poderão ter de executar em configurações de hardware específico. Por exemplo:
+Service Fabric espera que, em alguns casos, cargas de trabalho específicas talvez precisem ser executadas em configurações de hardware específicas. Por exemplo:
 
-* Uma aplicação de n camadas existente foi "elevadas e mudou" num ambiente do Service Fabric.
-* Uma carga de trabalho tem de ser executada no hardware específico, por motivos de isolamento de desempenho, dimensionamento ou segurança.
-* Uma carga de trabalho deve ser isolada de outras cargas de trabalho por motivos de consumo de política ou recurso.
+* Um aplicativo de n camadas existente foi "retirado e deslocado" para um ambiente Service Fabric.
+* Uma carga de trabalho deve ser executada em hardware específico para fins de desempenho, escala ou isolamento de segurança.
+* Uma carga de trabalho deve ser isolada de outras cargas de trabalho por motivos de política ou consumo de recursos.
 
-Para oferecer suporte a esses tipos de configurações, o Service Fabric inclui marcas que pode aplicar a nós. Essas marcas são chamadas *propriedades de nó*. *Restrições de posicionamento* são as declarações anexadas aos serviços individuais que selecionar para uma ou mais propriedades de nó. Restrições de posicionamento definem em que os serviços devem ser executados. O conjunto de restrições é extensível. Qualquer par de chave/valor pode trabalhar. 
-
-<center>
-
-![Diferentes cargas de trabalho para um esquema de cluster][Image5]
-</center>
-
-### <a name="built-in-node-properties"></a>Propriedades de nó incorporado
-Service Fabric define algumas propriedades de nó predefinidos que podem ser utilizadas automaticamente para que não precisa defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName**. 
-
-Por exemplo, pode escrever uma restrição de posicionamento como `"(NodeType == NodeType03)"`. **O NodeType** é uma propriedade comumente utilizada. É útil porque ele corresponde 1:1 com um tipo de uma máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho num aplicativo de n camadas tradicional.
+Para dar suporte a esses tipos de configuração, Service Fabric inclui marcas que você pode aplicar a nós. Essas marcas são chamadas de *Propriedades de nó*. As *restrições de posicionamento* são as instruções anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. As restrições de posicionamento definem onde os serviços devem ser executados. O conjunto de restrições é extensível. Qualquer par chave/valor pode funcionar. 
 
 <center>
 
-![Restrições de posicionamento e propriedades de nó][Image6]
+![cargas de trabalho diferentes para um layout de cluster][Image5]
 </center>
 
-## <a name="placement-constraints-and-node-property-syntax"></a>Restrições de posicionamento e a sintaxe de propriedade de nó 
-O valor especificado na propriedade de nó pode ser uma cadeia de caracteres, booleanos, ou assinado há muito tempo. A instrução no serviço é chamada um posicionamento *restrição* pois isso restringe as onde o serviço pode ser executado no cluster. A restrição pode ser qualquer instrução booleana que opera nas propriedades de nó do cluster. Os seletores válidos nestas instruções booleanos são:
+### <a name="built-in-node-properties"></a>Propriedades de nó interno
+Service Fabric define algumas propriedades de nó padrão que podem ser usadas automaticamente para que você não precise defini-las. As propriedades padrão definidas em cada nó são **NodeType** e **NodeName**. 
 
-* Condicional verifica-se para a criação de instruções específicas:
+Por exemplo, você pode escrever uma restrição de posicionamento como `"(NodeType == NodeType03)"`. **NodeType** é uma propriedade comumente usada. Ele é útil porque corresponde a 1:1 com um tipo de computador. Cada tipo de computador corresponde a um tipo de carga de trabalho em um aplicativo de n camadas tradicional.
 
-  | Instrução | Sintaxe |
+<center>
+
+![as restrições de posicionamento e as propriedades de nó][Image6]
+</center>
+
+## <a name="placement-constraints-and-node-property-syntax"></a>Restrições de posicionamento e sintaxe de propriedade de nó 
+O valor especificado na propriedade node pode ser uma cadeia de caracteres, um booliano ou um Long assinado. A instrução no serviço é chamada de *restrição* de posicionamento porque ela restringe o local em que o serviço pode ser executado no cluster. A restrição pode ser qualquer instrução booliana que opere nas propriedades do nó no cluster. Os seletores válidos nessas instruções booleanas são:
+
+* Verificações condicionais para a criação de instruções específicas:
+
+  | Declaração | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
-  | "não igual a" | "!=" |
+  | "diferente de" | "!=" |
   | "maior que" | ">" |
   | "maior que ou igual a" | ">=" |
   | "menor que" | "<" |
   | "menor que ou igual a" | "<=" |
 
-* Booleanas instruções para operações de agrupamentos e lógicas:
+* Instruções booleanas para Agrupamento e operações lógicas:
 
-  | Instrução | Sintaxe |
+  | Declaração | Sintaxe |
   | --- |:---:|
-  | "e" | "&&" |
-  | "ou" | "&#124;&#124;" |
-  | "não" | "!" |
-  | "grupo como a única instrução" | "()" |
+  | e | "&&" |
+  | or | "&#124;&#124;" |
+  | válido | "!" |
+  | "agrupar como instrução única" | "()" |
 
-Aqui estão alguns exemplos de declarações de restrição básica:
+Aqui estão alguns exemplos de instruções básicas de restrição:
 
   * `"Value >= 5"`
   * `"NodeColor != green"`
   * `"((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"`
 
-Apenas nós em que a instrução de restrição de posicionamento global avalia como "True" podem ter o serviço colocado na mesma. Nós que não tem uma propriedade definida não correspondem a qualquer restrição de posicionamento que contém a propriedade.
+Somente os nós em que a instrução de restrição de posicionamento geral é avaliada como "true" podem ter o serviço colocado nele. Os nós que não têm uma propriedade definida não correspondem a nenhuma restrição de posicionamento que contenha a propriedade.
 
-Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó ClusterManifest.xml:
+Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó em ClusterManifest. xml:
 
 ```xml
     <NodeType Name="NodeType01">
@@ -422,10 +413,10 @@ Digamos que as seguintes propriedades de nó foram definidas para um tipo de nó
     </NodeType>
 ```
 
-O exemplo seguinte mostra as propriedades de nó definidas por meio de ClusterConfig.json para das implementações autónomas ou Template para clusters alojado no Azure. 
+O exemplo a seguir mostra as propriedades de nó definidas por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure. 
 
 > [!NOTE]
-> No modelo do Azure Resource Manager, o tipo de nó é normalmente parametrizado. Ela ficaria `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
+> Em seu modelo de Azure Resource Manager, o tipo de nó geralmente é parametrizado. Ele ficaria assim `"[parameters('vmNodeType1Name')]"` em vez de NodeType01.
 >
 
 ```json
@@ -441,7 +432,7 @@ O exemplo seguinte mostra as propriedades de nó definidas por meio de ClusterCo
 ],
 ```
 
-É possível criar o posicionamento do serviço *restrições* para um serviço da seguinte forma:
+Você pode criar *restrições* de posicionamento de serviço para um serviço da seguinte maneira:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -456,9 +447,9 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Se todos os nós do NodeType01 são válidos, também pode selecionar esse tipo de nó com a restrição `"(NodeType == NodeType01)"`.
+Se todos os nós de NodeType01 forem válidos, você também poderá selecionar esse tipo de nó com a restrição `"(NodeType == NodeType01)"`.
 
-Restrições de posicionamento de um serviço podem ser atualizadas dinamicamente durante o tempo de execução. Se for necessário, pode mover um serviço no cluster, adicionar e remover requisitos e assim por diante. Service Fabric garante que o serviço permaneça ativos e disponíveis, mesmo quando esses tipos de alterações são feitos.
+As restrições de posicionamento de um serviço podem ser atualizadas dinamicamente durante o tempo de execução. Se precisar, você pode mover um serviço em um cluster, adicionar e remover requisitos e assim por diante. Service Fabric garante que o serviço permaneça ativo e disponível mesmo quando esses tipos de alterações forem feitos.
 
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
@@ -470,33 +461,33 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/servic
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
 
-Restrições de posicionamento são especificadas para cada instância de serviço com nome. Atualizações sempre tomar o lugar de (substituir) o que foi anteriormente especificado.
+As restrições de posicionamento são especificadas para cada instância de serviço nomeada. As atualizações sempre assumem o lugar de (substituem) o que foi especificado anteriormente.
 
-A definição do cluster define as propriedades num nó. Alterar as propriedades de um nó exige uma atualização para a configuração do cluster. Atualizar propriedades de um nó requer que cada nó afetado para reiniciar para comunicar as respetivas propriedades de novo. O Service Fabric gere estas atualizações sem interrupção.
+A definição de cluster define as propriedades em um nó. Alterar as propriedades de um nó requer uma atualização para a configuração do cluster. Atualizar as propriedades de um nó requer que cada nó afetado seja reiniciado para relatar suas novas propriedades. Service Fabric gerencia essas atualizações sem interrupção.
 
-## <a name="describing-and-managing-cluster-resources"></a>Descrever e gerir recursos de cluster
-Uma das tarefas mais importantes de qualquer orchestrator é ajudar a gerir o consumo de recursos do cluster. Gerir recursos de cluster, pode significar duas coisas diferentes. 
+## <a name="describing-and-managing-cluster-resources"></a>Descrever e gerenciar recursos de cluster
+Um dos trabalhos mais importantes de qualquer orquestrador é ajudar a gerenciar o consumo de recursos no cluster. O gerenciamento de recursos de cluster pode significar algumas coisas diferentes. 
 
-Em primeiro lugar, aí é garantir que as máquinas não estão sobrecarregadas. Isso significa certificar-se de que as máquinas não estão em execução mais serviços que eles possam tratar. 
+Primeiro, há a certeza de que os computadores não estão sobrecarregados. Isso significa garantir que os computadores não estejam executando mais serviços do que podem manipular. 
 
-Em segundo lugar, há balanceamento e otimização, que são críticos para executar os serviços de forma eficiente. Ofertas de serviço económica ou sensíveis a desempenho, não é possível que alguns nós ser frequente, enquanto outras estão frios. Nós frequente levam à contenção de recursos e fraco desempenho. Nós frios representam desperdício de recursos e os custos de aumento. 
+Em segundo lugar, há balanceamento e otimização, que são essenciais para a execução eficiente de serviços. Ofertas de serviço econômicas ou sensíveis a desempenho não podem permitir que alguns nós fiquem quentes enquanto outros estão frios. Os nós ativos levam à contenção de recursos e ao baixo desempenho. Os nós frios representam recursos desperdiçados e aumentam os custos. 
 
-O Service Fabric representa os recursos conforme *métricas*. As métricas são qualquer recurso lógico ou físico que pretende descrever para o Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb." Para obter informações sobre os recursos físicos que podem reger o Service Fabric em nós, consulte [governação de recursos](service-fabric-resource-governance.md). Para obter informações sobre como configurar métricas personalizadas e respetivas utilizações, consulte [este artigo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representa recursos como *métricas*. As métricas são qualquer recurso lógico ou físico que você deseja descrever para Service Fabric. Exemplos de métricas são "WorkQueueDepth" ou "MemoryInMb". Para obter informações sobre os recursos físicos que Service Fabric podem controlar em nós, consulte [governança de recursos](service-fabric-resource-governance.md). Para obter informações sobre como configurar métricas personalizadas e seus usos, consulte [Este artigo](service-fabric-cluster-resource-manager-metrics.md).
 
-As métricas são diferentes das restrições de posicionamento e propriedades de nó. Propriedades de nó são estáticos descritores dos próprios nós. Métricas descrevem os recursos que têm de nós e que serviços consumam quando executados num nó. Uma propriedade de nó pode ser **HasSSD** e que pode ser definido como VERDADEIRO ou FALSO. A quantidade de espaço disponível nesse SSD e o quanto é consumida pelos serviços seria uma métrica como "DriveSpaceInMb." 
+As métricas são diferentes das restrições de posicionamento e das propriedades de nó. As propriedades de nó são descritores estáticos dos próprios nós. As métricas descrevem os recursos que os nós têm e que os serviços consomem quando são executados em um nó. Uma propriedade de nó pode ser **HasSSD** e pode ser definida como true ou false. A quantidade de espaço disponível no SSD e o quanto é consumido pelos serviços seria uma métrica como "DriveSpaceInMb". 
 
-Assim como para restrições de posicionamento e propriedades de nó, Gestor de recursos de Cluster do Service Fabric não entende que os nomes da média de métricas. Nomes de métricas são apenas cadeias de caracteres. É uma boa prática para declarar unidades como parte dos nomes de métrica que criou quando podem ser ambíguos.
+Assim como as restrições de posicionamento e as propriedades de nó, Service Fabric Gerenciador de recursos de cluster não entende o que significam os nomes das métricas. Os nomes de métrica são apenas cadeias de caracteres. É uma boa prática declarar unidades como parte dos nomes de métrica que você cria quando elas podem ser ambíguas.
 
 ## <a name="capacity"></a>Capacidade
-Se desativado todos os recursos *balanceamento*, Gestor de recursos de Cluster do Service Fabric ainda a garantir que nenhum nó passa pela sua capacidade. É possível gerir estouros de capacidade, a menos que o cluster é demasiado completo ou a carga de trabalho é maior do que qualquer nó. Capacidade é outra *restrição* que utiliza o Resource Manager de Cluster para compreender qual a quantidade de um recurso de um nó tem. Capacidade restante também é controlado para o cluster como um todo. 
+Se você desativou todo o *balanceamento*de recursos, Service Fabric Gerenciador de recursos de cluster ainda garantiria que nenhum nó ultrapassa sua capacidade. O gerenciamento de saturações de capacidade é possível, a menos que o cluster esteja muito cheio ou a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que o Gerenciador de recursos de cluster usa para entender a quantidade de um recurso de um nó. A capacidade restante também é acompanhada para o cluster como um todo. 
 
-A capacidade e o consumo no nível de serviço são expressos em termos de métricas. Por exemplo, a métrica pode ser "ClientConnections" e um nó pode ter uma capacidade para "ClientConnections" de 32,768. Outros nós podem ter outros limites. Um serviço em execução nesse nó pode dizer que está atualmente a consumir 32,256 da métrica "ClientConnections."
+A capacidade e o consumo no nível de serviço são expressos em termos de métricas. Por exemplo, a métrica pode ser "ClientConnections" e um nó pode ter uma capacidade para "ClientConnections" de 32.768. Outros nós podem ter outros limites. Um serviço em execução nesse nó pode dizer que está consumindo, no momento, o 32.256 da métrica "ClientConnections".
 
-Durante o tempo de execução, o Gestor de recursos de Cluster controla capacidade restante no cluster e em nós. Para controlar a capacidade, o Gestor de recursos de Cluster subtrai utilização de cada serviço da capacidade de um nó em que o serviço é executado. Com essas informações, o Gestor de recursos do Cluster pode descobrir onde colocar ou mover réplicas para que nós não passam pela capacidade.
+Durante o tempo de execução, o Gerenciador de recursos de cluster rastreia a capacidade restante no cluster e nos nós. Para controlar a capacidade, o Gerenciador de recursos de cluster subtrai o uso de cada serviço da capacidade de um nó em que o serviço é executado. Com essas informações, o Gerenciador de recursos de cluster pode descobrir onde posicionar ou mover réplicas para que os nós não ultrapassem a capacidade.
 
 <center>
 
-![Nós de cluster e a capacidade][Image7]
+![os nós de cluster e a capacidade][Image7]
 </center>
 
 ```csharp
@@ -514,7 +505,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
-Pode ver as capacidades definidas no manifesto do cluster. Eis um exemplo para ClusterManifest.xml:
+Você pode ver as capacidades definidas no manifesto do cluster. Aqui está um exemplo de ClusterManifest. xml:
 
 ```xml
     <NodeType Name="NodeType03">
@@ -524,7 +515,7 @@ Pode ver as capacidades definidas no manifesto do cluster. Eis um exemplo para C
     </NodeType>
 ```
 
-Eis um exemplo de capacidades definida por meio de ClusterConfig.json para das implementações autónomas ou Template, para clusters alojado no Azure: 
+Aqui está um exemplo de capacidades definidas por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure: 
 
 ```json
 "nodeTypes": [
@@ -537,27 +528,27 @@ Eis um exemplo de capacidades definida por meio de ClusterConfig.json para das i
 ],
 ```
 
-Um serviço carregar dinamicamente, muitas vezes, as alterações. Digamos que o carregamento de uma réplica de "ClientConnections" foi alterado de 1.024 para 2.048. O nó que estava em execução no, em seguida, tinha uma capacidade de 512 apenas restante para essa métrica. Agora essa réplica ou de posicionamento da instância é inválido, porque não existe espaço suficiente nesse nó. Gestor de recursos do cluster tem de obter o nó de volta abaixo da capacidade. Ele reduz a carga no nó que está acima da capacidade ao mover um ou mais das réplicas ou instâncias de nesse nó para outros nós. 
+A carga de um serviço geralmente muda dinamicamente. Digamos que a carga de uma réplica de "ClientConnections" mudou de 1.024 para 2.048. O nó em que ele estava sendo executado tinha uma capacidade de apenas 512 restantes para essa métrica. Agora que o posicionamento da réplica ou da instância é inválido, porque não há espaço suficiente nesse nó. O Gerenciador de recursos de cluster precisa colocar o nó abaixo da capacidade novamente. Ele reduz a carga no nó que está acima da capacidade movendo uma ou mais réplicas ou instâncias desse nó para outros nós. 
 
-Gestor de recursos de cluster tenta minimizar o custo da movimentação de réplicas. Pode saber mais sobre [custo de movimento](service-fabric-cluster-resource-manager-movement-cost.md) e sobre [reequilibrar estratégias e regras](service-fabric-cluster-resource-manager-metrics.md).
+O Gerenciador de recursos de cluster tenta minimizar o custo da movimentação de réplicas. Você pode saber mais sobre o [custo de movimento](service-fabric-cluster-resource-manager-movement-cost.md) e sobre como [reequilibrar estratégias e regras](service-fabric-cluster-resource-manager-metrics.md).
 
 ## <a name="cluster-capacity"></a>Capacidade do cluster
-Como é que o Gestor de recursos de Cluster do Service Fabric manter o cluster geral do que está a ser demasiado completo? Com a carga dinâmico, não há muita pode fazer. Serviços podem ter o pico de carga independentemente das ações que usa o Resource Manager de Cluster. Como resultado, o cluster com bastante espaço hoje pode ser inferior se houver um pico de amanhã. 
+Como o Gerenciador de recursos de Cluster Service Fabric mantém o cluster em total cheio? Com o carregamento dinâmico, não há muito que ele possa fazer. Os serviços podem ter seu pico de carga independentemente das ações que o Gerenciador de recursos de cluster usa. Como resultado, o cluster com muito espaço disponível hoje pode ser incapacitado se houver um pico no futuro. 
 
-Os controlos no Gestor de recursos do Cluster ajudam a evitar problemas. A primeira coisa que pode fazer é impedir que a criação de novas cargas de trabalho que faria com que o cluster para ficar cheio.
+Os controles no Gerenciador de recursos de cluster ajudam a evitar problemas. A primeira coisa que você pode fazer é impedir a criação de novas cargas de trabalho que poderiam fazer com que o cluster se tornasse cheio.
 
-Digamos que criar um serviço sem estado e tem alguns carga associada a ele. O serviço se preocupa a métrica "DiskSpaceInMb". O serviço irá consumir cinco unidades de "DiskSpaceInMb" para cada instância do serviço. Pretende criar três instâncias do serviço. Isso significa que terá de 15 unidades de "DiskSpaceInMb" estar presente no cluster que pode até mesmo criar estas instâncias de serviço.
+Digamos que você crie um serviço sem estado e que ele tenha alguma carga associada a ele. O serviço se preocupa com a métrica "DiskSpaceInMb". O serviço consumirá cinco unidades de "DiskSpaceInMb" para cada instância do serviço. Você deseja criar três instâncias do serviço. Isso significa que você precisa de 15 unidades de "DiskSpaceInMb" para estar presente no cluster para você até mesmo criar essas instâncias de serviço.
 
-Gestor de recursos de cluster continuamente calcula a capacidade e o consumo de cada métrica para que ele possa determinar a capacidade restante do cluster. Se não existir espaço suficiente, o Gestor de recursos de Cluster rejeita a chamada para criar um serviço.
+O Gerenciador de recursos de cluster calcula continuamente a capacidade e o consumo de cada métrica para que possa determinar a capacidade restante no cluster. Se não houver espaço suficiente, o Gerenciador de recursos de cluster rejeitará a chamada para criar um serviço.
 
-Como o requisito é apenas que 15 unidades estará disponíveis, é possível atribuir este espaço de muitas formas diferentes. Por exemplo, poderá haver uma unidade restante da capacidade em 15 nós diferentes, ou três unidades restantes da capacidade em cinco nós diferentes. Se o Gestor de recursos do Cluster pode reorganizar as coisas, portanto, existem cinco unidades disponíveis em três nós, ele coloca o serviço. Reorganizar o cluster é possível que, normalmente, a menos que o cluster está quase cheia ou os serviços existentes não podem ser consolidados por algum motivo.
+Como o requisito é apenas que 15 unidades estarão disponíveis, você pode alocar esse espaço de várias maneiras diferentes. Por exemplo, pode haver uma unidade restante de capacidade em 15 nós diferentes ou três unidades restantes de capacidade em cinco nós diferentes. Se o Gerenciador de recursos de cluster puder reorganizar as coisas para que haja cinco unidades disponíveis em três nós, ele colocará o serviço. A reorganização do cluster geralmente é possível, a menos que o cluster esteja quase cheio ou os serviços existentes não possam ser consolidados por algum motivo.
 
 ## <a name="buffered-capacity"></a>Capacidade em buffer
-A capacidade em buffer é outro recurso do Gestor de recursos do Cluster. Ele permite que a reserva de uma parte da capacidade global do nó. Esse buffer de capacidade é utilizado apenas para colocar serviços durante as atualizações e falhas de nó. 
+A capacidade em buffer é outro recurso do Gerenciador de recursos de cluster. Ele permite a reserva de alguma parte da capacidade geral do nó. Esse buffer de capacidade é usado apenas para posicionar serviços durante atualizações e falhas de nó. 
 
-Capacidade em buffer é especificada globalmente por métrica para todos os nós. O valor que escolher para a capacidade de reserva é uma função do número de domínios de falha de atualização que tiver no cluster. Domínios de atualização e de falha mais significam que pode escolher um número mais baixo para a sua capacidade em buffer. Se tiver mais de domínios, pode esperar quantidades menores do seu cluster estar indisponível durante as atualizações. Especificar a capacidade em buffer faz sentido apenas se especificou também a capacidade de nós para uma métrica.
+A capacidade em buffer é especificada globalmente por métrica para todos os nós. O valor que você escolhe para a capacidade reservada é uma função do número de domínios de falha e de atualização que você tem no cluster. Mais domínios de falha e atualização significam que você pode escolher um número mais baixo para a capacidade em buffer. Se você tiver mais domínios, poderá esperar que quantidades menores de seu cluster não estejam disponíveis durante atualizações e falhas. A especificação da capacidade em buffer faz sentido apenas se você também tiver especificado a capacidade do nó para uma métrica.
 
-Eis um exemplo de como especificar a capacidade em buffer na ClusterManifest.xml:
+Aqui está um exemplo de como especificar a capacidade em buffer em ClusterManifest. xml:
 
 ```xml
         <Section Name="NodeBufferPercentage">
@@ -566,7 +557,7 @@ Eis um exemplo de como especificar a capacidade em buffer na ClusterManifest.xml
         </Section>
 ```
 
-Eis um exemplo de como especificar a capacidade em buffer via ClusterConfig.json para das implementações autónomas ou Template para clusters alojado no Azure:
+Aqui está um exemplo de como especificar a capacidade em buffer por meio de ClusterConfig. JSON para implantações autônomas ou template. JSON para clusters hospedados no Azure:
 
 ```json
 "fabricSettings": [
@@ -586,17 +577,17 @@ Eis um exemplo de como especificar a capacidade em buffer via ClusterConfig.json
 ]
 ```
 
-A criação de novos serviços falha quando o cluster sem capacidade em buffer para uma métrica. Impedir a criação de novos serviços para preservar a memória intermédia garante que as atualizações e falhas não causam nós fiquem acima da capacidade. Capacidade em buffer é opcional, mas recomendamos em qualquer cluster que define uma capacidade para uma métrica.
+A criação de novos serviços falha quando o cluster está sem capacidade em buffer para uma métrica. Impedir a criação de novos serviços para preservar o buffer garante que as atualizações e falhas não façam com que os nós ultrapassem a capacidade. A capacidade em buffer é opcional, mas é recomendável em qualquer cluster que define uma capacidade para uma métrica.
 
-Gestor de recursos de cluster mostra essas informações de carga. Para cada uma, estas informações incluem: 
-- As definições de capacidade em buffer.
+O Gerenciador de recursos de cluster expõe essas informações de carga. Para cada métrica, essas informações incluem: 
+- As configurações de capacidade em buffer.
 - A capacidade total.
 - O consumo atual.
-- Se é considerada cada uma com o balanceamento de ou não.
-- Estatísticas sobre o desvio-padrão.
-- Os nós que têm o maior e menor carga.  
+- Se cada métrica é considerada equilibrada ou não.
+- Estatísticas sobre o desvio padrão.
+- Os nós que têm mais e menor carga.  
   
-O código seguinte mostra um exemplo dessa saída:
+O código a seguir mostra um exemplo dessa saída:
 
 ```PowerShell
 PS C:\Users\user> Get-ServiceFabricClusterLoadInformation
@@ -624,11 +615,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter informações sobre o fluxo de arquitetura e as informações no Gestor de recursos do Cluster, consulte [descrição geral da arquitetura do Resource Manager de Cluster](service-fabric-cluster-resource-manager-architecture.md).
-* A definição de métricas de desfragmentação é uma forma de consolidar a carga em nós em vez de dispersão-lo. Para saber como configurar a desfragmentação, veja [desfragmentação de métricas e de carga no Service Fabric](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
-* Começar do início e [obtenha uma introdução para o Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md).
-* Para saber como o Gestor de recursos de Cluster gere e faz o balanceamento de carga no cluster, veja [balanceamento de cluster do Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter informações sobre a arquitetura e o fluxo de informações no Gerenciador de recursos de cluster, consulte [visão geral da arquitetura do Gerenciador de recursos de cluster](service-fabric-cluster-resource-manager-architecture.md).
+* A definição de métricas de desfragmentação é uma maneira de consolidar a carga em nós em vez de difundir. Para saber como configurar a desfragmentação, consulte [desfragmentação de métricas e carga em Service Fabric](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
+* Comece desde o início e [obtenha uma introdução ao Service Fabric cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md).
+* Para saber como o Gerenciador de recursos de cluster gerencia e equilibra a carga no cluster, consulte [equilibrando seu cluster de Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

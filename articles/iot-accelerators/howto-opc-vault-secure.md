@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454196"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Usar o serviço de gerenciamento de certificados do cofre OPC
 
@@ -36,7 +36,7 @@ Se você ainda não tiver feito isso, crie o certificado de autoridade de certif
 > [!IMPORTANT]
 > A função de gravador é necessária para registrar um aplicativo.
 
-1. Abra seu serviço de certificado em `https://myResourceGroup-app.azurewebsites.net` e entre.
+1. Abra seu serviço de certificado em `https://myResourceGroup-app.azurewebsites.net`e entre.
 2. Vá para **registrar novo**. Para um registro de aplicativo, um usuário precisa ter pelo menos a função de gravador atribuída.
 2. O formulário de entrada segue as convenções de nomenclatura no OPC UA. Por exemplo, na captura de tela a seguir, as configurações para o exemplo de [servidor de referência do OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) na pilha de .net standard do OPC UA são mostradas:
 
@@ -57,7 +57,7 @@ Proteja seu aplicativo OPC UA emitindo um certificado assinado com base em uma s
 
 3. Selecione **solicitar novo par de chaves e certificado** para solicitar uma chave privada e um novo certificado assinado com a chave pública para seu aplicativo.
 
-   ![Captura de tela de gerar um novo par de chaves e certificado](media/howto-opc-vault-secure/generate-new-key-pair.png "Gerar novo par de chaves")
+   ![Captura de tela de gerar um novo par de chaves e certificado](media/howto-opc-vault-secure/generate-new-key-pair.png "Gerar Novo Par de Chaves")
 
 4. Preencha o formulário com um assunto e os nomes de domínio. Para a chave privada, escolha PEM ou PFX com senha. Selecione **gerar novo par de chaves** para criar a solicitação de certificado.
 
@@ -90,7 +90,7 @@ Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Norm
 
 5. A aprovação exige um usuário com a função de aprovador e com permissões de assinatura no Azure Key Vault. Selecione **aprovar** ou **rejeitar** para iniciar ou cancelar a operação de assinatura real. O certificado resultante com a chave pública é assinado pela autoridade de certificação. Essa operação pode levar alguns segundos para ser concluída.
 
-   ![Captura de tela de exibir detalhes da solicitação de certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-cert-csr.png "Exibir certificado")
+   ![Captura de tela de exibir detalhes da solicitação de certificado, com mensagem de aprovação na parte inferior](media/howto-opc-vault-secure/view-cert-csr.png "Ver Certificado")
 
 6. O certificado resultante (DER) pode ser baixado aqui como arquivo binário. Uma versão codificada em base64 também está disponível, por exemplo, para copiar e colar o certificado em uma linha de comando ou entrada de texto. 
 10. Depois que o certificado for baixado e armazenado com segurança, você poderá selecionar **excluir certificado**.
@@ -98,7 +98,7 @@ Agora, ele depende do dispositivo OPC UA como aplicar o novo par de chaves. Norm
 
 Agora, isso depende do dispositivo OPC UA como aplicar o novo certificado. Normalmente, o certificado de autoridade de certificação e a CRL são copiados para uma pasta de `trusted`, enquanto esse é aplicado a uma pasta `own` no repositório de certificados. Alguns dispositivos podem já dar suporte ao push do servidor para atualizações de certificado. Consulte a documentação do seu dispositivo OPC UA.
 
-### <a name="step-4-device-secured"></a>Etapa 4: dispositivo protegido
+### <a name="step-3-device-secured"></a>Etapa 3: dispositivo protegido
 
 O dispositivo OPC UA agora está pronto para se comunicar com outros dispositivos OPC UA protegidos por certificados assinados por CA, sem configuração adicional.
 

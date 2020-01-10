@@ -4,35 +4,31 @@ description: Utilizar implementações automática no Azure IoT Edge para gerir 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/27/2018
+ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 13390de8d3008907a0b55bf3a61c931dfdcd84e6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456726"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552360"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas do IoT Edge para dispositivos individuais ou em escala
 
-Azure IoT Edge dispositivos seguem um [ciclo de vida do dispositivo](../iot-hub/iot-hub-device-management-overview.md) semelhante a outros tipos de dispositivos IOT:
+As implantações automáticas e a implantação em camadas ajudam você a gerenciar e configurar módulos em um grande número de dispositivos IoT Edge. 
 
-1. Provisione novos dispositivos de IoT Edge ao gerar uma imagem de um dispositivo com um sistema operacional e instalar o [IOT Edge Runtime](iot-edge-runtime.md).
-2. Configure os dispositivos para executar [IOT Edge módulos](iot-edge-modules.md)e monitore sua integridade. 
-3. Por fim, extinga dispositivos quando eles são substituídos ou tornar-se obsoletas.  
-
-O Azure IoT Edge fornece duas maneiras de configurar os módulos para serem executados em dispositivos IoT Edge: um para desenvolvimento e iterações rápidas em um único dispositivo (você usou esse método nos [tutoriais](tutorial-deploy-function.md)de Azure IOT Edge) e outro para gerenciar grandes frotas de dispositivos IOT Edge. Ambas as abordagens estão disponíveis no portal do Azure e por meio de programação. Para grupos de direcionamento ou um grande número de dispositivos, você pode especificar em quais dispositivos você gostaria de implantar seus módulos usando [marcas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) no dispositivo. Os seguintes passos falam sobre uma implementação de um grupo de dispositivos de estado de Washington identificados por meio da propriedade de etiquetas. 
+O Azure IoT Edge fornece duas maneiras de configurar os módulos para serem executados em dispositivos IoT Edge. O primeiro método é implantar módulos em uma base por dispositivo. Você cria um manifesto de implantação e, em seguida, o aplica a um dispositivo específico por nome. O segundo método é implantar módulos automaticamente em qualquer dispositivo registrado que atenda a um conjunto de condições definidas. Você cria um manifesto de implantação e, em seguida, define a quais dispositivos ele se aplica com base nas [marcas](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) no dispositivo. 
 
 Este artigo se concentra na configuração e monitorização fases para frotas de dispositivos, coletivamente designado como implementações automáticas do IoT Edge. As etapas de implantação geral são as seguintes: 
 
 1. Um operador define uma implementação que descreve um conjunto de módulos, bem como os dispositivos de destino. Cada implantação tem um manifesto de implantação que reflete essas informações. 
 2. Comunica o serviço IoT Hub com todos os dispositivos direcionados para configurá-las com o número de módulos desejados. 
 3. O serviço IoT Hub obtém o estado dos dispositivos IoT Edge e disponibiliza-os para o operador.  Por exemplo, um operador pode ver quando um dispositivo de borda não é configurado com êxito ou se um módulo falha durante o tempo de execução. 
-4. Em qualquer altura, os novos dispositivos de IoT Edge que satisfazem as condições de direcionamento estão configurados para a implementação. Por exemplo, uma implantação que se destina a todos os dispositivos IoT Edge no estado de Washington configura automaticamente um novo dispositivo IoT Edge depois que ele é provisionado e adicionado ao grupo de dispositivos do estado de Washington. 
+4. Em qualquer altura, os novos dispositivos de IoT Edge que satisfazem as condições de direcionamento estão configurados para a implementação. 
  
-Este artigo descreve cada componente envolvido durante a configuração e monitorização de uma implementação. Para obter instruções sobre como criar e atualizar uma implantação, consulte [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md).
+Este artigo descreve cada componente envolvido durante a configuração e monitorização de uma implementação. Para obter instruções para criar e atualizar uma implementação, consulte [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Implementação
 
@@ -65,7 +61,7 @@ A condição de destino é avaliada continuamente durante o tempo de vida da imp
 
 Por exemplo, tem uma implementação de um com um tags.environment de condição de destino = 'prod'. Quando iniciar a implementação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O estado do agente do IoT Edge é mostrado como 10 dispositivos total, 10 respostas com êxito, 0 respostas de falhas e 0 respostas pendentes. Agora, adicionar cinco dispositivos mais com tags.environment = 'prod'. O serviço Deteta a alteração e o estado do agente do IoT Edge torna-se 15 dispositivos total, 10 respostas com êxito, respostas de falhas de 0 e 5 respostas pendentes ao tentar implementar a cinco novos dispositivos.
 
-Utilize qualquer condição booleana em etiquetas de gémeos de dispositivo ou deviceId para selecionar os dispositivos de destino. Se você quiser usar a condição com marcas, precisará adicionar "marcas":{} seção no dispositivo "/" no mesmo nível que as propriedades. [Saiba mais sobre marcas no dispositivo.](../iot-hub/iot-hub-devguide-device-twins.md)
+Utilize qualquer condição booleana em etiquetas de gémeos de dispositivo ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, tem de adicionar "etiquetas":{} secção no dispositivo duplo no mesmo nível que propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemplos de condição de destino:
 
@@ -79,43 +75,116 @@ Aqui estão alguns restringe ao construir uma condição de destino:
 
 * No dispositivo duplo, pode criar apenas uma condição de destino usando marcas ou deviceId.
 * Aspas não são permitidas em qualquer parte a condição de destino. Utilize plicas.
-* Aspas representam os valores da condição de destino. Por conseguinte, tem de escapar a aspa de segurança com outro aspa se faz parte do nome do dispositivo. Por exemplo, para direcionar um dispositivo chamado `operator'sDevice`, escreva `deviceId='operator''sDevice'`.
-* Números, letras e os caracteres a seguir são permitidos em valores de condição de destino: `-:.+%_#*?!(),=@;$`.
+* Aspas representam os valores da condição de destino. Por conseguinte, tem de escapar a aspa de segurança com outro aspa se faz parte do nome do dispositivo. Por exemplo, para um dispositivo de destino chamado `operator'sDevice`, escrever `deviceId='operator''sDevice'`.
+* Números, letras e os seguintes carateres são permitidos valores de condição de destino: `-:.+%_#*?!(),=@;$`.
 
-### <a name="priority"></a>Priority
+### <a name="priority"></a>Prioridade
 
 Uma prioridade define se uma implementação deve ser aplicada a um dispositivo de destino em relação ao outras implementações. Uma prioridade de implantação é um número inteiro, com os números maiores que indica a prioridade mais alta. Se um dispositivo IoT Edge é direcionado por mais de uma implementação, aplica-se a implementação com a prioridade mais alta.  Implantações com prioridades inferiores não são aplicadas, nem mescladas.  Se um dispositivo for direcionado a duas ou mais implantações com prioridade igual, a implantação criada mais recentemente (determinada pelo carimbo de data/hora de criação) se aplicará.
 
 ### <a name="labels"></a>Etiquetas 
 
-As etiquetas são pares de chave/valor de cadeia de caracteres que pode utilizar para filtrar e grupo de implementações. Uma implantação pode ter vários rótulos. As etiquetas são opcionais e fazer sem afetar a verdadeira configuração de dispositivos do IoT Edge. 
+Os rótulos são pares de chave/valor de cadeia de caracteres que você pode usar para filtrar e agrupar implantações. Uma implantação pode ter vários rótulos. Os rótulos são opcionais e não afetam a configuração real dos dispositivos IoT Edge. 
 
-### <a name="deployment-status"></a>Estado da implementação
+### <a name="metrics"></a>Métricas
 
-Uma implementação pode ser monitorizada para determinar se aplicadas com êxito para qualquer dispositivo IoT Edge direcionado.  Um dispositivo de borda de destino aparecerá em uma ou mais das seguintes categorias de status: 
+Por padrão, todas as implantações se reportam em quatro métricas:
 
-* **Destino** mostra os IOT Edge dispositivos que correspondem à condição de destino da implantação.
-* **Real** mostra os dispositivos de IOT Edge de destino que não são direcionados por outra implantação de prioridade mais alta.
-* **Íntegro** mostra os dispositivos IOT Edge que relataram de volta ao serviço que os módulos foram implantados com êxito. 
-* Não **íntegro** mostra que os dispositivos IOT Edge relataram ao serviço que um ou mais módulos não foram implantados com êxito. Para continuar a investigar o erro, ligar remotamente a esses dispositivos e ver os ficheiros de registo.
-* **Desconhecido** mostra os IOT Edge dispositivos que não relataram nenhum status referente a essa implantação. Para continuar a investigar, ver os ficheiros de registo e informações de serviço.
+* **Direcionado** mostra os dispositivos IOT Edge que correspondem à condição de direcionamento de implantação.
+* **Aplicado** mostra os dispositivos de IOT Edge de destino que não são direcionados por outra implantação de prioridade mais alta.
+* **Relatando êxito** mostra os dispositivos IOT Edge que relataram ao serviço que os módulos foram implantados com êxito. 
+* **Falha de relatório** mostra os dispositivos IOT Edge que relataram ao serviço que um ou mais módulos não foram implantados com êxito. Para continuar a investigar o erro, ligar remotamente a esses dispositivos e ver os ficheiros de registo.
+
+Além disso, você pode definir suas próprias métricas personalizadas para ajudar a monitorar e gerenciar a implantação. 
+
+As métricas fornecem contagens de resumo dos vários Estados que os dispositivos podem relatar de volta como resultado da aplicação de uma configuração de implantação. As métricas podem consultar as [Propriedades relatadas do módulo edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), como o último status desejado ou a hora da última conexão. Por exemplo: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+Adicionar suas próprias métricas é opcional e não afeta a configuração real dos dispositivos IoT Edge. 
+
+## <a name="layered-deployment"></a>Implantação em camadas
+
+Implantações em camadas são implantações automáticas que podem ser combinadas para reduzir o número de implantações exclusivas que precisam ser criadas. Implantações em camadas são úteis em cenários em que os mesmos módulos são reutilizados em combinações diferentes em muitas implantações automáticas. 
+
+Implantações em camadas têm os mesmos componentes básicos que qualquer implantação automática. Eles direcionam dispositivos com base em marcas no dispositivo gêmeos e fornecem a mesma funcionalidade em relação a rótulos, métricas e relatórios de status. Implantações em camadas também têm prioridades atribuídas a elas, mas em vez de usar a prioridade para determinar qual implantação é aplicada a um dispositivo, a prioridade determina como várias implantações são classificadas em um dispositivo. Por exemplo, se duas implantações em camadas tiverem um módulo ou uma rota com o mesmo nome, a implantação em camadas com a prioridade mais alta será aplicada enquanto a prioridade mais baixa for substituída. 
+
+Os módulos de tempo de execução do sistema, edgeAgent e edgeHub, não são configurados como parte de uma implantação em camadas. Qualquer dispositivo IoT Edge de destino de uma implantação em camadas precisa de uma implantação automática padrão aplicada a ele primeiro para fornecer a base sobre a qual as implantações em camadas podem ser adicionadas. 
+
+Um dispositivo IoT Edge pode aplicar apenas uma implantação automática padrão, mas pode aplicar várias implantações automáticas em camadas. Todas as implantações em camadas direcionadas a um dispositivo devem ter uma prioridade mais alta do que a implantação automática para esse dispositivo. 
+
+Por exemplo, considere o cenário a seguir de uma empresa que gerencia edifícios. Eles desenvolveram IoT Edge módulos para coletar dados de câmeras de segurança, sensores de movimento e elevadors. No entanto, nem todos os seus edifícios podem usar todos os três módulos. Com implantações automáticas padrão, a empresa precisa criar implantações individuais para todas as combinações de módulo de que seus edifícios precisam. 
+
+![As implantações automáticas padrão precisam acomodar cada combinação de módulo](./media/module-deployment-monitoring/standard-deployment.png)
+
+No entanto, uma vez que a empresa alterna para implantações automáticas em camadas, eles acham que podem criar as mesmas combinações de módulo para seus prédios com menos implantações para gerenciar. Cada módulo tem sua própria implantação em camadas e as marcas de dispositivo identificam quais módulos são adicionados a cada compilação. 
+
+![A implantação automática em camadas simplifica os cenários em que os mesmos módulos são combinados de maneiras diferentes](./media/module-deployment-monitoring/layered-deployment.png)
+
+### <a name="module-twin-configuration"></a>Configuração do módulo/.
+
+Ao trabalhar com implantações em camadas, você pode, intencionalmente ou não, ter duas implantações com o mesmo módulo destinado a um dispositivo. Nesses casos, você pode decidir se a implantação de prioridade mais alta deve substituir o módulo ou acrescentar a ele. Por exemplo, você pode ter uma implantação que aplica o mesmo módulo a 100 dispositivos diferentes. No entanto, 10 desses dispositivos estão em instalações seguras e precisam de configuração adicional para se comunicar através de servidores proxy. Você pode usar uma implantação em camadas para adicionar propriedades de módulo 10 que permitem que esses dez dispositivos se comuniquem de forma segura sem substituir as informações do módulo atual de propriedades da implantação de base. 
+
+Você pode acrescentar as propriedades desejadas do módulo d no manifesto de implantação. Em uma implantação padrão, você adicionaria Propriedades na seção **Properties. Desired** do módulo... em uma implantação em camadas, você pode declarar um novo subconjunto das propriedades desejadas. 
+
+Por exemplo, em uma implantação padrão, você pode adicionar o módulo sensor de temperatura simulado com as seguintes propriedades desejadas que o dizem para enviar dados em intervalos de 5 segundos:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+Em uma implantação em camadas direcionando os mesmos dispositivos ou um subconjunto dos mesmos dispositivos, talvez você queira adicionar uma propriedade adicional que informe ao sensor simulado para enviar mensagens 1000 e, em seguida, parar. Você não quer substituir as propriedades existentes, portanto, você cria uma nova seção dentro das propriedades desejadas chamada `layeredProperties` que contém a nova propriedade:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "StopAfterCount": 1000
+  }
+}
+```
+
+Um dispositivo que tenha ambas as implantações aplicadas refletirá o seguinte no módulo "/" para o sensor de temperatura simulado: 
+
+```json
+"properties": {
+  "desired": {
+    "SendData": true,
+    "SendInterval": 5,
+    "layeredProperties": {
+      "StopAfterCount": 1000
+    }
+  }
+}
+```
+
+Se você definir o campo `properties.desired` do módulo em uma implantação em camadas, ele substituirá as propriedades desejadas para esse módulo em todas as implantações de menor prioridade. 
 
 ## <a name="phased-rollout"></a>Implementação faseada 
 
-Uma implementação faseada é um processo geral no qual um operador implementa as alterações a um conjunto essa de dispositivos do IoT Edge. O objetivo é fazer alterações gradualmente para reduzir o risco de efetuar alterações significativas de grande escala.  
+Uma implementação faseada é um processo geral no qual um operador implementa as alterações a um conjunto essa de dispositivos do IoT Edge. O objetivo é fazer alterações gradualmente para reduzir o risco de efetuar alterações significativas de grande escala. As implantações automáticas ajudam a gerenciar distribuições em fases em uma frota de dispositivos IoT Edge. 
 
 Uma implementação faseada é executada nas seguintes fases e passos: 
 
-1. Estabeleça um ambiente de teste de dispositivos IoT Edge Provisionando-os e configurando uma marca de dispositivo para cima como `tag.environment='test'`. O ambiente de teste deve espelhar o ambiente de produção que a implantação eventualmente terá como destino. 
+1. Estabelecer um ambiente de teste de dispositivos do IoT Edge aprovisionamento-los e definindo uma marca de twin do dispositivo, como `tag.environment='test'`. O ambiente de teste deve espelhar o ambiente de produção que a implantação eventualmente terá como destino. 
 2. Crie uma implementação, incluindo o número de módulos desejados e configurações. A condição de destino deve visar o teste de ambiente de dispositivos do IoT Edge.   
 3. Valide a nova configuração de módulo no ambiente de teste.
 4. Atualize a implementação para incluir um subconjunto de dispositivos do IoT Edge de produção, adicionando uma nova etiqueta para a condição de destino. Além disso, certifique-se de que a prioridade para a implementação é maior do que outras implementações atualmente visadas para esses dispositivos 
 5. Certifique-se de que a implementação foi concluída com êxito nos dispositivos visados IoT ao visualizar o estado de implementação.
 6. Atualize a implementação para todos os restantes dispositivos de IoT Edge de produção de destino.
 
-## <a name="rollback"></a>Reversão
+## <a name="rollback"></a>Reverter
 
-Implementações podem ser revertidas caso receberá erros ou configurações incorretas.  Como uma implantação define a configuração de módulo absoluta para um dispositivo IoT Edge, uma implantação adicional também deve ser direcionada para o mesmo dispositivo em uma prioridade mais baixa, mesmo se a meta for remover todos os módulos.  
+Implementações podem ser revertidas caso receberá erros ou configurações incorretas. Como uma implantação define a configuração de módulo absoluta para um dispositivo IoT Edge, uma implantação adicional também deve ser direcionada para o mesmo dispositivo em uma prioridade mais baixa, mesmo se a meta for remover todos os módulos.  
+
+A exclusão de uma implantação não remove os módulos dos dispositivos de destino. Deve haver outra implantação que defina uma nova configuração para os dispositivos, mesmo se for uma implantação vazia. 
 
 Execute reversões a seguinte sequência: 
 
@@ -128,6 +197,6 @@ Execute reversões a seguinte sequência: 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Percorra as etapas para criar, atualizar ou excluir uma implantação em [implantar e monitorar módulos IOT Edge em escala](how-to-deploy-monitor.md).
-* Saiba mais sobre outros conceitos de IoT Edge como os módulos [IOT Edge Runtime](iot-edge-runtime.md) e [IOT Edge](iot-edge-modules.md).
+* Siga os passos para criar, atualizar ou eliminar uma implementação no [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).
+* Saiba mais sobre outros conceitos de IoT Edge, como o [runtime do IoT Edge](iot-edge-runtime.md) e [módulos do IoT Edge](iot-edge-modules.md).
 

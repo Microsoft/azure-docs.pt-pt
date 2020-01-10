@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151705"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462436"
 ---
 # <a name="workflow-automation-preview"></a>Automação de fluxo de trabalho (visualização)
 
@@ -87,6 +87,9 @@ Para executar manualmente um aplicativo lógico, abra uma recomendação e cliqu
 
 [![disparar um aplicativo lógico manualmente](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>Esquemas de tipos de dados
+
+Para exibir os esquemas de eventos brutos dos alertas de segurança ou eventos de recomendações passados para a instância do aplicativo lógico, visite os [esquemas de tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas). Isso pode ser útil em casos em que você não está usando conectores de aplicativos lógicos internos da central de segurança mencionados acima, mas, em vez disso, está usando o conector HTTP genérico do aplicativo lógico – você pode usar o esquema JSON de evento para analisá-lo manualmente como desejar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -98,3 +101,4 @@ Para obter outros materiais relacionados, consulte os seguintes artigos:
 - [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 - [Sobre os aplicativos lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Conectores de aplicativos lógicos](https://docs.microsoft.com/connectors/)
+- [Esquemas de tipos de dados de automação de fluxo de trabalho](https://aka.ms/ASCAutomationSchemas)

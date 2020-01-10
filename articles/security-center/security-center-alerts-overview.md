@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582611"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666283"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -35,7 +35,7 @@ Além disso, os invasores evoluíram seus métodos para subverter muitas defesas
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 
-Alertas são as notificações que a central de segurança gera quando detecta ameaças em seus recursos. A central de segurança prioriza e lista os alertas, juntamente com as informações necessárias para que você investigue rapidamente o problema. A central de segurança também fornece recomendações sobre como você pode corrigir um ataque.
+Os alertas são as notificações que o Centro de Segurança gera quando deteta ameaças nos seus recursos. A central de segurança prioriza e lista os alertas, juntamente com as informações necessárias para que você investigue rapidamente o problema. O Centro de Segurança também fornece recomendações sobre como pode remediar um ataque.
 
 ## Como a central de segurança detecta ameaças? <a name="detect-threats"> </a>
 
@@ -105,7 +105,7 @@ Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os t
 Os tópicos a seguir explicam como a central de segurança usa a telemetria diferente que ela coleta da integração com a infraestrutura do Azure, para aplicar camadas de proteção adicionais para recursos implantados no Azure:
 
 * [Alertas da camada de serviço](security-center-alerts-service-layer.md)
-* [Integração com os produtos de segurança do Azure](security-center-alerts-integration.md)
+* [Detecção de ameaças para o Azure WAF e a proteção contra DDoS do Azure](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>O que são incidentes de segurança?
 
@@ -113,9 +113,13 @@ Um incidente de segurança é uma coleção de alertas relacionados, em vez de l
 
 Usando incidentes, a central de segurança fornece uma única exibição de uma campanha de ataque e todos os alertas relacionados. Essa exibição permite que você entenda rapidamente as ações tomadas pelo invasor e quais recursos foram afetados. Para obter mais informações, consulte [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md).
 
+## <a name="security-alerts-in-azure-activity-log"></a>Alertas de segurança no log de atividades do Azure
+
+Além de estar disponível no portal do Azure ou programaticamente, os alertas de segurança e os incidentes são auditados como eventos no [log de atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obter mais informações sobre o esquema de eventos, consulte [alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, consulte:
+Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, veja:
 
 * [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [FAQ do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)

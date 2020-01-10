@@ -2,17 +2,17 @@
 title: Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs
 description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função Web de serviço de nuvem ou função de trabalho no Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360842"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço de nuvem no portal
 
@@ -41,7 +41,7 @@ Você deve considerar as seguintes informações antes de configurar o dimension
 Depois de selecionar o serviço de nuvem, você deve ter a folha serviço de nuvem visível.
 
 1. Na folha serviço de nuvem, no bloco **funções e instâncias** , selecione o nome do serviço de nuvem.   
-   **IMPORTANTE**: Certifique-se de clicar na função serviço de nuvem, não na instância de função que está abaixo da função.
+   **Importante**: Certifique-se de clicar na função de serviço de nuvem, não na instância de função que está abaixo da função.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o bloco **escala** .
@@ -59,7 +59,7 @@ Defina a opção **Dimensionar por** para **agendar e regras de desempenho**.
 2. Adicione uma regra para o perfil pai.
 3. Adicionar outro perfil.
 
-Selecione **Adicionar perfil**. O perfil determina qual modo você deseja usar para a escala: **sempre**, recorrência, **data fixa**.
+Selecione **Adicionar perfil**. O perfil determina qual modo você deseja usar para a escala: **sempre**, **recorrência**, **data fixa**.
 
 Depois de configurar o perfil e as regras, selecione o ícone **salvar** na parte superior.
 
@@ -105,3 +105,6 @@ Essa configuração remove o dimensionamento automático da função e, em segui
 3. Instâncias da função para a qual dimensionar.
 
 Depois de definir as configurações de escala, selecione o ícone **salvar** na parte superior.
+
+
+

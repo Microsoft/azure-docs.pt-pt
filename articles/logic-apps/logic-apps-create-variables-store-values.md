@@ -1,17 +1,17 @@
 ---
-title: Criar e gerenciar variáveis para armazenar valores
-description: Como armazenar e gerenciar valores usando variáveis em aplicativos lógicos do Azure
+title: Criar e gerenciar variáveis para armazenar e passar valores
+description: Saiba como armazenar, gerenciar, usar e passar valores usando variáveis em suas tarefas automatizadas e fluxo de trabalho que você cria com os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456691"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Armazenar e gerenciar valores usando variáveis em aplicativos lógicos do Azure
 
@@ -67,9 +67,9 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial-tu
 
    | Propriedade | Obrigatório | Valor |  Descrição |
    |----------|----------|-------|--------------|
-   | **Nome** | Sim | <*nome da variável*> | O nome da variável a ser incrementada |
-   | **Tipo** | Sim | <*tipo de variável*> | O tipo de dados para a variável |
-   | **Valor** | Não | <*valor inicial*> | O valor iniciar da variável <p><p>**Dica**: embora opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor inicial da variável. |
+   | **Nome** | Sim | <*variable-name*> | O nome da variável a ser incrementada |
+   | **Tipo** | Sim | <*variable-type*> | O tipo de dados para a variável |
+   | **Valor** | Não | <*start-value*> | O valor iniciar da variável <p><p>**Dica**: embora opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor inicial da variável. |
    |||||
 
    Por exemplo:
@@ -207,7 +207,7 @@ Para aumentar ou *incrementar* uma variável por um valor constante, adicione a 
 
    | Propriedade | Obrigatório | Valor |  Descrição |
    |----------|----------|-------|--------------|
-   | **Nome** | Sim | <*nome da variável*> | O nome da variável a ser incrementada |
+   | **Nome** | Sim | <*variable-name*> | O nome da variável a ser incrementada |
    | **Valor** | Não | <> *de incremento* | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para incrementar a variável. |
    ||||
 
@@ -328,7 +328,7 @@ Estas são as propriedades da ação de **variável decrementar** :
 
 | Propriedade | Obrigatório | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Sim | <*nome da variável*> | O nome da variável a diminuir | 
+| **Nome** | Sim | <*variable-name*> | O nome da variável a diminuir | 
 | **Valor** | Não | <> *de incremento* | O valor para decrementar a variável. O valor padrão é um. <p><p>**Dica**: embora opcional, defina esse valor como uma prática recomendada para que você sempre saiba o valor específico para decrementar a variável. |
 ||||| 
 
@@ -361,7 +361,7 @@ Aqui estão as propriedades para a ação **definir variável** :
 
 | Propriedade | Obrigatório | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Sim | <*nome da variável*> | O nome da variável a ser alterada |
+| **Nome** | Sim | <*variable-name*> | O nome da variável a ser alterada |
 | **Valor** | Sim | <> *de novo valor* | O valor para o qual você deseja atribuir a variável. Ambos devem ter o mesmo tipo de dados. |
 ||||| 
 
@@ -419,7 +419,7 @@ Aqui estão as propriedades para as ações **Append to..** .:
 
 | Propriedade | Obrigatório | Valor |  Descrição |
 |----------|----------|-------|--------------|
-| **Nome** | Sim | <*nome da variável*> | O nome da variável a ser alterada |
+| **Nome** | Sim | <*variable-name*> | O nome da variável a ser alterada |
 | **Valor** | Sim | <*de acréscimo-valor*> | O valor que você deseja acrescentar, que pode ter qualquer tipo |
 |||||
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167039"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690856"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início rápido: enviar telemetria de um dispositivo para um hub IoT e lê-lo com um aplicativo de back-end (Node. js)
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os dois aplicativos de exemplo executados neste guia de início rápido são escritos em node. js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
+Os dois aplicativos de exemplo executados neste guia de início rápido são escritos em node. js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento. Se você estiver usando o Azure Cloud Shell, não atualize a versão instalada do node. js. O Azure Cloud Shell já tem a versão mais recente do node. js.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -105,7 +105,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo anotada anteriormente. Em seguida, salve as alterações em **SimulatedDevice. js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e execute a aplicação de dispositivo simulado:
+1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado:
 
     ```cmd/sh
     npm install

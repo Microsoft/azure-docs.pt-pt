@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ba903d75707be91bb8af1271b52eb260ffcde306
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d27f792b39a1809cde0f27186f343af7d7aef60a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951240"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454173"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conectar um Raspberry Pi ao seu aplicativo de IoT Central doC#Azure ()
 
@@ -27,12 +27,12 @@ Este artigo descreve como, como desenvolvedor de dispositivos, conectar um Raspb
 
 Para concluir as etapas neste artigo, você precisa dos seguintes componentes:
 
-* Um aplicativo IoT Central do Azure criado no modelo de aplicativo **devkits de exemplo** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+* Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **herdado** . Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 * Um dispositivo Raspberry Pi que executa o sistema operacional Raspbian. O Raspberry Pi deve ser capaz de se conectar à Internet. Para obter mais informações, consulte [Configurando o Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
-## <a name="sample-devkits-application"></a>Aplicativo **devkits de exemplo**
+## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as seguintes características:
+No aplicativo IoT Central do Azure, adicione um novo modelo de dispositivo do **Raspberry Pi** com as seguintes características:
 
 * Telemetria, que inclui as seguintes medidas que o dispositivo coletará:
   * Humidade
@@ -43,12 +43,17 @@ Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um mo
   * Giroscópio (X, Y, Z)
 * Definições
   * Volta
-  * Atualizados
+  * Atual
   * Velocidade do ventilador
   * Alternância de IR.
 * Propriedades
   * Propriedade de dispositivo de número de matriz
   * Propriedade de nuvem de local
+
+1. Selecione **+ novo** nos modelos de dispositivo ![modelo de dispositivo](media/howto-connect-raspberry-pi-csharp/adddevicetemplate.png)
+   
+
+2. Selecione **Raspberry Pi** e crie o modelo de dispositivo Raspberry Pi ![adicionar modelo de dispositivo](media/howto-connect-raspberry-pi-csharp/newdevicetemplate.png)
 
 Para obter os detalhes completos da configuração do modelo de dispositivo, consulte os [detalhes do modelo de dispositivo do Raspberry Pi](#raspberry-pi-device-template-details).
 
@@ -333,7 +338,7 @@ Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um mo
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidade       | %      | 0       | 100     | 0              |
-| Temp           | °     | -40     | 120     | 0              |
+| temp           | °     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
@@ -349,15 +354,15 @@ Um aplicativo criado no modelo de aplicativo **devkits de exemplo** inclui um mo
 
 Configurações numéricas
 
-| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | This |
+| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Volta      | setvoltage | V | 0              | 0       | 240     | 0       |
-| Atualizados      | SetCurrent | 2,0  | 0              | 0       | 100     | 0       |
+| Volta      | setVoltage | V | 0              | 0       | 240     | 0       |
+| Atual      | SetCurrent | 2,0  | 0              | 0       | 100     | 0       |
 | Velocidade do ventilador    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Alternar configurações
 
-| Nome a apresentar | Nome do campo | Em texto | Fora do texto | This |
+| Nome a apresentar | Nome do campo | Em texto | Fora do texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ON      | OFF      | Desativado     |
 

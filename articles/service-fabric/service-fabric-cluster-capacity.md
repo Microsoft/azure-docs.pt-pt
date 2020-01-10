@@ -1,25 +1,15 @@
 ---
-title: Planejando a capacidade de Cluster Service Fabric | Microsoft Docs
+title: Planejando a capacidade de Cluster Service Fabric
 description: Service Fabric considerações de planejamento da capacidade do cluster. Tipos de NodeTypes, operações, durabilidade e confiabilidade
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463302"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de Cluster Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -109,7 +99,7 @@ Use a durabilidade Silver ou ouro para todos os tipos de nós que hospedam servi
 
 - Mantenha o cluster e os aplicativos sempre íntegros e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica de serviço](service-fabric-reliable-services-lifecycle.md) (como a réplica na compilação está paralisada) em tempo hábil.
 - Adote maneiras mais seguras de fazer uma alteração de SKU de VM (escalar verticalmente): alterar a SKU de VM de um conjunto de dimensionamento de máquinas virtuais requer várias etapas e considerações. Este é o processo que você pode seguir para evitar problemas comuns.
-    - **Para tipos de nós não primários:** É recomendável que você crie um novo conjunto de dimensionamento de máquinas virtuais, modifique a restrição de posicionamento do serviço para incluir o novo tipo de nó/conjunto de dimensionamento de máquinas virtuais e, em seguida, reduza a contagem de instância antiga do conjunto de dimensionamento de máquinas virtuais para zero, um nó por vez (isso é para fazer Certifique-se de que a remoção dos nós não afete a confiabilidade do cluster).
+    - **Para tipos de nós não primários:** É recomendável que você crie um novo conjunto de dimensionamento de máquinas virtuais, modifique a restrição de posicionamento do serviço para incluir o novo tipo de conjunto de escala/nó de máquina virtual e, em seguida, reduza a contagem de instâncias do conjunto de dimensionamento de máquinas virtuais antiga para zero, um nó por vez
     - **Para o tipo de nó primário:** Se o SKU da VM selecionado estiver na capacidade e você quiser alterar para um SKU de VM maior, siga nossas diretrizes sobre [o dimensionamento vertical de um tipo de nó primário](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
 
 - Mantenha uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquinas virtuais que tenha o nível de durabilidade Gold ou prata habilitado.
@@ -161,7 +151,7 @@ Para cargas de trabalho de produção:
 
 - É recomendável dedicar seus clusters primários NodeType aos serviços do sistema e usar restrições de posicionamento para implantar seu aplicativo em NodeTypes secundários.
 - O SKU de VM recomendado é o padrão D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
+- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou padrão D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
 - Nossa recomendação é um mínimo de 50 GB. Para suas cargas de trabalho, especialmente ao executar contêineres do Windows, discos maiores são necessários. 
 - SKUs de VM de núcleo parcial, como Standard a0, não têm suporte para cargas de trabalho de produção.
 - Não há suporte para SKUs de VM de série para cargas de trabalho de produção por motivos de desempenho.
@@ -183,7 +173,7 @@ Portanto, para cargas de trabalho de produção, o tamanho mínimo recomendado d
 Para cargas de trabalho de produção 
 
 - O SKU de VM recomendado é o padrão D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
+- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou padrão D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
 - SKUs de VM de núcleo parcial, como Standard a0, não têm suporte para cargas de trabalho de produção.
 - Não há suporte para SKUs de VM de série para cargas de trabalho de produção por motivos de desempenho.
 

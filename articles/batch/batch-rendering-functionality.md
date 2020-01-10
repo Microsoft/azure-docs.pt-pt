@@ -1,18 +1,18 @@
 ---
 title: Recursos de renderização – lote do Azure
-description: Recursos de renderização específicos no lote do Azure
+description: Os recursos do lote do Azure padrão são usados para executar aplicativos e cargas de trabalho de renderização. O lote inclui recursos específicos para dar suporte à renderização de cargas de trabalho.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449711"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização do lote do Azure
 
@@ -30,10 +30,10 @@ Há uma imagem do Windows 2016 e uma imagem CentOS.  No [Azure Marketplace](http
 
 Para obter um exemplo de configuração de pool, consulte o [tutorial de renderização de CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal do Azure e Batch Explorer fornecem ferramentas de GUI para selecionar uma imagem de renderização de VM quando você cria um pool.  Se estiver usando uma API do lote, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
-| Fabricante | Oferta | Sku | Version |
+| Publicador | Oferta | SKU | Versão |
 |---------|---------|---------|--------|
-| lote | rendering-centos73 | tratamento | latest |
-| lote | rendering-windows2016 | tratamento | latest |
+| batch | rendering-centos73 | tratamento | mais recente |
+| batch | rendering-windows2016 | tratamento | mais recente |
 
 Outras opções estarão disponíveis se forem necessários aplicativos adicionais nas VMs do pool:
 
@@ -62,7 +62,7 @@ Se for feita uma tentativa de usar um aplicativo, mas o aplicativo não tiver si
 
 Para poder criar a linha de comando para as tarefas de renderização, o local de instalação dos executáveis do aplicativo de renderização deve ser especificado.  Variáveis de ambiente do sistema foram criadas nas imagens de VM do Azure Marketplace, que podem ser usadas em vez de ter que especificar caminhos reais.  Essas variáveis de ambiente são além das [variáveis de ambiente do lote padrão](https://docs.microsoft.com/azure/batch/batch-compute-node-environment-variables) criadas para cada tarefa.
 
-|Aplicação|Executável do aplicativo|Variável de Ambiente|
+|Candidatura|Executável do aplicativo|Variável de ambiente|
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|

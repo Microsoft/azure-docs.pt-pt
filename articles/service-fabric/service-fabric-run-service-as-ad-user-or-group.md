@@ -1,34 +1,25 @@
 ---
-title: Executar um serviço de Azure Service Fabric como um utilizador ou grupo | Documentos da Microsoft
-description: Saiba como executar um serviço como um utilizador do Active Directory ou o grupo num cluster autónomo do Windows do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Executar um serviço de Service Fabric do Azure como um usuário ou grupo do AD
+description: Saiba como executar um serviço como um Active Directory usuário ou grupo em um Cluster Service Fabric Windows autônomo.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 3e0bb62609f13430bd2beab2332a31983874eb8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d440aadb66562e32331c9725a9367c12440a315d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464242"
 ---
-# <a name="run-a-service-as-an-active-directory-user-or-group"></a>Executar um serviço como um utilizador do Active Directory ou o grupo
-Num cluster autónomo do Windows Server, pode executar um serviço como um utilizador do Active Directory ou o grupo através de uma política de RunAs.  Por predefinição, as aplicações do Service Fabric executam sob a conta que o processo de Fabric.exe é executado em. Execução de aplicativos sob diferentes contas, mesmo num ambiente de hospedagem compartilhado, torna mais seguro umas das outras. Tenha em atenção que isto utiliza o Active Directory no local dentro de seu domínio e não do Azure Active Directory (Azure AD).  Também pode executar um serviço como um [conta de serviço gerida (gMSA) de grupo](service-fabric-run-service-as-gmsa.md).
+# <a name="run-a-service-as-an-active-directory-user-or-group"></a>Executar um serviço como um Active Directory usuário ou grupo
+Em um cluster autônomo do Windows Server, você pode executar um serviço como um Active Directory usuário ou grupo usando uma política RunAs.  Por padrão, Service Fabric aplicativos são executados sob a conta sob a qual o processo Fabric. exe é executado. Executar aplicativos em contas diferentes, mesmo em um ambiente hospedado compartilhado, os torna mais seguros uns dos outros. Observe que isso usa Active Directory local em seu domínio e não Azure Active Directory (AD do Azure).  Você também pode executar um serviço como uma [conta de serviço gerenciado de grupo (gMSA)](service-fabric-run-service-as-gmsa.md).
 
-Ao utilizar um utilizador de domínio ou grupo, em seguida, pode aceder a outros recursos no domínio (por exemplo, as partilhas de ficheiros) que tenham sido concedidos permissões.
+Usando um usuário ou grupo de domínio, você pode acessar outros recursos no domínio (por exemplo, compartilhamentos de arquivos) que receberam permissões.
 
-O exemplo seguinte mostra um utilizador do Active Directory chamado *TestUser* com o seu domínio chamado encriptado através de um certificado de palavra-passe *MyCert*. Pode utilizar o `Invoke-ServiceFabricEncryptText` comando do PowerShell para criar o texto de cifra secreta. Ver [gerir segredos em aplicações do Service Fabric](service-fabric-application-secret-management.md) para obter detalhes.
+O exemplo a seguir mostra um usuário Active Directory chamado *testuser* com sua senha de domínio criptografada usando um certificado chamado *MyCert*. Você pode usar o comando `Invoke-ServiceFabricEncryptText` PowerShell para criar o texto cifrado secreto. Consulte [Gerenciando segredos em Service Fabric aplicativos](service-fabric-application-secret-management.md) para obter detalhes.
 
-Tem de implementar a chave privada do certificado para desencriptar a palavra-passe para o computador local utilizando um método de fora de banda (no Azure, este é através do Azure Resource Manager). Em seguida, quando o Service Fabric implementa o pacote de serviço para a máquina, é capaz de desencriptar o segredo e (juntamente com o nome de utilizador) autenticar com o Active Directory para ser executado sob essas credenciais.
+Você deve implantar a chave privada do certificado para descriptografar a senha para o computador local usando um método fora de banda (no Azure, isso ocorre por meio de Azure Resource Manager). Em seguida, quando Service Fabric implanta o pacote de serviço no computador, ele é capaz de descriptografar o segredo e (junto com o nome de usuário) autenticar com Active Directory para ser executado sob essas credenciais.
 
 ```xml
 <Principals>
@@ -46,13 +37,13 @@ Tem de implementar a chave privada do certificado para desencriptar a palavra-pa
 ```
 
 > [!NOTE] 
-> Se aplicar uma política de RunAs para um serviço e o manifesto do serviço declara os recursos de ponto final com o protocolo HTTP, também tem de especificar um **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso de segurança para pontos finais HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
+> Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, você também deverá especificar um **SecurityAccessPolicy**.  Para obter mais informações, consulte [atribuir uma política de acesso de segurança para pontos de extremidade http e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-Como passo seguinte, leia os artigos seguintes:
-* [Compreender o modelo de aplicativo](service-fabric-application-model.md)
-* [Especificar recursos num manifesto do serviço](service-fabric-service-manifest-resources.md)
+Como uma próxima etapa, leia os seguintes artigos:
+* [Entender o modelo de aplicativo](service-fabric-application-model.md)
+* [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implementar uma aplicação](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

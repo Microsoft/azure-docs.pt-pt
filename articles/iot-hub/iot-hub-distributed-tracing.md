@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457044"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens do dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -88,22 +88,23 @@ Estas instruções são para a criação do exemplo no Windows. Para outros ambi
 
 ### <a name="clone-the-source-code-and-initialize"></a>Clonar o código-fonte e inicializar
 
-1. Instale a [carga de trabalho C++"desenvolvimento de desktops com"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) para o Visual Studio 2015 ou 2017.
+1. Instale [a carga de trabalho C++"desenvolvimento de desktops com"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) para o Visual Studio 2019. Também há suporte para o Visual Studio 2017 e 2015.
 
 1. Instale o [CMake](https://cmake.org/). Verifique se ele está na sua `PATH` digitando `cmake -version` de um prompt de comando.
 
-1. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) no repositório do GitHub:
+1. Abra uma linha de comandos ou a shell do Git Bash. Execute os seguintes comandos para clonar a versão mais recente do repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) :
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Esta operação deve demorar vários minutos a ser concluída.
 
-1. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta.
+1. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. Execute os seguintes comandos no diretório `azure-iot-sdk-c`:
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -240,7 +241,7 @@ Para atualizar a configuração de amostragem de rastreamento distribuído para 
 }
 ```
 
-| Nome do elemento | Necessário | Tipo | Descrição |
+| Nome do elemento | Obrigatório | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sim | Número inteiro | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. o `1` está ativado e, `2` está desativado. |
 | `sampling_rate` | Sim | Número inteiro | Esse valor é uma porcentagem. Somente os valores de `0` para `100` (inclusivo) são permitidos.  |

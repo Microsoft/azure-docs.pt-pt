@@ -1,31 +1,23 @@
 ---
-title: Threat Modeling Tool releases-Microsoft Threat Modeling Tool-Azure | Microsoft Docs
+title: Versão Microsoft Threat Modeling Tool 10/16/2019 – Azure
 description: Documentando as notas de versão da ferramenta de modelagem de ameaças
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: jegeib
-ms.openlocfilehash: ba18989b72f0c3f44099031a6949acc54ce41db0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 452b44653775a1bcb9456b62e1587b5ff2dff874
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233834"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552054"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Versão de atualização da Threat Modeling Tool 7.1.61015.1 - 16/10/2019
 
 A versão 7.1.61015.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em outubro de 16 2019 e contém as seguintes alterações:
 
-- Aprimoramentos de acessibilidade
+- Melhorias de acessibilidade
 - Correções de erros
 - Novos estênceis para aplicativos lógicos do Azure e Data Explorer do Azure
 
@@ -68,6 +60,6 @@ Esse problema está em investigação
 
 - A documentação do Threat Modeling Tool está localizada em [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)e inclui informações [sobre como usar a ferramenta](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Baixe a versão mais recente do [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

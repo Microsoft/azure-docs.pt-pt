@@ -1,23 +1,14 @@
 ---
-title: Torne os recursos mais seguros com o Azure Advisor | Microsoft Docs
+title: Torne os recursos mais seguros com o Azure Advisor
 description: Use o Azure Advisor para ajudar a melhorar a segurança de suas implantações do Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-manager: ''
-ms.assetid: ''
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 5a4b7e9a9d9a7919155db361fd2c96ed98e6e5a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443043"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Torne os recursos mais seguros com o Azure Advisor
 

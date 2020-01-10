@@ -1,6 +1,6 @@
 ---
 title: Planeje seu ambiente GA-Azure Time Series Insights | Microsoft Docs
-description: Saiba mais sobre as práticas recomendadas a serem seguidas ao planejar seu ambiente GA.
+description: Práticas recomendadas para preparar, configurar e implantar seu ambiente Azure Time Series Insights GA.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452868"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
 

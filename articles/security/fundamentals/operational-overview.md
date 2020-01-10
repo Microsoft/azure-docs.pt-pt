@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443872"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -32,7 +32,7 @@ Uma equipe de operações de ti é responsável por gerenciar a infraestrutura, 
 
 [Microsoft Azure logs de monitoramento](/azure/operations-management-suite/operations-management-suite-overview) é uma solução de gerenciamento de ti baseada em nuvem que ajuda você a gerenciar e proteger sua infraestrutura local e na nuvem. Sua funcionalidade principal é fornecida pelos seguintes serviços que são executados no Azure. O Azure inclui vários serviços que ajudam a gerenciar e proteger sua infraestrutura local e na nuvem. Cada serviço fornece uma função de gerenciamento específica. Você pode combinar serviços para alcançar diferentes cenários de gerenciamento. 
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Monitor do Azure
 
 [Azure monitor](/azure/azure-monitor/overview) coleta dados de fontes gerenciadas em armazenamentos de dados centrais. Esses dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos por meio da API. Depois que os dados são coletados, eles estão disponíveis para alertas, análises e exportação.
 
@@ -42,15 +42,15 @@ Você pode consolidar dados de uma variedade de fontes e combinar dados de seus 
 
 A [automação do Azure](/azure/automation/automation-intro) fornece uma maneira de automatizar as tarefas manuais, demoradas, propensas a erros e repetidas com frequência que normalmente são executadas em um ambiente corporativo e de nuvem. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas. Ele até agenda essas tarefas para serem executadas automaticamente em intervalos regulares. Você pode automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando a configuração de estado desejado.
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 O [backup do Azure](/azure/backup/backup-introduction-to-azure-backup) é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar seus dados no Microsoft Cloud. O backup do Azure substitui sua solução existente de backup local ou fora do local por uma solução baseada em nuvem que é confiável, segura e de custo competitivo.
 
 O backup do Azure oferece componentes que você baixa e implanta no computador ou servidor apropriado ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes de backup do Azure (se você estiver protegendo dados locais ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos serviços de recuperação do Azure no Azure.
 
-Para obter mais informações, consulte a [tabela componentes de backup do Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Para obter mais informações, consulte a [tabela componentes de backup do Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Site Recovery
+### <a name="site-recovery"></a>Recuperação de Site
 
 O [Azure site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) fornece continuidade de negócios ao orquestrar a replicação de máquinas virtuais e físicas locais para o Azure ou para um site secundário. Se o seu site primário não estiver disponível, você faz failover para o local secundário para que os usuários possam continuar trabalhando. Você faz failback quando os sistemas retornam para a ordem de trabalho. Use a central de segurança do Azure para realizar uma detecção de ameaças mais inteligente e eficaz.
 
@@ -89,14 +89,14 @@ A [central de segurança do Azure](/azure/security-center/security-center-intro)
 
 A central de segurança usa o [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/role-assignments-portal). O RBAC fornece [funções internas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
-A central de segurança avalia a configuração de seus recursos para identificar problemas de segurança e vulnerabilidades. Na central de segurança, você vê informações relacionadas a um recurso somente quando recebe a função de proprietário, colaborador ou leitor para a assinatura ou grupo de recursos ao qual um recurso pertence.
+Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. Na central de segurança, você vê informações relacionadas a um recurso somente quando recebe a função de proprietário, colaborador ou leitor para a assinatura ou grupo de recursos ao qual um recurso pertence.
 
 >[!Note]
 >Para saber mais sobre funções e ações permitidas na central de segurança, confira [permissões na central de segurança do Azure](/azure/security-center/security-center-permissions).
 
 A central de segurança usa o Microsoft Monitoring Agent. Esse é o mesmo agente usado pelo serviço de Azure Monitor. Os dados coletados desse agente são armazenados em um espaço de [trabalho](/azure/log-analytics/log-analytics-manage-access) log Analytics existente associado à sua assinatura do Azure ou a um novo espaço de trabalho, levando em conta a localização geográfica da VM.
 
-## <a name="azure-monitor"></a>Azure Monitor
+## <a name="azure-monitor"></a>Monitor do Azure
 
 Problemas de desempenho em seu aplicativo de nuvem podem afetar seus negócios. Com vários componentes interconectados e versões frequentes, as degradações podem ocorrer a qualquer momento. E se você estiver desenvolvendo um aplicativo, os usuários geralmente descobrirão problemas que você não encontrou durante o teste. Você deve saber sobre esses problemas imediatamente e deve ter ferramentas para diagnosticar e corrigir os problemas.
 
@@ -106,13 +106,13 @@ Você também pode usar dados de monitoramento para obter informações aprofund
 
 Azure Monitor inclui os componentes a seguir.
 
-### <a name="azure-activity-log"></a>Log de atividades do Azure
+### <a name="azure-activity-log"></a>Registo de Atividades do Azure
 
 O [log de atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornece informações sobre as operações que foram executadas em recursos em sua assinatura. Anteriormente, era conhecido como "log de auditoria" ou "log operacional", pois ele relata eventos de plano de controle para suas assinaturas.
 
 ### <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
-[Os logs de diagnóstico do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia por tipo de recurso.
+[Os logs de diagnóstico do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo estes registos varia consoante o tipo de recurso.
 
 Os logs do sistema de eventos do Windows são uma categoria de logs de diagnóstico para VMs. Os logs de BLOB, tabela e fila são categorias de logs de diagnóstico para contas de armazenamento.
 
@@ -126,7 +126,7 @@ Azure Monitor fornece telemetria que oferece visibilidade do desempenho e da int
 
 Diagnóstico do Azure habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes. Atualmente, há suporte para [funções de serviço de nuvem do Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service), [máquinas virtuais do Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service) executando o Microsoft Windows e [Service Fabric do Azure](/azure/monitoring-and-diagnostics/azure-diagnostics).
 
-## <a name="azure-network-watcher"></a>Observador de rede do Azure
+## <a name="azure-network-watcher"></a>Observador de Rede do Azure
 
 Os clientes criam uma rede de ponta a ponta no Azure ao orquestrar e compor recursos de rede individuais, como redes virtuais, Azure ExpressRoute, gateway de Aplicativo Azure e balanceadores de carga. O monitoramento está disponível em cada um dos recursos de rede.
 

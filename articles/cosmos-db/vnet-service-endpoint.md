@@ -1,5 +1,5 @@
 ---
-title: Proteger o acesso a uma conta de Azure Cosmos DB usando o ponto de extremidade de serviço de rede virtual do Azure
+title: Proteger o acesso a contas de Azure Cosmos DB usando o ponto de extremidade de serviço de rede virtual
 description: Este documento descreve sobre a rede virtual e o controle de acesso à sub-rede para uma conta do Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444624"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar Azure Cosmos DB de redes virtuais (VNet)
 

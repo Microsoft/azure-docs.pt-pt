@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3deb3bd0ff66bb31691c4c380595771e3bf2c681
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73902002"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691060"
 ---
 # <a name="list-blobs-with-net"></a>Listar BLOBs com .NET
 
@@ -140,12 +140,12 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     try
     {
         // Call the listing operation and enumerate the result segment.
-        // When the continuation token is null, the last segment has been returned and 
+        // When the continuation token is null, the last segment has been returned and
         // execution can exit the loop.
         do
         {
             BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(prefix,
-                false, BlobListingDetails.Metadata, null, null, null, null);
+                false, BlobListingDetails.Metadata, null, continuationToken, null, null);
             foreach (var blobItem in resultSegment.Results)
             {
                 // A hierarchical listing may return both virtual directories and blobs.

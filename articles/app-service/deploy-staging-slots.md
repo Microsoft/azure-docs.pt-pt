@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671762"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666465"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no serviço Azure App
 <a name="Overview"></a>
@@ -23,20 +23,24 @@ Implantar seu aplicativo em um slot de não produção tem os seguintes benefíc
 * A implantação de um aplicativo em um slot primeiro e sua troca na produção garante que todas as instâncias do slot sejam ativadas antes de serem trocadas na produção. Isso elimina o tempo de inatividade quando você implanta seu aplicativo. O redirecionamento de tráfego é contínuo e nenhuma solicitação é descartada devido a operações de permuta. Você pode automatizar todo esse fluxo de trabalho configurando a [troca automática](#Auto-Swap) quando a validação de pré-atualização não for necessária.
 * Após uma troca, o slot com o aplicativo preparado anteriormente agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem as esperadas, você poderá executar a mesma troca imediatamente para obter o "último site bom conhecido" de volta.
 
-Cada camada de plano do serviço de aplicativo dá suporte a um número diferente de Slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Cada camada de plano do serviço de aplicativo dá suporte a um número diferente de Slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada de destino dá suporte ao número de slots que seu aplicativo já usa. Por exemplo, se seu aplicativo tiver mais de cinco slots, você não poderá dimensioná-lo para a camada **Standard** , pois a camada **Standard** oferece suporte a apenas cinco slots de implantação. 
 
 <a name="Add"></a>
 
-## <a name="add-a-slot"></a>Adicionar um slot
+## <a name="add-a-slot"></a>Adicionar um bloco
 O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Isolated** para que você habilite vários slots de implantação.
 
-1. Na [portal do Azure](https://portal.azure.com/), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)do aplicativo.
+
+1. na [portal do Azure](https://portal.azure.com/), procure e selecione serviços de **aplicativos** e selecione seu aplicativo. 
+   
+    ![Pesquisar serviços de aplicativos](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. No painel esquerdo, selecione **Slots de implantação** > **Adicionar slot**.
    
-    ![Adicionar um novo slot de implantação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Adicionar um novo bloco de implementação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Se o aplicativo ainda não estiver na camada **Standard**, **Premium**ou **Isolated** , você receberá uma mensagem que indica as camadas com suporte para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **escala** do seu aplicativo antes de continuar.
@@ -44,7 +48,7 @@ O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Is
 
 3. Na caixa de diálogo **Adicionar um slot** , dê um nome ao slot e selecione se deseja clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
    
-    ![Fonte de configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Origem da configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Você pode clonar uma configuração de qualquer slot existente. As configurações que podem ser clonadas incluem configurações de aplicativo, cadeias de conexão, versões de estrutura de linguagem, soquetes Web, versão HTTP e bit de bits de plataforma.
 
@@ -97,7 +101,7 @@ Em qualquer ponto da operação de permuta, todo o trabalho de inicializar os ap
 
 Para configurar uma cadeia de conexão ou configuração de aplicativo para se conectar a um slot específico (não trocado), vá para a página de **configuração** desse slot. Adicione ou edite uma configuração e, em seguida, selecione **configuração do slot de implantação**. Marcar essa caixa de seleção informa ao serviço de aplicativo que a configuração não é intercambiável. 
 
-![Configuração de slot](./media/web-sites-staged-publishing/SlotSetting.png)
+![Definição do bloco](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -166,7 +170,7 @@ Se ocorrerem erros no slot de destino (por exemplo, o slot de produção) após 
 
 <a name="Auto-Swap"></a>
 
-## <a name="configure-auto-swap"></a>Configurar troca automática
+## <a name="configure-auto-swap"></a>Configurar a troca automática
 
 > [!NOTE]
 > A troca automática não tem suporte em aplicativos Web no Linux.
@@ -206,7 +210,7 @@ Para obter mais informações sobre como personalizar o elemento `applicationIni
 
 Você também pode personalizar o comportamento de aquecimento com uma ou ambas as seguintes configurações de [aplicativo](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: o caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: o caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra como o valor. Um exemplo é `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas de códigos HTTP. Um exemplo é `200,202`. Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
 > [!NOTE]
@@ -241,7 +245,7 @@ Depois que a configuração é salva, a porcentagem especificada de clientes é 
 Depois que um cliente é roteado automaticamente para um slot específico, ele é "fixado" a esse slot durante a vida útil dessa sessão de cliente. No navegador do cliente, você pode ver em qual slot sua sessão está fixa examinando o `x-ms-routing-name` cookie em seus cabeçalhos HTTP. Uma solicitação que é roteada para o slot de "preparo" tem o cookie `x-ms-routing-name=staging`. Uma solicitação que é roteada para o slot de produção tem o cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Ao lado do portal do Azure, você também pode usar o comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) na CLI do Azure para definir as porcentagens de roteamento de ferramentas de CI/CD, como pipelines DevOps ou outros sistemas de automação.
+   > Ao lado do portal do Azure, você também pode usar o comando [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) no CLI do Azure para definir as porcentagens de roteamento de ferramentas de CI/CD, como pipelines DevOps ou outros sistemas de automação.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Rotear tráfego de produção manualmente
@@ -268,7 +272,7 @@ Por padrão, novos slots recebem uma regra de roteamento de `0%`, mostrados em c
 
 ## <a name="delete-a-slot"></a>Excluir um slot
 
-Vá para a página de recursos do aplicativo. Selecione **Slots de implantação** > *slot de\<para excluir >* **visão geral**de > . Selecione **excluir** na barra de comandos.  
+Pesquise e selecione seu aplicativo. Selecione **Slots de implantação** > *slot de\<para excluir >* **visão geral**de > . Selecione **excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,16 +331,16 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automatizar com modelos ARM
+## <a name="automate-with-resource-manager-templates"></a>Automatizar com modelos do Resource Manager
 
-Os [modelos do ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração dos recursos do Azure. Para trocar os slots usando modelos ARM, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+Os [modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração de recursos do Azure. Para trocar os slots usando modelos do Resource Manager, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
 - `buildVersion`: essa é uma propriedade de cadeia de caracteres que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres que especifica o que `buildVersion` o slot deve ter. Se o targetBuildVersion não for igual ao `buildVersion`atual, isso disparará a operação de permuta encontrando o slot que tem o `buildVersion`especificado.
 
-### <a name="example-arm-template"></a>Exemplo de modelo ARM
+### <a name="example-resource-manager-template"></a>Exemplo de modelo do Resource Manager
 
-O modelo ARM a seguir atualizará a `buildVersion` do slot de preparo e definirá o `targetBuildVersion` no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
+O modelo do Resource Manager a seguir atualizará o `buildVersion` do slot de preparo e definirá o `targetBuildVersion` no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
 
 ```json
 {
@@ -380,7 +384,7 @@ O modelo ARM a seguir atualizará a `buildVersion` do slot de preparo e definir�
 }
 ```
 
-Esse modelo de ARM é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` corresponderá à `buildVersion`atual, de modo que uma troca não será disparada.
+Esse modelo do Resource Manager é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` corresponderá à `buildVersion`atual, de modo que uma troca não será disparada.
 
 <!-- ======== Azure CLI =========== -->
 

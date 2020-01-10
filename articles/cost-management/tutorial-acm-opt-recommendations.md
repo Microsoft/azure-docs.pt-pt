@@ -1,5 +1,5 @@
 ---
-title: Tutorial - reduzir os custos do Azure com recomendações de otimização | Documentos da Microsoft
+title: Tutorial-reduzir os custos do Azure com recomendações
 description: Este tutorial ajuda-o a reduzir os custos do Azure, quando agir em recomendações de otimização.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c3fc60ca623649a175fb1078efc6903ebde2811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444594"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos de recomendações
 
@@ -47,9 +47,9 @@ Para exibir as recomendações para um grupo de gerenciamento, abra o escopo des
 
 ![Custos recomendações do Assistente de gestão apresentadas no portal do Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
-A lista de recomendações identifica ineficiências de utilização ou mostra as recomendações de compra que podem ajudar a poupar dinheiro adicional. A economia de **potencial anual** total mostra o valor total que você pode salvar se você desligar ou desalocar todas as suas VMs que atendem às regras de recomendação. Se não quiser encerrá-las, deve considerar o redimensionamento-los para um SKU de VM mais barato.
+A lista de recomendações identifica ineficiências de utilização ou mostra as recomendações de compra que podem ajudar a poupar dinheiro adicional. O totalizados **potenciais poupanças anuais** mostra a quantidade total, que pode economizar se encerrar ou desalocar todas as suas VMs que cumpram as regras de recomendação. Se não quiser encerrá-las, deve considerar o redimensionamento-los para um SKU de VM mais barato.
 
-A categoria de **impacto** , juntamente com a **economia potencial anual**, foi projetada para ajudar a identificar as recomendações que têm o potencial de economizar o máximo possível.
+O **impacto** categoria, juntamente com o **potenciais poupanças anuais**, foram concebidos para ajudar a identificar as recomendações que têm o potencial de guardar tanto quanto possível.
 
 As recomendações de alto impacto incluem:
 - [Comprar instâncias de máquinas virtuais reservadas para economizar dinheiro nos custos pagos conforme o uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
@@ -69,7 +69,7 @@ Os 5% ou menos definição de utilização da CPU é o padrão, mas pode ajustar
 
 Embora alguns cenários podem resultar numa utilização reduzida por design, que, muitas vezes, pode poupar dinheiro ao alterar o tamanho das suas máquinas virtuais para tamanhos de menos dispendiosos. Suas poupanças reais podem variar se escolher uma ação de redimensionamento. Vamos examinar um exemplo de redimensionamento de uma máquina virtual.
 
-Na lista de recomendações, clique no **tamanho correto ou desligando a recomendação de máquinas virtuais subutilizadas** . Na lista de candidatos de máquina virtual, selecione uma máquina virtual, de redimensionar e, em seguida, clique na máquina virtual. Detalhes da máquina virtual são apresentados para que pode verificar as métricas de utilização. O valor de **economia anual potencial** é o que você pode salvar se você desligar ou remover a VM. Redimensionar uma VM irá provavelmente poupar dinheiro, mas não vai economizar o montante total das poupanças anuais potenciais.
+Na lista de recomendações, clique a **dimensionar ou encerramento subutilizados máquinas virtuais** recomendação. Na lista de candidatos de máquina virtual, selecione uma máquina virtual, de redimensionar e, em seguida, clique na máquina virtual. Detalhes da máquina virtual são apresentados para que pode verificar as métricas de utilização. O **potenciais poupanças anuais** valor é o que pode poupar se desligar ou remover a VM. Redimensionar uma VM irá provavelmente poupar dinheiro, mas não vai economizar o montante total das poupanças anuais potenciais.
 
 ![Exemplo de detalhes da recomendação](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
@@ -80,7 +80,7 @@ Nos detalhes de VM, verifique a utilização da máquina virtual para confirmar 
 Tenha em atenção o tamanho da máquina virtual atual. Depois de verificar que a máquina virtual deve ser redimensionada, feche os detalhes da VM para que vê a lista de máquinas virtuais.
 
 Na lista de candidatos a serem desligados ou redimensionados, selecione * * Redimensionar *&lt;FromVirtualMachineSKU&gt;* para *&lt;ToVirtualMachineSKU&gt;* * *.
-![exemplo de recomendação com a opção de redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![Recomendação de exemplo com a opção para redimensionar a máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Em seguida, é apresentada uma lista de opções de redimensionamento disponíveis. Escolha o método que vai dar o melhor desempenho e rentabilidade para o seu cenário. No exemplo a seguir, a opção escolhida redimensiona de **Standard_D8s_v3** para **Standard_D2s_v3**.
 
@@ -108,4 +108,4 @@ Neste tutorial, ficou a saber como:
 Se já não leu o artigo de gestão de custos de melhores práticas, ele fornece diretrizes de alto nível e princípios a ter em consideração para o ajudar a gerir os custos.
 
 > [!div class="nextstepaction"]
-> [Práticas recomendadas de gerenciamento de custos](cost-mgt-best-practices.md)
+> [Melhores práticas de gestão de custos](cost-mgt-best-practices.md)

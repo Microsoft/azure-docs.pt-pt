@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e solucionar problemas de consulta ao usar o Azure Cosmos DB
+title: Solucionar problemas de consulta ao usar o Azure Cosmos DB
 description: Saiba como identificar, diagnosticar e solucionar problemas Azure Cosmos DB problemas de consulta SQL.
 author: ginamr
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184717"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444728"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Solucionar problemas de desempenho de consulta para Azure Cosmos DB
 Este artigo aborda como identificar, diagnosticar e solucionar problemas Azure Cosmos DB problemas de consulta SQL. Para obter o desempenho ideal para consultas de Azure Cosmos DB, siga as etapas de solução de problemas abaixo. 
@@ -26,7 +26,7 @@ O [nível de consistência](consistency-levels.md) pode afetar o desempenho e os
 
 ## <a name="log-the-executed-sql-query"></a>Registrar a consulta SQL executada 
 
-Você pode registrar a consulta SQL executada em uma conta de armazenamento ou na tabela de log de diagnóstico. [Os logs de consulta SQL por meio de logs de diagnóstico](monitor-cosmos-db.md#diagnostic-settings) permitem registrar em log a consulta ofuscada em uma conta de armazenamento de sua escolha. Isso permite que você examine os logs e localize a consulta que está usando RUs maior. Posteriormente, você pode usar a ID da atividade para corresponder à consulta real no QueryRuntimeStatistics. A consulta é ofuscada para fins de segurança e nomes de parâmetro de consulta, e seus valores em cláusulas WHERE são diferentes dos nomes e valores reais. Você pode usar o registro em log na conta de armazenamento para manter a retenção de longo prazo das consultas executadas.  
+Você pode registrar a consulta SQL executada em uma conta de armazenamento ou na tabela de log de diagnóstico. [Os logs de consulta SQL por meio de logs de diagnóstico](cosmosdb-monitor-resource-logs.md) permitem registrar em log a consulta ofuscada em uma conta de armazenamento de sua escolha. Isso permite que você examine os logs e localize a consulta que está usando RUs maior. Posteriormente, você pode usar a ID da atividade para corresponder à consulta real no QueryRuntimeStatistics. A consulta é ofuscada para fins de segurança e nomes de parâmetro de consulta, e seus valores em cláusulas WHERE são diferentes dos nomes e valores reais. Você pode usar o registro em log na conta de armazenamento para manter a retenção de longo prazo das consultas executadas.  
 
 ## <a name="log-query-metrics"></a>Métricas de consulta de log
 
@@ -171,9 +171,9 @@ Garanta que a produtividade provisionada possa lidar com a carga de trabalho. Au
 ## <a name="try-upgrading-to-the-latest-sdk-version"></a>Tente atualizar para a versão mais recente do SDK
 Para determinar o SDK mais recente, consulte o artigo [download do SDK e notas de versão](sql-api-sdk-dotnet.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os documentos abaixo sobre como medir o RUs por consulta, obter estatísticas de execução para ajustar suas consultas e muito mais:
 
-* [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md) (Obter métricas de execução de consultas SQL através do SDK do .NET)
+* [Obter métricas de execução de consultas SQL através do SDK .NET](profile-sql-api-query.md)
 * [Otimização do desempenho de consulta com o Azure Cosmos DB](sql-api-sql-query-metrics.md)
 * [Sugestões de desempenho para o SDK .NET](performance-tips.md)

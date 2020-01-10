@@ -1,33 +1,24 @@
 ---
-title: Criar um cluster autônomo do Azure Service Fabric | Microsoft Docs
+title: Criar um cluster autônomo do Azure Service Fabric
 description: Crie um cluster de Service Fabric do Azure em qualquer computador (físico ou virtual) executando o Windows Server, seja no local ou em qualquer nuvem.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 6fce1957101050c6ff3a2c3aba2b4b87d4f66f1d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463230"
 ---
-# <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autônomo em execução no Windows Server
+# <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Você pode usar o Azure Service Fabric para criar clusters Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que você pode implantar e executar Service Fabric aplicativos em qualquer ambiente que contenha um conjunto de computadores Windows Server interconectados, seja no local ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar clusters Service Fabric chamados de pacote autônomo do Windows Server. Os clusters tradicionais de Service Fabric no Azure estão disponíveis como um serviço gerenciado, enquanto os clusters de Service Fabric autônomos são de autoatendimento.
 
 Este artigo orienta você pelas etapas para criar um Cluster Service Fabric autônomo.
 
 > [!NOTE]
-> Este pacote autônomo do Windows Server está comercialmente disponível sem custos e pode ser usado para implantações de produção. Este pacote pode conter novos recursos de Service Fabric que estão em "versão prévia". Role para baixo até "[recursos de visualização incluídos neste pacote](#previewfeatures_anchor)". seção para obter a lista dos recursos de visualização. Você pode [baixar uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
+> Este pacote autônomo do Windows Server está comercialmente disponível sem custos e pode ser usado para implantações de produção. Este pacote pode conter novos recursos de Service Fabric que estão em "versão prévia". Role para baixo até "[recursos de visualização incluídos neste pacote](#previewfeatures_anchor)". seção para obter a lista dos recursos de visualização. Pode [transferir uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
 > 
 > 
 
@@ -166,7 +157,7 @@ Pode adicionar ou remover nós para o cluster do Service Fabric autónomo, confo
 ## <a name="remove-a-cluster"></a>Remover um cluster
 Para remover um cluster, execute o script *RemoveServiceFabricCluster.ps1* do PowerShell a partir da pasta do pacote e passe no caminho para o ficheiro de configuração do JSON. Opcionalmente, pode especificar uma localização para o registo da eliminação.
 
-Esse script pode ser executado em qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no arquivo de configuração de cluster. O computador no qual este script é executado não precisa fazer parte do cluster.
+Este script pode ser executado em qualquer máquina que tenha acesso de administrador para todas as máquinas que estão listadas como nós no ficheiro de configuração de cluster. A máquina que este script é executado não tem de ser parte do cluster.
 
 ```powershell
 # Removes Service Fabric from each machine in the configuration

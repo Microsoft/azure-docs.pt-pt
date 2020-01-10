@@ -1,24 +1,24 @@
 ---
-author: erikre
+author: georgewallace
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: erikre
-ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: gwallace
+ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463611"
 ---
-Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Estas 25 000 mensagens de e-mail mensais gratuitas dar-lhe-ão acesso a relatórios e análise avançados, bem como a [todas as APIs][all APIs] (Web, SMTP, Eventos, Análise, entre outras). Para obter informações sobre os serviços adicionais fornecidos pela SendGrid, visite a página [Soluções SendGrid][SendGrid Solutions].
+Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Esses 25.000 emails mensais gratuitos fornecerão acesso a relatórios avançados e análises e [todas as APIs][all APIs] (Web, SMTP, evento, análise e muito mais). Para obter informações sobre os serviços adicionais fornecidos pelo SendGrid, visite a página [soluções do SendGrid][SendGrid Solutions] .
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever numa conta SendGrid
 1. Inicie sessão no [Portal do Azure][Azure portal].
-2. No menu à esquerda, clique em **criar um recurso**.
+2. No menu portal do Azure ou no home page, selecione **criar um recurso**.
 
     ![command-bar-new][command-bar-new]
-3. Clique em **Suplementos** e, em seguida, em **SendGrid Email Delivery**.
+3. Procure e selecione **SendGrid**.
 
     ![sendgrid-store][sendgrid-store]
 4. Preencha o formulário de inscrição e selecione **Criar**.
@@ -34,11 +34,11 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 10. Introduza um **Código de Promoção** se tiver um.
 11. Introduza as suas **Informações de Contacto**.
 12. Leia e aceite os **Termos legais**.
-13. Depois de confirmar a sua compra, verá uma janela de pop-up com a mensagem **Implementação efetuada com êxito** e verá a sua conta listada na secção **Todos os recursos**.
+13. Depois de confirmar sua compra, você verá um pop-up de **implantação com êxito** e verá sua conta listada.
 
     ![all-resources][all-resources]
 
-    Depois de concluir a compra e clicar no botão **Gerir** para iniciar o processo de verificação de e-mail, receberá uma mensagem de e-mail da SendGrid a pedir que verifique a sua conta. Se não receber esta mensagem ou se surgirem problemas a verificar a sua conta, veja estas FAQ.
+    Depois de concluir a compra e clicar no botão **Gerir** para iniciar o processo de verificação de e-mail, receberá uma mensagem de e-mail da SendGrid a pedir que verifique a sua conta. Se você não receber este email ou tiver problemas para verificar sua conta, consulte nossas perguntas frequentes.
 
     ![manage][manage]
 
@@ -58,12 +58,12 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 
     ![api-keys][api-keys]
 
-3. Clique nas **criar chave de API**.
+3. Clique na **chave criar API**.
 
     ![general-api-key][general-api-key]
 4. No mínimo, forneça o **Nome desta chave** e disponibilize acesso total a **Envio de Correio** e selecione **Guardar**.
 
-    ![access][access]
+    ![acesso][access]
 5. A API será apresentada uma vez nesta altura. Armazene-a de forma segura.
 
 ### <a name="to-find-your-sendgrid-credentials"></a>Para localizar as credenciais do SendGrid
@@ -72,11 +72,11 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
     ![key][key]
 2. A palavra-passe é aquela que escolheu na configuração. Pode selecionar **Alterar palavra-passe** ou **Repor palavra-passe** para fazer alterações.
 
-Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Ele será redirecionado para o dashboard do SendGrid.
+Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isso será redirecionado para o painel do SendGrid.
 
 ![manage][manage]
 
-Para obter mais informações sobre como enviar e-mail através do SendGrid, visite o [descrição geral da API de E-Mail][Email API Overview].
+Para obter mais informações sobre como enviar email por meio do SendGrid, visite a [visão geral da API de email][Email API Overview].
 
 <!--images-->
 

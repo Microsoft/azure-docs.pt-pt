@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3e60c0e165b8f9ec79aac2048011d9e315b0ce18
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 34dbace304ccf70891ef53dd768de60d87e26967
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483964"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666640"
 ---
 # <a name="using-custom-security-policies-preview"></a>Usando políticas de segurança personalizadas (versão prévia)
 
 Para ajudar a proteger seus sistemas e ambientes, a central de segurança do Azure gera recomendações de segurança. Essas recomendações são baseadas em práticas recomendadas do setor, que são incorporadas à política de segurança padrão genérica fornecida para todos os clientes. Eles também podem vir do conhecimento da central de segurança de padrões do setor e regulamentadores.
 
-Com esse recurso de visualização, você pode adicionar suas próprias iniciativas *personalizadas* . Em seguida, você receberá recomendações se o seu ambiente não seguir as políticas que você criar.
+Com esse recurso de visualização, você pode adicionar suas próprias iniciativas *personalizadas* . Em seguida, você receberá recomendações se o seu ambiente não seguir as políticas que você criar. Todas as iniciativas personalizadas que você criar aparecerão junto com as iniciativas internas do painel de conformidade regulatória descrito no tutorial [melhorar a conformidade regulatória](security-center-compliance-dashboard.md).
 
 Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) na documentação do Azure Policy, quando você especifica um local para sua iniciativa personalizada, ele deve ser um grupo de gerenciamento ou uma assinatura. 
 
@@ -59,12 +59,18 @@ Conforme discutido [aqui](https://docs.microsoft.com/azure/governance/policy/con
     > [!NOTE]
     > A criação de novas iniciativas requer credenciais de proprietário da assinatura. Para obter mais informações sobre as funções do Azure, consulte [permissões na central de segurança do Azure](security-center-permissions.md).
 
+    Sua nova iniciativa entra em vigor e você pode ver o impacto das duas maneiras a seguir:
+
+    * Na barra lateral da central de segurança, em política & conformidade, selecione **conformidade regulatória**. O painel de conformidade é aberto para mostrar sua nova iniciativa personalizada junto com as iniciativas internas.
+    
+    * Você começará a receber recomendações se o seu ambiente não seguir as políticas que você definiu.
+
 1. Para ver as recomendações resultantes para sua política, clique em **recomendações** na barra lateral para abrir a página recomendações. As recomendações serão exibidas com um rótulo "personalizado" e estarão disponíveis em aproximadamente uma hora.
 
     [![recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a criar políticas de segurança personalizadas. 
 

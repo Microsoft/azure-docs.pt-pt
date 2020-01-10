@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: e9c83a25147696b5e492241a191b3104df001c7c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7bbebe71f6a3278d70767ac9f9dbb9d55e6d481a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453384"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrar do Azure Media Encoder para Media Encoder Standard
 
-Este artigo discute as etapas para migrar do processador de mídia do Azure Media Encoder (AME) herdado, que está sendo desativado em 1º de março de 2020, para o processador de mídia Media Encoder Standard.  
+Este artigo discute as etapas para migrar do processador de mídia do Azure Media Encoder (AME) herdado, que está sendo desativado em 31 de março de 2020, para o processador de mídia Media Encoder Standard.  
 
 Ao codificar arquivos com o AME, os clientes normalmente usaram uma cadeia de caracteres predefinida nomeada, como `H264 Adaptive Bitrate MP4 Set 1080p`. Para migrar, seu código precisa ser atualizado para usar o processador de mídia **Media Encoder Standard** em vez de ame, e uma das [predefinições de sistema](media-services-mes-presets-overview.md) equivalentes, como `H264 Multiple Bitrate 1080p`. 
 
@@ -72,7 +72,7 @@ Media Encoder Standard é mais robusto, confiável, tem melhor desempenho e prod
 * Media Encoder Standard produz arquivos de saída com uma Convenção de nomenclatura diferente da AME.
 * Media Encoder Standard produz artefatos como arquivos que contêm os [metadados do arquivo de entrada](media-services-input-metadata-schema.md) e os metadados dos arquivos de [saída](media-services-output-metadata-schema.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componentes herdados](legacy-components.md)
 * [Página de preços](https://azure.microsoft.com/pricing/details/media-services/#encoding)

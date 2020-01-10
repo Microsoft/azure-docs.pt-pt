@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444797"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
 
@@ -29,9 +29,9 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   Especifica uma propriedade ou expressão na qual classificar o conjunto de resultados da consulta. Uma coluna de classificação pode ser especificada como um nome ou alias de propriedade.  
+   Especifica uma expressão no qual ordenar o conjunto de resultados de consulta ou de propriedade. Uma coluna de classificação pode ser especificada como um nome ou alias de propriedade.  
   
-   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser exclusivos. A sequência das propriedades de classificação na cláusula ORDER BY define a organização do conjunto de resultados classificado. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, essa lista ordenada é classificada pela segunda propriedade e assim por diante.  
+   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser exclusivos. A sequência das propriedades de classificação na cláusula ORDER BY define a organização do conjunto de resultados classificado. Ou seja, o conjunto de resultados é ordenado pela primeira propriedade e, em seguida, essa lista ordenada é ordenada pela propriedade segundo e assim por diante.  
   
    Os nomes de propriedade referenciados na cláusula ORDER BY devem corresponder a uma propriedade na lista de seleção ou a uma propriedade definida na coleção especificada na cláusula FROM sem nenhuma ambiguidade.  
   
@@ -41,15 +41,18 @@ ORDER BY <sort_specification>
   
 - `<scalar_expression>`  
   
-   Consulte a seção [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
+   Consulte a [expressões escalares](sql-query-scalar-expressions.md) secção para obter detalhes.  
   
 - `ASC | DESC`  
   
-   Especifica que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. ASC classifica o valor mais baixo para o valor mais alto. DESC classifica o valor mais alto para o valor mais baixo. ASC é a ordem de classificação padrão. Os valores nulos são tratados como os valores mais baixos possíveis.  
+   Especifica que os valores na coluna especificada devem ser classificados em ordem ascendente ou descendente. ASC ordena a partir do valor mais baixo valor mais alto. DESC ordena a partir do valor mais alto valor mais baixo. ASC é a ordem de classificação padrão. Valores nulos são tratados como os valores possíveis mais baixos.  
   
 ## <a name="remarks"></a>Observações  
   
    A cláusula ORDER BY requer que a política de indexação inclua um índice para os campos que estão sendo classificados. O tempo de execução de Azure Cosmos DB consulta dá suporte à classificação em relação a um nome de propriedade e não a Propriedades computadas. Azure Cosmos DB dá suporte a várias propriedades ORDER BY. Para executar uma consulta com várias propriedades ORDER BY, você deve definir um [índice composto](index-policy.md#composite-indexes) nos campos que estão sendo classificados.
+   
+> [!Note] 
+> Ao usar o SDK do .NET 3.4.0 ou superior, se as propriedades que estão sendo classificadas puderem ser indefinidas para alguns documentos, você precisará criar explicitamente um índice nessas propriedades. A política de indexação padrão não permitirá a recuperação dos documentos em que a Propriedade Sort é indefinida.
 
 ## <a name="examples"></a>Exemplos
 
@@ -76,7 +79,7 @@ Os resultados são:
     ]
 ```
 
-A consulta a seguir recupera a família `id`s na ordem de sua data de criação do item. O item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
+A consulta a seguir recupera a família `id`s em ordem de data de criação do item. O item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -99,7 +102,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a seguinte consulta:
+Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a consulta seguinte:
 
 ```sql
     SELECT f.id, f.creationDate

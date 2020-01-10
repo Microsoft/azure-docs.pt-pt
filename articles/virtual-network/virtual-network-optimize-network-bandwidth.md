@@ -1,6 +1,6 @@
 ---
-title: Otimizar o débito de rede VM | Documentos da Microsoft
-description: Saiba como otimizar o débito de rede de máquina virtual do Azure.
+title: Otimizar a taxa de transferência da rede VM | Microsoft Docs
+description: Saiba como otimizar a taxa de transferência da rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202906"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690890"
 ---
-# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar o débito de rede para máquinas virtuais do Azure
+# <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a taxa de transferência de rede para máquinas virtuais do Azure
 
-Máquinas virtuais do Azure (VM) tem as definições de rede predefinido que podem ser ainda mais otimizadas para débito de rede. Este artigo descreve como otimizar o débito de rede para o Microsoft Azure Windows e VMs do Linux, incluindo as principais distribuições como Ubuntu, CentOS e Red Hat.
+As máquinas virtuais (VM) do Azure têm configurações de rede padrão que podem ser otimizadas para a taxa de transferência de rede. Este artigo descreve como otimizar a taxa de transferência de rede para Microsoft Azure VMs Windows e Linux, incluindo distribuições principais, como Ubuntu, CentOS e Red Hat.
 
 ## <a name="windows-vm"></a>VM do Windows
 
-Se suportar a sua VM do Windows [redes aceleradas](create-vm-accelerated-networking-powershell.md), permitindo que essa funcionalidade seria a configuração ideal para a taxa de transferência. Para todas as outras VMs do Windows, usando a receber do lado da receção (RSS) pode chegar a maior débito máximo que uma VM sem RSS. RSS pode ser desabilitado por padrão numa VM do Windows. Para determinar se RSS está ativado e ativá-lo se ele está atualmente desabilitado, conclua os seguintes passos:
+Se a sua VM do Windows der suporte [à rede acelerada](create-vm-accelerated-networking-powershell.md), a habilitação desse recurso seria a configuração ideal para a taxa de transferência. Para todas as outras VMs do Windows, o uso do RSS (recebimento de recepção) pode alcançar uma taxa de transferência máxima maior do que uma VM sem RSS. O RSS pode ser desabilitado por padrão em uma VM do Windows. Para determinar se o RSS está habilitado e habilitá-lo se ele estiver desabilitado no momento, conclua as seguintes etapas:
 
-1. Se o RSS está ativado para um adaptador de rede com o `Get-NetAdapterRss` comando do PowerShell. No exemplo seguinte devolvido do `Get-NetAdapterRss`, RSS não está ativada.
+1. Veja se o RSS está habilitado para um adaptador de rede com o comando `Get-NetAdapterRss` PowerShell. Na saída de exemplo a seguir retornada da `Get-NetAdapterRss`, o RSS não está habilitado.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Para ativar o RSS, introduza o seguinte comando:
+2. Para habilitar o RSS, digite o seguinte comando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    O comando anterior não tem uma saída. O comando alterar as definições da NIC, provocando a perda de conectividade temporário para cerca de um minuto. É apresentada uma caixa de diálogo Reconnecting durante a perda de conectividade. Normalmente, a conectividade é restaurada após a terceira tentativa.
-3. Confirme que o RSS está ativado na VM ao introduzir o `Get-NetAdapterRss` novamente o comando. Se tiver êxito, é devolvido o resultado de exemplo seguinte:
+    O comando anterior não tem uma saída. O comando alterou as configurações de NIC, causando perda de conectividade temporária por cerca de um minuto. Uma caixa de diálogo reconexão aparece durante a perda de conectividade. A conectividade normalmente é restaurada após a terceira tentativa.
+3. Confirme se o RSS está habilitado na VM inserindo o comando `Get-NetAdapterRss` novamente. Se for bem-sucedido, a seguinte saída de exemplo será retornada:
 
     ```powershell
     Name                    : Ethernet
@@ -52,11 +52,11 @@ Se suportar a sua VM do Windows [redes aceleradas](create-vm-accelerated-network
 
 ## <a name="linux-vm"></a>VM do Linux
 
-RSS está sempre ativada por predefinição na VM Linux do Azure. Kernels de Linux liberados desde Outubro de 2017 incluem novas opções de otimizações de rede que permitem uma VM do Linux alcançar um débito de rede mais elevado.
+O RSS é sempre habilitado por padrão em uma VM Linux do Azure. Os kernels do Linux lançados desde outubro de 2017 incluem novas opções de otimização de rede que permitem que uma VM Linux alcance uma taxa de transferência de rede maior.
 
-### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implementações
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implantações
 
-O kernel de Ubuntu Azure fornece o melhor desempenho de rede no Azure e desde o kernel de padrão de 21 de Setembro de 2017. Para obter esta kernel, primeiro instale a versão mais recente suportada de 16.04-LTS, da seguinte forma:
+O kernel do Ubuntu Azure fornece o melhor desempenho de rede no Azure e tem sido o kernel padrão desde 21 de setembro de 2017. Para obter esse kernel, primeiro instale a versão mais recente com suporte do 16, 4-LTS, da seguinte maneira:
 
 ```json
 "Publisher": "Canonical",
@@ -65,7 +65,7 @@ O kernel de Ubuntu Azure fornece o melhor desempenho de rede no Azure e desde o 
 "Version": "latest"
 ```
 
-Depois de concluída a criação, introduza os comandos seguintes para obter as atualizações mais recentes. Estes passos também funcionam para as VMs em execução o kernel de Ubuntu Azure.
+Após a conclusão da criação, insira os seguintes comandos para obter as atualizações mais recentes. Essas etapas também funcionam para VMs que atualmente executam o kernel do Ubuntu Azure.
 
 ```bash
 #run as root or preface with sudo
@@ -74,7 +74,7 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-O seguinte conjunto de comando opcional pode ser útil para implementações de Ubuntu existentes que já tenham o kernel do Azure, mas que não foram ainda mais atualiza com erros.
+O conjunto de comandos opcionais a seguir pode ser útil para implantações do Ubuntu existentes que já têm o kernel do Azure, mas que falharam em atualizações adicionais com erros.
 
 ```bash
 #optional steps may be helpful in existing deployments with the Azure kernel
@@ -87,9 +87,9 @@ apt-get -y upgrade
 apt-get -y dist-upgrade
 ```
 
-#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Atualização de kernel do Ubuntu Azure de VMs existentes
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Atualização do kernel Ubuntu Azure para VMs existentes
 
-Desempenho da produtividade significativa pode ser obtido com a atualização para o kernel de Linux do Azure. Para verificar se tem este kernel, verificar a sua versão de kernel.
+O desempenho significativo da taxa de transferência pode ser obtido Atualizando para o kernel do Linux do Azure. Para verificar se você tem esse kernel, verifique a versão do kernel.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -99,7 +99,7 @@ uname -r
 #4.13.0-1007-azure
 ```
 
-Se a VM não tem o kernel do Azure, o número de versão normalmente começa com "4.4." Se a VM não tem o kernel do Azure, execute os seguintes comandos como raiz:
+Se sua VM não tiver o kernel do Azure, o número de versão geralmente começa com "4,4". Se a VM não tiver o kernel do Azure, execute os seguintes comandos como raiz:
 
 ```bash
 #run as root or preface with sudo
@@ -112,7 +112,7 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-Para obter as mais recentes otimizações, é melhor criar uma VM com a versão mais recente suportada ao especificar os seguintes parâmetros:
+Para obter as otimizações mais recentes, é melhor criar uma VM com a versão mais recente com suporte, especificando os seguintes parâmetros:
 
 ```json
 "Publisher": "OpenLogic",
@@ -121,7 +121,7 @@ Para obter as mais recentes otimizações, é melhor criar uma VM com a versão 
 "Version": "latest"
 ```
 
-VMs novas e existentes podem se beneficiar de instalar os serviços de integração de Linux (LIS) mais recente. A otimização de débito é no LIS, a partir de 4.2.2-2, embora as versões posteriores contém ainda outras melhorias. Introduza os seguintes comandos para instalar o LIS mais recente:
+As VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services mais recente). A otimização da taxa de transferência está no LIS, a partir de 4.2.2-2, embora as versões posteriores contenham aprimoramentos adicionais. Insira os seguintes comandos para instalar a LIS mais recente:
 
 ```bash
 sudo yum update
@@ -131,7 +131,7 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Para obter as otimizações, é melhor criar uma VM com a versão mais recente suportada ao especificar os seguintes parâmetros:
+Para obter as otimizações, é melhor criar uma VM com a versão mais recente com suporte, especificando os seguintes parâmetros:
 
 ```json
 "Publisher": "RedHat"
@@ -140,20 +140,18 @@ Para obter as otimizações, é melhor criar uma VM com a versão mais recente s
 "Version": "latest"
 ```
 
-VMs novas e existentes podem se beneficiar de instalar os serviços de integração de Linux (LIS) mais recente. A otimização de débito é no LIS, a partir de 4.2. Introduza os comandos seguintes para transferir e instalar o LIS:
+As VMs novas e existentes podem se beneficiar da instalação do LIS (Linux Integration Services mais recente). A otimização da taxa de transferência está no LIS, a partir de 4,2. Insira os seguintes comandos para baixar e instalar o LIS:
 
 ```bash
-mkdir lis4.2.3-5
-cd lis4.2.3-5
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
-tar xvzf lis-rpms-4.2.3-5.tar.gz
+wget https://aka.ms/lis
+tar xvf lis
 cd LISISO
-install.sh #or upgrade.sh if prior LIS was previously installed
+sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 ```
 
-Saiba mais sobre o Linux Integration Services versão 4.2 para Hyper-V, visualizando o [página de transferência](https://www.microsoft.com/download/details.aspx?id=55106).
+Saiba mais sobre o Linux Integration Services versão 4,2 para Hyper-V exibindo a [página de download](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Passos Seguintes
-* Ver o resultado otimizado com [VM do Azure de teste de largura de banda/débito](virtual-network-bandwidth-testing.md) para o seu cenário.
-* Saiba mais sobre como [largura de banda atribuída às máquinas virtuais](virtual-machine-network-throughput.md)
-* Saiba mais com [rede Virtual do Azure, perguntas freqüentes (FAQ sobre)](virtual-networks-faq.md)
+## <a name="next-steps"></a>Passos seguintes
+* Consulte o resultado otimizado com [largura de banda/teste de taxa de transferência de VM do Azure](virtual-network-bandwidth-testing.md) para seu cenário.
+* Leia sobre como [a largura de banda é alocada para máquinas virtuais](virtual-machine-network-throughput.md)
+* Saiba mais com as perguntas frequentes sobre a [rede virtual do Azure](virtual-networks-faq.md)

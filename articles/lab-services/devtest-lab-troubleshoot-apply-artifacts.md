@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456983"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solucionar problemas ao aplicar artefatos em uma máquina virtual Azure DevTest Labs
 A aplicação de artefatos em uma máquina virtual pode falhar por vários motivos. Este artigo orienta você por alguns dos métodos para ajudar a identificar possíveis causas.
@@ -69,7 +69,7 @@ Quando um artefato parece parar, primeiro determine onde ele está preso. Um art
 - **Ao tentar executar o artefato**. Pode ser devido a problemas de rede ou de armazenamento. Consulte a respectiva seção mais adiante neste artigo para obter detalhes. Isso também pode ocorrer devido à maneira como o script é criado. Por exemplo:
     - Um script do PowerShell tem **parâmetros obrigatórios**, mas um falha ao passar um valor para ele, seja porque você permite que o usuário o deixe em branco ou porque você não tem um valor padrão para a propriedade no arquivo de definição artefatofile. JSON. O script será interrompido porque está aguardando a entrada do usuário.
     - Um script do PowerShell **requer entrada do usuário** como parte da execução. Os scripts devem ser escritos para funcionar silenciosamente sem a necessidade de qualquer intervenção do usuário.
-- O **agente de VM demora muito para estar pronto**. Quando a VM é iniciada pela primeira vez ou quando a extensão de script personalizado é instalada pela primeira vez para atender à solicitação de aplicação de artefatos, a VM pode exigir a atualização do agente de VM ou aguardar a inicialização do agente de VM. Pode haver serviços nos quais o agente de VM depende que esteja demorando muito tempo para inicializar. Nesses casos, consulte [visão geral do agente de máquina virtual do Azure](/virtual-machines/extensions/agent-windows.md) para obter mais soluções de problemas.
+- O **agente de VM demora muito para estar pronto**. Quando a VM é iniciada pela primeira vez ou quando a extensão de script personalizado é instalada pela primeira vez para atender à solicitação de aplicação de artefatos, a VM pode exigir a atualização do agente de VM ou aguardar a inicialização do agente de VM. Pode haver serviços nos quais o agente de VM depende que esteja demorando muito tempo para inicializar. Nesses casos, consulte [visão geral do agente de máquina virtual do Azure](../virtual-machines/extensions/agent-windows.md) para obter mais soluções de problemas.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Para verificar se o artefato parece parar por causa do script
 
@@ -101,7 +101,7 @@ Quando um artefato parece parar, primeiro determine onde ele está preso. Um art
     Neste exemplo, você pode ver que a hora de início do agente de VM demorou 10 minutos e 20 segundos porque uma pulsação foi enviada. A causa, nesse caso, foi o serviço OOBE demorando muito para começar.
 
 > [!TIP]
-> Para obter informações gerais sobre extensões do Azure, consulte [recursos e extensões de máquina virtual do Azure](/virtual-machines/extensions/overview.md).
+> Para obter informações gerais sobre extensões do Azure, consulte [recursos e extensões de máquina virtual do Azure](../virtual-machines/extensions/overview.md).
 
 ## <a name="storage-errors"></a>Erros de armazenamento
 O DevTest Labs requer acesso à conta de armazenamento do laboratório que é criada para artefatos de cache. Quando o DevTest Labs aplica um artefato, ele lê a configuração do artefato e seus arquivos a partir dos repositórios configurados. Por padrão, o DevTest Labs configura o acesso ao **repositório de artefatos público**.

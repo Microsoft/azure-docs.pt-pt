@@ -1,21 +1,21 @@
 ---
-title: Criar, editar ou estender definições de aplicativo lógico
-description: Como gravar, editar e estender definições de JSON de aplicativo lógico em aplicativos lógicos do Azure
+title: Criar, editar ou estender definições de fluxo de trabalho JSON do aplicativo lógico
+description: Como escrever, editar e estender as definições de fluxo de trabalho JSON do aplicativo lógico nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: bffbc29322a57d6bb9b8497299add5dbb0478d2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792582"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666929"
 ---
-# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Criar, editar ou estender JSON para definições de aplicativo lógico em aplicativos lógicos do Azure
+# <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Criar, editar ou estender JSON para definições de fluxo de trabalho de aplicativo lógico em aplicativos lógicos do Azure
 
-Quando você cria soluções de integração corporativa com fluxos de trabalho automatizados em [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), as definições de aplicativo lógico subjacente usam JSON (JavaScript Object Notation simples e declarativo) junto com o [esquema WDL (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) para sua descrição e validação. Esses formatos facilitam a leitura e a compreensão das definições do aplicativo lógico, sem saber muito sobre o código. Quando desejar automatizar a criação e implantação de aplicativos lógicos, você pode incluir definições de aplicativo lógico como [recursos do Azure](../azure-resource-manager/resource-group-overview.md) dentro de [modelos de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Para criar, gerenciar e implantar aplicativos lógicos, você pode usar as APIs REST [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)ou [aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic/).
+Quando você cria soluções de integração corporativa com fluxos de trabalho automatizados em [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), as definições de aplicativo lógico subjacente usam JSON (JavaScript Object Notation simples e declarativo) junto com o [esquema WDL (Workflow Definition Language)](../logic-apps/logic-apps-workflow-definition-language.md) para sua descrição e validação. Esses formatos facilitam a leitura e a compreensão das definições do aplicativo lógico, sem saber muito sobre o código. Quando desejar automatizar a criação e implantação de aplicativos lógicos, você pode incluir definições de aplicativo lógico como [recursos do Azure](../azure-resource-manager/management/overview.md) dentro de [modelos de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Para criar, gerenciar e implantar aplicativos lógicos, você pode usar as APIs REST [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)ou [aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic/).
 
 Para trabalhar com definições de aplicativo lógico em JSON, abra o editor de exibição de código ao trabalhar no portal do Azure ou no Visual Studio ou copie a definição em qualquer editor desejado. Se você for novo em aplicativos lógicos, examine [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -25,7 +25,7 @@ Para trabalhar com definições de aplicativo lógico em JSON, abra o editor de 
 
 ## <a name="edit-json---azure-portal"></a>Editar JSON-portal do Azure
 
-1. Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com" target="_blank">Portal do Azure</a>.
 
 2. No menu à esquerda, escolha **todos os serviços**. Na caixa de pesquisa, localize "aplicativos lógicos" e, em seguida, nos resultados, selecione seu aplicativo lógico.
 
@@ -39,7 +39,7 @@ Antes de poder trabalhar em sua definição de aplicativo lógico no Visual Stud
 
 No Visual Studio, você pode abrir aplicativos lógicos que foram criados e implantados diretamente do portal do Azure ou como Azure Resource Manager projetos do Visual Studio.
 
-1. Abra a solução do Visual Studio ou o projeto [do grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) que contém seu aplicativo lógico.
+1. Abra a solução do Visual Studio ou o projeto [do grupo de recursos do Azure](../azure-resource-manager/management/overview.md) que contém seu aplicativo lógico.
 
 2. Localize e abra a definição do aplicativo lógico, que por padrão aparece em um [modelo do Resource Manager](../azure-resource-manager/template-deployment-overview.md), chamado **LogicApp. JSON**. Você pode usar e personalizar este modelo para implantação em ambientes diferentes.
 
@@ -58,7 +58,7 @@ No Visual Studio, você pode abrir aplicativos lógicos que foram criados e impl
 
 ## <a name="parameters"></a>Parâmetros
 
-O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Quando você tem valores que deseja reutilizar em seu aplicativo lógico sem codificar ou que variam de acordo com suas necessidades de implantação, você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para sua definição de fluxo de trabalho para que você também possa automatizar a implantação do aplicativo lógico. 
+O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Quando você tem valores que deseja reutilizar em seu aplicativo lógico sem codificar ou que variam de acordo com suas necessidades de implantação, você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/management/overview.md) para sua definição de fluxo de trabalho para que você também possa automatizar a implantação do aplicativo lógico. 
 
 Siga estas etapas gerais para *parametrizar*ou definir e usar parâmetros para, esses valores em vez disso. Em seguida, você pode fornecer os valores em um arquivo de parâmetro separado que passa esses valores para o modelo. Dessa forma, você pode alterar esses valores com mais facilidade, sem precisar atualizar e reimplantar seu aplicativo lógico. Para obter detalhes completos, consulte [visão geral: automatizar a implantação para aplicativos lógicos com modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -72,7 +72,7 @@ Siga estas etapas gerais para *parametrizar*ou definir e usar parâmetros para, 
 
    Ao especificar os valores para seus parâmetros de definição de fluxo de trabalho, você pode referenciar parâmetros de modelo usando a seção de parâmetros que está fora de sua definição de fluxo de trabalho, mas ainda dentro da definição de recurso para seu aplicativo lógico. Dessa forma, você pode passar valores de parâmetro de modelo para seus parâmetros de definição de fluxo de trabalho.
 
-1. Armazene os valores para seus parâmetros em um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) separado e inclua esse arquivo com a sua implantação.
+1. Armazene os valores para seus parâmetros em um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md) separado e inclua esse arquivo com a sua implantação.
 
 ## <a name="process-strings-with-functions"></a>Processar cadeias de caracteres com funções
 

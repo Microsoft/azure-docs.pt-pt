@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de SQL Server bancos de dados em execução em VMs do Azure com o backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172116"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659258"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -19,6 +19,25 @@ Para obter mais informações sobre o processo e as limitações de backup, cons
 ## <a name="sql-server-permissions"></a>SQL Server permissões
 
 Para configurar a proteção para um banco de dados SQL Server em uma máquina virtual, você deve instalar a extensão **AzureBackupWindowsWorkload** nessa máquina virtual. Se você receber o erro **UserErrorSQLNoSysadminMembership**, isso significa que sua instância de SQL Server não tem as permissões de backup necessárias. Para corrigir esse erro, siga as etapas em [definir permissões de VM](backup-azure-sql-database.md#set-vm-permissions).
+
+## <a name="troubleshoot-discover-and-configure-issues"></a>Solucionar problemas de descoberta e configuração
+Depois de criar e configurar um cofre dos serviços de recuperação, descobrir bancos de dados e configurar o backup é um processo de duas etapas.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+Durante a configuração de backup, se a VM do SQL e suas instâncias não estiverem visíveis nos bancos de entrada de **descoberta em VMs** e **Configurar o backup** (consulte a imagem acima), verifique se:
+
+### <a name="step-1-discovery-dbs-in-vms"></a>Etapa 1: bancos de entrada de descoberta em VMs
+
+- Se a VM não estiver listada na lista de VMs descobertas e também não estiver registrada para backup do SQL em outro cofre, siga as etapas de [backup de SQL Server de descoberta](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) .
+
+### <a name="step-2-configure-backup"></a>Etapa 2: configurar o backup
+
+- Se o cofre no qual a VM do SQL está registrada no mesmo cofre usado para proteger os bancos de dados, siga as etapas [Configurar backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) .
+
+Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro cancelado do cofre antigo.  O cancelamento do registro de uma VM do SQL do cofre exige que todas as fontes de dados protegidas sejam interrompidas e, em seguida, você pode excluir os dados de backup. A exclusão de dados de backup é uma operação destrutiva.  Depois de examinar e tomar todas as precauções para cancelar o registro da VM do SQL, registre essa mesma VM com um novo cofre e repita a operação de backup.
+
+
 
 ## <a name="error-messages"></a>Mensagens de erro
 
@@ -125,18 +144,27 @@ A operação está bloqueada, pois você atingiu o limite de número de operaç�
 |---|---|---|
 A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é exibido quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
 
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou serviços de Azure Active Directory.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure para o serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
+
+
 ## <a name="re-registration-failures"></a>Falhas de novo registro
 
 Verifique se há um ou mais dos seguintes sintomas antes de disparar a operação de novo registro:
 
-* Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent** , **WorkloadExtensionDidntDequeueMsg**.
-* A área de **status de backup** para o item de backup está mostrando **não acessível**. Regra para todas as outras causas que podem resultar no mesmo status:
+* Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+* Se a área **status de backup** do item de backup estiver mostrando **não acessível**, descartar todas as outras causas que podem resultar no mesmo status:
 
-  * Falta de permissão para executar operações relacionadas ao backup na VM  
-  * Desligamento da VM, para que os backups não ocorram
-  * Problemas de rede  
+  * Falta de permissão para executar operações relacionadas ao backup na VM.
+  * Desligamento da VM, portanto, os backups não podem ocorrer.
+  * Problemas de rede.
 
-  ![Status "não acessível" ao registrar novamente uma VM](./media/backup-azure-sql-database/re-register-vm.png)
+   ![Registrando novamente a VM](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * No caso de um grupo de disponibilidade Always On, os backups começaram a falhar após a alteração da preferência de backup ou após um failover.
 

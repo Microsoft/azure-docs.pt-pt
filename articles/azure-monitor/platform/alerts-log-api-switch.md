@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677797"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680754"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Trocar a preferência de API para os Alertas de Registos
 
@@ -44,12 +44,15 @@ Os impactos da mudança de preferência para a API scheduledQueryRules são comp
 
 - Todas as interações realizadas para gerenciar alertas de log por meio de interfaces programáticas agora devem ser feitas usando [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) . Para obter mais informações, consulte [exemplo de uso por meio do modelo de recurso do Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [uso de exemplo por meio do PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Qualquer nova regra de alerta de log criada no portal do Azure, será criada usando apenas [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e permitirá que os usuários usem a [funcionalidade adicional da nova API](#benefits-of-switching-to-new-azure-api) por meio de portal do Azure também
-- A severidade das regras de alerta de log mudará de: *Crítico, aviso & informativo*, para *valores de severidade de 0, 1 & 2*. Junto com a opção de criar/atualizar regras de alerta com a severidade 3 e 4 também.
+- A severidade das regras de alerta de log mudará de: *crítico, aviso & informativo*, para *valores de severidade de 0, 1 & 2*. Junto com a opção de criar/atualizar regras de alerta com a severidade 3 e 4 também.
 
-O processo de mover as regras de alerta da [API de alerta de log Analytics herdado](api-alerts.md) não envolve alterar a definição, a consulta ou a configuração de alerta de forma alguma. Suas regras de alerta e o monitoramento não são afetados e os alertas não serão interrompidos ou não serão interrompidos durante ou após o comutador. A única alteração é uma alteração na preferência da API e o acesso às suas regras por meio de uma nova API.
+O processo de mover as regras de alerta da [API de alerta de log Analytics herdado](api-alerts.md) não envolve alterar a definição, a consulta ou a configuração de alerta de forma alguma. Suas regras de alerta e o monitoramento não são afetados e os alertas não serão interrompidos ou não serão interrompidos durante ou após o comutador. As únicas alterações são:
+
+- Uma alteração na preferência de API e o acesso às suas regras por meio de uma nova API.
+- Um URI de recurso de regra de alerta modificado que contém as IDs usadas na [API de alerta log Analytics herdada](api-alerts.md) em vez do nome da regra de alerta nesta `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`de estrutura. O nome de exibição da regra de alerta permanecerá inalterado.
 
 > [!NOTE]
-> Depois que um usuário opta por alternar a preferência para a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), não é possível optar por voltar ou reverter para usar a [API de alerta herdada](api-alerts.md)mais antiga do log Analytics.
+> Depois que um usuário optar por alternar a preferência para a nova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , não será possível reverter para o uso da [API de alerta de log Analytics herdada](api-alerts.md)mais antiga.
 
 Qualquer cliente que queira alternar voluntariamente para o novo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloquear o uso da [API de alerta log Analytics herdada](api-alerts.md); pode fazer isso executando uma chamada PUT na API abaixo para alternar todas as regras de alerta associadas ao espaço de trabalho específico do Log Analytics.
 

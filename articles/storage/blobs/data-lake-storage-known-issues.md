@@ -1,6 +1,6 @@
 ---
-title: Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Saiba mais sobre as limitações e problemas conhecidos com o Azure Data Lake Storage Gen2
+title: Problemas conhecidos com geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
+description: Saiba mais sobre as limitações e problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793357"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689132"
 ---
-# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2
+# <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
 Este artigo lista os recursos e as ferramentas que ainda não têm suporte ou que só têm suporte parcial com contas de armazenamento que têm um namespace hierárquico (Azure Data Lake Storage Gen2).
 
@@ -50,12 +50,13 @@ Não há suporte para discos de VM não gerenciados em contas que têm um namesp
 
 ## <a name="filesystem-support-in-sdks"></a>Suporte do sistema de arquivos em SDKs
 
-- .NET, Java e Python estão em visualização pública. Não há suporte para outros SDKs no momento.
-- As operações Get e set de ACLs não são recursivas no momento.
+- O suporte para [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) e [python](data-lake-storage-directory-file-acl-python.md) está em visualização pública. Não há suporte para outros SDKs no momento.
+- As operações obter e definir ACL não são recursivas no momento.
 
 ## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Suporte do sistema de arquivos no PowerShell e CLI do Azure
 
-As operações Get e set de ACLs não são recursivas no momento.
+- O [PowerShell](data-lake-storage-directory-file-acl-powershell.md) e o suporte do [CLI do Azure](data-lake-storage-directory-file-acl-cli.md) estão em visualização pública.
+- As operações obter e definir ACL não são recursivas no momento.
 
 ## <a name="support-for-other-blob-storage-features"></a>Suporte para outros recursos de armazenamento de BLOBs
 
@@ -63,9 +64,10 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 
 | Recurso/ferramenta    | Mais informações    |
 |--------|-----------|
+| **Failover de conta** |Ainda não tem suporte|
 | **AZCopy** | Suporte específico à versão <br><br>Use apenas a versão mais recente do AzCopy ([AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Não há suporte para versões anteriores do AzCopy, como AzCopy v 8.1.|
 | **Políticas de gerenciamento do ciclo de vida do armazenamento de BLOBs** | As políticas de gerenciamento do ciclo de vida têm suporte (versão prévia).  Há suporte para todas as camadas de acesso. A camada de acesso de arquivamento está em visualização no momento. Ainda não há suporte para a exclusão de instantâneos de BLOB. <br><br> Atualmente, existem alguns bugs que afetam as políticas de gerenciamento do ciclo de vida e a camada de acesso de arquivamento.  Inscreva-se para visualizar as políticas de gerenciamento do ciclo de vida e arquivar a camada de acesso [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
-| **CDN (rede de distribuição de conteúdo) do Azure** | Ainda não tem suporte|
+| **Rede de Entrega de Conteúdos do Azure (CDN)** | Ainda não tem suporte|
 | **Azure Search** |Com suporte (visualização)|
 | **Explorador do Armazenamento do Azure** | Suporte específico à versão. <br><br>Use somente versões `1.6.0` ou superior. <br> Atualmente, há um bug de armazenamento que afeta a versão `1.11.0` que pode resultar em erros de autenticação em determinados cenários. Uma correção para o bug de armazenamento está sendo distribuída, mas como uma solução alternativa, recomendamos que você use a versão `1.10.x`, que está disponível como um [Download gratuito](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` não é afetado pelo bug de armazenamento.|
 | **ACLs de contêiner de BLOB** |Ainda não tem suporte|

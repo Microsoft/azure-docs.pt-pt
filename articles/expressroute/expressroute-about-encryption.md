@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b8e9748360b22cd1c693b2c601024c0824ffb483
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437050"
 ---
 # <a name="expressroute-encryption"></a>Criptografia do ExpressRoute
  
@@ -40,7 +40,7 @@ Sim. O MACsec protege as conexões físicas entre você e a Microsoft. O IPsec p
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>Posso usar o gateway de VPN do Azure para configurar o túnel IPsec entre minha rede local e minha rede virtual do Azure?
 Sim. Você pode configurar esse túnel IPsec sobre o emparelhamento da Microsoft de seu circuito do ExpressRoute. Siga nosso [Guia de configuração](site-to-site-vpn-over-microsoft-peering.md).
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>Posso usar o gateway de VPN do Azure para configurar o túnel IPsec sobre o emparelhamento privado do Azure?
-Não. Você precisa implantar um gateway de VPN de terceiros em sua rede virtual do Azure e estabelecer um túnel IPsec entre ele e o gateway de VPN local.
+Se você adotar a WAN virtual do Azure, poderá seguir [estas etapas](../virtual-wan/vpn-over-expressroute.md) para criptografar a conexão de ponta a ponta. Se você tiver uma VNET do Azure regular, poderá implantar um gateway de VPN de terceiros em sua VNET e estabelecer um túnel IPsec entre ele e o gateway de VPN local.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual será a taxa de transferência que receberei depois de habilitar o IPsec em minha conexão do ExpressRoute?
 Se o gateway de VPN do Azure for usado, verifique os [números de desempenho aqui](../vpn-gateway/vpn-gateway-about-vpngateways.md). Se um gateway de VPN de terceiros for usado, verifique com o fornecedor os números de desempenho.
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 94f11e306f866496d4ae03dad03b070d26d616e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439000"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ Neste passo, utiliza o Azure PowerShell para criar um Azure Data Factory com o n
 * O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro **Nome "FirstDataFactoryPSH" não disponível para a fábrica de dados**, altere o nome (por exemplo, seunomeFirstDataFactoryPSH). Utilize este nome em vez de ADFTutorialFactoryPSH ao realizar os passos deste tutorial. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
 * Para criar instâncias do Data Factory, tem de ser um contribuidor/administrador da subscrição do Azure
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
-* Se receber o erro: “**Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory**”, realize um dos seguintes procedimentos e tente publicar novamente:
+* Se receber o erro: "**Esta subscrição não está registada para utilizar o espaço de nomes Microsoft.DataFactory**", realize um dos seguintes procedimentos e tente publicar novamente:
 
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory:
 
@@ -101,7 +101,7 @@ Antes de criar um pipeline, deve primeiro criar algumas entidades do Data Factor
 Neste passo, irá ligar a sua conta de Armazenamento do Azure e um cluster do Azure HDInsight a pedido à sua fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. Neste exemplo, o serviço ligado do HDInsight serve para executar um script do Hive especificado na atividade do pipeline. Identifique os dados de arquivo de dados/serviços de computação que são utilizados no seu cenário e ligue esses serviços à fábrica de dados, criando serviços ligados.
 
 ### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Storage do Azure
-Neste passo, irá ligar a sua conta de Armazenamento do Azure à sua fábrica de dados. Utilize a mesma conta de Armazenamento do Azure para armazenar dados de entrada/saída e o ficheiro de script HQL.
+Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dados. Utilize a mesma conta de Armazenamento do Azure para armazenar dados de entrada/saída e o ficheiro de script HQL.
 
 1. Crie um ficheiro JSON com o nome StorageLinkedService.json na pasta C:\ADFGetStarted com o seguinte conteúdo. Se ainda não existir, crie a pasta ADFGetStarted.
 
@@ -117,7 +117,7 @@ Neste passo, irá ligar a sua conta de Armazenamento do Azure à sua fábrica de
         }
     }
     ```
-    Substitua o **nome da conta** pelo nome da sua conta de armazenamento do Azure e a **chave da conta** pela chave de acesso da conta de armazenamento do Azure. Para saber como obter a sua chave de acesso ao armazenamento, veja as informações sobre como ver, copiar e regenerar as chaves de acesso de armazenamento em [Gerir a conta do Armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+    Substitua o **nome da conta** pelo nome da sua conta de armazenamento do Azure e a **chave da conta** pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 2. No Azure PowerShell, mude para a pasta ADFGetStarted.
 3. Você pode usar o cmdlet **New-AzDataFactoryLinkedService** que cria um serviço vinculado. Este cmdlet e os outros cmdlets do Data Factory que utilizar neste tutorial requerem que passe os valores para os parâmetros *ResourceGroupName* e *DataFactoryName*. Como alternativa, você pode usar **Get-AzDataFactory** para obter um objeto **DataFactory** e passar o objeto sem digitar *ResourceGroupName* e *datafactoryname* sempre que executar um cmdlet. Execute o comando a seguir para atribuir a saída do cmdlet **Get-AzDataFactory** a uma variável **$DF** .
 

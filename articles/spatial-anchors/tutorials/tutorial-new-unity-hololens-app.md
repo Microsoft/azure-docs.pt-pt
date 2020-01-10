@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0d63f2df17804d5cc171f94a34ebc5831be384fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457718"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: instruções passo a passo para criar um novo aplicativo de Unity do HoloLens usando âncoras espaciais do Azure
 
@@ -141,17 +141,27 @@ Agora, vamos usar o loop Update () para verificar se há uma ação na fila. Nes
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obter o SDK de âncoras espaciais do Azure
 
-Agora, Baixaremos o SDK de âncoras espaciais do Azure. Vá para a [página de versões do GitHub de âncoras espaciais do Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). Em ativos, baixe o arquivo **AzureSpatialAnchors. unitypackage** .
+## <a name="via-unity-packagetabunitypackage"></a>[Por meio do pacote do Unity](#tab/UnityPackage)
 
-No Unity, vá para **ativos**, clique em **Importar pacote** > **pacote personalizado...** . Navegue até o pacote e selecione **abrir**.
+Agora, Baixaremos o SDK de âncoras espaciais do Azure. Vá para a [página de versões do GitHub de âncoras espaciais do Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). Em ativos, baixe o **AzureSpatialAnchors. unitypackage**. No Unity, vá para **ativos**, clique em **Importar pacote** > **pacote personalizado...** . Navegue até o pacote e selecione **abrir**.
 
-Na nova janela **Importar pacote de Unity** que aparece, selecione **nenhum** na parte inferior esquerda. Em seguida, em **AzureSpatialAnchorsPlugin** > **plug-ins**, selecione **comum**, **Editor**e **HoloLens**. Clique em **importar** no canto inferior direito.
+Na nova janela **Importar pacote de Unity** que aparece, desmarque **plug-ins** e clique em **importar** no canto inferior direito.
 
 Agora, precisamos restaurar os pacotes NuGet para obter o SDK de âncoras espaciais do Azure. Crie a partir do **Unity** e, em seguida, abra e Compile a solução resultante do **Visual Studio** novamente, conforme detalhado em [experimentando](#trying-it-out).
 
+## <a name="via-nugetforunitytabnugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
+
+Primeiro, precisamos instalar o NuGetForUnity. Vá para a [página de versões do GitHub do NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity/releases). Em ativos, baixe o **NuGetForUnity. unitypackage**mais recente. No Unity, vá para **ativos**, clique em **Importar pacote** > **pacote personalizado...** . Navegue até o pacote e selecione **abrir**. Agora, o Unity instalará o NugetForUnity. Se você não vir uma nova lista suspensa do **NuGet** no Unity, talvez seja necessário clicar com o botão direito em **projetos** > **ativos**. Em seguida, selecione **reimportar tudo**.
+
+Depois de instalar o NuGetForUnity, selecione **NuGet** > **gerenciar pacotes NuGet**. Em seguida, pesquise Microsoft. Azure. SpatialAnchors. Unity e selecione **instalar**.
+
+Agora, precisamos criar para obter o SDK real de âncoras espaciais do Azure, pois o pacote NuGet que acabamos de baixar apenas contém scripts auxiliares. Crie a partir do **Unity** e, em seguida, abra e Compile a solução resultante do **Visual Studio** novamente, conforme detalhado em [experimentando](#trying-it-out).
+
+---
+
 Em sua solução do **Visual Studio** , adicione a seguinte importação em seu `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=23-26&highlight=1)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
 Em seguida, adicione as seguintes variáveis de membro à sua classe `AzureSpatialAnchorsScript`:
 

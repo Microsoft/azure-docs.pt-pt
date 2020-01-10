@@ -1,24 +1,16 @@
 ---
-title: Pacote autónomo de recursos de infraestrutura de serviço do Azure para o Windows Server | Documentos da Microsoft
+title: Pacote autônomo do Azure Service Fabric para Windows Server
 description: Descrição e o conteúdo do pacote autónomo do Azure Service Fabric para Windows Server.
-services: service-fabric
-documentationcenter: .net
 author: maburlik
-manager: chackdan
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451850"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo do Service Fabric para o Windows Server
 Na [transferido](https://go.microsoft.com/fwlink/?LinkId=730690) pacote autónomo do Service Fabric, encontrará os seguintes ficheiros:
@@ -52,7 +44,7 @@ Na [transferido](https://go.microsoft.com/fwlink/?LinkId=730690) pacote autónom
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster seguro, máquina multi (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster estiver protegido usando [contas de serviço geridas de grupo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Exemplos de configuração de cluster
-Versões mais recentes dos modelos de configuração do cluster podem ser encontradas na página do GitHub: [Exemplos de configuração de Cluster autónomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Versões mais recentes dos modelos de configuração de cluster podem ser encontradas na página do GitHub: [exemplos de configuração de Cluster autónomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Independente de tempo de execução de pacote
 O pacote de tempo de execução mais recente é transferido automaticamente durante a implementação de cluster a partir [Link transferir - tempo de execução do Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).

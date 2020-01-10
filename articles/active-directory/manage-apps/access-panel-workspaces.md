@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443449"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Criar espaços de trabalho no portal meus aplicativos (versão prévia)
 
@@ -45,7 +45,7 @@ Os usuários podem usar o portal meus aplicativos (versão prévia) para exibir 
    ![Recursos de visualização do usuário](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> Para abrir o portal meus aplicativos, os usuários podem usar o link `https://myapps.microsoft.com` ou o link personalizado para sua organização, como `https://myapps.microsoft.com/contoso.com`. Se os usuários não forem redirecionados para a versão de visualização meus aplicativos, os usuários deverão tentar `https://myapplications.microsoft.com` ou `https://myapplications.microsoft.com/contoso.com`.
+> Para abrir o portal meus aplicativos, os usuários podem usar o link `https://myapps.microsoft.com` ou o link personalizado para sua organização, como `https://myapps.microsoft.com/contoso.com`. Depois de habilitar a nova experiência meus aplicativos, a faixa **uma experiência atualizada meus aplicativos está disponível** será exibida na parte superior da página meus aplicativos, e os usuários poderão selecionar **experimentar** para exibir a nova experiência. Para parar de usar a nova experiência, os usuários podem selecionar **Sim** na faixa **deixar nova experiência** na parte superior da página.
 
 ## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
@@ -59,7 +59,7 @@ Para criar um espaço de trabalho, você deve ter uma licença Azure AD Premium 
 
 4. Selecione **novo espaço de trabalho**. Na página **novo espaço de trabalho** , insira um **nome** para o espaço de trabalho (é recomendável não usar "espaço de trabalho" no nome. Em seguida, insira uma **Descrição**.
 
-   ![Criar um novo espaço de trabalho](media/access-panel-workspaces/new-workspace.png)
+   ![Criar uma nova área de trabalho](media/access-panel-workspaces/new-workspace.png)
 
 5. Selecione **revisão + criar**. As propriedades do novo espaço de trabalho são exibidas.
 
@@ -88,8 +88,8 @@ Para criar um espaço de trabalho, você deve ter uma licença Azure AD Premium 
 Os logs de auditoria registram minhas operações de espaços de trabalho de aplicativos, incluindo ações de usuário final de criação de espaço de trabalho. Os seguintes eventos são gerados em meus aplicativos:
 
 * Criar área de trabalho
-* Editar espaço de trabalho
-* Excluir espaço de trabalho
+* Editar área de trabalho
+* Eliminar área de trabalho
 * Iniciar um aplicativo (usuário final)
 * Adição de aplicativo de autoatendimento (usuário final)
 * Exclusão de aplicativo de autoatendimento (usuário final)
@@ -98,6 +98,15 @@ Você pode acessar os logs de auditoria no [portal do Azure](https://portal.azur
 
    ![Atribuir funções a usuários e grupos](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>Obter suporte para páginas da minha conta
+
+Na página meus aplicativos, um usuário pode selecionar **minha conta** > **Exibir minha conta** para abrir suas configurações de conta. Na página **minha conta** do Azure AD, os usuários podem gerenciar suas informações de segurança, dispositivos, senhas e muito mais. Eles também podem acessar suas configurações de conta do Office.
+
+Caso você precise enviar uma solicitação de suporte para um problema com a página conta do Azure AD ou a página conta do Office, siga estas etapas para que sua solicitação seja roteada corretamente: 
+
+* Para problemas com a página **"minha conta" do Azure ad** , abra uma solicitação de suporte no portal do Azure. Vá para **portal do Azure** > **Azure Active Directory** > **nova solicitação de suporte**.
+
+* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 centro de administração** > **suporte**. 
 
 ## <a name="next-steps"></a>Passos seguintes
 [Experiências do usuário final para aplicativos no Azure Active Directory](end-user-experiences.md)

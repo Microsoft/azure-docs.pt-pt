@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978309"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454642"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
-Quando você chama a API **obter índice de vídeo** e o status da resposta é ok, você obtém uma saída JSON detalhada como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações de vídeo especificadas. As informações incluem dimensões como: transcrições, OCRs, rostos, tópicos, blocos, etc. As dimensões têm instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
+Quando você chama a API **obter índice de vídeo** e o status da resposta é ok, você obtém uma saída JSON detalhada como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
 
 1. Para recuperar o arquivo JSON, chame [obter API de índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Se você também estiver interessado em artefatos específicos, chame [obter a API da URL de download do artefato de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
@@ -94,7 +94,7 @@ Esta seção mostra o resumo das informações.
 |marcas| Pode conter zero ou mais marcas. Para obter informações mais detalhadas, consulte [marcas](#brands).|
 |estatística | Para obter informações mais detalhadas, consulte [estatísticas](#statistics).|
 |emoções| Pode conter zero ou mais emoções. Para obter informações mais detalhadas, consulte [emoções](#emotions).|
-|Tópicos do|Pode conter zero ou mais tópicos. A dimensão de [Tópicos](#topics) .|
+|Tópicos do|Pode conter zero ou mais tópicos. Os [Tópicos](#topics) insights.|
 
 ## <a name="videos"></a>vídeos
 
@@ -150,7 +150,7 @@ Esta seção mostra o resumo das informações.
 ```
 ### <a name="insights"></a>insights
 
-As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), em que cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3) e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
+Cada Insight (por exemplo, linhas de transcrição, rostos, marcas etc.) contém uma lista de elementos exclusivos (por exemplo, face1, face2, face3), e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
 
 Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00-00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, as coordenadas de retângulo da face (20230, 60, 60).
 
@@ -158,20 +158,20 @@ Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |---|---|
 |sourceLanguage|O idioma de origem do vídeo (supondo um idioma mestre). Na forma de uma cadeia de caracteres [bcp-47](https://tools.ietf.org/html/bcp47) .|
 |language|A linguagem de informações (convertida do idioma de origem). Na forma de uma cadeia de caracteres [bcp-47](https://tools.ietf.org/html/bcp47) .|
-|transcriçõe|A dimensão de [transcrição](#transcript) .|
-|OCR|A dimensão de [OCR](#ocr) .|
-|palavras-chave|A dimensão de [palavras-chave](#keywords) .|
+|transcriçõe|O insight da [transcrição](#transcript) .|
+|OCR|A percepção do [OCR](#ocr) .|
+|palavras-chave|As [palavras-chave](#keywords) Insight.|
 |blocos|Pode conter um ou mais [blocos](#blocks)|
-|frente|A dimensão [faces](#faces) .|
-|etiquetas|A dimensão de [Rótulos](#labels) .|
-|momentos|A dimensão de [capturas](#shots) .|
-|marcas|A dimensão de [marcas](#brands) .|
-|audioEffects|A dimensão [audioEffects](#audioEffects) .|
-|sentimentos|A dimensão de [opiniões](#sentiments) .|
-|visualContentModeration|A dimensão [visualContentModeration](#visualcontentmoderation) .|
-|textualContentModeration|A dimensão [textualContentModeration](#textualcontentmoderation) .|
-|emoções| A dimensão [emoções](#emotions) .|
-|Tópicos do|A dimensão de [Tópicos](#topics) .|
+|frente|A visão do [faces](#faces) .|
+|etiquetas|Os [Rótulos](#labels) se insights.|
+|momentos|O insights de [capturas](#shots) .|
+|marcas|As [marcas](#brands) insights.|
+|audioEffects|O [audioEffects](#audioEffects) Insight.|
+|sentimentos|As [opiniões](#sentiments) insights.|
+|visualContentModeration|O [visualContentModeration](#visualcontentmoderation) Insight.|
+|textualContentModeration|O [textualContentModeration](#textualcontentmoderation) Insight.|
+|emoções| As [emoções](#emotions) insights.|
+|Tópicos do|Os [Tópicos](#topics) insights.|
 
 Exemplo:
 

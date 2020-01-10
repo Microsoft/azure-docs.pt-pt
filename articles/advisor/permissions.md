@@ -1,57 +1,53 @@
 ---
-title: Permissões no Assistente do Azure
-description: Permissões do Advisor e como eles podem bloquear a sua capacidade de configurar as subscrições ou adiar ou ignorar recomendações.
-services: advisor
-author: kasparks
-ms.service: advisor
+title: Permissões no Azure Advisor
+description: As permissões do Advisor e como elas podem bloquear sua capacidade de configurar assinaturas ou adiar ou ignorar recomendações.
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
-ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422324"
 ---
-# <a name="permissions-in-azure-advisor"></a>Permissões no Assistente do Azure
+# <a name="permissions-in-azure-advisor"></a>Permissões no Azure Advisor
 
-O Assistente do Azure fornece recomendações com base na utilização e configuração dos seus recursos do Azure e subscrições. Assistente utiliza a [funções incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fornecido pelo [controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) para gerir o acesso ao recomendações e as funcionalidades do Advisor. 
+O Azure Advisor fornece recomendações com base no uso e na configuração de seus recursos e assinaturas do Azure. O Advisor usa as [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fornecidas pelo RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) ) para gerenciar seu acesso a recomendações e recursos do Advisor. 
 
-## <a name="roles-and-their-access"></a>Funções e o respetivo acesso
+## <a name="roles-and-their-access"></a>Funções e seu acesso
 
-A tabela seguinte define as funções e o acesso que têm no assistente:
+A tabela a seguir define as funções e o acesso que eles têm no Advisor:
 
-| **Função** | **Ver recomendações** | **Editar regras** | **Editar configuração de subscrição** | **Editar a configuração do grupo de recursos**| **Dispensar e adiar recomendações**|
+| **Função** | **Exibir recomendações** | **Editar regras** | **Editar configuração de assinatura** | **Editar configuração do grupo de recursos**| **Ignorar e adiar recomendações**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Proprietário da subscrição|**X**|**X**|**X**|**X**|**X**|
-|Contribuinte da subscrição|**X**|**X**|**X**|**X**|**X**|
-|Leitor de subscrição|**X**|--|--|--|--|
+|Proprietário da assinatura|**X**|**X**|**X**|**X**|**X**|
+|Colaborador da assinatura|**X**|**X**|**X**|**X**|**X**|
+|Leitor de assinatura|**X**|--|--|--|--|
 |Proprietário do grupo de recursos|**X**|--|--|**X**|**X**|
-|Contribuinte do grupo de recursos|**X**|--|--|**X**|**X**|
+|Colaborador do grupo de recursos|**X**|--|--|**X**|**X**|
 |Leitor do grupo de recursos|**X**|--|--|--|--|
 |Proprietário do recurso|**X**|--|--|--|**X**|
-|Contribuinte de recursos|**X**|--|--|--|**X**|
+|Colaborador de recursos|**X**|--|--|--|**X**|
 |Leitor de recursos|**X**|--|--|--|--|
 
 > [!NOTE]
-> Acesso para ver recomendações é dependente de seu acesso ao recurso afetado da recomendação.
+> O acesso para exibir recomendações depende de seu acesso ao recurso afetado da recomendação.
 
-## <a name="permissions-and-unavailable-actions"></a>Permissões e as ações disponíveis
+## <a name="permissions-and-unavailable-actions"></a>Permissões e ações não disponíveis
 
-Falta de permissões adequadas pode bloquear a capacidade de executar ações no Advisor. Seguem-se alguns problemas comuns.
+A falta de permissões adequadas pode bloquear sua capacidade de executar ações no Advisor. A seguir estão alguns problemas comuns.
 
-### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Não é possível configurar subscrições ou grupos de recursos
+### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Não é possível configurar assinaturas ou grupos de recursos
 
-Quando está tentando configurar subscrições ou grupos de recursos no assistente, pode ver que a opção para incluir ou excluir está desativada. Este status indica que não tem um nível suficiente de permissão para esse grupo de recursos ou subscrição. Para resolver este problema, saiba como [conceder um acesso de utilizador](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Ao tentar configurar assinaturas ou grupos de recursos no Advisor, você pode ver que a opção para incluir ou excluir está desabilitada. Esse status indica que você não tem um nível suficiente de permissão para esse grupo de recursos ou assinatura. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Não é possível adiar ou ignorar uma recomendação
 
-Se receber um erro ao tentar adiar ou ignorar uma recomendação, pode não ter permissões suficientes. Certifique-se de que tem, pelo menos, acesso de Contribuidor para o recurso afetado da recomendação está a adiar a ou dispensar. Para resolver este problema, saiba como [conceder um acesso de utilizador](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Se você receber um erro ao tentar adiar ou descartar uma recomendação, talvez você não tenha permissões suficientes. Verifique se você tem pelo menos acesso de colaborador ao recurso afetado da recomendação que você está adiando ou descartando. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo lhe forneceu uma visão geral de como o assistente utiliza o RBAC para permissões de controlo de utilizador e como resolver problemas comuns. Para saber mais sobre o Advisor, consulte:
+Este artigo deu uma visão geral de como o Advisor usa o RBAC para controlar as permissões de usuário e como resolver problemas comuns. Para saber mais sobre o Advisor, consulte:
 
 - [O que é o Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Introdução ao Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Introdução ao Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

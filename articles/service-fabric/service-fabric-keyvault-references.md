@@ -1,19 +1,14 @@
 ---
-title: Service Fabric do Azure – usando Service Fabric referências de keyvault de aplicativo | Microsoft Docs
+title: Service Fabric do Azure – usando referências de keyvault de aplicativo Service Fabric
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463032"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
@@ -36,8 +31,8 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -50,7 +45,7 @@ Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança 
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",
@@ -149,6 +144,6 @@ KeyVaultReference é um tipo com suporte para o contêiner RepositoryCredentials
 
 - O keyvault precisa estar na mesma assinatura que o cluster do Service Fabric. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Documentação do Azure keyvault](https://docs.microsoft.com/azure/key-vault/)

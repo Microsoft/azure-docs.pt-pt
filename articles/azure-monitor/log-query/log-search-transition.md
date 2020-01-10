@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: b738d532cb458506ca50a07dea11687040f99e02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398151"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição de Log Analytics pesquisa de log para logs de Azure Monitor
 A pesquisa de log no Log Analytics foi substituída recentemente por uma nova experiência para analisar os logs de Azure Monitor. A página pesquisa de logs ainda está acessível no momento por meio do item de menu **logs (clássico)** na página **log Analytics espaços de trabalho** no portal do Azure, mas será removida em 15 de fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para ajudá-lo a fazer a transição da pesquisa de logs. 
@@ -47,7 +47,7 @@ Para salvar a consulta atual em logs de Azure Monitor, selecione **salvar**. Alt
 ## <a name="saved-queries"></a>Consultas salvas
 Na pesquisa de logs, suas consultas salvas estão disponíveis por meio das **pesquisas salvas**do item da barra de ações. Em logs de Azure Monitor, acesse consultas salvas no [Gerenciador de consultas](../log-query/get-started-portal.md#save-queries).
 
-![Gerenciador de consultas](media/log-search-transition/query-explorer.png)
+![Explorador de consultas](media/log-search-transition/query-explorer.png)
 
 ## <a name="drill-down-on-summarized-rows"></a>Fazer drill down em linhas resumidas
 Na pesquisa de logs, você pode clicar em uma linha em uma consulta resumida para iniciar outra consulta que lista os registros detalhados nessa linha.
@@ -58,10 +58,10 @@ Nos logs de Azure Monitor, você deve modificar a consulta para retornar esses r
 
 ![Busca detalhada de logs de Azure Monitor](media/log-search-transition/drilldown-logs.png)
 
-## <a name="take-action"></a>Executar ação
+## <a name="take-action"></a>Tome uma atitude
 Na pesquisa de logs, você pode [Iniciar um runbook](take-action.md) de um resultado de pesquisa selecionando **executar ação**.
 
-![Executar ação](media/log-search-transition/take-action-log-search.png)
+![Tome uma atitude](media/log-search-transition/take-action-log-search.png)
 
 Em logs de Azure Monitor, [crie um alerta da consulta de log](../platform/alerts-log.md). Configure um grupo de ação com uma ou mais ações que serão executadas em resposta ao alerta.
 

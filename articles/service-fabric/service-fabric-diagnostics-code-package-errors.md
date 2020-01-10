@@ -1,25 +1,16 @@
 ---
-title: Diagnosticar erros de pacote de código comum usando Service Fabric | Microsoft Docs
+title: Diagnosticar erros de pacote de código comum usando Service Fabric
 description: Saiba como solucionar problemas de erros de pacote de código comum com o Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: grzuber
-manager: gkhanna
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 320a55e8b14648b1d7e256855582ab31846a63cf
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463108"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros de pacote de código comum usando Service Fabric
 
@@ -58,12 +49,12 @@ Código de saída | Descrição
 
 ## <a name="other-common-error-codes-and-their-potential-fixes"></a>Outros códigos de erro comuns e suas possíveis correções
 
-Código de saída | Valor hexadecimal | Descrição resumida | Causa raiz | Correção potencial
+Código de saída | Valor hexadecimal | Breve descrição | Causa raiz | Correção potencial
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Esse erro às vezes significa que a máquina ficou sem espaço de heap de área de trabalho. Essa causa é especialmente provável se você tiver vários processos que pertencem ao seu aplicativo em execução no nó. | Se seu programa não foi criado para responder a sinais CTRL + C, você poderá habilitar a configuração **EnableActivateNoWindow** no manifesto do cluster. A habilitação dessa configuração significa que seu pacote de códigos será executado sem uma janela GUI e não receberá sinais CTRL + C. Essa ação também reduz a quantidade de espaço de heap de área de trabalho que cada processo consome. Se o seu pacote de códigos precisar receber sinais CTRL + C, você poderá aumentar o tamanho do heap de área de trabalho do nó.
 3762504530 | 0xe0434352 | N/A | Esse valor representa o código de erro para uma exceção sem tratamento do código gerenciado (ou seja, .NET). | Esse código de saída indica que seu aplicativo gerou uma exceção que permanece sem tratamento e que encerrou o processo. Como a primeira etapa para determinar o que disparou esse erro, depure os logs e os arquivos de despejo do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como [diagnosticar outros cenários comuns](service-fabric-diagnostics-common-scenarios.md).
 * Obtenha uma visão geral mais detalhada dos logs de Azure Monitor e o que eles oferecem lendo [Azure monitor visão geral](../operations-management-suite/operations-management-suite-overview.md).

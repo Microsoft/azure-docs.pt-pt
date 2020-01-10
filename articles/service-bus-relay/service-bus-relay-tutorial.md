@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: expor um serviço REST do WCF local para o cliente externo usando o Azure Retransmissão do WCF'
+title: Expor um serviço REST do WCF local para clientes usando a retransmissão do Azure
 description: 'Tutorial: criar um aplicativo de cliente e de serviço usando o Retransmissão do WCF.'
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452300"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: expor um serviço REST do WCF local para o cliente externo usando o Azure Retransmissão do WCF
 
@@ -104,7 +104,7 @@ O contrato de serviço especifica a quais operações o serviço dá suporte. As
    > Normalmente, o espaço de nomes do contrato de serviço contém um esquema de nomenclatura que inclui a informação da versão. Ao incluir a informação de versão no espaço de nomes de contrato de serviço, tal permite que os serviços possam isolar as alterações mais importantes, através da definição de um novo contrato de serviço com um novo espaço de nomes e a sua exposição num novo ponto final. Dessa maneira, os clientes podem continuar a usar o contrato de serviço antigo sem precisar ser atualizado. A informação de versão pode consistir numa data ou número de compilação. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](/dotnet/framework/wcf/service-versioning). Para este tutorial, o esquema de nomenclatura do namespace do contrato de serviço não contém informações de versão.
    >
 
-1. Na interface `IEchoContract`, declare um método para a operação única que o contrato de `IEchoContract` expõe na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Retransmissão do WCF público, da seguinte maneira :
+1. Na interface `IEchoContract`, declare um método para a operação única que o contrato de `IEchoContract` expõe na interface e aplique o atributo `OperationContractAttribute` ao método que você deseja expor como parte do contrato de Retransmissão do WCF público, da seguinte maneira:
 
     ```csharp
     [OperationContract]

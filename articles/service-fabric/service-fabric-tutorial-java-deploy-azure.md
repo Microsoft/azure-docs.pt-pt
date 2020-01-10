@@ -1,26 +1,17 @@
 ---
-title: Implementar uma aplicação Java num cluster do Service Fabric no Azure | Microsoft Docs
+title: Implantar um aplicativo Java em um Cluster Service Fabric no Azure
 description: Neste tutorial, saiba como implementar uma aplicação Java Service Fabric num cluster do Azure Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465289"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação Java num cluster do Service Fabric no Azure
 
@@ -171,7 +162,7 @@ Os passos seguintes criam os recursos necessários para implementar a sua aplica
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    O URL de SAS para EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    A URL da SAS para o EventHubs segue a estrutura: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Por exemplo, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Abra o ficheiro *sfdeploy.parameters.json* e substitua o conteúdo seguinte dos passos anteriores. [SAS-URL-STORAGE-ACCOUNT] foi indicado no passo 8. [SAS-URL-EVENT-HUBS] foi indicado no passo 11.
 

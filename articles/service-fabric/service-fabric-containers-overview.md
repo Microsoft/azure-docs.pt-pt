@@ -1,25 +1,14 @@
 ---
-title: Visão geral de Service Fabric e contêineres | Microsoft Docs
+title: Visão geral de Service Fabric e contêineres
 description: Uma visão geral de Service Fabric e o uso de contêineres para implantar aplicativos de microatendimento. Este artigo fornece uma visão geral de como os contêineres podem ser usados e os recursos disponíveis no Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
-ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458217"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
 
@@ -27,7 +16,7 @@ ms.locfileid: "68599757"
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços e contentores dimensionáveis e fiáveis.
 
-Service Fabric é o orquestrador de [contêiner](service-fabric-cluster-resource-manager-introduction.md) da Microsoft para implantar microserviços em um cluster de computadores. Service Fabric benefícios das lições aprendidas durante seus anos executando serviços na Microsoft em grande escala.
+Service Fabric é o [orquestrador de contêiner](service-fabric-cluster-resource-manager-introduction.md) da Microsoft para implantar microserviços em um cluster de computadores. Service Fabric benefícios das lições aprendidas durante seus anos executando serviços na Microsoft em grande escala.
 
 Os microsserviços podem ser desenvolvidos de muitas formas, desde a utilização dos [modelos de programação do Service Fabric](service-fabric-choose-framework.md) e do [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) até à implementação de [qualquer código à sua escolha](service-fabric-guest-executables-introduction.md). Ou, se você apenas deseja [implantar e gerenciar contêineres](service-fabric-containers-overview.md), Service Fabric também é uma ótima opção.
 
@@ -35,8 +24,8 @@ Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O
 
 Para ir direto e experimentar contêineres em Service Fabric, experimente um início rápido, tutorial ou exemplo:  
 
-[Quickstart: Implantar um aplicativo de contêiner do Linux para Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Quickstart: Implantar um aplicativo de contêiner do Windows para Service Fabric](service-fabric-quickstart-containers.md)  
+[Início rápido: implantar um aplicativo de contêiner do Linux para Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Início rápido: implantar um aplicativo de contêiner do Windows para Service Fabric](service-fabric-quickstart-containers.md)  
 [Colocar um aplicativo .NET existente em um contêiner](service-fabric-host-app-in-a-container.md)  
 [Exemplos de Contentor do Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +37,10 @@ Os contêineres são executados diretamente na parte superior do kernel e têm u
 
 Em comparação com as máquinas virtuais, os contêineres têm as seguintes vantagens:
 
-* **Pequeno**: Os contêineres usam um único espaço de armazenamento e versões de camada e atualizações para aumentar a eficiência.
-* **Rápido**: Os contêineres não precisam inicializar um sistema operacional inteiro, para que possam começar muito mais rapidamente – normalmente em segundos.
-* **Portabilidade**: Uma imagem de aplicativo em contêiner pode ser transportada para ser executada na nuvem, local, dentro de máquinas virtuais ou diretamente em máquinas físicas.
-* **Governança de recursos**: Um contêiner pode limitar os recursos físicos que ele pode consumir em seu host.
+* **Pequeno**: os contêineres usam um único espaço de armazenamento e versões de camada e atualizações para aumentar a eficiência.
+* **Rápido**: os contêineres não precisam inicializar um sistema operacional inteiro, para que eles possam começar muito mais rapidamente – normalmente em segundos.
+* **Portabilidade**: uma imagem de aplicativo em contêiner pode ser transportada para ser executada na nuvem, local, dentro de máquinas virtuais ou diretamente em computadores físicos.
+* **Governança de recursos**: um contêiner pode limitar os recursos físicos que ele pode consumir em seu host.
 
 ### <a name="container-types-and-supported-environments"></a>Tipos de contêiner e ambientes com suporte
 
@@ -70,17 +59,17 @@ Os contêineres do Windows com suporte a Hyper-V fornecem mais isolamento e segu
 Para um tutorial baseado no Windows, consulte [criar seu primeiro aplicativo de contêiner de Service Fabric no Windows](service-fabric-get-started-containers.md).
 
 A figura a seguir mostra os diferentes tipos de virtualização e níveis de isolamento disponíveis.
-![Plataforma Service Fabric][Image1]
+![Service Fabric plataforma][Image1]
 
 ## <a name="scenarios-for-using-containers"></a>Cenários para usar contêineres
 
 Aqui estão exemplos típicos em que um contêiner é uma boa opção:
 
-* **Deslocamento do IIS**: Você pode colocar um aplicativo [MVC ASP.net](https://www.asp.net/mvc) existente em um contêiner em vez de migrá-lo para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do Serviços de Informações da Internet (IIS). Você pode empacotar esses aplicativos em imagens de contêiner da imagem do IIS precriada e implantá-los com Service Fabric. Consulte [imagens de contêiner no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contêineres do Windows.
+* Comparação **entre o IIS e o deslocamento**: você pode colocar um aplicativo [MVC ASP.net](https://www.asp.net/mvc) existente em um contêiner em vez de migrá-lo para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do Serviços de Informações da Internet (IIS). Você pode empacotar esses aplicativos em imagens de contêiner da imagem do IIS precriada e implantá-los com Service Fabric. Consulte [imagens de contêiner no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contêineres do Windows.
 
 * **Misturar contêineres e Service Fabric microservices**: Use uma imagem de contêiner existente para parte do seu aplicativo. Por exemplo, você pode usar o [contêiner Nginx](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para a computação de back-end mais intensa.
 
-* **Reduza o impacto dos serviços "vizinhos com ruído"** : Você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços puderem consumir muitos recursos e afetarem o desempenho de outros (como uma operação de longa execução, semelhante a consulta), considere colocar esses serviços em contêineres que têm governança de recursos.
+* **Reduzir o impacto de serviços "vizinhos com ruído"** : você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços puderem consumir muitos recursos e afetarem o desempenho de outros (como uma operação de longa execução, semelhante a consulta), considere colocar esses serviços em contêineres que têm governança de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte Service Fabric para contêineres
 
@@ -103,7 +92,7 @@ O Service Fabric fornece vários recursos de contêiner que ajudam você a criar
 
 Para obter uma visão geral abrangente do suporte a contêiner no Azure, por exemplo, como criar um cluster kubernetes com o serviço kubernetes do Azure, como criar um registro do Docker privado no registro de contêiner do Azure e muito mais, consulte [Azure para contêineres](https://docs.microsoft.com/azure/containers/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre o suporte Service Fabric fornece para contêineres em execução. Em seguida, veremos exemplos de cada um dos recursos para mostrar como usá-los.
 

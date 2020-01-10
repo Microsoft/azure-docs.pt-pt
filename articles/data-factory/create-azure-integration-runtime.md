@@ -10,12 +10,12 @@ ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 1a9a88f975ca10a63741818dcb88874a8f1bf436
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440300"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar Azure Integration Runtime
 A Integration Runtime (IR) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer recursos de integração de dados em diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
@@ -49,10 +49,7 @@ Depois que um Azure IR for criado, você poderá referenciá-lo em sua definiç�
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=..."
       },
       "connectVia": {
         "referenceName": "MySampleAzureIR",
@@ -66,6 +63,6 @@ Depois que um Azure IR for criado, você poderá referenciá-lo em sua definiç�
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos sobre como criar outros tipos de tempos de execução de integração:
 
-- [Criar um integration runtime autoalojado](create-self-hosted-integration-runtime.md)
+- [Create self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Criar o runtime de integração autoalojado)
 - [Criar tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md)
  

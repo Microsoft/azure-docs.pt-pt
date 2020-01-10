@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719017"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462098"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: responder a eventos do barramento de serviço do Azure recebidos por meio da grade de eventos do Azure usando Azure Functions e aplicativos lógicos do Azure
 Neste tutorial, você aprenderá a responder aos eventos do barramento de serviço do Azure que são recebidos por meio da grade de eventos do Azure usando o Azure Functions e os aplicativos lógicos do Azure. Você executará as seguintes etapas:
@@ -50,7 +50,7 @@ Pode utilizar qualquer método para enviar uma mensagem para o tópico do Servic
 3. Aceda ao projeto **MessageSender** e selecione **Program.cs**.
 4. Preencha o nome do tópico do barramento de serviço e a cadeia de conexão obtida da etapa anterior:
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ Em seguida, execute as seguintes etapas:
 
 1. Expanda **funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -120,7 +120,7 @@ Em seguida, execute as seguintes etapas:
     ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 3. Selecione **obter URL da função** e anote a URL. 
 
-    ![Obter URL da função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 # <a name="azure-functions-v1tabv1"></a>[Azure Functions v1](#tab/v1)
 
@@ -131,7 +131,7 @@ Em seguida, execute as seguintes etapas:
     2. Selecione **~ 1** para a **versão de tempo de execução**. 
 2. Expanda **funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;
@@ -179,7 +179,7 @@ Em seguida, execute as seguintes etapas:
     ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
 4. Selecione **obter URL da função** e anote a URL. 
 
-    ![Obter URL da função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 ---
 

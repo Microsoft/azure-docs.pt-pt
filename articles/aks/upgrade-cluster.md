@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442823"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do AKS (serviço kubernetes do Azure)
 
@@ -26,6 +26,7 @@ Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou 
 
 > [!WARNING]
 > Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar.  Consulte [aumentar cotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) para obter mais informações.
+> Se você estiver executando sua própria implantação de autodimensionamento de cluster, desabilite-a (você pode dimensioná-la para zero réplicas) durante a atualização, pois há uma chance de que ela interfira no processo de atualização. O dimensionador automático gerenciado manipula isso automaticamente. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificar atualizações de cluster do AKS disponíveis
 

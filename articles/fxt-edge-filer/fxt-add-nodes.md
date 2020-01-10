@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure configuração do cluster Filer do FXT Edge-adicionar nós
+title: 'Tutorial: adicionar nós a um cluster de filer do Azure FXT Edge'
 description: Como adicionar nós ao cache de armazenamento do Filer do Azure FXT Edge
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254924"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551952"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>Tutorial: adicionar nós de cluster 
+# <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: adicionar nós de cluster a um cluster de filer do Azure FXT Edge
 
 Um novo cluster de arquivos do Azure FXT Edge é criado com apenas um nó. Você deve adicionar pelo menos mais dois nós e habilitar a alta disponibilidade antes de fazer outras configurações. 
 
@@ -68,7 +68,7 @@ A coluna **ações** tem botões que permitem adicionar o nó ao cluster ou atua
 
 Todos os nós em um cluster devem usar a mesma versão do sistema operacional, mas você não precisa atualizar o software antes de adicionar um nó. Depois de clicar no botão **permitir ingresso** , o processo de ingresso no cluster verifica e instala automaticamente o software do sistema operacional que corresponde à versão no cluster.
 
-Para saber mais sobre as opções nesta página, leia nós do [ **cluster** > **FXT** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no guia de configuração do cluster.
+Para saber mais sobre as opções nesta página, leia [ **cluster** > **nós FXT** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) no guia de configuração do cluster.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Clique no botão "permitir junção" 
 

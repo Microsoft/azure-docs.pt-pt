@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b1006fead92763c5c2e670527b5e232618b633e5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f592872e67ff8559060706ddb3b1e45839b6acaf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895297"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665473"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o portal do Azure
 
@@ -23,9 +23,16 @@ ms.locfileid: "74895297"
 
 Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o [portal do Azure](https://portal.azure.com/). Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../../key-vault/quick-create-portal.md).
 
-> [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão. Para habilitar essas propriedades, use o PowerShell ou o CLI do Azure.
-> Somente chaves RSA e tamanho de chave 2048 têm suporte.
+## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
+
+O uso de chaves gerenciadas pelo cliente com a criptografia de armazenamento do Azure requer que duas propriedades sejam definidas no cofre de chaves, **exclusão reversível** e **não sejam limpas**. Essas propriedades não são habilitadas por padrão, mas podem ser habilitadas usando o PowerShell ou CLI do Azure em um cofre de chaves novo ou existente.
+
+Para saber como habilitar essas propriedades em um cofre de chaves existente, consulte as seções intituladas **habilitar a exclusão reversível** e **habilitar a proteção de limpeza** em um dos seguintes artigos:
+
+- [Como usar a exclusão reversível com o PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+- [Como usar a exclusão reversível com a CLI](../../key-vault/key-vault-soft-delete-cli.md).
+
+Somente as chaves RSA de tamanho 2048 têm suporte com a criptografia de armazenamento do Azure. Para obter mais informações sobre chaves, consulte **Key Vault chaves** em [sobre Azure Key Vault chaves, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 
@@ -44,31 +51,53 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você terá a oportunida
 
 Para especificar uma chave como um URI, siga estas etapas:
 
-1. Para localizar o URI de chave no portal do Azure, navegue até o cofre de chaves e selecione a configuração **chaves** . Selecione a chave desejada e clique na chave para exibir suas configurações. Copie o valor do campo **identificador de chave** , que fornece o URI.
+1. Para localizar o URI de chave no portal do Azure, navegue até o cofre de chaves e selecione a configuração **chaves** . Selecione a chave desejada e clique na chave para exibir suas versões. Selecione uma versão de chave para exibir as configurações dessa versão.
+1. Copie o valor do campo **identificador de chave** , que fornece o URI.
 
     ![Captura de tela mostrando o URI da chave do Key Vault](media/storage-encryption-keys-portal/key-uri-portal.png)
 
 1. Nas configurações de **criptografia** para sua conta de armazenamento, escolha a opção **inserir URI de chave** .
-1. No campo **URI da chave** , ESPECIFIQUE o URI.
+1. Cole o URI que você copiou no campo **URI da chave** .
 
    ![Captura de tela mostrando como inserir o URI da chave](./media/storage-encryption-keys-portal/ssecmk2.png)
+
+1. Especifique a assinatura que contém o cofre de chaves.
+1. Guarde as alterações.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Especificar uma chave de um cofre de chaves
 
 Para especificar uma chave de um cofre de chaves, primeiro verifique se você tem um cofre de chaves que contém uma chave. Para especificar uma chave de um cofre de chaves, siga estas etapas:
 
 1. Escolha a opção **selecionar de Key Vault** .
-2. Escolha o cofre de chaves que contém a chave que você deseja usar.
-3. Escolha a chave no cofre de chaves.
+2. Selecione o cofre de chaves que contém a chave que você deseja usar.
+3. Selecione a chave no cofre de chaves.
 
    ![Captura de tela mostrando a opção de chave gerenciada pelo cliente](./media/storage-encryption-keys-portal/ssecmk3.png)
 
+1. Guarde as alterações.
+
 ## <a name="update-the-key-version"></a>Atualizar a versão de chave
 
-Ao criar uma nova versão de uma chave, você precisará atualizar a conta de armazenamento para usar a nova versão. Siga estes passos.
+Ao criar uma nova versão de uma chave, atualize a conta de armazenamento para usar a nova versão. Siga estes passos.
 
 1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
-1. Especifique o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
+1. Insira o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
+1. Guarde as alterações.
+
+## <a name="use-a-different-key"></a>Usar uma chave diferente
+
+Para alterar a chave usada para a criptografia de armazenamento do Azure, siga estas etapas:
+
+1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
+1. Insira o URI para a nova chave. Como alternativa, você pode selecionar o cofre de chaves e escolher uma nova chave.
+1. Guarde as alterações.
+
+## <a name="disable-customer-managed-keys"></a>Desabilitar chaves gerenciadas pelo cliente
+
+Quando você desabilita chaves gerenciadas pelo cliente, sua conta de armazenamento é criptografada com chaves gerenciadas pela Microsoft. Para desabilitar as chaves gerenciadas pelo cliente, siga estas etapas:
+
+1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
+1. Desmarque a caixa de seleção ao lado da configuração **usar sua própria chave** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

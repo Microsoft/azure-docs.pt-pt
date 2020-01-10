@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442879"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -79,7 +79,7 @@ Esse erro ocorre quando os clusters entram em um estado de falha por vários mot
 
 1. Até que o cluster esteja fora do estado de `failed`, as operações de `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
     * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
-    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/templates/error-resource-quota.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
 2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar o estado em que meu cluster está sendo atualizado no momento ou com falha na atualização
@@ -155,8 +155,8 @@ Verifique se as configurações não estão em conflito com nenhuma das portas d
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.9 ou posterior |
-| 1,13 | 1.13.6 ou posterior |
+| 1.12 | 1.12.9 ou posterior |
+| 1.13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
 
 
@@ -164,8 +164,8 @@ Verifique se as configurações não estão em conflito com nenhuma das portas d
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.0 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
+| 1.12 | 1.12.0 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 
@@ -193,7 +193,7 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.2 ou posterior |
 | 1,11 | 1.11.0 ou posterior |
-| 1,12 e posterior | N/D |
+| 1,12 e posterior | N/A |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir UID e GID em mountoptions para disco do Azure
 
@@ -265,9 +265,9 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.10 ou posterior |
 | 1,11 | 1.11.5 ou posterior |
-| 1,12 | 1.12.3 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.3 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
+| 1,14 e posterior | N/A |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema aguardando vários minutos e tentando novamente.
 
@@ -286,9 +286,9 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.12 ou posterior |
 | 1,11 | 1.11.6 ou posterior |
-| 1,12 | 1.12.4 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.4 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
+| 1,14 e posterior | N/A |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema experimentando o seguinte:
 
@@ -307,9 +307,9 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
 | 1,11 | 1.11.9 ou posterior |
-| 1,12 | 1.12.7 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.7 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
+| 1,14 e posterior | N/A |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema desanexando manualmente o disco.
 
@@ -321,10 +321,10 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1,12 | 1.12.9 ou posterior |
-| 1,13 | 1.13.6 ou posterior |
+| 1.12 | 1.12.9 ou posterior |
+| 1.13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
-| 1,15 e posterior | N/D |
+| 1,15 e posterior | N/A |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó tiver uma lista de discos obsoletos, você poderá mitigar o problema desanexando todos os discos não existentes da VM como uma única operação em massa. **O desanexação individual de discos não existentes pode falhar.**
 
@@ -341,10 +341,10 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1,12 | 1.12.10 ou posterior |
-| 1,13 | 1.13.8 ou posterior |
+| 1.12 | 1.12.10 ou posterior |
+| 1.13 | 1.13.8 ou posterior |
 | 1,14 | 1.14.4 ou posterior |
-| 1,15 e posterior | N/D |
+| 1,15 e posterior | N/A |
 
 Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó estiver em um estado de falha, você poderá mitigar o problema atualizando manualmente o status da VM usando um dos seguintes:
 
@@ -364,16 +364,16 @@ Se você estiver usando uma versão do kubernetes que não tenha a correção pa
  
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.6 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
+| 1.12 | 1.12.6 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 ### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quais versões do kubernetes têm suporte aos arquivos do Azure na nuvem do soberanas?
 
 | Versão do kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.0 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
+| 1.12 | 1.12.0 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quais são as montagens padrão ao usar os arquivos do Azure?
@@ -459,9 +459,9 @@ Esse problema foi corrigido nas seguintes versões do kubernetes:
 
 | Versão do kubernetes | Versão corrigida |
 | -- | :--: |
-| 1,12 | 1.12.6 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.6 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
+| 1,14 e posterior | N/A |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha na montagem de arquivos do Azure devido à chave de conta de armazenamento alterada
 
@@ -482,3 +482,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 Após alguns minutos, o nó do agente tentará novamente a montagem de arquivo do Azure com a chave de armazenamento atualizada.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Falha no dimensionamento do autodimensionator do cluster com o erro falha ao corrigir os tamanhos do grupo de nós
+
+Se o dimensionador automático do cluster não estiver sendo expandido/reduzido e você vir um erro como abaixo nos [logs de dimensionamento][view-master-logs]automático do cluster.
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+Esse erro ocorre devido a uma condição de corrida de autoescalar de cluster upstream em que o dimensionamento de cluster é encerrado com um valor diferente daquele que realmente está no cluster. Para sair desse Estado, basta desabilitar e reabilitar o [dimensionador do cluster][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

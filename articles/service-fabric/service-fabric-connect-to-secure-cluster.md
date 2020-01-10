@@ -1,25 +1,14 @@
 ---
-title: Conectar-se com segurança a um cluster de Service Fabric do Azure | Microsoft Docs
+title: Conectar-se com segurança a um cluster de Service Fabric do Azure
 description: Descreve como autenticar o acesso de cliente a um Cluster Service Fabric e como proteger a comunicação entre clientes e um cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/29/2019
-ms.author: atsenthi
-ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 89d9f67ba1a202b3830df7a5b960c6ef01091bf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458267"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 
@@ -31,7 +20,7 @@ Quando um cliente se conecta a um nó de Cluster Service Fabric, o cliente pode 
 
 Há algumas maneiras diferentes de se conectar a um cluster seguro usando a CLI do Service Fabric (sfctl). Quando utilizar um certificado de cliente para autenticação, os detalhes do certificado têm de coincidir com um certificado implementado nos nós do cluster. Se o certificado tiver autoridades de certificação (CAs), você precisará especificar também as CAs confiáveis.
 
-Você pode se conectar a um cluster usando `sfctl cluster select` o comando.
+Você pode se conectar a um cluster usando o comando `sfctl cluster select`.
 
 Certificados de cliente podem ser especificados de duas maneiras diferentes, como um certificado e um par de chaves, ou como um único arquivo PFX. Para arquivos PEM protegidos por senha, você será solicitado a inserir a senha automaticamente. Se você tiver obtido o certificado do cliente como um arquivo PFX, primeiro converta o arquivo PFX em um arquivo PEM usando o comando a seguir. 
 
@@ -41,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Se seu arquivo. pfx não for protegido por senha, use-passe Pass: para o último parâmetro.
 
-Para especificar o certificado do cliente como um arquivo PEM, especifique o caminho do arquivo `--pem` no argumento. Por exemplo:
+Para especificar o certificado do cliente como um arquivo PEM, especifique o caminho do arquivo no argumento `--pem`. Por exemplo:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -49,22 +38,22 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 Os arquivos PEM protegidos por senha solicitarão a senha antes de executar qualquer comando.
 
-Para especificar um certificado, o par de chaves `--cert` usa `--key` os argumentos e para especificar os caminhos de arquivo para cada arquivo respectivo.
+Para especificar um certificado, o par de chaves usa os argumentos `--cert` e `--key` para especificar os caminhos de arquivo para cada arquivo respectivo.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Às vezes, os certificados usados para proteger os clusters de teste ou desenvolvimento falham na validação do certificado. Para ignorar a verificação de certificado, `--no-verify` especifique a opção. Por exemplo:
+Às vezes, os certificados usados para proteger os clusters de teste ou desenvolvimento falham na validação do certificado. Para ignorar a verificação de certificado, especifique a opção de `--no-verify`. Por exemplo:
 
 > [!WARNING]
-> Não use a `no-verify` opção ao se conectar a clusters de Service Fabric de produção.
+> Não use a opção `no-verify` ao se conectar a clusters de Service Fabric de produção.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Além disso, você pode especificar caminhos para diretórios de certificados de autoridade de certificação confiáveis ou certificados individuais. Para especificar esses caminhos, use o `--ca` argumento. Por exemplo:
+Além disso, você pode especificar caminhos para diretórios de certificados de autoridade de certificação confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -240,7 +229,7 @@ catch (Exception e)
 
 ### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Conectar-se a um cluster seguro de forma não interativa usando Azure Active Directory
 
-O exemplo a seguir se baseia em Microsoft. IdentityModel. clients. ActiveDirectory, versão: 2.19.208020213.
+O exemplo a seguir se baseia em Microsoft. IdentityModel. clients. ActiveDirectory, Version: 2.19.208020213.
 
 Para obter mais informações sobre a aquisição de token do AAD, consulte [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
@@ -371,7 +360,7 @@ Você será automaticamente solicitado a selecionar um certificado de cliente.
 
 Pelo menos dois certificados devem ser usados para proteger o cluster, um para o cluster e o certificado do servidor e outro para acesso de cliente.  Recomendamos que você também use certificados secundários adicionais e certificados de acesso para cliente.  Para proteger a comunicação entre um cliente e um nó de cluster usando a segurança do certificado, primeiro você precisa obter e instalar o certificado do cliente. O certificado pode ser instalado no repositório pessoal (meu) do computador local ou no usuário atual.  Você também precisa da impressão digital do certificado do servidor para que o cliente possa autenticar o cluster.
 
-* No Windows: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu repositório pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell:
+* No Windows: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado no seu arquivo pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell:
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -387,9 +376,9 @@ Pelo menos dois certificados devem ser usados para proteger o cluster, um para o
     -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-* No Mac: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu conjunto de chaves.
+* No Mac: faça duplo clique no ficheiro PFX e siga as instruções para instalar o certificado na sua Keychain.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Service Fabric processo de atualização de cluster e as expectativas de você](service-fabric-cluster-upgrade.md)
 * [Gerenciando seus aplicativos Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md)

@@ -4,15 +4,15 @@ description: Este artigo descreve como conectar computadores Windows hospedados 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420414"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689982"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
@@ -20,7 +20,7 @@ Para monitorar e gerenciar máquinas virtuais ou computadores físicos em seu da
 
 Em um computador Windows monitorado, o agente é listado como o serviço de Microsoft Monitoring Agent. O serviço de Microsoft Monitoring Agent coleta eventos de arquivos de log e log de eventos do Windows, dados de desempenho e outras telemetrias. Mesmo quando o agente não consegue se comunicar com Azure Monitor ele relata, o agente continua a ser executado e enfileira os dados coletados no disco do computador monitorado. Quando a conexão é restaurada, o serviço de Microsoft Monitoring Agent envia os dados coletados para o serviço.
 
-O agente pode ser instalado usando um dos métodos a seguir. A maioria das instalações usa uma combinação desses métodos para instalar diferentes conjuntos de computadores, conforme apropriado.  Detalhes sobre como usar cada método são fornecidos posteriormente neste artigo.
+O agente pode ser instalado usando um dos métodos a seguir. A maioria das instalações utiliza uma combinação dos seguintes métodos para instalar diferentes conjuntos de computadores, conforme adequado.  Detalhes sobre como usar cada método são fornecidos posteriormente neste artigo.
 
 * Instalação manual. A instalação é executada manualmente no computador usando o assistente de instalação, na linha de comando ou implantada usando uma ferramenta de distribuição de software existente.
 * DSC (configuração de estado desejado) da automação do Azure. Usando a DSC na automação do Azure com um script para computadores Windows já implantados em seu ambiente.  
@@ -38,7 +38,7 @@ Para compreender a configuração suportada, consulte [sistemas operativos Windo
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
 Antes de instalar o agente de Log Analytics para Windows, você precisa da ID e da chave do espaço de trabalho para seu espaço de trabalho Log Analytics.  Essas informações são necessárias durante a instalação de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor no Azure comercial e na nuvem do governo dos EUA. 
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. Na portal do Azure, procure e selecione espaços de **trabalho do log Analytics**.
 2. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho no qual você pretende configurar o agente para relatar.
 3. Selecione **Definições avançadas**.<br><br> ![Definições Avançadas do Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.   
@@ -188,9 +188,9 @@ No computador, no **Painel de Controlo**, localize o item **Microsoft Monitoring
 
 Você também pode executar uma consulta de log simples no portal do Azure.  
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Azure monitor**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Azure monitor**.  
-2. Selecione **logs** no menu. 
-2. No painel logs, no campo de consulta tipo:  
+1. No portal do Azure, procure e selecione **Monitor**.
+1. Selecione **logs** no menu.
+1. No painel **logs** , no campo de consulta tipo:  
 
     ```
     Heartbeat 

@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449972"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM do Azure criptografada
 
@@ -28,7 +28,7 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 **Tipo de disco da VM** | **ADE (BEK/DM-cript.)** | **ADE e KEK**
 --- | --- | ---
 **Não gerenciados** | Sim | Sim
-**Administra**  | Sim | Sim
+**Gerido**  | Sim | Sim
 
 - Saiba mais sobre [Ade](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Leia as [perguntas frequentes](../security/azure-security-disk-encryption-faq.md) sobre a criptografia de disco de VM do Azure.
@@ -136,10 +136,10 @@ Para definir permissões:
 Você restaura as VMs criptografadas da seguinte maneira:
 
 1. [Restaure o disco da VM](backup-azure-arm-restore-vms.md#restore-disks).
-2. Em seguida, siga um destes procedimentos:
-    - Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Crie uma nova VM com base nos discos restaurados usando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - Para VMs do Linux, redefina a extensão ADE para que os discos de dados sejam abertos e montados.
+2. Recrie a instância de máquina virtual seguindo um destes procedimentos:
+    1. Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. Crie uma nova VM com base nos discos restaurados usando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+3. Para VMs do Linux, reinstale a extensão ADE para que os discos de dados sejam abertos e montados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

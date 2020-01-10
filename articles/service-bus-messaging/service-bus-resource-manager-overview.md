@@ -1,6 +1,6 @@
 ---
-title: Criar recursos do Azure Service Bus com modelos do Resource Manager | Documentos da Microsoft
-description: Utilizar modelos Azure Resource Manager para automatizar a criação de recursos do Service Bus
+title: Criar recursos do barramento de serviço do Azure usando modelos do Resource Manager | Microsoft Docs
+description: Usar modelos de Azure Resource Manager para automatizar a criação de recursos do barramento de serviço
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452345"
 ---
-# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Service Bus com modelos Azure Resource Manager
+# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do barramento de serviço usando modelos de Azure Resource Manager
 
-Este artigo descreve como criar e implementar recursos do Service Bus com modelos do Azure Resource Manager, PowerShell e o fornecedor de recursos do Service Bus.
+Este artigo descreve como criar e implantar recursos do barramento de serviço usando modelos de Azure Resource Manager, o PowerShell e o provedor de recursos do barramento de serviço.
 
-Os modelos do Resource Manager do Azure ajudam a definir os recursos para implementar uma solução de e para especificar os parâmetros e variáveis que permitem-lhe introduzir os valores para diferentes ambientes. O modelo é escrito em JSON e consiste em expressões que pode utilizar para construir valores para a sua implementação. Para obter informações detalhadas sobre como escrever modelos Azure Resource Manager e uma discussão sobre o formato de modelo, consulte [estrutura e a sintaxe de modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Os modelos de Azure Resource Manager ajudam a definir os recursos a serem implantados para uma solução e a especificar parâmetros e variáveis que permitem que você insira valores para ambientes diferentes. O modelo é escrito em JSON e consiste em expressões que você pode usar para construir valores para sua implantação. Para obter informações detalhadas sobre como escrever modelos de Azure Resource Manager e uma discussão sobre o formato de modelo, consulte [estrutura e sintaxe de modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
-> Os exemplos neste artigo mostram como utilizar o Azure Resource Manager para criar um espaço de nomes do Service Bus e a entidade de mensagens (fila). Para outros exemplos de modelo, visite o [Galeria de modelos de início rápido do Azure] [ Azure Quickstart Templates gallery] e procure **do Service Bus**.
+> Os exemplos neste artigo mostram como usar Azure Resource Manager para criar um namespace do barramento de serviço e uma entidade de mensagens (fila). Para obter outros exemplos de modelo, visite a [Galeria de modelos de início rápido do Azure][Azure Quickstart Templates gallery] e pesquise por **barramento de serviço**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="service-bus-resource-manager-templates"></a>Modelos do Resource Manager do Service Bus
+## <a name="service-bus-resource-manager-templates"></a>Modelos do Resource Manager do barramento de serviço
 
-Estes modelos do Gestor de recursos do Service Bus do Azure estão disponíveis para download e implantação. Clique nas ligações seguintes para obter detalhes sobre cada uma delas, com links para os modelos no GitHub:
+Esses modelos de Azure Resource Manager do barramento de serviço estão disponíveis para download e implantação. Clique nos links a seguir para obter detalhes sobre cada um deles, com links para os modelos no GitHub:
 
-* [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
-* [Criar um espaço de nomes do Service Bus com a fila](service-bus-resource-manager-namespace-queue.md)
-* [Criar um espaço de nomes do Service Bus com o tópico e uma subscrição](service-bus-resource-manager-namespace-topic.md)
-* [Criar um espaço de nomes do Service Bus com a regra de autorização e fila](service-bus-resource-manager-namespace-auth-rule.md)
-* [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Criar um namespace do barramento de serviço](service-bus-resource-manager-namespace.md)
+* [Criar um namespace do barramento de serviço com fila](service-bus-resource-manager-namespace-queue.md)
+* [Criar um namespace do barramento de serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
+* [Criar um namespace do barramento de serviço com a regra de fila e autorização](service-bus-resource-manager-namespace-auth-rule.md)
+* [Criar um namespace do barramento de serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
-O procedimento seguinte descreve como utilizar o PowerShell para implementar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus do escalão Standard e uma fila dentro desse namespace. Este exemplo se baseia a [criar um espaço de nomes do Service Bus com a fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) modelo. O fluxo de trabalho aproximado é o seguinte:
+O procedimento a seguir descreve como usar o PowerShell para implantar um modelo de Azure Resource Manager que cria um namespace de barramento de serviço de camada padrão e uma fila dentro desse namespace. Este exemplo é baseado no modelo [criar um namespace do barramento de serviço com fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) . O fluxo de trabalho aproximado é o seguinte:
 
 1. Instale o PowerShell.
-2. Crie o modelo e (opcionalmente) um ficheiro de parâmetros.
-3. No PowerShell, inicie sessão na sua conta do Azure.
-4. Se não existir, crie um novo grupo de recursos.
+2. Crie o modelo e (opcionalmente) um arquivo de parâmetro.
+3. No PowerShell, faça logon em sua conta do Azure.
+4. Crie um novo grupo de recursos se ele não existir.
 5. Teste a implantação.
-6. Se assim o desejar, defina o modo de implementação.
-7. Implemente o modelo.
+6. Se desejar, defina o modo de implantação.
+7. Implante o modelo.
 
-Para obter informações completas sobre a implementação de modelos Azure Resource Manager, consulte [implementar recursos com modelos Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
+Para obter informações completas sobre a implantação de modelos de Azure Resource Manager, consulte [implantar recursos com modelos de Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
 
-### <a name="install-powershell"></a>Instalar o PowerShell
+### <a name="install-powershell"></a>Instalar PowerShell
 
-Instalar o Azure PowerShell, seguindo as instruções em [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
+Instale Azure PowerShell seguindo as instruções em [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Criar um modelo
 
-Clonar o repositório ou copiar o [201-servicebus-criar-fila](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) modelo a partir do GitHub:
+Clone o repositório ou copie o modelo [201-ServiceBus-CREATE-QUEUE](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) do github:
 
 ```json
 {
@@ -135,9 +135,9 @@ Clonar o repositório ou copiar o [201-servicebus-criar-fila](https://github.com
 }
 ```
 
-### <a name="create-a-parameters-file-optional"></a>Criar um ficheiro de parâmetros (opcional)
+### <a name="create-a-parameters-file-optional"></a>Criar um arquivo de parâmetros (opcional)
 
-Para utilizar um ficheiro de parâmetros opcionais, copie os [201-servicebus-criar-fila](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) ficheiro. Substitua o valor de `serviceBusNamespaceName` com o nome do espaço de nomes do Service Bus que pretende criar nesta implementação e substitua o valor do `serviceBusQueueName` com o nome da fila que pretende criar.
+Para usar um arquivo de parâmetros opcional, copie o arquivo [201-ServiceBus-CREATE-QUEUE](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) . Substitua o valor de `serviceBusNamespaceName` pelo nome do namespace do barramento de serviço que você deseja criar nessa implantação e substitua o valor de `serviceBusQueueName` pelo nome da fila que você deseja criar.
 
 ```json
 {
@@ -157,23 +157,23 @@ Para utilizar um ficheiro de parâmetros opcionais, copie os [201-servicebus-cri
 }
 ```
 
-Para obter mais informações, consulte a [parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) artigo.
+Para obter mais informações, consulte o artigo [parâmetros](../azure-resource-manager/templates/parameter-files.md) .
 
-### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Inicie sessão no Azure e definir a subscrição do Azure
+### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Faça logon no Azure e defina a assinatura do Azure
 
-A partir de uma linha de comandos do PowerShell, execute o seguinte comando:
+Em um prompt do PowerShell, execute o seguinte comando:
 
 ```powershell
 Connect-AzAccount
 ```
 
-São-lhe pedido para iniciar sessão na sua conta do Azure. Após fazer logon, execute o seguinte comando para ver as subscrições disponíveis:
+Você será solicitado a fazer logon em sua conta do Azure. Depois de fazer logon, execute o seguinte comando para exibir suas assinaturas disponíveis:
 
 ```powershell
 Get-AzSubscription
 ```
 
-Este comando devolve uma lista de subscrições do Azure disponíveis. Escolha uma subscrição para a sessão atual ao executar o comando seguinte. Substitua `<YourSubscriptionId>` com o GUID da subscrição do Azure que pretende utilizar:
+Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que você deseja usar:
 
 ```powershell
 Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -181,13 +181,13 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Definir o grupo de recursos
 
-Se não tiver um recurso existente de grupo, criar um novo grupo de recursos com o **New-AzResourceGroup** comando. Forneça o nome do grupo de recursos e localização que pretende utilizar. Por exemplo:
+Se você não tiver um grupo de recursos existente, crie um novo grupo de recursos com o comando **New-AzResourceGroup** . Forneça o nome do grupo de recursos e o local que você deseja usar. Por exemplo:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Se tiver êxito, é apresentado um resumo do novo grupo de recursos.
+Se for bem-sucedido, será exibido um resumo do novo grupo de recursos.
 
 ```powershell
 ResourceGroupName : MyDemoRG
@@ -199,42 +199,42 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testar a implementação
 
-Validar a sua implementação ao executar o `Test-AzResourceGroupDeployment` cmdlet. Ao testar a implementação, fornece os parâmetros exatamente como faria quando executar a implantação.
+Valide sua implantação executando o cmdlet `Test-AzResourceGroupDeployment`. Ao testar a implantação, forneça parâmetros exatamente como você faria ao executar a implantação.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-### <a name="create-the-deployment"></a>Criar a implementação
+### <a name="create-the-deployment"></a>Criar a implantação
 
-Para criar a nova implementação, execute o `New-AzResourceGroupDeployment` cmdlet e forneça os parâmetros necessários, quando lhe for pedido. Os parâmetros incluem um nome para a sua implementação, o nome do seu grupo de recursos e o caminho ou URL para o ficheiro de modelo. Se o **modo** parâmetro não for especificado, o valor predefinido de **Incremental** é utilizado. Para obter mais informações, consulte [Incremental e completas implementações](../azure-resource-manager/deployment-modes.md).
+Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo de modelo. Se o parâmetro **Mode** não for especificado, o valor padrão de **incremental** será usado. Para obter mais informações, consulte [implantações incrementais e completas](../azure-resource-manager/deployment-modes.md).
 
-O seguinte comando pede-lhe os três parâmetros na janela do PowerShell:
+O comando a seguir solicita os três parâmetros na janela do PowerShell:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Para especificar um ficheiro de parâmetros em vez disso, utilize o seguinte comando:
+Para especificar um arquivo de parâmetros em vez disso, use o seguinte comando:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
-Também pode utilizar parâmetros inline ao executar o cmdlet de implementação. O comando é o seguinte:
+Você também pode usar parâmetros embutidos ao executar o cmdlet de implantação. O comando é o seguinte:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Para executar uma [concluída](../azure-resource-manager/deployment-modes.md) implantação, defina o **modo** parâmetro **concluída**:
+Para executar uma implantação [completa](../azure-resource-manager/deployment-modes.md) , defina o parâmetro de **modo** como **concluído**:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Verificar a implementação
-Se os recursos são implementados com êxito, é apresentado um resumo da implementação na janela do PowerShell:
+Se os recursos forem implantados com êxito, um resumo da implantação será exibido na janela do PowerShell:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -252,14 +252,14 @@ Parameters        :
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora já viu os comandos para implementar um modelo Azure Resource Manager e o fluxo de trabalho básico. Para obter informações mais detalhadas, visite as seguintes ligações:
+## <a name="next-steps"></a>Passos seguintes
+Agora você viu o fluxo de trabalho básico e os comandos para implantar um modelo de Azure Resource Manager. Para obter informações mais detalhadas, visite os links a seguir:
 
 * [Descrição geral do Azure Resource Manager][Azure Resource Manager overview]
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Tipos de recursos do servicebus](/azure/templates/microsoft.servicebus/allversions)
+* [Criar modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Tipos de recurso Microsoft. ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

@@ -1,25 +1,17 @@
 ---
-title: Usar o volume de disco confiável Service Fabric altamente disponível em um aplicativo de malha de Service Fabric do Azure | Microsoft Docs
+title: Service Fabric volume de disco confiável com malha de Service Fabric
 description: Saiba como armazenar o estado em um aplicativo de malha de Service Fabric do Azure montando Service Fabric volume baseado em disco confiável dentro do contêiner usando o CLI do Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: ashishnegi
-manager: raunakpandya
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036152"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497963"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montagem altamente disponível Service Fabric volume baseado em disco confiável em um aplicativo de malha Service Fabric 
 O método comum de persistência de estado com aplicativos de contêiner é usar o armazenamento remoto como armazenamento de arquivos do Azure ou banco de dados como Azure Cosmos DB. Isso incorre em uma latência de rede de leitura e gravação significativa para o armazenamento remoto.
@@ -29,11 +21,11 @@ Service Fabric disco confiável fornece volumes para leituras locais com gravaç
 
 Neste exemplo, o aplicativo do contador tem um serviço de ASP.NET Core com uma página da Web que mostra o valor do contador em um navegador.
 
-Periodicamente, lê um valor de contador de um arquivo, incrementa-o `counterService` e grava-o de volta no arquivo. O arquivo é armazenado em uma pasta que é montada no volume com suporte de Service Fabric disco confiável.
+O `counterService` lê periodicamente um valor de contador de um arquivo, incrementa-o e grava-o de volta no arquivo. O arquivo é armazenado em uma pasta que é montada no volume com suporte de Service Fabric disco confiável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para concluir esta tarefa. Para usar o CLI do Azure com este artigo, certifique- `az --version` se de que `azure-cli (2.0.43)`o retorne pelo menos.  Instale (ou atualize) o módulo de extensão da CLI da malha de Service Fabric do Azure seguindo estas [instruções](service-fabric-mesh-howto-setup-cli.md).
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para concluir esta tarefa. Para usar o CLI do Azure com este artigo, verifique se `az --version` retorna pelo menos `azure-cli (2.0.43)`.  Instale (ou atualize) o módulo de extensão da CLI da malha de Service Fabric do Azure seguindo estas [instruções](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,7 +38,7 @@ az account set --subscription "<subscriptionID>"
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos no qual quer implementar a aplicação. O comando a seguir cria um grupo de `myResourceGroup` recursos chamado em um local no Estados Unidos Oriental. Se você alterar o nome do grupo de recursos no comando abaixo, lembre-se de alterá-lo em todos os comandos a seguir.
+Crie um grupo de recursos no qual quer implementar a aplicação. O comando a seguir cria um grupo de recursos chamado `myResourceGroup` em um local no Estados Unidos Oriental. Se você alterar o nome do grupo de recursos no comando abaixo, lembre-se de alterá-lo em todos os comandos a seguir.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +58,7 @@ Você também pode ver o estado da implantação com o comando
 az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
-Observe o nome do recurso de gateway que tem o tipo `Microsoft.ServiceFabricMesh/gateways`de recurso como. Isso será usado para obter o endereço IP público do aplicativo.
+Observe o nome do recurso de gateway que tem o tipo de recurso como `Microsoft.ServiceFabricMesh/gateways`. Isso será usado para obter o endereço IP público do aplicativo.
 
 ## <a name="open-the-application"></a>Abrir a aplicação
 
@@ -79,7 +71,7 @@ A saída deve ter uma propriedade `ipAddress` que é o endereço IP público par
 
 ## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Verificar se o aplicativo é capaz de usar o volume
 
-O aplicativo cria um arquivo chamado `counter.txt` no volume dentro `counter/counterService` da pasta. O conteúdo desse arquivo é o valor do contador que está sendo exibido na página da Web.
+O aplicativo cria um arquivo chamado `counter.txt` no volume dentro da pasta `counter/counterService`. O conteúdo desse arquivo é o valor do contador que está sendo exibido na página da Web.
 
 ## <a name="delete-the-resources"></a>Eliminar os recursos
 
@@ -89,7 +81,7 @@ Exclua com frequência os recursos que você não está mais usando no Azure. Pa
 az group delete --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Exiba o Service Fabric aplicativo de exemplo de disco de volume confiável no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Para saber mais sobre o Modelo de Recursos do Service Fabric, consulte [Modelo de Recursos do Service Fabric Mesh](service-fabric-mesh-service-fabric-resources.md).

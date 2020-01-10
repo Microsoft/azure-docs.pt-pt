@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929621"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659882"
 ---
 >[!IMPORTANT]
 >Você pode usar os recursos que criou como pré-requisitos para outros tutoriais de Azure Machine Learning e artigos de instruções.
@@ -38,11 +38,11 @@ No designer em que você criou o experimento, exclua ativos individuais selecion
 
 O destino de computação que você criou aqui é *automaticamente dimensionado* para zero nós quando ele não está sendo usado. Essa ação é executada para minimizar os encargos. Se você quiser excluir o destino de computação, siga estas etapas:
 
-![Excluir ativos](./media/aml-ui-cleanup/delete-asset.png)
+![Eliminar recursos](./media/aml-ui-cleanup/delete-asset.png)
 
 Você pode cancelar o registro de conjuntos de registros de seu espaço de trabalho selecionando cada conjunto de registros e selecionando **Cancelar registro**.
 
-![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset.png)
+![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 Para excluir um conjunto de um, vá para a conta de armazenamento usando o portal do Azure ou Gerenciador de Armazenamento do Azure e exclua manualmente esses ativos.
 

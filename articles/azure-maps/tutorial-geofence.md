@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407837"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar uma cerca geográfica usando o Azure Maps
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps 
 
-Para concluir as etapas deste tutorial, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura da conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave de assinatura primária para sua conta.
+Para concluir as etapas neste tutorial, siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta do Azure Maps com o tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="upload-geofences"></a>Carregar limites geográficos
 
@@ -56,7 +56,7 @@ Abra o aplicativo de postmaster e siga as etapas a seguir para carregar a cerca 
     
     O parâmetro geojson no caminho da URL representa o formato de dados dos dados que estão sendo carregados.
 
-3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela chave de assinatura primária do Azure Maps.
+3. Clique em **params**e insira os seguintes pares de chave/valor a serem usados para a URL de solicitação post. Substitua o valor da chave de assinatura pela sua chave do Azure Maps.
    
     ![Chave-valor params do postmaster](./media/tutorial-geofence/postman-key-vals.png)
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444511"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -81,7 +81,7 @@ Mesmo que você não tenha seus dados particionados em suas tabelas de destino, 
 
 ### <a name="disable-indexes-on-write"></a>Desabilitar índices na gravação
 
-Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) antes de sua atividade de fluxo de dados que desabilita índices em suas tabelas de destino gravadas de seu coletor. Após a atividade de fluxo de dados, adicione outra atividade de procedimento armazenado que habilite esses índices.
+Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) antes de sua atividade de fluxo de dados que desabilita índices em suas tabelas de destino gravadas de seu coletor. Após a atividade de fluxo de dados, adicione outra atividade de procedimento armazenado que habilite esses índices. Ou utilize os scripts de pré-processamento e pós-processamento em um coletor de banco de dados.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Aumentar o tamanho do seu BD SQL do Azure e do DW
 
@@ -114,7 +114,7 @@ Para evitar esgotar os recursos do nó de computação, mantenha o esquema padr�
 
 ### <a name="looping-through-file-lists"></a>Loop por meio de listas de arquivos
 
-Um fluxo de dados de mapeamento será executado melhor quando a transformação de origem iterar em vários arquivos em vez de executar um loop por meio de cada atividade. É recomendável usar caracteres curinga ou listas de arquivos em sua transformação de origem. O processo de fluxo de dados será executado mais rapidamente, permitindo que o loop ocorra dentro do cluster do Spark. Para obter mais informações, consulte [curinga na transformação origem](data-flow-source.md#file-based-source-options).
+Um fluxo de dados de mapeamento será executado melhor quando a transformação de origem iterar em vários arquivos em vez de executar um loop por meio de cada atividade. É recomendável usar caracteres curinga ou listas de arquivos em sua transformação de origem. O processo de fluxo de dados será executado mais rapidamente, permitindo que o loop ocorra dentro do cluster do Spark. Para obter mais informações, consulte [curinga na transformação origem](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 Por exemplo, se você tiver uma lista de arquivos de dados de julho de 2019 que deseja processar em uma pasta no armazenamento de BLOBs, abaixo está um caractere curinga que você pode usar em sua transformação de origem.
 
@@ -127,8 +127,8 @@ Usando o curinga, seu pipeline conterá apenas uma atividade de fluxo de dados. 
 Definir as propriedades de taxa de transferência e de lote em coletores CosmosDB só entrará em vigor durante a execução desse fluxo de dados de uma atividade de fluxo de dados de pipeline. As configurações originais da coleção serão respeitadas pelo CosmosDB após a execução do fluxo de dados.
 
 * Tamanho do lote: Calcule o tamanho da linha aproximada dos dados e verifique se o tamanho do lote de rowgroup * é menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
-* Defino: defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
-*   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partitiongs Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
+* Taxa de transferência: defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
+*   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
 
 ## <a name="next-steps"></a>Passos seguintes
 

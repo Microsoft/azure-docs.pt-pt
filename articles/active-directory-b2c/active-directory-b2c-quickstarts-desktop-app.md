@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 48362b269f38928fec8b1987ea21397b74e7dfb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368050"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar o início de sessão para uma aplicação de ambiente de trabalho através do Azure Active Directory B2C
 
@@ -35,12 +35,12 @@ O Azure Active Directory B2C (Azure AD B2C) fornece gerenciamento de identidade 
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
     ```
 
-## <a name="run-the-application-in-visual-studio"></a>Executar a aplicação no Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Execute a aplicação no Visual Studio
 
 1. Na pasta de projeto da aplicação de exemplo, abra a solução **active-directory-b2c-wpf.sln** no Visual Studio.
 2. Prima **F5** para depurar a aplicação.
 
-## <a name="sign-in-using-your-account"></a>Iniciar sessão com a sua conta
+## <a name="sign-in-using-your-account"></a>Inicie sessão com a sua conta
 
 1. Clique em **Iniciar sessão** para iniciar o fluxo de trabalho **Inscrever-se ou Iniciar Sessão**.
 
@@ -77,9 +77,9 @@ O Azure AD B2C fornece funcionalidades para permitir que os utilizadores atualiz
 
 Clique em **Chamar API** para fazer um pedido ao recurso protegido.
 
-    ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+![Chamar a API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-    The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+A aplicação inclui o token de acesso do Azure AD no pedido ao recurso protegido de API Web. A API Web devolve o nome a apresentar contido no token de acesso.
 
 Utilizou com êxito a conta de utilizador do Azure AD B2C para fazer uma chamada autorizada para uma API Web protegida pelo Azure AD B2C.
 

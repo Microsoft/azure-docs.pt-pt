@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074022"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689760"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -74,10 +74,10 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do Amazon Web Services (AWS) ao Azure AD, você precisa adicionar o Amazon Web Services (AWS) da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
-1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa, conta de estudante ou conta Microsoft pessoal.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **aplicativos empresariais** > **todos os aplicativos**.
+1. Selecione **novo aplicativo** para adicionar um aplicativo.
 1. Na seção **Adicionar da Galeria** , digite **Amazon Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **Amazon Web Services (AWS)** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
@@ -123,7 +123,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **usuários** > **todos os usuários**.
 1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
@@ -135,7 +136,8 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao Amazon Web Services (AWS).
 
-1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **aplicativos empresariais** > **todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Amazon Web Services (AWS)** .
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
@@ -310,7 +312,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     b. Insira essas credenciais na seção provisionamento de usuário do Azure AD para buscar as funções no console do AWS.
 
-    c. Selecione **fechar**.
+    c. Selecione **Fechar**.
 
 ### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>Como configurar o provisionamento de função no Amazon Web Services (AWS)
 
@@ -326,7 +328,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     b. Insira o segredo de usuário AWS no campo **token secreto** .
 
-    c. Selecione **testar conexão**.
+    c. Selecione **Testar Ligação**.
 
     d. Salve a configuração selecionando **salvar**.
 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido do Azure-criar e usar um compartilhamento de arquivos do Azure em VMs do Windows | Microsoft Docs
+title: Criar e usar um compartilhamento de arquivos do Azure em VMs do Windows
 description: Neste guia de início rápido, você configura um compartilhamento de arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento de arquivos, carrega um arquivo no compartilhamento de arquivos. Em seguida, você tira um instantâneo do compartilhamento de arquivos, modifica o arquivo no compartilhamento de arquivos e restaura um instantâneo anterior do compartilhamento de arquivos.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305825"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463907"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: criar e gerenciar o compartilhamento de arquivos do Azure com máquinas virtuais do Windows
 
@@ -24,14 +24,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Preparar o ambiente
+## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
 Neste guia de início rápido, você configura os seguintes itens:
 
 - Uma conta de armazenamento do Azure e um compartilhamento de arquivos do Azure
 - Uma VM do Windows Server 2016 datacenter
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Para poder trabalhar com um compartilhamento de arquivos do Azure, você precisa criar uma conta de armazenamento do Azure. Uma conta de armazenamento de uso geral v2 fornece acesso a todos os serviços de armazenamento do Azure: BLOBs, arquivos, filas e tabelas. O início rápido cria uma conta de armazenamento v2 de uso geral, mas as etapas para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 

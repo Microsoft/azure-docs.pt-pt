@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 332229dbcb35a209721fc9b457ebf1e804eaca5f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561040"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665220"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: desenvolver um módulo C IoT Edge para dispositivos Windows
 
@@ -86,7 +86,7 @@ Crie um modelo de solução C que pode personalizar com o seu próprio código.
 
    | Campo | Valor |
    | ----- | ----- |
-   | Selecionar um modelo | Selecione **módulo C**. | 
+   | Select a template | Selecione **módulo C**. | 
    | Nome do projeto de módulo | Dê o nome **CModule** ao módulo. | 
    | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final é semelhante a \<nome do registro\>. azurecr.io/cmodule. |
 
@@ -100,45 +100,43 @@ O manifesto de implantação compartilha as credenciais para o registro de cont�
 
 1. No Gerenciador de soluções do Visual Studio, abra o arquivo **Deployment. Template. JSON** . 
 
-2. Localize a propriedade **registryCredentials** no $edgeAgent propriedades desejadas. 
-
-3. Atualize a propriedade com suas credenciais, seguindo este formato: 
+2. Localize a propriedade **registryCredentials** no $edgeAgent propriedades desejadas. Ele deve ter seu endereço de registro preenchido de forma automática a partir das informações fornecidas durante a criação do projeto, e os campos de nome de usuário e senha devem conter nomes de variáveis. Por exemplo: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Salve o arquivo Deployment. Template. JSON. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-O código de módulo padrão recebe mensagens em uma fila de entrada e as passa por uma fila de saída. Vamos adicionar um código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las ao Hub IoT. Atualize o módulo para que ele analise os dados de temperatura em cada mensagem e só envie a mensagem para o Hub IoT se a temperatura exceder um determinado limite. 
+5. Save your changes to the .env file.
+
+### Update the module with custom code
+
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
 
 
-1. Os dados do sensor neste cenário estão no formato JSON. Para filtrar mensagens no formato JSON, importe uma biblioteca JSON para C. Este tutorial utiliza o Parson.
+1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
-   1. Baixe o [repositório GitHub do Parson](https://github.com/kgabis/parson). Copie os arquivos **Parson. c** e **Parson. h** para o projeto **CModule** .
+   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
 
-   2. No Visual Studio, abra o arquivo **CMakeLists. txt** na pasta do projeto CModule. Na parte superior do ficheiro, importe os ficheiros do Parson como uma biblioteca chamada **my_parson**.
+   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
 
       ```
-      add_library(my_parson
-          parson.c
-          parson.h
-      )
+      add_library(my_parson        parson.c        parson.h    )
       ```
 
-   3. Adicione `my_parson` à lista de bibliotecas na seção **target_link_libraries** do arquivo CMakeLists. txt.
+   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
 
-   4. Guarde o ficheiro **CMakeLists.txt**.
+   4. Save the **CMakeLists.txt** file.
 
-   5. Abra **CModule** > **Main. c**. Na parte inferior da lista de instruções include, adicione uma nova para incluir `parson.h` para suporte a JSON:
+   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"
@@ -388,7 +386,7 @@ Neste tutorial, criou uma função do módulo do IoT Edge com código para filtr
 Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
-> [Funções](tutorial-deploy-function.md)
+> [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [serviço de visão personalizada](tutorial-deploy-custom-vision.md)
+> [Custom Vision Service](tutorial-deploy-custom-vision.md)

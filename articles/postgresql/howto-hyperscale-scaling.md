@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453059"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Dimensionar um grupo de servidores de hiperescala (Citus)
 
-Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. O portal do Azure facilita a adição de novos nós de trabalho e a aumentar a capacidade dos nós existentes.
+Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensionamento de autoatendimento para lidar com o aumento da carga. A portal do Azure facilita a adição de novos nós de trabalho e o aumento da vCores dos nós existentes.
 
 ## <a name="add-worker-nodes"></a>Adicionar nós de trabalho
 
@@ -38,9 +38,9 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 A função `rebalance_table_shards` reequilibra todas as tabelas no grupo de [colocalização](concepts-hyperscale-colocation.md) da tabela nomeada em seu argumento. Portanto, você não precisa chamar a função para cada tabela distribuída, basta chamá-la em uma tabela representativa de cada grupo de colocalização.
 
-## <a name="increase-vcores-or-storage-space"></a>Aumentar vCores ou espaço de armazenamento
+## <a name="increase-vcores"></a>Aumentar vCores
 
-Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Vá para a guia **Configurar** em seu grupo de servidores Citus (hiperescala) e arraste o controle deslizante para **vCores** e **armazenamento** para alterar esses valores para todos os nós de trabalho. Certifique-se de clicar em **salvar** para aplicar as alterações.
+Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Este recurso está atualmente em visualização — para solicitar um aumento de vCores para nós no seu grupo de servidores, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Passos seguintes
 

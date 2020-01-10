@@ -2,19 +2,15 @@
 title: Migrar suas implantações de atualização do OMS para o Azure
 description: Este artigo descreve como migrar suas implantações de atualização do OMS existentes para o Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417772"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar suas implantações de atualização do OMS para o Azure
 
@@ -25,7 +21,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 * As implantações existentes continuarão a funcionar. Depois de recriar a implantação no Azure, você poderá excluir a implantação antiga do OMS.
 * Todos os recursos existentes que você tinha no OMS estão disponíveis no Azure, para saber mais sobre Gerenciamento de Atualizações, consulte [Gerenciamento de atualizações visão geral](automation-update-management.md).
 
-## <a name="access-the-azure-portal"></a>Acessar o portal do Azure
+## <a name="access-the-azure-portal"></a>Aceder ao portal do Azure
 
 No espaço de trabalho do OMS, clique em **abrir no Azure**. Isso navega para o espaço de trabalho Log Analytics usado pelo OMS.
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790625"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690913"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual SQL Server no Azure
 Este artigo descreve como alterar o modelo de licença para uma VM (máquina virtual) SQL Server no Azure usando o novo provedor de recursos de VM do SQL, **Microsoft. SqlVirtualMachine**.
@@ -45,7 +45,7 @@ O tipo de licença de SQL Server é definido quando a VM é provisionada. Você 
 
 Alterar o modelo de licenciamento de sua VM SQL Server tem os seguintes requisitos: 
 
-- Uma [assinatura do Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Uma [vm SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada com o [provedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 - O [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) é um requisito para utilizar o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
@@ -129,7 +129,7 @@ A alteração do modelo de licença é:
    - Disponível somente para clientes com [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
    - Com suporte apenas para as edições Standard e Enterprise do SQL Server. Não há suporte para alterações de licença para o Express, Web e Developer. 
    - Com suporte apenas para máquinas virtuais implantadas por meio do modelo de Azure Resource Manager. Não há suporte para máquinas virtuais implantadas por meio do modelo clássico. 
-   - Disponível somente para instalações de nuvem pública. 
+   - Disponível apenas para as nuvens públicas ou do Azure governamental. 
    - Somente com suporte em máquinas virtuais que têm uma única interface de rede (NIC). 
 
 
@@ -144,7 +144,7 @@ Esse erro ocorre quando você tenta alterar o modelo de licença em uma VM SQL S
 Você precisará registrar sua assinatura com o provedor de recursos e [registrar sua VM de SQL Server com o provedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>A máquina virtual '\<vmname\>' tem mais de uma NIC associada
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>A máquina virtual '\<vmname\>' tem mais de uma NIC associada
 
 Esse erro ocorre em máquinas virtuais que têm mais de uma NIC. Remova uma das NICs antes de alterar o modelo de licenciamento. Embora você possa adicionar a NIC de volta à VM depois de alterar o modelo de licença, as operações no portal do Azure, como backup automático e aplicação de patches, não terão mais suporte. 
 

@@ -11,16 +11,16 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440498"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>CI/CD (integração e entrega contínuas) no Azure Data Factory
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A integração contínua é a prática de testar cada alteração feita na base de código automaticamente e o mais cedo possível. A entrega contínua segue os testes que ocorrem durante a integração contínua e envia por push as alterações para um sistema de preparo ou de produção.
 
@@ -56,11 +56,11 @@ No menu suspenso **modelo do ARM** , selecione **Exportar modelo do ARM** para e
 
 Em suas fábricas de dados de teste e de produção, selecione **Importar modelo de ARM**. Essa ação leva você para a portal do Azure, onde você pode importar o modelo exportado. Selecione **criar seu próprio modelo no editor** para abrir o editor de modelos do Resource Manager.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Implantação personalizada crie seu próprio modelo](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Clique em **carregar arquivo** e selecione o modelo do Resource Manager gerado.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Modelo de edição de implantação personalizada](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 No painel configurações, insira os valores de configuração, como credenciais de serviço vinculado. Depois de terminar, clique em **comprar** para implantar o modelo do Resource Manager.
 

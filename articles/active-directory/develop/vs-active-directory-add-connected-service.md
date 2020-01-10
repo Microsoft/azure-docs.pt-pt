@@ -1,5 +1,5 @@
 ---
-title: Adicionar um AD do Azure usando serviços conectados
+title: Usando o serviço conectado do Active Directory (Visual Studio)
 description: Adicionar um Azure Active Directory usando a caixa de diálogo Adicionar serviços conectados do Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbbf002110d997d18c49fb03ad599342cdf618d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 435ec76a6a7ffe81c1be2752d69b79c1fb8d0bd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423189"
 ---
-# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionando um Azure Active Directory usando os serviços conectados no Visual Studio
+# <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory usando os serviços conectados no Visual Studio
 
 Usando o Azure Active Directory (AD do Azure), você pode dar suporte ao SSO (logon único) para aplicativos Web ASP.NET MVC ou Active Directory autenticação nos serviços de API da Web. Com a autenticação do Azure AD, os usuários podem usar suas contas de Azure Active Directory para se conectarem aos seus aplicativos Web. As vantagens da autenticação do Azure AD com a API da Web incluem segurança de dados aprimorada ao expor uma API de um aplicativo Web. Com o Azure AD, você não precisa gerenciar um sistema de autenticação separado com sua própria conta e gerenciamento de usuário.
 

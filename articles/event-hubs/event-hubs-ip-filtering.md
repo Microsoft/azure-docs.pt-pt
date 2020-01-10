@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437199"
 ---
-# <a name="use-firewall-rules"></a>Usar regras de firewall
+# <a name="azure-event-hubs---use-firewall-rules"></a>Hubs de eventos do Azure – usar regras de firewall
 
 Para cenários nos quais os hubs de eventos do Azure devem ser acessíveis somente de determinados sites conhecidos, as regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
 
@@ -34,7 +34,7 @@ Qualquer tentativa de conexão de um endereço IP que não corresponda a uma reg
 
 ## <a name="default-setting"></a>Definição predefinida
 
-Por padrão, a grade de **filtro IP** no portal para os hubs de eventos está vazia. Essa configuração padrão significa que o seu hub de eventos aceita ligações a partir de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
+Por predefinição, o **filtro IP** grelha no portal dos Hubs de eventos está vazia. Essa configuração padrão significa que o seu hub de eventos aceita ligações a partir de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 
@@ -70,7 +70,7 @@ Parâmetros do modelo:
 > Embora não haja nenhuma regra de negação possível, o modelo de Azure Resource Manager tem a ação padrão definida como **"permitir"** , que não restringe as conexões.
 > Ao tornar as regras de rede virtual ou firewalls, devemos alterar o ***"DefaultAction"***
 > 
-> from
+> de
 > ```json
 > "defaultAction": "Allow"
 > ```

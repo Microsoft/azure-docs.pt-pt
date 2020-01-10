@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422345"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure Active Directory (AD do Azure) atualiza regularmente Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -38,9 +38,20 @@ Transferir| [Baixar Azure ad Connect](https://go.microsoft.com/fwlink/?LinkId=61
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão é disponibilizada para atualização automática ou somente para download. Se a atualização automática tiver sido habilitada em seu servidor de Azure AD Connect, esse servidor será atualizado automaticamente para a versão mais recente do Azure AD Connect que é lançado para atualização automática. Observe que nem todas as configurações de Azure AD Connect são elegíveis para a atualização automática. Siga este link para ler mais sobre a [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> A partir de 1º de novembro de 2020, começaremos a implementar um processo de substituição no qual as versões de Azure AD Connect lançadas há mais de 18 meses serão preteridas. Nesse momento, vamos começar esse processo preterindo todas as versões do Azure AD Connect com a versão 1.1.751.0 (lançada em 4/12/2018) e mais antigamente, e continuaremos a avaliar a substituição de versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
+>
+> Você precisa verificar se está executando uma versão recente do Azure AD Connect para receber uma experiência de suporte ideal. 
+>
+>Se você executar uma versão preterida do Azure AD Connect talvez você não tenha as correções de segurança mais recentes, melhorias de desempenho, solução de problemas e ferramentas de diagnóstico e aprimoramentos de serviço e, se precisar de suporte, talvez não seja possível fornecer o nível de atender às necessidades da sua organização.
+>
+>Se você tiver habilitado Azure AD Connect para sincronização, logo começará automaticamente a receber notificações de integridade que avisam sobre as substituições futuras quando você estiver executando uma das versões mais antigas.
+>
+>Veja [Este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar Azure ad Connect para a versão mais recente.
+
 ## <a name="14380"></a>1.4.38.0
-### <a name="release-status"></a>Status da versão
-12/6/2019: versão para download. Não disponível por meio da atualização automática.
+### <a name="release-status"></a>Estado de lançamento
+12/9/2019: versão para download. Não disponível por meio da atualização automática.
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Atualizamos a sincronização de hash de senha para Azure AD Domain Services para considerar adequadamente o preenchimento em hashes Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do AAD para o Azure AD Domain Services.
 - Adicionamos suporte para sessões confiáveis entre o agente de autenticação e o barramento de serviço.
@@ -53,7 +64,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 - Foi feita uma correção para habilitar o DSSO simultaneamente em toda a floresta por meio da interface de usuário do AADConnect
 
 ## <a name="14320"></a>1.4.32.0
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 11/08/2019: liberado para download. Não disponível por meio da atualização automática.
 
 >[!IMPORTANT]
@@ -65,7 +76,7 @@ Observe que essa alteração de regra pode causar a exclusão de dispositivos ob
 
 ## <a name="14250"></a>1.4.25.0
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 9/28/2019: liberado para atualização automática para selecionar locatários. Não disponível para download.
 
 Essa versão corrige um bug em que alguns servidores que foram atualizados automaticamente de uma versão anterior para 1.4.18.0 e problemas experientes com autoatendimento de redefinição de senha (SSPR) e Write-back de senha.
@@ -83,7 +94,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 >Com esta versão do Azure AD Connect alguns clientes podem ver que alguns ou todos os seus dispositivos Windows desaparecem do Azure AD. Isso não é uma causa de preocupação, pois essas identidades de dispositivo não são usadas pelo AD do Azure durante a autorização de acesso condicional. Para obter mais informações, consulte [Understanding Azure ad Connect 1.4. XX. x Device disappearnce](reference-connect-device-disappearance.md)
 
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 9/25/2019: liberado somente para atualização automática.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
@@ -132,7 +143,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 >2. Execute `Import-Module "ADSync"`
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
-### <a name="release-status"></a>Status da versão 
+### <a name="release-status"></a>Estado de lançamento 
 
 05/14/2019: liberado para download
 
@@ -142,7 +153,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 ## <a name="13200"></a>1.3.20.0 
 
-### <a name="release-status"></a>Status da versão 
+### <a name="release-status"></a>Estado de lançamento 
 
 04/24/2019: liberado para download
 
@@ -189,7 +200,7 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 
 ## <a name="12700"></a>1.2.70.0
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 
 12/18/2018: liberado para download
 
@@ -200,7 +211,7 @@ Esse Build atualiza os conectores não padrão (por exemplo, conector LDAP gené
 
 ## <a name="12690"></a>1.2.69.0
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 12/11/2018: liberado para download
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
@@ -212,7 +223,7 @@ Se qualquer compilação contendo a funcionalidade atualizada de opções de dis
 
 ## <a name="12680"></a>1.2.68.0
 
-### <a name="release-status"></a>Status da versão 
+### <a name="release-status"></a>Estado de lançamento 
 
 11/30/2018: liberado para download
 
@@ -224,7 +235,7 @@ Essa compilação de hotfix corrige um conflito em que pode ocorrer um erro de a
 
 ## <a name="12670"></a>1.2.67.0
 
-### <a name="release-status"></a>Status da versão 
+### <a name="release-status"></a>Estado de lançamento 
 
 11/19/2018: liberado para download
 
@@ -234,7 +245,7 @@ Essa compilação de hotfix corrige uma regressão na compilação anterior em q
 
 ## <a name="12650"></a>1.2.65.0 
 
-### <a name="release-status"></a>Status da versão 
+### <a name="release-status"></a>Estado de lançamento 
 
 10/25/2018: liberado para download
 
@@ -274,7 +285,7 @@ A atualização do Azure AD Connect falhará se a disponibilidade do SQL Always 
 
 ## <a name="118800"></a>1.1.880.0
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 
 8/21/2018: liberado para download e atualização automática. 
 
@@ -313,7 +324,7 @@ A atualização do Azure AD Connect falhará se a disponibilidade do SQL Always 
 
 ## <a name="118190"></a>1.1.819.0
 
-### <a name="release-status"></a>Status da versão
+### <a name="release-status"></a>Estado de lançamento
 
 5/14/2018: liberado para atualização e download automáticos.
 
@@ -483,7 +494,7 @@ Bloqueie o acesso à conta de AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto específico, exceto ACEs específicas para si mesma. Queremos manter as permissões padrão intactas quando se trata de si mesma.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Tipo     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |

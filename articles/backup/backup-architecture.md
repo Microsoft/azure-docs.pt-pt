@@ -1,14 +1,14 @@
 ---
-title: Visão geral da arquitetura
+title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, dos componentes e dos processos usados pelo serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450201"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -48,7 +48,7 @@ Os cofres dos serviços de recuperação têm os seguintes recursos:
   - **Armazenamento com redundância geográfica (GRS)** : para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
 
-## <a name="backup-agents"></a>Agentes de backup
+## <a name="backup-agents"></a>Agentes do Azure Backup
 
 O backup do Azure fornece diferentes agentes de backup, dependendo do tipo de computador cujo backup está sendo feito:
 
@@ -57,7 +57,7 @@ O backup do Azure fornece diferentes agentes de backup, dependendo do tipo de co
 **Agente MARS** | <ul><li>É executado em máquinas locais individuais do Windows Server para fazer backup de arquivos, pastas e do estado do sistema.</li> <li>É executado em VMs do Azure para fazer backup de arquivos, pastas e do estado do sistema.</li> <li>É executado em servidores DPM/MABS para fazer backup do disco de armazenamento local do DPM/MABS no Azure.</li></ul>
 **Extensão de VM do Azure** | É executado em VMs do Azure para fazer backup em um cofre.
 
-## <a name="backup-types"></a>Tipos de backup
+## <a name="backup-types"></a>Tipos de cópia de segurança
 
 A tabela a seguir explica os diferentes tipos de backups e quando eles são usados:
 
@@ -174,7 +174,7 @@ Para obter mais informações sobre o armazenamento em disco e os tipos de disco
 Você pode fazer backup de VMs do Azure usando o armazenamento Premium com o backup do Azure:
 
 - Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-* , na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
-- Certifique-se de que a conta de armazenamento Premium tenha espaço livre suficiente para acomodar o local temporário de preparo. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Não modifique o local de preparo.
+- Certifique-se de que a conta de armazenamento Premium tenha espaço livre suficiente para acomodar o local temporário de preparo. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de página Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
 - O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento Premium](../virtual-machines/windows/disks-types.md#billing).
 

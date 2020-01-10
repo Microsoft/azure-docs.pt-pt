@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439351"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copiar dados de uma base de dados SQL Server no local para o Armazenamento de Blobs do Azure
 
@@ -106,7 +106,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
-1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
+1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Fabric cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -135,7 +135,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Defina uma variável para o nome do grupo de recursos que vai utilizar mais tarde nos comandos do PowerShell. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) (entre aspas duplas, como, por exemplo, `"adfrg"`) e execute o comando. 
+1. Defina uma variável para o nome do grupo de recursos que vai utilizar mais tarde nos comandos do PowerShell. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) (entre aspas duplas, como, por exemplo, `"adfrg"`) e execute o comando. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -185,7 +185,7 @@ Instale a versão mais recente do Azure PowerShell, se ainda não a tiver no seu
 
 Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O integration runtime autoalojado é o componente que copia os dados da base de dados SQL Server no seu computador para o armazenamento de Blobs do Azure. 
 
-1. Crie uma variável para o nome do integration runtime. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
+1. Crie uma variável para o nome do runtime de integração. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"

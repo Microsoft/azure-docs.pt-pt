@@ -1,6 +1,6 @@
 ---
-title: Mover aplicativos dos serviços BizTalk para o aplicativo lógico do Azure
-description: Migrar dos serviços BizTalk do Azure (MABS) para os aplicativos lógicos do Azure
+title: Migrar aplicativos dos serviços BizTalk para o aplicativo lógico do Azure
+description: Como mover seus aplicativos e soluções de Serviços BizTalk do Microsoft Azure (MABS) para os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,14 +8,14 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791888"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666657"
 ---
-# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrar dos serviços BizTalk para o aplicativo lógico do Azure
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções dos serviços BizTalk para os aplicativos lógicos do Azure
 
 Serviços BizTalk do Microsoft Azure (MABS) está sendo desativado. Para mover suas soluções de integração do MABS para os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md), siga as orientações neste artigo. 
 
@@ -41,7 +41,7 @@ Esta tabela mapeia os recursos dos serviços BizTalk para aplicativos lógicos.
 | Estágio de transformação    | Ação de transformação      | Converter mensagens XML de um formato para outro |
 | Estágio de decodificação       | Ação de decodificação de arquivo simples | Converter de arquivo simples em XML |
 | Estágio de codificação       | Ação de codificação de arquivo simples | Converter de XML em arquivo simples |
-| Inspetor de mensagem  | Azure Functions ou aplicativos de API | Executar código personalizado em suas integrações |
+| Inspetor de Mensagem  | Azure Functions ou aplicativos de API | Executar código personalizado em suas integrações |
 | Ação de rota       | Condição ou comutador | Rotear mensagens para um dos conectores especificados |
 |||| 
 

@@ -1,6 +1,6 @@
 ---
-title: Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
-description: Armazene dados estruturados na cloud com o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+title: Usar o Azure Cosmos DB API de Tabela e o armazenamento de tabelas do Azure usando Python
+description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444760"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
 
@@ -145,7 +145,7 @@ table_service.insert_or_replace_entity('tasktable', task)
 
 ## <a name="modify-multiple-entities"></a>Modificar várias entidades
 
-Para garantir o processamento atómico de um pedido por parte do serviço Tabela, pode submeter várias operações em conjunto num lote. Primeiro, use a classe [TableBatch][py_TableBatch] para adicionar várias operações a um único lote. Em seguida, chame [TableService][py_TableService]. [commit_batch][py_commit_batch] para enviar as operações em uma operação atômica. Todas as entidades que vão ser modificadas em lote têm de estar na mesma partição.
+Para garantir o processamento atómico de um pedido por parte do serviço Tabela, pode submeter várias operações em conjunto num lote. Primeiro, use a classe [TableBatch][py_TableBatch] para adicionar várias operações a um único lote. Em seguida, chame [TableService][py_TableService]. [commit_batch][py_commit_batch] enviar as operações em uma operação atômica. Todas as entidades que vão ser modificadas em lote têm de estar na mesma partição.
 
 Este exemplo adiciona duas entidades num lote:
 
@@ -176,7 +176,7 @@ with table_service.batch('tasktable') as batch:
 
 ## <a name="query-for-an-entity"></a>Consultar uma entidade
 
-Para consultar uma entidade em uma tabela, passe seu PartitionKey e RowKey para o [TableService][py_TableService]. método [get_entity][py_get_entity] .
+Para consultar uma entidade em uma tabela, passe seu PartitionKey e RowKey para o [TableService][py_TableService]. [get_entity][py_get_entity] método.
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')

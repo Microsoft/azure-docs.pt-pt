@@ -1,18 +1,18 @@
 ---
-title: Detecção inteligente-pacote de detecção de segurança com informações do Aplicativo Azure | Microsoft Docs
-description: Monitore o aplicativo com informações de Aplicativo Azure para possíveis problemas de segurança.
+title: Pacote de detecção de segurança com informações do Aplicativo Azure
+description: Monitore o aplicativo com informações de Aplicativo Azure e detecção inteligente para possíveis problemas de segurança.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ba35b3a3e1985f49ade468c4d2e82ca579fdac2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432460"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de detecção de segurança do aplicativo (versão prévia)
 

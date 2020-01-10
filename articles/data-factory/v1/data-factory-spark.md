@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d5f5da4811a9551f687fed6ab317bb3d33041622
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438845"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark de pipelines Azure Data Factory
 
@@ -105,7 +105,7 @@ Neste passo, vai ligar a sua conta de armazenamento à fábrica de dados. Um con
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Substitua o **nome da conta** e a chave de **conta** pelo nome e a chave de acesso da sua conta de armazenamento. Para saber como obter a sua chave de acesso ao armazenamento, veja como visualizar, copiar e regenerar chaves de acesso ao armazenamento em [Gerir a conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+1. Substitua o **nome da conta** e a chave de **conta** pelo nome e a chave de acesso da sua conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
 1. Para implantar o serviço vinculado, selecione **implantar** na barra de comandos. Depois de o serviço ligado ser implementado com êxito, a janela Rascunho-1 desaparece. Verá **AzureStorageLinkedService** na vista de árvore à esquerda.
 
@@ -279,7 +279,7 @@ Para solucionar problemas adicionais, execute as seguintes etapas:
 
 1. Selecione **logs** para uma das tentativas de execução.
 
-    ![Página do aplicativo](media/data-factory-spark/yarn-applications.png)
+    ![Página de aplicativo](media/data-factory-spark/yarn-applications.png)
 
 1. Você verá as seguintes informações de erro adicionais na página log:
 
@@ -324,7 +324,7 @@ Aqui está a definição de JSON de exemplo de um pipeline com uma atividade do 
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
 | nome | Nome da atividade no pipeline. | Sim |
 | descrição | Texto que descreve o que a atividade faz. | Não |
@@ -333,7 +333,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON.
 | rootPath | O contêiner de BLOB e a pasta que contém o arquivo Spark. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim |
 | entryFilePath | Caminho relativo para a pasta raiz do código/pacote do Spark. | Sim |
 | className | Classe principal Java/Spark do aplicativo. | Não |
-| argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
+| arguments | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
 | proxyUser | A conta de usuário a ser representada para executar o programa Spark. | Não |
 | sparkConfig | Especifique valores para as propriedades de configuração do Spark listadas na [configuração do Spark: propriedades do aplicativo](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica quando os arquivos de log do Spark são copiados para o armazenamento usado pelo cluster HDInsight (ou) especificado por sparkJobLinkedService. Os valores permitidos são None, Always ou Failure. O valor padrão é None. | Não |
@@ -344,10 +344,10 @@ A atividade do Spark não dá suporte a um script embutido, pois as atividades P
 
 Crie a seguinte estrutura de pastas no armazenamento de BLOBs referenciado pelo serviço vinculado do HDInsight. Em seguida, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz representada por **entryFilePath**. Por exemplo, carregue arquivos Python na subpasta pyFiles e nos arquivos jar para a subpasta jars da pasta raiz. Em tempo de execução, o serviço Data Factory espera a seguinte estrutura de pasta no armazenamento de BLOBs: 
 
-| Caminho | Descrição | Necessário | Tipo |
+| Caminho | Descrição | Obrigatório | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho raiz do trabalho do Spark no serviço vinculado de armazenamento. | Sim | Pasta |
-| &lt;&gt; definidas pelo usuário | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | Sim | Ficheiro |
+| &lt;&gt; definidas pelo usuário | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | Sim | Ficheiros |
 | ./jars | Todos os arquivos nessa pasta são carregados e colocados no classpath Java do cluster. | Não | Pasta |
 | ./pyFiles | Todos os arquivos nessa pasta são carregados e colocados no PYTHONPATH do cluster. | Não | Pasta |
 | ./files | Todos os arquivos nessa pasta são carregados e colocados no diretório de trabalho do executor. | Não | Pasta |

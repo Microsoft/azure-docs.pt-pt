@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 9a8c3fd6c591f25aadc696c3c71f8c4cdfca745f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450206"
 ---
 # <a name="azure-signalr-service-faq"></a>Perguntas frequentes sobre o serviço do Azure Signalr
 
@@ -67,4 +67,4 @@ Não.
 
 O serviço de Signaler do Azure fornece todos os três transportes que ASP.NET Core Signalr dá suporte por padrão. Ele não é configurável. O serviço signalr tratará conexões e transportes para todas as conexões de cliente.
 
-Você pode configurar transportes do lado do cliente conforme documentado [aqui](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+Você pode configurar transportes do lado do cliente conforme documentado [aqui](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).

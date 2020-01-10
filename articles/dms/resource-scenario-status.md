@@ -1,5 +1,6 @@
 ---
-title: Status do cenário de migração de banco de dados | Microsoft Docs
+title: Estado do cenário da migração de base de dados
+titleSuffix: Azure Database Migration Service
 description: Saiba mais sobre o status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
@@ -11,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 9ea070ea86a4d0d5e7101e82450235a59c936d2d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437682"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -44,17 +45,17 @@ As tabelas a seguir mostram quais cenários de migração têm suporte ao usar o
 
 A tabela a seguir mostra o suporte ao serviço de migração de banco de dados do Azure para migrações offline.
 
-| Destino  | Source | Suporte | State |
+| Visar  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA |
+| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | RDS SQL |  |  |
 |   | Oracle |  |  |
-| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA |
+| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **VM do SQL do Azure** | SQL Server | ✔ | GA |
+| **VM do SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | Oracle |   |   |
-| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA |
+| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 | **BD do Azure para MySQL** | MySQL |   |   |
 |   | RDS MySQL |   |   |
 | **BD do Azure para PostgreSQL** | PostgreSQL |  |
@@ -64,21 +65,21 @@ A tabela a seguir mostra o suporte ao serviço de migração de banco de dados d
 
 A tabela a seguir mostra o suporte ao serviço de migração de banco de dados do Azure para migrações online.
 
-| Destino  | Source | Suporte | State |
+| Visar  | Origem | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
+| **Banco de BD SQL do Azure** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+|   | RDS SQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | Oracle |  |  |
-| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | ✔ | GA |
+| **Banco de BD SQL do Azure MI** | SQL Server | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+|   | RDS SQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | Oracle | ✔ | Visualização privada |
 | **VM do SQL do Azure** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | ✔ | GA |
-|   | RDS MySQL | ✔ | GA |
-| **BD do Azure para PostgreSQL** | PostgreSQL | ✔ | GA |
-|   | RDS PostgreSQL | ✔ | GA |
+| **BD do Cosmos para o Azure** | MongoDB | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **BD do Azure para MySQL** | MySQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+|   | RDS MySQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+| **BD do Azure para PostgreSQL** | PostgreSQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
+|   | RDS PostgreSQL | ✔ | GA (Geographic Availability, Disponibilidade Geográfica) |
 |   | Oracle | ✔ | Pré-visualização pública |
 
 ## <a name="next-steps"></a>Passos seguintes
