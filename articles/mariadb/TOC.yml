@@ -6,7 +6,7 @@
       href: overview.md
     - name: Que opção do MariaDB devo escolher?
       href: select-right-deployment-type.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Criar BD - Portal
@@ -59,6 +59,8 @@
           href: concepts-firewall-rules.md
         - name: Rede Virtual
           href: concepts-data-access-security-vnet.md
+        - name: Ligação Privada
+          href: concepts-data-access-security-private-link.md
         - name: Proteção Avançada Contra Ameaças
           href: concepts-data-access-and-security-threat-protection.md
     - name: Continuidade do negócio
@@ -176,6 +178,12 @@
           href: howto-manage-vnet-portal.md
         - name: CLI do Azure
           href: howto-manage-vnet-cli.md
+    - name: Ligação Privada
+      items:
+        - name: Portal do Azure
+          href: howto-configure-privatelink-portal.md
+        - name: CLI do Azure
+          href: howto-configure-privatelink-cli.md
     - name: Reiniciar servidor
       items:
         - name: Portal do Azure

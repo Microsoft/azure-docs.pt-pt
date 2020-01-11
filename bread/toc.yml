@@ -256,8 +256,8 @@
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
     - name: Suportabilidade
-      tocHref: /azure/azure-supportability/
-      topicHref: /azure/azure-supportability/
+      tocHref: /azure/azure-portal/supportability/
+      topicHref: /azure/azure-portal/supportability/
     - name: Cópia de segurança
       tocHref: /azure/backup/
       topicHref: /azure/backup/

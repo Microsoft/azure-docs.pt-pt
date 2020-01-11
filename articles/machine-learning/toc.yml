@@ -121,8 +121,8 @@
           href: how-to-setup-authentication.md
         - name: Monitorizar o Azure Machine Learning
           href: monitor-azure-machine-learning.md
-        - name: Integração do Event Grid
-          href: concept-event-grid-integration.md
+    - name: Integração do Event Grid
+      href: concept-event-grid-integration.md
     - name: Aprendizagem aprofundada
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
