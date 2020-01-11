@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/07/2020
-ms.openlocfilehash: 7a3749f61e6e656f750059ee76881a2e3f3b7912
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d6419e86e1a541638a7053654bfcd7945aa41ae7
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865041"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891061"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor configuração de chave gerenciada pelo cliente 
 
-Este artigo fornece informações básicas e etapas para configurar chaves gerenciadas pelo cliente (CMK) seus espaços de trabalho do Log Analytics e componentes do Application Insights. Uma vez configurado, todos os dados enviados para seus espaços de trabalho são criptografados com sua chave de Azure Key Vault.
+Este artigo fornece informações básicas e etapas para configurar chaves gerenciadas pelo cliente (CMK) para seus espaços de trabalho do Log Analytics e componentes do Application Insights. Uma vez configurado, todos os dados enviados para seus espaços de trabalho são criptografados com sua chave de Azure Key Vault.
 
 Recomendamos que você revise as [limitações e restrições](#Limitations and constraints) abaixo antes da configuração.
 
@@ -185,7 +185,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{res
 
 Atualize seu Key Vault e adicione a política de acesso com as permissões ' Get ', ' encapsule chave ' e ' desencapsular chave ' à ID de recurso de *cluster* ou ao nome do recurso de *cluster* . Essas permissões serão propagadas para a subposição Azure Monitor armazenamento.
 
-![conceder permissões de Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
+![Conceder permissões de Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 A permissão *Get* é necessária para verificar se o Key Vault está configurado como recuperável para proteger sua chave e o acesso aos seus dados de Azure monitor.
 
