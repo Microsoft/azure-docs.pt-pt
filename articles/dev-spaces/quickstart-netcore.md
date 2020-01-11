@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este guia de início rápido mostra como usar Azure Dev Spaces e Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no serviço kubernetes do Azure
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 29d601b9996b9cdf7825e367cae04521d4c4bc4a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771092"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867513"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Início rápido: Depurar e iterar em kubernetes: Visual Studio Code e .NET Core-Azure Dev Spaces
 
@@ -92,6 +92,9 @@ Quando Visual Studio Code também solicita que você configure seu ponto de extr
 ![Selecionar ponto de extremidade público](media/common/select-public-endpoint.png)
 
 Este comando prepara seu projeto para ser executado no Azure Dev Spaces gerando um gráfico Dockerfile e Helm. Ele também gera um diretório *. vscode* com a configuração de depuração na raiz do seu projeto.
+
+> [!TIP]
+> O [gráfico Dockerfile e Helm](how-dev-spaces-works.md#prepare-your-code) para seu projeto é usado pelo Azure dev Spaces para compilar e executar seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Compilar e executar código no kubernetes por meio do Visual Studio
 

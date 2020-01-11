@@ -2,13 +2,14 @@
 title: Perguntas gerais sobre o serviço de Azure Site Recovery
 description: Este artigo discute perguntas gerais populares sobre Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497531"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863568"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre Azure Site Recovery
 
@@ -101,7 +102,8 @@ Sim. Quando você cria um cofre de Site Recovery em uma região, garantimos que 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
 Para máquinas virtuais e servidores físicos, há suporte para a replicação entre os sites locais de criptografia em trânsito. Para máquinas virtuais e servidores físicos replicando para o Azure, há suporte para criptografia em trânsito e [criptografia em repouso (no Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
 
-
+### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>Como posso impor o TLS 1,2 em todos os componentes de Azure Site Recovery locais?
+Os agentes de mobilidade instalados nos itens replicados se comunicam com o servidor de processo somente no TLS 1,2. No entanto, a comunicação do servidor de configuração para o Azure e do servidor de processo para o Azure pode estar no TLS 1,1 ou 1,0. Siga as [orientações](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) para impor o TLS 1,2 em todos os servidores de configuração e servidores de processo configurados por você.
 
 
 ## <a name="disaster-recovery"></a>Recuperação após desastre

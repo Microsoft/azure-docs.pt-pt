@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 47a84e11149d9c54d335fe09f3c56532f2aaf58b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701928"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862871"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
 Use Azure Notebooks para desenvolver um módulo de aprendizado de máquina e implantá-lo em um dispositivo Linux que executa o Azure IoT Edge. 
 
-Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica como implementar um módulo do Azure Machine Learning que prevê quando um dispositivo falha com base nos dados de temperatura simulada no computador. Para obter mais informações sobre Azure Machine Learning em IoT Edge, consulte [Azure Machine Learning documentação](../machine-learning/service/how-to-deploy-to-iot.md).
+Pode utilizar os módulos do IoT Edge para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos IoT Edge. Este tutorial explica como implementar um módulo do Azure Machine Learning que prevê quando um dispositivo falha com base nos dados de temperatura simulada no computador. Para obter mais informações sobre Azure Machine Learning em IoT Edge, consulte [Azure Machine Learning documentação](../machine-learning/how-to-deploy-and-where.md).
 
 O módulo do Azure Machine Learning que cria neste tutorial lê os dados ambientais gerados pelo seu dispositivo e marca as mensagens como anómalas, ou não.
 
@@ -49,7 +49,7 @@ Um dispositivo Azure IoT Edge:
 Recursos da cloud:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
-* Uma área de trabalho do Azure Machine Learning. Siga as instruções em [usar o portal do Azure para](../machine-learning/service/quickstart-get-started.md) começar a usar o Azure Machine Learning para criar um e aprender a usá-lo.
+* Uma área de trabalho do Azure Machine Learning. Siga as instruções em [usar o portal do Azure para](../machine-learning/tutorial-1st-experiment-sdk-setup.md) começar a usar o Azure Machine Learning para criar um e aprender a usá-lo.
    * Anote o nome do espaço de trabalho, o grupo de recursos e a ID da assinatura. Esses valores estão disponíveis na visão geral do espaço de trabalho no portal do Azure. Você usará esses valores posteriormente no tutorial para conectar um bloco de anotações do Azure aos recursos do espaço de trabalho. 
 
 
@@ -62,7 +62,7 @@ Nesta seção, você converterá arquivos de modelo de aprendizado de máquina t
 
 2. Selecione **carregar repositório GitHub**.
 
-3. Forneça o seguinte nome do repositório GitHub: `Azure/ai-toolkit-iot-edge`. Desmarque a caixa **público** se desejar manter seu projeto privado. Selecione **importar**. 
+3. Forneça o seguinte nome do repositório GitHub: `Azure/ai-toolkit-iot-edge`. Desmarque a caixa **público** se desejar manter seu projeto privado. Selecione **Import** (Importar). 
 
 4. Quando a importação for concluída, navegue até o novo projeto **ia-Toolkit-IOT-Edge** e abra a pasta **IOT Edge tutorial de detecção de anomalias** . 
 
@@ -101,11 +101,11 @@ Verifique se a imagem de contêiner foi criada e armazenada com êxito no regist
 
 4. Selecione **tempanomalydetection**. Você verá que o repositório tem uma marca: **1**. 
 
-   Agora que você sabe o nome do registro, o nome do repositório e a marca, sabe o caminho completo da imagem do contêiner. Caminhos de imagem são semelhantes a **\<registry_name\>. azurecr.Io/tempanomalydetection:1**. Você pode usar o caminho da imagem para implantar esse contêiner em dispositivos IoT Edge. 
+   Agora que você sabe o nome do registro, o nome do repositório e a marca, sabe o caminho completo da imagem do contêiner. Caminhos de imagem são semelhantes a **\<registry_name\>. azurecr.Io/tempanomalydetection:1**. Pode utilizar o caminho da imagem para implementar este contentor para dispositivos IoT Edge. 
 
 5. No registro de contêiner, selecione **chaves de acesso**. Você deverá ver várias credenciais de acesso, incluindo o **servidor de logon** e o **nome**de usuário, e a **senha** para usuários administradores.
 
-   Essas credenciais podem ser incluídas no manifesto de implantação para dar ao seu IoT Edge acesso ao dispositivo para efetuar pull de imagens de contêiner do registro. 
+   Estas credenciais podem ser incluídas no manifesto de implementação para dar ao seu dispositivo IoT Edge acesso para solicitar imagens do contentor do registo. 
 
 Agora você sabe onde a imagem de contêiner de Machine Learning está armazenada. A próxima seção percorre as etapas para exibir o contêiner em execução como um módulo em seu dispositivo IoT Edge. 
 
@@ -141,13 +141,13 @@ Os passos seguintes mostram como configurar o Visual Studio Code para monitoriza
 
 2. Selecione **...** e, em seguida, selecione **Definir Cadeia de Ligação do Hub IoT** no menu.
 
-   ![Definir cadeia de conexão do Hub IoT](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Definir cadeia de ligação do IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Na caixa de texto que se abre na parte superior da página, introduza a cadeia de ligação de iothubowner para o seu Hub IoT. O dispositivo do IoT Edge deve aparecer na lista de Dispositivos do Hub IoT.
 
 4. Selecione **...** novamente e selecione **Iniciar Monitoramento do ponto de extremidade do evento interno**.
 
-5. Observe as mensagens provenientes de tempSensor a cada cinco segundos. O corpo da mensagem contém uma propriedade chamada **anomaliay**, que o machinelearningmodule fornece com um valor true ou false. A propriedade **AzureMLResponse** contém o valor "OK", se o modelo for executado com êxito.
+5. Observe as mensagens provenientes de tempSensor a cada cinco segundos. O corpo da mensagem contém uma propriedade denominada **anomaly** (anomalia) que o machinelearningmodule apresenta com um valor verdadeiro ou falso. A propriedade **AzureMLResponse** contém o valor "OK", se o modelo for executado com êxito.
 
    ![Azure Machine Learning resposta no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 

@@ -1,27 +1,20 @@
 ---
-title: Solucionar problemas de uma conexão VPN site a site do Azure que não pode se conectar | Microsoft Docs
+title: 'Solucionar problemas de uma conexão VPN site a site do Azure que não pode conectar titleSuffix: gateway de VPN do Azure'
 description: Saiba como solucionar problemas de uma conexão VPN site a site que repentinamente pára de funcionar e não pode ser reconectada.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058864"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862582"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução Uma conexão VPN site a site do Azure não pode se conectar e parar de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não pode se conectar e parar de funcionar
 
 Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente pára de funcionar e não pode ser reconectada. Este artigo fornece etapas de solução de problemas para ajudá-lo a resolver esse problema. 
 
@@ -53,7 +46,7 @@ Compare a chave compartilhada para o dispositivo VPN local com a VPN de rede vir
 
 Para exibir a chave compartilhada para a conexão VPN do Azure, use um dos seguintes métodos:
 
-**Azure portal**
+**Portal do Azure**
 
 1. Vá para a conexão site a site do gateway de VPN que você criou.
 
@@ -61,7 +54,7 @@ Para exibir a chave compartilhada para a conexão VPN do Azure, use um dos segui
     
     ![Chave partilhada](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
-**Azure PowerShell**
+**O Azure PowerShell**
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -73,16 +66,16 @@ Para o modelo de implantação clássico:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Passo 3: Verificar os IPs de mesmo nível de VPN
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Passo 3. Verificar os IPs de mesmo nível de VPN
 
 -   A definição de IP no objeto de **Gateway de rede local** no Azure deve corresponder ao IP do dispositivo local.
 -   A definição de IP do gateway do Azure que está definida no dispositivo local deve corresponder ao IP do gateway do Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4: Verifique UDR e NSGs na sub-rede do gateway
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4. Verifique UDR e NSGs na sub-rede do gateway
 
 Verifique e remova o roteamento definido pelo usuário (UDR) ou grupos de segurança de rede (NSGs) na sub-rede de gateway e, em seguida, teste o resultado. Se o problema for resolvido, valide as configurações que o UDR ou o NSG aplicou.
 
-### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Passo 5: Verificar o endereço da interface externa do dispositivo VPN local
+### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Passo 5. Verificar o endereço da interface externa do dispositivo VPN local
 
 - Se o endereço IP voltado para a Internet do dispositivo VPN estiver incluído na definição de **rede local** no Azure, você poderá experimentar desconexões esporádicas.
 - A interface externa do dispositivo deve estar diretamente na Internet. Não deve haver nenhuma conversão de endereços de rede ou firewall entre a Internet e o dispositivo.

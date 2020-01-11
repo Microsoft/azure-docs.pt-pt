@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Use um repositório Helm privado em um espaço de desenvolvimento do Azure.
 keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres, Helm
 manager: gwallace
-ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279928"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867274"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Usar um repositório Helm privado no Azure Dev Spaces
 
@@ -35,6 +35,9 @@ Navegue até o diretório do seu projeto e execute `azds prep`.
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> O comando `prep` tenta gerar [um gráfico Dockerfile e Helm](../how-dev-spaces-works.md#prepare-your-code) para seu projeto. O Azure Dev Spaces usa esses arquivos para compilar e executar seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
 
 Crie um arquivo [requirements. YAML][helm-requirements] com seu gráfico no diretório do gráfico do seu aplicativo. Por exemplo, se seu aplicativo for denominado *App1*, você criará *gráficos/App1/requirements. YAML*.
 
@@ -72,7 +75,7 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o Helm e como ele funciona][helm].
 

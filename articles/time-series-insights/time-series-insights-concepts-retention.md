@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: f479433ef486c12a00f74b220d46f84f5f979e7c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561313"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863466"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Entender a retenção de dados no Azure Time Series Insights
 
@@ -44,7 +44,7 @@ Ambas as políticas de retenção de dados são descritas mais detalhadamente ab
 ## <a name="purge-old-data"></a>Limpar dados antigos
 
 - **Limpar dados antigos** é a configuração padrão para ambientes de Azure Time Series insights.  
-- **Limpar dados antigos** é preferencial quando os usuários desejam sempre ver seus *dados mais recentes* em seu ambiente de time Series insights.
+- **Limpar dados antigos** é preferencial quando os usuários desejam sempre ter seus *dados mais recentes* em seu ambiente de time Series insights.
 - A configuração **limpar dados antigos** *limpa* os dados depois que os limites do ambiente (tempo de retenção, tamanho ou contagem, o que ocorrer primeiro) são atingidos. A retenção é definida como 30 dias por padrão.
 - Os dados ingeridos mais antigos são limpos primeiro (a abordagem "primeiro a entrar primeiro a sair").
 

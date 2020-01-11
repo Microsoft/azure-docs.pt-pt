@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 2dae0a31ad53a777f5ae88c1c12f988d2f80630a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550271"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867410"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Criar um dispositivo de visualização de Plug and Play IoT pronto para certificação
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, precisa de:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Ferramentas de IOT do Azure para](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) o pacote de extensão vs Code
 
-Você também precisa do dispositivo de Plug and Play de IoT criado no [início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo](quickstart-create-pnp-device-windows.md).
+Você também precisa concluir o [usar um modelo de capacidade de dispositivo para criar um](quickstart-create-pnp-device-windows.md) início rápido de dispositivo para o Windows. O guia de início rápido mostra como configurar seu ambiente de desenvolvimento usando o Vcpkg e criar um projeto de exemplo.
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Armazenar um modelo de funcionalidade e interfaces
 
@@ -107,20 +107,53 @@ Para certificar o dispositivo, ele deve habilitar o provisionamento por meio do 
 
 1. Escolha o arquivo DCM que você deseja usar para gerar o stub do código do dispositivo.
 
-1. Insira o nome do projeto, esse é o nome do aplicativo do dispositivo.
+1. Insira o nome do projeto, como **sample_device**. Este é o nome do seu aplicativo de dispositivo.
 
 1. Escolha **ANSI C** como o idioma.
 
 1. Escolha **por meio da chave simétrica do DPS (serviço de provisionamento de dispositivos)** como método de conexão.
 
-1. Escolha **projeto CMake no Windows** ou **projeto CMake no Linux** como modelo de projeto, dependendo do seu sistema operacional do dispositivo.
+1. Escolha **projeto CMake no Windows** como seu modelo de projeto.
+
+1. Escolha **por meio de Vcpkg** como a maneira de incluir o SDK do dispositivo.
 
 1. VS Code abre uma nova janela com arquivos stub de código de dispositivo gerados.
 
-1. Depois de criar o código, insira as credenciais do DPS (**escopo da ID do DPS**, **chave simétrica do DPS**, ID do **dispositivo**) como parâmetros para o aplicativo. Para obter as credenciais do portal de certificação, consulte [conectar e testar seu dispositivo de plug and Play de IOT](tutorial-certification-test.md#connect-and-discover-interfaces).
+## <a name="build-and-run-the-code"></a>Compilar e executar o código
 
-    ```cmd/sh
-    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
+Use o pacote Vcpkg para criar o stub de código de dispositivo gerado. O aplicativo que você cria simula um dispositivo que se conecta a um hub IoT. O aplicativo envia telemetria e propriedades e recebe comandos.
+
+1. Crie um subdiretório `cmake` na pasta `sample_device` e navegue até essa pasta:
+
+    ```cmd
+    mkdir cmake
+    cd cmake
+    ```
+
+1. Execute os seguintes comandos para compilar o stub de código gerado (substituindo o espaço reservado pelo diretório do seu repositório Vcpkg):
+
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
+    ```
+    
+    > [!NOTE]
+    > Se você estiver usando o Visual Studio 2017 ou 2015, precisará especificar o gerador de CMake com base nas ferramentas de compilação que você está usando:
+    >```cmd
+    ># Either
+    >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    ># or
+    >cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    >```
+
+    > [!NOTE]
+    > Se o CMake não conseguir C++ localizar seu compilador, você obterá erros de compilação ao executar o comando anterior. Se isso acontecer, tente executar esse comando no [prompt de comando do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+
+1. Depois que a compilação for concluída com êxito, insira as credenciais do DPS (**escopo da ID do DPS**, **chave simétrica do DPS**, ID do **dispositivo**) como parâmetros para o aplicativo. Para obter as credenciais do portal de certificação, consulte [conectar e testar seu dispositivo de plug and Play de IOT](tutorial-certification-test.md#connect-and-discover-interfaces).
+
+    ```cmd\sh
+    .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
     ```
 
 ### <a name="implement-standard-interfaces"></a>Implementar interfaces padrão

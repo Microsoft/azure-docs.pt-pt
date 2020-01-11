@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 1f6b753052b882b75884503f8c05f34b8cead821
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749377"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863847"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualizar dados de Time Series Insights no Power BI
 
@@ -51,7 +51,7 @@ Para conectar seu ambiente de Time Series Insights ao Power BI, siga estas etapa
 Para começar:
 
 1. Abra o Time Series Insights Gerenciador de visualização e visualize seus dados.
-1. Depois de criar uma exibição com a qual você está satisfeito, navegue até o menu suspenso **mais ações** e clique em **conectar-se a Power bi**.
+1. Depois de criar uma exibição com a qual você está satisfeito, navegue até o menu suspenso **mais ações** e selecione **conectar-se a Power bi**.
 
     [![Time Series Insights exportar Gerenciador de visualização](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
@@ -118,7 +118,7 @@ Agora que você importou os dados para Power BI, é hora de criar um relatório 
 
     [![criar um gráfico de linhas](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Para adicionar outro gráfico à tela, clique em qualquer lugar na tela fora do gráfico de linhas e repita esse processo.
+1.  Para adicionar outro gráfico à tela, selecione qualquer lugar na tela fora do gráfico de linhas e repita esse processo.
 
     [![criar gráficos adicionais para compartilhar](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
@@ -138,7 +138,7 @@ Como uma visão geral:
 1. Modifique a carga JSON conforme desejado.
 1. Selecione **concluído** e **feche & aplicar** na janela do **Editor de Power Query**.
 
-Você deve ver as alterações desejadas aplicadas.  
+Agora, a interface refletirá as alterações desejadas que você aplicou.  
 
 ## <a name="next-steps"></a>Próximos Passos
 
@@ -146,4 +146,4 @@ Você deve ver as alterações desejadas aplicadas.
 
 * Saiba mais sobre o [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Consulte [Time Series insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Time Series insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Leia [Time Series insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) e [Time Series insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 548fa8181c4841d8f57de485c0a4e714b5e9321a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082682"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863915"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação de desastres para o Azure para VMs do Hyper-V usando o PowerShell e Azure Resource Manager
 
@@ -188,7 +188,13 @@ Antes de começar, observe que a conta de armazenamento especificada deve estar 
 
         Succeeded
 
-
+> [!NOTE]
+> Se você quiser replicar em discos gerenciados habilitados para o CMK no Azure, execute as seguintes etapas usando AZ PowerShell 3.3.0 em diante:
+>
+> 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
+> 2. Use o cmdlet Get-AsrReplicationProtectedItem para buscar a ID do disco de cada disco do item protegido
+> 3. Crie um objeto Dictionary usando o cmdlet "System. Collections. Generic. Dictionary ' ' 2 [System. String, System. String]" do New-Object para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
+> 4. Atualize as propriedades da VM usando o cmdlet Set-AsrReplicationProtectedItem passando o objeto Dictionary no parâmetro-DiskIdToDiskEncryptionSetMap.
 
 ## <a name="step-8-run-a-test-failover"></a>Etapa 8: executar um failover de teste
 1. Execute um failover de teste da seguinte maneira:

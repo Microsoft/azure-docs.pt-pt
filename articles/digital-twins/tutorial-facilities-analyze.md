@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d955711c44e3822f9c37d47b390b928701ab773b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790328"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861001"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos do Azure digital gêmeos usando o Time Series Insights
 
@@ -48,7 +48,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 ### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
@@ -157,7 +157,7 @@ Você pode usar o serviço de [hubs de eventos](../event-hubs/event-hubs-about.m
 
 1. O botão **ir para ambiente** abre o [Time Series insights Explorer](../time-series-insights/time-series-insights-explorer.md). Se não mostrar nenhum evento, simule eventos de dispositivo navegando até o projeto de **conectividade de dispositivo** de seu exemplo de gêmeos digital e executando `dotnet run`.
 
-1. Depois que alguns eventos simulados forem gerados, volte para o Time Series Insights Explorer e selecione o botão atualizar na parte superior. Você deve ver os gráficos analíticos sendo criados para os dados do sensor simulado. 
+1. Depois que alguns eventos simulados forem gerados, volte para o Time Series Insights Explorer e selecione o botão atualizar na parte superior. Os gráficos analíticos que estão sendo criados para os dados simulados do sensor serão exibidos. 
 
     [Gráfico de ![no Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
@@ -174,7 +174,7 @@ Se você quiser interromper a exploração do Azure digital gêmeos além desse 
 1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e, em seguida, selecione **excluir**.
 
     > [!TIP]
-    > Se você teve problemas ao excluir sua instância de gêmeos digital, uma atualização de serviço foi distribuída com a correção. Tente excluir a instância novamente.
+    > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.
 

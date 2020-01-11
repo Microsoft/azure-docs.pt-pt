@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ebfe1bc2e578fa85f209f4dd67a00535e619c7e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ca24cbdd9541456cbaa3f384587fee17d47f5ca2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834617"
+ms.locfileid: "75864116"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão VNet a VNet (clássica)
 

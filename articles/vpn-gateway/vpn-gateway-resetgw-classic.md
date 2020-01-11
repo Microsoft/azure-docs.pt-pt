@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6fd4bdf15ea5693a50403f3c31f72b920871f04f
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779812"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862769"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 

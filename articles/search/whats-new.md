@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 0ce2884a2382c7dff2bdb90bd92934609675f314
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834377"
+ms.locfileid: "75863092"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -38,6 +38,8 @@ As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são 
 ### <a name="december-2019"></a>Dezembro de 2019
 
 + [Criar aplicativo (versão prévia)](search-create-app-portal.md) é um novo assistente no portal que gera um arquivo HTML para download. O arquivo vem com um script incorporado que renderiza um aplicativo Web de estilo "localhost" operacional, associado a um índice em seu serviço de pesquisa. As páginas são configuráveis no assistente e podem conter uma barra de pesquisa, área de resultados, navegação de barra lateral e suporte a consultas typeahead. Você pode modificar o HTML offline para estender ou personalizar o fluxo de trabalho ou a aparência.
+
++ [Criar um ponto de extremidade privado para conexões seguras (visualização)](service-create-private-endpoint.md) explica como configurar um link privado para conexões seguras para o serviço de pesquisa. Esse recurso de visualização está disponível mediante solicitação e usa o [link privado do Azure](../private-link/private-link-overview.md) e a [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) como parte da solução.
 
 ### <a name="november-2019---ignite-conference"></a>2019 de novembro-conferência Ignite
 

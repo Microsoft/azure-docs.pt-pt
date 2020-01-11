@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670999"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866987"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurar arquivos do Azure em um contêiner do Windows no serviço de aplicativo
 
@@ -31,6 +31,15 @@ Este guia mostra como acessar o armazenamento do Azure em contêineres do Window
 > Os arquivos do Azure são armazenamento não padrão e cobrados separadamente, não incluídos no aplicativo Web. Ele não dá suporte ao uso da configuração de firewall devido a limitações de infraestrutura.
 >
 
+## <a name="limitations"></a>Limitações
+
+- O armazenamento do Azure em contêineres do Windows está **em visualização** e **não tem suporte** para **cenários de produção**.
+- O armazenamento do Azure em contêineres do Windows dá suporte à montagem de **contêineres de arquivos do Azure** (leitura/gravação) somente.
+- No momento, o armazenamento do Azure em contêineres do Windows **não tem suporte** para trazer seus próprios cenários de código nos planos do serviço de aplicativo do Windows.
+- O armazenamento do Azure em contêineres do Windows **não dá suporte ao** uso da configuração de **Firewall de armazenamento** devido a limitações de infraestrutura.
+- O armazenamento do Azure em contêineres do Windows permite especificar **até cinco** pontos de montagem por aplicativo.
+- O armazenamento do Azure é cobrado de forma independente e **não é incluído** em seu aplicativo Web. Saiba mais sobre os [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage).
+
 ## <a name="link-storage-to-your-web-app-preview"></a>Vincular o armazenamento ao seu aplicativo Web (versão prévia)
 
  Para montar um compartilhamento de arquivos do Azure em um diretório em seu aplicativo do serviço de aplicativo, use o comando [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) . O tipo de armazenamento deve ser AzureFiles.
@@ -48,7 +57,6 @@ Depois que um compartilhamento de arquivos do Azure estiver vinculado a um aplic
 ```azurecli
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

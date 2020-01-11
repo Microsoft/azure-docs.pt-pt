@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bec68cbb88a9acacbc1a9a081ce3d8612b709d18
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446379"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860236"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente do personalizador para node. js
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para node. js. Siga esta
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[Amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [de | do NPM (](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | pacote)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |  | [(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Há várias etapas para usar este guia de início rápido:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também pode:
 
-* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -62,13 +62,13 @@ No portal do Azure, os valores de chave e ponto de extremidade estão disponíve
 
 ## <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele. 
+Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório para seu aplicativo e navegue até ele.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init -y` para criar um arquivo de `package.json`. 
+Execute o comando `npm init -y` para criar um arquivo de `package.json`.
 
 ```console
 npm init -y
@@ -100,11 +100,11 @@ Quando um loop do personalizador é instanciado pela primeira vez, não há nenh
 
 O cliente do personalizador é um objeto PersonalizerClient que se autentica no Azure usando Microsoft. REST. createclientcredentials, que contém sua chave.
 
-Para solicitar uma classificação do conteúdo, crie um RankRequest e, em seguida, passe-o para o cliente. Método de classificação. O método Rank retorna um RankResponse, que contém o conteúdo classificado. 
+Para solicitar uma classificação do conteúdo, crie um RankRequest e, em seguida, passe-o para o cliente. Método de classificação. O método Rank retorna um RankResponse, que contém o conteúdo classificado.
 
-Para enviar um recompensa ao personalizador, crie um RewardRequest e, em seguida, passe-o para o cliente. Método de recompensa. 
+Para enviar um recompensa ao personalizador, crie um RewardRequest e, em seguida, passe-o para o cliente. Método de recompensa.
 
-A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador. 
+A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -116,7 +116,7 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 
 ## <a name="create-a-new-nodejs-application"></a>Criar uma nova aplicação Node.js
 
-Crie um novo aplicativo node. js em seu editor preferencial ou IDE chamado `sample.js`. 
+Crie um novo aplicativo node. js em seu editor preferencial ou IDE chamado `sample.js`.
 
 ## <a name="add-the-dependencies"></a>Adicionar as dependências
 
@@ -146,7 +146,7 @@ As ações representam as opções de conteúdo que você deseja que o personali
 
 ## <a name="create-the-learning-loop"></a>Criar o loop de aprendizagem
 
-O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo. 
+O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo.
 
 O código de loop a seguir percorre um ciclo de solicitar ao usuário suas preferências na linha de comando, enviando essas informações ao personalizado para classificação, apresentando a seleção classificada ao cliente para escolher entre a lista e, em seguida, enviar uma recompensa para Personalizar a sinalização do quão bem o serviço fez ao classificar a seleção.
 
@@ -161,9 +161,9 @@ Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-conte
 
 ## <a name="request-a-rank"></a>Solicitar uma classificação
 
-Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das [ações](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
+Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das [ações](concepts-features.md#actions-represent-a-list-of-options), CurrentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada.
 
-Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.  
+Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.
 
 [!code-javascript[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/node/sample.js?name=rank)]
 
@@ -171,7 +171,7 @@ Este guia de início rápido tem recursos de contexto simples de hora do dia e p
 
 Para concluir a solicitação de recompensa, o programa obtém a seleção do usuário na linha de comando, atribui um valor numérico a cada seleção e, em seguida, envia a ID de evento de classificação exclusiva e o valor numérico para o método de recompensa.
 
-Este início rápido atribui um número simples como um recompensa, um zero ou um 1. Em sistemas de produção, determinar quando e o que enviar para a chamada de [recompensa](concept-rewards.md) pode ser uma questão não trivial, dependendo de suas necessidades específicas. 
+Este início rápido atribui um número simples como um recompensa, um zero ou um 1. Em sistemas de produção, determinar quando e o que enviar para a chamada de [recompensa](concept-rewards.md) pode ser uma questão não trivial, dependendo de suas necessidades específicas.
 
 [!code-javascript[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/node/sample.js?name=reward)]
 

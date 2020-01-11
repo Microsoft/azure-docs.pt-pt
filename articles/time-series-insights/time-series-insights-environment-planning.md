@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452868"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863381"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
 
@@ -32,7 +32,7 @@ Este artigo descreve como planejar seu Azure Time Series Insights ambiente de di
 
 Para começar a usar o Azure Time Series Insights, é melhor se você souber a quantidade de dados que espera enviar por minuto e por quanto tempo precisa para armazenar seus dados.  
 
-Para obter mais informações sobre capacidade e retenção para os Time Series Insights SKUs, consulte [preços de time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Para obter mais informações sobre capacidade e retenção para os Time Series Insights SKUs, leia [Time Series insights preços](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Para planejar melhor seu ambiente de Time Series Insights para o sucesso a longo prazo, considere os seguintes atributos:
 
@@ -71,7 +71,7 @@ Você pode ajustar a retenção e alternar entre os dois modos na página de con
    [![configurar a retenção](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Para saber mais sobre como implementar uma política de retenção de dados apropriada, confira [como configurar a retenção](./time-series-insights-how-to-configure-retention.md).
+> Para saber mais sobre como implementar uma política de retenção de dados apropriada, leia [como configurar a retenção](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacidade de entrada
 
@@ -103,7 +103,7 @@ Para calcular seus requisitos de entrada:
 
 ### <a name="mitigate-throttling-and-latency"></a>Reduzir a limitação e a latência
 
-Para obter informações sobre como evitar a limitação e a latência, consulte [mitigar latência e limitação](time-series-insights-environment-mitigate-latency.md).
+Para obter informações sobre como evitar limitação e latência, leia [reduzir a latência e a limitação](time-series-insights-environment-mitigate-latency.md).
 
 ## <a name="shape-your-events"></a>Formate seus eventos
 
@@ -119,7 +119,7 @@ Um *conjunto* de uma referência é uma coleção de itens que aumentam os event
 > [!NOTE]
 > Os dados de referência não são associados retroativamente. Somente os dados de entrada atuais e futuros são correspondidos e associados ao DataSet de referência depois de configurados e carregados. Se você planeja enviar uma grande quantidade de dados históricos para Time Series Insights e não carregar primeiro ou criar dados de referência no Time Series Insights, talvez seja necessário refazer seu trabalho (dica: não é divertido).  
 
-Para saber mais sobre como criar, carregar e gerenciar seus dados de referência em Time Series Insights, consulte nossa [documentação de conjunto](time-series-insights-add-reference-data-set.md)de dado de referência.
+Para saber mais sobre como criar, carregar e gerenciar seus dados de referência em Time Series Insights, leia nossa [documentação de conjunto](time-series-insights-add-reference-data-set.md)de dado de referência.
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

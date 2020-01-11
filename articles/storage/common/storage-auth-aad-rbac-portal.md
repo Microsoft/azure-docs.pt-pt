@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891957"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867506"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use o portal do Azure para atribuir uma função de RBAC para acesso aos dados de BLOB e de fila
 
@@ -45,7 +45,7 @@ As seções a seguir descrevem cada uma dessas etapas mais detalhadamente.
 
 > [!NOTE]
 > Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Você pode atribuí-lo ao nível de sua assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila.
-> 
+>
 > Você não poderá atribuir uma função com escopo a um contêiner ou fila se sua conta de armazenamento tiver um namespace hierárquico habilitado.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Atribuir uma função RBAC interna
@@ -75,7 +75,6 @@ Você pode seguir etapas semelhantes para atribuir uma função com escopo à co
 ### <a name="assign-the-reader-role-for-portal-access"></a>Atribuir a função leitor para acesso ao portal
 
 Ao atribuir uma função interna ou personalizada para o armazenamento do Azure para uma entidade de segurança, você está concedendo permissões a essa entidade de segurança para executar operações nos dados em sua conta de armazenamento. As funções internas do **leitor de dados** fornecem permissões de leitura para os dados em um contêiner ou fila, enquanto as funções de **colaborador de dados** internas fornecem permissões de leitura, gravação e exclusão a um contêiner ou fila. As permissões estão no escopo do recurso especificado.  
-
 Por exemplo, se você atribuir a função de **colaborador de dados de blob de armazenamento** ao usuário Mary no nível de um contêiner denominado **Sample-container**, Mary receberá acesso de leitura, gravação e exclusão a todos os BLOBs nesse contêiner.
 
 No entanto, se Mary quiser exibir um blob no portal do Azure, a função de **colaborador de dados do blob de armazenamento** não fornecerá permissões suficientes para navegar pelo portal para o blob a fim de exibi-lo. Permissões adicionais do Azure AD são necessárias para navegar pelo portal e exibir os outros recursos visíveis lá.
@@ -91,8 +90,10 @@ Siga estas etapas para atribuir a função **leitor** para que um usuário possa
 1. Pesquise para localizar a entidade de segurança à qual você deseja atribuir a função.
 1. Salve a atribuição de função.
 
-> [!NOTE]
-> A atribuição da função leitor é necessária apenas para usuários que precisam acessar BLOBs ou filas usando o portal do Azure. 
+A atribuição da função **leitor** é necessária apenas para usuários que precisam acessar BLOBs ou filas usando o portal do Azure.
+
+> [!IMPORTANT]
+> A versão de visualização do Gerenciador de Armazenamento no portal do Azure não oferece suporte ao uso de credenciais do Azure AD para exibir e modificar dados de BLOB ou de fila. Gerenciador de Armazenamento no portal do Azure sempre usa as chaves de conta para acessar dados. Para usar Gerenciador de Armazenamento no portal do Azure, você deve ser atribuído a uma função que inclui **Microsoft. Storage/storageAccounts/listkeys/Action**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

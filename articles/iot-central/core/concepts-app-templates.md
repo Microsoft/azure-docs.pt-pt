@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435110"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867446"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicação?
 
@@ -42,6 +42,7 @@ Atualmente, os modelos de aplicativo que usam recursos de _Visualização públi
 - Centro de distribuição digital de > de varejo
 - Retail > Analytics na loja – monitoramento de condição
 - Retail > Analytics na loja – check-out
+- Centro de microatendimento de > de varejo
 - Gerenciamento de inventário inteligente do > de varejo
 - Monitoramento de medidor inteligente de energia >
 - Monitoramento do painel solar de energia >

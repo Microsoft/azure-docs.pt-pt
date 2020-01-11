@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660312"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861103"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -104,7 +104,7 @@ As funções definidas pelo usuário podem ser escritas em JavaScript. Os métod
 - Crie uma notificação quando determinadas condições forem atendidas para uma leitura de sensor de entrada.
 - Anexe metadados do grafo à leitura do sensor antes de enviar uma notificação.
 
-Para obter mais informações, consulte [como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
+Para obter mais informações, leia [como usar funções definidas pelo usuário](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exemplos
 
@@ -114,7 +114,7 @@ O [repositório do GitHub para o exemplo C# de gêmeos digital](https://github.c
 
 ### <a name="role-assignment"></a>Atribuição de função
 
-As ações de uma função definida pelo usuário estão sujeitas ao [controle de acesso baseado em função](./security-role-based-access-control.md) do Azure digital gêmeos para proteger os dados no serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o grafo espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e permissão para *criar*, *ler*, *Atualizar*ou *excluir* dados do grafo em um determinado espaço. O nível de acesso de uma função definida pelo usuário é verificado quando a função definida pelo usuário solicita dados no grafo ou tenta uma ação. Para obter mais informações, consulte [controle de acesso baseado em função](./security-create-manage-role-assignments.md).
+As ações de uma função definida pelo usuário estão sujeitas ao [controle de acesso baseado em função](./security-role-based-access-control.md) do Azure digital gêmeos para proteger os dados no serviço. As atribuições de função definem quais funções definidas pelo usuário têm as permissões adequadas para interagir com o grafo espacial e suas entidades. Por exemplo, uma função definida pelo usuário pode ter a capacidade e permissão para *criar*, *ler*, *Atualizar*ou *excluir* dados do grafo em um determinado espaço. O nível de acesso de uma função definida pelo usuário é verificado quando a função definida pelo usuário solicita dados no grafo ou tenta uma ação. Para obter mais informações, leia [controle de acesso baseado em função](./security-create-manage-role-assignments.md).
 
 É possível que um correspondente dispare uma função definida pelo usuário que não tenha nenhuma atribuição de função. Nesse caso, a função definida pelo usuário não lê nenhum dado do grafo.
 

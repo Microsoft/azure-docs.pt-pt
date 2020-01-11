@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796103"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867266"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Início rápido: Crie um aplicativo de console usando o SDK do .net v4 para gerenciar Azure Cosmos DB recursos de conta da API do SQL.
 
@@ -27,7 +27,7 @@ ms.locfileid: "73796103"
 
 Introdução à biblioteca de cliente da API do SQL Azure Cosmos DB para .NET. Siga as etapas neste documento para instalar o pacote do .NET V4 (Azure. Cosmos), criar um aplicativo e experimentar o código de exemplo para operações CRUD básicas nos dados armazenados no Azure Cosmos DB. 
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Você pode usar Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, documento e gráfico. Use a biblioteca de cliente da API do SQL do Azure Cosmos DB para .NET para:
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente. Você pode usar Azure Cosmos DB para criar e consultar rapidamente bancos de dados de chave/valor, documento e gráfico. Use a biblioteca de cliente da API do SQL do Azure Cosmos DB para .NET para:
 
 * Criar um banco de dados Cosmos do Azure e um contêiner
 * Adicionar dados de exemplo ao contêiner
@@ -51,7 +51,7 @@ Se você usar a opção [tentar Azure Cosmos DB gratuitamente](https://azure.mic
 
 Se você tiver sua própria assinatura do Azure ou tiver criado uma assinatura gratuitamente, deverá criar uma conta do Azure Cosmos explicitamente. O código a seguir criará uma conta do Azure cosmos com consistência de sessão. A conta é replicada em `South Central US` e `North Central US`.  
 
-Você pode usar Azure Cloud Shell para criar a conta do Azure Cosmos. Azure Cloud Shell é um shell interativo, autenticado e acessível por navegador para gerenciar recursos do Azure. Ele fornece a flexibilidade de escolher a experiência de shell que melhor se adapta à maneira como você trabalha, seja bash ou PowerShell. Para este guia de início rápido, escolha o modo **bash** . Azure Cloud Shell também requer uma conta de armazenamento, você pode criar uma quando solicitado.
+Você pode usar Azure Cloud Shell para criar a conta do Azure Cosmos. Azure Cloud Shell é um shell interativo, autenticado e acessível por navegador para gerenciar recursos do Azure. Dá a flexibilidade de escolher a experiência de shell mais adequada ao seu método de trabalho, quer seja baseada em Bash ou no PowerShell. Para este guia de início rápido, escolha o modo **bash** . Azure Cloud Shell também requer uma conta de armazenamento, você pode criar uma quando solicitado.
 
 Selecione o botão **experimentar** ao lado do código a seguir, escolha o modo **bash** selecione **criar uma conta de armazenamento** e faça logon para Cloud Shell. Em seguida, copie e cole o código a seguir no Azure cloud Shell e execute-o. O nome da conta do Azure Cosmos deve ser globalmente exclusivo, certifique-se de atualizar o valor de `mysqlapicosmosdb` antes de executar o comando.
 
@@ -115,14 +115,14 @@ Time Elapsed 00:00:34.17
 Ainda no diretório do aplicativo, instale a biblioteca de cliente do Azure Cosmos DB para .NET Core usando o comando dotnet adicionar pacote.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Copie suas credenciais de conta do Azure Cosmos do portal do Azure
 
 O aplicativo de exemplo precisa se autenticar na sua conta do Azure Cosmos. Para autenticar, você deve passar as credenciais da conta do Azure Cosmos para o aplicativo. Obtenha suas credenciais de conta do Azure Cosmos seguindo estas etapas:
 
-1. Iniciar sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Navegue até sua conta do Azure Cosmos.
 
@@ -133,7 +133,7 @@ O aplicativo de exemplo precisa se autenticar na sua conta do Azure Cosmos. Para
 Antes de começar a criar o aplicativo, vamos examinar a hierarquia de recursos em Azure Cosmos DB e o modelo de objeto usado para criar e acessar esses recursos. O Azure Cosmos DB cria recursos na seguinte ordem:
 
 * Conta do Azure Cosmos 
-* Bases de Dados 
+* Bases de dados 
 * Contentores 
 * Itens
 

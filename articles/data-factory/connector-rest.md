@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 34abb93dd54245e03baaa6efe0130d951f7565bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927733"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867374"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando Azure Data Factory
 
@@ -46,7 +46,7 @@ Especificamente, esse conector REST genérico dá suporte a:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Começar
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -211,7 +211,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 | tipo | A propriedade **Type** da fonte da atividade de cópia deve ser definida como **REST**. | Sim |
 | requestMethod | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | Não |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
-| requestBody | O corpo da solicitação HTTP. | Não |
+| RequestBody | O corpo da solicitação HTTP. | Não |
 | paginationRules | As regras de paginação para compor solicitações da próxima página. Consulte a seção [suporte à paginação](#pagination-support) em detalhes. | Não |
 | httpRequestTimeout | O tempo limite (o valor de **TimeSpan** ) para a solicitação HTTP obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. O valor padrão é **00:01:40**.  | Não |
 | requestInterval | O tempo de espera antes de enviar a solicitação para a próxima página. O valor padrão é **00:00:01** |  Não |
@@ -371,6 +371,75 @@ A configuração de origem da atividade de cópia REST correspondente especialme
     }
 }
 ```
+
+## <a name="use-oauth"></a>Use OAuth (Utilizar a OAuth)
+Esta seção descreve como usar um modelo de solução para copiar dados do conector REST para Azure Data Lake Storage no formato JSON usando o OAuth. 
+
+### <a name="about-the-solution-template"></a>Sobre o modelo de solução
+
+O modelo contém duas atividades:
+- A atividade **da Web** recupera o token de portador e, em seguida, passa-o para a atividade de cópia subsequente como autorização.
+- A atividade de **cópia** copia dados do REST para o Azure data Lake Storage.
+
+O modelo define dois parâmetros:
+- **SinkContainer** é o caminho da pasta raiz para onde os dados são copiados em seu Azure data Lake Storage. 
+- **SinkDirectory** é o caminho do diretório sob a raiz onde os dados são copiados em seu Azure data Lake Storage. 
+
+### <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
+
+1. Vá para a **cópia do REST ou http usando** o modelo OAuth. Crie uma nova conexão para a conexão de origem. 
+    ![criar novas conexões](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+
+    Abaixo estão as principais etapas para as novas configurações de serviço vinculado (REST):
+    
+     1. Em **URL base**, especifique o parâmetro de URL para seu próprio serviço REST de origem. 
+     2. Para **tipo de autenticação**, escolha *anônimo*.
+        ![nova conexão REST](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+
+2. Crie uma nova conexão para a conexão de destino.  
+    ![Nova conexão Gen2](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+
+3. Selecione **Utilizar este modelo**.
+    ![usar este modelo](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+
+4. Você verá o pipeline criado, conforme mostrado no exemplo a seguir: ![pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+
+5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos**e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
+
+    | Propriedade | Descrição |
+    |:--- |:--- |:--- |
+    | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
+    | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
+    | Corpo | O corpo da solicitação HTTP. | 
+
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+
+6. Em **copiar dados** atividade, selecione a guia *origem* , você pode ver que o token de portador (access_token) recuperado da etapa anterior seria passado para a atividade copiar dados como **autorização** em cabeçalhos adicionais. Confirme as configurações das propriedades a seguir antes de iniciar uma execução de pipeline.
+
+    | Propriedade | Descrição |
+    |:--- |:--- |:--- | 
+    | Método de solicitação | O método HTTP. Os valores permitidos são **Get** (padrão) e **post**. | 
+    | Cabeçalhos adicionais | Cabeçalhos de solicitação HTTP adicionais.| 
+
+   ![Autenticação de origem de cópia](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+
+7. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
+   ](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) de ![execução de pipeline 
+
+8. Quando a execução do pipeline for concluída com êxito, você verá o resultado semelhante ao exemplo a seguir: ![resultado da execução do pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+
+9. Clique no ícone de "saída" do webactivity na coluna **ações** , você verá o access_token retornado pelo serviço.
+
+   ![Saída de token](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+
+10. Clique no ícone de "entrada" do CopyActivity na coluna **ações** , você verá que o access_token recuperado pelo webactivity é passado para CopyActivity para autenticação. 
+
+    ![Entrada de token](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+        
+    >[!CAUTION] 
+    >Para evitar que o token seja registrado em texto sem formatação, habilite "saída segura" na atividade da Web e "entrada segura" na atividade de cópia.
+
 
 ## <a name="export-json-response-as-is"></a>Exportar resposta JSON como está
 

@@ -1,20 +1,20 @@
 ---
-title: Validar a taxa de transferência de VPN para um Rede Virtual do Microsoft Azure | Microsoft Docs
+title: Validar a taxa de transferência de VPN para um Rede Virtual do Microsoft Azure
 description: A finalidade deste documento é ajudar um usuário a validar a taxa de transferência de rede de seus recursos locais para uma máquina virtual do Azure.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058803"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860491"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência de VPN para uma rede virtual
 
@@ -25,14 +25,14 @@ Este artigo mostra como validar a taxa de transferência de rede dos recursos lo
 > [!NOTE]
 > Este artigo destina-se a ajudar a diagnosticar e corrigir problemas comuns. Se não for possível resolver o problema usando as informações a seguir, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A conexão de gateway de VPN envolve os seguintes componentes:
 
 * Dispositivo VPN local (exiba uma lista de [dispositivos VPN validados](vpn-gateway-about-vpn-devices.md#devicetable).)
 * Internet pública
 * Gateway de VPN do Azure
-* Azure VM
+* VM do Azure
 
 O diagrama a seguir mostra a conectividade lógica de uma rede local para uma rede virtual do Azure por meio de VPN.
 
@@ -84,7 +84,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Linux do Azure:** As imagens do Linux do Azure têm firewalls permissivos. Se houver um aplicativo ouvindo em uma porta, o tráfego será permitido por meio do. As imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. OS firewalls de camada do sistema operacional `iptables`Linux `ufw`comuns incluem `firewalld`, ou.
+   **Linux do Azure:** As imagens do Linux do Azure têm firewalls permissivos. Se houver um aplicativo ouvindo em uma porta, o tráfego será permitido por meio do. As imagens personalizadas que são protegidas podem precisar de portas abertas explicitamente. OS firewalls de camada do sistema operacional Linux comuns incluem `iptables`, `ufw`ou `firewalld`.
 
 1. No nó do servidor, altere para o diretório onde iperf3. exe é extraído. Em seguida, execute iPerf no modo de servidor e defina-o para escutar na porta 5001 como os seguintes comandos:
 
@@ -107,7 +107,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 
    A tela a seguir mostra a saída deste exemplo:
 
-   ![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+   ![Saída](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 1. ADICIONAL Para preservar os resultados do teste, execute este comando:
 
@@ -126,7 +126,7 @@ Baixe o [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para
 
 Baixe a versão mais recente do [expresso. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Considere colocar o expresso. exe em uma pasta separada, como`c:\tools`
+Considere colocar o expresso. exe em uma pasta separada, como `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Permitir expresso. exe por meio do firewall do Windows
 
@@ -224,7 +224,7 @@ Em particular, a análise dos rastreamentos de captura de pacotes (Wireshark/Mon
 
 Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPERF/NTTTCP/etc.) tenha sido boa, você pode experimentar um pouco de ping de arquivo ao usar o Windows Explorer ou arrastar e soltar por uma sessão RDP. Esse problema normalmente ocorre devido a um ou ambos os seguintes fatores:
 
-* Aplicativos de cópia de arquivos, como o Windows Explorer e o RDP, não usam vários threads ao copiar arquivos. Para obter um melhor desempenho, use um aplicativo de cópia de arquivos multi-threaded, como o [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) , para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação** > **copiar opções** > **Copiar arquivo**.
+* Aplicativos de cópia de arquivos, como o Windows Explorer e o RDP, não usam vários threads ao copiar arquivos. Para obter um melhor desempenho, use um aplicativo de cópia de arquivos multi-threaded, como o [RichCopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) , para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo em RichCopy, clique em **ação** > **opções de cópia** > **cópia de arquivo**.
 
    ![Problemas de cópia de arquivo lento](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -238,9 +238,9 @@ Mesmo que a taxa de transferência geral avaliada com as etapas anteriores (iPER
 
 Foram mencionadas as sub-redes de intervalos locais que você gostaria que o Azure alcançasse via VPN no gateway de rede local. Simultaneamente, defina o espaço de endereço da VNET no Azure para o dispositivo local.
 
-* **Gateway baseado em rota**: A política ou o seletor de tráfego das VPNs baseadas na rota é configurado como “de qualquer ponto a qualquer ponto” (ou carateres universais).
+* **Gateway baseado em rota**: o seletor de política ou de tráfego para VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
-* **Gateway baseado em política**: As VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec basedos nas combinações de prefixos de endereços entre a rede no local e a VNet do Azure. Normalmente, a política (ou o Seletor de Tráfego), é definido como uma lista de acesso na configuração de VPN.
+* **Gateway baseado em política**: as VPNs baseadas em políticas criptografam e direcionam pacotes por meio de túneis IPsec com base nas combinações de prefixos de endereço entre sua rede local e a VNet do Azure. Normalmente, a política (ou o Seletor de Tráfego), é definido como uma lista de acesso na configuração de VPN.
 
 * Conexões **UsePolicyBasedTrafficSelector** : ("UsePolicyBasedTrafficSelectors" para $true em uma conexão irá configurar o gateway de VPN do Azure para se conectar ao firewall de VPN baseado em políticas no local. Se você habilitar o PolicyBasedTrafficSelectors, precisará garantir que o dispositivo VPN tenha os seletores de tráfego correspondentes definidos com todas as combinações de prefixos de rede local (gateway de rede locais) de e para os prefixos de rede virtual do Azure, em vez de qualquer para qualquer.
 
@@ -252,7 +252,7 @@ Você pode verificar a latência usando as seguintes ferramentas:
 
 * WinMTR
 * TCPTraceroute
-* `ping`e `psping` (essas ferramentas podem fornecer uma boa estimativa de RTT, mas elas não podem ser usadas em todos os casos.)
+* `ping` e `psping` (essas ferramentas podem fornecer uma boa estimativa de RTT, mas não podem ser usadas em todos os casos.)
 
 ![Verificar latência](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
@@ -260,7 +260,7 @@ Se você notar um pico de alta latência em qualquer um dos saltos antes de entr
 
 Se um grande pico de latência incomum for notado de saltos dentro de "msn.net", entre em contato com o suporte da Microsoft para obter mais investigações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações ou ajuda, confira o seguinte link:
 

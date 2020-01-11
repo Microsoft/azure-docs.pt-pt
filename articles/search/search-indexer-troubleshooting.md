@@ -8,40 +8,64 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793617"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863109"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solucionando problemas comuns do indexador no Azure Pesquisa Cognitiva
 
 Os indexadores podem ter vários problemas ao indexar dados no Azure Pesquisa Cognitiva. As principais categorias de falha incluem:
 
-* [Conectando-se a uma fonte de dados](#data-source-connection-errors)
+* [Conectando-se a uma fonte de dados ou outros recursos](#connection-errors)
 * [Processamento de documentos](#document-processing-errors)
 * [Ingestão de documentos para um índice](#index-errors)
 
-## <a name="data-source-connection-errors"></a>Erros de conexão da fonte de dados
+## <a name="connection-errors"></a>Erros de ligação
 
-### <a name="blob-storage"></a>Armazenamento de Blobs
+> [!NOTE]
+> Os indexadores têm suporte limitado para acessar fontes de dados e outros recursos protegidos pelos mecanismos de segurança de rede do Azure. Atualmente, os indexadores só podem acessar fontes de dados por meio de mecanismos de restrição de intervalo de endereços IP correspondentes ou regras NSG quando aplicável. Os detalhes para acessar cada fonte de dados com suporte podem ser encontrados abaixo.
+>
+> Você pode encontrar o endereço IP do serviço de pesquisa executando ping no nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net`).
+>
+> Você pode descobrir o intervalo de endereços IP de `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) para a região específica em que o serviço de pesquisa cognitiva do Azure está presente usando [arquivos JSON baixáveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
 
-#### <a name="storage-account-firewall"></a>Firewall da conta de armazenamento
+### <a name="configure-firewall-rules"></a>Configurar regras de firewall
 
-O armazenamento do Azure fornece um firewall configurável. Por padrão, o firewall está desabilitado para que o Azure Pesquisa Cognitiva possa se conectar à sua conta de armazenamento.
+O armazenamento do Azure, o CosmosDB e o SQL do Azure fornecem um firewall configurável. Não há nenhuma mensagem de erro específica quando o firewall está habilitado. Normalmente, os erros de firewall são genéricos e parecem `The remote server returned an error: (403) Forbidden` ou `Credentials provided in the connection string are invalid or have expired`.
 
-Não há nenhuma mensagem de erro específica quando o firewall está habilitado. Normalmente, os erros de firewall são semelhantes a `The remote server returned an error: (403) Forbidden`.
+Há duas opções para permitir que os indexadores acessem esses recursos em uma instância desse tipo:
 
-Você pode verificar se o firewall está habilitado no [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). A única solução suportada é desabilitar o firewall escolhendo permitir o acesso de [' todas as redes '](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
+* Desabilite o firewall, permitindo o acesso de **todas as redes** (se possível).
+* Como alternativa, você pode permitir o acesso para o endereço IP do serviço de pesquisa e o intervalo de endereços IP da [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` nas regras de firewall do recurso (restrição de intervalo de endereços IP).
 
-Se o seu indexador não tiver um qualificable anexado, você _poderá_ tentar [Adicionar uma exceção](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) para os endereços IP do serviço de pesquisa. No entanto, esse cenário não tem suporte e não tem a garantia de funcionar.
+Os detalhes para configurar restrições de intervalo de endereços IP para cada tipo de fonte de dados podem ser encontrados nos seguintes links:
 
-Você pode encontrar o endereço IP do serviço de pesquisa executando ping em seu FQDN (`<your-search-service-name>.search.windows.net`).
+* [Storage do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-### <a name="cosmos-db"></a>Cosmos DB
+* [BD do Cosmos](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-#### <a name="indexing-isnt-enabled"></a>A indexação não está habilitada
+* [SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+
+**Limitação**: conforme indicado na documentação acima para o armazenamento do Azure, as restrições de intervalo de endereços IP só funcionarão se o serviço de pesquisa e sua conta de armazenamento estiverem em regiões diferentes.
+
+O Azure Functions (que pode ser usado como uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md)) também dá suporte a [restrições de endereço IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). A lista de endereços IP a serem configurados seria o endereço IP do serviço de pesquisa e o intervalo de endereços IP da marca de serviço `AzureCognitiveSearch`.
+
+Os detalhes para acessar dados no SQL Server em uma VM do Azure são descritos [aqui](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+### <a name="configure-network-security-group-nsg-rules"></a>Configurar regras do NSG (grupo de segurança de rede)
+
+Ao acessar dados em uma instância gerenciada do SQL ou quando uma VM do Azure é usada como o URI do serviço Web para uma [habilidade personalizada da API Web](cognitive-search-custom-skill-web-api.md), os clientes não precisam se preocupar com endereços IP específicos.
+
+Nesses casos, a VM do Azure ou a instância gerenciada do SQL podem ser configuradas para residir em uma rede virtual. Em seguida, um grupo de segurança de rede pode ser configurado para filtrar o tipo de tráfego de rede que pode fluir para dentro e fora das sub-redes e interfaces de rede da rede virtual.
+
+A marca de serviço `AzureCognitiveSearch` pode ser usada diretamente nas regras de [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) de entrada sem a necessidade de Pesquisar seu intervalo de endereços IP.
+
+Mais detalhes para acessar dados em uma instância gerenciada do SQL são descritos [aqui](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+### <a name="cosmosdb-indexing-isnt-enabled"></a>A "indexação" do CosmosDB não está habilitada
 
 O Azure Pesquisa Cognitiva tem uma dependência implícita na indexação de Cosmos DB. Se você desativar a indexação automática no Cosmos DB, o Pesquisa Cognitiva do Azure retornará um estado bem-sucedido, mas falhará ao indexar o conteúdo do contêiner. Para obter instruções sobre como verificar as configurações e ativar a indexação, consulte [gerenciar a indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 

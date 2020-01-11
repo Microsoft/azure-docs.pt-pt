@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615101"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861409"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e entrada na visualização Azure Time Series Insights
 
@@ -116,9 +116,9 @@ Talvez você queira acessar os dados exibidos no Time Series Insights Explorer P
 
 Você pode acessar seus dados de três maneiras gerais:
 
-* No Gerenciador do Time Series Insights Preview. Você pode exportar dados como um arquivo CSV do Explorer. Para obter mais informações, consulte [Time Series insights Preview Explorer](./time-series-insights-update-explorer.md).
-* Na API de visualização do Time Series Insights. Você pode acessar o ponto de extremidade da API em `/getRecorded`. Para saber mais sobre essa API, consulte [consulta de série temporal](./time-series-insights-update-tsq.md).
-* Diretamente de uma conta de armazenamento do Azure. Você precisa de acesso de leitura para qualquer conta que esteja usando para acessar seus Time Series Insights dados de visualização. Para obter mais informações, consulte [gerenciar o acesso aos recursos da sua conta de armazenamento](../storage/blobs/storage-manage-access-to-resources.md).
+* No Gerenciador do Time Series Insights Preview. Você pode exportar dados como um arquivo CSV do Explorer. Para obter mais informações, leia [Time Series insights Gerenciador de visualização](./time-series-insights-update-explorer.md).
+* Na API de visualização do Time Series Insights. Você pode acessar o ponto de extremidade da API em `/getRecorded`. Para saber mais sobre essa API, leia [consulta de série temporal](./time-series-insights-update-tsq.md).
+* Diretamente de uma conta de armazenamento do Azure. Você precisa de acesso de leitura para qualquer conta que esteja usando para acessar seus Time Series Insights dados de visualização. Para obter mais informações, leia [gerenciar o acesso aos recursos da sua conta de armazenamento](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### <a name="data-deletion"></a>Exclusão de dados
 
@@ -128,7 +128,7 @@ Não exclua seus arquivos de visualização Time Series Insights. Gerenciar dado
 
 Parquet é um formato de arquivo de coluna de código aberto que foi projetado para um armazenamento e desempenho eficientes. Time Series Insights visualização usa o parquet por esses motivos. Ele particiona os dados por ID de série temporal para desempenho de consulta em escala.  
 
-Para obter mais informações sobre o tipo de arquivo parquet, consulte a [documentação do parquet](https://parquet.apache.org/documentation/latest/).
+Para obter mais informações sobre o tipo de arquivo parquet, leia a [documentação do parquet](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights visualização armazena cópias de seus dados da seguinte maneira:
 

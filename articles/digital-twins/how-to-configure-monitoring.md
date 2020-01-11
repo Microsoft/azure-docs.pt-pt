@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66be29b6d16e422eebd381cddb83ce94adf9f76e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 38f5af3cb2006e4b029f8979a213c0af10f1ed8a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745462"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863585"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar o monitoramento no Azure digital gêmeos
 
@@ -97,7 +97,7 @@ Exemplos de uso incluem:
 A consulta de log completa é fornecida por meio de [logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md). Para configurar esses recursos avançados:
 
 1. Procure **log Analytics** no portal do Azure.
-1. Você verá suas instâncias de **espaço de trabalho log Analytics** disponíveis. Escolha um e selecione **os logs** a serem consultados:
+1. As instâncias do **espaço de trabalho log Analytics** disponíveis serão exibidas. Escolha um e selecione **os logs** a serem consultados:
 
     [![log Analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
@@ -109,7 +109,7 @@ Depois que a instância do **espaço de trabalho do log Analytics** for provisio
 
    [gerenciamento de log do ![](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
-Para obter mais informações sobre operações de consulta avançadas, consulte [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
+Para obter mais informações sobre operações de consulta avançadas, leia [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Você pode experimentar um atraso de 5 minutos ao enviar eventos para **log Analytics espaço de trabalho** pela primeira vez.
@@ -123,7 +123,7 @@ Os logs de Azure Monitor também fornecem serviços de notificação de erro e a
 
 ## <a name="other-options"></a>Outras opções
 
-O Azure digital gêmeos também dá suporte ao log específico do aplicativo e à auditoria de segurança. Para obter uma visão geral completa de todas as opções de log do Azure disponíveis para sua instância do gêmeos digital do Azure, consulte o artigo [auditoria de log do Azure](../security/fundamentals/log-audit.md) .
+O Azure digital gêmeos também dá suporte ao log específico do aplicativo e à auditoria de segurança. Para obter uma visão geral completa de todas as opções de log do Azure disponíveis para sua instância do gêmeos digital do Azure, leia o artigo [auditoria de log do Azure](../security/fundamentals/log-audit.md) .
 
 ## <a name="next-steps"></a>Passos seguintes
 

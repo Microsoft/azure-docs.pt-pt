@@ -1,48 +1,46 @@
 ---
-title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript'
-description: Crie uma conta de armazenamento e um contentor no armazenamento de objetos (blobs). Use a biblioteca de cliente de armazenamento do Azure para node. js v2 para carregar um blob, baixar um blob e listar os BLOBs em um contêiner.
+title: 'Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V10 para JavaScript'
+description: Criar, carregar e excluir BLOBs e contêineres no node. js com a biblioteca de cliente de armazenamento do Azure V10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: quickstart
+ms.openlocfilehash: dd59dec65f75a17c35750140349101c600a92636
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269691"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862854"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v2 para JavaScript
+# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V10 para JavaScript
 
-Neste guia de instruções, você aprende a usar a biblioteca de cliente para node. js v2 para carregar, baixar e listar BLOBs com o armazenamento de BLOBs do Azure.
-
-> [!TIP]
-> A versão mais recente da biblioteca de cliente de armazenamento do Azure para node. js é v10. A Microsoft recomenda que você use a versão mais recente da biblioteca de cliente, quando possível. Para começar a usar o v10, consulte [início rápido: carregar, baixar, listar e excluir BLOBs usando a biblioteca de cliente de armazenamento do Azure para JavaScript v10 (versão prévia)](storage-quickstart-blobs-nodejs-v10.md).
+Neste início rápido, vai aprender a utilizar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-sdk-for-js) em Node.js para carregar, transferir, listar e eliminar blobs, e gerir contentores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-Crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
-O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) é um aplicativo de console simples do node. js. Para começar, clone o repositório para o seu computador com o seguinte comando:
+O [exemplo de aplicação](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git) deste início rápido é uma aplicação de consola Node.js simples. Para começar, clone o repositório para o seu computador com o seguinte comando:
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
+git clone https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git
 ```
 
-Para abrir a aplicação, procure a pasta *storage-blobs-node-quickstart* e abra-a no seu ambiente de edição de código preferido.
+Em seguida, mude de pasta para a aplicação:
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+```bash
+cd azure-storage-js-v10-quickstart
+```
 
-## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
+Agora, abra a pasta no seu ambiente de edição de código preferido.
 
-Antes de executar a aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. O repositório de exemplo inclui um ficheiro denominado *. env.example*. Pode mudar o nome deste ficheiro ao remover a extensão *.example*, o que resulta num ficheiro denominado *.env*. Dentro do ficheiro *.env*, adicione o valor da cadeia de ligação a seguir à chave *AZURE_STORAGE_CONNECTION_STRING*.
+## <a name="configure-your-storage-credentials"></a>Configurar as credenciais de armazenamento
+
+Antes de executar a aplicação, tem de indicar as credenciais de segurança da sua conta de armazenamento. O repositório de exemplo inclui um ficheiro denominado *. env.example*. Mude o nome deste ficheiro, removendo a extensão *.example*, o que resulta num ficheiro com o nome *.env*. Dentro do ficheiro *.env*, adicione os valores de nome de conta e de chave de acesso a seguir às chaves *AZURE_STORAGE_ACCOUNT_NAME* e *AZURE_STORAGE_ACCOUNT_ACCESS_KEY*.
 
 ## <a name="install-required-packages"></a>Instalar pacotes necessários
 
@@ -53,312 +51,360 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>Executar o exemplo
+
 Agora que as dependências estão instaladas, pode executar o exemplo ao emitir o seguinte comando:
 
 ```bash
 npm start
 ```
 
-O resultado do script será semelhante ao seguinte:
+O resultado da aplicação será semelhante ao exemplo seguinte:
 
 ```bash
+Container "demo" is created
 Containers:
  - container-one
  - container-two
-Container "demo" is created
+ - demo
 Blob "quickstart.txt" is uploaded
 Local file "./readme.md" is uploaded
 Blobs in "demo" container:
  - quickstart.txt
+ - readme-stream.md
  - readme.md
-Blob downloaded blob content: "hello Blob SDK"
+Blob downloaded blob content: "hello!"
 Blob "quickstart.txt" is deleted
 Container "demo" is deleted
 Done
 ```
 
-Se você estiver usando uma nova conta de armazenamento para este exemplo, talvez não veja nenhum nome de contêiner listado no rótulo "*contêineres*".
+Se você estiver usando uma nova conta de armazenamento para este guia de início rápido, poderá ver apenas o contêiner de *demonstração* listado sob o rótulo "*contêineres:* ".
 
 ## <a name="understanding-the-code"></a>Compreender o código
-A primeira expressão é utilizada para carregar os valores nas variáveis de ambiente.
+
+O exemplo começa por importar um número de classes e funções do espaço de nomes de armazenamento de Blobs do Azure. Cada um dos itens importados é abordado no contexto à medida que são utilizados no exemplo.
+
+```javascript
+const {
+    Aborter,
+    BlobURL,
+    BlockBlobURL,
+    ContainerURL,
+    ServiceURL,
+    SharedKeyCredential,
+    StorageURL,
+    uploadStreamToBlockBlob
+} = require('@azure/storage-blob');
+```
+
+As credenciais são lidas a partir de variáveis de ambiente com base no contexto adequado.
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
-O módulo *dotenv* carrega variáveis de ambiente ao executar a aplicação localmente para depuração. Os valores são definidos num ficheiro denominado *.env* e carregados para o contexto da execução atual. Em contextos de produção, a configuração do servidor fornece estes valores e é por isso que este código é executado apenas quando o script não está a ser executado num contexto de "produção".
+O módulo *dotenv* carrega variáveis de ambiente ao executar a aplicação localmente para depuração. Os valores são definidos num ficheiro denominado *.env* e carregados para o contexto da execução atual. Em produção, a configuração do servidor fornece estes valores e é por isso que este código é executado apenas quando o script *não* está a ser executado num ambiente de "produção".
+
+O próximo bloco de módulos é importado para ajudar a fazer a interface com o sistema de ficheiros.
 
 ```javascript
+const fs = require('fs');
 const path = require('path');
-const storage = require('azure-storage');
 ```
 
-O objetivo dos módulos é o seguinte: 
+O objetivo destes módulos é o seguinte: 
 
-Ficheiro com o nome *.env* no contexto de execução atual
-- *path* é necessário para determinar o caminho absoluto do ficheiro a carregar no armazenamento de blobs
-- *Azure-Storage* é o módulo [biblioteca de cliente de armazenamento do Azure](https://docs.microsoft.com/javascript/api/azure-storage) para node. js
+- *fs* é o módulo Node.js nativo utilizado para trabalhar com o sistema de ficheiros
 
-Em seguida, a variável **blobService** é iniciada como uma nova instância do serviço Blob do Azure.
+- *path* é necessário para determinar o caminho absoluto do ficheiro, que é utilizado ao carregar um ficheiro para o Armazenamento de blobs
+
+Em seguida, os valores das variáveis de ambiente são lidos e reservados em constantes.
 
 ```javascript
-const blobService = storage.createBlobService();
+const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+```
+O próximo conjunto de constantes ajuda a revelar a intenção dos cálculos de tamanho de ficheiro durante as operações de carregamento.
+
+```javascript
+const ONE_MEGABYTE = 1024 * 1024;
+const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Na seguinte implementação, cada uma das funções *blobService* é encapsulada num wrapper *Promise*, o que permite o acesso à função *async* e ao operador *await* de JavaScript para simplificar o cariz de chamada de retorno da [API de Armazenamento do Azure](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). Quando é devolvida uma resposta bem-sucedida para cada função, a promessa (Promise) é resolvida com dados relevantes, juntamente com uma mensagem específica para a ação.
-
-### <a name="list-containers"></a>Listar contentores
-
-A função *listContainers* chama o método [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) que devolve coleções de contentores em grupos.
+Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) é responsável por gerir a forma como os pedidos excedem o limite de tempo e a constante seguinte serve para definir os tempos limite utilizados neste exemplo.
 
 ```javascript
-const listContainers = async () => {
-    return new Promise((resolve, reject) => {
-        blobService.listContainersSegmented(null, (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `${data.entries.length} containers`, containers: data.entries });
-            }
-        });
-    });
-};
-```
-
-O tamanho dos grupos pode ser configurado através do método [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar o método *listContainersSegmented* devolve os metadados do blob como uma matriz de instâncias [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest). Os resultados são devolvidos em lotes (segmentos) de 5000 incrementos. Se existirem mais de 5000 blobs num contentor, os resultados incluem um valor para *continuationToken*. Para listar os segmentos subsequentes do contentor de blobs, pode transmitir o token de continuação novamente para o método *listContainersSegment* como um segundo argumento.
-
-### <a name="create-a-container"></a>Criar um contentor
-
-A função *createContainer* chama [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) e define o nível de acesso apropriado para o blob.
-
-```javascript
-const createContainer = async (containerName) => {
-    return new Promise((resolve, reject) => {
-        blobService.createContainerIfNotExists(containerName, { publicAccessLevel: 'blob' }, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Container '${containerName}' created` });
-            }
-        });
-    });
-};
-```
-
-O segundo parâmetro (*options*) para **createContainerIfNotExists** aceita um valor para [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). O valor *blob* para *publicAccessLevel* especifica que dados de blob específicos estão expostos ao público. Esta definição contrasta com o acesso de nível *container*, que concede a capacidade de listar o conteúdo do contentor.
-
-A utilização de **createContainerIfNotExists** permite que a aplicação execute o comando *createContainer* várias vezes sem devolver erros quando o contentor já existe. Num ambiente de produção, o mais frequente é **createContainerIfNotExists** só ser chamado uma vez, já que o mesmo contentor é utilizado em toda a aplicação. Nestes casos, pode criar o contentor antecipadamente através do portal ou através da CLI do Azure.
-
-### <a name="upload-text"></a>Carregar texto
-
-A função *uploadString* chama o método [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) para escrever (ou substituir) uma sequência arbitrária no contentor de blobs.
-
-```javascript
-const uploadString = async (containerName, blobName, text) => {
-    return new Promise((resolve, reject) => {
-        blobService.createBlockBlobFromText(containerName, blobName, text, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Text "${text}" is written to blob storage` });
-            }
-        });
-    });
-};
-```
-### <a name="upload-a-local-file"></a>Carregar um ficheiro local
-
-A função *uploadLocalFile* utiliza o método [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) para carregar e escrever (ou substituir) um ficheiro do sistema de ficheiros no armazenamento de blobs. 
-
-```javascript
-const uploadLocalFile = async (containerName, filePath) => {
-    return new Promise((resolve, reject) => {
-        const fullPath = path.resolve(filePath);
-        const blobName = path.basename(filePath);
-        blobService.createBlockBlobFromLocalFile(containerName, blobName, fullPath, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Local file "${filePath}" is uploaded` });
-            }
-        });
-    });
-};
-```
-Outras abordagens disponíveis para carregar conteúdo nos blobs incluem trabalhar com [texto](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--) e [fluxos](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Para confirmar se o ficheiro está carregado no armazenamento de blobs, pode utilizar o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ver os dados na sua conta.
-
-### <a name="list-the-blobs"></a>Listar os blobs
-
-A função *listBlobs* chama o método [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) para devolver uma lista de metadados do blob num contentor. 
-
-```javascript
-const listBlobs = async (containerName) => {
-    return new Promise((resolve, reject) => {
-        blobService.listBlobsSegmented(containerName, null, (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `${data.entries.length} blobs in '${containerName}'`, blobs: data.entries });
-            }
-        });
-    });
-};
-```
-
-Chamar *listBlobsSegmented* devolve os metadados do blob como uma matriz de instâncias [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest). Os resultados são devolvidos em lotes (segmentos) de 5000 incrementos. Se existirem mais de 5000 blobs num contentor, os resultados incluem um valor para **continuationToken**. Para listar os segmentos subsequentes do contentor do blobs, pode transmitir o token de continuação novamente para o **listBlobSegmented** como um segundo argumento.
-
-### <a name="download-a-blob"></a>Transferir um blob
-
-A função *downloadBlob* utiliza o método [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) para transferir os conteúdos do blob para o caminho absoluto do ficheiro especificado.
-
-```javascript
-const downloadBlob = async (containerName, blobName) => {
-    const dowloadFilePath = path.resolve('./' + blobName.replace('.txt', '.downloaded.txt'));
-    return new Promise((resolve, reject) => {
-        blobService.getBlobToText(containerName, blobName, (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Blob downloaded "${data}"`, text: data });
-            }
-        });
-    });
-};
-```
-A implementação aqui apresentada altera a origem e devolve os conteúdos do blob como uma cadeia. Também pode transferir o blob como uma [transmissão](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest), bem como diretamente para um [ficheiro local](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
-
-### <a name="delete-a-blob"></a>Eliminar um blob
-
-A função *deleteBlob* chama a função [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--). Tal como o nome sugere, esta função não devolve um erro se o blob já tiver sido eliminado.
-
-```javascript
-const deleteBlob = async (containerName, blobName) => {
-    return new Promise((resolve, reject) => {
-        blobService.deleteBlobIfExists(containerName, blobName, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Block blob '${blobName}' deleted` });
-            }
-        });
-    });
-};
-```
-
-### <a name="delete-a-container"></a>Eliminar um contentor
-
-Os contentores são eliminados ao chamar o método *deleteContainer* no serviço Blob e ao transmitir o nome do contentor.
-
-```javascript
-const deleteContainer = async (containerName) => {
-    return new Promise((resolve, reject) => {
-        blobService.deleteContainer(containerName, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ message: `Container '${containerName}' deleted` });
-            }
-        });
-    });
-};
+const ONE_MINUTE = 60 * 1000;
 ```
 
 ### <a name="calling-code"></a>Código de chamada
 
-Para suportar a sintaxe de JavaScript *async/await*, todo o código de chamada é encapsulado numa função chamada *execute*. Em seguida, a função execute é chamada e processada como uma promessa.
+Para suportar a sintaxe de JavaScript *async/await*, todo o código de chamada é encapsulado num wrapper numa função chamada *execute*. Em seguida, a função *execute* é chamada e processada como uma promessa.
 
 ```javascript
 async function execute() {
-    // commands 
+    // commands... 
 }
 
 execute().then(() => console.log("Done")).catch((e) => console.log(e));
 ```
-Todo o código seguinte é executado dentro da função execute onde o comentário `// commands` é colocado.
+
+Todo o código seguinte é executado dentro da função execute onde o comentário `// commands...` é colocado.
 
 Em primeiro lugar, as variáveis relevantes são declaradas para atribuir nomes e conteúdo de exemplo, e para apontar para o ficheiro local, para carregar para o armazenamento de blobs.
 
 ```javascript
 const containerName = "demo";
 const blobName = "quickstart.txt";
-const content = "hello Node SDK";
+const content = "hello!";
 const localFilePath = "./readme.md";
-let response;
 ```
 
-Para listar os contentores na conta de armazenamento, a função listContainers é chamada e a lista de contentores devolvida é registada na janela de resultados.
+As credenciais da conta são utilizadas para criar um pipeline, que é responsável por gerir a forma como os pedidos são enviados para a API REST. Os pipelines são seguros para os threads e especificam a lógica para as políticas de repetição, registo, regras de desserialização de respostas HTTP e muito mais.
+
+```javascript
+const credentials = new SharedKeyCredential(STORAGE_ACCOUNT_NAME, ACCOUNT_ACCESS_KEY);
+const pipeline = StorageURL.newPipeline(credentials);
+const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net`, pipeline);
+```
+
+As seguintes classes são utilizadas neste bloco de código:
+
+- A classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) é responsável pelo encapsulamento num wrapper das credenciais da conta de armazenamento, para fornecê-las a um pipeline de pedido.
+
+- A classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) é responsável por criar um novo pipeline.
+
+- A classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) modela um URL utilizado na API REST. As instâncias desta classe permitem-lhe executar ações como listar contentores e fornecer informações de contexto para gerar URLs de contentor.
+
+A instância de *ServiceURL* é utilizado com as instâncias de [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) para gerir contentores e blobs na sua conta de armazenamento.
+
+```javascript
+const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
+const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
+```
+
+As variáveis *containerURL* e *blockBlobURL* são reutilizadas em todo o exemplo para agir sobre a conta de armazenamento. 
+
+Neste momento, o contentor não existe na conta de armazenamento. A instância de *ContainerURL* representa um URL sobre o qual pode agir. Ao utilizar esta instância, pode criar e eliminar o contentor. A localização deste contentor equivale a uma localização como esta:
+
+```bash
+https://<ACCOUNT_NAME>.blob.core.windows.net/demo
+```
+
+A variável *blockBlobURL* é utilizada para gerir blobs individuais, permitindo-lhe carregar, transferir e eliminar conteúdo dos blobs. O URL aqui representado é semelhante a esta localização:
+
+```bash
+https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
+```
+
+Tal como acontece com o contentor, o blob de blocos ainda não existe. A variável *blockBlobURL* é utilizada mais tarde para criar o blob através do carregamento de conteúdo.
+
+### <a name="using-the-aborter-class"></a>Utilizar a classe Aborter
+
+Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe de *anulador* é responsável por gerenciar como as solicitações expiraram. O código a seguir cria um contexto em que um conjunto de solicitações recebe 30 minutos para ser executado.
+
+```javascript
+const aborter = Aborter.timeout(30 * ONE_MINUTE);
+```
+
+Os Aborters dão-lhe controlo sobre os pedidos ao permitir que:
+
+- designe a quantidade de tempo especificada para um lote de pedidos
+- designe durante quanto tempo um pedido individual tem de ser executado no lote
+- cancele pedidos
+- utilize o membro estático *Aborter.None* para impedir que os pedidos excedam o tempo limite em conjunto
+
+### <a name="create-a-container"></a>Criar um contentor
+
+Para criar um contentor, é utilizado o método *create* do *ContainerURL*.
+
+```javascript
+await containerURL.create(aborter);
+console.log(`Container: "${containerName}" is created`);
+```
+
+Como o nome do contentor é definido ao chamar *ContainerURL.fromServiceURL(serviceURL, containerName)* , só é preciso chamar o método *create* para criar o contentor.
+
+### <a name="show-container-names"></a>Mostrar nomes de contentores
+
+As contas podem armazenar um grande número de contentores. O código seguinte demonstra como listar os contentores de uma forma segmentada, o que lhe permite percorrer um grande número de contentores. À função *showContainerNames* são passadas instâncias de *ServiceURL* e *Aborter*.
 
 ```javascript
 console.log("Containers:");
-response = await listContainers();
-response.containers.forEach((container) => console.log(` -  ${container.name}`));
+await showContainerNames(serviceURL, aborter);
 ```
 
-Assim que a lista de contentores estiver disponível, poderá utilizar o método de Matriz *findIndex* para ver se o contentor que pretende criar já existe. Se o contentor não existir, o contentor será criado.
+A função *showContainerNames* utiliza o método *listContainersSegment* para solicitar lotes de nomes de contentor da conta de armazenamento.
 
 ```javascript
-const containerDoesNotExist = response.containers.findIndex((container) => container.name === containerName) === -1;
+async function showContainerNames(aborter, serviceURL) {
+    let marker = undefined;
 
-if (containerDoesNotExist) {
-    await createContainer(containerName);
-    console.log(`Container "${containerName}" is created`);
+    do {
+        const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
+        marker = listContainersResponse.nextMarker;
+        for(let container of listContainersResponse.containerItems) {
+            console.log(` - ${ container.name }`);
+        }
+    } while (marker);
 }
 ```
-Em seguida, uma cadeia e um ficheiro local são carregados para o armazenamento de blobs.
+
+Quando a resposta é devolvida, os *containerItems* são iterados para registar o nome na consola. 
+
+### <a name="upload-text"></a>Carregar texto
+
+Para carregar texto para o blob, utilize o método *upload*.
 
 ```javascript
-await uploadString(containerName, blobName, content);
+await blockBlobURL.upload(aborter, content, content.length);
 console.log(`Blob "${blobName}" is uploaded`);
-
-response = await uploadLocalFile(containerName, localFilePath);
-console.log(response.message);
 ```
-O processo para listar blobs é idêntico ao da listagem de contentores. A chamada da função *listBlobs* devolve uma matriz de blobs no contentor e os mesmos são registados na janela de resultados.
+
+Aqui, o texto e o respetivo comprimento são transmitidos para o método.
+
+### <a name="upload-a-local-file"></a>Carregar um ficheiro local
+
+Para carregar um ficheiro local para o contentor, precisa de um URL de contentor e do caminho para o ficheiro.
+
+```javascript
+await uploadLocalFile(aborter, containerURL, localFilePath);
+console.log(`Local file "${localFilePath}" is uploaded`);
+```
+
+A função *uploadLocalFile* chama a função *uploadFileToBlockBlob*, que utiliza o caminho do ficheiro e uma instância do destino do blob de blocos como argumentos.
+
+```javascript
+async function uploadLocalFile(aborter, containerURL, filePath) {
+
+    filePath = path.resolve(filePath);
+
+    const fileName = path.basename(filePath);
+    const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, fileName);
+
+    return await uploadFileToBlockBlob(aborter, filePath, blockBlobURL);
+}
+```
+
+### <a name="upload-a-stream"></a>Carregar um fluxo
+
+O carregamento de fluxos também é suportado. Este exemplo abre um ficheiro local como um fluxo para passar para o método de carregamento.
+
+```javascript
+await uploadStream(containerURL, localFilePath, aborter);
+console.log(`Local file "${localFilePath}" is uploaded as a stream`);
+```
+
+A função *uploadStream* chama *uploadStreamToBlockBlob* para carregar o fluxo para o contentor de armazenamento.
+
+```javascript
+async function uploadStream(aborter, containerURL, filePath) {
+    filePath = path.resolve(filePath);
+
+    const fileName = path.basename(filePath).replace('.md', '-stream.md');
+    const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, fileName);
+
+    const stream = fs.createReadStream(filePath, {
+      highWaterMark: FOUR_MEGABYTES,
+    });
+
+    const uploadOptions = {
+        bufferSize: FOUR_MEGABYTES,
+        maxBuffers: 5,
+    };
+
+    return await uploadStreamToBlockBlob(
+                    aborter, 
+                    stream, 
+                    blockBlobURL, 
+                    uploadOptions.bufferSize, 
+                    uploadOptions.maxBuffers);
+}
+```
+
+Durante um carregamento, *uploadStreamToBlockBlob* aloca memórias intermédias para dados da cache do fluxo, no caso de ser necessária uma repetição. O valor de *maxBuffers* designa o número máximo de memórias intermédias que são utilizadas à medida que cada memória intermédia cria um pedido de carregamento em separado. Idealmente, um maior número de memórias intermédias equivale a velocidades mais elevadas, mas implica a utilização de mais memória. A velocidade de carregamento estagna quando o número de memórias intermédias é tão elevado que o estrangulamento transita para a rede ou disco, em vez do cliente.
+
+### <a name="show-blob-names"></a>Mostrar nomes de blobs
+
+Da mesma forma que as contas podem conter muitos contentores, cada contentor pode potencialmente conter uma grande quantidade de blobs. O acesso a cada blob num contentor está disponível através de uma instância da classe *ContainerURL*.
 
 ```javascript
 console.log(`Blobs in "${containerName}" container:`);
-response = await listBlobs(containerName);
-response.blobs.forEach((blob) => console.log(` - ${blob.name}`));
+await showBlobNames(aborter, containerURL);
 ```
 
-Para transferir um blob, a resposta é recolhida e utilizada para aceder ao valor do blob. A partir da resposta, readableStreamBody é convertido numa cadeia e registado na janela de resultados.
+A função *showBlobNames* chama *listBlobFlatSegment* para solicitar lotes de blobs ao contentor.
 
 ```javascript
-response = await downloadBlob(containerName, blobName);
-console.log(`Downloaded blob content: "${response.text}"`);
+async function showBlobNames(aborter, containerURL) {
+    let marker = undefined;
+
+    do {
+        const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
+        marker = listBlobsResponse.nextMarker;
+        for (const blob of listBlobsResponse.segment.blobItems) {
+            console.log(` - ${ blob.name }`);
+        }
+    } while (marker);
+}
 ```
 
-Por fim, o blob e o contentor são eliminados da conta de armazenamento.
+### <a name="download-a-blob"></a>Transferir um blob
+
+Depois de criar um blob, pode transferir o conteúdo através do método *download*.
 
 ```javascript
-await deleteBlob(containerName, blobName);
-console.log(`Blob "${blobName}" is deleted`);
+const downloadResponse = await blockBlobURL.download(aborter, 0);
+const downloadedContent = await streamToString(downloadResponse.readableStreamBody);
+console.log(`Downloaded blob content: "${downloadedContent}"`);
+```
 
-await deleteContainer(containerName);
+A resposta é devolvida como um fluxo. Neste exemplo, o fluxo é convertido em uma cadeia de caracteres usando a seguinte função auxiliar *streamToString* .
+
+```javascript
+// A helper method used to read a Node.js readable stream into a string
+async function streamToString(readableStream) {
+    return new Promise((resolve, reject) => {
+      const chunks = [];
+      readableStream.on("data", data => {
+        chunks.push(data.toString());
+      });
+      readableStream.on("end", () => {
+        resolve(chunks.join(""));
+      });
+      readableStream.on("error", reject);
+    });
+}
+```
+
+### <a name="delete-a-blob"></a>Eliminar um blob
+
+O método *delete* de uma instância *BlockBlobURL* elimina um blob do contentor.
+
+```javascript
+await blockBlobURL.delete(aborter)
+console.log(`Block blob "${blobName}" is deleted`);
+```
+
+### <a name="delete-a-container"></a>Eliminar um contentor
+
+O método *delete* de uma instância *ContainerURL* elimina um contentor da conta de armazenamento.
+
+```javascript
+await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
+
 Todos os dados escritos na conta de armazenamento são eliminados automaticamente no fim do código de exemplo. 
 
-## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Recursos para desenvolver aplicações Node.js com blobs
+## <a name="next-steps"></a>Passos seguintes
 
-Veja estes recursos adicionais para o desenvolvimento de Node.js com o Armazenamento de blobs:
-
-### <a name="binaries-and-source-code"></a>Binários e código fonte
-
-- Consulte e instale o [código fonte da biblioteca de cliente do Node.js](https://github.com/Azure/azure-storage-node) para o Armazenamento do Azure no GitHub.
-
-### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente
-
-- Veja a [Referência da API de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente do Node.js.
-- Explore os [Exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) escritos com a biblioteca de cliente do Node.js.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-Este artigo demonstra como carregar um arquivo entre um disco local e o armazenamento de BLOBs do Azure usando o Node. js. Para saber mais sobre a utilização do armazenamento de blobs, avance para o repositório do GitHub.
+Este início rápido demonstra como gerir blobs e contentores no armazenamento de Blobs do Azure com Node.js. Para saber mais sobre a utilização deste SDK, consulte o repositório do GitHub.
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Microsoft Azure SDK para node. js e JavaScript para navegadores](https://github.com/Azure/azure-storage-node)
+> [Azure Storage V10 SDK para o repositório de javascript](https://github.com/Azure/azure-storage-js)
+> [referência de API de JavaScript do armazenamento do Azure](/javascript/api/overview/azure/storage?view=azure-node-legacy)

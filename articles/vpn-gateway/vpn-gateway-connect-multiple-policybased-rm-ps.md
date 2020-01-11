@@ -2,18 +2,17 @@
 title: 'Gateway de VPN do Azure: conectar gateways a vários dispositivos VPN baseados em políticas locais'
 description: Configure um gateway de VPN baseado em rota do Azure para vários dispositivos VPN com base em políticas usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146711"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863745"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways de VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -25,7 +24,7 @@ Este artigo ajuda você a configurar um gateway de VPN baseado em rota do Azure 
 
 Políticas- *vs.* os dispositivos VPN baseados em rota diferem em como os seletores de tráfego IPSec são definidos em uma conexão:
 
-* **Baseado em políticas** Os dispositivos VPN usam as combinações de prefixos de ambas as redes para definir como o tráfego é criptografado/descriptografado por meio de túneis IPsec. Normalmente, ele é criado em dispositivos de firewall que executam a filtragem de pacotes. A criptografia e a descriptografia do túnel IPsec são adicionadas ao mecanismo de filtragem e processamento de pacotes.
+* **Baseado em políticas** Os dispositivos VPN usam as combinações de prefixos de ambas as redes para definir como o tráfego é criptografado/descriptografado por meio de túneis IPsec. Normalmente, ele é criado em dispositivos de firewall que executam a filtragem de pacotes. A encriptação e desencriptação de túnel IPsec são adicionadas à filtragem de pacotes e ao motor de processamento.
 * **Baseado em rota** Os dispositivos VPN usam seletores de tráfego de qualquer para qualquer (curinga) e permitem que as tabelas de roteamento/encaminhamento direcionem o tráfego para túneis IPsec diferentes. Normalmente, ele é criado em plataformas de roteador onde cada túnel IPsec é modelado como uma interface de rede ou VTI (interface de túnel virtual).
 
 Os seguintes diagramas destacam os dois modelos:
@@ -41,7 +40,7 @@ Atualmente, o Azure dá suporte a ambos os modos de gateways de VPN: gateways de
 
 |                          | **Gateway de VPN PolicyBased** | **Gateway de VPN RouteBased**       |**Gateway de VPN RouteBased**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **SKU do gateway do Azure**    | Básico                       | Básico                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **SKU do gateway do Azure**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
 | **Versão do IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                                    |
 | **Maximizar. Conexões S2S** | **1**                       | 10                               |Padrão: 10<br> Outros SKUs: 30                     |
 |                          |                             |                                  |                                                    |

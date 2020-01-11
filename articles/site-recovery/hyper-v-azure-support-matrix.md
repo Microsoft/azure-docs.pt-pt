@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 1/10/2020
 ms.author: raynew
-ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133024"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863898"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -44,7 +44,7 @@ A tabela a seguir resume o suporte de VM. O Site Recovery dá suporte a qualquer
  **Componente** | **Detalhes**
 --- | ---
 Configuração da VM | As VMs que replicam para o Azure devem atender aos [requisitos do Azure](#azure-vm-requirements).
-Sistema operacional convidado | Qualquer SO convidado [com suporte para o Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Não há suporte para o Windows Server 2016 nano Server.
+Sistema operativo convidado | Qualquer SO convidado [com suporte para o Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Não há suporte para o Windows Server 2016 nano Server.
 
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
@@ -91,7 +91,7 @@ Redes Aceleradas | Não | Não
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
-NFS | ND | ND
+NFS | N/D | N/D
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
 Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM para CLARiiON | Sim | Sim
@@ -100,37 +100,37 @@ Vários caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5,7 
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
-VMDK | ND | ND
+VMDK | N/D | N/D
 VHD/VHDX | Sim | Sim
-VM de geração 2 | Sim | Sim
+VM de 2ª Geração | Sim | Sim
 EFI/UEFI<br></br>A VM migrada no Azure será convertida automaticamente em uma VM de inicialização do BIOS. A VM deve estar executando apenas o Windows Server 2012 e posterior. O disco do sistema operacional deve ter até cinco partições ou menos e o tamanho do disco do sistema operacional deve ser inferior a 300 GB.| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
-NFS | ND | ND
+NFS | N/D | N/D
 SMB 3.0 | Não | Não
-RDM | ND | ND
+RDM | N/D | N/D
 Disco > 1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor lógico e físico de 4K | Sem suporte: Gen 1/Gen 2 | Sem suporte: Gen 1/Gen 2
 Disco: 4K lógico e 512 bytes de setor físico | Sim |  Sim
 LVM (gerenciamento de volume lógico). O LVM tem suporte apenas em discos de dados. O Azure fornece apenas um único disco do sistema operacional. | Sim | Sim
 Volume com disco distribuído > 1 TB | Sim | Sim
-Espaços de armazenamento | Não | Não
+Espaços de Armazenamento | Não | Não
 Adição/remoção de disco quente | Não | Não
 Excluir o disco | Sim | Sim
 Vários caminhos (MPIO) | Sim | Sim
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 Armazenamento localmente redundante | Sim | Sim
 Armazenamento georredundante | Sim | Sim
-Armazenamento com redundância geográfica com acesso de leitura | Sim | Sim
+Armazenamento georredundante com acesso de leitura | Sim | Sim
 Armazenamento frio | Não | Não
 Armazenamento dinâmico| Não | Não
 Blobs de bloco | Não | Não
 Criptografia em repouso (SSE)| Sim | Sim
-Criptografia em repouso (CMK)| Não | Não
+Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenciados)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante) | Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
@@ -143,7 +143,7 @@ Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de de
 --- | --- | ---
 Conjuntos de disponibilidade | Sim | Sim
 82801ER | Sim | Sim  
-Managed disks | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados. | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados.
+Managed Disks | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados. | Sim, para failover.<br/><br/> Não há suporte para o failback de discos gerenciados.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -151,14 +151,14 @@ As VMs locais que você replica para o Azure devem atender aos requisitos de VM 
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operacional convidado | O Site Recovery dá suporte a todos os sistemas operacionais [com suporte no Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | A verificação de pré-requisitos falhará se não houver suporte.
+Sistema operativo convidado | O Site Recovery dá suporte a todos os sistemas operacionais [com suporte no Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | A verificação de pré-requisitos falhará se não houver suporte.
 Arquitetura do sistema operacional convidado | 32 bits (Windows Server 2008)/64-bit | A verificação de pré-requisitos falhará se não houver suporte.
 Tamanho do disco do sistema operacional | Até 2.048 GB para VMs de geração 1.<br/><br/> Até 300 GB para VMs de geração 2.  | A verificação de pré-requisitos falhará se não houver suporte.
 Contagem de disco do sistema operacional | 1 | A verificação de pré-requisitos falhará se não houver suporte.
 Contagem de disco de dados | 16 ou menos  | A verificação de pré-requisitos falhará se não houver suporte.
 Tamanho do VHD do disco de dados | Até 4.095 GB | A verificação de pré-requisitos falhará se não houver suporte.
-Adaptadores de rede | São suportados vários adaptadores |
-VHD compartilhado | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
+Placas de rede | São suportados vários adaptadores |
+VHD Partilhado | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
 Disco FC | Não suportado | A verificação de pré-requisitos falhará se não houver suporte.
 Formato de disco rígido | VHD <br/><br/> VHDX | Site Recovery converte automaticamente VHDX em VHD quando você faz failover para o Azure. Quando você realiza o failback para o local, as máquinas virtuais continuam a usar o formato VHDX.
 BitLocker | Não suportado | O BitLocker deve ser desabilitado antes de habilitar a replicação para uma VM.
@@ -183,7 +183,7 @@ Para garantir que sua implantação seja compatível com as configurações nest
 **Nome** | **Descrição** | **Detalhes**
 --- | --- | --- 
 Provedor de Azure Site Recovery | Coordena as comunicações entre servidores locais e o Azure <br/><br/> Hyper-V com o Virtual Machine Manager: instalado em servidores Virtual Machine Manager<br/><br/> Hyper-V sem Virtual Machine Manager: instalado em hosts Hyper-V| Versão mais recente: 5.1.2700.1 (disponível no portal do Azure)<br/><br/> [Recursos e correções mais recentes](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
-Agente de Serviços de Recuperação do Microsoft Azure | Coordena a replicação entre VMs do Hyper-V e o Azure<br/><br/> Instalado em servidores Hyper-V locais (com ou sem Virtual Machine Manager) | Agente mais recente disponível no portal
+Agente dos Serviços de Recuperação do Microsoft Azure | Coordena a replicação entre VMs do Hyper-V e o Azure<br/><br/> Instalado em servidores Hyper-V locais (com ou sem Virtual Machine Manager) | Agente mais recente disponível no portal
 
 
 

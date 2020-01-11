@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0ff8e42cecb705e57ce85c92e84a0ad9b78929a5
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 495fa3837681fb2a78d86e6c34d4b4888b1e37f4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778503"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863687"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Excluir um gateway de rede virtual usando o PowerShell (clássico)
 

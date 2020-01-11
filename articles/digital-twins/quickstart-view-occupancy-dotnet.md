@@ -10,18 +10,18 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 621b02363310ccc6f3dc1b32807874307210e964
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383147"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861137"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
 O serviço de duplos Digital do Azure permite-lhe voltar a criar uma imagem digital do seu ambiente físico. Depois, pode ser notificado por eventos no ambiente e personalizar as respostas para esses eventos.
 
-Este guia de início rápido usa [um par de amostras do .net](https://github.com/Azure-Samples/digital-twins-samples-csharp) para digitalizar uma construção de escritório imaginária. Ele mostra como de salas disponíveis desse edifício. Digital duplos, pode associar vários sensores com o seu ambiente. Também pode descobrir se a qualidade de ar do seu espaço disponível é o ideal com a ajuda de um sensor simulado para emissões de dióxido de carbono. Uma das aplicações de exemplo gera dados de sensor aleatório para o ajudar a visualizar este cenário.
+Este início rápido utiliza [um par de amostras do .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) a digitalização de um edifício de escritórios imaginário. Ele mostra como de salas disponíveis desse edifício. Digital duplos, pode associar vários sensores com o seu ambiente. Também pode descobrir se a qualidade de ar do seu espaço disponível é o ideal com a ajuda de um sensor simulado para emissões de dióxido de carbono. Uma das aplicações de exemplo gera dados de sensor aleatório para o ajudar a visualizar este cenário.
 
 O vídeo seguinte apresenta um resumo da configuração do início rápido:
 
@@ -31,13 +31,13 @@ O vídeo seguinte apresenta um resumo da configuração do início rápido:
 
 1. Se não tiver uma conta do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-1. As aplicações de dois consola executadas neste início rápido são escritas utilizando C#. Instale o [SDK do .NET Core versão 2.1.403 ou superior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento. Se tiver o .NET Core SDK instalado, certifique-se a versão atual do C# no computador de desenvolvimento. Execute `dotnet --version` em um prompt de comando.
+1. As aplicações de dois consola executadas neste início rápido são escritas utilizando C#. Instalar o [.NET Core SDK versão 2.1.403 ou acima](https://www.microsoft.com/net/download) no computador de desenvolvimento. Se tiver o .NET Core SDK instalado, certifique-se a versão atual do C# no computador de desenvolvimento. Executar `dotnet --version` numa linha de comandos.
 
-1. Baixe o [projeto C# de exemplo](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Extraia o arquivo de digital-twins-exemplos-csharp-Master.
+1. Transfira o [exemplo C# projeto](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Extraia o arquivo de digital-twins-exemplos-csharp-Master.
 
 ## <a name="create-a-digital-twins-instance"></a>Criar uma instância do Digital Twins
 
-Crie uma nova instância do digital gêmeos no [portal](https://portal.azure.com) seguindo as etapas nesta seção.
+Criar uma nova instância de duplos Digital no [portal](https://portal.azure.com) ao seguir os passos nesta secção.
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
@@ -55,9 +55,9 @@ Crie a aplicação de ocupação seguindo estes passos.
 1. Execute `cd occupancy-quickstart/src`.
 1. Execute `dotnet restore`.
 1. Edite [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) para atualizar as variáveis seguintes:
-    - **ClientID**: Insira a ID do aplicativo do registro do aplicativo do Azure AD, anotada na seção anterior.
-    - **Locatário**: Insira a ID de diretório do seu locatário do Azure AD, também anotada na seção anterior.
-    - **BaseURL**: a URL de API de gerenciamento da sua instância gêmeos digital está no formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Substitua os marcadores de posição este URL com os valores para a sua instância da secção anterior.
+    - **ClientId**: introduza o ID da aplicação do seu registo de aplicação do Azure AD, indicado na secção anterior.
+    - **Inquilino**: introduza o ID de diretório do seu inquilino do Azure AD, também é indicado na secção anterior.
+    - **BaseUrl**: O URL de API de gestão da sua instância de duplos digitais está no formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Substitua os marcadores de posição este URL com os valores para a sua instância da secção anterior.
 
     Guarde o ficheiro atualizado.
 
@@ -71,26 +71,26 @@ Este passo Aprovisiona o gráfico de geográfico duplos Digital com:
 - Uma função personalizada.
 - Uma atribuição de função.
 
-O grafo espacial é provisionado usando o arquivo [provisionSample. YAML](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) .
+O gráfico espacial é aprovisionado através da utilização a [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) ficheiro.
 
 1. Execute `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >A ferramenta de CLI do dispositivo início de sessão do Azure é utilizada para autenticar o utilizador para o Azure AD. O usuário deve inserir um determinado código para autenticar usando [a página de logon da Microsoft](https://microsoft.com/devicelogin) . Depois que o código for inserido, siga as etapas para autenticar. O utilizador tem de ser autenticado quando é executada a ferramenta.
+    >A ferramenta de CLI do dispositivo início de sessão do Azure é utilizada para autenticar o utilizador para o Azure AD. O utilizador tem de introduzir um código específico para autenticar com [o início de sessão do Microsoft](https://microsoft.com/devicelogin) página. Depois que o código for inserido, siga as etapas para autenticar. O utilizador tem de ser autenticado quando é executada a ferramenta.
 
     >[!TIP]
-    > Ao executar essa etapa, certifique-se de que suas variáveis foram copiadas corretamente se a seguinte mensagem de erro for exibida: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Quando executar este passo, certifique-se de que suas variáveis foram copiadas corretamente se é apresentada a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
-1. O passo de aprovisionamento pode demorar alguns minutos. Ele também fornece um IoT Hub na sua instância de duplos Digital. Ele percorre até que o Hub IoT mostre status =`Running`.
+1. O passo de aprovisionamento pode demorar alguns minutos. Ele também fornece um IoT Hub na sua instância de duplos Digital. Percorre até que o IoT Hub mostra o estado =`Running`.
 
     [![provisionar o exemplo-status = em execução](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
-1. No final da execução, copie o `ConnectionString` do dispositivo para uso no exemplo de simulador de dispositivo. Copie apenas a cadeia de caracteres descrita nesta imagem.
+1. No final da execução, copie o `ConnectionString` do dispositivo para utilização no exemplo de simulador de dispositivos. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
     [![copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
-    > Você pode exibir e modificar o grafo espacial usando o [Visualizador do grafo do gêmeos digital do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
+    > Pode ver e modificar seu gráfico espacial com o [Visualizador de gráfico de duplos do Azure Digital](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 Mantenha a janela do console aberta para uso novamente mais tarde.
 
@@ -101,15 +101,15 @@ Compile e execute o aplicativo de dispositivo do sensor Simulator seguindo estas
 1. Abra uma nova linha de comandos. Vá para o projeto que você baixou na pasta `digital-twins-samples-csharp-master`.
 1. Execute `cd device-connectivity`.
 1. Execute `dotnet restore`.
-1. Edit [appSettings. JSON](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com a `ConnectionString`anterior. Guarde o ficheiro atualizado.
-1. Execute `dotnet run` para começar a enviar dados de sensor. Verá enviados para o Digital duplos, conforme mostrado na imagem seguinte.
+1. Editar [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com o anterior `ConnectionString`. Guarde o ficheiro atualizado.
+1. Executar `dotnet run` para começar a enviar dados de sensor. Ele será enviado para o gêmeos digital do Azure, conforme mostrado na imagem a seguir.
 
      [Conectividade de dispositivo ![](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Permitir que este simulador em execução para que possa visualizar os resultados lado a lado com a ação de passo seguinte. Esta janela mostra os dados de sensor simulado enviados para o Digital duplos. As consultas de passo seguintes em tempo real de salas com ar fresco disponíveis.
 
     >[!TIP]
-    > Ao executar essa etapa, verifique se `DeviceConnectionString` foi copiado corretamente se a seguinte mensagem de erro for exibida: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Quando executar este passo, certifique-se de que `DeviceConnectionString` foram copiados corretamente se é apresentada a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 ## <a name="find-available-spaces-with-fresh-air"></a>Encontrar espaços disponíveis com ar fresco
 
@@ -142,7 +142,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
 | YOUR_LOCATION | A região do servidor em que sua instância está hospedada |
 
-Ou para sua conveniência, navegue até [digital gêmeos Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+Ou para sua comodidade, navegue até [Swagger de duplos Digital](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -154,14 +154,14 @@ Os tutoriais entrar em detalhes sobre como:
 Para continuar para os tutoriais, não limpe os recursos criados neste início rápido. Se não quiser continuar, elimine todos os recursos criados por este início rápido.
 
 1. Elimine a pasta que foi criada quando transferiu o repositório de exemplo.
-1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**. Em seguida, selecione o recurso de duplos Digital. Na parte superior do painel **todos os recursos** , selecione **excluir**.
+1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**. Em seguida, selecione o recurso de duplos Digital. Na parte superior a **todos os recursos** painel, selecione **eliminar**.
 
     > [!TIP]
     > Se você já enfrentou problemas para excluir sua instância digital gêmeos, uma atualização de serviço foi distribuída com a correção. Volte a tentar eliminar a instância.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia de início rápido usou um cenário simples e aplicativos de exemplo para mostrar como o digital gêmeos pode ser usado para encontrar salas com boas condições de trabalho. Para uma análise aprofundada deste cenário, consulte este tutorial:
+Este guia de início rápido usou um cenário simples e aplicativos de exemplo para mostrar como o digital gêmeos pode ser usado para encontrar salas com boas condições de trabalho. Para uma análise detalhada deste cenário, leia este tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md) (Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial)

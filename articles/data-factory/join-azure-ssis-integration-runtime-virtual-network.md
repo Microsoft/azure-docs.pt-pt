@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: a4b0debc712504e8cb3c6d61372bd3a82c7932bb
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b068eeeada842f2439f6135bfa8567a6c9709d12
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497030"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862820"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir um tempo de execução de integração do Azure-SSIS a uma rede virtual
 
@@ -30,10 +30,20 @@ Ao usar o SQL Server Integration Services (SSIS) no Azure Data Factory, você de
 
 - Você deseja se conectar a armazenamentos de dados/recursos configurados com regras de firewall de IP de pacotes do SSIS que são executados no seu Azure-SSIS IR.
 
-Data Factory permite que você ingresse seu Azure-SSIS IR em uma rede virtual criada por meio do modelo de implantação clássico ou do modelo de implantação de Azure Resource Manager. 
+Data Factory permite que você ingresse seu Azure-SSIS IR em uma rede virtual criada por meio do modelo de implantação clássico ou do modelo de implantação de Azure Resource Manager.
 
 > [!IMPORTANT]
 > A rede virtual clássica está sendo preterida, portanto, use a rede virtual Azure Resource Manager em vez disso.  Se você já usa a rede virtual clássica, alterne para a rede virtual Azure Resource Manager assim que possível.
+
+O tutorial [Configurando um tempo de execução de integração (ir) do Azure-SQL Server Integration Services (SSIS) para ingressar em uma rede virtual](tutorial-deploy-ssis-virtual-network.md) mostra as etapas mínimas por meio de portal do Azure. Este artigo expande o tutorial e descreve todas as tarefas opcionais:
+
+- Se você estiver usando a rede virtual (clássica).
+- Se você trazer seus próprios endereços IP públicos para o Azure-SSIS IR.
+- Se você usar seu próprio servidor DNS (sistema de nomes de domínio).
+- Se você usar um NSG (grupo de segurança de rede) na sub-rede.
+- Se você usar o Azure ExpressRoute ou uma rota definida pelo usuário (UDR).
+- Se você usar Azure-SSIS IR personalizadas.
+- Se você usar o provisionamento do Azure PowerShell.
 
 ## <a name="access-to-on-premises-data-stores"></a>Acesso a armazenamentos de dados locais
 
@@ -319,7 +329,7 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
    ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá o home page para seu data factory. Selecione o bloco **criar & implantar** . Você verá a interface do usuário do Data Factory em uma guia separada. 
+1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá o home page para seu data factory. Selecione o bloco **criar & monitor** . Você verá a interface do usuário do Data Factory em uma guia separada. 
 
    ![Home page da fábrica de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
@@ -485,5 +495,5 @@ Para obter mais informações sobre Azure-SSIS IR, consulte os seguintes artigos
 - [Azure-SSIS ir](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais gerais sobre o IRs, incluindo Azure-SSIS IR. 
 - [Tutorial: implantar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este tutorial fornece instruções passo a passo para criar seu Azure-SSIS IR. Ele usa o banco de dados SQL do Azure para hospedar o catálogo do SSIS. 
 - [Crie um Azure-SSIS ir](create-azure-ssis-integration-runtime.md). Este artigo se expande no tutorial. Ele fornece instruções sobre como usar o banco de dados SQL do Azure com pontos de extremidade de serviço de rede virtual ou instância gerenciada em uma rede virtual para hospedar o catálogo do SSIS. Ele mostra como unir seu Azure-SSIS IR a uma rede virtual. 
-- [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Monitorizar um IR Azure-SSIS) Este artigo mostra como obter informações sobre seu Azure-SSIS IR. Ele fornece descrições de status para as informações retornadas. 
+- [Monitorizar um Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como obter informações sobre seu Azure-SSIS IR. Ele fornece descrições de status para as informações retornadas. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra como parar, iniciar ou excluir seu Azure-SSIS IR. Ele também mostra como escalar horizontalmente sua Azure-SSIS IR adicionando nós.

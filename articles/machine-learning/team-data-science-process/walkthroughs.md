@@ -3,24 +3,24 @@ title: Orientações passo a passo do processo de ciência de dados de equipa em
 description: Como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589065"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864082"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Orientações passo a passo do processo de ciência de dados de equipa em execução
 
-Estes **instruções passo a passo do ponto-a-ponto** demonstrar os passos no Team Data Science Process para cenários específicos. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma **aplicativos inteligente**. A instruções passo a passo está agrupada por **plataforma** que utilizam.
+Essas **orientações abrangentes** demonstram as etapas no processo de ciência de dados de equipe para cenários específicos. Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho para um **aplicativo inteligente**. A instruções passo a passo está agrupada por **plataforma** que utilizam.
 
 
 ## <a name="walkthrough-descriptions"></a>Descrições de passo a passo
@@ -36,11 +36,11 @@ Aqui estão algumas breves descrições do que fornecem estes exemplos passo a p
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão sobre os principais componentes que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 
-Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 
+Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Esse ciclo de vida descreve as etapas, do início ao fim, que os projetos geralmente seguem quando são executados. 
 
-Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Para obter uma visão geral, consulte [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

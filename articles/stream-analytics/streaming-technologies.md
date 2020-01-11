@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369257"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860253"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e tecnologia de processamento de streaming no Azure
 
@@ -41,10 +41,6 @@ Azure Stream Analytics tem uma experiência avançada e rica. Você pode aprovei
 * Abaixo da 100-ms latência de ponta a ponta da entrada chegando aos hubs de eventos, à saída inicial dos hubs de eventos, incluindo o atraso da rede de e para os hubs de eventos, em alta taxa de transferência sustentada
 
 ## <a name="when-to-use-other-technologies"></a>Quando usar outras tecnologias
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Você precisa de entrada ou saída para Kafka
-
-Azure Stream Analytics não tem um adaptador de entrada ou saída Apache Kafka. Se você tiver uma aterrissagem de eventos ou precisar enviar para Kafka e não tiver um requisito para executar seu próprio cluster Kafka, poderá continuar a usar Stream Analytics enviando eventos para os hubs de eventos usando a API de Kafka dos hubs de eventos sem alterar o remetente do evento. Se você precisar executar seu próprio cluster Kafka, poderá usar o streaming estruturado do Spark, que tem suporte total em [Azure Databricks](../azure-databricks/index.yml)ou Storm no [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Você deseja gravar UDFs, UDAs e desserializadores personalizados em um idioma diferente do JavaScript ouC#
 

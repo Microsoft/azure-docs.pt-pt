@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527863"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860759"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
@@ -23,7 +23,7 @@ Depois de criar o ISE, quando você for criar seu aplicativo lógico ou conta de
 
 ![Selecione o ambiente do serviço de integração](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Seu aplicativo lógico agora pode acessar diretamente os sistemas que estão dentro ou conectados à sua rede virtual usando qualquer um destes itens:
+Seu aplicativo lógico agora pode acessar diretamente os sistemas que estão dentro ou conectados à sua rede virtual usando qualquer um desses itens, que são executados dentro do mesmo ISE que seu aplicativo lógico:
 
 * Um conector com rótulo do **ISE**para esse sistema
 * Um gatilho ou ação interna de rótulo de **núcleo**, como o gatilho ou a ação de http
@@ -43,23 +43,21 @@ Esta visão geral descreve mais detalhes sobre como um ISE fornece aos seus apli
 
 Ao criar um ambiente de serviço integrado (ISE) no Azure, você pode selecionar a rede virtual do Azure na qual deseja *injetar* o ISE. Em seguida, o Azure injeta ou implanta uma instância privada do serviço de aplicativos lógicos em sua rede virtual. Essa ação cria um ambiente isolado no qual você pode criar e executar seus aplicativos lógicos em recursos dedicados. Ao criar seu aplicativo lógico, você seleciona o ISE como o local do seu aplicativo, o que dá ao seu aplicativo lógico acesso direto à sua rede virtual e aos recursos nessa rede.
 
-Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicativos lógicos globais. Você não só pode usar os mesmos gatilhos internos, ações internas e conectores do serviço de aplicativos lógicos globais, mas também pode usar conectores específicos do ISE. Por exemplo, aqui estão alguns conectores padrão que oferecem versões que são executadas em um ISE:
+Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicativos lógicos globais públicos. Você pode usar todos os mesmos gatilhos internos, ações e conectores gerenciados que estão disponíveis no serviço de aplicativos lógicos globais. Alguns conectores gerenciados oferecem versões adicionais do ISE. A diferença existe no local em que elas são executadas e os rótulos que eles exibem no designer de aplicativo lógico quando você trabalha em um ISE.
 
-* Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
-* Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
-* FTP e SFTP-SSH
-* SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
-* AS2, X12 e EDIFACT
+![Conectores com e sem rótulos em um ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-A diferença entre os conectores ISE e não ISE está nos locais onde os gatilhos e as ações são executados:
+* Gatilhos e ações internos exibem o rótulo **principal** e sempre são executados no mesmo ISE que seu aplicativo lógico. Os conectores gerenciados que exibem o rótulo do **ISE** também são executados no mesmo ISE que seu aplicativo lógico.
 
-* No ISE, gatilhos e ações internas, como HTTP, sempre são executados no mesmo ISE que seu aplicativo lógico e exibem o rótulo **principal** .
+  Por exemplo, aqui estão alguns conectores que oferecem versões do ISE:
 
-  ![Selecione gatilhos e ações internas de "núcleo"](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
+  * Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
+  * FTP e SFTP-SSH
+  * SQL Server, SQL Data Warehouse do Azure, Azure Cosmos DB
+  * AS2, X12 e EDIFACT
 
-* Os conectores que são executados em um ISE têm versões hospedadas publicamente disponíveis no serviço de aplicativos lógicos globais. Para conectores que oferecem duas versões, os conectores com o rótulo do **ISE** sempre são executados no mesmo ISE que seu aplicativo lógico. Conectores sem o rótulo do **ISE** são executados no serviço de aplicativos lógicos globais.
-
-  ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* Os conectores gerenciados que não exibem rótulos adicionais sempre são executados no serviço de aplicativos lógicos globais públicos, mas você ainda pode usar esses conectores em um aplicativo lógico baseado em ISE.
 
 Um ISE também fornece limites maiores para duração da execução, retenção de armazenamento, taxa de transferência, tempos limite de resposta e solicitação HTTP, tamanhos de mensagem e solicitações de conector personalizado. Para obter mais informações, consulte [limites e configuração para aplicativos lógicos do Azure](logic-apps-limits-and-config.md).
 

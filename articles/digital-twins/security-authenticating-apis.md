@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456910"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860967"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
 
@@ -24,7 +24,7 @@ Para obter uma visão geral do Azure AD, visite a [página conceitos básicos](h
 > [!TIP]
 > Siga o [tutorial](tutorial-facilities-setup.md) para configurar e executar um aplicativo de exemplo gêmeos digital do Azure.
 
-Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programador deve registar a aplicação no Azure AD. Para obter instruções detalhadas e capturas de tela, consulte este guia de [início rápido](../active-directory/develop/quickstart-register-app.md).
+Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programador deve registar a aplicação no Azure AD. Para obter instruções detalhadas e capturas de tela, leia este guia de [início rápido](../active-directory/develop/quickstart-register-app.md).
 
 Há suporte para [cinco cenários de aplicativo primário](../active-directory/develop/v2-app-types.md) pelo Azure AD:
 
@@ -49,7 +49,7 @@ Quando os desenvolvedores arquitetam soluções de gêmeos digital, normalmente 
 
 1. O token adquirido é usado para autenticar ou chamar APIs que são mais downstream usando o fluxo em nome de
 
-Para obter instruções sobre como orquestrar o fluxo em nome de, consulte [fluxo em nome de do OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [chamada de uma API Web downstream](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+Para obter instruções sobre como orquestrar o fluxo em nome de, leia [fluxo em nome de OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [chamada de uma API Web downstream](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Passos seguintes
 

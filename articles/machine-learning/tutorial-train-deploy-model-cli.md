@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: eb181cbf6c647c816886f330502a9a46cb956dee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763288"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867678"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: treinar e implantar um modelo da CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -242,8 +242,14 @@ A saída desse comando é semelhante ao JSON a seguir:
 }
 ```
 
+
 > [!IMPORTANT]
 > Copie o valor da entrada `id`, pois ele é usado na próxima seção.
+
+Para conferir um modelo mais abrangente para o arquivo JSON que descreve um conjunto de informações, use o seguinte comando:
+```azurecli-interactive
+az ml dataset register --show-template
+```
 
 ## <a name="reference-the-dataset"></a>Referenciar o conjunto de um
 

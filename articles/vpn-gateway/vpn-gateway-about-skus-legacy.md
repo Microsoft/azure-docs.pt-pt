@@ -1,19 +1,18 @@
 ---
-title: SKUs de gateway de VPN de rede virtual do Azure herdadas | Microsoft Docs
+title: SKUs de gateway de VPN de rede virtual do Azure herdadas
 description: Como trabalhar com as SKUs de gateway de rede virtual antigas; Basic, Standard e HighPerformance.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533902"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861919"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhando com SKUs de gateway de rede virtual (SKUs herdadas)
 
@@ -23,7 +22,7 @@ Este artigo contém informações sobre as SKUs do gateway de rede virtual herda
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-Você pode exibir os preços do gateway herdado na seção gateways de **rede virtual** , que está localizada na [página de preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
+Você pode exibir os preços do gateway herdado na seção **gateways de rede virtual** , que está localizada na [página de preços do ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="agg"></a>Taxa de transferência agregada estimada por SKU
 
@@ -60,7 +59,7 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as novas SKUs de gateway, consulte [SKUs de gateway](vpn-gateway-about-vpngateways.md#gwsku).
 

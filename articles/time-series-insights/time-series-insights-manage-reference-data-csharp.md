@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ebc616d07c24a02b71010e315f288543dfd92b74
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 964a3865fcb646a52822286e809703d507304ca6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705955"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861885"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gerenciar dados de referência do GA para um ambiente de Azure Time Series Insights usandoC#
 
@@ -30,7 +30,7 @@ Conclua as etapas a seguir antes de compilar e executar o código de exemplo:
 
 1. Configure o token de acesso de autorização para o aplicativo. Certifique-se de que o token seja adquirido por meio da API Azure Active Directory. Você deve passar esse token no cabeçalho de `Authorization` de cada solicitação de API de consulta.
 
-   Para obter informações sobre como configurar aplicativos não interativos, consulte [autenticação e autorização](time-series-insights-authentication-and-authorization.md).
+   Para obter informações sobre como configurar aplicativos não interativos, leia [autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 
 1. Edite o código de exemplo para substituir as constantes de exemplo, designadas em **#DUMMY #** , próximo ao início do código.
 

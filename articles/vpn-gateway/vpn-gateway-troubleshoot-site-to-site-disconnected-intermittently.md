@@ -1,27 +1,21 @@
 ---
-title: Solucionar problemas de desconexão de VPN site a site do Azure de forma intermitente | Microsoft Docs
+title: Solucionar problemas de desconexão de VPN site a site do Azure intermitentemente
 description: Saiba como solucionar o problema no qual a conexão VPN site a site foi desconectada regularmente.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 394062257f09bb0b8cfa6875795b88d35404f87c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058843"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862565"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução A VPN site a site do Azure se desconecta intermitentemente
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução de problemas: a VPN site a site do Azure se desconecta intermitentemente
 
 Você pode enfrentar o problema de uma conexão VPN site a site Microsoft Azure nova ou existente não é estável ou se desconecta regularmente. Este artigo fornece etapas de solução de problemas para ajudá-lo a identificar e resolver a causa do problema. 
 
@@ -70,7 +64,7 @@ O gateway de rede virtual baseado em política tem um limite de 200 pares de ass
 
 O recurso de **sigilo de encaminhamento perfeito** pode causar problemas de desconexão. Se o dispositivo VPN tiver o **sigilo de encaminhamento perfeito** habilitado, desabilite o recurso. Em seguida, [atualize a política IPsec do gateway de rede virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar uma conexão site a site com uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configurar a política de IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561316"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863398"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -74,11 +74,11 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causa
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
+* Se você estiver sendo limitado, um valor para o *intervalo de tempo de mensagens recebidas de entrada* será registrado informando a você sobre quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
 
   O *retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine quantas mensagens atrás você está.  A maneira mais fácil de se familiarizar é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
 
-  Por exemplo, se você perceber que seu ambiente S1 está demonstrando o atraso de 5 milhões mensagens, poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para acompanhar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente quando você o conecta a uma fonte de eventos que já tem eventos ou quando você carrega em massa muitos dados históricos.
+  Por exemplo, se o seu ambiente S1 estiver demonstrando o atraso de 5 milhões mensagens, você poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para acompanhar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente quando você o conecta a uma fonte de eventos que já tem eventos ou quando você carrega em massa muitos dados históricos.
 
 * Outra técnica é definir um alerta de **eventos armazenados de entrada** > = um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
 
@@ -86,11 +86,11 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causa
 
 * Se você suspeitar que está sendo limitado, poderá comparar as **mensagens de entrada recebidas** com as mensagens de saída da origem do evento.  Se a entrada no Hub de eventos for maior do que as **mensagens de entrada recebidas**, suas Time Series insights provavelmente estão sendo limitadas.
 
-## <a name="improving-performance"></a>Melhorando o desempenho
+## <a name="improving-performance"></a>Melhorar o desempenho
 
 Para reduzir a limitação ou experimentar a latência, a melhor maneira de corrigi-la é aumentar a capacidade do seu ambiente.
 
-Você pode evitar a latência e a limitação configurando corretamente seu ambiente para a quantidade de dados que deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [dimensionar seu ambiente](time-series-insights-how-to-scale-your-environment.md).
+Você pode evitar a latência e a limitação configurando corretamente seu ambiente para a quantidade de dados que deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, leia [dimensionar seu ambiente](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

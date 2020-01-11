@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 68bc6f8c81fb44dc26d2208d33893c21ff9b5b3c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383031"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860984"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: implantar o Azure digital gêmeos Preview e configurar um grafo espacial
 
@@ -40,7 +40,7 @@ Estes tutoriais utilizam e modificam os mesmos exemplos que o artigo [Quickstart
 
 - Uma subscrição do Azure. Se ainda não tiver uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- O SDK .NET Core. Os exemplos de duplos Digital do Azure utilizados nestes tutoriais são escritos em C#. Certifique-se de instalar [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) em seu computador de desenvolvimento para compilar e executar o exemplo. Verifique se a versão correta está instalada em seu computador executando `dotnet --version` em uma janela de comando.
+- O SDK .NET Core. Os exemplos de duplos Digital do Azure utilizados nestes tutoriais são escritos em C#. Certifique-se instalar [.NET Core SDK versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para compilar e executar o exemplo. Verifique se a versão correta está instalada no seu computador através da execução `dotnet --version` numa janela de comando.
 
 - [Visual Studio Code](https://code.visualstudio.com/), para explorar o código de exemplo. 
 
@@ -52,7 +52,7 @@ Utilize os passos nesta secção para criar uma nova instância do serviço dupl
 
 ## <a name="grant-permissions-to-your-app"></a>Conceder permissões à sua aplicação
 
-O digital gêmeos usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (AD do Azure) para controlar o [acesso de leitura/gravação](../active-directory/develop/v1-permissions-and-consent.md) ao serviço. Qualquer aplicativo que precisa para ligar à sua instância de duplos digitais têm de estar registado com o Azure AD. Os passos nesta secção explicam como registar o exemplo de aplicação.
+Utilizações de duplos digital [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) para controlar [acesso de leitura/escrita](../active-directory/develop/v1-permissions-and-consent.md) ao serviço. Qualquer aplicativo que precisa para ligar à sua instância de duplos digitais têm de estar registado com o Azure AD. Os passos nesta secção explicam como registar o exemplo de aplicação.
 
 Se já tiver um registo de aplicações, pode ser reutilizado em seu exemplo. No entanto, leia esta secção para ter a certeza de que esse registo está devidamente configurado.
 
@@ -60,28 +60,28 @@ Se já tiver um registo de aplicações, pode ser reutilizado em seu exemplo. No
 
 ## <a name="configure-the-digital-twins-sample"></a>Configurar o exemplo de duplos Digital
 
-Esta seção orienta você por meio de um aplicativo gêmeos digital do Azure que se comunica com as [APIs REST do gêmeos digital](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
+Esta secção explica-lhe uma aplicação de duplos Digital do Azure que se comunica com o [APIs de REST de duplos Digital](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Transferir o exemplo
 
 Se já tiver transferido os exemplos para [Quickstart to find available rooms](quickstart-view-occupancy-dotnet.md) (Início rápido para descobrir salas disponíveis), pode ignorar estes passos.
 
-1. Baixe os [exemplos do digital gêmeos .net](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+1. Transfira o [amostras do .NET de duplos Digital](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
 2. Extraia os conteúdos da pasta zip no seu computador.
 
 ### <a name="explore-the-sample"></a>Explorar o exemplo
 
-Na pasta de exemplo extraída, abra o arquivo **digital-Twins-Samples-csharp\digital-Twins-Samples.Code-Workspace** em Visual Studio Code. Inclui dois projetos:
+Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\digital-twins-samples.code-workspace** no Visual Studio Code. Inclui dois projetos:
 
-* Você pode usar o exemplo de provisionamento de **ocupação-início rápido** para configurar e provisionar um [grafo de inteligência espacial](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Este gráfico é a imagem digitais de seus espaços de físicos e os recursos nas mesmas. Ele usa um [modelo de objeto](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), que define objetos para um prédio inteligente. Para obter uma lista completa de objetos gêmeos digitais e APIs REST, visite [esta documentação da API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou a URL da API de gerenciamento que foi criada para [sua instância](#deploy-digital-twins).
+* Pode utilizar o exemplo de aprovisionamento **ocupação-quickstart** para configurar e aprovisionar um [gráfico de inteligência geográficos](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Este gráfico é a imagem digitais de seus espaços de físicos e os recursos nas mesmas. Ele usa um [modelo de objeto](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), que define objetos para um edifício inteligente. Para obter uma lista completa de objetos duplos Digital e REST APIs, visite [esta documentação da REST API](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou o URL da API de gestão que foi criada para [sua instância](#deploy-digital-twins).
 
-   Para explorar o exemplo para ver como ele se comunica com sua instância de gêmeos digital, você pode começar com a pasta **src\actions** . Os ficheiros nesta pasta implementam os comandos que utilizará estes tutoriais:
-    - O arquivo **provisionSample.cs** mostra como provisionar o grafo espacial.
-    - O arquivo **getSpaces.cs** Obtém informações sobre os espaços provisionados.
-    - O arquivo **getAvailableAndFreshSpaces.cs** Obtém os resultados de uma função personalizada chamada de função definida pelo usuário.
-    - O arquivo **createEndpoints.cs** cria pontos de extremidade para interagir com outros serviços.
+   Para explorar o exemplo para entender como ele se comunica com sua instância de gêmeos digital, você pode começar com a pasta **src\actions** . Os ficheiros nesta pasta implementam os comandos que utilizará estes tutoriais:
+    - O **provisionSample.cs** ficheiro mostra como aprovisionar o seu gráfico espacial.
+    - O **getSpaces.cs** ficheiro obtém informações sobre os espaços aprovisionados.
+    - O **getAvailableAndFreshSpaces.cs** ficheiro obtém os resultados de uma função personalizada chamada uma função definida pelo utilizador.
+    - O **createEndpoints.cs** ficheiro cria pontos de extremidade para interagir com outros serviços.
 
-* O **dispositivo de** exemplo de simulação de conectividade simula os dados do sensor e os envia para o Hub IOT provisionado para sua instância de gêmeos digital. Você usará este exemplo no [próximo tutorial depois de provisionar o grafo espacial](tutorial-facilities-udf.md#simulate-sensor-data). Os identificadores de sensor e do dispositivo que utiliza para configurar este exemplo devem ser o mesmo que o que irá utilizar para aprovisionar o seu gráfico.
+* O exemplo de simulação **conectividade do dispositivo** simula dados de sensores e envia-os para o hub IoT que está aprovisionado para a sua instância de duplos Digital. Irá utilizar este exemplo na [o próximo tutorial depois de aprovisionar o seu gráfico geográfico](tutorial-facilities-udf.md#simulate-sensor-data). Os identificadores de sensor e do dispositivo que utiliza para configurar este exemplo devem ser o mesmo que o que irá utilizar para aprovisionar o seu gráfico.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurar o exemplo de aprovisionamento
 
@@ -97,12 +97,12 @@ Na pasta de exemplo extraída, abra o arquivo **digital-Twins-Samples-csharp\dig
     dotnet restore
     ```
 
-1. No Visual Studio Code, abra o arquivo [appSettings. JSON](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) no projeto **ocupação-início rápido** . Atualize os valores seguintes:
-   * **ClientID**: Insira a ID do aplicativo do registro do aplicativo do Azure AD. Você anotou essa ID na seção em que você [define as permissões do aplicativo](#grant-permissions-to-your-app).
-   * **Locatário**: Insira a ID de diretório do seu [locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Você também anotou essa ID na seção em que você [define as permissões do aplicativo](#grant-permissions-to-your-app).
-   * **BaseUrl**: introduza o URL da instância do Digital Twins. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Você também pode obter essa URL modificando a URL da API de gerenciamento da [seção de implantação](#deploy-digital-twins). Substitua **Swagger/** por **API/v 1.0/** .
+1. No Visual Studio Code, abra a [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) de ficheiros a **ocupação-quickstart** projeto. Atualize os valores seguintes:
+   * **ClientId**: introduza o ID da aplicação do seu registo de aplicação do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **Inquilino**: introduza o ID de diretório da sua [inquilino do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#grant-permissions-to-your-app).
+   * **BaseUrl**: introduza o URL da instância do Digital Twins. Para obter essa URL, substitua os espaços reservados nesta URL pelos valores da sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy-digital-twins). Substitua **swagger /** com **api/v1.0/** .
 
-1. Ver uma lista das funcionalidades de duplos Digital que pode ser explorado utilizando o exemplo. Execute o seguinte comando:
+1. Examine uma lista de recursos de gêmeos digital que você pode explorar usando o exemplo. Execute o seguinte comando:
 
     ```cmd/sh
     dotnet run
@@ -112,7 +112,7 @@ Na pasta de exemplo extraída, abra o arquivo **digital-Twins-Samples-csharp\dig
 
 Esta secção mostra de que forma é que o exemplo aprovisiona um gráfico espacial de um edifício.
 
-Em Visual Studio Code, navegue até a pasta **occupancy-quickstart\src\actions** e abra o arquivo **provisionSample.cs**. Repare na função seguinte:
+No Visual Studio Code, navegue para o **ocupação quickstart\src\actions** pasta e abra o ficheiro **provisionSample.cs**. Repare na função seguinte:
 
 ```csharp
 public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(HttpClient httpClient, ILogger logger)
@@ -132,43 +132,43 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Essa função usa [provisionSample. YAML](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abra esse arquivo e observe a hierarquia de um edifício de escritórios: *local*, *andar*, *área*e *salas*. Qualquer um destes espaços físicos pode ter *dispositivos* e *sensores*. Cada entrada tem um `type`predefinido &mdash;por exemplo, piso, espaço.
+Esta função utiliza [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abrir este ficheiro e tenha em atenção a hierarquia de um edifício de escritórios: *foro*, *piso*, *área*, e *salas*. Qualquer um destes espaços físicos pode ter *dispositivos* e *sensores*. Cada entrada tem um predefinidos `type` &mdash;por exemplo, piso, salas.
 
-O arquivo **YAML** de exemplo mostra um grafo espacial que usa o modelo de objeto `Default` digital gêmeos. Esse modelo fornece os nomes genéricos para a maioria dos tipos. Os nomes genéricos são suficientes para um edifício. Exemplos são temperatura para SensorDataType e mapeiam para SpaceBlobType. Um tipo de espaço de exemplo é sala com subtipos FocusRoom ConferenceRoom e assim por diante. 
+O exemplo **yaml** ficheiro mostra um gráfico geográfico que utiliza o `Default` modelo de objeto de duplos Digital. Esse modelo fornece os nomes genéricos para a maioria dos tipos. Os nomes genéricos são suficientes para um edifício. Exemplos são temperatura para SensorDataType e mapeiam para SpaceBlobType. Um tipo de espaço de exemplo é sala com subtipos FocusRoom ConferenceRoom e assim por diante. 
 
-Se tiver de criar um gráfico espacial para outro tipo de local, como uma fábrica, poderá ter de utilizar um modelo de objetos diferente. Você pode descobrir quais modelos estão disponíveis para uso executando o comando `dotnet run GetOntologies` na linha de comando para o exemplo de provisionamento. 
+Se tiver de criar um gráfico espacial para outro tipo de local, como uma fábrica, poderá ter de utilizar um modelo de objetos diferente. Pode descobrir quais modelos estão disponíveis para utilizar ao executar o comando `dotnet run GetOntologies` na linha de comandos para o exemplo de aprovisionamento. 
 
-Para obter mais informações sobre gráficos espaciais e modelos de objetos, leia [noções básicas sobre modelos de objeto gêmeos digital e grafo de inteligência espacial](concepts-objectmodel-spatialgraph.md).
+Para obter mais informações sobre gráficos geográficos e modelos de objeto, leia [duplos Digital de compreensão de objeto gráfico de inteligência geográficos e modelos de](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Modificar o gráfico de geográficos de exemplo
 
-O arquivo **provisionSample. YAML** contém os seguintes nós:
+O **provisionSample.yaml** ficheiro contém os seguintes nós:
 
-- **recursos**: o nó `resources` cria um recurso do Hub IOT do Azure para se comunicar com os dispositivos na sua configuração. Um hub IoT no nó raiz do seu gráfico pode comunicar com todos os dispositivos e sensores no seu gráfico.  
+- **recursos**: O `resources` nó cria um recurso do IoT Hub do Azure para comunicar com os dispositivos em sua configuração. Um hub IoT no nó raiz do seu gráfico pode comunicar com todos os dispositivos e sensores no seu gráfico.  
 
-- **spaces**: no modelo de objetos do Digital Twins, `spaces` representa as localizações físicas. Cada espaço tem um `Type`&mdash;por exemplo, região, local ou cliente&mdash;e um `Name`amigável. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Observe o aninhamento lógico de espaços do tipo `Floor` em `Venue`, `Area` em um andar e `Room` nós em uma área. 
+- **spaces**: no modelo de objetos do Digital Twins, `spaces` representa as localizações físicas. Cada espaço tem um `Type` &mdash;por exemplo, região, local ou Customer&mdash;e amigável `Name`. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Tenha em atenção o aninhamento de lógico de espaços do tipo `Floor` dentro `Venue`, `Area` num chão, e `Room` nós numa área. 
 
 - **devices**: os espaços podem conter `devices`, que são entidades físicas ou virtuais que gerem vários sensores. Por exemplo, um dispositivo pode ser um telefone do utilizador, um pod de sensor Raspberry Pi ou um gateway. No edifício imaginário do exemplo, repare que a sala denominada **Focus Room** contém um dispositivo **Raspberry Pi 3 A1**. Cada nó do dispositivo é identificado por um `hardwareId` exclusivo, que está codificado no exemplo. Para configurar este exemplo para uma produção real, substitua estes valores pelos da sua configuração.  
 
-- **sensores**: um dispositivo pode conter vários `sensors`. Eles podem detectar e registo de alterações físicas como temperatura, o motion e o nível da bateria. Cada nó do sensor é identificado exclusivamente por um `hardwareId`, que está codificado aqui. Para um aplicativo real, substitua as utilizando os identificadores exclusivos dos sensores na sua configuração. O arquivo provisionSample. YAML tem dois sensores para registrar o *Motion* e o *CarbonDioxide*. Adicione outro sensor para registar a *Temperature* (Temperatura) ao adicionar as linhas seguintes, abaixo das do sensor CarbonDioxide. Tenha em atenção que estes são fornecidos no provisionSample.yaml como linhas Comentada. Você pode remover os comentários removendo o `#` caractere na frente de cada linha. 
+- **Sensores**: um dispositivo pode conter vários `sensors`. Eles podem detectar e registo de alterações físicas como temperatura, o motion e o nível da bateria. Cada nó do sensor é identificado exclusivamente por um `hardwareId`, que está codificado aqui. Para um aplicativo real, substitua as utilizando os identificadores exclusivos dos sensores na sua configuração. O ficheiro de provisionSample.yaml tem dois sensores para registrar *movimento* e *CarbonDioxide*. Adicione outro sensor para registar a *Temperature* (Temperatura) ao adicionar as linhas seguintes, abaixo das do sensor CarbonDioxide. Tenha em atenção que estes são fornecidos no provisionSample.yaml como linhas Comentada. Pode remover os comentários-los ao remover o `#` caráter no início de cada linha. 
 
     ```yaml
             - dataType: Temperature
               hardwareId: SAMPLE_SENSOR_TEMPERATURE
     ```
     > [!NOTE]
-    > Verifique se as chaves `dataType` e `hardwareId` estão alinhadas com as instruções acima deste trecho de código. Confirme também que o editor não substitui espaços por tabulações. 
+    > Certifique-se de que o `dataType` e `hardwareId` chaves se alinham com as instruções acima este trecho de código. Confirme também que o editor não substitui espaços por tabulações. 
 
 Guarde e feche o ficheiro de provisionSample.yaml. O próximo tutorial, irá adicionar obter mais informações para este ficheiro e, em seguida, Aprovisione a construção de exemplo duplos Digital do Azure.
 
 > [!TIP]
-> Você pode exibir e modificar o grafo espacial usando o [Visualizador do grafo do gêmeos digital do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
+> Pode ver e modificar seu gráfico espacial com o [Visualizador de gráfico de duplos do Azure Digital](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e selecione **excluir**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872414"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863711"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
 
@@ -32,7 +32,7 @@ Este tutorial orienta você pelo processo de criação de um ambiente de Azure T
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Sua conta de entrada do Azure também deve ser um membro da função de **proprietário** da assinatura. Para obter mais informações, consulte [gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+* Sua conta de entrada do Azure também deve ser um membro da função de **proprietário** da assinatura. Para obter mais informações, leia [gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Examinar vídeo
 
@@ -72,7 +72,7 @@ Primeiro, crie a solução de simulação de dispositivo, que gera dados de test
 
    [![provisionar a solução de simulação de dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Após a conclusão do provisionamento, você verá duas atualizações exibindo que o estado da implantação foi movido do **provisionamento** para **pronto**. 
+1. Após a conclusão do provisionamento, duas atualizações serão exibidas notificando que o estado da implantação foi movido do **provisionamento** para **pronto**. 
 
    >[!IMPORTANT]
    > Não insira seu acelerador de solução ainda! Mantenha essa página da Web aberta, pois você retornará a ela mais tarde.
@@ -162,7 +162,7 @@ Nesta seção final, você verifica se os dados de telemetria foram gerados e ar
 
    [![o Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. O Time Series Insights Explorer carrega e autentica usando sua conta do portal do Azure. Na exibição inicial, você pode ver na área do gráfico que o ambiente de Time Series Insights foi populado com dados de telemetria simulados. Para filtrar um intervalo mais estreito de tempo, selecione a lista suspensa no canto superior esquerdo. Insira um intervalo de tempo grande o suficiente para abranger a duração da simulação do dispositivo. Em seguida, selecione a lupa Pesquisar.
+1. O Time Series Insights Explorer carrega e autentica usando sua conta do portal do Azure. Inicialmente, a área do gráfico com a qual o ambiente de Time Series Insights foi populado junto com seus dados de telemetria simulados aparecerá. Para filtrar um intervalo mais estreito de tempo, selecione a lista suspensa no canto superior esquerdo. Insira um intervalo de tempo grande o suficiente para abranger a duração da simulação do dispositivo. Em seguida, selecione a lupa Pesquisar.
 
    [filtro de intervalo de tempo do ![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -198,4 +198,4 @@ Neste tutorial, ficou a saber como:
 Agora que você sabe como criar seu próprio ambiente de Time Series Insights, saiba como criar um aplicativo Web que consome dados de um ambiente de Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Consulte amostras de visualização do SDK de cliente hospedado](https://tsiclientsample.azurewebsites.net/)
+> [Ler amostras de visualização do SDK de cliente hospedado](https://tsiclientsample.azurewebsites.net/)

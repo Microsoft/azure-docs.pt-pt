@@ -10,19 +10,19 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b25639b237979aff8980c1ff5b8787d298c157e1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452441"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861473"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
 Este artigo descreve as práticas recomendadas para planejar e começar rapidamente usando o Azure Time Series Insights Preview.
 
 > [!NOTE]
-> Para obter as práticas recomendadas para planejar uma instância de Time Series Insights de disponibilidade geral, consulte [planejar seu Azure Time Series insights ambiente de disponibilidade geral](time-series-insights-environment-planning.md).
+> Para obter as práticas recomendadas para planejar uma instância de Time Series Insights de disponibilidade geral, leia [planejar seu Azure Time Series insights ambiente de disponibilidade geral](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Práticas recomendadas para planejamento e preparação
 
@@ -34,7 +34,7 @@ As práticas recomendadas sobre o planejamento e a preparação de seu ambiente 
 * Como [enviar eventos com eficiência no JSON](#shape-your-events).
 * Time Series Insights [Opções de recuperação de desastres de negócios](#business-disaster-recovery).
 
-Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. Para obter mais informações sobre cobranças e capacidade, consulte [preços de time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights emprega um modelo de negócios pago conforme o uso. Para obter mais informações sobre cobranças e capacidade, leia [Time Series insights preços](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 ## <a name="the-preview-environment"></a>O ambiente de visualização
 
@@ -48,7 +48,7 @@ Como parte do processo de provisionamento, você especifica se deseja habilitar 
 As consultas na loja a quente são gratuitas, enquanto as consultas em armazenamento frio incorrem em custos. É importante entender seus padrões de consulta e planejar sua configuração de armazenamento quente adequadamente. É recomendável que a análise interativa nos dados mais recentes resida em sua loja e análise de padrões quentes e tendências de longo prazo residam em frio.
 
 > [!NOTE]
-> Para ler mais sobre como consultar seus dados quentes, [Consulte aqui](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Para ler mais sobre como consultar seus dados quentes, leia a [referência da API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Para começar, você precisa de três itens adicionais:
 
@@ -80,7 +80,7 @@ Quando deixado em branco, o tempo de enfileiramento de eventos de uma origem de 
 
 Agora você pode configurar o modelo de série temporal do ambiente de Time Series Insights. O novo modelo facilita a localização e a análise de dados de IoT. Ele permite a organização, a manutenção e o enriquecimento de dados de série temporal e ajuda a preparar conjuntos de dados prontos para o consumidor. O modelo usa IDs de série temporal, que mapeiam para uma instância que associa o recurso exclusivo a variáveis, conhecidas como tipos e hierarquias. Leia sobre o novo [modelo de série temporal](./time-series-insights-update-tsm.md).
 
-O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Time Series Insights. Para criar seu modelo, consulte [usar o modelo de série temporal](./time-series-insights-update-how-to-tsm.md).
+O modelo é dinâmico, portanto, pode ser criado a qualquer momento. Para começar rapidamente, crie e carregue-o antes de enviar dados por push para Time Series Insights. Para criar seu modelo, leia [usar o modelo de série temporal](./time-series-insights-update-how-to-tsm.md).
 
 Para muitos clientes, o modelo de série temporal é mapeado para um modelo de ativo ou sistema ERP existente já em vigor. Se você não tiver um modelo existente, uma experiência de usuário predefinida será [fornecida](https://github.com/Microsoft/tsiclient) para entrar em funcionamento rapidamente. Para prever como um modelo pode ajudá-lo, exiba o [ambiente de demonstração de exemplo](https://insights.timeseries.azure.com/preview/demo).
 
@@ -93,7 +93,7 @@ Uma boa regra geral:
 * Armazene metadados no seu modelo de série temporal.
 * Verifique se o modo de série temporal, os campos de instância e os eventos incluem apenas as informações necessárias, como uma ID de série temporal ou uma propriedade Timestamp.
 
-Para obter mais informações, consulte [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
+Para obter mais informações, leia [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

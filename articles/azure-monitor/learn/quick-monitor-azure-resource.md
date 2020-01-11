@@ -1,18 +1,18 @@
 ---
-title: Coletar dados de uma máquina virtual do Azure com Azure Monitor | Microsoft Docs
-description: Saiba como ativar a Extensão de VM do agente do Log Analytics e a recolha de dados das VMs do Azure com o Log Analytics.
+title: Monitorar um recurso do Azure com o Azure Monitor
+description: Saiba como coletar e analisar dados de um recurso do Azure no Azure Monitor.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 85c953c4acdc31cc6d79600951ba745346771b0c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3081c0f8fa8450643a992c8e82840a44db263f76
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533973"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863983"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Início rápido: monitorar um recurso do Azure com o Azure Monitor
 [Azure monitor](../overview.md) inicia a coleta de dados dos recursos do Azure no momento em que eles são criados. Este guia de início rápido fornece uma breve explicação dos dados coletados automaticamente para um recurso e como exibi-los no portal do Azure para um recurso específico. Posteriormente, você pode adicionar a configuração para coletar dados adicionais e acessar o menu de Azure Monitor para usar as mesmas ferramentas para acessar os dados coletados para todos os recursos em sua assinatura.

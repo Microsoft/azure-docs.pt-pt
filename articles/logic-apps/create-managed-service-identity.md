@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 714faa43f34de965055ceba80de08972dd4192ac
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792671"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861205"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso aos recursos do Azure usando identidades gerenciadas em aplicativos lógicos do Azure
 
 Para acessar os recursos em outros locatários do Azure Active Directory (AD do Azure) e autenticar sua identidade sem entrar, seu aplicativo lógico pode usar a [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) atribuída pelo sistema (anteriormente conhecida como identidade de serviço gerenciada ou msi), em vez de credenciais ou segredos. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais porque você não precisa fornecer ou girar segredos. Este artigo mostra como configurar e usar a identidade gerenciada atribuída pelo sistema em seu aplicativo lógico. Atualmente, as identidades gerenciadas funcionam apenas com [gatilhos e ações internas específicas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls), não conectores ou conexões gerenciadas.
 
-Para obter mais informações, consulte estes tópicos:
+Para obter mais informações, veja estes tópicos:
 
 * [Gatilhos e ações que dão suporte a identidades gerenciadas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Serviços do Azure que dão suporte à autenticação do Azure AD com identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
@@ -42,8 +42,6 @@ Ao contrário das identidades atribuídas pelo usuário, você não precisa cria
 
 * [Portal do Azure](#azure-portal-system-logic-app)
 * [Modelos de Azure Resource Manager](#template-system-logic-app)
-* [O Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [CLI do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -61,7 +59,7 @@ Ao contrário das identidades atribuídas pelo usuário, você não precisa cria
 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **ID do objeto** | <*Identity-Resource-ID*> | Um GUID (identificador global exclusivo) que representa a identidade atribuída pelo sistema para seu aplicativo lógico em seu locatário do Azure AD |
+   | **ID do objeto** | <*identity-resource-ID*> | Um GUID (identificador global exclusivo) que representa a identidade atribuída pelo sistema para seu aplicativo lógico em seu locatário do Azure AD |
    ||||
 
 1. Agora, siga as [etapas que dão acesso à identidade ao recurso](#access-other-resources).
@@ -107,15 +105,25 @@ Quando o Azure cria sua definição de recurso de aplicativo lógico, o objeto `
 
 | Propriedade (JSON) | Valor | Descrição |
 |-----------------|-------|-------------|
-| `principalId` | *ID de entidade de* <> | O GUID (identificador global exclusivo) do objeto de entidade de serviço para a identidade gerenciada que representa seu aplicativo lógico no locatário do Azure AD. Esse GUID, às vezes, aparece como uma "ID de objeto" ou `objectID`. |
-| `tenantId` | <*Azure-ad-Tenant-ID*> | O GUID (identificador global exclusivo) que representa o locatário do Azure AD em que o aplicativo lógico agora é um membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. |
+| `principalId` | <*principal-ID*> | O GUID (identificador global exclusivo) do objeto de entidade de serviço para a identidade gerenciada que representa seu aplicativo lógico no locatário do Azure AD. Esse GUID, às vezes, aparece como uma "ID de objeto" ou `objectID`. |
+| `tenantId` | <*Azure-AD-tenant-ID*> | O GUID (identificador global exclusivo) que representa o locatário do Azure AD em que o aplicativo lógico agora é um membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. |
 ||||
 
 <a name="access-other-resources"></a>
 
 ## <a name="give-identity-access-to-resources"></a>Conceder acesso de identidade aos recursos
 
-Depois de configurar uma identidade gerenciada para seu aplicativo lógico, você pode [conceder a essa identidade acesso a outros recursos do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Em seguida, você pode usar essa identidade para autenticação.
+Antes de usar a identidade gerenciada atribuída pelo sistema do aplicativo lógico para autenticação, conceda a essa identidade acesso ao recurso do Azure em que você planeja usar a identidade. Para concluir essa tarefa, atribua a função apropriada a essa identidade no recurso de destino do Azure. Aqui estão as opções que você pode usar:
+
+* [Portal do Azure](#azure-portal-assign-access)
+* [Modelo do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment))-para obter mais informações, consulte [Adicionar atribuição de função usando o RBAC do Azure e Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* CLI do Azure ([criação de atribuição de função AZ](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) – para obter mais informações, consulte [Adicionar atribuição de função usando o RBAC e CLI do Azure do Azure](../role-based-access-control/role-assignments-cli.md).
+* [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-assign-access"></a>
+
+### <a name="assign-access-in-the-azure-portal"></a>Atribuir acesso no portal do Azure
 
 1. Na [portal do Azure](https://portal.azure.com), vá para o recurso do Azure no qual você deseja que sua identidade gerenciada tenha acesso.
 
@@ -185,7 +193,7 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou ação 
    |----------|----------|---------------|-------------|
    | **Método** | Sim | `PUT`| O método HTTP usado pela operação de blob de instantâneo |
    | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | A ID de recurso para um arquivo de armazenamento de BLOBs do Azure no ambiente global (público) do Azure, que usa essa sintaxe |
-   | **Headers** (Cabeçalhos) | Sim, para o armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os valores de cabeçalho `x-ms-blob-type` e `x-ms-version` que são necessários para operações de armazenamento do Azure. <p><p>**Importante**: em solicitações de ação e gatilho http de saída para o armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. <p>Para obter mais informações, consulte estes tópicos: <p><p>[cabeçalhos de solicitação de - -blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- o [controle de versão dos serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Headers** (Cabeçalhos) | Sim, para o armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os valores de cabeçalho `x-ms-blob-type` e `x-ms-version` que são necessários para operações de armazenamento do Azure. <p><p>**Importante**: em solicitações de ação e gatilho http de saída para o armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. <p>Para obter mais informações, veja estes tópicos: <p><p>[cabeçalhos de solicitação de - -blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- o [controle de versão dos serviços de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Consultas** | Sim, para esta operação | `comp` = `snapshot` | O nome e o valor do parâmetro de consulta para a operação de blob de instantâneo. |
    | **Autenticação** | Sim | `Managed Identity` | O tipo de autenticação a ser usado para autenticar o acesso ao blob do Azure |
    |||||

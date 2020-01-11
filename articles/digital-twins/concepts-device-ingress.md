@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660346"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862480"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo
 
@@ -21,7 +21,7 @@ Os dados de telemetria enviados por dispositivos e sensores formam o backbone de
 
 Para começar, crie um recurso do Hub IoT do Azure na raiz do grafo espacial. O recurso Hub IoT permite que todos os dispositivos sob o espaço raiz enviem mensagens. Depois que o Hub IoT for criado, registre os dispositivos com sensores na instância digital gêmeos. Os dispositivos podem enviar dados para um serviço gêmeos digital por meio do [SDK do dispositivo IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-Para obter um guia passo a passo sobre como colocar dispositivos integrados, consulte o [tutorial para implantar e configurar o digital gêmeos](tutorial-facilities-setup.md). Em um relance, as etapas são:
+Para obter um guia passo a passo sobre como colocar dispositivos integrados, leia o [tutorial para implantar e configurar o digital gêmeos](tutorial-facilities-setup.md). Em um relance, as etapas são:
 
 - Implante uma instância de gêmeos digital do [portal do Azure](https://portal.azure.com).
 - Crie espaços em seu grafo.

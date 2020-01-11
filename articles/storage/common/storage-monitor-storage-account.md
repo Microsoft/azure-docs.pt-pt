@@ -4,16 +4,16 @@ description: Saiba como monitorar uma conta de armazenamento no Azure usando o p
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211850"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862837"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -109,10 +109,10 @@ Você pode criar alertas para notificá-lo quando os limites tiverem sido atingi
 Você pode adicionar gráficos de métricas do armazenamento do Azure para qualquer uma de suas contas de armazenamento no painel do Portal.
 
 1. Selecione clique em **Editar painel** ao exibir seu painel no [portal do Azure](https://portal.azure.com).
-1. Na **Galeria de blocos**, selecione **Localizar blocos por** > **tipo**.
+1. Na **Galeria de blocos**, selecione **localizar blocos por** > **tipo**.
 1. Selecione **tipo** > **contas de armazenamento**.
 1. Em **recursos**, selecione a conta de armazenamento cujas métricas você deseja adicionar ao painel.
-1. Selecione**monitoramento**de **categorias** > .
+1. Selecione **categorias** > **monitoramento**.
 1. Arraste e solte o bloco do gráfico em seu painel para a métrica que você deseja exibir. Repita para todas as métricas que você deseja exibir no painel. Na imagem a seguir, o gráfico "BLOBs-total de solicitações" é realçado como um exemplo, mas todos os gráficos estão disponíveis para posicionamento no painel.
 
    ![Galeria de blocos no portal do Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
@@ -129,7 +129,7 @@ Você pode instruir o armazenamento do Azure para salvar logs de diagnóstico pa
 >
 
 1. No [portal do Azure](https://portal.azure.com), selecione **contas de armazenamento**e o nome da conta de armazenamento para abrir a folha da conta de armazenamento.
-1. Selecione **diagnóstico** na seção **monitoramento** da folha do menu.
+1. Selecione **configurações de diagnóstico (clássico)** na seção **monitoramento (clássico)** da folha do menu.
 
     ![Item de menu diagnóstico em monitoramento no portal do Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

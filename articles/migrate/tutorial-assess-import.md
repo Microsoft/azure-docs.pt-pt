@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b9ad5ea6def79c4d7f132558b8b5339bac6f1bc3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158651"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861307"
 ---
-# <a name="assess-servers-using-imported-data"></a>Avaliar servidores usando dados importados
+# <a name="assess-servers-using-imported-data"></a>Avaliar servidores com dados importados
 
 Este artigo explica como avaliar servidores locais com as [migrações para Azure: avaliação de servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool), importando metadados de servidor usando CSV. Com esse método de avaliação, você não precisa configurar o dispositivo de migrações para Azure para criar uma avaliação. Isso será útil se:
 
@@ -96,7 +96,7 @@ Baixe o modelo CSV e adicione informações do servidor a ele.
 
 1. Em **metas de migração** > **servidores** > **migrações para Azure: avaliação do servidor**, clique em **descobrir**.
 2. Em **descobrir máquinas**, selecione **importar usando. CSV**.
-3. Clique em **baixar** para baixar o. Modelo CSV. Como alternativa, você pode [baixá-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2108404).
+3. Clique em **baixar** para baixar o. Modelo CSV. Como alternativa, você pode [baixá-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2109031).
 
     ![Baixar. Modelo CSV](./media/tutorial-assess-import/download-template.png)
 
@@ -152,7 +152,7 @@ A tabela a seguir resume os campos de arquivo para preencher.
 **Localização** | Não | Datacenter no qual o servidor está localizado.
 **Data de descomissionamento do servidor** | Não | Data de descomissionamento do servidor físico ou o servidor físico subjacente do servidor virtual
 
-### <a name="add-operating-systems"></a>Adicionar sistemas operacionais
+### <a name="add-operating-systems"></a>Adicionar os sistemas operacionais
 
 A avaliação reconhece nomes específicos do sistema operacional. Qualquer nome de sistema operacional especificado deve corresponder a uma das opções na lista de [nomes com suporte](#supported-operating-system-names) .
 
@@ -188,7 +188,7 @@ Opcionalmente, você pode adicionar campos específicos apenas para um aplicativ
 Depois de adicionar informações ao modelo CSV, importe os servidores para migrações para Azure: avaliação do servidor.
 
 1. Em migrações para Azure > **descobrir computadores**, navegue até o modelo preenchido.
-2. Clique em **Importar**.
+2. Clique em **importar**.
 3. O status de importação é mostrado.
     - Se os avisos aparecerem no status, você poderá corrigi-los ou continuar sem solucioná-los.
     - Melhorar as informações do servidor conforme sugerido em avisos melhora a precisão da avaliação.
@@ -302,7 +302,7 @@ Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
 CentOS<br/>CentOS 4/5 | CoreOS Linux
 Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
 **I-R** |
-IBM OS/2 | los |
+IBM OS/2 | MS-DOS |
 Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
 Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
 **S-T** |

@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166698"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867085"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
 
@@ -23,7 +23,7 @@ Para abrir a página Visão geral, selecione o recurso de cache na portal do Azu
 
 Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 
-* [**Flush**](#flush-cached-data) – grava todos os dados armazenados em cache para destinos de armazenamento
+* [**Flush**](#flush-cached-data) -grava dados alterados para destinos de armazenamento
 * [**Atualização**](#upgrade-cache-software) – atualiza o software de cache
 * **Atualizar** – recarrega a página Visão geral
 * [**Excluir**](#delete-the-cache) – destrói permanentemente o cache
@@ -63,9 +63,18 @@ Clique no botão **Atualizar** para iniciar a atualização de software. O statu
 
 O botão **excluir** destrói o cache. Quando você exclui um cache, todos os seus recursos são destruídos e não incorrem mais em encargos de conta.
 
-Os destinos de armazenamento não são afetados quando você exclui o cache. Você pode adicioná-los a um cache futuro posteriormente ou descomissiona-los separadamente.
+Os volumes de armazenamento de back-end usados como destinos de armazenamento não são afetados quando você exclui o cache. Você pode adicioná-los a um cache futuro posteriormente ou descomissiona-los separadamente.
 
-O cache libera automaticamente todos os dados não salvos para destinos de armazenamento como parte de seu desligamento final.
+> [!NOTE]
+> O cache HPC do Azure não grava automaticamente os dados alterados do cache nos sistemas de armazenamento de back-end antes de excluir o cache.
+>
+> Para garantir que todos os dados no cache tenham sido gravados no armazenamento de longo prazo, siga este procedimento:
+>
+> 1. [Remova](hpc-cache-edit-storage.md#remove-a-storage-target) cada destino de armazenamento do cache HPC do Azure usando o botão excluir na página destinos de armazenamento. O sistema grava automaticamente todos os dados alterados do cache no sistema de armazenamento de back-end antes de remover o destino.
+> 1. Aguarde até que o destino de armazenamento seja completamente removido. O processo pode levar uma hora ou mais se houver muitos dados para gravar do cache. Quando isso é feito, uma notificação do portal diz que a operação de exclusão foi bem-sucedida e o destino de armazenamento desaparece da lista.
+> 1. Depois que todos os destinos de armazenamento afetados tiverem sido excluídos, será seguro excluir o cache.
+>
+> Como alternativa, você pode usar a opção de [liberação](#flush-cached-data) para salvar dados armazenados em cache, mas há um pequeno risco de perder trabalho se um cliente gravar uma alteração no cache após a liberação ser concluída, mas antes de a instância do cache ser destruída.
 
 ## <a name="cache-metrics-and-monitoring"></a>Métricas e monitoramento de cache
 

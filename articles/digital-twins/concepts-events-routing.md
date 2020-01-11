@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660329"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862361"
 ---
 # <a name="routing-iot-events-and-messages"></a>Roteando eventos e mensagens de IoT
 
@@ -53,7 +53,7 @@ Atualmente, o Azure digital gêmeos dá suporte aos seguintes **EventTypes** que
 
 > [!IMPORTANT]  
 > Nem todos os **EndpointTypes** dão suporte a todos os **EventTypes**.
-> Consulte a tabela a seguir para os **EventTypes** que são permitidos para cada **ponto de extremidade**.
+> Examine a tabela a seguir para obter os **EventTypes** permitidos para cada **ponto de extremidade**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -62,10 +62,10 @@ Atualmente, o Azure digital gêmeos dá suporte aos seguintes **EventTypes** que
 | EventGrid|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->Para obter mais informações sobre como criar pontos de extremidade e exemplos de esquema de eventos, consulte [saída e pontos de extremidade](how-to-egress-endpoints.md).
+>Para obter mais informações sobre como criar pontos de extremidade e exemplos de esquema de eventos, leia a [saída e os pontos de extremidade](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre os limites de visualização do Azure digital gêmeos, consulte [limites de serviço de visualização pública](concepts-service-limits.md).
+- Para saber mais sobre os limites de visualização do Azure digital gêmeos, leia [limites de serviço de visualização pública](concepts-service-limits.md).
 
-- Para experimentar um exemplo de gêmeos digital do Azure, consulte o guia de [início rápido para localizar as salas disponíveis](quickstart-view-occupancy-dotnet.md).
+- Para experimentar um exemplo de gêmeos digital do Azure, leia o guia de [início rápido para localizar as salas disponíveis](quickstart-view-occupancy-dotnet.md).

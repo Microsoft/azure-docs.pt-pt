@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d94daa5fbda4ee60ffc6671f7b50126662416043
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c117510749abcf997e414371faa6dea1dc79ea7a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746508"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861766"
 ---
 # <a name="azure-time-series-insights-preview-explorer"></a>Gerenciador de visualização do Azure Time Series Insights
 
@@ -48,7 +48,7 @@ O Azure Time Series Insights Preview Explorer consiste nos seguintes sete elemen
 
 ## <a name="1-environment-panel"></a>1. painel de ambiente
 
-O painel de ambiente apresenta todos os ambientes do Time Series Insights que tem acesso. A lista inclui ambientes pagos conforme o uso (versão prévia), bem como ambientes S1/S2 (disponibilidade geral). Basta clicar no ambiente de Time Series Insights que você deseja usar para ser imediatamente colocado lá.
+O painel de ambiente apresenta todos os ambientes do Time Series Insights que tem acesso. A lista inclui ambientes pagos conforme o uso (versão prévia), bem como ambientes S1/S2 (disponibilidade geral). Basta selecionar o ambiente de Time Series Insights que você deseja usar para ser usado imediatamente.
 
 1. Selecione a seta suspensa ao lado do seu ambiente exibido.
 
@@ -75,7 +75,7 @@ A visualização de Azure Time Series Insights dá suporte a operações CRUD (c
 * **Hierarquia do modelo de série de tempo**: hierarquias são organizações sistemática dos seus dados. Hierarquias retratar as relações entre diferentes entidades nos seus dados do Time Series Insights.
 * **Instância do modelo de série de tempo**: as instâncias são a série de tempo propriamente ditas. Na maioria dos casos, eles são **DeviceID** ou **AssetID**, que é o identificador exclusivo do ativo no ambiente.
 
-Para saber mais sobre o modelo de série de tempo, veja [modelos de série de vezes](./time-series-insights-update-tsm.md).
+Para saber mais sobre o modelo de série temporal, leia os [modelos de série Times](./time-series-insights-update-tsm.md).
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. árvore de hierarquia e painel de pesquisa
 
@@ -98,7 +98,7 @@ Além disso, o controle explorações permite que você crie facilmente turnos d
   [![opções de layout bem](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
-> Se você vir a mensagem a seguir, a instância não terá nenhum dado durante o período de tempo selecionado. Para resolver o problema, aumente o período de tempo ou confirme se a instância está enviando dados por push.
+> Se a seguinte mensagem for exibida, a instância não terá nenhum dado durante o período de tempo selecionado. Para resolver o problema, aumente o período de tempo ou confirme se a instância está enviando dados por push.
 >
 > ![Nenhuma notificação de dados](media/v2-update-explorer/tsi-preview-no-data-warning.png)
 
@@ -110,9 +110,9 @@ O gráfico permite que você exiba instâncias de série temporal como linhas. P
 
 1. **Tipo de gráfico**: controla quais elementos de dados estão disponíveis para visualização.
 
-1. **Tamanho do intervalo**: a ferramenta controle deslizante de tamanho do intervalo permite que você amplie e reduza os intervalos no mesmo período de tempo. Isso fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, permitindo que você veja cortes granulares e de alta resolução dos seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção; resolução de balanceamento, velocidade de consulta e granularidade.
+1. **Tamanho do intervalo**: a ferramenta controle deslizante de tamanho do intervalo permite que você amplie e reduza os intervalos no mesmo período de tempo. Isso fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, permitindo que você examine os cortes granulares e de alta resolução dos seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção; resolução de balanceamento, velocidade de consulta e granularidade.
 
-1. **Zoom e panorâmica**: clique neste controle para aplicar zoom e panorâmica do gráfico.
+1. **Zoom e panorâmica**: Selecione este controle para aplicar zoom e panorâmica do gráfico.
 
 1. **Controle do eixo y**: percorre as opções de exibição do eixo y disponíveis:
 
@@ -122,15 +122,15 @@ O gráfico permite que você exiba instâncias de série temporal como linhas. P
 
 1. **Elemento Marker**: o elemento de dados selecionado no momento e seus detalhes associados.
 
-Você pode detalhar ainda mais uma fatia de dados específica **clicando com** o botão esquerdo do mouse em um ponto de dados no grafo atual enquanto mantém o rato pressionado e arrastando a área selecionada para o ponto de extremidade de sua escolha. **Clique com o botão direito do mouse** na área azul selecionado e clique em **zoom** , conforme mostrado abaixo. Você também pode exibir e baixar os eventos de telemetria no período de tempo selecionado.
+Você pode detalhar ainda mais uma fatia de dados específica **clicando com** o botão esquerdo do mouse em um ponto de dados no grafo atual enquanto mantém o rato pressionado e arrastando a área selecionada para o ponto de extremidade de sua escolha. **Clique com o botão direito do mouse** na área azul selecionada e, em seguida, selecione **zoom** , conforme mostrado abaixo. Você também pode exibir e baixar os eventos de telemetria no período de tempo selecionado.
 
   [![o zoom do gráfico de visualização](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-Depois de executar a ação de **zoom** , você verá o conjunto de dados selecionado. Selecione o controle de formato para percorrer as três representações do eixo y de seus dados de Time Series Insights.
+Depois de executar a ação de **zoom** , o conjunto de dados selecionado será exibido. Selecione o controle de formato para percorrer as três representações do eixo y de seus dados de Time Series Insights.
 
   [![eixo y do gráfico de visualização](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png)](media/v2-update-explorer/tsi-preview-explorer-standard-chart.png#lightbox)
 
-Aqui, você pode ver um exemplo de um **gráfico sobreposto**:
+Aqui, um exemplo de um **gráfico sobreposto** é fornecido:
 
   [opção ![sobreposição de gráfico](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
@@ -207,7 +207,7 @@ Pré-visualização de informações de série de tempo do Azure suporta dois te
 
 Esta secção aplica-se apenas aos ambientes de S1/S2 existentes que tentam utilizar o Explorador na interface do Usuário atualizada. Talvez você queira usar o produto disponível e a visualização em combinação. Adicionámos algumas funcionalidades da interface do Usuário existente para o explorer atualizado, mas pode obter a experiência de interface do Usuário completa para o ambiente de S1/S2 no Explorador do Time Series Insights existente. 
 
-Em vez da hierarquia, você verá o painel Time Series Insights termos, em que você define consultas em seu ambiente. Use-o para filtrar seus dados com base em um predicado.
+Em vez da hierarquia, o painel de termos de Time Series Insights é exibido. O painel de termos permite que você defina consultas em seu ambiente. Use-o para filtrar também os dados com base em um predicado.
 
   [![no painel de consulta](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
@@ -222,7 +222,7 @@ O painel de editor de termos de pré-visualização do Time Series Insights prec
 | `IN` | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo | Todos os operandos devem ser do mesmo tipo ou ser constante NULL. |
 | `HAS` | String | Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e NULL não são permitidos. |
 
-Para saber mais sobre os tipos de dados e operações de consulta com suporte, confira [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Para saber mais sobre os tipos de dados e operações de consulta com suporte, consulte [TSX (expressão de série temporal)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exemplos de cláusulas WHERE
 

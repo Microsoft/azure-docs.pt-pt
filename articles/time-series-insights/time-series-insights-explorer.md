@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 738f2fe028439601835f18a16a5d98cc2d6dc243
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327793"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863364"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -35,13 +35,13 @@ O Azure Time Series Insights é um serviço de análise, armazenamento e visuali
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Consulte o vídeo anterior <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"introdução ao time Series insights usando um acelerador de solução do Azure IOT".</a>
+>Reproduza o vídeo anterior <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"introdução ao time Series insights usando um acelerador de solução do Azure IOT".</a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de poder usar o Time Series Insights Explorer, você deve:
 
-- Crie um ambiente do Time Series Insights. Para obter mais informações, consulte como começar a [usar Time Series insights](./time-series-insights-get-started.md).
+- Crie um ambiente do Time Series Insights. Para obter mais informações, leia como começar a [usar o time Series insights](./time-series-insights-get-started.md).
 - [Forneça acesso](time-series-insights-data-access.md) à sua conta no ambiente.
 - Adicione um [Hub IOT](time-series-insights-how-to-add-an-event-source-iothub.md) ou origem do evento do [Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) a ele.
 
@@ -51,7 +51,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
 
 1. Para iniciar, abra o [Time Series insights Explorer](https://insights.timeseries.azure.com/) em seu navegador da Web. No lado esquerdo da janela, selecione um ambiente. Todos os ambientes aos quais você tem acesso estão listados em ordem alfabética.
 
-1. Depois de selecionar um ambiente, use as configurações **de** e **para** na parte superior, ou clique e arraste sobre o período desejado. Selecione a lupa no canto superior direito ou clique com o botão direito do mouse no período de tempo selecionado e selecione **Pesquisar**.
+1. Depois de selecionar um ambiente, use as configurações **de** e **para** na parte superior ou selecione e arraste sobre o período desejado. Selecione a lupa no canto superior direito ou clique com o botão direito do mouse no período de tempo selecionado e selecione **Pesquisar**.
 
 1. Você também pode atualizar a disponibilidade automaticamente a cada minuto selecionando o botão **automático** . O botão **auto on** só se aplica ao gráfico de disponibilidade, não ao conteúdo da visualização principal.
 
@@ -59,7 +59,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
 
    [seleção de ambiente de Time Series Insights ![](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. Em seguida, você verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado. Aqui você tem vários controles:
+1. Em seguida, um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado é exibido. Aqui você tem vários controles:
 
     - **Painel de termos do editor**: o termo espaço é onde você consulta seu ambiente. Ele é encontrado no lado esquerdo da tela:
       - **Medida**: essa lista suspensa mostra todas as colunas numéricas (**duplas**).
@@ -75,18 +75,18 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
          |---------|---------|---------|
          |**<** , **>** , **<=** **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=** , **! =** , **<>**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
-         |**NO**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Todos os operandos devem ser do mesmo tipo ou ser uma constante **nula** .        |
-         |**ATINGIU**     | **Strings**        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e **NULL** não são permitidos.       |
+         |**IN**     | **Cadeia de caracteres**, **bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Todos os operandos devem ser do mesmo tipo ou ser uma constante **nula** .        |
+         |**ATINGIU**     | **Cadeia de caracteres**        |  Somente literais de cadeia de caracteres constantes são permitidos no lado direito. Cadeia de caracteres vazia e **NULL** não são permitidos.       |
 
       - **Exemplos de consultas**
 
          [![exemplo de consultas de GA](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. Você pode usar a ferramenta controle deslizante de **tamanho do intervalo** para ampliar e reduzir intervalos no mesmo período de tempo. O controle deslizante fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, o que permite que você veja cortes granulares de alta resolução de seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção para balancear a resolução, a velocidade da consulta e a granularidade.
+1. Você pode usar a ferramenta controle deslizante de **tamanho do intervalo** para ampliar e reduzir intervalos no mesmo período de tempo. O controle deslizante fornece um controle mais preciso da movimentação entre grandes fatias de tempo que mostram tendências suaves para fatias tão pequenas quanto o milissegundo, que permitem exibir e analisar os cortes granulares de alta resolução dos seus dados. O ponto de partida padrão do controle deslizante é definido como a exibição ideal dos dados de sua seleção para balancear a resolução, a velocidade da consulta e a granularidade.
 
 1. A ferramenta de **pincel de tempo** facilita a navegação de um TimeSpan para outro.
 
-1. Selecione o ícone **salvar** para salvar a consulta atual e compartilhá-la com outros usuários do ambiente. Ao selecionar o ícone **abrir** , você pode ver todas as suas consultas salvas e todas as consultas compartilhadas de outros usuários em ambientes aos quais você tem acesso.
+1. Selecione o ícone **salvar** para salvar a consulta atual e compartilhá-la com outros usuários do ambiente. Ao selecionar o ícone **abrir** , você pode examinar todas as suas consultas salvas e todas as consultas compartilhadas de outros usuários em ambientes aos quais você tem acesso.
 
    [Consultas de ![](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
@@ -101,8 +101,8 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
     - **Selecione** ou **clique em** um período específico ou em uma única série de dados.
     - Em uma seleção de TimeSpan, você pode aplicar zoom ou explorar eventos.
     - Em uma série de dados, você pode dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, executar ping dessa série ou explorar eventos da série selecionada.
-    - Na área de filtro à esquerda do gráfico, você pode ver todas as séries de dados exibidas e reordená-las por valor ou nome. Você também pode exibir todas as séries de dados ou qualquer série fixa ou desafixada. Você pode selecionar uma única série de dados e dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, fixar a série ou explorar eventos da série selecionada.
-    - Ao exibir vários termos simultaneamente, você pode empilhar, desempilhar, ver dados adicionais sobre uma série de dados e usar o mesmo eixo y em todos os termos. Use os botões no canto superior direito do gráfico.
+    - Na área de filtro à esquerda do gráfico, você pode examinar todas as séries de dados exibidas e reordená-las por valor ou nome. Você também pode exibir todas as séries de dados ou qualquer série fixa ou desafixada. Você pode selecionar uma única série de dados e dividir a série por outra coluna, adicionar a série como um novo termo, mostrar apenas a série selecionada, excluir a série selecionada, fixar a série ou explorar eventos da série selecionada.
+    - Ao exibir vários termos simultaneamente, você pode empilhar, desempilhar, examinar dados adicionais sobre uma série de dados e usar o mesmo eixo y em todos os termos. Use os botões no canto superior direito do gráfico.
 
     [configurações da opção de canto superior direito da ferramenta de gráfico ![](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
@@ -110,7 +110,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
 
     [![o GA Explorer calor gráfico](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode ver todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Time Series Insights armazena todos os dados brutos.
+1. Quando você explora eventos selecionando ou clicando com o botão direito do mouse, o painel **eventos** é disponibilizado. Aqui, você pode examinar todos os seus eventos brutos e exportar seus eventos como arquivos JSON ou CSV. Time Series Insights armazena todos os dados brutos.
 
     [Eventos de ![](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
@@ -121,7 +121,7 @@ Em minutos de conexão da origem do evento ao seu ambiente de Time Series Insigh
 
       [opções e gráficos de coluna de estatísticas de ![](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Agora você viu os vários recursos e opções disponíveis no aplicativo Web Time Series Insights Explorer.
+Agora você aprendeu sobre os principais recursos, definições de configuração e opções de exibição que estão disponíveis no aplicativo Web Time Series Insights Explorer.
 
 ## <a name="next-steps"></a>Passos seguintes
 

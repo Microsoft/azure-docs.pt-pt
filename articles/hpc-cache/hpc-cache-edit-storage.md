@@ -4,18 +4,30 @@ description: Como editar destinos de armazenamento do cache HPC do Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168511"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866995"
 ---
 # <a name="edit-storage-targets"></a>Adicionar destinos de armazenamento
 
-Você pode editar os destinos de armazenamento para modificar algumas de suas propriedades. Propriedades diferentes são editáveis para um tipo diferente de armazenamento:
+Você pode remover ou modificar um destino de armazenamento da página de **destinos de armazenamento** do cache.
+
+## <a name="remove-a-storage-target"></a>Remover um destino de armazenamento
+
+Para remover um destino de armazenamento, selecione-o na lista e clique no botão **excluir** .
+
+Essa ação remove a associação de destino de armazenamento com este sistema de cache HPC do Azure, mas não altera o sistema de armazenamento de back-end. Por exemplo, se você usou um contêiner de armazenamento de BLOBs do Azure, o contêiner e seu conteúdo ainda existem depois de você excluí-lo do cache. Você pode adicionar o contêiner a um cache do HPC do Azure diferente, adicioná-lo novamente a esse cache ou excluí-lo com o portal do Azure.
+
+Todas as alterações de arquivo armazenadas no cache são gravadas no sistema de armazenamento de back-end antes de o destino de armazenamento ser removido. Esse processo pode levar uma hora ou mais se muitos dados alterados estiverem no cache.
+
+## <a name="update-storage-targets"></a>Atualizar destinos de armazenamento
+
+Você pode editar os destinos de armazenamento para modificar algumas de suas propriedades. Propriedades diferentes são editáveis para diferentes tipos de armazenamento:
 
 * Para destinos de armazenamento de BLOBs, você pode alterar o caminho do namespace.
 

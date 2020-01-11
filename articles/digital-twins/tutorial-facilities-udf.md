@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b988d500ed2a201bb31f0d3a7cbeb7df00af9faf
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383229"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860899"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: provisionar suas condições de trabalho de criação e monitor com o Azure digital gêmeos Preview
 
@@ -234,7 +234,7 @@ Nesta seção, você usará o projeto chamado *dispositivo-conectividade* no exe
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obter resultados da função definida pelo usuário
 
-A função definida pelo utilizador é executada sempre que a sua instância recebe dados de dispositivos e de sensores. Esta seção consulta sua instância de gêmeos digital do Azure para obter os resultados da função definida pelo usuário. Você verá quase em tempo real, quando uma sala estiver disponível, se o ar estiver atualizado e a temperatura estiver correta. 
+A função definida pelo utilizador é executada sempre que a sua instância recebe dados de dispositivos e de sensores. Esta seção consulta sua instância de gêmeos digital do Azure para obter os resultados da função definida pelo usuário. Você será notificado quase em tempo real, quando houver uma sala disponível, que o ar está atualizado e a temperatura está certa. 
 
 1. Abra a janela de comando que você usou para provisionar o exemplo ou uma nova janela de comando e vá para a pasta **occupancy-quickstart\src** do exemplo novamente.
 
@@ -254,7 +254,7 @@ Se a condição monitorada for atendida, a função definida pelo usuário defin
 
 Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digital gêmeos e selecione **excluir**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

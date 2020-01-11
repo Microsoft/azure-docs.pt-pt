@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 673b74515ba03bc71e60a68b21b9330f9e62d424
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647395"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867694"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o ponto de extremidade privado do Azure?
 
@@ -58,6 +58,9 @@ Um recurso de link privado é o destino de destino de um determinado ponto de ex
 |**Storage do Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2** (Armazenamento do Azure Data Lake Gen2)  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
 |**BD do Cosmos para o Azure** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabela|
+|**Banco de dados do Azure para PostgreSQL-servidor único** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
+|**Base de Dados do Azure para MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
  
 ## <a name="network-security-of-private-endpoints"></a>Segurança de rede de pontos de extremidade privados 
 Ao usar pontos de extremidade privados para serviços do Azure, o tráfego é protegido para um recurso de link particular específico. A plataforma executa um controle de acesso para validar conexões de rede que atingem apenas o recurso de link particular especificado. Para acessar recursos adicionais dentro do mesmo serviço do Azure, são necessários pontos de extremidade privados adicionais. 
@@ -112,6 +115,9 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabelas|privatelink.table.cosmos.azure.com|
+|Banco de dados do Azure para PostgreSQL-servidor único (Microsoft. DBforPostgreSQL/Servers)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Banco de dados do Azure para MySQL (Microsoft. DBforMySQL/Servers)|mysqlServer|privatelink.mysql.database.azure.com|
+|Banco de dados do Azure para MariaDB (Microsoft. DBforMariaDB/Servers)|mariadbServer|privatelink.mariadb.database.azure.com|
  
 O Azure criará um registro DNS de nome canônico (CNAME) no DNS público para redirecionar a resolução para os nomes de domínio sugeridos. Você poderá substituir a resolução pelo endereço IP privado dos seus pontos de extremidade privados. 
  
@@ -136,3 +142,9 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 - [Criar um ponto de extremidade privado para a conta de armazenamento usando o portal](create-private-endpoint-storage-portal.md)
 - [Criar um ponto de extremidade privado para a conta do Azure Cosmos usando o portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie seu próprio serviço de vínculo privado usando Azure PowerShell](create-private-link-service-powershell.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para PostgreSQL-servidor único usando o portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para PostgreSQL-servidor único usando a CLI](../postgresql/howto-configure-privatelink-cli.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MySQL usando o portal](../mysql/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MySQL usando a CLI](../mysql/howto-configure-privatelink-cli.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MariaDB usando o portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Criar seu próprio link privado para o banco de dados do Azure para MariaDB usando a CLI](../mariadb/howto-configure-privatelink-cli.md)

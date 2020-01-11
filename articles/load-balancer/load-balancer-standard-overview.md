@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 5a4240065039bd6e0633a19c8aad00604970c216
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 68f95c893646d76a80a4edfeb557064660ff9f1c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834667"
+ms.locfileid: "75864269"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -38,20 +38,6 @@ As funções do recurso de Load Balancer são sempre expressas como front-end, u
 Um aspecto fundamental é o escopo da rede virtual para o recurso.  Embora o Load Balancer básico exista no escopo de um conjunto de disponibilidade, um Standard Load Balancer é totalmente integrado ao escopo de uma rede virtual e todos os conceitos de rede virtual se aplicam.
 
 Load Balancer recursos são objetos nos quais você pode expressar como o Azure deve programar sua infraestrutura multilocatário para obter o cenário que você deseja criar.  Não há nenhuma relação direta entre Load Balancer recursos e a infraestrutura real; a criação de uma Load Balancer não cria uma instância, a capacidade está sempre disponível e não há atrasos de inicialização ou de dimensionamento a serem considerados. 
-
-## <a name="why-use-standard-load-balancer"></a>Por que usar Standard Load Balancer?
-
-O Balanceador de Carga Standard permite-lhe dimensionar as suas aplicações e criar uma elevada disponibilidade para implementações de pequena escala em arquiteturas com várias zonas grandes e complexas.
-
-Examine a tabela abaixo para obter uma visão geral das diferenças entre Standard Load Balancer e Load Balancer básica:
-
->[!NOTE]
-> Os designs novos devem adotar o Balanceador de Carga Standard. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-Examine [os limites de serviço para Load Balancer](https://aka.ms/lblimits), bem como [preços](https://aka.ms/lbpricing)e [SLA](https://aka.ms/lbsla).
-
 
 ### <a name="backend"></a>Pool de back-end
 
@@ -184,12 +170,6 @@ Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU d
 4. Anexe todas as instâncias de VM aos novos recursos de SKU padrão.
 
 >[!IMPORTANT]
->
->Há limitações quanto ao uso dos SKUs básico e Standard.
->
->As portas de HA e o diagnóstico do SKU Standard estão disponíveis apenas no SKU Standard. Não é possível migrar do SKU Standard para a SKU básica e também manter esses recursos.
->
->O SKU básico e Standard têm várias diferenças, conforme descrito neste artigo.  Verifique se você entendeu e se prepara para eles.
 >
 >Os SKUs correspondentes devem ser usados para Load Balancer e recursos IP públicos. Você não pode ter uma mistura de recursos de SKU básicos e recursos de SKU padrão. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
-ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0073b03cd06bcf5a6e0733ef1b72061e72c3afe2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378947"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860304"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Início rápido: biblioteca de cliente do personalizador para Python
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para Python. Siga estas 
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[Pacote (PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
+[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python) | | [(PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py) do [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Há várias etapas para usar este guia de início rápido:
 
 Os serviços cognitivas do Azure são representados pelos recursos do Azure que você assina. Crie um recurso para personalizador usando o [portal do Azure](https://portal.azure.com/) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Veja [como criar um recurso de serviços cognitivas usando o portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter mais detalhes. Também pode:
 
-* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
@@ -80,11 +80,11 @@ Quando um loop do personalizador é instanciado pela primeira vez, não há nenh
 
 O cliente do personalizador é um objeto PersonalizerClient que se autentica no Azure usando Microsoft. REST. createclientcredentials, que contém sua chave.
 
-Para solicitar uma classificação do conteúdo, crie um RankRequest e, em seguida, passe-o para o cliente. Método de classificação. O método Rank retorna um RankResponse, que contém o conteúdo classificado. 
+Para solicitar uma classificação do conteúdo, crie um RankRequest e, em seguida, passe-o para o cliente. Método de classificação. O método Rank retorna um RankResponse, que contém o conteúdo classificado.
 
-Para enviar um recompensa ao personalizador, crie um RewardRequest e, em seguida, passe-o para o cliente. Método de recompensa. 
+Para enviar um recompensa ao personalizador, crie um RewardRequest e, em seguida, passe-o para o cliente. Método de recompensa.
 
-A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador. 
+A determinação da recompensa, neste guia de início rápido, é trivial. Em um sistema de produção, a determinação do que afeta a [Pontuação de recompensa](concept-rewards.md) e o quanto pode ser um processo complexo, que você pode decidir alterar ao longo do tempo. Essa deve ser uma das principais decisões de design na arquitetura do personalizador.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -96,7 +96,7 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 
 ## <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
-Crie um novo aplicativo Python em seu editor preferencial ou IDE chamado `sample.py`. 
+Crie um novo aplicativo Python em seu editor preferencial ou IDE chamado `sample.py`.
 
 ## <a name="add-the-dependencies"></a>Adicionar as dependências
 
@@ -130,7 +130,7 @@ As ações representam as opções de conteúdo que você deseja que o personali
 
 ## <a name="create-the-learning-loop"></a>Criar o loop de aprendizagem
 
-O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo. 
+O loop de aprendizagem personalizador é um ciclo de chamadas de [classificação](#request-a-rank) e [recompensa](#send-a-reward) . Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo.
 
 O código a seguir percorre um ciclo de pedir ao usuário suas preferências na linha de comando, enviando essas informações para o personalizador para classificação, apresentando a seleção classificada ao cliente para escolher entre a lista e, em seguida, enviar um prêmio para o personalizador sinalizando o quão bem o serviço fez ao classificar a seleção.
 
@@ -146,9 +146,9 @@ Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-conte
 
 ## <a name="request-a-rank"></a>Solicitar uma classificação
 
-Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar uma `currentContent` das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
+Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar uma `currentContent` das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada.
 
-Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.  
+Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=rank)]
 
@@ -156,7 +156,7 @@ Este guia de início rápido tem recursos de contexto simples de hora do dia e p
 
 Para concluir a solicitação de recompensa, o programa obtém a seleção do usuário na linha de comando, atribui um valor numérico a cada seleção e, em seguida, envia a ID de evento de classificação exclusiva e o valor numérico para o método de recompensa.
 
-Este início rápido atribui um número simples como um recompensa, um zero ou um 1. Em sistemas de produção, determinar quando e o que enviar para a chamada de [recompensa](concept-rewards.md) pode ser uma questão não trivial, dependendo de suas necessidades específicas. 
+Este início rápido atribui um número simples como um recompensa, um zero ou um 1. Em sistemas de produção, determinar quando e o que enviar para a chamada de [recompensa](concept-rewards.md) pode ser uma questão não trivial, dependendo de suas necessidades específicas.
 
 [!code-python[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/python/sample.py?name=reward&highlight=9)]
 

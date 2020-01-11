@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981226"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861472"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperação de desastres de negócios
 
@@ -55,7 +55,7 @@ Em geral, a melhor maneira de duplicar um ambiente de Time Series Insights é cr
 
 Para criar um ambiente duplicado:
 
-1. Crie um ambiente em uma segunda região. Para obter mais informações, consulte [criar um novo ambiente de time Series insights no portal do Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Crie um ambiente em uma segunda região. Para obter mais informações, leia [criar um novo ambiente de time Series insights no portal do Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Crie um segundo grupo de consumidores dedicado para a origem do evento.
 1. Conecte essa origem do evento ao novo ambiente. Certifique-se de designar o segundo grupo de consumidores dedicado.
 1. Examine a documentação do [Hub IOT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) e dos [hubs de eventos](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) do time Series insights.
@@ -71,5 +71,5 @@ Se ocorrer um evento:
 > * Um atraso também pode ocorrer.
 > * Um pico momentâneo no processamento de mensagens pode ocorrer, pois as operações são redirecionadas.
 > 
-> Para obter mais informações, consulte [mitigar latência em time Series insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+> Para obter mais informações, leia [reduzir latência em time Series insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 

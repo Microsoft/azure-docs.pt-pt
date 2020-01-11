@@ -3,12 +3,12 @@ title: Tutorial-criar um controlador de entrada do gateway de aplicativo no serv
 description: Tutorial ilustrando como criar um cluster kubernetes com o serviço kubernetes do Azure com o gateway de aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159092"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867407"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 
@@ -45,7 +45,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -261,7 +261,7 @@ Crie um arquivo de configuração Terraform que cria todos os recursos.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -543,7 +543,7 @@ O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfsta
 
     ![Menu de conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. Anote o valor **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor da **chave** key1. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
@@ -611,7 +611,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
 1. No portal do Azure, selecione **grupos de recursos** no menu à esquerda para ver os recursos criados para o novo cluster kubernetes no grupo de recursos selecionado.
 
-    ![Comandos do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
+    ![Comando do Cloud Shell](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## <a name="recover-from-a-cloud-shell-timeout"></a>Recuperar de um tempo limite do Cloud Shell
 

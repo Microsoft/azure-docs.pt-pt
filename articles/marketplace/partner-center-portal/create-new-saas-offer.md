@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b59600ffa6a83d00a83d642ab337df2e71cbee06
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777908"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863810"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -374,7 +374,8 @@ A guia **configuração técnica** define os detalhes técnicos (caminho da URL,
 
 - **ID do aplicativo do Azure ad** (obrigatório): você também precisa da [ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e de uma chave de autenticação. Para obter esses valores, vá para o Azure Active Directory e selecione **registros de aplicativo**, em seguida, procure o número de **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, vá para **configurações** e selecione **chaves**. Você precisará fornecer uma descrição e uma duração e, em seguida, será fornecido um valor numérico.
 
- Observe que a ID do aplicativo do Azure está associada à sua ID do editor, portanto, certifique-se de que a mesma ID do aplicativo seja usada em todas as suas ofertas.
+>[!Note]
+>A ID do aplicativo do Azure está associada à sua ID de editor, portanto, certifique-se de que a mesma ID de aplicativo seja usada em todas as suas ofertas.
 
 ## <a name="plan-overview"></a>Visão geral do plano
 

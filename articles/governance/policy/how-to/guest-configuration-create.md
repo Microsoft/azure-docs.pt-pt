@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de convidado
 description: Saiba como criar uma política de configuração de convidado Azure Policy para VMs Windows ou Linux com Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608529"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867326"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
@@ -65,7 +65,7 @@ Quando a configuração de convidado audita um computador, ele é executado pela
 
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
-O único requisito para a configuração de convidado usar uma configuração personalizada é que o nome da configuração seja consistente em todos os lugares em que for usado.  Isso inclui o nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF armazenado dentro do pacote de conteúdo e o nome da configuração usada no ARM como o nome da atribuição de convidado.
+O único requisito para a configuração de convidado usar uma configuração personalizada é que o nome da configuração seja consistente em todos os lugares em que for usado. Esse requisito de nome inclui o nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF armazenado dentro do pacote de conteúdo e o nome de configuração usado em um modelo do Resource Manager como o nome da atribuição de convidado.
 
 #### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
@@ -181,7 +181,7 @@ Você também pode implementar o [ponto de extremidade de serviço](../../../sto
 
 Na configuração de convidado Azure Policy, a maneira ideal de gerenciar segredos usados em tempo de execução é armazená-los em Azure Key Vault. Esse design é implementado dentro de recursos personalizados de DSC.
 
-1. Primeiro, crie uma identidade gerenciada atribuída pelo usuário no Azure.
+1. Crie uma identidade gerenciada atribuída pelo usuário no Azure.
 
    A identidade é usada por computadores para acessar segredos armazenados no Key Vault. Para obter etapas detalhadas, consulte [criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -193,9 +193,9 @@ Na configuração de convidado Azure Policy, a maneira ideal de gerenciar segred
 1. Atribua a identidade atribuída pelo usuário ao seu computador.
 
    Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando o PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   Em escala, atribua essa identidade usando Azure Resource Manager por meio de Azure Policy. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando um modelo](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   Atribua essa identidade usando Azure Resource Manager por meio de Azure Policy em escala. Para obter etapas detalhadas, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando um modelo](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Por fim, em seu recurso personalizado, use a ID do cliente gerada acima para acessar Key Vault usando o token disponível no computador.
+1. Use a ID do cliente gerada acima em seu recurso personalizado para acessar Key Vault usando o token disponível no computador.
 
    O `client_id` e a URL para a instância de Key Vault podem ser passados para o recurso como [Propriedades](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) , de modo que o recurso não precisará ser atualizado para vários ambientes ou se os valores precisarem ser alterados.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Para políticas do Linux, inclua a propriedade **AttributesYmlContent** em sua configuração e substitua os valores de acordo. O agente de configuração convidado cria automaticamente o arquivo YaML usado por inspec para armazenar atributos. Veja o exemplo abaixo.
+Para políticas do Linux, inclua a propriedade **AttributesYmlContent** em sua configuração e substitua os valores conforme necessário. O agente de configuração convidado cria automaticamente o arquivo YAML usado por inspec para armazenar atributos. Veja o exemplo abaixo.
 
 ```powershell
 Configuration FirewalldEnabled {

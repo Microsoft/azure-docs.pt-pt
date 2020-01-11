@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374751"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861392"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série temporal na visualização Azure Time Series Insights
 
@@ -129,7 +129,7 @@ As instâncias têm a seguinte representação JSON:
 ```
 
 > [!TIP]
-> Para Time Series Insights API de instância e suporte para criar, ler, atualizar e excluir (CRUD), consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Para Time Series Insights API de instância e suporte a CRUD (criar, ler, atualizar e excluir), leia o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de instância](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hierarquias de modelo de série temporal
 
@@ -186,7 +186,7 @@ No exemplo de JSON anterior:
 * `ManufactureDate` define uma hierarquia com `year` pai e `month`filho. Cada `ManufactureDate` pode ter vários `years`, que, por sua vez, podem ter vários `months`.
 
 > [!TIP]
-> Para obter Time Series Insights API de instância e suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Para obter Time Series Insights API de instância e suporte CRUD, leia o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação REST da API de hierarquia](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemplo de hierarquia
 
@@ -231,7 +231,7 @@ A [demonstração do farm de vento da Contoso](https://insights.timeseries.azure
 [exemplo de tipo de modelo de série temporal ![](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para obter Time Series Insights API de instância e suporte CRUD, consulte o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para a API de instância do Time Series Insights e o suporte CRUD, leia o artigo [consulta de dados](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) e a [documentação do tipo API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Propriedades do tipo
 
@@ -391,7 +391,7 @@ As variáveis são armazenadas na definição de tipo de um modelo de série tem
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [Azure Time Series insights visualização de armazenamento e entrada](./time-series-insights-update-storage-ingress.md).
+- Leia [Azure Time Series insights visualização de armazenamento e entrada](./time-series-insights-update-storage-ingress.md).
 
 - Saiba mais sobre operações de modelo de série temporal comuns na [modelagem de dados na visualização Azure Time Series insights](./time-series-insights-update-how-to-tsm.md)
 

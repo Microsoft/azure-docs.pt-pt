@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084913"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867043"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs do Hyper-V para um site secundário usando o PowerShell (Gerenciador de recursos)
 
@@ -194,6 +194,14 @@ Depois que os servidores, as nuvens e as redes estiverem configurados corretamen
 3. Habilite a replicação para a VM.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> Se você quiser replicar em discos gerenciados habilitados para o CMK no Azure, execute as seguintes etapas usando AZ PowerShell 3.3.0 em diante:
+>
+> 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
+> 2. Use o cmdlet Get-AsrReplicationProtectedItem para buscar a ID do disco de cada disco do item protegido
+> 3. Crie um objeto Dictionary usando o cmdlet "System. Collections. Generic. Dictionary ' ' 2 [System. String, System. String]" do New-Object para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
+> 4. Atualize as propriedades da VM usando o cmdlet Set-AsrReplicationProtectedItem passando o objeto Dictionary no parâmetro-DiskIdToDiskEncryptionSetMap.
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 

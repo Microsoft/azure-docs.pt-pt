@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d87112697bfa3aa7bb6b4c8f14420598ccd914cb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304832"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864320"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -94,19 +94,19 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
 
     | Campo  | Valor |
     |---------|---------|
-    | Tipo de concessão | `Implicit` |
-    | URL de retorno de chamada | `https://www.getpostman.com/oauth2/callback` |
-    | URL de autenticação | Use a **URL de autorização** da **etapa 2** |
+    | Tipo de Concessão | `Implicit` |
+    | URL de chamada de retorno | `https://www.getpostman.com/oauth2/callback` |
+    | URL Auth | Use a **URL de autorização** da **etapa 2** |
     | ID de Cliente | Use a **ID do aplicativo** para o Azure Active Directory aplicativo que foi criado ou reutilizado da seção anterior |
     | Âmbito | Deixar em branco |
     | Estado | Deixar em branco |
-    | Autenticação de cliente | `Send as Basic Auth header` |
+    | Autenticação de Cliente | `Send as Basic Auth header` |
 
 1. O cliente agora deve aparecer como:
 
     [exemplo de token de cliente do ![postmaster](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
-1. Selecione o **token de solicitação**.
+1. Selecione **Pedir Token**.
   
 1. Role para baixo e selecione **usar token**.
 
@@ -130,7 +130,7 @@ Depois de concluir as etapas anteriores, configure o postmaster para fazer uma s
    > * Você não precisa especificar esses cabeçalhos para cada parte.
    > * Você deve selecionar `multipart/mixed` ou outro **tipo de conteúdo** apropriado para a solicitação inteira.
 
-1. Por fim, selecione **Enviar** para enviar sua solicitação HTTP post de várias partes. Um código de status de `200` ou `201` indica uma solicitação bem-sucedida. Você também verá a mensagem de resposta apropriada.
+1. Por fim, selecione **Enviar** para enviar sua solicitação HTTP post de várias partes. Um código de status de `200` ou `201` indica uma solicitação bem-sucedida. A mensagem de resposta apropriada aparecerá na interface do cliente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

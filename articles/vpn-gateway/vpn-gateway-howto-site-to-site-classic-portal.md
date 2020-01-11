@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8d45fc180fd2cb70fc9edca3c71b6a21341658f3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 298d720d3848f27b18aa24897357dfaa47a12a70
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450771"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863728"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 

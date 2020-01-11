@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 38aa45a9fe9e182fa98756725a8b20d737929d23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585383"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863636"
 ---
-# <a name="what-is-azure-stack-edge"></a>O que é Azure Stack Edge? 
+# <a name="what-is-azure-stack-edge"></a>O que é o Azure Stack Edge? 
 
 [!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
 
@@ -27,7 +27,7 @@ O Azure Stack Edge é uma solução de hardware como serviço. A Microsoft envia
 
 Aqui estão os vários cenários em que Azure Stack borda pode ser usada para inferência de Machine Learning rápida (ML) na borda e pré-processamento de dados antes de enviá-los para o Azure.
 
-- **Inferência com Azure Machine Learning** -com Azure Stack Edge, você pode executar modelos de ml para obter resultados rápidos que podem ser afetados antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode, opcionalmente, ser transferido para continuar a treinar novamente e aprimorar seus modelos de ML. Para obter mais informações sobre como usar os modelos acelerados de hardware do Azure ML no dispositivo Azure Stack Edge, consulte [implantar modelos de hardware acelerado do Azure ml no Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com Azure Machine Learning** -com Azure Stack Edge, você pode executar modelos de ml para obter resultados rápidos que podem ser afetados antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode, opcionalmente, ser transferido para continuar a treinar novamente e aprimorar seus modelos de ML. Para obter mais informações sobre como usar os modelos acelerados de hardware do Azure ML no dispositivo Azure Stack Edge, consulte [implantar modelos de hardware acelerado do Azure ml no Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Pré-processar** dados – Transforme dados antes de enviá-los para o Azure para criar um DataSet mais acionável. O pré-processamento pode ser utilizado para: 
 
@@ -76,7 +76,7 @@ A solução de borda Azure Stack é composta de Azure Stack recurso de borda, Az
     Para obter informações sobre como usar a interface do usuário baseada na Web, acesse [usar a interface do usuário baseada na Web para administrar seu Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 Azure Stack dispositivo físico do Edge, o recurso do Azure e a conta de armazenamento de destino para a qual você transfere os dados não precisam estar na mesma região.
 
